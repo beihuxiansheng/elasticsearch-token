@@ -117,10 +117,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ExpressionScriptTests
+DECL|class|ExpressionTests
 specifier|public
 class|class
-name|ExpressionScriptTests
+name|ExpressionTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{

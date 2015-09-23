@@ -62,6 +62,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -114,7 +124,7 @@ DECL|method|ScriptContextRegistry
 specifier|public
 name|ScriptContextRegistry
 parameter_list|(
-name|Iterable
+name|Collection
 argument_list|<
 name|ScriptContext
 operator|.

@@ -594,7 +594,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ExpressionScriptCompilationException
+name|ScriptException
 argument_list|(
 literal|"Failed to parse expression: "
 operator|+
@@ -796,7 +796,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ExpressionScriptCompilationException
+name|ScriptException
 argument_list|(
 literal|"Parameter ["
 operator|+
@@ -849,7 +849,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ExpressionScriptCompilationException
+name|ScriptException
 argument_list|(
 literal|"Unknown variable ["
 operator|+
@@ -888,7 +888,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ExpressionScriptCompilationException
+name|ScriptException
 argument_list|(
 literal|"Variable 'doc' in expression must be used with a specific field like: doc['myfield']"
 argument_list|)
@@ -973,7 +973,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ExpressionScriptCompilationException
+name|ScriptException
 argument_list|(
 literal|"Only the member variable [value] or member methods may be accessed on a field when not accessing the field directly"
 argument_list|)
@@ -991,7 +991,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ExpressionScriptCompilationException
+name|ScriptException
 argument_list|(
 literal|"Variable ["
 operator|+
@@ -1020,7 +1020,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ExpressionScriptCompilationException
+name|ScriptException
 argument_list|(
 literal|"Field ["
 operator|+
@@ -1043,7 +1043,7 @@ block|{
 comment|// TODO: more context (which expression?)
 throw|throw
 operator|new
-name|ExpressionScriptCompilationException
+name|ScriptException
 argument_list|(
 literal|"Field ["
 operator|+

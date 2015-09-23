@@ -106,20 +106,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|expression
-operator|.
-name|ExpressionScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|aggregations
@@ -729,11 +715,10 @@ specifier|final
 name|boolean
 name|keepBucket
 decl_stmt|;
+comment|// TODO: WTF!!!!!
 if|if
 condition|(
-name|ExpressionScriptEngineService
-operator|.
-name|NAME
+literal|"expression"
 operator|.
 name|equals
 argument_list|(

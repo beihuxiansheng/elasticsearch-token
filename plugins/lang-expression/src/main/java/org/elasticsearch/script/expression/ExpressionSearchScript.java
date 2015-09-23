@@ -613,7 +613,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ExpressionScriptExecutionException
+name|ScriptException
 argument_list|(
 literal|"Cannot use expression with text variable using "
 operator|+
