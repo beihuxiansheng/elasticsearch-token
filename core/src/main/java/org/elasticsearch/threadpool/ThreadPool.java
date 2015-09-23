@@ -4401,8 +4401,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
-name|e
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|logger
@@ -4411,7 +4411,7 @@ name|warn
 argument_list|(
 literal|"failed to run {}"
 argument_list|,
-name|e
+name|t
 argument_list|,
 name|runnable
 operator|.
