@@ -296,18 +296,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|Template
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|aggregations
@@ -1193,7 +1181,7 @@ block|}
 comment|/**      * Gets the minimum score below which docs will be filtered out.      */
 DECL|method|minScore
 specifier|public
-name|float
+name|Float
 name|minScore
 parameter_list|()
 block|{

@@ -489,6 +489,8 @@ name|maxVersion
 argument_list|)
 argument_list|,
 name|response
+argument_list|,
+name|namedWriteableRegistry
 argument_list|)
 expr_stmt|;
 name|super
@@ -548,6 +550,8 @@ name|maxVersion
 argument_list|)
 argument_list|,
 name|request
+argument_list|,
+name|namedWriteableRegistry
 argument_list|)
 expr_stmt|;
 name|super
