@@ -3704,10 +3704,20 @@ name|randomBoolean
 argument_list|()
 argument_list|,
 operator|new
-name|SearchSourceBuilder
-argument_list|()
+name|IndexWarmersMetaData
+operator|.
+name|SearchSource
+argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|1000
 argument_list|)
-comment|// NOCOMMIT this used to be new BytesArray(randomAsciiOfLength(1000)) whiat should it be now?
+argument_list|)
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 block|}

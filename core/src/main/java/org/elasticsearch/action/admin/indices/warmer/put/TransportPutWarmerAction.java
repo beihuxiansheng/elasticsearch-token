@@ -768,7 +768,9 @@ name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|SearchSourceBuilder
+name|IndexWarmersMetaData
+operator|.
+name|SearchSource
 name|source
 init|=
 literal|null
@@ -788,6 +790,11 @@ condition|)
 block|{
 name|source
 operator|=
+operator|new
+name|IndexWarmersMetaData
+operator|.
+name|SearchSource
+argument_list|(
 name|request
 operator|.
 name|searchRequest
@@ -795,6 +802,7 @@ argument_list|()
 operator|.
 name|source
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|// now replace it on the metadata

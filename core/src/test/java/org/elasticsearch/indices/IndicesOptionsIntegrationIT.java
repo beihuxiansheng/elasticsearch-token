@@ -7931,7 +7931,13 @@ block|}
 argument_list|,
 literal|false
 argument_list|,
+operator|new
+name|IndexWarmersMetaData
+operator|.
+name|SearchSource
+argument_list|(
 name|source
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertAcked
@@ -8146,7 +8152,13 @@ block|}
 argument_list|,
 literal|false
 argument_list|,
+operator|new
+name|IndexWarmersMetaData
+operator|.
+name|SearchSource
+argument_list|(
 name|source
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertAcked
