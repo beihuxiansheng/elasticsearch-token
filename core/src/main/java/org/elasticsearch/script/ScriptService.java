@@ -550,20 +550,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|expression
-operator|.
-name|ExpressionScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|groovy
 operator|.
 name|GroovyScriptEngineService
@@ -1625,13 +1611,20 @@ literal|"] are disabled"
 argument_list|)
 throw|;
 block|}
+comment|// TODO: fix this through some API or something, thats wrong
 comment|// special exception to prevent expressions from compiling as update or mapping scripts
 name|boolean
 name|expression
 init|=
-name|scriptEngineService
-operator|instanceof
-name|ExpressionScriptEngineService
+literal|"expression"
+operator|.
+name|equals
+argument_list|(
+name|script
+operator|.
+name|getLang
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|boolean
 name|notSupported

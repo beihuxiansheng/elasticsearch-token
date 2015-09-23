@@ -206,6 +206,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugins
+operator|.
+name|Plugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|CompiledScript
@@ -426,6 +438,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -552,14 +584,45 @@ name|notNullValue
 import|;
 end_import
 
+begin_comment
+comment|// TODO: please convert to unit tests!
+end_comment
+
 begin_class
-DECL|class|ExpressionScriptIT
+DECL|class|MoreExpressionTests
 specifier|public
 class|class
-name|ExpressionScriptIT
+name|MoreExpressionTests
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|Override
+DECL|method|nodePlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|nodePlugins
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+name|ExpressionPlugin
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|method|buildRequest
 specifier|private
 name|SearchRequestBuilder
@@ -2700,7 +2763,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"should have contained ExpressionScriptCompilationException"
+literal|"should have contained ScriptException"
 argument_list|,
 name|e
 operator|.
@@ -2709,7 +2772,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"ExpressionScriptCompilationException"
+literal|"ScriptException"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -3001,7 +3064,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"should have contained ExpressionScriptCompilationException"
+literal|"should have contained ScriptException"
 argument_list|,
 name|e
 operator|.
@@ -3010,7 +3073,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"ExpressionScriptCompilationException"
+literal|"ScriptException"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -3112,7 +3175,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"should have contained ExpressionScriptCompilationException"
+literal|"should have contained ScriptException"
 argument_list|,
 name|e
 operator|.
@@ -3121,7 +3184,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"ExpressionScriptCompilationException"
+literal|"ScriptException"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -3219,7 +3282,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"should have contained ExpressionScriptCompilationException"
+literal|"should have contained ScriptException"
 argument_list|,
 name|e
 operator|.
@@ -3228,7 +3291,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"ExpressionScriptCompilationException"
+literal|"ScriptException"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -3326,7 +3389,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"should have contained ExpressionScriptCompilationException"
+literal|"should have contained ScriptException"
 argument_list|,
 name|e
 operator|.
@@ -3335,7 +3398,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"ExpressionScriptCompilationException"
+literal|"ScriptException"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -3433,7 +3496,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"should have contained ExpressionScriptCompilationException"
+literal|"should have contained ScriptException"
 argument_list|,
 name|e
 operator|.
@@ -3442,7 +3505,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"ExpressionScriptCompilationException"
+literal|"ScriptException"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -3540,7 +3603,7 @@ operator|.
 name|toString
 argument_list|()
 operator|+
-literal|"should have contained ExpressionScriptCompilationException"
+literal|"should have contained ScriptException"
 argument_list|,
 name|e
 operator|.
@@ -3549,7 +3612,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"ExpressionScriptCompilationException"
+literal|"ScriptException"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -4067,13 +4130,13 @@ name|assertThat
 argument_list|(
 name|message
 operator|+
-literal|"should have contained ExpressionScriptExecutionException"
+literal|"should have contained ScriptException"
 argument_list|,
 name|message
 operator|.
 name|contains
 argument_list|(
-literal|"ExpressionScriptExecutionException"
+literal|"ScriptException"
 argument_list|)
 argument_list|,
 name|equalTo

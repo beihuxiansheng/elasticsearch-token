@@ -4388,6 +4388,13 @@ name|PluginManager
 operator|.
 name|checkForOfficialPlugins
 argument_list|(
+literal|"lang-expression"
+argument_list|)
+expr_stmt|;
+name|PluginManager
+operator|.
+name|checkForOfficialPlugins
+argument_list|(
 literal|"lang-javascript"
 argument_list|)
 expr_stmt|;
