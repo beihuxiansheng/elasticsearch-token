@@ -9202,6 +9202,31 @@ literal|true
 argument_list|)
 condition|)
 block|{
+comment|// we can't use a lock here since we "release" in a different thread
+if|if
+condition|(
+name|shouldFlush
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+comment|// we have to check again since otherwise there is a race when a thread passes
+comment|// the first shouldFlush() check next to another thread which flushes fast enough
+comment|// to finish before the current thread could flip the asyncFlushRunning flag.
+comment|// in that situation we have an extra unexpected flush.
+name|asyncFlushRunning
+operator|.
+name|compareAndSet
+argument_list|(
+literal|true
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 specifier|final
 name|AbstractRunnable
 name|abstractRunnable
@@ -9295,6 +9320,7 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+block|}
 block|}
 block|}
 return|return
