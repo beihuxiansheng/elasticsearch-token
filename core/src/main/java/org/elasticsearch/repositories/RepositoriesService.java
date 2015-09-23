@@ -361,7 +361,7 @@ decl_stmt|;
 DECL|field|repositories
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

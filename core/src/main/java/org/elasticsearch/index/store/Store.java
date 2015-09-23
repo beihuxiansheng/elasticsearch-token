@@ -3738,7 +3738,7 @@ decl_stmt|;
 DECL|field|commitUserData
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

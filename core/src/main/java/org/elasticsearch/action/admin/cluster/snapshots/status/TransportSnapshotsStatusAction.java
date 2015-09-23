@@ -1060,7 +1060,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1348,7 +1348,7 @@ name|completed
 argument_list|()
 condition|)
 block|{
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,

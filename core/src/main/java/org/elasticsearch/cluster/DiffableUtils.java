@@ -44,20 +44,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -224,7 +210,7 @@ name|after
 argument_list|)
 return|;
 block|}
-comment|/**      * Calculates diff between two ImmutableMaps of Diffable objects      */
+comment|/**      * Calculates diff between two Maps of Diffable objects.      */
 DECL|method|diff
 specifier|public
 specifier|static
@@ -238,7 +224,7 @@ argument_list|>
 parameter_list|>
 name|Diff
 argument_list|<
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -247,7 +233,7 @@ argument_list|>
 argument_list|>
 name|diff
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -255,7 +241,7 @@ name|T
 argument_list|>
 name|before
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -275,7 +261,7 @@ literal|null
 assert|;
 return|return
 operator|new
-name|ImmutableMapDiff
+name|JdkMapDiff
 argument_list|<>
 argument_list|(
 name|before
@@ -330,8 +316,8 @@ name|keyedReader
 argument_list|)
 return|;
 block|}
-comment|/**      * Loads an object that represents difference between two ImmutableMaps      */
-DECL|method|readImmutableMapDiff
+comment|/**      * Loads an object that represents difference between two Maps.      */
+DECL|method|readJdkMapDiff
 specifier|public
 specifier|static
 parameter_list|<
@@ -344,14 +330,14 @@ argument_list|>
 parameter_list|>
 name|Diff
 argument_list|<
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
 name|T
 argument_list|>
 argument_list|>
-name|readImmutableMapDiff
+name|readJdkMapDiff
 parameter_list|(
 name|StreamInput
 name|in
@@ -367,7 +353,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|ImmutableMapDiff
+name|JdkMapDiff
 argument_list|<>
 argument_list|(
 name|in
@@ -424,8 +410,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Loads an object that represents difference between two ImmutableMaps      */
-DECL|method|readImmutableMapDiff
+comment|/**      * Loads an object that represents difference between two Maps.      */
+DECL|method|readJdkMapDiff
 specifier|public
 specifier|static
 parameter_list|<
@@ -438,14 +424,14 @@ argument_list|>
 parameter_list|>
 name|Diff
 argument_list|<
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
 name|T
 argument_list|>
 argument_list|>
-name|readImmutableMapDiff
+name|readJdkMapDiff
 parameter_list|(
 name|StreamInput
 name|in
@@ -458,7 +444,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|ImmutableMapDiff
+name|JdkMapDiff
 argument_list|<>
 argument_list|(
 name|in
@@ -607,12 +593,12 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Represents differences between two ImmutableMaps of diffable objects      *      * @param<T> the diffable object      */
-DECL|class|ImmutableMapDiff
+comment|/**      * Represents differences between two Maps of Diffable objects.      *      * @param<T> the diffable object      */
+DECL|class|JdkMapDiff
 specifier|private
 specifier|static
 class|class
-name|ImmutableMapDiff
+name|JdkMapDiff
 parameter_list|<
 name|T
 extends|extends
@@ -626,7 +612,7 @@ name|MapDiff
 argument_list|<
 name|T
 argument_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -634,9 +620,9 @@ name|T
 argument_list|>
 argument_list|>
 block|{
-DECL|method|ImmutableMapDiff
+DECL|method|JdkMapDiff
 specifier|protected
-name|ImmutableMapDiff
+name|JdkMapDiff
 parameter_list|(
 name|StreamInput
 name|in
@@ -658,11 +644,11 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|ImmutableMapDiff
+DECL|method|JdkMapDiff
 specifier|public
-name|ImmutableMapDiff
+name|JdkMapDiff
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -670,7 +656,7 @@ name|T
 argument_list|>
 name|before
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -721,7 +707,7 @@ block|}
 block|}
 for|for
 control|(
-name|ImmutableMap
+name|Map
 operator|.
 name|Entry
 argument_list|<
@@ -816,7 +802,7 @@ annotation|@
 name|Override
 DECL|method|apply
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -824,7 +810,7 @@ name|T
 argument_list|>
 name|apply
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -833,7 +819,7 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -954,12 +940,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|ImmutableMap
-operator|.
-name|copyOf
-argument_list|(
 name|builder
-argument_list|)
 return|;
 block|}
 block|}
