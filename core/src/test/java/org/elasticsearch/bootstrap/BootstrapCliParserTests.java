@@ -1463,7 +1463,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"must appear before any parameters starting with --"
+literal|"must be before any parameters starting with --"
 argument_list|)
 argument_list|)
 expr_stmt|;
