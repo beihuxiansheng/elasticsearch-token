@@ -488,20 +488,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
-name|StoreRecoveryService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|similarity
 operator|.
 name|SimilarityService
@@ -2622,17 +2608,6 @@ expr_stmt|;
 comment|// ignore
 block|}
 block|}
-name|closeInjectorResource
-argument_list|(
-name|sId
-argument_list|,
-name|shardInjector
-argument_list|,
-name|StoreRecoveryService
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 comment|// call this before we close the store, so we can release resources for it
 name|indicesLifecycle
 operator|.
