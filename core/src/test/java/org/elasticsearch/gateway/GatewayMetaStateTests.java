@@ -186,6 +186,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -1154,15 +1166,13 @@ name|inMemoryMetaData
 init|=
 literal|null
 decl_stmt|;
-name|ImmutableSet
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|oldIndicesList
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|emptySet
 argument_list|()
 decl_stmt|;
 if|if
@@ -1180,25 +1190,8 @@ operator|.
 name|metaData
 argument_list|()
 expr_stmt|;
-name|ImmutableSet
-operator|.
-name|Builder
-argument_list|<
-name|String
-argument_list|>
-name|relevantIndices
-init|=
-name|ImmutableSet
-operator|.
-name|builder
-argument_list|()
-decl_stmt|;
 name|oldIndicesList
 operator|=
-name|relevantIndices
-operator|.
-name|addAll
-argument_list|(
 name|GatewayMetaState
 operator|.
 name|getRelevantIndices
@@ -1215,10 +1208,6 @@ argument_list|()
 argument_list|,
 name|oldIndicesList
 argument_list|)
-argument_list|)
-operator|.
-name|build
-argument_list|()
 expr_stmt|;
 block|}
 name|Set

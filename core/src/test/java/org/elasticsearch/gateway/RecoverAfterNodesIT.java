@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -126,9 +112,33 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -145,20 +155,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -223,7 +219,7 @@ argument_list|)
 decl_stmt|;
 DECL|method|waitForNoBlocksOnNode
 specifier|public
-name|ImmutableSet
+name|Set
 argument_list|<
 name|ClusterBlock
 argument_list|>
@@ -246,7 +242,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|ImmutableSet
+name|Set
 argument_list|<
 name|ClusterBlock
 argument_list|>
