@@ -515,6 +515,19 @@ name|catchParam
 argument_list|)
 condition|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|apiCallSection
+operator|.
+name|getBodies
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// NOCOMMIT remove this
 name|fail
 argument_list|(
 name|formatStatusCodeMessage
