@@ -174,18 +174,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|query
 operator|.
 name|QueryParseContext
@@ -594,16 +582,9 @@ init|=
 operator|new
 name|QueryParseContext
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-literal|""
-argument_list|)
-argument_list|,
 name|queryRegistry
 argument_list|)
 decl_stmt|;
-comment|// NORELEASE remove index
 name|queryParseContext
 operator|.
 name|reset
