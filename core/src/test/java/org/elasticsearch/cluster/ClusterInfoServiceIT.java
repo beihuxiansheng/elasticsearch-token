@@ -504,6 +504,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -515,6 +539,24 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
 import|;
 end_import
 
@@ -670,15 +712,14 @@ operator|.
 name|Simple
 block|{
 DECL|field|blockedActions
-name|ImmutableSet
+specifier|private
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|blockedActions
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|emptySet
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -785,11 +826,12 @@ parameter_list|)
 block|{
 name|blockedActions
 operator|=
-name|ImmutableSet
-operator|.
-name|copyOf
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 name|actions
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

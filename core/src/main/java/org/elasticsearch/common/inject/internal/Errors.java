@@ -408,6 +408,18 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableList
+import|;
+end_import
+
 begin_comment
 comment|/**  * A collection of error messages. If this type is passed as a method parameter, the method is  * considered to have executed successfully only if new errors were not added to this collection.  *<p>  * Errors can be chained to provide additional context. To add context, call {@link #withSource}  * to create a new Errors instance that contains additional context. All messages added to the  * returned instance will contain full context.  *<p>  * To avoid messages with redundant context, {@link #withSource} should be added sparingly. A  * good rule of thumb is to assume a ethod's caller has already specified enough context to  * identify that method. When calling a method that's defined in a different context, call that  * method with an errors object that includes its context.  *  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
@@ -2312,7 +2324,10 @@ block|}
 argument_list|)
 expr_stmt|;
 return|return
+name|unmodifiableList
+argument_list|(
 name|result
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns the formatted message for an exception with the specified messages.      */

@@ -304,6 +304,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -335,6 +345,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
 import|;
 end_import
 
@@ -1079,7 +1101,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 expr_stmt|;
-name|List
+name|Set
 argument_list|<
 name|Dependency
 argument_list|<
@@ -1089,7 +1111,7 @@ argument_list|>
 name|dependencies
 init|=
 operator|new
-name|ArrayList
+name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1171,9 +1193,7 @@ name|this
 operator|.
 name|dependencies
 operator|=
-name|ImmutableSet
-operator|.
-name|copyOf
+name|unmodifiableSet
 argument_list|(
 name|dependencies
 argument_list|)

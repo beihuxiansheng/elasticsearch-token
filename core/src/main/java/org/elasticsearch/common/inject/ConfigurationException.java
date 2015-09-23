@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -82,6 +68,46 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
+import|;
+end_import
+
 begin_comment
 comment|/**  * Thrown when a programming error such as a misplaced annotation, illegal binding, or unsupported  * scope is found. Clients should catch this exception, log it, and stop execution.  *  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
 end_comment
@@ -98,7 +124,7 @@ block|{
 DECL|field|messages
 specifier|private
 specifier|final
-name|ImmutableSet
+name|Set
 argument_list|<
 name|Message
 argument_list|>
@@ -127,11 +153,12 @@ name|this
 operator|.
 name|messages
 operator|=
-name|ImmutableSet
-operator|.
-name|copyOf
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 name|messages
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|initCause

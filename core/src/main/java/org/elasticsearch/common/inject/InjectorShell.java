@@ -106,6 +106,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -856,12 +868,7 @@ name|UNSCOPED
 argument_list|,
 name|injectorFactory
 argument_list|,
-name|ImmutableSet
-operator|.
-expr|<
-name|InjectionPoint
-operator|>
-name|of
+name|emptySet
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1016,12 +1023,7 @@ name|UNSCOPED
 argument_list|,
 name|loggerFactory
 argument_list|,
-name|ImmutableSet
-operator|.
-expr|<
-name|InjectionPoint
-operator|>
-name|of
+name|emptySet
 argument_list|()
 argument_list|)
 argument_list|)

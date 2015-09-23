@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -895,14 +881,9 @@ return|return
 operator|new
 name|ClusterBlockException
 argument_list|(
-name|ImmutableSet
-operator|.
-name|copyOf
-argument_list|(
 name|global
 argument_list|(
 name|level
-argument_list|)
 argument_list|)
 argument_list|)
 return|;
