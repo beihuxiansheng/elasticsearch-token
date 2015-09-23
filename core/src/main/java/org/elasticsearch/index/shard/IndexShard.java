@@ -9227,6 +9227,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"submitting async flush request"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|AbstractRunnable
 name|abstractRunnable
