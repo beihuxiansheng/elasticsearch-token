@@ -144,31 +144,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|closeTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
+name|*
 import|;
 end_import
 
@@ -887,6 +863,969 @@ name|distance
 argument_list|)
 operator|/
 literal|1000
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery1
+specifier|public
+name|void
+name|testParsingAndToQuery1
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":\"12mi\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"lat\":40,\n"
+operator|+
+literal|"            \"lon\":-70\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery2
+specifier|public
+name|void
+name|testParsingAndToQuery2
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":\"12mi\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":[-70, 40]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery3
+specifier|public
+name|void
+name|testParsingAndToQuery3
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":\"12mi\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":\"40, -70\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery4
+specifier|public
+name|void
+name|testParsingAndToQuery4
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":\"12mi\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":\"drn5x1g8cu2y\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery5
+specifier|public
+name|void
+name|testParsingAndToQuery5
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":12,\n"
+operator|+
+literal|"        \"unit\":\"mi\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"lat\":40,\n"
+operator|+
+literal|"            \"lon\":-70\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery6
+specifier|public
+name|void
+name|testParsingAndToQuery6
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":\"12\",\n"
+operator|+
+literal|"        \"unit\":\"mi\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"lat\":40,\n"
+operator|+
+literal|"            \"lon\":-70\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery7
+specifier|public
+name|void
+name|testParsingAndToQuery7
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_distance\":{\n"
+operator|+
+literal|"      \"distance\":\"19.312128\",\n"
+operator|+
+literal|"      \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"          \"lat\":40,\n"
+operator|+
+literal|"          \"lon\":-70\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|Query
+name|parsedQuery
+init|=
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|GeoDistanceRangeQuery
+name|filter
+init|=
+operator|(
+name|GeoDistanceRangeQuery
+operator|)
+name|parsedQuery
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|fieldName
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|GEO_POINT_FIELD_NAME
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|40
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+operator|-
+literal|70
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|minInclusiveDistance
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|Double
+operator|.
+name|NEGATIVE_INFINITY
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|maxInclusiveDistance
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+name|DistanceUnit
+operator|.
+name|DEFAULT
+operator|.
+name|convert
+argument_list|(
+literal|0.012
+argument_list|,
+name|DistanceUnit
+operator|.
+name|MILES
+argument_list|)
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery8
+specifier|public
+name|void
+name|testParsingAndToQuery8
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":19.312128,\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"lat\":40,\n"
+operator|+
+literal|"            \"lon\":-70\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|Query
+name|parsedQuery
+init|=
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|GeoDistanceRangeQuery
+name|filter
+init|=
+operator|(
+name|GeoDistanceRangeQuery
+operator|)
+name|parsedQuery
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|fieldName
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|GEO_POINT_FIELD_NAME
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|40
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+operator|-
+literal|70
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|minInclusiveDistance
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|Double
+operator|.
+name|NEGATIVE_INFINITY
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|maxInclusiveDistance
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+name|DistanceUnit
+operator|.
+name|KILOMETERS
+operator|.
+name|convert
+argument_list|(
+literal|12
+argument_list|,
+name|DistanceUnit
+operator|.
+name|MILES
+argument_list|)
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery9
+specifier|public
+name|void
+name|testParsingAndToQuery9
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":\"19.312128\",\n"
+operator|+
+literal|"        \"unit\":\"km\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"lat\":40,\n"
+operator|+
+literal|"            \"lon\":-70\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery10
+specifier|public
+name|void
+name|testParsingAndToQuery10
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":19.312128,\n"
+operator|+
+literal|"        \"unit\":\"km\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"lat\":40,\n"
+operator|+
+literal|"            \"lon\":-70\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery11
+specifier|public
+name|void
+name|testParsingAndToQuery11
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":\"19.312128km\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"lat\":40,\n"
+operator|+
+literal|"            \"lon\":-70\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery12
+specifier|public
+name|void
+name|testParsingAndToQuery12
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_distance\":{\n"
+operator|+
+literal|"        \"distance\":\"12mi\",\n"
+operator|+
+literal|"        \"unit\":\"km\",\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"lat\":40,\n"
+operator|+
+literal|"            \"lon\":-70\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoDistanceRangeQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertGeoDistanceRangeQuery
+specifier|private
+name|void
+name|assertGeoDistanceRangeQuery
+parameter_list|(
+name|String
+name|query
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|Query
+name|parsedQuery
+init|=
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|GeoDistanceRangeQuery
+name|filter
+init|=
+operator|(
+name|GeoDistanceRangeQuery
+operator|)
+name|parsedQuery
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|fieldName
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|GEO_POINT_FIELD_NAME
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|40
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+operator|-
+literal|70
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|minInclusiveDistance
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|Double
+operator|.
+name|NEGATIVE_INFINITY
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|maxInclusiveDistance
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+name|DistanceUnit
+operator|.
+name|DEFAULT
+operator|.
+name|convert
+argument_list|(
+literal|12
+argument_list|,
+name|DistanceUnit
+operator|.
+name|MILES
+argument_list|)
+argument_list|,
+literal|0.00001
 argument_list|)
 argument_list|)
 expr_stmt|;

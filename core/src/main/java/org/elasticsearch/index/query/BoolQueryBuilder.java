@@ -622,10 +622,10 @@ name|this
 return|;
 block|}
 comment|/**      * @return the string representation of the minimumShouldMatch settings for this query      */
-DECL|method|minimumNumberShouldMatch
+DECL|method|minimumShouldMatch
 specifier|public
 name|String
-name|minimumNumberShouldMatch
+name|minimumShouldMatch
 parameter_list|()
 block|{
 return|return
