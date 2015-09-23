@@ -5262,6 +5262,11 @@ name|suggest
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|suggestParser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|elementParsers

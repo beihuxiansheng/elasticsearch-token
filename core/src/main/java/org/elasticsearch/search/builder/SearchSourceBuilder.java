@@ -3729,12 +3729,14 @@ operator|.
 name|contentType
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|xContentBuilder
 operator|.
 name|copyCurrentStructure
 argument_list|(
 name|parser
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|builder
 operator|.
 name|suggestBuilder
