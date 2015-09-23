@@ -1172,6 +1172,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1984,7 +1986,7 @@ name|parentTypes
 operator|=
 name|unmodifiableSet
 argument_list|(
-name|parentTypes
+name|parentTypesCopy
 argument_list|)
 expr_stmt|;
 block|}
