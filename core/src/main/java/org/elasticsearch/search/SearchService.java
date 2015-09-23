@@ -5674,6 +5674,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|fieldDataFieldsContext
+operator|.
+name|setHitExecutionNeeded
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
