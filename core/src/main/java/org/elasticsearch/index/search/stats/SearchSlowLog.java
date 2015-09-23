@@ -1526,13 +1526,29 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// try {
-comment|// //
-comment|// sb.append("source[").append(XContentHelper.convertToJson(context.request().source(),
-comment|// // reformat)).append("], "); NOCOMMIT fix this
-comment|// } catch (IOException e) {
-comment|// sb.append("source[_failed_to_convert_], ");
-comment|// }
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"source["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|context
+operator|.
+name|request
+argument_list|()
+operator|.
+name|source
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], "
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{

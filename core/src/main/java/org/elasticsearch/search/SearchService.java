@@ -148,6 +148,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cache
 operator|.
 name|recycler
@@ -377,6 +391,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentLocation
 import|;
 end_import
 
@@ -788,6 +816,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|SearchScript
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|Template
 import|;
 end_import
@@ -926,6 +966,74 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|fetch
+operator|.
+name|fielddata
+operator|.
+name|FieldDataFieldsContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|fielddata
+operator|.
+name|FieldDataFieldsContext
+operator|.
+name|FieldDataField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|fielddata
+operator|.
+name|FieldDataFieldsFetchSubPhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|script
+operator|.
+name|ScriptFieldsContext
+operator|.
+name|ScriptField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|internal
 operator|.
 name|DefaultSearchContext
@@ -987,6 +1095,20 @@ operator|.
 name|SearchContext
 operator|.
 name|Lifetime
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|ShardSearchLocalRequest
 import|;
 end_import
 
@@ -1107,6 +1229,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -5087,15 +5219,111 @@ expr_stmt|;
 comment|// NOCOMMIT parse source.aggregations()
 comment|// ByteReference into
 comment|// SearchContextAggregations object
-name|context
+name|XContentParser
+name|suggestParser
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|suggestParser
+operator|=
+name|XContentFactory
+operator|.
+name|xContent
+argument_list|(
+name|source
 operator|.
 name|suggest
+argument_list|()
+argument_list|)
+operator|.
+name|createParser
 argument_list|(
-literal|null
+name|source
+operator|.
+name|suggest
+argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// NOCOMMIT parse source.suggest() ByteReference
-comment|// into SuggestionSearchContext object
+name|this
+operator|.
+name|elementParsers
+operator|.
+name|get
+argument_list|(
+literal|"suggest"
+argument_list|)
+operator|.
+name|parse
+argument_list|(
+name|suggestParser
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|String
+name|sSource
+init|=
+literal|"_na_"
+decl_stmt|;
+try|try
+block|{
+name|sSource
+operator|=
+name|source
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e1
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+name|XContentLocation
+name|location
+init|=
+name|suggestParser
+operator|!=
+literal|null
+condition|?
+name|suggestParser
+operator|.
+name|getTokenLocation
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"failed to parse suggest source ["
+operator|+
+name|sSource
+operator|+
+literal|"]"
+argument_list|,
+name|location
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|context
 operator|.
 name|addRescore
@@ -5106,7 +5334,19 @@ expr_stmt|;
 comment|// NOCOMMIT parse source.rescore()
 comment|// ByteReference into RescoreSearchContext
 comment|// object
-comment|// NOCOMMIT populate the rest of the search request
+name|context
+operator|.
+name|fieldNames
+argument_list|()
+operator|.
+name|addAll
+argument_list|(
+name|source
+operator|.
+name|fields
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|explain
@@ -5119,6 +5359,333 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
+name|fetchSourceContext
+argument_list|(
+name|source
+operator|.
+name|fetchSource
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|FieldDataFieldsContext
+name|fieldDataFieldsContext
+init|=
+name|context
+operator|.
+name|getFetchSubPhaseContext
+argument_list|(
+name|FieldDataFieldsFetchSubPhase
+operator|.
+name|CONTEXT_FACTORY
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|field
+range|:
+name|source
+operator|.
+name|fieldDataFields
+argument_list|()
+control|)
+block|{
+name|fieldDataFieldsContext
+operator|.
+name|add
+argument_list|(
+operator|new
+name|FieldDataField
+argument_list|(
+name|field
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|XContentParser
+name|highlighterParser
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|highlighterParser
+operator|=
+name|XContentFactory
+operator|.
+name|xContent
+argument_list|(
+name|source
+operator|.
+name|highlighter
+argument_list|()
+argument_list|)
+operator|.
+name|createParser
+argument_list|(
+name|source
+operator|.
+name|highlighter
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|elementParsers
+operator|.
+name|get
+argument_list|(
+literal|"highlight"
+argument_list|)
+operator|.
+name|parse
+argument_list|(
+name|highlighterParser
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|String
+name|sSource
+init|=
+literal|"_na_"
+decl_stmt|;
+try|try
+block|{
+name|sSource
+operator|=
+name|source
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e1
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+name|XContentLocation
+name|location
+init|=
+name|highlighterParser
+operator|!=
+literal|null
+condition|?
+name|highlighterParser
+operator|.
+name|getTokenLocation
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"failed to parse suggest source ["
+operator|+
+name|sSource
+operator|+
+literal|"]"
+argument_list|,
+name|location
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+name|XContentParser
+name|innerHitsParser
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|innerHitsParser
+operator|=
+name|XContentFactory
+operator|.
+name|xContent
+argument_list|(
+name|source
+operator|.
+name|innerHits
+argument_list|()
+argument_list|)
+operator|.
+name|createParser
+argument_list|(
+name|source
+operator|.
+name|innerHits
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|elementParsers
+operator|.
+name|get
+argument_list|(
+literal|"highlight"
+argument_list|)
+operator|.
+name|parse
+argument_list|(
+name|innerHitsParser
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|String
+name|sSource
+init|=
+literal|"_na_"
+decl_stmt|;
+try|try
+block|{
+name|sSource
+operator|=
+name|source
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e1
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+name|XContentLocation
+name|location
+init|=
+name|innerHitsParser
+operator|!=
+literal|null
+condition|?
+name|innerHitsParser
+operator|.
+name|getTokenLocation
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"failed to parse suggest source ["
+operator|+
+name|sSource
+operator|+
+literal|"]"
+argument_list|,
+name|location
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+for|for
+control|(
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+operator|.
+name|ScriptField
+name|field
+range|:
+name|source
+operator|.
+name|scriptFields
+argument_list|()
+control|)
+block|{
+name|SearchScript
+name|searchScript
+init|=
+name|context
+operator|.
+name|scriptService
+argument_list|()
+operator|.
+name|search
+argument_list|(
+name|context
+operator|.
+name|lookup
+argument_list|()
+argument_list|,
+name|field
+operator|.
+name|script
+argument_list|()
+argument_list|,
+name|ScriptContext
+operator|.
+name|Standard
+operator|.
+name|SEARCH
+argument_list|)
+decl_stmt|;
+name|context
+operator|.
+name|scriptFields
+argument_list|()
+operator|.
+name|add
+argument_list|(
+operator|new
+name|ScriptField
+argument_list|(
+name|field
+operator|.
+name|fieldName
+argument_list|()
+argument_list|,
+name|searchScript
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// NORELEASE need to have ignore_exception parsed somewhere
+block|}
+comment|// NOCOMMIT need to work out what to do about term_vectors_fetch (previously handled by TermVectorsFetchParseElement) as this is not available as an option in SearchSourceBuilder
+name|context
+operator|.
 name|version
 argument_list|(
 name|source
@@ -5127,45 +5694,22 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        XContentParser parser = null;
-comment|//        try {
-comment|//            parser = XContentFactory.xContent(source).createParser(source);
-comment|//            XContentParser.Token token;
-comment|//            token = parser.nextToken();
-comment|//            if (token != XContentParser.Token.START_OBJECT) {
-comment|//                throw new ElasticsearchParseException("failed to parse search source. source must be an object, but found [{}] instead", token.name());
-comment|//            }
-comment|//            while ((token = parser.nextToken()) != XContentParser.Token.END_OBJECT) {
-comment|//                if (token == XContentParser.Token.FIELD_NAME) {
-comment|//                    String fieldName = parser.currentName();
-comment|//                    parser.nextToken();
-comment|//                    SearchParseElement element = elementParsers.get(fieldName);
-comment|//                    if (element == null) {
-comment|//                        throw new SearchParseException(context, "failed to parse search source. unknown search element [" + fieldName + "]", parser.getTokenLocation());
-comment|//                    }
-comment|//                    element.parse(parser, context);
-comment|//                } else {
-comment|//                    if (token == null) {
-comment|//                        throw new ElasticsearchParseException("failed to parse search source. end of query source reached but query is not complete.");
-comment|//                    } else {
-comment|//                        throw new ElasticsearchParseException("failed to parse search source. expected field name but got [{}]", token);
-comment|//                    }
-comment|//                }
-comment|//            }
-comment|//        } catch (Throwable e) {
-comment|//            String sSource = "_na_";
-comment|//            try {
-comment|//                sSource = XContentHelper.convertToJson(source, false);
-comment|//            } catch (Throwable e1) {
-comment|//                // ignore
-comment|//            }
-comment|//            XContentLocation location = parser != null ? parser.getTokenLocation() : null;
-comment|//            throw new SearchParseException(context, "failed to parse search source [" + sSource + "]", location, e);
-comment|//        } finally {
-comment|//            if (parser != null) {
-comment|//                parser.close();
-comment|//            }
-comment|//        }
+name|context
+operator|.
+name|groupStats
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|source
+operator|.
+name|stats
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// NORELEASE stats should be a list in SearchSourceBuilder
 block|}
 DECL|field|EMPTY_DOC_IDS
 specifier|private
@@ -7106,32 +7650,111 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-comment|// ShardSearchRequest request = new
-comment|// ShardSearchLocalRequest(indexShard.shardId(),
-comment|// indexMetaData.numberOfShards(),
-comment|// SearchType.QUERY_THEN_FETCH, entry.source(),
-comment|// entry.types(), entry.requestCache());
-comment|// context = createContext(request,
-comment|// warmerContext.searcher());
-comment|// // if we use sort, we need to do query to sort on
+name|ShardSearchRequest
+name|request
+init|=
+operator|new
+name|ShardSearchLocalRequest
+argument_list|(
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|indexMetaData
+operator|.
+name|numberOfShards
+argument_list|()
+argument_list|,
+name|SearchType
+operator|.
+name|QUERY_THEN_FETCH
+argument_list|,
+name|entry
+operator|.
+name|source
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|types
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|requestCache
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|context
+operator|=
+name|createContext
+argument_list|(
+name|request
+argument_list|,
+name|warmerContext
+operator|.
+name|searcher
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// if we use sort, we need to do query to sort on
 comment|// it and load relevant field data
-comment|// // if not, we might as well set size=0 (and cache
+comment|// if not, we might as well set size=0 (and cache
 comment|// if needed)
-comment|// if (context.sort() == null) {
-comment|// context.size(0);
-comment|// }
-comment|// boolean canCache =
-comment|// indicesQueryCache.canCache(request, context);
-comment|// // early terminate when we can cache, since we
+if|if
+condition|(
+name|context
+operator|.
+name|sort
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|context
+operator|.
+name|size
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+name|boolean
+name|canCache
+init|=
+name|indicesQueryCache
+operator|.
+name|canCache
+argument_list|(
+name|request
+argument_list|,
+name|context
+argument_list|)
+decl_stmt|;
+comment|// early terminate when we can cache, since we
 comment|// can only do proper caching on top level searcher
-comment|// // also, if we can't cache, and its top, we don't
+comment|// also, if we can't cache, and its top, we don't
 comment|// need to execute it, since we already did when its
 comment|// not top
-comment|// if (canCache != top) {
-comment|// return;
-comment|// }
-comment|// loadOrExecuteQueryPhase(request, context,
-comment|// queryPhase); NOCOMMIT fix this
+if|if
+condition|(
+name|canCache
+operator|!=
+name|top
+condition|)
+block|{
+return|return;
+block|}
+name|loadOrExecuteQueryPhase
+argument_list|(
+name|request
+argument_list|,
+name|context
+argument_list|,
+name|queryPhase
+argument_list|)
+expr_stmt|;
 name|long
 name|took
 init|=

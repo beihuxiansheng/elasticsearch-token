@@ -152,6 +152,18 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
 name|nullValue
 import|;
 end_import
@@ -452,11 +464,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// Map<String, Object> sourceMap =
-comment|// XContentHelper.convertToMap(searchRequest.source(), false).v2();
-comment|// assertThat(sourceMap.size(), equalTo(1));
-comment|// assertThat(sourceMap.get("query"), notNullValue()); NOCOMMIT fix
-comment|// this
+name|assertThat
+argument_list|(
+name|searchRequest
+operator|.
+name|source
+argument_list|()
+operator|.
+name|query
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|Map
 argument_list|<

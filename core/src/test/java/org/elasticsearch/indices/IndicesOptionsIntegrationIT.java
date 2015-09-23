@@ -536,20 +536,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -579,6 +565,20 @@ operator|.
 name|query
 operator|.
 name|QueryBuilders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
 import|;
 end_import
 
@@ -704,7 +704,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -7879,6 +7903,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|SearchSourceBuilder
+name|source
+init|=
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+decl_stmt|;
 name|IndexWarmersMetaData
 operator|.
 name|Entry
@@ -7900,11 +7931,7 @@ block|}
 argument_list|,
 literal|false
 argument_list|,
-operator|new
-name|BytesArray
-argument_list|(
-literal|"{\"query\" : { \"match_all\" : {}}}"
-argument_list|)
+name|source
 argument_list|)
 decl_stmt|;
 name|assertAcked
@@ -8091,6 +8118,13 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|SearchSourceBuilder
+name|source
+init|=
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+decl_stmt|;
 name|IndexWarmersMetaData
 operator|.
 name|Entry
@@ -8112,11 +8146,7 @@ block|}
 argument_list|,
 literal|false
 argument_list|,
-operator|new
-name|BytesArray
-argument_list|(
-literal|"{\"query\" : { \"match_all\" : {}}}"
-argument_list|)
+name|source
 argument_list|)
 decl_stmt|;
 name|assertAcked
