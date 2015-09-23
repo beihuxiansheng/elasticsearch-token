@@ -26,13 +26,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
+name|xcontent
 operator|.
-name|search
-operator|.
-name|function
-operator|.
-name|ScoreFunction
+name|XContentParser
 import|;
 end_import
 
@@ -44,9 +40,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
-operator|.
-name|XContentParser
+name|ParsingException
 import|;
 end_import
 
@@ -60,19 +54,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryShardContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParsingException
+name|QueryParseContext
 import|;
 end_import
 
@@ -91,12 +73,20 @@ DECL|interface|ScoreFunctionParser
 specifier|public
 interface|interface
 name|ScoreFunctionParser
+parameter_list|<
+name|FB
+extends|extends
+name|ScoreFunctionBuilder
+parameter_list|<
+name|FB
+parameter_list|>
+parameter_list|>
 block|{
-DECL|method|parse
-name|ScoreFunction
-name|parse
+DECL|method|fromXContent
+name|FB
+name|fromXContent
 parameter_list|(
-name|QueryShardContext
+name|QueryParseContext
 name|context
 parameter_list|,
 name|XContentParser
@@ -106,6 +96,11 @@ throws|throws
 name|IOException
 throws|,
 name|ParsingException
+function_decl|;
+DECL|method|getBuilderPrototype
+name|FB
+name|getBuilderPrototype
+parameter_list|()
 function_decl|;
 comment|/**      * Returns the name of the function, for example "linear", "gauss" etc. This      * name is used for registering the parser in      * {@link FunctionScoreQueryParser}.      * */
 DECL|method|getNames

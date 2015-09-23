@@ -61,7 +61,6 @@ interface|interface
 name|DecayFunction
 block|{
 DECL|method|evaluate
-specifier|public
 name|double
 name|evaluate
 parameter_list|(
@@ -73,7 +72,6 @@ name|scale
 parameter_list|)
 function_decl|;
 DECL|method|explainFunction
-specifier|public
 name|Explanation
 name|explainFunction
 parameter_list|(
@@ -89,7 +87,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * The final scale parameter is computed from the scale parameter given by      * the user and a value. This value is the value that the decay function      * should compute if document distance and user defined scale equal. The      * scale parameter for the function must be adjusted accordingly in this      * function      *       * @param scale      *            the raw scale value given by the user      * @param decay      *            the value which decay function should take once the distance      *            reaches this scale      * */
 DECL|method|processScale
-specifier|public
 name|double
 name|processScale
 parameter_list|(

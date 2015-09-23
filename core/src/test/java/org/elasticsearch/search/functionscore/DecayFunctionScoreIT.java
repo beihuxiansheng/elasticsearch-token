@@ -138,6 +138,24 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|function
+operator|.
+name|FiltersFunctionScoreQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -168,20 +186,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|MatchAllQueryBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
 name|QueryBuilders
 import|;
 end_import
@@ -198,7 +202,7 @@ name|query
 operator|.
 name|functionscore
 operator|.
-name|DecayFunctionBuilder
+name|FunctionScoreQueryBuilder
 import|;
 end_import
 
@@ -214,9 +218,19 @@ name|query
 operator|.
 name|functionscore
 operator|.
-name|gauss
+name|ScoreFunctionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|GaussDecayFunctionBuilder
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|MultiValueMode
 import|;
 end_import
 
@@ -1924,10 +1938,7 @@ argument_list|,
 literal|1.0
 argument_list|,
 literal|5.0
-argument_list|)
-operator|.
-name|setOffset
-argument_list|(
+argument_list|,
 literal|1.0
 argument_list|)
 argument_list|)
@@ -1937,9 +1948,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|REPLACE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2150,10 +2158,7 @@ argument_list|,
 literal|1.0
 argument_list|,
 literal|5.0
-argument_list|)
-operator|.
-name|setOffset
-argument_list|(
+argument_list|,
 literal|1.0
 argument_list|)
 argument_list|)
@@ -2163,9 +2168,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|REPLACE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2374,10 +2376,7 @@ argument_list|,
 literal|1.0
 argument_list|,
 literal|20.0
-argument_list|)
-operator|.
-name|setOffset
-argument_list|(
+argument_list|,
 literal|1.0
 argument_list|)
 argument_list|)
@@ -2387,9 +2386,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|REPLACE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2821,10 +2817,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|MULT
-operator|.
-name|getName
-argument_list|()
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2949,9 +2942,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|REPLACE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3239,10 +3229,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|MULT
-operator|.
-name|getName
-argument_list|()
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3380,10 +3367,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|MULT
-operator|.
-name|getName
-argument_list|()
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3644,10 +3628,9 @@ argument_list|,
 literal|0.0
 argument_list|,
 literal|1.0
-argument_list|)
-operator|.
-name|setDecay
-argument_list|(
+argument_list|,
+literal|null
+argument_list|,
 literal|0.5
 argument_list|)
 argument_list|)
@@ -3661,7 +3644,7 @@ name|boostMode
 argument_list|(
 name|CombineFunction
 operator|.
-name|MULT
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3782,10 +3765,9 @@ argument_list|,
 literal|0.0
 argument_list|,
 literal|1.0
-argument_list|)
-operator|.
-name|setDecay
-argument_list|(
+argument_list|,
+literal|null
+argument_list|,
 literal|0.5
 argument_list|)
 argument_list|)
@@ -3918,10 +3900,9 @@ argument_list|,
 literal|0.0
 argument_list|,
 literal|1.0
-argument_list|)
-operator|.
-name|setDecay
-argument_list|(
+argument_list|,
+literal|null
+argument_list|,
 literal|0.5
 argument_list|)
 argument_list|)
@@ -4089,10 +4070,9 @@ argument_list|,
 literal|0.0
 argument_list|,
 literal|1.0
-argument_list|)
-operator|.
-name|setDecay
-argument_list|(
+argument_list|,
+literal|null
+argument_list|,
 literal|0.5
 argument_list|)
 argument_list|)
@@ -4231,10 +4211,9 @@ argument_list|,
 literal|0.0
 argument_list|,
 literal|1.0
-argument_list|)
-operator|.
-name|setDecay
-argument_list|(
+argument_list|,
+literal|null
+argument_list|,
 literal|0.5
 argument_list|)
 argument_list|)
@@ -4367,10 +4346,9 @@ argument_list|,
 literal|0.0
 argument_list|,
 literal|1.0
-argument_list|)
-operator|.
-name|setDecay
-argument_list|(
+argument_list|,
+literal|null
+argument_list|,
 literal|0.5
 argument_list|)
 argument_list|)
@@ -5046,42 +5024,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalStateException
-operator|.
-name|class
-argument_list|)
-DECL|method|testExceptionThrownIfScaleRefNotBetween0And1
-specifier|public
-name|void
-name|testExceptionThrownIfScaleRefNotBetween0And1
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|DecayFunctionBuilder
-name|gfb
-init|=
-operator|new
-name|GaussDecayFunctionBuilder
-argument_list|(
-literal|"num1"
-argument_list|,
-literal|"2013-05-28"
-argument_list|,
-literal|"1d"
-argument_list|)
-operator|.
-name|setDecay
-argument_list|(
-literal|100
-argument_list|)
-decl_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testValueMissingLin
 specifier|public
 name|void
@@ -5432,9 +5374,17 @@ argument_list|,
 literal|"value"
 argument_list|)
 argument_list|)
-argument_list|)
+argument_list|,
+operator|new
+name|FunctionScoreQueryBuilder
 operator|.
-name|add
+name|FilterFunctionBuilder
+index|[]
+block|{
+operator|new
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
 argument_list|(
 name|linearDecayFunction
 argument_list|(
@@ -5445,8 +5395,11 @@ argument_list|,
 literal|"+3d"
 argument_list|)
 argument_list|)
+block|,
+operator|new
+name|FunctionScoreQueryBuilder
 operator|.
-name|add
+name|FilterFunctionBuilder
 argument_list|(
 name|linearDecayFunction
 argument_list|(
@@ -5457,10 +5410,16 @@ argument_list|,
 literal|"1"
 argument_list|)
 argument_list|)
+block|}
+argument_list|)
 operator|.
 name|scoreMode
 argument_list|(
-literal|"multiply"
+name|FiltersFunctionScoreQuery
+operator|.
+name|ScoreMode
+operator|.
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6033,41 +5992,67 @@ name|QueryBuilders
 operator|.
 name|matchAllQuery
 argument_list|()
-argument_list|)
+argument_list|,
+operator|new
+name|FunctionScoreQueryBuilder
 operator|.
-name|add
+name|FilterFunctionBuilder
+index|[]
+block|{
+operator|new
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
 argument_list|(
 name|linearDecayFunction
 argument_list|(
 literal|"num1"
 argument_list|,
+literal|null
+argument_list|,
 literal|"1000w"
 argument_list|)
 argument_list|)
+block|,
+operator|new
+name|FunctionScoreQueryBuilder
 operator|.
-name|add
+name|FilterFunctionBuilder
 argument_list|(
 name|gaussDecayFunction
 argument_list|(
 literal|"num1"
 argument_list|,
+literal|null
+argument_list|,
 literal|"1d"
 argument_list|)
 argument_list|)
+block|,
+operator|new
+name|FunctionScoreQueryBuilder
 operator|.
-name|add
+name|FilterFunctionBuilder
 argument_list|(
 name|exponentialDecayFunction
 argument_list|(
 literal|"num1"
 argument_list|,
+literal|null
+argument_list|,
 literal|"1000w"
 argument_list|)
+argument_list|)
+block|}
 argument_list|)
 operator|.
 name|scoreMode
 argument_list|(
-literal|"multiply"
+name|FiltersFunctionScoreQuery
+operator|.
+name|ScoreMode
+operator|.
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6587,14 +6572,18 @@ literal|"test"
 argument_list|,
 literal|"value"
 argument_list|)
-argument_list|)
-operator|.
-name|add
-argument_list|(
-operator|new
-name|MatchAllQueryBuilder
-argument_list|()
 argument_list|,
+operator|new
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
+index|[]
+block|{
+operator|new
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
+argument_list|(
 name|linearDecayFunction
 argument_list|(
 literal|"date"
@@ -6604,13 +6593,12 @@ argument_list|,
 literal|"+15d"
 argument_list|)
 argument_list|)
-operator|.
-name|add
-argument_list|(
+block|,
 operator|new
-name|MatchAllQueryBuilder
-argument_list|()
-argument_list|,
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
+argument_list|(
 name|linearDecayFunction
 argument_list|(
 literal|"geo"
@@ -6620,13 +6608,12 @@ argument_list|,
 literal|"1000km"
 argument_list|)
 argument_list|)
-operator|.
-name|add
-argument_list|(
+block|,
 operator|new
-name|MatchAllQueryBuilder
-argument_list|()
-argument_list|,
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
+argument_list|(
 name|linearDecayFunction
 argument_list|(
 literal|"num"
@@ -6638,10 +6625,16 @@ operator|/
 literal|2.0
 argument_list|)
 argument_list|)
+block|}
+argument_list|)
 operator|.
 name|scoreMode
 argument_list|(
-literal|"multiply"
+name|FiltersFunctionScoreQuery
+operator|.
+name|ScoreMode
+operator|.
+name|MULTIPLY
 argument_list|)
 operator|.
 name|boostMode
@@ -6649,9 +6642,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|REPLACE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7006,13 +6996,6 @@ literal|"test"
 argument_list|,
 literal|"value"
 argument_list|)
-argument_list|)
-operator|.
-name|add
-argument_list|(
-operator|new
-name|MatchAllQueryBuilder
-argument_list|()
 argument_list|,
 name|linearDecayFunction
 argument_list|(
@@ -7026,7 +7009,11 @@ argument_list|)
 operator|.
 name|scoreMode
 argument_list|(
-literal|"multiply"
+name|FiltersFunctionScoreQuery
+operator|.
+name|ScoreMode
+operator|.
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7219,13 +7206,6 @@ literal|"test"
 argument_list|,
 literal|"value"
 argument_list|)
-argument_list|)
-operator|.
-name|add
-argument_list|(
-operator|new
-name|MatchAllQueryBuilder
-argument_list|()
 argument_list|,
 name|linearDecayFunction
 argument_list|(
@@ -7239,7 +7219,11 @@ argument_list|)
 operator|.
 name|scoreMode
 argument_list|(
-literal|"multiply"
+name|FiltersFunctionScoreQuery
+operator|.
+name|ScoreMode
+operator|.
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7410,14 +7394,7 @@ operator|.
 name|query
 argument_list|(
 name|functionScoreQuery
-argument_list|()
-operator|.
-name|add
 argument_list|(
-operator|new
-name|MatchAllQueryBuilder
-argument_list|()
-argument_list|,
 name|linearDecayFunction
 argument_list|(
 literal|"num"
@@ -7430,7 +7407,11 @@ argument_list|)
 operator|.
 name|scoreMode
 argument_list|(
-literal|"multiply"
+name|FiltersFunctionScoreQuery
+operator|.
+name|ScoreMode
+operator|.
+name|MULTIPLY
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7846,7 +7827,9 @@ argument_list|)
 operator|.
 name|setMultiValueMode
 argument_list|(
-literal|"min"
+name|MultiValueMode
+operator|.
+name|MIN
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7952,7 +7935,9 @@ argument_list|)
 operator|.
 name|setMultiValueMode
 argument_list|(
-literal|"max"
+name|MultiValueMode
+operator|.
+name|MAX
 argument_list|)
 argument_list|)
 argument_list|)
@@ -8182,7 +8167,9 @@ argument_list|)
 operator|.
 name|setMultiValueMode
 argument_list|(
-literal|"sum"
+name|MultiValueMode
+operator|.
+name|SUM
 argument_list|)
 argument_list|)
 argument_list|)
@@ -8324,7 +8311,9 @@ argument_list|)
 operator|.
 name|setMultiValueMode
 argument_list|(
-literal|"avg"
+name|MultiValueMode
+operator|.
+name|AVG
 argument_list|)
 argument_list|)
 argument_list|)
@@ -8609,308 +8598,6 @@ comment|//            assertThat(e.shardFailures()[0].reason(), not(containsStri
 comment|//
 comment|//        } NOCOMMIT fix this
 block|}
-comment|// issue https://github.com/elasticsearch/elasticsearch/issues/6292
-annotation|@
-name|Test
-DECL|method|testMissingFunctionThrowsElasticsearchParseException
-specifier|public
-name|void
-name|testMissingFunctionThrowsElasticsearchParseException
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|// example from issue https://github.com/elasticsearch/elasticsearch/issues/6292
-name|String
-name|doc
-init|=
-literal|"{\n"
-operator|+
-literal|"  \"text\": \"baseball bats\"\n"
-operator|+
-literal|"}\n"
-decl_stmt|;
-name|String
-name|query
-init|=
-literal|"{\n"
-operator|+
-literal|"    \"query\": {\n"
-operator|+
-literal|"      \"function_score\": {\n"
-operator|+
-literal|"        \"score_mode\": \"sum\",\n"
-operator|+
-literal|"        \"boost_mode\": \"replace\",\n"
-operator|+
-literal|"        \"functions\": [\n"
-operator|+
-literal|"          {\n"
-operator|+
-literal|"            \"filter\": {\n"
-operator|+
-literal|"              \"term\": {\n"
-operator|+
-literal|"                \"text\": \"baseball\"\n"
-operator|+
-literal|"              }\n"
-operator|+
-literal|"            }\n"
-operator|+
-literal|"          }\n"
-operator|+
-literal|"        ]\n"
-operator|+
-literal|"      }\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"}\n"
-decl_stmt|;
-name|client
-argument_list|()
-operator|.
-name|prepareIndex
-argument_list|(
-literal|"t"
-argument_list|,
-literal|"test"
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
-name|doc
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|refresh
-argument_list|()
-expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"t"
-argument_list|)
-expr_stmt|;
-comment|//        try {
-comment|//            client().search(searchRequest().source(new BytesArray(query))).actionGet();
-comment|//            fail("Should fail with SearchPhaseExecutionException");
-comment|//        } catch (SearchPhaseExecutionException failure) {
-comment|//            assertThat(failure.toString(), containsString("SearchParseException"));
-comment|//            assertThat(failure.toString(), not(containsString("NullPointerException")));
-comment|//        } NOCOMMIT fix this
-name|query
-operator|=
-literal|"{\n"
-operator|+
-literal|"    \"query\": {\n"
-operator|+
-literal|"      \"function_score\": {\n"
-operator|+
-literal|"        \"score_mode\": \"sum\",\n"
-operator|+
-literal|"        \"boost_mode\": \"replace\",\n"
-operator|+
-literal|"        \"functions\": [\n"
-operator|+
-literal|"          {\n"
-operator|+
-literal|"            \"filter\": {\n"
-operator|+
-literal|"              \"term\": {\n"
-operator|+
-literal|"                \"text\": \"baseball\"\n"
-operator|+
-literal|"              }\n"
-operator|+
-literal|"            },\n"
-operator|+
-literal|"            \"weight\": 2\n"
-operator|+
-literal|"          },\n"
-operator|+
-literal|"          {\n"
-operator|+
-literal|"            \"filter\": {\n"
-operator|+
-literal|"              \"term\": {\n"
-operator|+
-literal|"                \"text\": \"baseball\"\n"
-operator|+
-literal|"              }\n"
-operator|+
-literal|"            }\n"
-operator|+
-literal|"          }\n"
-operator|+
-literal|"        ]\n"
-operator|+
-literal|"      }\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"}"
-expr_stmt|;
-comment|//        try {
-comment|//            client().search(
-comment|//                    searchRequest().source(new BytesArray(query))).actionGet();
-comment|//            fail("Should fail with SearchPhaseExecutionException");
-comment|//        } catch (SearchPhaseExecutionException failure) {
-comment|//            assertThat(failure.toString(), containsString("SearchParseException"));
-comment|//            assertThat(failure.toString(), not(containsString("NullPointerException")));
-comment|//            assertThat(failure.toString(), containsString("an entry in functions list is missing a function"));
-comment|//        } NOCOMMIT fix this
-comment|// next test java client
-try|try
-block|{
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"t"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-name|QueryBuilders
-operator|.
-name|functionScoreQuery
-argument_list|(
-name|QueryBuilders
-operator|.
-name|matchAllQuery
-argument_list|()
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|failure
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|failure
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"function must not be null"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-try|try
-block|{
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"t"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-name|QueryBuilders
-operator|.
-name|functionScoreQuery
-argument_list|()
-operator|.
-name|add
-argument_list|(
-name|QueryBuilders
-operator|.
-name|matchAllQuery
-argument_list|()
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|failure
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|failure
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"function must not be null"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-try|try
-block|{
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"t"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-name|QueryBuilders
-operator|.
-name|functionScoreQuery
-argument_list|()
-operator|.
-name|add
-argument_list|(
-literal|null
-argument_list|)
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|failure
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|failure
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"function must not be null"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 annotation|@
 name|Test
 DECL|method|testExplainString
@@ -9089,9 +8776,17 @@ literal|"test"
 argument_list|,
 literal|"value"
 argument_list|)
-argument_list|)
+argument_list|,
+operator|new
+name|FunctionScoreQueryBuilder
 operator|.
-name|add
+name|FilterFunctionBuilder
+index|[]
+block|{
+operator|new
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
 argument_list|(
 name|gaussDecayFunction
 argument_list|(
@@ -9100,15 +8795,15 @@ argument_list|,
 literal|1.0
 argument_list|,
 literal|5.0
-argument_list|)
-operator|.
-name|setOffset
-argument_list|(
+argument_list|,
 literal|1.0
 argument_list|)
 argument_list|)
+block|,
+operator|new
+name|FunctionScoreQueryBuilder
 operator|.
-name|add
+name|FilterFunctionBuilder
 argument_list|(
 name|linearDecayFunction
 argument_list|(
@@ -9117,15 +8812,15 @@ argument_list|,
 literal|1.0
 argument_list|,
 literal|5.0
-argument_list|)
-operator|.
-name|setOffset
-argument_list|(
+argument_list|,
 literal|1.0
 argument_list|)
 argument_list|)
+block|,
+operator|new
+name|FunctionScoreQueryBuilder
 operator|.
-name|add
+name|FilterFunctionBuilder
 argument_list|(
 name|exponentialDecayFunction
 argument_list|(
@@ -9134,12 +8829,11 @@ argument_list|,
 literal|1.0
 argument_list|,
 literal|5.0
-argument_list|)
-operator|.
-name|setOffset
-argument_list|(
+argument_list|,
 literal|1.0
 argument_list|)
+argument_list|)
+block|}
 argument_list|)
 operator|.
 name|boostMode
@@ -9147,9 +8841,6 @@ argument_list|(
 name|CombineFunction
 operator|.
 name|REPLACE
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

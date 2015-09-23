@@ -52,20 +52,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lucene
 operator|.
 name|search
@@ -772,33 +758,6 @@ block|{
 comment|// This is fine, the query will throw an exception if executed
 comment|// locally, instead of just having failures
 block|}
-comment|//        // don't permit an array of factors
-comment|//        try {
-comment|//          String querySource = "{" +
-comment|//            "\"query\": {" +
-comment|//            "  \"function_score\": {" +
-comment|//            "    \"query\": {" +
-comment|//            "      \"match\": {\"name\": \"foo\"}" +
-comment|//            "      }," +
-comment|//            "      \"functions\": [" +
-comment|//            "        {" +
-comment|//            "          \"field_value_factor\": {" +
-comment|//            "            \"field\": \"test\"," +
-comment|//            "            \"factor\": [1.2,2]" +
-comment|//            "          }" +
-comment|//            "        }" +
-comment|//            "      ]" +
-comment|//            "    }" +
-comment|//            "  }" +
-comment|//            "}";
-comment|//          response = client().prepareSearch("test")
-comment|//          .setSource(new BytesArray(querySource))
-comment|//                  .get();
-comment|//          assertFailures(response);
-comment|//        } catch (SearchPhaseExecutionException e) {
-comment|//          // This is fine, the query will throw an exception if executed
-comment|//          // locally, instead of just having failures
-comment|//        } NOCOMMIT fix this
 block|}
 block|}
 end_class

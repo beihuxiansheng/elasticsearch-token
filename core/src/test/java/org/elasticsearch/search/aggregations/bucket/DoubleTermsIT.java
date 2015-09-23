@@ -9538,12 +9538,6 @@ name|setQuery
 argument_list|(
 name|functionScoreQuery
 argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|add
-argument_list|(
 name|ScoreFunctionBuilders
 operator|.
 name|scriptFunction

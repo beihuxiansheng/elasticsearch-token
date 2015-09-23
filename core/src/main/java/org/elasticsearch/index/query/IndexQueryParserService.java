@@ -641,6 +641,7 @@ name|defaultAllowUnmappedFields
 decl_stmt|;
 DECL|field|client
 specifier|private
+specifier|final
 name|Client
 name|client
 decl_stmt|;

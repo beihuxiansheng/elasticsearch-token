@@ -825,6 +825,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|//TODO figure out why this test might take up to 10 seconds once in a while
 name|assumeTrue
 argument_list|(
 literal|"test runs only when at least a type is registered"

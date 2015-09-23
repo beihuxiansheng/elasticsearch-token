@@ -695,11 +695,21 @@ name|ParseFieldMatcher
 name|parseFieldMatcher
 parameter_list|)
 block|{
+comment|//norelease ParseFieldMatcher is currently duplicated, this should be cleaned up
 name|this
 operator|.
 name|parseFieldMatcher
 operator|=
 name|parseFieldMatcher
+expr_stmt|;
+name|this
+operator|.
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|(
+name|parseFieldMatcher
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|parseFieldMatcher
@@ -728,10 +738,11 @@ expr_stmt|;
 name|this
 operator|.
 name|parseFieldMatcher
-operator|=
+argument_list|(
 name|ParseFieldMatcher
 operator|.
 name|EMPTY
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
