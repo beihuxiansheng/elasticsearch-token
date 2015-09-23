@@ -3310,7 +3310,7 @@ argument_list|(
 literal|"test"
 argument_list|,
 operator|new
-name|ProcessedClusterStateUpdateTask
+name|ClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@
