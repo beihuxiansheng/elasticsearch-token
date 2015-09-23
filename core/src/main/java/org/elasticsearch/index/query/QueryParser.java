@@ -18,32 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -76,20 +50,6 @@ name|String
 index|[]
 name|names
 parameter_list|()
-function_decl|;
-comment|/**      * Parses the into a query from the current parser location. Will be at      * "START_OBJECT" location, and should end when the token is at the matching      * "END_OBJECT".      *<p>      * Returns<tt>null</tt> if this query should be ignored in the context of      * the DSL.      */
-comment|//norelease can be removed in favour of fromXContent once search requests can be parsed on the coordinating node
-annotation|@
-name|Nullable
-DECL|method|parse
-name|Query
-name|parse
-parameter_list|(
-name|QueryShardContext
-name|context
-parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
 comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryShardContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      */
 DECL|method|fromXContent

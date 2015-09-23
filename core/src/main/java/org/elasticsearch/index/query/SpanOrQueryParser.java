@@ -93,8 +93,8 @@ DECL|class|SpanOrQueryParser
 specifier|public
 class|class
 name|SpanOrQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|SpanOrQueryBuilder
 argument_list|>

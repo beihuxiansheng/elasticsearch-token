@@ -290,8 +290,11 @@ specifier|public
 specifier|static
 class|class
 name|DummyQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
+argument_list|<
+name|DummyQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Override
@@ -317,7 +320,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|DummyQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

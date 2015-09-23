@@ -85,8 +85,8 @@ DECL|class|ConstantScoreQueryParser
 specifier|public
 class|class
 name|ConstantScoreQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|ConstantScoreQueryBuilder
 argument_list|>
@@ -269,7 +269,7 @@ name|query
 operator|=
 name|parseContext
 operator|.
-name|parseInnerFilterToQueryBuilder
+name|parseInnerQueryBuilder
 argument_list|()
 expr_stmt|;
 name|queryFound

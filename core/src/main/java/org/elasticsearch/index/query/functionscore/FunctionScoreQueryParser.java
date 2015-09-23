@@ -221,8 +221,8 @@ DECL|class|FunctionScoreQueryParser
 specifier|public
 class|class
 name|FunctionScoreQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|FunctionScoreQueryBuilder
 argument_list|>
@@ -526,7 +526,7 @@ name|filter
 operator|=
 name|parseContext
 operator|.
-name|parseInnerFilterToQueryBuilder
+name|parseInnerQueryBuilder
 argument_list|()
 expr_stmt|;
 block|}
@@ -1254,7 +1254,7 @@ name|filter
 operator|=
 name|parseContext
 operator|.
-name|parseInnerFilterToQueryBuilder
+name|parseInnerQueryBuilder
 argument_list|()
 expr_stmt|;
 block|}

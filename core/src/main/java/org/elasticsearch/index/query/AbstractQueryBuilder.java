@@ -518,9 +518,9 @@ return|return
 name|result
 return|;
 block|}
-comment|//norelease to be made abstract once all query builders override doToQuery providing their own specific implementation.
 DECL|method|doToQuery
 specifier|protected
+specifier|abstract
 name|Query
 name|doToQuery
 parameter_list|(
@@ -529,31 +529,7 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-return|return
-name|context
-operator|.
-name|indexQueryParserService
-argument_list|()
-operator|.
-name|indicesQueriesRegistry
-argument_list|()
-operator|.
-name|queryParsers
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|getName
-argument_list|()
-argument_list|)
-operator|.
-name|parse
-argument_list|(
-name|context
-argument_list|)
-return|;
-block|}
+function_decl|;
 comment|/**      * Returns the query name for the query.      */
 annotation|@
 name|SuppressWarnings

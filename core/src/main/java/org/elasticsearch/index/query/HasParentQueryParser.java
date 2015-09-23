@@ -97,8 +97,11 @@ DECL|class|HasParentQueryParser
 specifier|public
 class|class
 name|HasParentQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
+argument_list|<
+name|HasParentQueryBuilder
+argument_list|>
 block|{
 DECL|field|PROTOTYPE
 specifier|private
@@ -198,7 +201,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|HasParentQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

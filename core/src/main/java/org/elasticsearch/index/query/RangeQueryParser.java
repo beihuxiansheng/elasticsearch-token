@@ -73,8 +73,8 @@ DECL|class|RangeQueryParser
 specifier|public
 class|class
 name|RangeQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|RangeQueryBuilder
 argument_list|>

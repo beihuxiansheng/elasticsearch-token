@@ -642,12 +642,6 @@ name|indexCreatedBeforeV2_0
 init|=
 name|context
 operator|.
-name|parseContext
-argument_list|()
-operator|.
-name|shardContext
-argument_list|()
-operator|.
 name|indexVersionCreated
 argument_list|()
 operator|.

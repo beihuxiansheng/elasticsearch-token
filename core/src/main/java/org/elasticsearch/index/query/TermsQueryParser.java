@@ -111,8 +111,8 @@ DECL|class|TermsQueryParser
 specifier|public
 class|class
 name|TermsQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 block|{
 DECL|field|MIN_SHOULD_MATCH_FIELD
 specifier|private

@@ -109,8 +109,8 @@ DECL|class|MoreLikeThisQueryParser
 specifier|public
 class|class
 name|MoreLikeThisQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|MoreLikeThisQueryBuilder
 argument_list|>

@@ -133,8 +133,11 @@ DECL|class|GeoDistanceQueryParser
 specifier|public
 class|class
 name|GeoDistanceQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
+argument_list|<
+name|GeoDistanceQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Override
@@ -162,7 +165,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|GeoDistanceQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

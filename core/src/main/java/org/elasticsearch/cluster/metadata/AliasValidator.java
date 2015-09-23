@@ -707,8 +707,13 @@ operator|.
 name|parseContext
 argument_list|()
 operator|.
-name|parseInnerFilter
+name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|toFilter
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally

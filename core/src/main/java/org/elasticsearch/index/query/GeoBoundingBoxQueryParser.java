@@ -95,8 +95,8 @@ DECL|class|GeoBoundingBoxQueryParser
 specifier|public
 class|class
 name|GeoBoundingBoxQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|GeoBoundingBoxQueryBuilder
 argument_list|>

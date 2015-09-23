@@ -151,8 +151,8 @@ DECL|class|GeoShapeQueryParser
 specifier|public
 class|class
 name|GeoShapeQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|GeoShapeQueryBuilder
 argument_list|>

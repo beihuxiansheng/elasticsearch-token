@@ -61,8 +61,8 @@ DECL|class|CommonTermsQueryParser
 specifier|public
 class|class
 name|CommonTermsQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|CommonTermsQueryBuilder
 argument_list|>

@@ -109,8 +109,8 @@ DECL|class|MultiMatchQueryParser
 specifier|public
 class|class
 name|MultiMatchQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|MultiMatchQueryBuilder
 argument_list|>
