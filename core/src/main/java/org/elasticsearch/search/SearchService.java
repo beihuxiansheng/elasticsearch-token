@@ -752,20 +752,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|query
-operator|.
-name|IndicesQueriesRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|node
 operator|.
 name|settings
@@ -4140,7 +4126,6 @@ name|run
 argument_list|)
 init|)
 block|{
-comment|// NOCOMMIT this override the source entirely
 name|QueryParseContext
 name|queryParseContext
 init|=
@@ -4163,10 +4148,10 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-name|request
-operator|.
-name|source
+name|parseSource
 argument_list|(
+name|context
+argument_list|,
 name|SearchSourceBuilder
 operator|.
 name|PROTOTYPE
