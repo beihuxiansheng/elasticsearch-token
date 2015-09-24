@@ -137,7 +137,6 @@ specifier|private
 name|XContentParser
 name|parser
 decl_stmt|;
-comment|//norelease this flag is also used in the QueryShardContext, we need to make sure we set it there correctly in doToQuery()
 DECL|field|parseFieldMatcher
 specifier|private
 name|ParseFieldMatcher
@@ -146,13 +145,6 @@ init|=
 name|ParseFieldMatcher
 operator|.
 name|EMPTY
-decl_stmt|;
-comment|//norelease this can eventually be deleted when context() method goes away
-DECL|field|shardContext
-specifier|private
-specifier|final
-name|QueryShardContext
-name|shardContext
 decl_stmt|;
 DECL|field|indicesQueriesRegistry
 specifier|private
@@ -172,38 +164,6 @@ operator|.
 name|indicesQueriesRegistry
 operator|=
 name|registry
-expr_stmt|;
-name|this
-operator|.
-name|shardContext
-operator|=
-literal|null
-expr_stmt|;
-block|}
-DECL|method|QueryParseContext
-name|QueryParseContext
-parameter_list|(
-name|QueryShardContext
-name|context
-parameter_list|)
-block|{
-name|this
-operator|.
-name|shardContext
-operator|=
-name|context
-expr_stmt|;
-name|this
-operator|.
-name|indicesQueriesRegistry
-operator|=
-name|context
-operator|.
-name|indexQueryParserService
-argument_list|()
-operator|.
-name|indicesQueriesRegistry
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|reset
@@ -601,6 +561,7 @@ expr_stmt|;
 block|}
 comment|/**      * Get the query parser for a specific type of query registered under its name      * @param name the name of the parser to retrieve      * @return the query parser      */
 DECL|method|queryParser
+specifier|private
 name|QueryParser
 name|queryParser
 parameter_list|(
