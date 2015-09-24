@@ -406,6 +406,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|sort
 operator|.
 name|SortBuilders
@@ -15599,17 +15613,55 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-comment|// SearchResponse resp;
-comment|// resp = client().prepareSearch("test")
-comment|// .setSource(new
-comment|// BytesArray("{\"query\": {\"has_child\": {\"type\": \"posts\", \"query\": {\"match\": {\"field\": \"bar\"}}}}}")).get();
-comment|// assertHitCount(resp, 1L);
-comment|//
-comment|// // Now reverse the order for the type after the query
-comment|// resp = client().prepareSearch("test")
-comment|// .setSource(new
-comment|// BytesArray("{\"query\": {\"has_child\": {\"query\": {\"match\": {\"field\": \"bar\"}}, \"type\": \"posts\"}}}")).get();
-comment|// assertHitCount(resp, 1L); NOCOMMIT fix this
+name|SearchResponse
+name|resp
+decl_stmt|;
+name|resp
+operator|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|QueryBuilders
+operator|.
+name|hasChildQuery
+argument_list|(
+literal|"posts"
+argument_list|,
+name|QueryBuilders
+operator|.
+name|matchQuery
+argument_list|(
+literal|"field"
+argument_list|,
+literal|"bar"
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|assertHitCount
+argument_list|(
+name|resp
+argument_list|,
+literal|1L
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

@@ -64,9 +64,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
+name|settings
 operator|.
-name|BytesArray
+name|Settings
 import|;
 end_import
 
@@ -76,11 +76,25 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|settings
+name|query
 operator|.
-name|Settings
+name|QueryBuilders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
+operator|.
+name|ScriptType
 import|;
 end_import
 
@@ -95,6 +109,34 @@ operator|.
 name|groovy
 operator|.
 name|GroovyScriptExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|sort
+operator|.
+name|SortBuilders
 import|;
 end_import
 
@@ -241,6 +283,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"this fails on groovy compile errors"
+argument_list|)
+comment|// NOCOMMIT fix this
 DECL|method|testEvilGroovyScripts
 specifier|public
 name|void
@@ -485,6 +535,7 @@ name|String
 name|script
 parameter_list|)
 block|{
+comment|/*          * new BytesArray("{\"query\": {\"match_all\": {}}," +                         "\"sort\":{\"_script\": {\"script\": \"" + script +                         "; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}")          */
 name|logger
 operator|.
 name|info
@@ -494,13 +545,105 @@ operator|+
 name|script
 argument_list|)
 expr_stmt|;
-comment|//        SearchResponse resp = client().prepareSearch("test")
-comment|//                .setSource(new BytesArray("{\"query\": {\"match_all\": {}}," +
-comment|//                        "\"sort\":{\"_script\": {\"script\": \"" + script +
-comment|//                        "; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}")).get();
-comment|//        assertNoFailures(resp);
-comment|//        assertEquals(1, resp.getHits().getTotalHits());
-comment|//        assertThat(resp.getHits().getAt(0).getSortValues(), equalTo(new Object[]{7.0})); NOCOMMIT fix this
+name|SearchResponse
+name|resp
+init|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
+argument_list|)
+operator|.
+name|sort
+argument_list|(
+name|SortBuilders
+operator|.
+name|scriptSort
+argument_list|(
+operator|new
+name|Script
+argument_list|(
+name|script
+operator|+
+literal|"; doc['foo'].value + 2"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|"groovy"
+argument_list|,
+literal|null
+argument_list|)
+argument_list|,
+literal|"number"
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|assertNoFailures
+argument_list|(
+name|resp
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|resp
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|getTotalHits
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|resp
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|getAt
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getSortValues
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+operator|new
+name|Object
+index|[]
+block|{
+literal|7.0
+block|}
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|assertFailure
 specifier|private
@@ -511,6 +654,7 @@ name|String
 name|script
 parameter_list|)
 block|{
+comment|/*          * new BytesArray("{\"query\": {\"match_all\": {}}," +          * "\"sort\":{\"_script\": {\"script\": \"" + script +          * "; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}"          * )          */
 name|logger
 operator|.
 name|info
@@ -520,20 +664,140 @@ operator|+
 name|script
 argument_list|)
 expr_stmt|;
-comment|//        SearchResponse resp = client().prepareSearch("test")
-comment|//                 .setSource(new BytesArray("{\"query\": {\"match_all\": {}}," +
-comment|//                         "\"sort\":{\"_script\": {\"script\": \"" + script +
-comment|//                         "; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}")).get();
-comment|//        assertEquals(0, resp.getHits().getTotalHits());
-comment|//        ShardSearchFailure fails[] = resp.getShardFailures();
-comment|//        // TODO: GroovyScriptExecutionException needs work:
-comment|//        // fix it to preserve cause so we don't do this flaky string-check stuff
-comment|//        for (ShardSearchFailure fail : fails) {
-comment|//            assertThat(fail.getCause(), instanceOf(GroovyScriptExecutionException.class));
-comment|//            assertTrue("unexpected exception" + fail.getCause(),
-comment|//                       // different casing, depending on jvm impl...
-comment|//                       fail.getCause().toString().toLowerCase(Locale.ROOT).contains("[access denied"));
-comment|//        } NOCOMMIT fix this
+name|SearchResponse
+name|resp
+init|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
+argument_list|)
+operator|.
+name|sort
+argument_list|(
+name|SortBuilders
+operator|.
+name|scriptSort
+argument_list|(
+operator|new
+name|Script
+argument_list|(
+name|script
+operator|+
+literal|"; doc['foo'].value + 2"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|"groovy"
+argument_list|,
+literal|null
+argument_list|)
+argument_list|,
+literal|"number"
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|resp
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|getTotalHits
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|ShardSearchFailure
+name|fails
+index|[]
+init|=
+name|resp
+operator|.
+name|getShardFailures
+argument_list|()
+decl_stmt|;
+comment|// TODO: GroovyScriptExecutionException needs work:
+comment|// fix it to preserve cause so we don't do this flaky string-check stuff
+for|for
+control|(
+name|ShardSearchFailure
+name|fail
+range|:
+name|fails
+control|)
+block|{
+name|assertThat
+argument_list|(
+name|fail
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|GroovyScriptExecutionException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"unexpected exception"
+operator|+
+name|fail
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+comment|// different casing, depending on jvm impl...
+name|fail
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|"[access denied"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

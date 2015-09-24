@@ -78,48 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -181,16 +139,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -382,143 +330,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testStringSourceToString
-specifier|public
-name|void
-name|testStringSourceToString
-parameter_list|()
-block|{
-name|SearchRequestBuilder
-name|searchRequestBuilder
-init|=
-name|client
-operator|.
-name|prepareSearch
-argument_list|()
-decl_stmt|;
-name|String
-name|source
-init|=
-literal|"{ \"query\" : { \"match_all\" : {} } }"
-decl_stmt|;
-comment|// searchRequestBuilder.setSource(new BytesArray(source));
-comment|// assertThat(searchRequestBuilder.toString(), equalTo(source));
-comment|// NOCOMMIT fix this
-block|}
-annotation|@
-name|Test
-DECL|method|testXContentBuilderSourceToString
-specifier|public
-name|void
-name|testXContentBuilderSourceToString
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|SearchRequestBuilder
-name|searchRequestBuilder
-init|=
-name|client
-operator|.
-name|prepareSearch
-argument_list|()
-decl_stmt|;
-name|XContentBuilder
-name|xContentBuilder
-init|=
-name|XContentFactory
-operator|.
-name|contentBuilder
-argument_list|(
-name|randomFrom
-argument_list|(
-name|XContentType
-operator|.
-name|values
-argument_list|()
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|xContentBuilder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
-name|xContentBuilder
-operator|.
-name|startObject
-argument_list|(
-literal|"query"
-argument_list|)
-expr_stmt|;
-name|xContentBuilder
-operator|.
-name|startObject
-argument_list|(
-literal|"match_all"
-argument_list|)
-expr_stmt|;
-name|xContentBuilder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-name|xContentBuilder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-name|xContentBuilder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-comment|// searchRequestBuilder.setSource(xContentBuilder.bytes()); NOCOMMIT fix
-comment|// this
-comment|// assertThat(searchRequestBuilder.toString(),
-comment|// equalTo(XContentHelper.convertToJson(xContentBuilder.bytes(), false,
-comment|// true)));
-block|}
-annotation|@
-name|Test
-DECL|method|testThatToStringDoesntWipeRequestSource
-specifier|public
-name|void
-name|testThatToStringDoesntWipeRequestSource
-parameter_list|()
-block|{
-name|String
-name|source
-init|=
-literal|"{\n"
-operator|+
-literal|"            \"query\" : {\n"
-operator|+
-literal|"            \"match\" : {\n"
-operator|+
-literal|"                \"field\" : {\n"
-operator|+
-literal|"                    \"query\" : \"value\""
-operator|+
-literal|"                }\n"
-operator|+
-literal|"            }\n"
-operator|+
-literal|"        }\n"
-operator|+
-literal|"        }"
-decl_stmt|;
-comment|// SearchRequestBuilder searchRequestBuilder =
-comment|// client.prepareSearch().setSource(new BytesArray(source));
-comment|// String preToString =
-comment|// searchRequestBuilder.request().source().toUtf8();
-comment|// assertThat(searchRequestBuilder.toString(), equalTo(source));
-comment|// String postToString =
-comment|// searchRequestBuilder.request().source().toUtf8();
-comment|// assertThat(preToString, equalTo(postToString)); NOCOMMIT FIX THIS
 block|}
 block|}
 end_class

@@ -3303,7 +3303,7 @@ comment|//            assertThat(e.unwrapCause(), instanceOf(SearchPhaseExecutio
 comment|//            // all is well
 comment|//        }
 comment|//        logger.info("Done Testing failed search");
-comment|//    } NOCOMMIT fix this
+comment|//    } NORELEASE this needs to be tested in a unit test
 annotation|@
 name|Test
 DECL|method|testFailedSearchWithWrongFrom

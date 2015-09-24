@@ -80,6 +80,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|ScriptService
@@ -99,6 +113,34 @@ operator|.
 name|groovy
 operator|.
 name|GroovyScriptEngineService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|sort
+operator|.
+name|SortBuilders
 import|;
 end_import
 
@@ -173,22 +215,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|functionScoreQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchAllQuery
 import|;
 end_import
 
@@ -352,17 +378,17 @@ expr_stmt|;
 comment|// Test that something that would usually be a BigDecimal is transformed into a Double
 name|assertScript
 argument_list|(
-literal|"def n = 1.23; assert n instanceof Double;"
+literal|"def n = 1.23; assert n instanceof Double; return n;"
 argument_list|)
 expr_stmt|;
 name|assertScript
 argument_list|(
-literal|"def n = 1.23G; assert n instanceof Double;"
+literal|"def n = 1.23G; assert n instanceof Double; return n;"
 argument_list|)
 expr_stmt|;
 name|assertScript
 argument_list|(
-literal|"def n = BigDecimal.ONE; assert n instanceof BigDecimal;"
+literal|"def n = BigDecimal.ONE; assert n instanceof BigDecimal; return n;"
 argument_list|)
 expr_stmt|;
 block|}
@@ -372,14 +398,72 @@ name|void
 name|assertScript
 parameter_list|(
 name|String
-name|script
+name|scriptString
 parameter_list|)
 block|{
-comment|// SearchResponse resp = client().prepareSearch("test")
-comment|// .setSource(new BytesArray("{\"query\": {\"match_all\": {}}," +
-comment|// "\"sort\":{\"_script\": {\"script\": \""+ script +
-comment|// "; 1\", \"type\": \"number\", \"lang\": \"groovy\"}}}")).get();
-comment|// assertNoFailures(resp); NOCOMMIT fix this
+name|Script
+name|script
+init|=
+operator|new
+name|Script
+argument_list|(
+name|scriptString
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|"groovy"
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|SearchResponse
+name|resp
+init|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
+argument_list|)
+operator|.
+name|sort
+argument_list|(
+name|SortBuilders
+operator|.
+name|scriptSort
+argument_list|(
+name|script
+argument_list|,
+literal|"number"
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|assertNoFailures
+argument_list|(
+name|resp
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

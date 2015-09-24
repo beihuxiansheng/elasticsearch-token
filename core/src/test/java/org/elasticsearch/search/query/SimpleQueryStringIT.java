@@ -56,20 +56,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -114,7 +100,35 @@ name|index
 operator|.
 name|query
 operator|.
+name|QueryBuilders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|SimpleQueryStringFlag
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
 import|;
 end_import
 
@@ -200,7 +214,55 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|boolQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|queryStringQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|simpleQueryStringQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
 import|;
 end_import
 
@@ -216,7 +278,103 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertFirstHit
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchHits
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|hasId
 import|;
 end_import
 
@@ -2220,23 +2378,109 @@ argument_list|,
 literal|0l
 argument_list|)
 expr_stmt|;
-comment|//        searchResponse = client().prepareSearch().setSource(new BytesArray("{\n" +
-comment|//                "  \"query\": {\n" +
-comment|//                "    \"simple_query_string\": {\n" +
-comment|//                "      \"query\": \"foo|bar\",\n" +
-comment|//                "      \"default_operator\": \"AND\"," +
-comment|//                "      \"flags\": \"NONE\"\n" +
-comment|//                "    }\n" +
-comment|//                "  }\n" +
-comment|//                "}")).get();
-comment|//        assertHitCount(searchResponse, 1l);
-comment|//
-comment|//        searchResponse = client().prepareSearch().setQuery(
-comment|//                simpleQueryStringQuery("baz | egg*")
-comment|//                        .defaultOperator(Operator.AND)
-comment|//                        .flags(SimpleQueryStringFlag.WHITESPACE, SimpleQueryStringFlag.PREFIX)).get();
-comment|//        assertHitCount(searchResponse, 1l);
-comment|//        assertFirstHit(searchResponse, hasId("4")); NOCOMMIT fix this
+name|searchResponse
+operator|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setSource
+argument_list|(
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|QueryBuilders
+operator|.
+name|simpleQueryStringQuery
+argument_list|(
+literal|"foo|bar"
+argument_list|)
+operator|.
+name|defaultOperator
+argument_list|(
+name|Operator
+operator|.
+name|AND
+argument_list|)
+operator|.
+name|flags
+argument_list|(
+name|SimpleQueryStringFlag
+operator|.
+name|NONE
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|assertHitCount
+argument_list|(
+name|searchResponse
+argument_list|,
+literal|1l
+argument_list|)
+expr_stmt|;
+name|searchResponse
+operator|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setQuery
+argument_list|(
+name|simpleQueryStringQuery
+argument_list|(
+literal|"baz | egg*"
+argument_list|)
+operator|.
+name|defaultOperator
+argument_list|(
+name|Operator
+operator|.
+name|AND
+argument_list|)
+operator|.
+name|flags
+argument_list|(
+name|SimpleQueryStringFlag
+operator|.
+name|WHITESPACE
+argument_list|,
+name|SimpleQueryStringFlag
+operator|.
+name|PREFIX
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|assertHitCount
+argument_list|(
+name|searchResponse
+argument_list|,
+literal|1l
+argument_list|)
+expr_stmt|;
+name|assertFirstHit
+argument_list|(
+name|searchResponse
+argument_list|,
+name|hasId
+argument_list|(
+literal|"4"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

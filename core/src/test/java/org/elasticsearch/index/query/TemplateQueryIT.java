@@ -160,47 +160,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|HasContextAndHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesReference
 import|;
 end_import
 
@@ -243,20 +203,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|query
-operator|.
-name|IndicesQueriesRegistry
 import|;
 end_import
 
@@ -332,37 +278,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|DefaultSearchContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|FakeRestRequest
 import|;
 end_import
 
@@ -763,40 +681,138 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Test NOCOMMIT fix this
-comment|//    public void testTemplateInBodyWithSize() throws IOException {
-comment|//        String request = "{\n" +
-comment|//                "    \"size\":0," +
-comment|//                "    \"query\": {\n" +
-comment|//                "        \"template\": {\n" +
-comment|//                "            \"query\": {\"match_{{template}}\": {}},\n" +
-comment|//                "            \"params\" : {\n" +
-comment|//                "                \"template\" : \"all\"\n" +
-comment|//                "            }\n" +
-comment|//                "        }\n" +
-comment|//                "    }\n" +
-comment|//                "}";
-comment|//        SearchResponse sr = client().prepareSearch().setSource(new BytesArray(request))
-comment|//                .execute().actionGet();
-comment|//        assertNoFailures(sr);
-comment|//        assertThat(sr.getHits().hits().length, equalTo(0));
-comment|//        request = "{\n" +
-comment|//                "    \"query\": {\n" +
-comment|//                "        \"template\": {\n" +
-comment|//                "            \"query\": {\"match_{{template}}\": {}},\n" +
-comment|//                "            \"params\" : {\n" +
-comment|//                "                \"template\" : \"all\"\n" +
-comment|//                "            }\n" +
-comment|//                "        }\n" +
-comment|//                "    },\n" +
-comment|//                "    \"size\":0" +
-comment|//                "}";
-comment|//
-comment|//        sr = client().prepareSearch().setSource(new BytesArray(request))
-comment|//                .execute().actionGet();
-comment|//        assertNoFailures(sr);
-comment|//        assertThat(sr.getHits().hits().length, equalTo(0));
-comment|//    }
+annotation|@
+name|Test
+DECL|method|testTemplateInBodyWithSize
+specifier|public
+name|void
+name|testTemplateInBodyWithSize
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|request
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"size\":0,"
+operator|+
+literal|"    \"query\": {\n"
+operator|+
+literal|"        \"template\": {\n"
+operator|+
+literal|"            \"query\": {\"match_{{template}}\": {}},\n"
+operator|+
+literal|"            \"params\" : {\n"
+operator|+
+literal|"                \"template\" : \"all\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|params
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"template"
+argument_list|,
+literal|"all"
+argument_list|)
+expr_stmt|;
+name|SearchResponse
+name|sr
+init|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setSource
+argument_list|(
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|size
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|query
+argument_list|(
+name|QueryBuilders
+operator|.
+name|templateQuery
+argument_list|(
+operator|new
+name|Template
+argument_list|(
+literal|"{ \"query\": { \"match_{{template}}\": {} } }"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+name|params
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+decl_stmt|;
+name|assertNoFailures
+argument_list|(
+name|sr
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|sr
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|hits
+argument_list|()
+operator|.
+name|length
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testTemplateWOReplacementInBody

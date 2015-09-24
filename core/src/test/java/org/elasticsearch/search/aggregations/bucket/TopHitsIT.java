@@ -5116,7 +5116,7 @@ comment|// } catch (SearchPhaseExecutionException e) {
 comment|// assertThat(e.toString(),
 comment|// containsString("Aggregator [top_tags_hits] of type [top_hits] cannot accept sub-aggregations"));
 comment|// }
-comment|// } NOCOMMIT fix this
+comment|// } NORELEASE this needs to be tested in a top_hits aggregations unit test
 annotation|@
 name|Test
 DECL|method|testEmptyIndex

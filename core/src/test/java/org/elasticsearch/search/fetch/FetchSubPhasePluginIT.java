@@ -80,20 +80,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
-operator|.
-name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|termvectors
 operator|.
 name|TermVectorsRequest
@@ -123,34 +109,6 @@ operator|.
 name|common
 operator|.
 name|Priority
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
 import|;
 end_import
 
@@ -380,55 +338,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertSearchResponse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
 import|;
 end_import
 
@@ -675,12 +589,19 @@ operator|.
 name|string
 argument_list|()
 decl_stmt|;
-comment|//        SearchResponse response = client().prepareSearch().setSource(new BytesArray(searchSource)).get();
-comment|//        assertSearchResponse(response);
-comment|//        assertThat(((Map<String, Integer>) response.getHits().getAt(0).field("term_vectors_fetch").getValues().get(0)).get("i"), equalTo(2));
-comment|//        assertThat(((Map<String, Integer>) response.getHits().getAt(0).field("term_vectors_fetch").getValues().get(0)).get("am"), equalTo(2));
-comment|//        assertThat(((Map<String, Integer>) response.getHits().getAt(0).field("term_vectors_fetch").getValues().get(0)).get("sam"), equalTo(1));
-comment|//  NOCOMMIT fix this
+comment|// SearchResponse response = client().prepareSearch().setSource(new
+comment|// BytesArray(searchSource)).get();
+comment|// assertSearchResponse(response);
+comment|// assertThat(((Map<String, Integer>)
+comment|// response.getHits().getAt(0).field("term_vectors_fetch").getValues().get(0)).get("i"),
+comment|// equalTo(2));
+comment|// assertThat(((Map<String, Integer>)
+comment|// response.getHits().getAt(0).field("term_vectors_fetch").getValues().get(0)).get("am"),
+comment|// equalTo(2));
+comment|// assertThat(((Map<String, Integer>)
+comment|// response.getHits().getAt(0).field("term_vectors_fetch").getValues().get(0)).get("sam"),
+comment|// equalTo(1));
+comment|// NOCOMMIT fix this
 block|}
 DECL|class|FetchTermVectorsPlugin
 specifier|public

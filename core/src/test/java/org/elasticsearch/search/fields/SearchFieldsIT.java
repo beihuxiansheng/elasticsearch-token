@@ -34,20 +34,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -55,20 +41,6 @@ operator|.
 name|index
 operator|.
 name|IndexRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchPhaseExecutionException
 import|;
 end_import
 
@@ -230,6 +202,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|rest
 operator|.
 name|RestStatus
@@ -283,6 +269,20 @@ operator|.
 name|search
 operator|.
 name|SearchHitField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
 import|;
 end_import
 
@@ -562,7 +562,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -6639,16 +6675,141 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Test // see #8203
-comment|//    public void testSingleValueFieldDatatField() throws ExecutionException, InterruptedException {
-comment|//        createIndex("test");
-comment|//        indexRandom(true, client().prepareIndex("test", "type", "1").setSource("test_field", "foobar"));
-comment|//        refresh();
-comment|//        SearchResponse searchResponse = client().prepareSearch("test").setTypes("type").setSource(new BytesArray(new BytesRef("{\"query\":{\"match_all\":{}},\"fielddata_fields\": \"test_field\"}"))).get();
-comment|//        assertHitCount(searchResponse, 1);
-comment|//        Map<String,SearchHitField> fields = searchResponse.getHits().getHits()[0].getFields();
-comment|//        assertThat((String)fields.get("test_field").value(), equalTo("foobar"));
-comment|//    } NOCOMMIT fix this
+annotation|@
+name|Test
+comment|// see #8203
+DECL|method|testSingleValueFieldDatatField
+specifier|public
+name|void
+name|testSingleValueFieldDatatField
+parameter_list|()
+throws|throws
+name|ExecutionException
+throws|,
+name|InterruptedException
+block|{
+name|createIndex
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
+name|indexRandom
+argument_list|(
+literal|true
+argument_list|,
+name|client
+argument_list|()
+operator|.
+name|prepareIndex
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"type"
+argument_list|,
+literal|"1"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+literal|"test_field"
+argument_list|,
+literal|"foobar"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|refresh
+argument_list|()
+expr_stmt|;
+name|SearchResponse
+name|searchResponse
+init|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|setTypes
+argument_list|(
+literal|"type"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
+argument_list|)
+operator|.
+name|fieldDataField
+argument_list|(
+literal|"test_field"
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|assertHitCount
+argument_list|(
+name|searchResponse
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|SearchHitField
+argument_list|>
+name|fields
+init|=
+name|searchResponse
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|getHits
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getFields
+argument_list|()
+decl_stmt|;
+name|assertThat
+argument_list|(
+operator|(
+name|String
+operator|)
+name|fields
+operator|.
+name|get
+argument_list|(
+literal|"test_field"
+argument_list|)
+operator|.
+name|value
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"foobar"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|//    @Test(expected = SearchPhaseExecutionException.class)
 comment|//    public void testInvalidFieldDataField() throws ExecutionException, InterruptedException {
 comment|//        createIndex("test");
@@ -6657,7 +6818,7 @@ comment|//            client().prepareSearch("test").setTypes("type").setSource(
 comment|//        } else {
 comment|//            client().prepareSearch("test").setTypes("type").setSource(new BytesArray(new BytesRef("{\"query\":{\"match_all\":{}},\"fielddata_fields\": 1.0}"))).get();
 comment|//        }
-comment|//    } NOCOMMIT fix this
+comment|//    } NORELEASE need a unit test for this
 annotation|@
 name|Test
 DECL|method|testFieldsPulledFromFieldData
