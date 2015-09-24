@@ -68,6 +68,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|geo
 operator|.
 name|GeoPoint
@@ -215,6 +227,32 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
+operator|.
+name|copyToStringFromClasspath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|closeTo
 import|;
 end_import
 
@@ -983,6 +1021,513 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQueryParsingExceptions
+specifier|public
+name|void
+name|testParsingAndToQueryParsingExceptions
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+index|[]
+name|brokenFiles
+init|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"/org/elasticsearch/index/query/geo_polygon_exception_1.json"
+block|,
+literal|"/org/elasticsearch/index/query/geo_polygon_exception_2.json"
+block|,
+literal|"/org/elasticsearch/index/query/geo_polygon_exception_3.json"
+block|,
+literal|"/org/elasticsearch/index/query/geo_polygon_exception_4.json"
+block|,
+literal|"/org/elasticsearch/index/query/geo_polygon_exception_5.json"
+block|}
+decl_stmt|;
+for|for
+control|(
+name|String
+name|brokenFile
+range|:
+name|brokenFiles
+control|)
+block|{
+name|String
+name|query
+init|=
+name|copyToStringFromClasspath
+argument_list|(
+name|brokenFile
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parsing a broken geo_polygon filter didn't fail as expected while parsing: "
+operator|+
+name|brokenFile
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+comment|// success!
+block|}
+block|}
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery1
+specifier|public
+name|void
+name|testParsingAndToQuery1
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_polygon\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"points\":[\n"
+operator|+
+literal|"                [-70, 40],\n"
+operator|+
+literal|"                [-80, 30],\n"
+operator|+
+literal|"                [-90, 20]\n"
+operator|+
+literal|"            ]\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoPolygonQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery2
+specifier|public
+name|void
+name|testParsingAndToQuery2
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_polygon\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"points\":[\n"
+operator|+
+literal|"                {\n"
+operator|+
+literal|"                    \"lat\":40,\n"
+operator|+
+literal|"                    \"lon\":-70\n"
+operator|+
+literal|"                },\n"
+operator|+
+literal|"                {\n"
+operator|+
+literal|"                    \"lat\":30,\n"
+operator|+
+literal|"                    \"lon\":-80\n"
+operator|+
+literal|"                },\n"
+operator|+
+literal|"                {\n"
+operator|+
+literal|"                    \"lat\":20,\n"
+operator|+
+literal|"                    \"lon\":-90\n"
+operator|+
+literal|"                }\n"
+operator|+
+literal|"            ]\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoPolygonQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery3
+specifier|public
+name|void
+name|testParsingAndToQuery3
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_polygon\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"points\":[\n"
+operator|+
+literal|"                \"40, -70\",\n"
+operator|+
+literal|"                \"30, -80\",\n"
+operator|+
+literal|"                \"20, -90\"\n"
+operator|+
+literal|"            ]\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoPolygonQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery4
+specifier|public
+name|void
+name|testParsingAndToQuery4
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_polygon\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"points\":[\n"
+operator|+
+literal|"                \"drn5x1g8cu2y\",\n"
+operator|+
+literal|"                \"30, -80\",\n"
+operator|+
+literal|"                \"20, -90\"\n"
+operator|+
+literal|"            ]\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoPolygonQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertGeoPolygonQuery
+specifier|private
+name|void
+name|assertGeoPolygonQuery
+parameter_list|(
+name|String
+name|query
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|Query
+name|parsedQuery
+init|=
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|GeoPolygonQuery
+name|filter
+init|=
+operator|(
+name|GeoPolygonQuery
+operator|)
+name|parsedQuery
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|fieldName
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|GEO_POINT_FIELD_NAME
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|points
+argument_list|()
+operator|.
+name|length
+argument_list|,
+name|equalTo
+argument_list|(
+literal|4
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|points
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|40
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|points
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+operator|-
+literal|70
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|points
+argument_list|()
+index|[
+literal|1
+index|]
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|30
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|points
+argument_list|()
+index|[
+literal|1
+index|]
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+operator|-
+literal|80
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|points
+argument_list|()
+index|[
+literal|2
+index|]
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|20
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|points
+argument_list|()
+index|[
+literal|2
+index|]
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+operator|-
+literal|90
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

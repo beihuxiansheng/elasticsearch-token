@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParsingException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -53,8 +41,8 @@ DECL|class|QueryFilterParser
 specifier|public
 class|class
 name|QueryFilterParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|QueryFilterBuilder
 argument_list|>

@@ -93,8 +93,8 @@ DECL|class|SpanNearQueryParser
 specifier|public
 class|class
 name|SpanNearQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|SpanNearQueryBuilder
 argument_list|>

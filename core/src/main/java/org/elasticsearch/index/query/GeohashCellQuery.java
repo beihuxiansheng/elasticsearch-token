@@ -1353,8 +1353,8 @@ specifier|public
 specifier|static
 class|class
 name|Parser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|Builder
 argument_list|>

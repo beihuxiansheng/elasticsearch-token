@@ -73,8 +73,8 @@ DECL|class|SpanFirstQueryParser
 specifier|public
 class|class
 name|SpanFirstQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|SpanFirstQueryBuilder
 argument_list|>

@@ -91,8 +91,8 @@ DECL|class|IdsQueryParser
 specifier|public
 class|class
 name|IdsQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|IdsQueryBuilder
 argument_list|>

@@ -123,8 +123,8 @@ DECL|class|BoolQueryParser
 specifier|public
 class|class
 name|BoolQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|BoolQueryBuilder
 argument_list|>
@@ -409,7 +409,7 @@ name|query
 operator|=
 name|parseContext
 operator|.
-name|parseInnerFilterToQueryBuilder
+name|parseInnerQueryBuilder
 argument_list|()
 expr_stmt|;
 name|filterClauses
@@ -430,7 +430,7 @@ name|query
 operator|=
 name|parseContext
 operator|.
-name|parseInnerFilterToQueryBuilder
+name|parseInnerQueryBuilder
 argument_list|()
 expr_stmt|;
 name|mustNotClauses
@@ -538,7 +538,7 @@ name|query
 operator|=
 name|parseContext
 operator|.
-name|parseInnerFilterToQueryBuilder
+name|parseInnerQueryBuilder
 argument_list|()
 expr_stmt|;
 name|filterClauses
@@ -559,7 +559,7 @@ name|query
 operator|=
 name|parseContext
 operator|.
-name|parseInnerFilterToQueryBuilder
+name|parseInnerQueryBuilder
 argument_list|()
 expr_stmt|;
 name|mustNotClauses

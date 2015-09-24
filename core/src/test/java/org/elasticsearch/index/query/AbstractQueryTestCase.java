@@ -2673,6 +2673,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Serialize the given query builder and asserts that both are equal      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|assertSerialization
 specifier|protected
 name|QB

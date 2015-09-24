@@ -54,63 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanClause
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|BooleanQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|ConstantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|NumericRangeQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
+name|*
 import|;
 end_import
 
@@ -189,6 +133,30 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|closeTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -1604,7 +1572,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Java really could do with function pointers - is there any Java8 feature that would help me here which I don't know of?
 DECL|class|PointTester
 specifier|public
 specifier|abstract
@@ -1996,6 +1963,449 @@ name|coordinate
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery1
+specifier|public
+name|void
+name|testParsingAndToQuery1
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_bounding_box\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"top_left\":[-70, 40],\n"
+operator|+
+literal|"            \"bottom_right\":[-80, 30]\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoBoundingBoxQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery2
+specifier|public
+name|void
+name|testParsingAndToQuery2
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_bounding_box\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"top_left\":{\n"
+operator|+
+literal|"                \"lat\":40,\n"
+operator|+
+literal|"                \"lon\":-70\n"
+operator|+
+literal|"            },\n"
+operator|+
+literal|"            \"bottom_right\":{\n"
+operator|+
+literal|"                \"lat\":30,\n"
+operator|+
+literal|"                \"lon\":-80\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoBoundingBoxQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery3
+specifier|public
+name|void
+name|testParsingAndToQuery3
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_bounding_box\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"top_left\":\"40, -70\",\n"
+operator|+
+literal|"            \"bottom_right\":\"30, -80\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoBoundingBoxQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery4
+specifier|public
+name|void
+name|testParsingAndToQuery4
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_bounding_box\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"top_left\":\"drn5x1g8cu2y\",\n"
+operator|+
+literal|"            \"bottom_right\":\"30, -80\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoBoundingBoxQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery5
+specifier|public
+name|void
+name|testParsingAndToQuery5
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_bounding_box\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"top_right\":\"40, -80\",\n"
+operator|+
+literal|"            \"bottom_left\":\"30, -70\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoBoundingBoxQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testParsingAndToQuery6
+specifier|public
+name|void
+name|testParsingAndToQuery6
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"geo_bounding_box\":{\n"
+operator|+
+literal|"        \""
+operator|+
+name|GEO_POINT_FIELD_NAME
+operator|+
+literal|"\":{\n"
+operator|+
+literal|"            \"right\": -80,\n"
+operator|+
+literal|"            \"top\": 40,\n"
+operator|+
+literal|"            \"left\": -70,\n"
+operator|+
+literal|"            \"bottom\": 30\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|assertGeoBoundingBoxQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertGeoBoundingBoxQuery
+specifier|private
+name|void
+name|assertGeoBoundingBoxQuery
+parameter_list|(
+name|String
+name|query
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|Query
+name|parsedQuery
+init|=
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|InMemoryGeoBoundingBoxQuery
+name|filter
+init|=
+operator|(
+name|InMemoryGeoBoundingBoxQuery
+operator|)
+name|parsedQuery
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|fieldName
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|GEO_POINT_FIELD_NAME
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|topLeft
+argument_list|()
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|40
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|topLeft
+argument_list|()
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+operator|-
+literal|70
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|bottomRight
+argument_list|()
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|30
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|filter
+operator|.
+name|bottomRight
+argument_list|()
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+operator|-
+literal|80
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

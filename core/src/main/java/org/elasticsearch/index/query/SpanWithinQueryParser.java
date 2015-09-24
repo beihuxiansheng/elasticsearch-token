@@ -73,8 +73,8 @@ DECL|class|SpanWithinQueryParser
 specifier|public
 class|class
 name|SpanWithinQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|SpanWithinQueryBuilder
 argument_list|>

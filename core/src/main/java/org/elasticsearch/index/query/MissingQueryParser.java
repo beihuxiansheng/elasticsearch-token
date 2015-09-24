@@ -61,8 +61,8 @@ DECL|class|MissingQueryParser
 specifier|public
 class|class
 name|MissingQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|MissingQueryBuilder
 argument_list|>

@@ -133,8 +133,8 @@ DECL|class|GeoDistanceRangeQueryParser
 specifier|public
 class|class
 name|GeoDistanceRangeQueryParser
-extends|extends
-name|BaseQueryParser
+implements|implements
+name|QueryParser
 argument_list|<
 name|GeoDistanceRangeQueryBuilder
 argument_list|>
