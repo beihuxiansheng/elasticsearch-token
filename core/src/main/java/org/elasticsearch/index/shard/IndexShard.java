@@ -9305,6 +9305,10 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|maybeFlush
+argument_list|()
+expr_stmt|;
+comment|// fire a flush up again if we have filled up the limits such that shouldFlush() returns true
 block|}
 block|}
 decl_stmt|;
