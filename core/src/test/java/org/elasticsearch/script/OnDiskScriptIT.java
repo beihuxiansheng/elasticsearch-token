@@ -555,6 +555,11 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
+name|size
+argument_list|(
+literal|1
+argument_list|)
+operator|.
 name|scriptField
 argument_list|(
 literal|"test1"

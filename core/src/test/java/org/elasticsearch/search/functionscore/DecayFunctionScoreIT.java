@@ -170,34 +170,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|ScoreFunctionBuilders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|Script
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|MultiValueMode
@@ -213,20 +185,6 @@ operator|.
 name|search
 operator|.
 name|SearchHits
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|builder
-operator|.
-name|SearchSourceBuilder
 import|;
 end_import
 
@@ -623,18 +581,6 @@ operator|.
 name|Matchers
 operator|.
 name|lessThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
 import|;
 end_import
 
@@ -8363,335 +8309,54 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|errorMessageForFaultyFunctionScoreBody
-specifier|public
-name|void
-name|errorMessageForFaultyFunctionScoreBody
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertAcked
-argument_list|(
-name|prepareCreate
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"type"
-argument_list|,
-name|jsonBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"type"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"properties"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"type"
-argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"num"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"type"
-argument_list|,
-literal|"double"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|index
-argument_list|(
-name|indexRequest
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|type
-argument_list|(
-literal|"type"
-argument_list|)
-operator|.
-name|source
-argument_list|(
-name|jsonBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|field
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"value"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"num"
-argument_list|,
-literal|1.0
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|refresh
-argument_list|()
-expr_stmt|;
-try|try
-block|{
-name|client
-argument_list|()
-operator|.
-name|search
-argument_list|(
-name|searchRequest
-argument_list|()
-operator|.
-name|source
-argument_list|(
-operator|new
-name|SearchSourceBuilder
-argument_list|()
-operator|.
-name|query
-argument_list|(
-name|QueryBuilders
-operator|.
-name|functionScoreQuery
-argument_list|(
-name|ScoreFunctionBuilders
-operator|.
-name|scriptFunction
-argument_list|(
-operator|new
-name|Script
-argument_list|(
-literal|"3"
-argument_list|)
-argument_list|)
-operator|.
-name|setWeight
-argument_list|(
-literal|1.0f
-argument_list|)
-argument_list|)
-argument_list|)
-argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Search should result in SearchPhaseExecutionException"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-name|e
-operator|.
-name|shardFailures
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|reason
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|shardFailures
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|reason
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"already found [weight], now encountering [functions]."
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-try|try
-block|{
-name|client
-argument_list|()
-operator|.
-name|search
-argument_list|(
-name|searchRequest
-argument_list|()
-operator|.
-name|source
-argument_list|(
-operator|new
-name|SearchSourceBuilder
-argument_list|()
-operator|.
-name|query
-argument_list|(
-name|QueryBuilders
-operator|.
-name|functionScoreQuery
-argument_list|(
-name|ScoreFunctionBuilders
-operator|.
-name|randomFunction
-argument_list|(
-literal|3
-argument_list|)
-argument_list|)
-argument_list|)
-argument_list|)
-argument_list|)
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Search should result in SearchPhaseExecutionException"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-name|e
-operator|.
-name|shardFailures
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|reason
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|shardFailures
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|reason
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"already found [random_score], now encountering [functions]"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|shardFailures
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|reason
-argument_list|()
-argument_list|,
-name|not
-argument_list|(
-name|containsString
-argument_list|(
-literal|"did you mean [boost] instead?"
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|// @Test
+comment|// public void errorMessageForFaultyFunctionScoreBody() throws Exception {
+comment|// assertAcked(prepareCreate("test").addMapping(
+comment|// "type",
+comment|// jsonBuilder().startObject().startObject("type").startObject("properties").startObject("test").field("type",
+comment|// "string")
+comment|// .endObject().startObject("num").field("type",
+comment|// "double").endObject().endObject().endObject().endObject()));
+comment|// ensureYellow();
+comment|// client().index(
+comment|// indexRequest("test").type("type").source(jsonBuilder().startObject().field("test",
+comment|// "value").field("num", 1.0).endObject()))
+comment|// .actionGet();
+comment|// refresh();
+comment|//
+comment|// XContentBuilder query = XContentFactory.jsonBuilder();
+comment|// // query that contains a single function and a functions[] array
+comment|// query.startObject().startObject("query").startObject("function_score").field("weight",
+comment|// "1").startArray("functions").startObject().startObject("script_score").field("script",
+comment|// "3").endObject().endObject().endArray().endObject().endObject().endObject();
+comment|// try {
+comment|// client().search(searchRequest().source(query.bytes())).actionGet();
+comment|// fail("Search should result in SearchPhaseExecutionException");
+comment|// } catch (SearchPhaseExecutionException e) {
+comment|// logger.info(e.shardFailures()[0].reason());
+comment|// assertThat(e.shardFailures()[0].reason(),
+comment|// containsString("already found [weight], now encountering [functions]."));
+comment|// }
+comment|//
+comment|// query = XContentFactory.jsonBuilder();
+comment|// // query that contains a single function (but not boost factor) and a
+comment|// functions[] array
+comment|// query.startObject().startObject("query").startObject("function_score").startObject("random_score").field("seed",
+comment|// 3).endObject().startArray("functions").startObject().startObject("random_score").field("seed",
+comment|// 3).endObject().endObject().endArray().endObject().endObject().endObject();
+comment|// try {
+comment|// client().search(searchRequest().source(query.bytes())).actionGet();
+comment|// fail("Search should result in SearchPhaseExecutionException");
+comment|// } catch (SearchPhaseExecutionException e) {
+comment|// logger.info(e.shardFailures()[0].reason());
+comment|// assertThat(e.shardFailures()[0].reason(),
+comment|// containsString("already found [random_score], now encountering [functions]"));
+comment|// assertThat(e.shardFailures()[0].reason(),
+comment|// not(containsString("did you mean [boost] instead?")));
+comment|//
+comment|// } NORELEASE this needs to be tested in a unit test
+comment|// (FunctionScoreQueryBuilderTests)
+comment|// }
 annotation|@
 name|Test
 DECL|method|testExplainString
