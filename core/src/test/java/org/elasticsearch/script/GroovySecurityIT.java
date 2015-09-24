@@ -283,14 +283,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"this fails on groovy compile errors"
-argument_list|)
-comment|// NOCOMMIT fix this
 DECL|method|testEvilGroovyScripts
 specifier|public
 name|void
@@ -433,7 +425,7 @@ expr_stmt|;
 comment|// Maps
 name|assertSuccess
 argument_list|(
-literal|"def v = doc['foo'].value; def m = [:]; m.put(\\\"value\\\", v)"
+literal|"def v = doc['foo'].value; def m = [:]; m.put(\"value\", v)"
 argument_list|)
 expr_stmt|;
 comment|// Times
@@ -452,25 +444,25 @@ comment|// Fail cases:
 comment|// AccessControlException[access denied ("java.io.FilePermission" "<<ALL FILES>>" "execute")]
 name|assertFailure
 argument_list|(
-literal|"pr = Runtime.getRuntime().exec(\\\"touch /tmp/gotcha\\\"); pr.waitFor()"
+literal|"pr = Runtime.getRuntime().exec(\"touch /tmp/gotcha\"); pr.waitFor()"
 argument_list|)
 expr_stmt|;
 comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.reflect")]
 name|assertFailure
 argument_list|(
-literal|"d = new DateTime(); d.getClass().getDeclaredMethod(\\\"year\\\").setAccessible(true)"
+literal|"d = new DateTime(); d.getClass().getDeclaredMethod(\"year\").setAccessible(true)"
 argument_list|)
 expr_stmt|;
 name|assertFailure
 argument_list|(
-literal|"d = new DateTime(); d.\\\"${'get' + 'Class'}\\\"()."
+literal|"d = new DateTime(); d.\"${'get' + 'Class'}\"()."
 operator|+
-literal|"\\\"${'getDeclared' + 'Method'}\\\"(\\\"year\\\").\\\"${'set' + 'Accessible'}\\\"(false)"
+literal|"\"${'getDeclared' + 'Method'}\"(\"year\").\"${'set' + 'Accessible'}\"(false)"
 argument_list|)
 expr_stmt|;
 name|assertFailure
 argument_list|(
-literal|"Class.forName(\\\"org.joda.time.DateTime\\\").getDeclaredMethod(\\\"year\\\").setAccessible(true)"
+literal|"Class.forName(\"org.joda.time.DateTime\").getDeclaredMethod(\"year\").setAccessible(true)"
 argument_list|)
 expr_stmt|;
 comment|// AccessControlException[access denied ("groovy.security.GroovyCodeSourcePermission" "/groovy/shell")]
@@ -487,15 +479,15 @@ expr_stmt|;
 comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "accessDeclaredMembers")]
 name|assertFailure
 argument_list|(
-literal|"d = new Date(); java.lang.reflect.Field f = Date.class.getDeclaredField(\\\"fastTime\\\");"
+literal|"d = new Date(); java.lang.reflect.Field f = Date.class.getDeclaredField(\"fastTime\");"
 operator|+
-literal|" f.setAccessible(true); f.get(\\\"fastTime\\\")"
+literal|" f.setAccessible(true); f.get(\"fastTime\")"
 argument_list|)
 expr_stmt|;
 comment|// AccessControlException[access denied ("java.io.FilePermission" "<<ALL FILES>>" "execute")]
 name|assertFailure
 argument_list|(
-literal|"def methodName = 'ex'; Runtime.\\\"${'get' + 'Runtime'}\\\"().\\\"${methodName}ec\\\"(\\\"touch /tmp/gotcha2\\\")"
+literal|"def methodName = 'ex'; Runtime.\"${'get' + 'Runtime'}\"().\"${methodName}ec\"(\"touch /tmp/gotcha2\")"
 argument_list|)
 expr_stmt|;
 comment|// test a directory we normally have access to, but the groovy script does not.
@@ -517,11 +509,11 @@ block|{
 comment|// access denied ("java.io.FilePermission" ".../tempDir-00N" "read")
 name|assertFailure
 argument_list|(
-literal|"new File(\\\""
+literal|"new File(\""
 operator|+
 name|dir
 operator|+
-literal|"\\\").exists()"
+literal|"\").exists()"
 argument_list|)
 expr_stmt|;
 block|}
@@ -535,7 +527,6 @@ name|String
 name|script
 parameter_list|)
 block|{
-comment|/*          * new BytesArray("{\"query\": {\"match_all\": {}}," +                         "\"sort\":{\"_script\": {\"script\": \"" + script +                         "; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}")          */
 name|logger
 operator|.
 name|info
@@ -654,7 +645,6 @@ name|String
 name|script
 parameter_list|)
 block|{
-comment|/*          * new BytesArray("{\"query\": {\"match_all\": {}}," +          * "\"sort\":{\"_script\": {\"script\": \"" + script +          * "; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}"          * )          */
 name|logger
 operator|.
 name|info
