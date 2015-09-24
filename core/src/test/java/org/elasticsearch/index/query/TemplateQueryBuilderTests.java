@@ -380,7 +380,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{\"template\":{\"inline\":\"I am a $template string\",\"params\":{\"template\":\"filled\"}}}"
+literal|"{\"template\":{\"inline\":\"I am a $template string\",\"lang\":\"mustache\",\"params\":{\"template\":\"filled\"}}}"
 argument_list|,
 name|content
 operator|.
