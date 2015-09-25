@@ -6192,7 +6192,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// NOCOMMIT need to work out what to do about term_vectors_fetch (previously handled by TermVectorsFetchParseElement) as this is not available as an option in SearchSourceBuilder
 if|if
 condition|(
 name|source
