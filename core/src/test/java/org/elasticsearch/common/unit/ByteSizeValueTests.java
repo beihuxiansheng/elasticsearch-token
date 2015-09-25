@@ -381,13 +381,13 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"2GB"
+literal|"1GB"
 block|,
-literal|"2048MB"
+literal|"1024MB"
 block|,
-literal|"2097152KB"
+literal|"1048576KB"
 block|,
-literal|"2147483684B"
+literal|"1073741824B"
 block|}
 decl_stmt|;
 name|ByteSizeValue
