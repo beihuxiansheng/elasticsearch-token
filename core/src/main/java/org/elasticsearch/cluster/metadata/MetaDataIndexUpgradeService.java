@@ -797,7 +797,7 @@ name|V_2_0_0_beta1
 argument_list|)
 return|;
 block|}
-comment|/**      * Elasticsearch 2.0 no longer supports indices with pre Lucene v4.0 (Elasticsearch v 0.90.0) segments. All indices      * that were created before Elasticsearch v0.90.0 should be upgraded using upgrade plugin before they can      * be open by this version of elasticsearch.      */
+comment|/**      * Elasticsearch 3.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be upgraded using upgrade plugin before they can      * be open by this version of elasticsearch.      */
 DECL|method|checkSupportedVersion
 specifier|private
 name|void
@@ -839,7 +839,7 @@ operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"] was created before v0.90.0 and wasn't upgraded."
+literal|"] was created before v2.0.0.beta1 and wasn't upgraded."
 operator|+
 literal|" This index should be open using a version before "
 operator|+
@@ -877,7 +877,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_0_90_0_Beta1
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
