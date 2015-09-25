@@ -2337,11 +2337,12 @@ DECL|enum|ElasticsearchExceptionHandle
 enum|enum
 name|ElasticsearchExceptionHandle
 block|{
-comment|// each exception gets an ordinal assigned that must never change. While the exception name can
+comment|// each exception gets an assigned id that must never change. While the exception name can
 comment|// change due to refactorings etc. like renaming we have to keep the ordinal<--> class mapping
 comment|// to deserialize the exception coming from another node or from an corruption marker on
 comment|// a corrupted index.
-comment|// NOTE: ONLY APPEND TO THE END and NEVER REMOVE EXCEPTIONS IN MINOR VERSIONS
+comment|// these exceptions can be ordered and removed, but (repeating) the ids must never change
+comment|// to remove an exception, remove the enum value below, and mark the id as null in ExceptionSerializationTests.testIds.ids
 DECL|enum constant|INDEX_SHARD_SNAPSHOT_FAILED_EXCEPTION
 name|INDEX_SHARD_SNAPSHOT_FAILED_EXCEPTION
 argument_list|(
