@@ -333,13 +333,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"script.engine.expression.file.aggs"
-argument_list|,
-literal|"off"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"script.engine.mustache.file.aggs"
 argument_list|,
 literal|"off"
