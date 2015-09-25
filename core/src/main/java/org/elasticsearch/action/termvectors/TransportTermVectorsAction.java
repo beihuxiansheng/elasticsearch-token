@@ -584,17 +584,9 @@ name|response
 init|=
 name|indexShard
 operator|.
-name|termVectorsService
-argument_list|()
-operator|.
 name|getTermVectors
 argument_list|(
 name|request
-argument_list|,
-name|shardId
-operator|.
-name|getIndex
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|response

@@ -330,7 +330,7 @@ name|index
 operator|.
 name|termvectors
 operator|.
-name|ShardTermVectorsService
+name|TermVectorsService
 import|;
 end_import
 
@@ -451,7 +451,7 @@ parameter_list|,
 name|CodecService
 name|codecService
 parameter_list|,
-name|ShardTermVectorsService
+name|TermVectorsService
 name|termVectorsService
 parameter_list|,
 name|IndexFieldDataService
