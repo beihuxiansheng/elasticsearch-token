@@ -1219,6 +1219,35 @@ name|resolvedAliasOrIndex
 argument_list|)
 return|;
 block|}
+comment|/**      * @return If the specified string is data math expression then this method returns the resolved expression.      */
+DECL|method|resolveDateMathExpression
+specifier|public
+name|String
+name|resolveDateMathExpression
+parameter_list|(
+name|String
+name|dateExpression
+parameter_list|)
+block|{
+comment|// The data math expression resolver doesn't rely on cluster state or indices options, because
+comment|// it just resolves the date math to an actual date.
+return|return
+name|dateMathExpressionResolver
+operator|.
+name|resolveExpression
+argument_list|(
+name|dateExpression
+argument_list|,
+operator|new
+name|Context
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Iterates through the list of indices and selects the effective list of filtering aliases for the      * given index.      *<p>Only aliases with filters are returned. If the indices list contains a non-filtering reference to      * the index itself - null is returned. Returns<tt>null</tt> if no filtering is required.      */
 DECL|method|filteringAliases
 specifier|public

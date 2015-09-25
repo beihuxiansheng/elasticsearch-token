@@ -2134,7 +2134,6 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|// TODO (MvG): No push: hppc or jcf?
 specifier|final
 name|Set
 argument_list|<

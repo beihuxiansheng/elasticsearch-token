@@ -330,7 +330,7 @@ name|index
 operator|.
 name|termvectors
 operator|.
-name|ShardTermVectorsService
+name|TermVectorsService
 import|;
 end_import
 
@@ -448,13 +448,10 @@ parameter_list|,
 name|IndicesQueryCache
 name|indicesQueryCache
 parameter_list|,
-name|ShardPercolateService
-name|shardPercolateService
-parameter_list|,
 name|CodecService
 name|codecService
 parameter_list|,
-name|ShardTermVectorsService
+name|TermVectorsService
 name|termVectorsService
 parameter_list|,
 name|IndexFieldDataService
@@ -515,8 +512,6 @@ argument_list|,
 name|indexAliasesService
 argument_list|,
 name|indicesQueryCache
-argument_list|,
-name|shardPercolateService
 argument_list|,
 name|codecService
 argument_list|,
