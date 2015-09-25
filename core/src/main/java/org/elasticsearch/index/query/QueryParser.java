@@ -18,44 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParsingException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -65,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Defines a query parser that is able to read and parse a query object in {@link org.elasticsearch.common.xcontent.XContent}  * format and create an internal object representing the query, implementing {@link QueryBuilder}, which can be streamed to other nodes.  */
 end_comment
 
 begin_interface
@@ -73,6 +35,14 @@ DECL|interface|QueryParser
 specifier|public
 interface|interface
 name|QueryParser
+parameter_list|<
+name|QB
+extends|extends
+name|QueryBuilder
+parameter_list|<
+name|QB
+parameter_list|>
+parameter_list|>
 block|{
 comment|/**      * The names this query parser is registered under.      */
 DECL|method|names
@@ -81,20 +51,22 @@ index|[]
 name|names
 parameter_list|()
 function_decl|;
-comment|/**      * Parses the into a query from the current parser location. Will be at "START_OBJECT" location,      * and should end when the token is at the matching "END_OBJECT".      *<p>      * Returns<tt>null</tt> if this query should be ignored in the context of the DSL.      */
-annotation|@
-name|Nullable
-DECL|method|parse
-name|Query
-name|parse
+comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryShardContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      */
+DECL|method|fromXContent
+name|QB
+name|fromXContent
 parameter_list|(
 name|QueryParseContext
 name|parseContext
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ParsingException
+function_decl|;
+comment|/**      * @return an empty {@link QueryBuilder} instance for this parser that can be used for deserialization      */
+DECL|method|getBuilderPrototype
+name|QB
+name|getBuilderPrototype
+parameter_list|()
 function_decl|;
 block|}
 end_interface

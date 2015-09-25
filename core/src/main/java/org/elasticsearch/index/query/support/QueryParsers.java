@@ -80,7 +80,7 @@ class|class
 name|QueryParsers
 block|{
 DECL|field|CONSTANT_SCORE
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -97,7 +97,7 @@ literal|"constant_score_filter"
 argument_list|)
 decl_stmt|;
 DECL|field|SCORING_BOOLEAN
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -110,7 +110,7 @@ literal|"scoring_boolean"
 argument_list|)
 decl_stmt|;
 DECL|field|CONSTANT_SCORE_BOOLEAN
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -123,7 +123,7 @@ literal|"constant_score_boolean"
 argument_list|)
 decl_stmt|;
 DECL|field|TOP_TERMS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -136,7 +136,7 @@ literal|"top_terms_"
 argument_list|)
 decl_stmt|;
 DECL|field|TOP_TERMS_BOOST
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|ParseField
@@ -149,7 +149,7 @@ literal|"top_terms_boost_"
 argument_list|)
 decl_stmt|;
 DECL|field|TOP_TERMS_BLENDED_FREQS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|ParseField

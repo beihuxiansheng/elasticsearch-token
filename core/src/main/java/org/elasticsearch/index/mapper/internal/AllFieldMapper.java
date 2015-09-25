@@ -322,7 +322,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -1147,7 +1147,7 @@ parameter_list|(
 name|Object
 name|value
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 block|{

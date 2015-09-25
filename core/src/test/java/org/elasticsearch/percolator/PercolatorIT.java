@@ -18,6 +18,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|join
+operator|.
+name|ScoreMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -376,7 +392,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|MatchQueryBuilder
+name|Operator
 import|;
 end_import
 
@@ -400,9 +416,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|ParsingException
+name|query
+operator|.
+name|QueryShardException
 import|;
 end_import
 
@@ -436,7 +454,7 @@ name|query
 operator|.
 name|support
 operator|.
-name|QueryInnerHitBuilder
+name|QueryInnerHits
 import|;
 end_import
 
@@ -13540,12 +13558,6 @@ name|setPercolateQuery
 argument_list|(
 name|functionScoreQuery
 argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|add
-argument_list|(
 operator|new
 name|WeightBuilder
 argument_list|()
@@ -13969,12 +13981,6 @@ operator|.
 name|setPercolateQuery
 argument_list|(
 name|functionScoreQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|add
 argument_list|(
 operator|new
 name|WeightBuilder
@@ -14413,12 +14419,6 @@ operator|.
 name|setPercolateQuery
 argument_list|(
 name|functionScoreQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|add
 argument_list|(
 operator|new
 name|WeightBuilder
@@ -14875,12 +14875,6 @@ operator|.
 name|setPercolateQuery
 argument_list|(
 name|functionScoreQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|add
 argument_list|(
 operator|new
 name|WeightBuilder
@@ -16932,7 +16926,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)
@@ -17007,7 +17001,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)
@@ -17397,8 +17391,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17407,7 +17399,9 @@ argument_list|)
 operator|.
 name|scoreMode
 argument_list|(
-literal|"avg"
+name|ScoreMode
+operator|.
+name|Avg
 argument_list|)
 argument_list|)
 operator|.
@@ -18503,7 +18497,7 @@ operator|.
 name|innerHit
 argument_list|(
 operator|new
-name|QueryInnerHitBuilder
+name|QueryInnerHits
 argument_list|()
 argument_list|)
 argument_list|)
@@ -18539,7 +18533,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)

@@ -60,6 +60,21 @@ name|isMemoryLocked
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns true if secure computing mode is enabled (linux/amd64 only)      */
+DECL|method|isSeccompInstalled
+specifier|public
+specifier|static
+name|boolean
+name|isSeccompInstalled
+parameter_list|()
+block|{
+return|return
+name|Natives
+operator|.
+name|isSeccompInstalled
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

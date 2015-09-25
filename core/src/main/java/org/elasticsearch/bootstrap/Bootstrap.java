@@ -459,6 +459,9 @@ name|boolean
 name|mlockAll
 parameter_list|,
 name|boolean
+name|seccomp
+parameter_list|,
+name|boolean
 name|ctrlHandler
 parameter_list|)
 block|{
@@ -517,6 +520,18 @@ literal|"don't run elasticsearch as root."
 argument_list|)
 throw|;
 block|}
+block|}
+comment|// enable secure computing mode
+if|if
+condition|(
+name|seccomp
+condition|)
+block|{
+name|Natives
+operator|.
+name|trySeccomp
+argument_list|()
+expr_stmt|;
 block|}
 comment|// mlockall if requested
 if|if
@@ -669,6 +684,15 @@ argument_list|(
 literal|"bootstrap.mlockall"
 argument_list|,
 literal|false
+argument_list|)
+argument_list|,
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"bootstrap.seccomp"
+argument_list|,
+literal|true
 argument_list|)
 argument_list|,
 name|settings

@@ -56,7 +56,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ExistsQueryParser
+name|ExistsQueryBuilder
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -102,8 +102,8 @@ specifier|public
 name|Query
 name|query
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|String
 name|queryText
@@ -113,15 +113,13 @@ return|return
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-name|ExistsQueryParser
+name|ExistsQueryBuilder
 operator|.
 name|newFilter
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|queryText
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 return|;

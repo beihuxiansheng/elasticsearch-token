@@ -100,7 +100,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -367,18 +367,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 init|=
 name|searchContext
 operator|.
 name|queryParserService
 argument_list|()
 operator|.
-name|getParseContext
+name|getShardContext
 argument_list|()
 decl_stmt|;
-name|parseContext
+name|context
 operator|.
 name|reset
 argument_list|(
@@ -399,7 +399,7 @@ name|parseInnerHits
 argument_list|(
 name|parser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|searchContext
 argument_list|)
@@ -439,8 +439,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|SearchContext
 name|searchContext
@@ -566,7 +566,7 @@ name|parseInnerHit
 argument_list|(
 name|parser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|searchContext
 argument_list|,
@@ -612,8 +612,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|SearchContext
 name|searchContext
@@ -851,7 +851,7 @@ name|parseNested
 argument_list|(
 name|parser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|searchContext
 argument_list|,
@@ -873,7 +873,7 @@ name|parseParentChild
 argument_list|(
 name|parser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|searchContext
 argument_list|,
@@ -982,8 +982,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|SearchContext
 name|searchContext
@@ -1001,7 +1001,7 @@ name|parseSubSearchContext
 argument_list|(
 name|searchContext
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|parser
 argument_list|)
@@ -1059,7 +1059,7 @@ operator|.
 name|childInnerHits
 argument_list|()
 argument_list|,
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1078,8 +1078,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|SearchContext
 name|searchContext
@@ -1147,7 +1147,7 @@ block|}
 name|ObjectMapper
 name|parentObjectMapper
 init|=
-name|parseContext
+name|context
 operator|.
 name|nestedScope
 argument_list|()
@@ -1164,12 +1164,12 @@ name|parseSubSearchContext
 argument_list|(
 name|searchContext
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|parser
 argument_list|)
 decl_stmt|;
-name|parseContext
+name|context
 operator|.
 name|nestedScope
 argument_list|()
@@ -1212,8 +1212,8 @@ parameter_list|(
 name|SearchContext
 name|searchContext
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|XContentParser
 name|parser
@@ -1326,7 +1326,7 @@ argument_list|()
 operator|.
 name|parseInnerQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 name|query
@@ -1336,7 +1336,7 @@ name|ParsedQuery
 argument_list|(
 name|q
 argument_list|,
-name|parseContext
+name|context
 operator|.
 name|copyNamedQueries
 argument_list|()
@@ -1360,7 +1360,7 @@ name|parseInnerHits
 argument_list|(
 name|parser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|searchContext
 argument_list|)

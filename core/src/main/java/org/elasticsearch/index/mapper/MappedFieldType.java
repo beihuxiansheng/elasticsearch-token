@@ -218,7 +218,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -2368,7 +2368,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Should the field query {@link #termQuery(Object, org.elasticsearch.index.query.QueryParseContext)}  be used when detecting this      * field in query string.      */
+comment|/**      * Should the field query {@link #termQuery(Object, org.elasticsearch.index.query.QueryShardContext)}  be used when detecting this      * field in query string.      */
 DECL|method|useTermQueryWithQueryString
 specifier|public
 name|boolean
@@ -2416,7 +2416,7 @@ name|value
 parameter_list|,
 annotation|@
 name|Nullable
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 block|{
@@ -2441,7 +2441,7 @@ name|values
 parameter_list|,
 annotation|@
 name|Nullable
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 block|{
@@ -2627,7 +2627,7 @@ name|method
 parameter_list|,
 annotation|@
 name|Nullable
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 block|{
@@ -2685,7 +2685,7 @@ name|method
 parameter_list|,
 annotation|@
 name|Nullable
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 block|{

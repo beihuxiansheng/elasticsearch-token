@@ -16,16 +16,27 @@ name|query
 package|;
 end_package
 
-begin_class
-DECL|class|SpanQueryBuilder
+begin_comment
+comment|/**  * Marker interface for a specific type of {@link QueryBuilder} that allows to build span queries  */
+end_comment
+
+begin_interface
+DECL|interface|SpanQueryBuilder
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|SpanQueryBuilder
+parameter_list|<
+name|QB
+extends|extends
+name|SpanQueryBuilder
+parameter_list|>
 extends|extends
 name|QueryBuilder
+argument_list|<
+name|QB
+argument_list|>
 block|{  }
-end_class
+end_interface
 
 end_unit
 

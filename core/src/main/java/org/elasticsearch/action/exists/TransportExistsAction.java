@@ -314,7 +314,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -1278,7 +1278,7 @@ condition|)
 block|{
 try|try
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypes
 argument_list|(
@@ -1306,7 +1306,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|removeTypes
 argument_list|()

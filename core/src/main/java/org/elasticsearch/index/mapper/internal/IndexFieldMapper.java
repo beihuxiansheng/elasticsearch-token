@@ -288,7 +288,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -902,7 +902,7 @@ name|value
 parameter_list|,
 annotation|@
 name|Nullable
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 block|{
@@ -967,7 +967,7 @@ parameter_list|(
 name|List
 name|values
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 block|{

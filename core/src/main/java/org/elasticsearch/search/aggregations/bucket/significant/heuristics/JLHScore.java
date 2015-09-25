@@ -110,9 +110,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|ParsingException
+name|query
+operator|.
+name|QueryShardException
 import|;
 end_import
 
@@ -436,7 +438,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|ParsingException
+name|QueryShardException
 block|{
 comment|// move to the closing bracket
 if|if

@@ -104,6 +104,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -350,19 +362,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParsingException
+name|QueryShardContext
 import|;
 end_import
 
@@ -1254,7 +1254,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypesWithPrevious
 argument_list|(
@@ -1267,12 +1267,12 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|QueryParseContext
+name|QueryShardContext
 name|context
 init|=
 name|queryParserService
 operator|.
-name|getParseContext
+name|getShardContext
 argument_list|()
 decl_stmt|;
 try|try
@@ -1308,10 +1308,6 @@ operator|.
 name|setMapUnmappedFieldAsString
 argument_list|(
 name|mapUnmappedFieldsAsString
-condition|?
-literal|true
-else|:
-literal|false
 argument_list|)
 expr_stmt|;
 return|return
@@ -1333,7 +1329,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1350,7 +1349,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypes
 argument_list|(

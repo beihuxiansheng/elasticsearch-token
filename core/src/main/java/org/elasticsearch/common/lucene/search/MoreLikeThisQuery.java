@@ -1606,10 +1606,8 @@ specifier|public
 name|void
 name|setUnlikeText
 parameter_list|(
-name|List
-argument_list|<
 name|String
-argument_list|>
+index|[]
 name|unlikeText
 parameter_list|)
 block|{
@@ -1618,13 +1616,6 @@ operator|.
 name|unlikeText
 operator|=
 name|unlikeText
-operator|.
-name|toArray
-argument_list|(
-name|Strings
-operator|.
-name|EMPTY_ARRAY
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getMoreLikeFields

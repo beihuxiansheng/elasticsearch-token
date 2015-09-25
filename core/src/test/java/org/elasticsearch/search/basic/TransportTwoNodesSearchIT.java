@@ -3751,7 +3751,7 @@ argument_list|()
 operator|.
 name|prepareMultiSearch
 argument_list|()
-comment|// Add function score with a bogus score mode
+comment|// Add geo distance range query against a field that doesn't exist (should be a geo point for the query to work)
 operator|.
 name|add
 argument_list|(
@@ -3767,21 +3767,23 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|functionScoreQuery
+name|geoDistanceRangeQuery
 argument_list|(
-name|QueryBuilders
-operator|.
-name|termQuery
-argument_list|(
-literal|"nid"
+literal|"non_existing_field"
+argument_list|,
+literal|1
 argument_list|,
 literal|1
 argument_list|)
+operator|.
+name|from
+argument_list|(
+literal|10
 argument_list|)
 operator|.
-name|scoreMode
+name|to
 argument_list|(
-literal|"foobar"
+literal|15
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4016,10 +4018,7 @@ literal|"nid"
 argument_list|,
 literal|1
 argument_list|)
-argument_list|)
-operator|.
-name|add
-argument_list|(
+argument_list|,
 operator|new
 name|ScriptScoreFunctionBuilder
 argument_list|(
