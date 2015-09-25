@@ -32,6 +32,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexCommit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -269,20 +283,6 @@ operator|.
 name|concurrent
 operator|.
 name|ConcurrentCollections
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|deletionpolicy
-operator|.
-name|SnapshotIndexCommit
 import|;
 end_import
 
@@ -2208,7 +2208,7 @@ block|}
 try|try
 block|{
 comment|// we flush first to make sure we get the latest writes snapshotted
-name|SnapshotIndexCommit
+name|IndexCommit
 name|snapshotIndexCommit
 init|=
 name|indexShard
@@ -2360,10 +2360,12 @@ block|}
 block|}
 finally|finally
 block|{
-name|snapshotIndexCommit
+name|indexShard
 operator|.
-name|close
-argument_list|()
+name|releaseSnapshot
+argument_list|(
+name|snapshotIndexCommit
+argument_list|)
 expr_stmt|;
 block|}
 block|}
