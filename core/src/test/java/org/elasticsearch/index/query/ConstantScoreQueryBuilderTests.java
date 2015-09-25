@@ -84,7 +84,19 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -199,9 +211,12 @@ operator|.
 name|getQuery
 argument_list|()
 argument_list|,
-name|equalTo
+name|instanceOf
 argument_list|(
 name|innerQuery
+operator|.
+name|getClass
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

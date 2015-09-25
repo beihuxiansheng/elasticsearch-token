@@ -890,6 +890,13 @@ name|query
 init|=
 literal|null
 decl_stmt|;
+name|String
+name|rewrite
+init|=
+name|this
+operator|.
+name|rewrite
+decl_stmt|;
 if|if
 condition|(
 name|rewrite
