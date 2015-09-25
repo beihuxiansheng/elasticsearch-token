@@ -90,18 +90,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|aliases
 operator|.
 name|IndexAliasesService
@@ -427,9 +415,6 @@ parameter_list|,
 name|IndexFieldDataService
 name|indexFieldDataService
 parameter_list|,
-name|IndexService
-name|indexService
-parameter_list|,
 annotation|@
 name|Nullable
 name|IndicesWarmer
@@ -485,8 +470,6 @@ argument_list|,
 name|termVectorsService
 argument_list|,
 name|indexFieldDataService
-argument_list|,
-name|indexService
 argument_list|,
 name|warmer
 argument_list|,
