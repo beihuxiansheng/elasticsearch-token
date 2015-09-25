@@ -974,7 +974,12 @@ operator|=
 operator|new
 name|BoundTransportAddress
 argument_list|(
+operator|new
+name|TransportAddress
+index|[]
+block|{
 name|localAddress
+block|}
 argument_list|,
 name|localAddress
 argument_list|)

@@ -608,11 +608,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-DECL|field|parseFieldMatcher
-specifier|private
-name|ParseFieldMatcher
-name|parseFieldMatcher
-decl_stmt|;
 DECL|field|allowUnmappedFields
 specifier|private
 name|boolean
@@ -628,7 +623,6 @@ specifier|private
 name|NestedScope
 name|nestedScope
 decl_stmt|;
-comment|//norelease this should be possible to remove once query context are completely separated
 DECL|field|parseContext
 specifier|private
 name|QueryParseContext
@@ -682,7 +676,10 @@ operator|=
 operator|new
 name|QueryParseContext
 argument_list|(
-name|this
+name|indexQueryParser
+operator|.
+name|indicesQueriesRegistry
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -695,13 +692,6 @@ name|ParseFieldMatcher
 name|parseFieldMatcher
 parameter_list|)
 block|{
-comment|//norelease ParseFieldMatcher is currently duplicated, this should be cleaned up
-name|this
-operator|.
-name|parseFieldMatcher
-operator|=
-name|parseFieldMatcher
-expr_stmt|;
 name|this
 operator|.
 name|parseContext
@@ -719,7 +709,10 @@ name|parseFieldMatcher
 parameter_list|()
 block|{
 return|return
+name|parseContext
+operator|.
 name|parseFieldMatcher
+argument_list|()
 return|;
 block|}
 DECL|method|reset
@@ -766,7 +759,6 @@ name|NestedScope
 argument_list|()
 expr_stmt|;
 block|}
-comment|//norelease remove parser argument once query contexts are separated
 DECL|method|reset
 specifier|public
 name|void
@@ -803,7 +795,6 @@ operator|.
 name|index
 return|;
 block|}
-comment|//norelease we might be able to avoid exposing the service to the outside world once all queries are refactored
 DECL|method|indexQueryParserService
 specifier|public
 name|IndexQueryParserService

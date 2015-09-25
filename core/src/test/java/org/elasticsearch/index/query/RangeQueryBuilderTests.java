@@ -1806,6 +1806,18 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
 name|long
 name|startDate
 init|=

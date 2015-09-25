@@ -36,32 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Requests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -83,20 +57,6 @@ operator|.
 name|xcontent
 operator|.
 name|ToXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentType
 import|;
 end_import
 
@@ -149,13 +109,6 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-comment|/**      * Returns a {@link org.elasticsearch.common.bytes.BytesReference}      * containing the {@link ToXContent} output in binary format.      * Builds the request based on the default {@link XContentType}, either {@link Requests#CONTENT_TYPE} or provided as a constructor argument      */
-comment|//norelease once we move to serializing queries over the wire in Streamable format, this method shouldn't be needed anymore
-DECL|method|buildAsBytes
-name|BytesReference
-name|buildAsBytes
-parameter_list|()
 function_decl|;
 comment|/**      * Sets the arbitrary name to be assigned to the query (see named queries).      */
 DECL|method|queryName

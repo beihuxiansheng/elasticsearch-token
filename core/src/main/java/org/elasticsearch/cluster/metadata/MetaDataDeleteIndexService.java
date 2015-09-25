@@ -64,7 +64,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|TimeoutClusterStateUpdateTask
+name|ClusterStateUpdateTask
 import|;
 end_import
 
@@ -607,7 +607,7 @@ operator|.
 name|URGENT
 argument_list|,
 operator|new
-name|TimeoutClusterStateUpdateTask
+name|ClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@

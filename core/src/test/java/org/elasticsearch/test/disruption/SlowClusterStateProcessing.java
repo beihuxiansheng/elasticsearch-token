@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterStateNonMasterUpdateTask
+name|ClusterStateUpdateTask
 import|;
 end_import
 
@@ -501,9 +501,20 @@ operator|.
 name|IMMEDIATE
 argument_list|,
 operator|new
-name|ClusterStateNonMasterUpdateTask
+name|ClusterStateUpdateTask
 argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|runOnlyOnMaster
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 annotation|@
 name|Override
 specifier|public

@@ -280,6 +280,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|MockScriptEngine
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|Script
 import|;
 end_import
@@ -293,20 +305,6 @@ operator|.
 name|script
 operator|.
 name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|expression
-operator|.
-name|ExpressionScriptEngineService
 import|;
 end_import
 
@@ -348,7 +346,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Collections
 import|;
 end_import
 
@@ -947,6 +945,8 @@ literal|2
 case|:
 name|String
 name|script
+init|=
+literal|"5"
 decl_stmt|;
 name|Map
 argument_list|<
@@ -956,42 +956,11 @@ name|Object
 argument_list|>
 name|params
 init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|script
-operator|=
-literal|"5 * 2> param"
-expr_stmt|;
-name|params
-operator|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-expr_stmt|;
-name|params
+name|Collections
 operator|.
-name|put
-argument_list|(
-literal|"param"
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|script
-operator|=
-literal|"5 * 2> 2"
-expr_stmt|;
-block|}
+name|emptyMap
+argument_list|()
+decl_stmt|;
 name|functionBuilder
 operator|=
 operator|new
@@ -1008,7 +977,7 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-name|ExpressionScriptEngineService
+name|MockScriptEngine
 operator|.
 name|NAME
 argument_list|,
@@ -2557,7 +2526,7 @@ literal|"    \"function_score\": {\n"
 operator|+
 literal|"      \"script_score\": {\n"
 operator|+
-literal|"        \"script\": \"_index['text']['foo'].tf()\"\n"
+literal|"        \"script\": \"5\"\n"
 operator|+
 literal|"      },\n"
 operator|+

@@ -232,10 +232,10 @@ name|ESTestCase
 block|{
 annotation|@
 name|Test
-DECL|method|testImmutableMapDiff
+DECL|method|testJdkMapDiff
 specifier|public
 name|void
-name|testImmutableMapDiff
+name|testJdkMapDiff
 parameter_list|()
 throws|throws
 name|IOException
@@ -414,7 +414,7 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -424,7 +424,7 @@ name|serialized
 init|=
 name|DiffableUtils
 operator|.
-name|readImmutableMapDiff
+name|readJdkMapDiff
 argument_list|(
 name|in
 argument_list|,

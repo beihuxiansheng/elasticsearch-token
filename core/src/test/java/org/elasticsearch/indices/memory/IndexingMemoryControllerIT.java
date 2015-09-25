@@ -94,20 +94,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|SegmentsStats
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|IndexShard
@@ -159,6 +145,18 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutionException
 import|;
 end_import
 
@@ -502,6 +500,8 @@ name|testIndexBufferSizeUpdateInactiveShard
 parameter_list|()
 throws|throws
 name|InterruptedException
+throws|,
+name|ExecutionException
 block|{
 name|createNode
 argument_list|(
@@ -573,6 +573,44 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> indexing some pending operations"
+argument_list|)
+expr_stmt|;
+name|indexRandom
+argument_list|(
+literal|false
+argument_list|,
+name|client
+argument_list|()
+operator|.
+name|prepareIndex
+argument_list|(
+literal|"test1"
+argument_list|,
+literal|"type"
+argument_list|,
+literal|"0"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+literal|"f"
+argument_list|,
+literal|"0"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|success
 init|=
@@ -685,7 +723,7 @@ condition|)
 block|{
 name|fail
 argument_list|(
-literal|"failed to update shard indexing buffer size due to inactive state. expected something larger then ["
+literal|"failed to update shard indexing buffer size due to active state. expected something larger then ["
 operator|+
 name|EngineConfig
 operator|.
@@ -711,10 +749,24 @@ literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> flushing translogs"
+argument_list|)
+expr_stmt|;
 name|flush
 argument_list|()
 expr_stmt|;
 comment|// clean translogs
+block|}
 name|success
 operator|=
 name|awaitBusy

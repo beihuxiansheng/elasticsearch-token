@@ -296,6 +296,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -585,7 +595,7 @@ block|}
 comment|/**      * Attributes different services in the node can add to be reported as part of the node info (for example).      */
 DECL|method|attributes
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

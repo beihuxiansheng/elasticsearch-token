@@ -1229,7 +1229,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|//norelease this method parses from xcontent to lucene query, need to re-investigate how to split context here
 DECL|method|parseQuery
 specifier|private
 name|Query

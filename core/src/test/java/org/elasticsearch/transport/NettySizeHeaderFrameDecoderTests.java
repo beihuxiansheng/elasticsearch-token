@@ -467,13 +467,16 @@ init|=
 operator|(
 name|InetSocketTransportAddress
 operator|)
+name|randomFrom
+argument_list|(
 name|nettyTransport
 operator|.
 name|boundAddress
 argument_list|()
 operator|.
-name|boundAddress
+name|boundAddresses
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|port
 operator|=

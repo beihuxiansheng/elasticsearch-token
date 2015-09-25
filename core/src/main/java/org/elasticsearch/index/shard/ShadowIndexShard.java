@@ -660,6 +660,19 @@ name|config
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|shouldFlush
+specifier|public
+name|boolean
+name|shouldFlush
+parameter_list|()
+block|{
+comment|// we don't need to flush since we don't write - all dominated by the primary
+return|return
+literal|false
+return|;
+block|}
 DECL|method|allowsPrimaryPromotion
 specifier|public
 name|boolean

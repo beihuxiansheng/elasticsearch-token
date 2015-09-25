@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ProcessedClusterStateNonMasterUpdateTask
+name|ClusterStateUpdateTask
 import|;
 end_import
 
@@ -1693,7 +1693,7 @@ operator|+
 literal|"])"
 argument_list|,
 operator|new
-name|ProcessedClusterStateNonMasterUpdateTask
+name|ClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@
@@ -1722,23 +1722,6 @@ condition|(
 operator|!
 name|nodes
 operator|.
-name|localNodeMaster
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|NotMasterException
-argument_list|(
-literal|"local node is not master"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-operator|!
-name|nodes
-operator|.
 name|nodeExists
 argument_list|(
 name|request
@@ -1756,6 +1739,28 @@ block|}
 return|return
 name|currentState
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onNoLongerMaster
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+block|{
+name|onFailure
+argument_list|(
+name|source
+argument_list|,
+operator|new
+name|NotMasterException
+argument_list|(
+literal|"local node is not master"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

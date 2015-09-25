@@ -434,7 +434,7 @@ decl_stmt|;
 DECL|field|shards
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -538,7 +538,7 @@ block|}
 comment|/**          * Returns list of shards that being restore and their status          *          * @return list of shards          */
 DECL|method|shards
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,

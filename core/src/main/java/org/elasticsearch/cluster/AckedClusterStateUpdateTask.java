@@ -94,7 +94,7 @@ parameter_list|<
 name|Response
 parameter_list|>
 extends|extends
-name|TimeoutClusterStateUpdateTask
+name|ClusterStateUpdateTask
 block|{
 DECL|field|listener
 specifier|private
@@ -225,23 +225,6 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|clusterStateProcessed
-specifier|public
-name|void
-name|clusterStateProcessed
-parameter_list|(
-name|String
-name|source
-parameter_list|,
-name|ClusterState
-name|oldState
-parameter_list|,
-name|ClusterState
-name|newState
-parameter_list|)
-block|{      }
 comment|/**      * Acknowledgement timeout, maximum time interval to wait for acknowledgements      */
 DECL|method|ackTimeout
 specifier|public

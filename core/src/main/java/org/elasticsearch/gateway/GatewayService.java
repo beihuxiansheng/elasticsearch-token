@@ -1417,7 +1417,7 @@ argument_list|(
 literal|"local-gateway-elected-state"
 argument_list|,
 operator|new
-name|ProcessedClusterStateUpdateTask
+name|ClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@
