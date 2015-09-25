@@ -448,9 +448,6 @@ parameter_list|,
 name|IndicesQueryCache
 name|indicesQueryCache
 parameter_list|,
-name|ShardPercolateService
-name|shardPercolateService
-parameter_list|,
 name|CodecService
 name|codecService
 parameter_list|,
@@ -515,8 +512,6 @@ argument_list|,
 name|indexAliasesService
 argument_list|,
 name|indicesQueryCache
-argument_list|,
-name|shardPercolateService
 argument_list|,
 name|codecService
 argument_list|,
