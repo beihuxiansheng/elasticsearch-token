@@ -881,9 +881,31 @@ name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
-comment|// The index was created with elasticsearch that was using Lucene 4.0
+comment|// The index was created with elasticsearch that was using Lucene 5.2.1
 return|return
 literal|true
+return|;
+block|}
+if|if
+condition|(
+name|indexMetaData
+operator|.
+name|getUpgradeVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0_beta1
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// early terminate if we are not upgrade - we don't even need to look at the segment version
+return|return
+literal|false
 return|;
 block|}
 if|if
@@ -912,7 +934,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_4_0_0
+name|LUCENE_5_0_0
 argument_list|)
 condition|)
 block|{
