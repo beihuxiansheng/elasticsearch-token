@@ -418,8 +418,11 @@ operator|.
 name|boundAddress
 argument_list|()
 operator|.
-name|boundAddress
+name|boundAddresses
 argument_list|()
+index|[
+literal|0
+index|]
 argument_list|,
 name|action
 argument_list|,

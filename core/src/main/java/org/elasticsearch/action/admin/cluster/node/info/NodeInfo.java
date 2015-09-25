@@ -258,7 +258,7 @@ annotation|@
 name|Nullable
 DECL|field|serviceAttributes
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -518,7 +518,7 @@ annotation|@
 name|Nullable
 DECL|method|getServiceAttributes
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

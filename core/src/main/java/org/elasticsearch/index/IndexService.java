@@ -570,20 +570,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesLifecycle
@@ -2601,19 +2587,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// now we can close the translog service, we need to close it before the we close the shard
-comment|// note the that the translog service is not there for shadow replicas
-name|closeInjectorOptionalResource
-argument_list|(
-name|sId
-argument_list|,
-name|shardInjector
-argument_list|,
-name|TranslogService
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 comment|// this logic is tricky, we want to close the engine so we rollback the changes done to it
 comment|// and close the shard so no operations are allowed to it
 if|if

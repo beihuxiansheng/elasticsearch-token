@@ -517,7 +517,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.ping_timeout"
+name|ZenDiscovery
+operator|.
+name|SETTING_PING_TIMEOUT
 argument_list|,
 literal|"200ms"
 argument_list|)
@@ -1778,7 +1780,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.ping_timeout"
+name|ZenDiscovery
+operator|.
+name|SETTING_PING_TIMEOUT
 argument_list|,
 literal|"1s"
 argument_list|)
@@ -2405,7 +2409,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.ping_timeout"
+name|ZenDiscovery
+operator|.
+name|SETTING_PING_TIMEOUT
 argument_list|,
 literal|"400ms"
 argument_list|)
@@ -2812,7 +2818,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.ping_timeout"
+name|ZenDiscovery
+operator|.
+name|SETTING_PING_TIMEOUT
 argument_list|,
 literal|"200ms"
 argument_list|)
@@ -3310,7 +3318,7 @@ argument_list|(
 literal|"test"
 argument_list|,
 operator|new
-name|ProcessedClusterStateUpdateTask
+name|ClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@

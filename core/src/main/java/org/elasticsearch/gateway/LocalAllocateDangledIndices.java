@@ -46,7 +46,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ProcessedClusterStateUpdateTask
+name|ClusterStateUpdateTask
 import|;
 end_import
 
@@ -703,7 +703,7 @@ name|indexNames
 argument_list|)
 argument_list|,
 operator|new
-name|ProcessedClusterStateUpdateTask
+name|ClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@

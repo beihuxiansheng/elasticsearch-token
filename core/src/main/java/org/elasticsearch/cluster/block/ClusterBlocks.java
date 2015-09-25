@@ -246,7 +246,7 @@ decl_stmt|;
 DECL|field|indicesBlocks
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -273,7 +273,7 @@ name|ClusterBlock
 argument_list|>
 name|global
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -498,7 +498,7 @@ return|;
 block|}
 DECL|method|indices
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -541,7 +541,7 @@ return|;
 block|}
 DECL|method|indices
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

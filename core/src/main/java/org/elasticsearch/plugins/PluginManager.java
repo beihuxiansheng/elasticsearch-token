@@ -512,6 +512,8 @@ literal|"discovery-ec2"
 argument_list|,
 literal|"discovery-multicast"
 argument_list|,
+literal|"lang-expression"
+argument_list|,
 literal|"lang-javascript"
 argument_list|,
 literal|"lang-python"

@@ -822,6 +822,44 @@ literal|"--"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|arg
+operator|.
+name|startsWith
+argument_list|(
+literal|"-D"
+argument_list|)
+operator|||
+name|arg
+operator|.
+name|startsWith
+argument_list|(
+literal|"-d"
+argument_list|)
+operator|||
+name|arg
+operator|.
+name|startsWith
+argument_list|(
+literal|"-p"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter ["
+operator|+
+name|arg
+operator|+
+literal|"] starting with \"-D\", \"-d\" or \"-p\" must be before any parameters starting with --"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -833,6 +871,7 @@ operator|+
 literal|"]does not start with --"
 argument_list|)
 throw|;
+block|}
 block|}
 comment|// if there is no = sign, we have to get the next argu
 name|arg

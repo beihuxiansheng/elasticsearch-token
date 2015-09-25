@@ -224,6 +224,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * Meta data about snapshots that are currently executing  */
 end_comment
@@ -367,7 +379,7 @@ decl_stmt|;
 DECL|field|shards
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -387,7 +399,7 @@ decl_stmt|;
 DECL|field|waitingIndices
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -426,7 +438,7 @@ parameter_list|,
 name|long
 name|startTime
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -497,7 +509,10 @@ name|this
 operator|.
 name|shards
 operator|=
+name|unmodifiableMap
+argument_list|(
 name|shards
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -520,7 +535,7 @@ parameter_list|,
 name|State
 name|state
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -560,7 +575,7 @@ parameter_list|(
 name|Entry
 name|entry
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -595,7 +610,7 @@ return|;
 block|}
 DECL|method|shards
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -635,7 +650,7 @@ return|;
 block|}
 DECL|method|waitingIndices
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -923,7 +938,7 @@ argument_list|>
 argument_list|>
 name|findWaitingIndices
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,

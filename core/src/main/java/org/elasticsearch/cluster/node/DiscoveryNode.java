@@ -569,7 +569,7 @@ name|address
 decl_stmt|;
 DECL|field|attributes
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -613,14 +613,9 @@ name|nodeId
 argument_list|,
 name|address
 argument_list|,
-name|ImmutableMap
+name|Collections
 operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|version
@@ -933,7 +928,7 @@ block|}
 comment|/**      * The node attributes.      */
 DECL|method|attributes
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -951,7 +946,7 @@ block|}
 comment|/**      * The node attributes.      */
 DECL|method|getAttributes
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

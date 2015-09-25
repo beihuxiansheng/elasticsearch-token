@@ -90,20 +90,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|expression
-operator|.
-name|ExpressionScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|groovy
 operator|.
 name|GroovyScriptEngineService
@@ -254,6 +240,10 @@ name|notNullValue
 import|;
 end_import
 
+begin_comment
+comment|// TODO: this needs to be a base test class, and all scripting engines extend it
+end_comment
+
 begin_class
 DECL|class|ScriptModesTests
 specifier|public
@@ -281,10 +271,6 @@ operator|.
 name|NAME
 argument_list|,
 name|MustacheScriptEngineService
-operator|.
-name|NAME
-argument_list|,
-name|ExpressionScriptEngineService
 operator|.
 name|NAME
 argument_list|,
@@ -536,14 +522,6 @@ operator|.
 name|EMPTY
 argument_list|)
 argument_list|,
-operator|new
-name|ExpressionScriptEngineService
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|)
-argument_list|,
 comment|//add the native engine just to make sure it gets filtered out
 operator|new
 name|NativeScriptEngineService
@@ -657,7 +635,7 @@ comment|//4 is the number of engines (native excluded), custom is counted twice 
 name|int
 name|numberOfSettings
 init|=
-literal|5
+literal|4
 operator|*
 name|ScriptType
 operator|.

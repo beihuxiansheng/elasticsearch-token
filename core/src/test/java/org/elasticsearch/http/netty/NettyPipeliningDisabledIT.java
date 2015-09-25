@@ -369,13 +369,16 @@ init|=
 operator|(
 name|InetSocketTransportAddress
 operator|)
+name|randomFrom
+argument_list|(
 name|httpServerTransport
 operator|.
 name|boundAddress
 argument_list|()
 operator|.
-name|boundAddress
+name|boundAddresses
 argument_list|()
+argument_list|)
 decl_stmt|;
 try|try
 init|(

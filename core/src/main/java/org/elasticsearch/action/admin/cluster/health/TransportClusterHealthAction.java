@@ -452,7 +452,7 @@ name|waitForEvents
 argument_list|()
 argument_list|,
 operator|new
-name|ProcessedClusterStateUpdateTask
+name|ClusterStateUpdateTask
 argument_list|()
 block|{
 annotation|@
