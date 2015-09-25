@@ -1644,7 +1644,7 @@ name|action
 operator|.
 name|admin
 operator|.
-name|indices
+name|cluster
 operator|.
 name|validate
 operator|.
@@ -1664,7 +1664,7 @@ name|action
 operator|.
 name|admin
 operator|.
-name|indices
+name|cluster
 operator|.
 name|validate
 operator|.
@@ -1684,7 +1684,7 @@ name|action
 operator|.
 name|admin
 operator|.
-name|indices
+name|cluster
 operator|.
 name|validate
 operator|.

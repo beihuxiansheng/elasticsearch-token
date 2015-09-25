@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.validate.template
+DECL|package|org.elasticsearch.action.admin.cluster.validate.template
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|action
 operator|.
 name|admin
 operator|.
-name|indices
+name|cluster
 operator|.
 name|validate
 operator|.
