@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -133,6 +119,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
 import|;
 end_import
 
@@ -338,9 +336,7 @@ name|getConvertersThisLevel
 parameter_list|()
 block|{
 return|return
-name|ImmutableSet
-operator|.
-name|of
+name|emptySet
 argument_list|()
 return|;
 block|}

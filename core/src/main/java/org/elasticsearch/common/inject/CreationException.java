@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -87,7 +73,7 @@ block|{
 DECL|field|messages
 specifier|private
 specifier|final
-name|ImmutableSet
+name|Collection
 argument_list|<
 name|Message
 argument_list|>
@@ -109,12 +95,7 @@ name|this
 operator|.
 name|messages
 operator|=
-name|ImmutableSet
-operator|.
-name|copyOf
-argument_list|(
 name|messages
-argument_list|)
 expr_stmt|;
 if|if
 condition|(

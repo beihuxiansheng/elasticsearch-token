@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -405,6 +391,30 @@ operator|.
 name|util
 operator|.
 name|Locale
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableList
 import|;
 end_import
 
@@ -1590,9 +1600,7 @@ block|}
 else|else
 block|{
 return|return
-name|ImmutableSet
-operator|.
-name|of
+name|emptySet
 argument_list|()
 return|;
 block|}
@@ -2312,7 +2320,10 @@ block|}
 argument_list|)
 expr_stmt|;
 return|return
+name|unmodifiableList
+argument_list|(
 name|result
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns the formatted message for an exception with the specified messages.      */

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -126,9 +112,45 @@ name|Reader
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
+import|;
+end_import
 
 begin_class
 DECL|class|HtmlStripCharFilterFactory
@@ -141,7 +163,7 @@ block|{
 DECL|field|escapedTags
 specifier|private
 specifier|final
-name|ImmutableSet
+name|Set
 argument_list|<
 name|String
 argument_list|>
@@ -205,11 +227,12 @@ name|this
 operator|.
 name|escapedTags
 operator|=
-name|ImmutableSet
-operator|.
-name|copyOf
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 name|escapedTags
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -225,7 +248,7 @@ block|}
 block|}
 DECL|method|escapedTags
 specifier|public
-name|ImmutableSet
+name|Set
 argument_list|<
 name|String
 argument_list|>

@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -288,6 +274,24 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|CoreMatchers
@@ -506,9 +510,7 @@ argument_list|)
 expr_stmt|;
 name|scriptEngineServices
 operator|=
-name|ImmutableSet
-operator|.
-name|of
+name|newHashSet
 argument_list|(
 operator|new
 name|TestEngineService

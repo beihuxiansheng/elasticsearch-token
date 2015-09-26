@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -138,22 +124,6 @@ name|inject
 operator|.
 name|spi
 operator|.
-name|InjectionPoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|spi
-operator|.
 name|TypeListenerBinding
 import|;
 end_import
@@ -237,6 +207,18 @@ operator|.
 name|util
 operator|.
 name|Objects
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
 import|;
 end_import
 
@@ -1008,12 +990,7 @@ argument_list|(
 name|value
 argument_list|)
 argument_list|,
-name|ImmutableSet
-operator|.
-expr|<
-name|InjectionPoint
-operator|>
-name|of
+name|emptySet
 argument_list|()
 argument_list|,
 name|value

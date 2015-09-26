@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -218,6 +204,48 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -262,9 +290,9 @@ name|String
 argument_list|>
 name|ALL_LANGS
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 name|GroovyScriptEngineService
 operator|.
@@ -277,6 +305,7 @@ argument_list|,
 literal|"custom"
 argument_list|,
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|ENABLE_VALUES
@@ -502,9 +531,7 @@ name|scriptEngines
 operator|=
 name|buildScriptEnginesByLangMap
 argument_list|(
-name|ImmutableSet
-operator|.
-name|of
+name|newHashSet
 argument_list|(
 operator|new
 name|GroovyScriptEngineService
@@ -1576,15 +1603,13 @@ name|DISABLE_VALUES
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|ImmutableSet
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|groovyLangSet
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|singleton
 argument_list|(
 name|GroovyScriptEngineService
 operator|.
@@ -1811,15 +1836,13 @@ name|ENABLE_VALUES
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|ImmutableSet
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|mustacheLangSet
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|singleton
 argument_list|(
 name|MustacheScriptEngineService
 operator|.

@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -145,6 +131,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
 import|;
 end_import
 
@@ -302,15 +300,7 @@ name|getDependencies
 parameter_list|()
 block|{
 return|return
-name|ImmutableSet
-operator|.
-expr|<
-name|Dependency
-argument_list|<
-name|?
-argument_list|>
-operator|>
-name|of
+name|singleton
 argument_list|(
 name|Dependency
 operator|.

@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -271,6 +257,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
 import|;
 end_import
 
@@ -1215,15 +1213,7 @@ name|fields
 argument_list|,
 name|equalTo
 argument_list|(
-operator|(
-name|Set
-argument_list|<
-name|String
-argument_list|>
-operator|)
-name|ImmutableSet
-operator|.
-name|of
+name|singleton
 argument_list|(
 literal|"obj1.field1"
 argument_list|)
@@ -1426,15 +1416,7 @@ name|fields
 argument_list|,
 name|equalTo
 argument_list|(
-operator|(
-name|Set
-argument_list|<
-name|String
-argument_list|>
-operator|)
-name|ImmutableSet
-operator|.
-name|of
+name|singleton
 argument_list|(
 literal|"obj1.field1"
 argument_list|)

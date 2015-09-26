@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -178,6 +164,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
+import|;
+end_import
+
 begin_class
 DECL|class|HighlightUtils
 specifier|public
@@ -276,9 +274,7 @@ init|=
 operator|new
 name|CustomFieldsVisitor
 argument_list|(
-name|ImmutableSet
-operator|.
-name|of
+name|singleton
 argument_list|(
 name|mapper
 operator|.

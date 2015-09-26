@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -172,6 +158,16 @@ name|IndexSettings
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&amp;  * data-structures per field. Elasticsearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *  */
 end_comment
@@ -193,7 +189,7 @@ decl_stmt|;
 DECL|field|codecs
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
