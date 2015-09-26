@@ -1303,8 +1303,16 @@ name|builder
 operator|.
 name|string
 argument_list|()
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\r\\n"
+argument_list|,
+literal|"\n"
+argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// jackson uses system linefeed - will fail on windows otherwise
 block|}
 block|}
 end_class
