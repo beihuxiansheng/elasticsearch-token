@@ -66,6 +66,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|SnapshotDeletionPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|QueryCache
@@ -181,20 +195,6 @@ operator|.
 name|codec
 operator|.
 name|CodecService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|deletionpolicy
-operator|.
-name|SnapshotDeletionPolicy
 import|;
 end_import
 
@@ -1201,7 +1201,7 @@ return|return
 name|store
 return|;
 block|}
-comment|/**      * Returns a {@link org.elasticsearch.index.deletionpolicy.SnapshotDeletionPolicy} used in the engines      * {@link org.apache.lucene.index.IndexWriter}.      */
+comment|/**      * Returns a {@link SnapshotDeletionPolicy} used in the engines      * {@link org.apache.lucene.index.IndexWriter}.      */
 DECL|method|getDeletionPolicy
 specifier|public
 name|SnapshotDeletionPolicy
