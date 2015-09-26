@@ -22,20 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
-operator|.
-name|gce
-operator|.
-name|GceModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -52,11 +38,11 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
-name|cloud
+name|discovery
 operator|.
 name|gce
 operator|.
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 import|;
 end_import
 
@@ -135,7 +121,7 @@ decl_stmt|;
 name|boolean
 name|discoveryReady
 init|=
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 operator|.
 name|isDiscoveryAlive
 argument_list|(
@@ -171,7 +157,7 @@ decl_stmt|;
 name|boolean
 name|discoveryReady
 init|=
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 operator|.
 name|isDiscoveryAlive
 argument_list|(
@@ -209,7 +195,7 @@ argument_list|()
 expr_stmt|;
 name|discoveryReady
 operator|=
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 operator|.
 name|isDiscoveryAlive
 argument_list|(
@@ -254,7 +240,7 @@ argument_list|()
 expr_stmt|;
 name|discoveryReady
 operator|=
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 operator|.
 name|isDiscoveryAlive
 argument_list|(
@@ -301,7 +287,7 @@ argument_list|()
 expr_stmt|;
 name|discoveryReady
 operator|=
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 operator|.
 name|isDiscoveryAlive
 argument_list|(
@@ -348,7 +334,7 @@ argument_list|()
 expr_stmt|;
 name|discoveryReady
 operator|=
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 operator|.
 name|isDiscoveryAlive
 argument_list|(

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.cloud.gce
+DECL|package|org.elasticsearch.plugin.discovery.gce
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
-name|cloud
+name|discovery
 operator|.
 name|gce
 package|;
@@ -210,15 +210,11 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-DECL|class|CloudGcePlugin
+DECL|class|GceDiscoveryPlugin
 specifier|public
 class|class
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 extends|extends
 name|Plugin
 block|{
@@ -238,14 +234,14 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|CloudGcePlugin
+DECL|method|GceDiscoveryPlugin
 specifier|public
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 parameter_list|(
 name|Settings
 name|settings
@@ -267,7 +263,7 @@ name|name
 parameter_list|()
 block|{
 return|return
-literal|"cloud-gce"
+literal|"discovery-gce"
 return|;
 block|}
 annotation|@
@@ -279,7 +275,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"Cloud Google Compute Engine Plugin"
+literal|"Cloud Google Compute Engine Discovery Plugin"
 return|;
 block|}
 annotation|@

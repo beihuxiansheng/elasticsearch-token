@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.gce
+DECL|package|org.elasticsearch.discovery.gce
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
+name|discovery
 operator|.
 name|gce
 package|;
@@ -52,11 +52,11 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
-name|cloud
+name|discovery
 operator|.
 name|gce
 operator|.
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 import|;
 end_import
 
@@ -137,10 +137,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CloudGCERestIT
+DECL|class|DiscoveryGCERestIT
 specifier|public
 class|class
-name|CloudGCERestIT
+name|DiscoveryGCERestIT
 extends|extends
 name|ESRestTestCase
 block|{
@@ -163,15 +163,15 @@ block|{
 return|return
 name|pluginList
 argument_list|(
-name|CloudGcePlugin
+name|GceDiscoveryPlugin
 operator|.
 name|class
 argument_list|)
 return|;
 block|}
-DECL|method|CloudGCERestIT
+DECL|method|DiscoveryGCERestIT
 specifier|public
-name|CloudGCERestIT
+name|DiscoveryGCERestIT
 parameter_list|(
 annotation|@
 name|Name

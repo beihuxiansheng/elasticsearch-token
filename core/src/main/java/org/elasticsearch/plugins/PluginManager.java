@@ -624,13 +624,13 @@ literal|"analysis-smartcn"
 argument_list|,
 literal|"analysis-stempel"
 argument_list|,
-literal|"cloud-gce"
-argument_list|,
 literal|"delete-by-query"
 argument_list|,
 literal|"discovery-azure"
 argument_list|,
 literal|"discovery-ec2"
+argument_list|,
+literal|"discovery-gce"
 argument_list|,
 literal|"discovery-multicast"
 argument_list|,
