@@ -320,6 +320,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Locale
@@ -489,6 +501,9 @@ specifier|static
 name|void
 name|initializeNatives
 parameter_list|(
+name|Path
+name|tmpFile
+parameter_list|,
 name|boolean
 name|mlockAll
 parameter_list|,
@@ -564,7 +579,9 @@ block|{
 name|Natives
 operator|.
 name|trySeccomp
-argument_list|()
+argument_list|(
+name|tmpFile
+argument_list|)
 expr_stmt|;
 block|}
 comment|// mlockall if requested
@@ -711,6 +728,11 @@ name|Exception
 block|{
 name|initializeNatives
 argument_list|(
+name|environment
+operator|.
+name|tmpFile
+argument_list|()
+argument_list|,
 name|settings
 operator|.
 name|getAsBoolean
