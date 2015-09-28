@@ -979,13 +979,6 @@ operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"], reason: ["
-operator|+
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-operator|+
 literal|"]"
 argument_list|,
 name|ex

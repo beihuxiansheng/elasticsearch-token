@@ -2020,11 +2020,6 @@ argument_list|,
 literal|"IOException while reading %s_path: %s"
 argument_list|,
 name|settingPrefix
-argument_list|,
-name|ioe
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 decl_stmt|;
 throw|throw
@@ -2270,11 +2265,6 @@ argument_list|,
 literal|"IOException while reading %s_path: %s"
 argument_list|,
 name|settingPrefix
-argument_list|,
-name|ioe
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 decl_stmt|;
 throw|throw

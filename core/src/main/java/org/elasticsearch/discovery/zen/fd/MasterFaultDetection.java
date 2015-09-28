@@ -283,6 +283,9 @@ parameter_list|(
 name|DiscoveryNode
 name|masterNode
 parameter_list|,
+name|Throwable
+name|cause
+parameter_list|,
 name|String
 name|reason
 parameter_list|)
@@ -610,14 +613,9 @@ name|notifyMasterFailure
 argument_list|(
 name|masterNode
 argument_list|,
-literal|"failed to perform initial connect ["
-operator|+
 name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|"]"
+argument_list|,
+literal|"failed to perform initial connect "
 argument_list|)
 expr_stmt|;
 return|return;
@@ -885,6 +883,8 @@ name|notifyMasterFailure
 argument_list|(
 name|masterNode
 argument_list|,
+literal|null
+argument_list|,
 literal|"transport disconnected (with verified connect)"
 argument_list|)
 expr_stmt|;
@@ -905,6 +905,8 @@ name|notifyMasterFailure
 argument_list|(
 name|node
 argument_list|,
+literal|null
+argument_list|,
 literal|"transport disconnected"
 argument_list|)
 expr_stmt|;
@@ -919,6 +921,10 @@ parameter_list|(
 specifier|final
 name|DiscoveryNode
 name|masterNode
+parameter_list|,
+specifier|final
+name|Throwable
+name|cause
 parameter_list|,
 specifier|final
 name|String
@@ -968,6 +974,8 @@ operator|.
 name|onMasterFailure
 argument_list|(
 name|masterNode
+argument_list|,
+name|cause
 argument_list|,
 name|reason
 argument_list|)
@@ -1292,6 +1300,8 @@ name|notifyMasterFailure
 argument_list|(
 name|masterToPing
 argument_list|,
+name|exp
+argument_list|,
 literal|"no longer master"
 argument_list|)
 expr_stmt|;
@@ -1321,6 +1331,8 @@ name|notifyMasterFailure
 argument_list|(
 name|masterToPing
 argument_list|,
+name|exp
+argument_list|,
 literal|"not master"
 argument_list|)
 expr_stmt|;
@@ -1349,6 +1361,8 @@ expr_stmt|;
 name|notifyMasterFailure
 argument_list|(
 name|masterToPing
+argument_list|,
+name|exp
 argument_list|,
 literal|"do not exists on master, act as master failure"
 argument_list|)
@@ -1404,6 +1418,8 @@ comment|// not good, failure
 name|notifyMasterFailure
 argument_list|(
 name|masterToPing
+argument_list|,
+literal|null
 argument_list|,
 literal|"failed to ping, tried ["
 operator|+

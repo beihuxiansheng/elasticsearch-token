@@ -330,14 +330,7 @@ name|BatchOperationException
 argument_list|(
 name|shardId
 argument_list|,
-literal|"failed to apply batch translog operation ["
-operator|+
-name|t
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|"]"
+literal|"failed to apply batch translog operation"
 argument_list|,
 name|numOps
 argument_list|,

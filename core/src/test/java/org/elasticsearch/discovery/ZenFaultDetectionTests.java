@@ -1346,6 +1346,9 @@ parameter_list|(
 name|DiscoveryNode
 name|masterNode
 parameter_list|,
+name|Throwable
+name|cause
+parameter_list|,
 name|String
 name|reason
 parameter_list|)
