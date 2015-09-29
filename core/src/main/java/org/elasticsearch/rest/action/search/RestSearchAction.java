@@ -425,6 +425,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1880,11 +1890,16 @@ name|searchSourceBuilder
 operator|.
 name|stats
 argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 name|Strings
 operator|.
 name|splitStringByCommaToArray
 argument_list|(
 name|sStats
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

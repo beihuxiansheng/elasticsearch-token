@@ -928,7 +928,6 @@ return|return
 name|indicesQueriesRegistry
 return|;
 block|}
-comment|//norelease this needs to go away
 DECL|method|parse
 specifier|public
 name|ParsedQuery

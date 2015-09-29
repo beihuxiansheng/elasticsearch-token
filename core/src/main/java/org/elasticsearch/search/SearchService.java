@@ -1190,16 +1190,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -5979,11 +5969,13 @@ argument_list|()
 argument_list|,
 name|searchScript
 argument_list|,
-literal|false
+name|field
+operator|.
+name|ignoreFailure
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// NORELEASE need to have ignore_exception parsed somewhere
 block|}
 block|}
 if|if
@@ -6227,18 +6219,12 @@ name|context
 operator|.
 name|groupStats
 argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 name|source
 operator|.
 name|stats
 argument_list|()
 argument_list|)
-argument_list|)
 expr_stmt|;
-comment|// NORELEASE stats should be a list in SearchSourceBuilder
 block|}
 block|}
 DECL|field|EMPTY_DOC_IDS
