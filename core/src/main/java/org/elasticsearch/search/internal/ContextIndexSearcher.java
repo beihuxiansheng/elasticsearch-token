@@ -181,16 +181,7 @@ name|setQueryCache
 argument_list|(
 name|searchContext
 operator|.
-name|indexShard
-argument_list|()
-operator|.
-name|indexService
-argument_list|()
-operator|.
-name|cache
-argument_list|()
-operator|.
-name|query
+name|getQueryCache
 argument_list|()
 argument_list|)
 expr_stmt|;

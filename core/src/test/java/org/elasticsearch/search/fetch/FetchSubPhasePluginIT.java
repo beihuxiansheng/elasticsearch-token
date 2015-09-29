@@ -1211,7 +1211,7 @@ operator|.
 name|indexShard
 argument_list|()
 operator|.
-name|indexService
+name|shardId
 argument_list|()
 operator|.
 name|index
