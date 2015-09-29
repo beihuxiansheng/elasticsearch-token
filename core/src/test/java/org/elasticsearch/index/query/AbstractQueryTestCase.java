@@ -3046,6 +3046,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// workaround https://bugs.openjdk.java.net/browse/JDK-8056984
+name|float
+name|boost
+init|=
+name|queryBuilder
+operator|.
+name|boost
+argument_list|()
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|query
@@ -3055,10 +3064,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|queryBuilder
-operator|.
 name|boost
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
