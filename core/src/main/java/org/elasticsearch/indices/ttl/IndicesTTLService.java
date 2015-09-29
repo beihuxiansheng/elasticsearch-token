@@ -1208,9 +1208,6 @@ name|query
 init|=
 name|shardToPurge
 operator|.
-name|indexService
-argument_list|()
-operator|.
 name|mapperService
 argument_list|()
 operator|.

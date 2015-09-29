@@ -244,6 +244,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|cache
+operator|.
+name|query
+operator|.
+name|QueryCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|fielddata
 operator|.
 name|IndexFieldDataService
@@ -1800,6 +1816,13 @@ comment|/**          * This life time is for objects that need to live until the
 DECL|enum constant|CONTEXT
 name|CONTEXT
 block|}
+DECL|method|getQueryCache
+specifier|public
+specifier|abstract
+name|QueryCache
+name|getQueryCache
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

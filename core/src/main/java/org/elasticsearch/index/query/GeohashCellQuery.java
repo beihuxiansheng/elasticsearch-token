@@ -955,6 +955,13 @@ name|fieldName
 argument_list|)
 throw|;
 block|}
+name|String
+name|geohash
+init|=
+name|this
+operator|.
+name|geohash
+decl_stmt|;
 if|if
 condition|(
 name|levels

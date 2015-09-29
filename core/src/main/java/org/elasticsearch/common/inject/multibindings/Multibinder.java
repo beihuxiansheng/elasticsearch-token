@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -304,6 +290,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedHashSet
 import|;
 end_import
@@ -335,6 +331,42 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
 import|;
 end_import
 
@@ -1079,7 +1111,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 expr_stmt|;
-name|List
+name|Set
 argument_list|<
 name|Dependency
 argument_list|<
@@ -1089,7 +1121,7 @@ argument_list|>
 name|dependencies
 init|=
 operator|new
-name|ArrayList
+name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1171,9 +1203,7 @@ name|this
 operator|.
 name|dependencies
 operator|=
-name|ImmutableSet
-operator|.
-name|copyOf
+name|unmodifiableSet
 argument_list|(
 name|dependencies
 argument_list|)
@@ -1499,9 +1529,7 @@ throw|throw
 operator|new
 name|ConfigurationException
 argument_list|(
-name|ImmutableSet
-operator|.
-name|of
+name|singleton
 argument_list|(
 operator|new
 name|Message
@@ -1558,15 +1586,11 @@ throw|throw
 operator|new
 name|ConfigurationException
 argument_list|(
-name|ImmutableSet
-operator|.
-name|of
+name|singleton
 argument_list|(
 operator|new
 name|Message
 argument_list|(
-name|Collections
-operator|.
 name|emptyList
 argument_list|()
 argument_list|,

@@ -1944,7 +1944,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableSet
+name|Set
 argument_list|<
 name|ClusterBlock
 argument_list|>

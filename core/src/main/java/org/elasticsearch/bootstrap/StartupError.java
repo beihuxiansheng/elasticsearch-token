@@ -349,6 +349,17 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+comment|// if its a guice exception, the whole thing really will not be in the log, its megabytes.
+comment|// refer to the hack in bootstrap, where we don't log it
+if|if
+condition|(
+name|originalCause
+operator|instanceof
+name|CreationException
+operator|==
+literal|false
+condition|)
+block|{
 name|s
 operator|.
 name|println
@@ -356,6 +367,7 @@ argument_list|(
 literal|"Refer to the log for complete error details."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**       * Returns first cause from a guice error (it can have multiple).      */
 DECL|method|getFirstGuiceCause

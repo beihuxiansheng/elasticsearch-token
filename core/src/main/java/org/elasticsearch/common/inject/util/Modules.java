@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -308,6 +294,36 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
+import|;
+end_import
+
 begin_comment
 comment|/**  * Static utility methods for creating and working with instances of {@link Module}.  *  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
 end_comment
@@ -411,9 +427,9 @@ block|{
 return|return
 name|combine
 argument_list|(
-name|ImmutableSet
+name|Arrays
 operator|.
-name|copyOf
+name|asList
 argument_list|(
 name|modules
 argument_list|)
@@ -436,20 +452,16 @@ argument_list|>
 name|modules
 parameter_list|)
 block|{
-comment|// TODO: infer type once JI-9019884 is fixed
 specifier|final
 name|Set
 argument_list|<
+name|?
+extends|extends
 name|Module
 argument_list|>
 name|modulesSet
 init|=
-name|ImmutableSet
-operator|.
-expr|<
-name|Module
-operator|>
-name|copyOf
+name|newHashSet
 argument_list|(
 name|modules
 argument_list|)
@@ -542,7 +554,7 @@ block|{
 DECL|field|baseModules
 specifier|private
 specifier|final
-name|ImmutableSet
+name|Set
 argument_list|<
 name|Module
 argument_list|>
@@ -561,19 +573,16 @@ argument_list|>
 name|baseModules
 parameter_list|)
 block|{
-comment|// TODO: infer type once JI-9019884 is fixed
 name|this
 operator|.
 name|baseModules
 operator|=
-name|ImmutableSet
-operator|.
-expr|<
-name|Module
-operator|>
-name|copyOf
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 name|baseModules
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

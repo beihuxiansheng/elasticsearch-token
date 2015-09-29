@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -457,6 +443,36 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
 import|;
 end_import
 
@@ -1873,9 +1889,9 @@ argument_list|>
 argument_list|>
 name|FORBIDDEN_TYPES
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 name|AbstractModule
 operator|.
@@ -1916,6 +1932,7 @@ argument_list|,
 name|TypeLiteral
 operator|.
 name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// TODO(jessewilson): fix BuiltInModule, then add Stage

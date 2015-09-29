@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -122,6 +108,16 @@ name|InvocationTargetException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * Creates instances using an injectable constructor. After construction, all injectable fields and  * methods are injected.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
@@ -137,7 +133,7 @@ block|{
 DECL|field|injectableMembers
 specifier|private
 specifier|final
-name|ImmutableSet
+name|Set
 argument_list|<
 name|InjectionPoint
 argument_list|>
@@ -174,7 +170,7 @@ decl_stmt|;
 DECL|method|ConstructorInjector
 name|ConstructorInjector
 parameter_list|(
-name|ImmutableSet
+name|Set
 argument_list|<
 name|InjectionPoint
 argument_list|>
@@ -229,7 +225,7 @@ expr_stmt|;
 block|}
 DECL|method|getInjectableMembers
 specifier|public
-name|ImmutableSet
+name|Set
 argument_list|<
 name|InjectionPoint
 argument_list|>

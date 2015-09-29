@@ -378,7 +378,7 @@ name|elasticsearch
 operator|.
 name|percolator
 operator|.
-name|PercolatorIT
+name|PercolatorTestUtil
 operator|.
 name|convertFromTextArray
 import|;
