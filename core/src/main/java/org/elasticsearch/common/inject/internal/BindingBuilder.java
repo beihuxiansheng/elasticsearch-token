@@ -542,7 +542,9 @@ name|unmodifiableSet
 argument_list|(
 operator|new
 name|HashSet
-argument_list|<>
+argument_list|<
+name|InjectionPoint
+argument_list|>
 argument_list|(
 name|e
 operator|.
@@ -689,7 +691,9 @@ name|unmodifiableSet
 argument_list|(
 operator|new
 name|HashSet
-argument_list|<>
+argument_list|<
+name|InjectionPoint
+argument_list|>
 argument_list|(
 name|e
 operator|.

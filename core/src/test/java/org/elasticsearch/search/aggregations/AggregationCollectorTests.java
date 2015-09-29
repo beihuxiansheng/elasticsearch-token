@@ -193,21 +193,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// agg on a script => scores are needed
-name|String
-name|scriptAgg
-init|=
-literal|"{ \"my_terms\": {\"terms\": {\"script\": \"doc['f'].value\"}}}"
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|needsScores
-argument_list|(
-name|index
-argument_list|,
-name|scriptAgg
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// TODO: can we use a mock script service here?
+comment|// String scriptAgg = "{ \"my_terms\": {\"terms\": {\"script\": \"doc['f'].value\"}}}";
+comment|// assertTrue(needsScores(index, scriptAgg));
+comment|//
+comment|// String subScriptAgg = "{ \"my_outer_terms\": { \"terms\": { \"field\": \"f\" }, \"aggs\": " + scriptAgg + "}}";
+comment|// assertTrue(needsScores(index, subScriptAgg));
 comment|// make sure the information is propagated to sub aggregations
 name|String
 name|subFieldAgg
@@ -225,25 +216,6 @@ argument_list|(
 name|index
 argument_list|,
 name|subFieldAgg
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|String
-name|subScriptAgg
-init|=
-literal|"{ \"my_outer_terms\": { \"terms\": { \"field\": \"f\" }, \"aggs\": "
-operator|+
-name|scriptAgg
-operator|+
-literal|"}}"
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|needsScores
-argument_list|(
-name|index
-argument_list|,
-name|subScriptAgg
 argument_list|)
 argument_list|)
 expr_stmt|;
