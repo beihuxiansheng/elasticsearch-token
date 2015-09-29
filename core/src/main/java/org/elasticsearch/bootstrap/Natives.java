@@ -42,6 +42,18 @@ name|Loggers
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
 begin_comment
 comment|/**  * The Natives class is a wrapper class that checks if the classes necessary for calling native methods are available on  * startup. If they are not available, this class will avoid calling code that loads these classes.  */
 end_comment
@@ -283,7 +295,10 @@ DECL|method|trySeccomp
 specifier|static
 name|void
 name|trySeccomp
-parameter_list|()
+parameter_list|(
+name|Path
+name|tmpFile
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -295,7 +310,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"cannot install seccomp filters because JNA is not available"
+literal|"cannot install syscall filters because JNA is not available"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -303,7 +318,9 @@ block|}
 name|JNANatives
 operator|.
 name|trySeccomp
-argument_list|()
+argument_list|(
+name|tmpFile
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isSeccompInstalled

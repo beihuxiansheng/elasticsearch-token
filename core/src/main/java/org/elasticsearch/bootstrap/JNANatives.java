@@ -95,6 +95,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -846,30 +858,19 @@ DECL|method|trySeccomp
 specifier|static
 name|void
 name|trySeccomp
-parameter_list|()
-block|{
-if|if
-condition|(
-name|Constants
-operator|.
-name|LINUX
-operator|&&
-literal|"amd64"
-operator|.
-name|equals
-argument_list|(
-name|Constants
-operator|.
-name|OS_ARCH
-argument_list|)
-condition|)
+parameter_list|(
+name|Path
+name|tmpFile
+parameter_list|)
 block|{
 try|try
 block|{
 name|Seccomp
 operator|.
-name|installFilter
-argument_list|()
+name|init
+argument_list|(
+name|tmpFile
+argument_list|)
 expr_stmt|;
 name|LOCAL_SECCOMP
 operator|=
@@ -878,8 +879,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
-name|e
+name|Throwable
+name|t
 parameter_list|)
 block|{
 comment|// this is likely to happen unless the kernel is newish, its a best effort at the moment
@@ -896,9 +897,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"unable to install seccomp filter"
+literal|"unable to install syscall filter"
 argument_list|,
-name|e
+name|t
 argument_list|)
 expr_stmt|;
 block|}
@@ -906,15 +907,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"unable to install seccomp filter: "
+literal|"unable to install syscall filter: "
 operator|+
-name|e
+name|t
 operator|.
 name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

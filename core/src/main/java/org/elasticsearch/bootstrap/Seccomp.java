@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|jna
+operator|.
+name|ptr
+operator|.
+name|PointerByReference
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -85,6 +99,20 @@ operator|.
 name|util
 operator|.
 name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
 import|;
 end_import
 
@@ -120,6 +148,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|ByteBuffer
@@ -140,9 +178,43 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -157,11 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Installs a limited form of Linux secure computing mode (filter mode).  * This filters system calls to block process execution.  *<p>  * This is only supported on the amd64 architecture, on Linux kernels 3.5 or above, and requires  * {@code CONFIG_SECCOMP} and {@code CONFIG_SECCOMP_FILTER} compiled into the kernel.  *<p>  * Filters are installed using either {@code seccomp(2)} (3.17+) or {@code prctl(2)} (3.5+). {@code seccomp(2)}  * is preferred, as it allows filters to be applied to any existing threads in the process, and one motivation  * here is to protect against bugs in the JVM. Otherwise, code will fall back to the {@code prctl(2)} method   * which will at least protect elasticsearch application threads.  *<p>  * The filters will return {@code EACCES} (Access Denied) for the following system calls:  *<ul>  *<li>{@code execve}</li>  *<li>{@code fork}</li>  *<li>{@code vfork}</li>  *</ul>  *<p>  * This is not intended as a sandbox. It is another level of security, mostly intended to annoy  * security researchers and make their lives more difficult in achieving "remote execution" exploits.  * @see<a href="http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">  *      http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt</a>  */
-end_comment
-
-begin_comment
-comment|// only supported on linux/amd64
+comment|/**   * Installs a limited form of secure computing mode,  * to filters system calls to block process execution.  *<p>  * This is only supported on the Linux and Mac OS X operating systems.  *<p>  * On Linux it currently supports on the amd64 architecture, on Linux kernels 3.5 or above, and requires  * {@code CONFIG_SECCOMP} and {@code CONFIG_SECCOMP_FILTER} compiled into the kernel.  *<p>  * On Linux BPF Filters are installed using either {@code seccomp(2)} (3.17+) or {@code prctl(2)} (3.5+). {@code seccomp(2)}  * is preferred, as it allows filters to be applied to any existing threads in the process, and one motivation  * here is to protect against bugs in the JVM. Otherwise, code will fall back to the {@code prctl(2)} method   * which will at least protect elasticsearch application threads.  *<p>  * Linux BPF filters will return {@code EACCES} (Access Denied) for the following system calls:  *<ul>  *<li>{@code execve}</li>  *<li>{@code fork}</li>  *<li>{@code vfork}</li>  *<li>{@code execveat}</li>  *</ul>  *<p>  * On Mac OS X Leopard or above, a custom {@code sandbox(7)} ("Seatbelt") profile is installed that  * denies the following rules:  *<ul>  *<li>{@code process-fork}</li>  *<li>{@code process-exec}</li>  *</ul>  *<p>  * This is not intended as a sandbox. It is another level of security, mostly intended to annoy  * security researchers and make their lives more difficult in achieving "remote execution" exploits.  * @see<a href="http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">  *      http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt</a>  * @see<a href="https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf">  *      https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf</a>  */
 end_comment
 
 begin_comment
@@ -190,7 +258,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/** we use an explicit interface for native methods, for varargs support */
+comment|// Linux implementation, based on seccomp(2) or prctl(2) with bpf filtering
+comment|/** Access to non-standard Linux libc methods */
 DECL|interface|LinuxLibrary
 specifier|static
 interface|interface
@@ -234,12 +303,12 @@ parameter_list|)
 function_decl|;
 block|}
 empty_stmt|;
-comment|// null if something goes wrong.
-DECL|field|libc
+comment|// null if unavailable or something goes wrong.
+DECL|field|linux_libc
 specifier|static
 specifier|final
 name|LinuxLibrary
-name|libc
+name|linux_libc
 decl_stmt|;
 static|static
 block|{
@@ -248,6 +317,13 @@ name|lib
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|Constants
+operator|.
+name|LINUX
+condition|)
+block|{
 try|try
 block|{
 name|lib
@@ -283,7 +359,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|libc
+block|}
+name|linux_libc
 operator|=
 name|lib
 expr_stmt|;
@@ -823,35 +900,46 @@ name|SECCOMP_DATA_ARCH_OFFSET
 init|=
 literal|0x04
 decl_stmt|;
-comment|// currently this range is blocked (inclusive):
+comment|// currently these ranges are blocked (inclusive):
 comment|// execve is really the only one needed but why let someone fork a 30G heap? (not really what happens)
 comment|// ...
 comment|// 57: fork
 comment|// 58: vfork
 comment|// 59: execve
 comment|// ...
-DECL|field|BLACKLIST_START
+comment|// 322: execveat
+comment|// ...
+DECL|field|NR_SYSCALL_FORK
 specifier|static
 specifier|final
 name|int
-name|BLACKLIST_START
+name|NR_SYSCALL_FORK
 init|=
 literal|57
 decl_stmt|;
-DECL|field|BLACKLIST_END
+DECL|field|NR_SYSCALL_EXECVE
 specifier|static
 specifier|final
 name|int
-name|BLACKLIST_END
+name|NR_SYSCALL_EXECVE
 init|=
 literal|59
 decl_stmt|;
-comment|// TODO: execveat()? its less of a risk since the jvm does not use it...
-comment|/** try to install our filters */
-DECL|method|installFilter
+DECL|field|NR_SYSCALL_EXECVEAT
+specifier|static
+specifier|final
+name|int
+name|NR_SYSCALL_EXECVEAT
+init|=
+literal|322
+decl_stmt|;
+comment|// since Linux 3.19
+comment|/** try to install our BPF filters via seccomp() or prctl() to block execution */
+DECL|method|linuxImpl
+specifier|private
 specifier|static
 name|void
-name|installFilter
+name|linuxImpl
 parameter_list|()
 block|{
 comment|// first be defensive: we can give nice errors this way, at the very least.
@@ -881,16 +969,22 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|UnsupportedOperationException
 argument_list|(
-literal|"bug: should not be trying to initialize seccomp for an unsupported architecture"
+literal|"seccomp unavailable: '"
+operator|+
+name|Constants
+operator|.
+name|OS_ARCH
+operator|+
+literal|"' architecture unsupported"
 argument_list|)
 throw|;
 block|}
 comment|// we couldn't link methods, could be some really ancient kernel (e.g.< 2.1.57) or some bug
 if|if
 condition|(
-name|libc
+name|linux_libc
 operator|==
 literal|null
 condition|)
@@ -906,7 +1000,7 @@ block|}
 comment|// check for kernel version
 if|if
 condition|(
-name|libc
+name|linux_libc
 operator|.
 name|prctl
 argument_list|(
@@ -967,7 +1061,7 @@ block|}
 comment|// check for SECCOMP
 if|if
 condition|(
-name|libc
+name|linux_libc
 operator|.
 name|prctl
 argument_list|(
@@ -1028,7 +1122,7 @@ block|}
 comment|// check for SECCOMP_MODE_FILTER
 if|if
 condition|(
-name|libc
+name|linux_libc
 operator|.
 name|prctl
 argument_list|(
@@ -1094,7 +1188,7 @@ block|}
 comment|// ok, now set PR_SET_NO_NEW_PRIVS, needed to be able to set a seccomp filter as ordinary user
 if|if
 condition|(
-name|libc
+name|linux_libc
 operator|.
 name|prctl
 argument_list|(
@@ -1148,7 +1242,7 @@ argument_list|,
 name|SECCOMP_DATA_ARCH_OFFSET
 argument_list|)
 block|,
-comment|// if (arch != amd64) goto fail;
+comment|//
 comment|/* 2 */
 name|BPF_JUMP
 argument_list|(
@@ -1162,10 +1256,10 @@ name|AUDIT_ARCH_X86_64
 argument_list|,
 literal|0
 argument_list|,
-literal|3
+literal|4
 argument_list|)
 block|,
-comment|//
+comment|// if (arch != amd64) goto fail;
 comment|/* 3 */
 name|BPF_STMT
 argument_list|(
@@ -1178,7 +1272,7 @@ argument_list|,
 name|SECCOMP_DATA_NR_OFFSET
 argument_list|)
 block|,
-comment|// if (syscall< BLACKLIST_START) goto pass;
+comment|//
 comment|/* 4 */
 name|BPF_JUMP
 argument_list|(
@@ -1188,15 +1282,32 @@ name|BPF_JGE
 operator|+
 name|BPF_K
 argument_list|,
-name|BLACKLIST_START
+name|NR_SYSCALL_FORK
 argument_list|,
 literal|0
 argument_list|,
-literal|2
+literal|3
 argument_list|)
 block|,
-comment|//
+comment|// if (syscall< SYSCALL_FORK) goto pass;
 comment|/* 5 */
+name|BPF_JUMP
+argument_list|(
+name|BPF_JMP
+operator|+
+name|BPF_JEQ
+operator|+
+name|BPF_K
+argument_list|,
+name|NR_SYSCALL_EXECVEAT
+argument_list|,
+literal|1
+argument_list|,
+literal|0
+argument_list|)
+block|,
+comment|// if (syscall == SYSCALL_EXECVEAT) goto fail;
+comment|/* 6 */
 name|BPF_JUMP
 argument_list|(
 name|BPF_JMP
@@ -1205,15 +1316,15 @@ name|BPF_JGT
 operator|+
 name|BPF_K
 argument_list|,
-name|BLACKLIST_END
+name|NR_SYSCALL_EXECVE
 argument_list|,
 literal|1
 argument_list|,
 literal|0
 argument_list|)
 block|,
-comment|// if (syscall> BLACKLIST_END) goto pass;
-comment|/* 6 */
+comment|// if (syscall> SYSCALL_EXECVE) goto pass;
+comment|/* 7 */
 name|BPF_STMT
 argument_list|(
 name|BPF_RET
@@ -1230,7 +1341,7 @@ operator|)
 argument_list|)
 block|,
 comment|// fail: return EACCES;
-comment|/* 7 */
+comment|/* 8 */
 name|BPF_STMT
 argument_list|(
 name|BPF_RET
@@ -1274,7 +1385,7 @@ comment|// install filter, if this works, after this there is no going back!
 comment|// first try it with seccomp(SECCOMP_SET_MODE_FILTER), falling back to prctl()
 if|if
 condition|(
-name|libc
+name|linux_libc
 operator|.
 name|syscall
 argument_list|(
@@ -1325,7 +1436,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|libc
+name|linux_libc
 operator|.
 name|prctl
 argument_list|(
@@ -1379,7 +1490,7 @@ block|}
 comment|// now check that the filter was really installed, we should be in filter mode.
 if|if
 condition|(
-name|libc
+name|linux_libc
 operator|.
 name|prctl
 argument_list|(
@@ -1414,6 +1525,376 @@ argument_list|()
 argument_list|)
 argument_list|)
 throw|;
+block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Linux seccomp filter installation successful"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// OS X implementation via sandbox(7)
+comment|/** Access to non-standard OS X libc methods */
+DECL|interface|MacLibrary
+specifier|static
+interface|interface
+name|MacLibrary
+extends|extends
+name|Library
+block|{
+comment|/**          * maps to sandbox_init(3), since Leopard          */
+DECL|method|sandbox_init
+name|int
+name|sandbox_init
+parameter_list|(
+name|String
+name|profile
+parameter_list|,
+name|long
+name|flags
+parameter_list|,
+name|PointerByReference
+name|errorbuf
+parameter_list|)
+function_decl|;
+comment|/**          * releases memory when an error occurs during initialization (e.g. syntax bug)          */
+DECL|method|sandbox_free_error
+name|void
+name|sandbox_free_error
+parameter_list|(
+name|Pointer
+name|errorbuf
+parameter_list|)
+function_decl|;
+block|}
+comment|// null if unavailable, or something goes wrong.
+DECL|field|libc_mac
+specifier|static
+specifier|final
+name|MacLibrary
+name|libc_mac
+decl_stmt|;
+static|static
+block|{
+name|MacLibrary
+name|lib
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|Constants
+operator|.
+name|MAC_OS_X
+condition|)
+block|{
+try|try
+block|{
+name|lib
+operator|=
+operator|(
+name|MacLibrary
+operator|)
+name|Native
+operator|.
+name|loadLibrary
+argument_list|(
+literal|"c"
+argument_list|,
+name|MacLibrary
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsatisfiedLinkError
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"unable to link C library. native methods (seatbelt) will be disabled."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|libc_mac
+operator|=
+name|lib
+expr_stmt|;
+block|}
+comment|/** The only supported flag... */
+DECL|field|SANDBOX_NAMED
+specifier|static
+specifier|final
+name|int
+name|SANDBOX_NAMED
+init|=
+literal|1
+decl_stmt|;
+comment|/** Allow everything except process fork and execution */
+DECL|field|SANDBOX_RULES
+specifier|static
+specifier|final
+name|String
+name|SANDBOX_RULES
+init|=
+literal|"(version 1) (allow default) (deny process-fork) (deny process-exec)"
+decl_stmt|;
+comment|/** try to install our custom rule profile into sandbox_init() to block execution */
+DECL|method|macImpl
+specifier|private
+specifier|static
+name|void
+name|macImpl
+parameter_list|(
+name|Path
+name|tmpFile
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// first be defensive: we can give nice errors this way, at the very least.
+name|boolean
+name|supported
+init|=
+name|Constants
+operator|.
+name|MAC_OS_X
+decl_stmt|;
+if|if
+condition|(
+name|supported
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"bug: should not be trying to initialize seccomp for an unsupported OS"
+argument_list|)
+throw|;
+block|}
+comment|// we couldn't link methods, could be some really ancient OS X (< Leopard) or some bug
+if|if
+condition|(
+name|libc_mac
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seatbelt unavailable: could not link methods. requires Leopard or above."
+argument_list|)
+throw|;
+block|}
+comment|// write rules to a temporary file, which will be passed to sandbox_init()
+name|Path
+name|rules
+init|=
+name|Files
+operator|.
+name|createTempFile
+argument_list|(
+name|tmpFile
+argument_list|,
+literal|"es"
+argument_list|,
+literal|"sb"
+argument_list|)
+decl_stmt|;
+name|Files
+operator|.
+name|write
+argument_list|(
+name|rules
+argument_list|,
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+name|SANDBOX_RULES
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+name|PointerByReference
+name|errorRef
+init|=
+operator|new
+name|PointerByReference
+argument_list|()
+decl_stmt|;
+name|int
+name|ret
+init|=
+name|libc_mac
+operator|.
+name|sandbox_init
+argument_list|(
+name|rules
+operator|.
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|SANDBOX_NAMED
+argument_list|,
+name|errorRef
+argument_list|)
+decl_stmt|;
+comment|// if sandbox_init() fails, add the message from the OS (e.g. syntax error) and free the buffer
+if|if
+condition|(
+name|ret
+operator|!=
+literal|0
+condition|)
+block|{
+name|Pointer
+name|errorBuf
+init|=
+name|errorRef
+operator|.
+name|getValue
+argument_list|()
+decl_stmt|;
+name|RuntimeException
+name|e
+init|=
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"sandbox_init(): "
+operator|+
+name|errorBuf
+operator|.
+name|getString
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|libc_mac
+operator|.
+name|sandbox_free_error
+argument_list|(
+name|errorBuf
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"OS X seatbelt initialization successful"
+argument_list|)
+expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|success
+condition|)
+block|{
+name|Files
+operator|.
+name|delete
+argument_list|(
+name|rules
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|IOUtils
+operator|.
+name|deleteFilesIgnoringExceptions
+argument_list|(
+name|rules
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Attempt to drop the capability to execute for the process.      *<p>      * This is best effort and OS and architecture dependent. It may throw any Throwable.      */
+DECL|method|init
+specifier|static
+name|void
+name|init
+parameter_list|(
+name|Path
+name|tmpFile
+parameter_list|)
+throws|throws
+name|Throwable
+block|{
+if|if
+condition|(
+name|Constants
+operator|.
+name|LINUX
+condition|)
+block|{
+name|linuxImpl
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|Constants
+operator|.
+name|MAC_OS_X
+condition|)
+block|{
+name|macImpl
+argument_list|(
+name|tmpFile
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"syscall filtering not supported for OS {}"
+argument_list|,
+name|Constants
+operator|.
+name|OS_NAME
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
