@@ -4341,6 +4341,15 @@ argument_list|(
 name|shardId
 argument_list|)
 decl_stmt|;
+specifier|final
+name|DiscoveryNode
+name|localNode
+init|=
+name|clusterService
+operator|.
+name|localNode
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|restoreSource
@@ -4356,6 +4365,8 @@ operator|.
 name|recoverFromStore
 argument_list|(
 name|shardRouting
+argument_list|,
+name|localNode
 argument_list|)
 expr_stmt|;
 block|}
@@ -4390,6 +4401,8 @@ argument_list|(
 name|shardRouting
 argument_list|,
 name|indexShardRepository
+argument_list|,
+name|localNode
 argument_list|)
 expr_stmt|;
 block|}
