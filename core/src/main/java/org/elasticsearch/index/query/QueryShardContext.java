@@ -527,7 +527,7 @@ index|[]
 name|setTypesWithPrevious
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|types
 parameter_list|)
 block|{
