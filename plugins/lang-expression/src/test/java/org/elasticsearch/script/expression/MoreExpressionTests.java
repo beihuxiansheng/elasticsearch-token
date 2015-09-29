@@ -4194,6 +4194,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+literal|"test creates classes directly, cannot run with security manager"
+argument_list|,
+name|System
+operator|.
+name|getSecurityManager
+argument_list|()
+operator|==
+literal|null
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
