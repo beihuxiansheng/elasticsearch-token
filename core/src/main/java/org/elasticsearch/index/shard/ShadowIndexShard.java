@@ -385,9 +385,6 @@ parameter_list|,
 name|Store
 name|store
 parameter_list|,
-name|StoreRecoveryService
-name|storeRecoveryService
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -450,8 +447,6 @@ argument_list|,
 name|indicesLifecycle
 argument_list|,
 name|store
-argument_list|,
-name|storeRecoveryService
 argument_list|,
 name|threadPool
 argument_list|,
