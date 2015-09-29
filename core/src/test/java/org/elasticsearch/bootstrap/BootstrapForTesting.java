@@ -204,49 +204,6 @@ comment|// TODO: can we share more code with the non-test side here
 comment|// without making things complex???
 static|static
 block|{
-comment|// just like bootstrap, initialize natives, then SM
-name|Bootstrap
-operator|.
-name|initializeNatives
-argument_list|(
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// initialize probes
-name|Bootstrap
-operator|.
-name|initializeProbes
-argument_list|()
-expr_stmt|;
-comment|// check for jar hell
-try|try
-block|{
-name|JarHell
-operator|.
-name|checkJarHell
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"found jar hell in test classpath"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 comment|// make sure java.io.tmpdir exists always (in case code uses it in a static initializer)
 name|Path
 name|javaTmpDir
@@ -291,6 +248,51 @@ operator|new
 name|RuntimeException
 argument_list|(
 literal|"unable to create test temp directory"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+comment|// just like bootstrap, initialize natives, then SM
+name|Bootstrap
+operator|.
+name|initializeNatives
+argument_list|(
+name|javaTmpDir
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// initialize probes
+name|Bootstrap
+operator|.
+name|initializeProbes
+argument_list|()
+expr_stmt|;
+comment|// check for jar hell
+try|try
+block|{
+name|JarHell
+operator|.
+name|checkJarHell
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"found jar hell in test classpath"
 argument_list|,
 name|e
 argument_list|)
