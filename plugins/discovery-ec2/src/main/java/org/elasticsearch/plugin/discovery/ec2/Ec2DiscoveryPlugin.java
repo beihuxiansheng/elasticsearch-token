@@ -24,6 +24,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|SpecialPermission
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cloud
 operator|.
 name|aws
@@ -183,6 +193,31 @@ block|{
 comment|// This internal config is deserialized but with wrong access modifiers,
 comment|// cannot work without suppressAccessChecks permission right now. We force
 comment|// a one time load with elevated privileges as a workaround.
+name|SecurityManager
+name|sm
+init|=
+name|System
+operator|.
+name|getSecurityManager
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|sm
+operator|!=
+literal|null
+condition|)
+block|{
+name|sm
+operator|.
+name|checkPermission
+argument_list|(
+operator|new
+name|SpecialPermission
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|AccessController
 operator|.
 name|doPrivileged
