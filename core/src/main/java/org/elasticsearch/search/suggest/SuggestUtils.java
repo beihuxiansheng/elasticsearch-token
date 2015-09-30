@@ -801,6 +801,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -826,7 +828,8 @@ operator|.
 name|length
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 return|return
 name|analyze
 argument_list|(
@@ -836,6 +839,8 @@ name|consumer
 argument_list|)
 return|;
 block|}
+block|}
+comment|/** NOTE: caller must close the TokenStream */
 DECL|method|analyze
 specifier|public
 specifier|static
@@ -888,11 +893,6 @@ block|}
 name|consumer
 operator|.
 name|end
-argument_list|()
-expr_stmt|;
-name|stream
-operator|.
-name|close
 argument_list|()
 expr_stmt|;
 return|return

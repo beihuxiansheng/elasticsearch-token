@@ -764,6 +764,11 @@ operator|.
 name|separator
 argument_list|()
 decl_stmt|;
+name|Result
+name|checkerResult
+decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|stream
 init|=
@@ -788,7 +793,8 @@ operator|.
 name|getField
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|WordScorer
 name|wordScorer
 init|=
@@ -810,9 +816,8 @@ argument_list|,
 name|separator
 argument_list|)
 decl_stmt|;
-name|Result
 name|checkerResult
-init|=
+operator|=
 name|checker
 operator|.
 name|getCorrections
@@ -864,7 +869,8 @@ operator|.
 name|gramSize
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|PhraseSuggestion
 operator|.
 name|Entry
