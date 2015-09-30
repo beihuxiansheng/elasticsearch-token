@@ -451,14 +451,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Parses the classpath into a set of URLs      */
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"resolves against CWD because that is how classpaths work"
-argument_list|)
+comment|/**      * Parses the classpath into an array of URLs      * @return array of URLs      * @throws IllegalStateException if the classpath contains empty elements      */
 DECL|method|parseClassPath
 specifier|public
 specifier|static
@@ -467,16 +460,41 @@ index|[]
 name|parseClassPath
 parameter_list|()
 block|{
-name|String
-name|elements
-index|[]
-init|=
+return|return
+name|parseClassPath
+argument_list|(
 name|System
 operator|.
 name|getProperty
 argument_list|(
 literal|"java.class.path"
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Parses the classpath into a set of URLs. For testing.      * @param classPath classpath to parse (typically the system property {@code java.class.path})      * @return array of URLs      * @throws IllegalStateException if the classpath contains empty elements      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"resolves against CWD because that is how classpaths work"
+argument_list|)
+DECL|method|parseClassPath
+specifier|static
+name|URL
+index|[]
+name|parseClassPath
+parameter_list|(
+name|String
+name|classPath
+parameter_list|)
+block|{
+name|String
+name|elements
+index|[]
+init|=
+name|classPath
 operator|.
 name|split
 argument_list|(
@@ -525,7 +543,13 @@ index|[
 name|i
 index|]
 decl_stmt|;
-comment|// empty classpath element behaves like CWD.
+comment|// Technically empty classpath element behaves like CWD.
+comment|// So below is the "correct" code, however in practice with ES, this is usually just a misconfiguration,
+comment|// from old shell scripts left behind or something:
+comment|//   if (element.isEmpty()) {
+comment|//      element = System.getProperty("user.dir");
+comment|//   }
+comment|// Instead we just throw an exception, and keep it clean.
 if|if
 condition|(
 name|element
@@ -534,15 +558,17 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|element
-operator|=
-name|System
-operator|.
-name|getProperty
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-literal|"user.dir"
+literal|"Classpath should not contain empty elements! (outdated shell script from a previous version?) classpath='"
+operator|+
+name|classPath
+operator|+
+literal|"'"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 try|try
 block|{
