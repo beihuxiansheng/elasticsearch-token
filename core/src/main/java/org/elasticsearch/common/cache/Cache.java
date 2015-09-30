@@ -136,10 +136,19 @@ name|V
 parameter_list|>
 block|{
 comment|// positive if entries have an expiration
-DECL|field|expireAfter
+DECL|field|expireAfterAccess
 specifier|private
 name|long
-name|expireAfter
+name|expireAfterAccess
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|// positive if entries have an expiration after write
+DECL|field|expireAfterWrite
+specifier|private
+name|long
+name|expireAfterWrite
 init|=
 operator|-
 literal|1
@@ -208,17 +217,17 @@ DECL|method|Cache
 name|Cache
 parameter_list|()
 block|{     }
-DECL|method|setExpireAfter
+DECL|method|setExpireAfterAccess
 name|void
-name|setExpireAfter
+name|setExpireAfterAccess
 parameter_list|(
 name|long
-name|expireAfter
+name|expireAfterAccess
 parameter_list|)
 block|{
 if|if
 condition|(
-name|expireAfter
+name|expireAfterAccess
 operator|<=
 literal|0
 condition|)
@@ -227,15 +236,15 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"expireAfter<= 0"
+literal|"expireAfterAccess<= 0"
 argument_list|)
 throw|;
 block|}
 name|this
 operator|.
-name|expireAfter
+name|expireAfterAccess
 operator|=
-name|expireAfter
+name|expireAfterAccess
 expr_stmt|;
 block|}
 DECL|method|setMaximumWeight
@@ -324,7 +333,7 @@ parameter_list|()
 block|{
 comment|// System.nanoTime takes non-negligible time, so we only use it if we need it
 return|return
-name|expireAfter
+name|expireAfterAccess
 operator|==
 operator|-
 literal|1
@@ -336,6 +345,22 @@ operator|.
 name|nanoTime
 argument_list|()
 return|;
+block|}
+DECL|method|setExpireAfterWrite
+specifier|public
+name|void
+name|setExpireAfterWrite
+parameter_list|(
+name|long
+name|expireAfterWrite
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expireAfterWrite
+operator|=
+name|expireAfterWrite
+expr_stmt|;
 block|}
 comment|// the state of an entry in the LRU list
 DECL|enum|State
@@ -370,6 +395,10 @@ DECL|field|value
 specifier|final
 name|V
 name|value
+decl_stmt|;
+DECL|field|writeTime
+name|long
+name|writeTime
 decl_stmt|;
 DECL|field|accessTime
 name|long
@@ -412,7 +441,7 @@ name|V
 name|value
 parameter_list|,
 name|long
-name|accessTime
+name|writeTime
 parameter_list|)
 block|{
 name|this
@@ -429,9 +458,13 @@ name|value
 expr_stmt|;
 name|this
 operator|.
+name|writeTime
+operator|=
+name|this
+operator|.
 name|accessTime
 operator|=
-name|accessTime
+name|writeTime
 expr_stmt|;
 block|}
 annotation|@
@@ -2437,7 +2470,8 @@ name|now
 parameter_list|)
 block|{
 return|return
-name|expireAfter
+operator|(
+name|expireAfterAccess
 operator|!=
 operator|-
 literal|1
@@ -2448,7 +2482,23 @@ name|entry
 operator|.
 name|accessTime
 operator|>
-name|expireAfter
+name|expireAfterAccess
+operator|)
+operator|||
+operator|(
+name|expireAfterWrite
+operator|!=
+operator|-
+literal|1
+operator|&&
+name|now
+operator|-
+name|entry
+operator|.
+name|writeTime
+operator|>
+name|expireAfterWrite
+operator|)
 return|;
 block|}
 end_function

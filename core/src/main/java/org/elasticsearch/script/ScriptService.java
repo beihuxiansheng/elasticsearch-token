@@ -1124,7 +1124,7 @@ condition|)
 block|{
 name|cacheBuilder
 operator|.
-name|setExpireAfter
+name|setExpireAfterAccess
 argument_list|(
 name|cacheExpire
 operator|.
