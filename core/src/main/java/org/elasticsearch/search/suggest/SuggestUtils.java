@@ -815,6 +815,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -840,7 +842,8 @@ operator|.
 name|length
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 return|return
 name|analyze
 argument_list|(
@@ -849,6 +852,7 @@ argument_list|,
 name|consumer
 argument_list|)
 return|;
+block|}
 block|}
 comment|/** NOTE: this method closes the TokenStream, even on exception, which is awkward      *  because really the caller who called {@link Analyzer#tokenStream} should close it,      *  but when trying that there are recursion issues when we try to use the same      *  TokenStrem twice in the same recursion... */
 DECL|method|analyze
