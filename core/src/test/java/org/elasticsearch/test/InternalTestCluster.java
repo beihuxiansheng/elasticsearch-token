@@ -11378,7 +11378,7 @@ operator|.
 name|getCache
 argument_list|()
 operator|.
-name|cleanUp
+name|refresh
 argument_list|()
 expr_stmt|;
 specifier|final

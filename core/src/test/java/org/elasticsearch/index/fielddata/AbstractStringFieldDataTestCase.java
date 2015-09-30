@@ -4722,7 +4722,7 @@ operator|.
 name|getCache
 argument_list|()
 operator|.
-name|size
+name|weight
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4749,9 +4749,6 @@ range|:
 name|indicesFieldDataCache
 operator|.
 name|getCache
-argument_list|()
-operator|.
-name|asMap
 argument_list|()
 operator|.
 name|values
@@ -4798,7 +4795,7 @@ operator|.
 name|getCache
 argument_list|()
 operator|.
-name|size
+name|weight
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4845,7 +4842,7 @@ operator|.
 name|getCache
 argument_list|()
 operator|.
-name|size
+name|weight
 argument_list|()
 argument_list|,
 name|equalTo
