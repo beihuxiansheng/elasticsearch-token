@@ -593,8 +593,16 @@ comment|// Last part size is deducted from the length and the number of parts
 return|return
 name|length
 argument_list|()
-operator|%
+operator|-
+operator|(
 name|partBytes
+operator|*
+operator|(
+name|numberOfParts
+operator|-
+literal|1
+operator|)
+operator|)
 return|;
 block|}
 comment|/**          * Returns number of parts          *          * @return number of parts          */
