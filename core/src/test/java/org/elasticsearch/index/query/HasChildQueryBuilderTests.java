@@ -1231,9 +1231,6 @@ name|copyToStringFromClasspath
 argument_list|(
 literal|"/org/elasticsearch/index/query/has-child-with-inner-hits.json"
 argument_list|)
-operator|.
-name|trim
-argument_list|()
 decl_stmt|;
 name|HasChildQueryBuilder
 name|queryBuilder
@@ -1394,10 +1391,16 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 name|query
+operator|.
+name|trim
+argument_list|()
 argument_list|,
 name|builder
 operator|.
 name|string
+argument_list|()
+operator|.
+name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
