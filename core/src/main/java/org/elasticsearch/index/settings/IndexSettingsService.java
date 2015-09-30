@@ -312,6 +312,25 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns<code>true</code> iff the given listener is already registered otherwise<code>false</code>      */
+DECL|method|isRegistered
+specifier|public
+name|boolean
+name|isRegistered
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+block|{
+return|return
+name|listeners
+operator|.
+name|contains
+argument_list|(
+name|listener
+argument_list|)
+return|;
+block|}
 DECL|interface|Listener
 specifier|public
 interface|interface
