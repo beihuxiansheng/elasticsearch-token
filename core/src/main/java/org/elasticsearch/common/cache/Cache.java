@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple concurrent cache.  *<p>  * Cache is a simple concurrent cache that supports time-based and weight-based evictions, with notifications for all  * evictions. The design goals for this cache were simplicity and read performance. This means that we are willing to  * accept reduced write performance in exchange for easy-to-understand code. Cache statistics for hits, misses and  * evictions are exposed.  *<p>  * The design of the cache is relatively simple. The cache is segmented into 256 segments which are backed by HashMaps.  * The segments are protected by a re-entrant read/write lock. The read/write locks permit multiple concurrent readers  * without contention, and the segments gives us write throughput without impacting readers (so readers are blocked only  * if they are reading a segment that a writer is writing to).  *<p>  * The LRU functionality is backed by a single doubly-linked list chaining the entries in order of insertion. This  * LRU list is protected by a lock that serializes all writes to it. There are opportunities for improvements  * here if write throughput is a concern.  *<ol>  *<li>LRU list mutations could be inserted into a blocking queue that a single thread is reading from  *     and applying to the LRU list.</li>  *<li>Promotions could be deferred for entries that were "recently" promoted.</li>  *<li>Locks on the list could be taken per node being modified instead of globally.</li>  *</ol>  *  * Evictions only occur after a mutation to the cache (meaning an entry promotion, a cache insertion, or a manual  * invalidation) or an explicit call to {@link #refresh()}.  *  * @param<K> The type of the keys  * @param<V> The type of the values  */
+comment|/**  * A simple concurrent cache.  *<p>  * Cache is a simple concurrent cache that supports time-based and weight-based evictions, with notifications for all  * evictions. The design goals for this cache were simplicity and read performance. This means that we are willing to  * accept reduced write performance in exchange for easy-to-understand code. Cache statistics for hits, misses and  * evictions are exposed.  *<p>  * The design of the cache is relatively simple. The cache is segmented into 256 segments which are backed by HashMaps.  * The segments are protected by a re-entrant read/write lock. The read/write locks permit multiple concurrent readers  * without contention, and the segments gives us write throughput without impacting readers (so readers are blocked only  * if they are reading a segment that a writer is writing to).  *<p>  * The LRU functionality is backed by a single doubly-linked list chaining the entries in order of insertion. This  * LRU list is protected by a lock that serializes all writes to it. There are opportunities for improvements  * here if write throughput is a concern.  *<ol>  *<li>LRU list mutations could be inserted into a blocking queue that a single thread is reading from  * and applying to the LRU list.</li>  *<li>Promotions could be deferred for entries that were "recently" promoted.</li>  *<li>Locks on the list could be taken per node being modified instead of globally.</li>  *</ol>  *<p>  * Evictions only occur after a mutation to the cache (meaning an entry promotion, a cache insertion, or a manual  * invalidation) or an explicit call to {@link #refresh()}.  *  * @param<K> The type of the keys  * @param<V> The type of the values  */
 end_comment
 
 begin_class
@@ -380,12 +380,12 @@ expr_stmt|;
 block|}
 comment|// the state of an entry in the LRU list
 DECL|enum|State
-DECL|enum constant|NEW
-DECL|enum constant|EXISTING
-DECL|enum constant|DELETED
 enum|enum
 name|State
 block|{
+DECL|enum constant|NEW
+DECL|enum constant|EXISTING
+DECL|enum constant|DELETED
 name|NEW
 block|,
 name|EXISTING
@@ -484,7 +484,7 @@ name|writeTime
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A cache segment.      *      * A CacheSegment is backed by a HashMap and is protected by a read/write lock.      *      * @param<K> the type of the keys      * @param<V> the type of the values      */
+comment|/**      * A cache segment.      *<p>      * A CacheSegment is backed by a HashMap and is protected by a read/write lock.      *      * @param<K> the type of the keys      * @param<V> the type of the values      */
 DECL|class|CacheSegment
 specifier|private
 specifier|static
@@ -635,7 +635,7 @@ return|return
 name|entry
 return|;
 block|}
-comment|/**          * put an entry into the segment          *          * @param key the key of the entry to add to the cache          * @param value the value of the entry to add to the cache          * @param now the access time of this entry          * @return a tuple of the new entry and the existing entry, if there was one otherwise null          */
+comment|/**          * put an entry into the segment          *          * @param key   the key of the entry to add to the cache          * @param value the value of the entry to add to the cache          * @param now   the access time of this entry          * @return a tuple of the new entry and the existing entry, if there was one otherwise null          */
 DECL|method|put
 name|Tuple
 argument_list|<
@@ -1016,7 +1016,7 @@ name|value
 return|;
 block|}
 block|}
-comment|/**      * If the specified key is not already associated with a value (or is mapped to null), attempts to compute its      * value using the given mapping function and enters it into this map unless null.      *      * @param key the key whose associated value is to be returned or computed for if non-existant      * @param mappingFunction the function to compute a value given a key      * @return the current (existing or computed) value associated with the specified key, or null if the computed      * value is null      */
+comment|/**      * If the specified key is not already associated with a value (or is mapped to null), attempts to compute its      * value using the given mapping function and enters it into this map unless null.      *      * @param key             the key whose associated value is to be returned or computed for if non-existant      * @param mappingFunction the function to compute a value given a key      * @return the current (existing or computed) value associated with the specified key, or null if the computed      * value is null      */
 DECL|method|computeIfAbsent
 specifier|public
 name|V
@@ -1128,7 +1128,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Associates the specified value with the specified key in this map. If the map previously contained a mapping for      * the key, the old value is replaced.      *      * @param key key with which the specified value is to be associated      * @param value value to be associated with the specified key      */
+comment|/**      * Associates the specified value with the specified key in this map. If the map previously contained a mapping for      * the key, the old value is replaced.      *      * @param key   key with which the specified value is to be associated      * @param value value to be associated with the specified key      */
 DECL|method|put
 specifier|public
 name|void
