@@ -194,26 +194,6 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Per index shard module.      */
-DECL|method|shardModules
-specifier|public
-name|Collection
-argument_list|<
-name|Module
-argument_list|>
-name|shardModules
-parameter_list|(
-name|Settings
-name|indexSettings
-parameter_list|)
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-return|;
-block|}
 comment|/**      * Per index shard service that will be automatically closed.      */
 DECL|method|shardServices
 specifier|public

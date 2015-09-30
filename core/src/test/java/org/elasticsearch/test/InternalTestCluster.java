@@ -714,8 +714,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
 name|MockEngineFactoryPlugin
 import|;
 end_import

@@ -50,7 +50,6 @@ end_comment
 
 begin_interface
 DECL|interface|IndexSearcherWrapper
-specifier|public
 interface|interface
 name|IndexSearcherWrapper
 block|{
