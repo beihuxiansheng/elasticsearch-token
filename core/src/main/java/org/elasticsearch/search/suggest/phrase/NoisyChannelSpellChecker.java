@@ -868,11 +868,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
-init|(
-name|TokenStream
-name|ts
-init|=
+return|return
+name|getCorrections
+argument_list|(
 name|tokenStream
 argument_list|(
 name|analyzer
@@ -885,12 +883,6 @@ argument_list|()
 argument_list|,
 name|analysisField
 argument_list|)
-init|)
-block|{
-return|return
-name|getCorrections
-argument_list|(
-name|ts
 argument_list|,
 name|generator
 argument_list|,
@@ -906,8 +898,6 @@ name|gramSize
 argument_list|)
 return|;
 block|}
-block|}
-comment|/** NOTE: caller must close returned TokenStream */
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
