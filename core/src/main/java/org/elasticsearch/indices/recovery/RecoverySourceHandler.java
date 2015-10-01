@@ -4215,13 +4215,6 @@ argument_list|,
 name|outputStream
 argument_list|)
 expr_stmt|;
-name|Store
-operator|.
-name|verify
-argument_list|(
-name|indexInput
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 literal|null

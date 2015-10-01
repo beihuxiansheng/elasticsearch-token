@@ -6956,6 +6956,22 @@ index|]
 operator|=
 name|b
 expr_stmt|;
+if|if
+condition|(
+name|index
+operator|==
+name|footerChecksum
+operator|.
+name|length
+operator|-
+literal|1
+condition|)
+block|{
+name|verify
+argument_list|()
+expr_stmt|;
+comment|// we have recorded the entire checksum
+block|}
 block|}
 else|else
 block|{
