@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -56,7 +42,7 @@ name|common
 operator|.
 name|collect
 operator|.
-name|MapBuilder
+name|CopyOnWriteHashMap
 import|;
 end_import
 
@@ -86,26 +72,37 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_class
 DECL|class|BucketStreams
 specifier|public
 class|class
 name|BucketStreams
 block|{
-DECL|field|STREAMS
+DECL|field|streams
 specifier|private
 specifier|static
-name|ImmutableMap
+specifier|final
+name|Map
 argument_list|<
 name|BytesReference
 argument_list|,
 name|Stream
 argument_list|>
-name|STREAMS
+name|streams
 init|=
-name|ImmutableMap
-operator|.
-name|of
+operator|new
+name|CopyOnWriteHashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * A stream that knows how to read a bucket from the input.      */
@@ -160,21 +157,6 @@ modifier|...
 name|types
 parameter_list|)
 block|{
-name|MapBuilder
-argument_list|<
-name|BytesReference
-argument_list|,
-name|Stream
-argument_list|>
-name|uStreams
-init|=
-name|MapBuilder
-operator|.
-name|newMapBuilder
-argument_list|(
-name|STREAMS
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|BytesReference
@@ -183,7 +165,7 @@ range|:
 name|types
 control|)
 block|{
-name|uStreams
+name|streams
 operator|.
 name|put
 argument_list|(
@@ -193,13 +175,6 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-name|STREAMS
-operator|=
-name|uStreams
-operator|.
-name|immutableMap
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * Returns the stream that is registered for the given type      *      * @param   type The given type      * @return  The associated stream      */
 DECL|method|stream
@@ -213,7 +188,7 @@ name|type
 parameter_list|)
 block|{
 return|return
-name|STREAMS
+name|streams
 operator|.
 name|get
 argument_list|(
