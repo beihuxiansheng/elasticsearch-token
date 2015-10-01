@@ -269,7 +269,7 @@ name|sourceTransforms
 decl_stmt|;
 DECL|field|meta
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -295,7 +295,7 @@ name|SourceTransform
 index|[]
 name|sourceTransforms
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

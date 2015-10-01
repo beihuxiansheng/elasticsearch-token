@@ -912,6 +912,18 @@ name|util
 operator|.
 name|Collections
 operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
 name|unmodifiableSet
 import|;
 end_import
@@ -1716,8 +1728,7 @@ name|routingTable
 argument_list|()
 argument_list|)
 decl_stmt|;
-specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -2465,9 +2476,7 @@ else|else
 block|{
 name|shards
 operator|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 block|}

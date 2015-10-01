@@ -351,7 +351,7 @@ name|node
 parameter_list|,
 annotation|@
 name|Nullable
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
