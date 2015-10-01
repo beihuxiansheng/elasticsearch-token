@@ -634,9 +634,6 @@ argument_list|()
 argument_list|,
 name|indexShard
 operator|.
-name|engine
-argument_list|()
-operator|.
 name|segments
 argument_list|(
 name|request

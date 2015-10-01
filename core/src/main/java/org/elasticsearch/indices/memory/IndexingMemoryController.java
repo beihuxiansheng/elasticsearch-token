@@ -1490,9 +1490,6 @@ name|translog
 operator|=
 name|indexShard
 operator|.
-name|engine
-argument_list|()
-operator|.
 name|getTranslog
 argument_list|()
 expr_stmt|;

@@ -841,25 +841,6 @@ name|RecoveryResponse
 name|recoverToTarget
 parameter_list|()
 block|{
-specifier|final
-name|Engine
-name|engine
-init|=
-name|shard
-operator|.
-name|engine
-argument_list|()
-decl_stmt|;
-assert|assert
-name|engine
-operator|.
-name|getTranslog
-argument_list|()
-operator|!=
-literal|null
-operator|:
-literal|"translog must not be null"
-assert|;
 try|try
 init|(
 name|Translog
@@ -867,12 +848,9 @@ operator|.
 name|View
 name|translogView
 init|=
-name|engine
+name|shard
 operator|.
-name|getTranslog
-argument_list|()
-operator|.
-name|newView
+name|acquireTranslogView
 argument_list|()
 init|)
 block|{
@@ -1148,10 +1126,7 @@ parameter_list|)
 block|{
 name|shard
 operator|.
-name|engine
-argument_list|()
-operator|.
-name|failEngine
+name|failShard
 argument_list|(
 literal|"recovery"
 argument_list|,
@@ -2057,10 +2032,7 @@ block|{
 comment|// we are corrupted on the primary -- fail!
 name|shard
 operator|.
-name|engine
-argument_list|()
-operator|.
-name|failEngine
+name|failShard
 argument_list|(
 literal|"recovery"
 argument_list|,
@@ -4015,10 +3987,7 @@ parameter_list|)
 block|{
 name|shard
 operator|.
-name|engine
-argument_list|()
-operator|.
-name|failEngine
+name|failShard
 argument_list|(
 literal|"recovery"
 argument_list|,

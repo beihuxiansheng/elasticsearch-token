@@ -1548,9 +1548,6 @@ name|searcher
 init|=
 name|shard
 operator|.
-name|engine
-argument_list|()
-operator|.
 name|acquireSearcher
 argument_list|(
 literal|"percolator_load_queries"

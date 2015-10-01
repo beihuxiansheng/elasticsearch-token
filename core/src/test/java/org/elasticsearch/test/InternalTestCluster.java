@@ -7152,9 +7152,6 @@ name|commitStats
 init|=
 name|indexShard
 operator|.
-name|engine
-argument_list|()
-operator|.
 name|commitStats
 argument_list|()
 decl_stmt|;
