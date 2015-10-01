@@ -32,6 +32,34 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -103,6 +131,20 @@ operator|.
 name|metadata
 operator|.
 name|MetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableOpenMap
 import|;
 end_import
 
@@ -248,18 +290,6 @@ name|Predicate
 import|;
 end_import
 
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableMap
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a global cluster-wide routing table for all indices including the  * version of the current routing state.  *  * @see IndexRoutingTable  */
 end_comment
@@ -315,7 +345,7 @@ comment|// index to IndexRoutingTable map
 DECL|field|indicesRouting
 specifier|private
 specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -329,7 +359,7 @@ parameter_list|(
 name|long
 name|version
 parameter_list|,
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -348,10 +378,7 @@ name|this
 operator|.
 name|indicesRouting
 operator|=
-name|unmodifiableMap
-argument_list|(
 name|indicesRouting
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the version of the {@link RoutingTable}.      *      * @return version of the {@link RoutingTable}      */
@@ -381,10 +408,7 @@ block|{
 return|return
 name|indicesRouting
 operator|.
-name|values
-argument_list|()
-operator|.
-name|iterator
+name|valuesIt
 argument_list|()
 return|;
 block|}
@@ -426,7 +450,7 @@ return|;
 block|}
 DECL|method|indicesRouting
 specifier|public
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -441,7 +465,7 @@ return|;
 block|}
 DECL|method|getIndicesRouting
 specifier|public
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -608,22 +632,14 @@ name|indices
 init|=
 name|indicesRouting
 operator|.
-name|keySet
+name|keys
 argument_list|()
 operator|.
 name|toArray
 argument_list|(
-operator|new
 name|String
-index|[
-name|indicesRouting
 operator|.
-name|keySet
-argument_list|()
-operator|.
-name|size
-argument_list|()
-index|]
+name|class
 argument_list|)
 decl_stmt|;
 for|for
@@ -1508,7 +1524,10 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|IndexRoutingTable
+argument_list|>
 name|index
 range|:
 name|indicesRouting
@@ -1518,6 +1537,8 @@ argument_list|()
 control|)
 block|{
 name|index
+operator|.
+name|value
 operator|.
 name|writeTo
 argument_list|(
@@ -1548,7 +1569,7 @@ specifier|private
 specifier|final
 name|Diff
 argument_list|<
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -1611,7 +1632,7 @@ name|indicesRouting
 operator|=
 name|DiffableUtils
 operator|.
-name|readJdkMapDiff
+name|readImmutableOpenMapDiff
 argument_list|(
 name|in
 argument_list|,
@@ -1709,6 +1730,7 @@ name|routingTable
 argument_list|)
 return|;
 block|}
+comment|/**      * Builder for the routing table. Note that build can only be called one time.      */
 DECL|class|Builder
 specifier|public
 specifier|static
@@ -1723,7 +1745,9 @@ decl_stmt|;
 DECL|field|indicesRouting
 specifier|private
 specifier|final
-name|Map
+name|ImmutableOpenMap
+operator|.
+name|Builder
 argument_list|<
 name|String
 argument_list|,
@@ -1731,9 +1755,9 @@ name|IndexRoutingTable
 argument_list|>
 name|indicesRouting
 init|=
-operator|new
-name|HashMap
-argument_list|<>
+name|ImmutableOpenMap
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 DECL|method|Builder
@@ -2094,22 +2118,14 @@ name|indices
 operator|=
 name|indicesRouting
 operator|.
-name|keySet
+name|keys
 argument_list|()
 operator|.
 name|toArray
 argument_list|(
-operator|new
 name|String
-index|[
-name|indicesRouting
 operator|.
-name|keySet
-argument_list|()
-operator|.
-name|size
-argument_list|()
-index|]
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -2718,6 +2734,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Builds the routing table. Note that this can only be called one time.          * If you need to build a new RoutingTable as a copy of this one you'll          * need to build a new RoutingTable.Builder.          */
 DECL|method|build
 specifier|public
 name|RoutingTable
@@ -2727,7 +2744,10 @@ block|{
 comment|// normalize the versions right before we build it...
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|IndexRoutingTable
+argument_list|>
 name|indexRoutingTable
 range|:
 name|indicesRouting
@@ -2742,10 +2762,14 @@ name|put
 argument_list|(
 name|indexRoutingTable
 operator|.
+name|value
+operator|.
 name|index
 argument_list|()
 argument_list|,
 name|indexRoutingTable
+operator|.
+name|value
 operator|.
 name|normalizeVersions
 argument_list|()
@@ -2759,6 +2783,9 @@ argument_list|(
 name|version
 argument_list|,
 name|indicesRouting
+operator|.
+name|build
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2811,9 +2838,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
@@ -2822,9 +2847,6 @@ argument_list|>
 name|entry
 range|:
 name|indicesRouting
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 name|sb
@@ -2833,8 +2855,7 @@ name|append
 argument_list|(
 name|entry
 operator|.
-name|getValue
-argument_list|()
+name|value
 operator|.
 name|prettyPrint
 argument_list|()

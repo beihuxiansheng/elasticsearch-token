@@ -2535,6 +2535,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|RoutingTable
+name|rt
+init|=
+name|rtBuilder
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 name|ClusterState
 name|updatedState
 init|=
@@ -2552,7 +2560,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|rtBuilder
+name|rt
 argument_list|)
 operator|.
 name|build
@@ -2576,7 +2584,7 @@ argument_list|)
 operator|.
 name|routingTable
 argument_list|(
-name|rtBuilder
+name|rt
 argument_list|)
 operator|.
 name|build

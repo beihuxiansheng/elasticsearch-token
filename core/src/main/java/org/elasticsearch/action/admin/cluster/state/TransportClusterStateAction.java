@@ -562,6 +562,9 @@ operator|.
 name|routingTable
 argument_list|(
 name|routingTableBuilder
+operator|.
+name|build
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
