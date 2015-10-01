@@ -422,6 +422,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -577,9 +589,7 @@ name|SearchHitField
 argument_list|>
 name|fields
 init|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 DECL|field|highlightFields
@@ -1359,21 +1369,14 @@ argument_list|>
 name|fields
 parameter_list|()
 block|{
-if|if
-condition|(
+return|return
 name|fields
 operator|==
 literal|null
-condition|)
-block|{
-return|return
-name|ImmutableMap
-operator|.
-name|of
+condition|?
+name|emptyMap
 argument_list|()
-return|;
-block|}
-return|return
+else|:
 name|fields
 return|;
 block|}
@@ -1390,8 +1393,6 @@ name|fieldsOrNull
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|fields
 return|;
 block|}

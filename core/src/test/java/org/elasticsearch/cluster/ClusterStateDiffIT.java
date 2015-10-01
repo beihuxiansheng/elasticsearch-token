@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -495,6 +481,30 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
 import|;
 end_import
 
@@ -4585,24 +4595,10 @@ literal|3
 argument_list|)
 argument_list|)
 argument_list|,
-name|Collections
-operator|.
-expr|<
-name|String
-operator|>
 name|emptyList
 argument_list|()
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|ShardId
-argument_list|,
-name|RestoreInProgress
-operator|.
-name|ShardRestoreStatus
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|)
 argument_list|)

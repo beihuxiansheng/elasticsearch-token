@@ -190,6 +190,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * Meta data about restore processes that are currently executing  */
 end_comment
@@ -468,7 +480,7 @@ name|String
 argument_list|>
 name|indices
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -506,9 +518,7 @@ name|this
 operator|.
 name|shards
 operator|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 block|}
