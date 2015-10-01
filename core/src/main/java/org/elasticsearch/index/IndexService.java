@@ -88,20 +88,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
-operator|.
-name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|routing
 operator|.
 name|ShardRouting
@@ -714,6 +700,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -840,7 +838,7 @@ decl_stmt|;
 DECL|field|shards
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -848,9 +846,7 @@ name|IndexShardInjectorPair
 argument_list|>
 name|shards
 init|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 DECL|class|IndexShardInjectorPair

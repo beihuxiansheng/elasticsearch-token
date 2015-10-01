@@ -78,6 +78,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|ImmutableOpenMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -433,7 +447,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|Builder
 argument_list|<
@@ -446,7 +460,7 @@ argument_list|>
 argument_list|>
 name|indicesBuilder
 init|=
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|builder
 argument_list|()
@@ -584,7 +598,7 @@ return|;
 block|}
 DECL|method|indices
 specifier|public
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -1460,7 +1474,7 @@ argument_list|(
 name|emptySet
 argument_list|()
 argument_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|of
 argument_list|()
@@ -1478,7 +1492,7 @@ decl_stmt|;
 DECL|field|indices
 specifier|private
 specifier|final
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -1498,7 +1512,7 @@ name|ClusterBlock
 argument_list|>
 name|global
 parameter_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -1538,7 +1552,7 @@ return|;
 block|}
 DECL|method|indices
 specifier|public
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,

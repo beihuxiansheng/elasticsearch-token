@@ -176,6 +176,18 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * The dangling indices state is responsible for finding new dangling indices (indices that have  * their state written on disk, but don't exists in the metadata of the cluster), and importing  * them into the cluster.  */
 end_comment
@@ -437,9 +449,7 @@ name|e
 argument_list|)
 expr_stmt|;
 return|return
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 return|;
 block|}

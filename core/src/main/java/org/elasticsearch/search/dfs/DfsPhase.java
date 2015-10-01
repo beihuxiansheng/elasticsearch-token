@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectHashMap
+name|ObjectHashSet
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectHashSet
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -51,20 +51,6 @@ operator|.
 name|cursors
 operator|.
 name|ObjectCursor
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
 import|;
 end_import
 
@@ -244,6 +230,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -272,9 +270,7 @@ name|parseElements
 parameter_list|()
 block|{
 return|return
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 return|;
 block|}
