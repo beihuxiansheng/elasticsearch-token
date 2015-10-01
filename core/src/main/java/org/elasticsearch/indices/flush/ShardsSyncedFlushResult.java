@@ -78,6 +78,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * Result for all copies of a shard  */
 end_comment
@@ -167,9 +179,7 @@ name|this
 operator|.
 name|shardResponses
 operator|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 name|this

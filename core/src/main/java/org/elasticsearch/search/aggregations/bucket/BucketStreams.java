@@ -40,20 +40,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|CopyOnWriteHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -78,7 +64,41 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -91,7 +111,6 @@ block|{
 DECL|field|streams
 specifier|private
 specifier|static
-specifier|final
 name|Map
 argument_list|<
 name|BytesReference
@@ -100,9 +119,7 @@ name|Stream
 argument_list|>
 name|streams
 init|=
-operator|new
-name|CopyOnWriteHashMap
-argument_list|<>
+name|emptyMap
 argument_list|()
 decl_stmt|;
 comment|/**      * A stream that knows how to read a bucket from the input.      */
@@ -157,6 +174,21 @@ modifier|...
 name|types
 parameter_list|)
 block|{
+name|Map
+argument_list|<
+name|BytesReference
+argument_list|,
+name|Stream
+argument_list|>
+name|newStreams
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|(
+name|streams
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|BytesReference
@@ -165,7 +197,7 @@ range|:
 name|types
 control|)
 block|{
-name|streams
+name|newStreams
 operator|.
 name|put
 argument_list|(
@@ -175,6 +207,13 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
+name|streams
+operator|=
+name|unmodifiableMap
+argument_list|(
+name|newStreams
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Returns the stream that is registered for the given type      *      * @param   type The given type      * @return  The associated stream      */
 DECL|method|stream
