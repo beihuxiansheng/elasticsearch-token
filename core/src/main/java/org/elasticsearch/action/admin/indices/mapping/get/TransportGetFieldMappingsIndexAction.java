@@ -24,20 +24,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -472,6 +458,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -815,7 +813,7 @@ argument_list|(
 name|type
 argument_list|)
 decl_stmt|;
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -854,9 +852,7 @@ return|return
 operator|new
 name|GetFieldMappingsResponse
 argument_list|(
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 name|shardId
 operator|.
@@ -1065,7 +1061,7 @@ block|}
 decl_stmt|;
 DECL|method|findFieldMappingsByType
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
