@@ -26,20 +26,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableMap
 import|;
 end_import
@@ -87,6 +73,16 @@ operator|.
 name|collect
 operator|.
 name|MapBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -190,7 +186,7 @@ comment|/**      * Returns the list of pre-defined SimilarityProvider Factories 
 DECL|method|listFactories
 specifier|public
 specifier|static
-name|ImmutableCollection
+name|Collection
 argument_list|<
 name|PreBuiltSimilarityProvider
 operator|.
