@@ -106,63 +106,7 @@ name|action
 operator|.
 name|get
 operator|.
-name|GetRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|get
-operator|.
-name|GetResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|get
-operator|.
-name|MultiGetRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|get
-operator|.
-name|MultiGetRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|get
-operator|.
-name|MultiGetResponse
+name|*
 import|;
 end_import
 
@@ -446,91 +390,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasKey
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|startsWith
+name|*
 import|;
 end_import
 
@@ -6527,7 +6387,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"[type1][1]: version conflict, current [1], provided [2]"
+literal|"[type1][1]: version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6889,7 +6749,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"[type1][1]: version conflict, current [1], provided [2]"
+literal|"[type1][1]: version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7238,7 +7098,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"[type1][2]: version conflict, current [2], provided [1]"
+literal|"[type1][2]: version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7633,7 +7493,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"[type1][2]: version conflict, current [2], provided [1]"
+literal|"[type1][2]: version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
