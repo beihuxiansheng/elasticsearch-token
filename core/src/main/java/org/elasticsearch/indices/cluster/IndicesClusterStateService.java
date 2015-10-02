@@ -2060,15 +2060,8 @@ name|indexSettingsService
 init|=
 name|indexService
 operator|.
-name|injector
+name|settingsService
 argument_list|()
-operator|.
-name|getInstance
-argument_list|(
-name|IndexSettingsService
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 name|indexSettingsService
 operator|.

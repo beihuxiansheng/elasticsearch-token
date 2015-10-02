@@ -5025,13 +5025,6 @@ name|IndexShardRelocatedException
 throws|,
 name|IndexShardClosedException
 block|{
-name|indicesLifecycle
-operator|.
-name|beforeIndexShardPostRecovery
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|mapperService
@@ -5156,13 +5149,6 @@ name|reason
 argument_list|)
 expr_stmt|;
 block|}
-name|indicesLifecycle
-operator|.
-name|afterIndexShardPostRecovery
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 return|return
 name|this
 return|;
