@@ -361,17 +361,22 @@ parameter_list|()
 block|{
 comment|// System.nanoTime takes non-negligible time, so we only use it if we need it
 return|return
+name|expireAfterWrite
+operator|!=
+operator|-
+literal|1
+operator|||
 name|expireAfterAccess
-operator|==
+operator|!=
 operator|-
 literal|1
 condition|?
-literal|0
-else|:
 name|System
 operator|.
 name|nanoTime
 argument_list|()
+else|:
+literal|0
 return|;
 block|}
 DECL|method|setExpireAfterWrite
