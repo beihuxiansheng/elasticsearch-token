@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -47,6 +33,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -359,7 +357,7 @@ return|;
 block|}
 DECL|method|immutableMap
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|K
 argument_list|,
@@ -369,11 +367,14 @@ name|immutableMap
 parameter_list|()
 block|{
 return|return
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
+argument_list|(
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|map
+argument_list|)
 argument_list|)
 return|;
 block|}

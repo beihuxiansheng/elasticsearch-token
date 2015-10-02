@@ -16,34 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -100,6 +72,18 @@ name|util
 operator|.
 name|Collections
 operator|.
+name|unmodifiableMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
 name|unmodifiableSet
 import|;
 end_import
@@ -130,7 +114,7 @@ decl_stmt|;
 DECL|field|scriptContexts
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -249,9 +233,7 @@ name|this
 operator|.
 name|scriptContexts
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|scriptContexts
 argument_list|)
@@ -259,7 +241,7 @@ expr_stmt|;
 block|}
 comment|/**      * @return a list that contains all the supported {@link ScriptContext}s, both standard ones and registered via plugins      */
 DECL|method|scriptContexts
-name|ImmutableCollection
+name|Collection
 argument_list|<
 name|ScriptContext
 argument_list|>

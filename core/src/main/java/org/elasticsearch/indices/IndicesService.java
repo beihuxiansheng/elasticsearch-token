@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1037,6 +1023,18 @@ operator|.
 name|Collections
 operator|.
 name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -2599,7 +2597,7 @@ name|String
 argument_list|,
 name|IndexServiceInjectorPair
 argument_list|>
-name|tmpMap
+name|newIndices
 init|=
 operator|new
 name|HashMap
@@ -2611,7 +2609,7 @@ decl_stmt|;
 name|IndexServiceInjectorPair
 name|remove
 init|=
-name|tmpMap
+name|newIndices
 operator|.
 name|remove
 argument_list|(
@@ -2634,11 +2632,9 @@ argument_list|()
 expr_stmt|;
 name|indices
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
-name|tmpMap
+name|newIndices
 argument_list|)
 expr_stmt|;
 block|}

@@ -68,20 +68,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -913,6 +899,18 @@ operator|.
 name|Collections
 operator|.
 name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -1759,9 +1757,7 @@ argument_list|()
 condition|)
 block|{
 comment|// We have some indices to restore
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1771,9 +1767,9 @@ name|ShardRestoreStatus
 argument_list|>
 name|shardsBuilder
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2415,10 +2411,10 @@ block|}
 block|}
 name|shards
 operator|=
+name|unmodifiableMap
+argument_list|(
 name|shardsBuilder
-operator|.
-name|build
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|RestoreInProgress
 operator|.
@@ -4150,9 +4146,7 @@ operator|.
 name|indices
 argument_list|()
 argument_list|,
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|shards
 argument_list|)
@@ -5252,7 +5246,7 @@ literal|null
 decl_stmt|;
 for|for
 control|(
-name|ImmutableMap
+name|Map
 operator|.
 name|Entry
 argument_list|<

@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -645,6 +631,18 @@ operator|.
 name|Collections
 operator|.
 name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -1468,9 +1466,7 @@ literal|null
 condition|)
 block|{
 comment|// We already saw this snapshot but we need to add more started shards
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1478,9 +1474,9 @@ name|IndexShardSnapshotStatus
 argument_list|>
 name|shards
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Put all shards that were already running on this node
@@ -1513,10 +1509,10 @@ argument_list|,
 operator|new
 name|SnapshotShards
 argument_list|(
+name|unmodifiableMap
+argument_list|(
 name|shards
-operator|.
-name|build
-argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1536,9 +1532,7 @@ argument_list|,
 operator|new
 name|SnapshotShards
 argument_list|(
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|startedShards
 argument_list|)
@@ -1809,9 +1803,7 @@ try|try
 block|{
 name|shardSnapshots
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|survivors
 argument_list|)
@@ -2762,7 +2754,7 @@ DECL|method|SnapshotShards
 specifier|private
 name|SnapshotShards
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
