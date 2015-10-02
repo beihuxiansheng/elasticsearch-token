@@ -7145,8 +7145,6 @@ range|:
 name|indexService
 control|)
 block|{
-try|try
-block|{
 name|CommitStats
 name|commitStats
 init|=
@@ -7155,6 +7153,14 @@ operator|.
 name|commitStats
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|commitStats
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// null if the engine is closed or if the shard is recovering
 name|String
 name|syncId
 init|=
@@ -7245,14 +7251,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|EngineClosedException
-name|e
-parameter_list|)
-block|{
-comment|// nothing to do, shard is closed
 block|}
 block|}
 block|}

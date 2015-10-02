@@ -750,9 +750,7 @@ name|index
 operator|.
 name|percolator
 operator|.
-name|stats
-operator|.
-name|ShardPercolateService
+name|PercolatorQueriesRegistry
 import|;
 end_import
 
@@ -943,22 +941,6 @@ operator|.
 name|aggregations
 operator|.
 name|InternalAggregations
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
-name|PipelineAggregator
 import|;
 end_import
 
@@ -1633,15 +1615,15 @@ name|readAllowed
 argument_list|()
 expr_stmt|;
 comment|// check if we can read the shard...
-name|ShardPercolateService
-name|shardPercolateService
+name|PercolatorQueriesRegistry
+name|percolateQueryRegistry
 init|=
 name|indexShard
 operator|.
-name|shardPercolateService
+name|percolateRegistry
 argument_list|()
 decl_stmt|;
-name|shardPercolateService
+name|percolateQueryRegistry
 operator|.
 name|prePercolate
 argument_list|()
@@ -2143,7 +2125,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|shardPercolateService
+name|percolateQueryRegistry
 operator|.
 name|postPercolate
 argument_list|(
