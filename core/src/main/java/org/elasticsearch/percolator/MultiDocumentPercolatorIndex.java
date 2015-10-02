@@ -532,6 +532,8 @@ try|try
 block|{
 comment|// TODO: instead of passing null here, we can have a CTL<Map<String,TokenStream>> and pass previous,
 comment|// like the indexer does
+try|try
+init|(
 name|TokenStream
 name|tokenStream
 init|=
@@ -543,7 +545,8 @@ name|analyzer
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 if|if
 condition|(
 name|tokenStream
@@ -568,6 +571,7 @@ name|boost
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
