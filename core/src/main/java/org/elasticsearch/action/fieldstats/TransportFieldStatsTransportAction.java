@@ -1146,7 +1146,7 @@ name|shard
 init|=
 name|indexServices
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardId
 operator|.

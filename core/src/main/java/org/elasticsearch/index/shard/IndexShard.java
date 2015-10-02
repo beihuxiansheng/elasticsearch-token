@@ -2639,7 +2639,7 @@ block|{
 comment|// we want to refresh *before* we move to internal STARTED state
 try|try
 block|{
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|refresh
@@ -3243,7 +3243,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|create
@@ -3526,7 +3526,7 @@ expr_stmt|;
 block|}
 name|created
 operator|=
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|index
@@ -3715,7 +3715,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|delete
@@ -3778,7 +3778,7 @@ name|readAllowed
 argument_list|()
 expr_stmt|;
 return|return
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|get
@@ -3825,7 +3825,7 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|refresh
@@ -3966,7 +3966,7 @@ block|{
 name|Engine
 name|engine
 init|=
-name|engineUnsafe
+name|getEngineOrNull
 argument_list|()
 decl_stmt|;
 return|return
@@ -4086,7 +4086,7 @@ specifier|final
 name|Engine
 name|engine
 init|=
-name|engineUnsafe
+name|getEngineOrNull
 argument_list|()
 decl_stmt|;
 if|if
@@ -4118,7 +4118,7 @@ block|{
 name|SegmentsStats
 name|segmentsStats
 init|=
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|segmentsStats
@@ -4224,7 +4224,7 @@ name|translogStats
 parameter_list|()
 block|{
 return|return
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -4366,7 +4366,7 @@ name|expectedCommitId
 argument_list|)
 expr_stmt|;
 return|return
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|syncFlush
@@ -4443,7 +4443,7 @@ operator|.
 name|CommitId
 name|commitId
 init|=
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|flush
@@ -4501,7 +4501,7 @@ name|optimize
 argument_list|)
 expr_stmt|;
 block|}
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|forceMerge
@@ -4583,7 +4583,7 @@ name|minimumCompatibleVersion
 argument_list|()
 decl_stmt|;
 comment|// we just want to upgrade the segments, not actually optimize to a single segment
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|forceMerge
@@ -4676,7 +4676,7 @@ control|(
 name|Segment
 name|segment
 range|:
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|segments
@@ -4771,7 +4771,7 @@ name|CLOSED
 condition|)
 block|{
 return|return
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|snapshotIndex
@@ -4831,7 +4831,7 @@ name|e
 parameter_list|)
 block|{
 comment|// fail the engine. This will cause this shard to also be removed from the node's index service.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|failEngine
@@ -4859,7 +4859,7 @@ expr_stmt|;
 name|Engine
 name|engine
 init|=
-name|engine
+name|getEngine
 argument_list|()
 decl_stmt|;
 return|return
@@ -5049,7 +5049,7 @@ operator|.
 name|Searcher
 name|searcher
 init|=
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|acquireSearcher
@@ -5241,7 +5241,7 @@ argument_list|()
 operator|.
 name|performBatchRecovery
 argument_list|(
-name|engine
+name|getEngine
 argument_list|()
 argument_list|,
 name|operations
@@ -5412,7 +5412,7 @@ throws|throws
 name|IOException
 block|{
 assert|assert
-name|engineUnsafe
+name|getEngineOrNull
 argument_list|()
 operator|==
 literal|null
@@ -5548,7 +5548,7 @@ operator|.
 name|FINALIZE
 argument_list|)
 expr_stmt|;
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|refresh
@@ -6067,7 +6067,7 @@ expr_stmt|;
 name|Engine
 name|engine
 init|=
-name|engineUnsafe
+name|getEngineOrNull
 argument_list|()
 decl_stmt|;
 if|if
@@ -6391,7 +6391,7 @@ block|{
 name|Engine
 name|engine
 init|=
-name|engineUnsafe
+name|getEngineOrNull
 argument_list|()
 decl_stmt|;
 if|if
@@ -7248,7 +7248,7 @@ condition|(
 name|change
 condition|)
 block|{
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|onSettingsChanged
@@ -7267,7 +7267,7 @@ block|{
 name|Engine
 name|engine
 init|=
-name|engine
+name|getEngine
 argument_list|()
 decl_stmt|;
 assert|assert
@@ -7303,7 +7303,7 @@ name|verbose
 parameter_list|)
 block|{
 return|return
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|segments
@@ -7320,7 +7320,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|flushAndClose
@@ -7334,7 +7334,7 @@ name|getTranslog
 parameter_list|()
 block|{
 return|return
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7372,7 +7372,7 @@ comment|// we check before if a refresh is needed, if not, we reschedule, otherw
 if|if
 condition|(
 operator|!
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|refreshNeeded
@@ -7412,7 +7412,7 @@ try|try
 block|{
 if|if
 condition|(
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|refreshNeeded
@@ -8030,15 +8030,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|engine
+DECL|method|getEngine
 name|Engine
-name|engine
+name|getEngine
 parameter_list|()
 block|{
 name|Engine
 name|engine
 init|=
-name|engineUnsafe
+name|getEngineOrNull
 argument_list|()
 decl_stmt|;
 if|if
@@ -8061,10 +8061,10 @@ name|engine
 return|;
 block|}
 comment|/** NOTE: returns null if engine is not yet started (e.g. recovery phase 1, copying over index files, is still running), or if engine is      *  closed. */
-DECL|method|engineUnsafe
+DECL|method|getEngineOrNull
 specifier|protected
 name|Engine
-name|engineUnsafe
+name|getEngineOrNull
 parameter_list|()
 block|{
 return|return
@@ -8847,7 +8847,7 @@ specifier|final
 name|Engine
 name|engine
 init|=
-name|engine
+name|getEngine
 argument_list|()
 decl_stmt|;
 name|engine

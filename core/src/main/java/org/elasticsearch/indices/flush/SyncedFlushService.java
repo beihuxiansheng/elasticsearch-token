@@ -2594,7 +2594,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|request
 operator|.
@@ -2698,7 +2698,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|request
 operator|.
@@ -2847,7 +2847,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|request
 operator|.

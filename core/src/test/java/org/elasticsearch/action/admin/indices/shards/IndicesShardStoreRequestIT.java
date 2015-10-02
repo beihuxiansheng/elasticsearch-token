@@ -1412,7 +1412,7 @@ name|shard
 init|=
 name|indexShards
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardId
 argument_list|)

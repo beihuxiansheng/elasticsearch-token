@@ -400,7 +400,7 @@ name|searcher
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 literal|0
 argument_list|)

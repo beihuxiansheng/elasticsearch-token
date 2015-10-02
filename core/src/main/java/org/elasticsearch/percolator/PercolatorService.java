@@ -1598,7 +1598,7 @@ name|indexShard
 init|=
 name|percolateIndexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|request
 operator|.

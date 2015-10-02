@@ -3210,7 +3210,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 argument_list|)
@@ -3821,7 +3821,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardId
 argument_list|)
@@ -4169,7 +4169,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardId
 argument_list|)
@@ -5325,7 +5325,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.

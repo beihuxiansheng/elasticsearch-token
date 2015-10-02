@@ -1182,7 +1182,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -1733,7 +1733,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -2364,7 +2364,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -2566,7 +2566,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -3036,7 +3036,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -3179,7 +3179,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -3323,7 +3323,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -3571,7 +3571,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -3591,7 +3591,7 @@ name|assertFalse
 argument_list|(
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -3636,7 +3636,7 @@ name|assertTrue
 argument_list|(
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -3676,7 +3676,7 @@ name|assertFalse
 argument_list|(
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -3716,7 +3716,7 @@ name|assertTrue
 argument_list|(
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -3788,7 +3788,7 @@ name|assertFalse
 argument_list|(
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -3871,7 +3871,7 @@ name|assertTrue
 argument_list|(
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -4051,7 +4051,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -4086,7 +4086,7 @@ argument_list|)
 expr_stmt|;
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|config
@@ -4099,7 +4099,7 @@ name|performRecoveryOperation
 argument_list|(
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 argument_list|,
 operator|new
@@ -4192,7 +4192,7 @@ expr_stmt|;
 block|}
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|refresh
@@ -4209,7 +4209,7 @@ name|searcher
 init|=
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|acquireSearcher
@@ -4327,7 +4327,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -4376,7 +4376,7 @@ argument_list|)
 expr_stmt|;
 name|test
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|flush
@@ -4635,7 +4635,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -5692,7 +5692,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -6104,7 +6104,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -6285,7 +6285,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -6463,7 +6463,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -6700,7 +6700,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -6863,7 +6863,7 @@ literal|2
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -6922,7 +6922,7 @@ literal|0
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -6934,7 +6934,7 @@ argument_list|)
 expr_stmt|;
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -6948,7 +6948,7 @@ name|size
 init|=
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -6965,7 +6965,7 @@ literal|"--> current translog size: [{}] num_ops [{}] generation [{}]"
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -6976,7 +6976,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -6987,7 +6987,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7072,7 +7072,7 @@ literal|"--> translog size after delete: [{}] num_ops [{}] generation [{}]"
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7083,7 +7083,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7094,7 +7094,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7118,7 +7118,7 @@ literal|"--> translog size on iter  : [{}] num_ops [{}] generation [{}]"
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7129,7 +7129,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7140,7 +7140,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7167,7 +7167,7 @@ literal|0
 argument_list|,
 name|shard
 operator|.
-name|engine
+name|getEngine
 argument_list|()
 operator|.
 name|getTranslog
@@ -7220,7 +7220,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -7578,7 +7578,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -7812,7 +7812,7 @@ name|shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -8213,7 +8213,7 @@ name|test_shard
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -8325,7 +8325,7 @@ name|origRouting
 init|=
 name|test_target
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -8708,7 +8708,7 @@ name|shard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)

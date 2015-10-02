@@ -549,7 +549,7 @@ name|shard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|request
 operator|.

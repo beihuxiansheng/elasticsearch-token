@@ -843,10 +843,10 @@ block|}
 comment|/**      * Return the shard with the provided id, or null if there is no such shard.      */
 annotation|@
 name|Nullable
-DECL|method|shard
+DECL|method|getShardOrNull
 specifier|public
 name|IndexShard
-name|shard
+name|getShardOrNull
 parameter_list|(
 name|int
 name|shardId
@@ -862,10 +862,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Return the shard with the provided id, or throw an exception if it doesn't exist.      */
-DECL|method|shardSafe
+DECL|method|getShard
 specifier|public
 name|IndexShard
-name|shardSafe
+name|getShard
 parameter_list|(
 name|int
 name|shardId
@@ -874,7 +874,7 @@ block|{
 name|IndexShard
 name|indexShard
 init|=
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 argument_list|)
@@ -2428,7 +2428,7 @@ name|shard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.
@@ -2497,7 +2497,7 @@ name|shard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.
@@ -2605,7 +2605,7 @@ name|shard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.
@@ -2677,7 +2677,7 @@ name|shard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.
