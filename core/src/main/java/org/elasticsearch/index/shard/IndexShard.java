@@ -8438,7 +8438,9 @@ argument_list|,
 name|similarityService
 operator|.
 name|similarity
-argument_list|()
+argument_list|(
+name|mapperService
+argument_list|)
 argument_list|,
 name|codecService
 argument_list|,

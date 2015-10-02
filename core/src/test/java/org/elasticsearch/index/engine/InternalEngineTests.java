@@ -702,7 +702,7 @@ name|index
 operator|.
 name|similarity
 operator|.
-name|SimilarityLookupService
+name|SimilarityService
 import|;
 end_import
 
@@ -16522,11 +16522,11 @@ argument_list|,
 name|settings
 argument_list|)
 decl_stmt|;
-name|SimilarityLookupService
-name|similarityLookupService
+name|SimilarityService
+name|similarityService
 init|=
 operator|new
-name|SimilarityLookupService
+name|SimilarityService
 argument_list|(
 name|index
 argument_list|,
@@ -16545,7 +16545,7 @@ name|settings
 argument_list|,
 name|analysisService
 argument_list|,
-name|similarityLookupService
+name|similarityService
 argument_list|,
 literal|null
 argument_list|)
@@ -16579,7 +16579,7 @@ name|mapperService
 argument_list|,
 name|analysisService
 argument_list|,
-name|similarityLookupService
+name|similarityService
 argument_list|,
 literal|null
 argument_list|)

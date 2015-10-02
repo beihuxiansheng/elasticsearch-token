@@ -234,7 +234,7 @@ name|index
 operator|.
 name|similarity
 operator|.
-name|SimilarityLookupService
+name|SimilarityProvider
 import|;
 end_import
 
@@ -248,7 +248,7 @@ name|index
 operator|.
 name|similarity
 operator|.
-name|SimilarityProvider
+name|SimilarityService
 import|;
 end_import
 
@@ -2620,7 +2620,7 @@ name|field
 argument_list|(
 literal|"similarity"
 argument_list|,
-name|SimilarityLookupService
+name|SimilarityService
 operator|.
 name|DEFAULT_SIMILARITY
 argument_list|)

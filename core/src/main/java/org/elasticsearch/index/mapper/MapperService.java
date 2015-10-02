@@ -470,7 +470,7 @@ name|index
 operator|.
 name|similarity
 operator|.
-name|SimilarityLookupService
+name|SimilarityService
 import|;
 end_import
 
@@ -960,8 +960,8 @@ parameter_list|,
 name|AnalysisService
 name|analysisService
 parameter_list|,
-name|SimilarityLookupService
-name|similarityLookupService
+name|SimilarityService
+name|similarityService
 parameter_list|,
 name|ScriptService
 name|scriptService
@@ -1001,7 +1001,7 @@ name|this
 argument_list|,
 name|analysisService
 argument_list|,
-name|similarityLookupService
+name|similarityService
 argument_list|,
 name|scriptService
 argument_list|)
