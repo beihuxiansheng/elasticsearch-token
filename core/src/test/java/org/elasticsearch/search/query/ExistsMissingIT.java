@@ -208,6 +208,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -571,9 +595,7 @@ name|Map
 index|[]
 block|{
 comment|// simple property
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -581,9 +603,7 @@ literal|"bar"
 argument_list|)
 block|,
 comment|// object fields
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"bar"
 argument_list|,
@@ -597,9 +617,7 @@ literal|"bar"
 argument_list|,
 literal|"bar"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"bar"
 argument_list|,
@@ -608,15 +626,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 block|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"bar"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"baz"
 argument_list|,
@@ -625,9 +639,7 @@ argument_list|)
 argument_list|)
 block|,
 comment|// empty doc
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 block|}
 decl_stmt|;
