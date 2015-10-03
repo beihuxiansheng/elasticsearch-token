@@ -5729,6 +5729,13 @@ parameter_list|)
 throws|throws
 name|IllegalIndexShardStateException
 block|{
+name|lastWriteNS
+operator|=
+name|op
+operator|.
+name|startTime
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|active
@@ -5750,13 +5757,6 @@ name|forceCheck
 argument_list|()
 expr_stmt|;
 block|}
-name|lastWriteNS
-operator|=
-name|op
-operator|.
-name|startTime
-argument_list|()
-expr_stmt|;
 name|Engine
 operator|.
 name|Operation
