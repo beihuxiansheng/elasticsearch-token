@@ -1963,6 +1963,14 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** How much heap Lucene's IndexWriter is using */
+DECL|method|indexWriterRAMBytesUsed
+specifier|abstract
+specifier|public
+name|long
+name|indexWriterRAMBytesUsed
+parameter_list|()
+function_decl|;
 DECL|method|getSegmentInfo
 specifier|protected
 name|Segment
@@ -3118,6 +3126,12 @@ name|Origin
 name|origin
 parameter_list|()
 function_decl|;
+comment|/**          * Returns operation start time in nanoseconds.          */
+DECL|method|startTime
+name|long
+name|startTime
+parameter_list|()
+function_decl|;
 block|}
 DECL|class|IndexingOperation
 specifier|public
@@ -3516,7 +3530,8 @@ name|source
 argument_list|()
 return|;
 block|}
-comment|/**          * Returns operation start time in nanoseconds.          */
+annotation|@
+name|Override
 DECL|method|startTime
 specifier|public
 name|long
@@ -4141,7 +4156,8 @@ operator|.
 name|found
 return|;
 block|}
-comment|/**          * Returns operation start time in nanoseconds.          */
+annotation|@
+name|Override
 DECL|method|startTime
 specifier|public
 name|long

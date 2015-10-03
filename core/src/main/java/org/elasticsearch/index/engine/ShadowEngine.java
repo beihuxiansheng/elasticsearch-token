@@ -1088,6 +1088,19 @@ return|return
 name|lastCommittedSegmentInfos
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|indexWriterRAMBytesUsed
+specifier|public
+name|long
+name|indexWriterRAMBytesUsed
+parameter_list|()
+block|{
+comment|// No IndexWriter
+return|return
+literal|0L
+return|;
+block|}
 block|}
 end_class
 

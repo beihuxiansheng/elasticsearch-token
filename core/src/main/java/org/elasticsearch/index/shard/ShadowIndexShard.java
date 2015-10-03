@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -148,20 +158,6 @@ name|index
 operator|.
 name|engine
 operator|.
-name|IndexSearcherWrappingService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
 name|Engine
 import|;
 end_import
@@ -191,6 +187,20 @@ operator|.
 name|engine
 operator|.
 name|EngineFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|IndexSearcherWrappingService
 import|;
 end_import
 
@@ -366,19 +376,23 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|threadpool
+name|indices
 operator|.
-name|ThreadPool
+name|memory
+operator|.
+name|IndexingMemoryController
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|threadpool
+operator|.
+name|ThreadPool
 import|;
 end_import
 
@@ -461,6 +475,9 @@ name|bigArrays
 parameter_list|,
 name|IndexSearcherWrappingService
 name|wrappingService
+parameter_list|,
+name|IndexingMemoryController
+name|indexingMemoryController
 parameter_list|)
 throws|throws
 name|IOException
@@ -504,6 +521,8 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|wrappingService
+argument_list|,
+name|indexingMemoryController
 argument_list|)
 expr_stmt|;
 block|}

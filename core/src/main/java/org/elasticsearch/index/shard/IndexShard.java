@@ -983,6 +983,8 @@ operator|.
 name|store
 operator|.
 name|Store
+operator|.
+name|MetadataSnapshot
 import|;
 end_import
 
@@ -997,8 +999,6 @@ operator|.
 name|store
 operator|.
 name|Store
-operator|.
-name|MetadataSnapshot
 import|;
 end_import
 
@@ -1209,6 +1209,20 @@ operator|.
 name|query
 operator|.
 name|IndicesQueryCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|memory
+operator|.
+name|IndexingMemoryController
 import|;
 end_import
 
@@ -1810,6 +1824,28 @@ operator|.
 name|POST_RECOVERY
 argument_list|)
 decl_stmt|;
+DECL|field|active
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|active
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
+DECL|field|lastWriteNS
+specifier|private
+specifier|volatile
+name|long
+name|lastWriteNS
+decl_stmt|;
+DECL|field|indexingMemoryController
+specifier|private
+specifier|final
+name|IndexingMemoryController
+name|indexingMemoryController
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|IndexShard
@@ -1876,6 +1912,9 @@ name|bigArrays
 parameter_list|,
 name|IndexSearcherWrappingService
 name|wrappingService
+parameter_list|,
+name|IndexingMemoryController
+name|indexingMemoryController
 parameter_list|)
 block|{
 name|super
@@ -2344,6 +2383,20 @@ argument_list|(
 name|logger
 argument_list|,
 name|shardId
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|indexingMemoryController
+operator|=
+name|indexingMemoryController
+expr_stmt|;
+comment|// TODO: can we somehow call IMC.forceCheck here?  Since we just became active, it can divvy up the RAM
+name|active
+operator|.
+name|set
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -3241,12 +3294,9 @@ name|Create
 name|create
 parameter_list|)
 block|{
-name|writeAllowed
+name|ensureWriteAllowed
 argument_list|(
 name|create
-operator|.
-name|origin
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|create
@@ -3518,12 +3568,9 @@ name|Index
 name|index
 parameter_list|)
 block|{
-name|writeAllowed
+name|ensureWriteAllowed
 argument_list|(
 name|index
-operator|.
-name|origin
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|index
@@ -3720,12 +3767,9 @@ name|Delete
 name|delete
 parameter_list|)
 block|{
-name|writeAllowed
+name|ensureWriteAllowed
 argument_list|(
 name|delete
-operator|.
-name|origin
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|delete
@@ -5661,21 +5705,70 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|writeAllowed
+comment|/** Returns timestamp of last indexing operation */
+DECL|method|getLastWriteNS
+specifier|public
+name|long
+name|getLastWriteNS
+parameter_list|()
+block|{
+return|return
+name|lastWriteNS
+return|;
+block|}
+DECL|method|ensureWriteAllowed
 specifier|private
 name|void
-name|writeAllowed
+name|ensureWriteAllowed
 parameter_list|(
+name|Engine
+operator|.
+name|Operation
+name|op
+parameter_list|)
+throws|throws
+name|IllegalIndexShardStateException
+block|{
+if|if
+condition|(
+name|active
+operator|.
+name|getAndSet
+argument_list|(
+literal|true
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// We are currently inactive, but a new write operation just showed up, so we now notify IMC
+comment|// to wake up and fix our indexing buffer.  We could do this async instead, but cost should
+comment|// be low, and it's rare this happens.
+name|indexingMemoryController
+operator|.
+name|forceCheck
+argument_list|()
+expr_stmt|;
+block|}
+name|lastWriteNS
+operator|=
+name|op
+operator|.
+name|startTime
+argument_list|()
+expr_stmt|;
 name|Engine
 operator|.
 name|Operation
 operator|.
 name|Origin
 name|origin
-parameter_list|)
-throws|throws
-name|IllegalIndexShardStateException
-block|{
+init|=
+name|op
+operator|.
+name|origin
+argument_list|()
+decl_stmt|;
 name|IndexShardState
 name|state
 init|=
@@ -6032,9 +6125,10 @@ name|failedEngineListener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Returns true if the indexing buffer size did change */
 DECL|method|updateBufferSize
 specifier|public
-name|void
+name|boolean
 name|updateBufferSize
 parameter_list|(
 name|ByteSizeValue
@@ -6086,7 +6180,9 @@ argument_list|(
 literal|"updateBufferSize: engine is closed; skipping"
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 block|}
 comment|// update engine if it is already started.
 if|if
@@ -6108,29 +6204,49 @@ operator|.
 name|onSettingsChanged
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|shardIndexingBufferSize
-operator|==
-name|EngineConfig
-operator|.
-name|INACTIVE_SHARD_INDEXING_BUFFER
-condition|)
-block|{
-comment|// it's inactive: make sure we do a refresh / full IW flush in this case, since the memory
-comment|// changes only after a "data" change has happened to the writer
-comment|// the index writer lazily allocates memory and a refresh will clean it all up.
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"updating index_buffer_size from [{}] to (inactive) [{}]"
+literal|"updating index_buffer_size from [{}] to [{}]"
 argument_list|,
 name|preValue
 argument_list|,
 name|shardIndexingBufferSize
 argument_list|)
 expr_stmt|;
+name|long
+name|iwBytesUsed
+init|=
+name|engine
+operator|.
+name|indexWriterRAMBytesUsed
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|shardIndexingBufferSize
+operator|.
+name|bytes
+argument_list|()
+operator|<
+name|iwBytesUsed
+condition|)
+block|{
+comment|// our allowed buffer was changed to less than we are currently using; we ask IW to refresh
+comment|// so it clears its buffers (otherwise it won't clear until the next indexing/delete op)
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"refresh because index buffer decreased to [{}] and IndexWriter is now using [{}] bytes"
+argument_list|,
+name|shardIndexingBufferSize
+argument_list|,
+name|iwBytesUsed
+argument_list|)
+expr_stmt|;
+comment|// TODO: should IW have an API to move segments to disk, but not refresh?
 try|try
 block|{
 name|refresh
@@ -6149,26 +6265,12 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to refresh after setting shard to inactive"
+literal|"failed to refresh after decreasing index buffer"
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"updating index_buffer_size from [{}] to [{}]"
-argument_list|,
-name|preValue
-argument_list|,
-name|shardIndexingBufferSize
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 name|engine
@@ -6188,6 +6290,16 @@ name|void
 name|markAsInactive
 parameter_list|()
 block|{
+if|if
+condition|(
+name|active
+operator|.
+name|getAndSet
+argument_list|(
+literal|false
+argument_list|)
+condition|)
+block|{
 name|updateBufferSize
 argument_list|(
 name|EngineConfig
@@ -6199,6 +6311,13 @@ operator|.
 name|INACTIVE_SHARD_TRANSLOG_BUFFER
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"shard is now inactive"
+argument_list|)
+expr_stmt|;
 name|indicesLifecycle
 operator|.
 name|onShardInactive
@@ -6206,6 +6325,20 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+DECL|method|getActive
+specifier|public
+name|boolean
+name|getActive
+parameter_list|()
+block|{
+return|return
+name|active
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
 DECL|method|isFlushOnClose
 specifier|public
