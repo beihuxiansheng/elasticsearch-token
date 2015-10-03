@@ -3784,6 +3784,10 @@ operator|.
 name|get
 argument_list|(
 name|get
+argument_list|,
+name|this
+operator|::
+name|acquireSearcher
 argument_list|)
 return|;
 block|}
