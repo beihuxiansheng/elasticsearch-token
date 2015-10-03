@@ -6128,7 +6128,7 @@ block|}
 comment|/** Returns true if the indexing buffer size did change */
 DECL|method|updateBufferSize
 specifier|public
-name|boolean
+name|void
 name|updateBufferSize
 parameter_list|(
 name|ByteSizeValue
@@ -6180,9 +6180,7 @@ argument_list|(
 literal|"updateBufferSize: engine is closed; skipping"
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 comment|// update engine if it is already started.
 if|if
