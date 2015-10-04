@@ -172,6 +172,12 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|// true if entries can expire after access
+DECL|field|entriesExpireAfterAccess
+specifier|private
+name|boolean
+name|entriesExpireAfterAccess
+decl_stmt|;
 comment|// positive if entries have an expiration after write
 DECL|field|expireAfterWrite
 specifier|private
@@ -180,6 +186,12 @@ name|expireAfterWrite
 init|=
 operator|-
 literal|1
+decl_stmt|;
+comment|// true if entries can expire after initial insertion
+DECL|field|entriesExpireAfterWrite
+specifier|private
+name|boolean
+name|entriesExpireAfterWrite
 decl_stmt|;
 comment|// the number of entries in the cache
 DECL|field|count
@@ -274,6 +286,48 @@ name|expireAfterAccess
 operator|=
 name|expireAfterAccess
 expr_stmt|;
+name|this
+operator|.
+name|entriesExpireAfterAccess
+operator|=
+literal|true
+expr_stmt|;
+block|}
+DECL|method|setExpireAfterWrite
+name|void
+name|setExpireAfterWrite
+parameter_list|(
+name|long
+name|expireAfterWrite
+parameter_list|)
+block|{
+if|if
+condition|(
+name|expireAfterWrite
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"expireAfterWrite<= 0"
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|expireAfterWrite
+operator|=
+name|expireAfterWrite
+expr_stmt|;
+name|this
+operator|.
+name|entriesExpireAfterWrite
+operator|=
+literal|true
+expr_stmt|;
 block|}
 DECL|method|setMaximumWeight
 name|void
@@ -361,15 +415,9 @@ parameter_list|()
 block|{
 comment|// System.nanoTime takes non-negligible time, so we only use it if we need it
 return|return
-name|expireAfterWrite
-operator|!=
-operator|-
-literal|1
+name|entriesExpireAfterAccess
 operator|||
-name|expireAfterAccess
-operator|!=
-operator|-
-literal|1
+name|entriesExpireAfterWrite
 condition|?
 name|System
 operator|.
@@ -378,22 +426,6 @@ argument_list|()
 else|:
 literal|0
 return|;
-block|}
-DECL|method|setExpireAfterWrite
-specifier|public
-name|void
-name|setExpireAfterWrite
-parameter_list|(
-name|long
-name|expireAfterWrite
-parameter_list|)
-block|{
-name|this
-operator|.
-name|expireAfterWrite
-operator|=
-name|expireAfterWrite
-expr_stmt|;
 block|}
 comment|// the state of an entry in the LRU list
 DECL|enum|State
@@ -2492,10 +2524,7 @@ parameter_list|)
 block|{
 return|return
 operator|(
-name|expireAfterAccess
-operator|!=
-operator|-
-literal|1
+name|entriesExpireAfterAccess
 operator|&&
 name|now
 operator|-
@@ -2507,10 +2536,7 @@ name|expireAfterAccess
 operator|)
 operator|||
 operator|(
-name|expireAfterWrite
-operator|!=
-operator|-
-literal|1
+name|entriesExpireAfterWrite
 operator|&&
 name|now
 operator|-
