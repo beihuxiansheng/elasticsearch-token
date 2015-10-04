@@ -1227,10 +1227,65 @@ block|{
 name|String
 name|query
 init|=
-name|copyToStringFromClasspath
-argument_list|(
-literal|"/org/elasticsearch/index/query/has-child-with-inner-hits.json"
-argument_list|)
+literal|"{\n"
+operator|+
+literal|"  \"has_child\" : {\n"
+operator|+
+literal|"    \"query\" : {\n"
+operator|+
+literal|"      \"range\" : {\n"
+operator|+
+literal|"        \"mapped_string\" : {\n"
+operator|+
+literal|"          \"from\" : \"agJhRET\",\n"
+operator|+
+literal|"          \"to\" : \"zvqIq\",\n"
+operator|+
+literal|"          \"include_lower\" : true,\n"
+operator|+
+literal|"          \"include_upper\" : true,\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"child_type\" : \"child\",\n"
+operator|+
+literal|"    \"score_mode\" : \"avg\",\n"
+operator|+
+literal|"    \"min_children\" : 883170873,\n"
+operator|+
+literal|"    \"max_children\" : 1217235442,\n"
+operator|+
+literal|"    \"boost\" : 2.0,\n"
+operator|+
+literal|"    \"_name\" : \"WNzYMJKRwePuRBh\",\n"
+operator|+
+literal|"    \"inner_hits\" : {\n"
+operator|+
+literal|"      \"name\" : \"inner_hits_name\",\n"
+operator|+
+literal|"      \"size\" : 100,\n"
+operator|+
+literal|"      \"sort\" : [ {\n"
+operator|+
+literal|"        \"mapped_string\" : {\n"
+operator|+
+literal|"          \"order\" : \"asc\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      } ]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
 decl_stmt|;
 name|HasChildQueryBuilder
 name|queryBuilder
