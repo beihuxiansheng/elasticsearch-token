@@ -3415,12 +3415,15 @@ literal|"disk threshold decider disabled"
 argument_list|)
 return|;
 block|}
-comment|// Allow allocation regardless if only a single node is available
+comment|// Allow allocation regardless if only a single data node is available
 if|if
 condition|(
 name|allocation
 operator|.
 name|nodes
+argument_list|()
+operator|.
+name|dataNodes
 argument_list|()
 operator|.
 name|size
@@ -3441,7 +3444,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"only a single node is present, allowing allocation"
+literal|"only a single data node is present, allowing allocation"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3456,7 +3459,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"only a single node is present"
+literal|"only a single data node is present"
 argument_list|)
 return|;
 block|}

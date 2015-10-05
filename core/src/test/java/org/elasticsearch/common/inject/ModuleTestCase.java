@@ -319,6 +319,21 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+comment|//    /** Configures the module and asserts "instance" is bound to "to". */
+comment|//    public void assertInstanceBinding(Module module, Class to, Object instance) {
+comment|//        List<Element> elements = Elements.getElements(module);
+comment|//        for (Element element : elements) {
+comment|//            if (element instanceof ProviderInstanceBinding) {
+comment|//                assertEquals(instance, ((ProviderInstanceBinding) element).getProviderInstance().get());
+comment|//                return;
+comment|//            }
+comment|//        }
+comment|//        StringBuilder s = new StringBuilder();
+comment|//        for (Element element : elements) {
+comment|//            s.append(element + "\n");
+comment|//        }
+comment|//        fail("Did not find any binding to " + to.getName() + ". Found these bindings:\n" + s);
+comment|//    }
 comment|/**      * Attempts to configure the module, and asserts an {@link IllegalArgumentException} is      * caught, containing the given messages      */
 DECL|method|assertBindingFailure
 specifier|public
@@ -1014,6 +1029,45 @@ expr_stmt|;
 return|return;
 block|}
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|element
+operator|instanceof
+name|ProviderInstanceBinding
+condition|)
+block|{
+name|ProviderInstanceBinding
+name|binding
+init|=
+operator|(
+name|ProviderInstanceBinding
+operator|)
+name|element
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|tester
+operator|.
+name|test
+argument_list|(
+name|to
+operator|.
+name|cast
+argument_list|(
+name|binding
+operator|.
+name|getProviderInstance
+argument_list|()
+operator|.
+name|get
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 block|}
 name|StringBuilder

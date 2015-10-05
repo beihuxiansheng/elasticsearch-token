@@ -699,7 +699,7 @@ argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|ids
+name|addIds
 argument_list|(
 name|Integer
 operator|.

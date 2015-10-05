@@ -615,7 +615,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardRouting
 operator|.
@@ -633,9 +633,6 @@ name|routingEntry
 argument_list|()
 argument_list|,
 name|indexShard
-operator|.
-name|engine
-argument_list|()
 operator|.
 name|segments
 argument_list|(

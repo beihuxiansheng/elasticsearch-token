@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.shard
+DECL|package|org.elasticsearch.index
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|index
-operator|.
-name|shard
 package|;
 end_package
 
@@ -41,6 +39,18 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexModule
 import|;
 end_import
 
@@ -105,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|// this must exist in the same package as IndexShardModule to allow access to setting the impl
+comment|// this must exist in the same package as IndexModule to allow access to setting the impl
 end_comment
 
 begin_class
@@ -173,7 +183,7 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|IndexShardModule
+name|IndexModule
 name|module
 parameter_list|)
 block|{

@@ -1653,10 +1653,6 @@ operator|.
 name|getDefaultQueryCachingPolicy
 argument_list|()
 argument_list|,
-operator|new
-name|IndexSearcherWrappingService
-argument_list|()
-argument_list|,
 name|translogConfig
 argument_list|)
 decl_stmt|;

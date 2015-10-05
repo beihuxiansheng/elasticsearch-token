@@ -2371,7 +2371,7 @@ block|{
 return|return
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.

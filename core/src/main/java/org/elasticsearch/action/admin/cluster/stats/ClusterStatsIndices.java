@@ -208,8 +208,6 @@ name|index
 operator|.
 name|percolator
 operator|.
-name|stats
-operator|.
 name|PercolateStats
 import|;
 end_import

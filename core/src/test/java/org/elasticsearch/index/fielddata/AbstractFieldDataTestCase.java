@@ -1035,12 +1035,7 @@ argument_list|()
 expr_stmt|;
 name|indicesFieldDataCache
 operator|=
-name|indexService
-operator|.
-name|injector
-argument_list|()
-operator|.
-name|getInstance
+name|getInstanceFromNode
 argument_list|(
 name|IndicesFieldDataCache
 operator|.
