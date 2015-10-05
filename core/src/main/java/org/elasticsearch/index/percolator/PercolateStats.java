@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.percolator.stats
+DECL|package|org.elasticsearch.index.percolator
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|percolator
-operator|.
-name|stats
 package|;
 end_package
 

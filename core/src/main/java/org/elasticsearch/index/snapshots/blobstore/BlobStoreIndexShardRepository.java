@@ -2716,7 +2716,7 @@ name|store
 operator|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.
@@ -4230,7 +4230,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.

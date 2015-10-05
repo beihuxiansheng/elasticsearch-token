@@ -1304,7 +1304,7 @@ argument_list|(
 literal|"foo-copy"
 argument_list|)
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)

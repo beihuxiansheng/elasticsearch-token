@@ -2060,15 +2060,8 @@ name|indexSettingsService
 init|=
 name|indexService
 operator|.
-name|injector
+name|settingsService
 argument_list|()
-operator|.
-name|getInstance
-argument_list|(
-name|IndexSettingsService
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 name|indexSettingsService
 operator|.
@@ -3217,7 +3210,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 argument_list|)
@@ -3828,7 +3821,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardId
 argument_list|)
@@ -4176,7 +4169,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardId
 argument_list|)
@@ -5332,7 +5325,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.
