@@ -495,11 +495,11 @@ argument_list|(
 operator|new
 name|char
 index|[
+literal|2
+operator|*
 name|bytes
 operator|.
 name|length
-operator|*
-literal|2
 index|]
 argument_list|)
 operator|.
