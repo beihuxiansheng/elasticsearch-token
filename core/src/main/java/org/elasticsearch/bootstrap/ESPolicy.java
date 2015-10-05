@@ -82,16 +82,6 @@ name|java
 operator|.
 name|security
 operator|.
-name|Permissions
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
 name|Policy
 import|;
 end_import
@@ -116,16 +106,6 @@ name|URIParameter
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|PropertyPermission
-import|;
-end_import
-
 begin_comment
 comment|/** custom policy for union of static and dynamic permissions */
 end_comment
@@ -147,24 +127,24 @@ name|POLICY_RESOURCE
 init|=
 literal|"security.policy"
 decl_stmt|;
-comment|/** limited policy for groovy scripts */
-DECL|field|GROOVY_RESOURCE
+comment|/** limited policy for scripts */
+DECL|field|UNTRUSTED_RESOURCE
 specifier|static
 specifier|final
 name|String
-name|GROOVY_RESOURCE
+name|UNTRUSTED_RESOURCE
 init|=
-literal|"groovy.policy"
+literal|"untrusted.policy"
 decl_stmt|;
 DECL|field|template
 specifier|final
 name|Policy
 name|template
 decl_stmt|;
-DECL|field|groovy
+DECL|field|untrusted
 specifier|final
 name|Policy
-name|groovy
+name|untrusted
 decl_stmt|;
 DECL|field|dynamic
 specifier|final
@@ -196,14 +176,14 @@ name|toURI
 argument_list|()
 decl_stmt|;
 name|URI
-name|groovyUri
+name|untrustedUri
 init|=
 name|getClass
 argument_list|()
 operator|.
 name|getResource
 argument_list|(
-name|GROOVY_RESOURCE
+name|UNTRUSTED_RESOURCE
 argument_list|)
 operator|.
 name|toURI
@@ -228,7 +208,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|groovy
+name|untrusted
 operator|=
 name|Policy
 operator|.
@@ -239,7 +219,7 @@ argument_list|,
 operator|new
 name|URIParameter
 argument_list|(
-name|groovyUri
+name|untrustedUri
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -283,10 +263,14 @@ comment|// codesource can be null when reducing privileges via doPrivileged()
 if|if
 condition|(
 name|codeSource
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return
+literal|false
+return|;
+block|}
 name|URL
 name|location
 init|=
@@ -304,10 +288,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// run groovy scripts with no permissions (except logging property)
+comment|// run scripts with limited permissions
 if|if
 condition|(
-literal|"/groovy/script"
+name|BootstrapInfo
+operator|.
+name|UNTRUSTED_CODEBASE
 operator|.
 name|equals
 argument_list|(
@@ -319,7 +305,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|groovy
+name|untrusted
 operator|.
 name|implies
 argument_list|(
@@ -328,7 +314,6 @@ argument_list|,
 name|permission
 argument_list|)
 return|;
-block|}
 block|}
 block|}
 comment|// Special handling for broken AWS code which destroys all SSL security
