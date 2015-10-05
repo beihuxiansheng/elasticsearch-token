@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -144,6 +130,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * The result of performing a sync flush operation on all shards of multiple indices  */
 end_comment
@@ -190,13 +188,14 @@ argument_list|>
 name|shardsResultPerIndex
 parameter_list|)
 block|{
+comment|// shardsResultPerIndex is never modified after it is passed to this
+comment|// constructor so this is safe even though shardsResultPerIndex is a
+comment|// ConcurrentHashMap
 name|this
 operator|.
 name|shardsResultPerIndex
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|shardsResultPerIndex
 argument_list|)

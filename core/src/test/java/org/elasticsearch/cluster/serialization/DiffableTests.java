@@ -212,6 +212,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -360,7 +372,7 @@ literal|"5"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -368,11 +380,14 @@ name|TestDiffable
 argument_list|>
 name|after
 init|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
+argument_list|(
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|map
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Diff

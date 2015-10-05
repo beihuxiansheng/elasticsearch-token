@@ -498,18 +498,6 @@ end_import
 
 begin_import
 import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyMap
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -4598,7 +4586,9 @@ argument_list|,
 name|emptyList
 argument_list|()
 argument_list|,
-name|emptyMap
+name|ImmutableOpenMap
+operator|.
+name|of
 argument_list|()
 argument_list|)
 argument_list|)
