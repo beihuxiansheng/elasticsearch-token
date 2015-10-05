@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -588,6 +574,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -692,9 +690,7 @@ argument_list|>
 name|parseElements
 parameter_list|()
 block|{
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -702,9 +698,9 @@ name|SearchParseElement
 argument_list|>
 name|parseElements
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|parseElements
@@ -738,10 +734,10 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|unmodifiableMap
+argument_list|(
 name|parseElements
-operator|.
-name|build
-argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@

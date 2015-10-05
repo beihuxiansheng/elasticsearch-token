@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -134,6 +120,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -157,6 +153,18 @@ operator|.
 name|Collections
 operator|.
 name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -246,7 +254,7 @@ name|metadataMappers
 decl_stmt|;
 DECL|field|rootMappersMap
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|Class
 argument_list|<
@@ -320,9 +328,7 @@ name|metadataMappers
 operator|=
 name|metadataMappers
 expr_stmt|;
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|Class
 argument_list|<
@@ -333,11 +339,11 @@ argument_list|>
 argument_list|,
 name|MetadataFieldMapper
 argument_list|>
-name|builder
+name|rootMappersMap
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -378,7 +384,7 @@ name|metadataMapper
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
+name|rootMappersMap
 operator|.
 name|put
 argument_list|(
@@ -440,10 +446,10 @@ name|this
 operator|.
 name|rootMappersMap
 operator|=
-name|builder
-operator|.
-name|build
-argument_list|()
+name|unmodifiableMap
+argument_list|(
+name|rootMappersMap
+argument_list|)
 expr_stmt|;
 name|this
 operator|.

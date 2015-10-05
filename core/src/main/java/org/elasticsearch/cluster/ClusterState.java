@@ -2034,9 +2034,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
@@ -2052,9 +2050,6 @@ argument_list|()
 operator|.
 name|indices
 argument_list|()
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 name|builder
@@ -2063,8 +2058,7 @@ name|startObject
 argument_list|(
 name|entry
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 expr_stmt|;
 for|for
@@ -2074,8 +2068,7 @@ name|block
 range|:
 name|entry
 operator|.
-name|getValue
-argument_list|()
+name|value
 control|)
 block|{
 name|block

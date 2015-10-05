@@ -24,6 +24,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -563,9 +577,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
@@ -580,9 +592,6 @@ argument_list|()
 operator|.
 name|attributes
 argument_list|()
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 name|builder
@@ -591,13 +600,11 @@ name|field
 argument_list|(
 name|attr
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|,
 name|attr
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|,
 name|XContentBuilder
 operator|.
