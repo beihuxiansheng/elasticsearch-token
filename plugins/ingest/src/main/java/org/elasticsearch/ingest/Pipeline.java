@@ -54,6 +54,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * A pipeline is a list of {@link Processor} instances grouped under a unique id.  */
+end_comment
+
 begin_class
 DECL|class|Pipeline
 specifier|public
@@ -118,6 +122,7 @@ operator|=
 name|processors
 expr_stmt|;
 block|}
+comment|/**      * Modifies the data of a document to be indexed based on the processor this pipeline holds      */
 DECL|method|execute
 specifier|public
 name|void
@@ -144,6 +149,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * The unique id of this pipeline      */
 DECL|method|getId
 specifier|public
 name|String
@@ -154,6 +160,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * An optional description of what this pipeline is doing to the data gets processed by this pipeline.      */
 DECL|method|getDescription
 specifier|public
 name|String
@@ -164,6 +171,7 @@ return|return
 name|description
 return|;
 block|}
+comment|/**      * Unmodifiable list containing each processor that operates on the data.      */
 DECL|method|getProcessors
 specifier|public
 name|List
@@ -234,6 +242,18 @@ argument_list|,
 name|Object
 argument_list|>
 name|config
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Processor
+operator|.
+name|Builder
+operator|.
+name|Factory
+argument_list|>
+name|processorRegistry
 parameter_list|)
 block|{
 name|name
@@ -352,31 +372,31 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-comment|// TODO: add lookup service...
-if|if
-condition|(
-literal|"simple"
+name|Processor
 operator|.
-name|equals
+name|Builder
+name|builder
+init|=
+name|processorRegistry
+operator|.
+name|get
 argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
 argument_list|)
-condition|)
-block|{
-name|SimpleProcessor
 operator|.
-name|Builder
-name|builder
-init|=
-operator|new
-name|SimpleProcessor
-operator|.
-name|Builder
+name|create
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|builder
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|fromMap
@@ -404,8 +424,17 @@ else|else
 block|{
 throw|throw
 operator|new
-name|UnsupportedOperationException
+name|IllegalArgumentException
+argument_list|(
+literal|"No processor type exist with name ["
+operator|+
+name|entry
+operator|.
+name|getKey
 argument_list|()
+operator|+
+literal|"]"
+argument_list|)
 throw|;
 block|}
 block|}

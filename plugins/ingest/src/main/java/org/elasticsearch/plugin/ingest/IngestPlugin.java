@@ -104,6 +104,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -135,12 +145,12 @@ name|INGEST_CONTEXT_KEY
 init|=
 literal|"__ingest__"
 decl_stmt|;
-DECL|field|INGEST_HTTP_PARAM
+DECL|field|INGEST_PARAM
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|INGEST_HTTP_PARAM
+name|INGEST_PARAM
 init|=
 literal|"ingest"
 decl_stmt|;
@@ -207,11 +217,15 @@ name|nodeServices
 parameter_list|()
 block|{
 return|return
-name|Collections
+name|Arrays
 operator|.
-name|singletonList
+name|asList
 argument_list|(
 name|PipelineStore
+operator|.
+name|class
+argument_list|,
+name|PipelineConfigDocReader
 operator|.
 name|class
 argument_list|)
@@ -236,15 +250,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onModule
-specifier|public
-name|void
-name|onModule
-parameter_list|(
-name|RestActionModule
-name|module
-parameter_list|)
-block|{     }
 block|}
 end_class
 

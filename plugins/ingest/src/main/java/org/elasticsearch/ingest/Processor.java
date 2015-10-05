@@ -14,12 +14,27 @@ name|ingest
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_comment
+comment|/**  * An processor implementation may modify the data belonging to a document.  * If and what exactly is modified is upto the implementation.  */
+end_comment
+
 begin_interface
 DECL|interface|Processor
 specifier|public
 interface|interface
 name|Processor
 block|{
+comment|/**      * Introspect and potentially modify the incoming data.      */
 DECL|method|execute
 name|void
 name|execute
@@ -28,20 +43,43 @@ name|Data
 name|data
 parameter_list|)
 function_decl|;
-DECL|method|type
-name|String
-name|type
-parameter_list|()
-function_decl|;
+comment|/**      * A builder to contruct a processor to be used in a pipeline.      */
 DECL|interface|Builder
 interface|interface
 name|Builder
 block|{
+comment|/**          * A general way to set processor related settings based on the config map.          */
+DECL|method|fromMap
+name|void
+name|fromMap
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|config
+parameter_list|)
+function_decl|;
+comment|/**          * Builds the processor based on previous set settings.          */
 DECL|method|build
 name|Processor
 name|build
 parameter_list|()
 function_decl|;
+comment|/**          * A factory that creates a processor builder when processor instances for pipelines are being created.          */
+DECL|interface|Factory
+interface|interface
+name|Factory
+block|{
+comment|/**              * Creates the builder.              */
+DECL|method|create
+name|Builder
+name|create
+parameter_list|()
+function_decl|;
+block|}
 block|}
 block|}
 end_interface

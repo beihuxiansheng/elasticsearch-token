@@ -131,7 +131,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-name|INGEST_HTTP_PARAM
+name|INGEST_PARAM
 argument_list|)
 argument_list|)
 expr_stmt|;

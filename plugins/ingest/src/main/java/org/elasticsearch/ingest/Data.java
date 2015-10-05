@@ -40,6 +40,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Represents the data and meta data (like id and type) of a single document that is going to be indexed.  */
+end_comment
+
 begin_class
 DECL|class|Data
 specifier|public

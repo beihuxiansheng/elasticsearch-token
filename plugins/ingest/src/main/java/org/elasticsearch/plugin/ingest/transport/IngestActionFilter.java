@@ -281,7 +281,7 @@ name|getHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_HTTP_PARAM
+name|INGEST_PARAM
 argument_list|)
 expr_stmt|;
 if|if
@@ -394,6 +394,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|// TODO: this should be delegated to a PipelineExecutor service that executes on a different thread (pipeline TP)
 DECL|method|processIndexRequest
 name|void
 name|processIndexRequest
