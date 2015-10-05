@@ -96,6 +96,16 @@ name|EngineException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Extension point to add custom functionality at request time to the {@link DirectoryReader}  * and {@link IndexSearcher} managed by the {@link Engine}.  */
 end_comment
@@ -114,6 +124,8 @@ parameter_list|(
 name|DirectoryReader
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * @param engineConfig  The engine config which can be used to get the query cache and query cache policy from      *                      when creating a new index searcher      * @param searcher      The provided index searcher to be wrapped to add custom functionality      * @return a new index searcher wrapping the provided index searcher or if no wrapping was performed      *         the provided index searcher      */
 DECL|method|wrap
@@ -127,7 +139,7 @@ name|IndexSearcher
 name|searcher
 parameter_list|)
 throws|throws
-name|EngineException
+name|IOException
 function_decl|;
 comment|/**      * If there are configured {@link IndexSearcherWrapper} instances, the {@link IndexSearcher} of the provided engine searcher      * gets wrapped and a new {@link Engine.Searcher} instances is returned, otherwise the provided {@link Engine.Searcher} is returned.      *      * This is invoked each time a {@link Engine.Searcher} is requested to do an operation. (for example search)      */
 DECL|method|wrap
@@ -145,6 +157,8 @@ operator|.
 name|Searcher
 name|engineSearcher
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|DirectoryReader
 name|reader
