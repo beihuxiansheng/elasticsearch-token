@@ -686,13 +686,22 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Elasticsearch version ["
-operator|+
-name|esVersionString
-operator|+
-literal|"] is too old for plugin ["
+literal|"Plugin ["
 operator|+
 name|name
+operator|+
+literal|"] is incompatible with Elasticsearch ["
+operator|+
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"]. Was designed for version ["
+operator|+
+name|esVersionString
 operator|+
 literal|"]"
 argument_list|)

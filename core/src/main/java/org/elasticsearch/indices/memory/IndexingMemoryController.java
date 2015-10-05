@@ -1355,7 +1355,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.
@@ -1489,9 +1489,6 @@ block|{
 name|translog
 operator|=
 name|indexShard
-operator|.
-name|engine
-argument_list|()
 operator|.
 name|getTranslog
 argument_list|()

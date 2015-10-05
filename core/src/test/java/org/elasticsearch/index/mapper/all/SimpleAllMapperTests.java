@@ -4101,7 +4101,7 @@ name|searcher
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)

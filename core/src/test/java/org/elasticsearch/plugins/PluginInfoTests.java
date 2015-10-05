@@ -1243,7 +1243,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Elasticsearch version [1.7.0] is too old"
+literal|"Was designed for version [1.7.0]"
 argument_list|)
 argument_list|)
 expr_stmt|;

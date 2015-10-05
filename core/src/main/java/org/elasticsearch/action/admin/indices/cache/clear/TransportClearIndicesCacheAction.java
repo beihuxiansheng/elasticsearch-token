@@ -550,7 +550,7 @@ name|shard
 init|=
 name|service
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardRouting
 operator|.

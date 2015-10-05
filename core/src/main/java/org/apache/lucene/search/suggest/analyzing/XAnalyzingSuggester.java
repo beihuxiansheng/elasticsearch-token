@@ -4838,6 +4838,8 @@ name|automaton
 init|=
 literal|null
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -4852,8 +4854,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|automaton
 operator|=
@@ -4861,16 +4862,6 @@ name|getTokenStreamToAutomaton
 argument_list|()
 operator|.
 name|toAutomaton
-argument_list|(
-name|ts
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|closeWhileHandlingException
 argument_list|(
 name|ts
 argument_list|)

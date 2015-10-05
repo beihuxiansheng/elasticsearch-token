@@ -252,14 +252,6 @@ name|WriteConsistencyLevel
 operator|.
 name|DEFAULT
 decl_stmt|;
-DECL|field|canHaveDuplicates
-specifier|private
-specifier|volatile
-name|boolean
-name|canHaveDuplicates
-init|=
-literal|false
-decl_stmt|;
 DECL|method|ReplicationRequest
 specifier|public
 name|ReplicationRequest
@@ -341,29 +333,6 @@ operator|.
 name|consistencyLevel
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|setCanHaveDuplicates
-name|void
-name|setCanHaveDuplicates
-parameter_list|()
-block|{
-name|this
-operator|.
-name|canHaveDuplicates
-operator|=
-literal|true
-expr_stmt|;
-block|}
-comment|/**      * Is this request can potentially be dup on a single shard.      */
-DECL|method|canHaveDuplicates
-specifier|public
-name|boolean
-name|canHaveDuplicates
-parameter_list|()
-block|{
-return|return
-name|canHaveDuplicates
-return|;
 block|}
 comment|/**      * A timeout to wait if the index operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
 annotation|@
@@ -664,14 +633,6 @@ operator|.
 name|readString
 argument_list|()
 expr_stmt|;
-name|canHaveDuplicates
-operator|=
-name|in
-operator|.
-name|readBoolean
-argument_list|()
-expr_stmt|;
-comment|// no need to serialize threaded* parameters, since they only matter locally
 block|}
 annotation|@
 name|Override
@@ -722,13 +683,6 @@ operator|.
 name|writeString
 argument_list|(
 name|index
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeBoolean
-argument_list|(
-name|canHaveDuplicates
 argument_list|)
 expr_stmt|;
 block|}

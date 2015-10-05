@@ -1884,17 +1884,19 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|logger
-operator|.
-name|debug
+throw|throw
+operator|new
+name|UnsupportedOperationException
 argument_list|(
-literal|"syscall filtering not supported for OS {}"
-argument_list|,
+literal|"syscall filtering not supported for OS: '"
+operator|+
 name|Constants
 operator|.
 name|OS_NAME
+operator|+
+literal|"'"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 block|}

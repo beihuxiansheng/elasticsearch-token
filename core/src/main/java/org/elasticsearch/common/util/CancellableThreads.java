@@ -32,6 +32,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -418,7 +428,6 @@ interface|interface
 name|Interruptable
 block|{
 DECL|method|run
-specifier|public
 name|void
 name|run
 parameter_list|()
