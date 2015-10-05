@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -260,20 +246,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|MapBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -471,6 +443,18 @@ operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -1645,7 +1629,7 @@ literal|null
 condition|)
 block|{
 comment|// a new node, add it, but also add the tribe name to the attributes
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1653,15 +1637,17 @@ name|String
 argument_list|>
 name|tribeAttr
 init|=
-name|MapBuilder
-operator|.
-name|newMapBuilder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|tribe
 operator|.
 name|attributes
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|tribeAttr
 operator|.
 name|put
 argument_list|(
@@ -1669,10 +1655,7 @@ name|TRIBE_NAME
 argument_list|,
 name|tribeName
 argument_list|)
-operator|.
-name|immutableMap
-argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|DiscoveryNode
 name|discoNode
 init|=
@@ -1704,7 +1687,10 @@ operator|.
 name|address
 argument_list|()
 argument_list|,
+name|unmodifiableMap
+argument_list|(
 name|tribeAttr
+argument_list|)
 argument_list|,
 name|tribe
 operator|.
