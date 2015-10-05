@@ -357,6 +357,9 @@ operator|.
 name|map
 return|;
 block|}
+comment|/**      * Build an immutable copy of the map under construction.      *      * @deprecated always copies the map under construction. prefer building a      *             HashMap by hand and wrapping it in an unmodifiableMap      */
+annotation|@
+name|Deprecated
 DECL|method|immutableMap
 specifier|public
 name|ImmutableMap
