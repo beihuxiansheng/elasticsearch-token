@@ -92,7 +92,7 @@ name|GaussDecayFunctionBuilder
 argument_list|>
 block|{
 DECL|field|GAUSS_DECAY_FUNCTION
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|DecayFunction
