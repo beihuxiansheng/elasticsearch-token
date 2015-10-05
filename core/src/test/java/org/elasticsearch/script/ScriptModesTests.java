@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -197,6 +183,18 @@ operator|.
 name|Collections
 operator|.
 name|singleton
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -2054,7 +2052,7 @@ return|;
 block|}
 DECL|method|buildScriptEnginesByLangMap
 specifier|static
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2069,9 +2067,7 @@ argument_list|>
 name|scriptEngines
 parameter_list|)
 block|{
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2079,9 +2075,9 @@ name|ScriptEngineService
 argument_list|>
 name|builder
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2115,10 +2111,10 @@ expr_stmt|;
 block|}
 block|}
 return|return
+name|unmodifiableMap
+argument_list|(
 name|builder
-operator|.
-name|build
-argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|class|CustomScriptEngineService

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -132,6 +118,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -161,6 +157,18 @@ operator|.
 name|atomic
 operator|.
 name|AtomicReference
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -226,7 +234,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|arrayContaining
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItem
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -2764,9 +2820,7 @@ argument_list|,
 name|terminal
 argument_list|)
 expr_stmt|;
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2774,9 +2828,9 @@ name|Command
 argument_list|>
 name|commandByName
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2818,10 +2872,10 @@ name|this
 operator|.
 name|commands
 operator|=
+name|unmodifiableMap
+argument_list|(
 name|commandByName
-operator|.
-name|build
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
