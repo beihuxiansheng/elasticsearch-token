@@ -164,6 +164,22 @@ name|Arrays
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+operator|.
+name|DEFAULT_TERMINATE_AFTER
+import|;
+end_import
+
 begin_comment
 comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
 end_comment
@@ -222,19 +238,6 @@ operator|new
 name|SearchSourceBuilder
 argument_list|()
 decl_stmt|;
-DECL|method|CountRequest
-specifier|public
-name|CountRequest
-parameter_list|()
-block|{
-name|searchSourceBuilder
-operator|.
-name|size
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Constructs a new count request against the provided indices. No indices provided means it will      * run against all indices.      */
 DECL|method|CountRequest
 specifier|public
@@ -248,6 +251,27 @@ block|{
 name|super
 argument_list|(
 name|indices
+argument_list|)
+expr_stmt|;
+name|searchSourceBuilder
+operator|.
+name|size
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|searchSourceBuilder
+operator|.
+name|minScore
+argument_list|(
+name|DEFAULT_MIN_SCORE
+argument_list|)
+expr_stmt|;
+name|searchSourceBuilder
+operator|.
+name|terminateAfter
+argument_list|(
+name|DEFAULT_TERMINATE_AFTER
 argument_list|)
 expr_stmt|;
 block|}
@@ -449,21 +473,6 @@ name|int
 name|terminateAfterCount
 parameter_list|)
 block|{
-if|if
-condition|(
-name|terminateAfterCount
-operator|<=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"terminateAfter must be> 0"
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|searchSourceBuilder

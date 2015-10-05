@@ -1323,7 +1323,7 @@ block|{
 if|if
 condition|(
 name|terminateAfter
-operator|<=
+operator|<
 literal|0
 condition|)
 block|{
