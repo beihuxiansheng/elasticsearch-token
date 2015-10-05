@@ -686,14 +686,14 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|parseQuerySource
+DECL|method|urlParamsToQueryBuilder
 specifier|public
 specifier|static
 name|QueryBuilder
 argument_list|<
 name|?
 argument_list|>
-name|parseQuerySource
+name|urlParamsToQueryBuilder
 parameter_list|(
 name|RestRequest
 name|request

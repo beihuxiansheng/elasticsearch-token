@@ -426,7 +426,7 @@ name|queryBuilder
 init|=
 name|RestActions
 operator|.
-name|parseQuerySource
+name|urlParamsToQueryBuilder
 argument_list|(
 name|request
 argument_list|)
