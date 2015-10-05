@@ -555,11 +555,6 @@ name|settingsBuilder
 init|=
 name|settingsBuilder
 argument_list|()
-operator|.
-name|put
-argument_list|(
-name|settings
-argument_list|)
 decl_stmt|;
 name|resolveConfig
 argument_list|(
@@ -589,6 +584,16 @@ operator|.
 name|getProperties
 argument_list|()
 argument_list|)
+expr_stmt|;
+comment|// add custom settings after config was added so that they are not overwritten by config
+name|settingsBuilder
+operator|.
+name|put
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
+name|settingsBuilder
 operator|.
 name|replacePropertyPlaceholders
 argument_list|()
