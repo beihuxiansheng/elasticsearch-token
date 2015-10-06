@@ -58,20 +58,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -2673,7 +2659,7 @@ specifier|public
 name|Builder
 name|indicesRouting
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
