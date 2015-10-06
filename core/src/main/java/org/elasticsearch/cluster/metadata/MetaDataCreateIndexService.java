@@ -2619,15 +2619,18 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"mapping ["
-operator|+
+literal|"Failed to parse mapping [{}]: {}"
+argument_list|,
+name|e
+argument_list|,
 name|MapperService
 operator|.
 name|DEFAULT_MAPPING
-operator|+
-literal|"]"
 argument_list|,
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2727,16 +2730,19 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"mapping ["
-operator|+
+literal|"Failed to parse mapping [{}]: {}"
+argument_list|,
+name|e
+argument_list|,
 name|entry
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|"]"
 argument_list|,
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 throw|;
 block|}
