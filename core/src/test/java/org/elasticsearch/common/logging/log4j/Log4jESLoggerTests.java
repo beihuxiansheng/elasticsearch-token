@@ -325,6 +325,8 @@ operator|.
 name|configure
 argument_list|(
 name|settings
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|esTestLogger
