@@ -778,9 +778,12 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+name|ExecutableScript
+name|executable
+init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -805,6 +808,11 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+decl_stmt|;
+name|executable
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|ctx
 operator|=
@@ -816,7 +824,7 @@ argument_list|,
 name|Object
 argument_list|>
 operator|)
-name|se
+name|executable
 operator|.
 name|unwrap
 argument_list|(
