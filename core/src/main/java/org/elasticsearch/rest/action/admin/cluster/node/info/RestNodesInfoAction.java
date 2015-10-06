@@ -586,6 +586,18 @@ argument_list|(
 name|nodeIds
 argument_list|)
 decl_stmt|;
+name|nodesInfoRequest
+operator|.
+name|timeout
+argument_list|(
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"timeout"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// shortcut, dont do checks if only all is specified
 if|if
 condition|(
