@@ -224,7 +224,7 @@ block|}
 comment|/**      * The minimum score of the documents to include in the count.      */
 DECL|method|minScore
 specifier|public
-name|float
+name|Float
 name|minScore
 parameter_list|()
 block|{
