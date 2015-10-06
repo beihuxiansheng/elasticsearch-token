@@ -90,20 +90,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|Tuple
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|log4j
@@ -256,22 +242,6 @@ name|option
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|EMPTY
-import|;
-end_import
-
 begin_class
 DECL|class|PluginManagerCliParser
 specifier|public
@@ -342,6 +312,25 @@ index|[]
 name|args
 parameter_list|)
 block|{
+comment|// initialize default for es.logger.level because we will not read the logging.yml
+name|String
+name|loggerLevel
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"es.logger.level"
+argument_list|,
+literal|"INFO"
+argument_list|)
+decl_stmt|;
+comment|// Set the appender for all potential log files to terminal so that other components that use the logger print out the
+comment|// same terminal.
+comment|// The reason for this is that the plugin cli cannot be configured with a file appender because when the plugin command is
+comment|// executed there is no way of knowing where the logfiles should be placed. For example, if elasticsearch
+comment|// is run as service then the logs should be at /var/log/elasticsearch but when started from the tar they should be at es.home/logs.
+comment|// Therefore we print to Terminal.
 name|Environment
 name|env
 init|=
@@ -349,13 +338,41 @@ name|InternalSettingsPreparer
 operator|.
 name|prepareEnvironment
 argument_list|(
-name|EMPTY
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"appender.terminal.type"
+argument_list|,
+literal|"terminal"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"rootLogger"
+argument_list|,
+literal|"${es.logger.level}, terminal"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"es.logger.level"
+argument_list|,
+name|loggerLevel
+argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|Terminal
 operator|.
 name|DEFAULT
 argument_list|)
 decl_stmt|;
+comment|// configure but do not read the logging conf file
 name|LogConfigurator
 operator|.
 name|configure
@@ -364,6 +381,8 @@ name|env
 operator|.
 name|settings
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|int
