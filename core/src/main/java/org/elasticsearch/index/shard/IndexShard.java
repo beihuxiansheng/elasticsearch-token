@@ -6315,6 +6315,7 @@ name|shardTranslogBufferSize
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Record that this shard is now inactive, and decrease the indexing and translog buffers to tiny values. */
 DECL|method|markAsInactive
 specifier|public
 name|void

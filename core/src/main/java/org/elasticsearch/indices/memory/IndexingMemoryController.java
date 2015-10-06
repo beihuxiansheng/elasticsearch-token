@@ -164,20 +164,6 @@ name|index
 operator|.
 name|engine
 operator|.
-name|EngineConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
 name|FlushNotAllowedEngineException
 import|;
 end_import
@@ -221,20 +207,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
 import|;
 end_import
 
@@ -1367,6 +1339,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/** set new indexing and translog buffers on this shard.  this may cause the shard to refresh to free up heap. */
 DECL|method|updateShardBuffers
 specifier|protected
 name|void
@@ -1446,6 +1419,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/** returns {@code Boolean.TRUE} if no indexing operations have arrived to this shard since the {@code inactiveTimeNS},      *  {@code Boolean.FALSE} if they have, and {@code null} if the shard is unknown */
 DECL|method|isShardIdle
 specifier|protected
 name|boolean
@@ -1527,7 +1501,7 @@ name|getActive
 argument_list|()
 return|;
 block|}
-comment|/** Check if any shards active status changed, now. */
+comment|/** check if any shards active status changed, now. */
 DECL|method|forceCheck
 specifier|public
 name|void
@@ -1807,7 +1781,7 @@ return|return
 name|activeShardCount
 return|;
 block|}
-comment|/**          * purge any existing statuses that are no longer updated          *          * @return true if any change          */
+comment|/**          * purge any existing statuses that are no longer updated          *          * @return the changes applied          */
 DECL|method|purgeDeletedAndClosedShards
 specifier|private
 name|EnumSet
@@ -2091,7 +2065,7 @@ name|nanoTime
 argument_list|()
 return|;
 block|}
-comment|// update inactive indexing buffer size
+comment|/** notify this shard that it is now inactive, so it can drop its indexing buffer to 512 KB */
 DECL|method|markShardAsInactive
 specifier|protected
 name|void
