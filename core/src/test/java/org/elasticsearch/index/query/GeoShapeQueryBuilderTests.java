@@ -502,6 +502,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
 name|SpatialStrategy
 name|strategy
 init|=
@@ -542,6 +548,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|builder
@@ -706,9 +713,7 @@ name|ex
 argument_list|)
 throw|;
 block|}
-name|GetResponse
-name|response
-init|=
+return|return
 operator|new
 name|GetResponse
 argument_list|(
@@ -734,9 +739,6 @@ argument_list|,
 literal|null
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|response
 return|;
 block|}
 annotation|@
@@ -895,9 +897,6 @@ name|IOException
 block|{
 try|try
 block|{
-name|GeoShapeQueryBuilder
-name|builder
-init|=
 operator|new
 name|GeoShapeQueryBuilder
 argument_list|(
@@ -908,7 +907,7 @@ name|ShapeBuilder
 operator|)
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"exception expected"
@@ -946,9 +945,6 @@ name|GeoShapeQueryBuilder
 argument_list|(
 name|GEO_SHAPE_FIELD_NAME
 argument_list|,
-operator|(
-name|String
-operator|)
 literal|null
 argument_list|,
 literal|"type"
@@ -979,9 +975,6 @@ name|GEO_SHAPE_FIELD_NAME
 argument_list|,
 literal|"id"
 argument_list|,
-operator|(
-name|String
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
