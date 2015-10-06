@@ -243,13 +243,13 @@ block|}
 specifier|final
 name|boolean
 name|querySet
+init|=
+name|randomBoolean
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|querySet
-operator|=
-name|randomBoolean
-argument_list|()
 condition|)
 block|{
 name|countRequest
