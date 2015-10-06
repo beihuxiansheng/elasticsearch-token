@@ -8309,54 +8309,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// @Test
-comment|// public void errorMessageForFaultyFunctionScoreBody() throws Exception {
-comment|// assertAcked(prepareCreate("test").addMapping(
-comment|// "type",
-comment|// jsonBuilder().startObject().startObject("type").startObject("properties").startObject("test").field("type",
-comment|// "string")
-comment|// .endObject().startObject("num").field("type",
-comment|// "double").endObject().endObject().endObject().endObject()));
-comment|// ensureYellow();
-comment|// client().index(
-comment|// indexRequest("test").type("type").source(jsonBuilder().startObject().field("test",
-comment|// "value").field("num", 1.0).endObject()))
-comment|// .actionGet();
-comment|// refresh();
-comment|//
-comment|// XContentBuilder query = XContentFactory.jsonBuilder();
-comment|// // query that contains a single function and a functions[] array
-comment|// query.startObject().startObject("query").startObject("function_score").field("weight",
-comment|// "1").startArray("functions").startObject().startObject("script_score").field("script",
-comment|// "3").endObject().endObject().endArray().endObject().endObject().endObject();
-comment|// try {
-comment|// client().search(searchRequest().source(query.bytes())).actionGet();
-comment|// fail("Search should result in SearchPhaseExecutionException");
-comment|// } catch (SearchPhaseExecutionException e) {
-comment|// logger.info(e.shardFailures()[0].reason());
-comment|// assertThat(e.shardFailures()[0].reason(),
-comment|// containsString("already found [weight], now encountering [functions]."));
-comment|// }
-comment|//
-comment|// query = XContentFactory.jsonBuilder();
-comment|// // query that contains a single function (but not boost factor) and a
-comment|// functions[] array
-comment|// query.startObject().startObject("query").startObject("function_score").startObject("random_score").field("seed",
-comment|// 3).endObject().startArray("functions").startObject().startObject("random_score").field("seed",
-comment|// 3).endObject().endObject().endArray().endObject().endObject().endObject();
-comment|// try {
-comment|// client().search(searchRequest().source(query.bytes())).actionGet();
-comment|// fail("Search should result in SearchPhaseExecutionException");
-comment|// } catch (SearchPhaseExecutionException e) {
-comment|// logger.info(e.shardFailures()[0].reason());
-comment|// assertThat(e.shardFailures()[0].reason(),
-comment|// containsString("already found [random_score], now encountering [functions]"));
-comment|// assertThat(e.shardFailures()[0].reason(),
-comment|// not(containsString("did you mean [boost] instead?")));
-comment|//
-comment|// } NORELEASE this needs to be tested in a unit test
-comment|// (FunctionScoreQueryBuilderTests)
-comment|// }
 annotation|@
 name|Test
 DECL|method|testExplainString

@@ -188,9 +188,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|index
 operator|.
-name|Plugin
+name|query
+operator|.
+name|QueryBuilders
 import|;
 end_import
 
@@ -200,11 +202,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|plugins
 operator|.
-name|query
-operator|.
-name|QueryBuilders
+name|Plugin
 import|;
 end_import
 
@@ -6801,15 +6801,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Test(expected = SearchPhaseExecutionException.class)
-comment|//    public void testInvalidFieldDataField() throws ExecutionException, InterruptedException {
-comment|//        createIndex("test");
-comment|//        if (randomBoolean()) {
-comment|//            client().prepareSearch("test").setTypes("type").setSource(new BytesArray(new BytesRef("{\"query\":{\"match_all\":{}},\"fielddata_fields\": {}}"))).get();
-comment|//        } else {
-comment|//            client().prepareSearch("test").setTypes("type").setSource(new BytesArray(new BytesRef("{\"query\":{\"match_all\":{}},\"fielddata_fields\": 1.0}"))).get();
-comment|//        }
-comment|//    } NORELEASE need a unit test for this
 annotation|@
 name|Test
 DECL|method|testFieldsPulledFromFieldData

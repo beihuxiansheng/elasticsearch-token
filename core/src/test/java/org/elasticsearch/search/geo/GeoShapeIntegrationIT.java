@@ -1937,44 +1937,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// NORELEASE  these should be tested in GeoShapeQueryBuilderTests
-comment|//    @Test
-comment|//    public void testParsingMultipleShapes() throws Exception {
-comment|//        String mapping = XContentFactory.jsonBuilder()
-comment|//                .startObject()
-comment|//                .startObject("type1")
-comment|//                .startObject("properties")
-comment|//                .startObject("location1")
-comment|//                .field("type", "geo_shape")
-comment|//                .endObject()
-comment|//                .startObject("location2")
-comment|//                .field("type", "geo_shape")
-comment|//                .endObject()
-comment|//                .endObject()
-comment|//                .endObject()
-comment|//                .endObject()
-comment|//                .string();
-comment|//
-comment|//        assertAcked(prepareCreate("test").addMapping("type1", mapping));
-comment|//        ensureYellow();
-comment|//
-comment|//        String p1 = "\"location1\" : {\"type\":\"polygon\", \"coordinates\":[[[-10,-10],[10,-10],[10,10],[-10,10],[-10,-10]]]}";
-comment|//        String p2 = "\"location2\" : {\"type\":\"polygon\", \"coordinates\":[[[-20,-20],[20,-20],[20,20],[-20,20],[-20,-20]]]}";
-comment|//        String o1 = "{" + p1 + ", " + p2 + "}";
-comment|//
-comment|//        indexRandom(true, client().prepareIndex("test", "type1", "1").setSource(o1));
-comment|//
-comment|//        String filter = "{\"geo_shape\": {\"location2\": {\"indexed_shape\": {"
-comment|//                + "\"id\": \"1\","
-comment|//                + "\"type\": \"type1\","
-comment|//                + "\"index\": \"test\","
-comment|//                + "\"path\": \"location2\""
-comment|//                + "}}}}";
-comment|//
-comment|//        SearchResponse result = client().prepareSearch("test").setQuery(QueryBuilders.matchAllQuery()).setPostFilter(filter).execute().actionGet();
-comment|//        assertSearchResponse(result);
-comment|//        assertHitCount(result, 1);
-comment|//    }
 annotation|@
 name|Test
 DECL|method|testShapeFetchingPath
