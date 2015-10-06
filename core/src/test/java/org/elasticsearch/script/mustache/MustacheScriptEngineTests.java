@@ -265,7 +265,7 @@ name|BytesReference
 operator|)
 name|qe
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -290,6 +290,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -368,7 +371,7 @@ name|BytesReference
 operator|)
 name|qe
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -393,6 +396,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(

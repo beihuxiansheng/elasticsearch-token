@@ -834,12 +834,15 @@ name|Number
 operator|)
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 name|compiledScript
 argument_list|,
 name|runtimeVars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 operator|)
 operator|.
 name|longValue
