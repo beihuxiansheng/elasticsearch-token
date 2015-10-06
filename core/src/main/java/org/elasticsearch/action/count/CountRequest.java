@@ -150,22 +150,6 @@ name|Arrays
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
-operator|.
-name|DEFAULT_TERMINATE_AFTER
-import|;
-end_import
-
 begin_comment
 comment|/**  * A request to count the number of documents matching a specific query. Best created with  * {@link org.elasticsearch.client.Requests#countRequest(String...)}.  *  * @see CountResponse  * @see org.elasticsearch.client.Client#count(CountRequest)  * @see org.elasticsearch.client.Requests#countRequest(String...)  */
 end_comment
@@ -181,16 +165,6 @@ argument_list|<
 name|CountRequest
 argument_list|>
 block|{
-DECL|field|DEFAULT_MIN_SCORE
-specifier|public
-specifier|static
-specifier|final
-name|float
-name|DEFAULT_MIN_SCORE
-init|=
-operator|-
-literal|1f
-decl_stmt|;
 annotation|@
 name|Nullable
 DECL|field|routing
@@ -244,20 +218,6 @@ operator|.
 name|size
 argument_list|(
 literal|0
-argument_list|)
-expr_stmt|;
-name|searchSourceBuilder
-operator|.
-name|minScore
-argument_list|(
-name|DEFAULT_MIN_SCORE
-argument_list|)
-expr_stmt|;
-name|searchSourceBuilder
-operator|.
-name|terminateAfter
-argument_list|(
-name|DEFAULT_TERMINATE_AFTER
 argument_list|)
 expr_stmt|;
 block|}
