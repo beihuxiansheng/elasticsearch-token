@@ -584,9 +584,6 @@ operator|.
 name|source
 argument_list|(
 name|querySourceBuilder
-operator|.
-name|buildAsBytes
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
