@@ -633,10 +633,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isShardInactive
+DECL|method|isShardIdle
 specifier|protected
 name|boolean
-name|isShardInactive
+name|isShardIdle
 parameter_list|(
 name|ShardId
 name|shardId

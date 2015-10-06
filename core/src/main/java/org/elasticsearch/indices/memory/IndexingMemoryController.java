@@ -1441,10 +1441,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|isShardInactive
+DECL|method|isShardIdle
 specifier|protected
 name|boolean
-name|isShardInactive
+name|isShardIdle
 parameter_list|(
 name|ShardId
 name|shardId
@@ -1485,7 +1485,7 @@ operator|>=
 name|inactiveTimeNS
 return|;
 block|}
-comment|/** returns the current translog status (generation id + ops) for the given shard id. Returns null if unavailable. */
+comment|/** returns {@link IndexShard#getActive} if the shard exists, else null */
 DECL|method|getShardActive
 specifier|protected
 name|Boolean
@@ -1749,7 +1749,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|isShardInactive
+name|isShardIdle
 argument_list|(
 name|shardId
 argument_list|,

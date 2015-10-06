@@ -6125,7 +6125,7 @@ name|failedEngineListener
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Returns true if the indexing buffer size did change */
+comment|/** Change the indexing and translog buffer sizes.  If {@code IndexWriter} is currently using more than      *  the new buffering indexing size then we do a refresh to free up the heap. */
 DECL|method|updateBufferSize
 specifier|public
 name|void
@@ -6325,6 +6325,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** Returns {@code true} if this shard is active (has seen indexing ops in the last {@link      *  IndexingMemoryController#SHARD_INACTIVE_TIME_SETTING} (default 5 minutes), else {@code false}. */
 DECL|method|getActive
 specifier|public
 name|boolean
