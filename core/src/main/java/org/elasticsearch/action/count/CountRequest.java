@@ -108,20 +108,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -551,33 +537,8 @@ name|String
 name|toString
 parameter_list|()
 block|{
-name|String
-name|sSource
-init|=
-literal|"_na_"
-decl_stmt|;
-try|try
-block|{
-name|sSource
-operator|=
-name|XContentHelper
-operator|.
-name|toString
-argument_list|(
-name|searchSourceBuilder
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 return|return
-literal|"["
+literal|"count request indices:"
 operator|+
 name|Arrays
 operator|.
@@ -586,7 +547,7 @@ argument_list|(
 name|indices
 argument_list|)
 operator|+
-literal|"]"
+literal|", types:"
 operator|+
 name|Arrays
 operator|.
@@ -595,20 +556,16 @@ argument_list|(
 name|types
 argument_list|)
 operator|+
-literal|", source["
+literal|", routing: "
 operator|+
-name|sSource
+name|routing
 operator|+
-literal|"]"
-return|;
-block|}
-DECL|method|sourceBuilderString
-specifier|public
-name|String
-name|sourceBuilderString
-parameter_list|()
-block|{
-return|return
+literal|", preference: "
+operator|+
+name|preference
+operator|+
+literal|", source:"
+operator|+
 name|searchSourceBuilder
 operator|.
 name|toString

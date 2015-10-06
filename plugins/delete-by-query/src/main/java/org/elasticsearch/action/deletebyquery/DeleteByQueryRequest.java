@@ -130,20 +130,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -962,33 +948,8 @@ name|String
 name|toString
 parameter_list|()
 block|{
-name|String
-name|sSource
-init|=
-literal|"_na_"
-decl_stmt|;
-try|try
-block|{
-name|sSource
-operator|=
-name|XContentHelper
-operator|.
-name|toString
-argument_list|(
-name|query
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 return|return
-literal|"delete-by-query ["
+literal|"delete-by-query indices:"
 operator|+
 name|Arrays
 operator|.
@@ -997,7 +958,7 @@ argument_list|(
 name|indices
 argument_list|)
 operator|+
-literal|"]["
+literal|", types:"
 operator|+
 name|Arrays
 operator|.
@@ -1006,11 +967,24 @@ argument_list|(
 name|types
 argument_list|)
 operator|+
-literal|"], source["
+literal|", size:"
 operator|+
-name|sSource
+name|size
 operator|+
-literal|"]"
+literal|", timeout:"
+operator|+
+name|timeout
+operator|+
+literal|", routing:"
+operator|+
+name|routing
+operator|+
+literal|", query:"
+operator|+
+name|query
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}
