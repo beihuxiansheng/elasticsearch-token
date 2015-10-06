@@ -970,32 +970,86 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-comment|// NORELEASE These need to be tested in TemplateQueryBuilderTests
-comment|// @Test
-comment|// public void testRawEscapedTemplate() throws IOException {
-comment|// String query =
-comment|// "{\"template\": {\"query\": \"{\\\"match_{{template}}\\\": {}}\\\"\",\"params\" : {\"template\" : \"all\"}}}";
-comment|//
-comment|// SearchResponse sr = client().prepareSearch().setQuery(query).get();
-comment|// assertHitCount(sr, 2);
-comment|// }
-comment|//
-comment|// @Test
-comment|// public void testRawTemplate() throws IOException {
-comment|// String query =
-comment|// "{\"template\": {\"query\": {\"match_{{template}}\": {}},\"params\" : {\"template\" : \"all\"}}}";
-comment|// SearchResponse sr = client().prepareSearch().setQuery(query).get();
-comment|// assertHitCount(sr, 2);
-comment|// }
-comment|//
-comment|// @Test
-comment|// public void testRawFSTemplate() throws IOException {
-comment|// String query =
-comment|// "{\"template\": {\"file\": \"storedTemplate\",\"params\" : {\"template\" : \"all\"}}}";
-comment|//
-comment|// SearchResponse sr = client().prepareSearch().setQuery(query).get();
-comment|// assertHitCount(sr, 2);
-comment|// }
+annotation|@
+name|Test
+DECL|method|testRawFSTemplate
+specifier|public
+name|void
+name|testRawFSTemplate
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|params
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"template"
+argument_list|,
+literal|"all"
+argument_list|)
+expr_stmt|;
+name|TemplateQueryBuilder
+name|builder
+init|=
+operator|new
+name|TemplateQueryBuilder
+argument_list|(
+operator|new
+name|Template
+argument_list|(
+literal|"storedTemplate"
+argument_list|,
+name|ScriptType
+operator|.
+name|FILE
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+name|params
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|SearchResponse
+name|sr
+init|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setQuery
+argument_list|(
+name|builder
+argument_list|)
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|assertHitCount
+argument_list|(
+name|sr
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testSearchRequestTemplateSource
