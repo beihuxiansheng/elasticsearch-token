@@ -652,6 +652,30 @@ name|ReentrantLock
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1986,6 +2010,14 @@ name|get
 parameter_list|(
 name|Get
 name|get
+parameter_list|,
+name|Function
+argument_list|<
+name|String
+argument_list|,
+name|Searcher
+argument_list|>
+name|searcherFactory
 parameter_list|)
 throws|throws
 name|EngineException
@@ -2161,6 +2193,8 @@ return|return
 name|getFromSearcher
 argument_list|(
 name|get
+argument_list|,
+name|searcherFactory
 argument_list|)
 return|;
 block|}

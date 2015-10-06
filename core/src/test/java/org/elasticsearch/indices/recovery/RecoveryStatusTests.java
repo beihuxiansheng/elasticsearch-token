@@ -201,7 +201,7 @@ name|indexShard
 init|=
 name|service
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)

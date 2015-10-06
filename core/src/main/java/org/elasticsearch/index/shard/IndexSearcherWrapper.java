@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.engine
+DECL|package|org.elasticsearch.index.shard
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
+name|shard
 package|;
 end_package
 
@@ -60,11 +60,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|inject
+name|engine
 operator|.
-name|Inject
+name|Engine
 import|;
 end_import
 
@@ -78,9 +78,21 @@ name|index
 operator|.
 name|engine
 operator|.
-name|Engine
+name|EngineConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|Searcher
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|EngineException
 import|;
 end_import
 
@@ -88,153 +100,69 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|Set
+name|IOException
 import|;
 end_import
 
 begin_comment
-comment|/**  * Service responsible for wrapping the {@link DirectoryReader} and {@link IndexSearcher} of a {@link Searcher} via the  * configured {@link IndexSearcherWrapper} instance. This allows custom functionally to be added the {@link Searcher}  * before being used to do an operation (search, get, field stats etc.)  */
+comment|/**  * Extension point to add custom functionality at request time to the {@link DirectoryReader}  * and {@link IndexSearcher} managed by the {@link Engine}.  */
 end_comment
 
-begin_comment
-comment|// TODO: This needs extension point is a bit hacky now, because the IndexSearch from the engine can only be wrapped once,
-end_comment
-
-begin_comment
-comment|// if we allowed the IndexSearcher to be wrapped multiple times then a custom IndexSearcherWrapper needs have good
-end_comment
-
-begin_comment
-comment|// control over its location in the wrapping chain
-end_comment
-
-begin_class
-DECL|class|IndexSearcherWrappingService
+begin_interface
+DECL|interface|IndexSearcherWrapper
 specifier|public
-specifier|final
-class|class
-name|IndexSearcherWrappingService
-block|{
-DECL|field|wrapper
-specifier|private
-specifier|final
+interface|interface
 name|IndexSearcherWrapper
-name|wrapper
-decl_stmt|;
-comment|// for unit tests:
-DECL|method|IndexSearcherWrappingService
-name|IndexSearcherWrappingService
-parameter_list|()
 block|{
-name|this
-operator|.
-name|wrapper
-operator|=
-literal|null
-expr_stmt|;
-block|}
-annotation|@
-name|Inject
-comment|// Use a Set parameter here, because constructor parameter can't be optional
-comment|// and I prefer to keep the `wrapper` field final.
-DECL|method|IndexSearcherWrappingService
-specifier|public
-name|IndexSearcherWrappingService
-parameter_list|(
-name|Set
-argument_list|<
-name|IndexSearcherWrapper
-argument_list|>
-name|wrappers
-parameter_list|)
-block|{
-if|if
-condition|(
-name|wrappers
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|1
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"wrapping of the index searcher by more than one wrappers is forbidden, found the following wrappers ["
-operator|+
-name|wrappers
-operator|+
-literal|"]"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|wrappers
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|this
-operator|.
-name|wrapper
-operator|=
-literal|null
-expr_stmt|;
-block|}
-else|else
-block|{
-name|this
-operator|.
-name|wrapper
-operator|=
-name|wrappers
-operator|.
-name|iterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-comment|/**      * If there are configured {@link IndexSearcherWrapper} instances, the {@link IndexSearcher} of the provided engine searcher      * gets wrapped and a new {@link Searcher} instances is returned, otherwise the provided {@link Searcher} is returned.      *      * This is invoked each time a {@link Searcher} is requested to do an operation. (for example search)      */
+comment|/**      * @param reader The provided directory reader to be wrapped to add custom functionality      * @return a new directory reader wrapping the provided directory reader or if no wrapping was performed      *         the provided directory reader      */
 DECL|method|wrap
-specifier|public
+name|DirectoryReader
+name|wrap
+parameter_list|(
+name|DirectoryReader
+name|reader
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * @param engineConfig  The engine config which can be used to get the query cache and query cache policy from      *                      when creating a new index searcher      * @param searcher      The provided index searcher to be wrapped to add custom functionality      * @return a new index searcher wrapping the provided index searcher or if no wrapping was performed      *         the provided index searcher      */
+DECL|method|wrap
+name|IndexSearcher
+name|wrap
+parameter_list|(
+name|EngineConfig
+name|engineConfig
+parameter_list|,
+name|IndexSearcher
+name|searcher
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * If there are configured {@link IndexSearcherWrapper} instances, the {@link IndexSearcher} of the provided engine searcher      * gets wrapped and a new {@link Engine.Searcher} instances is returned, otherwise the provided {@link Engine.Searcher} is returned.      *      * This is invoked each time a {@link Engine.Searcher} is requested to do an operation. (for example search)      */
+DECL|method|wrap
+specifier|default
+name|Engine
+operator|.
 name|Searcher
 name|wrap
 parameter_list|(
 name|EngineConfig
 name|engineConfig
 parameter_list|,
-specifier|final
+name|Engine
+operator|.
 name|Searcher
 name|engineSearcher
 parameter_list|)
 throws|throws
-name|EngineException
+name|IOException
 block|{
-if|if
-condition|(
-name|wrapper
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|engineSearcher
-return|;
-block|}
 name|DirectoryReader
 name|reader
 init|=
-name|wrapper
-operator|.
 name|wrap
 argument_list|(
 operator|(
@@ -291,8 +219,6 @@ comment|// This needs to be fixed before we can allow the IndexSearcher from Eng
 name|IndexSearcher
 name|indexSearcher
 init|=
-name|wrapper
-operator|.
 name|wrap
 argument_list|(
 name|engineConfig
@@ -354,7 +280,7 @@ return|;
 block|}
 block|}
 block|}
-end_class
+end_interface
 
 end_unit
 

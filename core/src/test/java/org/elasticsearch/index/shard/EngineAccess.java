@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.mapper
+DECL|package|org.elasticsearch.index.shard
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|shard
 package|;
 end_package
 
@@ -22,44 +22,41 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|inject
+name|engine
 operator|.
-name|AbstractModule
+name|Engine
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Test utility to access the engine of a shard  */
 end_comment
 
 begin_class
-DECL|class|MapperServiceModule
+DECL|class|EngineAccess
 specifier|public
+specifier|final
 class|class
-name|MapperServiceModule
-extends|extends
-name|AbstractModule
+name|EngineAccess
 block|{
-annotation|@
-name|Override
-DECL|method|configure
-specifier|protected
-name|void
-name|configure
-parameter_list|()
+DECL|method|engine
+specifier|public
+specifier|static
+name|Engine
+name|engine
+parameter_list|(
+name|IndexShard
+name|shard
+parameter_list|)
 block|{
-name|bind
-argument_list|(
-name|MapperService
+return|return
+name|shard
 operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
+name|getEngine
 argument_list|()
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class

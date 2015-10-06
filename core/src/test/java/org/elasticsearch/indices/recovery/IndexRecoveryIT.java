@@ -2175,7 +2175,7 @@ argument_list|(
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 literal|0
 argument_list|)
@@ -2215,7 +2215,7 @@ argument_list|(
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 literal|0
 argument_list|)

@@ -1130,7 +1130,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)

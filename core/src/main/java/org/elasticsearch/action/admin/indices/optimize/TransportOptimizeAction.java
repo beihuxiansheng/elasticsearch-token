@@ -498,7 +498,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardRouting
 operator|.

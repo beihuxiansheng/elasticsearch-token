@@ -248,8 +248,6 @@ name|index
 operator|.
 name|percolator
 operator|.
-name|stats
-operator|.
 name|PercolateStats
 import|;
 end_import
@@ -871,10 +869,7 @@ name|percolate
 operator|=
 name|indexShard
 operator|.
-name|shardPercolateService
-argument_list|()
-operator|.
-name|stats
+name|percolateStats
 argument_list|()
 expr_stmt|;
 break|break;

@@ -969,7 +969,7 @@ name|path
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -981,7 +981,7 @@ name|assertTrue
 argument_list|(
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
