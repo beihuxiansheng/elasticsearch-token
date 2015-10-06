@@ -152,14 +152,6 @@ argument_list|>
 name|vars
 parameter_list|)
 function_decl|;
-DECL|method|unwrap
-name|Object
-name|unwrap
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-function_decl|;
 comment|/**      * Handler method called when a script is removed from the Guava cache.      *      * The passed script may be null if it has already been garbage collected.      * */
 DECL|method|scriptRemoved
 name|void
