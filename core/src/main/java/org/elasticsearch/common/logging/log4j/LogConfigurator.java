@@ -478,6 +478,15 @@ argument_list|,
 literal|"org.apache.log4j.net.TelnetAppender"
 argument_list|)
 expr_stmt|;
+name|replacements
+operator|.
+name|put
+argument_list|(
+literal|"terminal"
+argument_list|,
+literal|"org.elasticsearch.common.logging.log4j.TerminalAppender"
+argument_list|)
+expr_stmt|;
 comment|// policies
 name|replacements
 operator|.
@@ -575,6 +584,7 @@ specifier|static
 name|boolean
 name|loaded
 decl_stmt|;
+comment|/**      * Consolidates settings and converts them into actual log4j settings, then initializes loggers and appenders.      *      * @param settings      custom settings that should be applied      * @param resolveConfig controls whether the logging conf file should be read too or not.      */
 DECL|method|configure
 specifier|public
 specifier|static
@@ -583,6 +593,9 @@ name|configure
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|boolean
+name|resolveConfig
 parameter_list|)
 block|{
 if|if
@@ -614,6 +627,11 @@ init|=
 name|settingsBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|resolveConfig
+condition|)
+block|{
 name|resolveConfig
 argument_list|(
 name|environment
@@ -621,6 +639,7 @@ argument_list|,
 name|settingsBuilder
 argument_list|)
 expr_stmt|;
+block|}
 name|settingsBuilder
 operator|.
 name|putProperties
