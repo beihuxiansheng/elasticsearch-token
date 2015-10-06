@@ -214,7 +214,7 @@ argument_list|()
 decl_stmt|;
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -239,6 +239,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** asserts that a script runs without exception */
@@ -294,11 +297,12 @@ operator|.
 name|getCause
 argument_list|()
 decl_stmt|;
+comment|// TODO: fix jython localization bugs: https://github.com/elastic/elasticsearch/issues/13967
+comment|// this is the correct assert:
+comment|// assertNotNull("null cause for exception: " + expected, cause);
 name|assertNotNull
 argument_list|(
-literal|"null cause for exception: "
-operator|+
-name|expected
+literal|"null cause for exception"
 argument_list|,
 name|cause
 argument_list|)

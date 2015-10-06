@@ -273,7 +273,7 @@ name|o
 init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -298,6 +298,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -434,7 +437,7 @@ name|o
 init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -459,6 +462,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -539,7 +545,7 @@ name|o
 operator|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -564,6 +570,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -937,7 +946,7 @@ name|o
 init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -962,6 +971,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -982,7 +994,7 @@ name|o
 operator|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -1007,6 +1019,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|obj1
 operator|=
@@ -1075,7 +1090,7 @@ name|o
 operator|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -1100,6 +1115,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
