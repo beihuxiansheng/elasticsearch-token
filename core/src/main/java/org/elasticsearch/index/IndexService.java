@@ -1745,6 +1745,14 @@ operator|.
 name|immutableMap
 argument_list|()
 expr_stmt|;
+name|indexServicesProvider
+operator|.
+name|getIndexingMemoryController
+argument_list|()
+operator|.
+name|forceCheck
+argument_list|()
+expr_stmt|;
 name|success
 operator|=
 literal|true

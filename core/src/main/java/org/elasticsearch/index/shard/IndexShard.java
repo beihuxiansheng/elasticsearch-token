@@ -362,6 +362,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|support
+operator|.
+name|LoggerMessageFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|Lucene
@@ -1785,6 +1801,7 @@ specifier|final
 name|IndexSearcherWrapper
 name|searcherWrapper
 decl_stmt|;
+comment|/** True if this shard is still indexing (recently) and false if we've been idle for long enough (as periodically checked by {@link      *  IndexingMemoryController}). */
 DECL|field|active
 specifier|private
 specifier|final
@@ -2355,7 +2372,13 @@ name|enableRealTimePercolator
 argument_list|()
 expr_stmt|;
 block|}
-comment|// TODO: can we somehow call IMC.forceCheck here?  Since we just became active, it can divvy up the RAM
+name|lastWriteNS
+operator|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+expr_stmt|;
 name|active
 operator|.
 name|set
@@ -3263,6 +3286,11 @@ argument_list|(
 name|create
 argument_list|)
 expr_stmt|;
+name|markLastWrite
+argument_list|(
+name|create
+argument_list|)
+expr_stmt|;
 name|create
 operator|=
 name|indexingService
@@ -3537,6 +3565,11 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
+name|markLastWrite
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
 name|index
 operator|=
 name|indexingService
@@ -3732,6 +3765,11 @@ name|delete
 parameter_list|)
 block|{
 name|ensureWriteAllowed
+argument_list|(
+name|delete
+argument_list|)
+expr_stmt|;
+name|markLastWrite
 argument_list|(
 name|delete
 argument_list|)
@@ -5749,18 +5787,17 @@ return|return
 name|lastWriteNS
 return|;
 block|}
-DECL|method|ensureWriteAllowed
+comment|/** Records timestamp of the last write operation, possibly switching {@code active} to true if we were inactive. */
+DECL|method|markLastWrite
 specifier|private
 name|void
-name|ensureWriteAllowed
+name|markLastWrite
 parameter_list|(
 name|Engine
 operator|.
 name|Operation
 name|op
 parameter_list|)
-throws|throws
-name|IllegalIndexShardStateException
 block|{
 name|lastWriteNS
 operator|=
@@ -5790,6 +5827,20 @@ name|forceCheck
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|ensureWriteAllowed
+specifier|private
+name|void
+name|ensureWriteAllowed
+parameter_list|(
+name|Engine
+operator|.
+name|Operation
+name|op
+parameter_list|)
+throws|throws
+name|IllegalIndexShardStateException
+block|{
 name|Engine
 operator|.
 name|Operation
@@ -6235,17 +6286,6 @@ operator|.
 name|onSettingsChanged
 argument_list|()
 expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"updating index_buffer_size from [{}] to [{}]"
-argument_list|,
-name|preValue
-argument_list|,
-name|shardIndexingBufferSize
-argument_list|)
-expr_stmt|;
 name|long
 name|iwBytesUsed
 init|=
@@ -6254,14 +6294,30 @@ operator|.
 name|indexWriterRAMBytesUsed
 argument_list|()
 decl_stmt|;
+name|String
+name|message
+init|=
+name|LoggerMessageFormat
+operator|.
+name|format
+argument_list|(
+literal|"updating index_buffer_size from [{}] to [{}]; IndexWriter now using [{}] bytes"
+argument_list|,
+name|preValue
+argument_list|,
+name|shardIndexingBufferSize
+argument_list|,
+name|iwBytesUsed
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
+name|iwBytesUsed
+operator|>
 name|shardIndexingBufferSize
 operator|.
 name|bytes
 argument_list|()
-operator|<
-name|iwBytesUsed
 condition|)
 block|{
 comment|// our allowed buffer was changed to less than we are currently using; we ask IW to refresh
@@ -6270,14 +6326,12 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"refresh because index buffer decreased to [{}] and IndexWriter is now using [{}] bytes"
-argument_list|,
-name|shardIndexingBufferSize
-argument_list|,
-name|iwBytesUsed
+name|message
+operator|+
+literal|"; now refresh to clear IndexWriter memory"
 argument_list|)
 expr_stmt|;
-comment|// TODO: should IW have an API to move segments to disk, but not refresh?
+comment|// TODO: should IW have an API to move segments to disk, but not refresh?  Its flush method is protected...
 try|try
 block|{
 name|refresh
@@ -6303,6 +6357,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|engine
 operator|.
@@ -6315,15 +6379,27 @@ name|shardTranslogBufferSize
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Record that this shard is now inactive, and decrease the indexing and translog buffers to tiny values. */
-DECL|method|markAsInactive
+comment|/** Called by {@link IndexingMemoryController} to check whether more than {@code inactiveTimeNS} has passed since the last      *  indexing operation, and become inactive (reducing indexing and translog buffers to tiny values) if so.  This returns true      *  if the shard did in fact become inactive, else false. */
+DECL|method|checkIdle
 specifier|public
-name|void
-name|markAsInactive
-parameter_list|()
+name|boolean
+name|checkIdle
+parameter_list|(
+name|long
+name|inactiveTimeNS
+parameter_list|)
 block|{
 if|if
 condition|(
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+operator|-
+name|lastWriteNS
+operator|>=
+name|inactiveTimeNS
+operator|&&
 name|active
 operator|.
 name|getAndSet
@@ -6334,11 +6410,11 @@ condition|)
 block|{
 name|updateBufferSize
 argument_list|(
-name|EngineConfig
+name|IndexingMemoryController
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 argument_list|,
-name|TranslogConfig
+name|IndexingMemoryController
 operator|.
 name|INACTIVE_SHARD_TRANSLOG_BUFFER
 argument_list|)
@@ -6357,7 +6433,13 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
+return|return
+literal|false
+return|;
 block|}
 comment|/** Returns {@code true} if this shard is active (has seen indexing ops in the last {@link      *  IndexingMemoryController#SHARD_INACTIVE_TIME_SETTING} (default 5 minutes), else {@code false}. */
 DECL|method|getActive

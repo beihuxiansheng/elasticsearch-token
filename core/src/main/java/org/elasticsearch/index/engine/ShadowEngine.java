@@ -1119,9 +1119,13 @@ name|indexWriterRAMBytesUsed
 parameter_list|()
 block|{
 comment|// No IndexWriter
-return|return
-literal|0L
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"ShadowEngine has no IndexWriter"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class
