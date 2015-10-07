@@ -128,6 +128,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|TranslogStats
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -325,6 +339,19 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|translogStats
+specifier|public
+name|TranslogStats
+name|translogStats
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+comment|// shadow engine has no translog
 block|}
 block|}
 end_class
