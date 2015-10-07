@@ -148,16 +148,11 @@ DECL|field|translogSizeInBytes
 specifier|private
 name|long
 name|translogSizeInBytes
-init|=
-literal|0
 decl_stmt|;
 DECL|field|estimatedNumberOfOperations
 specifier|private
 name|int
 name|estimatedNumberOfOperations
-init|=
-operator|-
-literal|1
 decl_stmt|;
 DECL|method|TranslogStats
 specifier|public
