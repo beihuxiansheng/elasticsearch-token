@@ -132,18 +132,6 @@ name|util
 operator|.
 name|function
 operator|.
-name|Function
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
 name|ToLongBiFunction
 import|;
 end_import
@@ -2478,7 +2466,7 @@ name|now
 parameter_list|)
 block|{
 return|return
-name|exceedsSize
+name|exceedsWeight
 argument_list|()
 operator|||
 name|isExpired
@@ -2492,10 +2480,10 @@ block|}
 end_function
 
 begin_function
-DECL|method|exceedsSize
+DECL|method|exceedsWeight
 specifier|private
 name|boolean
-name|exceedsSize
+name|exceedsWeight
 parameter_list|()
 block|{
 return|return
