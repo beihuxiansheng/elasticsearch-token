@@ -693,6 +693,35 @@ block|{
 comment|//all good
 block|}
 block|}
+annotation|@
+name|Test
+argument_list|(
+name|expected
+operator|=
+name|ParsingException
+operator|.
+name|class
+argument_list|)
+comment|// see #7686.
+DECL|method|testIdsQueryWithInvalidValues
+specifier|public
+name|void
+name|testIdsQueryWithInvalidValues
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|query
+init|=
+literal|"{ \"ids\": { \"values\": [[1]] } }"
+decl_stmt|;
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
