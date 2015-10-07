@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -56,15 +44,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|nio
 operator|.
-name|common
+name|charset
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Charset
 import|;
 end_import
 
@@ -76,7 +62,7 @@ name|nio
 operator|.
 name|charset
 operator|.
-name|Charset
+name|StandardCharsets
 import|;
 end_import
 
@@ -147,15 +133,6 @@ argument_list|)
 return|;
 block|}
 block|}
-decl_stmt|;
-DECL|field|HTTP_CORS_ALLOW_ORIGIN_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HTTP_CORS_ALLOW_ORIGIN_SETTING
-init|=
-literal|"http.cors.allow-origin"
 decl_stmt|;
 DECL|method|isBrowser
 specifier|public
@@ -1011,29 +988,28 @@ name|MAX_VALUE
 return|;
 block|}
 block|}
-comment|/**      * Determine if CORS setting is a regex      */
-DECL|method|getCorsSettingRegex
+comment|/**      * Determine if CORS setting is a regex      *      * @return a corresponding {@link Pattern} if so and o.w. null.      */
+DECL|method|checkCorsSettingForRegex
 specifier|public
 specifier|static
 name|Pattern
-name|getCorsSettingRegex
+name|checkCorsSettingForRegex
 parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
-block|{
 name|String
 name|corsSetting
-init|=
-name|settings
-operator|.
-name|get
-argument_list|(
-name|HTTP_CORS_ALLOW_ORIGIN_SETTING
-argument_list|,
-literal|"*"
-argument_list|)
-decl_stmt|;
+parameter_list|)
+block|{
+if|if
+condition|(
+name|corsSetting
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|int
 name|len
 init|=
