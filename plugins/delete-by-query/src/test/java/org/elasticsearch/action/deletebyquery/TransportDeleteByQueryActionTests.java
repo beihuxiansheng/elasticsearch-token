@@ -336,7 +336,19 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -408,20 +420,6 @@ name|assertSearchContextsClosed
 argument_list|()
 expr_stmt|;
 block|}
-comment|// NORELEASE re-implement this parsing test as a unit test
-comment|//    @Test
-comment|//    public void testExecuteScanFailsOnMalformedQuery() {
-comment|//        createIndex("test");
-comment|//
-comment|//        DeleteByQueryRequest delete = new DeleteByQueryRequest().indices(new String[]{"test"}).query("{...}");
-comment|//        TestActionListener listener = new TestActionListener();
-comment|//
-comment|//        newAsyncAction(delete, listener).executeScan();
-comment|//        waitForCompletion("scan request should fail on malformed query", listener);
-comment|//
-comment|//        assertFailure(listener, "all shards failed");
-comment|//        assertSearchContextsClosed();
-comment|//    }
 annotation|@
 name|Test
 DECL|method|testExecuteScan

@@ -22,35 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|search
 operator|.
 name|MultiSearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchPhaseExecutionException
 import|;
 end_import
 
@@ -77,20 +53,6 @@ operator|.
 name|client
 operator|.
 name|Requests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
-name|BytesArray
 import|;
 end_import
 
@@ -585,18 +547,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
 import|;
 end_import
 
@@ -3303,7 +3253,7 @@ comment|//            assertThat(e.unwrapCause(), instanceOf(SearchPhaseExecutio
 comment|//            // all is well
 comment|//        }
 comment|//        logger.info("Done Testing failed search");
-comment|//    } NORELEASE this needs to be tested in a unit test
+comment|// } NORELEASE can this still be tested? if so, how?
 annotation|@
 name|Test
 DECL|method|testFailedSearchWithWrongFrom
