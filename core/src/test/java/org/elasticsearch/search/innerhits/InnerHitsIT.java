@@ -8612,14 +8612,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"needs fixing following search request refactoring"
-argument_list|)
-comment|// NORELEASE
 DECL|method|testNestedInnerHitsWithStoredFieldsAndNoSourceBackcompat
 specifier|public
 name|void
@@ -9613,14 +9605,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"needs fixing following search request refactoring"
-argument_list|)
-comment|// NORELEASE
 DECL|method|testNestedInnerHitsWithExcludeSourceBackcompat
 specifier|public
 name|void
@@ -10129,14 +10113,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"needs fixing following search request refactoring"
-argument_list|)
-comment|// NORELEASE
 DECL|method|testNestedInnerHitsHiglightWithExcludeSourceBackcompat
 specifier|public
 name|void
