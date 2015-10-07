@@ -509,19 +509,6 @@ name|localNode
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns<tt>true</tt> if the initial state was received within the timeout waiting for it      * on {@link #doStart()}.      */
-DECL|method|initialStateReceived
-specifier|public
-name|boolean
-name|initialStateReceived
-parameter_list|()
-block|{
-return|return
-name|initialStateListener
-operator|.
-name|initialStateReceived
-return|;
-block|}
 DECL|method|nodeDescription
 specifier|public
 name|String
