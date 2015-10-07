@@ -68,26 +68,6 @@ name|Similarity
 name|get
 parameter_list|()
 function_decl|;
-comment|/**      * Factory for creating {@link SimilarityProvider} instances      */
-DECL|interface|Factory
-specifier|public
-specifier|static
-interface|interface
-name|Factory
-block|{
-comment|/**          * Creates a new {@link SimilarityProvider} instance          *          * @param name Name of the provider          * @param settings Settings to be used by the Provider          * @return {@link SimilarityProvider} instance created by the Factory          */
-DECL|method|create
-name|SimilarityProvider
-name|create
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|Settings
-name|settings
-parameter_list|)
-function_decl|;
-block|}
 block|}
 end_interface
 

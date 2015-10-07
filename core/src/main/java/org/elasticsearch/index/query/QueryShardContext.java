@@ -859,7 +859,11 @@ operator|.
 name|similarityService
 operator|.
 name|similarity
-argument_list|()
+argument_list|(
+name|indexQueryParser
+operator|.
+name|mapperService
+argument_list|)
 else|:
 literal|null
 return|;
