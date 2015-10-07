@@ -252,6 +252,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// track the keys, which will be removed upon eviction (see the RemovalListener)
 name|keys
 operator|.
 name|add
