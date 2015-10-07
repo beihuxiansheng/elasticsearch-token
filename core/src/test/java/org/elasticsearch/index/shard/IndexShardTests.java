@@ -8822,11 +8822,6 @@ argument_list|()
 argument_list|,
 name|indexServices
 operator|.
-name|getIndexAliasesService
-argument_list|()
-argument_list|,
-name|indexServices
-operator|.
 name|getIndicesQueryCache
 argument_list|()
 argument_list|,
