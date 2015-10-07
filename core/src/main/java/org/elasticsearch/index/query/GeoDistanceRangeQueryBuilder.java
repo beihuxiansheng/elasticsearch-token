@@ -1043,6 +1043,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|GeoPoint
+name|point
+init|=
+operator|new
+name|GeoPoint
+argument_list|(
+name|this
+operator|.
+name|point
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|GeoValidationMethod
