@@ -409,6 +409,7 @@ name|now
 parameter_list|()
 block|{
 comment|// System.nanoTime takes non-negligible time, so we only use it if we need it
+comment|// use System.nanoTime because we want relative time, not absolute time
 return|return
 name|entriesExpireAfterAccess
 operator|||
