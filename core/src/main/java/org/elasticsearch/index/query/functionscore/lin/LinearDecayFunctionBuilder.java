@@ -92,7 +92,7 @@ name|LinearDecayFunctionBuilder
 argument_list|>
 block|{
 DECL|field|LINEAR_DECAY_FUNCTION
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|DecayFunction
