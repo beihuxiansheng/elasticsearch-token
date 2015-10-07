@@ -178,10 +178,10 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
-DECL|field|value
+DECL|field|expectedValue
 specifier|private
 name|String
-name|value
+name|expectedValue
 decl_stmt|;
 DECL|field|addField
 specifier|private
@@ -209,10 +209,10 @@ operator|=
 name|path
 expr_stmt|;
 block|}
-DECL|method|setValue
+DECL|method|setExpectedValue
 specifier|public
 name|void
-name|setValue
+name|setExpectedValue
 parameter_list|(
 name|String
 name|value
@@ -220,7 +220,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|value
+name|expectedValue
 operator|=
 name|value
 expr_stmt|;
@@ -287,7 +287,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|value
+name|expectedValue
 operator|=
 operator|(
 name|String
@@ -296,7 +296,7 @@ name|config
 operator|.
 name|get
 argument_list|(
-literal|"value"
+literal|"expected_value"
 argument_list|)
 expr_stmt|;
 name|this
@@ -342,7 +342,7 @@ name|SimpleProcessor
 argument_list|(
 name|path
 argument_list|,
-name|value
+name|expectedValue
 argument_list|,
 name|addField
 argument_list|,
