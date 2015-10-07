@@ -2372,18 +2372,12 @@ name|enableRealTimePercolator
 argument_list|()
 expr_stmt|;
 block|}
-name|lastWriteNS
-operator|=
-name|System
-operator|.
-name|nanoTime
-argument_list|()
-expr_stmt|;
+comment|// We start up inactive
 name|active
 operator|.
 name|set
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -6379,7 +6373,7 @@ name|shardTranslogBufferSize
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Called by {@link IndexingMemoryController} to check whether more than {@code inactiveTimeNS} has passed since the last      *  indexing operation, and become inactive (reducing indexing and translog buffers to tiny values) if so.  This returns true      *  if the shard did in fact become inactive, else false. */
+comment|/** Called by {@link IndexingMemoryController} to check whether more than {@code inactiveTimeNS} has passed since the last      *  indexing operation, and become inactive (reducing indexing and translog buffers to tiny values) if so.  This returns true      *  if the shard is inactive. */
 DECL|method|checkIdle
 specifier|public
 name|boolean
@@ -6399,13 +6393,21 @@ operator|-
 name|lastWriteNS
 operator|>=
 name|inactiveTimeNS
-operator|&&
+condition|)
+block|{
+name|boolean
+name|wasActive
+init|=
 name|active
 operator|.
 name|getAndSet
 argument_list|(
 literal|false
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|wasActive
 condition|)
 block|{
 name|updateBufferSize
@@ -6433,11 +6435,14 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+block|}
 block|}
 return|return
+name|active
+operator|.
+name|get
+argument_list|()
+operator|==
 literal|false
 return|;
 block|}

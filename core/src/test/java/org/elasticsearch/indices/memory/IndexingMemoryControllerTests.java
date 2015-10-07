@@ -721,16 +721,16 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// First time we are indexing into this shard; start it off with default indexing buffer:
+comment|// First time we are seeing this shard; start it off with inactive buffers as IndexShard does:
 name|indexingBuffers
 operator|.
 name|put
 argument_list|(
 name|shardId
 argument_list|,
-name|EngineConfig
+name|IndexingMemoryController
 operator|.
-name|DEFAULT_INDEX_BUFFER_SIZE
+name|INACTIVE_SHARD_INDEXING_BUFFER
 argument_list|)
 expr_stmt|;
 name|translogBuffers
@@ -739,9 +739,9 @@ name|put
 argument_list|(
 name|shardId
 argument_list|,
-name|TranslogConfig
+name|IndexingMemoryController
 operator|.
-name|DEFAULT_SHARD_TRANSLOG_BUFFER_SIZE
+name|INACTIVE_SHARD_TRANSLOG_BUFFER
 argument_list|)
 expr_stmt|;
 block|}
