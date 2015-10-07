@@ -466,16 +466,15 @@ name|Map
 import|;
 end_import
 
-begin_decl_stmt
-name|c
-name|import
+begin_import
+import|import
 name|java
 operator|.
 name|util
 operator|.
 name|Set
-decl_stmt|;
-end_decl_stmt
+import|;
+end_import
 
 begin_import
 import|import
