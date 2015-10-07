@@ -927,10 +927,7 @@ DECL|method|getValidationMethod
 specifier|public
 name|GeoValidationMethod
 name|getValidationMethod
-parameter_list|(
-name|GeoValidationMethod
-name|method
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 name|this
