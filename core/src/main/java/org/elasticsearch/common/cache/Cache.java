@@ -553,9 +553,9 @@ name|V
 parameter_list|>
 block|{
 comment|// read/write lock protecting mutations to the segment
-DECL|field|lock
+DECL|field|segmentLock
 name|ReadWriteLock
-name|lock
+name|segmentLock
 init|=
 operator|new
 name|ReentrantReadWriteLock
@@ -568,7 +568,7 @@ init|=
 operator|new
 name|ReleasableLock
 argument_list|(
-name|lock
+name|segmentLock
 operator|.
 name|readLock
 argument_list|()
@@ -581,7 +581,7 @@ init|=
 operator|new
 name|ReleasableLock
 argument_list|(
-name|lock
+name|segmentLock
 operator|.
 name|writeLock
 argument_list|()
@@ -979,10 +979,10 @@ argument_list|>
 name|tail
 decl_stmt|;
 comment|// lock protecting mutations to the LRU list
-DECL|field|lock
+DECL|field|lruLock
 specifier|private
 name|ReleasableLock
-name|lock
+name|lruLock
 init|=
 operator|new
 name|ReleasableLock
@@ -1319,7 +1319,7 @@ init|(
 name|ReleasableLock
 name|ignored
 init|=
-name|lock
+name|lruLock
 operator|.
 name|acquire
 argument_list|()
@@ -1460,7 +1460,7 @@ init|(
 name|ReleasableLock
 name|ignored
 init|=
-name|lock
+name|lruLock
 operator|.
 name|acquire
 argument_list|()
@@ -1510,7 +1510,7 @@ name|segment
 lambda|->
 name|segment
 operator|.
-name|lock
+name|segmentLock
 operator|.
 name|writeLock
 argument_list|()
@@ -1524,7 +1524,7 @@ init|(
 name|ReleasableLock
 name|ignored
 init|=
-name|lock
+name|lruLock
 operator|.
 name|acquire
 argument_list|()
@@ -1611,7 +1611,7 @@ name|segment
 lambda|->
 name|segment
 operator|.
-name|lock
+name|segmentLock
 operator|.
 name|writeLock
 argument_list|()
@@ -1677,7 +1677,7 @@ init|(
 name|ReleasableLock
 name|ignored
 init|=
-name|lock
+name|lruLock
 operator|.
 name|acquire
 argument_list|()
@@ -2013,7 +2013,7 @@ init|(
 name|ReleasableLock
 name|ignored
 init|=
-name|lock
+name|lruLock
 operator|.
 name|acquire
 argument_list|()
@@ -2256,7 +2256,7 @@ init|(
 name|ReleasableLock
 name|ignored
 init|=
-name|lock
+name|lruLock
 operator|.
 name|acquire
 argument_list|()
@@ -2325,7 +2325,7 @@ name|now
 parameter_list|)
 block|{
 assert|assert
-name|lock
+name|lruLock
 operator|.
 name|isHeldByCurrentThread
 argument_list|()
@@ -2422,7 +2422,7 @@ name|removalReason
 parameter_list|)
 block|{
 assert|assert
-name|lock
+name|lruLock
 operator|.
 name|isHeldByCurrentThread
 argument_list|()
@@ -2573,7 +2573,7 @@ name|entry
 parameter_list|)
 block|{
 assert|assert
-name|lock
+name|lruLock
 operator|.
 name|isHeldByCurrentThread
 argument_list|()
@@ -2756,7 +2756,7 @@ name|entry
 parameter_list|)
 block|{
 assert|assert
-name|lock
+name|lruLock
 operator|.
 name|isHeldByCurrentThread
 argument_list|()
@@ -2853,7 +2853,7 @@ name|entry
 parameter_list|)
 block|{
 assert|assert
-name|lock
+name|lruLock
 operator|.
 name|isHeldByCurrentThread
 argument_list|()
