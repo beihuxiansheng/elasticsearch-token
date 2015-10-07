@@ -399,6 +399,13 @@ argument_list|>
 name|removalListener
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|removalListener
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|removalListener
