@@ -466,15 +466,16 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
+begin_decl_stmt
+name|c
+name|import
 name|java
 operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
+decl_stmt|;
+end_decl_stmt
 
 begin_import
 import|import
@@ -1766,7 +1767,9 @@ name|ROOT
 argument_list|,
 literal|"None of the configured nodes are available: %s"
 argument_list|,
-name|nodes
+name|this
+operator|.
+name|listedNodes
 argument_list|)
 decl_stmt|;
 throw|throw
