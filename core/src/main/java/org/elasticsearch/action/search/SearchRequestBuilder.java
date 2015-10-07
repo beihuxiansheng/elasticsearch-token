@@ -1331,28 +1331,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the rescore window for all rescorers that don't specify a window when added.      *      * @param window rescore window      * @return this for chaining      */
-DECL|method|setRescoreWindow
-specifier|public
-name|SearchRequestBuilder
-name|setRescoreWindow
-parameter_list|(
-name|int
-name|window
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|defaultRescoreWindowSize
-argument_list|(
-name|window
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the source of the request as a SearchSourceBuilder.      */
 DECL|method|setSource
 specifier|public
