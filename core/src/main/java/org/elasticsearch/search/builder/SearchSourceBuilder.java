@@ -485,11 +485,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A search source builder allowing to easily build search source. Simple  * construction using  * {@link org.elasticsearch.search.builder.NewSearchSourceBuilder#searchSource()}.  *  * @see org.elasticsearch.action.search.SearchRequest#source(NewSearchSourceBuilder)  */
-end_comment
-
-begin_comment
-comment|/**  *  */
+comment|/**  * A search source builder allowing to easily build search source. Simple  * construction using  * {@link org.elasticsearch.search.builder.SearchSourceBuilder#searchSource()}.  *  * @see org.elasticsearch.action.search.SearchRequest#source(SearchSourceBuilder)  */
 end_comment
 
 begin_class
@@ -834,7 +830,7 @@ literal|"ext"
 argument_list|)
 decl_stmt|;
 DECL|field|PROTOTYPE
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|SearchSourceBuilder
@@ -844,6 +840,53 @@ operator|new
 name|SearchSourceBuilder
 argument_list|()
 decl_stmt|;
+DECL|method|readSearchSourceFrom
+specifier|public
+specifier|static
+name|SearchSourceBuilder
+name|readSearchSourceFrom
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|PROTOTYPE
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+return|;
+block|}
+DECL|method|parseSearchSource
+specifier|public
+specifier|static
+name|SearchSourceBuilder
+name|parseSearchSource
+parameter_list|(
+name|XContentParser
+name|parser
+parameter_list|,
+name|QueryParseContext
+name|context
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|PROTOTYPE
+operator|.
+name|fromXContent
+argument_list|(
+name|parser
+argument_list|,
+name|context
+argument_list|)
+return|;
+block|}
 comment|/**      * A static factory method to construct a new search source.      */
 DECL|method|searchSource
 specifier|public

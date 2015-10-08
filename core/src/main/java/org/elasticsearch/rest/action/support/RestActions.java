@@ -881,9 +881,7 @@ name|source
 init|=
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|fromXContent
+name|parseSearchSource
 argument_list|(
 name|parser
 argument_list|,

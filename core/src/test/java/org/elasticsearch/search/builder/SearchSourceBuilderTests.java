@@ -2157,9 +2157,7 @@ name|newBuilder
 init|=
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|fromXContent
+name|parseSearchSource
 argument_list|(
 name|parser
 argument_list|,
@@ -2296,9 +2294,7 @@ name|deserializedBuilder
 init|=
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
+name|readSearchSourceFrom
 argument_list|(
 name|in
 argument_list|)
@@ -2624,9 +2620,7 @@ block|{
 return|return
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
+name|readSearchSourceFrom
 argument_list|(
 name|in
 argument_list|)
@@ -2671,9 +2665,7 @@ name|searchSourceBuilder
 init|=
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|fromXContent
+name|parseSearchSource
 argument_list|(
 name|parser
 argument_list|,
@@ -2750,9 +2742,7 @@ name|searchSourceBuilder
 init|=
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|fromXContent
+name|parseSearchSource
 argument_list|(
 name|parser
 argument_list|,
@@ -2847,9 +2837,7 @@ name|searchSourceBuilder
 init|=
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|fromXContent
+name|parseSearchSource
 argument_list|(
 name|parser
 argument_list|,
@@ -2933,9 +2921,7 @@ name|searchSourceBuilder
 init|=
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|fromXContent
+name|parseSearchSource
 argument_list|(
 name|parser
 argument_list|,

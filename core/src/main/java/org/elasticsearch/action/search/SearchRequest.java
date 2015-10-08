@@ -1086,9 +1086,7 @@ name|source
 operator|=
 name|SearchSourceBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
+name|readSearchSourceFrom
 argument_list|(
 name|in
 argument_list|)
