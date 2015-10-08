@@ -1678,18 +1678,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|//    // IS
-comment|//
-comment|//    @Override public int read() throws IOException {
-comment|//        return readByte();
-comment|//    }
-comment|//
-comment|//    // Here, we assume that we always can read the full byte array
-comment|//
-comment|//    @Override public int read(byte[] b, int off, int len) throws IOException {
-comment|//        readBytes(b, off, len);
-comment|//        return len;
-comment|//    }
 DECL|method|readStringArray
 specifier|public
 name|String
@@ -2228,6 +2216,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Reads a {@link GeoPoint} from this stream input      */
 DECL|method|readGeoPoint
 specifier|public
 name|GeoPoint
