@@ -282,7 +282,7 @@ name|getFromContext
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_CONTEXT_KEY
+name|INGEST_PAREM_CONTEXT_KEY
 argument_list|)
 decl_stmt|;
 if|if
@@ -453,6 +453,34 @@ name|String
 name|pipelineId
 parameter_list|)
 block|{
+comment|// The IndexRequest has the same type on the node that receives the request and the node that
+comment|// processes the primary action. This could lead to a pipeline being executed twice for the same
+comment|// index request, hence this check
+if|if
+condition|(
+name|indexRequest
+operator|.
+name|hasHeader
+argument_list|(
+name|IngestPlugin
+operator|.
+name|INGEST_ALREADY_PROCESSED
+argument_list|)
+condition|)
+block|{
+name|chain
+operator|.
+name|proceed
+argument_list|(
+name|action
+argument_list|,
+name|indexRequest
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|Map
 argument_list|<
 name|String
@@ -533,6 +561,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|indexRequest
+operator|.
+name|putHeader
+argument_list|(
+name|IngestPlugin
+operator|.
+name|INGEST_ALREADY_PROCESSED
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|chain
 operator|.
 name|proceed
