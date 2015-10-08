@@ -797,7 +797,7 @@ name|V_2_0_0_beta1
 argument_list|)
 return|;
 block|}
-comment|/**      * Elasticsearch 3.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be upgraded using upgrade plugin before they can      * be open by this version of elasticsearch.      */
+comment|/**      * Elasticsearch 3.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be upgraded using upgrade API before they can      * be open by this version of elasticsearch.      */
 DECL|method|checkSupportedVersion
 specifier|private
 name|void
@@ -884,28 +884,6 @@ block|{
 comment|// The index was created with elasticsearch that was using Lucene 5.2.1
 return|return
 literal|true
-return|;
-block|}
-if|if
-condition|(
-name|indexMetaData
-operator|.
-name|getUpgradeVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-comment|// early terminate if we are not upgrade - we don't even need to look at the segment version
-return|return
-literal|false
 return|;
 block|}
 if|if
