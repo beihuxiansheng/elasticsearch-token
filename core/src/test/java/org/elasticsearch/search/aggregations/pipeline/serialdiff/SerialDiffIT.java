@@ -22,20 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|EvictingQueue
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -73,6 +59,20 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|EvictingQueue
 import|;
 end_import
 
@@ -1000,9 +1000,9 @@ name|Double
 argument_list|>
 name|lagWindow
 init|=
+operator|new
 name|EvictingQueue
-operator|.
-name|create
+argument_list|<>
 argument_list|(
 name|lag
 argument_list|)

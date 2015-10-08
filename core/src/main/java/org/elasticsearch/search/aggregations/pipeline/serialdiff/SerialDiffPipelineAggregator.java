@@ -22,15 +22,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|EvictingQueue
+name|Nullable
 import|;
 end_import
 
@@ -42,7 +40,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
+name|collect
+operator|.
+name|EvictingQueue
 import|;
 end_import
 
@@ -587,9 +587,9 @@ name|Double
 argument_list|>
 name|lagWindow
 init|=
+operator|new
 name|EvictingQueue
-operator|.
-name|create
+argument_list|<>
 argument_list|(
 name|lag
 argument_list|)
