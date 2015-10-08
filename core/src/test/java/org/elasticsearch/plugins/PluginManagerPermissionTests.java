@@ -1534,6 +1534,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+literal|"File system does not support permissions, skipping"
+argument_list|,
+name|supportsPermissions
+argument_list|)
+expr_stmt|;
 name|Files
 operator|.
 name|createDirectories
@@ -1666,6 +1673,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+literal|"File system does not support permissions, skipping"
+argument_list|,
+name|supportsPermissions
+argument_list|)
+expr_stmt|;
 name|Files
 operator|.
 name|createDirectories
