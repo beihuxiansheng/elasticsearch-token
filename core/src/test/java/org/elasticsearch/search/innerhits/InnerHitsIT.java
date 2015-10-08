@@ -9051,10 +9051,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|String
-operator|.
-name|valueOf
-argument_list|(
 name|response
 operator|.
 name|getHits
@@ -9086,12 +9082,8 @@ argument_list|(
 literal|"comments.message"
 argument_list|)
 operator|.
-operator|<
-name|Object
-operator|>
 name|getValue
 argument_list|()
-argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
@@ -10068,10 +10060,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|String
-operator|.
-name|valueOf
-argument_list|(
 name|response
 operator|.
 name|getHits
@@ -10103,12 +10091,8 @@ argument_list|(
 literal|"comments.message"
 argument_list|)
 operator|.
-operator|<
-name|Object
-operator|>
 name|getValue
 argument_list|()
-argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
