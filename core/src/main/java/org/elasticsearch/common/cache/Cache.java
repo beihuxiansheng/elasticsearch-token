@@ -1192,10 +1192,22 @@ block|}
 if|if
 condition|(
 name|value
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+throw|throw
+operator|new
+name|ExecutionException
+argument_list|(
+operator|new
+name|NullPointerException
+argument_list|(
+literal|"loader returned a null value"
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|put
 argument_list|(
 name|key
@@ -1205,7 +1217,6 @@ argument_list|,
 name|now
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
