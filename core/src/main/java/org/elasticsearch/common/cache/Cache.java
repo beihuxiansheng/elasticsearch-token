@@ -462,6 +462,7 @@ name|long
 name|writeTime
 decl_stmt|;
 DECL|field|accessTime
+specifier|volatile
 name|long
 name|accessTime
 decl_stmt|;
