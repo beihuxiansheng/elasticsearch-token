@@ -8887,6 +8887,34 @@ name|pStore
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNoTranslog
+specifier|public
+name|void
+name|testNoTranslog
+parameter_list|()
+block|{
+try|try
+block|{
+name|replicaEngine
+operator|.
+name|getTranslog
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"shadow engine has no translog"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedOperationException
+name|ex
+parameter_list|)
+block|{
+comment|// all good
+block|}
+block|}
 block|}
 end_class
 
