@@ -904,6 +904,7 @@ block|}
 block|}
 DECL|field|segments
 specifier|private
+specifier|final
 name|CacheSegment
 argument_list|<
 name|K
