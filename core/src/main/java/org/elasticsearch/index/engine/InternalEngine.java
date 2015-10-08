@@ -660,18 +660,6 @@ name|Function
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
