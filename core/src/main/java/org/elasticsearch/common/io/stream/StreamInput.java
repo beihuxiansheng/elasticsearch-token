@@ -186,6 +186,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|geo
+operator|.
+name|GeoPoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|text
 operator|.
 name|StringAndBytesText
@@ -1664,18 +1678,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|//    // IS
-comment|//
-comment|//    @Override public int read() throws IOException {
-comment|//        return readByte();
-comment|//    }
-comment|//
-comment|//    // Here, we assume that we always can read the full byte array
-comment|//
-comment|//    @Override public int read(byte[] b, int off, int len) throws IOException {
-comment|//        readBytes(b, off, len);
-comment|//        return len;
-comment|//    }
 DECL|method|readStringArray
 specifier|public
 name|String
@@ -2193,6 +2195,13 @@ return|return
 name|readBytesRef
 argument_list|()
 return|;
+case|case
+literal|22
+case|:
+return|return
+name|readGeoPoint
+argument_list|()
+return|;
 default|default:
 throw|throw
 operator|new
@@ -2206,6 +2215,27 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * Reads a {@link GeoPoint} from this stream input      */
+DECL|method|readGeoPoint
+specifier|public
+name|GeoPoint
+name|readGeoPoint
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|GeoPoint
+argument_list|(
+name|readDouble
+argument_list|()
+argument_list|,
+name|readDouble
+argument_list|()
+argument_list|)
+return|;
 block|}
 DECL|method|readIntArray
 specifier|public
