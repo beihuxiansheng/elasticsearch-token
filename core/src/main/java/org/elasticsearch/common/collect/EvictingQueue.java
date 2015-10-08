@@ -56,6 +56,10 @@ name|Queue
 import|;
 end_import
 
+begin_comment
+comment|/**  * An {@code EvictingQueue} is a non-blocking queue which is limited to a maximum size; when new elements are added to a  * full queue, elements are evicted from the head of the queue to accommodate the new elements.  *  * @param<T> The type of elements in the queue.  */
+end_comment
+
 begin_class
 DECL|class|EvictingQueue
 specifier|public
@@ -85,6 +89,7 @@ name|T
 argument_list|>
 name|queue
 decl_stmt|;
+comment|/**      * Construct a new {@code EvictingQueue} that holds {@code maximumSize} elements.      *      * @param maximumSize The maximum number of elements that the queue can hold      * @throws IllegalArgumentException if {@code maximumSize} is less than zero      */
 DECL|method|EvictingQueue
 specifier|public
 name|EvictingQueue
@@ -126,6 +131,7 @@ name|maximumSize
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @return the number of additional elements that the queue can accommodate before evictions occur      */
 DECL|method|remainingCapacity
 specifier|public
 name|int
@@ -143,6 +149,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Add the given element to the queue, possibly forcing an eviction from the head if {@link #remainingCapacity()} is      * zero.      *      * @param t the element to add      * @return true if the element was added (always the case for {@code EvictingQueue}      */
 annotation|@
 name|Override
 DECL|method|add
@@ -192,6 +199,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * @see #add(Object)      */
 annotation|@
 name|Override
 DECL|method|offer
@@ -422,6 +430,7 @@ name|c
 argument_list|)
 return|;
 block|}
+comment|/**      * Add the given elements to the queue, possibly forcing evictions from the head if {@link #remainingCapacity()} is      * zero or becomes zero during the execution of this method.      *      * @param c the collection of elements to add      * @return true if any elements were added to the queue      */
 annotation|@
 name|Override
 DECL|method|addAll
