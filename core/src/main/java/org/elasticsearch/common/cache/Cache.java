@@ -1189,7 +1189,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
 if|if
 condition|(
 name|value
@@ -1206,6 +1205,7 @@ argument_list|,
 name|now
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
