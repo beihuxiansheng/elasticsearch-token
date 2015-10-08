@@ -202,7 +202,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|DjbHashFunction
+name|Murmur3HashFunction
 import|;
 end_import
 
@@ -4887,9 +4887,9 @@ block|{
 name|int
 name|hash
 init|=
-name|DjbHashFunction
+name|Murmur3HashFunction
 operator|.
-name|DJB_HASH
+name|hash
 argument_list|(
 name|uid
 operator|.
