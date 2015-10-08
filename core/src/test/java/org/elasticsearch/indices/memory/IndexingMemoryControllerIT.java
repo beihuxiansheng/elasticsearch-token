@@ -529,7 +529,7 @@ specifier|final
 name|ByteSizeValue
 name|inactiveBuffer
 init|=
-name|EngineConfig
+name|IndexingMemoryController
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 decl_stmt|;

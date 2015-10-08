@@ -1987,6 +1987,14 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** How much heap Lucene's IndexWriter is using */
+DECL|method|indexWriterRAMBytesUsed
+specifier|abstract
+specifier|public
+name|long
+name|indexWriterRAMBytesUsed
+parameter_list|()
+function_decl|;
 DECL|method|getSegmentInfo
 specifier|protected
 name|Segment

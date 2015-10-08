@@ -1087,6 +1087,23 @@ return|return
 name|lastCommittedSegmentInfos
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|indexWriterRAMBytesUsed
+specifier|public
+name|long
+name|indexWriterRAMBytesUsed
+parameter_list|()
+block|{
+comment|// No IndexWriter
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"ShadowEngine has no IndexWriter"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 
