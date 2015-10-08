@@ -248,7 +248,7 @@ name|Operation
 operator|.
 name|Type
 operator|.
-name|SAVE
+name|INDEX
 argument_list|,
 name|equalTo
 argument_list|(
@@ -503,7 +503,7 @@ name|Operation
 operator|.
 name|Type
 operator|.
-name|CREATE
+name|INDEX
 argument_list|,
 name|equalTo
 argument_list|(
@@ -513,13 +513,13 @@ argument_list|)
 expr_stmt|;
 name|Translog
 operator|.
-name|Create
+name|Index
 name|op
 init|=
 operator|(
 name|Translog
 operator|.
-name|Create
+name|Index
 operator|)
 name|operation
 decl_stmt|;

@@ -488,29 +488,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|create
-specifier|public
-name|void
-name|create
-parameter_list|(
-name|Create
-name|create
-parameter_list|)
-throws|throws
-name|EngineException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-name|shardId
-operator|+
-literal|" create operation not allowed on shadow engine"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
 DECL|method|index
 specifier|public
 name|boolean
@@ -1109,6 +1086,23 @@ block|{
 return|return
 name|lastCommittedSegmentInfos
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|indexWriterRAMBytesUsed
+specifier|public
+name|long
+name|indexWriterRAMBytesUsed
+parameter_list|()
+block|{
+comment|// No IndexWriter
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"ShadowEngine has no IndexWriter"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Iterators
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -46,11 +32,15 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|ArrayList
+name|common
+operator|.
+name|collect
+operator|.
+name|Iterators
 import|;
 end_import
 
@@ -60,27 +50,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
+name|*
 import|;
 end_import
 
@@ -194,15 +164,15 @@ name|iterator
 parameter_list|()
 block|{
 return|return
-name|Iterators
+name|Collections
 operator|.
-name|unmodifiableIterator
+name|unmodifiableCollection
 argument_list|(
 name|shards
+argument_list|)
 operator|.
 name|iterator
 argument_list|()
-argument_list|)
 return|;
 block|}
 DECL|method|mutableIterator

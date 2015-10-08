@@ -610,9 +610,9 @@ name|m
 operator|.
 name|put
 argument_list|(
-literal|"cloud-gce"
+literal|"discovery-gce"
 argument_list|,
-literal|"org.elasticsearch.plugin.cloud.gce.CloudGcePlugin"
+literal|"org.elasticsearch.plugin.discovery.gce.GceDiscoveryPlugin"
 argument_list|)
 expr_stmt|;
 name|m

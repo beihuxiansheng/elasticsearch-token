@@ -2947,36 +2947,7 @@ argument_list|,
 literal|21
 argument_list|)
 block|,
-DECL|enum constant|CREATE_FAILED_ENGINE_EXCEPTION
-name|CREATE_FAILED_ENGINE_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|CreateFailedEngineException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|CreateFailedEngineException
-operator|::
-operator|new
-argument_list|,
-literal|22
-argument_list|)
-block|,
+comment|//      22 was CreateFailedEngineException
 DECL|enum constant|INDEX_SHARD_STARTED_EXCEPTION
 name|INDEX_SHARD_STARTED_EXCEPTION
 argument_list|(
@@ -3843,36 +3814,7 @@ argument_list|,
 literal|53
 argument_list|)
 block|,
-DECL|enum constant|DOCUMENT_ALREADY_EXISTS_EXCEPTION
-name|DOCUMENT_ALREADY_EXISTS_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|DocumentAlreadyExistsException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|DocumentAlreadyExistsException
-operator|::
-operator|new
-argument_list|,
-literal|54
-argument_list|)
-block|,
+comment|// 54 was DocumentAlreadyExistsException, which is superseded by VersionConflictEngineException
 DECL|enum constant|NO_SUCH_NODE_EXCEPTION
 name|NO_SUCH_NODE_EXCEPTION
 argument_list|(

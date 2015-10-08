@@ -1409,10 +1409,7 @@ name|similarity
 argument_list|(
 name|parserContext
 operator|.
-name|similarityLookupService
-argument_list|()
-operator|.
-name|similarity
+name|getSimilarity
 argument_list|(
 name|propNode
 operator|.
@@ -2435,10 +2432,7 @@ name|similarity
 argument_list|(
 name|parserContext
 operator|.
-name|similarityLookupService
-argument_list|()
-operator|.
-name|similarity
+name|getSimilarity
 argument_list|(
 name|propNode
 operator|.

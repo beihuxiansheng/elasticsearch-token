@@ -154,6 +154,7 @@ specifier|public
 class|class
 name|Versions
 block|{
+comment|/** used to indicate the write operation should succeed regardless of current version **/
 DECL|field|MATCH_ANY
 specifier|public
 specifier|static
@@ -164,7 +165,7 @@ init|=
 operator|-
 literal|3L
 decl_stmt|;
-comment|// Version was not specified by the user
+comment|/** indicates that the current document was not found in lucene and in the version map */
 DECL|field|NOT_FOUND
 specifier|public
 specifier|static
@@ -175,6 +176,7 @@ init|=
 operator|-
 literal|1L
 decl_stmt|;
+comment|/**      * used when the document is old and doesn't contain any version information in the index      * see {@link PerThreadIDAndVersionLookup#lookup(org.apache.lucene.util.BytesRef)}      */
 DECL|field|NOT_SET
 specifier|public
 specifier|static
@@ -184,6 +186,17 @@ name|NOT_SET
 init|=
 operator|-
 literal|2L
+decl_stmt|;
+comment|/**      * used to indicate that the write operation should be executed if the document is currently deleted      * i.e., not found in the index and/or found as deleted (with version) in the version map      */
+DECL|field|MATCH_DELETED
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|MATCH_DELETED
+init|=
+operator|-
+literal|4L
 decl_stmt|;
 comment|// TODO: is there somewhere else we can store these?
 DECL|field|lookupStates
