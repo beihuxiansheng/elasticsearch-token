@@ -1144,6 +1144,10 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
+comment|// we synchronize against the segment lock; this is to avoid a scenario where another thread is inserting
+comment|// a value for the same key via put which would not be observed on this thread without a mechanism
+comment|// synchronizing the two threads; it is possible that the segment lock will be too expensive here (it blocks
+comment|// readers too!) so consider this as a possible place to optimize should contention be observed
 try|try
 init|(
 name|ReleasableLock
