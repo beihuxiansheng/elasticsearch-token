@@ -2627,6 +2627,11 @@ literal|null
 condition|)
 block|{
 comment|// removing the head
+assert|assert
+name|head
+operator|==
+name|entry
+assert|;
 name|head
 operator|=
 name|after
@@ -2670,6 +2675,11 @@ literal|null
 condition|)
 block|{
 comment|// removing tail
+assert|assert
+name|tail
+operator|==
+name|entry
+assert|;
 name|tail
 operator|=
 name|before
