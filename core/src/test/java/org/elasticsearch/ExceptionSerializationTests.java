@@ -6620,19 +6620,10 @@ name|put
 argument_list|(
 literal|64
 argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|DeleteByQueryFailedEngineException
-operator|.
-name|class
+literal|null
 argument_list|)
 expr_stmt|;
+comment|// DeleteByQueryFailedEngineException was removed in 3.0
 name|ids
 operator|.
 name|put

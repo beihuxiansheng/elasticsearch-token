@@ -532,32 +532,6 @@ literal|" delete operation not allowed on shadow engine"
 argument_list|)
 throw|;
 block|}
-comment|/** @deprecated This was removed, but we keep this API so translog can replay any DBQs on upgrade. */
-annotation|@
-name|Deprecated
-annotation|@
-name|Override
-DECL|method|delete
-specifier|public
-name|void
-name|delete
-parameter_list|(
-name|DeleteByQuery
-name|delete
-parameter_list|)
-throws|throws
-name|EngineException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-name|shardId
-operator|+
-literal|" delete-by-query operation not allowed on shadow engine"
-argument_list|)
-throw|;
-block|}
 annotation|@
 name|Override
 DECL|method|syncFlush

@@ -26,7 +26,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|DjbHashFunction
+name|Murmur3HashFunction
 import|;
 end_import
 
@@ -186,9 +186,9 @@ name|MathUtils
 operator|.
 name|mod
 argument_list|(
-name|DjbHashFunction
+name|Murmur3HashFunction
 operator|.
-name|DJB_HASH
+name|hash
 argument_list|(
 name|index
 argument_list|)

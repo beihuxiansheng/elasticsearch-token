@@ -56,16 +56,6 @@ name|Murmur3HashFunctionTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|field|HASH
-specifier|private
-specifier|static
-name|Murmur3HashFunction
-name|HASH
-init|=
-operator|new
-name|Murmur3HashFunction
-argument_list|()
-decl_stmt|;
 DECL|method|testKnownValues
 specifier|public
 name|void
@@ -139,7 +129,7 @@ name|assertEquals
 argument_list|(
 name|expected
 argument_list|,
-name|HASH
+name|Murmur3HashFunction
 operator|.
 name|hash
 argument_list|(
