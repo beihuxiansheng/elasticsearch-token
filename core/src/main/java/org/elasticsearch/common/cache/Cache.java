@@ -1496,8 +1496,6 @@ argument_list|,
 name|V
 argument_list|>
 name|h
-init|=
-name|head
 decl_stmt|;
 name|Arrays
 operator|.
@@ -1532,6 +1530,10 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|h
+operator|=
+name|head
+expr_stmt|;
 name|Arrays
 operator|.
 name|stream
