@@ -744,7 +744,7 @@ operator|.
 name|admin
 argument_list|()
 operator|.
-name|indices
+name|cluster
 argument_list|()
 operator|.
 name|renderSearchTemplate
