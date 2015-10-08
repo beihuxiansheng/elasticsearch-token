@@ -64,6 +64,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|ScriptService
@@ -465,17 +479,8 @@ name|expectedBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|// NORELEASE Can we actually test raw templates in either unit or
-comment|// integration tests now?
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Can we actually test raw templates in either unit or integration tests now?"
-argument_list|)
 DECL|method|testRawTemplate
 specifier|public
 name|void
@@ -517,7 +522,7 @@ expr_stmt|;
 name|String
 name|expectedTemplateString
 init|=
-literal|"{\"match_{{template}}\": {}}"
+literal|"{\"match_{{template}}\":{}}"
 decl_stmt|;
 name|String
 name|query
@@ -566,7 +571,9 @@ name|INLINE
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|XContentType
+operator|.
+name|JSON
 argument_list|,
 name|params
 argument_list|)

@@ -4958,7 +4958,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// NORELEASE fix this to be more elegant
 block|}
 name|context
 operator|.
@@ -5210,7 +5209,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// NORELEASE fix this to be more elegant
 block|}
 if|if
 condition|(
@@ -5534,7 +5532,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// NORELEASE fix this to be more elegant
 block|}
 if|if
 condition|(

@@ -22,11 +22,35 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|search
 operator|.
 name|MultiSearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchPhaseExecutionException
 import|;
 end_import
 
@@ -95,6 +119,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|GeohashCellQuery
 import|;
 end_import
 
@@ -547,6 +585,18 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
@@ -3235,25 +3285,153 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Test
-comment|//    public void testFailedSearchWithWrongQuery() throws Exception {
-comment|//        prepareData();
-comment|//
-comment|//        NumShards test = getNumShards("test");
-comment|//
-comment|//        logger.info("Start Testing failed search with wrong query");
-comment|//        try {
-comment|//            SearchResponse searchResponse = client().search(searchRequest("test").source(new BytesArray("{ xxx }"))).actionGet();
-comment|//            assertThat(searchResponse.getTotalShards(), equalTo(test.numPrimaries));
-comment|//            assertThat(searchResponse.getSuccessfulShards(), equalTo(0));
-comment|//            assertThat(searchResponse.getFailedShards(), equalTo(test.numPrimaries));
-comment|//            fail("search should fail");
-comment|//        } catch (ElasticsearchException e) {
-comment|//            assertThat(e.unwrapCause(), instanceOf(SearchPhaseExecutionException.class));
-comment|//            // all is well
-comment|//        }
-comment|//        logger.info("Done Testing failed search");
-comment|// } NORELEASE can this still be tested? if so, how?
+annotation|@
+name|Test
+DECL|method|testFailedSearchWithWrongQuery
+specifier|public
+name|void
+name|testFailedSearchWithWrongQuery
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|prepareData
+argument_list|()
+expr_stmt|;
+name|NumShards
+name|test
+init|=
+name|getNumShards
+argument_list|(
+literal|"test"
+argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Start Testing failed search with wrong query"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|SearchResponse
+name|searchResponse
+init|=
+name|client
+argument_list|()
+operator|.
+name|search
+argument_list|(
+name|searchRequest
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|source
+argument_list|(
+operator|new
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
+argument_list|(
+operator|new
+name|GeohashCellQuery
+operator|.
+name|Builder
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"biz"
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|actionGet
+argument_list|()
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|searchResponse
+operator|.
+name|getTotalShards
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|test
+operator|.
+name|numPrimaries
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|searchResponse
+operator|.
+name|getSuccessfulShards
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|searchResponse
+operator|.
+name|getFailedShards
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|test
+operator|.
+name|numPrimaries
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"search should fail"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|unwrapCause
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|SearchPhaseExecutionException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// all is well
+block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Done Testing failed search"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testFailedSearchWithWrongFrom
