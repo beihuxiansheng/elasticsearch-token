@@ -67,10 +67,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|PipelineConfigDocReaderTests
+DECL|class|PipelineStoreClientTests
 specifier|public
 class|class
-name|PipelineConfigDocReaderTests
+name|PipelineStoreClientTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
@@ -80,11 +80,11 @@ name|void
 name|testReadAll
 parameter_list|()
 block|{
-name|PipelineConfigDocReader
+name|PipelineStoreClient
 name|reader
 init|=
 operator|new
-name|PipelineConfigDocReader
+name|PipelineStoreClient
 argument_list|(
 name|Settings
 operator|.
@@ -195,7 +195,7 @@ name|hit
 range|:
 name|reader
 operator|.
-name|readAll
+name|readAllPipelines
 argument_list|()
 control|)
 block|{
