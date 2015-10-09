@@ -1730,7 +1730,6 @@ name|version
 decl_stmt|;
 DECL|field|indicesRouting
 specifier|private
-specifier|final
 name|ImmutableOpenMap
 operator|.
 name|Builder
@@ -2087,6 +2086,21 @@ modifier|...
 name|indices
 parameter_list|)
 block|{
+if|if
+condition|(
+name|indicesRouting
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"once build is called the builder cannot be reused"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|indices
@@ -2610,6 +2624,21 @@ name|IndexRoutingTable
 name|indexRoutingTable
 parameter_list|)
 block|{
+if|if
+condition|(
+name|indicesRouting
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"once build is called the builder cannot be reused"
+argument_list|)
+throw|;
+block|}
 name|indexRoutingTable
 operator|.
 name|validate
@@ -2668,6 +2697,21 @@ argument_list|>
 name|indicesRouting
 parameter_list|)
 block|{
+if|if
+condition|(
+name|indicesRouting
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"once build is called the builder cannot be reused"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|indicesRouting
@@ -2690,6 +2734,21 @@ name|String
 name|index
 parameter_list|)
 block|{
+if|if
+condition|(
+name|indicesRouting
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"once build is called the builder cannot be reused"
+argument_list|)
+throw|;
+block|}
 name|indicesRouting
 operator|.
 name|remove
@@ -2720,13 +2779,28 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Builds the routing table. Note that this can only be called one time.          * If you need to build a new RoutingTable as a copy of this one you'll          * need to build a new RoutingTable.Builder.          */
+comment|/**          * Builds the routing table. Note that once this is called the builder          * must be thrown away. If you need to build a new RoutingTable as a          * copy of this one you'll need to build a new RoutingTable.Builder.          */
 DECL|method|build
 specifier|public
 name|RoutingTable
 name|build
 parameter_list|()
 block|{
+if|if
+condition|(
+name|indicesRouting
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"once build is called the builder cannot be reused"
+argument_list|)
+throw|;
+block|}
 comment|// normalize the versions right before we build it...
 for|for
 control|(
@@ -2762,7 +2836,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|RoutingTable
+name|table
+init|=
 operator|new
 name|RoutingTable
 argument_list|(
@@ -2773,6 +2849,13 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|indicesRouting
+operator|=
+literal|null
+expr_stmt|;
+return|return
+name|table
 return|;
 block|}
 DECL|method|readFrom
