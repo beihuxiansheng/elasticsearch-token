@@ -929,6 +929,8 @@ name|copy
 argument_list|,
 literal|null
 argument_list|,
+literal|1
+argument_list|,
 name|copy
 operator|==
 literal|0

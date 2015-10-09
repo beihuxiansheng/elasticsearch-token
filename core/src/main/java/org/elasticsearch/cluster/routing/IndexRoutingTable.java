@@ -402,11 +402,11 @@ name|index
 argument_list|()
 return|;
 block|}
-comment|/**      * creates a new {@link IndexRoutingTable} with all shard versions normalized      *      * @return new {@link IndexRoutingTable}      */
-DECL|method|normalizeVersions
+comment|/**      * creates a new {@link IndexRoutingTable} with all shard versions&amp; primary terms set to the highest found.      * This allows incrementing {@link ShardRouting#version()} and {@link ShardRouting#primaryTerm()} where we work on      * the individual shards without worrying about synchronization between {@link ShardRouting} instances. This method      * takes care of it.      *      * @return new {@link IndexRoutingTable}      */
+DECL|method|normalizeVersionsAndPrimaryTerms
 specifier|public
 name|IndexRoutingTable
-name|normalizeVersions
+name|normalizeVersionsAndPrimaryTerms
 parameter_list|()
 block|{
 name|IndexRoutingTable
@@ -441,7 +441,7 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|normalizeVersions
+name|normalizeVersionsAndPrimaryTerms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1862,6 +1862,17 @@ name|i
 operator|++
 control|)
 block|{
+specifier|final
+name|long
+name|primaryTerm
+init|=
+name|indexMetaData
+operator|.
+name|primaryTerm
+argument_list|(
+name|shardId
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|asNew
@@ -1888,6 +1899,8 @@ argument_list|,
 name|shardId
 argument_list|,
 literal|null
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|i
 operator|==
@@ -1919,6 +1932,8 @@ condition|?
 name|restoreSource
 else|:
 literal|null
+argument_list|,
+name|primaryTerm
 argument_list|,
 name|i
 operator|==
@@ -1995,6 +2010,17 @@ name|shardId
 operator|++
 control|)
 block|{
+specifier|final
+name|long
+name|primaryTerm
+init|=
+name|indexMetaData
+operator|.
+name|primaryTerm
+argument_list|(
+name|shardId
+argument_list|)
+decl_stmt|;
 name|IndexShardRoutingTable
 operator|.
 name|Builder
@@ -2049,6 +2075,8 @@ name|shardId
 argument_list|,
 literal|null
 argument_list|,
+name|primaryTerm
+argument_list|,
 name|i
 operator|==
 literal|0
@@ -2100,6 +2128,17 @@ operator|.
 name|value
 decl_stmt|;
 comment|// version 0, will get updated when reroute will happen
+specifier|final
+name|IndexShardRoutingTable
+name|shardRoutingTable
+init|=
+name|shards
+operator|.
+name|get
+argument_list|(
+name|shardId
+argument_list|)
+decl_stmt|;
 name|ShardRouting
 name|shard
 init|=
@@ -2112,6 +2151,13 @@ argument_list|,
 name|shardId
 argument_list|,
 literal|null
+argument_list|,
+name|shardRoutingTable
+operator|.
+name|primary
+operator|.
+name|primaryTerm
+argument_list|()
 argument_list|,
 literal|false
 argument_list|,
@@ -2139,15 +2185,7 @@ name|IndexShardRoutingTable
 operator|.
 name|Builder
 argument_list|(
-name|shards
-operator|.
-name|get
-argument_list|(
-name|shard
-operator|.
-name|id
-argument_list|()
-argument_list|)
+name|shardRoutingTable
 argument_list|)
 operator|.
 name|addShard

@@ -2334,7 +2334,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// test if we still write it even if the shard is not active
+comment|// test if we don't write it if the shard is not active
 name|ShardRouting
 name|inactiveRouting
 init|=
@@ -2369,6 +2369,13 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|shard
+operator|.
+name|shardRouting
+operator|.
+name|primaryTerm
+argument_list|()
 argument_list|,
 literal|true
 argument_list|,
@@ -2770,6 +2777,13 @@ name|currentNodeId
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|shard
+operator|.
+name|shardRouting
+operator|.
+name|primaryTerm
+argument_list|()
 argument_list|,
 name|routing
 operator|.

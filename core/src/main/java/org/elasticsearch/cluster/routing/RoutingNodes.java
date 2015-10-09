@@ -2878,7 +2878,7 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|/**              * Initializes the current unassigned shard and moves it from the unassigned list.              */
+comment|/**              * Initializes the current unassigned shard and moves it from the unassigned list.              *              * If a primary is initalized, it's term is incremented.              */
 DECL|method|initialize
 specifier|public
 name|void

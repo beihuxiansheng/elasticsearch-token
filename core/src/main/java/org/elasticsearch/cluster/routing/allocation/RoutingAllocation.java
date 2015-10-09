@@ -229,6 +229,12 @@ specifier|final
 name|RoutingTable
 name|routingTable
 decl_stmt|;
+DECL|field|metaData
+specifier|private
+specifier|final
+name|MetaData
+name|metaData
+decl_stmt|;
 DECL|field|explanations
 specifier|private
 name|RoutingExplanations
@@ -238,7 +244,7 @@ operator|new
 name|RoutingExplanations
 argument_list|()
 decl_stmt|;
-comment|/**          * Creates a new {@link RoutingAllocation.Result}          *          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          */
+comment|/**          * Creates a new {@link RoutingAllocation.Result}          *  @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this result refrences          */
 DECL|method|Result
 specifier|public
 name|Result
@@ -248,6 +254,9 @@ name|changed
 parameter_list|,
 name|RoutingTable
 name|routingTable
+parameter_list|,
+name|MetaData
+name|metaData
 parameter_list|)
 block|{
 name|this
@@ -262,8 +271,14 @@ name|routingTable
 operator|=
 name|routingTable
 expr_stmt|;
+name|this
+operator|.
+name|metaData
+operator|=
+name|metaData
+expr_stmt|;
 block|}
-comment|/**          * Creates a new {@link RoutingAllocation.Result}          *           * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param explanations Explanation for the reroute actions          */
+comment|/**          * Creates a new {@link RoutingAllocation.Result}          *  @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          * @param explanations Explanation for the reroute actions          */
 DECL|method|Result
 specifier|public
 name|Result
@@ -273,6 +288,9 @@ name|changed
 parameter_list|,
 name|RoutingTable
 name|routingTable
+parameter_list|,
+name|MetaData
+name|metaData
 parameter_list|,
 name|RoutingExplanations
 name|explanations
@@ -289,6 +307,12 @@ operator|.
 name|routingTable
 operator|=
 name|routingTable
+expr_stmt|;
+name|this
+operator|.
+name|metaData
+operator|=
+name|metaData
 expr_stmt|;
 name|this
 operator|.
@@ -308,6 +332,17 @@ return|return
 name|this
 operator|.
 name|changed
+return|;
+block|}
+comment|/**          * Get the {@link MetaData} referenced by this result          * @return referenced {@link MetaData}          */
+DECL|method|metaData
+specifier|public
+name|MetaData
+name|metaData
+parameter_list|()
+block|{
+return|return
+name|metaData
 return|;
 block|}
 comment|/**          * Get the {@link RoutingTable} referenced by this result          * @return referenced {@link RoutingTable}          */

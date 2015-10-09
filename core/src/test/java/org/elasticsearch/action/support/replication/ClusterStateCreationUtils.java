@@ -266,55 +266,7 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_CREATION_DATE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_NUMBER_OF_REPLICAS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_NUMBER_OF_SHARDS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_VERSION_CREATED
+name|*
 import|;
 end_import
 
@@ -328,21 +280,7 @@ name|test
 operator|.
 name|ESTestCase
 operator|.
-name|randomFrom
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-operator|.
-name|randomIntBetween
+name|*
 import|;
 end_import
 
@@ -722,6 +660,15 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|int
+name|primaryTerm
+init|=
+name|randomInt
+argument_list|(
+literal|200
+argument_list|)
+decl_stmt|;
 name|indexShardRoutingBuilder
 operator|.
 name|addShard
@@ -739,6 +686,8 @@ argument_list|,
 name|relocatingNode
 argument_list|,
 literal|null
+argument_list|,
+name|primaryTerm
 argument_list|,
 literal|true
 argument_list|,
@@ -849,6 +798,8 @@ argument_list|,
 name|relocatingNode
 argument_list|,
 literal|null
+argument_list|,
+name|primaryTerm
 argument_list|,
 literal|false
 argument_list|,
@@ -1065,7 +1016,7 @@ name|put
 argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
-literal|1
+name|numberOfShards
 argument_list|)
 operator|.
 name|put
@@ -1142,6 +1093,15 @@ operator|.
 name|builder
 argument_list|(
 name|index
+argument_list|)
+decl_stmt|;
+specifier|final
+name|int
+name|primaryTerm
+init|=
+name|randomInt
+argument_list|(
+literal|200
 argument_list|)
 decl_stmt|;
 for|for
@@ -1226,6 +1186,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+name|primaryTerm
+argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -1261,6 +1223,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|primaryTerm
 argument_list|,
 literal|false
 argument_list|,
