@@ -706,7 +706,7 @@ name|index
 operator|.
 name|similarity
 operator|.
-name|SimilarityLookupService
+name|SimilarityService
 import|;
 end_import
 
@@ -882,11 +882,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|similarityLookupService
+DECL|field|similarityService
 specifier|private
 specifier|final
-name|SimilarityLookupService
-name|similarityLookupService
+name|SimilarityService
+name|similarityService
 decl_stmt|;
 DECL|field|scriptService
 specifier|private
@@ -984,8 +984,8 @@ parameter_list|,
 name|AnalysisService
 name|analysisService
 parameter_list|,
-name|SimilarityLookupService
-name|similarityLookupService
+name|SimilarityService
+name|similarityService
 parameter_list|,
 name|ScriptService
 name|scriptService
@@ -1021,9 +1021,9 @@ name|analysisService
 expr_stmt|;
 name|this
 operator|.
-name|similarityLookupService
+name|similarityService
 operator|=
-name|similarityLookupService
+name|similarityService
 expr_stmt|;
 name|this
 operator|.
@@ -1727,11 +1727,15 @@ name|type
 argument_list|,
 name|analysisService
 argument_list|,
-name|similarityLookupService
+name|similarityService
+operator|::
+name|getSimilarity
 argument_list|,
 name|mapperService
 argument_list|,
 name|typeParsers
+operator|::
+name|get
 argument_list|,
 name|indexVersionCreated
 argument_list|,

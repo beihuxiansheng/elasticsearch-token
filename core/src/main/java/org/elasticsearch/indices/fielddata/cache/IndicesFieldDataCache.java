@@ -20,15 +20,15 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|cache
+name|index
 operator|.
-name|*
+name|IndexReader
 import|;
 end_import
 
@@ -43,20 +43,6 @@ operator|.
 name|index
 operator|.
 name|LeafReaderContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
 import|;
 end_import
 
@@ -97,6 +83,62 @@ operator|.
 name|common
 operator|.
 name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|cache
+operator|.
+name|Cache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|cache
+operator|.
+name|CacheBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|cache
+operator|.
+name|RemovalListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|cache
+operator|.
+name|RemovalNotification
 import|;
 end_import
 
@@ -326,6 +368,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|ToLongBiFunction
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -483,9 +537,14 @@ name|cacheBuilder
 init|=
 name|CacheBuilder
 operator|.
-name|newBuilder
+expr|<
+name|Key
+decl_stmt|,
+name|Accountable
+decl|>
+name|builder
 argument_list|()
-operator|.
+decl|.
 name|removalListener
 argument_list|(
 name|this
@@ -500,7 +559,7 @@ condition|)
 block|{
 name|cacheBuilder
 operator|.
-name|maximumWeight
+name|setMaximumWeight
 argument_list|(
 name|sizeInBytes
 argument_list|)
@@ -513,44 +572,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// defaults to 4, but this is a busy map for all indices, increase it a bit by default
-specifier|final
-name|int
-name|concurrencyLevel
-init|=
-name|settings
-operator|.
-name|getAsInt
-argument_list|(
-name|FIELDDATA_CACHE_CONCURRENCY_LEVEL
-argument_list|,
-literal|16
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|concurrencyLevel
-operator|<=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"concurrency_level must be> 0 but was: "
-operator|+
-name|concurrencyLevel
-argument_list|)
-throw|;
-block|}
-name|cacheBuilder
-operator|.
-name|concurrencyLevel
-argument_list|(
-name|concurrencyLevel
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|debug
@@ -786,8 +807,14 @@ name|fieldDataType
 argument_list|,
 name|notification
 operator|.
-name|wasEvicted
+name|getRemovalReason
 argument_list|()
+operator|==
+name|RemovalNotification
+operator|.
+name|RemovalReason
+operator|.
+name|EVICTED
 argument_list|,
 name|value
 operator|.
@@ -821,7 +848,7 @@ specifier|static
 class|class
 name|FieldDataWeigher
 implements|implements
-name|Weigher
+name|ToLongBiFunction
 argument_list|<
 name|Key
 argument_list|,
@@ -830,10 +857,10 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|weigh
+DECL|method|applyAsLong
 specifier|public
-name|int
-name|weigh
+name|long
+name|applyAsLong
 parameter_list|(
 name|Key
 name|key
@@ -1069,11 +1096,11 @@ name|accountable
 init|=
 name|cache
 operator|.
-name|get
+name|computeIfAbsent
 argument_list|(
 name|key
 argument_list|,
-parameter_list|()
+name|k
 lambda|->
 block|{
 name|context
@@ -1098,7 +1125,7 @@ operator|.
 name|listeners
 control|)
 block|{
-name|key
+name|k
 operator|.
 name|listeners
 operator|.
@@ -1124,7 +1151,7 @@ control|(
 name|Listener
 name|listener
 range|:
-name|key
+name|k
 operator|.
 name|listeners
 control|)
@@ -1243,11 +1270,11 @@ name|accountable
 init|=
 name|cache
 operator|.
-name|get
+name|computeIfAbsent
 argument_list|(
 name|key
 argument_list|,
-parameter_list|()
+name|k
 lambda|->
 block|{
 name|indexReader
@@ -1269,7 +1296,7 @@ operator|.
 name|listeners
 control|)
 block|{
-name|key
+name|k
 operator|.
 name|listeners
 operator|.
@@ -1298,7 +1325,7 @@ control|(
 name|Listener
 name|listener
 range|:
-name|key
+name|k
 operator|.
 name|listeners
 control|)
@@ -1424,10 +1451,7 @@ name|key
 range|:
 name|cache
 operator|.
-name|asMap
-argument_list|()
-operator|.
-name|keySet
+name|keys
 argument_list|()
 control|)
 block|{
@@ -1454,19 +1478,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Note that cache invalidation in Guava does not immediately remove
-comment|// values from the cache. In the case of a cache with a rare write or
-comment|// read rate, it's possible for values to persist longer than desired.
-comment|//
-comment|// Note this is intended by the Guava developers, see:
-comment|// https://code.google.com/p/guava-libraries/wiki/CachesExplained#Eviction
-comment|// (the "When Does Cleanup Happen" section)
-comment|// We call it explicitly here since it should be a "rare" operation, and
-comment|// if a user runs it he probably wants to see memory returned as soon as
-comment|// possible
+comment|// force eviction
 name|cache
 operator|.
-name|cleanUp
+name|refresh
 argument_list|()
 expr_stmt|;
 block|}
@@ -1488,10 +1503,7 @@ name|key
 range|:
 name|cache
 operator|.
-name|asMap
-argument_list|()
-operator|.
-name|keySet
+name|keys
 argument_list|()
 control|)
 block|{
@@ -1536,12 +1548,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// we call cleanUp() because this is a manual operation, should happen
+comment|// we call refresh because this is a manual operation, should happen
 comment|// rarely and probably means the user wants to see memory returned as
 comment|// soon as possible
 name|cache
 operator|.
-name|cleanUp
+name|refresh
 argument_list|()
 expr_stmt|;
 block|}
@@ -1862,7 +1874,7 @@ name|this
 operator|.
 name|cache
 operator|.
-name|cleanUp
+name|refresh
 argument_list|()
 expr_stmt|;
 block|}

@@ -297,11 +297,12 @@ operator|.
 name|getCause
 argument_list|()
 decl_stmt|;
+comment|// TODO: fix jython localization bugs: https://github.com/elastic/elasticsearch/issues/13967
+comment|// this is the correct assert:
+comment|// assertNotNull("null cause for exception: " + expected, cause);
 name|assertNotNull
 argument_list|(
-literal|"null cause for exception: "
-operator|+
-name|expected
+literal|"null cause for exception"
 argument_list|,
 name|cause
 argument_list|)

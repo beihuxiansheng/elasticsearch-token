@@ -4368,13 +4368,6 @@ name|PluginManager
 operator|.
 name|checkForOfficialPlugins
 argument_list|(
-literal|"cloud-gce"
-argument_list|)
-expr_stmt|;
-name|PluginManager
-operator|.
-name|checkForOfficialPlugins
-argument_list|(
 literal|"delete-by-query"
 argument_list|)
 expr_stmt|;
@@ -4439,6 +4432,13 @@ operator|.
 name|checkForOfficialPlugins
 argument_list|(
 literal|"discovery-ec2"
+argument_list|)
+expr_stmt|;
+name|PluginManager
+operator|.
+name|checkForOfficialPlugins
+argument_list|(
+literal|"discovery-gce"
 argument_list|)
 expr_stmt|;
 name|PluginManager

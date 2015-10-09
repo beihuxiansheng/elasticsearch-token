@@ -42,63 +42,6 @@ class|class
 name|IndexingOperationListener
 block|{
 comment|/**      * Called before the indexing occurs.      */
-DECL|method|preCreate
-specifier|public
-name|Engine
-operator|.
-name|Create
-name|preCreate
-parameter_list|(
-name|Engine
-operator|.
-name|Create
-name|create
-parameter_list|)
-block|{
-return|return
-name|create
-return|;
-block|}
-comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p>      * Note, long operations should not occur under this callback.      */
-DECL|method|postCreateUnderLock
-specifier|public
-name|void
-name|postCreateUnderLock
-parameter_list|(
-name|Engine
-operator|.
-name|Create
-name|create
-parameter_list|)
-block|{      }
-comment|/**      * Called after create index operation occurred.      */
-DECL|method|postCreate
-specifier|public
-name|void
-name|postCreate
-parameter_list|(
-name|Engine
-operator|.
-name|Create
-name|create
-parameter_list|)
-block|{      }
-comment|/**      * Called after create index operation occurred with exception.      */
-DECL|method|postCreate
-specifier|public
-name|void
-name|postCreate
-parameter_list|(
-name|Engine
-operator|.
-name|Create
-name|create
-parameter_list|,
-name|Throwable
-name|ex
-parameter_list|)
-block|{      }
-comment|/**      * Called before the indexing occurs.      */
 DECL|method|preIndex
 specifier|public
 name|Engine
@@ -109,11 +52,11 @@ parameter_list|(
 name|Engine
 operator|.
 name|Index
-name|index
+name|operation
 parameter_list|)
 block|{
 return|return
-name|index
+name|operation
 return|;
 block|}
 comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p>      * Note, long operations should not occur under this callback.      */

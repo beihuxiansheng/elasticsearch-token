@@ -20,9 +20,9 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
@@ -34,29 +34,15 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|cache
-operator|.
-name|RemovalNotification
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|cache
 operator|.
-name|Inject
+name|RemovalNotification
 import|;
 end_import
 
@@ -338,8 +324,14 @@ if|if
 condition|(
 name|removalNotification
 operator|.
-name|wasEvicted
+name|getRemovalReason
 argument_list|()
+operator|==
+name|RemovalNotification
+operator|.
+name|RemovalReason
+operator|.
+name|EVICTED
 condition|)
 block|{
 name|evictionsMetric
