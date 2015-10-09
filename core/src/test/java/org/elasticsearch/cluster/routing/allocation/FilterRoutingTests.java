@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -106,7 +92,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|RoutingTable
 import|;
 end_import
 
@@ -120,7 +106,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingTable
+name|ShardRouting
 import|;
 end_import
 
@@ -205,6 +191,18 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
 import|;
 end_import
 
@@ -442,9 +440,7 @@ name|newNode
 argument_list|(
 literal|"node1"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -459,9 +455,7 @@ name|newNode
 argument_list|(
 literal|"node2"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -476,9 +470,7 @@ name|newNode
 argument_list|(
 literal|"node3"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -493,9 +485,7 @@ name|newNode
 argument_list|(
 literal|"node4"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -891,9 +881,7 @@ name|newNode
 argument_list|(
 literal|"node1"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -908,9 +896,7 @@ name|newNode
 argument_list|(
 literal|"node2"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -925,9 +911,7 @@ name|newNode
 argument_list|(
 literal|"node3"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -942,9 +926,7 @@ name|newNode
 argument_list|(
 literal|"node4"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,

@@ -278,7 +278,39 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|INITIALIZING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|UNASSIGNED
 import|;
 end_import
 
@@ -290,7 +322,67 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -688,6 +780,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -823,6 +918,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -958,6 +1056,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1115,6 +1216,9 @@ operator|new
 name|IntHashSet
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1268,6 +1372,9 @@ argument_list|,
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1403,6 +1510,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1534,6 +1644,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1688,6 +1801,9 @@ name|add
 argument_list|(
 name|builder
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1996,6 +2112,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -2408,6 +2527,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -3221,6 +3343,9 @@ argument_list|(
 literal|"test2"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -3627,6 +3752,9 @@ argument_list|(
 literal|"test2"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -60,8 +46,30 @@ name|Queries
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
-comment|/**  * The result of parsing a query.  *  *  */
+comment|/**  * The result of parsing a query.  */
 end_comment
 
 begin_class
@@ -79,7 +87,7 @@ decl_stmt|;
 DECL|field|namedFilters
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -87,6 +95,7 @@ name|Query
 argument_list|>
 name|namedFilters
 decl_stmt|;
+comment|/**      * Store the query and filters.      *      * @param query      *            the query      * @param namedFilters      *            an immutable Map containing the named filters. Good callers      *            use emptyMap or unmodifiableMap and copy the source to make      *            sure this is immutable.      */
 DECL|method|ParsedQuery
 specifier|public
 name|ParsedQuery
@@ -94,7 +103,7 @@ parameter_list|(
 name|Query
 name|query
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -160,9 +169,7 @@ name|this
 operator|.
 name|namedFilters
 operator|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 block|}
@@ -181,7 +188,7 @@ return|;
 block|}
 DECL|method|namedFilters
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -191,8 +198,6 @@ name|namedFilters
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|namedFilters
 return|;
 block|}
@@ -212,14 +217,7 @@ operator|.
 name|newMatchAllQuery
 argument_list|()
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|Query
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|)
 return|;

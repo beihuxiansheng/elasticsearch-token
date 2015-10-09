@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -255,20 +241,6 @@ operator|.
 name|collect
 operator|.
 name|ImmutableOpenMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Iterators
 import|;
 end_import
 
@@ -588,7 +560,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|HashMap
 import|;
 end_import
 
@@ -598,7 +570,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|HashSet
 import|;
 end_import
 
@@ -690,7 +662,31 @@ name|util
 operator|.
 name|Collections
 operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
 name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -815,9 +811,7 @@ name|DocumentMapper
 argument_list|>
 name|mappers
 init|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 comment|// A lock for mappings: modifications (put mapping) need to be performed
@@ -918,7 +912,7 @@ decl_stmt|;
 DECL|field|unmappedFieldTypes
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -926,9 +920,7 @@ name|MappedFieldType
 argument_list|>
 name|unmappedFieldTypes
 init|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 DECL|field|parentTypes
@@ -3361,23 +3353,10 @@ name|String
 name|type
 parameter_list|)
 block|{
-specifier|final
-name|ImmutableMap
-argument_list|<
-name|String
-argument_list|,
-name|MappedFieldType
-argument_list|>
-name|unmappedFieldMappers
-init|=
-name|this
-operator|.
-name|unmappedFieldTypes
-decl_stmt|;
 name|MappedFieldType
 name|fieldType
 init|=
-name|unmappedFieldMappers
+name|unmappedFieldTypes
 operator|.
 name|get
 argument_list|(
@@ -3457,14 +3436,7 @@ literal|"__anonymous_"
 operator|+
 name|type
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|Object
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|parserContext
@@ -3505,24 +3477,27 @@ argument_list|()
 expr_stmt|;
 comment|// There is no need to synchronize writes here. In the case of concurrent access, we could just
 comment|// compute some mappers several times, which is not a big deal
-name|this
-operator|.
-name|unmappedFieldTypes
-operator|=
-name|ImmutableMap
-operator|.
-expr|<
+name|Map
+argument_list|<
 name|String
-operator|,
+argument_list|,
 name|MappedFieldType
-operator|>
-name|builder
+argument_list|>
+name|newUnmappedFieldTypes
+init|=
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
+decl_stmt|;
+name|newUnmappedFieldTypes
 operator|.
 name|putAll
 argument_list|(
-name|unmappedFieldMappers
+name|unmappedFieldTypes
 argument_list|)
+expr_stmt|;
+name|newUnmappedFieldTypes
 operator|.
 name|put
 argument_list|(
@@ -3530,9 +3505,13 @@ name|type
 argument_list|,
 name|fieldType
 argument_list|)
-operator|.
-name|build
-argument_list|()
+expr_stmt|;
+name|unmappedFieldTypes
+operator|=
+name|unmodifiableMap
+argument_list|(
+name|newUnmappedFieldTypes
+argument_list|)
 expr_stmt|;
 block|}
 return|return

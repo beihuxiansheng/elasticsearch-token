@@ -134,6 +134,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -149,7 +161,7 @@ block|{
 DECL|field|actions
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|GenericAction
 argument_list|,
@@ -194,9 +206,7 @@ name|this
 operator|.
 name|actions
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|actions
 argument_list|)

@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -51,20 +37,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|MapBuilder
 import|;
 end_import
 
@@ -218,6 +190,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -239,6 +221,18 @@ operator|.
 name|util
 operator|.
 name|Properties
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -304,16 +298,21 @@ argument_list|,
 literal|".properties"
 argument_list|)
 decl_stmt|;
-DECL|field|loaded
+DECL|field|REPLACEMENTS
 specifier|private
 specifier|static
-name|boolean
-name|loaded
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|REPLACEMENTS
 decl_stmt|;
-DECL|field|replacements
-specifier|private
-specifier|static
-name|ImmutableMap
+static|static
+block|{
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -322,13 +321,11 @@ argument_list|>
 name|replacements
 init|=
 operator|new
-name|MapBuilder
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+name|HashMap
+argument_list|<>
 argument_list|()
+decl_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -336,6 +333,8 @@ literal|"console"
 argument_list|,
 literal|"org.elasticsearch.common.logging.log4j.ConsoleAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -343,6 +342,8 @@ literal|"async"
 argument_list|,
 literal|"org.apache.log4j.AsyncAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -350,6 +351,8 @@ literal|"dailyRollingFile"
 argument_list|,
 literal|"org.apache.log4j.DailyRollingFileAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -357,6 +360,8 @@ literal|"externallyRolledFile"
 argument_list|,
 literal|"org.apache.log4j.ExternallyRolledFileAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -364,6 +369,8 @@ literal|"file"
 argument_list|,
 literal|"org.apache.log4j.FileAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -371,6 +378,8 @@ literal|"jdbc"
 argument_list|,
 literal|"org.apache.log4j.jdbc.JDBCAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -378,6 +387,8 @@ literal|"jms"
 argument_list|,
 literal|"org.apache.log4j.net.JMSAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -385,6 +396,8 @@ literal|"lf5"
 argument_list|,
 literal|"org.apache.log4j.lf5.LF5Appender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -392,6 +405,8 @@ literal|"ntevent"
 argument_list|,
 literal|"org.apache.log4j.nt.NTEventLogAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -399,6 +414,8 @@ literal|"null"
 argument_list|,
 literal|"org.apache.log4j.NullAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -406,6 +423,8 @@ literal|"rollingFile"
 argument_list|,
 literal|"org.apache.log4j.RollingFileAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -413,6 +432,8 @@ literal|"extrasRollingFile"
 argument_list|,
 literal|"org.apache.log4j.rolling.RollingFileAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -420,6 +441,8 @@ literal|"smtp"
 argument_list|,
 literal|"org.apache.log4j.net.SMTPAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -427,6 +450,8 @@ literal|"socket"
 argument_list|,
 literal|"org.apache.log4j.net.SocketAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -434,6 +459,8 @@ literal|"socketHub"
 argument_list|,
 literal|"org.apache.log4j.net.SocketHubAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -441,6 +468,8 @@ literal|"syslog"
 argument_list|,
 literal|"org.apache.log4j.net.SyslogAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -448,6 +477,8 @@ literal|"telnet"
 argument_list|,
 literal|"org.apache.log4j.net.TelnetAppender"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -455,7 +486,9 @@ literal|"terminal"
 argument_list|,
 literal|"org.elasticsearch.common.logging.log4j.TerminalAppender"
 argument_list|)
+expr_stmt|;
 comment|// policies
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -463,6 +496,8 @@ literal|"timeBased"
 argument_list|,
 literal|"org.apache.log4j.rolling.TimeBasedRollingPolicy"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -470,7 +505,9 @@ literal|"sizeBased"
 argument_list|,
 literal|"org.apache.log4j.rolling.SizeBasedTriggeringPolicy"
 argument_list|)
+expr_stmt|;
 comment|// layouts
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -478,6 +515,8 @@ literal|"simple"
 argument_list|,
 literal|"org.apache.log4j.SimpleLayout"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -485,6 +524,8 @@ literal|"html"
 argument_list|,
 literal|"org.apache.log4j.HTMLLayout"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -492,6 +533,8 @@ literal|"pattern"
 argument_list|,
 literal|"org.apache.log4j.PatternLayout"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -499,6 +542,8 @@ literal|"consolePattern"
 argument_list|,
 literal|"org.apache.log4j.PatternLayout"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -506,6 +551,8 @@ literal|"enhancedPattern"
 argument_list|,
 literal|"org.apache.log4j.EnhancedPatternLayout"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -513,6 +560,8 @@ literal|"ttcc"
 argument_list|,
 literal|"org.apache.log4j.TTCCLayout"
 argument_list|)
+expr_stmt|;
+name|replacements
 operator|.
 name|put
 argument_list|(
@@ -520,9 +569,20 @@ literal|"xml"
 argument_list|,
 literal|"org.apache.log4j.XMLLayout"
 argument_list|)
-operator|.
-name|immutableMap
-argument_list|()
+expr_stmt|;
+name|REPLACEMENTS
+operator|=
+name|unmodifiableMap
+argument_list|(
+name|replacements
+argument_list|)
+expr_stmt|;
+block|}
+DECL|field|loaded
+specifier|private
+specifier|static
+name|boolean
+name|loaded
 decl_stmt|;
 comment|/**      * Consolidates settings and converts them into actual log4j settings, then initializes loggers and appenders.      *      * @param settings      custom settings that should be applied      * @param resolveConfig controls whether the logging conf file should be read too or not.      */
 DECL|method|configure
@@ -664,26 +724,17 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|replacements
-operator|.
-name|containsKey
-argument_list|(
-name|value
-argument_list|)
-condition|)
-block|{
 name|value
 operator|=
-name|replacements
+name|REPLACEMENTS
 operator|.
-name|get
+name|getOrDefault
 argument_list|(
+name|value
+argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|key

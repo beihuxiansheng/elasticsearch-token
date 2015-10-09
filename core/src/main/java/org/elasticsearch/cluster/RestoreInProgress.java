@@ -18,13 +18,13 @@ begin_import
 import|import
 name|com
 operator|.
-name|google
+name|carrotsearch
 operator|.
-name|common
+name|hppc
 operator|.
-name|collect
+name|cursors
 operator|.
-name|ImmutableMap
+name|ObjectObjectCursor
 import|;
 end_import
 
@@ -53,6 +53,20 @@ operator|.
 name|metadata
 operator|.
 name|SnapshotId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableOpenMap
 import|;
 end_import
 
@@ -177,16 +191,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -434,7 +438,7 @@ decl_stmt|;
 DECL|field|shards
 specifier|private
 specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|ShardId
 argument_list|,
@@ -451,7 +455,7 @@ name|String
 argument_list|>
 name|indices
 decl_stmt|;
-comment|/**          * Creates new restore metadata          *          * @param snapshotId snapshot id          * @param state      current state of the restore process          * @param indices    list of indices being restored          * @param shards     list of shards being restored and thier current restore status          */
+comment|/**          * Creates new restore metadata          *          * @param snapshotId snapshot id          * @param state      current state of the restore process          * @param indices    list of indices being restored          * @param shards     map of shards being restored to their current restore status          */
 DECL|method|Entry
 specifier|public
 name|Entry
@@ -468,7 +472,7 @@ name|String
 argument_list|>
 name|indices
 parameter_list|,
-name|ImmutableMap
+name|ImmutableOpenMap
 argument_list|<
 name|ShardId
 argument_list|,
@@ -506,7 +510,7 @@ name|this
 operator|.
 name|shards
 operator|=
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|of
 argument_list|()
@@ -538,7 +542,7 @@ block|}
 comment|/**          * Returns list of shards that being restore and their status          *          * @return list of shards          */
 DECL|method|shards
 specifier|public
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1428,7 +1432,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
 name|Builder
 argument_list|<
@@ -1438,13 +1442,8 @@ name|ShardRestoreStatus
 argument_list|>
 name|builder
 init|=
-name|ImmutableMap
+name|ImmutableOpenMap
 operator|.
-expr|<
-name|ShardId
-decl_stmt|,
-name|ShardRestoreStatus
-decl|>
 name|builder
 argument_list|()
 decl_stmt|;
@@ -1637,9 +1636,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1651,15 +1648,11 @@ name|entry
 operator|.
 name|shards
 argument_list|()
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 name|shardEntry
 operator|.
-name|getKey
-argument_list|()
+name|key
 operator|.
 name|writeTo
 argument_list|(
@@ -1668,8 +1661,7 @@ argument_list|)
 expr_stmt|;
 name|shardEntry
 operator|.
-name|getValue
-argument_list|()
+name|value
 operator|.
 name|writeTo
 argument_list|(
@@ -1842,9 +1834,7 @@ expr_stmt|;
 block|{
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1855,9 +1845,6 @@ range|:
 name|entry
 operator|.
 name|shards
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 name|ShardId
@@ -1865,16 +1852,14 @@ name|shardId
 init|=
 name|shardEntry
 operator|.
-name|getKey
-argument_list|()
+name|key
 decl_stmt|;
 name|ShardRestoreStatus
 name|status
 init|=
 name|shardEntry
 operator|.
-name|getValue
-argument_list|()
+name|value
 decl_stmt|;
 name|builder
 operator|.
