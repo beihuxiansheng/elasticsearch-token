@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -160,11 +148,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|nio
 operator|.
-name|Test
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -256,8 +246,6 @@ name|BulkRequestTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimpleBulk1
 specifier|public
 name|void
@@ -434,8 +422,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleBulk2
 specifier|public
 name|void
@@ -498,8 +484,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleBulk3
 specifier|public
 name|void
@@ -562,8 +546,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleBulk4
 specifier|public
 name|void
@@ -929,8 +911,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBulkAllowExplicitIndex
 specifier|public
 name|void
@@ -1019,8 +999,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBulkAddIterable
 specifier|public
 name|void
@@ -1189,8 +1167,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleBulk6
 specifier|public
 name|void
@@ -1280,8 +1256,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleBulk7
 specifier|public
 name|void
@@ -1371,8 +1345,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleBulk8
 specifier|public
 name|void
@@ -1462,8 +1434,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleBulk9
 specifier|public
 name|void
@@ -1553,8 +1523,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleBulk10
 specifier|public
 name|void

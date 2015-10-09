@@ -46,16 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -72,7 +62,31 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -217,8 +231,6 @@ literal|false
 return|;
 block|}
 comment|/**      * test that wrapping an inner filter that returns<tt>null</tt> also returns<tt>null</tt> to pass on upwards      */
-annotation|@
-name|Test
 DECL|method|testInnerQueryReturnsNull
 specifier|public
 name|void
@@ -266,8 +278,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testValidate
 specifier|public
 name|void

@@ -102,16 +102,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -364,8 +354,6 @@ name|IOException
 block|{
 comment|//no-op boost is checked already above as part of doAssertLuceneQuery as we rely on lucene equals impl
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArgument
 specifier|public
 name|void

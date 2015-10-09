@@ -265,16 +265,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -706,8 +696,6 @@ name|ensureSearchable
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGlobal
 specifier|public
 name|void
@@ -822,8 +810,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFilter
 specifier|public
 name|void
@@ -946,8 +932,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMissing
 specifier|public
 name|void
@@ -1067,8 +1051,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGlobalWithFilterWithMissing
 specifier|public
 name|void
@@ -1238,8 +1220,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNested
 specifier|public
 name|void
@@ -1359,8 +1339,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStringTerms
 specifier|public
 name|void
@@ -1496,8 +1474,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLongTerms
 specifier|public
 name|void
@@ -1633,8 +1609,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDoubleTerms
 specifier|public
 name|void
@@ -1770,8 +1744,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRange
 specifier|public
 name|void
@@ -1908,8 +1880,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDateRange
 specifier|public
 name|void
@@ -2046,8 +2016,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIpRange
 specifier|public
 name|void
@@ -2184,8 +2152,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHistogram
 specifier|public
 name|void
@@ -2318,8 +2284,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDateHistogram
 specifier|public
 name|void
@@ -2455,8 +2419,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeoHashGrid
 specifier|public
 name|void

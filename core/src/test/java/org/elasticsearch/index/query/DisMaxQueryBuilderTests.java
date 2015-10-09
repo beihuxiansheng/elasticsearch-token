@@ -74,16 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -98,7 +88,47 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -122,7 +152,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|closeTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
@@ -470,8 +524,6 @@ name|alternateVersions
 return|;
 block|}
 comment|/**      * test `null`return value for missing inner queries      */
-annotation|@
-name|Test
 DECL|method|testNoInnerQueries
 specifier|public
 name|void
@@ -500,8 +552,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test inner query parsing to null. Current DSL allows inner filter element to parse to<tt>null</tt>.      * Those should be ignored upstream. To test this, we use inner {@link ConstantScoreQueryBuilder}      * with empty inner filter.      */
-annotation|@
-name|Test
 DECL|method|testInnerQueryReturnsNull
 specifier|public
 name|void
@@ -556,8 +606,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -595,8 +643,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testToQueryInnerPrefixQuery
 specifier|public
 name|void

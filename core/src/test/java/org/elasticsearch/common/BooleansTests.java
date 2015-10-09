@@ -38,16 +38,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -88,8 +78,6 @@ name|BooleansTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testIsBoolean
 specifier|public
 name|void
@@ -268,12 +256,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|parseBoolean
+DECL|method|testParseBoolean
 specifier|public
 name|void
-name|parseBoolean
+name|testParseBoolean
 parameter_list|()
 block|{
 name|assertThat
@@ -693,12 +679,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|parseBooleanExact
+DECL|method|testParseBooleanExact
 specifier|public
 name|void
-name|parseBooleanExact
+name|testParseBooleanExact
 parameter_list|()
 block|{
 name|assertThat

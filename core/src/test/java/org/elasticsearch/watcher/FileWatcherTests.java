@@ -56,16 +56,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -160,7 +150,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasSize
 import|;
 end_import
 
@@ -428,8 +442,6 @@ name|notifications
 return|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleFileOperations
 specifier|public
 name|void
@@ -619,8 +631,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleDirectoryOperations
 specifier|public
 name|void
@@ -1119,8 +1129,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedDirectoryOperations
 specifier|public
 name|void
@@ -1502,8 +1510,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFileReplacingDirectory
 specifier|public
 name|void
@@ -1749,8 +1755,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEmptyDirectory
 specifier|public
 name|void
@@ -1891,8 +1895,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoDirectoryOnInit
 specifier|public
 name|void
@@ -2027,8 +2029,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoFileOnInit
 specifier|public
 name|void

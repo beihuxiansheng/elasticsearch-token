@@ -538,16 +538,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -652,11 +642,6 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|field|ACTIONS
 specifier|private
 specifier|static
@@ -822,8 +807,6 @@ index|[]
 name|testedActions
 parameter_list|)
 function_decl|;
-annotation|@
-name|Test
 DECL|method|testActions
 specifier|public
 name|void
@@ -1181,8 +1164,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOverideHeader
 specifier|public
 name|void

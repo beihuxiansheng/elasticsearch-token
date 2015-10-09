@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -62,11 +50,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|nio
 operator|.
-name|Test
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -92,8 +82,6 @@ name|BulkIntegrationIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testBulkIndexCreatesMapping
 specifier|public
 name|void

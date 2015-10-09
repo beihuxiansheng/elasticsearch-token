@@ -28,11 +28,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Test
+name|HashSet
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|Set
 import|;
 end_import
 
@@ -72,8 +72,6 @@ operator|new
 name|RandomBasedUUIDGenerator
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testRandomUUID
 specifier|public
 name|void
@@ -88,8 +86,6 @@ name|randomUUIDGen
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTimeUUID
 specifier|public
 name|void
@@ -104,8 +100,6 @@ name|timeUUIDGen
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThreadedTimeUUID
 specifier|public
 name|void
@@ -118,8 +112,6 @@ name|timeUUIDGen
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThreadedRandomUUID
 specifier|public
 name|void
@@ -133,7 +125,10 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|verifyUUIDSet
-name|HashSet
+name|Set
+argument_list|<
+name|String
+argument_list|>
 name|verifyUUIDSet
 parameter_list|(
 name|int
@@ -206,7 +201,7 @@ name|count
 decl_stmt|;
 DECL|field|uuidSet
 specifier|public
-name|HashSet
+name|Set
 argument_list|<
 name|String
 argument_list|>

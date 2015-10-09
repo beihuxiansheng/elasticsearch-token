@@ -82,16 +82,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -163,8 +153,6 @@ argument_list|(
 literal|"Asia/Jerusalem"
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testUTCTimeUnitRounding
 specifier|public
 name|void
@@ -355,8 +343,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUTCIntervalRounding
 specifier|public
 name|void
@@ -617,8 +603,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * test TimeIntervalTimeZoneRounding, (interval&lt; 12h) with time zone shift      */
-annotation|@
-name|Test
 DECL|method|testTimeIntervalTimeZoneRounding
 specifier|public
 name|void
@@ -789,8 +773,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * test DayIntervalTimeZoneRounding, (interval&gt;= 12h) with time zone shift      */
-annotation|@
-name|Test
 DECL|method|testDayIntervalTimeZoneRounding
 specifier|public
 name|void
@@ -960,8 +942,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDayTimeZoneRounding
 specifier|public
 name|void
@@ -1439,8 +1419,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTimeTimeZoneRounding
 specifier|public
 name|void
@@ -1580,8 +1558,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTimeUnitRoundingDST
 specifier|public
 name|void
@@ -2188,8 +2164,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * randomized test on TimeUnitRounding with random time units and time zone offsets      */
-annotation|@
-name|Test
 DECL|method|testTimeZoneRoundingRandom
 specifier|public
 name|void
@@ -2349,8 +2323,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * randomized test on TimeIntervalRounding with random interval and time zone offsets      */
-annotation|@
-name|Test
 DECL|method|testIntervalRoundingRandom
 specifier|public
 name|void
@@ -2541,8 +2513,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * special test for DST switch from #9491      */
-annotation|@
-name|Test
 DECL|method|testAmbiguousHoursAfterDSTSwitch
 specifier|public
 name|void
@@ -2922,8 +2892,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * test for #10025, strict local to UTC conversion can cause joda exceptions      * on DST start      */
-annotation|@
-name|Test
 DECL|method|testLenientConversionDST
 specifier|public
 name|void

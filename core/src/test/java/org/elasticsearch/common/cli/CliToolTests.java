@@ -94,16 +94,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -298,8 +288,6 @@ name|CliToolTests
 extends|extends
 name|CliToolTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testOK
 specifier|public
 name|void
@@ -405,8 +393,6 @@ name|executed
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUsageError
 specifier|public
 name|void
@@ -520,8 +506,6 @@ name|executed
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIOError
 specifier|public
 name|void
@@ -637,8 +621,6 @@ name|executed
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCodeError
 specifier|public
 name|void
@@ -754,8 +736,6 @@ name|executed
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiCommand
 specifier|public
 name|void
@@ -989,12 +969,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testMultiCommand_UnknownCommand
+DECL|method|testMultiCommandUnknownCommand
 specifier|public
 name|void
-name|testMultiCommand_UnknownCommand
+name|testMultiCommandUnknownCommand
 parameter_list|()
 block|{
 name|Terminal
@@ -1215,12 +1193,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testSingleCommand_ToolHelp
+DECL|method|testSingleCommandToolHelp
 specifier|public
 name|void
-name|testSingleCommand_ToolHelp
+name|testSingleCommandToolHelp
 parameter_list|()
 throws|throws
 name|Exception
@@ -1361,12 +1337,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testMultiCommand_ToolHelp
+DECL|method|testMultiCommandToolHelp
 specifier|public
 name|void
-name|testMultiCommand_ToolHelp
+name|testMultiCommandToolHelp
 parameter_list|()
 block|{
 name|CaptureOutputTerminal
@@ -1527,12 +1501,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testMultiCommand_CmdHelp
+DECL|method|testMultiCommandCmdHelp
 specifier|public
 name|void
-name|testMultiCommand_CmdHelp
+name|testMultiCommandCmdHelp
 parameter_list|()
 block|{
 name|CaptureOutputTerminal
@@ -1693,8 +1665,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatThrowExceptionCanBeLogged
 specifier|public
 name|void
@@ -1910,8 +1880,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMultipleLaunch
 specifier|public
 name|void
@@ -2037,8 +2005,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPromptForSetting
 specifier|public
 name|void
@@ -2321,8 +2287,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStopAtNonOptionParsing
 specifier|public
 name|void

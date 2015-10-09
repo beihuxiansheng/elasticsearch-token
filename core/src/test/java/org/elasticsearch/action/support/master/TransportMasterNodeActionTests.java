@@ -416,16 +416,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -968,8 +958,6 @@ return|;
 comment|// default implementation, overridden in specific tests
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testLocalOperationWithoutBlocks
 specifier|public
 name|void
@@ -1171,8 +1159,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testLocalOperationWithBlocks
 specifier|public
 name|void
@@ -1446,8 +1432,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testForceLocalOperation
 specifier|public
 name|void
@@ -1552,8 +1536,6 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMasterNotAvailable
 specifier|public
 name|void
@@ -1651,8 +1633,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMasterBecomesAvailable
 specifier|public
 name|void
@@ -1758,8 +1738,6 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDelegateToMaster
 specifier|public
 name|void
@@ -1977,8 +1955,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDelegateToFailingMaster
 specifier|public
 name|void

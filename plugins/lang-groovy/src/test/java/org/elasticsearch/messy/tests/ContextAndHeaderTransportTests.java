@@ -836,16 +836,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -1520,8 +1510,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatTermsLookupGetRequestContainsContextAndHeaders
 specifier|public
 name|void
@@ -1699,8 +1687,6 @@ name|assertGetRequestsContainHeaders
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatGeoShapeQueryGetRequestContainsContextAndHeaders
 specifier|public
 name|void
@@ -2012,8 +1998,6 @@ name|assertGetRequestsContainHeaders
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatMoreLikeThisQueryMultiTermVectorRequestContainsContextAndHeaders
 specifier|public
 name|void
@@ -2224,8 +2208,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatPercolatingExistingDocumentGetRequestContainsContextAndHeaders
 specifier|public
 name|void
@@ -2392,8 +2374,6 @@ name|assertGetRequestsContainHeaders
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatIndexedScriptGetRequestContainsContextAndHeaders
 specifier|public
 name|void
@@ -2591,8 +2571,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatIndexedScriptGetRequestInTemplateQueryContainsContextAndHeaders
 specifier|public
 name|void
@@ -2767,8 +2745,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatIndexedScriptGetRequestInReducePhaseContainsContextAndHeaders
 specifier|public
 name|void
@@ -2988,8 +2964,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatSearchTemplatesWithIndexedTemplatesGetRequestContainsContextAndHeaders
 specifier|public
 name|void
@@ -3205,8 +3179,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatIndexedScriptGetRequestInPhraseSuggestContainsContextAndHeaders
 specifier|public
 name|void
@@ -3767,8 +3739,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatRelevantHttpHeadersBecomeRequestHeaders
 specifier|public
 name|void

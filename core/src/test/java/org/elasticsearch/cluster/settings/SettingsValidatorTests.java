@@ -29,12 +29,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -46,7 +48,19 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -58,8 +72,6 @@ name|SettingsValidatorTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testValidators
 specifier|public
 name|void
@@ -1114,8 +1126,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDynamicValidators
 specifier|public
 name|void

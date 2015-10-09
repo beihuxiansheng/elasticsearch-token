@@ -32,21 +32,23 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -160,10 +162,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//too many mapping dependent cases to test, we don't want to end up duplication the toQuery method
+comment|// too many mapping dependent cases to test, we don't want to end up
+comment|// duplication the toQuery method
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -271,15 +272,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|QueryShardException
-operator|.
-name|class
-argument_list|)
 DECL|method|testBothNullValueAndExistenceFalse
 specifier|public
 name|void
@@ -301,6 +293,8 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|MissingQueryBuilder
 operator|.
 name|newFilter
@@ -314,6 +308,32 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected QueryShardException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|QueryShardException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"missing must have either existence, or null_value"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

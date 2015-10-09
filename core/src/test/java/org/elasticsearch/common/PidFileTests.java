@@ -16,18 +16,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -35,16 +23,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -65,6 +43,18 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -104,6 +94,18 @@ name|StandardOpenOption
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_comment
 comment|/**  * UnitTest for {@link org.elasticsearch.common.PidFile}  */
 end_comment
@@ -116,15 +118,6 @@ name|PidFileTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testParentIsFile
 specifier|public
 name|void
@@ -178,6 +171,8 @@ literal|"foo"
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|PidFile
 operator|.
 name|create
@@ -192,9 +187,33 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"exists but is not a directory"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testPidFile
 specifier|public
 name|void

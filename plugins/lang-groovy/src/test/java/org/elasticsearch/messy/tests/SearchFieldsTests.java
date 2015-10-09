@@ -350,16 +350,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -693,8 +683,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStoredFields
 specifier|public
 name|void
@@ -1633,8 +1621,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testScriptDocAndFields
 specifier|public
 name|void
@@ -3040,8 +3026,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUidBasedScriptFields
 specifier|public
 name|void
@@ -4033,8 +4017,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testScriptFieldUsingSource
 specifier|public
 name|void
@@ -4598,8 +4580,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPartialFields
 specifier|public
 name|void
@@ -4757,8 +4737,6 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStoredFieldsWithoutSource
 specifier|public
 name|void
@@ -5738,12 +5716,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testSearchFields_metaData
+DECL|method|testSearchFieldsMetaData
 specifier|public
 name|void
-name|testSearchFields_metaData
+name|testSearchFieldsMetaData
 parameter_list|()
 throws|throws
 name|Exception
@@ -5948,12 +5924,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testSearchFields_nonLeafField
+DECL|method|testSearchFieldsNonLeafField
 specifier|public
 name|void
-name|testSearchFields_nonLeafField
+name|testSearchFieldsNonLeafField
 parameter_list|()
 throws|throws
 name|Exception
@@ -6036,12 +6010,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testGetFields_complexField
+DECL|method|testGetFieldsComplexField
 specifier|public
 name|void
-name|testGetFields_complexField
+name|testGetFieldsComplexField
 parameter_list|()
 throws|throws
 name|Exception
@@ -6666,8 +6638,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #8203
 DECL|method|testSingleValueFieldDatatField
 specifier|public
@@ -6801,8 +6771,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFieldsPulledFromFieldData
 specifier|public
 name|void

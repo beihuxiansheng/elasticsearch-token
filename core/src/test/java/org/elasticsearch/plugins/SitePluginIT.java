@@ -122,6 +122,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|rest
 operator|.
 name|client
@@ -147,16 +161,6 @@ operator|.
 name|http
 operator|.
 name|HttpResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -228,7 +232,7 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
-name|*
+name|FORBIDDEN
 import|;
 end_import
 
@@ -238,11 +242,39 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|rest
 operator|.
-name|ESIntegTestCase
+name|RestStatus
 operator|.
-name|Scope
+name|MOVED_PERMANENTLY
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+operator|.
+name|NOT_FOUND
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+operator|.
+name|OK
 import|;
 end_import
 
@@ -353,6 +385,8 @@ name|build
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|httpClient
 specifier|public
 name|HttpRequestBuilder
@@ -414,8 +448,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRedirectSitePlugin
 specifier|public
 name|void
@@ -511,8 +543,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test direct access to an existing file (index.html)      */
-annotation|@
-name|Test
 DECL|method|testAnyPage
 specifier|public
 name|void
@@ -560,8 +590,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test normalizing of path      */
-annotation|@
-name|Test
 DECL|method|testThatPathsAreNormalized
 specifier|public
 name|void
@@ -729,8 +757,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test case for #4845: https://github.com/elasticsearch/elasticsearch/issues/4845      * Serving _site plugins do not pick up on index.html for sub directories      */
-annotation|@
-name|Test
 DECL|method|testWelcomePageInSubDirs
 specifier|public
 name|void

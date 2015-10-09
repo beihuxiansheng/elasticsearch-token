@@ -134,16 +134,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|nio
@@ -163,18 +153,6 @@ operator|.
 name|file
 operator|.
 name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|OpenOption
 import|;
 end_import
 
@@ -220,7 +198,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -252,8 +254,6 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testResolveMultipleConfigs
 specifier|public
 name|void
@@ -460,8 +460,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testResolveJsonLoggingConfig
 specifier|public
 name|void
@@ -584,8 +582,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testResolvePropertiesLoggingConfig
 specifier|public
 name|void
@@ -708,8 +704,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testResolveYamlLoggingConfig
 specifier|public
 name|void
@@ -876,8 +870,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testResolveConfigInvalidFilename
 specifier|public
 name|void
@@ -1007,8 +999,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// tests that custom settings are not overwritten by settings in the config file
-annotation|@
-name|Test
 DECL|method|testResolveOrder
 specifier|public
 name|void
@@ -1224,8 +1214,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// tests that config file is not read when we call LogConfigurator.configure(Settings, false)
-annotation|@
-name|Test
 DECL|method|testConfigNotRead
 specifier|public
 name|void

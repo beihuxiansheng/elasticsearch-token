@@ -94,20 +94,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|EngineConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|IndexShard
@@ -137,16 +123,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -212,8 +188,6 @@ name|getIndexWriterMaxMemoryInBytes
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexBufferPushedToEngine
 specifier|public
 name|void
@@ -442,8 +416,6 @@ argument_list|)
 argument_list|)
 block|;         }
 block|}
-annotation|@
-name|Test
 DECL|method|testInactivePushedToShard
 specifier|public
 name|void

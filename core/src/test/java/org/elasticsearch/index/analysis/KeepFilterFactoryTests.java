@@ -66,20 +66,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|SettingsException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTokenStreamTestCase
@@ -93,16 +79,6 @@ operator|.
 name|junit
 operator|.
 name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -155,8 +131,6 @@ name|RESOURCE
 init|=
 literal|"/org/elasticsearch/index/analysis/keep_analysis.json"
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testLoadWithoutSettings
 specifier|public
 name|void
@@ -194,8 +168,6 @@ name|tokenFilter
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLoadOverConfiguredSettings
 specifier|public
 name|void
@@ -285,8 +257,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testKeepWordsPathSettings
 specifier|public
 name|void
@@ -433,8 +403,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCaseInsensitiveMapping
 specifier|public
 name|void
@@ -536,8 +504,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCaseSensitiveMapping
 specifier|public
 name|void

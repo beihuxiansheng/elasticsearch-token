@@ -168,16 +168,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -238,7 +228,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -254,8 +280,6 @@ name|PreBuiltAnalyzerTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testThatDefaultAndStandardAnalyzerAreTheSameInstance
 specifier|public
 name|void
@@ -302,8 +326,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatDefaultAndStandardAnalyzerChangedIn10Beta1
 specifier|public
 name|void
@@ -602,8 +624,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAnalyzerChangedIn10RC1
 specifier|public
 name|void
@@ -934,8 +954,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatInstancesAreTheSameAlwaysForKeywordAnalyzer
 specifier|public
 name|void
@@ -971,8 +989,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatInstancesAreCachedAndReused
 specifier|public
 name|void
@@ -1036,8 +1052,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatInstancesWithSameLuceneVersionAreReused
 specifier|public
 name|void
@@ -1074,8 +1088,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatAnalyzersAreUsedInMapping
 specifier|public
 name|void
@@ -1287,9 +1299,6 @@ expr_stmt|;
 name|NamedAnalyzer
 name|fieldMapperNamedAnalyzer
 init|=
-operator|(
-name|NamedAnalyzer
-operator|)
 name|fieldMapper
 operator|.
 name|fieldType

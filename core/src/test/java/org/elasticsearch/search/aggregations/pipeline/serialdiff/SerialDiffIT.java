@@ -200,11 +200,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Test
+name|ArrayList
 import|;
 end_import
 
@@ -214,7 +214,37 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -246,7 +276,55 @@ name|aggregations
 operator|.
 name|AggregationBuilders
 operator|.
-name|*
+name|avg
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|histogram
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|max
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|min
 import|;
 end_import
 
@@ -305,6 +383,18 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -450,6 +540,8 @@ operator|=
 name|s
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1251,12 +1343,10 @@ name|values
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|basicDiff
+DECL|method|testBasicDiff
 specifier|public
 name|void
-name|basicDiff
+name|testBasicDiff
 parameter_list|()
 block|{
 name|SearchResponse
@@ -1640,12 +1730,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|invalidLagSize
+DECL|method|testInvalidLagSize
 specifier|public
 name|void
-name|invalidLagSize
+name|testInvalidLagSize
 parameter_list|()
 block|{
 try|try
@@ -1741,7 +1829,19 @@ name|SearchPhaseExecutionException
 name|e
 parameter_list|)
 block|{
-comment|// All good
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"all shards failed"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

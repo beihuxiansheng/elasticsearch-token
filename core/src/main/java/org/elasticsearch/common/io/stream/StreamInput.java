@@ -3234,7 +3234,9 @@ block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
-argument_list|()
+argument_list|(
+literal|"can't read named writeable from StreamInput"
+argument_list|)
 throw|;
 block|}
 comment|/**      * Reads a {@link QueryBuilder} from the current stream      */

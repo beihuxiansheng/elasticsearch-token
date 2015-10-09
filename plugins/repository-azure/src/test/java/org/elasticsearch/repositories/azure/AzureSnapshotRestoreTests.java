@@ -350,16 +350,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -676,8 +666,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleWorkflow
 specifier|public
 name|void
@@ -1624,8 +1612,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * For issue #51: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/51      */
-annotation|@
-name|Test
 DECL|method|testMultipleSnapshots
 specifier|public
 name|void
@@ -2262,8 +2248,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultipleRepositories
 specifier|public
 name|void
@@ -3141,8 +3125,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * For issue #26: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/26      */
-annotation|@
-name|Test
 DECL|method|testListBlobs_26
 specifier|public
 name|void
@@ -3607,8 +3589,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * For issue #28: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/28      */
-annotation|@
-name|Test
 DECL|method|testGetDeleteNonExistingSnapshot_28
 specifier|public
 name|void
@@ -3748,8 +3728,6 @@ comment|// Expected
 block|}
 block|}
 comment|/**      * For issue #21: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/21      */
-annotation|@
-name|Test
 DECL|method|testForbiddenContainerName
 specifier|public
 name|void
@@ -3863,6 +3841,8 @@ operator|new
 name|Runnable
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -4030,8 +4010,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test case for issue #23: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/23      */
-annotation|@
-name|Test
 DECL|method|testNonExistingRepo_23
 specifier|public
 name|void
@@ -4188,8 +4166,6 @@ comment|// Expected
 block|}
 block|}
 comment|/**      * When a user remove a container you can not immediately create it again.      */
-annotation|@
-name|Test
 DECL|method|testRemoveAndCreateContainer
 specifier|public
 name|void
@@ -4232,6 +4208,8 @@ operator|new
 name|Runnable
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run

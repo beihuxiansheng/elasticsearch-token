@@ -286,16 +286,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -348,7 +338,39 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertExists
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -360,7 +382,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
 import|;
 end_import
 
@@ -393,8 +439,6 @@ name|NoMasterNodeIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testNoMasterActions
 specifier|public
 name|void
@@ -1510,12 +1554,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testNoMasterActions_writeMasterBlock
+DECL|method|testNoMasterActionsWriteMasterBlock
 specifier|public
 name|void
-name|testNoMasterActions_writeMasterBlock
+name|testNoMasterActionsWriteMasterBlock
 parameter_list|()
 throws|throws
 name|Exception

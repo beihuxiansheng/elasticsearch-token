@@ -257,12 +257,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+operator|.
+name|settingsBuilder
 import|;
 end_import
 
@@ -281,22 +287,6 @@ operator|.
 name|Builder
 operator|.
 name|EMPTY_SETTINGS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -324,8 +314,6 @@ name|PolishAnalysisTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefaultsPolishAnalysis
 specifier|public
 name|void

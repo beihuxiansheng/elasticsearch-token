@@ -284,16 +284,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -322,8 +312,6 @@ name|UnicastZenPingIT
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimplePings
 specifier|public
 name|void

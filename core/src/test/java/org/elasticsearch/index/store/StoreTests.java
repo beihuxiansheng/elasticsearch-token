@@ -778,16 +778,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1122,8 +1112,6 @@ name|StoreTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testRefCount
 specifier|public
 name|void
@@ -1416,8 +1404,6 @@ name|ex
 parameter_list|)
 block|{          }
 block|}
-annotation|@
-name|Test
 DECL|method|testVerifyingIndexOutput
 specifier|public
 name|void
@@ -2344,8 +2330,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVerifyingIndexOutputWithBogusInput
 specifier|public
 name|void
@@ -2835,8 +2819,6 @@ argument_list|)
 comment|// The test currently fails because the segment infos and the index don't
 comment|// agree on the oldest version of a segment. We should fix this test by
 comment|// switching to a static bw index
-annotation|@
-name|Test
 DECL|method|testWriteLegacyChecksums
 specifier|public
 name|void
@@ -3700,8 +3682,6 @@ name|store
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNewChecksums
 specifier|public
 name|void
@@ -4331,8 +4311,6 @@ name|store
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMixedChecksums
 specifier|public
 name|void
@@ -5274,8 +5252,6 @@ name|store
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRenameFile
 specifier|public
 name|void
@@ -6275,8 +6251,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testVerifyingIndexInput
 specifier|public
 name|void
@@ -7297,8 +7271,6 @@ block|}
 block|}
 block|}
 comment|/**      * Legacy indices without lucene CRC32 did never write or calculate checksums for segments_N files      * but for other files      */
-annotation|@
-name|Test
 DECL|method|testRecoveryDiffWithLegacyCommit
 specifier|public
 name|void
@@ -7453,8 +7425,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRecoveryDiff
 specifier|public
 name|void
@@ -8790,8 +8760,6 @@ name|store
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCleanupFromSnapshot
 specifier|public
 name|void
@@ -9773,8 +9741,6 @@ name|store
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCleanUpWithLegacyChecksums
 specifier|public
 name|void
@@ -10193,8 +10159,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStoreStats
 specifier|public
 name|void
@@ -10620,8 +10584,6 @@ return|return
 name|numNonExtra
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMetadataSnapshotStreaming
 specifier|public
 name|void
@@ -10942,8 +10904,6 @@ literal|0
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUserDataRead
 specifier|public
 name|void
@@ -11263,8 +11223,6 @@ name|store
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStreamStoreFilesMetaData
 specifier|public
 name|void

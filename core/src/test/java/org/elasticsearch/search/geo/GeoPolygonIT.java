@@ -98,16 +98,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -733,12 +723,10 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|simplePolygonTest
+DECL|method|testSimplePolygon
 specifier|public
 name|void
-name|simplePolygonTest
+name|testSimplePolygon
 parameter_list|()
 throws|throws
 name|Exception
@@ -927,12 +915,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|simpleUnclosedPolygon
+DECL|method|testSimpleUnclosedPolygon
 specifier|public
 name|void
-name|simpleUnclosedPolygon
+name|testSimpleUnclosedPolygon
 parameter_list|()
 throws|throws
 name|Exception

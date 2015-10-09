@@ -292,16 +292,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -350,7 +340,57 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -648,8 +688,6 @@ name|SuggestSearchIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 comment|// see #3196
 DECL|method|testSuggestAcrossMultipleIndices
 specifier|public
@@ -1283,8 +1321,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// see #3037
 DECL|method|testSuggestModes
 specifier|public
@@ -1613,8 +1649,6 @@ literal|"did_you_mean"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #2729
 DECL|method|testSizeOneShard
 specifier|public
@@ -1803,8 +1837,6 @@ literal|"abc0"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUnmappedField
 specifier|public
 name|void
@@ -2212,8 +2244,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimple
 specifier|public
 name|void
@@ -2448,8 +2478,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEmpty
 specifier|public
 name|void
@@ -2602,8 +2630,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWithMultipleCommands
 specifier|public
 name|void
@@ -2909,8 +2935,6 @@ literal|"accuracy"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSizeAndSort
 specifier|public
 name|void
@@ -3319,8 +3343,6 @@ expr_stmt|;
 comment|// assertThat(suggest.get(3).getSuggestedWords().get("prefix_abcd").get(4).getTerm(), equalTo("prefix_abcc"));
 comment|// assertThat(suggest.get(3).getSuggestedWords().get("prefix_abcd").get(4).getTerm(), equalTo("prefix_accd"));
 block|}
-annotation|@
-name|Test
 comment|// see #2817
 DECL|method|testStopwordsOnlyPhraseSuggest
 specifier|public
@@ -3446,8 +3468,6 @@ literal|"simple_phrase"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPrefixLength
 specifier|public
 name|void
@@ -3456,7 +3476,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// Stopped here
 name|CreateIndexRequestBuilder
 name|builder
 init|=
@@ -3855,8 +3874,6 @@ literal|"hello world"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|Nightly
 DECL|method|testMarvelHerosPhraseSuggest
@@ -4922,8 +4939,6 @@ name|UTF_8
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSizePararm
 specifier|public
 name|void
@@ -5377,8 +5392,6 @@ literal|"xorr the god jewel"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|Nightly
 DECL|method|testPhraseBoundaryCases
@@ -5980,8 +5993,6 @@ literal|"xorr the god jewel"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDifferentShardSize
 specifier|public
 name|void
@@ -6122,8 +6133,6 @@ literal|"simple"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #3469
 DECL|method|testShardFailures
 specifier|public
@@ -6514,8 +6523,6 @@ literal|"testing suggestions"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #3469
 DECL|method|testEmptyShards
 specifier|public
@@ -6803,8 +6810,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Searching for a rare phrase shouldn't provide any suggestions if confidence&gt; 1.  This was possible before we rechecked the cutoff      * score during the reduce phase.  Failures don't occur every time - maybe two out of five tries but we don't repeat it to save time.      */
-annotation|@
-name|Test
 DECL|method|testSearchForRarePhrase
 specifier|public
 name|void
@@ -7227,15 +7232,12 @@ literal|"nobel prize"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * If the suggester finds tons of options then picking the right one is slow without&lt;&lt;&lt;INSERT SOLUTION HERE&gt;&gt;&gt;.      */
-annotation|@
-name|Test
 annotation|@
 name|Nightly
-DECL|method|suggestWithManyCandidates
+DECL|method|testSuggestWithManyCandidates
 specifier|public
 name|void
-name|suggestWithManyCandidates
+name|testSuggestWithManyCandidates
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -8092,8 +8094,6 @@ argument_list|)
 expr_stmt|;
 comment|// assertThat(total, lessThan(1000L)); // Takes many seconds without fix - just for debugging
 block|}
-annotation|@
-name|Test
 DECL|method|testPhraseSuggesterCollate
 specifier|public
 name|void

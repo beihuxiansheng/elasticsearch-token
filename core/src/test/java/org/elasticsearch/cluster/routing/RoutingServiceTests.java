@@ -210,16 +210,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -318,8 +308,6 @@ name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReroute
 specifier|public
 name|void
@@ -360,8 +348,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoDelayedUnassigned
 specifier|public
 name|void
@@ -739,8 +725,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|TestLogging
 argument_list|(
@@ -1224,8 +1208,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDelayedUnassignedDoesNotRerouteForNegativeDelays
 specifier|public
 name|void

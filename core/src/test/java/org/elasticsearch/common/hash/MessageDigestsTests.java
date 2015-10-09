@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|math
@@ -67,18 +57,6 @@ operator|.
 name|security
 operator|.
 name|MessageDigest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
 import|;
 end_import
 
@@ -135,8 +113,6 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMd5
 specifier|public
 name|void
@@ -233,8 +209,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSha1
 specifier|public
 name|void
@@ -331,8 +305,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSha256
 specifier|public
 name|void
@@ -429,8 +401,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testToHexString
 specifier|public
 name|void

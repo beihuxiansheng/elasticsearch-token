@@ -118,24 +118,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|stats
-operator|.
-name|ShardStats
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|get
 operator|.
 name|GetResponse
@@ -472,16 +454,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -508,7 +480,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|ArrayList
 import|;
 end_import
 
@@ -518,7 +490,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|Collection
 import|;
 end_import
 
@@ -624,7 +596,55 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertOrderedSearchHits
 import|;
 end_import
 
@@ -636,7 +656,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThanOrEqualTo
 import|;
 end_import
 
@@ -1425,8 +1469,6 @@ name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexWithFewDocuments
 specifier|public
 name|void
@@ -2146,8 +2188,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReplicaToPrimaryPromotion
 specifier|public
 name|void
@@ -2785,8 +2825,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPrimaryRelocation
 specifier|public
 name|void
@@ -3462,8 +3500,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPrimaryRelocationWithConcurrentIndexing
 specifier|public
 name|void
@@ -3972,8 +4008,6 @@ name|numPhase2Docs
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPrimaryRelocationWhereRecoveryFails
 specifier|public
 name|void
@@ -4648,8 +4682,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexWithShadowReplicasCleansUp
 specifier|public
 name|void
@@ -4991,8 +5023,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that shadow replicas can be "naturally" rebalanced and relocated      * around the cluster. By "naturally" I mean without using the reroute API      */
-annotation|@
-name|Test
 DECL|method|testShadowReplicaNaturalRelocation
 specifier|public
 name|void
@@ -5379,8 +5409,6 @@ name|dataPath
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShadowReplicasUsingFieldData
 specifier|public
 name|void
@@ -6013,8 +6041,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexOnSharedFSRecoversToAnyNode
 specifier|public
 name|void

@@ -428,16 +428,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -2142,8 +2132,6 @@ name|getKeyAsString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBasics
 specifier|public
 name|void
@@ -2492,8 +2480,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIssue11119
 specifier|public
 name|void
@@ -2951,8 +2937,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBreadthFirst
 specifier|public
 name|void
@@ -3212,12 +3196,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testBasics_getProperty
+DECL|method|testBasicsGetProperty
 specifier|public
 name|void
-name|testBasics_getProperty
+name|testBasicsGetProperty
 parameter_list|()
 throws|throws
 name|Exception
@@ -3383,8 +3365,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPagination
 specifier|public
 name|void
@@ -3837,8 +3817,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSortByBucket
 specifier|public
 name|void
@@ -4214,8 +4192,6 @@ literal|10
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testFieldCollapsing
 specifier|public
 name|void
@@ -4651,8 +4627,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFetchFeatures
 specifier|public
 name|void
@@ -5104,8 +5078,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testInvalidSortField
 specifier|public
 name|void
@@ -5201,7 +5173,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// @Test
 comment|// public void testFailWithSubAgg() throws Exception {
 comment|// String source = "{\n" +
 comment|// "  \"aggs\": {\n" +
@@ -5234,8 +5205,6 @@ comment|// assertThat(e.toString(),
 comment|// containsString("Aggregator [top_tags_hits] of type [top_hits] cannot accept sub-aggregations"));
 comment|// }
 comment|// } NORELEASE this needs to be tested in a top_hits aggregations unit test
-annotation|@
-name|Test
 DECL|method|testEmptyIndex
 specifier|public
 name|void
@@ -5327,8 +5296,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTrackScores
 specifier|public
 name|void
@@ -5798,8 +5765,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testTopHitsInNestedSimple
 specifier|public
 name|void
@@ -6366,8 +6331,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTopHitsInSecondLayerNested
 specifier|public
 name|void
@@ -8114,8 +8077,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedFetchFeatures
 specifier|public
 name|void
@@ -8609,8 +8570,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTopHitsInNested
 specifier|public
 name|void
@@ -8994,8 +8953,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDontExplode
 specifier|public
 name|void

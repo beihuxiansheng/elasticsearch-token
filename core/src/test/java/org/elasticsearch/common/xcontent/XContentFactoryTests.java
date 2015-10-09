@@ -92,16 +92,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -144,8 +134,6 @@ name|XContentFactoryTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testGuessJson
 specifier|public
 name|void
@@ -162,8 +150,6 @@ name|JSON
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGuessSmile
 specifier|public
 name|void
@@ -180,8 +166,6 @@ name|SMILE
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGuessYaml
 specifier|public
 name|void
@@ -198,8 +182,6 @@ name|YAML
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGuessCbor
 specifier|public
 name|void

@@ -200,16 +200,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -328,7 +318,55 @@ name|aggregations
 operator|.
 name|AggregationBuilders
 operator|.
-name|*
+name|children
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|sum
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|terms
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|topHits
 import|;
 end_import
 
@@ -344,7 +382,55 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
 import|;
 end_import
 
@@ -356,7 +442,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|sameInstance
 import|;
 end_import
 
@@ -1071,8 +1193,6 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChildrenAggs
 specifier|public
 name|void
@@ -1537,8 +1657,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParentWithMultipleBuckets
 specifier|public
 name|void
@@ -2234,8 +2352,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWithDeletes
 specifier|public
 name|void
@@ -2610,8 +2726,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNonExistingChildType
 specifier|public
 name|void
@@ -2692,8 +2806,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostCollection
 specifier|public
 name|void
@@ -3619,8 +3731,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHierarchicalChildrenAggs
 specifier|public
 name|void

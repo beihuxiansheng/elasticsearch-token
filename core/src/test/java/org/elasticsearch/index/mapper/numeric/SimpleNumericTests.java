@@ -308,16 +308,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -406,8 +396,6 @@ name|SimpleNumericTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testNumericDetectionEnabled
 specifier|public
 name|void
@@ -629,8 +617,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNumericDetectionDefault
 specifier|public
 name|void
@@ -848,8 +834,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIgnoreMalformedOption
 specifier|public
 name|void
@@ -1304,8 +1288,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCoerceOption
 specifier|public
 name|void
@@ -2556,8 +2538,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Test default precision step for autodetected numeric types */
-annotation|@
-name|Test
 DECL|method|testPrecisionStepDefaultsDetected
 specifier|public
 name|void
@@ -2749,8 +2729,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test default precision step for numeric types */
-annotation|@
-name|Test
 DECL|method|testPrecisionStepDefaultsMapped
 specifier|public
 name|void
@@ -3171,8 +3149,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test precision step set to silly explicit values */
-annotation|@
-name|Test
 DECL|method|testPrecisionStepExplicit
 specifier|public
 name|void

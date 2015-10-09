@@ -93,16 +93,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -440,12 +430,10 @@ name|builders
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|singleValueField
+DECL|method|testSingleValueField
 specifier|public
 name|void
-name|singleValueField
+name|testSingleValueField
 parameter_list|()
 throws|throws
 name|Exception
@@ -659,12 +647,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|multiValueField
+DECL|method|testMultiValueField
 specifier|public
 name|void
-name|multiValueField
+name|testMultiValueField
 parameter_list|()
 throws|throws
 name|Exception
@@ -878,12 +864,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|unmapped
+DECL|method|testUnmapped
 specifier|public
 name|void
-name|unmapped
+name|testUnmapped
 parameter_list|()
 throws|throws
 name|Exception

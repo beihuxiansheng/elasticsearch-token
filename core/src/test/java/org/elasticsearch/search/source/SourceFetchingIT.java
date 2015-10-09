@@ -43,16 +43,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -98,8 +88,6 @@ name|SourceFetchingIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSourceDefaultBehavior
 specifier|public
 name|void
@@ -238,8 +226,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSourceFiltering
 specifier|public
 name|void
@@ -617,8 +603,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test Case for #5132: Source filtering with wildcards broken when given multiple patterns      * https://github.com/elasticsearch/elasticsearch/issues/5132      */
-annotation|@
-name|Test
 DECL|method|testSourceWithWildcardFiltering
 specifier|public
 name|void

@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -94,9 +82,49 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
-name|*
+name|DocumentMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|DocumentMapperParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperParsingException
 import|;
 end_import
 
@@ -124,7 +152,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|mapper
+operator|.
+name|Uid
 import|;
 end_import
 
@@ -142,11 +172,77 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperBuilders
+operator|.
+name|doc
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperBuilders
+operator|.
+name|object
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperBuilders
+operator|.
+name|rootObject
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperBuilders
+operator|.
+name|stringField
 import|;
 end_import
 
@@ -182,22 +278,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -218,8 +298,6 @@ name|SimpleMapperTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimpleMapper
 specifier|public
 name|void
@@ -375,8 +453,6 @@ literal|"shay"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        System.out.println("Document: " + doc);
-comment|//        System.out.println("Json: " + docMapper.sourceMapper().value(doc));
 name|doc
 operator|=
 name|docMapper
@@ -395,11 +471,7 @@ operator|.
 name|rootDoc
 argument_list|()
 expr_stmt|;
-comment|//        System.out.println("Document: " + doc);
-comment|//        System.out.println("Json: " + docMapper.sourceMapper().value(doc));
 block|}
-annotation|@
-name|Test
 DECL|method|testParseToJsonAndParse
 specifier|public
 name|void
@@ -451,7 +523,6 @@ operator|.
 name|string
 argument_list|()
 decl_stmt|;
-comment|//        System.out.println(builtMapping);
 comment|// reparse it
 name|DocumentMapper
 name|builtDocMapper
@@ -560,11 +631,7 @@ literal|"shay"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        System.out.println("Document: " + doc);
-comment|//        System.out.println("Json: " + docMapper.sourceMapper().value(doc));
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleParser
 specifier|public
 name|void
@@ -718,11 +785,7 @@ literal|"shay"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        System.out.println("Document: " + doc);
-comment|//        System.out.println("Json: " + docMapper.sourceMapper().value(doc));
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleParserNoTypeNoId
 specifier|public
 name|void
@@ -855,11 +918,7 @@ literal|"shay"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        System.out.println("Document: " + doc);
-comment|//        System.out.println("Json: " + docMapper.sourceMapper().value(doc));
 block|}
-annotation|@
-name|Test
 DECL|method|testAttributes
 specifier|public
 name|void
@@ -964,8 +1023,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoDocumentSent
 specifier|public
 name|void

@@ -74,16 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -139,12 +129,10 @@ extends|extends
 name|ESTestCase
 block|{
 comment|/**      * Test for network.host: _ec2_      */
-annotation|@
-name|Test
-DECL|method|networkHostEc2
+DECL|method|testNetworkHostEc2
 specifier|public
 name|void
-name|networkHostEc2
+name|testNetworkHostEc2
 parameter_list|()
 throws|throws
 name|IOException
@@ -220,12 +208,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test for network.host: _ec2:publicIp_      */
-annotation|@
-name|Test
-DECL|method|networkHostEc2PublicIp
+DECL|method|testNetworkHostEc2PublicIp
 specifier|public
 name|void
-name|networkHostEc2PublicIp
+name|testNetworkHostEc2PublicIp
 parameter_list|()
 throws|throws
 name|IOException
@@ -301,12 +287,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test for network.host: _ec2:privateIp_      */
-annotation|@
-name|Test
-DECL|method|networkHostEc2PrivateIp
+DECL|method|testNetworkHostEc2PrivateIp
 specifier|public
 name|void
-name|networkHostEc2PrivateIp
+name|testNetworkHostEc2PrivateIp
 parameter_list|()
 throws|throws
 name|IOException
@@ -382,12 +366,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test for network.host: _ec2:privateIpv4_      */
-annotation|@
-name|Test
-DECL|method|networkHostEc2PrivateIpv4
+DECL|method|testNetworkHostEc2PrivateIpv4
 specifier|public
 name|void
-name|networkHostEc2PrivateIpv4
+name|testNetworkHostEc2PrivateIpv4
 parameter_list|()
 throws|throws
 name|IOException
@@ -463,12 +445,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test for network.host: _ec2:privateDns_      */
-annotation|@
-name|Test
-DECL|method|networkHostEc2PrivateDns
+DECL|method|testNetworkHostEc2PrivateDns
 specifier|public
 name|void
-name|networkHostEc2PrivateDns
+name|testNetworkHostEc2PrivateDns
 parameter_list|()
 throws|throws
 name|IOException
@@ -544,12 +524,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test for network.host: _ec2:publicIpv4_      */
-annotation|@
-name|Test
-DECL|method|networkHostEc2PublicIpv4
+DECL|method|testNetworkHostEc2PublicIpv4
 specifier|public
 name|void
-name|networkHostEc2PublicIpv4
+name|testNetworkHostEc2PublicIpv4
 parameter_list|()
 throws|throws
 name|IOException
@@ -625,12 +603,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test for network.host: _ec2:publicDns_      */
-annotation|@
-name|Test
-DECL|method|networkHostEc2PublicDns
+DECL|method|testNetworkHostEc2PublicDns
 specifier|public
 name|void
-name|networkHostEc2PublicDns
+name|testNetworkHostEc2PublicDns
 parameter_list|()
 throws|throws
 name|IOException
@@ -706,12 +682,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test that we don't have any regression with network host core settings such as      * network.host: _local_      */
-annotation|@
-name|Test
-DECL|method|networkHostCoreLocal
+DECL|method|testNetworkHostCoreLocal
 specifier|public
 name|void
-name|networkHostCoreLocal
+name|testNetworkHostCoreLocal
 parameter_list|()
 throws|throws
 name|IOException

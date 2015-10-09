@@ -200,16 +200,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -282,8 +272,6 @@ name|GeoShapeFieldMapperTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefaultConfiguration
 specifier|public
 name|void
@@ -1056,8 +1044,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeohashConfiguration
 specifier|public
 name|void
@@ -1243,8 +1229,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQuadtreeConfiguration
 specifier|public
 name|void
@@ -1450,8 +1434,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLevelPrecisionConfiguration
 specifier|public
 name|void
@@ -2391,8 +2373,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testPointsOnlyOption
 specifier|public
 name|void
@@ -2555,8 +2535,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLevelDefaults
 specifier|public
 name|void
@@ -2916,8 +2894,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testGeoShapeMapperMerge
 specifier|public
 name|void
@@ -3187,6 +3163,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 name|conflicts
 init|=
 operator|new

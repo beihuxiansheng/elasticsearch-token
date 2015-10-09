@@ -336,16 +336,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -503,6 +493,18 @@ operator|.
 name|Matchers
 operator|.
 name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -744,8 +746,6 @@ literal|"Kofi"
 block|}
 block|}
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testBasicGeo
 specifier|public
 name|void
@@ -1080,8 +1080,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiLevelGeo
 specifier|public
 name|void
@@ -1412,8 +1410,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMappingIdempotency
 specifier|public
 name|void
@@ -1709,8 +1705,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeoField
 specifier|public
 name|void
@@ -2138,8 +2132,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleGeo
 specifier|public
 name|void
@@ -2625,8 +2617,6 @@ name|precision
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimplePrefix
 specifier|public
 name|void
@@ -2884,8 +2874,6 @@ literal|"Whitemane, Kofi"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTypeCategoryIsActuallyCalledCategory
 specifier|public
 name|void
@@ -3361,8 +3349,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testBasic
 specifier|public
 name|void
@@ -3502,8 +3488,6 @@ literal|"my hotel"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleField
 specifier|public
 name|void
@@ -3753,8 +3737,6 @@ literal|"Whitemane, Kofi"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see issue #10987
 DECL|method|testEmptySuggestion
 specifier|public
@@ -3898,8 +3880,6 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiValueField
 specifier|public
 name|void
@@ -4160,8 +4140,6 @@ literal|"Whitemane, Kofi"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiContext
 specifier|public
 name|void
@@ -4491,8 +4469,6 @@ literal|"Whitemane, Kofi"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiContextWithFuzzyLogic
 specifier|public
 name|void
@@ -4856,8 +4832,6 @@ literal|"Moira MacTaggert"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleType
 specifier|public
 name|void
@@ -5159,8 +5133,6 @@ literal|"Whitemane, Kofi"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// issue 5525, default location didnt work with lat/lon map, and did not set default location appropriately
 DECL|method|testGeoContextDefaultMapping
 specifier|public
@@ -5409,8 +5381,6 @@ literal|"Berlin Alexanderplatz"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// issue 5525, setting the path of a category context and then indexing a document without that field returned an error
 DECL|method|testThatMissingPrefixesForContextReturnException
 specifier|public
@@ -5615,8 +5585,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// issue 5525, the geo point parser did not work when the lat/lon values were inside of a value object
 DECL|method|testThatLocationVenueCanBeParsedAsDocumented
 specifier|public
@@ -5843,8 +5811,6 @@ name|suggestResponse
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCategoryDefaultWorks
 specifier|public
 name|void
@@ -6094,8 +6060,6 @@ literal|"Hoodie red"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatDefaultCategoryAndPathWorks
 specifier|public
 name|void
@@ -6344,8 +6308,6 @@ literal|"Hoodie red"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatGeoPrecisionIsWorking
 specifier|public
 name|void
@@ -6875,8 +6837,6 @@ literal|"Berlin Dahlem"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatNeighborsCanBeExcluded
 specifier|public
 name|void
@@ -7234,8 +7194,6 @@ literal|"Berlin Alexanderplatz"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatGeoPathCanBeSelected
 specifier|public
 name|void
@@ -7490,15 +7448,6 @@ literal|"Berlin Alexanderplatz"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|MapperParsingException
-operator|.
-name|class
-argument_list|)
 DECL|method|testThatPrecisionIsRequired
 specifier|public
 name|void
@@ -7580,8 +7529,8 @@ operator|.
 name|endObject
 argument_list|()
 decl_stmt|;
-name|assertAcked
-argument_list|(
+try|try
+block|{
 name|prepareCreate
 argument_list|(
 name|INDEX
@@ -7593,11 +7542,37 @@ literal|"item"
 argument_list|,
 name|xContentBuilder
 argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected MapperParsingException"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|MapperParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"Failed to parse mapping [item]: field [precision] is missing"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testThatLatLonParsingFromSourceWorks
 specifier|public
 name|void

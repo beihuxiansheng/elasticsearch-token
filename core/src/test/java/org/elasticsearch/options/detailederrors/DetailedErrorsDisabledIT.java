@@ -179,16 +179,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -275,8 +265,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatErrorTraceParamReturns400
 specifier|public
 name|void

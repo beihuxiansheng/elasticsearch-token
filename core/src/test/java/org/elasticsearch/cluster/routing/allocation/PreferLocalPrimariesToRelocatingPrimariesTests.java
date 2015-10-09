@@ -123,16 +123,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -248,8 +238,6 @@ name|PreferLocalPrimariesToRelocatingPrimariesTests
 extends|extends
 name|ESAllocationTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPreferLocalPrimaryAllocationOverFiltered
 specifier|public
 name|void

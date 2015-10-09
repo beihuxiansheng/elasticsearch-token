@@ -47,16 +47,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -112,8 +102,6 @@ name|FieldDataLoadingIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testEagerFieldDataLoading
 specifier|public
 name|void
@@ -270,8 +258,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEagerGlobalOrdinalsFieldDataLoading
 specifier|public
 name|void

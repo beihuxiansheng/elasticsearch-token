@@ -74,16 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -110,8 +100,6 @@ name|LimitTokenCountFilterFactoryTests
 extends|extends
 name|ESTokenStreamTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefault
 specifier|public
 name|void
@@ -276,8 +264,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSettings
 specifier|public
 name|void

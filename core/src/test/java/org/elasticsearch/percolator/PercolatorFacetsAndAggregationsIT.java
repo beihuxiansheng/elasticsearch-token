@@ -214,16 +214,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -402,8 +392,6 @@ name|PercolatorFacetsAndAggregationsIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 comment|// Just test the integration with facets and aggregations, not the facet and aggregation functionality!
 DECL|method|testFacetsAndAggregations
 specifier|public
@@ -977,8 +965,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// Just test the integration with facets and aggregations, not the facet and aggregation functionality!
 DECL|method|testAggregationsAndPipelineAggregations
 specifier|public
@@ -1641,8 +1627,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSignificantAggs
 specifier|public
 name|void
@@ -1747,8 +1731,6 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleShardAggregations
 specifier|public
 name|void

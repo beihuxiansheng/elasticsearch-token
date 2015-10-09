@@ -204,16 +204,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1203,8 +1193,6 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTwoScripts
 specifier|public
 name|void
@@ -1346,8 +1334,6 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCallWithDifferentFlagsFails
 specifier|public
 name|void
@@ -1591,8 +1577,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDocumentationExample
 specifier|public
 name|void
@@ -1717,8 +1701,6 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIteratorAndRecording
 specifier|public
 name|void
@@ -2126,8 +2108,6 @@ name|script
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFlags
 specifier|public
 name|void
@@ -2695,8 +2675,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAllExceptPosAndOffset
 specifier|public
 name|void

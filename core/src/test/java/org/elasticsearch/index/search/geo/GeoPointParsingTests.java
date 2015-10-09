@@ -142,16 +142,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -168,7 +158,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|closeTo
+name|is
 import|;
 end_import
 
@@ -189,8 +179,6 @@ literal|1E
 operator|-
 literal|5
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testGeoPointReset
 specifier|public
 name|void
@@ -463,8 +451,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEqualsHashCodeContract
 specifier|public
 name|void
@@ -665,8 +651,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeoPointParsing
 specifier|public
 name|void
@@ -812,16 +796,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Based on issue5390
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|ElasticsearchParseException
-operator|.
-name|class
-argument_list|)
+comment|// Based on #5390
 DECL|method|testInvalidPointEmbeddedObject
 specifier|public
 name|void
@@ -896,6 +871,8 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|GeoUtils
 operator|.
 name|parseGeoPoint
@@ -903,16 +880,33 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|ElasticsearchParseException
-operator|.
-name|class
+literal|"Expected ElasticsearchParseException"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchParseException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"field must be either [lat], [lon] or [geohash]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testInvalidPointLatHashMix
 specifier|public
 name|void
@@ -982,6 +976,8 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|GeoUtils
 operator|.
 name|parseGeoPoint
@@ -989,16 +985,33 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|ElasticsearchParseException
-operator|.
-name|class
+literal|"Expected ElasticsearchParseException"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchParseException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"field must be either lat/lon or geohash"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testInvalidPointLonHashMix
 specifier|public
 name|void
@@ -1068,6 +1081,8 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|GeoUtils
 operator|.
 name|parseGeoPoint
@@ -1075,16 +1090,33 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|ElasticsearchParseException
-operator|.
-name|class
+literal|"Expected ElasticsearchParseException"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchParseException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"field must be either lat/lon or geohash"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testInvalidField
 specifier|public
 name|void
@@ -1154,6 +1186,8 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|GeoUtils
 operator|.
 name|parseGeoPoint
@@ -1161,6 +1195,32 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ElasticsearchParseException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchParseException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"field must be either [lat], [lon] or [geohash]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|objectLatLon
 specifier|private

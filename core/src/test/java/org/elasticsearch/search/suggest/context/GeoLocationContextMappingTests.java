@@ -116,16 +116,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -182,8 +172,6 @@ name|GeoLocationContextMappingTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testThatParsingGeoPointsWorksWithCoercion
 specifier|public
 name|void
@@ -280,8 +268,6 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUseWithDefaultGeoHash
 specifier|public
 name|void
@@ -413,8 +399,6 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUseWithDefaultLatLon
 specifier|public
 name|void
@@ -551,8 +535,6 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUseWithDefaultBadLatLon
 specifier|public
 name|void
@@ -715,8 +697,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUseWithMultiplePrecisions
 specifier|public
 name|void
@@ -862,8 +842,6 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHashcode
 specifier|public
 name|void
@@ -1036,8 +1014,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUseWithBadGeoContext
 specifier|public
 name|void
@@ -1193,8 +1169,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUseWithLonLatGeoContext
 specifier|public
 name|void

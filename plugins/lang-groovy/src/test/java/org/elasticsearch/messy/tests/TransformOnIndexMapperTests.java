@@ -200,16 +200,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -461,12 +451,10 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|searchOnTransformed
+DECL|method|testSearchOnTransformed
 specifier|public
 name|void
-name|searchOnTransformed
+name|testSearchOnTransformed
 parameter_list|()
 throws|throws
 name|Exception
@@ -558,12 +546,10 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|getTransformed
+DECL|method|testGetTransformed
 specifier|public
 name|void
-name|getTransformed
+name|testGetTransformed
 parameter_list|()
 throws|throws
 name|Exception
@@ -647,12 +633,10 @@ block|}
 comment|// TODO: the completion suggester currently returns payloads with no reencoding so this test
 comment|// exists to make sure that _source transformation and completion work well together. If we
 comment|// ever fix the completion suggester to reencode the payloads then we can remove this test.
-annotation|@
-name|Test
-DECL|method|contextSuggestPayloadTransformed
+DECL|method|testContextSuggestPayloadTransformed
 specifier|public
 name|void
-name|contextSuggestPayloadTransformed
+name|testContextSuggestPayloadTransformed
 parameter_list|()
 throws|throws
 name|Exception

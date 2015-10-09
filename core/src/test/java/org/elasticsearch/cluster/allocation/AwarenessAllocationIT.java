@@ -230,16 +230,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -358,8 +348,6 @@ return|return
 literal|1
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleAwareness
 specifier|public
 name|void
@@ -690,8 +678,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAwarenessZones
 specifier|public
 name|void
@@ -1213,8 +1199,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAwarenessZonesIncrementalNodes
 specifier|public
 name|void

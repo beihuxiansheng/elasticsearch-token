@@ -86,18 +86,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -110,9 +98,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -204,8 +194,6 @@ name|PercolatorBackwardsCompatibilityIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPercolatorUpgrading
 specifier|public
 name|void
@@ -368,9 +356,6 @@ name|assertMatchCount
 argument_list|(
 name|response
 argument_list|,
-operator|(
-name|long
-operator|)
 name|numDocs
 argument_list|)
 expr_stmt|;

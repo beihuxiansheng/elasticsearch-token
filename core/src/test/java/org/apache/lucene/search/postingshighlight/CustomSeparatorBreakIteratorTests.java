@@ -46,16 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|text
@@ -114,8 +104,6 @@ name|CustomSeparatorBreakIteratorTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testBreakOnCustomSeparator
 specifier|public
 name|void
@@ -625,8 +613,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleSentences
 specifier|public
 name|void
@@ -694,8 +680,6 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSliceEnd
 specifier|public
 name|void
@@ -779,8 +763,6 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSliceStart
 specifier|public
 name|void
@@ -864,8 +846,6 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSliceMiddle
 specifier|public
 name|void
@@ -950,8 +930,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** the current position must be ignored, initial position is always first() */
-annotation|@
-name|Test
 DECL|method|testFirstPosition
 specifier|public
 name|void

@@ -268,16 +268,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -406,8 +396,6 @@ name|HeadersAndContextCopyClientTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testRegisterRelevantHeaders
 specifier|public
 name|void
@@ -683,8 +671,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyHeadersRequest
 specifier|public
 name|void
@@ -1051,8 +1037,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyHeadersClusterAdminRequest
 specifier|public
 name|void
@@ -1435,8 +1419,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyHeadersIndicesAdminRequest
 specifier|public
 name|void
@@ -1823,8 +1805,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyHeadersRequestBuilder
 specifier|public
 name|void
@@ -2157,8 +2137,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyHeadersClusterAdminRequestBuilder
 specifier|public
 name|void
@@ -2516,8 +2494,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyHeadersIndicesAdminRequestBuilder
 specifier|public
 name|void

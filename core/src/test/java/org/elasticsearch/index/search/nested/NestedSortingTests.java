@@ -468,16 +468,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -568,8 +558,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDuel
 specifier|public
 name|void
@@ -1117,8 +1105,6 @@ name|sort
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedSorting
 specifier|public
 name|void

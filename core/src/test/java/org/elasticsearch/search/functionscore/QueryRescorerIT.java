@@ -288,16 +288,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -572,8 +562,6 @@ name|QueryRescorerIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testEnforceWindowSize
 specifier|public
 name|void
@@ -841,8 +829,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRescorePhrase
 specifier|public
 name|void
@@ -1347,8 +1333,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreDocs
 specifier|public
 name|void
@@ -2277,8 +2261,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Tests a rescore window smaller than number of hits:
-annotation|@
-name|Test
 DECL|method|testSmallRescoreWindow
 specifier|public
 name|void
@@ -2951,8 +2933,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Tests a rescorer that penalizes the scores:
-annotation|@
-name|Test
 DECL|method|testRescorerMadeScoresWorse
 specifier|public
 name|void
@@ -4034,8 +4014,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 comment|// forces QUERY_THEN_FETCH because of https://github.com/elasticsearch/elasticsearch/issues/4829
 DECL|method|testEquivalence
 specifier|public
@@ -4518,8 +4496,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testExplain
 specifier|public
 name|void
@@ -5547,8 +5523,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testScoring
 specifier|public
 name|void
@@ -6845,8 +6819,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMultipleRescores
 specifier|public
 name|void

@@ -134,20 +134,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|MatchQueryBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
 name|Operator
 import|;
 end_import
@@ -175,16 +161,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -226,7 +202,39 @@ name|xcontent
 operator|.
 name|XContentFactory
 operator|.
-name|*
+name|jsonBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentFactory
+operator|.
+name|smileBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentFactory
+operator|.
+name|yamlBuilder
 import|;
 end_import
 
@@ -242,7 +250,39 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|boolQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchQuery
 import|;
 end_import
 
@@ -300,7 +340,79 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|arrayContaining
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|arrayContainingInAnyOrder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|arrayWithSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -316,8 +428,6 @@ name|MultiPercolatorIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testBasics
 specifier|public
 name|void
@@ -1094,8 +1204,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWithRouting
 specifier|public
 name|void
@@ -1917,8 +2025,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExistingDocsOnly
 specifier|public
 name|void
@@ -2531,8 +2637,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWithDocsOnly
 specifier|public
 name|void
@@ -3158,8 +3262,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedMultiPercolation
 specifier|public
 name|void

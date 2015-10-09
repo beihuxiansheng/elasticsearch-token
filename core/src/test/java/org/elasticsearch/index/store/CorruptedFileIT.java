@@ -32,18 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -688,7 +676,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
+name|CorruptionUtils
 import|;
 end_import
 
@@ -700,7 +688,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|CorruptionUtils
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -794,16 +782,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -829,6 +807,18 @@ operator|.
 name|io
 operator|.
 name|PrintStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -1284,8 +1274,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Tests that we can actually recover from a corruption on the primary given that we have replica shards around.      */
-annotation|@
-name|Test
 DECL|method|testCorruptFileAndRecover
 specifier|public
 name|void
@@ -1859,12 +1847,7 @@ block|{
 name|Store
 name|store
 init|=
-operator|(
-operator|(
-name|IndexShard
-operator|)
 name|indexShard
-operator|)
 operator|.
 name|store
 argument_list|()
@@ -2127,8 +2110,6 @@ block|}
 block|}
 block|}
 comment|/**      * Tests corruption that happens on a single shard when no replicas are present. We make sure that the primary stays unassigned      * and all other replicas for the healthy shards happens      */
-annotation|@
-name|Test
 DECL|method|testCorruptPrimaryNoReplica
 specifier|public
 name|void
@@ -3249,8 +3230,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Tests corruption that happens on the network layer and that the primary does not get affected by corruption that happens on the way      * to the replica. The file on disk stays uncorrupted      */
-annotation|@
-name|Test
 DECL|method|testCorruptionOnNetworkLayer
 specifier|public
 name|void
@@ -4227,8 +4206,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Tests that restoring of a corrupted shard fails and we get a partial snapshot.      * TODO once checksum verification on snapshotting is implemented this test needs to be fixed or split into several      * parts... We should also corrupt files on the actual snapshot and check that we don't restore the corrupted shard.      */
-annotation|@
-name|Test
 DECL|method|testCorruptFileThenSnapshotAndRestore
 specifier|public
 name|void
@@ -4643,8 +4620,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This test verifies that if we corrupt a replica, we can still get to green, even though      * listing its store fails. Note, we need to make sure that replicas are allocated on all data      * nodes, so that replica won't be sneaky and allocated on a node that doesn't have a corrupted      * replica.      */
-annotation|@
-name|Test
 DECL|method|testReplicaCorruption
 specifier|public
 name|void

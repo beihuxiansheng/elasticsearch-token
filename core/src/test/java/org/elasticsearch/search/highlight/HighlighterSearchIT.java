@@ -332,16 +332,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -888,6 +878,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|lessThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|not
 import|;
 end_import
@@ -912,8 +914,6 @@ name|HighlighterSearchIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testHighlightingWithWildcardName
 specifier|public
 name|void
@@ -1128,8 +1128,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPlainHighlighterWithLongUnanalyzedStringTerm
 specifier|public
 name|void
@@ -1573,8 +1571,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHighlightingWhenFieldsAreNotStoredThereIsNoSource
 specifier|public
 name|void
@@ -1915,8 +1911,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #3486
 DECL|method|testHighTermFrequencyDoc
 specifier|public
@@ -2072,8 +2066,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNgramHighlightingWithBrokenPositions
 specifier|public
 name|void
@@ -2457,8 +2449,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiPhraseCutoff
 specifier|public
 name|void
@@ -2710,8 +2700,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNgramHighlightingPreLucene42
 specifier|public
 name|void
@@ -3420,8 +3408,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNgramHighlighting
 specifier|public
 name|void
@@ -3868,8 +3854,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEnsureNoNegativeOffsets
 specifier|public
 name|void
@@ -4133,8 +4117,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSourceLookupHighlightingUsingPlainHighlighter
 specifier|public
 name|void
@@ -4533,8 +4515,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSourceLookupHighlightingUsingFastVectorHighlighter
 specifier|public
 name|void
@@ -4934,8 +4914,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSourceLookupHighlightingUsingPostingsHighlighter
 specifier|public
 name|void
@@ -5443,8 +5421,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testHighlightIssue1994
 specifier|public
 name|void
@@ -5745,8 +5721,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGlobalHighlightingSettingsOverriddenAtFieldLevel
 specifier|public
 name|void
@@ -5977,9 +5951,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|//https://github.com/elasticsearch/elasticsearch/issues/5175
+comment|// Issue #5175
 DECL|method|testHighlightingOnWildcardFields
 specifier|public
 name|void
@@ -6174,8 +6146,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testForceSourceWithSourceDisabled
 specifier|public
 name|void
@@ -6688,8 +6658,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPlainHighlighter
 specifier|public
 name|void
@@ -7277,8 +7245,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFastVectorHighlighter
 specifier|public
 name|void
@@ -7706,14 +7672,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The FHV can spend a long time highlighting degenerate documents if phraseLimit is not set.      */
-annotation|@
-name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|120000
-argument_list|)
+comment|/**      * The FHV can spend a long time highlighting degenerate documents if      * phraseLimit is not set. Its default is now reasonably low.      */
 DECL|method|testFVHManyMatches
 specifier|public
 name|void
@@ -7801,7 +7760,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> highlighting and searching on field1"
+literal|"--> highlighting and searching on field1 with default phrase limit"
 argument_list|)
 expr_stmt|;
 name|SearchSourceBuilder
@@ -7856,7 +7815,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|SearchResponse
-name|searchResponse
+name|defaultPhraseLimit
 init|=
 name|client
 argument_list|()
@@ -7879,7 +7838,7 @@ argument_list|()
 decl_stmt|;
 name|assertHighlight
 argument_list|(
-name|searchResponse
+name|defaultPhraseLimit
 argument_list|,
 literal|0
 argument_list|,
@@ -7899,12 +7858,122 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done"
+literal|"--> highlighting and searching on field1 with large phrase limit"
+argument_list|)
+expr_stmt|;
+name|source
+operator|=
+name|searchSource
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|termQuery
+argument_list|(
+literal|"field1"
+argument_list|,
+literal|"t"
+argument_list|)
+argument_list|)
+operator|.
+name|highlighter
+argument_list|(
+name|highlight
+argument_list|()
+operator|.
+name|highlighterType
+argument_list|(
+literal|"fvh"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"field1"
+argument_list|,
+literal|20
+argument_list|,
+literal|1
+argument_list|)
+operator|.
+name|order
+argument_list|(
+literal|"score"
+argument_list|)
+operator|.
+name|preTags
+argument_list|(
+literal|"<xxx>"
+argument_list|)
+operator|.
+name|postTags
+argument_list|(
+literal|"</xxx>"
+argument_list|)
+operator|.
+name|phraseLimit
+argument_list|(
+literal|30000
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|SearchResponse
+name|largePhraseLimit
+init|=
+name|client
+argument_list|()
+operator|.
+name|search
+argument_list|(
+name|searchRequest
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|source
+argument_list|(
+name|source
+argument_list|)
+argument_list|)
+operator|.
+name|actionGet
+argument_list|()
+decl_stmt|;
+name|assertHighlight
+argument_list|(
+name|largePhraseLimit
+argument_list|,
+literal|0
+argument_list|,
+literal|"field1"
+argument_list|,
+literal|0
+argument_list|,
+literal|1
+argument_list|,
+name|containsString
+argument_list|(
+literal|"<xxx>t</xxx>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|/*          * I hate comparing times because it can be inconsistent but default is          * in the neighborhood of 300ms and the large phrase limit is in the          * neighborhood of 8 seconds.          */
+name|assertThat
+argument_list|(
+name|defaultPhraseLimit
+operator|.
+name|getTookInMillis
+argument_list|()
+argument_list|,
+name|lessThan
+argument_list|(
+name|largePhraseLimit
+operator|.
+name|getTookInMillis
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMatchedFieldsFvhRequireFieldMatch
 specifier|public
 name|void
@@ -7919,8 +7988,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMatchedFieldsFvhNoRequireFieldMatch
 specifier|public
 name|void
@@ -9548,8 +9615,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFastVectorHighlighterManyDocs
 specifier|public
 name|void
@@ -9970,8 +10035,6 @@ name|endObject
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSameContent
 specifier|public
 name|void
@@ -10136,8 +10199,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testFastVectorHighlighterOffsetParameter
 specifier|public
 name|void
@@ -10307,8 +10368,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testEscapeHtml
 specifier|public
 name|void
@@ -10483,12 +10542,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testEscapeHtml_vector
+DECL|method|testEscapeHtmlVector
 specifier|public
 name|void
-name|testEscapeHtml_vector
+name|testEscapeHtmlVector
 parameter_list|()
 throws|throws
 name|Exception
@@ -10655,8 +10712,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiMapperVectorWithStore
 specifier|public
 name|void
@@ -10950,8 +11005,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiMapperVectorFromSource
 specifier|public
 name|void
@@ -11245,8 +11298,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiMapperNoVectorWithStore
 specifier|public
 name|void
@@ -11540,8 +11591,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiMapperNoVectorFromSource
 specifier|public
 name|void
@@ -11835,8 +11884,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFastVectorHighlighterShouldFailIfNoTermVectors
 specifier|public
 name|void
@@ -12070,8 +12117,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDisableFastVectorHighlighter
 specifier|public
 name|void
@@ -12400,8 +12445,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testFSHHighlightAllMvFragments
 specifier|public
 name|void
@@ -12540,8 +12583,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBoostingQuery
 specifier|public
 name|void
@@ -12685,8 +12726,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|AwaitsFix
 argument_list|(
@@ -12850,8 +12889,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQuery
 specifier|public
 name|void
@@ -12985,8 +13022,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsTermVector
 specifier|public
 name|void
@@ -13133,8 +13168,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPhrasePrefix
 specifier|public
 name|void
@@ -13877,8 +13910,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPlainHighlightDifferentFragmenter
 specifier|public
 name|void
@@ -14227,8 +14258,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPlainHighlighterMultipleFields
 specifier|public
 name|void
@@ -14385,8 +14414,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFastVectorHighlighterMultipleFields
 specifier|public
 name|void
@@ -14559,8 +14586,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMissingStoredField
 specifier|public
 name|void
@@ -14722,9 +14747,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/3211
+comment|// Issue #3211
 DECL|method|testNumericHighlighting
 specifier|public
 name|void
@@ -14914,9 +14937,7 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/3200
+comment|// Issue #3200
 DECL|method|testResetTwice
 specifier|public
 name|void
@@ -15058,8 +15079,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHighlightUsesHighlightQuery
 specifier|public
 name|void
@@ -15528,8 +15547,6 @@ return|return
 literal|""
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHighlightNoMatchSize
 specifier|public
 name|void
@@ -16648,8 +16665,6 @@ literal|"text"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHighlightNoMatchSizeWithMultivaluedFields
 specifier|public
 name|void
@@ -17547,8 +17562,6 @@ literal|"text"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHighlightNoMatchSizeNumberOfFragments
 specifier|public
 name|void
@@ -18038,8 +18051,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighter
 specifier|public
 name|void
@@ -18524,8 +18535,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterMultipleFields
 specifier|public
 name|void
@@ -18654,8 +18663,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterNumberOfFragments
 specifier|public
 name|void
@@ -19062,8 +19069,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiMatchQueryHighlight
 specifier|public
 name|void
@@ -19508,8 +19513,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterOrderByScore
 specifier|public
 name|void
@@ -19785,8 +19788,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterEscapeHtml
 specifier|public
 name|void
@@ -19958,8 +19959,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterMultiMapperWithStore
 specifier|public
 name|void
@@ -20263,8 +20262,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterMultiMapperFromSource
 specifier|public
 name|void
@@ -20540,8 +20537,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterShouldFailIfNoOffsets
 specifier|public
 name|void
@@ -20854,8 +20849,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterBoostingQuery
 specifier|public
 name|void
@@ -21010,8 +21003,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterCommonTermsQuery
 specifier|public
 name|void
@@ -21245,8 +21236,6 @@ name|endObject
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterPrefixQuery
 specifier|public
 name|void
@@ -21373,8 +21362,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterFuzzyQuery
 specifier|public
 name|void
@@ -21501,8 +21488,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterRegexpQuery
 specifier|public
 name|void
@@ -21629,8 +21614,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterWildcardQuery
 specifier|public
 name|void
@@ -21826,8 +21809,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterTermRangeQuery
 specifier|public
 name|void
@@ -21962,8 +21943,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterQueryString
 specifier|public
 name|void
@@ -22093,8 +22072,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterRegexpQueryWithinConstantScoreQuery
 specifier|public
 name|void
@@ -22220,8 +22197,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterMultiTermQueryMultipleLevels
 specifier|public
 name|void
@@ -22374,8 +22349,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterPrefixQueryWithinBooleanQuery
 specifier|public
 name|void
@@ -22519,8 +22492,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterQueryStringWithinFilteredQuery
 specifier|public
 name|void
@@ -22655,8 +22626,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterManyDocs
 specifier|public
 name|void
@@ -22931,8 +22900,6 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Test
-annotation|@
 name|AwaitsFix
 argument_list|(
 name|bugUrl
@@ -22969,8 +22936,6 @@ literal|"fvh"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPostingsHighlighterPhraseBoost
 specifier|public
 name|void

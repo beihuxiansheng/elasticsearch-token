@@ -27,16 +27,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -72,13 +62,6 @@ name|ActionNamesIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|testActionNamesCategories
 specifier|public
 name|void

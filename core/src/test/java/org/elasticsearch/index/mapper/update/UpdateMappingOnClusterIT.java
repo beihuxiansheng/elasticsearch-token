@@ -126,35 +126,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
 operator|.
 name|HashMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|StreamsUtils
-operator|.
-name|copyToStringFromClasspath
 import|;
 end_import
 
@@ -171,6 +147,20 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
+operator|.
+name|copyToStringFromClasspath
 import|;
 end_import
 
@@ -240,12 +230,10 @@ name|TYPE
 init|=
 literal|"type"
 decl_stmt|;
-annotation|@
-name|Test
-DECL|method|test_all_enabled
+DECL|method|testAllEnabled
 specifier|public
 name|void
-name|test_all_enabled
+name|testAllEnabled
 parameter_list|()
 throws|throws
 name|Exception
@@ -364,12 +352,10 @@ name|errorMessage
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|test_all_conflicts
+DECL|method|testAllConflicts
 specifier|public
 name|void
-name|test_all_conflicts
+name|testAllConflicts
 parameter_list|()
 throws|throws
 name|Exception
@@ -425,12 +411,10 @@ name|errorMessage
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|test_all_with_default
+DECL|method|testAllWithDefault
 specifier|public
 name|void
-name|test_all_with_default
+name|testAllWithDefault
 parameter_list|()
 throws|throws
 name|Exception
@@ -919,12 +903,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|test_doc_valuesInvalidMapping
+DECL|method|testDocValuesInvalidMapping
 specifier|public
 name|void
-name|test_doc_valuesInvalidMapping
+name|testDocValuesInvalidMapping
 parameter_list|()
 throws|throws
 name|Exception
@@ -1023,12 +1005,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|test_doc_valuesInvalidMappingOnUpdate
+DECL|method|testDocValuesInvalidMappingOnUpdate
 specifier|public
 name|void
-name|test_doc_valuesInvalidMappingOnUpdate
+name|testDocValuesInvalidMappingOnUpdate
 parameter_list|()
 throws|throws
 name|Exception
@@ -1223,8 +1203,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// checks if the setting for timestamp and size are kept even if disabled
-annotation|@
-name|Test
 DECL|method|testDisabledSizeTimestampIndexDoNotLooseMappings
 specifier|public
 name|void

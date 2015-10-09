@@ -104,6 +104,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -142,23 +156,9 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|groovy
+name|ScriptService
 operator|.
-name|GroovyPlugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
+name|ScriptType
 import|;
 end_import
 
@@ -170,9 +170,9 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|groovy
 operator|.
-name|ScriptType
+name|GroovyPlugin
 import|;
 end_import
 
@@ -239,16 +239,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -521,8 +511,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFieldIndexedScript
 specifier|public
 name|void
@@ -925,8 +913,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Relates to #10397
-annotation|@
-name|Test
 DECL|method|testUpdateScripts
 specifier|public
 name|void
@@ -1126,8 +1112,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDisabledUpdateIndexedScriptsOnly
 specifier|public
 name|void
@@ -1285,8 +1269,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDisabledAggsDynamicScripts
 specifier|public
 name|void

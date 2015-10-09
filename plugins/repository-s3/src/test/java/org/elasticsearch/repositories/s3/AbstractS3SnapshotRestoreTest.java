@@ -344,16 +344,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -380,7 +370,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -538,8 +552,6 @@ name|basePath
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|AwaitsFix
 argument_list|(
@@ -1504,8 +1516,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|AwaitsFix
 argument_list|(
@@ -2617,19 +2627,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This test verifies that the test configuration is set up in a manner that      * does not make the test {@link #testRepositoryWithCustomCredentials()} pointless.      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|RepositoryVerificationException
-operator|.
-name|class
-argument_list|)
-DECL|method|assertRepositoryWithCustomCredentialsIsNotAccessibleByDefaultCredentials
+DECL|method|testRepositoryWithCustomCredentialsIsNotAccessibleByDefaultCredentials
 specifier|public
 name|void
-name|assertRepositoryWithCustomCredentialsIsNotAccessibleByDefaultCredentials
+name|testRepositoryWithCustomCredentialsIsNotAccessibleByDefaultCredentials
 parameter_list|()
 block|{
 name|Client
@@ -2672,6 +2673,8 @@ argument_list|,
 name|basePath
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|client
 operator|.
 name|admin
@@ -2726,8 +2729,13 @@ literal|"repository verification should have raise an exception!"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|RepositoryVerificationException
+name|e
+parameter_list|)
+block|{         }
+block|}
 DECL|method|testRepositoryWithCustomCredentials
 specifier|public
 name|void
@@ -2882,8 +2890,6 @@ literal|"test-repo"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|AwaitsFix
 argument_list|(
@@ -3053,19 +3059,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This test verifies that the test configuration is set up in a manner that      * does not make the test {@link #testRepositoryInRemoteRegion()} pointless.      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|RepositoryVerificationException
-operator|.
-name|class
-argument_list|)
-DECL|method|assertRepositoryInRemoteRegionIsRemote
+DECL|method|testRepositoryInRemoteRegionIsRemote
 specifier|public
 name|void
-name|assertRepositoryInRemoteRegionIsRemote
+name|testRepositoryInRemoteRegionIsRemote
 parameter_list|()
 block|{
 name|Client
@@ -3108,6 +3105,8 @@ argument_list|,
 name|basePath
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|client
 operator|.
 name|admin
@@ -3164,8 +3163,13 @@ literal|"repository verification should have raise an exception!"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|RepositoryVerificationException
+name|e
+parameter_list|)
+block|{         }
+block|}
 annotation|@
 name|AwaitsFix
 argument_list|(
@@ -3309,12 +3313,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test case for issue #86: https://github.com/elasticsearch/elasticsearch-cloud-aws/issues/86      */
-annotation|@
-name|Test
-DECL|method|testNonExistingRepo_86
+DECL|method|testNonExistingRepo86
 specifier|public
 name|void
-name|testNonExistingRepo_86
+name|testNonExistingRepo86
 parameter_list|()
 block|{
 name|Client
@@ -3450,12 +3452,10 @@ comment|// Expected
 block|}
 block|}
 comment|/**      * For issue #86: https://github.com/elasticsearch/elasticsearch-cloud-aws/issues/86      */
-annotation|@
-name|Test
-DECL|method|testGetDeleteNonExistingSnapshot_86
+DECL|method|testGetDeleteNonExistingSnapshot86
 specifier|public
 name|void
-name|testGetDeleteNonExistingSnapshot_86
+name|testGetDeleteNonExistingSnapshot86
 parameter_list|()
 block|{
 name|ClusterAdminClient

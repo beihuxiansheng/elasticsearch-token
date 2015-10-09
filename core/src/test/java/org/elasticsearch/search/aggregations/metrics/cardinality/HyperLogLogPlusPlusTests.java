@@ -71,16 +71,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -140,12 +130,10 @@ name|HyperLogLogPlusPlusTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|encodeDecode
+DECL|method|testEncodeDecode
 specifier|public
 name|void
-name|encodeDecode
+name|testEncodeDecode
 parameter_list|()
 block|{
 specifier|final
@@ -321,12 +309,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|accuracy
+DECL|method|testAccuracy
 specifier|public
 name|void
-name|accuracy
+name|testAccuracy
 parameter_list|()
 block|{
 specifier|final
@@ -519,12 +505,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|merge
+DECL|method|testMerge
 specifier|public
 name|void
-name|merge
+name|testMerge
 parameter_list|()
 block|{
 specifier|final
@@ -814,12 +798,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|fakeHashes
+DECL|method|testFakeHashes
 specifier|public
 name|void
-name|fakeHashes
+name|testFakeHashes
 parameter_list|()
 block|{
 comment|// hashes with lots of leading zeros trigger different paths in the code that we try to go through here
@@ -920,12 +902,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|precisionFromThreshold
+DECL|method|testPrecisionFromThreshold
 specifier|public
 name|void
-name|precisionFromThreshold
+name|testPrecisionFromThreshold
 parameter_list|()
 block|{
 name|assertEquals

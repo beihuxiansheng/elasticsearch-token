@@ -206,16 +206,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -296,12 +286,10 @@ name|DuelScrollIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|testDuel_queryThenFetch
+DECL|method|testDuelQueryThenFetch
 specifier|public
 name|void
-name|testDuel_queryThenFetch
+name|testDuelQueryThenFetch
 parameter_list|()
 throws|throws
 name|Exception
@@ -743,12 +731,10 @@ name|scrollId
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testDuel_queryAndFetch
+DECL|method|testDuelQueryAndFetch
 specifier|public
 name|void
-name|testDuel_queryAndFetch
+name|testDuelQueryAndFetch
 parameter_list|()
 throws|throws
 name|Exception

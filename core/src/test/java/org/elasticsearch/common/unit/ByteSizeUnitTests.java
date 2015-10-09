@@ -29,12 +29,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|common
+operator|.
+name|unit
+operator|.
+name|ByteSizeUnit
+operator|.
+name|BYTES
 import|;
 end_import
 
@@ -50,7 +56,71 @@ name|unit
 operator|.
 name|ByteSizeUnit
 operator|.
-name|*
+name|GB
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|ByteSizeUnit
+operator|.
+name|KB
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|ByteSizeUnit
+operator|.
+name|MB
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|ByteSizeUnit
+operator|.
+name|PB
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|ByteSizeUnit
+operator|.
+name|TB
 import|;
 end_import
 
@@ -78,8 +148,6 @@ name|ByteSizeUnitTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testBytes
 specifier|public
 name|void
@@ -153,8 +221,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testKB
 specifier|public
 name|void
@@ -224,8 +290,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMB
 specifier|public
 name|void
@@ -295,8 +359,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGB
 specifier|public
 name|void
@@ -370,8 +432,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTB
 specifier|public
 name|void
@@ -466,8 +526,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPB
 specifier|public
 name|void

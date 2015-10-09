@@ -322,16 +322,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -542,8 +532,6 @@ name|GetTermVectorsIT
 extends|extends
 name|AbstractTermVectorsTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testNoSuchDoc
 specifier|public
 name|void
@@ -757,8 +745,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testExistingFieldWithNoTermVectorsNoNPE
 specifier|public
 name|void
@@ -966,8 +952,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExistingFieldButNotInDocNPE
 specifier|public
 name|void
@@ -1195,8 +1179,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNotIndexedField
 specifier|public
 name|void
@@ -1525,8 +1507,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleTermVectors
 specifier|public
 name|void
@@ -1839,8 +1819,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRandomSingleTermVectors
 specifier|public
 name|void
@@ -3057,8 +3035,6 @@ return|return
 name|ret
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDuelESLucene
 specifier|public
 name|void
@@ -3207,8 +3183,6 @@ throw|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRandomPayloadWithDelimitedPayloadTokenFilter
 specifier|public
 name|void
@@ -4469,8 +4443,6 @@ name|finalTokens
 return|;
 block|}
 comment|// like testSimpleTermVectors but we create fields with no term vectors
-annotation|@
-name|Test
 DECL|method|testSimpleTermVectorsWithGenerate
 specifier|public
 name|void
@@ -5358,8 +5330,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDuelWithAndWithoutTermVectors
 specifier|public
 name|void
@@ -6057,8 +6027,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleWildCards
 specifier|public
 name|void
@@ -6295,8 +6263,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testArtificialVsExisting
 specifier|public
 name|void
@@ -6643,8 +6609,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testArtificialNoDoc
 specifier|public
 name|void
@@ -6793,8 +6757,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testArtificialNonExistingField
 specifier|public
 name|void
@@ -7053,8 +7015,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testPerFieldAnalyzer
 specifier|public
 name|void
@@ -7674,8 +7634,6 @@ else|:
 literal|"alias"
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDfs
 specifier|public
 name|void
@@ -8520,8 +8478,6 @@ name|value
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTermVectorsWithVersion
 specifier|public
 name|void
@@ -9428,8 +9384,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFilterLength
 specifier|public
 name|void
@@ -9712,8 +9666,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testFilterTermFreq
 specifier|public
 name|void
@@ -10015,8 +9967,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testFilterDocFreq
 specifier|public
 name|void

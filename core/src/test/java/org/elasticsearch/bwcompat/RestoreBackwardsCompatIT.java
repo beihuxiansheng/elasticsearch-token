@@ -240,16 +240,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -416,7 +406,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -550,12 +576,10 @@ throw|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|restoreOldSnapshots
+DECL|method|testRestoreOldSnapshots
 specifier|public
 name|void
-name|restoreOldSnapshots
+name|testRestoreOldSnapshots
 parameter_list|()
 throws|throws
 name|Exception
@@ -808,8 +832,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRestoreUnsupportedSnapshots
 specifier|public
 name|void

@@ -16,262 +16,589 @@ name|aggregations
 package|;
 end_package
 
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|generators
-operator|.
-name|RandomStrings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchPhaseExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|json
-operator|.
-name|JsonXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|SecureRandom
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Matcher
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
-begin_class
-DECL|class|ParsingIT
-specifier|public
-class|class
-name|ParsingIT
-extends|extends
-name|ESIntegTestCase
-block|{
+begin_comment
 comment|// NORELEASE move these tests to unit tests when aggs refactoring is done
+end_comment
+
+begin_comment
 comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
 comment|//    public void testTwoTypes() throws Exception {
+end_comment
+
+begin_comment
 comment|//        createIndex("idx");
+end_comment
+
+begin_comment
 comment|//        ensureGreen();
+end_comment
+
+begin_comment
 comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
 comment|//            .startObject()
+end_comment
+
+begin_comment
 comment|//                .startObject("in_stock")
+end_comment
+
+begin_comment
 comment|//                    .startObject("filter")
+end_comment
+
+begin_comment
 comment|//                        .startObject("range")
+end_comment
+
+begin_comment
 comment|//                            .startObject("stock")
+end_comment
+
+begin_comment
 comment|//                                .field("gt", 0)
+end_comment
+
+begin_comment
 comment|//                            .endObject()
+end_comment
+
+begin_comment
 comment|//                        .endObject()
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//                    .startObject("terms")
+end_comment
+
+begin_comment
 comment|//                        .field("field", "stock")
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//                .endObject()
+end_comment
+
+begin_comment
 comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
 comment|//    }
+end_comment
+
+begin_comment
 comment|//
+end_comment
+
+begin_comment
 comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
 comment|//    public void testTwoAggs() throws Exception {
+end_comment
+
+begin_comment
 comment|//        createIndex("idx");
+end_comment
+
+begin_comment
 comment|//        ensureGreen();
+end_comment
+
+begin_comment
 comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
 comment|//            .startObject()
+end_comment
+
+begin_comment
 comment|//                .startObject("by_date")
+end_comment
+
+begin_comment
 comment|//                    .startObject("date_histogram")
+end_comment
+
+begin_comment
 comment|//                        .field("field", "timestamp")
+end_comment
+
+begin_comment
 comment|//                        .field("interval", "month")
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//                    .startObject("aggs")
+end_comment
+
+begin_comment
 comment|//                        .startObject("tag_count")
+end_comment
+
+begin_comment
 comment|//                            .startObject("cardinality")
+end_comment
+
+begin_comment
 comment|//                                .field("field", "tag")
+end_comment
+
+begin_comment
 comment|//                            .endObject()
+end_comment
+
+begin_comment
 comment|//                        .endObject()
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//                    .startObject("aggs") // 2nd "aggs": illegal
+end_comment
+
+begin_comment
 comment|//                        .startObject("tag_count2")
+end_comment
+
+begin_comment
 comment|//                            .startObject("cardinality")
+end_comment
+
+begin_comment
 comment|//                                .field("field", "tag")
+end_comment
+
+begin_comment
 comment|//                            .endObject()
+end_comment
+
+begin_comment
 comment|//                        .endObject()
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
 comment|//    }
+end_comment
+
+begin_comment
 comment|//
+end_comment
+
+begin_comment
 comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
 comment|//    public void testInvalidAggregationName() throws Exception {
+end_comment
+
+begin_comment
 comment|//
+end_comment
+
+begin_comment
 comment|//        Matcher matcher = Pattern.compile("[^\\[\\]>]+").matcher("");
+end_comment
+
+begin_comment
 comment|//        String name;
+end_comment
+
+begin_comment
 comment|//        SecureRandom rand = new SecureRandom();
+end_comment
+
+begin_comment
 comment|//        int len = randomIntBetween(1, 5);
+end_comment
+
+begin_comment
 comment|//        char[] word = new char[len];
+end_comment
+
+begin_comment
 comment|//        while(true) {
+end_comment
+
+begin_comment
 comment|//            for (int i = 0; i< word.length; i++) {
+end_comment
+
+begin_comment
 comment|//                word[i] = (char) rand.nextInt(127);
+end_comment
+
+begin_comment
 comment|//            }
+end_comment
+
+begin_comment
 comment|//            name = String.valueOf(word);
+end_comment
+
+begin_comment
 comment|//            if (!matcher.reset(name).matches()) {
+end_comment
+
+begin_comment
 comment|//                break;
+end_comment
+
+begin_comment
 comment|//            }
+end_comment
+
+begin_comment
 comment|//        }
+end_comment
+
+begin_comment
 comment|//
+end_comment
+
+begin_comment
 comment|//        createIndex("idx");
+end_comment
+
+begin_comment
 comment|//        ensureGreen();
+end_comment
+
+begin_comment
 comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
 comment|//            .startObject()
+end_comment
+
+begin_comment
 comment|//                .startObject(name)
+end_comment
+
+begin_comment
 comment|//                    .startObject("filter")
+end_comment
+
+begin_comment
 comment|//                        .startObject("range")
+end_comment
+
+begin_comment
 comment|//                            .startObject("stock")
+end_comment
+
+begin_comment
 comment|//                                .field("gt", 0)
+end_comment
+
+begin_comment
 comment|//                            .endObject()
+end_comment
+
+begin_comment
 comment|//                        .endObject()
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
 comment|//    }
+end_comment
+
+begin_comment
 comment|//
+end_comment
+
+begin_comment
 comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
 comment|//    public void testSameAggregationName() throws Exception {
+end_comment
+
+begin_comment
 comment|//        createIndex("idx");
+end_comment
+
+begin_comment
 comment|//        ensureGreen();
+end_comment
+
+begin_comment
 comment|//        final String name = RandomStrings.randomAsciiOfLength(getRandom(), 10);
+end_comment
+
+begin_comment
 comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
 comment|//            .startObject()
+end_comment
+
+begin_comment
 comment|//                .startObject(name)
+end_comment
+
+begin_comment
 comment|//                    .startObject("terms")
+end_comment
+
+begin_comment
 comment|//                        .field("field", "a")
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//                .endObject()
+end_comment
+
+begin_comment
 comment|//                .startObject(name)
+end_comment
+
+begin_comment
 comment|//                    .startObject("terms")
+end_comment
+
+begin_comment
 comment|//                        .field("field", "b")
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//                .endObject()
+end_comment
+
+begin_comment
 comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
 comment|//    }
+end_comment
+
+begin_comment
 comment|//
+end_comment
+
+begin_comment
 comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
 comment|//    public void testMissingName() throws Exception {
+end_comment
+
+begin_comment
 comment|//        createIndex("idx");
+end_comment
+
+begin_comment
 comment|//        ensureGreen();
+end_comment
+
+begin_comment
 comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
 comment|//            .startObject()
+end_comment
+
+begin_comment
 comment|//                .startObject("by_date")
+end_comment
+
+begin_comment
 comment|//                    .startObject("date_histogram")
+end_comment
+
+begin_comment
 comment|//                        .field("field", "timestamp")
+end_comment
+
+begin_comment
 comment|//                        .field("interval", "month")
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//                    .startObject("aggs")
+end_comment
+
+begin_comment
 comment|//                        // the aggregation name is missing
+end_comment
+
+begin_comment
 comment|//                        //.startObject("tag_count")
+end_comment
+
+begin_comment
 comment|//                            .startObject("cardinality")
+end_comment
+
+begin_comment
 comment|//                                .field("field", "tag")
+end_comment
+
+begin_comment
 comment|//                            .endObject()
+end_comment
+
+begin_comment
 comment|//                        //.endObject()
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
 comment|//    }
+end_comment
+
+begin_comment
 comment|//
+end_comment
+
+begin_comment
 comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
 comment|//    public void testMissingType() throws Exception {
+end_comment
+
+begin_comment
 comment|//        createIndex("idx");
+end_comment
+
+begin_comment
 comment|//        ensureGreen();
+end_comment
+
+begin_comment
 comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
 comment|//            .startObject()
+end_comment
+
+begin_comment
 comment|//                .startObject("by_date")
+end_comment
+
+begin_comment
 comment|//                    .startObject("date_histogram")
+end_comment
+
+begin_comment
 comment|//                        .field("field", "timestamp")
+end_comment
+
+begin_comment
 comment|//                        .field("interval", "month")
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//                    .startObject("aggs")
+end_comment
+
+begin_comment
 comment|//                        .startObject("tag_count")
+end_comment
+
+begin_comment
 comment|//                            // the aggregation type is missing
+end_comment
+
+begin_comment
 comment|//                            //.startObject("cardinality")
+end_comment
+
+begin_comment
 comment|//                                .field("field", "tag")
+end_comment
+
+begin_comment
 comment|//                            //.endObject()
+end_comment
+
+begin_comment
 comment|//                        .endObject()
+end_comment
+
+begin_comment
 comment|//                    .endObject()
+end_comment
+
+begin_comment
 comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
 comment|//    }
-block|}
-end_class
+end_comment
 
 end_unit
 

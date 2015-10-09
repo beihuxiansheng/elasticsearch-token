@@ -153,16 +153,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -211,8 +201,6 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testCompressDisabled
 specifier|public
 name|void
@@ -357,8 +345,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCompressEnabled
 specifier|public
 name|void
@@ -503,8 +489,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCompressThreshold
 specifier|public
 name|void

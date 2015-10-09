@@ -71,12 +71,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|Matchers
+operator|.
+name|hasKey
 import|;
 end_import
 
@@ -88,7 +90,19 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -144,8 +158,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCorsSettingDefaultBehaviourDoesNotReturnAnything
 specifier|public
 name|void
@@ -238,8 +250,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatOmittingCorsHeaderDoesNotReturnAnything
 specifier|public
 name|void

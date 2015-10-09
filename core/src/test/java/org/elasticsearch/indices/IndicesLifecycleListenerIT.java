@@ -290,16 +290,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -593,8 +583,6 @@ name|IndicesLifecycleListenerIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testBeforeIndexAddedToCluster
 specifier|public
 name|void
@@ -937,8 +925,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Tests that if an *index* structure creation fails on relocation to a new node, the shard      * is not stuck but properly failed.      */
-annotation|@
-name|Test
 DECL|method|testIndexShardFailedOnRelocation
 specifier|public
 name|void
@@ -1162,8 +1148,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexStateShardChanged
 specifier|public
 name|void

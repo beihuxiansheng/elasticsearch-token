@@ -502,16 +502,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -729,8 +719,6 @@ return|return
 literal|0
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUnassignedShardAndEmptyNodesInRoutingTable
 specifier|public
 name|void
@@ -882,8 +870,6 @@ name|routingAllocation
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|TestLogging
 argument_list|(
@@ -1355,12 +1341,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Test
-annotation|@
 name|TestLogging
 argument_list|(
-name|value
-operator|=
 literal|"cluster.service:TRACE"
 argument_list|)
 DECL|method|testDeleteCreateInOneBulk

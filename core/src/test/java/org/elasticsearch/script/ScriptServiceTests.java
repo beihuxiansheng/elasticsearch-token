@@ -168,16 +168,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -784,8 +774,6 @@ block|}
 block|}
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNotSupportedDisableDynamicSetting
 specifier|public
 name|void
@@ -855,8 +843,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testScriptsWithoutExtensions
 specifier|public
 name|void
@@ -1091,8 +1077,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testInlineScriptCompiledOnceCache
 specifier|public
 name|void
@@ -1190,8 +1174,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testInlineScriptCompiledOnceMultipleLangAcronyms
 specifier|public
 name|void
@@ -1289,8 +1271,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFileScriptCompiledOnceMultipleLangAcronyms
 specifier|public
 name|void
@@ -1393,8 +1373,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDefaultBehaviourFineGrainedSettings
 specifier|public
 name|void
@@ -1603,8 +1581,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testFineGrainedSettings
 specifier|public
 name|void
@@ -2560,8 +2536,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCompileNonRegisteredContext
 specifier|public
 name|void
@@ -2728,8 +2702,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCompileCountedInCompilationStats
 specifier|public
 name|void
@@ -2792,8 +2764,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExecutableCountedInCompilationStats
 specifier|public
 name|void
@@ -2856,8 +2826,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchCountedInCompilationStats
 specifier|public
 name|void
@@ -2913,8 +2881,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultipleCompilationsCountedInCompilationStats
 specifier|public
 name|void
@@ -3007,8 +2973,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCompilationStatsOnCacheHit
 specifier|public
 name|void
@@ -3119,8 +3083,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFileScriptCountedInCompilationStats
 specifier|public
 name|void
@@ -3188,8 +3150,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexedScriptCountedInCompilationStats
 specifier|public
 name|void
@@ -3252,8 +3212,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCacheEvictionCountedInCacheEvictionsStats
 specifier|public
 name|void

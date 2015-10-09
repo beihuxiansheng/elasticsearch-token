@@ -138,16 +138,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -178,7 +168,39 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|constantScoreQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|geoDistanceQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchQuery
 import|;
 end_import
 
@@ -206,7 +228,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -222,8 +280,6 @@ name|MultiFieldsIntegrationIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testMultiFields
 specifier|public
 name|void
@@ -781,8 +837,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeoPointMultiField
 specifier|public
 name|void
@@ -1153,8 +1207,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTokenCountMultiField
 specifier|public
 name|void
@@ -1526,8 +1578,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCompletionMultiField
 specifier|public
 name|void
@@ -1825,8 +1875,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIpMultiField
 specifier|public
 name|void

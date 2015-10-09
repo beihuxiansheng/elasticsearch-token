@@ -294,6 +294,22 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|State
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|routing
 operator|.
 name|RoutingNode
@@ -416,9 +432,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|ClusterScope
 import|;
 end_import
 
@@ -456,7 +476,23 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|*
+name|SETTING_NUMBER_OF_REPLICAS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
 import|;
 end_import
 
@@ -484,20 +520,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -514,7 +536,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -575,8 +621,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdateSettingsAcknowledgement
 specifier|public
 name|void
@@ -669,8 +713,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdateSettingsNoAcknowledgement
 specifier|public
 name|void
@@ -740,8 +782,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPutWarmerAcknowledgement
 specifier|public
 name|void
@@ -928,8 +968,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testPutWarmerNoAcknowledgement
 specifier|public
 name|void
@@ -1109,8 +1147,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDeleteWarmerAcknowledgement
 specifier|public
 name|void
@@ -1250,8 +1286,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDeleteWarmerNoAcknowledgement
 specifier|public
 name|void
@@ -1424,8 +1458,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterRerouteAcknowledgement
 specifier|public
 name|void
@@ -1660,8 +1692,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterRerouteNoAcknowledgement
 specifier|public
 name|void
@@ -1767,8 +1797,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterRerouteAcknowledgementDryRun
 specifier|public
 name|void
@@ -2008,8 +2036,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterRerouteNoAcknowledgementDryRun
 specifier|public
 name|void
@@ -2292,8 +2318,6 @@ name|toNodeId
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndicesAliasesAcknowledgement
 specifier|public
 name|void
@@ -2399,8 +2423,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIndicesAliasesNoAcknowledgement
 specifier|public
 name|void
@@ -2532,8 +2554,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCloseIndexNoAcknowledgement
 specifier|public
 name|void
@@ -2587,8 +2607,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOpenIndexAcknowledgement
 specifier|public
 name|void
@@ -2682,8 +2700,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testPutMappingAcknowledgement
 specifier|public
 name|void
@@ -2765,8 +2781,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testPutMappingNoAcknowledgement
 specifier|public
 name|void
@@ -2832,8 +2846,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreateIndexAcknowledgement
 specifier|public
 name|void
@@ -2885,8 +2897,6 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreateIndexNoAcknowledgement
 specifier|public
 name|void

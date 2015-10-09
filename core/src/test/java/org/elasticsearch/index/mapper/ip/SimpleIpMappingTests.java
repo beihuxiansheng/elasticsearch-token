@@ -101,16 +101,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -198,8 +188,6 @@ name|SimpleIpMappingTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimpleMapping
 specifier|public
 name|void
@@ -353,8 +341,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatValidIpCanBeConvertedToLong
 specifier|public
 name|void
@@ -379,8 +365,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatInvalidIpThrowsException
 specifier|public
 name|void
@@ -425,8 +409,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatIpv6AddressThrowsException
 specifier|public
 name|void
@@ -471,8 +453,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIgnoreMalformedOption
 specifier|public
 name|void

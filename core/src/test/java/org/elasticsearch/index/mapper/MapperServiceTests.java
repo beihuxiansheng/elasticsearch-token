@@ -72,16 +72,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|rules
 operator|.
 name|ExpectedException
@@ -148,18 +138,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|hasToString
@@ -186,8 +164,6 @@ operator|.
 name|none
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testTypeNameStartsWithIllegalDot
 specifier|public
 name|void
@@ -261,8 +237,6 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatLongTypeNameIsNotRejectedOnPreElasticsearchVersionTwo
 specifier|public
 name|void
@@ -359,8 +333,6 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTypeNameTooLong
 specifier|public
 name|void

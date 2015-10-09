@@ -105,16 +105,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -154,8 +144,6 @@ name|SearchWhileCreatingIndexIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testIndexCausesIndexCreation
 specifier|public
 name|void
@@ -173,8 +161,6 @@ argument_list|)
 expr_stmt|;
 comment|// 1 replica in our default...
 block|}
-annotation|@
-name|Test
 DECL|method|testNoReplicas
 specifier|public
 name|void
@@ -191,8 +177,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOneReplica
 specifier|public
 name|void
@@ -209,8 +193,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTwoReplicas
 specifier|public
 name|void

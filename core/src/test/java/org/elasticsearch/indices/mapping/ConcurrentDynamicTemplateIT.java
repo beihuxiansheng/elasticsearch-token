@@ -70,16 +70,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -129,22 +119,6 @@ operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentFactory
-operator|.
-name|jsonBuilder
 import|;
 end_import
 
@@ -218,8 +192,6 @@ name|mappingType
 init|=
 literal|"test-mapping"
 decl_stmt|;
-annotation|@
-name|Test
 comment|// see #3544
 DECL|method|testConcurrentDynamicMapping
 specifier|public

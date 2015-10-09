@@ -460,16 +460,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1319,8 +1309,6 @@ literal|1
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOmitNormsOnAll
 specifier|public
 name|void
@@ -1740,8 +1728,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #3952
 DECL|method|testEmptyQueryString
 specifier|public
@@ -1868,8 +1854,6 @@ argument_list|)
 expr_stmt|;
 comment|// return no docs
 block|}
-annotation|@
-name|Test
 comment|// see https://github.com/elasticsearch/elasticsearch/issues/3177
 DECL|method|testIssue3177
 specifier|public
@@ -2149,8 +2133,6 @@ literal|2l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexOptions
 specifier|public
 name|void
@@ -2309,8 +2291,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #3521
 DECL|method|testConstantScoreQuery
 specifier|public
@@ -2998,8 +2978,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 comment|// see #3521
 DECL|method|testAllDocsQueryString
 specifier|public
@@ -3223,8 +3201,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQueryOnAllField
 specifier|public
 name|void
@@ -3405,8 +3381,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQuery
 specifier|public
 name|void
@@ -4262,8 +4236,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQueryStackedTokens
 specifier|public
 name|void
@@ -5212,8 +5184,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOmitTermFreqsAndPositions
 specifier|public
 name|void
@@ -5538,12 +5508,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|queryStringAnalyzedWildcard
+DECL|method|testQueryStringAnalyzedWildcard
 specifier|public
 name|void
-name|queryStringAnalyzedWildcard
+name|testQueryStringAnalyzedWildcard
 parameter_list|()
 throws|throws
 name|Exception
@@ -5739,8 +5707,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLowercaseExpandedTerms
 specifier|public
 name|void
@@ -5959,9 +5925,7 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|//https://github.com/elasticsearch/elasticsearch/issues/3540
+comment|// Issue #3540
 DECL|method|testDateRangeInQueryString
 specifier|public
 name|void
@@ -6192,9 +6156,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/7880
+comment|// Issue #7880
 DECL|method|testDateRangeInQueryStringWithTimeZone_7880
 specifier|public
 name|void
@@ -6318,9 +6280,7 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/10477
+comment|// Issue #10477
 DECL|method|testDateRangeInQueryStringWithTimeZone_10477
 specifier|public
 name|void
@@ -6513,12 +6473,10 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|typeFilterTypeIndexedTests
+DECL|method|testTypeFilterTypeIndexedTests
 specifier|public
 name|void
-name|typeFilterTypeIndexedTests
+name|testTypeFilterTypeIndexedTests
 parameter_list|()
 throws|throws
 name|Exception
@@ -6529,12 +6487,10 @@ literal|"not_analyzed"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|typeFilterTypeNotIndexedTests
+DECL|method|testTypeFilterTypeNotIndexedTests
 specifier|public
 name|void
-name|typeFilterTypeNotIndexedTests
+name|testTypeFilterTypeNotIndexedTests
 parameter_list|()
 throws|throws
 name|Exception
@@ -6894,12 +6850,10 @@ literal|5l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|idsQueryTestsIdIndexed
+DECL|method|testIdsQueryTestsIdIndexed
 specifier|public
 name|void
-name|idsQueryTestsIdIndexed
+name|testIdsQueryTestsIdIndexed
 parameter_list|()
 throws|throws
 name|Exception
@@ -6910,12 +6864,10 @@ literal|"not_analyzed"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|idsQueryTestsIdNotIndexed
+DECL|method|testIdsQueryTestsIdNotIndexed
 specifier|public
 name|void
-name|idsQueryTestsIdNotIndexed
+name|testIdsQueryTestsIdNotIndexed
 parameter_list|()
 throws|throws
 name|Exception
@@ -7337,42 +7289,38 @@ literal|"3"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|term_indexQueryTestsIndexed
+DECL|method|testTermIndexQueryIndexed
 specifier|public
 name|void
-name|term_indexQueryTestsIndexed
+name|testTermIndexQueryIndexed
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|term_indexQueryTests
+name|termIndexQueryTests
 argument_list|(
 literal|"not_analyzed"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|term_indexQueryTestsNotIndexed
+DECL|method|testTermIndexQueryNotIndexed
 specifier|public
 name|void
-name|term_indexQueryTestsNotIndexed
+name|testTermIndexQueryNotIndexed
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|term_indexQueryTests
+name|termIndexQueryTests
 argument_list|(
 literal|"no"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|term_indexQueryTests
+DECL|method|termIndexQueryTests
 specifier|private
 name|void
-name|term_indexQueryTests
+name|termIndexQueryTests
 parameter_list|(
 name|String
 name|index
@@ -7727,12 +7675,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|filterExistsMissingTests
+DECL|method|testFilterExistsMissing
 specifier|public
 name|void
-name|filterExistsMissingTests
+name|testFilterExistsMissing
 parameter_list|()
 throws|throws
 name|Exception
@@ -8434,12 +8380,10 @@ literal|"4"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|passQueryOrFilterAsJSONStringTest
+DECL|method|testPassQueryOrFilterAsJSONString
 specifier|public
 name|void
-name|passQueryOrFilterAsJSONStringTest
+name|testPassQueryOrFilterAsJSONString
 parameter_list|()
 throws|throws
 name|Exception
@@ -8577,8 +8521,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFiltersWithCustomCacheKey
 specifier|public
 name|void
@@ -8751,8 +8693,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMatchQueryNumeric
 specifier|public
 name|void
@@ -8969,8 +8909,6 @@ block|{
 comment|// number format exception
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiMatchQuery
 specifier|public
 name|void
@@ -9485,8 +9423,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMatchQueryZeroTermsQuery
 specifier|public
 name|void
@@ -10016,8 +9952,6 @@ literal|2l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiMatchQueryMinShouldMatch
 specifier|public
 name|void
@@ -10372,8 +10306,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFuzzyQueryString
 specifier|public
 name|void
@@ -10563,8 +10495,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQuotedQueryStringWithBoost
 specifier|public
 name|void
@@ -10847,8 +10777,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSpecialRangeSyntaxInQueryString
 specifier|public
 name|void
@@ -11127,8 +11055,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEmptytermsQuery
 specifier|public
 name|void
@@ -11300,8 +11226,6 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTermsQuery
 specifier|public
 name|void
@@ -11967,8 +11891,6 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTermsLookupFilter
 specifier|public
 name|void
@@ -12905,8 +12827,6 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBasicQueryById
 specifier|public
 name|void
@@ -13279,8 +13199,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNumericTermsAndRanges
 specifier|public
 name|void
@@ -14543,8 +14461,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNumericRangeFilter_2826
 specifier|public
 name|void
@@ -14897,8 +14813,6 @@ literal|2l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #2926
 DECL|method|testMustNot
 specifier|public
@@ -15099,8 +15013,6 @@ literal|2l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #2994
 DECL|method|testSimpleSpan
 specifier|public
@@ -15280,8 +15192,6 @@ literal|3l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSpanMultiTermQuery
 specifier|public
 name|void
@@ -15597,8 +15507,6 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSpanNot
 specifier|public
 name|void
@@ -15857,8 +15765,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleDFSQuery
 specifier|public
 name|void
@@ -16289,8 +16195,6 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiFieldQueryString
 specifier|public
 name|void
@@ -16655,8 +16559,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// see #3881 - for extensive description of the issue
-annotation|@
-name|Test
 DECL|method|testMatchQueryWithSynonyms
 specifier|public
 name|void
@@ -16994,8 +16896,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMatchQueryWithStackedStems
 specifier|public
 name|void
@@ -17226,8 +17126,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryStringWithSynonyms
 specifier|public
 name|void
@@ -17578,9 +17476,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// see https://github.com/elasticsearch/elasticsearch/issues/3898
+comment|// see #3898
 DECL|method|testCustomWordDelimiterQueryString
 specifier|public
 name|void
@@ -17745,9 +17641,7 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// see https://github.com/elasticsearch/elasticsearch/issues/3797
+comment|// see #3797
 DECL|method|testMultiMatchLenientIssue3797
 specifier|public
 name|void
@@ -17924,8 +17818,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAllFieldEmptyMapping
 specifier|public
 name|void
@@ -17992,8 +17884,6 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAllDisabledButQueried
 specifier|public
 name|void
@@ -18122,8 +18012,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndicesQuery
 specifier|public
 name|void
@@ -18442,9 +18330,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/2416
+comment|// See #2416
 DECL|method|testIndicesQuerySkipParsing
 specifier|public
 name|void
@@ -18732,8 +18618,6 @@ literal|"2"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndicesQueryMissingIndices
 specifier|public
 name|void
@@ -19281,8 +19165,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMinScore
 specifier|public
 name|void
@@ -19454,8 +19336,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryStringWithSlopAndFields
 specifier|public
 name|void
@@ -19725,8 +19605,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDateProvidedAsNumber
 specifier|public
 name|void
@@ -19910,8 +19788,6 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRangeQueryWithTimeZone
 specifier|public
 name|void
@@ -20868,8 +20744,6 @@ block|{
 comment|// We expect it
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchEmptyDoc
 specifier|public
 name|void
@@ -20933,8 +20807,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #5120
 DECL|method|testNGramCopyField
 specifier|public
@@ -21445,8 +21317,6 @@ literal|"2"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryStringParserCache
 specifier|public
 name|void

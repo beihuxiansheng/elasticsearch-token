@@ -127,12 +127,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -294,15 +296,6 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalStateException
-operator|.
-name|class
-argument_list|)
 DECL|method|testInvalidFieldDataField
 specifier|public
 name|void
@@ -392,6 +385,8 @@ operator|new
 name|TestSearchContext
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|parseElement
 operator|.
 name|parse
@@ -401,6 +396,32 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalStateException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Expected either a VALUE_STRING or an START_ARRAY but got "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
