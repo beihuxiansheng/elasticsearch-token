@@ -105,6 +105,9 @@ class|class
 name|ScriptedMetricBuilder
 extends|extends
 name|MetricsAggregationBuilder
+argument_list|<
+name|ScriptedMetricBuilder
+argument_list|>
 block|{
 DECL|field|initScript
 specifier|private
