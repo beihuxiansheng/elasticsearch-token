@@ -166,12 +166,12 @@ name|IngestPlugin
 extends|extends
 name|Plugin
 block|{
-DECL|field|INGEST_PAREM_CONTEXT_KEY
+DECL|field|INGEST_PARAM_CONTEXT_KEY
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|INGEST_PAREM_CONTEXT_KEY
+name|INGEST_PARAM_CONTEXT_KEY
 init|=
 literal|"__ingest__"
 decl_stmt|;

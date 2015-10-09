@@ -72,7 +72,7 @@ name|ingest
 operator|.
 name|IngestPlugin
 operator|.
-name|INGEST_PAREM_CONTEXT_KEY
+name|INGEST_PARAM_CONTEXT_KEY
 import|;
 end_import
 
@@ -125,7 +125,7 @@ name|request
 operator|.
 name|putInContext
 argument_list|(
-name|INGEST_PAREM_CONTEXT_KEY
+name|INGEST_PARAM_CONTEXT_KEY
 argument_list|,
 name|request
 operator|.

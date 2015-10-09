@@ -573,7 +573,7 @@ name|putInContext
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PAREM_CONTEXT_KEY
+name|INGEST_PARAM_CONTEXT_KEY
 argument_list|,
 literal|"_id"
 argument_list|)
