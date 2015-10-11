@@ -1330,9 +1330,6 @@ name|aliasFilter
 operator|=
 name|indexService
 operator|.
-name|aliasesService
-argument_list|()
-operator|.
 name|aliasFilter
 argument_list|(
 name|request

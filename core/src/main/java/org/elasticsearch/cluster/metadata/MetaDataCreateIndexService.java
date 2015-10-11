@@ -2747,25 +2747,34 @@ name|build
 argument_list|()
 decl_stmt|;
 comment|// Set up everything, now locally create the index to see that things are ok, and apply
-comment|// create the index here (on the master) to validate it can be created, as well as adding the mapping
-name|indicesService
+specifier|final
+name|IndexMetaData
+name|tmpImd
+init|=
+name|IndexMetaData
 operator|.
-name|createIndex
+name|builder
 argument_list|(
 name|request
 operator|.
 name|index
 argument_list|()
-argument_list|,
+argument_list|)
+operator|.
+name|settings
+argument_list|(
 name|actualIndexSettings
-argument_list|,
-name|clusterService
+argument_list|)
 operator|.
-name|localNode
+name|build
 argument_list|()
+decl_stmt|;
+comment|// create the index here (on the master) to validate it can be created, as well as adding the mapping
+name|indicesService
 operator|.
-name|id
-argument_list|()
+name|createIndex
+argument_list|(
+name|tmpImd
 argument_list|)
 expr_stmt|;
 name|indexCreated

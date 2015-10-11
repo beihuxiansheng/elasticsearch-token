@@ -1689,9 +1689,6 @@ name|aliasFilter
 init|=
 name|percolateIndexService
 operator|.
-name|aliasesService
-argument_list|()
-operator|.
 name|aliasFilter
 argument_list|(
 name|filteringAliases
