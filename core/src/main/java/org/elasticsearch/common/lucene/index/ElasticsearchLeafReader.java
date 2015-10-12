@@ -173,6 +173,63 @@ name|getCombinedCoreAndDeletesKey
 argument_list|()
 return|;
 block|}
+DECL|method|getElasticsearchLeafReader
+specifier|public
+specifier|static
+name|ElasticsearchLeafReader
+name|getElasticsearchLeafReader
+parameter_list|(
+name|LeafReader
+name|reader
+parameter_list|)
+block|{
+if|if
+condition|(
+name|reader
+operator|instanceof
+name|FilterLeafReader
+condition|)
+block|{
+if|if
+condition|(
+name|reader
+operator|instanceof
+name|ElasticsearchLeafReader
+condition|)
+block|{
+return|return
+operator|(
+name|ElasticsearchLeafReader
+operator|)
+name|reader
+return|;
+block|}
+else|else
+block|{
+comment|// We need to use FilterLeafReader#getDelegate and not FilterLeafReader#unwrap, because
+comment|// If there are multiple levels of filtered leaf readers then with the unwrap() method it immediately
+comment|// returns the most inner leaf reader and thus skipping of over any other filtered leaf reader that
+comment|// may be instance of ElasticsearchLeafReader. This can cause us to miss the shardId.
+return|return
+name|getElasticsearchLeafReader
+argument_list|(
+operator|(
+operator|(
+name|FilterLeafReader
+operator|)
+name|reader
+operator|)
+operator|.
+name|getDelegate
+argument_list|()
+argument_list|)
+return|;
+block|}
+block|}
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 
