@@ -1225,21 +1225,6 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/** @deprecated This was removed, but we keep this API so translog can replay any DBQs on upgrade. */
-annotation|@
-name|Deprecated
-DECL|method|delete
-specifier|public
-specifier|abstract
-name|void
-name|delete
-parameter_list|(
-name|DeleteByQuery
-name|delete
-parameter_list|)
-throws|throws
-name|EngineException
-function_decl|;
 comment|/**      * Attempts to do a special commit where the given syncID is put into the commit data. The attempt      * succeeds if there are not pending writes in lucene and the current point is equal to the expected one.      *      * @param syncId           id of this sync      * @param expectedCommitId the expected value of      * @return true if the sync commit was made, false o.w.      */
 DECL|method|syncFlush
 specifier|public

@@ -1971,7 +1971,7 @@ name|onOrBefore
 argument_list|(
 name|Version
 operator|.
-name|V_0_20_6
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 continue|continue;
@@ -2371,7 +2371,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"was created before v0.90.0 and wasn't upgraded"
+literal|"was created before v2.0.0.beta1 and wasn't upgraded"
 argument_list|)
 argument_list|)
 expr_stmt|;

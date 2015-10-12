@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -248,6 +234,30 @@ name|Collectors
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * An internal implementation of {@link Aggregations}.  */
 end_comment
@@ -294,7 +304,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|InternalAggregation
+name|Aggregation
 argument_list|>
 name|aggregationsAsMap
 decl_stmt|;
@@ -441,7 +451,7 @@ name|String
 argument_list|,
 name|InternalAggregation
 argument_list|>
-name|aggregationsAsMap
+name|newAggregationsAsMap
 init|=
 operator|new
 name|HashMap
@@ -456,7 +466,7 @@ range|:
 name|aggregations
 control|)
 block|{
-name|aggregationsAsMap
+name|newAggregationsAsMap
 operator|.
 name|put
 argument_list|(
@@ -473,16 +483,14 @@ name|this
 operator|.
 name|aggregationsAsMap
 operator|=
-name|aggregationsAsMap
+name|unmodifiableMap
+argument_list|(
+name|newAggregationsAsMap
+argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|(
 name|aggregationsAsMap
-argument_list|)
 return|;
 block|}
 comment|/**      * @return the aggregation of the specified name.      */
@@ -1033,9 +1041,7 @@ argument_list|()
 expr_stmt|;
 name|aggregationsAsMap
 operator|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 block|}

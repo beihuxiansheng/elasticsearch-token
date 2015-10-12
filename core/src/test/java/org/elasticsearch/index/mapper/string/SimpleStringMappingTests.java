@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -376,6 +362,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|StringFieldMapper
+operator|.
+name|Builder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESSingleNodeTestCase
@@ -436,19 +440,13 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|index
+name|Collections
 operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|StringFieldMapper
-operator|.
-name|Builder
+name|emptyMap
 import|;
 end_import
 
@@ -460,7 +458,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -964,14 +998,7 @@ name|ToXContent
 operator|.
 name|MapParams
 argument_list|(
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|)
 argument_list|)

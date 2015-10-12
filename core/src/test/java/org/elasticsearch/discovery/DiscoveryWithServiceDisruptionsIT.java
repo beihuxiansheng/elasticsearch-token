@@ -184,7 +184,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|DjbHashFunction
+name|Murmur3HashFunction
 import|;
 end_import
 
@@ -2649,20 +2649,7 @@ expr_stmt|;
 name|int
 name|shard
 init|=
-operator|(
-operator|(
-name|InternalTestCluster
-operator|)
-name|cluster
-argument_list|()
-operator|)
-operator|.
-name|getInstance
-argument_list|(
-name|DjbHashFunction
-operator|.
-name|class
-argument_list|)
+name|Murmur3HashFunction
 operator|.
 name|hash
 argument_list|(

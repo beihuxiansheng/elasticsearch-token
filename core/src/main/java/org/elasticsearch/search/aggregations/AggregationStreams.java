@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -41,20 +27,6 @@ operator|.
 name|bytes
 operator|.
 name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|MapBuilder
 import|;
 end_import
 
@@ -84,6 +56,50 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * A registry for all the dedicated streams in the aggregation module. This is to support dynamic addAggregation that  * know how to stream themselves.  */
 end_comment
@@ -97,7 +113,7 @@ block|{
 DECL|field|streams
 specifier|private
 specifier|static
-name|ImmutableMap
+name|Map
 argument_list|<
 name|BytesReference
 argument_list|,
@@ -105,9 +121,7 @@ name|Stream
 argument_list|>
 name|streams
 init|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 comment|/**      * A stream that knows how to read an aggregation from the input.      */
@@ -144,17 +158,17 @@ modifier|...
 name|types
 parameter_list|)
 block|{
-name|MapBuilder
+name|Map
 argument_list|<
 name|BytesReference
 argument_list|,
 name|Stream
 argument_list|>
-name|uStreams
+name|newStreams
 init|=
-name|MapBuilder
-operator|.
-name|newMapBuilder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|streams
 argument_list|)
@@ -167,7 +181,7 @@ range|:
 name|types
 control|)
 block|{
-name|uStreams
+name|newStreams
 operator|.
 name|put
 argument_list|(
@@ -179,10 +193,10 @@ expr_stmt|;
 block|}
 name|streams
 operator|=
-name|uStreams
-operator|.
-name|immutableMap
-argument_list|()
+name|unmodifiableMap
+argument_list|(
+name|newStreams
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the stream that is registered for the given type      *      * @param   type The given type      * @return  The associated stream      */

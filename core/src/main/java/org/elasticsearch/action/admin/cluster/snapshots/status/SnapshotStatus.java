@@ -24,20 +24,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -204,6 +190,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -235,6 +231,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -272,7 +280,7 @@ name|shards
 decl_stmt|;
 DECL|field|indicesStatus
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -413,9 +421,7 @@ operator|.
 name|indicesStatus
 return|;
 block|}
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -423,9 +429,9 @@ name|SnapshotIndexStatus
 argument_list|>
 name|indicesStatus
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -529,10 +535,10 @@ name|this
 operator|.
 name|indicesStatus
 operator|=
+name|unmodifiableMap
+argument_list|(
 name|indicesStatus
-operator|.
-name|build
-argument_list|()
+argument_list|)
 expr_stmt|;
 return|return
 name|this

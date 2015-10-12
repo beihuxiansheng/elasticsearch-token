@@ -9169,9 +9169,7 @@ name|execute
 argument_list|(
 operator|new
 name|LatchedActionListener
-argument_list|<
-name|RefreshResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|newLatch
 argument_list|(
@@ -9222,9 +9220,7 @@ name|execute
 argument_list|(
 operator|new
 name|LatchedActionListener
-argument_list|<
-name|FlushResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|newLatch
 argument_list|(
@@ -9234,7 +9230,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|isInternalCluster
+argument_list|()
+condition|)
 block|{
 name|internalCluster
 argument_list|()
@@ -9257,9 +9258,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|LatchedActionListener
-argument_list|<
-name|IndicesSyncedFlushResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|newLatch
 argument_list|(
@@ -9321,9 +9320,7 @@ name|execute
 argument_list|(
 operator|new
 name|LatchedActionListener
-argument_list|<
-name|OptimizeResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|newLatch
 argument_list|(

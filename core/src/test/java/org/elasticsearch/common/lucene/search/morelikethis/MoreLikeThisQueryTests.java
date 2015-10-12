@@ -443,12 +443,10 @@ expr_stmt|;
 name|long
 name|count
 init|=
-name|Lucene
+name|searcher
 operator|.
 name|count
 argument_list|(
-name|searcher
-argument_list|,
 name|mltQuery
 argument_list|)
 decl_stmt|;

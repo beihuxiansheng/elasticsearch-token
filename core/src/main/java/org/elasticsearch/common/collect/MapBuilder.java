@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -47,6 +33,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -357,9 +355,10 @@ operator|.
 name|map
 return|;
 block|}
+comment|/**      * Build an immutable copy of the map under construction. Always copies the map under construction. Prefer building      * a HashMap by hand and wrapping it in an unmodifiableMap      */
 DECL|method|immutableMap
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|K
 argument_list|,
@@ -368,12 +367,16 @@ argument_list|>
 name|immutableMap
 parameter_list|()
 block|{
+comment|// TODO: follow the directions in the Javadoc for this method
 return|return
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
+argument_list|(
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|map
+argument_list|)
 argument_list|)
 return|;
 block|}

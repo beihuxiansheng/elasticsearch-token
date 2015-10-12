@@ -4081,36 +4081,7 @@ argument_list|,
 literal|63
 argument_list|)
 block|,
-DECL|enum constant|DELETE_BY_QUERY_FAILED_ENGINE_EXCEPTION
-name|DELETE_BY_QUERY_FAILED_ENGINE_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|DeleteByQueryFailedEngineException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|DeleteByQueryFailedEngineException
-operator|::
-operator|new
-argument_list|,
-literal|64
-argument_list|)
-block|,
+comment|// 64 was DeleteByQueryFailedEngineException, which was removed in 3.0
 DECL|enum constant|GATEWAY_EXCEPTION
 name|GATEWAY_EXCEPTION
 argument_list|(

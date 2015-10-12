@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -680,6 +666,18 @@ name|ReentrantReadWriteLock
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -747,7 +745,7 @@ name|rootObjectMapper
 decl_stmt|;
 DECL|field|meta
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -755,9 +753,7 @@ name|Object
 argument_list|>
 name|meta
 init|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 DECL|field|builderContext
@@ -1122,7 +1118,7 @@ specifier|public
 name|Builder
 name|meta
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1409,7 +1405,7 @@ parameter_list|,
 name|RootObjectMapper
 name|rootObjectMapper
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1805,7 +1801,7 @@ return|;
 block|}
 DECL|method|meta
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

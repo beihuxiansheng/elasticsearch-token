@@ -3016,7 +3016,10 @@ parameter_list|)
 block|{
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|String
+argument_list|>
 name|index
 range|:
 name|state
@@ -3027,7 +3030,7 @@ operator|.
 name|indicesRouting
 argument_list|()
 operator|.
-name|keySet
+name|keys
 argument_list|()
 control|)
 block|{
@@ -3036,6 +3039,8 @@ argument_list|(
 name|state
 argument_list|,
 name|index
+operator|.
+name|value
 argument_list|,
 name|matcher
 argument_list|)
@@ -3101,7 +3106,10 @@ parameter_list|)
 block|{
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|String
+argument_list|>
 name|index
 range|:
 name|state
@@ -3112,7 +3120,7 @@ operator|.
 name|indicesRouting
 argument_list|()
 operator|.
-name|keySet
+name|keys
 argument_list|()
 control|)
 block|{
@@ -3134,6 +3142,8 @@ operator|.
 name|shardsWithState
 argument_list|(
 name|index
+operator|.
+name|value
 argument_list|,
 name|STARTED
 argument_list|)

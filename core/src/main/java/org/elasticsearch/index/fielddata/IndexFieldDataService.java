@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -51,16 +37,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|Version
 import|;
 end_import
 
@@ -344,6 +320,22 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|MappedFieldType
+operator|.
+name|Names
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|MapperService
 import|;
 end_import
@@ -506,17 +498,13 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|index
+name|Collections
 operator|.
-name|mapper
-operator|.
-name|MappedFieldType
-operator|.
-name|Names
+name|unmodifiableMap
 import|;
 end_import
 
@@ -590,7 +578,7 @@ DECL|field|buildersByType
 specifier|private
 specifier|final
 specifier|static
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -604,7 +592,7 @@ DECL|field|docValuesBuildersByType
 specifier|private
 specifier|final
 specifier|static
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -618,7 +606,7 @@ DECL|field|buildersByTypeAndFormat
 specifier|private
 specifier|final
 specifier|static
-name|ImmutableMap
+name|Map
 argument_list|<
 name|Tuple
 argument_list|<
@@ -641,19 +629,22 @@ name|circuitBreakerService
 decl_stmt|;
 static|static
 block|{
-name|buildersByType
-operator|=
-name|MapBuilder
-operator|.
-expr|<
+name|Map
+argument_list|<
 name|String
-operator|,
+argument_list|,
 name|IndexFieldData
 operator|.
 name|Builder
-operator|>
-name|newMapBuilder
+argument_list|>
+name|buildersByTypeBuilder
+init|=
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
+decl_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -665,6 +656,8 @@ operator|.
 name|Builder
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -676,6 +669,8 @@ operator|.
 name|Builder
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -687,6 +682,8 @@ operator|.
 name|Builder
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -707,6 +704,8 @@ operator|.
 name|BYTE
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -727,6 +726,8 @@ operator|.
 name|SHORT
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -747,6 +748,8 @@ operator|.
 name|INT
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -767,6 +770,8 @@ operator|.
 name|LONG
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -778,6 +783,8 @@ operator|.
 name|Builder
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -791,6 +798,8 @@ operator|.
 name|Builder
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -804,6 +813,8 @@ operator|.
 name|Builder
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -815,6 +826,8 @@ operator|.
 name|Builder
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|buildersByTypeBuilder
 operator|.
 name|put
 argument_list|(
@@ -837,9 +850,13 @@ operator|.
 name|BOOLEAN
 argument_list|)
 argument_list|)
-operator|.
-name|immutableMap
-argument_list|()
+expr_stmt|;
+name|buildersByType
+operator|=
+name|unmodifiableMap
+argument_list|(
+name|buildersByTypeBuilder
+argument_list|)
 expr_stmt|;
 name|docValuesBuildersByType
 operator|=

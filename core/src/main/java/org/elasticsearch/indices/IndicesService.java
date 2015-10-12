@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -976,6 +962,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -1130,9 +1140,7 @@ name|IndexServiceInjectorPair
 argument_list|>
 name|indices
 init|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 DECL|class|IndexServiceInjectorPair
@@ -2066,16 +2074,8 @@ specifier|synchronized
 name|IndexService
 name|createIndex
 parameter_list|(
-name|String
-name|sIndexName
-parameter_list|,
-annotation|@
-name|IndexSettings
-name|Settings
-name|settings
-parameter_list|,
-name|String
-name|localNodeId
+name|IndexMetaData
+name|indexMetaData
 parameter_list|)
 block|{
 if|if
@@ -2093,19 +2093,34 @@ name|IllegalStateException
 argument_list|(
 literal|"Can't create an index ["
 operator|+
-name|sIndexName
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 operator|+
 literal|"], node is closed"
 argument_list|)
 throw|;
 block|}
+specifier|final
+name|Settings
+name|settings
+init|=
+name|indexMetaData
+operator|.
+name|getSettings
+argument_list|()
+decl_stmt|;
 name|Index
 name|index
 init|=
 operator|new
 name|Index
 argument_list|(
-name|sIndexName
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -2144,7 +2159,10 @@ name|debug
 argument_list|(
 literal|"creating Index [{}], shards [{}]/[{}{}]"
 argument_list|,
-name|sIndexName
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|,
 name|settings
 operator|.
@@ -2187,7 +2205,10 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|settings
+name|indexMetaData
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -2300,7 +2321,9 @@ name|add
 argument_list|(
 operator|new
 name|IndexModule
-argument_list|()
+argument_list|(
+name|indexMetaData
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|pluginsService
@@ -2495,7 +2518,7 @@ name|String
 argument_list|,
 name|IndexServiceInjectorPair
 argument_list|>
-name|tmpMap
+name|newIndices
 init|=
 operator|new
 name|HashMap
@@ -2507,7 +2530,7 @@ decl_stmt|;
 name|IndexServiceInjectorPair
 name|remove
 init|=
-name|tmpMap
+name|newIndices
 operator|.
 name|remove
 argument_list|(
@@ -2530,11 +2553,9 @@ argument_list|()
 expr_stmt|;
 name|indices
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
-name|tmpMap
+name|newIndices
 argument_list|)
 expr_stmt|;
 block|}

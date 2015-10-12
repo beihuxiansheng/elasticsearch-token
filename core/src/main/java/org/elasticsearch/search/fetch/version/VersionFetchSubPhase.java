@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -190,6 +176,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -202,6 +200,29 @@ name|VersionFetchSubPhase
 implements|implements
 name|FetchSubPhase
 block|{
+DECL|field|PARSE_ELEMENTS
+specifier|private
+specifier|static
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+extends|extends
+name|SearchParseElement
+argument_list|>
+name|PARSE_ELEMENTS
+init|=
+name|singletonMap
+argument_list|(
+literal|"version"
+argument_list|,
+operator|new
+name|VersionParseElement
+argument_list|()
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|parseElements
@@ -218,16 +239,7 @@ name|parseElements
 parameter_list|()
 block|{
 return|return
-name|ImmutableMap
-operator|.
-name|of
-argument_list|(
-literal|"version"
-argument_list|,
-operator|new
-name|VersionParseElement
-argument_list|()
-argument_list|)
+name|PARSE_ELEMENTS
 return|;
 block|}
 annotation|@

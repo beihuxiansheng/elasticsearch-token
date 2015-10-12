@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|lang
@@ -82,6 +68,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -113,6 +109,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -222,7 +230,7 @@ return|return
 name|NULL_RESULT
 return|;
 block|}
-name|ImmutableMap
+name|Map
 argument_list|<
 name|Long
 argument_list|,
@@ -502,7 +510,7 @@ argument_list|>
 argument_list|>
 name|calculateCycleDeadlockChains
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|Long
 argument_list|,
@@ -697,7 +705,7 @@ return|;
 block|}
 DECL|method|createThreadInfoMap
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|Long
 argument_list|,
@@ -721,9 +729,7 @@ argument_list|(
 name|threadIds
 argument_list|)
 decl_stmt|;
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|Long
 argument_list|,
@@ -731,9 +737,9 @@ name|ThreadInfo
 argument_list|>
 name|threadInfoMap
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -758,10 +764,10 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|unmodifiableMap
+argument_list|(
 name|threadInfoMap
-operator|.
-name|build
-argument_list|()
+argument_list|)
 return|;
 block|}
 DECL|class|Deadlock
