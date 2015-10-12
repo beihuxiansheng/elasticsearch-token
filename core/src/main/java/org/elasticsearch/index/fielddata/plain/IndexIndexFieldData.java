@@ -558,17 +558,6 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|clear
-specifier|public
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
-block|{     }
-annotation|@
-name|Override
 DECL|method|load
 specifier|public
 specifier|final
