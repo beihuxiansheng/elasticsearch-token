@@ -446,19 +446,6 @@ comment|// no need to clear, because this is cached and cleared in AbstractBytes
 block|}
 annotation|@
 name|Override
-DECL|method|clear
-specifier|public
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
-block|{
-comment|// no need to clear, because this is cached and cleared in AbstractBytesIndexFieldData
-block|}
-annotation|@
-name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long

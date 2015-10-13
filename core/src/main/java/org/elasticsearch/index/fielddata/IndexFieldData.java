@@ -516,19 +516,10 @@ name|void
 name|clear
 parameter_list|()
 function_decl|;
-DECL|method|clear
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
-function_decl|;
 comment|// we need this extended source we we have custom comparators to reuse our field data
 comment|// in this case, we need to reduce type that will be used when search results are reduced
 comment|// on another node (we don't have the custom source them...)
 DECL|class|XFieldComparatorSource
-specifier|public
 specifier|abstract
 class|class
 name|XFieldComparatorSource

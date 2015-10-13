@@ -179,14 +179,6 @@ name|String
 name|fieldName
 parameter_list|)
 function_decl|;
-DECL|method|clear
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
-function_decl|;
 DECL|interface|Listener
 interface|interface
 name|Listener
@@ -342,17 +334,6 @@ name|clear
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
-DECL|method|clear
-specifier|public
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
 parameter_list|)
 block|{         }
 block|}
