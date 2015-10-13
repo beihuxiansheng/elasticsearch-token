@@ -414,7 +414,7 @@ name|readerContext
 decl_stmt|;
 DECL|field|topLevelReader
 specifier|protected
-name|IndexReader
+name|DirectoryReader
 name|topLevelReader
 decl_stmt|;
 DECL|field|indicesFieldDataCache

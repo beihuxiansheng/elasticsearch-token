@@ -1468,7 +1468,7 @@ operator|.
 name|searcher
 argument_list|()
 operator|.
-name|getIndexReader
+name|getDirectoryReader
 argument_list|()
 argument_list|,
 name|cleanupKey
