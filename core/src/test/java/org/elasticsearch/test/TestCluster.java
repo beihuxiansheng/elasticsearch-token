@@ -380,9 +380,6 @@ argument_list|(
 literal|"_all"
 argument_list|)
 expr_stmt|;
-name|wipeTemplates
-argument_list|()
-expr_stmt|;
 name|wipeAllTemplates
 argument_list|(
 name|excludeTemplates
