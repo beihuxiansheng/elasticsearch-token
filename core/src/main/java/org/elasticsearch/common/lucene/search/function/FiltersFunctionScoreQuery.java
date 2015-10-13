@@ -2038,7 +2038,7 @@ name|totalFactor
 init|=
 literal|0.0f
 decl_stmt|;
-name|float
+name|double
 name|weightSum
 init|=
 literal|0
@@ -2120,7 +2120,8 @@ block|}
 else|else
 block|{
 name|weightSum
-operator|++
+operator|+=
+literal|1.0
 expr_stmt|;
 block|}
 block|}
