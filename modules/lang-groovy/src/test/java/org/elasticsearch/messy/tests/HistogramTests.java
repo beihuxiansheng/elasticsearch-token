@@ -9027,7 +9027,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Missing required field [interval]"
+literal|"[interval] must be 1 or greater for histogram aggregation [histo]"
 argument_list|)
 argument_list|)
 expr_stmt|;

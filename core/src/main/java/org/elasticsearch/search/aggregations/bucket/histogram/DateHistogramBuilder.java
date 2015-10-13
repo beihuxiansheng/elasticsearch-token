@@ -574,9 +574,9 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|DateHistogramParser
+name|ExtendedBounds
 operator|.
-name|EXTENDED_BOUNDS
+name|EXTENDED_BOUNDS_FIELD
 operator|.
 name|getPreferredName
 argument_list|()

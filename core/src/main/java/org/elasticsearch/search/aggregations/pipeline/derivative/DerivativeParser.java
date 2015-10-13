@@ -100,7 +100,7 @@ name|bucket
 operator|.
 name|histogram
 operator|.
-name|DateHistogramParser
+name|HistogramAggregator
 import|;
 end_import
 
@@ -774,7 +774,9 @@ block|{
 name|DateTimeUnit
 name|dateTimeUnit
 init|=
-name|DateHistogramParser
+name|HistogramAggregator
+operator|.
+name|DateHistogramFactory
 operator|.
 name|DATE_FIELD_UNITS
 operator|.
