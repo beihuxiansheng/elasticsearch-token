@@ -256,6 +256,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**      * Adds the given listener to the provided directory reader. The reader must contain an {@link ElasticsearchDirectoryReader} in it's hierarchy      * otherwise we can't safely install the listener.      *      * @throws IllegalArgumentException if the reader doesn't contain an {@link ElasticsearchDirectoryReader} in it's hierarchy      */
 annotation|@
 name|SuppressForbidden
 argument_list|(
@@ -315,12 +316,13 @@ return|return;
 block|}
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 literal|"Can't install close listener reader is not an ElasticsearchDirectoryReader/ElasticsearchLeafReader"
 argument_list|)
 throw|;
 block|}
+comment|/**      * Tries to unwrap the given reader until the first {@link ElasticsearchDirectoryReader} instance is found or<code>null</code> if no instance is found;      */
 DECL|method|getElasticsearchDirectoryReader
 specifier|public
 specifier|static

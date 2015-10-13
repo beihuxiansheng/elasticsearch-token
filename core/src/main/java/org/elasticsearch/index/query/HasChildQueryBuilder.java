@@ -82,6 +82,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -1467,6 +1481,13 @@ name|reader
 argument_list|)
 return|;
 block|}
+if|if
+condition|(
+name|reader
+operator|instanceof
+name|DirectoryReader
+condition|)
+block|{
 name|String
 name|joinField
 init|=
@@ -1542,6 +1563,52 @@ argument_list|,
 name|maxChildren
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|reader
+operator|.
+name|leaves
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|reader
+operator|.
+name|numDocs
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+comment|// asserting reader passes down a MultiReader during rewrite which makes this
+comment|// blow up since for this query to work we have to have a DirectoryReader otherwise
+comment|// we can't load global ordinals - for this to work we simply check if the reader has no leaves
+comment|// and rewrite to match nothing
+return|return
+operator|new
+name|MatchNoDocsQuery
+argument_list|()
+return|;
+block|}
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"can't load global ordinals for reader of type: "
+operator|+
+name|reader
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|" must be a DirectoryReader"
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override

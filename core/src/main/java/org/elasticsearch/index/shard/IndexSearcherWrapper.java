@@ -331,7 +331,11 @@ return|;
 block|}
 else|else
 block|{
-return|return
+name|Engine
+operator|.
+name|Searcher
+name|newSearcher
+init|=
 operator|new
 name|Engine
 operator|.
@@ -389,6 +393,25 @@ expr_stmt|;
 block|}
 block|}
 block|}
+decl_stmt|;
+comment|// TODO should this be a real exception? this checks that our wrapper doesn't wrap in it's own ElasticsearchDirectoryReader
+assert|assert
+name|ElasticsearchDirectoryReader
+operator|.
+name|getElasticsearchDirectoryReader
+argument_list|(
+name|newSearcher
+operator|.
+name|getDirectoryReader
+argument_list|()
+argument_list|)
+operator|==
+name|elasticsearchDirectoryReader
+operator|:
+literal|"Wrapper hides actual ElasticsearchDirectoryReader but shouldn't"
+assert|;
+return|return
+name|newSearcher
 return|;
 block|}
 block|}
