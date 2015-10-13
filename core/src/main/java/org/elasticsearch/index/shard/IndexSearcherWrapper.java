@@ -223,7 +223,7 @@ name|getElasticsearchDirectoryReader
 argument_list|(
 name|engineSearcher
 operator|.
-name|reader
+name|getDirectoryReader
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -249,7 +249,7 @@ name|wrap
 argument_list|(
 name|engineSearcher
 operator|.
-name|reader
+name|getDirectoryReader
 argument_list|()
 argument_list|)
 decl_stmt|;

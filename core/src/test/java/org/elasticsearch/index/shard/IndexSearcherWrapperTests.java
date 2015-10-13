@@ -673,7 +673,7 @@ name|addReaderCloseListener
 argument_list|(
 name|wrap
 operator|.
-name|reader
+name|getDirectoryReader
 argument_list|()
 argument_list|,
 name|reader
@@ -1083,7 +1083,7 @@ name|addReaderCloseListener
 argument_list|(
 name|wrap
 operator|.
-name|reader
+name|getDirectoryReader
 argument_list|()
 argument_list|,
 name|reader

@@ -6874,7 +6874,7 @@ name|loadGlobal
 argument_list|(
 name|context
 operator|.
-name|reader
+name|getDirectoryReader
 argument_list|()
 argument_list|)
 expr_stmt|;
