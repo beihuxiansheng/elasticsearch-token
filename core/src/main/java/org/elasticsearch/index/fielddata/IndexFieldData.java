@@ -1072,8 +1072,6 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|interface|Global
-specifier|public
-specifier|static
 interface|interface
 name|Global
 parameter_list|<
