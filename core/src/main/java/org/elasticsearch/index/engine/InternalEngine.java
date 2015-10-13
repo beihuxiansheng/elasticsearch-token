@@ -5496,6 +5496,9 @@ name|reader
 argument_list|)
 condition|)
 block|{
+comment|// we call newSearcher from the IndexReaderWarmer which warms segments during merging
+comment|// in that case the reader is a LeafReader and all we need to do is to build a new Searcher
+comment|// and return it since it does it's own warming for that particular reader.
 return|return
 name|searcher
 return|;
