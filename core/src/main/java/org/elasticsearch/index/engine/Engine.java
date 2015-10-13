@@ -3104,7 +3104,7 @@ operator|.
 name|getClass
 argument_list|()
 operator|+
-literal|" as an directory reader"
+literal|" as a directory reader"
 argument_list|)
 throw|;
 block|}
