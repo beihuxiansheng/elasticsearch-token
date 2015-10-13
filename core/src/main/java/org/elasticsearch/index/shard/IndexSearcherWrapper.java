@@ -247,9 +247,6 @@ name|reader
 init|=
 name|wrap
 argument_list|(
-operator|(
-name|DirectoryReader
-operator|)
 name|engineSearcher
 operator|.
 name|reader
