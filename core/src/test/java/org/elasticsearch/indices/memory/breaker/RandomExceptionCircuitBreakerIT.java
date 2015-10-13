@@ -632,14 +632,6 @@ argument_list|(
 literal|"fielddata"
 argument_list|)
 operator|.
-name|field
-argument_list|(
-literal|"format"
-argument_list|,
-name|randomNumericFieldDataFormat
-argument_list|()
-argument_list|)
-operator|.
 name|endObject
 argument_list|()
 comment|// fielddata
