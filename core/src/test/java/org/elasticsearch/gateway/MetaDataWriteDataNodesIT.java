@@ -1304,16 +1304,8 @@ name|Exception
 block|{
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|logger
 operator|.
@@ -1341,7 +1333,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1363,16 +1354,8 @@ name|Exception
 block|{
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|logger
 operator|.
@@ -1425,7 +1408,6 @@ argument_list|(
 literal|"could not load meta state"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)
