@@ -26,6 +26,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -1058,8 +1072,6 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|interface|Global
-specifier|public
-specifier|static
 interface|interface
 name|Global
 parameter_list|<
@@ -1080,7 +1092,7 @@ name|FD
 argument_list|>
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 function_decl|;
@@ -1091,7 +1103,7 @@ name|FD
 argument_list|>
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws
