@@ -816,7 +816,7 @@ specifier|public
 name|IndexParentChildFieldData
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 block|{
@@ -1015,7 +1015,7 @@ specifier|public
 name|IndexParentChildFieldData
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws
@@ -1953,7 +1953,7 @@ specifier|public
 name|IndexParentChildFieldData
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 block|{
@@ -1987,7 +1987,7 @@ specifier|public
 name|IndexParentChildFieldData
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws

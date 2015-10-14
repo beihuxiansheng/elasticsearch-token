@@ -408,7 +408,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 block|{
@@ -487,7 +487,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws
