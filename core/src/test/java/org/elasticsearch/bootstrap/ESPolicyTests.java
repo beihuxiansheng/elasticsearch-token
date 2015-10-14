@@ -138,6 +138,16 @@ name|Certificate
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_comment
 comment|/**   * Tests for ESPolicy  *<p>  * Most unit tests won't run under security manager, since we don't allow   * access to the policy (you cannot construct it)  */
 end_comment
@@ -201,6 +211,11 @@ operator|new
 name|ESPolicy
 argument_list|(
 name|allCollection
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// restrict ourselves to NoPermission
@@ -271,6 +286,11 @@ operator|new
 name|ESPolicy
 argument_list|(
 name|noPermissions
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertFalse

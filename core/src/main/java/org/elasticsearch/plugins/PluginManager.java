@@ -537,6 +537,9 @@ name|name
 parameter_list|,
 name|Terminal
 name|terminal
+parameter_list|,
+name|boolean
+name|batch
 parameter_list|)
 throws|throws
 name|IOException
@@ -693,6 +696,8 @@ argument_list|,
 name|terminal
 argument_list|,
 name|pluginFile
+argument_list|,
+name|batch
 argument_list|)
 expr_stmt|;
 block|}
@@ -1300,6 +1305,9 @@ name|terminal
 parameter_list|,
 name|Path
 name|pluginFile
+parameter_list|,
+name|boolean
+name|batch
 parameter_list|)
 throws|throws
 name|IOException
@@ -1450,6 +1458,44 @@ operator|+
 literal|"' command"
 argument_list|)
 throw|;
+block|}
+comment|// read optional security policy (extra permissions)
+comment|// if it exists, confirm or warn the user
+name|Path
+name|policy
+init|=
+name|root
+operator|.
+name|resolve
+argument_list|(
+name|PluginInfo
+operator|.
+name|ES_PLUGIN_POLICY
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|policy
+argument_list|)
+condition|)
+block|{
+name|PluginSecurity
+operator|.
+name|readPolicy
+argument_list|(
+name|policy
+argument_list|,
+name|terminal
+argument_list|,
+name|environment
+argument_list|,
+name|batch
+argument_list|)
+expr_stmt|;
 block|}
 comment|// install plugin
 name|FileSystemUtils
@@ -2102,7 +2148,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|tryToDeletePath
-specifier|private
+specifier|static
 name|void
 name|tryToDeletePath
 parameter_list|(

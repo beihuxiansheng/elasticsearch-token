@@ -556,6 +556,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -789,6 +791,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1060,6 +1064,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1202,6 +1208,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1465,6 +1473,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -1668,6 +1678,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1807,6 +1819,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1918,6 +1932,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|PosixFileAttributes
@@ -2194,6 +2210,8 @@ argument_list|(
 name|pluginName
 argument_list|,
 name|terminal
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|PosixFileAttributes
