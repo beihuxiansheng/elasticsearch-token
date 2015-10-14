@@ -276,7 +276,7 @@ name|IllegalStateException
 argument_list|(
 literal|"wrapped directory reader doesn't delegate IndexReader#getCoreCacheKey, wrappers must override this method and delegate"
 operator|+
-literal|" to the original readers core cache key. Wrapped readers can't used as cache keys since their are used only per request which would lead to subtile bugs"
+literal|" to the original readers core cache key. Wrapped readers can't be used as cache keys since their are used only per request which would lead to subtle bugs"
 argument_list|)
 throw|;
 block|}
@@ -443,6 +443,8 @@ return|;
 block|}
 block|}
 DECL|class|NonClosingReaderWrapper
+specifier|private
+specifier|static
 specifier|final
 class|class
 name|NonClosingReaderWrapper
