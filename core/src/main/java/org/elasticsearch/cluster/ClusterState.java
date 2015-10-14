@@ -2434,7 +2434,7 @@ name|startObject
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -2452,7 +2452,7 @@ literal|"state"
 argument_list|,
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|toString
@@ -2478,7 +2478,7 @@ name|settings
 init|=
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 decl_stmt|;
 name|settings
@@ -2514,7 +2514,7 @@ name|cursor
 range|:
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 control|)
 block|{
@@ -2639,7 +2639,7 @@ name|cursor
 range|:
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|keys

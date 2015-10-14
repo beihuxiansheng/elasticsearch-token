@@ -955,7 +955,7 @@ name|totalNumberOfShards
 operator|+=
 name|indexMetaData
 operator|.
-name|totalNumberOfShards
+name|getTotalNumberOfShards
 argument_list|()
 expr_stmt|;
 name|numberOfShards
@@ -1598,7 +1598,7 @@ literal|null
 operator|&&
 name|index
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData

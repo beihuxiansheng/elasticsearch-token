@@ -2260,7 +2260,7 @@ argument_list|(
 name|concreteIndex
 argument_list|)
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2461,7 +2461,7 @@ argument_list|(
 name|concreteIndex
 argument_list|)
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2743,7 +2743,7 @@ argument_list|(
 name|concreteIndex
 argument_list|)
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -525,7 +525,7 @@ name|startObject
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -552,7 +552,7 @@ name|cursor
 range|:
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|values

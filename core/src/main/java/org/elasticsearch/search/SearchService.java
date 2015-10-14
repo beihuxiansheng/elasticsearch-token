@@ -1610,7 +1610,7 @@ literal|null
 operator|&&
 name|idxMeta
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -5761,7 +5761,7 @@ name|parse
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -7209,7 +7209,7 @@ argument_list|()
 argument_list|,
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|SearchType

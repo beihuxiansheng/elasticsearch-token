@@ -366,7 +366,7 @@ name|index
 operator|=
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 expr_stmt|;
 name|this

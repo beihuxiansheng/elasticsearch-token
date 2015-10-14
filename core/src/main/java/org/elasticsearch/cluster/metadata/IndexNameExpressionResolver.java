@@ -1396,7 +1396,7 @@ name|aliasMetaData
 init|=
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -1502,7 +1502,7 @@ name|aliasMetaData
 init|=
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get

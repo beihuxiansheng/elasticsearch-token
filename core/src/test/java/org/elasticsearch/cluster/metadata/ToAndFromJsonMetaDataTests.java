@@ -1080,7 +1080,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1093,7 +1093,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1106,7 +1106,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1120,7 +1120,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -1139,7 +1139,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -1164,7 +1164,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1177,7 +1177,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1190,7 +1190,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1204,7 +1204,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -1223,7 +1223,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1241,7 +1241,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1259,7 +1259,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -1284,7 +1284,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1297,7 +1297,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1310,7 +1310,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1324,7 +1324,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -1343,7 +1343,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -1359,7 +1359,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -1392,7 +1392,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1405,7 +1405,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1418,7 +1418,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1431,7 +1431,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -1450,7 +1450,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -1475,7 +1475,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1488,7 +1488,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1501,7 +1501,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1515,7 +1515,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -1534,7 +1534,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1552,7 +1552,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1570,7 +1570,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -1586,7 +1586,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -1610,7 +1610,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -1643,7 +1643,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1656,7 +1656,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1669,7 +1669,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1682,7 +1682,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -1701,7 +1701,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1719,7 +1719,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1737,7 +1737,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -1762,7 +1762,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1775,7 +1775,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1788,7 +1788,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1801,7 +1801,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -1820,7 +1820,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -1836,7 +1836,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -1860,7 +1860,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -1893,7 +1893,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1906,7 +1906,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1919,7 +1919,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1933,7 +1933,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -1952,7 +1952,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1970,7 +1970,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1988,7 +1988,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -2004,7 +2004,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2028,7 +2028,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2052,7 +2052,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|size
@@ -2068,7 +2068,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2089,7 +2089,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2119,7 +2119,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2132,7 +2132,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2145,7 +2145,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2158,7 +2158,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -2177,7 +2177,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -2195,7 +2195,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -2213,7 +2213,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -2229,7 +2229,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2253,7 +2253,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2277,7 +2277,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|size
@@ -2293,7 +2293,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2314,7 +2314,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2344,7 +2344,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2357,7 +2357,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2370,7 +2370,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2384,7 +2384,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -2403,7 +2403,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -2421,7 +2421,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -2439,7 +2439,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -2455,7 +2455,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2479,7 +2479,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2503,7 +2503,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|size
@@ -2519,7 +2519,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2540,7 +2540,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2570,7 +2570,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2583,7 +2583,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2596,7 +2596,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2610,7 +2610,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -2629,7 +2629,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -2647,7 +2647,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -2665,7 +2665,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -2681,7 +2681,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2705,7 +2705,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2729,7 +2729,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|size
@@ -2745,7 +2745,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2766,7 +2766,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2790,7 +2790,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2811,7 +2811,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2830,7 +2830,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2851,7 +2851,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2884,7 +2884,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2897,7 +2897,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2910,7 +2910,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2923,7 +2923,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap
@@ -2942,7 +2942,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -2960,7 +2960,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -2978,7 +2978,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|size
@@ -2994,7 +2994,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -3018,7 +3018,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -3042,7 +3042,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|size
@@ -3058,7 +3058,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -3079,7 +3079,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -3103,7 +3103,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -3124,7 +3124,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -3143,7 +3143,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -3164,7 +3164,7 @@ name|assertThat
 argument_list|(
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get

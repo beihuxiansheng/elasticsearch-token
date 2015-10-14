@@ -396,7 +396,7 @@ name|assertThat
 argument_list|(
 name|index
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|equalTo
@@ -544,7 +544,7 @@ name|assertThat
 argument_list|(
 name|index
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|allOf

@@ -503,7 +503,7 @@ argument_list|()
 argument_list|,
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 decl_stmt|;

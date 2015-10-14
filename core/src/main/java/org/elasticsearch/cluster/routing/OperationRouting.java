@@ -1702,7 +1702,7 @@ name|hash
 argument_list|,
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|)
 return|;

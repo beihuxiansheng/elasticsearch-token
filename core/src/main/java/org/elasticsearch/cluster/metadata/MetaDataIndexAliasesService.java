@@ -601,7 +601,7 @@ name|get
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -620,7 +620,7 @@ name|indexService
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -647,7 +647,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|containsKey
@@ -671,7 +671,7 @@ name|DEFAULT_MAPPING
 argument_list|,
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -700,7 +700,7 @@ name|cursor
 range|:
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|values
@@ -754,7 +754,7 @@ name|e
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -766,7 +766,7 @@ name|add
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -777,7 +777,7 @@ name|put
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|indexService
@@ -845,7 +845,7 @@ name|aliasMd
 init|=
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -901,7 +901,7 @@ condition|(
 operator|!
 name|indexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|containsKey

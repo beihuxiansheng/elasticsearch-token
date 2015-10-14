@@ -1107,7 +1107,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2052,7 +2052,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|equalTo

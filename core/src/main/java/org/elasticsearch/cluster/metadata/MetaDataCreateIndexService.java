@@ -3346,7 +3346,7 @@ argument_list|)
 argument_list|,
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3382,7 +3382,7 @@ name|isIndexUsingShadowReplicas
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 condition|?
@@ -3410,12 +3410,12 @@ name|templateNames
 argument_list|,
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 argument_list|,
 name|maybeShadowIndicator

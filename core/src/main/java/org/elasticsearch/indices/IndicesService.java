@@ -3180,7 +3180,7 @@ name|e
 argument_list|,
 name|metaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3226,7 +3226,7 @@ name|indexName
 init|=
 name|metaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 decl_stmt|;
 if|if
@@ -3357,7 +3357,7 @@ name|Index
 argument_list|(
 name|metaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;

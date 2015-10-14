@@ -3651,7 +3651,7 @@ name|put
 argument_list|(
 name|part
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -3677,7 +3677,7 @@ argument_list|()
 operator|&&
 name|part
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|isEmpty
@@ -3694,7 +3694,7 @@ name|randomFrom
 argument_list|(
 name|part
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|keys
@@ -3745,7 +3745,7 @@ name|put
 argument_list|(
 name|part
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.

@@ -1745,7 +1745,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1847,7 +1847,7 @@ argument_list|(
 literal|"fuu"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
