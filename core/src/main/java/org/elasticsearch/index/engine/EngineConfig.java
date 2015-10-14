@@ -560,15 +560,6 @@ init|=
 literal|"index.codec"
 decl_stmt|;
 comment|/**      * Index setting to control the index buffer size.      * This setting is<b>not</b> realtime updateable.      */
-DECL|field|INDEX_BUFFER_SIZE_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_BUFFER_SIZE_SETTING
-init|=
-literal|"index.buffer_size"
-decl_stmt|;
 comment|/** if set to true the engine will start even if the translog id in the commit point can not be found */
 DECL|field|INDEX_FORCE_NEW_TRANSLOG
 specifier|public
@@ -792,16 +783,10 @@ argument_list|,
 name|DEFAULT_CODEC_NAME
 argument_list|)
 expr_stmt|;
-comment|// We tell IndexWriter to use large heap, but IndexingMemoryController checks periodically and refreshes the most heap-consuming
-comment|// shards when total indexing heap usage is too high:
+comment|// We give IndexWriter a huge buffer, so it won't flush on its own.  Instead, IndexingMemoryController periodically checks
+comment|// and refreshes the most heap-consuming shards when total indexing heap usage is too high:
 name|indexingBufferSize
 operator|=
-name|indexSettings
-operator|.
-name|getAsBytesSize
-argument_list|(
-name|INDEX_BUFFER_SIZE_SETTING
-argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
@@ -810,7 +795,6 @@ argument_list|,
 name|ByteSizeUnit
 operator|.
 name|MB
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|gcDeletesInMillis

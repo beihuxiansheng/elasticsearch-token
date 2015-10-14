@@ -920,7 +920,7 @@ return|;
 block|}
 comment|/** ask this shard to refresh, in the background, to free up heap */
 DECL|method|refreshShardAsync
-specifier|public
+specifier|protected
 name|void
 name|refreshShardAsync
 parameter_list|(
@@ -1210,6 +1210,21 @@ name|shardId
 argument_list|)
 expr_stmt|;
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TOTAL="
+operator|+
+name|totalBytesUsed
+operator|+
+literal|" vs "
+operator|+
+name|indexingBuffer
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|totalBytesUsed
