@@ -385,6 +385,20 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|checkIdle
+specifier|protected
+name|void
+name|checkIdle
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+name|long
+name|inactiveTimeNS
+parameter_list|)
+block|{         }
+annotation|@
+name|Override
 DECL|method|refreshShardAsync
 specifier|public
 name|void
@@ -843,7 +857,14 @@ name|MB
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// index into one shard only, hits the 5mb limit, so shard1 is refreshed
+comment|// index into one shard only, crosses the 5mb limit, so shard1 is refreshed
+name|controller
+operator|.
+name|simulateIndexing
+argument_list|(
+name|shard1
+argument_list|)
+expr_stmt|;
 name|controller
 operator|.
 name|simulateIndexing
@@ -923,7 +944,14 @@ argument_list|(
 name|shard2
 argument_list|)
 expr_stmt|;
-comment|// shard2 used up the full 5 mb and is now cleared:
+name|controller
+operator|.
+name|simulateIndexing
+argument_list|(
+name|shard2
+argument_list|)
+expr_stmt|;
+comment|// shard2 crossed 5 mb and is now cleared:
 name|controller
 operator|.
 name|assertBuffer

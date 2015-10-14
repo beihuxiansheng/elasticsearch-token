@@ -3308,6 +3308,24 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// force the shard to become idle now:
+name|indicesService
+operator|.
+name|indexService
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|getShardOrNull
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|checkIdle
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|assertBusy
 argument_list|(
 operator|new
