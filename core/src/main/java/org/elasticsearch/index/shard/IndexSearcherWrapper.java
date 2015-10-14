@@ -54,6 +54,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|LeafReader
 import|;
 end_import
@@ -137,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Extension point to add custom functionality at request time to the {@link DirectoryReader}  * and {@link IndexSearcher} managed by the {@link Engine}.  */
+comment|/**  * Extension point to add custom functionality at request time to the {@link DirectoryReader}  * and {@link IndexSearcher} managed by the {@link IndexShard}.  */
 end_comment
 
 begin_class
@@ -146,7 +160,7 @@ specifier|public
 class|class
 name|IndexSearcherWrapper
 block|{
-comment|/**      * @param reader The provided directory reader to be wrapped to add custom functionality      * @return a new directory reader wrapping the provided directory reader or if no wrapping was performed      *         the provided directory reader      */
+comment|/**      * Wraps the given {@link DirectoryReader}. The wrapped reader can filter out document just like delete documents etc. but      * must not change any term or document content.      *<p>      * NOTE: The wrapper has a per-request lifecycle, must delegate {@link IndexReader#getCoreCacheKey()} and must be an instance      * of {@link FilterDirectoryReader} that eventually exposes the original reader via  {@link FilterDirectoryReader#getDelegate()}.      * The returned reader is closed once it goes out of scope.      *</p>      * @param reader The provided directory reader to be wrapped to add custom functionality      * @return a new directory reader wrapping the provided directory reader or if no wrapping was performed      *         the provided directory reader      */
 DECL|method|wrap
 specifier|protected
 name|DirectoryReader
@@ -302,6 +316,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+specifier|final
 name|IndexSearcher
 name|innerIndexSearcher
 init|=
@@ -344,6 +359,7 @@ expr_stmt|;
 comment|// TODO: Right now IndexSearcher isn't wrapper friendly, when it becomes wrapper friendly we should revise this extension point
 comment|// For example if IndexSearcher#rewrite() is overwritten than also IndexSearcher#createNormalizedWeight needs to be overwritten
 comment|// This needs to be fixed before we can allow the IndexSearcher from Engine to be wrapped multiple times
+specifier|final
 name|IndexSearcher
 name|indexSearcher
 init|=
@@ -371,12 +387,7 @@ return|;
 block|}
 else|else
 block|{
-specifier|final
-name|Engine
-operator|.
-name|Searcher
-name|newSearcher
-init|=
+return|return
 operator|new
 name|Engine
 operator|.
@@ -436,9 +447,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-decl_stmt|;
-return|return
-name|newSearcher
 return|;
 block|}
 block|}
