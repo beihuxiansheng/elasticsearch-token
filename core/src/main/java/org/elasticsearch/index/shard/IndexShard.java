@@ -1719,6 +1719,15 @@ name|INDEX_TRANSLOG_DISABLE_FLUSH
 init|=
 literal|"index.translog.disable_flush"
 decl_stmt|;
+DECL|field|INDEX_REFRESH_INTERVAL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_REFRESH_INTERVAL
+init|=
+literal|"index.refresh_interval"
+decl_stmt|;
 DECL|field|path
 specifier|private
 specifier|final
@@ -5461,27 +5470,6 @@ operator|.
 name|startTime
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|active
-operator|.
-name|getAndSet
-argument_list|(
-literal|true
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-comment|// We are currently inactive, but a new write operation just showed up, so we now notify IMC
-comment|// to wake up and fix our indexing buffer.  We could do this async instead, but cost should
-comment|// be low, and it's rare this happens.
-name|indexingMemoryController
-operator|.
-name|forceCheck
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|ensureWriteAllowed
 specifier|private
@@ -5832,15 +5820,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|field|INDEX_REFRESH_INTERVAL
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_REFRESH_INTERVAL
-init|=
-literal|"index.refresh_interval"
-decl_stmt|;
 DECL|method|addFailedEngineListener
 specifier|public
 name|void
@@ -7081,7 +7060,6 @@ name|String
 name|reason
 parameter_list|)
 block|{
-comment|// nocommit this really is async???
 name|engineConfig
 operator|.
 name|getThreadPool
@@ -7186,6 +7164,8 @@ parameter_list|()
 block|{
 try|try
 block|{
+comment|// TODO: now that we use refresh to clear the indexing buffer, we should check here if we did that "recently" and
+comment|// reschedule if so...
 if|if
 condition|(
 name|getEngine

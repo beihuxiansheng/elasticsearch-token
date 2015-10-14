@@ -321,7 +321,7 @@ name|SHARD_INACTIVE_TIME_SETTING
 init|=
 literal|"indices.memory.shard_inactive_time"
 decl_stmt|;
-comment|/** How frequently we check indexing memory usage (default: 5 seconds). */
+comment|/** How frequently we check indexing memory usage (default: 1 seconds). */
 DECL|field|SHARD_MEMORY_INTERVAL_TIME_SETTING
 specifier|public
 specifier|static
@@ -703,7 +703,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|5
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1210,21 +1210,6 @@ name|shardId
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"TOTAL="
-operator|+
-name|totalBytesUsed
-operator|+
-literal|" vs "
-operator|+
-name|indexingBuffer
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|totalBytesUsed
