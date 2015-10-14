@@ -1155,7 +1155,7 @@ literal|null
 operator|&&
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -1377,7 +1377,7 @@ literal|"[{}] mismatch on index UUIDs between cluster state and local state, cle
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1385,7 +1385,7 @@ name|deleteIndex
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 literal|"mismatch on index UUIDs between cluster state and local state, cleaning the index so it will be recreated"
@@ -1485,7 +1485,7 @@ name|indexSettings
 operator|=
 name|metaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 expr_stmt|;
 name|indicesService
@@ -1704,7 +1704,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -1887,7 +1887,7 @@ literal|"[{}] creating index"
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1969,7 +1969,7 @@ name|hasIndex
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -1996,7 +1996,7 @@ name|index
 init|=
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 decl_stmt|;
 name|IndexService
@@ -2033,7 +2033,7 @@ name|refreshSettings
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2072,7 +2072,7 @@ name|hasIndex
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -2096,7 +2096,7 @@ name|index
 init|=
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 decl_stmt|;
 name|IndexService
@@ -2134,7 +2134,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|containsKey
@@ -2198,7 +2198,7 @@ name|cursor
 range|:
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|values
@@ -2300,7 +2300,7 @@ name|index
 argument_list|,
 name|indexMetaData
 operator|.
-name|indexUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 name|typesToRefresh
@@ -2873,7 +2873,7 @@ name|index
 init|=
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 decl_stmt|;
 name|IndexService

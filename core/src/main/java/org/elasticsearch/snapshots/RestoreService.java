@@ -1876,7 +1876,7 @@ name|renamedIndex
 argument_list|,
 name|snapshotIndexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1919,7 +1919,7 @@ name|put
 argument_list|(
 name|snapshotIndexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -1947,7 +1947,7 @@ operator|&&
 operator|!
 name|snapshotIndexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|isEmpty
@@ -1973,7 +1973,7 @@ name|alias
 range|:
 name|snapshotIndexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|keys
@@ -2085,12 +2085,12 @@ name|max
 argument_list|(
 name|snapshotIndexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|currentIndexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|+
 literal|1
@@ -2112,7 +2112,7 @@ condition|(
 operator|!
 name|snapshotIndexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|isEmpty
@@ -2136,7 +2136,7 @@ name|alias
 range|:
 name|currentIndexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|values
@@ -2166,7 +2166,7 @@ name|alias
 range|:
 name|snapshotIndexMetaData
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|keys
@@ -2197,7 +2197,7 @@ name|put
 argument_list|(
 name|snapshotIndexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -2209,7 +2209,7 @@ name|SETTING_INDEX_UUID
 argument_list|,
 name|currentIndexMetaData
 operator|.
-name|indexUUID
+name|getIndexUUID
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2761,7 +2761,7 @@ if|if
 condition|(
 name|currentIndexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|!=
 name|IndexMetaData
@@ -2935,7 +2935,7 @@ argument_list|<>
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsMap

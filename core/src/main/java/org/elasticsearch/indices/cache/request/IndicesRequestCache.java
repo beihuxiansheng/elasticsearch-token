@@ -400,16 +400,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|*
@@ -437,18 +427,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
 import|;
 end_import
 
@@ -1251,7 +1229,7 @@ name|isCacheEnabled
 argument_list|(
 name|index
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|,
 name|Boolean

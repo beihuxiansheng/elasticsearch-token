@@ -715,7 +715,7 @@ literal|"[{}] writing state, reason [{}]"
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|reason
@@ -731,7 +731,7 @@ name|indexMetaData
 argument_list|,
 name|indexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|nodeEnv
@@ -743,7 +743,7 @@ name|Index
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|)
@@ -766,7 +766,7 @@ name|ex
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -778,7 +778,7 @@ literal|"failed to write state for ["
 operator|+
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|+
 literal|"]"

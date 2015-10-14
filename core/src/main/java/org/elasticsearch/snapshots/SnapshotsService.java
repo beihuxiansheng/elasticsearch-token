@@ -6356,7 +6356,7 @@ name|i
 operator|<
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 condition|;
 name|i
@@ -6423,7 +6423,7 @@ name|i
 operator|<
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 condition|;
 name|i

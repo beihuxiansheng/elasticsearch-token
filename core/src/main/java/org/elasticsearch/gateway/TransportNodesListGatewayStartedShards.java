@@ -935,7 +935,7 @@ name|shardId
 argument_list|,
 name|metaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;

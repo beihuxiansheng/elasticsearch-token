@@ -2319,7 +2319,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -2341,7 +2341,7 @@ name|Builder
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -2373,7 +2373,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -2395,7 +2395,7 @@ name|Builder
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -2427,7 +2427,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -2449,7 +2449,7 @@ name|Builder
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -2481,7 +2481,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -2503,7 +2503,7 @@ name|Builder
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -2546,7 +2546,7 @@ name|Builder
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -2593,7 +2593,7 @@ name|Builder
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.

@@ -472,7 +472,7 @@ name|recoverOnAnyNode
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 argument_list|,
@@ -872,7 +872,7 @@ name|initialShards
 init|=
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -905,7 +905,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 operator|>
 literal|1
@@ -919,7 +919,7 @@ literal|1
 operator|+
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 operator|)
 operator|/
@@ -952,7 +952,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 operator|>
 literal|2
@@ -966,7 +966,7 @@ literal|1
 operator|+
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 operator|)
 operator|/
@@ -1013,7 +1013,7 @@ name|requiredAllocation
 operator|=
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 operator|+
 literal|1
@@ -1041,7 +1041,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 operator|>
 literal|1
@@ -1051,7 +1051,7 @@ name|requiredAllocation
 operator|=
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 expr_stmt|;
 block|}

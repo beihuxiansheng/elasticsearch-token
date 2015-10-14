@@ -2947,7 +2947,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get
@@ -2971,7 +2971,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get

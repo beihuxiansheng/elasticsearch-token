@@ -649,7 +649,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get

@@ -2326,7 +2326,7 @@ name|addCell
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2339,7 +2339,7 @@ name|DateTime
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationDate
+name|getCreationDate
 argument_list|()
 argument_list|,
 name|DateTimeZone

@@ -1127,7 +1127,7 @@ name|builder
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1142,7 +1142,7 @@ name|shard
 operator|<
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 condition|;
 name|shard
@@ -1157,7 +1157,7 @@ name|genShardRoutingTable
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|shard

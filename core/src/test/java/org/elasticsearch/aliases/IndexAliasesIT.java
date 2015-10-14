@@ -1314,7 +1314,7 @@ name|assertThat
 argument_list|(
 name|indexMd
 operator|.
-name|aliases
+name|getAliases
 argument_list|()
 operator|.
 name|get

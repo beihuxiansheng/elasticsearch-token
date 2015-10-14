@@ -1412,7 +1412,7 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|totalNumberOfShards
+name|getTotalNumberOfShards
 argument_list|()
 expr_stmt|;
 name|numberOfShards
@@ -1421,7 +1421,7 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 expr_stmt|;
 block|}
@@ -2285,7 +2285,7 @@ name|cursor
 range|:
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 control|)
 block|{
@@ -5114,7 +5114,7 @@ name|put
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|indexMetaData
@@ -5144,7 +5144,7 @@ name|get
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|==
@@ -5174,7 +5174,7 @@ name|version
 argument_list|(
 name|indexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|+
 literal|1
@@ -5190,7 +5190,7 @@ name|put
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|indexMetaData
@@ -5559,7 +5559,7 @@ name|put
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -5848,7 +5848,7 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5918,7 +5918,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -5934,7 +5934,7 @@ name|add
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5944,7 +5944,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -5960,7 +5960,7 @@ name|add
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;

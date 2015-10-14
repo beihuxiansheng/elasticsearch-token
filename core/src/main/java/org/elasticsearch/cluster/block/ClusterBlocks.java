@@ -1702,7 +1702,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -1716,7 +1716,7 @@ name|addIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|MetaDataIndexStateService
@@ -1729,7 +1729,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsBoolean
@@ -1746,7 +1746,7 @@ name|addIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1759,7 +1759,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsBoolean
@@ -1776,7 +1776,7 @@ name|addIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1789,7 +1789,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsBoolean
@@ -1806,7 +1806,7 @@ name|addIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1819,7 +1819,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsBoolean
@@ -1836,7 +1836,7 @@ name|addIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1862,7 +1862,7 @@ name|removeIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|MetaDataIndexStateService
@@ -1874,7 +1874,7 @@ name|removeIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1886,7 +1886,7 @@ name|removeIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1898,7 +1898,7 @@ name|removeIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1910,7 +1910,7 @@ name|removeIndexBlock
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData

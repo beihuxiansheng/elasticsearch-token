@@ -712,7 +712,7 @@ name|shardCount
 init|=
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 operator|+
 literal|1

@@ -466,7 +466,7 @@ argument_list|(
 name|concreteIndex
 argument_list|)
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 decl_stmt|;
 if|if

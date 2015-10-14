@@ -768,7 +768,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|equals
@@ -789,7 +789,7 @@ name|loadIndexState
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -807,7 +807,7 @@ name|add
 argument_list|(
 name|indexMetaDataOnDisk
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1556,12 +1556,12 @@ if|if
 condition|(
 name|previousIndexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|!=
 name|newIndexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 condition|)
 block|{
@@ -1571,14 +1571,14 @@ literal|"version changed from ["
 operator|+
 name|previousIndexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|+
 literal|"] to ["
 operator|+
 name|newIndexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|+
 literal|"]"
@@ -1717,7 +1717,7 @@ name|isOrWasClosed
 init|=
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|equals
@@ -1763,7 +1763,7 @@ name|isOrWasClosed
 operator|||
 name|previousMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|.
 name|equals

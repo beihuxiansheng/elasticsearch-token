@@ -2603,7 +2603,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 decl_stmt|;
