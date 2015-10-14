@@ -1972,12 +1972,12 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** How much heap Lucene's IndexWriter is using */
-DECL|method|indexWriterRAMBytesUsed
+comment|/** How much heap is used that would be freed by a refresh */
+DECL|method|indexBufferRAMBytesUsed
 specifier|abstract
 specifier|public
 name|long
-name|indexWriterRAMBytesUsed
+name|indexBufferRAMBytesUsed
 parameter_list|()
 function_decl|;
 DECL|method|getSegmentInfo
@@ -2553,7 +2553,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Refreshes the engine for new search operations to reflect the latest      * changes.      */
+comment|/**      * Synchronously refreshes the engine for new search operations to reflect the latest      * changes.      */
 DECL|method|refresh
 specifier|public
 specifier|abstract

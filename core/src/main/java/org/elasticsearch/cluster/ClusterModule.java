@@ -2386,17 +2386,6 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|EngineConfig
-operator|.
-name|INDEX_VERSION_MAP_SIZE
-argument_list|,
-name|Validator
-operator|.
-name|BYTES_SIZE_OR_PERCENTAGE
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
 name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_WARN

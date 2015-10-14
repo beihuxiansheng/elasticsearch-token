@@ -1063,13 +1063,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|indexWriterRAMBytesUsed
+DECL|method|indexBufferRAMBytesUsed
 specifier|public
 name|long
-name|indexWriterRAMBytesUsed
+name|indexBufferRAMBytesUsed
 parameter_list|()
 block|{
-comment|// No IndexWriter
+comment|// No IndexWriter nor version map
 throw|throw
 operator|new
 name|UnsupportedOperationException

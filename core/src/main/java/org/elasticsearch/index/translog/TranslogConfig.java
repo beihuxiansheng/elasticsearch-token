@@ -237,11 +237,11 @@ specifier|final
 name|boolean
 name|syncOnEachOperation
 decl_stmt|;
-DECL|field|bufferSize
+DECL|field|bufferSizeBytes
 specifier|private
-specifier|volatile
+specifier|final
 name|int
-name|bufferSize
+name|bufferSizeBytes
 decl_stmt|;
 DECL|field|translogGeneration
 specifier|private
@@ -384,7 +384,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|bufferSize
+name|bufferSizeBytes
 operator|=
 operator|(
 name|int
@@ -397,13 +397,12 @@ name|INDEX_TRANSLOG_BUFFER_SIZE
 argument_list|,
 name|IndexingMemoryController
 operator|.
-name|INACTIVE_SHARD_TRANSLOG_BUFFER
+name|SHARD_TRANSLOG_BUFFER
 argument_list|)
 operator|.
 name|bytes
 argument_list|()
 expr_stmt|;
-comment|// Not really interesting, updated by IndexingMemoryController...
 name|syncInterval
 operator|=
 name|indexSettings
@@ -550,32 +549,15 @@ name|syncOnEachOperation
 return|;
 block|}
 comment|/**      * Retruns the current translog buffer size.      */
-DECL|method|getBufferSize
+DECL|method|getBufferSizeBytes
 specifier|public
 name|int
-name|getBufferSize
+name|getBufferSizeBytes
 parameter_list|()
 block|{
 return|return
-name|bufferSize
+name|bufferSizeBytes
 return|;
-block|}
-comment|/**      * Sets the current buffer size - for setting a live setting use {@link Translog#updateBuffer(ByteSizeValue)}      */
-DECL|method|setBufferSize
-specifier|public
-name|void
-name|setBufferSize
-parameter_list|(
-name|int
-name|bufferSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|bufferSize
-operator|=
-name|bufferSize
-expr_stmt|;
 block|}
 comment|/**      * Returns the current async fsync interval      */
 DECL|method|getSyncInterval

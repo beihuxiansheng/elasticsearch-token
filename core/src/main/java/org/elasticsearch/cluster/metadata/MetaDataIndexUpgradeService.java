@@ -525,6 +525,8 @@ argument_list|,
 literal|"index.translog.fs.buffer_size"
 argument_list|,
 literal|"index.version_map_size"
+argument_list|,
+literal|"index.buffer_size"
 argument_list|)
 argument_list|)
 decl_stmt|;
