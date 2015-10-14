@@ -1319,11 +1319,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"checking if meta state exists..."
+literal|"checking if index directory exists..."
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|assertFalse
 argument_list|(
 literal|"Expecting index directory of "
@@ -1342,30 +1340,6 @@ name|indexName
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"failed to check for data director of index {} on node {}"
-argument_list|,
-name|indexName
-argument_list|,
-name|nodeName
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"could not check if data directory still exists"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)
@@ -1468,8 +1442,6 @@ parameter_list|,
 name|String
 name|indexName
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|NodeEnvironment
 name|nodeEnv
