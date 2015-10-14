@@ -5544,6 +5544,13 @@ operator|.
 name|startTime
 argument_list|()
 expr_stmt|;
+name|active
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|ensureWriteAllowed
 specifier|private
