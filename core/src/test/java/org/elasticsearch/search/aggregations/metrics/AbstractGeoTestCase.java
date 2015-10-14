@@ -504,6 +504,17 @@ name|expectedCentroidsForGeoHash
 init|=
 literal|null
 decl_stmt|;
+DECL|field|GEOHASH_TOLERANCE
+specifier|protected
+specifier|static
+specifier|final
+name|double
+name|GEOHASH_TOLERANCE
+init|=
+literal|1E
+operator|-
+literal|5D
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setupSuiteScopeCluster
