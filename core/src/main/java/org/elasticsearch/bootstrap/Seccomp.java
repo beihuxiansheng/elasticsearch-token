@@ -433,7 +433,7 @@ comment|// since Linux 2.6.23
 DECL|field|SECCOMP_MODE_FILTER
 specifier|static
 specifier|final
-name|int
+name|long
 name|SECCOMP_MODE_FILTER
 init|=
 literal|2
@@ -934,11 +934,20 @@ init|=
 literal|322
 decl_stmt|;
 comment|// since Linux 3.19
+DECL|field|NR_SYSCALL_TUXCALL
+specifier|static
+specifier|final
+name|int
+name|NR_SYSCALL_TUXCALL
+init|=
+literal|184
+decl_stmt|;
+comment|// should return ENOSYS
 comment|/** try to install our BPF filters via seccomp() or prctl() to block execution */
 DECL|method|linuxImpl
 specifier|private
 specifier|static
-name|void
+name|int
 name|linuxImpl
 parameter_list|()
 block|{
@@ -997,26 +1006,76 @@ literal|"seccomp unavailable: could not link methods. requires kernel 3.5+ with 
 argument_list|)
 throw|;
 block|}
-comment|// check for kernel version
+comment|// pure paranoia:
+comment|// check that unimplemented syscalls actually return ENOSYS
+comment|// you never know (e.g. https://code.google.com/p/chromium/issues/detail?id=439795)
 if|if
 condition|(
 name|linux_libc
 operator|.
-name|prctl
+name|syscall
 argument_list|(
-name|PR_GET_NO_NEW_PRIVS
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|0
+name|NR_SYSCALL_TUXCALL
 argument_list|)
-operator|<
+operator|>=
 literal|0
+operator|||
+name|Native
+operator|.
+name|getLastError
+argument_list|()
+operator|!=
+name|ENOSYS
 condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seccomp unavailable: your kernel is buggy and you should upgrade"
+argument_list|)
+throw|;
+block|}
+comment|// try to check system calls really are who they claim
+comment|// you never know (e.g. https://chromium.googlesource.com/chromium/src.git/+/master/sandbox/linux/seccomp-bpf/sandbox_bpf.cc#57)
+specifier|final
+name|int
+name|bogusArg
+init|=
+literal|0xf7a46a5c
+decl_stmt|;
+comment|// test seccomp(BOGUS)
+name|long
+name|ret
+init|=
+name|linux_libc
+operator|.
+name|syscall
+argument_list|(
+name|SECCOMP_SYSCALL_NR
+argument_list|,
+name|bogusArg
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ret
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seccomp unavailable: seccomp(BOGUS_OPERATION) returned "
+operator|+
+name|ret
+argument_list|)
+throw|;
+block|}
+else|else
 block|{
 name|int
 name|errno
@@ -1034,6 +1093,228 @@ block|{
 case|case
 name|ENOSYS
 case|:
+break|break;
+comment|// ok
+case|case
+name|EINVAL
+case|:
+break|break;
+comment|// ok
+default|default:
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seccomp(BOGUS_OPERATION): "
+operator|+
+name|JNACLibrary
+operator|.
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+throw|;
+block|}
+block|}
+comment|// test seccomp(VALID, BOGUS)
+name|ret
+operator|=
+name|linux_libc
+operator|.
+name|syscall
+argument_list|(
+name|SECCOMP_SYSCALL_NR
+argument_list|,
+name|SECCOMP_SET_MODE_FILTER
+argument_list|,
+name|bogusArg
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ret
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seccomp unavailable: seccomp(SECCOMP_SET_MODE_FILTER, BOGUS_FLAG) returned "
+operator|+
+name|ret
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+name|int
+name|errno
+init|=
+name|Native
+operator|.
+name|getLastError
+argument_list|()
+decl_stmt|;
+switch|switch
+condition|(
+name|errno
+condition|)
+block|{
+case|case
+name|ENOSYS
+case|:
+break|break;
+comment|// ok
+case|case
+name|EINVAL
+case|:
+break|break;
+comment|// ok
+default|default:
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seccomp(SECCOMP_SET_MODE_FILTER, BOGUS_FLAG): "
+operator|+
+name|JNACLibrary
+operator|.
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+throw|;
+block|}
+block|}
+comment|// test prctl(BOGUS)
+name|ret
+operator|=
+name|linux_libc
+operator|.
+name|prctl
+argument_list|(
+name|bogusArg
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ret
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seccomp unavailable: prctl(BOGUS_OPTION) returned "
+operator|+
+name|ret
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+name|int
+name|errno
+init|=
+name|Native
+operator|.
+name|getLastError
+argument_list|()
+decl_stmt|;
+switch|switch
+condition|(
+name|errno
+condition|)
+block|{
+case|case
+name|ENOSYS
+case|:
+break|break;
+comment|// ok
+case|case
+name|EINVAL
+case|:
+break|break;
+comment|// ok
+default|default:
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"prctl(BOGUS_OPTION): "
+operator|+
+name|JNACLibrary
+operator|.
+name|strerror
+argument_list|(
+name|errno
+argument_list|)
+argument_list|)
+throw|;
+block|}
+block|}
+comment|// now just normal defensive checks
+comment|// check for GET_NO_NEW_PRIVS
+switch|switch
+condition|(
+name|linux_libc
+operator|.
+name|prctl
+argument_list|(
+name|PR_GET_NO_NEW_PRIVS
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+condition|)
+block|{
+case|case
+literal|0
+case|:
+break|break;
+comment|// not yet set
+case|case
+literal|1
+case|:
+break|break;
+comment|// already set by caller
+default|default:
+name|int
+name|errno
+init|=
+name|Native
+operator|.
+name|getLastError
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|errno
+operator|==
+name|ENOSYS
+condition|)
+block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -1041,7 +1322,9 @@ argument_list|(
 literal|"seccomp unavailable: requires kernel 3.5+ with CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER compiled in"
 argument_list|)
 throw|;
-default|default:
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -1059,7 +1342,7 @@ throw|;
 block|}
 block|}
 comment|// check for SECCOMP
-if|if
+switch|switch
 condition|(
 name|linux_libc
 operator|.
@@ -1075,10 +1358,19 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-operator|<
-literal|0
 condition|)
 block|{
+case|case
+literal|0
+case|:
+break|break;
+comment|// not yet set
+case|case
+literal|2
+case|:
+break|break;
+comment|// already in filter mode by caller
+default|default:
 name|int
 name|errno
 init|=
@@ -1087,14 +1379,13 @@ operator|.
 name|getLastError
 argument_list|()
 decl_stmt|;
-switch|switch
+if|if
 condition|(
 name|errno
+operator|==
+name|EINVAL
 condition|)
 block|{
-case|case
-name|EINVAL
-case|:
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -1102,7 +1393,9 @@ argument_list|(
 literal|"seccomp unavailable: CONFIG_SECCOMP not compiled into kernel, CONFIG_SECCOMP and CONFIG_SECCOMP_FILTER are needed"
 argument_list|)
 throw|;
-default|default:
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
@@ -1136,7 +1429,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-operator|<
+operator|!=
 literal|0
 condition|)
 block|{
@@ -1202,7 +1495,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-operator|<
+operator|!=
 literal|0
 condition|)
 block|{
@@ -1211,6 +1504,45 @@ operator|new
 name|UnsupportedOperationException
 argument_list|(
 literal|"prctl(PR_SET_NO_NEW_PRIVS): "
+operator|+
+name|JNACLibrary
+operator|.
+name|strerror
+argument_list|(
+name|Native
+operator|.
+name|getLastError
+argument_list|()
+argument_list|)
+argument_list|)
+throw|;
+block|}
+comment|// check it worked
+if|if
+condition|(
+name|linux_libc
+operator|.
+name|prctl
+argument_list|(
+name|PR_GET_NO_NEW_PRIVS
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+operator|!=
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"seccomp filter did not really succeed: prctl(PR_GET_NO_NEW_PRIVS): "
 operator|+
 name|JNACLibrary
 operator|.
@@ -1381,6 +1713,11 @@ name|getPointer
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|int
+name|method
+init|=
+literal|1
+decl_stmt|;
 comment|// install filter, if this works, after this there is no going back!
 comment|// first try it with seccomp(SECCOMP_SET_MODE_FILTER), falling back to prctl()
 if|if
@@ -1401,6 +1738,10 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|method
+operator|=
+literal|0
+expr_stmt|;
 name|int
 name|errno1
 init|=
@@ -1450,7 +1791,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-operator|<
+operator|!=
 literal|0
 condition|)
 block|{
@@ -1530,9 +1871,20 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Linux seccomp filter installation successful"
+literal|"Linux seccomp filter installation successful, threads: [{}]"
+argument_list|,
+name|method
+operator|==
+literal|1
+condition|?
+literal|"all"
+else|:
+literal|"app"
 argument_list|)
 expr_stmt|;
+return|return
+name|method
+return|;
 block|}
 comment|// OS X implementation via sandbox(7)
 comment|/** Access to non-standard OS X libc methods */
@@ -1680,7 +2032,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"bug: should not be trying to initialize seccomp for an unsupported OS"
+literal|"bug: should not be trying to initialize seatbelt for an unsupported OS"
 argument_list|)
 throw|;
 block|}
@@ -1845,10 +2197,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Attempt to drop the capability to execute for the process.      *<p>      * This is best effort and OS and architecture dependent. It may throw any Throwable.      */
+comment|/**      * Attempt to drop the capability to execute for the process.      *<p>      * This is best effort and OS and architecture dependent. It may throw any Throwable.      * @return 0 if we can do this for application threads, 1 for the entire process      */
 DECL|method|init
 specifier|static
-name|void
+name|int
 name|init
 parameter_list|(
 name|Path
@@ -1864,9 +2216,10 @@ operator|.
 name|LINUX
 condition|)
 block|{
+return|return
 name|linuxImpl
 argument_list|()
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -1881,6 +2234,9 @@ argument_list|(
 name|tmpFile
 argument_list|)
 expr_stmt|;
+return|return
+literal|1
+return|;
 block|}
 else|else
 block|{

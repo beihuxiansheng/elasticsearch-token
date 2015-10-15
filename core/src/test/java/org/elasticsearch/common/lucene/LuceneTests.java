@@ -182,6 +182,20 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|MMapDirectory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|MockDirectoryWrapper
 import|;
 end_import
@@ -2847,6 +2861,24 @@ name|dir
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Test that the "unmap hack" is detected as supported by lucene.      * This works around the following bug: https://bugs.openjdk.java.net/browse/JDK-4724038      *<p>      * While not guaranteed, current status is "Critical Internal API": http://openjdk.java.net/jeps/260      * Additionally this checks we did not screw up the security logic around the hack.      */
+DECL|method|testMMapHackSupported
+specifier|public
+name|void
+name|testMMapHackSupported
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// add assume's here if needed for certain platforms, but we should know if it does not work.
+name|assertTrue
+argument_list|(
+name|MMapDirectory
+operator|.
+name|UNMAP_SUPPORTED
+argument_list|)
 expr_stmt|;
 block|}
 block|}
