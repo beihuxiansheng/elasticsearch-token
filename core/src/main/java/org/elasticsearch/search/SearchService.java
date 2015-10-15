@@ -8199,7 +8199,6 @@ name|indicesQueriesRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// NOCOMMIT get a parseFieldMatcher from somewhere and set it on the queryParseContext
 name|queryParseContext
 operator|.
 name|parseFieldMatcher
