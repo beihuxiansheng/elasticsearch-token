@@ -2555,6 +2555,11 @@ name|XContentParser
 operator|.
 name|Token
 name|token
+init|=
+name|parser
+operator|.
+name|currentToken
+argument_list|()
 decl_stmt|;
 name|String
 name|currentFieldName
@@ -2563,6 +2568,14 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
+name|token
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+operator|&&
 operator|(
 name|token
 operator|=
