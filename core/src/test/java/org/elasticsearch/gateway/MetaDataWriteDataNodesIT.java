@@ -199,18 +199,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Future
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -1000,7 +988,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1200,7 +1188,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1250,7 +1238,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo

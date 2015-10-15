@@ -1069,7 +1069,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|containsKey
@@ -1090,7 +1090,7 @@ name|type
 argument_list|,
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2080,7 +2080,7 @@ name|add
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2089,7 +2089,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|containsKey
@@ -2113,7 +2113,7 @@ name|DEFAULT_MAPPING
 argument_list|,
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2140,7 +2140,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|containsKey
@@ -2166,7 +2166,7 @@ argument_list|()
 argument_list|,
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|get
@@ -2421,7 +2421,7 @@ name|mapping
 range|:
 name|indexMetaData
 operator|.
-name|mappings
+name|getMappings
 argument_list|()
 operator|.
 name|values

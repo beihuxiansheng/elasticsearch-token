@@ -1045,7 +1045,7 @@ name|disablePurge
 init|=
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsBoolean

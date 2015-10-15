@@ -4094,7 +4094,7 @@ name|shouldExecuteReplication
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|==
@@ -4216,7 +4216,7 @@ name|shouldExecuteReplication
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|==
@@ -4474,7 +4474,7 @@ name|shouldExecuteReplication
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 condition|)

@@ -5609,7 +5609,7 @@ operator|+
 name|i
 argument_list|)
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo

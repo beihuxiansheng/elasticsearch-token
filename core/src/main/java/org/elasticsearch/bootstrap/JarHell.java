@@ -491,6 +491,26 @@ name|classPath
 parameter_list|)
 block|{
 name|String
+name|pathSeparator
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"path.separator"
+argument_list|)
+decl_stmt|;
+name|String
+name|fileSeparator
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"file.separator"
+argument_list|)
+decl_stmt|;
+name|String
 name|elements
 index|[]
 init|=
@@ -498,12 +518,7 @@ name|classPath
 operator|.
 name|split
 argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"path.separator"
-argument_list|)
+name|pathSeparator
 argument_list|)
 decl_stmt|;
 name|URL
@@ -570,6 +585,72 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
+comment|// we should be able to just Paths.get() each element, but unfortunately this is not the
+comment|// whole story on how classpath parsing works: if you want to know, start at sun.misc.Launcher,
+comment|// be sure to stop before you tear out your eyes. we just handle the "alternative" filename
+comment|// specification which java seems to allow, explicitly, right here...
+if|if
+condition|(
+name|element
+operator|.
+name|startsWith
+argument_list|(
+literal|"/"
+argument_list|)
+operator|&&
+literal|"\\"
+operator|.
+name|equals
+argument_list|(
+name|fileSeparator
+argument_list|)
+condition|)
+block|{
+comment|// "correct" the entry to become a normal entry
+comment|// change to correct file separators
+name|element
+operator|=
+name|element
+operator|.
+name|replace
+argument_list|(
+literal|"/"
+argument_list|,
+literal|"\\"
+argument_list|)
+expr_stmt|;
+comment|// if there is a drive letter, nuke the leading separator
+if|if
+condition|(
+name|element
+operator|.
+name|length
+argument_list|()
+operator|>=
+literal|3
+operator|&&
+name|element
+operator|.
+name|charAt
+argument_list|(
+literal|2
+argument_list|)
+operator|==
+literal|':'
+condition|)
+block|{
+name|element
+operator|=
+name|element
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// now just parse as ordinary file
 try|try
 block|{
 name|urlElements

@@ -413,7 +413,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -589,7 +589,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -746,7 +746,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1080,7 +1080,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo

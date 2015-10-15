@@ -191,6 +191,7 @@ name|EMPTY_ARRAY
 decl_stmt|;
 DECL|field|searchSourceBuilder
 specifier|private
+specifier|final
 name|SearchSourceBuilder
 name|searchSourceBuilder
 init|=

@@ -13224,7 +13224,7 @@ name|extractShardId
 argument_list|(
 name|test
 operator|.
-name|reader
+name|getDirectoryReader
 argument_list|()
 argument_list|)
 decl_stmt|;

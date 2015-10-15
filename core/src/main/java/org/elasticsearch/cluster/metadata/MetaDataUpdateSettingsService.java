@@ -630,7 +630,7 @@ name|autoExpandReplicas
 init|=
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -698,7 +698,7 @@ name|SETTING_AUTO_EXPAND_REPLICAS
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|autoExpandReplicas
@@ -751,7 +751,7 @@ name|SETTING_AUTO_EXPAND_REPLICAS
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|sMin
@@ -822,7 +822,7 @@ name|SETTING_AUTO_EXPAND_REPLICAS
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|ALL_NODES_VALUE
@@ -872,7 +872,7 @@ name|numberOfReplicas
 operator|==
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 condition|)
 block|{
@@ -926,7 +926,7 @@ name|add
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -948,7 +948,7 @@ name|e
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1561,7 +1561,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -2274,7 +2274,7 @@ name|equals
 argument_list|(
 name|indexMetaData
 operator|.
-name|creationVersion
+name|getCreationVersion
 argument_list|()
 argument_list|)
 operator|==
@@ -2302,7 +2302,7 @@ name|put
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.

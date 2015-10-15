@@ -1823,7 +1823,7 @@ name|markedTribeName
 init|=
 name|index
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|get
@@ -1857,7 +1857,7 @@ name|index
 argument_list|(
 name|index
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1869,7 +1869,7 @@ literal|null
 operator|||
 name|tribeIndex
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|==
 name|IndexMetaData
@@ -1889,7 +1889,7 @@ name|tribeName
 argument_list|,
 name|index
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1922,7 +1922,7 @@ name|index
 argument_list|(
 name|index
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1939,7 +1939,7 @@ name|put
 argument_list|(
 name|tribeIndex
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -1998,7 +1998,7 @@ name|index
 argument_list|(
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2024,7 +2024,7 @@ name|index
 argument_list|(
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2044,7 +2044,7 @@ name|contains
 argument_list|(
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -2060,7 +2060,7 @@ name|tribeName
 argument_list|,
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2140,7 +2140,7 @@ name|tribeName
 argument_list|,
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|existingFromTribe
@@ -2163,7 +2163,7 @@ name|add
 argument_list|(
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2214,7 +2214,7 @@ name|tribeName
 argument_list|,
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|existingFromTribe
@@ -2317,7 +2317,7 @@ name|remove
 argument_list|(
 name|index
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2327,7 +2327,7 @@ name|remove
 argument_list|(
 name|index
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2337,7 +2337,7 @@ name|removeIndexBlocks
 argument_list|(
 name|index
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2380,7 +2380,7 @@ name|put
 argument_list|(
 name|tribeIndex
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -2424,7 +2424,7 @@ name|index
 argument_list|(
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2439,7 +2439,7 @@ name|blockIndicesMetadata
 argument_list|,
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -2450,7 +2450,7 @@ name|addIndexBlock
 argument_list|(
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -2469,7 +2469,7 @@ name|blockIndicesRead
 argument_list|,
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -2480,7 +2480,7 @@ name|addIndexBlock
 argument_list|(
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -2499,7 +2499,7 @@ name|blockIndicesWrite
 argument_list|,
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -2510,7 +2510,7 @@ name|addIndexBlock
 argument_list|(
 name|tribeIndex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|IndexMetaData

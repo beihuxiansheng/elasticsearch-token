@@ -1308,7 +1308,7 @@ operator|.
 name|getNewMetaData
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo

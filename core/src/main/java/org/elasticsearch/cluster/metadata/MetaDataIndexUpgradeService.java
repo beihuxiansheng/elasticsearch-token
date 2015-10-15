@@ -196,16 +196,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -352,7 +342,7 @@ block|{
 return|return
 name|indexMetaData
 operator|.
-name|upgradeVersion
+name|getUpgradedVersion
 argument_list|()
 operator|.
 name|onOrAfter
@@ -436,7 +426,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|creationVersion
+name|getCreationVersion
 argument_list|()
 operator|.
 name|onOrAfter
@@ -623,7 +613,7 @@ name|settings
 init|=
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 decl_stmt|;
 name|Settings
@@ -833,7 +823,7 @@ name|version
 argument_list|(
 name|indexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|.
@@ -882,7 +872,7 @@ name|settings
 init|=
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 decl_stmt|;
 try|try
@@ -1035,7 +1025,7 @@ name|put
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.

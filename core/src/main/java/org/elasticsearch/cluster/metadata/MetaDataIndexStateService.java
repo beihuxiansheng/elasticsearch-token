@@ -639,7 +639,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|!=
 name|IndexMetaData
@@ -1086,7 +1086,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|!=
 name|IndexMetaData

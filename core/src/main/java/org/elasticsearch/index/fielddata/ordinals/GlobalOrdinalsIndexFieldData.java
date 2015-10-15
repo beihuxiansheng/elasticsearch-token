@@ -28,6 +28,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -356,7 +370,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 block|{
@@ -371,7 +385,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws
@@ -441,19 +455,6 @@ specifier|public
 name|void
 name|clear
 parameter_list|()
-block|{
-comment|// no need to clear, because this is cached and cleared in AbstractBytesIndexFieldData
-block|}
-annotation|@
-name|Override
-DECL|method|clear
-specifier|public
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
 block|{
 comment|// no need to clear, because this is cached and cleared in AbstractBytesIndexFieldData
 block|}

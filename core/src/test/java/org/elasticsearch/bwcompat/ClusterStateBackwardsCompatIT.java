@@ -601,7 +601,7 @@ name|assertTrue
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsBoolean

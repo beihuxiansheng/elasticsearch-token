@@ -184,16 +184,6 @@ name|Path
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -573,7 +563,7 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 literal|1
@@ -748,12 +738,12 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|>
 name|electedIndexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 condition|)
 block|{

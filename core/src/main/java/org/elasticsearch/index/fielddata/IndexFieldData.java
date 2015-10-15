@@ -26,6 +26,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -516,19 +530,10 @@ name|void
 name|clear
 parameter_list|()
 function_decl|;
-DECL|method|clear
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
-function_decl|;
 comment|// we need this extended source we we have custom comparators to reuse our field data
 comment|// in this case, we need to reduce type that will be used when search results are reduced
 comment|// on another node (we don't have the custom source them...)
 DECL|class|XFieldComparatorSource
-specifier|public
 specifier|abstract
 class|class
 name|XFieldComparatorSource
@@ -1067,8 +1072,6 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|interface|Global
-specifier|public
-specifier|static
 interface|interface
 name|Global
 parameter_list|<
@@ -1089,7 +1092,7 @@ name|FD
 argument_list|>
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 function_decl|;
@@ -1100,7 +1103,7 @@ name|FD
 argument_list|>
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws

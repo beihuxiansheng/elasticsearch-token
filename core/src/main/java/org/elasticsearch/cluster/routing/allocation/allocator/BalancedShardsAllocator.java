@@ -1260,7 +1260,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|totalNumberOfShards
+name|getTotalNumberOfShards
 argument_list|()
 operator|)
 operator|/

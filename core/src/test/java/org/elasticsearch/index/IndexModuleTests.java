@@ -370,7 +370,7 @@ specifier|static
 specifier|final
 class|class
 name|Wrapper
-implements|implements
+extends|extends
 name|IndexSearcherWrapper
 block|{
 annotation|@
