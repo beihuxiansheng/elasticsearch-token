@@ -2096,7 +2096,7 @@ literal|"c1"
 argument_list|)
 argument_list|)
 operator|.
-name|addFields
+name|fields
 argument_list|(
 literal|"_parent"
 argument_list|)
@@ -2199,7 +2199,7 @@ literal|"p1"
 argument_list|)
 argument_list|)
 operator|.
-name|addFields
+name|fields
 argument_list|(
 literal|"_parent"
 argument_list|)
@@ -2362,7 +2362,7 @@ literal|"_parent:p1"
 argument_list|)
 argument_list|)
 operator|.
-name|addFields
+name|fields
 argument_list|(
 literal|"_parent"
 argument_list|)

@@ -529,6 +529,8 @@ argument_list|(
 name|sourceBytes
 argument_list|,
 name|queryRegistry
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|SearchRequest

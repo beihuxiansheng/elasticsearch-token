@@ -1502,7 +1502,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|addFields
+name|fields
 argument_list|(
 literal|"_routing"
 argument_list|,

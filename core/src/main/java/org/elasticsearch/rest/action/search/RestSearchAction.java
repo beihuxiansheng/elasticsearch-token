@@ -936,6 +936,13 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|(
+name|parseFieldMatcher
+argument_list|)
+expr_stmt|;
 name|Template
 name|template
 init|=
@@ -979,6 +986,8 @@ argument_list|(
 name|restContent
 argument_list|,
 name|indicesQueriesRegistry
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 block|}
@@ -1223,7 +1232,7 @@ name|searchRequest
 return|;
 block|}
 DECL|method|parseSearchSource
-specifier|public
+specifier|private
 specifier|static
 name|boolean
 name|parseSearchSource

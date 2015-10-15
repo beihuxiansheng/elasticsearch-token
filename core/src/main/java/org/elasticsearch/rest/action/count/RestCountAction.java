@@ -556,6 +556,13 @@ argument_list|(
 name|indicesQueriesRegistry
 argument_list|)
 decl_stmt|;
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|(
+name|parseFieldMatcher
+argument_list|)
+expr_stmt|;
 name|countRequest
 operator|.
 name|query

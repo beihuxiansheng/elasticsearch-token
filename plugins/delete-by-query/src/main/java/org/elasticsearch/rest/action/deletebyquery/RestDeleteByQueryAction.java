@@ -518,6 +518,13 @@ argument_list|(
 name|requestParser
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|(
+name|parseFieldMatcher
+argument_list|)
+expr_stmt|;
 specifier|final
 name|QueryBuilder
 argument_list|<

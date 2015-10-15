@@ -1070,11 +1070,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds the fields to load and return as part of the search request. If none are specified,      * the source of the document will be returned.      */
-DECL|method|addFields
+comment|/**      * Sets the fields to load and return as part of the search request. If none      * are specified, the source of the document will be returned.      */
+DECL|method|fields
 specifier|public
 name|SearchRequestBuilder
-name|addFields
+name|fields
 parameter_list|(
 name|String
 modifier|...
