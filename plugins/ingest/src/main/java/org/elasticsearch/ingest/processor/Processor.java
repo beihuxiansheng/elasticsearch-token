@@ -32,6 +32,28 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -81,6 +103,8 @@ DECL|method|build
 name|Processor
 name|build
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**          * A factory that creates a processor builder when processor instances for pipelines are being created.          */
 DECL|interface|Factory
@@ -93,6 +117,16 @@ name|Builder
 name|create
 parameter_list|()
 function_decl|;
+comment|/**              */
+DECL|method|setConfigDirectory
+specifier|default
+name|void
+name|setConfigDirectory
+parameter_list|(
+name|Path
+name|configDirectory
+parameter_list|)
+block|{             }
 block|}
 block|}
 block|}

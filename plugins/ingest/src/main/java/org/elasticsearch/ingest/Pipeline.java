@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -270,6 +280,8 @@ name|Factory
 argument_list|>
 name|processorRegistry
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|description
 operator|=
@@ -471,6 +483,8 @@ name|Builder
 modifier|...
 name|processors
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(

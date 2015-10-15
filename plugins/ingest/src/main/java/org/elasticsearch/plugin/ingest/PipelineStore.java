@@ -156,6 +156,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|gateway
 operator|.
 name|GatewayService
@@ -209,6 +221,16 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -315,6 +337,9 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
+name|Environment
+name|environment
+parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
@@ -375,6 +400,32 @@ name|client
 operator|=
 name|client
 expr_stmt|;
+for|for
+control|(
+name|Processor
+operator|.
+name|Builder
+operator|.
+name|Factory
+name|factory
+range|:
+name|processors
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|factory
+operator|.
+name|setConfigDirectory
+argument_list|(
+name|environment
+operator|.
+name|configFile
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|processorFactoryRegistry
@@ -589,6 +640,8 @@ DECL|method|updatePipelines
 name|void
 name|updatePipelines
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|// note: this process isn't fast or smart, but the idea is that there will not be many pipelines,
 comment|// so for that reason the goal is to keep the update logic simple.
