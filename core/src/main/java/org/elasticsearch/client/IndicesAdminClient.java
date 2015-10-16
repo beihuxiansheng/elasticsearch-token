@@ -2882,7 +2882,7 @@ modifier|...
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Validate a query for correctness.      *      * @param request The count request      * @return The result future      * @see Requests#countRequest(String...)      */
+comment|/**      * Validate a query for correctness.      *      * @param request The count request      * @return The result future      */
 DECL|method|validateQuery
 name|ActionFuture
 argument_list|<
@@ -2894,7 +2894,7 @@ name|ValidateQueryRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Validate a query for correctness.      *      * @param request  The count request      * @param listener A listener to be notified of the result      * @see Requests#countRequest(String...)      */
+comment|/**      * Validate a query for correctness.      *      * @param request  The count request      * @param listener A listener to be notified of the result      */
 DECL|method|validateQuery
 name|void
 name|validateQuery

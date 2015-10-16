@@ -16,32 +16,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|count
-operator|.
-name|CountResponse
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -50,7 +24,7 @@ name|action
 operator|.
 name|search
 operator|.
-name|SearchPhaseExecutionException
+name|SearchResponse
 import|;
 end_import
 
@@ -111,20 +85,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|Requests
-operator|.
-name|countRequest
 import|;
 end_import
 
@@ -350,15 +310,20 @@ operator|++
 control|)
 block|{
 comment|// test successful
-name|CountResponse
+name|SearchResponse
 name|countResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|setSize
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|setQuery
@@ -378,7 +343,10 @@ name|assertThat
 argument_list|(
 name|countResponse
 operator|.
-name|getCount
+name|getHits
+argument_list|()
+operator|.
+name|totalHits
 argument_list|()
 argument_list|,
 name|equalTo

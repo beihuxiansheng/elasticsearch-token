@@ -108,9 +108,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|count
+name|search
 operator|.
-name|CountResponse
+name|SearchResponse
 import|;
 end_import
 
@@ -5359,14 +5359,19 @@ block|}
 name|refresh
 argument_list|()
 expr_stmt|;
-name|CountResponse
+name|SearchResponse
 name|countResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()

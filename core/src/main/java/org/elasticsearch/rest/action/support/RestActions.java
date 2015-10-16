@@ -908,9 +908,7 @@ argument_list|(
 name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
-name|SearchSourceBuilder
-name|source
-init|=
+return|return
 name|SearchSourceBuilder
 operator|.
 name|parseSearchSource
@@ -919,9 +917,6 @@ name|parser
 argument_list|,
 name|queryParseContext
 argument_list|)
-decl_stmt|;
-return|return
-name|source
 return|;
 block|}
 comment|/**      * Get Rest content from either payload or source parameter      * @param request Rest request      * @return rest content      */

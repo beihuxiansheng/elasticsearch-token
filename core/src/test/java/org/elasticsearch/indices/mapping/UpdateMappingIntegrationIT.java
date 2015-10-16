@@ -82,9 +82,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|count
+name|search
 operator|.
-name|CountResponse
+name|SearchResponse
 import|;
 end_import
 
@@ -623,15 +623,20 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|CountResponse
+name|SearchResponse
 name|response
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|setSize
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|execute
@@ -644,7 +649,10 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
-name|getCount
+name|getHits
+argument_list|()
+operator|.
+name|totalHits
 argument_list|()
 argument_list|,
 name|equalTo

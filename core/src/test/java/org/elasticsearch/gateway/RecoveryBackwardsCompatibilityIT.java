@@ -40,9 +40,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|count
+name|index
 operator|.
-name|CountResponse
+name|IndexRequestBuilder
 import|;
 end_import
 
@@ -54,9 +54,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
+name|search
 operator|.
-name|IndexRequestBuilder
+name|SearchResponse
 import|;
 end_import
 
@@ -567,14 +567,19 @@ expr_stmt|;
 name|logClusterState
 argument_list|()
 expr_stmt|;
-name|CountResponse
+name|SearchResponse
 name|countResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -670,8 +675,13 @@ operator|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()

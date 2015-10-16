@@ -192,9 +192,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|count
+name|search
 operator|.
-name|CountResponse
+name|SearchResponse
 import|;
 end_import
 
@@ -1520,14 +1520,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we have to flush at least once here since we don't corrupt the translog
-name|CountResponse
+name|SearchResponse
 name|countResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -2310,14 +2315,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we have to flush at least once here since we don't corrupt the translog
-name|CountResponse
+name|SearchResponse
 name|countResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -3587,14 +3597,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we have to flush at least once here since we don't corrupt the translog
-name|CountResponse
+name|SearchResponse
 name|countResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -4401,14 +4416,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we have to flush at least once here since we don't corrupt the translog
-name|CountResponse
+name|SearchResponse
 name|countResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -4822,14 +4842,19 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we have to flush at least once here since we don't corrupt the translog
-name|CountResponse
+name|SearchResponse
 name|countResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
