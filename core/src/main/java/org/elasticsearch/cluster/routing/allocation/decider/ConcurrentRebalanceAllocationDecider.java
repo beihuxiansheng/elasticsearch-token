@@ -311,7 +311,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too man concurrent rebalances [%d], limit: [%d]"
+literal|"too many concurrent rebalances [%d], limit: [%d]"
 argument_list|,
 name|allocation
 operator|.
