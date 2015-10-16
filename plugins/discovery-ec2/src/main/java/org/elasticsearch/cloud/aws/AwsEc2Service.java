@@ -243,6 +243,15 @@ name|AVAILABILITY_ZONES
 init|=
 literal|"discovery.ec2.availability_zones"
 decl_stmt|;
+DECL|field|NODE_CACHE_TIME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NODE_CACHE_TIME
+init|=
+literal|"discovery.ec2.node_cache_time"
+decl_stmt|;
 block|}
 DECL|method|client
 name|AmazonEC2
