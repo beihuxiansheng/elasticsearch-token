@@ -3198,6 +3198,9 @@ name|getBuilderPrototype
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|deserializedQuery
 init|=
 name|prototype
