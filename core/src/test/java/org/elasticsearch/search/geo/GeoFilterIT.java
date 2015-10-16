@@ -4647,7 +4647,7 @@ argument_list|)
 decl_stmt|;
 name|strategy
 operator|.
-name|makeFilter
+name|makeQuery
 argument_list|(
 name|args
 argument_list|)
