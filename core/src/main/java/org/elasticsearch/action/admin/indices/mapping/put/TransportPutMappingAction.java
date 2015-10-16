@@ -563,13 +563,9 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|listener
-operator|.
-name|onFailure
-argument_list|(
+throw|throw
 name|ex
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 block|}
