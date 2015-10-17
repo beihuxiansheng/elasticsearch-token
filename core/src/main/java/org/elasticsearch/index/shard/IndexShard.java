@@ -6431,6 +6431,8 @@ block|}
 catch|catch
 parameter_list|(
 name|AlreadyClosedException
+decl||
+name|EngineClosedException
 name|ex
 parameter_list|)
 block|{
