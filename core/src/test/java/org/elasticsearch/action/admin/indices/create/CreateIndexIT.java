@@ -1534,13 +1534,21 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|AtomicInteger
-name|indexDeleteAction
+name|indexVersion
 init|=
 operator|new
 name|AtomicInteger
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+specifier|final
+name|Object
+name|indexVersionLock
+init|=
+operator|new
+name|Object
+argument_list|()
 decl_stmt|;
 specifier|final
 name|CountDownLatch
@@ -1591,7 +1599,7 @@ name|setSource
 argument_list|(
 literal|"index_version"
 argument_list|,
-name|indexDeleteAction
+name|indexVersion
 operator|.
 name|get
 argument_list|()
@@ -1603,11 +1611,11 @@ expr_stmt|;
 block|}
 synchronized|synchronized
 init|(
-name|indexDeleteAction
+name|indexVersionLock
 init|)
 block|{
-comment|// not necessarily needed here
-name|indexDeleteAction
+comment|// not necessarily needed here but for completeness we lock here too
+name|indexVersion
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1675,7 +1683,7 @@ name|setSource
 argument_list|(
 literal|"index_version"
 argument_list|,
-name|indexDeleteAction
+name|indexVersion
 operator|.
 name|get
 argument_list|()
@@ -1687,15 +1695,19 @@ expr_stmt|;
 comment|// recreate that index
 synchronized|synchronized
 init|(
-name|indexDeleteAction
+name|indexVersionLock
 init|)
 block|{
-name|indexDeleteAction
+comment|// we sync here since we have to ensure that all indexing operations below for a given ID are done before we increment the
+comment|// index version otherwise a doc that is in-flight could make it into an index that it was supposed to be deleted for and our assertion fail...
+name|indexVersion
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1712,6 +1724,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// from here on all docs with index_version == 0|1 must be gone!!!! only 2 are ok;
 block|}
@@ -1742,13 +1755,13 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|ExceptionsHelper
-operator|.
-name|reThrowIfNotNull
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 argument_list|)
@@ -1781,7 +1794,7 @@ try|try
 block|{
 synchronized|synchronized
 init|(
-name|indexDeleteAction
+name|indexVersionLock
 init|)
 block|{
 name|client
@@ -1798,7 +1811,7 @@ name|setSource
 argument_list|(
 literal|"index_version"
 argument_list|,
-name|indexDeleteAction
+name|indexVersion
 operator|.
 name|get
 argument_list|()
@@ -1826,6 +1839,7 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
+comment|// we only really assert that we never reuse segments of old indices or anything like this here and that nothing fails with crazy exceptions
 name|SearchResponse
 name|expected
 init|=
@@ -1855,7 +1869,7 @@ argument_list|)
 operator|.
 name|from
 argument_list|(
-name|indexDeleteAction
+name|indexVersion
 operator|.
 name|get
 argument_list|()
