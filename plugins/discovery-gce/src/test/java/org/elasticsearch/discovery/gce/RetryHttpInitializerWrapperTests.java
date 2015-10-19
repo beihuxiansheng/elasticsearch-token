@@ -212,6 +212,18 @@ begin_import
 import|import static
 name|org
 operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -585,9 +597,14 @@ throws|throws
 name|Exception
 block|{
 name|int
-name|maxWait
+name|maxWaitTime
 init|=
 literal|10
+decl_stmt|;
+name|int
+name|maxRetryTimes
+init|=
+literal|50
 decl_stmt|;
 name|FailThenSuccessBackoffTransport
 name|fakeTransport
@@ -599,7 +616,7 @@ name|HttpStatusCodes
 operator|.
 name|STATUS_CODE_SERVER_ERROR
 argument_list|,
-literal|50
+name|maxRetryTimes
 argument_list|)
 decl_stmt|;
 name|JsonFactory
@@ -644,9 +661,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|maxWait
-operator|*
-literal|10
+name|maxWaitTime
 argument_list|)
 expr_stmt|;
 name|super
@@ -670,7 +685,7 @@ name|credential
 argument_list|,
 name|oneTimeSleeper
 argument_list|,
-name|maxWait
+name|maxWaitTime
 argument_list|)
 decl_stmt|;
 name|Compute
@@ -756,19 +771,6 @@ name|STATUS_CODE_SERVER_ERROR
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"500\nRequest should fail"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// should only retry once.
 name|assertThat
 argument_list|(
@@ -777,9 +779,9 @@ operator|.
 name|getCount
 argument_list|()
 argument_list|,
-name|equalTo
+name|lessThan
 argument_list|(
-literal|1
+name|maxRetryTimes
 argument_list|)
 argument_list|)
 expr_stmt|;
