@@ -785,10 +785,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ShardReplicationTests
+DECL|class|TransportReplicationActionTests
 specifier|public
 class|class
-name|ShardReplicationTests
+name|TransportReplicationActionTests
 extends|extends
 name|ESTestCase
 block|{
