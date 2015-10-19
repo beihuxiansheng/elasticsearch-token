@@ -587,7 +587,7 @@ block|{
 name|int
 name|maxWait
 init|=
-literal|50
+literal|10
 decl_stmt|;
 name|FailThenSuccessBackoffTransport
 name|fakeTransport
@@ -645,6 +645,8 @@ operator|.
 name|sleep
 argument_list|(
 name|maxWait
+operator|*
+literal|10
 argument_list|)
 expr_stmt|;
 name|super
