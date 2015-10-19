@@ -535,10 +535,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -549,8 +545,6 @@ operator|new
 name|HashSet
 argument_list|<>
 argument_list|()
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|)
