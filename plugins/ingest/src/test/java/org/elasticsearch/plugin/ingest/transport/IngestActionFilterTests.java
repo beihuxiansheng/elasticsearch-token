@@ -158,6 +158,10 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
+name|processor
+operator|.
+name|simple
+operator|.
 name|SimpleProcessor
 import|;
 end_import

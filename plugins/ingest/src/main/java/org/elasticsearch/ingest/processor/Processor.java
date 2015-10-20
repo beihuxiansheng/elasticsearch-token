@@ -4,15 +4,29 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest
+DECL|package|org.elasticsearch.ingest.processor
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|ingest
+operator|.
+name|processor
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|Data
+import|;
+end_import
 
 begin_import
 import|import
