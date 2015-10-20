@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|Query
 import|;
 end_import
 
@@ -423,7 +423,7 @@ annotation|@
 name|Override
 DECL|method|searchFilter
 specifier|public
-name|Filter
+name|Query
 name|searchFilter
 parameter_list|(
 name|String

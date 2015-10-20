@@ -198,20 +198,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryWrapperFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|TermQuery
 import|;
 end_import
@@ -229,20 +215,6 @@ operator|.
 name|join
 operator|.
 name|BitSetProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|Directory
 import|;
 end_import
 
@@ -694,9 +666,6 @@ operator|.
 name|getBitSetProducer
 argument_list|(
 operator|new
-name|QueryWrapperFilter
-argument_list|(
-operator|new
 name|TermQuery
 argument_list|(
 operator|new
@@ -705,7 +674,6 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"value"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1184,9 +1152,6 @@ operator|.
 name|getBitSetProducer
 argument_list|(
 operator|new
-name|QueryWrapperFilter
-argument_list|(
-operator|new
 name|TermQuery
 argument_list|(
 operator|new
@@ -1195,7 +1160,6 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"value"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DocIdSet
+name|DocIdSetIterator
 import|;
 end_import
 
@@ -583,7 +583,7 @@ name|context
 argument_list|)
 decl_stmt|;
 specifier|final
-name|DocIdSet
+name|DocIdSetIterator
 name|innerDocs
 init|=
 name|nested
@@ -754,7 +754,7 @@ name|context
 argument_list|)
 decl_stmt|;
 specifier|final
-name|DocIdSet
+name|DocIdSetIterator
 name|innerDocs
 init|=
 name|nested

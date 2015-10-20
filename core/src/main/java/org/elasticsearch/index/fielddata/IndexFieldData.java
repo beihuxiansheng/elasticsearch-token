@@ -40,20 +40,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|LeafReaderContext
 import|;
 end_import
@@ -82,6 +68,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|DocIdSetIterator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|FieldComparatorSource
 import|;
 end_import
@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|SortField
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|SortField
+name|Weight
 import|;
 end_import
 
@@ -556,7 +556,7 @@ decl_stmt|;
 DECL|field|innerFilter
 specifier|private
 specifier|final
-name|Filter
+name|Weight
 name|innerFilter
 decl_stmt|;
 DECL|method|Nested
@@ -566,7 +566,7 @@ parameter_list|(
 name|BitSetProducer
 name|rootFilter
 parameter_list|,
-name|Filter
+name|Weight
 name|innerFilter
 parameter_list|)
 block|{
@@ -607,7 +607,7 @@ block|}
 comment|/**              * Get a {@link DocIdSet} that matches the inner documents.              */
 DECL|method|innerDocs
 specifier|public
-name|DocIdSet
+name|DocIdSetIterator
 name|innerDocs
 parameter_list|(
 name|LeafReaderContext
@@ -619,11 +619,9 @@ block|{
 return|return
 name|innerFilter
 operator|.
-name|getDocIdSet
+name|scorer
 argument_list|(
 name|ctx
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
