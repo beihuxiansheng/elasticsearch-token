@@ -663,7 +663,7 @@ name|notFoundUris
 operator|.
 name|add
 argument_list|(
-literal|"/_plugin/dummy/..\\..\\..\\..\\..\\log4j.properties"
+literal|"/_plugin/dummy/..%5C..%5C..%5C..%5C..%5Clog4j.properties"
 argument_list|)
 expr_stmt|;
 for|for
