@@ -1377,26 +1377,6 @@ argument_list|,
 name|info
 argument_list|)
 expr_stmt|;
-comment|// check for jar hell before any copying
-if|if
-condition|(
-name|info
-operator|.
-name|isJvm
-argument_list|()
-condition|)
-block|{
-name|jarHellCheck
-argument_list|(
-name|root
-argument_list|,
-name|info
-operator|.
-name|isIsolated
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 comment|// update name in handle based on 'name' property found in descriptor file
 name|pluginHandle
 operator|=
@@ -1458,6 +1438,26 @@ operator|+
 literal|"' command"
 argument_list|)
 throw|;
+block|}
+comment|// check for jar hell before any copying
+if|if
+condition|(
+name|info
+operator|.
+name|isJvm
+argument_list|()
+condition|)
+block|{
+name|jarHellCheck
+argument_list|(
+name|root
+argument_list|,
+name|info
+operator|.
+name|isIsolated
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// read optional security policy (extra permissions)
 comment|// if it exists, confirm or warn the user
