@@ -60,7 +60,7 @@ name|isMemoryLocked
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns true if secure computing mode is enabled (linux/amd64, OS X only)      */
+comment|/**      * Returns true if secure computing mode is enabled (supported systems only)      */
 DECL|method|isSeccompInstalled
 specifier|public
 specifier|static
