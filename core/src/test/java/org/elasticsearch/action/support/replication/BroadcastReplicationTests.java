@@ -424,16 +424,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -532,7 +522,43 @@ name|replication
 operator|.
 name|ClusterStateCreationUtils
 operator|.
-name|*
+name|state
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|replication
+operator|.
+name|ClusterStateCreationUtils
+operator|.
+name|stateWithAssignedPrimariesAndOneReplica
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|replication
+operator|.
+name|ClusterStateCreationUtils
+operator|.
+name|stateWithNoShard
 import|;
 end_import
 
@@ -544,7 +570,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
 import|;
 end_import
 
@@ -725,8 +775,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNotStartedPrimary
 specifier|public
 name|void
@@ -913,8 +961,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStartedPrimary
 specifier|public
 name|void
@@ -1080,8 +1126,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testResultCombine
 specifier|public
 name|void
@@ -1367,8 +1411,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoShards
 specifier|public
 name|void
@@ -1430,8 +1472,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShardsList
 specifier|public
 name|void

@@ -854,7 +854,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"optimizeBox must not be null"
+literal|"optimizeBbox must not be null"
 argument_list|)
 throw|;
 block|}

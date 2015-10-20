@@ -81,12 +81,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|CoreMatchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -98,7 +100,7 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
+name|not
 import|;
 end_import
 
@@ -114,8 +116,6 @@ name|PreBuiltTokenizerFactoryFactoryTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testThatDifferentVersionsCanBeLoaded
 specifier|public
 name|void

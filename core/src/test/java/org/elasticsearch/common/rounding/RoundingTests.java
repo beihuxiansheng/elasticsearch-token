@@ -29,16 +29,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -83,8 +73,6 @@ extends|extends
 name|ESTestCase
 block|{
 comment|/**      * simple test case to illustrate how Rounding.Interval works on readable input      */
-annotation|@
-name|Test
 DECL|method|testInterval
 specifier|public
 name|void
@@ -183,8 +171,6 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIntervalRandom
 specifier|public
 name|void
@@ -335,8 +321,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Simple test case to illustrate how Rounding.Offset works on readable input.      * offset shifts input value back before rounding (so here 6 - 7 -&gt; -1)      * then shifts rounded Value back  (here -10 -&gt; -3)      */
-annotation|@
-name|Test
 DECL|method|testOffsetRounding
 specifier|public
 name|void
@@ -513,8 +497,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * test OffsetRounding with an internal interval rounding on random inputs      */
-annotation|@
-name|Test
 DECL|method|testOffsetRoundingRandom
 specifier|public
 name|void

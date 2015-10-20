@@ -550,16 +550,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2091,8 +2081,6 @@ return|return
 name|builder
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFromXContent
 specifier|public
 name|void
@@ -2259,8 +2247,6 @@ return|return
 name|context
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSerialization
 specifier|public
 name|void
@@ -2354,8 +2340,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testEqualsAndHashcode
 specifier|public
 name|void
@@ -2823,8 +2807,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParseSort
 specifier|public
 name|void
@@ -3062,8 +3044,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testEmptyPostFilter
 specifier|public
 name|void

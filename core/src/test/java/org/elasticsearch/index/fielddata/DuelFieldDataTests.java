@@ -342,16 +342,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -460,7 +450,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|closeTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
 import|;
 end_import
 
@@ -484,8 +498,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDuelAllTypesSingleValue
 specifier|public
 name|void
@@ -1566,8 +1578,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDuelIntegers
 specifier|public
 name|void
@@ -2490,8 +2500,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDuelDoubles
 specifier|public
 name|void
@@ -3288,8 +3296,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDuelStrings
 specifier|public
 name|void

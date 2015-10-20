@@ -108,16 +108,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -147,8 +137,6 @@ extends|extends
 name|ESTestCase
 block|{
 comment|/**      * Tests https://github.com/elasticsearch/elasticsearch/issues/2426      */
-annotation|@
-name|Test
 DECL|method|testScriptScoresReturnsNaN
 specifier|public
 name|void

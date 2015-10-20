@@ -246,6 +246,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|InternalTestCluster
 operator|.
 name|RestartCallback
@@ -279,16 +293,6 @@ operator|.
 name|store
 operator|.
 name|MockFSDirectoryService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -396,20 +400,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -503,8 +493,6 @@ name|RecoveryFromGatewayIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testOneNodeRecoverFromGateway
 specifier|public
 name|void
@@ -982,8 +970,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleNodeNoFlush
 specifier|public
 name|void
@@ -1755,8 +1741,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleNodeWithFlush
 specifier|public
 name|void
@@ -2007,8 +1991,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testTwoNodeFirstNodeCleared
 specifier|public
 name|void
@@ -2280,8 +2262,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testLatestVersionLoaded
 specifier|public
 name|void
@@ -3102,8 +3082,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|TestLogging
 argument_list|(
@@ -4046,8 +4024,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRecoveryDifferentNodeOrderStartup
 specifier|public
 name|void

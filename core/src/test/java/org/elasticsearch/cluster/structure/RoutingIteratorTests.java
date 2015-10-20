@@ -312,16 +312,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -486,8 +476,6 @@ name|RoutingIteratorTests
 extends|extends
 name|ESAllocationTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testEmptyIterator
 specifier|public
 name|void
@@ -857,8 +845,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIterator1
 specifier|public
 name|void
@@ -1122,8 +1108,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIterator2
 specifier|public
 name|void
@@ -1887,8 +1871,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRandomRouting
 specifier|public
 name|void
@@ -2137,8 +2119,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAttributePreferenceRouting
 specifier|public
 name|void
@@ -2667,8 +2647,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNodeSelectorRouting
 specifier|public
 name|void
@@ -3242,8 +3220,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShardsAndPreferNodeRouting
 specifier|public
 name|void
@@ -3940,8 +3916,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReplicaShardPreferenceIters
 specifier|public
 name|void

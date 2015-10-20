@@ -56,16 +56,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -146,8 +136,6 @@ name|TranslogVersionTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testV0LegacyTranslogVersion
 specifier|public
 name|void
@@ -402,8 +390,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testV1ChecksummedTranslogVersion
 specifier|public
 name|void
@@ -681,8 +667,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCorruptedTranslogs
 specifier|public
 name|void
@@ -940,8 +924,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testTruncatedTranslog
 specifier|public
 name|void

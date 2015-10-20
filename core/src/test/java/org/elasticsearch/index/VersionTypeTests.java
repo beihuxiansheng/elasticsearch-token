@@ -43,16 +43,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -72,8 +62,6 @@ name|VersionTypeTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testInternalVersionConflict
 specifier|public
 name|void
@@ -413,8 +401,6 @@ comment|//            }
 comment|//        }
 comment|//        updatedVersion = (currentVersion == Versions.NOT_SET || currentVersion == Versions.NOT_FOUND) ? 1 : currentVersion + 1;
 block|}
-annotation|@
-name|Test
 DECL|method|testVersionValidation
 specifier|public
 name|void
@@ -842,8 +828,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalVersionConflict
 specifier|public
 name|void
@@ -1123,8 +1107,6 @@ comment|//            }
 comment|//        }
 comment|//        updatedVersion = index.version();
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalGTEVersionConflict
 specifier|public
 name|void
@@ -1395,8 +1377,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testForceVersionConflict
 specifier|public
 name|void
@@ -1678,8 +1658,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdateVersion
 specifier|public
 name|void

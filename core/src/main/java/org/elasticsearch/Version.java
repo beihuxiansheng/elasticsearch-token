@@ -4815,7 +4815,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"the version needs to contain major, minor and revision, and optionally the build: "
+literal|"the version needs to contain major, minor, and revision, and optionally the build: "
 operator|+
 name|version
 argument_list|)

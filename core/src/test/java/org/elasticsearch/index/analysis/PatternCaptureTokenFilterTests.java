@@ -185,16 +185,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -210,6 +200,18 @@ name|settingsBuilder
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_class
 DECL|class|PatternCaptureTokenFilterTests
 specifier|public
@@ -218,8 +220,6 @@ name|PatternCaptureTokenFilterTests
 extends|extends
 name|ESTokenStreamTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPatternCaptureTokenFilter
 specifier|public
 name|void
@@ -468,20 +468,13 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testNoPatterns
 specifier|public
 name|void
 name|testNoPatterns
 parameter_list|()
+block|{
+try|try
 block|{
 operator|new
 name|PatternCaptureGroupTokenFilterFactory
@@ -525,6 +518,32 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"required setting 'patterns' is missing"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

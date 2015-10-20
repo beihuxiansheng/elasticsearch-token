@@ -47,16 +47,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -88,8 +78,6 @@ name|PutWarmerRequestTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 comment|// issue 4196
 DECL|method|testThatValidationWithoutSpecifyingSearchRequestFails
 specifier|public

@@ -974,16 +974,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2348,8 +2338,6 @@ name|doCreateTestQueryBuilder
 parameter_list|()
 function_decl|;
 comment|/**      * Generic test that creates new query from the test query and checks both for equality      * and asserts equality on the two queries.      */
-annotation|@
-name|Test
 DECL|method|testFromXContent
 specifier|public
 name|void
@@ -2675,8 +2663,6 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Test creates the {@link Query} from the {@link QueryBuilder} under test and delegates the      * assertions being made on the result to the implementing subclass.      */
-annotation|@
-name|Test
 DECL|method|testToQuery
 specifier|public
 name|void
@@ -3107,8 +3093,6 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Test serialization and deserialization of the test query.      */
-annotation|@
-name|Test
 DECL|method|testSerialization
 specifier|public
 name|void
@@ -3248,8 +3232,6 @@ return|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testEqualsAndHashcode
 specifier|public
 name|void

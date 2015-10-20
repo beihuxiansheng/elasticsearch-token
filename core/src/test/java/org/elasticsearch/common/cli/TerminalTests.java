@@ -17,12 +17,14 @@ package|;
 end_package
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|Matchers
+operator|.
+name|hasItem
 import|;
 end_import
 
@@ -34,7 +36,19 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|hasSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -50,8 +64,6 @@ name|TerminalTests
 extends|extends
 name|CliToolTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testVerbosity
 specifier|public
 name|void

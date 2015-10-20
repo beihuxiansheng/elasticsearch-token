@@ -134,16 +134,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -239,8 +229,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNormalClusterForming
 specifier|public
 name|void
@@ -411,8 +399,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// Without the 'include temporalResponses responses to nodesToConnect' improvement in UnicastZenPing#sendPings this
 comment|// test fails, because 2 nodes elect themselves as master and the health request times out b/c waiting_for_nodes=N
 comment|// can't be satisfied.

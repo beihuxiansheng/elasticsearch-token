@@ -434,16 +434,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -927,8 +917,6 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShapeBuilders
 specifier|public
 name|void
@@ -1545,8 +1533,6 @@ comment|//                .build();
 comment|//            fail("Polygon intersection not detected";
 comment|//        } catch (InvalidShapeException e) {}
 block|}
-annotation|@
-name|Test
 DECL|method|testShapeRelations
 specifier|public
 name|void
@@ -3014,12 +3000,10 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|bulktest
+DECL|method|testBulk
 specifier|public
 name|void
-name|bulktest
+name|testBulk
 parameter_list|()
 throws|throws
 name|Exception
@@ -3503,8 +3487,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testGeohashCellFilter
 specifier|public
 name|void
@@ -4159,8 +4141,6 @@ throw|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNeighbors
 specifier|public
 name|void

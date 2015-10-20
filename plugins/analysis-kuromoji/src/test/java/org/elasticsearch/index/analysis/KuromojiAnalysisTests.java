@@ -278,16 +278,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -410,8 +400,6 @@ name|KuromojiAnalysisTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefaultsKuromojiAnalysis
 specifier|public
 name|void
@@ -652,8 +640,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBaseFormFilterFactory
 specifier|public
 name|void
@@ -755,8 +741,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReadingFormFilterFactory
 specifier|public
 name|void
@@ -945,8 +929,6 @@ name|expected_tokens_katakana
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testKatakanaStemFilter
 specifier|public
 name|void
@@ -1169,8 +1151,6 @@ name|expected_tokens_katakana
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIterationMarkCharFilter
 specifier|public
 name|void
@@ -1334,8 +1314,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testJapaneseStopFilterFactory
 specifier|public
 name|void
@@ -1858,8 +1836,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testKuromojiUserDict
 specifier|public
 name|void
@@ -1936,8 +1912,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// fix #59
-annotation|@
-name|Test
 DECL|method|testKuromojiEmptyUserDict
 specifier|public
 name|void

@@ -218,16 +218,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -246,7 +236,49 @@ name|client
 operator|.
 name|Requests
 operator|.
-name|*
+name|clearIndicesCacheRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|getRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|indexRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|refreshRequest
 import|;
 end_import
 
@@ -341,8 +373,6 @@ return|return
 literal|"test"
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexActions
 specifier|public
 name|void
@@ -1684,8 +1714,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testBulk
 specifier|public
 name|void

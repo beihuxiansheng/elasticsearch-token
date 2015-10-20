@@ -112,16 +112,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -257,8 +247,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 comment|// see issue #5165 - this test fails each time without the fix in pull #5170
 DECL|method|testStressReaper
 specifier|public

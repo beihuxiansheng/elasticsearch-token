@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -98,6 +88,18 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for {@link S3OutputStream}.  */
 end_comment
@@ -124,8 +126,6 @@ operator|.
 name|bytesAsInt
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testWriteLessDataThanBufferSize
 specifier|public
 name|void
@@ -253,8 +253,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWriteSameDataThanBufferSize
 specifier|public
 name|void
@@ -415,8 +413,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWriteExactlyNTimesMoreDataThanBufferSize
 specifier|public
 name|void
@@ -582,8 +578,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWriteRandomNumberOfBytes
 specifier|public
 name|void
@@ -782,15 +776,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testWrongBufferSize
 specifier|public
 name|void
@@ -813,19 +798,39 @@ operator|*
 literal|1024
 argument_list|)
 decl_stmt|;
-name|MockDefaultS3OutputStream
-name|out
-init|=
+try|try
+block|{
 name|newS3OutputStream
 argument_list|(
 name|randomBufferSize
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Buffer size can't be smaller than 5mb"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"Buffer size can't be smaller than 5mb"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|newS3OutputStream
 specifier|private

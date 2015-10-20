@@ -160,9 +160,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -189,20 +193,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|*
 import|;
 end_import
 
@@ -254,8 +244,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testDecommissionNodeNoReplicas
 specifier|public
 name|void
@@ -663,8 +651,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDisablingAllocationFiltering
 specifier|public
 name|void

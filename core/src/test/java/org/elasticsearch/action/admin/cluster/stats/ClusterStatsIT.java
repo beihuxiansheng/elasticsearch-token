@@ -148,9 +148,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
+name|elasticsearch
 operator|.
-name|Matchers
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -158,9 +162,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|Matchers
 import|;
 end_import
 
@@ -187,20 +191,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|*
 import|;
 end_import
 
@@ -422,8 +412,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNodeCounts
 specifier|public
 name|void
@@ -737,8 +725,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndicesShardStats
 specifier|public
 name|void
@@ -1276,8 +1262,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testValuesSmokeScreen
 specifier|public
 name|void

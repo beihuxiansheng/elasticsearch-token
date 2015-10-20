@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|Tokenizer
+name|TokenStream
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|Tokenizer
 import|;
 end_import
 
@@ -182,16 +182,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -218,6 +208,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|instanceOf
 import|;
 end_import
@@ -230,15 +232,6 @@ name|StopTokenFilterTests
 extends|extends
 name|ESTokenStreamTestCase
 block|{
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|ProvisionException
-operator|.
-name|class
-argument_list|)
 DECL|method|testPositionIncrementSetting
 specifier|public
 name|void
@@ -309,26 +302,42 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|AnalysisService
-name|analysisService
-init|=
+try|try
+block|{
 name|AnalysisTestsHelper
 operator|.
 name|createAnalysisServiceFromSettings
 argument_list|(
 name|settings
 argument_list|)
-decl_stmt|;
-name|analysisService
-operator|.
-name|tokenFilter
+expr_stmt|;
+name|fail
 argument_list|(
-literal|"my_stop"
+literal|"Expected ProvisionException"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|ProvisionException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"enable_position_increments is not supported anymore"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testCorrectPositionIncrementSetting
 specifier|public
 name|void
@@ -537,8 +546,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDeprecatedPositionIncrementSettingWithVersions
 specifier|public
 name|void
@@ -663,8 +670,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatSuggestStopFilterWorks
 specifier|public
 name|void

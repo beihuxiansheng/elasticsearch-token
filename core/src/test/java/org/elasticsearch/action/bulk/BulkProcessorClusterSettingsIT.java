@@ -70,16 +70,6 @@ name|Scope
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -101,8 +91,6 @@ name|BulkProcessorClusterSettingsIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testBulkProcessorAutoCreateRestrictions
 specifier|public
 name|void

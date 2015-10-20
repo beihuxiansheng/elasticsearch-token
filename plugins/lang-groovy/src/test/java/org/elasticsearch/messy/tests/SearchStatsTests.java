@@ -268,16 +268,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -560,8 +550,6 @@ return|return
 literal|0
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleStats
 specifier|public
 name|void
@@ -1555,8 +1543,6 @@ return|return
 name|nodes
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOpenContexts
 specifier|public
 name|void

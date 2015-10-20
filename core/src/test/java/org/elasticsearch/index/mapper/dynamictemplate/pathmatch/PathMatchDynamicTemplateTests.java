@@ -98,7 +98,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ParsedDocument
+name|ParseContext
+operator|.
+name|Document
 import|;
 end_import
 
@@ -112,9 +114,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ParseContext
-operator|.
-name|Document
+name|ParsedDocument
 import|;
 end_import
 
@@ -127,16 +127,6 @@ operator|.
 name|test
 operator|.
 name|ESSingleNodeTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -192,8 +182,6 @@ name|PathMatchDynamicTemplateTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimple
 specifier|public
 name|void

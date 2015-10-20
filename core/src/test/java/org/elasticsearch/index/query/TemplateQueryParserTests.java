@@ -478,16 +478,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -505,6 +495,18 @@ operator|.
 name|reflect
 operator|.
 name|Proxy
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -885,8 +887,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParser
 specifier|public
 name|void
@@ -973,8 +973,6 @@ name|MatchAllDocsQuery
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseTemplateAsSingleStringWithConditionalClause
 specifier|public
 name|void
@@ -1063,15 +1061,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that the template query parser can parse and evaluate template      * expressed as a single string but still it expects only the query      * specification (thus this test should fail with specific exception).      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|ParsingException
-operator|.
-name|class
-argument_list|)
 DECL|method|testParseTemplateFailsToParseCompleteQueryAsSingleString
 specifier|public
 name|void
@@ -1129,6 +1118,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|parser
 operator|.
 name|fromXContent
@@ -1144,9 +1135,33 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ParsingException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"query malformed, no field after start_object"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testParserCanExtractTemplateNames
 specifier|public
 name|void

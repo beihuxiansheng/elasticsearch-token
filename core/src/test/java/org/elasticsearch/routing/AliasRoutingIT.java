@@ -83,16 +83,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -160,8 +150,6 @@ return|return
 literal|2
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasCrudRouting
 specifier|public
 name|void
@@ -990,8 +978,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasSearchRouting
 specifier|public
 name|void
@@ -2646,8 +2632,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasSearchRoutingWithTwoIndices
 specifier|public
 name|void
@@ -3367,8 +3351,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/*     See https://github.com/elasticsearch/elasticsearch/issues/2682     Searching on more than one index, if one of those is an alias with configured routing, the shards that belonged     to the other indices (without routing) were not taken into account in PlainOperationRouting#searchShards.     That affected the number of shards that we executed the search on, thus some documents were missing in the search results.      */
-annotation|@
-name|Test
 DECL|method|testAliasSearchRoutingWithConcreteAndAliasedIndices_issue2682
 specifier|public
 name|void
@@ -3549,8 +3531,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/*     See https://github.com/elasticsearch/elasticsearch/pull/3268     Searching on more than one index, if one of those is an alias with configured routing, the shards that belonged     to the other indices (without routing) were not taken into account in PlainOperationRouting#searchShardsCount.     That could cause returning 1, which led to forcing the QUERY_AND_FETCH mode.     As a result, (size * number of hit shards) results were returned and no reduce phase was taking place.      */
-annotation|@
-name|Test
 DECL|method|testAliasSearchRoutingWithConcreteAndAliasedIndices_issue3268
 specifier|public
 name|void
@@ -3751,8 +3731,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexingAliasesOverTime
 specifier|public
 name|void

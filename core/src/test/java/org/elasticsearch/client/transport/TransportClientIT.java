@@ -138,9 +138,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|test
 operator|.
-name|TransportService
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -148,9 +150,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|transport
+operator|.
+name|TransportService
 import|;
 end_import
 
@@ -181,20 +185,6 @@ operator|.
 name|NodeBuilder
 operator|.
 name|nodeBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -271,8 +261,6 @@ name|TransportClientIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPickingUpChangesInDiscoveryNode
 specifier|public
 name|void
@@ -336,8 +324,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNodeVersionIsUpdated
 specifier|public
 name|void
@@ -614,8 +600,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatTransportClientSettingIsSet
 specifier|public
 name|void
@@ -666,8 +650,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatTransportClientSettingCannotBeChanged
 specifier|public
 name|void

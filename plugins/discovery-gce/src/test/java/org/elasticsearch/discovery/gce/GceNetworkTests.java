@@ -74,16 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -139,12 +129,10 @@ extends|extends
 name|ESTestCase
 block|{
 comment|/**      * Test for network.host: _gce_      */
-annotation|@
-name|Test
-DECL|method|networkHostGceDefault
+DECL|method|testNetworkHostGceDefault
 specifier|public
 name|void
-name|networkHostGceDefault
+name|testNetworkHostGceDefault
 parameter_list|()
 throws|throws
 name|IOException
@@ -163,12 +151,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for network.host: _gce:privateIp_      */
-annotation|@
-name|Test
-DECL|method|networkHostPrivateIp
+DECL|method|testNetworkHostPrivateIp
 specifier|public
 name|void
-name|networkHostPrivateIp
+name|testNetworkHostPrivateIp
 parameter_list|()
 throws|throws
 name|IOException
@@ -187,12 +173,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for network.host: _gce:hostname_      */
-annotation|@
-name|Test
-DECL|method|networkHostPrivateDns
+DECL|method|testNetworkHostPrivateDns
 specifier|public
 name|void
-name|networkHostPrivateDns
+name|testNetworkHostPrivateDns
 parameter_list|()
 throws|throws
 name|IOException
@@ -211,12 +195,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for network.host: _gce:doesnotexist_      * This should raise an IllegalArgumentException as this setting does not exist      */
-annotation|@
-name|Test
-DECL|method|networkHostWrongSetting
+DECL|method|testNetworkHostWrongSetting
 specifier|public
 name|void
-name|networkHostWrongSetting
+name|testNetworkHostWrongSetting
 parameter_list|()
 throws|throws
 name|IOException
@@ -233,12 +215,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test with multiple network interfaces:      * network.host: _gce:privateIp:0_      * network.host: _gce:privateIp:1_      */
-annotation|@
-name|Test
-DECL|method|networkHostPrivateIpInterface
+DECL|method|testNetworkHostPrivateIpInterface
 specifier|public
 name|void
-name|networkHostPrivateIpInterface
+name|testNetworkHostPrivateIpInterface
 parameter_list|()
 throws|throws
 name|IOException
@@ -269,12 +249,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that we don't have any regression with network host core settings such as      * network.host: _local_      */
-annotation|@
-name|Test
-DECL|method|networkHostCoreLocal
+DECL|method|testNetworkHostCoreLocal
 specifier|public
 name|void
-name|networkHostCoreLocal
+name|testNetworkHostCoreLocal
 parameter_list|()
 throws|throws
 name|IOException

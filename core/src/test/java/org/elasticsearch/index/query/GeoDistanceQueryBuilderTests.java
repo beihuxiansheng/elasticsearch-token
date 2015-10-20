@@ -118,16 +118,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -660,8 +650,6 @@ block|}
 comment|/**      * Overridden here to ensure the test is only run if at least one type is      * present in the mappings. Geo queries do not execute if the field is not      * explicitly mapped      */
 annotation|@
 name|Override
-annotation|@
-name|Test
 DECL|method|testToQuery
 specifier|public
 name|void
@@ -881,8 +869,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery1
 specifier|public
 name|void
@@ -934,8 +920,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery2
 specifier|public
 name|void
@@ -981,8 +965,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery3
 specifier|public
 name|void
@@ -1028,8 +1010,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery4
 specifier|public
 name|void
@@ -1075,8 +1055,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery5
 specifier|public
 name|void
@@ -1130,8 +1108,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery6
 specifier|public
 name|void
@@ -1185,8 +1161,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery7
 specifier|public
 name|void
@@ -1340,8 +1314,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery8
 specifier|public
 name|void
@@ -1495,8 +1467,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery9
 specifier|public
 name|void
@@ -1550,8 +1520,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery10
 specifier|public
 name|void
@@ -1605,8 +1573,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery11
 specifier|public
 name|void
@@ -1658,8 +1624,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParsingAndToQuery12
 specifier|public
 name|void

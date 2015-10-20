@@ -248,16 +248,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -611,12 +601,10 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|simpleDistanceTests
+DECL|method|testSimpleDistance
 specifier|public
 name|void
-name|simpleDistanceTests
+name|testSimpleDistance
 parameter_list|()
 throws|throws
 name|Exception
@@ -2321,8 +2309,6 @@ literal|"1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDistanceSortingMVFields
 specifier|public
 name|void
@@ -4350,8 +4336,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// Regression bug: https://github.com/elasticsearch/elasticsearch/issues/2851
 DECL|method|testDistanceSortingWithMissingGeoPoint
 specifier|public
@@ -4847,12 +4831,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|distanceScriptTests
+DECL|method|testDistanceScript
 specifier|public
 name|void
-name|distanceScriptTests
+name|testDistanceScript
 parameter_list|()
 throws|throws
 name|Exception
@@ -5768,8 +5750,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDistanceSortingNestedFields
 specifier|public
 name|void
@@ -7903,8 +7883,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Issue 3073      */
-annotation|@
-name|Test
 DECL|method|testGeoDistanceFilter
 specifier|public
 name|void

@@ -282,7 +282,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|*
+name|TransportException
 import|;
 end_import
 
@@ -290,9 +290,35 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|transport
+operator|.
+name|TransportRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportRequestOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportService
 import|;
 end_import
 
@@ -555,8 +581,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * This test tries to truncate some of larger files in the index to trigger leftovers on the recovery      * target. This happens during recovery when the last chunk of the file is transferred to the replica      * we just throw an exception to make sure the recovery fails and we leave some half baked files on the target.      * Later we allow full recovery to ensure we can still recover and don't run into corruptions.      */
-annotation|@
-name|Test
 DECL|method|testCancelRecoveryAndResume
 specifier|public
 name|void

@@ -165,16 +165,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -198,8 +188,6 @@ name|ClusterStateToStringTests
 extends|extends
 name|ESAllocationTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testClusterStateSerialization
 specifier|public
 name|void

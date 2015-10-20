@@ -72,20 +72,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|MergeSchedulerConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -234,6 +220,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|shard
+operator|.
+name|MergeSchedulerConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|store
 operator|.
 name|IndexStore
@@ -268,16 +268,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -298,7 +288,55 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|*
+name|SETTING_BLOCKS_METADATA
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_BLOCKS_READ
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_BLOCKS_WRITE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_READ_ONLY
 import|;
 end_import
 
@@ -314,7 +352,39 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertBlocked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -350,8 +420,6 @@ name|UpdateSettingsIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testOpenCloseUpdateSettings
 specifier|public
 name|void
@@ -962,8 +1030,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEngineGCDeletesSetting
 specifier|public
 name|void
@@ -1134,8 +1200,6 @@ expr_stmt|;
 comment|// delete is should not be in cache
 block|}
 comment|// #6626: make sure we can update throttle settings and the changes take effect
-annotation|@
-name|Test
 DECL|method|testUpdateThrottleSettings
 specifier|public
 name|void
@@ -2012,21 +2076,6 @@ name|MockAppender
 extends|extends
 name|AppenderSkeleton
 block|{
-DECL|field|sawIndexWriterMessage
-specifier|public
-name|boolean
-name|sawIndexWriterMessage
-decl_stmt|;
-DECL|field|sawFlushDeletes
-specifier|public
-name|boolean
-name|sawFlushDeletes
-decl_stmt|;
-DECL|field|sawMergeThreadPaused
-specifier|public
-name|boolean
-name|sawMergeThreadPaused
-decl_stmt|;
 DECL|field|sawUpdateMaxThreadCount
 specifier|public
 name|boolean
@@ -2080,26 +2129,7 @@ argument_list|(
 literal|"lucene.iw"
 argument_list|)
 condition|)
-block|{
-name|sawFlushDeletes
-operator||=
-name|message
-operator|.
-name|contains
-argument_list|(
-literal|"IW: apply all deletes during flush"
-argument_list|)
-expr_stmt|;
-name|sawMergeThreadPaused
-operator||=
-name|message
-operator|.
-name|contains
-argument_list|(
-literal|"CMS: pause thread"
-argument_list|)
-expr_stmt|;
-block|}
+block|{             }
 if|if
 condition|(
 name|event
@@ -2170,8 +2200,6 @@ name|close
 parameter_list|()
 block|{         }
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdateAutoThrottleSettings
 specifier|public
 name|void
@@ -2402,8 +2430,6 @@ expr_stmt|;
 block|}
 block|}
 comment|// #6882: make sure we can change index.merge.scheduler.max_thread_count live
-annotation|@
-name|Test
 DECL|method|testUpdateMergeMaxThreadCount
 specifier|public
 name|void
@@ -2630,8 +2656,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdateSettingsWithBlocks
 specifier|public
 name|void

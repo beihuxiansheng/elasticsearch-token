@@ -120,16 +120,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -259,12 +249,10 @@ return|return
 literal|1
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|simpleUpdateNumberOfReplicasIT
+DECL|method|testSimpleUpdateNumberOfReplicas
 specifier|public
 name|void
-name|simpleUpdateNumberOfReplicasIT
+name|testSimpleUpdateNumberOfReplicas
 parameter_list|()
 throws|throws
 name|Exception
@@ -1195,8 +1183,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAutoExpandNumberOfReplicas0ToData
 specifier|public
 name|void
@@ -1939,8 +1925,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAutoExpandNumberReplicas1ToData
 specifier|public
 name|void
@@ -2678,8 +2662,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAutoExpandNumberReplicas2
 specifier|public
 name|void
@@ -3094,8 +3076,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdateWithInvalidNumberOfReplicas
 specifier|public
 name|void

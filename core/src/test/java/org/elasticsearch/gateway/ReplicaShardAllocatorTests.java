@@ -436,16 +436,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -604,8 +594,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Verifies that when we are still fetching data in an async manner, the replica shard moves to ignore unassigned.      */
-annotation|@
-name|Test
 DECL|method|testNoAsyncFetchData
 specifier|public
 name|void
@@ -684,8 +672,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that on index creation, we don't go and fetch data, but keep the replica shard unassigned to let      * the shard allocator to allocate it. There isn't a copy around to find anyhow.      */
-annotation|@
-name|Test
 DECL|method|testNoAsyncFetchOnIndexCreation
 specifier|public
 name|void
@@ -789,8 +775,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that for anything but index creation, fetch data ends up being called, since we need to go and try      * and find a better copy for the shard.      */
-annotation|@
-name|Test
 DECL|method|testAsyncFetchOnAnythingButIndexCreation
 specifier|public
 name|void
@@ -872,8 +856,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that when there is a full match (syncId and files) we allocate it to matching node.      */
-annotation|@
-name|Test
 DECL|method|testSimpleFullMatchAllocation
 specifier|public
 name|void
@@ -1002,8 +984,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that when there is a sync id match but no files match, we allocate it to matching node.      */
-annotation|@
-name|Test
 DECL|method|testSyncIdMatch
 specifier|public
 name|void
@@ -1132,8 +1112,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that when there is no sync id match but files match, we allocate it to matching node.      */
-annotation|@
-name|Test
 DECL|method|testFileChecksumMatch
 specifier|public
 name|void
@@ -1262,8 +1240,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * When we can't find primary data, but still find replica data, we go ahead and keep it unassigned      * to be allocated. This is today behavior, which relies on a primary corruption identified with      * adding a replica and having that replica actually recover and cause the corruption to be identified      * See CorruptFileTest#      */
-annotation|@
-name|Test
 DECL|method|testNoPrimaryData
 specifier|public
 name|void
@@ -1360,8 +1336,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that when there is primary data, but no data at all on other nodes, the shard keeps      * unassigned to be allocated later on.      */
-annotation|@
-name|Test
 DECL|method|testNoDataForReplicaOnAnyNode
 specifier|public
 name|void
@@ -1458,8 +1432,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that when there is primary data, but no matching data at all on other nodes, the shard keeps      * unassigned to be allocated later on.      */
-annotation|@
-name|Test
 DECL|method|testNoMatchingFilesForReplicaOnAnyNode
 specifier|public
 name|void
@@ -1575,8 +1547,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * When there is no decision or throttle decision across all nodes for the shard, make sure the shard      * moves to the ignore unassigned list.      */
-annotation|@
-name|Test
 DECL|method|testNoOrThrottleDecidersRemainsInUnassigned
 specifier|public
 name|void
@@ -1696,8 +1666,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests when the node to allocate to due to matching is being throttled, we move the shard to ignored      * to wait till throttling on it is done.      */
-annotation|@
-name|Test
 DECL|method|testThrottleWhenAllocatingToMatchingNode
 specifier|public
 name|void
@@ -1878,8 +1846,6 @@ argument_list|)
 argument_list|)
 argument_list|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDelayedAllocation
 specifier|public
 name|void
@@ -2163,8 +2129,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCancelRecoveryBetterSyncId
 specifier|public
 name|void
@@ -2311,8 +2275,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNotCancellingRecoveryIfSyncedOnExistingRecovery
 specifier|public
 name|void
@@ -2436,8 +2398,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNotCancellingRecovery
 specifier|public
 name|void

@@ -372,16 +372,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|nio
@@ -462,7 +452,71 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertExists
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchHits
 import|;
 end_import
 
@@ -474,7 +528,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -513,12 +603,10 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|testBulkUpdate_simple
+DECL|method|testBulkUpdateSimple
 specifier|public
 name|void
-name|testBulkUpdate_simple
+name|testBulkUpdateSimple
 parameter_list|()
 throws|throws
 name|Exception
@@ -2009,8 +2097,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBulkVersioning
 specifier|public
 name|void
@@ -2863,12 +2949,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testBulkUpdate_malformedScripts
+DECL|method|testBulkUpdateMalformedScripts
 specifier|public
 name|void
-name|testBulkUpdate_malformedScripts
+name|testBulkUpdateMalformedScripts
 parameter_list|()
 throws|throws
 name|Exception
@@ -3437,12 +3521,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testBulkUpdate_largerVolume
+DECL|method|testBulkUpdateLargerVolume
 specifier|public
 name|void
-name|testBulkUpdate_largerVolume
+name|testBulkUpdateLargerVolume
 parameter_list|()
 throws|throws
 name|Exception
@@ -5163,8 +5245,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testBulkIndexingWhileInitializing
 specifier|public
 name|void
@@ -5385,8 +5465,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     Test for https://github.com/elasticsearch/elasticsearch/issues/3444      */
-annotation|@
-name|Test
 DECL|method|testBulkUpdateDocAsUpsertWithParent
 specifier|public
 name|void
@@ -5619,8 +5697,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     Test for https://github.com/elasticsearch/elasticsearch/issues/3444      */
-annotation|@
-name|Test
 DECL|method|testBulkUpdateUpsertWithParent
 specifier|public
 name|void
@@ -5835,8 +5911,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * Test for https://github.com/elasticsearch/elasticsearch/issues/8365      */
-annotation|@
-name|Test
 DECL|method|testBulkUpdateChildMissingParentRouting
 specifier|public
 name|void
@@ -6076,8 +6150,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailingVersionedUpdatedOnBulk
 specifier|public
 name|void
@@ -6322,13 +6394,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// issue 4745
-DECL|method|preParsingSourceDueToMappingShouldNotBreakCompleteBulkRequest
+DECL|method|testPreParsingSourceDueToMappingShouldNotBreakCompleteBulkRequest
 specifier|public
 name|void
-name|preParsingSourceDueToMappingShouldNotBreakCompleteBulkRequest
+name|testPreParsingSourceDueToMappingShouldNotBreakCompleteBulkRequest
 parameter_list|()
 throws|throws
 name|Exception
@@ -6518,13 +6588,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// issue 4745
-DECL|method|preParsingSourceDueToRoutingShouldNotBreakCompleteBulkRequest
+DECL|method|testPreParsingSourceDueToRoutingShouldNotBreakCompleteBulkRequest
 specifier|public
 name|void
-name|preParsingSourceDueToRoutingShouldNotBreakCompleteBulkRequest
+name|testPreParsingSourceDueToRoutingShouldNotBreakCompleteBulkRequest
 parameter_list|()
 throws|throws
 name|Exception
@@ -6730,13 +6798,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// issue 4745
-DECL|method|preParsingSourceDueToIdShouldNotBreakCompleteBulkRequest
+DECL|method|testPreParsingSourceDueToIdShouldNotBreakCompleteBulkRequest
 specifier|public
 name|void
-name|preParsingSourceDueToIdShouldNotBreakCompleteBulkRequest
+name|testPreParsingSourceDueToIdShouldNotBreakCompleteBulkRequest
 parameter_list|()
 throws|throws
 name|Exception
@@ -6924,8 +6990,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// issue 4987
 DECL|method|testThatInvalidIndexNamesShouldNotBreakCompleteBulkRequest
 specifier|public
@@ -7168,8 +7232,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// issue 6630
 DECL|method|testThatFailedUpdateRequestReturnsCorrectType
 specifier|public
@@ -7534,8 +7596,6 @@ else|:
 literal|"alias"
 return|;
 block|}
-annotation|@
-name|Test
 comment|// issue 6410
 DECL|method|testThatMissingIndexDoesNotAbortFullBulkRequest
 specifier|public
@@ -7752,8 +7812,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// issue 9821
 DECL|method|testFailedRequestsOnClosedIndex
 specifier|public
@@ -7974,8 +8032,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// issue 9821
 DECL|method|testInvalidIndexNamesCorrectOpType
 specifier|public

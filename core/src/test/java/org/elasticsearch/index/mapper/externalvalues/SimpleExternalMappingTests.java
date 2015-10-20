@@ -87,16 +87,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -132,8 +122,6 @@ name|SimpleExternalMappingTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testExternalValues
 specifier|public
 name|void
@@ -449,8 +437,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalValuesWithMultifield
 specifier|public
 name|void
@@ -819,8 +805,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalValuesWithMultifieldTwoLevels
 specifier|public
 name|void

@@ -60,16 +60,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -112,8 +102,6 @@ name|WordDelimiterTokenFilterFactoryTests
 extends|extends
 name|ESTokenStreamTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefault
 specifier|public
 name|void
@@ -237,8 +225,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCatenateWords
 specifier|public
 name|void
@@ -368,8 +354,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCatenateNumbers
 specifier|public
 name|void
@@ -505,8 +489,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCatenateAll
 specifier|public
 name|void
@@ -635,8 +617,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSplitOnCaseChange
 specifier|public
 name|void
@@ -741,8 +721,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPreserveOriginal
 specifier|public
 name|void
@@ -885,8 +863,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStemEnglishPossessive
 specifier|public
 name|void
@@ -1020,8 +996,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Correct offset order when doing both parts and concatenation: PowerShot is a synonym of Power */
-annotation|@
-name|Test
 DECL|method|testPartsAndCatenate
 specifier|public
 name|void
@@ -1137,9 +1111,7 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Back compat:       * old offset order when doing both parts and concatenation: PowerShot is a synonym of Shot */
-annotation|@
-name|Test
+comment|/** Back compat:      * old offset order when doing both parts and concatenation: PowerShot is a synonym of Shot */
 DECL|method|testDeprecatedPartsAndCatenate
 specifier|public
 name|void

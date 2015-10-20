@@ -104,16 +104,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -158,12 +148,10 @@ name|JsonVsCborTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|compareParsingTokens
+DECL|method|testCompareParsingTokens
 specifier|public
 name|void
-name|compareParsingTokens
+name|testCompareParsingTokens
 parameter_list|()
 throws|throws
 name|IOException

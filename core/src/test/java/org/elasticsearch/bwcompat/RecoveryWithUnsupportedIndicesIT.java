@@ -41,16 +41,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -70,8 +60,6 @@ name|RecoveryWithUnsupportedIndicesIT
 extends|extends
 name|StaticIndexBackwardCompatibilityIT
 block|{
-annotation|@
-name|Test
 DECL|method|testUpgradeStartClusterOn_0_20_6
 specifier|public
 name|void

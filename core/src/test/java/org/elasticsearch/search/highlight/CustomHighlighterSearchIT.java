@@ -108,16 +108,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -303,8 +293,6 @@ name|ensureYellow
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCustomHighlightersAreSupported
 specifier|public
 name|void
@@ -377,8 +365,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCustomHighlighterCanBeConfiguredPerField
 specifier|public
 name|void
@@ -511,8 +497,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCustomHighlighterCanBeConfiguredGlobally
 specifier|public
 name|void
@@ -628,8 +612,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCustomHighlighterReceivesFieldsInOrder
 specifier|public
 name|void

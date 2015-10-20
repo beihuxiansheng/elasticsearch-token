@@ -69,16 +69,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -91,6 +81,18 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -118,8 +120,6 @@ name|YamlSettingsLoaderTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimpleYamlSettings
 specifier|public
 name|void
@@ -288,15 +288,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|SettingsException
-operator|.
-name|class
-argument_list|)
 DECL|method|testIndentation
 specifier|public
 name|void
@@ -308,6 +299,8 @@ name|yaml
 init|=
 literal|"/org/elasticsearch/common/settings/loader/indentation-settings.yml"
 decl_stmt|;
+try|try
+block|{
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -327,16 +320,33 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|SettingsException
-operator|.
-name|class
+literal|"Expected SettingsException"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SettingsException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Failed to load settings"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testIndentationWithExplicitDocumentStart
 specifier|public
 name|void
@@ -348,6 +358,8 @@ name|yaml
 init|=
 literal|"/org/elasticsearch/common/settings/loader/indentation-with-explicit-document-start-settings.yml"
 decl_stmt|;
+try|try
+block|{
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -367,6 +379,32 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected SettingsException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SettingsException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Failed to load settings"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testDuplicateKeysThrowsException
 specifier|public

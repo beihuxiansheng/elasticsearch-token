@@ -410,16 +410,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -569,8 +559,6 @@ name|documentMapperParser
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLimit
 specifier|public
 name|void
@@ -1072,8 +1060,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDefaultsForAnalyzed
 specifier|public
 name|void
@@ -1204,8 +1190,6 @@ name|defaultMapper
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDefaultsForNotAnalyzed
 specifier|public
 name|void
@@ -1780,8 +1764,6 @@ name|defaultMapper
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchQuoteAnalyzerSerialization
 specifier|public
 name|void
@@ -2297,8 +2279,6 @@ return|return
 name|result
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTermVectors
 specifier|public
 name|void
@@ -4035,8 +4015,6 @@ operator|.
 name|NONE
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDisableNorms
 specifier|public
 name|void

@@ -330,16 +330,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -441,8 +431,6 @@ specifier|private
 name|AnalysisService
 name|analysisService
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testSynonymsAnalysis
 specifier|public
 name|void

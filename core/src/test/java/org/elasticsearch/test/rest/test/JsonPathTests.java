@@ -62,16 +62,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -108,7 +98,67 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -120,8 +170,6 @@ name|JsonPathTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testEvaluateObjectPathEscape
 specifier|public
 name|void
@@ -180,8 +228,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateObjectPathWithDoubleDot
 specifier|public
 name|void
@@ -240,8 +286,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateObjectPathEndsWithDot
 specifier|public
 name|void
@@ -300,8 +344,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateString
 specifier|public
 name|void
@@ -360,8 +402,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateInteger
 specifier|public
 name|void
@@ -420,8 +460,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateDouble
 specifier|public
 name|void
@@ -480,8 +518,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateArray
 specifier|public
 name|void
@@ -618,8 +654,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateArrayElement
 specifier|public
 name|void
@@ -678,8 +712,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateArrayElementObject
 specifier|public
 name|void
@@ -738,8 +770,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateArrayElementObjectWrongPath
 specifier|public
 name|void
@@ -781,8 +811,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -888,8 +916,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Test
-annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -972,8 +998,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvaluateStashInPropertyName
 specifier|public
 name|void

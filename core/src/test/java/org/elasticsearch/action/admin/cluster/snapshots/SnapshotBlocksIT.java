@@ -211,12 +211,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_BLOCKS_READ
 import|;
 end_import
 
@@ -233,22 +239,6 @@ operator|.
 name|IndexMetaData
 operator|.
 name|SETTING_READ_ONLY
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_BLOCKS_READ
 import|;
 end_import
 
@@ -644,8 +634,6 @@ name|ensureSearchable
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreateSnapshotWithBlocks
 specifier|public
 name|void
@@ -765,8 +753,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreateSnapshotWithIndexBlocks
 specifier|public
 name|void
@@ -947,8 +933,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDeleteSnapshotWithBlocks
 specifier|public
 name|void
@@ -1004,8 +988,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRestoreSnapshotWithBlocks
 specifier|public
 name|void
@@ -1201,8 +1183,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGetSnapshotWithBlocks
 specifier|public
 name|void
@@ -1284,8 +1264,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSnapshotStatusWithBlocks
 specifier|public
 name|void

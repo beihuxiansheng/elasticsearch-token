@@ -308,16 +308,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -984,8 +974,6 @@ name|endObject
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDfsQueryThenFetch
 specifier|public
 name|void
@@ -1313,8 +1301,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDfsQueryThenFetchWithSort
 specifier|public
 name|void
@@ -1554,8 +1540,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryThenFetch
 specifier|public
 name|void
@@ -1799,8 +1783,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryThenFetchWithFrom
 specifier|public
 name|void
@@ -2088,8 +2070,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryThenFetchWithSort
 specifier|public
 name|void
@@ -2324,8 +2304,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryAndFetch
 specifier|public
 name|void
@@ -2708,8 +2686,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDfsQueryAndFetch
 specifier|public
 name|void
@@ -3082,8 +3058,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleFacets
 specifier|public
 name|void
@@ -3285,8 +3259,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailedSearchWithWrongQuery
 specifier|public
 name|void
@@ -3432,8 +3404,6 @@ literal|"Done Testing failed search"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailedSearchWithWrongFrom
 specifier|public
 name|void
@@ -3734,8 +3704,6 @@ literal|"Done Testing failed search"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailedMultiSearchWithWrongQuery
 specifier|public
 name|void
@@ -3975,12 +3943,10 @@ literal|"Done Testing failed search"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testFailedMultiSearchWithWrongQuery_withFunctionScore
+DECL|method|testFailedMultiSearchWithWrongQueryWithFunctionScore
 specifier|public
 name|void
-name|testFailedMultiSearchWithWrongQuery_withFunctionScore
+name|testFailedMultiSearchWithWrongQueryWithFunctionScore
 parameter_list|()
 throws|throws
 name|Exception

@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -390,11 +378,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Test
+name|BufferedReader
 import|;
 end_import
 
@@ -404,7 +392,39 @@ name|java
 operator|.
 name|io
 operator|.
-name|*
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStreamReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -496,8 +516,6 @@ argument_list|(
 literal|"</em>"
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testMarvelHeros
 specifier|public
 name|void
@@ -1775,12 +1793,7 @@ name|WhitespaceAnalyzer
 argument_list|()
 argument_list|)
 decl_stmt|;
-operator|(
-operator|(
-name|SolrSynonymParser
-operator|)
 name|parser
-operator|)
 operator|.
 name|parse
 argument_list|(
@@ -2204,8 +2217,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMarvelHerosMultiGenerator
 specifier|public
 name|void
@@ -3265,8 +3276,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMarvelHerosTrigram
 specifier|public
 name|void
@@ -4178,12 +4187,7 @@ name|WhitespaceAnalyzer
 argument_list|()
 argument_list|)
 decl_stmt|;
-operator|(
-operator|(
-name|SolrSynonymParser
-operator|)
 name|parser
-operator|)
 operator|.
 name|parse
 argument_list|(

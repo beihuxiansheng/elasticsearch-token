@@ -185,16 +185,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -222,8 +212,6 @@ name|CharFilterTests
 extends|extends
 name|ESTokenStreamTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testMappingCharFilter
 specifier|public
 name|void
@@ -445,8 +433,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHtmlStripCharFilter
 specifier|public
 name|void

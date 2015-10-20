@@ -164,16 +164,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -195,6 +185,18 @@ operator|.
 name|QueryBuilders
 operator|.
 name|termQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -234,8 +236,6 @@ name|IndexServiceTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDetermineShadowEngineShouldBeUsed
 specifier|public
 name|void
@@ -446,8 +446,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFilteringAliases
 specifier|public
 name|void
@@ -705,8 +703,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasFilters
 specifier|public
 name|void
@@ -859,15 +855,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|InvalidAliasNameException
-operator|.
-name|class
-argument_list|)
 DECL|method|testRemovedAliasFilter
 specifier|public
 name|void
@@ -906,6 +893,8 @@ argument_list|,
 literal|"cats"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|indexService
 operator|.
 name|aliasFilter
@@ -913,9 +902,33 @@ argument_list|(
 literal|"cats"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected InvalidAliasNameException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|InvalidAliasNameException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Invalid alias name [cats]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testUnknownAliasFilter
 specifier|public
 name|void

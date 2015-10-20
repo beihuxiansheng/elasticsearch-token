@@ -586,16 +586,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -995,8 +985,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testBlocks
 specifier|public
 name|void
@@ -1341,8 +1329,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNotStartedPrimary
 specifier|public
 name|void
@@ -1569,8 +1555,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRoutingToPrimary
 specifier|public
 name|void
@@ -1862,8 +1846,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testWriteConsistency
 specifier|public
 name|void
@@ -2386,8 +2368,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testReplication
 specifier|public
 name|void
@@ -2524,8 +2504,6 @@ name|totalShards
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReplicationWithShadowIndex
 specifier|public
 name|void
@@ -3282,8 +3260,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCounterOnPrimary
 specifier|public
 name|void
@@ -3518,8 +3494,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCounterIncrementedWhileReplicationOngoing
 specifier|public
 name|void
@@ -3773,8 +3747,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReplicasCounter
 specifier|public
 name|void
@@ -3994,8 +3966,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCounterDecrementedIfShardOperationThrowsException
 specifier|public
 name|void

@@ -194,16 +194,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -574,12 +564,10 @@ name|reqs
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|singleValue_WithPositiveOffset
+DECL|method|testSingleValueWithPositiveOffset
 specifier|public
 name|void
-name|singleValue_WithPositiveOffset
+name|testSingleValueWithPositiveOffset
 parameter_list|()
 throws|throws
 name|Exception
@@ -769,12 +757,10 @@ literal|3l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|singleValue_WithNegativeOffset
+DECL|method|testSingleValueWithNegativeOffset
 specifier|public
 name|void
-name|singleValue_WithNegativeOffset
+name|testSingleValueWithNegativeOffset
 parameter_list|()
 throws|throws
 name|Exception
@@ -966,12 +952,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Set offset so day buckets start at 6am. Index first 12 hours for two days, with one day gap.      */
-annotation|@
-name|Test
-DECL|method|singleValue_WithOffset_MinDocCount
+DECL|method|testSingleValueWithOffsetMinDocCount
 specifier|public
 name|void
-name|singleValue_WithOffset_MinDocCount
+name|testSingleValueWithOffsetMinDocCount
 parameter_list|()
 throws|throws
 name|Exception

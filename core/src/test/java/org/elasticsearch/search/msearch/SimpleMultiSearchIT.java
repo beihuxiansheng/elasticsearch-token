@@ -57,12 +57,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertFirstHit
 import|;
 end_import
 
@@ -78,7 +84,39 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|hasId
 import|;
 end_import
 
@@ -106,12 +144,10 @@ name|SimpleMultiSearchIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|simpleMultiSearch
+DECL|method|testSimpleMultiSearch
 specifier|public
 name|void
-name|simpleMultiSearch
+name|testSimpleMultiSearch
 parameter_list|()
 block|{
 name|createIndex

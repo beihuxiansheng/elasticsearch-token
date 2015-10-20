@@ -326,16 +326,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -371,34 +361,6 @@ operator|.
 name|util
 operator|.
 name|TreeMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|StreamsUtils
-operator|.
-name|copyToBytesFromClasspath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|StreamsUtils
-operator|.
-name|copyToStringFromClasspath
 import|;
 end_import
 
@@ -470,6 +432,34 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
+operator|.
+name|copyToBytesFromClasspath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
+operator|.
+name|copyToStringFromClasspath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -514,12 +504,10 @@ name|MultiFieldTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|testMultiField_multiFieldType
+DECL|method|testMultiFieldMultiFieldType
 specifier|public
 name|void
-name|testMultiField_multiFieldType
+name|testMultiFieldMultiFieldType
 parameter_list|()
 throws|throws
 name|Exception
@@ -538,12 +526,10 @@ name|mapping
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testMultiField_multiFields
+DECL|method|testMultiFieldMultiFields
 specifier|public
 name|void
-name|testMultiField_multiFields
+name|testMultiFieldMultiFields
 parameter_list|()
 throws|throws
 name|Exception
@@ -1617,8 +1603,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBuildThenParse
 specifier|public
 name|void
@@ -2004,8 +1988,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testConvertMultiFieldNoDefaultField
 specifier|public
 name|void
@@ -3002,8 +2984,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testConvertMultiFieldGeoPoint
 specifier|public
 name|void
@@ -4152,8 +4132,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testConvertMultiFieldCompletion
 specifier|public
 name|void
@@ -4995,8 +4973,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// The underlying order of the fields in multi fields in the mapping source should always be consistent, if not this
 comment|// can to unnecessary re-syncing of the mappings between the local instance and cluster state
 DECL|method|testMultiFieldsInConsistentOrder
@@ -5271,8 +5247,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// The fielddata settings need to be the same after deserializing/re-serialsing, else unneccesary mapping sync's can be triggered
 DECL|method|testMultiFieldsFieldDataSettingsInConsistentOrder
 specifier|public

@@ -54,16 +54,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -166,12 +156,10 @@ name|ConcurrentDocumentOperationIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|concurrentOperationOnSameDocTest
+DECL|method|testConcurrentOperationOnSameDoc
 specifier|public
 name|void
-name|concurrentOperationOnSameDocTest
+name|testConcurrentOperationOnSameDoc
 parameter_list|()
 throws|throws
 name|Exception

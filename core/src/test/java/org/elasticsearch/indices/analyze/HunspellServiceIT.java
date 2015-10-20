@@ -131,12 +131,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|indices
+operator|.
+name|analysis
+operator|.
+name|HunspellService
+operator|.
+name|HUNSPELL_IGNORE_CASE
 import|;
 end_import
 
@@ -152,7 +158,7 @@ name|analysis
 operator|.
 name|HunspellService
 operator|.
-name|*
+name|HUNSPELL_LAZY_LOAD
 import|;
 end_import
 
@@ -193,8 +199,6 @@ name|HunspellServiceIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testLocaleDirectoryWithNodeLevelConfig
 specifier|public
 name|void
@@ -281,8 +285,6 @@ name|dictionary
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLocaleDirectoryWithLocaleSpecificConfig
 specifier|public
 name|void
@@ -416,8 +418,6 @@ name|dictionary
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDicWithNoAff
 specifier|public
 name|void
@@ -530,8 +530,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDicWithTwoAffs
 specifier|public
 name|void

@@ -104,33 +104,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -170,20 +148,10 @@ name|JsonVsSmileTests
 extends|extends
 name|ESTestCase
 block|{
-comment|//    @Test public void testBinarySmileField() throws Exception {
-comment|//        JsonGenerator gen = new SmileFactory().createJsonGenerator(new ByteArrayOutputStream());
-comment|////        JsonGenerator gen = new JsonFactory().createJsonGenerator(new ByteArrayOutputStream(), JsonEncoding.UTF8);
-comment|//        gen.writeStartObject();
-comment|//        gen.writeFieldName("field1");
-comment|//        gen.writeBinary(new byte[]{1, 2, 3});
-comment|//        gen.writeEndObject();
-comment|//    }
-annotation|@
-name|Test
-DECL|method|compareParsingTokens
+DECL|method|testCompareParsingTokens
 specifier|public
 name|void
-name|compareParsingTokens
+name|testCompareParsingTokens
 parameter_list|()
 throws|throws
 name|IOException

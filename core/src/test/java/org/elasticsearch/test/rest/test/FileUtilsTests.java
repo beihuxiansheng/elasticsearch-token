@@ -48,16 +48,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|nio
@@ -144,8 +134,6 @@ name|FileUtilsTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testLoadSingleYamlSuite
 specifier|public
 name|void
@@ -232,8 +220,6 @@ literal|"10_basic.yaml"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLoadMultipleYamlSuites
 specifier|public
 name|void

@@ -46,16 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -246,12 +236,10 @@ name|testHandler
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|locationInfoTest
+DECL|method|testLocationInfoTest
 specifier|public
 name|void
-name|locationInfoTest
+name|testLocationInfoTest
 parameter_list|()
 block|{
 name|esTestLogger
@@ -394,7 +382,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"locationInfoTest"
+literal|"testLocationInfoTest"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -470,7 +458,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"locationInfoTest"
+literal|"testLocationInfoTest"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -546,7 +534,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"locationInfoTest"
+literal|"testLocationInfoTest"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -622,7 +610,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"locationInfoTest"
+literal|"testLocationInfoTest"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -698,7 +686,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"locationInfoTest"
+literal|"testLocationInfoTest"
 argument_list|)
 argument_list|)
 expr_stmt|;

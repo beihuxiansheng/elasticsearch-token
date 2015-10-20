@@ -70,16 +70,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -252,8 +242,6 @@ name|PrioritizedExecutorsTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPriorityQueue
 specifier|public
 name|void
@@ -364,8 +352,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSubmitPrioritizedExecutorWithRunnables
 specifier|public
 name|void
@@ -738,8 +724,6 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExecutePrioritizedExecutorWithRunnables
 specifier|public
 name|void
@@ -1112,8 +1096,6 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSubmitPrioritizedExecutorWithCallables
 specifier|public
 name|void
@@ -1486,8 +1468,6 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSubmitPrioritizedExecutorWithMixed
 specifier|public
 name|void
@@ -1860,8 +1840,6 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTimeout
 specifier|public
 name|void
@@ -2264,8 +2242,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTimeoutCleanup
 specifier|public
 name|void

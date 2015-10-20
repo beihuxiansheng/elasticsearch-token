@@ -98,9 +98,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -111,20 +115,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|*
 import|;
 end_import
 
@@ -152,7 +142,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -204,12 +218,10 @@ literal|"zen"
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|simpleOnlyMasterNodeElection
+DECL|method|testSimpleOnlyMasterNodeElection
 specifier|public
 name|void
-name|simpleOnlyMasterNodeElection
+name|testSimpleOnlyMasterNodeElection
 parameter_list|()
 throws|throws
 name|IOException
@@ -605,12 +617,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|electOnlyBetweenMasterNodes
+DECL|method|testElectOnlyBetweenMasterNodes
 specifier|public
 name|void
-name|electOnlyBetweenMasterNodes
+name|testElectOnlyBetweenMasterNodes
 parameter_list|()
 throws|throws
 name|IOException
@@ -1076,8 +1086,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that putting custom default mapping and then putting a type mapping will have the default mapping merged      * to the type mapping.      */
-annotation|@
-name|Test
 DECL|method|testCustomDefaultMapping
 specifier|public
 name|void
@@ -1351,8 +1359,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasFilterValidation
 specifier|public
 name|void

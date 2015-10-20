@@ -282,16 +282,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -462,8 +452,6 @@ name|GeoShapeIntegrationIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testNullShape
 specifier|public
 name|void
@@ -595,8 +583,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexPointsFilterRectangle
 specifier|public
 name|void
@@ -1009,8 +995,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEdgeCases
 specifier|public
 name|void
@@ -1338,8 +1322,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexedShapeReference
 specifier|public
 name|void
@@ -1730,8 +1712,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReusableBuilder
 specifier|public
 name|void
@@ -1937,8 +1917,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShapeFetchingPath
 specifier|public
 name|void
@@ -2657,8 +2635,6 @@ name|bugUrl
 operator|=
 literal|"https://github.com/elasticsearch/elasticsearch/issues/9904"
 argument_list|)
-annotation|@
-name|Test
 DECL|method|testShapeFilterWithRandomGeoCollection
 specifier|public
 name|void
@@ -2849,8 +2825,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShapeFilterWithDefinedGeoCollection
 specifier|public
 name|void
@@ -3807,8 +3781,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPointsOnly
 specifier|public
 name|void

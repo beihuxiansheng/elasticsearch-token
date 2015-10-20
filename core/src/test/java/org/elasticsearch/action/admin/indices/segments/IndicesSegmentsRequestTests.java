@@ -68,6 +68,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|IndexClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESSingleNodeTestCase
@@ -86,21 +98,23 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -368,21 +382,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * with the default IndicesOptions inherited from BroadcastOperationRequest this will raise an exception      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexClosedException
-operator|.
-name|class
-argument_list|)
 DECL|method|testRequestOnClosedIndex
 specifier|public
 name|void
@@ -406,6 +405,8 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -423,6 +424,32 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IndexClosedException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexClosedException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"closed"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * setting the "ignoreUnavailable" option prevents IndexClosedException      */
 DECL|method|testRequestOnClosedIndexIgnoreUnavailable

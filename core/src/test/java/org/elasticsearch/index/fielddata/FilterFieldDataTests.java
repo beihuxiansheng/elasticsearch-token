@@ -102,16 +102,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -153,8 +143,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFilterByFrequency
 specifier|public
 name|void
@@ -1043,8 +1031,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testFilterByRegExp
 specifier|public
 name|void
@@ -1482,7 +1468,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// No need to test empty usage here
+name|assumeTrue
+argument_list|(
+literal|"No need to test empty usage here"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

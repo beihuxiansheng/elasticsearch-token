@@ -114,16 +114,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -206,7 +196,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|termQuery
+name|functionScoreQuery
 import|;
 end_import
 
@@ -222,7 +212,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|functionScoreQuery
+name|termQuery
 import|;
 end_import
 
@@ -240,7 +230,43 @@ name|functionscore
 operator|.
 name|ScoreFunctionBuilders
 operator|.
-name|*
+name|gaussDecayFunction
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|functionscore
+operator|.
+name|ScoreFunctionBuilders
+operator|.
+name|scriptFunction
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|functionscore
+operator|.
+name|ScoreFunctionBuilders
+operator|.
+name|weightFactorFunction
 import|;
 end_import
 
@@ -272,7 +298,39 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertOrderedSearchHits
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
 import|;
 end_import
 
@@ -288,9 +346,7 @@ name|FunctionScoreBackwardCompatibilityIT
 extends|extends
 name|ESBackcompatTestCase
 block|{
-comment|/**      * Simple upgrade test for function score      */
-annotation|@
-name|Test
+comment|/**      * Simple upgrade test for function score.      */
 DECL|method|testSimpleFunctionScoreParsingWorks
 specifier|public
 name|void

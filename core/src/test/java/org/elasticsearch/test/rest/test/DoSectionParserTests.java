@@ -156,16 +156,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -204,6 +194,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|notNullValue
 import|;
 end_import
@@ -228,8 +230,6 @@ name|DoSectionParserTests
 extends|extends
 name|AbstractParserTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testParseDoSectionNoBody
 specifier|public
 name|void
@@ -393,8 +393,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionNoParamsNoBody
 specifier|public
 name|void
@@ -498,8 +496,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithJsonBody
 specifier|public
 name|void
@@ -687,8 +683,6 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithJsonMultipleBodiesAsLongString
 specifier|public
 name|void
@@ -875,8 +869,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithJsonMultipleBodiesRepeatedProperty
 specifier|public
 name|void
@@ -1087,8 +1079,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithYamlBody
 specifier|public
 name|void
@@ -1234,8 +1224,6 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithYamlMultipleBodies
 specifier|public
 name|void
@@ -1477,8 +1465,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithYamlMultipleBodiesRepeatedProperty
 specifier|public
 name|void
@@ -1696,8 +1682,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithYamlBodyMultiGet
 specifier|public
 name|void
@@ -1851,8 +1835,6 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithBodyStringified
 specifier|public
 name|void
@@ -2050,8 +2032,6 @@ literal|"{ _source: true, query: { match_all: {} } }"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithBodiesStringifiedAndNot
 specifier|public
 name|void
@@ -2205,8 +2185,6 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseDoSectionWithCatch
 specifier|public
 name|void
@@ -2333,15 +2311,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|RestTestParseException
-operator|.
-name|class
-argument_list|)
 DECL|method|testParseDoSectionWithoutClientCallSection
 specifier|public
 name|void
@@ -2368,6 +2337,8 @@ operator|new
 name|DoSectionParser
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|doSectionParser
 operator|.
 name|parse
@@ -2383,9 +2354,33 @@ name|parser
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected RestTestParseException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|RestTestParseException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"client call section is mandatory within a do section"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testParseDoSectionMultivaluedField
 specifier|public
 name|void

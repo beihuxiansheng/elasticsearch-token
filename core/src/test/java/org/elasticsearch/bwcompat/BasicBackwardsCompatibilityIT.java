@@ -220,7 +220,63 @@ name|action
 operator|.
 name|get
 operator|.
-name|*
+name|GetResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|get
+operator|.
+name|MultiGetItemResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|get
+operator|.
+name|MultiGetRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|get
+operator|.
+name|MultiGetRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|get
+operator|.
+name|MultiGetResponse
 import|;
 end_import
 
@@ -586,16 +642,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -664,6 +710,22 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
+name|constantScoreQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
 name|existsQuery
 import|;
 end_import
@@ -696,7 +758,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|queryStringQuery
 import|;
 end_import
 
@@ -712,7 +774,55 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchHits
 import|;
 end_import
 
@@ -724,7 +834,67 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -741,8 +911,6 @@ extends|extends
 name|ESBackcompatTestCase
 block|{
 comment|/**      * Basic test using Index&amp; Realtime Get with external versioning. This test ensures routing works correctly across versions.      */
-annotation|@
-name|Test
 DECL|method|testExternalVersion
 specifier|public
 name|void
@@ -1048,8 +1216,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Basic test using Index&amp; Realtime Get with internal versioning. This test ensures routing works correctly across versions.      */
-annotation|@
-name|Test
 DECL|method|testInternalVersion
 specifier|public
 name|void
@@ -1327,8 +1493,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Very basic bw compat test with a mixed version cluster random indexing and lookup by ID via term query      */
-annotation|@
-name|Test
 DECL|method|testIndexAndSearch
 specifier|public
 name|void
@@ -1490,8 +1654,6 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRecoverFromPreviousVersion
 specifier|public
 name|void
@@ -1980,8 +2142,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that ensures that we will never recover from a newer to an older version (we are not forward compatible)      */
-annotation|@
-name|Test
 DECL|method|testNoRecoveryFromNewNodes
 specifier|public
 name|void
@@ -2565,8 +2725,6 @@ block|}
 block|}
 block|}
 comment|/**      * Upgrades a single node to the current version      */
-annotation|@
-name|Test
 DECL|method|testIndexUpgradeSingleNode
 specifier|public
 name|void
@@ -2900,8 +3058,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that allocates an index on one or more old nodes and then do a rolling upgrade      * one node after another is shut down and restarted from a newer version and we verify      * that all documents are still around after each nodes upgrade.      */
-annotation|@
-name|Test
 DECL|method|testIndexRollingUpgrade
 specifier|public
 name|void
@@ -3495,8 +3651,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testUnsupportedFeatures
 specifier|public
 name|void
@@ -3653,8 +3807,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * This filter had a major upgrade in 1.3 where we started to index the field names. Lets see if they still work as expected...      * this test is basically copied from SimpleQueryTests...      */
-annotation|@
-name|Test
 DECL|method|testExistsFilter
 specifier|public
 name|void
@@ -4422,8 +4574,6 @@ name|getVersion
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDeleteRoutingRequired
 specifier|public
 name|void
@@ -4842,8 +4992,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexGetAndDelete
 specifier|public
 name|void
@@ -5211,8 +5359,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdate
 specifier|public
 name|void
@@ -5510,8 +5656,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAnalyze
 specifier|public
 name|void
@@ -5624,8 +5768,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExplain
 specifier|public
 name|void
@@ -5769,8 +5911,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGetTermVector
 specifier|public
 name|void
@@ -5930,8 +6070,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndicesStats
 specifier|public
 name|void
@@ -6004,8 +6142,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiGet
 specifier|public
 name|void
@@ -6366,8 +6502,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testScroll
 specifier|public
 name|void

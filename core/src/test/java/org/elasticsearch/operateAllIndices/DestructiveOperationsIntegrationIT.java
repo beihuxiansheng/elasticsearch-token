@@ -55,16 +55,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -117,8 +107,6 @@ name|DestructiveOperationsIntegrationIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 comment|// One test for test performance, since cluster scope is test
 comment|// The cluster scope is test b/c we can't clear cluster settings.
 DECL|method|testDestructiveOperations

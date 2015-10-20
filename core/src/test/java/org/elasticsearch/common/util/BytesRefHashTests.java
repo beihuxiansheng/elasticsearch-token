@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongMap
+name|ObjectLongHashMap
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongHashMap
+name|ObjectLongMap
 import|;
 end_import
 
@@ -110,11 +110,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Test
+name|HashMap
 import|;
 end_import
 
@@ -124,7 +124,27 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -137,6 +157,16 @@ operator|.
 name|Map
 operator|.
 name|Entry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -570,8 +600,6 @@ expr_stmt|;
 block|}
 comment|// START - tests borrowed from LUCENE
 comment|/**      * Test method for {@link org.apache.lucene.util.BytesRefHash#size()}.      */
-annotation|@
-name|Test
 DECL|method|testSize
 specifier|public
 name|void
@@ -743,8 +771,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Test method for      * {@link org.apache.lucene.util.BytesRefHash#get(int, BytesRef)}      * .      */
-annotation|@
-name|Test
 DECL|method|testGet
 specifier|public
 name|void
@@ -1013,8 +1039,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Test method for      * {@link org.apache.lucene.util.BytesRefHash#add(org.apache.lucene.util.BytesRef)}      * .      */
-annotation|@
-name|Test
 DECL|method|testAdd
 specifier|public
 name|void
@@ -1262,8 +1286,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFind
 specifier|public
 name|void

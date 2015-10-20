@@ -18,13 +18,17 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|nio
+name|apache
 operator|.
-name|charset
+name|lucene
 operator|.
-name|StandardCharsets
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
 import|;
 end_import
 
@@ -37,22 +41,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|SuppressFileSystems
 import|;
 end_import
 
@@ -78,16 +66,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -103,6 +81,18 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -281,8 +271,6 @@ name|src
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoveOverExistingFileAndAppend
 specifier|public
 name|void
@@ -493,8 +481,6 @@ literal|"version1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoveOverExistingFileAndIgnore
 specifier|public
 name|void
@@ -711,8 +697,6 @@ literal|"version1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoveFilesDoesNotCreateSameFileWithSuffix
 specifier|public
 name|void
@@ -1098,8 +1082,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAppend
 specifier|public
 name|void

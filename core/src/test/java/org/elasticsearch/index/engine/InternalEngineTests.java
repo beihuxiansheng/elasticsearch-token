@@ -912,7 +912,63 @@ name|index
 operator|.
 name|shard
 operator|.
-name|*
+name|IndexSearcherWrapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|MergeSchedulerConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|TranslogRecoveryPerformer
 import|;
 end_import
 
@@ -1006,20 +1062,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|DummyShardLock
@@ -1077,16 +1119,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -1185,16 +1217,6 @@ operator|.
 name|util
 operator|.
 name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
 import|;
 end_import
 
@@ -2529,8 +2551,6 @@ literal|3
 block|}
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testSegments
 specifier|public
 name|void
@@ -4499,8 +4519,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSegmentsWithMergeFlag
 specifier|public
 name|void
@@ -5203,8 +5221,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexSearcherWrapper
 specifier|public
 name|void
@@ -5365,9 +5381,6 @@ name|engine
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|/* */
 DECL|method|testConcurrentGetAndFlush
 specifier|public
 name|void
@@ -5638,8 +5651,6 @@ name|release
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleOperations
 specifier|public
 name|void
@@ -7149,8 +7160,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchResultRelease
 specifier|public
 name|void
@@ -8226,8 +8235,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningNewCreate
 specifier|public
 name|void
@@ -8356,8 +8363,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningNewIndex
 specifier|public
 name|void
@@ -8482,8 +8487,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalVersioningNewIndex
 specifier|public
 name|void
@@ -8618,8 +8621,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningIndexConflict
 specifier|public
 name|void
@@ -8826,8 +8827,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalVersioningIndexConflict
 specifier|public
 name|void
@@ -9001,8 +9000,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningIndexConflictWithFlush
 specifier|public
 name|void
@@ -9208,8 +9205,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalVersioningIndexConflictWithFlush
 specifier|public
 name|void
@@ -10279,8 +10274,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningDeleteConflict
 specifier|public
 name|void
@@ -10638,8 +10631,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningDeleteConflictWithFlush
 specifier|public
 name|void
@@ -11012,8 +11003,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningCreateExistsException
 specifier|public
 name|void
@@ -11146,8 +11135,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningCreateExistsExceptionWithFlush
 specifier|public
 name|void
@@ -11285,8 +11272,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningReplicaConflict1
 specifier|public
 name|void
@@ -11556,8 +11541,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningReplicaConflict2
 specifier|public
 name|void
@@ -11917,8 +11900,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testBasicCreatedFlag
 specifier|public
 name|void
@@ -12051,8 +12032,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreatedFlagAfterFlush
 specifier|public
 name|void
@@ -12293,8 +12272,6 @@ block|{         }
 block|}
 comment|// #5891: make sure IndexWriter's infoStream output is
 comment|// sent to lucene.iw with log level TRACE:
-annotation|@
-name|Test
 DECL|method|testIndexWriterInfoStream
 specifier|public
 name|void
@@ -12670,8 +12647,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testEnableGcDeletes
 specifier|public
 name|void
@@ -13190,8 +13165,6 @@ name|id
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExtractShardId
 specifier|public
 name|void
@@ -13249,8 +13222,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Random test that throws random exception and ensures all references are      * counted down / released and resources are closed.      */
-annotation|@
-name|Test
 DECL|method|testFailStart
 specifier|public
 name|void
@@ -13519,8 +13490,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSettings
 specifier|public
 name|void
@@ -13594,8 +13563,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// #10312
-annotation|@
-name|Test
 DECL|method|testDeletesAloneCanTriggerRefresh
 specifier|public
 name|void
@@ -14488,8 +14455,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSkipTranslogReplay
 specifier|public
 name|void

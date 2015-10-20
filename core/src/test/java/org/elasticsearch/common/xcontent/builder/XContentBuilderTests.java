@@ -188,16 +188,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -378,8 +368,6 @@ name|XContentBuilderTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPrettyWithLfAtEnd
 specifier|public
 name|void
@@ -479,12 +467,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|verifyReuseJsonGenerator
+DECL|method|testReuseJsonGenerator
 specifier|public
 name|void
-name|verifyReuseJsonGenerator
+name|testReuseJsonGenerator
 parameter_list|()
 throws|throws
 name|Exception
@@ -595,8 +581,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRaw
 specifier|public
 name|void
@@ -942,8 +926,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleGenerator
 specifier|public
 name|void
@@ -1032,8 +1014,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOverloadedList
 specifier|public
 name|void
@@ -1090,8 +1070,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWritingBinaryToStream
 specifier|public
 name|void
@@ -1209,8 +1187,6 @@ name|sData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFieldCaseConversion
 specifier|public
 name|void
@@ -1309,8 +1285,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testByteConversion
 specifier|public
 name|void
@@ -1369,8 +1343,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDateTypesConversion
 specifier|public
 name|void
@@ -1630,8 +1602,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyCurrentStructure
 specifier|public
 name|void
@@ -2100,8 +2070,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHandlingOfPath
 specifier|public
 name|void
@@ -2126,8 +2094,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHandlingOfPath_relative
 specifier|public
 name|void
@@ -2156,8 +2122,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHandlingOfPath_absolute
 specifier|public
 name|void
@@ -2266,8 +2230,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHandlingOfPath_XContentBuilderStringName
 specifier|public
 name|void
@@ -2369,8 +2331,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHandlingOfCollectionOfPaths
 specifier|public
 name|void

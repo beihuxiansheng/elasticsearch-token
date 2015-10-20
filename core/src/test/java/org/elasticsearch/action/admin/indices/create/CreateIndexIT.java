@@ -419,10 +419,10 @@ name|CreateIndexIT
 extends|extends
 name|ESIntegTestCase
 block|{
-DECL|method|testCreationDate_Given
+DECL|method|testCreationDateGiven
 specifier|public
 name|void
-name|testCreationDate_Given
+name|testCreationDateGiven
 parameter_list|()
 block|{
 name|prepareCreate
@@ -566,10 +566,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testCreationDate_Generated
+DECL|method|testCreationDateGenerated
 specifier|public
 name|void
-name|testCreationDate_Generated
+name|testCreationDateGenerated
 parameter_list|()
 block|{
 name|long

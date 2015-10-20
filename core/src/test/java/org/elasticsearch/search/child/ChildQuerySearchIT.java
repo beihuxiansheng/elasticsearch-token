@@ -480,16 +480,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1065,8 +1055,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSelfReferentialIsForbidden
 specifier|public
 name|void
@@ -1139,12 +1127,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|multiLevelChild
+DECL|method|testMultiLevelChild
 specifier|public
 name|void
-name|multiLevelChild
+name|testMultiLevelChild
 parameter_list|()
 throws|throws
 name|Exception
@@ -1688,8 +1674,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #2744
 DECL|method|test2744
 specifier|public
@@ -1850,12 +1834,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|simpleChildQuery
+DECL|method|testSimpleChildQuery
 specifier|public
 name|void
-name|simpleChildQuery
+name|testSimpleChildQuery
 parameter_list|()
 throws|throws
 name|Exception
@@ -2848,13 +2830,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// See: https://github.com/elasticsearch/elasticsearch/issues/3290
-DECL|method|testCachingBug_withFqueryFilter
+comment|// Issue #3290
+DECL|method|testCachingBugWithFqueryFilter
 specifier|public
 name|void
-name|testCachingBug_withFqueryFilter
+name|testCachingBugWithFqueryFilter
 parameter_list|()
 throws|throws
 name|Exception
@@ -3200,8 +3180,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testHasParentFilter
 specifier|public
 name|void
@@ -3674,12 +3652,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|simpleChildQueryWithFlush
+DECL|method|testSimpleChildQueryWithFlush
 specifier|public
 name|void
-name|simpleChildQueryWithFlush
+name|testSimpleChildQueryWithFlush
 parameter_list|()
 throws|throws
 name|Exception
@@ -4468,8 +4444,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testScopedFacet
 specifier|public
 name|void
@@ -4984,8 +4958,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDeletedParent
 specifier|public
 name|void
@@ -5403,8 +5375,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDfsSearchType
 specifier|public
 name|void
@@ -5699,8 +5669,6 @@ name|searchResponse
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasChildAndHasParentFailWhenSomeSegmentsDontContainAnyParentOrChildDocs
 specifier|public
 name|void
@@ -5955,8 +5923,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCountApiUsage
 specifier|public
 name|void
@@ -6227,8 +6193,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExplainUsage
 specifier|public
 name|void
@@ -7495,12 +7459,10 @@ return|return
 name|indexBuilders
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|testScoreForParentChildQueries_withFunctionScore
+DECL|method|testScoreForParentChildQueriesWithFunctionScore
 specifier|public
 name|void
-name|testScoreForParentChildQueries_withFunctionScore
+name|testScoreForParentChildQueriesWithFunctionScore
 parameter_list|()
 throws|throws
 name|Exception
@@ -8558,9 +8520,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/2536
+comment|// Issue #2536
 DECL|method|testParentChildQueriesCanHandleNoRelevantTypesInIndex
 specifier|public
 name|void
@@ -8900,8 +8860,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasChildAndHasParentFilter_withFilter
 specifier|public
 name|void
@@ -9208,8 +9166,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasChildAndHasParentWrappedInAQueryFilter
 specifier|public
 name|void
@@ -9540,8 +9496,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleQueryRewrite
 specifier|public
 name|void
@@ -10108,10 +10062,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-comment|// See also issue:
-comment|// https://github.com/elasticsearch/elasticsearch/issues/3144
+comment|// Issue #3144
 DECL|method|testReIndexingParentAndChildDocuments
 specifier|public
 name|void
@@ -10877,10 +10828,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// See also issue:
-comment|// https://github.com/elasticsearch/elasticsearch/issues/3203
+comment|// Issue #3203
 DECL|method|testHasChildQueryWithMinimumScore
 specifier|public
 name|void
@@ -11172,8 +11120,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParentFieldFilter
 specifier|public
 name|void
@@ -11867,8 +11813,6 @@ literal|2l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHasChildNotBeingCached
 specifier|public
 name|void
@@ -12514,9 +12458,7 @@ argument_list|)
 return|;
 block|}
 block|}
-annotation|@
-name|Test
-comment|// Relates to bug: https://github.com/elasticsearch/elasticsearch/issues/3818
+comment|// Issue #3818
 DECL|method|testHasChildQueryOnlyReturnsSingleChildType
 specifier|public
 name|void
@@ -12807,12 +12749,10 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|indexChildDocWithNoParentMapping
+DECL|method|testIndexChildDocWithNoParentMapping
 specifier|public
 name|void
-name|indexChildDocWithNoParentMapping
+name|testIndexChildDocWithNoParentMapping
 parameter_list|()
 throws|throws
 name|IOException
@@ -12970,8 +12910,6 @@ name|refresh
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAddingParentToExistingMapping
 specifier|public
 name|void
@@ -13191,8 +13129,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testHasChildQueryWithNestedInnerObjects
 specifier|public
 name|void
@@ -13671,8 +13607,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNamedFilters
 specifier|public
 name|void
@@ -14131,8 +14065,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParentChildQueriesNoParentType
 specifier|public
 name|void
@@ -14485,12 +14417,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testAdd_ParentFieldAfterIndexingParentDocButBeforeIndexingChildDoc
+DECL|method|testAddParentFieldAfterIndexingParentDocButBeforeIndexingChildDoc
 specifier|public
 name|void
-name|testAdd_ParentFieldAfterIndexingParentDocButBeforeIndexingChildDoc
+name|testAddParentFieldAfterIndexingParentDocButBeforeIndexingChildDoc
 parameter_list|()
 throws|throws
 name|Exception
@@ -14614,8 +14544,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParentChildCaching
 specifier|public
 name|void
@@ -15180,8 +15108,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParentChildQueriesViaScrollApi
 specifier|public
 name|void
@@ -15518,9 +15444,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// https://github.com/elasticsearch/elasticsearch/issues/5783
-annotation|@
-name|Test
+comment|// Issue #5783
 DECL|method|testQueryBeforeChildType
 specifier|public
 name|void
@@ -15661,9 +15585,7 @@ literal|1L
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/6256
+comment|// Issue #6256
 DECL|method|testParentFieldInMultiMatchField
 specifier|public
 name|void
@@ -15789,8 +15711,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTypeIsAppliedInHasParentInnerQuery
 specifier|public
 name|void
@@ -16803,8 +16723,6 @@ name|get
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMinMaxChildren
 specifier|public
 name|void
@@ -21235,8 +21153,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParentFieldToNonExistingType
 specifier|public
 name|void

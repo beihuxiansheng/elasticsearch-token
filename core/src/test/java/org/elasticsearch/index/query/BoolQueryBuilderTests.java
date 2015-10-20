@@ -42,16 +42,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1028,8 +1018,6 @@ return|return
 name|alternateVersions
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -1129,8 +1117,6 @@ parameter_list|)
 block|{         }
 block|}
 comment|// https://github.com/elasticsearch/elasticsearch/issues/7240
-annotation|@
-name|Test
 DECL|method|testEmptyBooleanQuery
 specifier|public
 name|void

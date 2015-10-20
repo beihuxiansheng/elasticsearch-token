@@ -62,16 +62,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -103,6 +93,18 @@ operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -1693,15 +1695,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|ElasticsearchParseException
-operator|.
-name|class
-argument_list|)
 DECL|method|testThatUnixTimestampMayNotHaveTimeZone
 specifier|public
 name|void
@@ -1722,6 +1715,8 @@ literal|"epoch_millis"
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|parser
 operator|.
 name|parse
@@ -1748,6 +1743,45 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ElasticsearchParseException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchParseException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"failed to parse date field"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"with format [epoch_millis]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

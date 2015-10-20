@@ -16,18 +16,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -40,11 +28,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Test
+name|IOException
 import|;
 end_import
 
@@ -52,9 +40,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -92,8 +82,6 @@ name|Base64Tests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 comment|// issue #6334
 DECL|method|testBase64DecodeWithExtraCharactersAfterPadding
 specifier|public

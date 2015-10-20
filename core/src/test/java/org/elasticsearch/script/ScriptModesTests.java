@@ -116,16 +116,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -249,6 +239,18 @@ operator|.
 name|CoreMatchers
 operator|.
 name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -687,8 +689,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDefaultSettings
 specifier|public
 name|void
@@ -742,15 +742,6 @@ name|INLINE
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testMissingSetting
 specifier|public
 name|void
@@ -777,6 +768,8 @@ operator|.
 name|EMPTY
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|scriptModes
 operator|.
 name|getScriptMode
@@ -797,9 +790,33 @@ name|scriptContexts
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"not found for lang [non_existing]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testScriptTypeGenericSettings
 specifier|public
 name|void
@@ -1097,8 +1114,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testScriptContextGenericSettings
 specifier|public
 name|void
@@ -1362,8 +1377,6 @@ name|complementOf
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testConflictingScriptTypeAndOpGenericSettings
 specifier|public
 name|void
@@ -1507,8 +1520,6 @@ name|complementOf
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testInteractionBetweenGenericAndEngineSpecificSettings
 specifier|public
 name|void

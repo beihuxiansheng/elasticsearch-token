@@ -220,16 +220,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|nio
@@ -260,12 +250,10 @@ name|DiskUsageTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|diskUsageCalcTest
+DECL|method|testDiskUsageCalc
 specifier|public
 name|void
-name|diskUsageCalcTest
+name|testDiskUsageCalc
 parameter_list|()
 block|{
 name|DiskUsage
@@ -567,12 +555,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|randomDiskUsageTest
+DECL|method|testRandomDiskUsage
 specifier|public
 name|void
-name|randomDiskUsageTest
+name|testRandomDiskUsage
 parameter_list|()
 block|{
 name|int

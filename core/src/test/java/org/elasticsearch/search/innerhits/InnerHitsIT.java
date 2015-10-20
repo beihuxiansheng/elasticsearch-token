@@ -302,16 +302,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -689,8 +679,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleNested
 specifier|public
 name|void
@@ -2238,8 +2226,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRandomNested
 specifier|public
 name|void
@@ -3131,8 +3117,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleParentChild
 specifier|public
 name|void
@@ -4440,8 +4424,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRandomParentChild
 specifier|public
 name|void
@@ -5460,8 +5442,6 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Test
-annotation|@
 name|AwaitsFix
 argument_list|(
 name|bugUrl
@@ -5546,8 +5526,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testInnerHitsOnHasParent
 specifier|public
 name|void
@@ -6008,8 +5986,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParentChildMultipleLayers
 specifier|public
 name|void
@@ -6844,8 +6820,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedMultipleLayers
 specifier|public
 name|void
@@ -8264,9 +8238,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/9723
+comment|// Issue #9723
 DECL|method|testNestedDefinedAsObject
 specifier|public
 name|void
@@ -8610,8 +8582,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedInnerHitsWithStoredFieldsAndNoSourceBackcompat
 specifier|public
 name|void
@@ -9092,8 +9062,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedInnerHitsWithHighlightOnStoredFieldBackcompat
 specifier|public
 name|void
@@ -9598,8 +9566,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedInnerHitsWithExcludeSourceBackcompat
 specifier|public
 name|void
@@ -10101,8 +10067,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedInnerHitsHiglightWithExcludeSourceBackcompat
 specifier|public
 name|void
@@ -10612,8 +10576,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testInnerHitsWithObjectFieldThatHasANestedField
 specifier|public
 name|void
@@ -11591,8 +11553,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRoyals
 specifier|public
 name|void
@@ -12568,12 +12528,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|matchesQueries_nestedInnerHits
+DECL|method|testMatchesQueriesNestedInnerHits
 specifier|public
 name|void
-name|matchesQueries_nestedInnerHits
+name|testMatchesQueriesNestedInnerHits
 parameter_list|()
 throws|throws
 name|Exception
@@ -13563,12 +13521,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|matchesQueries_parentChildInnerHits
+DECL|method|testMatchesQueriesParentChildInnerHits
 specifier|public
 name|void
-name|matchesQueries_parentChildInnerHits
+name|testMatchesQueriesParentChildInnerHits
 parameter_list|()
 throws|throws
 name|Exception
@@ -14222,8 +14178,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDontExplode
 specifier|public
 name|void

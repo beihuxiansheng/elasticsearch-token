@@ -206,16 +206,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -256,12 +246,10 @@ name|StartedShardsRoutingTests
 extends|extends
 name|ESAllocationTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|tesStartedShardsMatching
+DECL|method|testStartedShardsMatching
 specifier|public
 name|void
-name|tesStartedShardsMatching
+name|testStartedShardsMatching
 parameter_list|()
 block|{
 name|AllocationService

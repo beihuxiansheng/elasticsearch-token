@@ -54,9 +54,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|MapperParsingException
+name|IndexService
 import|;
 end_import
 
@@ -68,7 +66,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|mapper
+operator|.
+name|MapperParsingException
 import|;
 end_import
 
@@ -85,16 +85,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -102,7 +92,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
 import|;
 end_import
 
@@ -118,12 +108,10 @@ name|NullValueTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|testNullNull_Value
+DECL|method|testNullNullValue
 specifier|public
 name|void
-name|testNullNull_Value
+name|testNullNullValue
 parameter_list|()
 throws|throws
 name|Exception

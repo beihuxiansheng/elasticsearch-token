@@ -212,16 +212,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -356,8 +346,6 @@ name|FlushIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testWaitIfOngoing
 specifier|public
 name|void
@@ -1898,8 +1886,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testUnallocatedShardsDoesNotHang
 specifier|public
 name|void

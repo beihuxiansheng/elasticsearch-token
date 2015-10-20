@@ -146,16 +146,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -402,8 +392,6 @@ name|SimpleQueryStringIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimpleQueryString
 specifier|public
 name|void
@@ -885,8 +873,6 @@ literal|"6"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleQueryStringMinimumShouldMatch
 specifier|public
 name|void
@@ -1423,8 +1409,6 @@ literal|"8"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleQueryStringLowercasing
 specifier|public
 name|void
@@ -1591,8 +1575,6 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryStringLocale
 specifier|public
 name|void
@@ -1771,8 +1753,6 @@ literal|"1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedFieldSimpleQueryString
 specifier|public
 name|void
@@ -2051,8 +2031,6 @@ literal|"1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleQueryStringFlags
 specifier|public
 name|void
@@ -2477,8 +2455,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleQueryStringLenient
 specifier|public
 name|void
@@ -2635,9 +2611,7 @@ literal|"1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// see: https://github.com/elasticsearch/elasticsearch/issues/7967
+comment|// Issue #7967
 DECL|method|testLenientFlagBeingTooLenient
 specifier|public
 name|void
@@ -2767,8 +2741,6 @@ literal|"1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleQueryStringAnalyzeWildcard
 specifier|public
 name|void

@@ -42,16 +42,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -126,8 +116,6 @@ name|CLUSTER_SEED
 init|=
 literal|null
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testReproducible
 specifier|public
 name|void

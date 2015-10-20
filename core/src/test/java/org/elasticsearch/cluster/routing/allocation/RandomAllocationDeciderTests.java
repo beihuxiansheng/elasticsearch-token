@@ -308,16 +308,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -399,8 +389,6 @@ extends|extends
 name|ESAllocationTestCase
 block|{
 comment|/* This test will make random allocation decision on a growing and shrinking      * cluster leading to a random distribution of the shards. After a certain      * amount of iterations the test allows allocation unless the same shard is      * already allocated on a node and balances the cluster to gain optimal      * balance.*/
-annotation|@
-name|Test
 DECL|method|testRandomDecisions
 specifier|public
 name|void

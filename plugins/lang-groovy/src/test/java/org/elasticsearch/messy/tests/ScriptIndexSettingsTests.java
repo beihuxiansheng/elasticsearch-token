@@ -124,22 +124,6 @@ name|action
 operator|.
 name|indexedscripts
 operator|.
-name|get
-operator|.
-name|GetIndexedScriptResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|indexedscripts
-operator|.
 name|put
 operator|.
 name|PutIndexedScriptResponse
@@ -224,16 +208,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -249,6 +223,18 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -300,8 +286,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testScriptIndexSettings
 specifier|public
 name|void
@@ -503,8 +487,6 @@ name|numberOfReplicas
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDeleteScriptIndex
 specifier|public
 name|void
@@ -581,9 +563,6 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|GetIndexedScriptResponse
-name|response
-init|=
 name|client
 argument_list|()
 operator|.
@@ -596,23 +575,30 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-decl_stmt|;
-name|assertTrue
+expr_stmt|;
+name|fail
 argument_list|(
-literal|false
+literal|"Expected IndexNotFoundException"
 argument_list|)
 expr_stmt|;
-comment|//This should not happen
 block|}
 catch|catch
 parameter_list|(
 name|IndexNotFoundException
-name|ime
+name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
-literal|true
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"no such index"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

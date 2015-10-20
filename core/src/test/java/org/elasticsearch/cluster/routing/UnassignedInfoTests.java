@@ -238,16 +238,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -398,8 +388,6 @@ name|UnassignedInfoTests
 extends|extends
 name|ESAllocationTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testReasonOrdinalOrder
 specifier|public
 name|void
@@ -545,8 +533,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSerialization
 specifier|public
 name|void
@@ -688,8 +674,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexCreated
 specifier|public
 name|void
@@ -826,8 +810,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterRecovered
 specifier|public
 name|void
@@ -964,8 +946,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexReopened
 specifier|public
 name|void
@@ -1102,8 +1082,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNewIndexRestored
 specifier|public
 name|void
@@ -1262,8 +1240,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testExistingIndexRestored
 specifier|public
 name|void
@@ -1418,8 +1394,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDanglingIndexImported
 specifier|public
 name|void
@@ -1556,8 +1530,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testReplicaAdded
 specifier|public
 name|void
@@ -1889,8 +1861,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The unassigned meta is kept when a shard goes to INITIALIZING, but cleared when it moves to STARTED.      */
-annotation|@
-name|Test
 DECL|method|testStateTransitionMetaHandling
 specifier|public
 name|void
@@ -2024,8 +1994,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that during reroute when a node is detected as leaving the cluster, the right unassigned meta is set      */
-annotation|@
-name|Test
 DECL|method|testNodeLeave
 specifier|public
 name|void
@@ -2439,8 +2407,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that when a shard fails, reason is properly set and details are preserved.      */
-annotation|@
-name|Test
 DECL|method|testFailedShard
 specifier|public
 name|void
@@ -2917,8 +2883,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that delayed allocation calculation are correct.      */
-annotation|@
-name|Test
 DECL|method|testUnassignedDelayedOnlyOnNodeLeft
 specifier|public
 name|void
@@ -3071,8 +3035,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that delayed allocation is only computed when the reason is NODE_LEFT.      */
-annotation|@
-name|Test
 DECL|method|testUnassignedDelayOnlyNodeLeftNonNodeLeftReason
 specifier|public
 name|void
@@ -3213,8 +3175,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNumberOfDelayedUnassigned
 specifier|public
 name|void
@@ -3624,8 +3584,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFindNextDelayedAllocation
 specifier|public
 name|void

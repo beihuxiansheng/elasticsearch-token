@@ -110,16 +110,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -256,8 +246,6 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArgument
 specifier|public
 name|void
@@ -305,8 +293,6 @@ name|IOException
 block|{
 comment|//no-op boost is checked already above as part of doAssertLuceneQuery as we rely on lucene equals impl
 block|}
-annotation|@
-name|Test
 DECL|method|testJSONGeneration
 specifier|public
 name|void
@@ -403,8 +389,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRawEscapedTemplate
 specifier|public
 name|void
@@ -479,8 +463,6 @@ name|expectedBuilder
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRawTemplate
 specifier|public
 name|void

@@ -142,23 +142,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|test
 operator|.
 name|ESIntegTestCase
 operator|.
-name|*
+name|Scope
 import|;
 end_import
 
@@ -223,8 +213,6 @@ name|CloseIndexDisableCloseAllIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 comment|// Combined multiple tests into one, because cluster scope is test.
 comment|// The cluster scope is test b/c we can't clear cluster settings.
 DECL|method|testCloseAllRequiresName

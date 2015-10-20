@@ -128,9 +128,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalTestCluster
+name|ESIntegTestCase
 operator|.
-name|RestartCallback
+name|Scope
 import|;
 end_import
 
@@ -138,9 +138,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|InternalTestCluster
+operator|.
+name|RestartCallback
 import|;
 end_import
 
@@ -215,20 +219,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -337,8 +327,6 @@ return|return
 literal|2
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChangeInitialShardsRecovery
 specifier|public
 name|void
@@ -962,8 +950,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testQuorumRecovery
 specifier|public
 name|void

@@ -296,16 +296,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -431,6 +421,18 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -598,8 +600,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTemplateInBody
 specifier|public
 name|void
@@ -681,8 +681,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTemplateInBodyWithSize
 specifier|public
 name|void
@@ -813,8 +811,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTemplateWOReplacementInBody
 specifier|public
 name|void
@@ -887,8 +883,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTemplateInFile
 specifier|public
 name|void
@@ -970,8 +964,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRawFSTemplate
 specifier|public
 name|void
@@ -1050,8 +1042,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchRequestTemplateSource
 specifier|public
 name|void
@@ -1158,8 +1148,6 @@ argument_list|)
 return|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// Releates to #6318
 DECL|method|testSearchRequestFail
 specifier|public
@@ -1273,8 +1261,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatParametersCanBeSet
 specifier|public
 name|void
@@ -1573,8 +1559,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchTemplateQueryFromFile
 specifier|public
 name|void
@@ -1660,8 +1644,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that template can be expressed as a single escaped string.      */
-annotation|@
-name|Test
 DECL|method|testTemplateQueryAsEscapedString
 specifier|public
 name|void
@@ -1743,8 +1725,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that template can contain conditional clause. In this case it is at      * the beginning of the string.      */
-annotation|@
-name|Test
 DECL|method|testTemplateQueryAsEscapedStringStartingWithConditionalClause
 specifier|public
 name|void
@@ -1828,8 +1808,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that template can contain conditional clause. In this case it is at      * the end of the string.      */
-annotation|@
-name|Test
 DECL|method|testTemplateQueryAsEscapedStringWithConditionalClauseAtEnd
 specifier|public
 name|void
@@ -1912,15 +1890,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|SearchPhaseExecutionException
-operator|.
-name|class
-argument_list|)
 DECL|method|testIndexedTemplateClient
 specifier|public
 name|void
@@ -2302,6 +2271,8 @@ name|isExists
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -2339,9 +2310,36 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected SearchPhaseExecutionException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|SearchPhaseExecutionException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Illegal index script format"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testIndexedTemplate
 specifier|public
 name|void
@@ -3098,8 +3096,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Relates to #10397
-annotation|@
-name|Test
 DECL|method|testIndexedTemplateOverwrite
 specifier|public
 name|void
@@ -3402,8 +3398,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexedTemplateWithArray
 specifier|public
 name|void
