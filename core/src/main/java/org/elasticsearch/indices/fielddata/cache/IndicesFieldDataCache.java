@@ -440,15 +440,6 @@ name|FIELDDATA_CLEAN_INTERVAL_SETTING
 init|=
 literal|"indices.fielddata.cache.cleanup_interval"
 decl_stmt|;
-DECL|field|FIELDDATA_CACHE_CONCURRENCY_LEVEL
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|FIELDDATA_CACHE_CONCURRENCY_LEVEL
-init|=
-literal|"indices.fielddata.cache.concurrency_level"
-decl_stmt|;
 DECL|field|INDICES_FIELDDATA_CACHE_SIZE_KEY
 specifier|public
 specifier|static
