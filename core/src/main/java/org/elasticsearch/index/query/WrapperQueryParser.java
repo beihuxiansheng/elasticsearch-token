@@ -167,7 +167,9 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[wrapper] query malformed"
+literal|"[wrapper] query malformed, expected `query` but was"
+operator|+
+name|fieldName
 argument_list|)
 throw|;
 block|}
