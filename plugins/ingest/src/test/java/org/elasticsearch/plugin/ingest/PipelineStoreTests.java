@@ -424,7 +424,7 @@ name|void
 name|testUpdatePipeline
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -1056,7 +1056,7 @@ name|void
 name|testGetReference
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|// fill the store up for the test:
 name|List
