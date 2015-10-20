@@ -805,13 +805,6 @@ argument_list|)
 expr_stmt|;
 name|registerQueryParser
 argument_list|(
-name|NotQueryParser
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|registerQueryParser
-argument_list|(
 name|ExistsQueryParser
 operator|.
 name|class

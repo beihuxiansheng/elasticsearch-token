@@ -287,7 +287,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * If one of the following tests doesn't compile make sure to not only fix the compilation error here  * but also the documentation under ./docs/java-api/query-dsl/bool-query.asciidoc  *   * There are no assertions here on purpose - all of these tests ((ideally) should) equal to what is  * documented in the java api query dsl part of our reference guide.   * */
+comment|/**  * If one of the following tests doesn't compile make sure to not only fix the compilation error here  * but also the documentation under ./docs/java-api/query-dsl/bool-query.asciidoc  *  * There are no assertions here on purpose - all of these tests ((ideally) should) equal to what is  * documented in the java api query dsl part of our reference guide.  * */
 end_comment
 
 begin_class
@@ -1175,33 +1175,6 @@ argument_list|(
 name|ScoreMode
 operator|.
 name|Avg
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testNot
-specifier|public
-name|void
-name|testNot
-parameter_list|()
-block|{
-name|notQuery
-argument_list|(
-name|rangeQuery
-argument_list|(
-literal|"price"
-argument_list|)
-operator|.
-name|from
-argument_list|(
-literal|"1"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"2"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
