@@ -26,21 +26,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|QueryWrapperFilter
+name|Query
 import|;
 end_import
 
@@ -1751,7 +1737,7 @@ name|newNonNestedFilter
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Filter
+name|Query
 name|innerDocumentsFilter
 decl_stmt|;
 if|if
@@ -1765,14 +1751,10 @@ block|{
 comment|// TODO: use queries instead
 name|innerDocumentsFilter
 operator|=
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 name|nestedHelper
 operator|.
 name|getInnerFilter
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1795,7 +1777,17 @@ name|Nested
 argument_list|(
 name|rootDocumentsFilter
 argument_list|,
+name|context
+operator|.
+name|searcher
+argument_list|()
+operator|.
+name|createNormalizedWeight
+argument_list|(
 name|innerDocumentsFilter
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

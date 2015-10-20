@@ -126,21 +126,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FilteredQuery
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -182,7 +168,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryWrapperFilter
+name|Query
 import|;
 end_import
 
@@ -254,7 +240,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 import|;
 end_import
 
@@ -2917,12 +2903,9 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-name|Filter
+name|Query
 name|parentFilter
 init|=
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 operator|new
 name|TermQuery
 argument_list|(
@@ -2934,20 +2917,15 @@ argument_list|,
 literal|"parent"
 argument_list|)
 argument_list|)
-argument_list|)
 decl_stmt|;
-name|Filter
+name|Query
 name|childFilter
 init|=
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 name|Queries
 operator|.
 name|not
 argument_list|(
 name|parentFilter
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|Nested
@@ -2955,6 +2933,8 @@ name|nested
 init|=
 name|createNested
 argument_list|(
+name|searcher
+argument_list|,
 name|parentFilter
 argument_list|,
 name|childFilter
@@ -2982,17 +2962,13 @@ operator|new
 name|ToParentBlockJoinQuery
 argument_list|(
 operator|new
-name|FilteredQuery
+name|ConstantScoreQuery
 argument_list|(
-operator|new
-name|MatchAllDocsQuery
-argument_list|()
-argument_list|,
 name|childFilter
 argument_list|)
 argument_list|,
 operator|new
-name|BitDocIdSetCachingWrapperFilter
+name|QueryBitSetProducer
 argument_list|(
 name|parentFilter
 argument_list|)
