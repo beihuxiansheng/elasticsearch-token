@@ -339,9 +339,6 @@ operator|new
 name|ElasticsearchTimeoutException
 argument_list|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}

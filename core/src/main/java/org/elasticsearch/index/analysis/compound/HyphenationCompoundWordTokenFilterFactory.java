@@ -370,12 +370,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Exception while reading hyphenation_patterns_path: "
-operator|+
+literal|"Exception while reading hyphenation_patterns_path."
+argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}
