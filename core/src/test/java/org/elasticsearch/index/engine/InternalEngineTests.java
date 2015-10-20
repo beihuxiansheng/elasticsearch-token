@@ -2383,7 +2383,7 @@ argument_list|,
 operator|new
 name|Engine
 operator|.
-name|FailedEngineListener
+name|EventListener
 argument_list|()
 block|{
 annotation|@
@@ -2392,9 +2392,6 @@ specifier|public
 name|void
 name|onFailedEngine
 parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
 name|String
 name|reason
 parameter_list|,
@@ -17375,7 +17372,7 @@ argument_list|)
 argument_list|,
 name|config
 operator|.
-name|getFailedEngineListener
+name|getEventListener
 argument_list|()
 argument_list|,
 name|config
