@@ -4,20 +4,18 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.zen
+DECL|package|org.elasticsearch.cluster
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
-operator|.
-name|zen
+name|cluster
 package|;
 end_package
 
 begin_comment
-comment|/**  * Thrown when a node join request or a master ping reaches a node which is not  * currently acting as a master.  */
+comment|/**  * Thrown when a node join request or a master ping reaches a node which is not  * currently acting as a master or when a cluster state update task is to be executed  * on a node that is no longer master.  */
 end_comment
 
 begin_class
