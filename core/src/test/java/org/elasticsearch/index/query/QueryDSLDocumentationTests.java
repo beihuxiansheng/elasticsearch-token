@@ -184,6 +184,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -283,6 +295,8 @@ DECL|class|QueryDSLDocumentationTests
 specifier|public
 class|class
 name|QueryDSLDocumentationTests
+extends|extends
+name|ESTestCase
 block|{
 annotation|@
 name|Test
