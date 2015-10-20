@@ -410,7 +410,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndicesLifecycle
+name|IndicesService
 import|;
 end_import
 
@@ -535,6 +535,8 @@ class|class
 name|RecoveryTarget
 extends|extends
 name|AbstractComponent
+implements|implements
+name|IndexEventListener
 block|{
 DECL|class|Actions
 specifier|public
@@ -641,9 +643,6 @@ name|threadPool
 parameter_list|,
 name|TransportService
 name|transportService
-parameter_list|,
-name|IndicesLifecycle
-name|indicesLifecycle
 parameter_list|,
 name|RecoverySettings
 name|recoverySettings
@@ -831,18 +830,10 @@ name|FinalizeRecoveryRequestHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|indicesLifecycle
-operator|.
-name|addListener
-argument_list|(
-operator|new
-name|IndicesLifecycle
-operator|.
-name|Listener
-argument_list|()
-block|{
+block|}
 annotation|@
 name|Override
+DECL|method|beforeIndexShardClosed
 specifier|public
 name|void
 name|beforeIndexShardClosed
@@ -878,10 +869,6 @@ literal|"shard closed"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * cancel all ongoing recoveries for the given shard, if their status match a predicate      *      * @param reason       reason for cancellation      * @param shardId      shardId for which to cancel recoveries      * @param shouldCancel a predicate to check if a recovery should be cancelled or not. Null means cancel without an extra check.      *                     note that the recovery state can change after this check, but before it is being cancelled via other      *                     already issued outstanding references.      * @return true if a recovery was cancelled      */
 DECL|method|cancelRecoveriesForShard

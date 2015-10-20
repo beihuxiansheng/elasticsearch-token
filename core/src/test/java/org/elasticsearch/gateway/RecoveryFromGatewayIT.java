@@ -297,6 +297,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|store
+operator|.
+name|MockFSIndexStore
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -3111,7 +3125,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockFSDirectoryService
+name|MockFSIndexStore
 operator|.
 name|CHECK_INDEX_ON_CLOSE
 argument_list|,
