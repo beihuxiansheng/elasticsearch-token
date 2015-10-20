@@ -1265,13 +1265,6 @@ name|float
 name|minimumScore
 parameter_list|)
 function_decl|;
-DECL|method|minimumScore
-specifier|public
-specifier|abstract
-name|Float
-name|minimumScore
-parameter_list|()
-function_decl|;
 DECL|method|sort
 specifier|public
 specifier|abstract
