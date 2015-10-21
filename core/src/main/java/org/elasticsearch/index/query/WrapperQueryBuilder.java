@@ -449,11 +449,6 @@ name|QueryShardContext
 argument_list|(
 name|context
 operator|.
-name|index
-argument_list|()
-argument_list|,
-name|context
-operator|.
 name|indexQueryParserService
 argument_list|()
 argument_list|)

@@ -10898,7 +10898,7 @@ name|assertThat
 argument_list|(
 name|indexService
 operator|.
-name|settingsService
+name|getIndexSettings
 argument_list|()
 operator|.
 name|getSettings

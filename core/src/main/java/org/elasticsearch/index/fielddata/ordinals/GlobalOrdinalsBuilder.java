@@ -114,9 +114,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
+name|unit
 operator|.
-name|Settings
+name|TimeValue
 import|;
 end_import
 
@@ -126,11 +126,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|unit
-operator|.
-name|TimeValue
+name|IndexSettings
 import|;
 end_import
 
@@ -210,8 +208,8 @@ parameter_list|,
 name|IndexOrdinalsFieldData
 name|indexFieldData
 parameter_list|,
-name|Settings
-name|settings
+name|IndexSettings
+name|indexSettings
 parameter_list|,
 name|CircuitBreakerService
 name|breakerService
@@ -415,12 +413,7 @@ return|return
 operator|new
 name|InternalGlobalOrdinalsIndexFieldData
 argument_list|(
-name|indexFieldData
-operator|.
-name|index
-argument_list|()
-argument_list|,
-name|settings
+name|indexSettings
 argument_list|,
 name|indexFieldData
 operator|.

@@ -108,6 +108,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|Engine
@@ -261,7 +273,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|)
 block|{
@@ -279,6 +291,8 @@ operator|=
 operator|new
 name|IndexingSlowLog
 argument_list|(
+name|this
+operator|.
 name|indexSettings
 argument_list|)
 expr_stmt|;
