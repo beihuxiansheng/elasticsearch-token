@@ -747,14 +747,14 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
-DECL|field|failedEngineHandler
+DECL|field|failedShardHandler
 specifier|private
 specifier|final
-name|FailedEngineHandler
-name|failedEngineHandler
+name|FailedShardHandler
+name|failedShardHandler
 init|=
 operator|new
-name|FailedEngineHandler
+name|FailedShardHandler
 argument_list|()
 decl_stmt|;
 DECL|field|sendRefreshMapping
@@ -2360,6 +2360,11 @@ decl_stmt|;
 name|failAndRemoveShard
 argument_list|(
 name|shardRouting
+argument_list|,
+name|indexService
+operator|.
+name|indexUUID
+argument_list|()
 argument_list|,
 name|indexService
 argument_list|,
@@ -4082,7 +4087,7 @@ name|indexShard
 operator|.
 name|addShardFailureCallback
 argument_list|(
-name|failedEngineHandler
+name|failedShardHandler
 argument_list|)
 expr_stmt|;
 block|}
@@ -4103,6 +4108,11 @@ block|{
 name|failAndRemoveShard
 argument_list|(
 name|shardRouting
+argument_list|,
+name|indexService
+operator|.
+name|indexUUID
+argument_list|()
 argument_list|,
 name|indexService
 argument_list|,
@@ -4830,6 +4840,11 @@ argument_list|(
 name|shardRouting
 argument_list|,
 name|indexService
+operator|.
+name|indexUUID
+argument_list|()
+argument_list|,
+name|indexService
 argument_list|,
 name|sendShardFailure
 argument_list|,
@@ -5006,6 +5021,11 @@ parameter_list|(
 name|ShardRouting
 name|shardRouting
 parameter_list|,
+name|String
+name|indexUUID
+parameter_list|,
+annotation|@
+name|Nullable
 name|IndexService
 name|indexService
 parameter_list|,
@@ -5024,6 +5044,10 @@ block|{
 if|if
 condition|(
 name|indexService
+operator|!=
+literal|null
+operator|&&
+name|indexService
 operator|.
 name|hasShard
 argument_list|(
@@ -5034,6 +5058,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// if the indexService is null we can't remove the shard, that's fine since we might have a failure
+comment|// when the index is remove and then we already removed the index service for that shard...
 try|try
 block|{
 name|indexService
@@ -5095,10 +5121,7 @@ name|sendFailShard
 argument_list|(
 name|shardRouting
 argument_list|,
-name|indexService
-operator|.
 name|indexUUID
-argument_list|()
 argument_list|,
 name|message
 argument_list|,
@@ -5213,10 +5236,10 @@ block|}
 end_function
 
 begin_class
-DECL|class|FailedEngineHandler
+DECL|class|FailedShardHandler
 specifier|private
 class|class
-name|FailedEngineHandler
+name|FailedShardHandler
 implements|implements
 name|Callback
 argument_list|<
@@ -5288,11 +5311,15 @@ name|failAndRemoveShard
 argument_list|(
 name|shardRouting
 argument_list|,
+name|shardFailure
+operator|.
+name|indexUUID
+argument_list|,
 name|indexService
 argument_list|,
 literal|true
 argument_list|,
-literal|"engine failure, reason ["
+literal|"shard failure, reason ["
 operator|+
 name|shardFailure
 operator|.
