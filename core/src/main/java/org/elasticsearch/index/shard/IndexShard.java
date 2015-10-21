@@ -4358,7 +4358,7 @@ init|=
 name|minimumCompatibleVersion
 argument_list|()
 decl_stmt|;
-comment|// we just want to upgrade the segments, not actually optimize to a single segment
+comment|// we just want to upgrade the segments, not actually forge merge to a single segment
 name|getEngine
 argument_list|()
 operator|.

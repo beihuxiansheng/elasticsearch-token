@@ -2617,7 +2617,7 @@ parameter_list|()
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Optimizes to 1 segment      */
+comment|/**      * Force merges to 1 segment      */
 DECL|method|forceMerge
 specifier|public
 name|void
