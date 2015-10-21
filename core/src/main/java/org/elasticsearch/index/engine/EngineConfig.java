@@ -459,13 +459,13 @@ specifier|final
 name|CodecService
 name|codecService
 decl_stmt|;
-DECL|field|failedEngineListener
+DECL|field|eventListener
 specifier|private
 specifier|final
 name|Engine
 operator|.
-name|FailedEngineListener
-name|failedEngineListener
+name|EventListener
+name|eventListener
 decl_stmt|;
 DECL|field|forceNewTranslog
 specifier|private
@@ -639,8 +639,8 @@ name|codecService
 parameter_list|,
 name|Engine
 operator|.
-name|FailedEngineListener
-name|failedEngineListener
+name|EventListener
+name|eventListener
 parameter_list|,
 name|TranslogRecoveryPerformer
 name|translogRecoveryPerformer
@@ -729,9 +729,9 @@ name|codecService
 expr_stmt|;
 name|this
 operator|.
-name|failedEngineListener
+name|eventListener
 operator|=
-name|failedEngineListener
+name|eventListener
 expr_stmt|;
 name|this
 operator|.
@@ -1148,16 +1148,16 @@ name|mergeSchedulerConfig
 return|;
 block|}
 comment|/**      * Returns a listener that should be called on engine failure      */
-DECL|method|getFailedEngineListener
+DECL|method|getEventListener
 specifier|public
 name|Engine
 operator|.
-name|FailedEngineListener
-name|getFailedEngineListener
+name|EventListener
+name|getEventListener
 parameter_list|()
 block|{
 return|return
-name|failedEngineListener
+name|eventListener
 return|;
 block|}
 comment|/**      * Returns the latest index settings directly from the index settings service.      */
