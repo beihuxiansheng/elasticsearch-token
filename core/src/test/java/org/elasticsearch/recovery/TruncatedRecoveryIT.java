@@ -935,7 +935,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|()
 operator|.
 name|setMaxNumSegments

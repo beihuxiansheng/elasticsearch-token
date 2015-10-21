@@ -412,9 +412,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 operator|.
-name|OptimizeResponse
+name|ForceMergeResponse
 import|;
 end_import
 
@@ -7974,17 +7974,17 @@ return|return
 name|actionGet
 return|;
 block|}
-comment|/**      * Waits for all relocations and optimized all indices in the cluster to 1 segment.      */
-DECL|method|optimize
+comment|/**      * Waits for all relocations and force merge all indices in the cluster to 1 segment.      */
+DECL|method|forceMerge
 specifier|protected
-name|OptimizeResponse
-name|optimize
+name|ForceMergeResponse
+name|forceMerge
 parameter_list|()
 block|{
 name|waitForRelocation
 argument_list|()
 expr_stmt|;
-name|OptimizeResponse
+name|ForceMergeResponse
 name|actionGet
 init|=
 name|client
@@ -7996,7 +7996,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|()
 operator|.
 name|setMaxNumSegments
@@ -9393,7 +9393,7 @@ return|return
 name|l
 return|;
 block|}
-comment|/**      * Maybe refresh, optimize, or flush then always make sure there aren't too many in flight async operations.      */
+comment|/**      * Maybe refresh, force merge, or flush then always make sure there aren't too many in flight async operations.      */
 DECL|method|postIndexAsyncActions
 specifier|private
 name|void
@@ -9569,7 +9569,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 name|indices
 argument_list|)
@@ -9604,7 +9604,9 @@ name|execute
 argument_list|(
 operator|new
 name|LatchedActionListener
-argument_list|<>
+argument_list|<
+name|ForceMergeResponse
+argument_list|>
 argument_list|(
 name|newLatch
 argument_list|(

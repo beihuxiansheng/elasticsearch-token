@@ -492,7 +492,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|OPTIMIZE
+name|FORCE_MERGE
 argument_list|)
 expr_stmt|;
 name|this

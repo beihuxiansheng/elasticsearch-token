@@ -164,9 +164,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 operator|.
-name|OptimizeRequest
+name|ForceMergeRequest
 import|;
 end_import
 
@@ -4258,13 +4258,13 @@ return|return
 name|commitId
 return|;
 block|}
-DECL|method|optimize
+DECL|method|forceMerge
 specifier|public
 name|void
-name|optimize
+name|forceMerge
 parameter_list|(
-name|OptimizeRequest
-name|optimize
+name|ForceMergeRequest
+name|forceMerge
 parameter_list|)
 throws|throws
 name|IOException
@@ -4284,9 +4284,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"optimize with {}"
+literal|"force merge with {}"
 argument_list|,
-name|optimize
+name|forceMerge
 argument_list|)
 expr_stmt|;
 block|}
@@ -4295,17 +4295,17 @@ argument_list|()
 operator|.
 name|forceMerge
 argument_list|(
-name|optimize
+name|forceMerge
 operator|.
 name|flush
 argument_list|()
 argument_list|,
-name|optimize
+name|forceMerge
 operator|.
 name|maxNumSegments
 argument_list|()
 argument_list|,
-name|optimize
+name|forceMerge
 operator|.
 name|onlyExpungeDeletes
 argument_list|()

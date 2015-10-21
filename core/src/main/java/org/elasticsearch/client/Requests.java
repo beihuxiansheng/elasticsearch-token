@@ -522,9 +522,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 operator|.
-name|OptimizeRequest
+name|ForceMergeRequest
 import|;
 end_import
 
@@ -1152,12 +1152,12 @@ name|indices
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an optimize request.      *      * @param indices The indices to optimize. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The optimize request      * @see org.elasticsearch.client.IndicesAdminClient#optimize(org.elasticsearch.action.admin.indices.optimize.OptimizeRequest)      */
-DECL|method|optimizeRequest
+comment|/**      * Creates a force merge request.      *      * @param indices The indices to force merge. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The force merge request      * @see org.elasticsearch.client.IndicesAdminClient#forceMerge(org.elasticsearch.action.admin.indices.forcemerge.ForceMergeRequest)      */
+DECL|method|forceMergeRequest
 specifier|public
 specifier|static
-name|OptimizeRequest
-name|optimizeRequest
+name|ForceMergeRequest
+name|forceMergeRequest
 parameter_list|(
 name|String
 modifier|...
@@ -1166,7 +1166,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|OptimizeRequest
+name|ForceMergeRequest
 argument_list|(
 name|indices
 argument_list|)

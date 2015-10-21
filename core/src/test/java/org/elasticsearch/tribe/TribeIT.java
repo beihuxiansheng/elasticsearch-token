@@ -1091,7 +1091,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -1126,7 +1126,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 literal|"test2"
 argument_list|)

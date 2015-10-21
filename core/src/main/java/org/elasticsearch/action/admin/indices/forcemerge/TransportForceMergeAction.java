@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.optimize
+DECL|package|org.elasticsearch.action.admin.indices.forcemerge
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 package|;
 end_package
 
@@ -273,20 +273,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Optimize index/indices action.  */
+comment|/**  * ForceMerge index/indices action.  */
 end_comment
 
 begin_class
-DECL|class|TransportOptimizeAction
+DECL|class|TransportForceMergeAction
 specifier|public
 class|class
-name|TransportOptimizeAction
+name|TransportForceMergeAction
 extends|extends
 name|TransportBroadcastByNodeAction
 argument_list|<
-name|OptimizeRequest
+name|ForceMergeRequest
 argument_list|,
-name|OptimizeResponse
+name|ForceMergeResponse
 argument_list|,
 name|TransportBroadcastByNodeAction
 operator|.
@@ -301,9 +301,9 @@ name|indicesService
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|TransportOptimizeAction
+DECL|method|TransportForceMergeAction
 specifier|public
-name|TransportOptimizeAction
+name|TransportForceMergeAction
 parameter_list|(
 name|Settings
 name|settings
@@ -331,7 +331,7 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|OptimizeAction
+name|ForceMergeAction
 operator|.
 name|NAME
 argument_list|,
@@ -345,7 +345,7 @@ name|actionFilters
 argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
-name|OptimizeRequest
+name|ForceMergeRequest
 operator|::
 operator|new
 argument_list|,
@@ -353,7 +353,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|OPTIMIZE
+name|FORCE_MERGE
 argument_list|)
 expr_stmt|;
 name|this
@@ -389,10 +389,10 @@ annotation|@
 name|Override
 DECL|method|newResponse
 specifier|protected
-name|OptimizeResponse
+name|ForceMergeResponse
 name|newResponse
 parameter_list|(
-name|OptimizeRequest
+name|ForceMergeRequest
 name|request
 parameter_list|,
 name|int
@@ -422,7 +422,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|OptimizeResponse
+name|ForceMergeResponse
 argument_list|(
 name|totalShards
 argument_list|,
@@ -438,7 +438,7 @@ annotation|@
 name|Override
 DECL|method|readRequestFrom
 specifier|protected
-name|OptimizeRequest
+name|ForceMergeRequest
 name|readRequestFrom
 parameter_list|(
 name|StreamInput
@@ -448,11 +448,11 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|OptimizeRequest
+name|ForceMergeRequest
 name|request
 init|=
 operator|new
-name|OptimizeRequest
+name|ForceMergeRequest
 argument_list|()
 decl_stmt|;
 name|request
@@ -473,7 +473,7 @@ specifier|protected
 name|EmptyResult
 name|shardOperation
 parameter_list|(
-name|OptimizeRequest
+name|ForceMergeRequest
 name|request
 parameter_list|,
 name|ShardRouting
@@ -511,7 +511,7 @@ argument_list|)
 decl_stmt|;
 name|indexShard
 operator|.
-name|optimize
+name|forceMerge
 argument_list|(
 name|request
 argument_list|)
@@ -533,7 +533,7 @@ parameter_list|(
 name|ClusterState
 name|clusterState
 parameter_list|,
-name|OptimizeRequest
+name|ForceMergeRequest
 name|request
 parameter_list|,
 name|String
@@ -563,7 +563,7 @@ parameter_list|(
 name|ClusterState
 name|state
 parameter_list|,
-name|OptimizeRequest
+name|ForceMergeRequest
 name|request
 parameter_list|)
 block|{
@@ -591,7 +591,7 @@ parameter_list|(
 name|ClusterState
 name|state
 parameter_list|,
-name|OptimizeRequest
+name|ForceMergeRequest
 name|request
 parameter_list|,
 name|String
