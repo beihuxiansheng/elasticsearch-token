@@ -4058,31 +4058,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Is it an empty {@link DocIdSet}?      */
-DECL|method|isEmpty
-specifier|public
-specifier|static
-name|boolean
-name|isEmpty
-parameter_list|(
-annotation|@
-name|Nullable
-name|DocIdSet
-name|set
-parameter_list|)
-block|{
-return|return
-name|set
-operator|==
-literal|null
-operator|||
-name|set
-operator|==
-name|DocIdSet
-operator|.
-name|EMPTY
-return|;
-block|}
 comment|/**      * Given a {@link Scorer}, return a {@link Bits} instance that will match      * all documents contained in the set. Note that the returned {@link Bits}      * instance MUST be consumed in order.      */
 DECL|method|asSequentialAccessBits
 specifier|public
