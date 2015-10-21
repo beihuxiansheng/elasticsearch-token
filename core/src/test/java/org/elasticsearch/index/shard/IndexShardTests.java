@@ -7586,6 +7586,8 @@ specifier|public
 name|void
 name|testRecoverFromStore
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|createIndex
 argument_list|(
@@ -9904,7 +9906,7 @@ name|IndexServicesProvider
 argument_list|(
 name|indexServices
 operator|.
-name|getIndicesLifecycle
+name|getIndexEventListener
 argument_list|()
 argument_list|,
 name|indexServices

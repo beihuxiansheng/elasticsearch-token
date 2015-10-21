@@ -322,9 +322,7 @@ name|indicesModule
 init|=
 operator|new
 name|IndicesModule
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 block|{
 annotation|@
 name|Override

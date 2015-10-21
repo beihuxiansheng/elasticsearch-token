@@ -983,6 +983,10 @@ operator|.
 name|createIndex
 argument_list|(
 name|indexMetaData
+argument_list|,
+name|Collections
+operator|.
+name|EMPTY_LIST
 argument_list|)
 expr_stmt|;
 name|removeIndex
@@ -2072,6 +2076,10 @@ operator|.
 name|createIndex
 argument_list|(
 name|indexMetaData
+argument_list|,
+name|Collections
+operator|.
+name|EMPTY_LIST
 argument_list|)
 decl_stmt|;
 name|indicesToClose
