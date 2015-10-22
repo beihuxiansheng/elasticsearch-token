@@ -1182,7 +1182,7 @@ block|{
 return|return
 name|indexSettings
 operator|.
-name|getVersion
+name|getIndexVersionCreated
 argument_list|()
 return|;
 block|}

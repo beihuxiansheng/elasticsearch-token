@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|// TODO add javadocs - this also needs a dedicated unit test
+comment|/**  * This class encapsulates all index level settings and handles settings updates.  * It's created per index and available to all index level classes and allows them to retrieve  * the latest updated settings instance. Classes that need to listen to settings updates can register  * a settings consumer at index creation via {@link IndexModule#addIndexSettingsListener(Consumer)} that will  * be called for each settings update.  */
 end_comment
 
 begin_class
@@ -155,6 +155,12 @@ specifier|final
 class|class
 name|IndexSettings
 block|{
+DECL|field|uuid
+specifier|private
+specifier|final
+name|String
+name|uuid
+decl_stmt|;
 DECL|field|settings
 specifier|private
 specifier|volatile
@@ -191,43 +197,13 @@ specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
-DECL|method|IndexSettings
-specifier|public
-name|IndexSettings
-parameter_list|(
-name|Index
-name|index
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|index
-argument_list|,
-name|Settings
-operator|.
-name|settingsBuilder
-argument_list|()
-operator|.
-name|put
-argument_list|(
-name|IndexMetaData
-operator|.
-name|SETTING_VERSION_CREATED
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|)
-operator|.
-name|build
-argument_list|()
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
-argument_list|)
-expr_stmt|;
-block|}
+DECL|field|nodeName
+specifier|private
+specifier|final
+name|String
+name|nodeName
+decl_stmt|;
+comment|/**      * Creates a new {@link IndexSettings} instance      * @param index the index this settings object is associated with      * @param settings the actual settings including the node level settings      * @param updateListeners a collection of listeners / consumers that should be notified if one or more settings are updated      */
 DECL|method|IndexSettings
 specifier|public
 name|IndexSettings
@@ -285,6 +261,21 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+name|uuid
+operator|=
+name|settings
+operator|.
+name|get
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_INDEX_UUID
+argument_list|,
+name|IndexMetaData
+operator|.
+name|INDEX_UUID_NA_VALUE
+argument_list|)
+expr_stmt|;
 name|logger
 operator|=
 name|Loggers
@@ -299,7 +290,19 @@ argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
+name|nodeName
+operator|=
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"name"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
 block|}
+comment|/**      * Returns the settings for this index. These settings contain the node and index level settings where      * settings that are specified on both index and node level are overwritten by the index settings.      */
 DECL|method|getSettings
 specifier|public
 name|Settings
@@ -310,6 +313,7 @@ return|return
 name|settings
 return|;
 block|}
+comment|/**      * Returns the index this settings object belongs to      */
 DECL|method|getIndex
 specifier|public
 name|Index
@@ -320,6 +324,7 @@ return|return
 name|index
 return|;
 block|}
+comment|/**      * Returns the indexes UUID      */
 DECL|method|getUUID
 specifier|public
 name|String
@@ -327,20 +332,10 @@ name|getUUID
 parameter_list|()
 block|{
 return|return
-name|settings
-operator|.
-name|get
-argument_list|(
-name|IndexMetaData
-operator|.
-name|SETTING_INDEX_UUID
-argument_list|,
-name|IndexMetaData
-operator|.
-name|INDEX_UUID_NA_VALUE
-argument_list|)
+name|uuid
 return|;
 block|}
+comment|/**      * Returns<code>true</code> if the index has a custom data path      */
 DECL|method|hasCustomDataPath
 specifier|public
 name|boolean
@@ -356,16 +351,18 @@ name|settings
 argument_list|)
 return|;
 block|}
-DECL|method|getVersion
+comment|/**      * Returns the version the index was created on.      * @see Version#indexCreated(Settings)      */
+DECL|method|getIndexVersionCreated
 specifier|public
 name|Version
-name|getVersion
+name|getIndexVersionCreated
 parameter_list|()
 block|{
 return|return
 name|version
 return|;
 block|}
+comment|/**      * Returns the current node name      */
 DECL|method|getNodeName
 specifier|public
 name|String
@@ -373,16 +370,10 @@ name|getNodeName
 parameter_list|()
 block|{
 return|return
-name|settings
-operator|.
-name|get
-argument_list|(
-literal|"name"
-argument_list|,
-literal|""
-argument_list|)
+name|nodeName
 return|;
 block|}
+comment|/**      * Notifies  all registered settings consumers with the new settings iff at least one setting has changed.      *      * @return<code>true</code> iff any setting has been updated otherwise<code>false</code>.      */
 DECL|method|updateSettings
 specifier|synchronized
 name|boolean
@@ -406,9 +397,64 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
-literal|"version mismatch on settings update"
+literal|"version mismatch on settings update expected: "
+operator|+
+name|version
+operator|+
+literal|" but was: "
+operator|+
+name|Version
+operator|.
+name|indexCreated
+argument_list|(
+name|settings
+argument_list|)
+argument_list|)
+throw|;
+block|}
+specifier|final
+name|String
+name|newUUID
+init|=
+name|settings
+operator|.
+name|get
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_INDEX_UUID
+argument_list|,
+name|IndexMetaData
+operator|.
+name|INDEX_UUID_NA_VALUE
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|newUUID
+operator|.
+name|equals
+argument_list|(
+name|getUUID
+argument_list|()
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"uuid mismatch on settings update expected: "
+operator|+
+name|uuid
+operator|+
+literal|" but was: "
+operator|+
+name|newUUID
 argument_list|)
 throw|;
 block|}
@@ -518,6 +564,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Returns all settings update consumers      */
 DECL|method|getUpdateListeners
 name|List
 argument_list|<

@@ -297,6 +297,7 @@ operator|=
 name|indexSettings
 expr_stmt|;
 block|}
+comment|/**      * Adds a settings consumer for this index      */
 DECL|method|addIndexSettingsListener
 specifier|public
 name|void
@@ -350,10 +351,11 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getIndexSettings
+comment|/**      * Returns the index {@link Settings} for this index      */
+DECL|method|getSettings
 specifier|public
 name|Settings
-name|getIndexSettings
+name|getSettings
 parameter_list|()
 block|{
 return|return
@@ -363,6 +365,21 @@ name|getSettings
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the index this module is associated with      */
+DECL|method|getIndex
+specifier|public
+name|Index
+name|getIndex
+parameter_list|()
+block|{
+return|return
+name|indexSettings
+operator|.
+name|getIndex
+argument_list|()
+return|;
+block|}
+comment|/**      * Adds an {@link IndexEventListener} for this index. All listeners added here      * are maintained for the entire index lifecycle on this node. Once an index is closed or deleted these      * listeners go out of scope.      *<p>      * Note: an index might be created on a node multiple times. For instance if the last shard from an index is      * relocated to another node the internal representation will be destroyed which includes the registered listeners.      * Once the node holds at least one shard of an index all modules are reloaded and listeners are registered again.      * Listeners can't be unregistered the will stay alive for the entire time the index is allocated on a node.      *</p>      */
 DECL|method|addIndexEventListener
 specifier|public
 name|void

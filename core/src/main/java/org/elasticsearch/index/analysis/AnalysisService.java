@@ -378,7 +378,7 @@ name|SETTING_VERSION_CREATED
 argument_list|,
 name|indexSettings
 operator|.
-name|getVersion
+name|getIndexVersionCreated
 argument_list|()
 argument_list|)
 operator|.
@@ -1933,7 +1933,7 @@ name|createdVersion
 init|=
 name|indexSettings
 operator|.
-name|getVersion
+name|getIndexVersionCreated
 argument_list|()
 decl_stmt|;
 if|if

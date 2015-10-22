@@ -224,7 +224,7 @@ name|esVersion
 init|=
 name|indexSettings
 operator|.
-name|getVersion
+name|getIndexVersionCreated
 argument_list|()
 decl_stmt|;
 specifier|final

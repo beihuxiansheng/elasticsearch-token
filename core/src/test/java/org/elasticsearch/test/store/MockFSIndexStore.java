@@ -343,7 +343,7 @@ name|indexSettings
 init|=
 name|module
 operator|.
-name|getIndexSettings
+name|getSettings
 argument_list|()
 decl_stmt|;
 if|if
