@@ -374,26 +374,6 @@ operator|.
 name|routingEntry
 argument_list|()
 decl_stmt|;
-name|assertAcked
-argument_list|(
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|prepareDelete
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|get
-argument_list|()
-argument_list|)
-expr_stmt|;
 specifier|final
 name|AtomicInteger
 name|counter
@@ -585,6 +565,17 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+name|indicesService
+operator|.
+name|deleteIndex
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"simon says"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 name|IndexService
 name|index
 init|=
@@ -713,6 +704,9 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|indicesService
 operator|.
 name|deleteIndex
@@ -722,6 +716,7 @@ argument_list|,
 literal|"simon says"
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 literal|7
