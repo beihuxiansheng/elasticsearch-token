@@ -379,7 +379,7 @@ name|getIndex
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds an {@link IndexEventListener} for this index. All listeners added here      * are maintained for the entire index lifecycle on this node. Once an index is closed or deleted these      * listeners go out of scope.      *<p>      * Note: an index might be created on a node multiple times. For instance if the last shard from an index is      * relocated to another node the internal representation will be destroyed which includes the registered listeners.      * Once the node holds at least one shard of an index all modules are reloaded and listeners are registered again.      * Listeners can't be unregistered the will stay alive for the entire time the index is allocated on a node.      *</p>      */
+comment|/**      * Adds an {@link IndexEventListener} for this index. All listeners added here      * are maintained for the entire index lifecycle on this node. Once an index is closed or deleted these      * listeners go out of scope.      *<p>      * Note: an index might be created on a node multiple times. For instance if the last shard from an index is      * relocated to another node the internal representation will be destroyed which includes the registered listeners.      * Once the node holds at least one shard of an index all modules are reloaded and listeners are registered again.      * Listeners can't be unregistered they will stay alive for the entire time the index is allocated on a node.      *</p>      */
 DECL|method|addIndexEventListener
 specifier|public
 name|void

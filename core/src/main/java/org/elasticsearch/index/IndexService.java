@@ -511,18 +511,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Consumer
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -3068,7 +3056,7 @@ name|this
 operator|.
 name|indexSettings
 operator|.
-name|updateSettings
+name|updateIndexSettings
 argument_list|(
 name|metadata
 operator|.
