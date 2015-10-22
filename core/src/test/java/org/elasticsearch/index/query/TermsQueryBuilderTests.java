@@ -292,7 +292,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -1160,13 +1196,13 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Expected IllegalArgumentException"
+literal|"Expected ParsingException"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -1177,9 +1213,15 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|is
+name|containsString
 argument_list|(
-literal|"Both values and termsLookup specified for terms query"
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support more than one field."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1616,7 +1658,13 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[terms] query does not support multiple fields"
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support multiple fields"
 argument_list|)
 argument_list|)
 expr_stmt|;
