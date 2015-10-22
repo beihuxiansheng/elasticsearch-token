@@ -684,7 +684,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"closing indices is disabled - set [cluster.indices.close.enable: true] to enable it. NOTE: closed indices consume a significant amount of diskspace"
+literal|"closing indices is disabled - set [cluster.indices.close.enable: true] to enable it. NOTE: closed indices still consume a significant amount of diskspace"
 argument_list|)
 expr_stmt|;
 block|}

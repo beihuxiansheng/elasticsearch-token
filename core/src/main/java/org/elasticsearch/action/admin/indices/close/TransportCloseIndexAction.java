@@ -447,7 +447,7 @@ literal|"closing indices is disabled - set ["
 operator|+
 name|SETTING_CLUSTER_INDICES_CLOSE_ENABLE
 operator|+
-literal|": true] to enable it. NOTE: closed indices consume a significant amount of diskspace"
+literal|": true] to enable it. NOTE: closed indices still consume a significant amount of diskspace"
 argument_list|)
 throw|;
 block|}
