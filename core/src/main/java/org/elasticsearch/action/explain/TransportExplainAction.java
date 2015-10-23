@@ -944,11 +944,11 @@ operator|.
 name|queryParserService
 argument_list|()
 operator|.
-name|parseTopLevelQuery
+name|toQuery
 argument_list|(
 name|request
 operator|.
-name|source
+name|query
 argument_list|()
 argument_list|)
 argument_list|)
