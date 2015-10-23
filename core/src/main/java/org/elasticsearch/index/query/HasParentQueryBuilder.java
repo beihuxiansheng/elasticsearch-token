@@ -585,13 +585,6 @@ return|return
 literal|null
 return|;
 block|}
-name|innerQuery
-operator|.
-name|setBoost
-argument_list|(
-name|boost
-argument_list|)
-expr_stmt|;
 name|DocumentMapper
 name|parentDocMapper
 init|=
