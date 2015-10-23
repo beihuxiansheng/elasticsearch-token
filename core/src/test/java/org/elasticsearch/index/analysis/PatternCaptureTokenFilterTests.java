@@ -178,7 +178,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|IndexNameAndSettingsModule
+name|IndexSettingsModule
 import|;
 end_import
 
@@ -330,7 +330,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IndexNameAndSettingsModule
+name|IndexSettingsModule
 argument_list|(
 name|index
 argument_list|,
@@ -481,8 +481,9 @@ block|{
 operator|new
 name|PatternCaptureGroupTokenFilterFactory
 argument_list|(
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 operator|new
 name|Index
@@ -490,22 +491,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|,
-name|settingsBuilder
-argument_list|()
+name|Settings
 operator|.
-name|put
-argument_list|(
-name|IndexMetaData
-operator|.
-name|SETTING_VERSION_CREATED
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
-argument_list|)
-operator|.
-name|build
-argument_list|()
+name|EMPTY
 argument_list|,
 name|Collections
 operator|.

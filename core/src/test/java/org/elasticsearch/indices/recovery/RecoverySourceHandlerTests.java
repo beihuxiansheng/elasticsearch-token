@@ -352,6 +352,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|IndexSettingsModule
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -443,8 +455,9 @@ specifier|final
 name|IndexSettings
 name|INDEX_SETTINGS
 init|=
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 operator|new
 name|Index

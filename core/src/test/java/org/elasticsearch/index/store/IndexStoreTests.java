@@ -162,6 +162,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|IndexSettingsModule
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -313,8 +325,9 @@ decl_stmt|;
 name|IndexSettings
 name|indexSettings
 init|=
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 operator|new
 name|Index
@@ -587,8 +600,9 @@ init|=
 operator|new
 name|FsDirectoryService
 argument_list|(
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 operator|new
 name|Index

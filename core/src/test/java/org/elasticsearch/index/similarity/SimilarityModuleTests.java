@@ -182,6 +182,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|IndexSettingsModule
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -256,8 +268,9 @@ init|=
 operator|new
 name|SimilarityModule
 argument_list|(
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 operator|new
 name|Index
@@ -458,8 +471,9 @@ init|=
 operator|new
 name|SimilarityModule
 argument_list|(
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 operator|new
 name|Index
@@ -557,8 +571,9 @@ init|=
 operator|new
 name|SimilarityModule
 argument_list|(
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 operator|new
 name|Index

@@ -274,7 +274,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|IndexNameAndSettingsModule
+name|IndexSettingsModule
 import|;
 end_import
 
@@ -473,7 +473,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IndexNameAndSettingsModule
+name|IndexSettingsModule
 argument_list|(
 name|index
 argument_list|,
@@ -711,7 +711,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IndexNameAndSettingsModule
+name|IndexSettingsModule
 argument_list|(
 name|index
 argument_list|,

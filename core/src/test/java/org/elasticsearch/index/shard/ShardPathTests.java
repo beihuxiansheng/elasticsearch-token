@@ -92,6 +92,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|IndexSettingsModule
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -298,8 +310,9 @@ name|env
 argument_list|,
 name|shardId
 argument_list|,
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
@@ -513,8 +526,9 @@ name|env
 argument_list|,
 name|shardId
 argument_list|,
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
@@ -687,8 +701,9 @@ name|env
 argument_list|,
 name|shardId
 argument_list|,
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
@@ -1125,8 +1140,9 @@ name|env
 argument_list|,
 name|shardId
 argument_list|,
-operator|new
-name|IndexSettings
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
