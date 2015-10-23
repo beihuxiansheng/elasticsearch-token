@@ -64,20 +64,6 @@ name|common
 operator|.
 name|inject
 operator|.
-name|Binder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
 name|Module
 import|;
 end_import
@@ -198,18 +184,6 @@ name|assertAcked
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
-import|;
-end_import
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -222,9 +196,9 @@ name|numDataNodes
 operator|=
 literal|1
 argument_list|,
-name|transportClientRatio
+name|numClientNodes
 operator|=
-literal|0.0
+literal|0
 argument_list|)
 DECL|class|SettingsListenerIT
 specifier|public
