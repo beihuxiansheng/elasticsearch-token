@@ -215,7 +215,7 @@ specifier|final
 name|boolean
 name|isShadowReplicaIndex
 decl_stmt|;
-comment|// updated via #updateIndexMetaData(IndexMetaData)
+comment|// volatile fields are updated via #updateIndexMetaData(IndexMetaData) under lock
 DECL|field|settings
 specifier|private
 specifier|volatile
@@ -228,7 +228,7 @@ specifier|volatile
 name|IndexMetaData
 name|indexMetaData
 decl_stmt|;
-comment|/**      * Creates a new {@link IndexSettings} instance      * @param indexMetaData the index this settings object is associated with      * @param nodeSettings the actual settings including the node level settings      * @param updateListeners a collection of listeners / consumers that should be notified if one or more settings are updated      */
+comment|/**      * Creates a new {@link IndexSettings} instance. The given node settings will be merged with the settings in the metadata      * while index level settings will overwrite node settings.      *      * @param indexMetaData the index metadata this settings object is associated with      * @param nodeSettings the nodes settings this index is allocated on.      * @param updateListeners a collection of listeners / consumers that should be notified if one or more settings are updated      */
 DECL|method|IndexSettings
 specifier|public
 name|IndexSettings
@@ -461,23 +461,6 @@ return|return
 name|nodeName
 return|;
 block|}
-comment|/**      * Returns all settings update consumers      */
-DECL|method|getUpdateListeners
-name|List
-argument_list|<
-name|Consumer
-argument_list|<
-name|Settings
-argument_list|>
-argument_list|>
-name|getUpdateListeners
-parameter_list|()
-block|{
-comment|// for testing
-return|return
-name|updateListeners
-return|;
-block|}
 comment|/**      * Returns the current IndexMetaData for this index      */
 DECL|method|getIndexMetaData
 specifier|public
@@ -542,7 +525,7 @@ return|return
 name|nodeSettings
 return|;
 block|}
-comment|/**      * Notifies  all registered settings consumers with the new settings iff at least one setting has changed.      *      * @return<code>true</code> iff any setting has been updated otherwise<code>false</code>.      */
+comment|/**      * Updates the settings and index metadata and notifies all registered settings consumers with the new settings iff at least one setting has changed.      *      * @return<code>true</code> iff any setting has been updated otherwise<code>false</code>.      */
 DECL|method|updateIndexMetaData
 specifier|synchronized
 name|boolean
@@ -685,6 +668,10 @@ return|return
 literal|false
 return|;
 block|}
+specifier|final
+name|Settings
+name|mergedSettings
+init|=
 name|this
 operator|.
 name|settings
@@ -706,14 +693,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-expr_stmt|;
-specifier|final
-name|Settings
-name|mergedSettings
-init|=
-name|this
-operator|.
-name|settings
 decl_stmt|;
 for|for
 control|(
@@ -758,6 +737,23 @@ block|}
 block|}
 return|return
 literal|true
+return|;
+block|}
+comment|/**      * Returns all settings update consumers      */
+DECL|method|getUpdateListeners
+name|List
+argument_list|<
+name|Consumer
+argument_list|<
+name|Settings
+argument_list|>
+argument_list|>
+name|getUpdateListeners
+parameter_list|()
+block|{
+comment|// for testing
+return|return
+name|updateListeners
 return|;
 block|}
 block|}
