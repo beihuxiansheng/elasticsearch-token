@@ -2091,7 +2091,10 @@ name|beforeIndexCreated
 argument_list|(
 name|index
 argument_list|,
-name|settings
+name|idxSettings
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Injector
