@@ -702,13 +702,13 @@ name|reason
 operator|+
 literal|")"
 argument_list|,
+operator|new
+name|ClusterStateUpdateTask
+argument_list|(
 name|Priority
 operator|.
 name|HIGH
-argument_list|,
-operator|new
-name|ClusterStateUpdateTask
-argument_list|()
+argument_list|)
 block|{
 annotation|@
 name|Override
