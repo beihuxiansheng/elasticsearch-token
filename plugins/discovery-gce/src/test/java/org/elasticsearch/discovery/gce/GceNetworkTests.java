@@ -249,10 +249,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that we don't have any regression with network host core settings such as      * network.host: _local_      */
-DECL|method|testNetworkHostCoreLocal
+DECL|method|networkHostCoreLocal
 specifier|public
 name|void
-name|testNetworkHostCoreLocal
+name|networkHostCoreLocal
 parameter_list|()
 throws|throws
 name|IOException
@@ -269,11 +269,16 @@ operator|.
 name|EMPTY
 argument_list|)
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
+operator|new
+name|String
+index|[]
+block|{
 name|NetworkService
 operator|.
 name|DEFAULT_NETWORK_HOST
+block|}
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -387,7 +392,7 @@ name|addresses
 init|=
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
