@@ -5528,6 +5528,13 @@ operator|==
 literal|false
 condition|)
 block|{
+name|engineConfig
+operator|.
+name|setFlushWhenLastMergeFinished
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// We are currently inactive, but a new write operation just showed up, so we now notify IMC
 comment|// to wake up and fix our indexing buffer.  We could do this async instead, but cost should
 comment|// be low, and it's rare this happens.
@@ -6122,6 +6129,13 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+name|engineConfig
+operator|.
+name|setFlushWhenLastMergeFinished
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|wasActive

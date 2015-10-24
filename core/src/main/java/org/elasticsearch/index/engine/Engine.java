@@ -2932,6 +2932,7 @@ specifier|public
 interface|interface
 name|EventListener
 block|{
+comment|/**          * Called when a fatal exception occurred          */
 DECL|method|onFailedEngine
 specifier|default
 name|void
