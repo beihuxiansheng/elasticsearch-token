@@ -280,20 +280,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|settings
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|ShardId
@@ -1875,8 +1861,6 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -1939,8 +1923,6 @@ specifier|static
 name|void
 name|acquireFSLockForPaths
 parameter_list|(
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
@@ -2099,8 +2081,6 @@ parameter_list|(
 name|ShardLock
 name|lock
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -2295,8 +2275,6 @@ parameter_list|,
 name|long
 name|lockTimeoutMS
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -2357,8 +2335,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -2458,8 +2434,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|settings
 parameter_list|,
@@ -4081,8 +4055,6 @@ specifier|static
 name|boolean
 name|hasCustomDataPath
 parameter_list|(
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -4106,8 +4078,6 @@ specifier|private
 name|Path
 name|resolveCustomLocation
 parameter_list|(
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -4205,8 +4175,6 @@ specifier|private
 name|Path
 name|resolveCustomLocation
 parameter_list|(
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
@@ -4233,8 +4201,6 @@ specifier|public
 name|Path
 name|resolveCustomLocation
 parameter_list|(
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
