@@ -406,15 +406,10 @@ name|Defaults
 operator|.
 name|positionIncrementGap
 argument_list|(
-name|Version
-operator|.
-name|indexCreated
-argument_list|(
 name|indexSettings
 operator|.
-name|getSettings
+name|getIndexVersionCreated
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

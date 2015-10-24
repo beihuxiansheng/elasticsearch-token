@@ -1117,14 +1117,10 @@ argument_list|()
 expr_stmt|;
 name|indexVersionCreated
 operator|=
-name|Version
-operator|.
-name|indexCreated
-argument_list|(
-name|this
-operator|.
 name|indexSettings
-argument_list|)
+operator|.
+name|getIndexVersionCreated
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|putTypeParser
