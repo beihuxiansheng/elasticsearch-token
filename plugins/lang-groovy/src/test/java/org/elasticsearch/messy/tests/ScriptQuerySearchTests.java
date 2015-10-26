@@ -52,9 +52,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
-operator|.
-name|IndexCacheModule
+name|IndexModule
 import|;
 end_import
 
@@ -316,18 +314,18 @@ comment|// aggressive filter caching so that we can assert on the number of iter
 operator|.
 name|put
 argument_list|(
-name|IndexCacheModule
+name|IndexModule
 operator|.
 name|QUERY_CACHE_TYPE
 argument_list|,
-name|IndexCacheModule
+name|IndexModule
 operator|.
 name|INDEX_QUERY_CACHE
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexCacheModule
+name|IndexModule
 operator|.
 name|QUERY_CACHE_EVERYTHING
 argument_list|,
