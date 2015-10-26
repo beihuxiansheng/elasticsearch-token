@@ -4958,7 +4958,7 @@ name|void
 name|onSettingsChanged
 parameter_list|()
 block|{     }
-comment|/**      * Retuns the timestamp of the last write in nanoseconds.      * Note: this time might not be absolutely accurate since the {@link Operation#startTime()} is used which might be      * slightly inaccurate.      * @see System#nanoTime()      * @see Operation#startTime()      * @return      */
+comment|/**      * Returns the timestamp of the last write in nanoseconds.      * Note: this time might not be absolutely accurate since the {@link Operation#startTime()} is used which might be      * slightly inaccurate.      * @see System#nanoTime()      * @see Operation#startTime()      */
 DECL|method|getLastWriteNanos
 specifier|public
 name|long

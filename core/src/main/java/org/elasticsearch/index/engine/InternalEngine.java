@@ -3776,7 +3776,7 @@ block|{
 comment|// refresh outside of the write lock
 name|refresh
 argument_list|(
-literal|"version_table_flush"
+literal|"renew sync commit"
 argument_list|)
 expr_stmt|;
 block|}
