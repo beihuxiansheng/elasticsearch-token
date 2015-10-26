@@ -391,6 +391,19 @@ name|enableGcDeletes
 init|=
 literal|true
 decl_stmt|;
+DECL|field|flushMergesAfter
+specifier|private
+specifier|final
+name|TimeValue
+name|flushMergesAfter
+init|=
+name|TimeValue
+operator|.
+name|timeValueMinutes
+argument_list|(
+literal|5
+argument_list|)
+decl_stmt|;
 DECL|field|codecName
 specifier|private
 specifier|final
@@ -653,6 +666,9 @@ name|queryCachingPolicy
 parameter_list|,
 name|TranslogConfig
 name|translogConfig
+parameter_list|,
+name|TimeValue
+name|flushMergesAfter
 parameter_list|)
 block|{
 name|this
@@ -1308,6 +1324,17 @@ parameter_list|()
 block|{
 return|return
 name|create
+return|;
+block|}
+comment|/**      * Returns a {@link TimeValue} at what time interval after the last write modification to the engine finished merges      * should be automatically flushed. This is used to free up transient disk usage of potentially large segments that      * are written after the engine became inactive from an indexing perspective.      */
+DECL|method|getFlushMergesAfter
+specifier|public
+name|TimeValue
+name|getFlushMergesAfter
+parameter_list|()
+block|{
+return|return
+name|flushMergesAfter
 return|;
 block|}
 block|}

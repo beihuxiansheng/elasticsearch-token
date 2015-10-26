@@ -2188,6 +2188,16 @@ name|BECAME_ACTIVE
 block|,
 name|BECAME_INACTIVE
 block|}
+DECL|method|getInactiveTime
+specifier|public
+name|TimeValue
+name|getInactiveTime
+parameter_list|()
+block|{
+return|return
+name|inactiveTime
+return|;
+block|}
 block|}
 end_class
 
