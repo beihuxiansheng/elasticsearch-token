@@ -490,6 +490,20 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|locks
 operator|.
 name|Condition
@@ -677,6 +691,12 @@ name|Throwable
 name|failedEngine
 init|=
 literal|null
+decl_stmt|;
+DECL|field|lastWriteNanos
+specifier|protected
+specifier|volatile
+name|long
+name|lastWriteNanos
 decl_stmt|;
 DECL|method|Engine
 specifier|protected
@@ -4938,6 +4958,19 @@ name|void
 name|onSettingsChanged
 parameter_list|()
 block|{     }
+comment|/**      * Retuns the timestamp of the last write in nanoseconds.      * Note: this time might not be absolutely accurate since the {@link Operation#startTime()} is used which might be      * slightly inaccurate.      * @see System#nanoTime()      * @see Operation#startTime()      * @return      */
+DECL|method|getLastWriteNanos
+specifier|public
+name|long
+name|getLastWriteNanos
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|lastWriteNanos
+return|;
+block|}
 block|}
 end_class
 

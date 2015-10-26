@@ -2347,6 +2347,13 @@ argument_list|()
 argument_list|)
 init|)
 block|{
+name|lastWriteNanos
+operator|=
+name|index
+operator|.
+name|startTime
+argument_list|()
+expr_stmt|;
 specifier|final
 name|long
 name|currentVersion
@@ -2990,6 +2997,13 @@ argument_list|()
 argument_list|)
 init|)
 block|{
+name|lastWriteNanos
+operator|=
+name|delete
+operator|.
+name|startTime
+argument_list|()
+expr_stmt|;
 specifier|final
 name|long
 name|currentVersion
@@ -3638,6 +3652,11 @@ name|boolean
 name|tryRenewSyncCommit
 parameter_list|()
 block|{
+name|boolean
+name|renewed
+init|=
+literal|false
+decl_stmt|;
 try|try
 init|(
 name|ReleasableLock
@@ -3718,13 +3737,11 @@ operator|.
 name|readLastCommittedSegmentsInfo
 argument_list|()
 expr_stmt|;
-return|return
+name|renewed
+operator|=
 literal|true
-return|;
+expr_stmt|;
 block|}
-return|return
-literal|false
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -3751,6 +3768,21 @@ name|ex
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|renewed
+condition|)
+block|{
+comment|// refresh outside of the write lock
+name|refresh
+argument_list|(
+literal|"version_table_flush"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|renewed
+return|;
 block|}
 annotation|@
 name|Override
@@ -6156,44 +6188,59 @@ block|}
 block|}
 if|if
 condition|(
-name|engineConfig
-operator|.
-name|isFlushWhenLastMergeFinished
-argument_list|()
-operator|&&
 name|indexWriter
 operator|.
 name|hasPendingMerges
 argument_list|()
 operator|==
 literal|false
+operator|&&
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+operator|-
+name|lastWriteNanos
+operator|>=
+name|engineConfig
+operator|.
+name|getFlushMergesAfter
+argument_list|()
+operator|.
+name|nanos
+argument_list|()
 condition|)
 block|{
-comment|// if we have no pending merges and we are supposed to flush once merges have finished
-comment|// we try to renew a sync commit which is the case when we are having a big merge after we
-comment|// are inactive. If that didn't work we go and do a real flush which is ok since it only doesn't work
-comment|// if we either have records in the translog or if we don't have a sync ID at all...
-try|try
-block|{
-if|if
-condition|(
-name|tryRenewSyncCommit
+comment|// NEVER do this on a merge thread since we acquire some locks blocking here and if we concurrently rollback the writer
+comment|// we deadlock on engine#close for instance.
+name|engineConfig
+operator|.
+name|getThreadPool
 argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-name|flush
+operator|.
+name|executor
+argument_list|(
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|FLUSH
+argument_list|)
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|AbstractRunnable
 argument_list|()
-expr_stmt|;
-block|}
-block|}
-catch|catch
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
 parameter_list|(
-name|EngineClosedException
-decl||
-name|EngineException
-name|ex
+name|Throwable
+name|t
 parameter_list|)
 block|{
 if|if
@@ -6215,6 +6262,37 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|doRun
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// if we have no pending merges and we are supposed to flush once merges have finished
+comment|// we try to renew a sync commit which is the case when we are having a big merge after we
+comment|// are inactive. If that didn't work we go and do a real flush which is ok since it only doesn't work
+comment|// if we either have records in the translog or if we don't have a sync ID at all...
+comment|// maybe even more important, we flush after all merges finish and we are inactive indexing-wise to
+comment|// free up transient disk usage of the (presumably biggish) segments that were just merged
+if|if
+condition|(
+name|tryRenewSyncCommit
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+name|flush
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
