@@ -972,11 +972,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"provider for name ["
+literal|"Can't register the same [query_cache] more than once for ["
 operator|+
 name|name
 operator|+
-literal|"] is already registered"
+literal|"]"
 argument_list|)
 throw|;
 block|}

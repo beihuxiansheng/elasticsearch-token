@@ -1782,6 +1782,11 @@ operator|::
 operator|new
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"only once"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1821,6 +1826,11 @@ name|settings
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"only once"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1836,6 +1846,40 @@ name|getMessage
 argument_list|()
 argument_list|,
 literal|"Can't register the same [query_cache] more than once for [none]"
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|module
+operator|.
+name|registerQueryCache
+argument_list|(
+literal|"index"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"must not be null"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+literal|"provider must not be null"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1944,6 +1988,11 @@ lambda|->
 operator|new
 name|CustomQueryCache
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"only once"
 argument_list|)
 expr_stmt|;
 block|}
