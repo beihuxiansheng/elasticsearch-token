@@ -156,11 +156,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
 name|store
 operator|.
-name|IndicesStore
+name|IndexStoreConfig
 import|;
 end_import
 
@@ -338,15 +338,15 @@ parameter_list|(
 name|IndexSettings
 name|indexSettings
 parameter_list|,
-name|IndicesStore
-name|indicesStore
+name|IndexStoreConfig
+name|config
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|indexSettings
 argument_list|,
-name|indicesStore
+name|config
 argument_list|)
 expr_stmt|;
 block|}
