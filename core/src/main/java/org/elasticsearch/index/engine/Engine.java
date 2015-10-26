@@ -697,7 +697,12 @@ specifier|protected
 specifier|volatile
 name|long
 name|lastWriteNanos
+init|=
+name|Long
+operator|.
+name|MAX_VALUE
 decl_stmt|;
+comment|// no write yet!
 DECL|method|Engine
 specifier|protected
 name|Engine
