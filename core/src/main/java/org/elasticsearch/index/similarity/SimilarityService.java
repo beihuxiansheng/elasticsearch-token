@@ -56,20 +56,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -85,6 +71,18 @@ operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexModule
 import|;
 end_import
 
@@ -170,10 +168,6 @@ name|BiFunction
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SimilarityService
 specifier|public
@@ -233,6 +227,7 @@ argument_list|>
 name|DEFAULTS
 decl_stmt|;
 DECL|field|BUILT_IN
+specifier|public
 specifier|static
 specifier|final
 name|Map
@@ -399,8 +394,6 @@ name|buildIn
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Inject
 DECL|method|SimilarityService
 specifier|public
 name|SimilarityService
@@ -464,7 +457,7 @@ argument_list|()
 operator|.
 name|getGroups
 argument_list|(
-name|SimilarityModule
+name|IndexModule
 operator|.
 name|SIMILARITY_SETTINGS_PREFIX
 argument_list|)
