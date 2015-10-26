@@ -527,6 +527,7 @@ end_comment
 begin_class
 DECL|class|BitsetFilterCache
 specifier|public
+specifier|final
 class|class
 name|BitsetFilterCache
 extends|extends
@@ -638,6 +639,7 @@ name|warmer
 decl_stmt|;
 DECL|field|indicesWarmer
 specifier|private
+specifier|final
 name|IndicesWarmer
 name|indicesWarmer
 decl_stmt|;
@@ -817,12 +819,7 @@ name|void
 name|close
 parameter_list|()
 block|{
-if|if
-condition|(
-name|indicesWarmer
-operator|!=
-literal|null
-condition|)
+try|try
 block|{
 name|indicesWarmer
 operator|.
@@ -832,11 +829,14 @@ name|warmer
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
 name|clear
 argument_list|(
 literal|"close"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|clear
 specifier|public
