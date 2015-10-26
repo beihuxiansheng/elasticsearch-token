@@ -689,31 +689,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|String
-name|request
-init|=
-literal|"{\n"
-operator|+
-literal|"    \"size\":0,"
-operator|+
-literal|"    \"query\": {\n"
-operator|+
-literal|"        \"template\": {\n"
-operator|+
-literal|"            \"query\": {\"match_{{template}}\": {}},\n"
-operator|+
-literal|"            \"params\" : {\n"
-operator|+
-literal|"                \"template\" : \"all\"\n"
-operator|+
-literal|"            }\n"
-operator|+
-literal|"        }\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"}"
-decl_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -765,7 +740,7 @@ argument_list|(
 operator|new
 name|Template
 argument_list|(
-literal|"{ \"query\": { \"match_{{template}}\": {} } }"
+literal|"{ \"match_{{template}}\": {} }"
 argument_list|,
 name|ScriptType
 operator|.

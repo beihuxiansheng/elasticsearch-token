@@ -1332,7 +1332,7 @@ name|parsedQuery
 argument_list|(
 name|queryParserService
 operator|.
-name|parseQuery
+name|parseTopLevelQuery
 argument_list|(
 name|request
 operator|.

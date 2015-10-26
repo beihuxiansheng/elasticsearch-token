@@ -944,7 +944,7 @@ operator|.
 name|queryParserService
 argument_list|()
 operator|.
-name|parseQuery
+name|parseTopLevelQuery
 argument_list|(
 name|request
 operator|.
