@@ -396,13 +396,6 @@ specifier|private
 specifier|final
 name|TimeValue
 name|flushMergesAfter
-init|=
-name|TimeValue
-operator|.
-name|timeValueMinutes
-argument_list|(
-literal|5
-argument_list|)
 decl_stmt|;
 DECL|field|codecName
 specifier|private
@@ -852,6 +845,12 @@ operator|.
 name|translogConfig
 operator|=
 name|translogConfig
+expr_stmt|;
+name|this
+operator|.
+name|flushMergesAfter
+operator|=
+name|flushMergesAfter
 expr_stmt|;
 block|}
 comment|/** updates {@link #versionMapSize} based on current setting and {@link #indexingBufferSize} */
