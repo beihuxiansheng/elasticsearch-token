@@ -172,11 +172,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
 name|store
 operator|.
-name|IndicesStore
+name|IndexStoreConfig
 import|;
 end_import
 
@@ -429,7 +429,7 @@ block|{
 name|String
 name|key1
 init|=
-name|IndicesStore
+name|IndexStoreConfig
 operator|.
 name|INDICES_STORE_THROTTLE_MAX_BYTES_PER_SEC
 decl_stmt|;

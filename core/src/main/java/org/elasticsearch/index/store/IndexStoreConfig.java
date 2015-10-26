@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * IndexStoreConfig encapsulates node / cluster level configuration for index level {@link IndexStore} instances.  * For instance does it maintain the node level rate-limiter if configured. Updates to the cluster that disable or enable  * {@value #INDICES_STORE_THROTTLE_TYPE} or {@value #INDICES_STORE_THROTTLE_MAX_BYTES_PER_SEC} are reflected immediately  * on all referencing {@link IndexStore} instances  */
+comment|/**  * IndexStoreConfig encapsulates node / cluster level configuration for index level {@link IndexStore} instances.  * For instance it maintains the node level rate limiter configuration: updates to the cluster that disable or enable  * {@value #INDICES_STORE_THROTTLE_TYPE} or {@value #INDICES_STORE_THROTTLE_MAX_BYTES_PER_SEC} are reflected immediately  * on all referencing {@link IndexStore} instances  */
 end_comment
 
 begin_class
