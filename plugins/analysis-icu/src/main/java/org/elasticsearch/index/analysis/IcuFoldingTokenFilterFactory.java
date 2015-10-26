@@ -92,32 +92,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|ibm
@@ -158,6 +132,18 @@ name|UnicodeSet
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexSettings
+import|;
+end_import
+
 begin_comment
 comment|/**  * Uses the {@link org.apache.lucene.analysis.icu.ICUFoldingFilter}.   * Applies foldings from UTR#30 Character Foldings.  *<p>  * Can be filtered to handle certain characters in a specified way (see http://icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html)  * E.g national chars that should be retained (filter : "[^Ã¥Ã¤Ã¶ÃÃÃ]").  *  *<p>The<tt>unicodeSetFilter</tt> attribute can be used to provide the UniCodeSet for filtering.  *  * @author kimchy (shay.banon)  */
 end_comment
@@ -182,12 +168,7 @@ name|Inject
 specifier|public
 name|IcuFoldingTokenFilterFactory
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 annotation|@
@@ -203,8 +184,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|,
 name|name

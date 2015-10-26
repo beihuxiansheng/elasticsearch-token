@@ -38,20 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
@@ -66,7 +52,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -98,10 +84,7 @@ DECL|method|RegisterSizeFieldMapper
 specifier|public
 name|RegisterSizeFieldMapper
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|MapperService
@@ -110,8 +93,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;

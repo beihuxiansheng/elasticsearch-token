@@ -558,7 +558,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexNameModule
+name|IndexSettings
 import|;
 end_import
 
@@ -649,20 +649,6 @@ operator|.
 name|support
 operator|.
 name|QueryParsers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettingsModule
 import|;
 end_import
 
@@ -843,6 +829,18 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|IndexSettingsModule
 import|;
 end_import
 
@@ -1860,15 +1858,18 @@ argument_list|,
 operator|new
 name|SimilarityModule
 argument_list|(
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
+argument_list|(
 name|index
 argument_list|,
 name|indexSettings
-argument_list|)
 argument_list|,
-operator|new
-name|IndexNameModule
-argument_list|(
-name|index
+name|Collections
+operator|.
+name|EMPTY_LIST
+argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -3690,8 +3691,6 @@ init|=
 operator|new
 name|QueryShardContext
 argument_list|(
-name|index
-argument_list|,
 name|queryParserService
 argument_list|)
 decl_stmt|;

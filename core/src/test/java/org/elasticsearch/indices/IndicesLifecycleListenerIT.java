@@ -190,20 +190,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|settings
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|IndexEventListener
@@ -313,20 +299,6 @@ operator|.
 name|test
 operator|.
 name|MockIndexEventListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|transport
-operator|.
-name|MockTransportService
 import|;
 end_import
 
@@ -743,8 +715,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -784,8 +754,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -1104,8 +1072,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -2036,8 +2002,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -2084,8 +2048,6 @@ name|Nullable
 name|IndexShard
 name|indexShard
 parameter_list|,
-annotation|@
-name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)

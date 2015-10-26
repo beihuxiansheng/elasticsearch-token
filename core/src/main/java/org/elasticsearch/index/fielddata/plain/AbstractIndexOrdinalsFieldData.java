@@ -104,7 +104,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -292,10 +292,7 @@ DECL|method|AbstractIndexOrdinalsFieldData
 specifier|protected
 name|AbstractIndexOrdinalsFieldData
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|Names
@@ -313,8 +310,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|,
 name|fieldNames

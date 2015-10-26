@@ -36,20 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|ByteSizeValue
@@ -91,8 +77,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|index
-operator|.
-name|settings
 operator|.
 name|IndexSettings
 import|;
@@ -274,7 +258,7 @@ decl_stmt|;
 DECL|field|indexSettings
 specifier|private
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 decl_stmt|;
 DECL|field|shardId
@@ -300,9 +284,7 @@ parameter_list|,
 name|Path
 name|translogPath
 parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 name|Translog
@@ -367,6 +349,9 @@ name|fromString
 argument_list|(
 name|indexSettings
 operator|.
+name|getSettings
+argument_list|()
+operator|.
 name|get
 argument_list|(
 name|INDEX_TRANSLOG_FS_TYPE
@@ -391,6 +376,9 @@ name|int
 operator|)
 name|indexSettings
 operator|.
+name|getSettings
+argument_list|()
+operator|.
 name|getAsBytesSize
 argument_list|(
 name|INDEX_TRANSLOG_BUFFER_SIZE
@@ -407,6 +395,9 @@ comment|// Not really interesting, updated by IndexingMemoryController...
 name|syncInterval
 operator|=
 name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
 operator|.
 name|getAsTime
 argument_list|(
@@ -588,10 +579,10 @@ return|return
 name|syncInterval
 return|;
 block|}
-comment|/**      * Returns the current index settings      */
+comment|/**      * Returns the index indexSettings      */
 DECL|method|getIndexSettings
 specifier|public
-name|Settings
+name|IndexSettings
 name|getIndexSettings
 parameter_list|()
 block|{
