@@ -110,6 +110,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|IndexSettings
 import|;
 end_import
@@ -511,11 +523,11 @@ name|indexSettings
 operator|.
 name|get
 argument_list|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|STORE_TYPE
 argument_list|,
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.
@@ -527,7 +539,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.
@@ -538,7 +550,7 @@ argument_list|(
 name|storeType
 argument_list|)
 operator|||
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.
@@ -598,7 +610,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.
@@ -623,7 +635,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.
@@ -648,7 +660,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.

@@ -172,8 +172,6 @@ name|SmbMmapFsDirectoryService
 extends|extends
 name|FsDirectoryService
 block|{
-annotation|@
-name|Inject
 DECL|method|SmbMmapFsDirectoryService
 specifier|public
 name|SmbMmapFsDirectoryService

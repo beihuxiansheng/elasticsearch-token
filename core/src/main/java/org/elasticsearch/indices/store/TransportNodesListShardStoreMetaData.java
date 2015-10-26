@@ -344,7 +344,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexModule
 import|;
 end_import
 
@@ -411,20 +411,6 @@ operator|.
 name|shard
 operator|.
 name|ShardPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|IndexStoreModule
 import|;
 end_import
 
@@ -1288,7 +1274,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|STORE_TYPE
 argument_list|,
