@@ -48,9 +48,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|store
-operator|.
-name|IndexStoreModule
+name|IndexModule
 import|;
 end_import
 
@@ -139,11 +137,11 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|STORE_TYPE
 argument_list|,
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.
@@ -289,11 +287,11 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|STORE_TYPE
 argument_list|,
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.
@@ -354,7 +352,7 @@ expr_stmt|;
 comment|// added setting exists
 name|assertEquals
 argument_list|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|Type
 operator|.
@@ -367,7 +365,7 @@ name|newSettings
 operator|.
 name|get
 argument_list|(
-name|IndexStoreModule
+name|IndexModule
 operator|.
 name|STORE_TYPE
 argument_list|)
