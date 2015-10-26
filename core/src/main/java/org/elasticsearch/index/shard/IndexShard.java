@@ -2347,6 +2347,16 @@ operator|.
 name|store
 return|;
 block|}
+DECL|method|getIndexSettings
+specifier|public
+name|IndexSettings
+name|getIndexSettings
+parameter_list|()
+block|{
+return|return
+name|idxSettings
+return|;
+block|}
 comment|/** returns true if this shard supports indexing (i.e., write) operations. */
 DECL|method|canIndex
 specifier|public
@@ -4482,12 +4492,10 @@ name|luceneVersion
 operator|==
 literal|null
 condition|?
-name|Version
+name|idxSettings
 operator|.
-name|indexCreated
-argument_list|(
-name|indexSettings
-argument_list|)
+name|getIndexVersionCreated
+argument_list|()
 operator|.
 name|luceneVersion
 else|:
