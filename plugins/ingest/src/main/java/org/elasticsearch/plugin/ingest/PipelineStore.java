@@ -266,11 +266,11 @@ specifier|final
 name|TimeValue
 name|pipelineUpdateInterval
 decl_stmt|;
-DECL|field|configDocReader
+DECL|field|client
 specifier|private
 specifier|final
 name|PipelineStoreClient
-name|configDocReader
+name|client
 decl_stmt|;
 DECL|field|processorFactoryRegistry
 specifier|private
@@ -319,7 +319,7 @@ name|ClusterService
 name|clusterService
 parameter_list|,
 name|PipelineStoreClient
-name|configDocReader
+name|client
 parameter_list|,
 name|Map
 argument_list|<
@@ -371,9 +371,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|configDocReader
+name|client
 operator|=
-name|configDocReader
+name|client
 expr_stmt|;
 name|this
 operator|.
@@ -617,7 +617,7 @@ control|(
 name|SearchHit
 name|hit
 range|:
-name|configDocReader
+name|client
 operator|.
 name|readAllPipelines
 argument_list|()
@@ -746,7 +746,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|configDocReader
+name|client
 operator|.
 name|existPipeline
 argument_list|(
