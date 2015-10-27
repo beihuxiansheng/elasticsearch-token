@@ -570,10 +570,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testOnModuleExceptionsArePropergated
+DECL|method|testOnModuleExceptionsArePropagated
 specifier|public
 name|void
-name|testOnModuleExceptionsArePropergated
+name|testOnModuleExceptionsArePropagated
 parameter_list|()
 block|{
 name|Settings
