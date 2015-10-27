@@ -154,24 +154,6 @@ argument_list|(
 literal|"Use [bool] query instead"
 argument_list|)
 decl_stmt|;
-DECL|field|EXECUTION_FIELD
-specifier|private
-specifier|static
-specifier|final
-name|ParseField
-name|EXECUTION_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-literal|"execution"
-argument_list|)
-operator|.
-name|withAllDeprecated
-argument_list|(
-literal|"execution is deprecated and has no effect"
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|names
@@ -396,24 +378,6 @@ name|isValue
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|parseContext
-operator|.
-name|parseFieldMatcher
-argument_list|()
-operator|.
-name|match
-argument_list|(
-name|currentFieldName
-argument_list|,
-name|EXECUTION_FIELD
-argument_list|)
-condition|)
-block|{
-comment|// ignore
-block|}
-elseif|else
 if|if
 condition|(
 name|parseContext
