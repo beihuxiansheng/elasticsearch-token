@@ -46,6 +46,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|Array
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -59,6 +71,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -166,7 +188,6 @@ operator|=
 name|document
 expr_stmt|;
 block|}
-comment|// TODO(talevy): support elements of lists
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -269,9 +290,23 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+operator|!
 name|inner
 operator|.
-name|putIfAbsent
+name|containsKey
+argument_list|(
+name|pathElements
+index|[
+name|i
+index|]
+argument_list|)
+condition|)
+block|{
+name|inner
+operator|.
+name|put
 argument_list|(
 name|pathElements
 index|[
@@ -288,6 +323,7 @@ argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|inner
 operator|=
 operator|(
