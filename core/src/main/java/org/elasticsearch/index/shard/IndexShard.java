@@ -1784,6 +1784,9 @@ parameter_list|,
 name|Store
 name|store
 parameter_list|,
+name|IndexSearcherWrapper
+name|indexSearcherWrapper
+parameter_list|,
 name|IndexServicesProvider
 name|provider
 parameter_list|)
@@ -2280,10 +2283,7 @@ name|this
 operator|.
 name|searcherWrapper
 operator|=
-name|provider
-operator|.
-name|getIndexSearcherWrapper
-argument_list|()
+name|indexSearcherWrapper
 expr_stmt|;
 name|this
 operator|.

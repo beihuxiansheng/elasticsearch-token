@@ -163,6 +163,9 @@ parameter_list|,
 name|Store
 name|store
 parameter_list|,
+name|IndexSearcherWrapper
+name|wrapper
+parameter_list|,
 name|IndexServicesProvider
 name|provider
 parameter_list|)
@@ -178,6 +181,8 @@ argument_list|,
 name|path
 argument_list|,
 name|store
+argument_list|,
+name|wrapper
 argument_list|,
 name|provider
 argument_list|)

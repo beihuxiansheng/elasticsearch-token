@@ -9876,8 +9876,6 @@ operator|.
 name|getBigArrays
 argument_list|()
 argument_list|,
-name|wrapper
-argument_list|,
 name|indexServices
 operator|.
 name|getIndexingMemoryController
@@ -9909,6 +9907,8 @@ name|shard
 operator|.
 name|store
 argument_list|()
+argument_list|,
+name|wrapper
 argument_list|,
 name|newProvider
 argument_list|)
