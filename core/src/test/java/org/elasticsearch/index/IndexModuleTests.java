@@ -528,7 +528,9 @@ name|assertInstanceBinding
 argument_list|(
 name|module
 argument_list|,
-name|IndexSearcherWrapper
+name|IndexModule
+operator|.
+name|IndexSearcherWrapperFactory
 operator|.
 name|class
 argument_list|,
@@ -537,6 +539,11 @@ name|x
 parameter_list|)
 lambda|->
 name|x
+operator|.
+name|newWrapper
+argument_list|(
+literal|null
+argument_list|)
 operator|==
 literal|null
 argument_list|)
