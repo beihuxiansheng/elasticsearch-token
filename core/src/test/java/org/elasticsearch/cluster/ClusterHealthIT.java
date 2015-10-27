@@ -75,16 +75,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -104,12 +94,10 @@ name|ClusterHealthIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|simpleLocalHealthTest
+DECL|method|testSimpleLocalHealth
 specifier|public
 name|void
-name|simpleLocalHealthTest
+name|testSimpleLocalHealth
 parameter_list|()
 block|{
 name|createIndex
@@ -203,8 +191,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testHealth
 specifier|public
 name|void

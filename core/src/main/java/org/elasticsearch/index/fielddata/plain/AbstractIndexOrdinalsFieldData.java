@@ -104,7 +104,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -292,10 +292,7 @@ DECL|method|AbstractIndexOrdinalsFieldData
 specifier|protected
 name|AbstractIndexOrdinalsFieldData
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|Names
@@ -313,8 +310,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|,
 name|fieldNames
@@ -408,7 +403,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 block|{
@@ -470,11 +465,6 @@ operator|new
 name|ElasticsearchException
 argument_list|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}
@@ -487,7 +477,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws

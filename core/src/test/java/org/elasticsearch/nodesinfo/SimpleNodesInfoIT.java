@@ -94,9 +94,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -128,13 +132,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
+name|hamcrest
 operator|.
-name|test
+name|Matchers
 operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
+name|is
 import|;
 end_import
 
@@ -146,7 +148,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|notNullValue
 import|;
 end_import
 
@@ -206,8 +208,6 @@ init|=
 literal|"0.0.7-BOND-SITE"
 decl_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNodesInfos
 specifier|public
 name|void

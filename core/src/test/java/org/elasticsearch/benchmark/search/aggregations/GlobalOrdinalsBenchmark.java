@@ -1126,9 +1126,14 @@ name|COUNT
 operator|=
 name|client
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|(
 name|INDEX_NAME
+argument_list|)
+operator|.
+name|setSize
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|setQuery
@@ -1143,7 +1148,10 @@ operator|.
 name|actionGet
 argument_list|()
 operator|.
-name|getCount
+name|getHits
+argument_list|()
+operator|.
+name|totalHits
 argument_list|()
 expr_stmt|;
 name|System

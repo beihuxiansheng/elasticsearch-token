@@ -1276,7 +1276,7 @@ name|maxResultWindow
 init|=
 name|indexService
 operator|.
-name|settingsService
+name|getIndexSettings
 argument_list|()
 operator|.
 name|getSettings
@@ -1329,9 +1329,6 @@ comment|// initialize the filtering alias based on the provided filters
 name|aliasFilter
 operator|=
 name|indexService
-operator|.
-name|aliasesService
-argument_list|()
 operator|.
 name|aliasFilter
 argument_list|(

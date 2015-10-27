@@ -284,6 +284,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|InternalTestCluster
 import|;
 end_import
@@ -330,11 +344,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Test
+name|ArrayList
 import|;
 end_import
 
@@ -344,7 +358,47 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -410,20 +464,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -440,7 +480,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -498,8 +586,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTimeoutUpdateTask
 specifier|public
 name|void
@@ -821,8 +907,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAckedUpdateTask
 specifier|public
 name|void
@@ -1237,8 +1321,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAckedUpdateTaskSameClusterState
 specifier|public
 name|void
@@ -1631,8 +1713,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMasterAwareExecution
 specifier|public
 name|void
@@ -1937,8 +2017,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAckedUpdateTaskNoAckExpected
 specifier|public
 name|void
@@ -2318,8 +2396,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAckedUpdateTaskTimeoutZero
 specifier|public
 name|void
@@ -2734,8 +2810,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPendingUpdateTask
 specifier|public
 name|void
@@ -3649,8 +3723,6 @@ name|countDown
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLocalNodeMasterListenerCallbacks
 specifier|public
 name|void
@@ -4411,8 +4483,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Note, this test can only work as long as we have a single thread executor executing the state update tasks!      */
-annotation|@
-name|Test
 DECL|method|testPrioritizedTasks
 specifier|public
 name|void
@@ -4631,8 +4701,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 annotation|@
 name|TestLogging
 argument_list|(
@@ -5100,8 +5168,6 @@ name|assertAllExpectationsMatched
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|TestLogging
 argument_list|(

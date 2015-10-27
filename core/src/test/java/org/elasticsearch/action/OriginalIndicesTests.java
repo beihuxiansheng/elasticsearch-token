@@ -74,16 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -164,8 +154,6 @@ name|strictSingleIndexNoExpandForbidClosed
 argument_list|()
 block|}
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testOriginalIndicesSerialization
 specifier|public
 name|void

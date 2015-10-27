@@ -334,12 +334,6 @@ init|=
 operator|new
 name|QueryShardContext
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-literal|"test"
-argument_list|)
-argument_list|,
 name|queryParser
 argument_list|)
 decl_stmt|;
@@ -400,7 +394,7 @@ name|searcher
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 literal|0
 argument_list|)

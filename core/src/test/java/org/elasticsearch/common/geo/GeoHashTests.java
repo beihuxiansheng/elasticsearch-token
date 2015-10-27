@@ -20,18 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|lucene
@@ -46,9 +34,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESTestCase
 import|;
 end_import
 
@@ -64,8 +54,6 @@ name|GeoHashTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testGeohashAsLongRoutines
 specifier|public
 name|void

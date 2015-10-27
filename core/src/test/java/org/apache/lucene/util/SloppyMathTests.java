@@ -57,16 +57,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -88,8 +78,6 @@ name|SloppyMathTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testAccuracy
 specifier|public
 name|void
@@ -164,8 +152,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSloppyMath
 specifier|public
 name|void

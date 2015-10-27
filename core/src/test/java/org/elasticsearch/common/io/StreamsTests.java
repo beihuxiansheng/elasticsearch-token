@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -86,11 +74,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Test
+name|ByteArrayInputStream
 import|;
 end_import
 
@@ -100,7 +88,49 @@ name|java
 operator|.
 name|io
 operator|.
-name|*
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|StringWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -126,7 +156,23 @@ name|io
 operator|.
 name|Streams
 operator|.
-name|*
+name|copy
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|Streams
+operator|.
+name|copyToString
 import|;
 end_import
 
@@ -154,8 +200,6 @@ name|StreamsTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testCopyFromInputStream
 specifier|public
 name|void
@@ -243,8 +287,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyFromByteArray
 specifier|public
 name|void
@@ -305,8 +347,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyFromReader
 specifier|public
 name|void
@@ -373,8 +413,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyFromString
 specifier|public
 name|void
@@ -416,8 +454,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyToString
 specifier|public
 name|void
@@ -459,8 +495,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBytesStreamInput
 specifier|public
 name|void

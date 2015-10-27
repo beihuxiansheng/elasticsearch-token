@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -106,7 +92,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|RoutingTable
 import|;
 end_import
 
@@ -120,7 +106,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingTable
+name|ShardRouting
 import|;
 end_import
 
@@ -137,12 +123,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
+import|import static
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Test
+name|Collections
+operator|.
+name|singletonMap
 import|;
 end_import
 
@@ -158,7 +146,55 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|INITIALIZING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|RELOCATING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|UNASSIGNED
 import|;
 end_import
 
@@ -202,8 +238,6 @@ name|PreferLocalPrimariesToRelocatingPrimariesTests
 extends|extends
 name|ESAllocationTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPreferLocalPrimaryAllocationOverFiltered
 specifier|public
 name|void
@@ -455,9 +489,7 @@ name|newNode
 argument_list|(
 literal|"node1"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -472,9 +504,7 @@ name|newNode
 argument_list|(
 literal|"node2"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,
@@ -850,9 +880,7 @@ name|newNode
 argument_list|(
 literal|"node1"
 argument_list|,
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"tag1"
 argument_list|,

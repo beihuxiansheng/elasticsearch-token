@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -58,11 +46,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Test
+name|IOException
 import|;
 end_import
 
@@ -70,9 +58,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -96,8 +86,6 @@ name|ByteArrayIndexInputTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testRandomReads
 specifier|public
 name|void
@@ -197,8 +185,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRandomOverflow
 specifier|public
 name|void
@@ -340,8 +326,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSeekOverflow
 specifier|public
 name|void
@@ -801,9 +785,6 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-operator|(
-name|long
-operator|)
 name|readPos
 argument_list|,
 name|indexInput

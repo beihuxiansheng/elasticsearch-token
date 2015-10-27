@@ -368,16 +368,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -428,7 +418,39 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
 import|;
 end_import
 
@@ -915,8 +937,6 @@ name|client
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGlobalReadWriteBlocks
 specifier|public
 name|void
@@ -1071,7 +1091,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -1106,7 +1126,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 literal|"test2"
 argument_list|)
@@ -1132,8 +1152,6 @@ block|{
 comment|// all is well!
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexWriteBlocks
 specifier|public
 name|void
@@ -1391,8 +1409,6 @@ block|{
 comment|// all is well!
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testOnConflictDrop
 specifier|public
 name|void
@@ -1649,8 +1665,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOnConflictPrefer
 specifier|public
 name|void
@@ -1952,8 +1966,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTribeOnOneCluster
 specifier|public
 name|void
@@ -2144,8 +2156,13 @@ name|assertHitCount
 argument_list|(
 name|tribeClient
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -2325,8 +2342,13 @@ name|assertHitCount
 argument_list|(
 name|tribeClient
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
@@ -2574,8 +2596,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCloseAndOpenIndex
 specifier|public
 name|void

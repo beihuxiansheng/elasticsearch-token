@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -160,6 +146,18 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_class
 DECL|class|IndicesQueriesRegistry
 specifier|public
@@ -170,7 +168,7 @@ name|AbstractComponent
 block|{
 DECL|field|queryParsers
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -287,9 +285,7 @@ name|this
 operator|.
 name|queryParsers
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|queryParsers
 argument_list|)
@@ -298,7 +294,7 @@ block|}
 comment|/**      * Returns all the registered query parsers      */
 DECL|method|queryParsers
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

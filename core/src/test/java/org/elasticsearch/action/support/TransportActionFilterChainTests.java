@@ -112,16 +112,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -250,7 +240,31 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -284,8 +298,6 @@ name|AtomicInteger
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testActionFiltersRequest
 specifier|public
 name|void
@@ -875,8 +887,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testActionFiltersResponse
 specifier|public
 name|void
@@ -1460,8 +1470,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testTooManyContinueProcessingRequest
 specifier|public
 name|void
@@ -1833,8 +1841,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testTooManyContinueProcessingResponse
 specifier|public
 name|void

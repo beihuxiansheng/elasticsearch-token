@@ -114,16 +114,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|nio
@@ -165,18 +155,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasSize
 import|;
 end_import
 
@@ -235,8 +213,6 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testCleanupWhenEmpty
 specifier|public
 name|void
@@ -326,8 +302,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDanglingProcessing
 specifier|public
 name|void
@@ -667,8 +641,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRenameOfIndexState
 specifier|public
 name|void

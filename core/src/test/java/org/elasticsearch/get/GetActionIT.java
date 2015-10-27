@@ -336,16 +336,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -542,12 +532,10 @@ name|GetActionIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|simpleGetTests
+DECL|method|testSimpleGet
 specifier|public
 name|void
-name|simpleGetTests
+name|testSimpleGet
 parameter_list|()
 block|{
 name|assertAcked
@@ -2084,12 +2072,10 @@ else|:
 literal|"alias"
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|simpleMultiGetTests
+DECL|method|testSimpleMultiGet
 specifier|public
 name|void
-name|simpleMultiGetTests
+name|testSimpleMultiGet
 parameter_list|()
 throws|throws
 name|Exception
@@ -2853,12 +2839,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|realtimeGetWithCompressBackcompat
+DECL|method|testRealtimeGetWithCompressBackcompat
 specifier|public
 name|void
-name|realtimeGetWithCompressBackcompat
+name|testRealtimeGetWithCompressBackcompat
 parameter_list|()
 throws|throws
 name|Exception
@@ -3057,8 +3041,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGetDocWithMultivaluedFields
 specifier|public
 name|void
@@ -4058,8 +4040,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatGetFromTranslogShouldWorkWithExcludeBackcompat
 specifier|public
 name|void
@@ -4317,8 +4297,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatGetFromTranslogShouldWorkWithIncludeBackcompat
 specifier|public
 name|void
@@ -4567,8 +4545,6 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-annotation|@
-name|Test
 DECL|method|testThatGetFromTranslogShouldWorkWithIncludeExcludeAndFieldsBackcompat
 specifier|public
 name|void
@@ -5109,8 +5085,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGetWithVersion
 specifier|public
 name|void
@@ -6013,8 +5987,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiGetWithVersion
 specifier|public
 name|void
@@ -6527,7 +6499,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"[type1][1]: version conflict, current [1], provided [2]"
+literal|"[type1][1]: version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6889,7 +6861,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"[type1][1]: version conflict, current [1], provided [2]"
+literal|"[type1][1]: version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7238,7 +7210,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"[type1][2]: version conflict, current [2], provided [1]"
+literal|"[type1][2]: version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7633,7 +7605,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"[type1][2]: version conflict, current [2], provided [1]"
+literal|"[type1][2]: version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7745,12 +7717,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testGetFields_metaData
+DECL|method|testGetFieldsMetaData
 specifier|public
 name|void
-name|testGetFields_metaData
+name|testGetFieldsMetaData
 parameter_list|()
 throws|throws
 name|Exception
@@ -8305,12 +8275,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testGetFields_nonLeafField
+DECL|method|testGetFieldsNonLeafField
 specifier|public
 name|void
-name|testGetFields_nonLeafField
+name|testGetFieldsNonLeafField
 parameter_list|()
 throws|throws
 name|Exception
@@ -8526,16 +8494,14 @@ comment|//all well
 block|}
 block|}
 annotation|@
-name|Test
-annotation|@
 name|TestLogging
 argument_list|(
 literal|"index.shard.service:TRACE,cluster.service:TRACE,action.admin.indices.flush:TRACE"
 argument_list|)
-DECL|method|testGetFields_complexField
+DECL|method|testGetFieldsComplexField
 specifier|public
 name|void
-name|testGetFields_complexField
+name|testGetFieldsComplexField
 parameter_list|()
 throws|throws
 name|Exception
@@ -9468,12 +9434,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testGet_allField
+DECL|method|testGetAllField
 specifier|public
 name|void
-name|testGet_allField
+name|testGetAllField
 parameter_list|()
 throws|throws
 name|Exception
@@ -9632,8 +9596,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUngeneratedFieldsThatAreNeverStored
 specifier|public
 name|void
@@ -9786,8 +9748,6 @@ name|fieldsList
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUngeneratedFieldsThatAreAlwaysStored
 specifier|public
 name|void
@@ -9969,8 +9929,6 @@ literal|"1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUngeneratedFieldsPartOfSourceUnstoredSourceDisabledBackcompat
 specifier|public
 name|void
@@ -10038,8 +9996,6 @@ name|fieldsList
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUngeneratedFieldsPartOfSourceEitherStoredOrSourceEnabledBackcompat
 specifier|public
 name|void
@@ -10263,8 +10219,6 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUngeneratedFieldsNotPartOfSourceStored
 specifier|public
 name|void
@@ -10428,8 +10382,6 @@ literal|"1"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeneratedStringFieldsUnstored
 specifier|public
 name|void
@@ -10502,8 +10454,6 @@ name|fieldsList
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeneratedStringFieldsStored
 specifier|public
 name|void
@@ -10749,8 +10699,6 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeneratedNumberFieldsUnstored
 specifier|public
 name|void
@@ -10823,8 +10771,6 @@ name|fieldsList
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeneratedNumberFieldsStored
 specifier|public
 name|void

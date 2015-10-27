@@ -70,20 +70,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|FileSystemUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -151,16 +137,6 @@ operator|.
 name|junit
 operator|.
 name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -238,8 +214,6 @@ name|CommonGramsTokenFilterFactoryTests
 extends|extends
 name|ESTokenStreamTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefault
 specifier|public
 name|void
@@ -317,8 +291,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testWithoutCommonWordsMatch
 specifier|public
 name|void
@@ -579,8 +551,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSettings
 specifier|public
 name|void
@@ -1032,8 +1002,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonGramsAnalysis
 specifier|public
 name|void
@@ -1234,8 +1202,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryModeSettings
 specifier|public
 name|void
@@ -1813,8 +1779,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryModeCommonGramsAnalysis
 specifier|public
 name|void

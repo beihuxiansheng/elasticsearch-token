@@ -64,24 +64,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|index
-operator|.
-name|IndexQueryCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -156,16 +138,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -231,22 +203,6 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchAllQuery
 import|;
 end_import
 
@@ -382,8 +338,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCustomScriptBoost
 specifier|public
 name|void

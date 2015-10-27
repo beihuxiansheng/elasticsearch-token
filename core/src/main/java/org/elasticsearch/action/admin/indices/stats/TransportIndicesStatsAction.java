@@ -631,7 +631,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardRouting
 operator|.

@@ -1589,12 +1589,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//the http method is randomized (out of the available ones with the chosen api)
-return|return
-name|httpRequestBuilder
-operator|.
-name|path
-argument_list|(
+comment|//the rest path to use is randomized out of the matching ones (if more than one)
+name|RestPath
+name|restPath
+init|=
 name|RandomizedTest
 operator|.
 name|randomFrom
@@ -1606,6 +1604,16 @@ argument_list|(
 name|pathParts
 argument_list|)
 argument_list|)
+decl_stmt|;
+return|return
+name|httpRequestBuilder
+operator|.
+name|pathParts
+argument_list|(
+name|restPath
+operator|.
+name|getPathParts
+argument_list|()
 argument_list|)
 return|;
 block|}

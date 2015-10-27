@@ -68,7 +68,63 @@ name|action
 operator|.
 name|search
 operator|.
-name|*
+name|ReduceSearchPhaseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchPhaseExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|ShardSearchFailure
 import|;
 end_import
 
@@ -236,16 +292,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -294,7 +340,57 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -436,7 +532,87 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSuggestion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSuggestionPhraseCollateMatchExists
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSuggestionSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -448,7 +624,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|endsWith
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -464,8 +688,6 @@ name|SuggestSearchIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 comment|// see #3196
 DECL|method|testSuggestAcrossMultipleIndices
 specifier|public
@@ -1099,8 +1321,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// see #3037
 DECL|method|testSuggestModes
 specifier|public
@@ -1429,8 +1649,6 @@ literal|"did_you_mean"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #2729
 DECL|method|testSizeOneShard
 specifier|public
@@ -1619,8 +1837,6 @@ literal|"abc0"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUnmappedField
 specifier|public
 name|void
@@ -1941,7 +2157,7 @@ argument_list|)
 expr_stmt|;
 block|{
 name|SearchRequestBuilder
-name|suggestBuilder
+name|searchBuilder
 init|=
 name|client
 argument_list|()
@@ -1954,23 +2170,28 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|suggestBuilder
+name|searchBuilder
 operator|.
-name|setSuggestText
+name|suggest
+argument_list|(
+operator|new
+name|SuggestBuilder
+argument_list|()
+operator|.
+name|setText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
-expr_stmt|;
-name|suggestBuilder
 operator|.
 name|addSuggestion
 argument_list|(
 name|phraseSuggestion
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|assertThrows
 argument_list|(
-name|suggestBuilder
+name|searchBuilder
 argument_list|,
 name|SearchPhaseExecutionException
 operator|.
@@ -1980,7 +2201,7 @@ expr_stmt|;
 block|}
 block|{
 name|SearchRequestBuilder
-name|suggestBuilder
+name|searchBuilder
 init|=
 name|client
 argument_list|()
@@ -1993,23 +2214,28 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|suggestBuilder
+name|searchBuilder
 operator|.
-name|setSuggestText
+name|suggest
+argument_list|(
+operator|new
+name|SuggestBuilder
+argument_list|()
+operator|.
+name|setText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
-expr_stmt|;
-name|suggestBuilder
 operator|.
 name|addSuggestion
 argument_list|(
 name|phraseSuggestion
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|assertThrows
 argument_list|(
-name|suggestBuilder
+name|searchBuilder
 argument_list|,
 name|SearchPhaseExecutionException
 operator|.
@@ -2018,8 +2244,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSimple
 specifier|public
 name|void
@@ -2254,8 +2478,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEmpty
 specifier|public
 name|void
@@ -2408,8 +2630,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWithMultipleCommands
 specifier|public
 name|void
@@ -2715,8 +2935,6 @@ literal|"accuracy"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSizeAndSort
 specifier|public
 name|void
@@ -3125,8 +3343,6 @@ expr_stmt|;
 comment|// assertThat(suggest.get(3).getSuggestedWords().get("prefix_abcd").get(4).getTerm(), equalTo("prefix_abcc"));
 comment|// assertThat(suggest.get(3).getSuggestedWords().get("prefix_abcd").get(4).getTerm(), equalTo("prefix_accd"));
 block|}
-annotation|@
-name|Test
 comment|// see #2817
 DECL|method|testStopwordsOnlyPhraseSuggest
 specifier|public
@@ -3252,8 +3468,6 @@ literal|"simple_phrase"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPrefixLength
 specifier|public
 name|void
@@ -3262,7 +3476,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// Stopped here
 name|CreateIndexRequestBuilder
 name|builder
 init|=
@@ -3661,8 +3874,6 @@ literal|"hello world"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|Nightly
 DECL|method|testMarvelHerosPhraseSuggest
@@ -4728,8 +4939,6 @@ name|UTF_8
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSizePararm
 specifier|public
 name|void
@@ -5183,8 +5392,6 @@ literal|"xorr the god jewel"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|Nightly
 DECL|method|testPhraseBoundaryCases
@@ -5786,8 +5993,6 @@ literal|"xorr the god jewel"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDifferentShardSize
 specifier|public
 name|void
@@ -5928,8 +6133,6 @@ literal|"simple"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #3469
 DECL|method|testShardFailures
 specifier|public
@@ -6207,7 +6410,13 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|setSuggestText
+name|suggest
+argument_list|(
+operator|new
+name|SuggestBuilder
+argument_list|()
+operator|.
+name|setText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
@@ -6227,6 +6436,7 @@ operator|.
 name|maxErrors
 argument_list|(
 literal|5.0f
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -6254,7 +6464,13 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|setSuggestText
+name|suggest
+argument_list|(
+operator|new
+name|SuggestBuilder
+argument_list|()
+operator|.
+name|setText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
@@ -6274,6 +6490,7 @@ operator|.
 name|maxErrors
 argument_list|(
 literal|5.0f
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -6306,8 +6523,6 @@ literal|"testing suggestions"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #3469
 DECL|method|testEmptyShards
 specifier|public
@@ -6539,7 +6754,13 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|setSuggestText
+name|suggest
+argument_list|(
+operator|new
+name|SuggestBuilder
+argument_list|()
+operator|.
+name|setText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
@@ -6559,6 +6780,7 @@ operator|.
 name|maxErrors
 argument_list|(
 literal|5.0f
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -6588,8 +6810,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Searching for a rare phrase shouldn't provide any suggestions if confidence&gt; 1.  This was possible before we rechecked the cutoff      * score during the reduce phase.  Failures don't occur every time - maybe two out of five tries but we don't repeat it to save time.      */
-annotation|@
-name|Test
 DECL|method|testSearchForRarePhrase
 specifier|public
 name|void
@@ -7012,15 +7232,12 @@ literal|"nobel prize"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * If the suggester finds tons of options then picking the right one is slow without&lt;&lt;&lt;INSERT SOLUTION HERE&gt;&gt;&gt;.      */
-annotation|@
-name|Test
 annotation|@
 name|Nightly
-DECL|method|suggestWithManyCandidates
+DECL|method|testSuggestWithManyCandidates
 specifier|public
 name|void
-name|suggestWithManyCandidates
+name|testSuggestWithManyCandidates
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -7877,8 +8094,6 @@ argument_list|)
 expr_stmt|;
 comment|// assertThat(total, lessThan(1000L)); // Takes many seconds without fix - just for debugging
 block|}
-annotation|@
-name|Test
 DECL|method|testPhraseSuggesterCollate
 specifier|public
 name|void
@@ -8788,6 +9003,13 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+name|SuggestBuilder
+name|suggestBuilder
+init|=
+operator|new
+name|SuggestBuilder
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|suggestText
@@ -8795,9 +9017,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|builder
+name|suggestBuilder
 operator|.
-name|setSuggestText
+name|setText
 argument_list|(
 name|suggestText
 argument_list|)
@@ -8814,7 +9036,7 @@ range|:
 name|suggestions
 control|)
 block|{
-name|builder
+name|suggestBuilder
 operator|.
 name|addSuggestion
 argument_list|(
@@ -8822,6 +9044,13 @@ name|suggestion
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|suggest
+argument_list|(
+name|suggestBuilder
+argument_list|)
+expr_stmt|;
 name|SearchResponse
 name|actionGet
 init|=

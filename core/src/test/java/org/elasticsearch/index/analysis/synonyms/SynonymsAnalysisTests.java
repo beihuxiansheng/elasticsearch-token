@@ -246,18 +246,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexNameModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|analysis
 operator|.
 name|AnalysisModule
@@ -275,20 +263,6 @@ operator|.
 name|analysis
 operator|.
 name|AnalysisService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettingsModule
 import|;
 end_import
 
@@ -322,9 +296,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
+name|elasticsearch
 operator|.
-name|MatcherAssert
+name|test
+operator|.
+name|IndexSettingsModule
 import|;
 end_import
 
@@ -332,9 +308,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|MatcherAssert
 import|;
 end_import
 
@@ -441,8 +417,6 @@ specifier|private
 name|AnalysisService
 name|analysisService
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testSynonymsAnalysis
 specifier|public
 name|void
@@ -622,12 +596,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|)
-argument_list|,
-operator|new
-name|IndexNameModule
-argument_list|(
-name|index
 argument_list|)
 argument_list|,
 operator|new

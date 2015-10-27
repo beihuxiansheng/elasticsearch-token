@@ -96,16 +96,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -161,8 +151,6 @@ name|IndexTemplateBlocksIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testIndexTemplatesWithBlocks
 specifier|public
 name|void

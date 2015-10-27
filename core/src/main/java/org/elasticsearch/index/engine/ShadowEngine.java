@@ -218,6 +218,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_comment
 comment|/**  * ShadowEngine is a specialized engine that only allows read-only operations  * on the underlying Lucene index. An {@code IndexReader} is opened instead of  * an {@code IndexWriter}. All methods that would usually perform write  * operations are no-ops, this means:  *  * - No operations are written to or read from the translog  * - Create, Index, and Delete do nothing  * - Flush does not fsync any files, or make any on-disk changes  *  * In order for new segments to become visible, the ShadowEngine may perform  * stage1 of the traditional recovery process (copying segment files) from a  * regular primary (which uses {@link org.elasticsearch.index.engine.InternalEngine})  *  * Notice that since this Engine does not deal with the translog, any  * {@link #get(Get get)} request goes directly to the searcher, meaning it is  * non-realtime.  */
 end_comment
@@ -476,29 +488,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|create
-specifier|public
-name|void
-name|create
-parameter_list|(
-name|Create
-name|create
-parameter_list|)
-throws|throws
-name|EngineException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-name|shardId
-operator|+
-literal|" create operation not allowed on shadow engine"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
 DECL|method|index
 specifier|public
 name|boolean
@@ -540,32 +529,6 @@ argument_list|(
 name|shardId
 operator|+
 literal|" delete operation not allowed on shadow engine"
-argument_list|)
-throw|;
-block|}
-comment|/** @deprecated This was removed, but we keep this API so translog can replay any DBQs on upgrade. */
-annotation|@
-name|Deprecated
-annotation|@
-name|Override
-DECL|method|delete
-specifier|public
-name|void
-name|delete
-parameter_list|(
-name|DeleteByQuery
-name|delete
-parameter_list|)
-throws|throws
-name|EngineException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-name|shardId
-operator|+
-literal|" delete-by-query operation not allowed on shadow engine"
 argument_list|)
 throw|;
 block|}
@@ -778,6 +741,14 @@ name|get
 parameter_list|(
 name|Get
 name|get
+parameter_list|,
+name|Function
+argument_list|<
+name|String
+argument_list|,
+name|Searcher
+argument_list|>
+name|searcherFacotry
 parameter_list|)
 throws|throws
 name|EngineException
@@ -787,6 +758,8 @@ return|return
 name|getFromSearcher
 argument_list|(
 name|get
+argument_list|,
+name|searcherFacotry
 argument_list|)
 return|;
 block|}
@@ -1066,18 +1039,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|hasUncommittedChanges
-specifier|public
-name|boolean
-name|hasUncommittedChanges
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getLastCommittedSegmentInfos
 specifier|protected
 name|SegmentInfos
@@ -1087,6 +1048,23 @@ block|{
 return|return
 name|lastCommittedSegmentInfos
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|indexWriterRAMBytesUsed
+specifier|public
+name|long
+name|indexWriterRAMBytesUsed
+parameter_list|()
+block|{
+comment|// No IndexWriter
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"ShadowEngine has no IndexWriter"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

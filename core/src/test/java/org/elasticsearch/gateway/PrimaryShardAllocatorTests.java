@@ -130,7 +130,91 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|*
+name|RestoreSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|RoutingNodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|RoutingTable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|TestShardRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|UnassignedInfo
 import|;
 end_import
 
@@ -232,16 +316,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -298,7 +372,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -384,8 +482,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Verifies that the canProcess method of primary allocation behaves correctly      * and processes only the applicable shard.      */
-annotation|@
-name|Test
 DECL|method|testNoProcessReplica
 specifier|public
 name|void
@@ -446,8 +542,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoProcessPrimayNotAllcoatedBefore
 specifier|public
 name|void
@@ -509,8 +603,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that when async fetch returns that there is no data, the shard will not be allocated.      */
-annotation|@
-name|Test
 DECL|method|testNoAsyncFetchData
 specifier|public
 name|void
@@ -597,8 +689,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests when the node returns that no data was found for it (-1), it will be moved to ignore unassigned.      */
-annotation|@
-name|Test
 DECL|method|testNoAllocationFound
 specifier|public
 name|void
@@ -695,8 +785,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests when the node returns that no data was found for it (-1), it will be moved to ignore unassigned.      */
-annotation|@
-name|Test
 DECL|method|testStoreException
 specifier|public
 name|void
@@ -800,8 +888,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that when there is a node to allocate the shard to, it will be allocated to it.      */
-annotation|@
-name|Test
 DECL|method|testFoundAllocationAndAllocating
 specifier|public
 name|void
@@ -924,8 +1010,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that when there is a node to allocate to, but it is throttling (and it is the only one),      * it will be moved to ignore unassigned until it can be allocated to.      */
-annotation|@
-name|Test
 DECL|method|testFoundAllocationButThrottlingDecider
 specifier|public
 name|void
@@ -1021,8 +1105,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that when there is a node to be allocated to, but it the decider said "no", we still      * force the allocation to it.      */
-annotation|@
-name|Test
 DECL|method|testFoundAllocationButNoDecider
 specifier|public
 name|void
@@ -1145,8 +1227,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that the highest version node is chosed for allocation.      */
-annotation|@
-name|Test
 DECL|method|testAllocateToTheHighestVersion
 specifier|public
 name|void
@@ -1276,8 +1356,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that when restoring from snapshot, even if we didn't find any node to allocate on, the shard      * will remain in the unassigned list to be allocated later.      */
-annotation|@
-name|Test
 DECL|method|testRestoreIgnoresNoNodesToAllocate
 specifier|public
 name|void
@@ -1511,8 +1589,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that only when enough copies of the shard exists we are going to allocate it. This test      * verifies that with same version (1), and quorum allocation.      */
-annotation|@
-name|Test
 DECL|method|testEnoughCopiesFoundForAllocation
 specifier|public
 name|void
@@ -2049,8 +2125,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that only when enough copies of the shard exists we are going to allocate it. This test      * verifies that even with different version, we treat different versions as a copy, and count them.      */
-annotation|@
-name|Test
 DECL|method|testEnoughCopiesFoundForAllocationWithDifferentVersion
 specifier|public
 name|void
@@ -2575,8 +2649,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAllocationOnAnyNodeWithSharedFs
 specifier|public
 name|void
@@ -2839,8 +2911,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAllocationOnAnyNodeShouldPutNodesWithExceptionsLast
 specifier|public
 name|void

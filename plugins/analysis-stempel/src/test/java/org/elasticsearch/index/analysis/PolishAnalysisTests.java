@@ -170,18 +170,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexNameModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|analysis
 operator|.
 name|pl
@@ -203,20 +191,6 @@ operator|.
 name|pl
 operator|.
 name|PolishStemTokenFilterFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettingsModule
 import|;
 end_import
 
@@ -250,9 +224,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
+name|elasticsearch
 operator|.
-name|MatcherAssert
+name|test
+operator|.
+name|IndexSettingsModule
 import|;
 end_import
 
@@ -260,9 +236,25 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|MatcherAssert
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+operator|.
+name|settingsBuilder
 import|;
 end_import
 
@@ -281,22 +273,6 @@ operator|.
 name|Builder
 operator|.
 name|EMPTY_SETTINGS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -324,8 +300,6 @@ name|PolishAnalysisTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefaultsPolishAnalysis
 specifier|public
 name|void
@@ -413,12 +387,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|)
-argument_list|,
-operator|new
-name|IndexNameModule
-argument_list|(
-name|index
 argument_list|)
 argument_list|,
 operator|new

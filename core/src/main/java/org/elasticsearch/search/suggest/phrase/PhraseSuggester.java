@@ -903,15 +903,6 @@ name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
 specifier|final
-name|EarlyTerminatingCollector
-name|collector
-init|=
-name|Lucene
-operator|.
-name|createExistsCollector
-argument_list|()
-decl_stmt|;
-specifier|final
 name|CompiledScript
 name|collateScript
 init|=
@@ -1073,8 +1064,6 @@ name|parsedQuery
 operator|.
 name|query
 argument_list|()
-argument_list|,
-name|collector
 argument_list|)
 expr_stmt|;
 block|}

@@ -24,43 +24,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterInfoService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|InternalClusterInfoService
 import|;
 end_import
 
@@ -91,16 +55,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -113,22 +67,6 @@ operator|.
 name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_REPLICAS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_NUMBER_OF_SHARDS
 import|;
 end_import
 
@@ -208,9 +146,7 @@ return|return
 literal|1
 return|;
 block|}
-comment|/**      * Test for       * https://groups.google.com/d/msg/elasticsearch/y-SY_HyoB-8/EZdfNt9VO44J      */
-annotation|@
-name|Test
+comment|/**      * Test for      * https://groups.google.com/d/msg/elasticsearch/y-SY_HyoB-8/EZdfNt9VO44J      */
 DECL|method|testSaneAllocation
 specifier|public
 name|void

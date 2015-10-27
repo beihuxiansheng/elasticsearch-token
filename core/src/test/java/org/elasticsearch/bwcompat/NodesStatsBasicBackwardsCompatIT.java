@@ -130,7 +130,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
+name|ESBackcompatTestCase
 import|;
 end_import
 
@@ -142,17 +142,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESBackcompatTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -193,8 +183,6 @@ name|NodesStatsBasicBackwardsCompatIT
 extends|extends
 name|ESBackcompatTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testNodeStatsSetIndices
 specifier|public
 name|void
@@ -329,8 +317,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNodeStatsSetRandom
 specifier|public
 name|void

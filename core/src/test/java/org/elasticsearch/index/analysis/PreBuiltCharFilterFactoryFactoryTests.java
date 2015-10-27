@@ -81,16 +81,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -98,19 +88,7 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
+name|is
 import|;
 end_import
 
@@ -126,8 +104,6 @@ name|PreBuiltCharFilterFactoryFactoryTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testThatDifferentVersionsCanBeLoaded
 specifier|public
 name|void

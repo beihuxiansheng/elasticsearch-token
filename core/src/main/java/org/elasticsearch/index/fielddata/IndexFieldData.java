@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|DirectoryReader
 import|;
 end_import
 
@@ -68,6 +68,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|DocIdSetIterator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|FieldComparatorSource
 import|;
 end_import
@@ -82,7 +96,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|SortField
 import|;
 end_import
 
@@ -96,7 +110,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|SortField
+name|Weight
 import|;
 end_import
 
@@ -176,35 +190,21 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|IndexComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexSettings
 import|;
 end_import
 
@@ -251,20 +251,6 @@ operator|.
 name|mapper
 operator|.
 name|MapperService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
 import|;
 end_import
 
@@ -516,19 +502,10 @@ name|void
 name|clear
 parameter_list|()
 function_decl|;
-DECL|method|clear
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
-function_decl|;
 comment|// we need this extended source we we have custom comparators to reuse our field data
 comment|// in this case, we need to reduce type that will be used when search results are reduced
 comment|// on another node (we don't have the custom source them...)
 DECL|class|XFieldComparatorSource
-specifier|public
 specifier|abstract
 class|class
 name|XFieldComparatorSource
@@ -551,7 +528,7 @@ decl_stmt|;
 DECL|field|innerFilter
 specifier|private
 specifier|final
-name|Filter
+name|Weight
 name|innerFilter
 decl_stmt|;
 DECL|method|Nested
@@ -561,7 +538,7 @@ parameter_list|(
 name|BitSetProducer
 name|rootFilter
 parameter_list|,
-name|Filter
+name|Weight
 name|innerFilter
 parameter_list|)
 block|{
@@ -602,7 +579,7 @@ block|}
 comment|/**              * Get a {@link DocIdSet} that matches the inner documents.              */
 DECL|method|innerDocs
 specifier|public
-name|DocIdSet
+name|DocIdSetIterator
 name|innerDocs
 parameter_list|(
 name|LeafReaderContext
@@ -614,11 +591,9 @@ block|{
 return|return
 name|innerFilter
 operator|.
-name|getDocIdSet
+name|scorer
 argument_list|(
 name|ctx
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -1044,12 +1019,7 @@ name|?
 argument_list|>
 name|build
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 name|MappedFieldType
@@ -1067,8 +1037,6 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|interface|Global
-specifier|public
-specifier|static
 interface|interface
 name|Global
 parameter_list|<
@@ -1089,7 +1057,7 @@ name|FD
 argument_list|>
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 function_decl|;
@@ -1100,7 +1068,7 @@ name|FD
 argument_list|>
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws

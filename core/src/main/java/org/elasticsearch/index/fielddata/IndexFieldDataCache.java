@@ -26,6 +26,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|LeafReaderContext
 import|;
 end_import
@@ -55,20 +69,6 @@ operator|.
 name|util
 operator|.
 name|Accountable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMapper
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|IFD
 name|load
 parameter_list|(
 specifier|final
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|,
 specifier|final
@@ -177,14 +177,6 @@ name|clear
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|)
-function_decl|;
-DECL|method|clear
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
 parameter_list|)
 function_decl|;
 DECL|interface|Listener
@@ -304,7 +296,7 @@ parameter_list|>
 name|IFD
 name|load
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|,
 name|IFD
@@ -342,17 +334,6 @@ name|clear
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
-DECL|method|clear
-specifier|public
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
 parameter_list|)
 block|{         }
 block|}

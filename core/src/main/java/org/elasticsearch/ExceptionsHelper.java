@@ -244,11 +244,6 @@ operator|new
 name|ElasticsearchException
 argument_list|(
 name|t
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|t
 argument_list|)
 return|;
 block|}
@@ -280,11 +275,6 @@ return|return
 operator|new
 name|ElasticsearchException
 argument_list|(
-name|t
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
 name|t
 argument_list|)
 return|;
@@ -819,11 +809,6 @@ throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-name|main
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
 name|main
 argument_list|)
 throw|;

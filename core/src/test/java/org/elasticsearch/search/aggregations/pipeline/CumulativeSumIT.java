@@ -116,16 +116,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -589,8 +579,6 @@ name|ensureSearchable
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDocCount
 specifier|public
 name|void
@@ -863,8 +851,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMetric
 specifier|public
 name|void
@@ -1143,8 +1129,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNoBuckets
 specifier|public
 name|void

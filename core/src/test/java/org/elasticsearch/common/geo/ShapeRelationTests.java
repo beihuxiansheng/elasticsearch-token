@@ -62,21 +62,23 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -482,15 +484,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IOException
-operator|.
-name|class
-argument_list|)
 DECL|method|testInvalidReadFrom
 specifier|public
 name|void
@@ -546,6 +539,31 @@ operator|.
 name|readFrom
 argument_list|(
 name|in
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IOException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Unknown ShapeRelation ordinal ["
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -218,16 +204,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -288,6 +264,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -308,7 +296,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|endsWith
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -479,14 +503,7 @@ operator|.
 name|publishAddress
 argument_list|()
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|version0
@@ -547,14 +564,7 @@ operator|.
 name|publishAddress
 argument_list|()
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|version1
@@ -774,8 +784,6 @@ name|threadPool
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHelloWorld
 specifier|public
 name|void
@@ -1211,8 +1219,6 @@ literal|"sayHello"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLocalNodeConnection
 specifier|public
 name|void
@@ -1488,8 +1494,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testVoidMessageCompressed
 specifier|public
 name|void
@@ -1765,8 +1769,6 @@ literal|"sayHello"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHelloWorldCompressed
 specifier|public
 name|void
@@ -2057,8 +2059,6 @@ literal|"sayHello"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testErrorMessage
 specifier|public
 name|void
@@ -2271,8 +2271,6 @@ literal|"sayHelloException"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDisconnectListener
 specifier|public
 name|void
@@ -2366,8 +2364,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNotifyOnShutdown
 specifier|public
 name|void
@@ -2523,8 +2519,6 @@ literal|"sayHelloTimeoutDelayedResponse"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTimeoutSendExceptionWithNeverSendingBackResponse
 specifier|public
 name|void
@@ -2740,8 +2734,6 @@ literal|"sayHelloTimeoutNoResponse"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTimeoutSendExceptionWithDelayedResponse
 specifier|public
 name|void
@@ -3213,8 +3205,6 @@ literal|"sayHelloTimeoutDelayedResponse"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|TestLogging
 argument_list|(
@@ -4895,12 +4885,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testVersion_from0to1
+DECL|method|testVersionFrom0to1
 specifier|public
 name|void
-name|testVersion_from0to1
+name|testVersionFrom0to1
 parameter_list|()
 throws|throws
 name|Exception
@@ -5120,12 +5108,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testVersion_from1to0
+DECL|method|testVersionFrom1to0
 specifier|public
 name|void
-name|testVersion_from1to0
+name|testVersionFrom1to0
 parameter_list|()
 throws|throws
 name|Exception
@@ -5357,12 +5343,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testVersion_from1to1
+DECL|method|testVersionFrom1to1
 specifier|public
 name|void
-name|testVersion_from1to1
+name|testVersionFrom1to1
 parameter_list|()
 throws|throws
 name|Exception
@@ -5611,12 +5595,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testVersion_from0to0
+DECL|method|testVersionFrom0to0
 specifier|public
 name|void
-name|testVersion_from0to0
+name|testVersionFrom0to0
 parameter_list|()
 throws|throws
 name|Exception
@@ -5817,8 +5799,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMockFailToSendNoConnectRule
 specifier|public
 name|void
@@ -6084,8 +6064,6 @@ literal|"sayHello"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMockUnresponsiveRule
 specifier|public
 name|void
@@ -6353,8 +6331,6 @@ literal|"sayHello"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHostOnMessages
 specifier|public
 name|void

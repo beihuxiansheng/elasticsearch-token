@@ -347,16 +347,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -382,8 +372,6 @@ name|CodecTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testResolveDefaultCodecs
 specifier|public
 name|void
@@ -808,15 +796,11 @@ decl_stmt|;
 return|return
 name|indexService
 operator|.
-name|injector
+name|getIndexServices
 argument_list|()
 operator|.
-name|getInstance
-argument_list|(
-name|CodecService
-operator|.
-name|class
-argument_list|)
+name|getCodecService
+argument_list|()
 return|;
 block|}
 block|}

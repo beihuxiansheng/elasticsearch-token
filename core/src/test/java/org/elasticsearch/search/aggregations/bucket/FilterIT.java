@@ -176,16 +176,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -686,12 +676,10 @@ name|ensureSearchable
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|simple
+DECL|method|testSimple
 specifier|public
 name|void
-name|simple
+name|testSimple
 parameter_list|()
 throws|throws
 name|Exception
@@ -789,12 +777,10 @@ expr_stmt|;
 block|}
 comment|// See NullPointer issue when filters are empty:
 comment|// https://github.com/elasticsearch/elasticsearch/issues/8438
-annotation|@
-name|Test
-DECL|method|emptyFilterDeclarations
+DECL|method|testEmptyFilterDeclarations
 specifier|public
 name|void
-name|emptyFilterDeclarations
+name|testEmptyFilterDeclarations
 parameter_list|()
 throws|throws
 name|Exception
@@ -879,12 +865,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|withSubAggregation
+DECL|method|testWithSubAggregation
 specifier|public
 name|void
-name|withSubAggregation
+name|testWithSubAggregation
 parameter_list|()
 throws|throws
 name|Exception
@@ -1135,12 +1119,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|withContextBasedSubAggregation
+DECL|method|testWithContextBasedSubAggregation
 specifier|public
 name|void
-name|withContextBasedSubAggregation
+name|testWithContextBasedSubAggregation
 parameter_list|()
 throws|throws
 name|Exception
@@ -1198,16 +1180,28 @@ block|}
 catch|catch
 parameter_list|(
 name|ElasticsearchException
-name|ese
+name|e
 parameter_list|)
-block|{         }
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"all shards failed"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|emptyAggregation
+block|}
+DECL|method|testEmptyAggregation
 specifier|public
 name|void
-name|emptyAggregation
+name|testEmptyAggregation
 parameter_list|()
 throws|throws
 name|Exception

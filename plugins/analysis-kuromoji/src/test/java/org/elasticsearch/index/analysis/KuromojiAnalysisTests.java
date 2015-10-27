@@ -214,32 +214,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|IndexNameModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettingsModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|analysis
@@ -280,9 +254,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|IndexSettingsModule
 import|;
 end_import
 
@@ -410,8 +386,6 @@ name|KuromojiAnalysisTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefaultsKuromojiAnalysis
 specifier|public
 name|void
@@ -652,8 +626,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBaseFormFilterFactory
 specifier|public
 name|void
@@ -755,8 +727,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReadingFormFilterFactory
 specifier|public
 name|void
@@ -945,8 +915,6 @@ name|expected_tokens_katakana
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testKatakanaStemFilter
 specifier|public
 name|void
@@ -1169,8 +1137,6 @@ name|expected_tokens_katakana
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIterationMarkCharFilter
 specifier|public
 name|void
@@ -1334,8 +1300,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testJapaneseStopFilterFactory
 specifier|public
 name|void
@@ -1643,12 +1607,6 @@ argument_list|,
 name|settings
 argument_list|)
 argument_list|,
-operator|new
-name|IndexNameModule
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
 name|analysisModule
 argument_list|)
 operator|.
@@ -1858,8 +1816,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testKuromojiUserDict
 specifier|public
 name|void
@@ -1936,8 +1892,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// fix #59
-annotation|@
-name|Test
 DECL|method|testKuromojiEmptyUserDict
 specifier|public
 name|void

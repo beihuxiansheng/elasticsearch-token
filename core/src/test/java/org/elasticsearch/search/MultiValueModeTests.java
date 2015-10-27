@@ -52,7 +52,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BitDocIdSet
+name|BitSetIterator
 import|;
 end_import
 
@@ -1187,9 +1187,11 @@ argument_list|,
 name|rootDocs
 argument_list|,
 operator|new
-name|BitDocIdSet
+name|BitSetIterator
 argument_list|(
 name|innerDocs
+argument_list|,
+literal|0L
 argument_list|)
 argument_list|,
 name|maxDoc
@@ -2334,9 +2336,11 @@ argument_list|,
 name|rootDocs
 argument_list|,
 operator|new
-name|BitDocIdSet
+name|BitSetIterator
 argument_list|(
 name|innerDocs
+argument_list|,
+literal|0L
 argument_list|)
 argument_list|,
 name|maxDoc
@@ -3447,9 +3451,11 @@ argument_list|,
 name|rootDocs
 argument_list|,
 operator|new
-name|BitDocIdSet
+name|BitSetIterator
 argument_list|(
 name|innerDocs
+argument_list|,
+literal|0L
 argument_list|)
 argument_list|,
 name|maxDoc
@@ -4416,9 +4422,11 @@ argument_list|,
 name|rootDocs
 argument_list|,
 operator|new
-name|BitDocIdSet
+name|BitSetIterator
 argument_list|(
 name|innerDocs
+argument_list|,
+literal|0L
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -4815,9 +4823,6 @@ operator|.
 name|UnsortedNumericDoubleValues
 argument_list|()
 block|{
-name|int
-name|doc
-decl_stmt|;
 annotation|@
 name|Override
 specifier|public

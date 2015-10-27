@@ -100,16 +100,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -252,8 +242,6 @@ name|PROPERTY_SUPPORT_STAGING_URLS
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatConfigDirectoryCanBeOutsideOfElasticsearchHomeDirectory
 specifier|public
 name|void
@@ -365,8 +353,6 @@ name|expectedDirPath
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimplifiedNaming
 specifier|public
 name|void
@@ -574,8 +560,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOfficialPluginName
 specifier|public
 name|void
@@ -792,8 +776,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGithubPluginName
 specifier|public
 name|void
@@ -904,8 +886,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDownloadHelperChecksums
 specifier|public
 name|void

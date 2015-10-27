@@ -118,9 +118,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
+name|elasticsearch
 operator|.
-name|Matchers
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|ClusterScope
 import|;
 end_import
 
@@ -128,9 +132,23 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
 import|;
 end_import
 
@@ -169,34 +187,6 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -253,8 +243,6 @@ name|InternalEngineMergeIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testMergesHappening
 specifier|public
 name|void

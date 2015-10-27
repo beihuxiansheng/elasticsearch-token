@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -309,6 +295,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
 import|;
 end_import
 
@@ -891,9 +889,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 return|;
 block|}

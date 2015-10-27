@@ -18,13 +18,13 @@ begin_import
 import|import
 name|com
 operator|.
-name|google
+name|carrotsearch
 operator|.
-name|common
+name|hppc
 operator|.
-name|collect
+name|cursors
 operator|.
-name|ImmutableMap
+name|ObjectObjectCursor
 import|;
 end_import
 
@@ -149,6 +149,20 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableOpenMap
 import|;
 end_import
 
@@ -610,6 +624,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -710,9 +748,7 @@ name|SnapshotShards
 argument_list|>
 name|shardSnapshots
 init|=
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 DECL|field|updatedSnapshotStateQueue
@@ -1308,9 +1344,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1324,9 +1358,6 @@ name|entry
 operator|.
 name|shards
 argument_list|()
-operator|.
-name|entrySet
-argument_list|()
 control|)
 block|{
 comment|// Add all new shards to start processing on
@@ -1338,8 +1369,7 @@ name|equals
 argument_list|(
 name|shard
 operator|.
-name|getValue
-argument_list|()
+name|value
 operator|.
 name|nodeId
 argument_list|()
@@ -1350,8 +1380,7 @@ if|if
 condition|(
 name|shard
 operator|.
-name|getValue
-argument_list|()
+name|value
 operator|.
 name|state
 argument_list|()
@@ -1376,8 +1405,7 @@ name|containsKey
 argument_list|(
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 operator|)
 condition|)
@@ -1390,8 +1418,7 @@ literal|"[{}] - Adding shard to the queue"
 argument_list|,
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 expr_stmt|;
 name|startedShards
@@ -1400,8 +1427,7 @@ name|put
 argument_list|(
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|,
 operator|new
 name|IndexShardSnapshotStatus
@@ -1440,9 +1466,7 @@ literal|null
 condition|)
 block|{
 comment|// We already saw this snapshot but we need to add more started shards
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1450,9 +1474,9 @@ name|IndexShardSnapshotStatus
 argument_list|>
 name|shards
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Put all shards that were already running on this node
@@ -1485,10 +1509,10 @@ argument_list|,
 operator|new
 name|SnapshotShards
 argument_list|(
+name|unmodifiableMap
+argument_list|(
 name|shards
-operator|.
-name|build
-argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1508,9 +1532,7 @@ argument_list|,
 operator|new
 name|SnapshotShards
 argument_list|(
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|startedShards
 argument_list|)
@@ -1558,9 +1580,7 @@ condition|)
 block|{
 for|for
 control|(
-name|Map
-operator|.
-name|Entry
+name|ObjectObjectCursor
 argument_list|<
 name|ShardId
 argument_list|,
@@ -1573,9 +1593,6 @@ range|:
 name|entry
 operator|.
 name|shards
-argument_list|()
-operator|.
-name|entrySet
 argument_list|()
 control|)
 block|{
@@ -1590,8 +1607,7 @@ name|get
 argument_list|(
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 decl_stmt|;
 if|if
@@ -1637,8 +1653,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1658,8 +1673,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 expr_stmt|;
 name|updateIndexShardSnapshotStatus
@@ -1671,8 +1685,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|,
 operator|new
 name|SnapshotsInProgress
@@ -1715,8 +1728,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|)
 expr_stmt|;
 name|updateIndexShardSnapshotStatus
@@ -1728,8 +1740,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|,
 operator|new
 name|SnapshotsInProgress
@@ -1792,9 +1803,7 @@ try|try
 block|{
 name|shardSnapshots
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|survivors
 argument_list|)
@@ -1919,7 +1928,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shardId
 operator|.
@@ -2503,7 +2512,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|ShardId
 argument_list|,
@@ -2745,7 +2754,7 @@ DECL|method|SnapshotShards
 specifier|private
 name|SnapshotShards
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -3269,8 +3278,9 @@ name|entries
 argument_list|()
 control|)
 block|{
-specifier|final
-name|Map
+name|ImmutableOpenMap
+operator|.
+name|Builder
 argument_list|<
 name|ShardId
 argument_list|,
@@ -3280,9 +3290,9 @@ name|ShardSnapshotStatus
 argument_list|>
 name|shards
 init|=
-operator|new
-name|HashMap
-argument_list|<>
+name|ImmutableOpenMap
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -3433,12 +3443,10 @@ name|Entry
 argument_list|(
 name|entry
 argument_list|,
-name|ImmutableMap
-operator|.
-name|copyOf
-argument_list|(
 name|shards
-argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3465,12 +3473,10 @@ name|State
 operator|.
 name|SUCCESS
 argument_list|,
-name|ImmutableMap
-operator|.
-name|copyOf
-argument_list|(
 name|shards
-argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|entries

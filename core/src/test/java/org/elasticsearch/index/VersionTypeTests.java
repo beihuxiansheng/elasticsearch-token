@@ -43,16 +43,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -72,8 +62,6 @@ name|VersionTypeTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testInternalVersionConflict
 specifier|public
 name|void
@@ -95,6 +83,9 @@ argument_list|,
 name|Versions
 operator|.
 name|MATCH_ANY
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -128,6 +119,9 @@ operator|.
 name|NOT_SET
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -162,6 +156,9 @@ argument_list|,
 name|Versions
 operator|.
 name|MATCH_ANY
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,6 +194,9 @@ operator|.
 name|NOT_FOUND
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -231,6 +231,9 @@ argument_list|,
 name|Versions
 operator|.
 name|MATCH_ANY
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -249,6 +252,45 @@ argument_list|,
 name|Versions
 operator|.
 name|MATCH_ANY
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// deletes
+name|assertFalse
+argument_list|(
+name|VersionType
+operator|.
+name|INTERNAL
+operator|.
+name|isVersionConflictForWrites
+argument_list|(
+name|Versions
+operator|.
+name|NOT_FOUND
+argument_list|,
+name|Versions
+operator|.
+name|MATCH_DELETED
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|VersionType
+operator|.
+name|INTERNAL
+operator|.
+name|isVersionConflictForWrites
+argument_list|(
+literal|10
+argument_list|,
+name|Versions
+operator|.
+name|MATCH_DELETED
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -264,6 +306,9 @@ argument_list|(
 literal|10
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -292,6 +337,9 @@ argument_list|(
 literal|9
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -320,6 +368,9 @@ argument_list|(
 literal|10
 argument_list|,
 literal|9
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -350,8 +401,6 @@ comment|//            }
 comment|//        }
 comment|//        updatedVersion = (currentVersion == Versions.NOT_SET || currentVersion == Versions.NOT_FOUND) ? 1 : currentVersion + 1;
 block|}
-annotation|@
-name|Test
 DECL|method|testVersionValidation
 specifier|public
 name|void
@@ -779,8 +828,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalVersionConflict
 specifier|public
 name|void
@@ -802,6 +849,9 @@ operator|.
 name|NOT_FOUND
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -818,6 +868,9 @@ operator|.
 name|NOT_SET
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -835,6 +888,9 @@ argument_list|,
 name|Versions
 operator|.
 name|MATCH_ANY
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -854,6 +910,9 @@ argument_list|,
 name|Versions
 operator|.
 name|NOT_FOUND
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -870,6 +929,9 @@ operator|.
 name|NOT_FOUND
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -937,6 +999,9 @@ argument_list|(
 literal|10
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -951,6 +1016,9 @@ argument_list|(
 literal|9
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -965,6 +1033,9 @@ argument_list|(
 literal|10
 argument_list|,
 literal|9
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1036,8 +1107,6 @@ comment|//            }
 comment|//        }
 comment|//        updatedVersion = index.version();
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalGTEVersionConflict
 specifier|public
 name|void
@@ -1059,6 +1128,9 @@ operator|.
 name|NOT_FOUND
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1075,6 +1147,9 @@ operator|.
 name|NOT_SET
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1092,6 +1167,9 @@ argument_list|,
 name|Versions
 operator|.
 name|MATCH_ANY
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1111,6 +1189,9 @@ argument_list|,
 name|Versions
 operator|.
 name|NOT_FOUND
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1127,6 +1208,9 @@ operator|.
 name|NOT_FOUND
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1194,6 +1278,9 @@ argument_list|(
 literal|10
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1208,6 +1295,9 @@ argument_list|(
 literal|9
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1222,6 +1312,9 @@ argument_list|(
 literal|10
 argument_list|,
 literal|9
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1284,8 +1377,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testForceVersionConflict
 specifier|public
 name|void
@@ -1307,6 +1398,9 @@ operator|.
 name|NOT_FOUND
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1323,12 +1417,15 @@ operator|.
 name|NOT_SET
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// MATCH_ANY must throw an exception in the case of external version, as the version must be set! it used as the new value
-name|assertTrue
-argument_list|(
+comment|// MATCH_ANY must throw an exception in the case of force version, as the version must be set! it used as the new value
+try|try
+block|{
 name|VersionType
 operator|.
 name|FORCE
@@ -1340,9 +1437,23 @@ argument_list|,
 name|Versions
 operator|.
 name|MATCH_ANY
-argument_list|)
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+comment|//yes!!
+block|}
 comment|// if we didn't find a version (but the index does support it), we always accept
 name|assertFalse
 argument_list|(
@@ -1359,6 +1470,9 @@ argument_list|,
 name|Versions
 operator|.
 name|NOT_FOUND
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1375,6 +1489,9 @@ operator|.
 name|NOT_FOUND
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1442,6 +1559,9 @@ argument_list|(
 literal|10
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1456,6 +1576,9 @@ argument_list|(
 literal|9
 argument_list|,
 literal|10
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1470,6 +1593,9 @@ argument_list|(
 literal|10
 argument_list|,
 literal|9
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1532,8 +1658,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdateVersion
 specifier|public
 name|void

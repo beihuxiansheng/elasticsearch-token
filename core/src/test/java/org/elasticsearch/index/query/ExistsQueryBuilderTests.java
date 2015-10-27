@@ -104,16 +104,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -479,8 +469,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void

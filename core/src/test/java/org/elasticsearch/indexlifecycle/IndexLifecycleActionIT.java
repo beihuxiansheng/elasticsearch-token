@@ -198,7 +198,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalTestCluster
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -206,9 +208,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|InternalTestCluster
 import|;
 end_import
 
@@ -374,20 +378,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -469,8 +459,6 @@ name|IndexLifecycleActionIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testIndexLifecycleActionsWith11Shards1Backup
 specifier|public
 name|void

@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -148,6 +134,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -176,9 +174,7 @@ name|parseElements
 parameter_list|()
 block|{
 return|return
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"explain"
 argument_list|,

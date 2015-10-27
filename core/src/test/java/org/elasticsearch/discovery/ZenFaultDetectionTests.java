@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -288,16 +274,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -317,6 +293,18 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
 import|;
 end_import
 
@@ -462,14 +450,7 @@ operator|.
 name|publishAddress
 argument_list|()
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|version0
@@ -514,14 +495,7 @@ operator|.
 name|publishAddress
 argument_list|()
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|version1
@@ -875,8 +849,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNodesFaultDetectionConnectOnDisconnect
 specifier|public
 name|void
@@ -1209,8 +1181,6 @@ name|matcher
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMasterFaultDetectionConnectOnDisconnect
 specifier|public
 name|void

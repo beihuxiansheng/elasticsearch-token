@@ -120,7 +120,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|RoutingTable
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingTable
+name|ShardRouting
 import|;
 end_import
 
@@ -259,16 +259,6 @@ operator|.
 name|test
 operator|.
 name|ESAllocationTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -455,8 +445,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testClusterEnableNone
 specifier|public
 name|void
@@ -681,8 +669,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterEnableOnlyPrimaries
 specifier|public
 name|void
@@ -974,8 +960,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexEnableNone
 specifier|public
 name|void
@@ -1378,8 +1362,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEnableClusterBalance
 specifier|public
 name|void
@@ -2518,8 +2500,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEnableClusterBalanceNoReplicas
 specifier|public
 name|void

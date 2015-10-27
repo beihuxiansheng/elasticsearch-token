@@ -164,20 +164,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -190,9 +176,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|index
 operator|.
-name|ESIntegTestCase
+name|query
+operator|.
+name|GeohashCellQuery
 import|;
 end_import
 
@@ -200,9 +188,25 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -226,7 +230,35 @@ name|client
 operator|.
 name|Requests
 operator|.
-name|*
+name|clusterHealthRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|refreshRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|searchRequest
 import|;
 end_import
 
@@ -286,7 +318,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
@@ -310,8 +366,6 @@ return|return
 literal|1
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailedSearchWithWrongQuery
 specifier|public
 name|void
@@ -490,9 +544,20 @@ operator|.
 name|source
 argument_list|(
 operator|new
-name|BytesArray
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
 argument_list|(
-literal|"{ xxx }"
+operator|new
+name|GeohashCellQuery
+operator|.
+name|Builder
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"biz"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -829,9 +894,20 @@ operator|.
 name|source
 argument_list|(
 operator|new
-name|BytesArray
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
 argument_list|(
-literal|"{ xxx }"
+operator|new
+name|GeohashCellQuery
+operator|.
+name|Builder
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"biz"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -140,11 +120,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Test
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -479,12 +469,10 @@ name|ensureSearchable
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|withStatsSubAggregator
+DECL|method|testWithStatsSubAggregator
 specifier|public
 name|void
-name|withStatsSubAggregator
+name|testWithStatsSubAggregator
 parameter_list|()
 throws|throws
 name|Exception
@@ -793,12 +781,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|nonTopLevel
+DECL|method|testNonTopLevel
 specifier|public
 name|void
-name|nonTopLevel
+name|testNonTopLevel
 parameter_list|()
 throws|throws
 name|Exception
@@ -858,9 +844,23 @@ block|}
 catch|catch
 parameter_list|(
 name|ElasticsearchException
-name|ese
+name|e
 parameter_list|)
-block|{         }
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"all shards failed"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

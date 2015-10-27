@@ -102,16 +102,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -294,11 +284,6 @@ name|QueryShardContext
 argument_list|(
 name|context
 operator|.
-name|index
-argument_list|()
-argument_list|,
-name|context
-operator|.
 name|indexQueryParserService
 argument_list|()
 argument_list|)
@@ -364,8 +349,6 @@ name|IOException
 block|{
 comment|//no-op boost is checked already above as part of doAssertLuceneQuery as we rely on lucene equals impl
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArgument
 specifier|public
 name|void

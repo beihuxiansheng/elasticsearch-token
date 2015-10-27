@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -71,20 +57,6 @@ operator|.
 name|fielddata
 operator|.
 name|ScriptDocValues
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMapper
 import|;
 end_import
 
@@ -137,20 +109,6 @@ operator|.
 name|fetch
 operator|.
 name|FetchSubPhase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|fetch
-operator|.
-name|FetchSubPhaseContext
 import|;
 end_import
 
@@ -223,6 +181,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -320,9 +290,7 @@ argument_list|>
 name|parseElements
 parameter_list|()
 block|{
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -330,9 +298,9 @@ name|SearchParseElement
 argument_list|>
 name|parseElements
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|parseElements
@@ -345,6 +313,8 @@ operator|new
 name|FieldDataFieldsParseElement
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|parseElements
 operator|.
 name|put
 argument_list|(
@@ -356,10 +326,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
+name|unmodifiableMap
+argument_list|(
 name|parseElements
-operator|.
-name|build
-argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@

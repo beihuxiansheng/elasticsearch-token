@@ -26,9 +26,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|store
-operator|.
-name|IndexStoreModule
+name|IndexModule
 import|;
 end_import
 
@@ -113,7 +111,7 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|IndexStoreModule
+name|IndexModule
 name|storeModule
 parameter_list|)
 block|{
@@ -124,8 +122,8 @@ argument_list|(
 literal|"smb_mmap_fs"
 argument_list|,
 name|SmbMmapFsIndexStore
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|storeModule
@@ -135,8 +133,8 @@ argument_list|(
 literal|"smb_simple_fs"
 argument_list|,
 name|SmbSimpleFsIndexStore
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}

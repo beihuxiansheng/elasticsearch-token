@@ -553,6 +553,15 @@ argument_list|>
 name|fields
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|fields
+argument_list|,
+literal|"fields cannot be null"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|fieldsAndWeights

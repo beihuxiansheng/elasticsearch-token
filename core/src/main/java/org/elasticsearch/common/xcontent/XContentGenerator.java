@@ -36,6 +36,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -69,6 +79,8 @@ DECL|interface|XContentGenerator
 specifier|public
 interface|interface
 name|XContentGenerator
+extends|extends
+name|Closeable
 block|{
 DECL|method|contentType
 name|XContentType

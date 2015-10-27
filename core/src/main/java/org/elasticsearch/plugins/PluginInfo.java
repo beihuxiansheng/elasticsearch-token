@@ -199,6 +199,15 @@ name|ES_PLUGIN_PROPERTIES
 init|=
 literal|"plugin-descriptor.properties"
 decl_stmt|;
+DECL|field|ES_PLUGIN_POLICY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ES_PLUGIN_POLICY
+init|=
+literal|"plugin-security.policy"
+decl_stmt|;
 DECL|class|Fields
 specifier|static
 specifier|final

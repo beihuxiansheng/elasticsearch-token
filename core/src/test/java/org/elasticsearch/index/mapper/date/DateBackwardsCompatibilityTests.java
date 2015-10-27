@@ -282,6 +282,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|is
 import|;
 end_import
@@ -1199,13 +1211,26 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|is
+name|containsString
 argument_list|(
-literal|"mapping ["
+literal|"Failed to parse mapping ["
 operator|+
 name|type
 operator|+
 literal|"]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Epoch [epoch_seconds] is not supported as dynamic date format"
 argument_list|)
 argument_list|)
 expr_stmt|;

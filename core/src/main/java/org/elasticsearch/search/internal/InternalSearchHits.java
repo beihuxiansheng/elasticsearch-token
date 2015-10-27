@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Iterators
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -145,6 +131,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -636,13 +632,16 @@ name|iterator
 parameter_list|()
 block|{
 return|return
-name|Iterators
+name|Arrays
 operator|.
-name|forArray
+name|stream
 argument_list|(
 name|hits
 argument_list|()
 argument_list|)
+operator|.
+name|iterator
+argument_list|()
 return|;
 block|}
 DECL|method|internalHits

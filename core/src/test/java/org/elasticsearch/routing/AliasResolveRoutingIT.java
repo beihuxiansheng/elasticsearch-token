@@ -66,16 +66,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -174,8 +164,6 @@ name|AliasResolveRoutingIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testResolveIndexRouting
 specifier|public
 name|void
@@ -732,8 +720,6 @@ block|{
 comment|// Expected
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testResolveSearchRouting
 specifier|public
 name|void

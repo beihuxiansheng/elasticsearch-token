@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -232,6 +246,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|ImmutableOpenMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -414,16 +442,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -439,16 +457,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -884,8 +892,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterInfoServiceCollectsInformation
 specifier|public
 name|void
@@ -1009,8 +1015,7 @@ argument_list|,
 name|info
 argument_list|)
 expr_stmt|;
-specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -1023,8 +1028,7 @@ operator|.
 name|getNodeLeastAvailableDiskUsages
 argument_list|()
 decl_stmt|;
-specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -1037,8 +1041,7 @@ operator|.
 name|getNodeMostAvailableDiskUsages
 argument_list|()
 decl_stmt|;
-specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -1100,7 +1103,10 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|DiskUsage
+argument_list|>
 name|usage
 range|:
 name|leastUsages
@@ -1116,6 +1122,8 @@ argument_list|(
 literal|"--> usage: {}"
 argument_list|,
 name|usage
+operator|.
+name|value
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1123,6 +1131,8 @@ argument_list|(
 literal|"usage has be retrieved"
 argument_list|,
 name|usage
+operator|.
+name|value
 operator|.
 name|getFreeBytes
 argument_list|()
@@ -1136,7 +1146,10 @@ expr_stmt|;
 block|}
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|DiskUsage
+argument_list|>
 name|usage
 range|:
 name|mostUsages
@@ -1152,6 +1165,8 @@ argument_list|(
 literal|"--> usage: {}"
 argument_list|,
 name|usage
+operator|.
+name|value
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1159,6 +1174,8 @@ argument_list|(
 literal|"usage has be retrieved"
 argument_list|,
 name|usage
+operator|.
+name|value
 operator|.
 name|getFreeBytes
 argument_list|()
@@ -1172,7 +1189,10 @@ expr_stmt|;
 block|}
 for|for
 control|(
+name|ObjectCursor
+argument_list|<
 name|Long
+argument_list|>
 name|size
 range|:
 name|shardSizes
@@ -1188,6 +1208,8 @@ argument_list|(
 literal|"--> shard size: {}"
 argument_list|,
 name|size
+operator|.
+name|value
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1195,6 +1217,8 @@ argument_list|(
 literal|"shard size is greater than 0"
 argument_list|,
 name|size
+operator|.
+name|value
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
@@ -1321,7 +1345,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|shard
 operator|.
@@ -1347,8 +1371,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterInfoServiceInformationClearOnError
 specifier|public
 name|void

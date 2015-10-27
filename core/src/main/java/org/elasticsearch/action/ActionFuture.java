@@ -92,13 +92,13 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Similar to {@link #get()}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      *<p>      * Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      */
+comment|/**      * Similar to {@link #get()}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      */
 DECL|method|actionGet
 name|T
 name|actionGet
 parameter_list|()
 function_decl|;
-comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      *<p>      * Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      */
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -107,7 +107,7 @@ name|String
 name|timeout
 parameter_list|)
 function_decl|;
-comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      *<p>      * Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      *      * @param timeoutMillis Timeout in millis      */
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      *      * @param timeoutMillis Timeout in millis      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -116,7 +116,7 @@ name|long
 name|timeoutMillis
 parameter_list|)
 function_decl|;
-comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      *<p>      * Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      */
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -128,7 +128,7 @@ name|TimeUnit
 name|unit
 parameter_list|)
 function_decl|;
-comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      *<p>      * Note, the actual cause is unwrapped to the actual failure (for example, unwrapped      * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is      * still accessible using {@link #getRootFailure()}.      */
+comment|/**      * Similar to {@link #get(long, java.util.concurrent.TimeUnit)}, just catching the {@link InterruptedException} and throwing      * an {@link IllegalStateException} instead. Also catches      * {@link java.util.concurrent.ExecutionException} and throws the actual cause instead.      */
 DECL|method|actionGet
 name|T
 name|actionGet
@@ -136,14 +136,6 @@ parameter_list|(
 name|TimeValue
 name|timeout
 parameter_list|)
-function_decl|;
-comment|/**      * The root (possibly) wrapped failure.      */
-annotation|@
-name|Nullable
-DECL|method|getRootFailure
-name|Throwable
-name|getRootFailure
-parameter_list|()
 function_decl|;
 block|}
 end_interface

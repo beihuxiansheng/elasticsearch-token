@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -222,6 +208,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -255,6 +251,18 @@ operator|.
 name|Collections
 operator|.
 name|singleton
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -303,11 +311,10 @@ name|?
 argument_list|>
 argument_list|>
 name|PRIMITIVE_TO_WRAPPER
-init|=
-operator|new
-name|ImmutableMap
-operator|.
-name|Builder
+decl_stmt|;
+static|static
+block|{
+name|Map
 argument_list|<
 name|TypeLiteral
 argument_list|<
@@ -319,7 +326,14 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
+name|primitiveToWrapper
+init|=
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
+decl_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -341,6 +355,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -362,6 +378,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -383,6 +401,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -404,6 +424,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -425,6 +447,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -446,6 +470,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -467,6 +493,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -488,6 +516,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|primitiveToWrapper
 operator|.
 name|put
 argument_list|(
@@ -509,10 +539,15 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-operator|.
-name|build
-argument_list|()
-decl_stmt|;
+expr_stmt|;
+name|PRIMITIVE_TO_WRAPPER
+operator|=
+name|unmodifiableMap
+argument_list|(
+name|primitiveToWrapper
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Returns an equivalent type that's safe for use in a key. The returned type will be free of      * primitive types. Type literals of primitives will return the corresponding wrapper types.      *      * @throws ConfigurationException if {@code type} contains a type variable      */
 DECL|method|makeKeySafe
 specifier|public

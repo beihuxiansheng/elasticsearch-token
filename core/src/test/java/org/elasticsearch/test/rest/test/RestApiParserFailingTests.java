@@ -78,16 +78,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -120,12 +110,10 @@ name|RestApiParserFailingTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|brokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParams
+DECL|method|testBrokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParams
 specifier|public
 name|void
-name|brokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParams
+name|testBrokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParams
 parameter_list|()
 throws|throws
 name|Exception
@@ -138,12 +126,10 @@ literal|"Expected params field in rest api definition to contain an object"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|brokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParts
+DECL|method|testBrokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParts
 specifier|public
 name|void
-name|brokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParts
+name|testBrokenSpecShouldThrowUsefulExceptionWhenParsingFailsOnParts
 parameter_list|()
 throws|throws
 name|Exception

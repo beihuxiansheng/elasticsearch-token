@@ -969,7 +969,7 @@ name|path
 init|=
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -981,7 +981,7 @@ name|assertTrue
 argument_list|(
 name|test
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)
@@ -1043,6 +1043,9 @@ argument_list|,
 name|test
 operator|.
 name|getIndexSettings
+argument_list|()
+operator|.
+name|getSettings
 argument_list|()
 argument_list|,
 operator|new
@@ -1106,6 +1109,9 @@ name|test
 operator|.
 name|getIndexSettings
 argument_list|()
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1139,6 +1145,9 @@ name|test
 operator|.
 name|getIndexSettings
 argument_list|()
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1154,6 +1163,9 @@ argument_list|,
 name|test
 operator|.
 name|getIndexSettings
+argument_list|()
+operator|.
+name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1211,6 +1223,9 @@ argument_list|,
 name|test
 operator|.
 name|getIndexSettings
+argument_list|()
+operator|.
+name|getSettings
 argument_list|()
 argument_list|,
 operator|new
@@ -1272,6 +1287,9 @@ name|test
 operator|.
 name|getIndexSettings
 argument_list|()
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|indicesService
@@ -1293,6 +1311,9 @@ name|test
 operator|.
 name|getIndexSettings
 argument_list|()
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|indicesService
@@ -1310,6 +1331,9 @@ argument_list|,
 name|test
 operator|.
 name|getIndexSettings
+argument_list|()
+operator|.
+name|getSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1341,6 +1365,9 @@ argument_list|,
 name|test
 operator|.
 name|getIndexSettings
+argument_list|()
+operator|.
+name|getSettings
 argument_list|()
 argument_list|,
 operator|new

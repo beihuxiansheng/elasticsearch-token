@@ -108,16 +108,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -170,7 +160,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
 import|;
 end_import
 
@@ -904,8 +942,6 @@ argument_list|()
 throw|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -1041,15 +1077,6 @@ comment|// expected
 block|}
 block|}
 comment|/**      * Specifying a timezone together with a numeric range query should throw an exception.      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|QueryShardException
-operator|.
-name|class
-argument_list|)
 DECL|method|testToQueryNonDateWithTimezone
 specifier|public
 name|void
@@ -1086,6 +1113,8 @@ argument_list|(
 literal|"UTC"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|query
 operator|.
 name|toQuery
@@ -1094,17 +1123,34 @@ name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected QueryShardException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|QueryShardException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"[range] time_zone can not be applied"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Specifying a timezone together with an unmapped field should throw an exception.      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|QueryShardException
-operator|.
-name|class
-argument_list|)
 DECL|method|testToQueryUnmappedWithTimezone
 specifier|public
 name|void
@@ -1141,6 +1187,8 @@ argument_list|(
 literal|"UTC"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|query
 operator|.
 name|toQuery
@@ -1149,9 +1197,33 @@ name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected QueryShardException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|QueryShardException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"[range] time_zone can not be applied"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testToQueryNumericField
 specifier|public
 name|void
@@ -1299,8 +1371,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDateRangeQueryFormat
 specifier|public
 name|void
@@ -1506,8 +1576,6 @@ block|{
 comment|// We expect it
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDateRangeBoundaries
 specifier|public
 name|void
@@ -1796,8 +1864,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDateRangeQueryTimezone
 specifier|public
 name|void

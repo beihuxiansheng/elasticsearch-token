@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -66,41 +56,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|NoSuchElementException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|contains
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
 import|;
 end_import
 
@@ -115,18 +71,6 @@ operator|.
 name|HasToString
 operator|.
 name|hasToString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
 import|;
 end_import
 

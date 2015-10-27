@@ -76,6 +76,45 @@ operator|==
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// otherwise, since we don't have TSYNC support, rules are not applied to the test thread
+comment|// (randomizedrunner class initialization happens in its own thread, after the test thread is created)
+comment|// instead we just forcefully run it for the test thread here.
+if|if
+condition|(
+operator|!
+name|JNANatives
+operator|.
+name|LOCAL_SECCOMP_ALL
+condition|)
+block|{
+try|try
+block|{
+name|Seccomp
+operator|.
+name|init
+argument_list|(
+name|createTempDir
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"unable to forcefully apply seccomp to test thread"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 DECL|method|testNoExecution
 specifier|public

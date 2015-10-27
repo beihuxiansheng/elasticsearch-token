@@ -160,7 +160,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -182,35 +182,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|xml
 operator|.
 name|sax
 operator|.
 name|InputSource
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URL
 import|;
 end_import
 
@@ -264,12 +240,7 @@ DECL|method|HyphenationCompoundWordTokenFilterFactory
 specifier|public
 name|HyphenationCompoundWordTokenFilterFactory
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 name|Environment
@@ -288,8 +259,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|,
 name|env
@@ -370,12 +339,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Exception while reading hyphenation_patterns_path: "
-operator|+
+literal|"Exception while reading hyphenation_patterns_path."
+argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}

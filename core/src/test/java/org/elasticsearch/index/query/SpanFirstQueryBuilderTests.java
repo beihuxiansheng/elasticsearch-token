@@ -88,16 +88,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -217,8 +207,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * test exception on missing `end` and `match` parameter in parser      */
-annotation|@
-name|Test
 DECL|method|testParseEnd
 specifier|public
 name|void

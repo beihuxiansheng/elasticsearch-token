@@ -230,16 +230,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -372,8 +362,6 @@ parameter_list|)
 block|{          }
 block|}
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testLastAccessTimeUpdate
 specifier|public
 name|void
@@ -503,8 +491,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRecoveryTimeout
 specifier|public
 name|void
@@ -657,8 +643,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRecoveryCancellationNoPredicate
 specifier|public
 name|void
@@ -783,8 +767,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRecoveryCancellationPredicate
 specifier|public
 name|void
@@ -1130,7 +1112,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 literal|0
 argument_list|)

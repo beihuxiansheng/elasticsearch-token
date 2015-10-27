@@ -106,20 +106,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|RoutingNodes
 import|;
 end_import
@@ -135,6 +121,20 @@ operator|.
 name|routing
 operator|.
 name|RoutingTable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRouting
 import|;
 end_import
 
@@ -224,16 +224,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -274,7 +264,39 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|INITIALIZING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|UNASSIGNED
 import|;
 end_import
 
@@ -316,7 +338,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -347,8 +405,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testDoNotAllocateFromPrimary
 specifier|public
 name|void
@@ -1898,8 +1954,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRandom
 specifier|public
 name|void
@@ -2357,8 +2411,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRollingRestart
 specifier|public
 name|void

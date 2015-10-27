@@ -660,7 +660,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set to true to cause a field to be highlighted only if a query matches that field.       * Default is false meaning that terms are highlighted on all requested fields regardless       * if the query matches specifically on them.       */
+comment|/**      * Set to true to cause a field to be highlighted only if a query matches that field.      * Default is false meaning that terms are highlighted on all requested fields regardless      * if the query matches specifically on them.      */
 DECL|method|requireFieldMatch
 specifier|public
 name|HighlightBuilder
@@ -680,7 +680,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * When using the highlighterType<tt>fast-vector-highlighter</tt> this setting       * controls how far to look for boundary characters, and defaults to 20.      */
+comment|/**      * When using the highlighterType<tt>fast-vector-highlighter</tt> this setting      * controls how far to look for boundary characters, and defaults to 20.      */
 DECL|method|boundaryMaxScan
 specifier|public
 name|HighlightBuilder
@@ -700,7 +700,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * When using the highlighterType<tt>fast-vector-highlighter</tt> this setting       * defines what constitutes a boundary for highlighting. Itâs a single string with       * each boundary character defined in it. It defaults to .,!? \t\n      */
+comment|/**      * When using the highlighterType<tt>fast-vector-highlighter</tt> this setting      * defines what constitutes a boundary for highlighting. Itâs a single string with      * each boundary character defined in it. It defaults to .,!? \t\n      */
 DECL|method|boundaryChars
 specifier|public
 name|HighlightBuilder
@@ -721,7 +721,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set type of highlighter to use. Supported types      * are<tt>highlighter</tt>,<tt>fast-vector-highlighter</tt> and<tt>postings-highlighter</tt>.      * The default option selected is dependent on the mappings defined for your index.       * Details of the different highlighter types are covered in the reference guide.      */
+comment|/**      * Set type of highlighter to use. Supported types      * are<tt>highlighter</tt>,<tt>fast-vector-highlighter</tt> and<tt>postings-highlighter</tt>.      * The default option selected is dependent on the mappings defined for your index.      * Details of the different highlighter types are covered in the reference guide.      */
 DECL|method|highlighterType
 specifier|public
 name|HighlightBuilder
@@ -909,6 +909,36 @@ argument_list|(
 literal|"highlight"
 argument_list|)
 expr_stmt|;
+name|innerXContent
+argument_list|(
+name|builder
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
+return|return
+name|builder
+return|;
+block|}
+DECL|method|innerXContent
+specifier|public
+name|void
+name|innerXContent
+parameter_list|(
+name|XContentBuilder
+name|builder
+parameter_list|,
+name|Params
+name|params
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
 name|tagsSchema
@@ -1709,14 +1739,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-return|return
-name|builder
-return|;
 block|}
 DECL|class|Field
 specifier|public

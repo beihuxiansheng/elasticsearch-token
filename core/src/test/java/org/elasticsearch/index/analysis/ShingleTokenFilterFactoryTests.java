@@ -120,16 +120,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -184,8 +174,6 @@ name|RESOURCE
 init|=
 literal|"/org/elasticsearch/index/analysis/shingle_analysis.json"
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testDefault
 specifier|public
 name|void
@@ -276,8 +264,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testInverseMapping
 specifier|public
 name|void
@@ -370,8 +356,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testInverseMappingNoShingles
 specifier|public
 name|void
@@ -464,8 +448,6 @@ name|expected
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFillerToken
 specifier|public
 name|void

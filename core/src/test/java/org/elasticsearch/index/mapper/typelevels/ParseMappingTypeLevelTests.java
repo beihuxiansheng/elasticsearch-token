@@ -73,16 +73,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -106,8 +96,6 @@ name|ParseMappingTypeLevelTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testTypeLevel
 specifier|public
 name|void

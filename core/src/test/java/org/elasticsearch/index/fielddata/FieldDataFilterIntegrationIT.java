@@ -132,16 +132,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -218,8 +208,6 @@ return|return
 literal|0
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRegexpFilter
 specifier|public
 name|void

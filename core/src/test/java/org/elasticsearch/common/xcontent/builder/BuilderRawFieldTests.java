@@ -102,33 +102,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -156,8 +134,6 @@ name|BuilderRawFieldTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testJsonRawField
 specifier|public
 name|void
@@ -174,8 +150,6 @@ name|JSON
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSmileRawField
 specifier|public
 name|void
@@ -192,8 +166,6 @@ name|SMILE
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testYamlRawField
 specifier|public
 name|void
@@ -210,8 +182,6 @@ name|YAML
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCborRawField
 specifier|public
 name|void

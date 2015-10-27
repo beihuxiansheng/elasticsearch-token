@@ -164,16 +164,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -313,8 +303,6 @@ init|=
 literal|"class"
 decl_stmt|;
 comment|/**      * Simple upgrade test for streaming significant terms buckets      */
-annotation|@
-name|Test
 DECL|method|testBucketStreaming
 specifier|public
 name|void

@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -376,6 +362,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|StringFieldMapper
+operator|.
+name|Builder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESSingleNodeTestCase
@@ -406,16 +410,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -436,19 +430,13 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|index
+name|Collections
 operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|StringFieldMapper
-operator|.
-name|Builder
+name|emptyMap
 import|;
 end_import
 
@@ -460,7 +448,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -535,8 +559,6 @@ name|documentMapperParser
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLimit
 specifier|public
 name|void
@@ -964,14 +986,7 @@ name|ToXContent
 operator|.
 name|MapParams
 argument_list|(
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1045,8 +1060,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDefaultsForAnalyzed
 specifier|public
 name|void
@@ -1177,8 +1190,6 @@ name|defaultMapper
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDefaultsForNotAnalyzed
 specifier|public
 name|void
@@ -1753,8 +1764,6 @@ name|defaultMapper
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchQuoteAnalyzerSerialization
 specifier|public
 name|void
@@ -2270,8 +2279,6 @@ return|return
 name|result
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTermVectors
 specifier|public
 name|void
@@ -3138,7 +3145,7 @@ name|BuilderContext
 argument_list|(
 name|indexService
 operator|.
-name|settingsService
+name|getIndexSettings
 argument_list|()
 operator|.
 name|getSettings
@@ -3444,7 +3451,7 @@ name|BuilderContext
 argument_list|(
 name|indexService
 operator|.
-name|settingsService
+name|getIndexSettings
 argument_list|()
 operator|.
 name|getSettings
@@ -4008,8 +4015,6 @@ operator|.
 name|NONE
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDisableNorms
 specifier|public
 name|void

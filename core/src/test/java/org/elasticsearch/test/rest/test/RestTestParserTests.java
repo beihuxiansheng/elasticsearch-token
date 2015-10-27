@@ -194,16 +194,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -220,7 +210,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -295,8 +333,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseTestSetupAndSections
 specifier|public
 name|void
@@ -1342,8 +1378,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseTestSingleTestSection
 specifier|public
 name|void
@@ -2601,8 +2635,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseTestMultipleTestSections
 specifier|public
 name|void
@@ -3406,15 +3438,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|RestTestParseException
-operator|.
-name|class
-argument_list|)
 DECL|method|testParseTestDuplicateTestSections
 specifier|public
 name|void
@@ -3489,6 +3512,8 @@ operator|new
 name|RestTestSuiteParser
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|testParser
 operator|.
 name|parse
@@ -3504,6 +3529,32 @@ name|parser
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected RestTestParseException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RestTestParseException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"duplicate test section"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

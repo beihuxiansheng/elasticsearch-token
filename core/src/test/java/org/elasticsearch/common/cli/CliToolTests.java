@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -108,11 +94,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Test
+name|IOException
 import|;
 end_import
 
@@ -120,9 +106,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|HashMap
 import|;
 end_import
 
@@ -161,6 +147,18 @@ operator|.
 name|atomic
 operator|.
 name|AtomicReference
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
 import|;
 end_import
 
@@ -226,7 +224,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|arrayContaining
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItem
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -242,8 +288,6 @@ name|CliToolTests
 extends|extends
 name|CliToolTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testOK
 specifier|public
 name|void
@@ -349,8 +393,6 @@ name|executed
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUsageError
 specifier|public
 name|void
@@ -464,8 +506,6 @@ name|executed
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIOError
 specifier|public
 name|void
@@ -581,8 +621,6 @@ name|executed
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCodeError
 specifier|public
 name|void
@@ -698,8 +736,6 @@ name|executed
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiCommand
 specifier|public
 name|void
@@ -933,12 +969,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testMultiCommand_UnknownCommand
+DECL|method|testMultiCommandUnknownCommand
 specifier|public
 name|void
-name|testMultiCommand_UnknownCommand
+name|testMultiCommandUnknownCommand
 parameter_list|()
 block|{
 name|Terminal
@@ -1159,12 +1193,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testSingleCommand_ToolHelp
+DECL|method|testSingleCommandToolHelp
 specifier|public
 name|void
-name|testSingleCommand_ToolHelp
+name|testSingleCommandToolHelp
 parameter_list|()
 throws|throws
 name|Exception
@@ -1305,12 +1337,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testMultiCommand_ToolHelp
+DECL|method|testMultiCommandToolHelp
 specifier|public
 name|void
-name|testMultiCommand_ToolHelp
+name|testMultiCommandToolHelp
 parameter_list|()
 block|{
 name|CaptureOutputTerminal
@@ -1471,12 +1501,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testMultiCommand_CmdHelp
+DECL|method|testMultiCommandCmdHelp
 specifier|public
 name|void
-name|testMultiCommand_CmdHelp
+name|testMultiCommandCmdHelp
 parameter_list|()
 block|{
 name|CaptureOutputTerminal
@@ -1637,8 +1665,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatThrowExceptionCanBeLogged
 specifier|public
 name|void
@@ -1854,8 +1880,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMultipleLaunch
 specifier|public
 name|void
@@ -1981,8 +2005,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPromptForSetting
 specifier|public
 name|void
@@ -2265,8 +2287,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStopAtNonOptionParsing
 specifier|public
 name|void
@@ -2764,9 +2784,7 @@ argument_list|,
 name|terminal
 argument_list|)
 expr_stmt|;
-name|ImmutableMap
-operator|.
-name|Builder
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2774,9 +2792,9 @@ name|Command
 argument_list|>
 name|commandByName
 init|=
-name|ImmutableMap
-operator|.
-name|builder
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2818,10 +2836,10 @@ name|this
 operator|.
 name|commands
 operator|=
+name|unmodifiableMap
+argument_list|(
 name|commandByName
-operator|.
-name|build
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

@@ -854,7 +854,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"optimizeBox must not be null"
+literal|"optimizeBbox must not be null"
 argument_list|)
 throw|;
 block|}
@@ -927,10 +927,7 @@ DECL|method|getValidationMethod
 specifier|public
 name|GeoValidationMethod
 name|getValidationMethod
-parameter_list|(
-name|GeoValidationMethod
-name|method
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 name|this
@@ -1046,6 +1043,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|GeoPoint
+name|point
+init|=
+operator|new
+name|GeoPoint
+argument_list|(
+name|this
+operator|.
+name|point
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|GeoValidationMethod
@@ -1523,12 +1531,10 @@ operator|.
 name|readString
 argument_list|()
 argument_list|,
-name|GeoPoint
-operator|.
-name|readGeoPointFrom
-argument_list|(
 name|in
-argument_list|)
+operator|.
+name|readGeoPoint
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|queryBuilder
@@ -1636,11 +1642,11 @@ argument_list|(
 name|fieldName
 argument_list|)
 expr_stmt|;
-name|point
-operator|.
-name|writeTo
-argument_list|(
 name|out
+operator|.
+name|writeGeoPoint
+argument_list|(
+name|point
 argument_list|)
 expr_stmt|;
 name|out

@@ -100,16 +100,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -180,8 +170,6 @@ name|ThreadPoolStatsTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testThreadPoolStatsSort
 specifier|public
 name|void
@@ -527,8 +515,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThreadPoolStatsToXContent
 specifier|public
 name|void
@@ -693,7 +679,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|OPTIMIZE
+name|FORCE_MERGE
 argument_list|,
 operator|-
 literal|1
@@ -980,13 +966,13 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|GENERIC
+name|FORCE_MERGE
 argument_list|,
 name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|OPTIMIZE
+name|GENERIC
 argument_list|,
 name|ThreadPool
 operator|.

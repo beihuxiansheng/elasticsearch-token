@@ -46,16 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -98,8 +88,6 @@ name|PathTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testInvalidPaths
 specifier|public
 name|void
@@ -158,8 +146,6 @@ literal|"dot separator at the end of the token expression"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testValidPaths
 specifier|public
 name|void

@@ -99,12 +99,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -116,7 +118,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
+name|is
 import|;
 end_import
 
@@ -140,8 +142,6 @@ name|SetSectionParserTests
 extends|extends
 name|AbstractParserTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testParseSetSectionSingleValue
 specifier|public
 name|void
@@ -240,8 +240,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseSetSectionMultipleValues
 specifier|public
 name|void
@@ -376,15 +374,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|RestTestParseException
-operator|.
-name|class
-argument_list|)
 DECL|method|testParseSetSectionNoValues
 specifier|public
 name|void
@@ -411,6 +400,8 @@ operator|new
 name|SetSectionParser
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|setSectionParser
 operator|.
 name|parse
@@ -426,6 +417,32 @@ name|parser
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected RestTestParseException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RestTestParseException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"set section must set at least a value"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
