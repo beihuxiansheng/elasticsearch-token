@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|time
@@ -108,6 +120,14 @@ name|JodaPatternDateParser
 argument_list|(
 literal|"MMM dd HH:mm:ss Z"
 argument_list|,
+name|DateTimeZone
+operator|.
+name|forOffsetHours
+argument_list|(
+operator|-
+literal|8
+argument_list|)
+argument_list|,
 name|Locale
 operator|.
 name|ENGLISH
@@ -144,6 +164,10 @@ operator|.
 name|ofPattern
 argument_list|(
 literal|"MM dd HH:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ENGLISH
 argument_list|)
 argument_list|)
 argument_list|,

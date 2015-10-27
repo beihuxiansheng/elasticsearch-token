@@ -31,6 +31,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -63,7 +75,11 @@ name|parser
 init|=
 operator|new
 name|UnixMsDateParser
-argument_list|()
+argument_list|(
+name|DateTimeZone
+operator|.
+name|UTC
+argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
