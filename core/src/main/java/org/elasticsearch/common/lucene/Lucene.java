@@ -467,7 +467,7 @@ specifier|final
 name|String
 name|LATEST_DOC_VALUES_FORMAT
 init|=
-literal|"Lucene50"
+literal|"Lucene54"
 decl_stmt|;
 DECL|field|LATEST_POSTINGS_FORMAT
 specifier|public
@@ -485,7 +485,7 @@ specifier|final
 name|String
 name|LATEST_CODEC
 init|=
-literal|"Lucene53"
+literal|"Lucene54"
 decl_stmt|;
 static|static
 block|{
