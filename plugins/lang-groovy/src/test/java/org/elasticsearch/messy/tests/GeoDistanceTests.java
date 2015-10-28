@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -7919,7 +7919,7 @@ name|field
 argument_list|(
 literal|"pin"
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(

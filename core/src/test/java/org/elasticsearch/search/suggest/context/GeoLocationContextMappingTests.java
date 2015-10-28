@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -323,7 +323,7 @@ expr_stmt|;
 name|String
 name|geohash
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1308,7 +1308,7 @@ block|{
 name|String
 name|geohash1
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1334,7 +1334,7 @@ decl_stmt|;
 name|String
 name|geohash2
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(

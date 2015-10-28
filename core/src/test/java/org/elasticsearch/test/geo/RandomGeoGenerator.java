@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoUtils
+name|GeoUtils
 import|;
 end_import
 
@@ -177,14 +177,14 @@ index|[]
 name|min
 init|=
 block|{
-name|XGeoUtils
+name|GeoUtils
 operator|.
 name|normalizeLon
 argument_list|(
 name|minLon
 argument_list|)
 block|,
-name|XGeoUtils
+name|GeoUtils
 operator|.
 name|normalizeLat
 argument_list|(
@@ -197,14 +197,14 @@ index|[]
 name|max
 init|=
 block|{
-name|XGeoUtils
+name|GeoUtils
 operator|.
 name|normalizeLon
 argument_list|(
 name|maxLon
 argument_list|)
 block|,
-name|XGeoUtils
+name|GeoUtils
 operator|.
 name|normalizeLat
 argument_list|(

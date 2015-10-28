@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -818,7 +818,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1000,7 +1000,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1126,7 +1126,7 @@ name|field
 argument_list|(
 literal|"point"
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1189,7 +1189,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1308,7 +1308,7 @@ name|field
 argument_list|(
 literal|"point"
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(

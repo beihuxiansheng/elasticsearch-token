@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for {@link org.apache.lucene.util.XGeoHashUtils}  */
+comment|/**  * Tests for {@link org.apache.lucene.util.GeoHashUtils}  */
 end_comment
 
 begin_class
@@ -129,7 +129,7 @@ block|{
 name|long
 name|geoAsLong
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|longEncode
 argument_list|(
@@ -144,7 +144,7 @@ comment|// string encode from geohashlong encoded location
 name|String
 name|geohashFromLong
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -155,7 +155,7 @@ comment|// string encode from full res lat lon
 name|String
 name|geohash
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(

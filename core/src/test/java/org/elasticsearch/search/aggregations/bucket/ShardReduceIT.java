@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -569,7 +569,7 @@ name|field
 argument_list|(
 literal|"location"
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -577,7 +577,7 @@ literal|5
 argument_list|,
 literal|52
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 argument_list|)
