@@ -52,27 +52,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|assistedinject
-operator|.
-name|Assisted
+name|Environment
 import|;
 end_import
 
@@ -87,18 +69,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|env
-operator|.
-name|Environment
 import|;
 end_import
 
@@ -149,8 +119,6 @@ comment|/**  * A {@link TokenFilterFactory} for {@link TypeTokenFilter}. This fi
 end_comment
 
 begin_class
-annotation|@
-name|AnalysisSettingsRequired
 DECL|class|KeepTypesFilterFactory
 specifier|public
 class|class
@@ -176,8 +144,6 @@ name|KEEP_TYPES_KEY
 init|=
 literal|"types"
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|KeepTypesFilterFactory
 specifier|public
 name|KeepTypesFilterFactory
@@ -188,13 +154,9 @@ parameter_list|,
 name|Environment
 name|env
 parameter_list|,
-annotation|@
-name|Assisted
 name|String
 name|name
 parameter_list|,
-annotation|@
-name|Assisted
 name|Settings
 name|settings
 parameter_list|)

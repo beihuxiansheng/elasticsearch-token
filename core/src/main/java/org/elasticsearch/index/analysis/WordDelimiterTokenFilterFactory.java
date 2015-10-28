@@ -128,13 +128,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|inject
-operator|.
-name|assistedinject
-operator|.
-name|Assisted
+name|Environment
 import|;
 end_import
 
@@ -255,8 +251,6 @@ specifier|final
 name|CharArraySet
 name|protoWords
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|WordDelimiterTokenFilterFactory
 specifier|public
 name|WordDelimiterTokenFilterFactory
@@ -267,13 +261,9 @@ parameter_list|,
 name|Environment
 name|env
 parameter_list|,
-annotation|@
-name|Assisted
 name|String
 name|name
 parameter_list|,
-annotation|@
-name|Assisted
 name|Settings
 name|settings
 parameter_list|)

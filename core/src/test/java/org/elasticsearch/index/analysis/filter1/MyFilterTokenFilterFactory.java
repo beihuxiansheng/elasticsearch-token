@@ -72,9 +72,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|settings
 operator|.
-name|Inject
+name|Settings
 import|;
 end_import
 
@@ -84,11 +84,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Environment
 import|;
 end_import
 
@@ -126,8 +124,6 @@ name|MyFilterTokenFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
 block|{
-annotation|@
-name|Inject
 DECL|method|MyFilterTokenFilterFactory
 specifier|public
 name|MyFilterTokenFilterFactory
@@ -135,8 +131,14 @@ parameter_list|(
 name|IndexSettings
 name|indexSettings
 parameter_list|,
+name|Environment
+name|env
+parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|Settings
+name|settings
 parameter_list|)
 block|{
 name|super

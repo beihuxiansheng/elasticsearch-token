@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|inject
+name|analysis
 operator|.
-name|Module
+name|SmartChineseAnalyzerProvider
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisModule
+name|SmartChineseNoOpTokenFilterFactory
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|SmartChineseAnalysisBinderProcessor
+name|SmartChineseTokenizerTokenizerFactory
 import|;
 end_import
 
@@ -70,9 +70,7 @@ name|indices
 operator|.
 name|analysis
 operator|.
-name|smartcn
-operator|.
-name|SmartChineseIndicesAnalysisModule
+name|AnalysisModule
 import|;
 end_import
 
@@ -85,26 +83,6 @@ operator|.
 name|plugins
 operator|.
 name|Plugin
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -144,31 +122,6 @@ return|return
 literal|"Smart Chinese analysis support"
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|nodeModules
-specifier|public
-name|Collection
-argument_list|<
-name|Module
-argument_list|>
-name|nodeModules
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-expr|<
-name|Module
-operator|>
-name|singletonList
-argument_list|(
-operator|new
-name|SmartChineseIndicesAnalysisModule
-argument_list|()
-argument_list|)
-return|;
-block|}
 DECL|method|onModule
 specifier|public
 name|void
@@ -180,11 +133,48 @@ parameter_list|)
 block|{
 name|module
 operator|.
-name|addProcessor
+name|registerAnalyzer
 argument_list|(
+literal|"smartcn"
+argument_list|,
+name|SmartChineseAnalyzerProvider
+operator|::
 operator|new
-name|SmartChineseAnalysisBinderProcessor
-argument_list|()
+argument_list|)
+expr_stmt|;
+name|module
+operator|.
+name|registerTokenizer
+argument_list|(
+literal|"smartcn_tokenizer"
+argument_list|,
+name|SmartChineseTokenizerTokenizerFactory
+operator|::
+operator|new
+argument_list|)
+expr_stmt|;
+comment|// This is an alias to "smartcn_tokenizer"; it's here for backwards compat
+name|module
+operator|.
+name|registerTokenizer
+argument_list|(
+literal|"smartcn_sentence"
+argument_list|,
+name|SmartChineseTokenizerTokenizerFactory
+operator|::
+operator|new
+argument_list|)
+expr_stmt|;
+comment|// This is a noop token filter; it's here for backwards compat before we had "smartcn_tokenizer"
+name|module
+operator|.
+name|registerTokenFilter
+argument_list|(
+literal|"smartcn_word"
+argument_list|,
+name|SmartChineseNoOpTokenFilterFactory
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}
