@@ -558,18 +558,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|analysis
 operator|.
 name|AnalysisModule
@@ -1210,6 +1198,15 @@ name|DATE_FIELD_NAME
 block|,
 name|GEO_POINT_FIELD_NAME
 block|}
+decl_stmt|;
+DECL|field|NUMBER_OF_TESTQUERIES
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|NUMBER_OF_TESTQUERIES
+init|=
+literal|20
 decl_stmt|;
 DECL|field|injector
 specifier|private
@@ -2357,6 +2354,21 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+for|for
+control|(
+name|int
+name|runs
+init|=
+literal|0
+init|;
+name|runs
+operator|<
+name|NUMBER_OF_TESTQUERIES
+condition|;
+name|runs
+operator|++
+control|)
+block|{
 name|QB
 name|testQuery
 init|=
@@ -2405,6 +2417,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Returns alternate string representation of the query that need to be tested as they are never used as output      * of {@link QueryBuilder#toXContent(XContentBuilder, ToXContent.Params)}. By default there are no alternate versions.      */
@@ -2682,6 +2695,21 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+for|for
+control|(
+name|int
+name|runs
+init|=
+literal|0
+init|;
+name|runs
+operator|<
+name|NUMBER_OF_TESTQUERIES
+condition|;
+name|runs
+operator|++
+control|)
+block|{
 name|QueryShardContext
 name|context
 init|=
@@ -2808,7 +2836,7 @@ argument_list|(
 name|firstQuery
 argument_list|)
 decl_stmt|;
-comment|//query _name never should affect the result of toQuery, we randomly set it to make sure
+comment|// query _name never should affect the result of toQuery, we randomly set it to make sure
 if|if
 condition|(
 name|randomBoolean
@@ -2852,7 +2880,6 @@ argument_list|(
 name|randomTypes
 argument_list|)
 expr_stmt|;
-comment|// only set search context for toQuery to be more realistic
 name|Query
 name|secondLuceneQuery
 init|=
@@ -2877,7 +2904,6 @@ operator|.
 name|removeCurrent
 argument_list|()
 expr_stmt|;
-comment|// remove after assertLuceneQuery since the assertLuceneQuery impl might access the context as well
 name|assertThat
 argument_list|(
 literal|"two equivalent query builders lead to different lucene queries"
@@ -2890,7 +2916,7 @@ name|firstLuceneQuery
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//if the initial lucene query is null, changing its boost won't have any effect, we shouldn't test that
+comment|// if the initial lucene query is null, changing its boost won't have any effect, we shouldn't test that
 if|if
 condition|(
 name|firstLuceneQuery
@@ -2921,7 +2947,6 @@ argument_list|(
 name|randomTypes
 argument_list|)
 expr_stmt|;
-comment|// only set search context for toQuery to be more realistic
 name|Query
 name|thirdLuceneQuery
 init|=
@@ -2952,6 +2977,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Few queries allow you to set the boost and queryName on the java api, although the corresponding parser doesn't parse them as they are not supported.      * This method allows to disable boost and queryName related tests for those queries. Those queries are easy to identify: their parsers      * don't parse `boost` and `_name` as they don't apply to the specific query: wrapper query and match_none      */
@@ -3112,6 +3138,21 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+for|for
+control|(
+name|int
+name|runs
+init|=
+literal|0
+init|;
+name|runs
+operator|<
+name|NUMBER_OF_TESTQUERIES
+condition|;
+name|runs
+operator|++
+control|)
+block|{
 name|QB
 name|testQuery
 init|=
@@ -3123,6 +3164,7 @@ argument_list|(
 name|testQuery
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Serialize the given query builder and asserts that both are equal      */
 annotation|@
@@ -3253,6 +3295,21 @@ name|testEqualsAndHashcode
 parameter_list|()
 throws|throws
 name|IOException
+block|{
+for|for
+control|(
+name|int
+name|runs
+init|=
+literal|0
+init|;
+name|runs
+operator|<
+name|NUMBER_OF_TESTQUERIES
+condition|;
+name|runs
+operator|++
+control|)
 block|{
 name|QB
 name|firstQuery
@@ -3572,6 +3629,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|queryParser
 specifier|private
