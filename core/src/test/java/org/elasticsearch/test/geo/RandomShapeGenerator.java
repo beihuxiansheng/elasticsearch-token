@@ -24,18 +24,6 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
-name|RandomizedTest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
 name|generators
 operator|.
 name|RandomInts
@@ -323,6 +311,16 @@ operator|.
 name|builders
 operator|.
 name|ShapeBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
 import|;
 end_import
 
@@ -1598,7 +1596,7 @@ literal|1
 index|]
 argument_list|)
 decl_stmt|;
-name|RandomizedTest
+name|Assert
 operator|.
 name|assertEquals
 argument_list|(
