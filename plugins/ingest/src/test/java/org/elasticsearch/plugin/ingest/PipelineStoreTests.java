@@ -386,8 +386,6 @@ argument_list|,
 operator|new
 name|SimpleProcessor
 operator|.
-name|Builder
-operator|.
 name|Factory
 argument_list|()
 argument_list|)
