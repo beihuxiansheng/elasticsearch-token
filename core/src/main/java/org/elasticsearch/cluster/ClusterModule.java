@@ -1819,9 +1819,9 @@ name|THREADPOOL_GROUP
 operator|+
 literal|"*"
 argument_list|,
-name|Validator
+name|ThreadPool
 operator|.
-name|EMPTY
+name|THREAD_POOL_TYPE_SETTINGS_VALIDATOR
 argument_list|)
 expr_stmt|;
 name|registerClusterDynamicSetting
