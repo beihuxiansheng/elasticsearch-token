@@ -541,7 +541,11 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setSource
+name|setQuery
+argument_list|(
+name|QueryBuilders
+operator|.
+name|wrapperQuery
 argument_list|(
 literal|"foo"
 operator|.
@@ -550,6 +554,7 @@ argument_list|(
 name|StandardCharsets
 operator|.
 name|UTF_8
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -997,7 +1002,11 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setSource
+name|setQuery
+argument_list|(
+name|QueryBuilders
+operator|.
+name|wrapperQuery
 argument_list|(
 literal|"foo"
 operator|.
@@ -1006,6 +1015,7 @@ argument_list|(
 name|StandardCharsets
 operator|.
 name|UTF_8
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -1066,7 +1076,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Failed to parse"
+literal|"Failed to derive xcontent"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2661,12 +2671,17 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setSource
+name|setQuery
+argument_list|(
+name|QueryBuilders
+operator|.
+name|wrapperQuery
 argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
 literal|"{\"foo\": \"bar\", \"query\": {\"term\" : { \"user\" : \"kimchy\" }}}"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -2718,12 +2733,17 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setSource
+name|setQuery
+argument_list|(
+name|QueryBuilders
+operator|.
+name|wrapperQuery
 argument_list|(
 operator|new
 name|BytesArray
 argument_list|(
 literal|"{\"query\": {\"term\" : { \"user\" : \"kimchy\" }}, \"foo\": \"bar\"}"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
