@@ -1227,10 +1227,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|minimumShouldMatch
-operator|!=
-literal|null
-operator|&&
 name|query
 operator|instanceof
 name|BooleanQuery
@@ -1244,8 +1240,6 @@ name|BooleanQuery
 operator|)
 name|query
 decl_stmt|;
-comment|// treat special case for one term query and more than one field
-comment|// we need to wrap this in additional BooleanQuery so minimum_should_match is applied correctly
 if|if
 condition|(
 name|booleanQuery
@@ -1281,6 +1275,8 @@ literal|false
 operator|)
 condition|)
 block|{
+comment|// special case for one term query and more than one field: (f1:t1 f2:t1 f3:t1)
+comment|// we need to wrap this in additional BooleanQuery so minimum_should_match is applied correctly
 name|BooleanQuery
 operator|.
 name|Builder
@@ -1315,7 +1311,14 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
-name|query
+if|if
+condition|(
+name|minimumShouldMatch
+operator|!=
+literal|null
+condition|)
+block|{
+name|booleanQuery
 operator|=
 name|Queries
 operator|.
@@ -1325,6 +1328,11 @@ name|booleanQuery
 argument_list|,
 name|minimumShouldMatch
 argument_list|)
+expr_stmt|;
+block|}
+name|query
+operator|=
+name|booleanQuery
 expr_stmt|;
 block|}
 return|return
