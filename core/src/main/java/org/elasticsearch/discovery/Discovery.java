@@ -294,6 +294,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @return stats about the discovery      */
+DECL|method|stats
+name|DiscoveryStats
+name|stats
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
