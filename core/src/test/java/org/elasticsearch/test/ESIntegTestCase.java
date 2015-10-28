@@ -2376,14 +2376,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-assert|assert
-name|Thread
-operator|.
-name|getDefaultUncaughtExceptionHandler
-argument_list|()
-operator|instanceof
-name|ElasticsearchUncaughtExceptionHandler
-assert|;
 specifier|final
 name|Scope
 name|currentClusterScope
