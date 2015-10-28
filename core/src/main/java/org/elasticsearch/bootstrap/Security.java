@@ -449,6 +449,7 @@ argument_list|)
 condition|)
 block|{
 comment|// first get a list of URLs for the plugins' jars:
+comment|// we resolve symlinks so map is keyed on the normalize codebase name
 name|List
 argument_list|<
 name|URL
@@ -491,6 +492,9 @@ operator|.
 name|add
 argument_list|(
 name|jar
+operator|.
+name|toRealPath
+argument_list|()
 operator|.
 name|toUri
 argument_list|()
