@@ -152,7 +152,7 @@ name|fielddata
 operator|.
 name|plain
 operator|.
-name|GeoPointBinaryDVIndexFieldData
+name|AbstractGeoPointDVIndexFieldData
 import|;
 end_import
 
@@ -168,7 +168,7 @@ name|fielddata
 operator|.
 name|plain
 operator|.
-name|GeoPointDoubleArrayIndexFieldData
+name|GeoPointArrayIndexFieldData
 import|;
 end_import
 
@@ -711,7 +711,7 @@ argument_list|(
 literal|"geo_point"
 argument_list|,
 operator|new
-name|GeoPointDoubleArrayIndexFieldData
+name|GeoPointArrayIndexFieldData
 operator|.
 name|Builder
 argument_list|()
@@ -928,7 +928,7 @@ argument_list|(
 literal|"geo_point"
 argument_list|,
 operator|new
-name|GeoPointBinaryDVIndexFieldData
+name|AbstractGeoPointDVIndexFieldData
 operator|.
 name|Builder
 argument_list|()
@@ -1325,7 +1325,7 @@ name|ARRAY_FORMAT
 argument_list|)
 argument_list|,
 operator|new
-name|GeoPointDoubleArrayIndexFieldData
+name|GeoPointArrayIndexFieldData
 operator|.
 name|Builder
 argument_list|()
@@ -1343,7 +1343,7 @@ name|DOC_VALUES_FORMAT
 argument_list|)
 argument_list|,
 operator|new
-name|GeoPointBinaryDVIndexFieldData
+name|AbstractGeoPointDVIndexFieldData
 operator|.
 name|Builder
 argument_list|()

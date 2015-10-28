@@ -247,11 +247,11 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|GeoPointDoubleArrayAtomicFieldData
+DECL|class|GeoPointArrayLegacyAtomicFieldData
 specifier|public
 specifier|abstract
 class|class
-name|GeoPointDoubleArrayAtomicFieldData
+name|GeoPointArrayLegacyAtomicFieldData
 extends|extends
 name|AbstractAtomicGeoPointFieldData
 block|{
@@ -268,7 +268,7 @@ specifier|static
 class|class
 name|WithOrdinals
 extends|extends
-name|GeoPointDoubleArrayAtomicFieldData
+name|GeoPointArrayLegacyAtomicFieldData
 block|{
 DECL|field|lon
 DECL|field|lat
@@ -646,7 +646,7 @@ specifier|static
 class|class
 name|Single
 extends|extends
-name|GeoPointDoubleArrayAtomicFieldData
+name|GeoPointArrayLegacyAtomicFieldData
 block|{
 DECL|field|lon
 DECL|field|lat
@@ -708,7 +708,6 @@ return|return
 name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_INT
-comment|/*size*/
 operator|+
 name|lon
 operator|.
