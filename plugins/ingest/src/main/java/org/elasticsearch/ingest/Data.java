@@ -327,7 +327,7 @@ block|}
 name|inner
 operator|=
 operator|(
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
