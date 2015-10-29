@@ -40,7 +40,49 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|*
+name|CheckIndex
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexCommit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|KeepOnlyLastCommitDeletionPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|SnapshotDeletionPolicy
 import|;
 end_import
 
@@ -574,6 +616,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|VersionType
 import|;
 end_import
@@ -935,8 +989,6 @@ operator|.
 name|store
 operator|.
 name|Store
-operator|.
-name|MetadataSnapshot
 import|;
 end_import
 
@@ -951,6 +1003,8 @@ operator|.
 name|store
 operator|.
 name|Store
+operator|.
+name|MetadataSnapshot
 import|;
 end_import
 
@@ -2820,10 +2874,10 @@ block|}
 block|}
 block|}
 comment|/**      * Marks the shard as recovering based on a recovery state, fails with exception is recovering is not allowed to be set.      */
-DECL|method|recovering
+DECL|method|markAsRecovering
 specifier|public
 name|IndexShardState
-name|recovering
+name|markAsRecovering
 parameter_list|(
 name|String
 name|reason
@@ -6252,9 +6306,6 @@ specifier|public
 name|boolean
 name|recoverFromStore
 parameter_list|(
-name|ShardRouting
-name|shard
-parameter_list|,
 name|DiscoveryNode
 name|localNode
 parameter_list|)
@@ -6262,7 +6313,7 @@ block|{
 comment|// we are the first primary, recover from the gateway
 comment|// if its post api allocation, the index should exists
 assert|assert
-name|shard
+name|shardRouting
 operator|.
 name|primary
 argument_list|()
@@ -6273,7 +6324,7 @@ specifier|final
 name|boolean
 name|shouldExist
 init|=
-name|shard
+name|shardRouting
 operator|.
 name|allocatedPostIndexCreate
 argument_list|()
@@ -6307,9 +6358,6 @@ specifier|public
 name|boolean
 name|restoreFromRepository
 parameter_list|(
-name|ShardRouting
-name|shard
-parameter_list|,
 name|IndexShardRepository
 name|repository
 parameter_list|,
@@ -6318,7 +6366,7 @@ name|locaNode
 parameter_list|)
 block|{
 assert|assert
-name|shard
+name|shardRouting
 operator|.
 name|primary
 argument_list|()

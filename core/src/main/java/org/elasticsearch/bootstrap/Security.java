@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|SecureSM
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|SuppressForbidden
@@ -310,36 +320,8 @@ operator|.
 name|setSecurityManager
 argument_list|(
 operator|new
-name|SecurityManager
+name|SecureSM
 argument_list|()
-block|{
-comment|// we disable this completely, because its granted otherwise:
-comment|// 'Note: The "exitVM.*" permission is automatically granted to
-comment|// all code loaded from the application class path, thus enabling
-comment|// applications to terminate themselves.'
-annotation|@
-name|Override
-specifier|public
-name|void
-name|checkExit
-parameter_list|(
-name|int
-name|status
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|SecurityException
-argument_list|(
-literal|"exit("
-operator|+
-name|status
-operator|+
-literal|") not allowed by system policy"
-argument_list|)
-throw|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 comment|// do some basic tests

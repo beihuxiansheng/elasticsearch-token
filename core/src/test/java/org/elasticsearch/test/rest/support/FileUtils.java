@@ -540,7 +540,17 @@ throw|throw
 operator|new
 name|NoSuchFileException
 argument_list|(
+literal|"path prefix: "
+operator|+
+name|optionalPathPrefix
+operator|+
+literal|", path: "
+operator|+
 name|path
+operator|+
+literal|", file suffix: "
+operator|+
+name|optionalFileSuffix
 argument_list|)
 throw|;
 block|}

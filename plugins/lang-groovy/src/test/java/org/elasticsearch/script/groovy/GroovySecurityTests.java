@@ -550,6 +550,12 @@ argument_list|(
 literal|"def methodName = 'ex'; Runtime.\"${'get' + 'Runtime'}\"().\"${methodName}ec\"(\"touch /tmp/gotcha2\")"
 argument_list|)
 expr_stmt|;
+comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "modifyThreadGroup")]
+name|assertFailure
+argument_list|(
+literal|"t = new Thread({ println 3 });"
+argument_list|)
+expr_stmt|;
 comment|// test a directory we normally have access to, but the groovy script does not.
 name|Path
 name|dir
