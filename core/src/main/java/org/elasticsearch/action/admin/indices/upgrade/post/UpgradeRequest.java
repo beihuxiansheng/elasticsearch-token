@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to upgrade one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  * @see org.elasticsearch.client.Requests#upgradeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#upgrade(UpgradeRequest)  * @see UpgradeResponse  */
+comment|/**  * A request to upgrade one or more indices. In order to update all indices, pass an empty array or  *<tt>null</tt> for the indices.  * @see org.elasticsearch.client.Requests#upgradeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#upgrade(UpgradeRequest)  * @see UpgradeResponse  */
 end_comment
 
 begin_class
@@ -121,7 +121,7 @@ name|Defaults
 operator|.
 name|UPGRADE_ONLY_ANCIENT_SEGMENTS
 decl_stmt|;
-comment|/**      * Constructs an optimization request over one or more indices.      *      * @param indices The indices to optimize, no indices passed means all indices will be optimized.      */
+comment|/**      * Constructs an optimization request over one or more indices.      *      * @param indices The indices to upgrade, no indices passed means all indices will be optimized.      */
 DECL|method|UpgradeRequest
 specifier|public
 name|UpgradeRequest
