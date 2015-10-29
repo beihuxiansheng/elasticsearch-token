@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoUtils
+name|GeoUtils
 import|;
 end_import
 
@@ -735,7 +735,7 @@ name|set
 argument_list|(
 name|bucket
 argument_list|,
-name|XGeoUtils
+name|GeoUtils
 operator|.
 name|mortonHash
 argument_list|(

@@ -110,7 +110,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -5258,7 +5258,7 @@ name|randomIntBetween
 argument_list|(
 literal|1
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 argument_list|)

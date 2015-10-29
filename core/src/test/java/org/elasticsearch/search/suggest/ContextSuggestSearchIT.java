@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -7691,7 +7691,7 @@ decl_stmt|;
 name|String
 name|geohash
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(

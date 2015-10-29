@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -1067,7 +1067,7 @@ index|[
 name|i
 index|]
 operator|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|longEncode
 argument_list|(

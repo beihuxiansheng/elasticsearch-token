@@ -644,38 +644,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-catch|catch
-parameter_list|(
-name|AssertionError
-name|ae
-parameter_list|)
-block|{
-comment|// Try to see what threads are doing when we hit the "Delete index failed - not acked":
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"dump all threads on AssertionError"
-argument_list|)
-expr_stmt|;
-name|ESTestCase
-operator|.
-name|printStackDump
-argument_list|(
-name|logger
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"done dump all threads on AssertionError"
-argument_list|)
-expr_stmt|;
-throw|throw
-name|ae
-throw|;
-block|}
 block|}
 block|}
 comment|/**      * Removes all templates, except the templates defined in the exclude      */

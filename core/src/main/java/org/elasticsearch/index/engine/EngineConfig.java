@@ -415,12 +415,12 @@ specifier|final
 name|ShardIndexingService
 name|indexingService
 decl_stmt|;
-annotation|@
-name|Nullable
 DECL|field|warmer
 specifier|private
 specifier|final
-name|IndicesWarmer
+name|Engine
+operator|.
+name|Warmer
 name|warmer
 decl_stmt|;
 DECL|field|store
@@ -619,7 +619,9 @@ parameter_list|,
 name|Settings
 name|indexSettings
 parameter_list|,
-name|IndicesWarmer
+name|Engine
+operator|.
+name|Warmer
 name|warmer
 parameter_list|,
 name|Store
@@ -692,6 +694,18 @@ name|this
 operator|.
 name|warmer
 operator|=
+name|warmer
+operator|==
+literal|null
+condition|?
+parameter_list|(
+name|a
+parameter_list|,
+name|b
+parameter_list|)
+lambda|->
+block|{}
+else|:
 name|warmer
 expr_stmt|;
 name|this
@@ -1105,12 +1119,12 @@ return|return
 name|indexingService
 return|;
 block|}
-comment|/**      * Returns an {@link org.elasticsearch.indices.IndicesWarmer} used to warm new searchers before they are used for searching.      * Note: This method might retrun<code>null</code>      */
-annotation|@
-name|Nullable
+comment|/**      * Returns an {@link org.elasticsearch.index.engine.Engine.Warmer} used to warm new searchers before they are used for searching.      */
 DECL|method|getWarmer
 specifier|public
-name|IndicesWarmer
+name|Engine
+operator|.
+name|Warmer
 name|getWarmer
 parameter_list|()
 block|{

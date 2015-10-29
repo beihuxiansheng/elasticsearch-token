@@ -134,6 +134,22 @@ name|action
 operator|.
 name|shard
 operator|.
+name|NoOpShardStateActionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|action
+operator|.
+name|shard
+operator|.
 name|ShardStateAction
 import|;
 end_import
@@ -638,6 +654,19 @@ specifier|private
 specifier|final
 name|NodeMappingRefreshAction
 name|nodeMappingRefreshAction
+decl_stmt|;
+DECL|field|SHARD_STATE_ACTION_LISTENER
+specifier|private
+specifier|static
+specifier|final
+name|ShardStateAction
+operator|.
+name|Listener
+name|SHARD_STATE_ACTION_LISTENER
+init|=
+operator|new
+name|NoOpShardStateActionListener
+argument_list|()
 decl_stmt|;
 comment|// a map of mappings type we have seen per index due to cluster state
 comment|// we need this so we won't remove types automatically created as part of the indexing process
@@ -3030,6 +3059,8 @@ operator|+
 literal|" marked shard as started, but shard has previous failed. resending shard failure."
 argument_list|,
 literal|null
+argument_list|,
+name|SHARD_STATE_ACTION_LISTENER
 argument_list|)
 expr_stmt|;
 block|}
@@ -3922,6 +3953,8 @@ operator|+
 literal|" marked shard as initializing, but shard is marked as failed, resend shard failure"
 argument_list|,
 literal|null
+argument_list|,
+name|SHARD_STATE_ACTION_LISTENER
 argument_list|)
 expr_stmt|;
 block|}
@@ -5099,6 +5132,8 @@ argument_list|,
 name|message
 argument_list|,
 name|failure
+argument_list|,
+name|SHARD_STATE_ACTION_LISTENER
 argument_list|)
 expr_stmt|;
 block|}

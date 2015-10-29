@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -1352,7 +1352,7 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1625,7 +1625,7 @@ name|query
 argument_list|(
 name|name
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1708,7 +1708,7 @@ name|query
 argument_list|(
 name|name
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -2875,7 +2875,7 @@ name|defaultLocations
 operator|.
 name|add
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -2955,7 +2955,7 @@ name|precisions
 operator|.
 name|add
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 argument_list|)
@@ -3413,7 +3413,7 @@ operator|.
 name|neighbors
 condition|)
 block|{
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(

@@ -98,9 +98,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene53
+name|lucene54
 operator|.
-name|Lucene53Codec
+name|Lucene54Codec
 import|;
 end_import
 
@@ -2440,14 +2440,14 @@ block|{
 name|super
 argument_list|(
 operator|new
-name|Lucene53Codec
+name|Lucene54Codec
 argument_list|()
 operator|.
 name|getName
 argument_list|()
 argument_list|,
 operator|new
-name|Lucene53Codec
+name|Lucene54Codec
 argument_list|()
 argument_list|)
 expr_stmt|;

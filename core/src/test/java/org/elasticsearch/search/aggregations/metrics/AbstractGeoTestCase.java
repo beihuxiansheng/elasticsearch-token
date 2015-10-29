@@ -76,7 +76,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -1888,7 +1888,7 @@ block|{
 name|String
 name|hash
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1902,7 +1902,7 @@ operator|.
 name|lat
 argument_list|()
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 argument_list|)
@@ -1912,7 +1912,7 @@ control|(
 name|int
 name|precision
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 init|;

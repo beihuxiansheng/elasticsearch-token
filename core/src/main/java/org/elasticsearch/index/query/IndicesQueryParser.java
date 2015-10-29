@@ -107,8 +107,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"query"
-argument_list|,
-literal|"filter"
 argument_list|)
 decl_stmt|;
 DECL|field|NO_MATCH_QUERY
@@ -122,8 +120,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"no_match_query"
-argument_list|,
-literal|"no_match_filter"
 argument_list|)
 decl_stmt|;
 annotation|@

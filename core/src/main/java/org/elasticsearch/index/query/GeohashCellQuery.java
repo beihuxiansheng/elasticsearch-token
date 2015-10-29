@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -657,7 +657,7 @@ name|this
 operator|.
 name|geohash
 operator|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1014,7 +1014,7 @@ name|geoFieldType
 argument_list|,
 name|geohash
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(

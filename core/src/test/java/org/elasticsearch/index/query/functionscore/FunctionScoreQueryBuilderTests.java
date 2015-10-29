@@ -3684,8 +3684,6 @@ name|querySource
 init|=
 literal|"{"
 operator|+
-literal|"\"query\": {"
-operator|+
 literal|"  \"function_score\": {"
 operator|+
 literal|"    \"query\": {"
@@ -3711,8 +3709,6 @@ operator|+
 literal|"      ]"
 operator|+
 literal|"    }"
-operator|+
-literal|"  }"
 operator|+
 literal|"}"
 decl_stmt|;

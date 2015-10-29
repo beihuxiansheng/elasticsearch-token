@@ -1607,9 +1607,7 @@ name|add
 argument_list|(
 operator|new
 name|SearchModule
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|modules

@@ -518,7 +518,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set this to true when using the highlighterType<tt>fast-vector-highlighter</tt>      * and you want to provide highlighting on filter clauses in your      * query. Default is<tt>false</tt>.      */
+comment|/**      * Set this to true when using the highlighterType<tt>fvh</tt>      * and you want to provide highlighting on filter clauses in your      * query. Default is<tt>false</tt>.      */
 DECL|method|highlightFilter
 specifier|public
 name|HighlightBuilder
@@ -680,7 +680,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * When using the highlighterType<tt>fast-vector-highlighter</tt> this setting      * controls how far to look for boundary characters, and defaults to 20.      */
+comment|/**      * When using the highlighterType<tt>fvh</tt> this setting      * controls how far to look for boundary characters, and defaults to 20.      */
 DECL|method|boundaryMaxScan
 specifier|public
 name|HighlightBuilder
@@ -700,7 +700,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * When using the highlighterType<tt>fast-vector-highlighter</tt> this setting      * defines what constitutes a boundary for highlighting. Itâs a single string with      * each boundary character defined in it. It defaults to .,!? \t\n      */
+comment|/**      * When using the highlighterType<tt>fvh</tt> this setting      * defines what constitutes a boundary for highlighting. Itâs a single string with      * each boundary character defined in it. It defaults to .,!? \t\n      */
 DECL|method|boundaryChars
 specifier|public
 name|HighlightBuilder
@@ -721,7 +721,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set type of highlighter to use. Supported types      * are<tt>highlighter</tt>,<tt>fast-vector-highlighter</tt> and<tt>postings-highlighter</tt>.      * The default option selected is dependent on the mappings defined for your index.      * Details of the different highlighter types are covered in the reference guide.      */
+comment|/**      * Set type of highlighter to use. Out of the box supported types      * are<tt>plain</tt>,<tt>fvh</tt> and<tt>postings</tt>.      * The default option selected is dependent on the mappings defined for your index.      * Details of the different highlighter types are covered in the reference guide.      */
 DECL|method|highlighterType
 specifier|public
 name|HighlightBuilder
@@ -2065,7 +2065,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Set type of highlighter to use. Supported types          * are<tt>highlighter</tt>,<tt>fast-vector-highlighter</tt> nad<tt>postings-highlighter</tt>.          * This overrides global settings set by {@link HighlightBuilder#highlighterType(String)}.          */
+comment|/**          * Set type of highlighter to use. Out of the box supported types          * are<tt>plain</tt>,<tt>fvh</tt> and<tt>postings</tt>.          * This overrides global settings set by {@link HighlightBuilder#highlighterType(String)}.          */
 DECL|method|highlighterType
 specifier|public
 name|Field

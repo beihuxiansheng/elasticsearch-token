@@ -2981,7 +2981,7 @@ literal|0
 decl_stmt|;
 comment|// failures that should fail the shard
 name|int
-name|successfull
+name|successful
 init|=
 literal|1
 decl_stmt|;
@@ -3075,7 +3075,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|successfull
+name|successful
 operator|++
 expr_stmt|;
 name|transport
@@ -3119,7 +3119,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|successfull
+name|successful
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3191,7 +3191,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|successfull
+name|successful
 argument_list|)
 argument_list|)
 expr_stmt|;
