@@ -52,27 +52,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|assistedinject
-operator|.
-name|Assisted
+name|Environment
 import|;
 end_import
 
@@ -129,8 +111,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|AnalysisSettingsRequired
 DECL|class|PatternReplaceTokenFilterFactory
 specifier|public
 class|class
@@ -156,8 +136,6 @@ specifier|final
 name|boolean
 name|all
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|PatternReplaceTokenFilterFactory
 specifier|public
 name|PatternReplaceTokenFilterFactory
@@ -165,13 +143,12 @@ parameter_list|(
 name|IndexSettings
 name|indexSettings
 parameter_list|,
-annotation|@
-name|Assisted
+name|Environment
+name|environment
+parameter_list|,
 name|String
 name|name
 parameter_list|,
-annotation|@
-name|Assisted
 name|Settings
 name|settings
 parameter_list|)

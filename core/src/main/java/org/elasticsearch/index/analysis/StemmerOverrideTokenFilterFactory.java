@@ -82,27 +82,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|assistedinject
-operator|.
-name|Assisted
+name|Environment
 import|;
 end_import
 
@@ -117,18 +99,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|env
-operator|.
-name|Environment
 import|;
 end_import
 
@@ -165,8 +135,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|AnalysisSettingsRequired
 DECL|class|StemmerOverrideTokenFilterFactory
 specifier|public
 class|class
@@ -180,8 +148,6 @@ specifier|final
 name|StemmerOverrideMap
 name|overrideMap
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|StemmerOverrideTokenFilterFactory
 specifier|public
 name|StemmerOverrideTokenFilterFactory
@@ -192,13 +158,9 @@ parameter_list|,
 name|Environment
 name|env
 parameter_list|,
-annotation|@
-name|Assisted
 name|String
 name|name
 parameter_list|,
-annotation|@
-name|Assisted
 name|Settings
 name|settings
 parameter_list|)

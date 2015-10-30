@@ -52,13 +52,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|inject
-operator|.
-name|assistedinject
-operator|.
-name|Assisted
+name|Environment
 import|;
 end_import
 
@@ -73,6 +69,18 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|Environment
 import|;
 end_import
 
@@ -155,8 +163,6 @@ name|String
 argument_list|>
 name|escapedTags
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|HtmlStripCharFilterFactory
 specifier|public
 name|HtmlStripCharFilterFactory
@@ -164,13 +170,12 @@ parameter_list|(
 name|IndexSettings
 name|indexSettings
 parameter_list|,
-annotation|@
-name|Assisted
+name|Environment
+name|env
+parameter_list|,
 name|String
 name|name
 parameter_list|,
-annotation|@
-name|Assisted
 name|Settings
 name|settings
 parameter_list|)
