@@ -4678,6 +4678,9 @@ name|fieldName
 parameter_list|,
 name|InputStream
 name|content
+parameter_list|,
+name|XContentType
+name|contentType
 parameter_list|)
 throws|throws
 name|IOException
@@ -4691,6 +4694,8 @@ argument_list|,
 name|content
 argument_list|,
 name|bos
+argument_list|,
+name|contentType
 argument_list|)
 expr_stmt|;
 return|return
