@@ -15398,14 +15398,6 @@ index|[
 literal|0
 index|]
 argument_list|,
-operator|new
-name|Mapping
-operator|.
-name|SourceTransform
-index|[
-literal|0
-index|]
-argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|)
@@ -17455,8 +17447,6 @@ argument_list|,
 name|analysisService
 argument_list|,
 name|similarityService
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|DocumentMapper
@@ -17489,8 +17479,6 @@ argument_list|,
 name|analysisService
 argument_list|,
 name|similarityService
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|this

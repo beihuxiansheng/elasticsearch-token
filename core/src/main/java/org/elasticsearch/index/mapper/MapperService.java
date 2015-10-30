@@ -749,9 +749,6 @@ name|analysisService
 parameter_list|,
 name|SimilarityService
 name|similarityService
-parameter_list|,
-name|ScriptService
-name|scriptService
 parameter_list|)
 block|{
 name|super
@@ -787,8 +784,6 @@ argument_list|,
 name|analysisService
 argument_list|,
 name|similarityService
-argument_list|,
-name|scriptService
 argument_list|)
 expr_stmt|;
 name|this

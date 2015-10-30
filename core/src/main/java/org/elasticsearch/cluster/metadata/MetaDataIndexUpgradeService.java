@@ -192,18 +192,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -264,12 +252,6 @@ name|MetaDataIndexUpgradeService
 extends|extends
 name|AbstractComponent
 block|{
-DECL|field|scriptService
-specifier|private
-specifier|final
-name|ScriptService
-name|scriptService
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|MetaDataIndexUpgradeService
@@ -278,21 +260,12 @@ name|MetaDataIndexUpgradeService
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|ScriptService
-name|scriptService
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|scriptService
-operator|=
-name|scriptService
 expr_stmt|;
 block|}
 comment|/**      * Checks that the index can be upgraded to the current version of the master node.      *      *<p>      * If the index does not need upgrade it returns the index metadata unchanged, otherwise it returns a modified index metadata. If index      * cannot be updated the method throws an exception.      */
@@ -936,8 +909,6 @@ argument_list|,
 name|analysisService
 argument_list|,
 name|similarityService
-argument_list|,
-name|scriptService
 argument_list|)
 init|)
 block|{
