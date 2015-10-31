@@ -519,13 +519,8 @@ name|builder
 init|=
 name|XContentFactory
 operator|.
-name|contentBuilder
-argument_list|(
-name|parser
-operator|.
-name|contentType
+name|jsonBuilder
 argument_list|()
-argument_list|)
 operator|.
 name|copyCurrentStructure
 argument_list|(
