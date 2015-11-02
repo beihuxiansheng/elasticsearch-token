@@ -4281,7 +4281,7 @@ name|setSimilarity
 argument_list|(
 name|context
 operator|.
-name|searchSimilarity
+name|getSearchSimilarity
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4389,7 +4389,7 @@ name|analyzerObj
 init|=
 name|context
 operator|.
-name|analysisService
+name|getAnalysisService
 argument_list|()
 operator|.
 name|analyzer
@@ -4408,7 +4408,7 @@ name|analyzerObj
 operator|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|searchAnalyzer

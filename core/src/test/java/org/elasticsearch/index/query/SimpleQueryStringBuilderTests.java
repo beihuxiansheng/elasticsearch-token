@@ -1692,10 +1692,7 @@ literal|0
 operator|||
 name|shardContext
 operator|.
-name|indexQueryParserService
-argument_list|()
-operator|.
-name|getIndexCreatedVersion
+name|indexVersionCreated
 argument_list|()
 operator|.
 name|before

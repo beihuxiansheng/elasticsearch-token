@@ -3241,7 +3241,7 @@ name|resolvedFieldName
 range|:
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|simpleMatchToIndexNames
@@ -3304,7 +3304,7 @@ name|defaultAnalyzer
 argument_list|(
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|searchAnalyzer
@@ -3319,7 +3319,7 @@ name|namedAnalyzer
 init|=
 name|context
 operator|.
-name|analysisService
+name|getAnalysisService
 argument_list|()
 operator|.
 name|analyzer
@@ -3368,7 +3368,7 @@ name|namedAnalyzer
 init|=
 name|context
 operator|.
-name|analysisService
+name|getAnalysisService
 argument_list|()
 operator|.
 name|analyzer
@@ -3432,7 +3432,7 @@ name|defaultQuoteAnalyzer
 argument_list|(
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|searchQuoteAnalyzer

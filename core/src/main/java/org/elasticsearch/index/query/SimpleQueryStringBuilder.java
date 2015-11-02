@@ -1075,7 +1075,7 @@ name|fieldName
 range|:
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|simpleMatchToIndexNames
@@ -1141,7 +1141,7 @@ name|luceneAnalyzer
 operator|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|searchAnalyzer
@@ -1154,7 +1154,7 @@ name|luceneAnalyzer
 operator|=
 name|context
 operator|.
-name|analysisService
+name|getAnalysisService
 argument_list|()
 operator|.
 name|analyzer

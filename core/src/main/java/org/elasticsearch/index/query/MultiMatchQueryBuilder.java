@@ -2088,7 +2088,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|analysisService
+name|getAnalysisService
 argument_list|()
 operator|.
 name|analyzer
@@ -2308,7 +2308,7 @@ name|handleFieldsMatchPattern
 argument_list|(
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 argument_list|,
 name|fieldsBoosts

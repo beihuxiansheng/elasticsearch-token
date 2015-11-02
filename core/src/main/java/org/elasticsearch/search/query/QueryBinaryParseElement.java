@@ -131,7 +131,10 @@ name|parsedQuery
 argument_list|(
 name|context
 operator|.
-name|queryParserService
+name|indexShard
+argument_list|()
+operator|.
+name|getQueryShardContext
 argument_list|()
 operator|.
 name|parse

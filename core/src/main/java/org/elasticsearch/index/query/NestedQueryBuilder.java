@@ -1090,13 +1090,7 @@ name|innerHits
 init|=
 name|context
 operator|.
-name|indexQueryParserService
-argument_list|()
-operator|.
-name|getInnerHitsQueryParserHelper
-argument_list|()
-operator|.
-name|parse
+name|getInnerHitsContext
 argument_list|(
 name|parser
 argument_list|)

@@ -346,7 +346,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|IndexQueryParserService
+name|QueryShardContext
 import|;
 end_import
 
@@ -1195,14 +1195,6 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|IndexQueryParserService
-name|queryParserService
-init|=
-name|indexService
-operator|.
-name|queryParserService
-argument_list|()
-decl_stmt|;
 name|IndexShard
 name|indexShard
 init|=
@@ -1218,6 +1210,14 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|QueryShardContext
+name|queryParserService
+init|=
+name|indexShard
+operator|.
+name|getQueryShardContext
+argument_list|()
 decl_stmt|;
 name|boolean
 name|valid
