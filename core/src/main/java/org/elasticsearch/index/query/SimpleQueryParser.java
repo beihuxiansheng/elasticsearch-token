@@ -362,8 +362,6 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|super
-operator|.
 name|simplify
 argument_list|(
 name|bq
@@ -505,8 +503,6 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|super
-operator|.
 name|simplify
 argument_list|(
 name|bq
@@ -629,8 +625,6 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|super
-operator|.
 name|simplify
 argument_list|(
 name|bq
@@ -816,8 +810,6 @@ return|;
 block|}
 block|}
 return|return
-name|super
-operator|.
 name|simplify
 argument_list|(
 name|bq
@@ -826,6 +818,40 @@ name|build
 argument_list|()
 argument_list|)
 return|;
+block|}
+comment|/**      * Override of lucenes SimpleQueryParser that doesn't simplify for the 1-clause case.      */
+annotation|@
+name|Override
+DECL|method|simplify
+specifier|protected
+name|Query
+name|simplify
+parameter_list|(
+name|BooleanQuery
+name|bq
+parameter_list|)
+block|{
+if|if
+condition|(
+name|bq
+operator|.
+name|clauses
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
+return|return
+name|bq
+return|;
+block|}
 block|}
 comment|/**      * Analyze the given string using its analyzer, constructing either a      * {@code PrefixQuery} or a {@code BooleanQuery} made up      * of {@code PrefixQuery}s      */
 DECL|method|newPossiblyAnalyzedQuery

@@ -250,6 +250,22 @@ name|action
 operator|.
 name|shard
 operator|.
+name|NoOpShardStateActionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|action
+operator|.
+name|shard
+operator|.
 name|ShardStateAction
 import|;
 end_import
@@ -3785,6 +3801,10 @@ class|class
 name|ReplicationPhase
 extends|extends
 name|AbstractRunnable
+implements|implements
+name|ShardStateAction
+operator|.
+name|Listener
 block|{
 DECL|field|replicaRequest
 specifier|private
@@ -4348,6 +4368,28 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|onShardFailedNoMaster
+specifier|public
+name|void
+name|onShardFailedNoMaster
+parameter_list|()
+block|{          }
+annotation|@
+name|Override
+DECL|method|onShardFailedFailure
+specifier|public
+name|void
+name|onShardFailedFailure
+parameter_list|(
+name|DiscoveryNode
+name|master
+parameter_list|,
+name|TransportException
+name|e
+parameter_list|)
+block|{          }
 comment|/**          * start sending current requests to replicas          */
 annotation|@
 name|Override
@@ -4715,6 +4757,10 @@ operator|+
 name|node
 argument_list|,
 name|exp
+argument_list|,
+name|ReplicationPhase
+operator|.
+name|this
 argument_list|)
 expr_stmt|;
 block|}

@@ -64,11 +64,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Index
 import|;
 end_import
 
@@ -80,7 +78,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -113,20 +111,6 @@ operator|.
 name|XFieldComparatorSource
 operator|.
 name|Nested
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMapper
 import|;
 end_import
 
@@ -363,10 +347,7 @@ name|?
 argument_list|>
 name|build
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|MappedFieldType
@@ -396,7 +377,10 @@ return|return
 operator|new
 name|GeoPointBinaryDVIndexFieldData
 argument_list|(
-name|index
+name|indexSettings
+operator|.
+name|getIndex
+argument_list|()
 argument_list|,
 name|fieldNames
 argument_list|,

@@ -2661,13 +2661,13 @@ if|if
 condition|(
 name|logger
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"node [{}] has {}% free disk ({} bytes)"
 argument_list|,

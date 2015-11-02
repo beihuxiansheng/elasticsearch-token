@@ -30,7 +30,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoUtils
+name|GeoUtils
 import|;
 end_import
 
@@ -800,7 +800,7 @@ name|out
 operator|.
 name|writeLong
 argument_list|(
-name|XGeoUtils
+name|GeoUtils
 operator|.
 name|mortonHash
 argument_list|(

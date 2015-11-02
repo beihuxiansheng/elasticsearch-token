@@ -3210,7 +3210,7 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"Plugin %s not found. Run plugin --list to get list of installed plugins."
+literal|"Plugin %s not found. Run \"plugin list\" to get list of installed plugins."
 argument_list|,
 name|name
 argument_list|)

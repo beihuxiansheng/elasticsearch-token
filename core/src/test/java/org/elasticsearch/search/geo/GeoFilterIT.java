@@ -164,7 +164,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -3520,7 +3520,7 @@ name|CharSequence
 argument_list|>
 name|neighbors
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|neighbors
 argument_list|(
@@ -3535,7 +3535,7 @@ name|CharSequence
 argument_list|>
 name|parentNeighbors
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|neighbors
 argument_list|(
@@ -4150,7 +4150,7 @@ block|{
 comment|// Simple root case
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4187,7 +4187,7 @@ expr_stmt|;
 comment|// Root cases (Outer cells)
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4217,7 +4217,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4247,7 +4247,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4277,7 +4277,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4308,7 +4308,7 @@ expr_stmt|;
 comment|// Root crossing dateline
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4344,7 +4344,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4381,7 +4381,7 @@ expr_stmt|;
 comment|// level1: simple case
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4418,7 +4418,7 @@ expr_stmt|;
 comment|// Level1: crossing cells
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4454,7 +4454,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(

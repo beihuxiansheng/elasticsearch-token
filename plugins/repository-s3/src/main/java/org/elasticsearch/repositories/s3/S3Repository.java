@@ -773,11 +773,33 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|String
+name|cannedACL
+init|=
+name|repositorySettings
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"canned_acl"
+argument_list|,
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"repositories.s3.canned_acl"
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}], max_retries [{}]"
+literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}], max_retries [{}], cannedACL [{}]"
 argument_list|,
 name|bucket
 argument_list|,
@@ -794,6 +816,8 @@ argument_list|,
 name|bufferSize
 argument_list|,
 name|maxRetries
+argument_list|,
+name|cannedACL
 argument_list|)
 expr_stmt|;
 name|blobStore
@@ -845,6 +869,8 @@ argument_list|,
 name|bufferSize
 argument_list|,
 name|maxRetries
+argument_list|,
+name|cannedACL
 argument_list|)
 expr_stmt|;
 name|String

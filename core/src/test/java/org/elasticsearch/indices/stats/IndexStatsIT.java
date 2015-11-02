@@ -332,7 +332,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|VersionType
+name|IndexModule
 import|;
 end_import
 
@@ -344,9 +344,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
-operator|.
-name|IndexCacheModule
+name|VersionType
 import|;
 end_import
 
@@ -778,7 +776,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexCacheModule
+name|IndexModule
 operator|.
 name|QUERY_CACHE_EVERYTHING
 argument_list|,
@@ -787,11 +785,11 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexCacheModule
+name|IndexModule
 operator|.
 name|QUERY_CACHE_TYPE
 argument_list|,
-name|IndexCacheModule
+name|IndexModule
 operator|.
 name|INDEX_QUERY_CACHE
 argument_list|)

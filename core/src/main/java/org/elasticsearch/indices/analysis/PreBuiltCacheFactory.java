@@ -71,7 +71,7 @@ DECL|enum|CachingStrategy
 DECL|enum constant|ONE
 DECL|enum constant|LUCENE
 DECL|enum constant|ELASTICSEARCH
-specifier|static
+specifier|public
 enum|enum
 name|CachingStrategy
 block|{

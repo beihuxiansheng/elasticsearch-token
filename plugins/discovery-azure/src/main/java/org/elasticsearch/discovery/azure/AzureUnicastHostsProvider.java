@@ -976,7 +976,7 @@ name|ipAddress
 operator|=
 name|networkService
 operator|.
-name|resolvePublishHostAddress
+name|resolvePublishHostAddresses
 argument_list|(
 literal|null
 argument_list|)

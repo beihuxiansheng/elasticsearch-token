@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 

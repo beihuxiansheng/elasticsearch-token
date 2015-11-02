@@ -2626,15 +2626,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/issues/9904"
-argument_list|)
 DECL|method|testShapeFilterWithRandomGeoCollection
 specifier|public
 name|void

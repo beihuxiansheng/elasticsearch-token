@@ -50,30 +50,6 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|hppc
-operator|.
-name|ObjectObjectMap
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|hppc
-operator|.
 name|cursors
 operator|.
 name|ObjectIntCursor
@@ -90,7 +66,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -668,7 +644,7 @@ decl_stmt|;
 name|String
 name|randomGeoHash
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -676,7 +652,7 @@ name|lng
 argument_list|,
 name|lat
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 argument_list|)
@@ -724,7 +700,7 @@ control|(
 name|int
 name|precision
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 operator|-
@@ -741,7 +717,7 @@ block|{
 name|String
 name|hash
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -952,7 +928,7 @@ control|(
 name|int
 name|precision
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 init|;
@@ -968,7 +944,7 @@ specifier|final
 name|String
 name|geoHash
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1063,7 +1039,7 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 condition|;
@@ -1254,7 +1230,7 @@ index|]
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1313,7 +1289,7 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 condition|;
@@ -1476,7 +1452,7 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 condition|;
@@ -1656,7 +1632,7 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 condition|;
@@ -1752,7 +1728,7 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 condition|;
@@ -1894,7 +1870,7 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 condition|;
@@ -2093,7 +2069,7 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 condition|;

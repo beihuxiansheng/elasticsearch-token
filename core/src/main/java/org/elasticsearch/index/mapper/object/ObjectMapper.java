@@ -222,20 +222,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -956,8 +942,6 @@ name|mappers
 parameter_list|,
 annotation|@
 name|Nullable
-annotation|@
-name|IndexSettings
 name|Settings
 name|settings
 parameter_list|)

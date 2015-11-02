@@ -781,18 +781,6 @@ name|parseElements
 operator|.
 name|put
 argument_list|(
-literal|"filter"
-argument_list|,
-operator|new
-name|PostFilterParseElement
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// For bw comp reason, should be removed in version 1.1
-name|parseElements
-operator|.
-name|put
-argument_list|(
 literal|"post_filter"
 argument_list|,
 operator|new

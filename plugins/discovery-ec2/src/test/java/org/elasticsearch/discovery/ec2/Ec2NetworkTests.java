@@ -180,7 +180,7 @@ try|try
 block|{
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
@@ -259,7 +259,7 @@ try|try
 block|{
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
@@ -338,7 +338,7 @@ try|try
 block|{
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
@@ -417,7 +417,7 @@ try|try
 block|{
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
@@ -496,7 +496,7 @@ try|try
 block|{
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
@@ -575,7 +575,7 @@ try|try
 block|{
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
@@ -654,7 +654,7 @@ try|try
 block|{
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
@@ -734,7 +734,7 @@ name|addresses
 init|=
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
 literal|null
 argument_list|)
@@ -747,9 +747,14 @@ name|arrayContaining
 argument_list|(
 name|networkService
 operator|.
-name|resolveBindHostAddress
+name|resolveBindHostAddresses
 argument_list|(
+operator|new
+name|String
+index|[]
+block|{
 literal|"_local_"
+block|}
 argument_list|)
 argument_list|)
 argument_list|)

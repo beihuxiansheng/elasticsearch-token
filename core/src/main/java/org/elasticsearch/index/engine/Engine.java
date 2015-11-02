@@ -490,6 +490,20 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|locks
 operator|.
 name|Condition
@@ -677,6 +691,18 @@ name|Throwable
 name|failedEngine
 init|=
 literal|null
+decl_stmt|;
+comment|/*      * on<tt>lastWriteNanos</tt> we use System.nanoTime() to initialize this since:      *  - we use the value for figuring out if the shard / engine is active so if we startup and no write has happened yet we still consider it active      *    for the duration of the configured active to inactive period. If we initialize to 0 or Long.MAX_VALUE we either immediately or never mark it      *    inactive if no writes at all happen to the shard.      *  - we also use this to flush big-ass merges on an inactive engine / shard but if we we initialize 0 or Long.MAX_VALUE we either immediately or never      *    commit merges even though we shouldn't from a user perspective (this can also have funky sideeffects in tests when we open indices with lots of segments      *    and suddenly merges kick in.      *  NOTE: don't use this value for anything accurate it's a best effort for freeing up diskspace after merges and on a shard level to reduce index buffer sizes on      *  inactive shards.      */
+DECL|field|lastWriteNanos
+specifier|protected
+specifier|volatile
+name|long
+name|lastWriteNanos
+init|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 decl_stmt|;
 DECL|method|Engine
 specifier|protected
@@ -2592,7 +2618,7 @@ parameter_list|()
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Optimizes to 1 segment      */
+comment|/**      * Force merges to 1 segment      */
 DECL|method|forceMerge
 specifier|public
 name|void
@@ -2932,6 +2958,7 @@ specifier|public
 interface|interface
 name|EventListener
 block|{
+comment|/**          * Called when a fatal exception occurred          */
 DECL|method|onFailedEngine
 specifier|default
 name|void
@@ -4937,6 +4964,40 @@ name|void
 name|onSettingsChanged
 parameter_list|()
 block|{     }
+comment|/**      * Returns the timestamp of the last write in nanoseconds.      * Note: this time might not be absolutely accurate since the {@link Operation#startTime()} is used which might be      * slightly inaccurate.      * @see System#nanoTime()      * @see Operation#startTime()      */
+DECL|method|getLastWriteNanos
+specifier|public
+name|long
+name|getLastWriteNanos
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|lastWriteNanos
+return|;
+block|}
+comment|/**      * Called for each new opened engine searcher to warm new segments      * @see EngineConfig#getWarmer()      */
+DECL|interface|Warmer
+specifier|public
+interface|interface
+name|Warmer
+block|{
+comment|/**          * Called once a new Searcher is opened.          * @param searcher the searcer to warm          * @param isTopLevelReader<code>true</code> iff the searcher is build from a top-level reader.          *                         Otherwise the searcher might be build from a leaf reader to warm in isolation          */
+DECL|method|warm
+name|void
+name|warm
+parameter_list|(
+name|Engine
+operator|.
+name|Searcher
+name|searcher
+parameter_list|,
+name|boolean
+name|isTopLevelReader
+parameter_list|)
+function_decl|;
+block|}
 block|}
 end_class
 

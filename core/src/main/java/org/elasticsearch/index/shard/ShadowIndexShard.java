@@ -46,11 +46,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|settings
-operator|.
-name|Settings
+name|IndexSettings
 import|;
 end_import
 
@@ -116,20 +114,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|settings
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|store
 operator|.
 name|Store
@@ -170,9 +154,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 name|ShardPath
@@ -180,6 +162,9 @@ name|path
 parameter_list|,
 name|Store
 name|store
+parameter_list|,
+name|IndexSearcherWrapper
+name|wrapper
 parameter_list|,
 name|IndexServicesProvider
 name|provider
@@ -196,6 +181,8 @@ argument_list|,
 name|path
 argument_list|,
 name|store
+argument_list|,
+name|wrapper
 argument_list|,
 name|provider
 argument_list|)

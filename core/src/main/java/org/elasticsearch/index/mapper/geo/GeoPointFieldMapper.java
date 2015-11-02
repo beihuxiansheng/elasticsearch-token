@@ -110,7 +110,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -603,7 +603,7 @@ specifier|final
 name|int
 name|GEO_HASH_PRECISION
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|PRECISION
 decl_stmt|;
@@ -4613,7 +4613,7 @@ condition|)
 block|{
 name|geohash
 operator|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(

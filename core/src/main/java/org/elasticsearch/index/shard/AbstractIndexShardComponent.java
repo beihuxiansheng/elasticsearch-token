@@ -80,8 +80,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|settings
-operator|.
 name|IndexSettings
 import|;
 end_import
@@ -130,9 +128,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|)
 block|{
@@ -147,6 +143,9 @@ operator|.
 name|indexSettings
 operator|=
 name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -159,6 +158,8 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|,
+name|this
+operator|.
 name|indexSettings
 argument_list|,
 name|shardId
