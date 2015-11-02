@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An processor implementation may modify the data belonging to a document.  * If and what exactly is modified is upto the implementation.  */
+comment|/**  * A processor implementation may modify the data belonging to a document.  * Whether changes are made and what exactly is modified is up to the implementation.  */
 end_comment
 
 begin_interface
@@ -57,7 +57,7 @@ name|Data
 name|data
 parameter_list|)
 function_decl|;
-comment|/**      * A builder to contruct a processor to be used in a pipeline.      */
+comment|/**      * A builder to construct a processor to be used in a pipeline.      */
 DECL|interface|Builder
 interface|interface
 name|Builder
