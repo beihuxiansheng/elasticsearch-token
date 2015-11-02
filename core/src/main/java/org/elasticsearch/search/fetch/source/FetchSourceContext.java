@@ -297,11 +297,6 @@ specifier|private
 name|boolean
 name|fetchSource
 decl_stmt|;
-DECL|field|transformSource
-specifier|private
-name|boolean
-name|transformSource
-decl_stmt|;
 DECL|field|includes
 specifier|private
 name|String
@@ -372,8 +367,6 @@ argument_list|,
 name|Strings
 operator|.
 name|EMPTY_ARRAY
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -437,8 +430,6 @@ index|[]
 block|{
 name|exclude
 block|}
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -460,8 +451,6 @@ argument_list|,
 name|Strings
 operator|.
 name|EMPTY_ARRAY
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -485,8 +474,6 @@ argument_list|,
 name|includes
 argument_list|,
 name|excludes
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -504,9 +491,6 @@ parameter_list|,
 name|String
 index|[]
 name|excludes
-parameter_list|,
-name|boolean
-name|transform
 parameter_list|)
 block|{
 name|this
@@ -543,12 +527,6 @@ name|EMPTY_ARRAY
 else|:
 name|excludes
 expr_stmt|;
-name|this
-operator|.
-name|transformSource
-operator|=
-name|transform
-expr_stmt|;
 block|}
 DECL|method|fetchSource
 specifier|public
@@ -576,39 +554,6 @@ operator|.
 name|fetchSource
 operator|=
 name|fetchSource
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Should the document be transformed after the source is loaded?      */
-DECL|method|transformSource
-specifier|public
-name|boolean
-name|transformSource
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|transformSource
-return|;
-block|}
-comment|/**      * Should the document be transformed after the source is loaded?      * @return this for chaining      */
-DECL|method|transformSource
-specifier|public
-name|FetchSourceContext
-name|transformSource
-parameter_list|(
-name|boolean
-name|transformSource
-parameter_list|)
-block|{
-name|this
-operator|.
-name|transformSource
-operator|=
-name|transformSource
 expr_stmt|;
 return|return
 name|this
@@ -933,18 +878,6 @@ name|sExcludes
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|transform
-init|=
-name|request
-operator|.
-name|paramAsBoolean
-argument_list|(
-literal|"_source_transform"
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|fetchSource
@@ -958,8 +891,6 @@ operator|||
 name|source_excludes
 operator|!=
 literal|null
-operator|||
-name|transform
 condition|)
 block|{
 return|return
@@ -977,8 +908,6 @@ argument_list|,
 name|source_includes
 argument_list|,
 name|source_excludes
-argument_list|,
-name|transform
 argument_list|)
 return|;
 block|}
@@ -1727,13 +1656,12 @@ operator|.
 name|readStringArray
 argument_list|()
 expr_stmt|;
-name|transformSource
-operator|=
 name|in
 operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
+comment|// Used to be transformSource but that was dropped in 2.1
 block|}
 annotation|@
 name|Override
@@ -1773,9 +1701,10 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|transformSource
+literal|false
 argument_list|)
 expr_stmt|;
+comment|// Used to be transformSource but that was dropped in 2.1
 block|}
 annotation|@
 name|Override

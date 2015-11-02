@@ -86,6 +86,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -1702,6 +1714,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|fieldName
+operator|==
+literal|null
+condition|)
+block|{
 name|fieldName
 operator|=
 name|field
@@ -1722,7 +1741,8 @@ operator|.
 name|VALUE_STRING
 condition|)
 block|{
-comment|// A string indicates either a geohash or a lat/lon
+comment|// A string indicates either a geohash or a
+comment|// lat/lon
 comment|// string
 name|String
 name|location
@@ -1779,6 +1799,34 @@ operator|.
 name|geohash
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] field name already set to ["
+operator|+
+name|fieldName
+operator|+
+literal|"] but found ["
+operator|+
+name|field
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

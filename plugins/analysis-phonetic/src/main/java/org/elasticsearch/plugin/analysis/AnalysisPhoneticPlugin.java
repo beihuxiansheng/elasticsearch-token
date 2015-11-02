@@ -26,7 +26,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|AnalysisModule
+name|PhoneticTokenFilterFactory
 import|;
 end_import
 
@@ -36,11 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|indices
 operator|.
 name|analysis
 operator|.
-name|PhoneticAnalysisBinderProcessor
+name|AnalysisModule
 import|;
 end_import
 
@@ -103,11 +103,13 @@ parameter_list|)
 block|{
 name|module
 operator|.
-name|addProcessor
+name|registerTokenFilter
 argument_list|(
+literal|"phonetic"
+argument_list|,
+name|PhoneticTokenFilterFactory
+operator|::
 operator|new
-name|PhoneticAnalysisBinderProcessor
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

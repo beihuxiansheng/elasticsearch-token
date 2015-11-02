@@ -255,7 +255,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[match_all] query does not support ["
+literal|"["
+operator|+
+name|MatchAllQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -263,6 +269,35 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|MatchAllQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] unknown token ["
+operator|+
+name|token
+operator|+
+literal|"] after ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 name|MatchAllQueryBuilder

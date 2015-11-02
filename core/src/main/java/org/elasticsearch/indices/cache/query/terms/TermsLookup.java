@@ -124,6 +124,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|TermsQueryBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -269,7 +283,13 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[terms] query lookup element requires specifying the id."
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query lookup element requires specifying the id."
 argument_list|)
 throw|;
 block|}
@@ -284,7 +304,13 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[terms] query lookup element requires specifying the type."
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query lookup element requires specifying the type."
 argument_list|)
 throw|;
 block|}
@@ -299,7 +325,13 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[terms] query lookup element requires specifying the path."
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query lookup element requires specifying the path."
 argument_list|)
 throw|;
 block|}
@@ -579,7 +611,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[terms] query does not support ["
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -587,6 +625,35 @@ literal|"] within lookup element"
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] unknown token ["
+operator|+
+name|token
+operator|+
+literal|"] after ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 return|return

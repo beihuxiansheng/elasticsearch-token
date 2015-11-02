@@ -251,6 +251,31 @@ name|utf8Bytes
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|TypeQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] filter doesn't support ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{
@@ -263,7 +288,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[type] filter doesn't support ["
+literal|"["
+operator|+
+name|TypeQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] filter doesn't support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -288,7 +319,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[type] filter needs to be provided with a value for the type"
+literal|"["
+operator|+
+name|TypeQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] filter needs to be provided with a value for the type"
 argument_list|)
 throw|;
 block|}

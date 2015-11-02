@@ -263,7 +263,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[terms] query does not support multiple fields"
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support multiple fields"
 argument_list|)
 throw|;
 block|}
@@ -291,6 +297,42 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support more than one field. "
+operator|+
+literal|"Already got: ["
+operator|+
+name|fieldName
+operator|+
+literal|"] but also found ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|currentFieldName
@@ -362,7 +404,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[terms] query does not support ["
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -370,6 +418,35 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] unknown token ["
+operator|+
+name|token
+operator|+
+literal|"] after ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 if|if
@@ -388,7 +465,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"terms query requires a field name, followed by array of terms or a document lookup specification"
+literal|"["
+operator|+
+name|TermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query requires a field name, followed by array of terms or a document lookup specification"
 argument_list|)
 throw|;
 block|}

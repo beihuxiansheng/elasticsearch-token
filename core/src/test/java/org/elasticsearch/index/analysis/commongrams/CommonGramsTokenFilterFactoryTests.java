@@ -270,23 +270,19 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{         }
+catch|catch
+parameter_list|(
+name|IOException
 name|e
 parameter_list|)
 block|{
-name|assertThat
+name|fail
 argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|,
-name|instanceOf
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
+literal|"expected IAE"
 argument_list|)
 expr_stmt|;
 block|}

@@ -307,6 +307,24 @@ block|{
 comment|// expected
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|testUnknownField
+specifier|public
+name|void
+name|testUnknownField
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test doesn't apply for query filter queries"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

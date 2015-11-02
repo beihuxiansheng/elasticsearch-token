@@ -54,9 +54,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|settings
 operator|.
-name|Inject
+name|Settings
 import|;
 end_import
 
@@ -66,11 +66,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Environment
 import|;
 end_import
 
@@ -99,14 +97,15 @@ name|DecimalDigitFilterFactory
 extends|extends
 name|AbstractTokenFilterFactory
 block|{
-annotation|@
-name|Inject
 DECL|method|DecimalDigitFilterFactory
 specifier|public
 name|DecimalDigitFilterFactory
 parameter_list|(
 name|IndexSettings
 name|indexSettings
+parameter_list|,
+name|Environment
+name|env
 parameter_list|,
 name|String
 name|name

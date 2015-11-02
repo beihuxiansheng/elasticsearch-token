@@ -935,8 +935,6 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"future should be a completedFuture for which get should not throw"
-argument_list|,
 name|e
 argument_list|)
 throw|;

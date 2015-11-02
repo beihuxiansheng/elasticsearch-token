@@ -313,13 +313,13 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Expected ProvisionException"
+literal|"Expected IllegalArgumentException"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ProvisionException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
