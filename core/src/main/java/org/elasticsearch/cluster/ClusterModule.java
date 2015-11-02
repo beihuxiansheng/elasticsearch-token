@@ -2125,6 +2125,17 @@ operator|.
 name|BOOLEAN
 argument_list|)
 expr_stmt|;
+name|registerClusterDynamicSetting
+argument_list|(
+name|ShardsLimitAllocationDecider
+operator|.
+name|CLUSTER_TOTAL_SHARDS_PER_NODE
+argument_list|,
+name|Validator
+operator|.
+name|INTEGER
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|registerBuiltinIndexSettings
 specifier|private
