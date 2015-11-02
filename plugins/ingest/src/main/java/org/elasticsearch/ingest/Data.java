@@ -205,6 +205,8 @@ name|String
 name|path
 parameter_list|)
 block|{
+comment|// TODO: we should not rely on any core class, so we should have custom map extract value logic:
+comment|// also XContentMapValues has no support to get specific values from arrays, see: https://github.com/elastic/elasticsearch/issues/14324
 return|return
 operator|(
 name|T
