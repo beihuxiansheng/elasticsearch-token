@@ -1598,7 +1598,7 @@ name|buildDynamicNodes
 argument_list|()
 expr_stmt|;
 block|}
-name|assertEquals
+name|assertThat
 argument_list|(
 name|provider
 operator|.
@@ -1724,7 +1724,7 @@ name|buildDynamicNodes
 argument_list|()
 expr_stmt|;
 block|}
-name|assertEquals
+name|assertThat
 argument_list|(
 name|provider
 operator|.
@@ -1765,7 +1765,7 @@ name|buildDynamicNodes
 argument_list|()
 expr_stmt|;
 block|}
-name|assertEquals
+name|assertThat
 argument_list|(
 name|provider
 operator|.
