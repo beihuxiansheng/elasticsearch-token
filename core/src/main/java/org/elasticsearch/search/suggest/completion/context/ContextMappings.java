@@ -142,20 +142,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|mapper
@@ -714,7 +700,7 @@ name|typedContexts
 return|;
 block|}
 block|}
-comment|/**      * Wraps a {@link CompletionQuery} with context queries,      * individual context mappings adds query contexts using      * {@link ContextMapping#getQueryContexts(List)}s      *      * @param query base completion query to wrap      * @param queryContexts a map of context mapping name and collected query contexts      * @return a context-enabled query      */
+comment|/**      * Wraps a {@link CompletionQuery} with context queries      *      * @param query base completion query to wrap      * @param queryContexts a map of context mapping name and collected query contexts      * @return a context-enabled query      */
 DECL|method|toContextQuery
 specifier|public
 name|ContextQuery
@@ -729,7 +715,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|CategoryQueryContext
+name|QueryContext
 argument_list|>
 argument_list|>
 name|queryContexts
@@ -817,7 +803,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|CategoryQueryContext
+name|QueryContext
 argument_list|>
 name|queryContext
 init|=
@@ -840,15 +826,10 @@ condition|)
 block|{
 for|for
 control|(
-name|CategoryQueryContext
+name|QueryContext
 name|context
 range|:
-name|mapping
-operator|.
-name|getQueryContexts
-argument_list|(
 name|queryContext
-argument_list|)
 control|)
 block|{
 name|scratch

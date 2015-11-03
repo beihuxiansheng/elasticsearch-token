@@ -136,7 +136,7 @@ name|completion
 operator|.
 name|context
 operator|.
-name|CategoryQueryContext
+name|ContextMapping
 import|;
 end_import
 
@@ -231,7 +231,9 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|CategoryQueryContext
+name|ContextMapping
+operator|.
+name|QueryContext
 argument_list|>
 argument_list|>
 name|queryContexts
@@ -341,7 +343,9 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|CategoryQueryContext
+name|ContextMapping
+operator|.
+name|QueryContext
 argument_list|>
 argument_list|>
 name|queryContexts
