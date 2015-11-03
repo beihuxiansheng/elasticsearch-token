@@ -138,7 +138,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[common] query malformed, no field"
+literal|"["
+operator|+
+name|CommonTermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query malformed, no field"
 argument_list|)
 throw|;
 block|}
@@ -412,7 +418,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[common] query does not support ["
+literal|"["
+operator|+
+name|CommonTermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|innerFieldName
 operator|+
@@ -424,6 +436,35 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|CommonTermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] unexpected token type ["
+operator|+
+name|token
+operator|+
+literal|"] after ["
+operator|+
+name|innerFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
@@ -438,7 +479,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[common] query does not support ["
+literal|"["
+operator|+
+name|CommonTermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -675,7 +722,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[common] query does not support ["
+literal|"["
+operator|+
+name|CommonTermsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+

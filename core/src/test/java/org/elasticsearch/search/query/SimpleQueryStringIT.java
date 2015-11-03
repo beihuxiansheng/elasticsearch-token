@@ -1086,71 +1086,6 @@ argument_list|(
 literal|"--> query 3"
 argument_list|)
 expr_stmt|;
-comment|// test case from #13884
-name|searchResponse
-operator|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|()
-operator|.
-name|setQuery
-argument_list|(
-name|simpleQueryStringQuery
-argument_list|(
-literal|"foo"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"body"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"body2"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"body3"
-argument_list|)
-operator|.
-name|minimumShouldMatch
-argument_list|(
-literal|"-50%"
-argument_list|)
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|assertHitCount
-argument_list|(
-name|searchResponse
-argument_list|,
-literal|3l
-argument_list|)
-expr_stmt|;
-name|assertSearchHits
-argument_list|(
-name|searchResponse
-argument_list|,
-literal|"1"
-argument_list|,
-literal|"3"
-argument_list|,
-literal|"4"
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> query 4"
-argument_list|)
-expr_stmt|;
 name|searchResponse
 operator|=
 name|client
@@ -1304,7 +1239,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> query 5"
+literal|"--> query 4"
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -1365,7 +1300,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> query 6"
+literal|"--> query 5"
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -1418,7 +1353,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> query 7"
+literal|"--> query 6"
 argument_list|)
 expr_stmt|;
 name|searchResponse

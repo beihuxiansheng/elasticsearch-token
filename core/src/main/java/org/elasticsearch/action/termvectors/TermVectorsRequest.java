@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticsearchParseException
 import|;
 end_import
@@ -3125,7 +3115,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchException
+name|ElasticsearchParseException
 argument_list|(
 literal|"expecting the analyzer at [{}] to be a String, but found [{}] instead"
 argument_list|,
