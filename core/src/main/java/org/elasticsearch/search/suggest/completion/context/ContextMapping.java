@@ -259,9 +259,6 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|type

@@ -487,6 +487,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Returns the maximum number of edits          */
 DECL|method|getEditDistance
 name|int
 name|getEditDistance
@@ -496,6 +497,7 @@ return|return
 name|editDistance
 return|;
 block|}
+comment|/**          * Returns if transpositions option is set          *          * if transpositions is set, then swapping one character for another counts as one edit instead of two.          */
 DECL|method|isTranspositions
 name|boolean
 name|isTranspositions
@@ -505,6 +507,7 @@ return|return
 name|transpositions
 return|;
 block|}
+comment|/**          * Returns the length of input prefix after which edits are applied          */
 DECL|method|getFuzzyMinLength
 name|int
 name|getFuzzyMinLength
@@ -514,6 +517,7 @@ return|return
 name|fuzzyMinLength
 return|;
 block|}
+comment|/**          * Returns the minimum length of the input prefix required to apply any edits          */
 DECL|method|getFuzzyPrefixLength
 name|int
 name|getFuzzyPrefixLength
@@ -523,6 +527,7 @@ return|return
 name|fuzzyPrefixLength
 return|;
 block|}
+comment|/**          * Returns if all measurements (like edit distance, transpositions and lengths) are in unicode code          * points (actual letters) instead of bytes.          */
 DECL|method|isUnicodeAware
 name|boolean
 name|isUnicodeAware
@@ -532,6 +537,7 @@ return|return
 name|unicodeAware
 return|;
 block|}
+comment|/**          * Returns the maximum automaton states allowed for fuzzy expansion          */
 DECL|method|getMaxDeterminizedStates
 name|int
 name|getMaxDeterminizedStates

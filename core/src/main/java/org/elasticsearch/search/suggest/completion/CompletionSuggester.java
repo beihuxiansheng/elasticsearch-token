@@ -435,7 +435,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchException
+name|IllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+
@@ -614,6 +614,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// collect payloads
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -625,10 +626,12 @@ argument_list|>
 argument_list|>
 name|payload
 init|=
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|Set
 argument_list|<
@@ -697,18 +700,6 @@ name|subReaderContext
 operator|.
 name|docBase
 decl_stmt|;
-name|payload
-operator|=
-operator|new
-name|LinkedHashMap
-argument_list|<>
-argument_list|(
-name|payloadFields
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|String
