@@ -1420,28 +1420,16 @@ name|InvalidShapeException
 name|e
 parameter_list|)
 block|{         }
-comment|// Not specified
-comment|//        try {
-comment|//            // two overlapping polygons within a multipolygon
-comment|//            ShapeBuilder.newMultiPolygon()
-comment|//                .polygon()
-comment|//                    .point(-10, -10)
-comment|//                    .point(-10, 10)
-comment|//                    .point(10, 10)
-comment|//                    .point(10, -10)
-comment|//                .close()
-comment|//                .polygon()
-comment|//                    .point(-5, -5).point(-5, 5).point(5, 5).point(5, -5)
-comment|//                .close().build();
-comment|//            fail("Polygon intersection not detected";
-comment|//        } catch (InvalidShapeException e) {}
 comment|// Multipolygon: polygon with hole and polygon within the whole
-name|ShapeBuilders
+name|ShapeBuilder
 operator|.
 name|newMultiPolygon
 argument_list|()
 operator|.
 name|polygon
+argument_list|(
+operator|new
+name|PolygonBuilder
 argument_list|()
 operator|.
 name|point
@@ -1516,8 +1504,12 @@ argument_list|()
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|polygon
+argument_list|(
+operator|new
+name|PolygonBuilder
 argument_list|()
 operator|.
 name|point
@@ -1554,26 +1546,11 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|build
 argument_list|()
 expr_stmt|;
-comment|// Not supported
-comment|//        try {
-comment|//            // Multipolygon: polygon with hole and polygon within the hole but overlapping
-comment|//            ShapeBuilder.newMultiPolygon()
-comment|//                .polygon()
-comment|//                    .point(-10, -10).point(-10, 10).point(10, 10).point(10, -10)
-comment|//                    .hole()
-comment|//                        .point(-5, -5).point(-5, 5).point(5, 5).point(5, -5)
-comment|//                    .close()
-comment|//                .close()
-comment|//                .polygon()
-comment|//                    .point(-4, -4).point(-4, 6).point(4, 6).point(4, -4)
-comment|//                .close()
-comment|//                .build();
-comment|//            fail("Polygon intersection not detected";
-comment|//        } catch (InvalidShapeException e) {}
 block|}
 DECL|method|testShapeRelations
 specifier|public
@@ -1725,12 +1702,15 @@ comment|// the second polygon of size 4x4 equidistant from all sites
 name|MultiPolygonBuilder
 name|polygon
 init|=
-name|ShapeBuilders
+name|ShapeBuilder
 operator|.
 name|newMultiPolygon
 argument_list|()
 operator|.
 name|polygon
+argument_list|(
+operator|new
+name|PolygonBuilder
 argument_list|()
 operator|.
 name|point
@@ -1805,8 +1785,12 @@ argument_list|()
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|polygon
+argument_list|(
+operator|new
+name|PolygonBuilder
 argument_list|()
 operator|.
 name|point
@@ -1843,6 +1827,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|BytesReference
 name|data
