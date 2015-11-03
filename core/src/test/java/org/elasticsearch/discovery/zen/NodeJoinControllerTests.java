@@ -697,7 +697,9 @@ block|}
 name|nodeJoinController
 operator|.
 name|stopAccumulatingJoins
-argument_list|()
+argument_list|(
+literal|"test"
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -959,7 +961,9 @@ block|}
 name|nodeJoinController
 operator|.
 name|stopAccumulatingJoins
-argument_list|()
+argument_list|(
+literal|"test"
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -2062,7 +2066,9 @@ expr_stmt|;
 name|nodeJoinController
 operator|.
 name|stopAccumulatingJoins
-argument_list|()
+argument_list|(
+literal|"test"
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testMasterElectionTimeout
