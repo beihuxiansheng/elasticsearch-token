@@ -4799,18 +4799,15 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|method|newQueryParserContext
+comment|/**      * Returns this nodes {@link IndicesQueriesRegistry}      */
+DECL|method|getIndicesQueryRegistry
 specifier|public
-name|QueryParseContext
-name|newQueryParserContext
+name|IndicesQueriesRegistry
+name|getIndicesQueryRegistry
 parameter_list|()
 block|{
 return|return
-operator|new
-name|QueryParseContext
-argument_list|(
 name|indicesQueriesRegistry
-argument_list|)
 return|;
 block|}
 block|}

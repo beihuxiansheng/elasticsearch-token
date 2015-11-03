@@ -1211,8 +1211,9 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
 name|QueryShardContext
-name|queryParserService
+name|queryShardContext
 init|=
 name|indexShard
 operator|.
@@ -1310,7 +1311,7 @@ name|searchContext
 operator|.
 name|parsedQuery
 argument_list|(
-name|queryParserService
+name|queryShardContext
 operator|.
 name|toQuery
 argument_list|(

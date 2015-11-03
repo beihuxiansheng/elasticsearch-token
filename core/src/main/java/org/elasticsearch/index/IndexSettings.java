@@ -941,10 +941,11 @@ return|return
 name|parseFieldMatcher
 return|;
 block|}
-DECL|method|isMatchIndexName
+comment|/**      * Returns<code>true</code> if the given expression matches the index name or one of it's aliases      */
+DECL|method|matchesIndexName
 specifier|public
 name|boolean
-name|isMatchIndexName
+name|matchesIndexName
 parameter_list|(
 name|String
 name|expression

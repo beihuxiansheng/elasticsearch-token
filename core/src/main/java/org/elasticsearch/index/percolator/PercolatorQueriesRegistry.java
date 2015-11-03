@@ -1188,10 +1188,11 @@ block|}
 name|QueryShardContext
 name|context
 init|=
+operator|new
+name|QueryShardContext
+argument_list|(
 name|queryShardContext
-operator|.
-name|clone
-argument_list|()
+argument_list|)
 decl_stmt|;
 try|try
 block|{
