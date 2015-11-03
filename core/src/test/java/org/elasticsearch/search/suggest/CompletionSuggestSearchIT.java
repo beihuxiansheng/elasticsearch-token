@@ -1907,7 +1907,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"expected string values in [payload] array"
+literal|"ParsingException[[completion] failed to parse field [payload]]; nested: IllegalStateException[expected value but got [START_OBJECT]]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2510,7 +2510,7 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|,
-name|contains
+name|containsInAnyOrder
 argument_list|(
 literal|"title"
 argument_list|,
@@ -2592,7 +2592,7 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|,
-name|contains
+name|containsInAnyOrder
 argument_list|(
 literal|"title"
 argument_list|,
