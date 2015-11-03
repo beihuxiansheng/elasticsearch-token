@@ -60,7 +60,7 @@ end_import
 
 begin_class
 DECL|class|GrokMatchGroup
-specifier|public
+specifier|final
 class|class
 name|GrokMatchGroup
 block|{

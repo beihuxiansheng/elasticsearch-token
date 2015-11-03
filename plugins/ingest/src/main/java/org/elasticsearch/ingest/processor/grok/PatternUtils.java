@@ -82,7 +82,6 @@ end_import
 
 begin_class
 DECL|class|PatternUtils
-specifier|public
 specifier|final
 class|class
 name|PatternUtils
