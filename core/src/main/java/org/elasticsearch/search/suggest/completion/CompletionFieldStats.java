@@ -239,6 +239,7 @@ name|CompletionTerms
 condition|)
 block|{
 comment|// TODO: currently we load up the suggester for reporting it's size
+comment|// nocommit - this is pretty trappy do we have any way to detect this?
 name|long
 name|fstSize
 init|=
@@ -299,7 +300,9 @@ parameter_list|(
 name|IOException
 name|ignored
 parameter_list|)
-block|{             }
+block|{
+comment|//nocommit - why do we ignore this exception?
+block|}
 block|}
 return|return
 operator|new

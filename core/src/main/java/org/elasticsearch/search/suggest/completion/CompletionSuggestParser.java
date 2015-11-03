@@ -308,6 +308,7 @@ name|SuggestContextParser
 block|{
 DECL|field|completionSuggester
 specifier|private
+specifier|final
 name|CompletionSuggester
 name|completionSuggester
 decl_stmt|;
@@ -368,6 +369,7 @@ name|fieldName
 init|=
 literal|null
 decl_stmt|;
+specifier|final
 name|CompletionSuggestionContext
 name|suggestion
 init|=
@@ -375,6 +377,10 @@ operator|new
 name|CompletionSuggestionContext
 argument_list|(
 name|completionSuggester
+argument_list|,
+name|mapperService
+argument_list|,
+name|fieldDataService
 argument_list|)
 decl_stmt|;
 name|XContentParser
@@ -396,6 +402,7 @@ name|regexOptions
 init|=
 literal|null
 decl_stmt|;
+specifier|final
 name|Set
 argument_list|<
 name|String
@@ -1371,20 +1378,6 @@ argument_list|)
 expr_stmt|;
 name|suggestion
 operator|.
-name|setMapperService
-argument_list|(
-name|mapperService
-argument_list|)
-expr_stmt|;
-name|suggestion
-operator|.
-name|setFieldData
-argument_list|(
-name|fieldDataService
-argument_list|)
-expr_stmt|;
-name|suggestion
-operator|.
 name|setPayloadFields
 argument_list|(
 name|payloadFields
@@ -1398,7 +1391,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchException
+name|IllegalArgumentException
 argument_list|(
 literal|"Field ["
 operator|+
