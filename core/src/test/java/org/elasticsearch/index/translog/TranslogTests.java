@@ -2385,7 +2385,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|431
+literal|437
 argument_list|,
 name|total
 operator|.
@@ -2441,7 +2441,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|431
+literal|437
 argument_list|,
 name|copy
 operator|.
@@ -2455,7 +2455,7 @@ literal|"\"translog\"{\n"
 operator|+
 literal|"  \"operations\" : 6,\n"
 operator|+
-literal|"  \"size_in_bytes\" : 431\n"
+literal|"  \"size_in_bytes\" : 437\n"
 operator|+
 literal|"}"
 argument_list|,
@@ -3628,6 +3628,8 @@ literal|"_"
 operator|+
 name|opCount
 argument_list|)
+argument_list|,
+name|opCount
 argument_list|,
 literal|1
 operator|+
@@ -8493,7 +8495,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Checkpoint file translog-2.ckp already exists but has corrupted content expected: Checkpoint{offset=2683, numOps=55, translogFileGeneration= 2} but got: Checkpoint{offset=0, numOps=0, translogFileGeneration= 0}"
+literal|"Checkpoint file translog-2.ckp already exists but has corrupted content expected: Checkpoint{offset=2738, numOps=55, translogFileGeneration= 2} but got: Checkpoint{offset=0, numOps=0, translogFileGeneration= 0}"
 argument_list|)
 expr_stmt|;
 block|}

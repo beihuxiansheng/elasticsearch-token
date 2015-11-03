@@ -1229,6 +1229,17 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+name|Field
+name|seqNoField
+init|=
+operator|new
+name|NumericDocValuesField
+argument_list|(
+literal|"_seq_no"
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
 name|document
 operator|.
 name|add
@@ -1250,6 +1261,8 @@ argument_list|(
 name|uidField
 argument_list|,
 name|versionField
+argument_list|,
+name|seqNoField
 argument_list|,
 name|id
 argument_list|,

@@ -22,7 +22,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -222,43 +222,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
+name|*
 import|;
 end_import
 
@@ -826,7 +790,7 @@ specifier|private
 name|void
 name|assertShardInfo
 parameter_list|(
-name|ActionWriteResponse
+name|ReplicationResponse
 name|response
 parameter_list|)
 block|{
@@ -845,7 +809,7 @@ specifier|private
 name|void
 name|assertShardInfo
 parameter_list|(
-name|ActionWriteResponse
+name|ReplicationResponse
 name|response
 parameter_list|,
 name|int

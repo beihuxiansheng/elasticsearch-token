@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A simple based class that always spawns.  */
+comment|/**  * A simple base class that always spawns.  */
 end_comment
 
 begin_class

@@ -698,6 +698,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|seqno
+operator|.
+name|SequenceNumbersService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|*
@@ -1666,6 +1680,17 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+name|Field
+name|seqNoField
+init|=
+operator|new
+name|NumericDocValuesField
+argument_list|(
+literal|"_seq_no"
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
 name|document
 operator|.
 name|add
@@ -1687,6 +1712,8 @@ argument_list|(
 name|uidField
 argument_list|,
 name|versionField
+argument_list|,
+name|seqNoField
 argument_list|,
 name|id
 argument_list|,
@@ -7638,6 +7665,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 name|Versions
 operator|.
 name|MATCH_ANY
@@ -8055,10 +8086,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|testSycnedFlushSurvivesEngineRestart
+DECL|method|testSyncedFlushSurvivesEngineRestart
 specifier|public
 name|void
-name|testSycnedFlushSurvivesEngineRestart
+name|testSyncedFlushSurvivesEngineRestart
 parameter_list|()
 throws|throws
 name|IOException
@@ -8250,10 +8281,10 @@ name|syncId
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSycnedFlushVanishesOnReplay
+DECL|method|testSyncedFlushVanishesOnReplay
 specifier|public
 name|void
-name|testSycnedFlushVanishesOnReplay
+name|testSyncedFlushVanishesOnReplay
 parameter_list|()
 throws|throws
 name|IOException
@@ -8610,6 +8641,11 @@ name|doc
 argument_list|,
 name|create
 operator|.
+name|seqNo
+argument_list|()
+argument_list|,
+name|create
+operator|.
 name|version
 argument_list|()
 argument_list|,
@@ -8734,6 +8770,11 @@ name|doc
 argument_list|,
 name|index
 operator|.
+name|seqNo
+argument_list|()
+argument_list|,
+name|index
+operator|.
 name|version
 argument_list|()
 argument_list|,
@@ -8821,6 +8862,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|12
 argument_list|,
 name|VersionType
@@ -8865,6 +8910,11 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|index
+operator|.
+name|seqNo
+argument_list|()
 argument_list|,
 name|index
 operator|.
@@ -9025,6 +9075,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|1l
 argument_list|,
 name|VersionType
@@ -9077,6 +9131,10 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|3l
 argument_list|,
@@ -9161,6 +9219,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|12
 argument_list|,
 name|VersionType
@@ -9206,6 +9268,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|14
 argument_list|,
 name|VersionType
@@ -9250,6 +9316,10 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|13
 argument_list|,
@@ -9409,6 +9479,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|1l
 argument_list|,
 name|VersionType
@@ -9455,6 +9529,10 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|3l
 argument_list|,
@@ -9539,6 +9617,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|12
 argument_list|,
 name|VersionType
@@ -9583,6 +9665,10 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|14
 argument_list|,
@@ -9633,6 +9719,10 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|13
 argument_list|,
@@ -10683,6 +10773,10 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|1l
 argument_list|,
 name|VersionType
@@ -10733,6 +10827,10 @@ name|newUid
 argument_list|(
 literal|"1"
 argument_list|)
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|3l
 argument_list|,
@@ -10785,6 +10883,10 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|2l
 argument_list|,
 name|VersionType
@@ -10833,6 +10935,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|2l
 argument_list|,
 name|VersionType
@@ -10865,7 +10971,7 @@ parameter_list|)
 block|{
 comment|// all is well
 block|}
-comment|// we shouldn't be able to create as well
+comment|// we should be able to create as well
 name|Engine
 operator|.
 name|Index
@@ -10883,6 +10989,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 name|Versions
 operator|.
 name|MATCH_DELETED
@@ -10896,8 +11006,6 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|engine
 operator|.
 name|index
@@ -10905,15 +11013,6 @@ argument_list|(
 name|create
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|VersionConflictEngineException
-name|e
-parameter_list|)
-block|{
-comment|// all is well
-block|}
 block|}
 DECL|method|testVersioningDeleteConflictWithFlush
 specifier|public
@@ -11045,6 +11144,10 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|1l
 argument_list|,
 name|VersionType
@@ -11095,6 +11198,10 @@ name|newUid
 argument_list|(
 literal|"1"
 argument_list|)
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|3l
 argument_list|,
@@ -11152,6 +11259,10 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|2l
 argument_list|,
 name|VersionType
@@ -11205,6 +11316,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|2l
 argument_list|,
 name|VersionType
@@ -11237,7 +11352,7 @@ parameter_list|)
 block|{
 comment|// all is well
 block|}
-comment|// we shouldn't be able to create as well
+comment|// we should be able to create
 name|Engine
 operator|.
 name|Index
@@ -11255,6 +11370,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 name|Versions
 operator|.
 name|MATCH_DELETED
@@ -11268,8 +11387,6 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|engine
 operator|.
 name|index
@@ -11277,15 +11394,6 @@ argument_list|(
 name|create
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|VersionConflictEngineException
-name|e
-parameter_list|)
-block|{
-comment|// all is well
-block|}
 block|}
 DECL|method|testVersioningCreateExistsException
 specifier|public
@@ -11337,6 +11445,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 name|Versions
 operator|.
 name|MATCH_DELETED
@@ -11383,6 +11495,10 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 name|Versions
 operator|.
@@ -11469,6 +11585,9 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+operator|-
+literal|1
+argument_list|,
 name|Versions
 operator|.
 name|MATCH_DELETED
@@ -11520,6 +11639,9 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+operator|-
+literal|1
 argument_list|,
 name|Versions
 operator|.
@@ -11679,6 +11801,11 @@ name|doc
 argument_list|,
 name|index
 operator|.
+name|seqNo
+argument_list|()
+argument_list|,
+name|index
+operator|.
 name|version
 argument_list|()
 argument_list|,
@@ -11728,6 +11855,11 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|index
+operator|.
+name|seqNo
+argument_list|()
 argument_list|,
 literal|1l
 argument_list|,
@@ -11780,6 +11912,11 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|index
+operator|.
+name|seqNo
+argument_list|()
 argument_list|,
 literal|2l
 argument_list|,
@@ -11911,6 +12048,11 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|index
+operator|.
+name|seqNo
+argument_list|()
+argument_list|,
 literal|1l
 argument_list|,
 name|VersionType
@@ -12039,6 +12181,11 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|,
+name|delete
+operator|.
+name|seqNo
+argument_list|()
+argument_list|,
 literal|3l
 argument_list|,
 name|VersionType
@@ -12094,6 +12241,11 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|,
+name|delete
+operator|.
+name|seqNo
+argument_list|()
+argument_list|,
 literal|3l
 argument_list|,
 name|VersionType
@@ -12147,6 +12299,11 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|index
+operator|.
+name|seqNo
+argument_list|()
 argument_list|,
 literal|2l
 argument_list|,
@@ -13054,6 +13211,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|1
 argument_list|,
 name|VersionType
@@ -13093,6 +13254,10 @@ name|newUid
 argument_list|(
 literal|"1"
 argument_list|)
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|10
 argument_list|,
@@ -13195,6 +13360,10 @@ argument_list|(
 literal|"2"
 argument_list|)
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|10
 argument_list|,
 name|VersionType
@@ -13270,6 +13439,10 @@ literal|"1"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|2
 argument_list|,
@@ -13358,6 +13531,10 @@ literal|"2"
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|2
 argument_list|,
@@ -13977,6 +14154,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|2
 argument_list|,
 name|VersionType
@@ -14090,6 +14271,10 @@ argument_list|(
 name|id
 argument_list|)
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|10
 argument_list|,
 name|VersionType
@@ -14117,16 +14302,8 @@ block|}
 comment|// We must assertBusy because refresh due to version map being full is done in background (REFRESH) thread pool:
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|Searcher
 name|s2
@@ -14170,7 +14347,6 @@ name|version1
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
@@ -14375,8 +14551,9 @@ literal|"test"
 argument_list|,
 literal|null
 argument_list|,
-operator|-
-literal|1
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 operator|-
 literal|1
@@ -14414,6 +14591,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 name|Versions
 operator|.
@@ -14850,6 +15031,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 name|Versions
 operator|.
@@ -15843,6 +16028,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 name|Versions
 operator|.
 name|MATCH_DELETED
@@ -16118,6 +16307,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 name|Versions
 operator|.
@@ -16606,6 +16799,10 @@ argument_list|)
 argument_list|,
 name|doc
 argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
+argument_list|,
 literal|1
 argument_list|,
 name|VersionType
@@ -16702,6 +16899,10 @@ name|uuidValue
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 literal|2
 argument_list|,
@@ -17331,6 +17532,10 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|doc
+argument_list|,
+name|SequenceNumbersService
+operator|.
+name|UNASSIGNED_SEQ_NO
 argument_list|,
 name|Versions
 operator|.

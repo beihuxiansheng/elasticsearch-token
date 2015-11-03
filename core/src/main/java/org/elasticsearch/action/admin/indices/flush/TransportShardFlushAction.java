@@ -28,7 +28,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -296,7 +296,7 @@ name|ShardFlushRequest
 argument_list|,
 name|ShardFlushRequest
 argument_list|,
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 block|{
 DECL|field|NAME
@@ -388,13 +388,13 @@ annotation|@
 name|Override
 DECL|method|newResponseInstance
 specifier|protected
-name|ActionWriteResponse
+name|ReplicationResponse
 name|newResponseInstance
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 return|;
 block|}
@@ -404,7 +404,7 @@ DECL|method|shardOperationOnPrimary
 specifier|protected
 name|Tuple
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|,
 name|ShardFlushRequest
 argument_list|>
@@ -474,7 +474,7 @@ name|Tuple
 argument_list|<>
 argument_list|(
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 argument_list|,
 name|shardRequest

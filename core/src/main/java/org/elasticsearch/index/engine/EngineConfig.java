@@ -701,7 +701,7 @@ parameter_list|,
 name|b
 parameter_list|)
 lambda|->
-block|{}
+block|{         }
 else|:
 name|warmer
 expr_stmt|;
@@ -1067,7 +1067,7 @@ return|return
 name|gcDeletesInMillis
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff delete garbage collection in the engine should be enabled. This setting is updateable      * in realtime and forces a volatile read. Consumers can safely read this value directly go fetch it's latest value. The default is<code>true</code>      *<p>      *     Engine GC deletion if enabled collects deleted documents from in-memory realtime data structures after a certain amount of      *     time ({@link #getGcDeletesInMillis()} if enabled. Before deletes are GCed they will cause re-adding the document that was deleted      *     to fail.      *</p>      */
+comment|/**      * Returns<code>true</code> iff delete garbage collection in the engine should be enabled. This setting is updateable      * in realtime and forces a volatile read. Consumers can safely read this value directly go fetch it's latest value. The default is<code>true</code>      *<p>      * Engine GC deletion if enabled collects deleted documents from in-memory realtime data structures after a certain amount of      * time ({@link #getGcDeletesInMillis()} if enabled. Before deletes are GCed they will cause re-adding the document that was deleted      * to fail.      *</p>      */
 DECL|method|isEnableGcDeletes
 specifier|public
 name|boolean
@@ -1078,7 +1078,7 @@ return|return
 name|enableGcDeletes
 return|;
 block|}
-comment|/**      * Returns the {@link Codec} used in the engines {@link org.apache.lucene.index.IndexWriter}      *<p>      *     Note: this settings is only read on startup.      *</p>      */
+comment|/**      * Returns the {@link Codec} used in the engines {@link org.apache.lucene.index.IndexWriter}      *<p>      * Note: this settings is only read on startup.      *</p>      */
 DECL|method|getCodec
 specifier|public
 name|Codec
@@ -1105,7 +1105,7 @@ return|return
 name|threadPool
 return|;
 block|}
-comment|/**      * Returns a {@link org.elasticsearch.index.indexing.ShardIndexingService} used inside the engine to inform about      * pre and post index. The operations are used for statistic purposes etc.      *      * @see org.elasticsearch.index.indexing.ShardIndexingService#postIndex(Engine.Index)      * @see org.elasticsearch.index.indexing.ShardIndexingService#preIndex(Engine.Index)      *      */
+comment|/**      * Returns a {@link org.elasticsearch.index.indexing.ShardIndexingService} used inside the engine to inform about      * pre and post index. The operations are used for statistic purposes etc.      *      * @see org.elasticsearch.index.indexing.ShardIndexingService#postIndex(Engine.Index)      * @see org.elasticsearch.index.indexing.ShardIndexingService#preIndex(Engine.Index)      */
 DECL|method|getIndexingService
 specifier|public
 name|ShardIndexingService

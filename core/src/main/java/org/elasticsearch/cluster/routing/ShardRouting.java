@@ -815,6 +815,25 @@ operator|.
 name|RELOCATING
 return|;
 block|}
+comment|/**      * Returns<code>true</code> if this shard is a relocation target for another shard (i.e., was created with {@link #buildTargetRelocatingShard()}      *      */
+DECL|method|isRelocationTarget
+specifier|public
+name|boolean
+name|isRelocationTarget
+parameter_list|()
+block|{
+return|return
+name|state
+operator|==
+name|ShardRoutingState
+operator|.
+name|INITIALIZING
+operator|&&
+name|relocatingNodeId
+operator|!=
+literal|null
+return|;
+block|}
 comment|/**      * Returns<code>true</code> iff this shard is assigned to a node ie. not      * {@link ShardRoutingState#UNASSIGNED unassigned}. Otherwise<code>false</code>      */
 DECL|method|assignedToNode
 specifier|public
