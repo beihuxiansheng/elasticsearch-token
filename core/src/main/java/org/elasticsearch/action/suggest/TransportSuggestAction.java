@@ -1092,11 +1092,6 @@ operator|.
 name|mapperService
 argument_list|()
 argument_list|,
-name|indexService
-operator|.
-name|queryParserService
-argument_list|()
-argument_list|,
 name|request
 operator|.
 name|shardId

@@ -58,20 +58,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|IndexQueryParserService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -87,7 +73,6 @@ interface|interface
 name|SuggestContextParser
 block|{
 DECL|method|parse
-specifier|public
 name|SuggestionSearchContext
 operator|.
 name|SuggestionContext
@@ -98,9 +83,6 @@ name|parser
 parameter_list|,
 name|MapperService
 name|mapperService
-parameter_list|,
-name|IndexQueryParserService
-name|queryParserService
 parameter_list|,
 name|HasContextAndHeaders
 name|headersContext

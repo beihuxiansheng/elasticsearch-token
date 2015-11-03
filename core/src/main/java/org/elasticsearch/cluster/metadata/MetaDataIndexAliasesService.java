@@ -771,7 +771,7 @@ name|filter
 argument_list|,
 name|indexService
 operator|.
-name|queryParserService
+name|getQueryShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;

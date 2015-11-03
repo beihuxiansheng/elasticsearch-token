@@ -448,9 +448,6 @@ operator|new
 name|QueryShardContext
 argument_list|(
 name|context
-operator|.
-name|indexQueryParserService
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|contextCopy
@@ -465,9 +462,6 @@ operator|.
 name|parseFieldMatcher
 argument_list|(
 name|context
-operator|.
-name|indexQueryParserService
-argument_list|()
 operator|.
 name|parseFieldMatcher
 argument_list|()
