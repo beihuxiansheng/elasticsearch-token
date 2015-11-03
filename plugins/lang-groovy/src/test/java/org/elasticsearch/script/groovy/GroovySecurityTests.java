@@ -261,6 +261,12 @@ argument_list|(
 literal|"def v = doc['foo'].value; def m = [:]; m.put(\"value\", v)"
 argument_list|)
 expr_stmt|;
+comment|// serialization to json (this is best effort considering the unsafe etc at play)
+name|assertSuccess
+argument_list|(
+literal|"def x = 5; groovy.json.JsonOutput.toJson(x)"
+argument_list|)
+expr_stmt|;
 comment|// Times
 name|assertSuccess
 argument_list|(
