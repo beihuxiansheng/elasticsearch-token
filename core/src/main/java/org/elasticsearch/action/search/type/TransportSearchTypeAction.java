@@ -1600,6 +1600,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|final
+name|ShardSearchFailure
+index|[]
+name|shardSearchFailures
+init|=
+name|buildShardFailures
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|successfulOps
@@ -1642,8 +1650,9 @@ argument_list|()
 argument_list|,
 literal|"all shards failed"
 argument_list|,
-name|buildShardFailures
-argument_list|()
+name|t
+argument_list|,
+name|shardSearchFailures
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1674,8 +1683,7 @@ literal|""
 argument_list|,
 name|e
 argument_list|,
-name|buildShardFailures
-argument_list|()
+name|shardSearchFailures
 argument_list|)
 argument_list|)
 expr_stmt|;
