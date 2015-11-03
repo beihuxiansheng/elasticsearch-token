@@ -1903,7 +1903,7 @@ literal|null
 else|:
 name|poolInfo
 operator|.
-name|getType
+name|getThreadPoolType
 argument_list|()
 argument_list|)
 expr_stmt|;
