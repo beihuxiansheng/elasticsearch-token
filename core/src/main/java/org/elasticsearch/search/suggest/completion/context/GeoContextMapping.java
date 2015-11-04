@@ -1391,7 +1391,8 @@ if|if
 condition|(
 name|queryContext
 operator|.
-name|precision
+name|getPrecision
+argument_list|()
 operator|!=
 operator|-
 literal|1
@@ -1407,7 +1408,8 @@ name|minPrecision
 argument_list|,
 name|queryContext
 operator|.
-name|precision
+name|getPrecision
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1416,7 +1418,8 @@ name|point
 init|=
 name|queryContext
 operator|.
-name|geoPoint
+name|getGeoPoint
+argument_list|()
 decl_stmt|;
 specifier|final
 name|Collection
@@ -1461,7 +1464,8 @@ if|if
 condition|(
 name|queryContext
 operator|.
-name|neighbours
+name|getNeighbours
+argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
@@ -1491,7 +1495,8 @@ if|if
 condition|(
 name|queryContext
 operator|.
-name|neighbours
+name|getNeighbours
+argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
@@ -1506,7 +1511,8 @@ name|neighbourPrecision
 range|:
 name|queryContext
 operator|.
-name|neighbours
+name|getNeighbours
+argument_list|()
 control|)
 block|{
 if|if
@@ -1569,7 +1575,8 @@ name|location
 argument_list|,
 name|queryContext
 operator|.
-name|boost
+name|getBoost
+argument_list|()
 argument_list|,
 name|location
 operator|.
