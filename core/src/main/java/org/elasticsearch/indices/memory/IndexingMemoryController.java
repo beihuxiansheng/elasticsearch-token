@@ -2082,11 +2082,16 @@ name|getInactiveTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|Boolean
 operator|.
 name|TRUE
+return|;
+block|}
+return|return
+name|Boolean
+operator|.
+name|FALSE
 return|;
 block|}
 catch|catch
