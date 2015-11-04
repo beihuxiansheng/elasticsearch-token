@@ -883,11 +883,7 @@ name|add
 argument_list|(
 operator|new
 name|SearchModule
-argument_list|(
-name|this
-operator|.
-name|settings
-argument_list|)
+argument_list|()
 block|{
 annotation|@
 name|Override

@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|DirectoryReader
 import|;
 end_import
 
@@ -43,8 +43,36 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|ReaderClosedListener
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|LeafReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|LeafReader
+operator|.
+name|CoreClosedListener
 import|;
 end_import
 
@@ -138,6 +166,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ConcurrentMap
@@ -154,6 +192,7 @@ specifier|public
 class|class
 name|Versions
 block|{
+comment|/** used to indicate the write operation should succeed regardless of current version **/
 DECL|field|MATCH_ANY
 specifier|public
 specifier|static
@@ -164,7 +203,7 @@ init|=
 operator|-
 literal|3L
 decl_stmt|;
-comment|// Version was not specified by the user
+comment|/** indicates that the current document was not found in lucene and in the version map */
 DECL|field|NOT_FOUND
 specifier|public
 specifier|static
@@ -175,6 +214,7 @@ init|=
 operator|-
 literal|1L
 decl_stmt|;
+comment|/**      * used when the document is old and doesn't contain any version information in the index      * see {@link PerThreadIDAndVersionLookup#lookup}      */
 DECL|field|NOT_SET
 specifier|public
 specifier|static
@@ -185,14 +225,24 @@ init|=
 operator|-
 literal|2L
 decl_stmt|;
+comment|/**      * used to indicate that the write operation should be executed if the document is currently deleted      * i.e., not found in the index and/or found as deleted (with version) in the version map      */
+DECL|field|MATCH_DELETED
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|MATCH_DELETED
+init|=
+operator|-
+literal|4L
+decl_stmt|;
 comment|// TODO: is there somewhere else we can store these?
 DECL|field|lookupStates
-specifier|private
 specifier|static
 specifier|final
 name|ConcurrentMap
 argument_list|<
-name|IndexReader
+name|Object
 argument_list|,
 name|CloseableThreadLocal
 argument_list|<
@@ -211,11 +261,11 @@ DECL|field|removeLookupState
 specifier|private
 specifier|static
 specifier|final
-name|ReaderClosedListener
+name|CoreClosedListener
 name|removeLookupState
 init|=
 operator|new
-name|ReaderClosedListener
+name|CoreClosedListener
 argument_list|()
 block|{
 annotation|@
@@ -224,8 +274,8 @@ specifier|public
 name|void
 name|onClose
 parameter_list|(
-name|IndexReader
-name|reader
+name|Object
+name|key
 parameter_list|)
 block|{
 name|CloseableThreadLocal
@@ -238,7 +288,7 @@ name|lookupStates
 operator|.
 name|remove
 argument_list|(
-name|reader
+name|key
 argument_list|)
 decl_stmt|;
 if|if
@@ -263,12 +313,20 @@ specifier|static
 name|PerThreadIDAndVersionLookup
 name|getLookupState
 parameter_list|(
-name|IndexReader
+name|LeafReader
 name|reader
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Object
+name|key
+init|=
+name|reader
+operator|.
+name|getCoreCacheKey
+argument_list|()
+decl_stmt|;
 name|CloseableThreadLocal
 argument_list|<
 name|PerThreadIDAndVersionLookup
@@ -279,7 +337,7 @@ name|lookupStates
 operator|.
 name|get
 argument_list|(
-name|reader
+name|key
 argument_list|)
 decl_stmt|;
 if|if
@@ -289,7 +347,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// First time we are seeing this reader; make a
+comment|// First time we are seeing this reader's core; make a
 comment|// new CTL:
 name|ctl
 operator|=
@@ -308,7 +366,7 @@ name|lookupStates
 operator|.
 name|putIfAbsent
 argument_list|(
-name|reader
+name|key
 argument_list|,
 name|ctl
 argument_list|)
@@ -321,10 +379,10 @@ literal|null
 condition|)
 block|{
 comment|// Our CTL won, we must remove it when the
-comment|// reader is closed:
+comment|// core is closed:
 name|reader
 operator|.
-name|addReaderClosedListener
+name|addCoreClosedListener
 argument_list|(
 name|removeLookupState
 argument_list|)
@@ -468,11 +526,81 @@ operator|.
 name|NAME
 argument_list|)
 assert|;
+name|List
+argument_list|<
+name|LeafReaderContext
+argument_list|>
+name|leaves
+init|=
+name|reader
+operator|.
+name|leaves
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|leaves
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 return|return
+literal|null
+return|;
+block|}
+comment|// iterate backwards to optimize for the frequently updated documents
+comment|// which are likely to be in the last segments
+for|for
+control|(
+name|int
+name|i
+init|=
+name|leaves
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+init|;
+name|i
+operator|>=
+literal|0
+condition|;
+name|i
+operator|--
+control|)
+block|{
+name|LeafReaderContext
+name|context
+init|=
+name|leaves
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|LeafReader
+name|leaf
+init|=
+name|context
+operator|.
+name|reader
+argument_list|()
+decl_stmt|;
+name|PerThreadIDAndVersionLookup
+name|lookup
+init|=
 name|getLookupState
 argument_list|(
-name|reader
+name|leaf
 argument_list|)
+decl_stmt|;
+name|DocIdAndVersion
+name|result
+init|=
+name|lookup
 operator|.
 name|lookup
 argument_list|(
@@ -480,7 +608,29 @@ name|term
 operator|.
 name|bytes
 argument_list|()
+argument_list|,
+name|leaf
+operator|.
+name|getLiveDocs
+argument_list|()
+argument_list|,
+name|context
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|result
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|result
+return|;
+block|}
+block|}
+return|return
+literal|null
 return|;
 block|}
 comment|/**      * Load the version for the uid from the reader, returning<ul>      *<li>{@link #NOT_FOUND} if no matching doc exists,      *<li>{@link #NOT_SET} if no version is available,      *<li>the version associated with the provided uid otherwise      *</ul>      */

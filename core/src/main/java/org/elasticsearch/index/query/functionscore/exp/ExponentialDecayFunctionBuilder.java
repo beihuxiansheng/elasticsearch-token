@@ -92,7 +92,7 @@ name|ExponentialDecayFunctionBuilder
 argument_list|>
 block|{
 DECL|field|EXP_DECAY_FUNCTION
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|DecayFunction

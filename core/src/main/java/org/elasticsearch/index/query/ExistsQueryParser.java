@@ -248,7 +248,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[exists] query does not support ["
+literal|"["
+operator|+
+name|ExistsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -256,6 +262,35 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|ExistsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] unknown token ["
+operator|+
+name|token
+operator|+
+literal|"] after ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 if|if
@@ -274,7 +309,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"exists must be provided with a [field]"
+literal|"["
+operator|+
+name|ExistsQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] must be provided with a [field]"
 argument_list|)
 throw|;
 block|}

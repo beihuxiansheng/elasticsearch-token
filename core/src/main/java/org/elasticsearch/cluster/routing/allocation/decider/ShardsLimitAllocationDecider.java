@@ -208,7 +208,7 @@ name|totalShardsPerNode
 init|=
 name|indexMd
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsInt
@@ -374,7 +374,7 @@ name|totalShardsPerNode
 init|=
 name|indexMd
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 operator|.
 name|getAsInt

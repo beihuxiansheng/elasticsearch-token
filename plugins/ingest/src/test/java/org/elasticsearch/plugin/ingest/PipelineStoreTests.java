@@ -76,6 +76,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ingest
 operator|.
 name|processor
@@ -153,6 +165,16 @@ operator|.
 name|junit
 operator|.
 name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -326,6 +348,16 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|Environment
+name|environment
+init|=
+name|mock
+argument_list|(
+name|Environment
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|store
 operator|=
 operator|new
@@ -336,6 +368,8 @@ operator|.
 name|EMPTY
 argument_list|,
 name|threadPool
+argument_list|,
+name|environment
 argument_list|,
 name|clusterService
 argument_list|,
@@ -351,8 +385,6 @@ name|TYPE
 argument_list|,
 operator|new
 name|SimpleProcessor
-operator|.
-name|Builder
 operator|.
 name|Factory
 argument_list|()
@@ -389,6 +421,8 @@ specifier|public
 name|void
 name|testUpdatePipeline
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -1019,6 +1053,8 @@ specifier|public
 name|void
 name|testGetReference
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// fill the store up for the test:
 name|List

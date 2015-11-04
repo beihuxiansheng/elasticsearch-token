@@ -24,7 +24,7 @@ name|action
 operator|.
 name|admin
 operator|.
-name|indices
+name|cluster
 operator|.
 name|validate
 operator|.
@@ -153,16 +153,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -321,12 +311,10 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|inlineTemplate
+DECL|method|testInlineTemplate
 specifier|public
 name|void
-name|inlineTemplate
+name|testInlineTemplate
 parameter_list|()
 block|{
 name|Map
@@ -392,7 +380,7 @@ operator|.
 name|admin
 argument_list|()
 operator|.
-name|indices
+name|cluster
 argument_list|()
 operator|.
 name|prepareRenderSearchTemplate
@@ -566,7 +554,7 @@ operator|.
 name|admin
 argument_list|()
 operator|.
-name|indices
+name|cluster
 argument_list|()
 operator|.
 name|prepareRenderSearchTemplate
@@ -664,12 +652,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|indexedTemplate
+DECL|method|testIndexedTemplate
 specifier|public
 name|void
-name|indexedTemplate
+name|testIndexedTemplate
 parameter_list|()
 block|{
 name|Map
@@ -735,7 +721,7 @@ operator|.
 name|admin
 argument_list|()
 operator|.
-name|indices
+name|cluster
 argument_list|()
 operator|.
 name|prepareRenderSearchTemplate
@@ -909,7 +895,7 @@ operator|.
 name|admin
 argument_list|()
 operator|.
-name|indices
+name|cluster
 argument_list|()
 operator|.
 name|prepareRenderSearchTemplate
@@ -1007,12 +993,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|fileTemplate
+DECL|method|testFileTemplate
 specifier|public
 name|void
-name|fileTemplate
+name|testFileTemplate
 parameter_list|()
 block|{
 name|Map
@@ -1078,7 +1062,7 @@ operator|.
 name|admin
 argument_list|()
 operator|.
-name|indices
+name|cluster
 argument_list|()
 operator|.
 name|prepareRenderSearchTemplate
@@ -1252,7 +1236,7 @@ operator|.
 name|admin
 argument_list|()
 operator|.
-name|indices
+name|cluster
 argument_list|()
 operator|.
 name|prepareRenderSearchTemplate

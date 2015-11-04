@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -981,12 +981,20 @@ specifier|private
 name|MultiGeoPointValues
 name|geoValues
 decl_stmt|;
+DECL|field|precision
+specifier|private
+name|int
+name|precision
+decl_stmt|;
 DECL|method|CellValues
 specifier|protected
 name|CellValues
 parameter_list|(
 name|MultiGeoPointValues
 name|geoValues
+parameter_list|,
+name|int
+name|precision
 parameter_list|)
 block|{
 name|this
@@ -994,6 +1002,12 @@ operator|.
 name|geoValues
 operator|=
 name|geoValues
+expr_stmt|;
+name|this
+operator|.
+name|precision
+operator|=
+name|precision
 expr_stmt|;
 block|}
 annotation|@
@@ -1053,7 +1067,7 @@ index|[
 name|i
 index|]
 operator|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|longEncode
 argument_list|(
@@ -1067,9 +1081,7 @@ operator|.
 name|getLat
 argument_list|()
 argument_list|,
-name|XGeoHashUtils
-operator|.
-name|PRECISION
+name|precision
 argument_list|)
 expr_stmt|;
 block|}
@@ -1171,6 +1183,8 @@ name|geoPointValues
 argument_list|(
 name|ctx
 argument_list|)
+argument_list|,
+name|precision
 argument_list|)
 return|;
 block|}

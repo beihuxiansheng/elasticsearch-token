@@ -42,21 +42,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|QueryWrapperFilter
+name|Query
 import|;
 end_import
 
@@ -231,20 +217,6 @@ operator|.
 name|internal
 operator|.
 name|TypeFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
 import|;
 end_import
 
@@ -970,8 +942,6 @@ name|mappers
 parameter_list|,
 annotation|@
 name|Nullable
-annotation|@
-name|IndexSettings
 name|Settings
 name|settings
 parameter_list|)
@@ -2067,7 +2037,7 @@ decl_stmt|;
 DECL|field|nestedTypeFilter
 specifier|private
 specifier|final
-name|Filter
+name|Query
 name|nestedTypeFilter
 decl_stmt|;
 DECL|field|dynamic
@@ -2221,9 +2191,6 @@ operator|.
 name|nestedTypeFilter
 operator|=
 operator|new
-name|QueryWrapperFilter
-argument_list|(
-operator|new
 name|TermQuery
 argument_list|(
 operator|new
@@ -2234,7 +2201,6 @@ operator|.
 name|NAME
 argument_list|,
 name|nestedTypePathAsBytes
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2563,7 +2529,7 @@ return|;
 block|}
 DECL|method|nestedTypeFilter
 specifier|public
-name|Filter
+name|Query
 name|nestedTypeFilter
 parameter_list|()
 block|{

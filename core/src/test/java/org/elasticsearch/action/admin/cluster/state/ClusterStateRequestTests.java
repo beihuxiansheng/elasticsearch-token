@@ -56,7 +56,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamInput
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamOutput
+name|StreamInput
 import|;
 end_import
 
@@ -101,16 +101,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -134,8 +124,6 @@ name|ClusterStateRequestTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSerialization
 specifier|public
 name|void

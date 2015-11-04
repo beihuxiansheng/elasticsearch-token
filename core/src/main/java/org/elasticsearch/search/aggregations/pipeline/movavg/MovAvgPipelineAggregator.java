@@ -22,9 +22,9 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
@@ -753,9 +753,9 @@ name|Double
 argument_list|>
 name|values
 init|=
+operator|new
 name|EvictingQueue
-operator|.
-name|create
+argument_list|<>
 argument_list|(
 name|this
 operator|.
@@ -1447,10 +1447,12 @@ name|Double
 argument_list|>
 name|values
 init|=
+operator|new
 name|EvictingQueue
-operator|.
-name|create
+argument_list|<>
 argument_list|(
+name|this
+operator|.
 name|window
 argument_list|)
 decl_stmt|;

@@ -142,16 +142,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -262,6 +252,18 @@ name|StandardOpenOption
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_class
 DECL|class|ChannelsTests
 specifier|public
@@ -369,8 +371,6 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReadWriteThoughArrays
 specifier|public
 name|void
@@ -420,8 +420,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPartialReadWriteThroughArrays
 specifier|public
 name|void
@@ -573,15 +571,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|EOFException
-operator|.
-name|class
-argument_list|)
 DECL|method|testBufferReadPastEOFWithException
 specifier|public
 name|void
@@ -617,6 +606,8 @@ argument_list|,
 name|fileChannel
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|Channels
 operator|.
 name|readFromFileChannel
@@ -635,9 +626,33 @@ literal|1000
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected an EOFException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|EOFException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"read past EOF"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testBufferReadPastEOFWithoutException
 specifier|public
 name|void
@@ -723,8 +738,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReadWriteThroughBuffers
 specifier|public
 name|void
@@ -887,8 +900,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPartialReadWriteThroughBuffers
 specifier|public
 name|void
@@ -1106,8 +1117,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWriteFromChannel
 specifier|public
 name|void

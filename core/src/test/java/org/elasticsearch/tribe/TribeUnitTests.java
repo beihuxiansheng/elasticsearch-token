@@ -162,16 +162,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|nio
@@ -396,8 +386,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatTribeClientsIgnoreGlobalSysProps
 specifier|public
 name|void
@@ -468,8 +456,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatTribeClientsIgnoreGlobalConfig
 specifier|public
 name|void

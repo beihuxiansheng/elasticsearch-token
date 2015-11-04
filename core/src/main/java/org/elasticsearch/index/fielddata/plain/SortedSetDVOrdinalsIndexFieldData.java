@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|DirectoryReader
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|LeafReaderContext
 import|;
 end_import
 
@@ -62,23 +62,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -201,7 +187,7 @@ block|{
 DECL|field|indexSettings
 specifier|private
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 decl_stmt|;
 DECL|field|cache
@@ -220,14 +206,11 @@ DECL|method|SortedSetDVOrdinalsIndexFieldData
 specifier|public
 name|SortedSetDVOrdinalsIndexFieldData
 parameter_list|(
-name|Index
-name|index
+name|IndexSettings
+name|indexSettings
 parameter_list|,
 name|IndexFieldDataCache
 name|cache
-parameter_list|,
-name|Settings
-name|indexSettings
 parameter_list|,
 name|Names
 name|fieldNames
@@ -241,7 +224,10 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
+name|indexSettings
+operator|.
+name|getIndex
+argument_list|()
 argument_list|,
 name|fieldNames
 argument_list|,
@@ -368,7 +354,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 block|{
@@ -430,11 +416,6 @@ operator|new
 name|ElasticsearchException
 argument_list|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}
@@ -447,7 +428,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws

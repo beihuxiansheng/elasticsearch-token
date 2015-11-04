@@ -91,12 +91,16 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|client
+operator|.
+name|Requests
+operator|.
+name|flushRequest
 import|;
 end_import
 
@@ -110,7 +114,35 @@ name|client
 operator|.
 name|Requests
 operator|.
-name|*
+name|getRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|indexRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|refreshRequest
 import|;
 end_import
 
@@ -222,8 +254,6 @@ return|return
 literal|1
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleRecovery
 specifier|public
 name|void

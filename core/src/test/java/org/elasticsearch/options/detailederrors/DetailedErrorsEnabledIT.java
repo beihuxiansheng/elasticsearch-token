@@ -165,16 +165,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -223,7 +213,6 @@ name|DetailedErrorsEnabledIT
 extends|extends
 name|ESIntegTestCase
 block|{
-comment|// Build our cluster settings
 annotation|@
 name|Override
 DECL|method|nodeSettings
@@ -264,8 +253,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatErrorTraceWorksByDefault
 specifier|public
 name|void

@@ -88,13 +88,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|rest
+name|ESIntegTestCase
 operator|.
-name|client
-operator|.
-name|http
-operator|.
-name|HttpResponse
+name|ClusterScope
 import|;
 end_import
 
@@ -102,25 +98,31 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|client
+operator|.
 name|http
 operator|.
-name|netty
-operator|.
-name|NettyHttpServerTransport
-operator|.
-name|SETTING_CORS_ALLOW_ORIGIN
+name|HttpResponse
 import|;
 end_import
 
@@ -152,35 +154,23 @@ name|netty
 operator|.
 name|NettyHttpServerTransport
 operator|.
+name|SETTING_CORS_ALLOW_ORIGIN
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|http
+operator|.
+name|netty
+operator|.
+name|NettyHttpServerTransport
+operator|.
 name|SETTING_CORS_ENABLED
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -192,7 +182,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|hasKey
 import|;
 end_import
 
@@ -205,6 +195,18 @@ operator|.
 name|Matchers
 operator|.
 name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -310,8 +312,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatRegularExpressionWorksOnMatch
 specifier|public
 name|void
@@ -440,8 +440,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatRegularExpressionReturnsNullOnNonMatch
 specifier|public
 name|void
@@ -491,8 +489,6 @@ literal|"null"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatSendingNoOriginHeaderReturnsNoAccessControlHeader
 specifier|public
 name|void
@@ -557,8 +553,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatRegularExpressionIsNotAppliedWithoutCorrectBrowserOnMatch
 specifier|public
 name|void
@@ -616,8 +610,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatPreFlightRequestWorksOnMatch
 specifier|public
 name|void
@@ -672,8 +664,6 @@ name|corsValue
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatPreFlightRequestReturnsNullOnNonMatch
 specifier|public
 name|void

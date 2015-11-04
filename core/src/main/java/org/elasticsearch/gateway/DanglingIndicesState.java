@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -176,6 +162,30 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * The dangling indices state is responsible for finding new dangling indices (indices that have  * their state written on disk, but don't exists in the metadata of the cluster), and importing  * them into the cluster.  */
 end_comment
@@ -312,12 +322,16 @@ argument_list|>
 name|getDanglingIndices
 parameter_list|()
 block|{
+comment|// This might be a good use case for CopyOnWriteHashMap
 return|return
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
+argument_list|(
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|danglingIndices
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -437,9 +451,7 @@ name|e
 argument_list|)
 expr_stmt|;
 return|return
-name|ImmutableMap
-operator|.
-name|of
+name|emptyMap
 argument_list|()
 return|;
 block|}
@@ -518,7 +530,7 @@ condition|(
 operator|!
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
 name|equals
@@ -537,7 +549,7 @@ name|indexName
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;

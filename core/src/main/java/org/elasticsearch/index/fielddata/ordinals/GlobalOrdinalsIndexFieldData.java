@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|DirectoryReader
 import|;
 end_import
 
@@ -78,20 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
@@ -106,7 +92,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -181,20 +167,6 @@ operator|.
 name|fielddata
 operator|.
 name|IndexOrdinalsFieldData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMapper
 import|;
 end_import
 
@@ -285,11 +257,8 @@ DECL|method|GlobalOrdinalsIndexFieldData
 specifier|protected
 name|GlobalOrdinalsIndexFieldData
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|Settings
-name|settings
+name|IndexSettings
+name|indexSettings
 parameter_list|,
 name|MappedFieldType
 operator|.
@@ -305,9 +274,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
-name|settings
+name|indexSettings
 argument_list|)
 expr_stmt|;
 name|this
@@ -356,7 +323,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|loadGlobal
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 block|{
@@ -371,7 +338,7 @@ specifier|public
 name|IndexOrdinalsFieldData
 name|localGlobalDirect
 parameter_list|(
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 parameter_list|)
 throws|throws
@@ -441,19 +408,6 @@ specifier|public
 name|void
 name|clear
 parameter_list|()
-block|{
-comment|// no need to clear, because this is cached and cleared in AbstractBytesIndexFieldData
-block|}
-annotation|@
-name|Override
-DECL|method|clear
-specifier|public
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
 block|{
 comment|// no need to clear, because this is cached and cleared in AbstractBytesIndexFieldData
 block|}

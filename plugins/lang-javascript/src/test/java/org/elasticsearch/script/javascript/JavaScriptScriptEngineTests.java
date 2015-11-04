@@ -114,16 +114,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -238,8 +228,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleEquation
 specifier|public
 name|void
@@ -268,7 +256,7 @@ name|o
 init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -293,6 +281,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -313,8 +304,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMapAccess
 specifier|public
 name|void
@@ -429,7 +418,7 @@ name|o
 init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -454,6 +443,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -534,7 +526,7 @@ name|o
 operator|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -559,6 +551,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -576,8 +571,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testJavaScriptObjectToMap
 specifier|public
 name|void
@@ -606,7 +599,7 @@ name|o
 init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -631,6 +624,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|Map
 name|obj1
@@ -692,8 +688,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testJavaScriptObjectMapInter
 specifier|public
 name|void
@@ -778,9 +772,12 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+name|ExecutableScript
+name|executable
+init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -805,6 +802,11 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+decl_stmt|;
+name|executable
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|ctx
 operator|=
@@ -816,7 +818,7 @@ argument_list|,
 name|Object
 argument_list|>
 operator|)
-name|se
+name|executable
 operator|.
 name|unwrap
 argument_list|(
@@ -925,8 +927,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testJavaScriptInnerArrayCreation
 specifier|public
 name|void
@@ -1084,8 +1084,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAccessListInScript
 specifier|public
 name|void
@@ -1197,7 +1195,7 @@ name|o
 init|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -1222,6 +1220,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -1245,7 +1246,7 @@ name|o
 operator|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -1270,6 +1271,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -1290,7 +1294,7 @@ name|o
 operator|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -1315,6 +1319,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|obj1
 operator|=
@@ -1383,7 +1390,7 @@ name|o
 operator|=
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -1408,6 +1415,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -1425,8 +1435,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChangingVarsCrossExecution1
 specifier|public
 name|void
@@ -1582,8 +1590,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChangingVarsCrossExecution2
 specifier|public
 name|void

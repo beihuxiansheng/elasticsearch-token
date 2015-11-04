@@ -1158,7 +1158,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"version needs to contain major, minor and revision"
+literal|"version needs to contain major, minor, and revision"
 argument_list|)
 argument_list|)
 expr_stmt|;

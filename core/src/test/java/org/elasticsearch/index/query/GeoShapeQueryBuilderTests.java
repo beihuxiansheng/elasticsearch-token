@@ -246,9 +246,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|After
+name|test
+operator|.
+name|geo
+operator|.
+name|RandomShapeGenerator
+operator|.
+name|ShapeType
 import|;
 end_import
 
@@ -258,7 +264,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Test
+name|After
 import|;
 end_import
 
@@ -305,6 +311,18 @@ operator|.
 name|Matchers
 operator|.
 name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -369,6 +387,17 @@ name|GeoShapeQueryBuilder
 name|doCreateTestQueryBuilder
 parameter_list|()
 block|{
+name|ShapeType
+name|shapeType
+init|=
+name|ShapeType
+operator|.
+name|randomType
+argument_list|(
+name|getRandom
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|ShapeBuilder
 name|shape
 init|=
@@ -380,11 +409,16 @@ name|getRandom
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|shapeType
 argument_list|)
 decl_stmt|;
 name|GeoShapeQueryBuilder
 name|builder
 decl_stmt|;
+name|clearShapeFields
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|randomBoolean
@@ -502,6 +536,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
 name|SpatialStrategy
 name|strategy
 init|=
@@ -513,6 +553,34 @@ name|values
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// ShapeType.MULTILINESTRING + SpatialStrategy.TERM can lead to large queries and will slow down tests, so
+comment|// we try to avoid that combination
+while|while
+condition|(
+name|shapeType
+operator|==
+name|ShapeType
+operator|.
+name|MULTILINESTRING
+operator|&&
+name|strategy
+operator|==
+name|SpatialStrategy
+operator|.
+name|TERM
+condition|)
+block|{
+name|strategy
+operator|=
+name|randomFrom
+argument_list|(
+name|SpatialStrategy
+operator|.
+name|values
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|builder
 operator|.
 name|strategy
@@ -542,6 +610,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|builder
@@ -706,9 +775,7 @@ name|ex
 argument_list|)
 throw|;
 block|}
-name|GetResponse
-name|response
-init|=
+return|return
 operator|new
 name|GetResponse
 argument_list|(
@@ -734,9 +801,6 @@ argument_list|,
 literal|null
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|response
 return|;
 block|}
 annotation|@
@@ -825,7 +889,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//TODO figure out why this test might take up to 10 seconds once in a while
 name|assumeTrue
 argument_list|(
 literal|"test runs only when at least a type is registered"
@@ -844,15 +907,6 @@ name|testToQuery
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testNoFieldName
 specifier|public
 name|void
@@ -874,6 +928,8 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 operator|new
 name|GeoShapeQueryBuilder
 argument_list|(
@@ -882,9 +938,33 @@ argument_list|,
 name|shape
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"fieldName is required"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testNoShape
 specifier|public
 name|void
@@ -895,9 +975,6 @@ name|IOException
 block|{
 try|try
 block|{
-name|GeoShapeQueryBuilder
-name|builder
-init|=
 operator|new
 name|GeoShapeQueryBuilder
 argument_list|(
@@ -908,7 +985,7 @@ name|ShapeBuilder
 operator|)
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"exception expected"
@@ -924,15 +1001,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testNoIndexedShape
 specifier|public
 name|void
@@ -941,29 +1009,45 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 operator|new
 name|GeoShapeQueryBuilder
 argument_list|(
 name|GEO_SHAPE_FIELD_NAME
 argument_list|,
-operator|(
-name|String
-operator|)
 literal|null
 argument_list|,
 literal|"type"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
+literal|"Expected IllegalArgumentException"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"either shapeBytes or indexedShapeId and indexedShapeType are required"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testNoIndexedShapeType
 specifier|public
 name|void
@@ -972,6 +1056,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 operator|new
 name|GeoShapeQueryBuilder
 argument_list|(
@@ -979,22 +1065,36 @@ name|GEO_SHAPE_FIELD_NAME
 argument_list|,
 literal|"id"
 argument_list|,
-operator|(
-name|String
-operator|)
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
+literal|"Expected IllegalArgumentException"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"indexedShapeType is required if indexedShapeId is specified"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testNoRelation
 specifier|public
 name|void
@@ -1027,6 +1127,8 @@ argument_list|,
 name|shape
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|builder
 operator|.
 name|relation
@@ -1034,9 +1136,33 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"No Shape Relation defined"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testInvalidRelation
 specifier|public
 name|void
@@ -1152,8 +1278,6 @@ block|{
 comment|// okay
 block|}
 block|}
-annotation|@
-name|Test
 comment|// see #3878
 DECL|method|testThatXContentSerializationInsideOfArrayWorks
 specifier|public

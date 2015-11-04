@@ -432,9 +432,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|DocumentAlreadyExistsException
+name|IndexService
 import|;
 end_import
 
@@ -449,18 +447,6 @@ operator|.
 name|engine
 operator|.
 name|VersionConflictEngineException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexService
 import|;
 end_import
 
@@ -1261,7 +1247,7 @@ name|indexShard
 init|=
 name|indexService
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|request
 operator|.
@@ -1301,9 +1287,6 @@ init|=
 operator|new
 name|IndexRequest
 argument_list|(
-operator|(
-name|IndexRequest
-operator|)
 name|result
 operator|.
 name|action
@@ -1500,10 +1483,6 @@ condition|(
 name|e
 operator|instanceof
 name|VersionConflictEngineException
-operator|||
-name|e
-operator|instanceof
-name|DocumentAlreadyExistsException
 condition|)
 block|{
 if|if
@@ -1581,9 +1560,6 @@ init|=
 operator|new
 name|IndexRequest
 argument_list|(
-operator|(
-name|IndexRequest
-operator|)
 name|result
 operator|.
 name|action
@@ -1805,9 +1781,6 @@ init|=
 operator|new
 name|DeleteRequest
 argument_list|(
-operator|(
-name|DeleteRequest
-operator|)
 name|result
 operator|.
 name|action
@@ -2043,7 +2016,7 @@ name|shard
 init|=
 name|indexService
 operator|.
-name|shard
+name|getShardOrNull
 argument_list|(
 name|request
 operator|.

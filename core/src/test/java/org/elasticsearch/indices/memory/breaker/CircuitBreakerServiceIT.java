@@ -284,16 +284,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -696,8 +686,6 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMemoryBreaker
 specifier|public
 name|void
@@ -996,8 +984,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRamAccountingTermsEnum
 specifier|public
 name|void
@@ -1314,8 +1300,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that a breaker correctly redistributes to a different breaker, in      * this case, the fielddata breaker borrows space from the request breaker      */
-annotation|@
-name|Test
 DECL|method|testParentChecking
 specifier|public
 name|void
@@ -1772,8 +1756,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRequestBreaker
 specifier|public
 name|void
@@ -2146,8 +2128,6 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCustomCircuitBreakerRegistration
 specifier|public
 name|void

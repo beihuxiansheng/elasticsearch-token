@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesArray
@@ -97,16 +109,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -294,11 +296,6 @@ name|QueryShardContext
 argument_list|(
 name|context
 operator|.
-name|index
-argument_list|()
-argument_list|,
-name|context
-operator|.
 name|indexQueryParserService
 argument_list|()
 argument_list|)
@@ -364,8 +361,6 @@ name|IOException
 block|{
 comment|//no-op boost is checked already above as part of doAssertLuceneQuery as we rely on lucene equals impl
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArgument
 specifier|public
 name|void
@@ -507,6 +502,57 @@ name|e
 parameter_list|)
 block|{
 comment|// expected
+block|}
+block|}
+comment|/**      * Replace the generic test from superclass, wrapper query only expects      * to find `query` field with nested query and should throw exception for      * anything else.      */
+annotation|@
+name|Override
+DECL|method|testUnknownField
+specifier|public
+name|void
+name|testUnknownField
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+try|try
+block|{
+name|parseQuery
+argument_list|(
+literal|"{ \""
+operator|+
+name|WrapperQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"\" : {\"bogusField\" : \"someValue\"} }"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"ParsingException expected."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"bogusField"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

@@ -44,16 +44,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -98,7 +88,7 @@ name|CliTool
 operator|.
 name|ExitStatus
 operator|.
-name|OK_AND_EXIT
+name|IO_ERROR
 import|;
 end_import
 
@@ -116,7 +106,7 @@ name|CliTool
 operator|.
 name|ExitStatus
 operator|.
-name|IO_ERROR
+name|OK_AND_EXIT
 import|;
 end_import
 
@@ -128,7 +118,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItem
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -140,8 +154,6 @@ name|PluginManagerCliTests
 extends|extends
 name|CliToolTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testHelpWorks
 specifier|public
 name|void

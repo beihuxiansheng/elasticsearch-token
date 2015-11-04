@@ -121,6 +121,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|request
+operator|.
+name|hasParam
+argument_list|(
+name|INGEST_PARAM
+argument_list|)
+condition|)
+block|{
 name|request
 operator|.
 name|putInContext
@@ -135,6 +145,7 @@ name|INGEST_PARAM
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|filterChain
 operator|.
 name|continueProcessing

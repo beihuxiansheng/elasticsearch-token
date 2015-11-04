@@ -174,16 +174,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -252,8 +242,6 @@ name|GetIndexBackwardsCompatibilityIT
 extends|extends
 name|ESBackcompatTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testGetAliases
 specifier|public
 name|void
@@ -426,8 +414,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGetMappings
 specifier|public
 name|void
@@ -639,8 +625,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGetSettings
 specifier|public
 name|void
@@ -784,8 +768,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGetWarmers
 specifier|public
 name|void

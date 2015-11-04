@@ -501,6 +501,8 @@ init|=
 literal|"script score function, computed with script:\""
 operator|+
 name|sScript
+operator|+
+literal|"\""
 decl_stmt|;
 if|if
 condition|(
@@ -514,7 +516,7 @@ condition|)
 block|{
 name|explanation
 operator|+=
-literal|"\" and parameters: \n"
+literal|" and parameters: \n"
 operator|+
 name|sScript
 operator|.

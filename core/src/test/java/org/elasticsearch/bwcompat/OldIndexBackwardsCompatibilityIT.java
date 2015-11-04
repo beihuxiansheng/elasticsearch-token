@@ -496,16 +496,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -665,18 +655,6 @@ operator|.
 name|util
 operator|.
 name|TreeSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Future
 import|;
 end_import
 
@@ -1971,7 +1949,7 @@ name|onOrBefore
 argument_list|(
 name|Version
 operator|.
-name|V_0_20_6
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 continue|continue;
@@ -2161,8 +2139,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testHandlingOfUnsupportedDanglingIndexes
 specifier|public
 name|void
@@ -2371,7 +2347,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"was created before v0.90.0 and wasn't upgraded"
+literal|"was created before v2.0.0.beta1 and wasn't upgraded"
 argument_list|)
 argument_list|)
 expr_stmt|;

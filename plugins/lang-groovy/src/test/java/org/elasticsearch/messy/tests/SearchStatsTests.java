@@ -246,9 +246,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|search
 operator|.
-name|ESIntegTestCase
+name|highlight
+operator|.
+name|HighlightBuilder
 import|;
 end_import
 
@@ -256,9 +258,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -546,8 +550,6 @@ return|return
 literal|0
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleStats
 specifier|public
 name|void
@@ -937,9 +939,16 @@ argument_list|,
 literal|"group2"
 argument_list|)
 operator|.
-name|addHighlightedField
+name|highlighter
+argument_list|(
+operator|new
+name|HighlightBuilder
+argument_list|()
+operator|.
+name|field
 argument_list|(
 literal|"field"
+argument_list|)
 argument_list|)
 operator|.
 name|addScriptField
@@ -1534,8 +1543,6 @@ return|return
 name|nodes
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOpenContexts
 specifier|public
 name|void

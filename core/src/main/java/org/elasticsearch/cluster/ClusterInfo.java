@@ -30,21 +30,15 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|common
 operator|.
-name|util
+name|collect
 operator|.
-name|Map
+name|ImmutableOpenMap
 import|;
 end_import
 
@@ -61,7 +55,7 @@ block|{
 DECL|field|leastAvailableSpaceUsage
 specifier|private
 specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -72,7 +66,7 @@ decl_stmt|;
 DECL|field|mostAvailableSpaceUsage
 specifier|private
 specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -82,7 +76,7 @@ name|mostAvailableSpaceUsage
 decl_stmt|;
 DECL|field|shardSizes
 specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -104,7 +98,7 @@ decl_stmt|;
 DECL|field|routingToDataPath
 specifier|private
 specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|ShardRouting
 argument_list|,
@@ -119,21 +113,25 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-name|Collections
+name|ImmutableOpenMap
 operator|.
-name|EMPTY_MAP
+name|of
+argument_list|()
 argument_list|,
-name|Collections
+name|ImmutableOpenMap
 operator|.
-name|EMPTY_MAP
+name|of
+argument_list|()
 argument_list|,
-name|Collections
+name|ImmutableOpenMap
 operator|.
-name|EMPTY_MAP
+name|of
+argument_list|()
 argument_list|,
-name|Collections
+name|ImmutableOpenMap
 operator|.
-name|EMPTY_MAP
+name|of
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -142,8 +140,7 @@ DECL|method|ClusterInfo
 specifier|public
 name|ClusterInfo
 parameter_list|(
-specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -151,8 +148,7 @@ name|DiskUsage
 argument_list|>
 name|leastAvailableSpaceUsage
 parameter_list|,
-specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -160,8 +156,7 @@ name|DiskUsage
 argument_list|>
 name|mostAvailableSpaceUsage
 parameter_list|,
-specifier|final
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -169,7 +164,7 @@ name|Long
 argument_list|>
 name|shardSizes
 parameter_list|,
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|ShardRouting
 argument_list|,
@@ -206,7 +201,7 @@ block|}
 comment|/**      * Returns a node id to disk usage mapping for the path that has the least available space on the node.      */
 DECL|method|getNodeLeastAvailableDiskUsages
 specifier|public
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
@@ -224,7 +219,7 @@ block|}
 comment|/**      * Returns a node id to disk usage mapping for the path that has the most available space on the node.      */
 DECL|method|getNodeMostAvailableDiskUsages
 specifier|public
-name|Map
+name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,

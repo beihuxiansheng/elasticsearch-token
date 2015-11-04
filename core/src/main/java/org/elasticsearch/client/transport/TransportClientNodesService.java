@@ -1766,7 +1766,9 @@ name|ROOT
 argument_list|,
 literal|"None of the configured nodes are available: %s"
 argument_list|,
-name|nodes
+name|this
+operator|.
+name|listedNodes
 argument_list|)
 decl_stmt|;
 throw|throw

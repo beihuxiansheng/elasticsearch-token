@@ -76,13 +76,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|rest
+name|ESIntegTestCase
 operator|.
-name|client
-operator|.
-name|http
-operator|.
-name|HttpResponse
+name|Scope
 import|;
 end_import
 
@@ -90,9 +86,17 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|rest
+operator|.
+name|client
+operator|.
+name|http
+operator|.
+name|HttpResponse
 import|;
 end_import
 
@@ -131,20 +135,6 @@ operator|.
 name|RestStatus
 operator|.
 name|UNAUTHORIZED
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -264,8 +254,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatSettingHeadersWorks
 specifier|public
 name|void

@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -236,16 +236,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -324,7 +314,19 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -348,6 +350,30 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|isIn
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|nullValue
 import|;
 end_import
@@ -360,8 +386,6 @@ name|GeoPointFieldMapperTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testLatLonValues
 specifier|public
 name|void
@@ -609,8 +633,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLatLonValuesWithGeohash
 specifier|public
 name|void
@@ -796,7 +818,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -808,8 +830,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLatLonInOneValueWithGeohash
 specifier|public
 name|void
@@ -980,7 +1000,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -992,8 +1012,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeoHashIndexValue
 specifier|public
 name|void
@@ -1108,7 +1126,7 @@ name|field
 argument_list|(
 literal|"point"
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1171,7 +1189,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1183,8 +1201,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeoHashValue
 specifier|public
 name|void
@@ -1292,7 +1308,7 @@ name|field
 argument_list|(
 literal|"point"
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -1358,8 +1374,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNormalizeLatLonValuesDefault
 specifier|public
 name|void
@@ -1655,8 +1669,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testValidateLatLonValues
 specifier|public
 name|void
@@ -2042,8 +2054,6 @@ name|e
 parameter_list|)
 block|{          }
 block|}
-annotation|@
-name|Test
 DECL|method|testNoValidateLatLonValues
 specifier|public
 name|void
@@ -2381,8 +2391,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLatLonValuesStored
 specifier|public
 name|void
@@ -2637,8 +2645,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testArrayLatLonValues
 specifier|public
 name|void
@@ -3001,8 +3007,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLatLonInOneValue
 specifier|public
 name|void
@@ -3171,8 +3175,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLatLonInOneValueStored
 specifier|public
 name|void
@@ -3396,8 +3398,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLatLonInOneValueArray
 specifier|public
 name|void
@@ -3730,8 +3730,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLonLatArray
 specifier|public
 name|void
@@ -3911,8 +3909,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLonLatArrayDynamic
 specifier|public
 name|void
@@ -4113,8 +4109,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLonLatArrayStored
 specifier|public
 name|void
@@ -4349,8 +4343,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLonLatArrayArrayStored
 specifier|public
 name|void
@@ -4706,8 +4698,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that expected exceptions are thrown when creating a new index with deprecated options      */
-annotation|@
-name|Test
 DECL|method|testOptionDeprecation
 specifier|public
 name|void
@@ -5394,8 +5384,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test backward compatibility      */
-annotation|@
-name|Test
 DECL|method|testBackwardCompatibleOptions
 specifier|public
 name|void
@@ -6035,8 +6023,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGeoPointMapperMerge
 specifier|public
 name|void

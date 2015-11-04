@@ -86,9 +86,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene53
+name|lucene54
 operator|.
-name|Lucene53Codec
+name|Lucene54Codec
 import|;
 end_import
 
@@ -576,33 +576,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
 import|;
 end_import
 
@@ -779,8 +757,6 @@ name|freeze
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCompletionPostingsFormat
 specifier|public
 name|void
@@ -991,8 +967,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testProviderBackwardCompatibilityForVersion1
 specifier|public
 name|void
@@ -1146,8 +1120,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testProviderVersion2
 specifier|public
 name|void
@@ -1286,8 +1258,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDuellCompletions
 specifier|public
 name|void
@@ -2237,9 +2207,11 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|Lucene53Codec
+name|Lucene54Codec
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|PostingsFormat
 name|getPostingsFormatForField
@@ -2560,8 +2532,6 @@ return|return
 name|lookup
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoDocs
 specifier|public
 name|void

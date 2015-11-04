@@ -120,16 +120,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -310,8 +300,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatPreBuiltAnalyzersAreNotClosedOnIndexClose
 specifier|public
 name|void
@@ -750,8 +738,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test case for #5030: Upgrading analysis plugins fails      * See https://github.com/elasticsearch/elasticsearch/issues/5030      */
-annotation|@
-name|Test
 DECL|method|testThatPluginAnalyzersCanBeUpdated
 specifier|public
 name|void

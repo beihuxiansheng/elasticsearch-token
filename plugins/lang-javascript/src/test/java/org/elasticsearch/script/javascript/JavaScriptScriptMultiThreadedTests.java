@@ -80,16 +80,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -182,8 +172,6 @@ name|JavaScriptScriptMultiThreadedTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testExecutableNoRuntimeParams
 specifier|public
 name|void
@@ -523,8 +511,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExecutableWithRuntimeParams
 specifier|public
 name|void
@@ -864,8 +850,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExecute
 specifier|public
 name|void
@@ -1074,7 +1058,7 @@ name|Number
 operator|)
 name|se
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -1094,6 +1078,9 @@ argument_list|)
 argument_list|,
 name|runtimeVars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 operator|)
 operator|.
 name|longValue

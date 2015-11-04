@@ -162,16 +162,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -229,12 +219,10 @@ name|SimpleBlocksIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|verifyIndexAndClusterReadOnly
+DECL|method|testVerifyIndexAndClusterReadOnly
 specifier|public
 name|void
-name|verifyIndexAndClusterReadOnly
+name|testVerifyIndexAndClusterReadOnly
 parameter_list|()
 throws|throws
 name|Exception
@@ -379,8 +367,6 @@ literal|"ro"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexReadWriteMetaDataBlocks
 specifier|public
 name|void

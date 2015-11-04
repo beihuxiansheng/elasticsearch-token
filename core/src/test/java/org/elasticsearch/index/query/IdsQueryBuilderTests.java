@@ -86,16 +86,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -148,6 +138,30 @@ name|instanceOf
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
 begin_class
 DECL|class|IdsQueryBuilderTests
 specifier|public
@@ -159,16 +173,7 @@ argument_list|<
 name|IdsQueryBuilder
 argument_list|>
 block|{
-comment|/**      * check that parser throws exception on missing values field      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|ParsingException
-operator|.
-name|class
-argument_list|)
+comment|/**      * Check that parser throws exception on missing values field.      */
 DECL|method|testIdsNotProvided
 specifier|public
 name|void
@@ -182,11 +187,39 @@ name|noIdsFieldQuery
 init|=
 literal|"{\"ids\" : { \"type\" : \"my_type\"  }"
 decl_stmt|;
+try|try
+block|{
 name|parseQuery
 argument_list|(
 name|noIdsFieldQuery
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ParsingException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"no ids values provided"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -630,6 +663,116 @@ block|}
 return|return
 name|alternateVersions
 return|;
+block|}
+DECL|method|testIllegalArguments
+specifier|public
+name|void
+name|testIllegalArguments
+parameter_list|()
+block|{
+try|try
+block|{
+operator|new
+name|IdsQueryBuilder
+argument_list|(
+operator|(
+name|String
+index|[]
+operator|)
+literal|null
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"must be not null"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|//all good
+block|}
+try|try
+block|{
+operator|new
+name|IdsQueryBuilder
+argument_list|()
+operator|.
+name|addIds
+argument_list|(
+operator|(
+name|String
+index|[]
+operator|)
+literal|null
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"must be not null"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|//all good
+block|}
+block|}
+comment|// see #7686.
+DECL|method|testIdsQueryWithInvalidValues
+specifier|public
+name|void
+name|testIdsQueryWithInvalidValues
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|query
+init|=
+literal|"{ \"ids\": { \"values\": [[1]] } }"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ParsingException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"Illegal value for id, expecting a string or number, got: START_ARRAY"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

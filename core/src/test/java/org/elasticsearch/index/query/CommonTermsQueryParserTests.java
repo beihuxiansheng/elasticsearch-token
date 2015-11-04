@@ -44,16 +44,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -70,8 +60,6 @@ name|CommonTermsQueryParserTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testWhenParsedQueryIsNullNoNullPointerExceptionIsThrown
 specifier|public
 name|void

@@ -108,16 +108,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -259,8 +249,6 @@ extends|extends
 name|ESIntegTestCase
 block|{
 comment|/**      * This test tries to simulate load while creating an index and indexing documents      * while the index is being created.      */
-annotation|@
-name|Test
 DECL|method|testAutoGenerateIdNoDuplicates
 specifier|public
 name|void
@@ -558,8 +546,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCreatedFlag
 specifier|public
 name|void
@@ -701,8 +687,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreatedFlagWithFlush
 specifier|public
 name|void
@@ -812,8 +796,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreatedFlagParallelExecution
 specifier|public
 name|void
@@ -1023,8 +1005,6 @@ name|threadPool
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreatedFlagWithExternalVersioning
 specifier|public
 name|void
@@ -1090,8 +1070,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreateFlagWithBulk
 specifier|public
 name|void
@@ -1194,8 +1172,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCreateIndexWithLongName
 specifier|public
 name|void

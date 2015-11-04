@@ -84,16 +84,6 @@ name|ESSingleNodeTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -106,8 +96,6 @@ name|CamelCaseFieldNameTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testCamelCaseFieldNameStaysAsIs
 specifier|public
 name|void

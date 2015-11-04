@@ -32,6 +32,38 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -39,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An processor implementation may modify the data belonging to a document.  * If and what exactly is modified is upto the implementation.  */
+comment|/**  * A processor implementation may modify the data belonging to a document.  * Whether changes are made and what exactly is modified is up to the implementation.  */
 end_comment
 
 begin_interface
@@ -57,15 +89,17 @@ name|Data
 name|data
 parameter_list|)
 function_decl|;
-comment|/**      * A builder to contruct a processor to be used in a pipeline.      */
-DECL|interface|Builder
+comment|/**      * A factory that knows how to construct a processor based on a map of maps.      */
+DECL|interface|Factory
 interface|interface
-name|Builder
+name|Factory
+extends|extends
+name|Closeable
 block|{
-comment|/**          * A general way to set processor related settings based on the config map.          */
-DECL|method|fromMap
-name|void
-name|fromMap
+comment|/**          * Creates a processor based on the specified map of maps config          */
+DECL|method|create
+name|Processor
+name|create
 parameter_list|(
 name|Map
 argument_list|<
@@ -75,25 +109,29 @@ name|Object
 argument_list|>
 name|config
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
-comment|/**          * Builds the processor based on previous set settings.          */
-DECL|method|build
-name|Processor
-name|build
+comment|/**          */
+DECL|method|setConfigDirectory
+specifier|default
+name|void
+name|setConfigDirectory
+parameter_list|(
+name|Path
+name|configDirectory
+parameter_list|)
+block|{         }
+annotation|@
+name|Override
+DECL|method|close
+specifier|default
+name|void
+name|close
 parameter_list|()
-function_decl|;
-comment|/**          * A factory that creates a processor builder when processor instances for pipelines are being created.          */
-DECL|interface|Factory
-interface|interface
-name|Factory
-block|{
-comment|/**              * Creates the builder.              */
-DECL|method|create
-name|Builder
-name|create
-parameter_list|()
-function_decl|;
-block|}
+throws|throws
+name|IOException
+block|{         }
 block|}
 block|}
 end_interface

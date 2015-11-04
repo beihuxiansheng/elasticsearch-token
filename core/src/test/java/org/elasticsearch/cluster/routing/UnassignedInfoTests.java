@@ -238,16 +238,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -278,7 +268,39 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|INITIALIZING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|UNASSIGNED
 import|;
 end_import
 
@@ -290,7 +312,67 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -306,8 +388,6 @@ name|UnassignedInfoTests
 extends|extends
 name|ESAllocationTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testReasonOrdinalOrder
 specifier|public
 name|void
@@ -453,8 +533,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSerialization
 specifier|public
 name|void
@@ -596,8 +674,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexCreated
 specifier|public
 name|void
@@ -688,6 +764,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -731,8 +810,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterRecovered
 specifier|public
 name|void
@@ -823,6 +900,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -866,8 +946,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexReopened
 specifier|public
 name|void
@@ -958,6 +1036,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1001,8 +1082,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNewIndexRestored
 specifier|public
 name|void
@@ -1115,6 +1194,9 @@ operator|new
 name|IntHashSet
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1158,8 +1240,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testExistingIndexRestored
 specifier|public
 name|void
@@ -1268,6 +1348,9 @@ argument_list|,
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1311,8 +1394,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDanglingIndexImported
 specifier|public
 name|void
@@ -1403,6 +1484,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1446,8 +1530,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testReplicaAdded
 specifier|public
 name|void
@@ -1534,6 +1616,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1688,6 +1773,9 @@ name|add
 argument_list|(
 name|builder
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1773,8 +1861,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The unassigned meta is kept when a shard goes to INITIALIZING, but cleared when it moves to STARTED.      */
-annotation|@
-name|Test
 DECL|method|testStateTransitionMetaHandling
 specifier|public
 name|void
@@ -1908,8 +1994,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that during reroute when a node is detected as leaving the cluster, the right unassigned meta is set      */
-annotation|@
-name|Test
 DECL|method|testNodeLeave
 specifier|public
 name|void
@@ -1996,6 +2080,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -2320,8 +2407,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that when a shard fails, reason is properly set and details are preserved.      */
-annotation|@
-name|Test
 DECL|method|testFailedShard
 specifier|public
 name|void
@@ -2408,6 +2493,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -2795,8 +2883,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that delayed allocation calculation are correct.      */
-annotation|@
-name|Test
 DECL|method|testUnassignedDelayedOnlyOnNodeLeft
 specifier|public
 name|void
@@ -2949,8 +3035,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verifies that delayed allocation is only computed when the reason is NODE_LEFT.      */
-annotation|@
-name|Test
 DECL|method|testUnassignedDelayOnlyNodeLeftNonNodeLeftReason
 specifier|public
 name|void
@@ -3091,8 +3175,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNumberOfDelayedUnassigned
 specifier|public
 name|void
@@ -3221,6 +3303,9 @@ argument_list|(
 literal|"test2"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -3499,8 +3584,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFindNextDelayedAllocation
 specifier|public
 name|void
@@ -3627,6 +3710,9 @@ argument_list|(
 literal|"test2"
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build

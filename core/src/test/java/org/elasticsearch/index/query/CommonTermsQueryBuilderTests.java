@@ -46,16 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -208,9 +198,6 @@ name|query
 operator|.
 name|cutoffFrequency
 argument_list|(
-operator|(
-name|float
-operator|)
 name|randomIntBetween
 argument_list|(
 literal|1
@@ -410,8 +397,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -485,8 +470,6 @@ block|{
 comment|// okay
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNoTermsFromQueryString
 specifier|public
 name|void
@@ -530,8 +513,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQuery1
 specifier|public
 name|void
@@ -607,8 +588,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQuery2
 specifier|public
 name|void
@@ -686,8 +665,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQuery3
 specifier|public
 name|void
@@ -763,8 +740,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #11730
 DECL|method|testCommonTermsQuery4
 specifier|public

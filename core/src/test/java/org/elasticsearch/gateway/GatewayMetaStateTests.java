@@ -152,16 +152,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -1308,7 +1298,7 @@ operator|.
 name|getNewMetaData
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1348,8 +1338,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersionChangeIsAlwaysWritten
 specifier|public
 name|void
@@ -1409,8 +1397,6 @@ name|expectMetaData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNewShardsAlwaysWritten
 specifier|public
 name|void
@@ -1469,8 +1455,6 @@ name|expectMetaData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAllUpToDateNothingWritten
 specifier|public
 name|void
@@ -1528,8 +1512,6 @@ name|expectMetaData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoWriteIfNothingChanged
 specifier|public
 name|void
@@ -1605,8 +1587,6 @@ name|expectMetaData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testWriteClosedIndex
 specifier|public
 name|void

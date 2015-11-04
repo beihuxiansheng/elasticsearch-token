@@ -551,7 +551,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 operator|!=
 name|shards
@@ -583,7 +583,7 @@ name|i
 operator|<
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 condition|;
 name|i
@@ -655,7 +655,7 @@ name|routingNumberOfReplicas
 operator|!=
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 condition|)
 block|{
@@ -677,7 +677,7 @@ literal|"] routing table has wrong number of replicas, expected ["
 operator|+
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 operator|+
 literal|"], got ["
@@ -1815,7 +1815,7 @@ name|shardId
 operator|<
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 condition|;
 name|shardId
@@ -1837,7 +1837,7 @@ name|ShardId
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|shardId
@@ -1855,7 +1855,7 @@ name|i
 operator|<=
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 condition|;
 name|i
@@ -1988,7 +1988,7 @@ name|shardId
 operator|<
 name|indexMetaData
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 condition|;
 name|shardId
@@ -2010,7 +2010,7 @@ name|ShardId
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|shardId
@@ -2028,7 +2028,7 @@ name|i
 operator|<=
 name|indexMetaData
 operator|.
-name|numberOfReplicas
+name|getNumberOfReplicas
 argument_list|()
 condition|;
 name|i

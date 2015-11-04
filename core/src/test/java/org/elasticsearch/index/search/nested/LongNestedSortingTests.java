@@ -28,21 +28,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|LongField
+name|SortedNumericDocValuesField
 import|;
 end_import
 
@@ -116,9 +102,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|fieldcomparator
-operator|.
-name|LongValuesComparatorSource
+name|IndexNumericFieldData
 import|;
 end_import
 
@@ -132,9 +116,9 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|plain
+name|fieldcomparator
 operator|.
-name|PackedArrayIndexFieldData
+name|LongValuesComparatorSource
 import|;
 end_import
 
@@ -200,7 +184,7 @@ name|Nested
 name|nested
 parameter_list|)
 block|{
-name|PackedArrayIndexFieldData
+name|IndexNumericFieldData
 name|fieldData
 init|=
 name|getForField
@@ -234,22 +218,15 @@ name|name
 parameter_list|,
 name|int
 name|value
-parameter_list|,
-name|Field
-operator|.
-name|Store
-name|store
 parameter_list|)
 block|{
 return|return
 operator|new
-name|LongField
+name|SortedNumericDocValuesField
 argument_list|(
 name|name
 argument_list|,
 name|value
-argument_list|,
-name|store
 argument_list|)
 return|;
 block|}

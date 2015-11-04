@@ -88,20 +88,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -133,6 +119,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|GeohashCellQuery
 import|;
 end_import
 
@@ -303,16 +303,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -984,8 +974,6 @@ name|endObject
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDfsQueryThenFetch
 specifier|public
 name|void
@@ -1313,8 +1301,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDfsQueryThenFetchWithSort
 specifier|public
 name|void
@@ -1554,8 +1540,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryThenFetch
 specifier|public
 name|void
@@ -1799,8 +1783,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryThenFetchWithFrom
 specifier|public
 name|void
@@ -2088,8 +2070,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryThenFetchWithSort
 specifier|public
 name|void
@@ -2324,8 +2304,6 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testQueryAndFetch
 specifier|public
 name|void
@@ -2708,8 +2686,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDfsQueryAndFetch
 specifier|public
 name|void
@@ -3082,8 +3058,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleFacets
 specifier|public
 name|void
@@ -3285,8 +3259,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailedSearchWithWrongQuery
 specifier|public
 name|void
@@ -3331,9 +3303,20 @@ operator|.
 name|source
 argument_list|(
 operator|new
-name|BytesArray
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
 argument_list|(
-literal|"{ xxx }"
+operator|new
+name|GeohashCellQuery
+operator|.
+name|Builder
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"biz"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3421,8 +3404,6 @@ literal|"Done Testing failed search"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailedSearchWithWrongFrom
 specifier|public
 name|void
@@ -3723,8 +3704,6 @@ literal|"Done Testing failed search"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailedMultiSearchWithWrongQuery
 specifier|public
 name|void
@@ -3964,12 +3943,10 @@ literal|"Done Testing failed search"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testFailedMultiSearchWithWrongQuery_withFunctionScore
+DECL|method|testFailedMultiSearchWithWrongQueryWithFunctionScore
 specifier|public
 name|void
-name|testFailedMultiSearchWithWrongQuery_withFunctionScore
+name|testFailedMultiSearchWithWrongQueryWithFunctionScore
 parameter_list|()
 throws|throws
 name|Exception

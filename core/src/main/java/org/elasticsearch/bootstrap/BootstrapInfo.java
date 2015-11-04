@@ -60,7 +60,7 @@ name|isMemoryLocked
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns true if secure computing mode is enabled (linux/amd64 only)      */
+comment|/**      * Returns true if secure computing mode is enabled (supported systems only)      */
 DECL|method|isSeccompInstalled
 specifier|public
 specifier|static
@@ -75,6 +75,16 @@ name|isSeccompInstalled
 argument_list|()
 return|;
 block|}
+comment|/**      * codebase location for untrusted scripts (provide some additional safety)      *<p>      * This is not a full URL, just a path.      */
+DECL|field|UNTRUSTED_CODEBASE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|UNTRUSTED_CODEBASE
+init|=
+literal|"/untrusted"
+decl_stmt|;
 block|}
 end_class
 

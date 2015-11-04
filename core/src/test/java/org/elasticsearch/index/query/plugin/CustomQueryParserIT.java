@@ -150,16 +150,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -262,6 +252,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp
 specifier|public
@@ -326,8 +318,6 @@ name|numDataNodes
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCustomDummyQuery
 specifier|public
 name|void
@@ -360,8 +350,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCustomDummyQueryWithinBooleanQuery
 specifier|public
 name|void
@@ -433,8 +421,6 @@ name|queryParserService
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 comment|//see #11120
 DECL|method|testConstantScoreParsesFilter
 specifier|public
@@ -514,8 +500,6 @@ name|isFilter
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|//see #11120
 DECL|method|testBooleanParsesFilter
 specifier|public

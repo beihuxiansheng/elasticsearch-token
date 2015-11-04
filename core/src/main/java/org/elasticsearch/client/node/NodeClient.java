@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -134,6 +120,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -149,7 +147,7 @@ block|{
 DECL|field|actions
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|GenericAction
 argument_list|,
@@ -194,9 +192,7 @@ name|this
 operator|.
 name|actions
 operator|=
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|actions
 argument_list|)

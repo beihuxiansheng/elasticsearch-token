@@ -82,11 +82,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Test
+name|IOException
 import|;
 end_import
 
@@ -98,7 +98,19 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -114,13 +126,13 @@ name|PreBuiltTokenizerFactoryFactoryTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testThatDifferentVersionsCanBeLoaded
 specifier|public
 name|void
 name|testThatDifferentVersionsCanBeLoaded
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|PreBuiltTokenizerFactoryFactory
 name|factory
@@ -146,8 +158,12 @@ name|former090TokenizerFactory
 init|=
 name|factory
 operator|.
-name|create
+name|get
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 literal|"standard"
 argument_list|,
 name|Settings
@@ -175,8 +191,12 @@ name|former090TokenizerFactoryCopy
 init|=
 name|factory
 operator|.
-name|create
+name|get
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 literal|"standard"
 argument_list|,
 name|Settings
@@ -204,8 +224,12 @@ name|currentTokenizerFactory
 init|=
 name|factory
 operator|.
-name|create
+name|get
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 literal|"standard"
 argument_list|,
 name|Settings

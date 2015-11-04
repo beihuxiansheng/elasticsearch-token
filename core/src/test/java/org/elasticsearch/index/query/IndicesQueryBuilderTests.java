@@ -32,16 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -311,8 +301,6 @@ name|IOException
 block|{
 comment|//nothing to do here, boost check is already included in equality check done as part of doAssertLuceneQuery above
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void

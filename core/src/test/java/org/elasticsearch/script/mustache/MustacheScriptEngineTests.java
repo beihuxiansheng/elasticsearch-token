@@ -92,16 +92,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -213,8 +203,6 @@ name|JsonEscapingMustacheFactory
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleParameterReplace
 specifier|public
 name|void
@@ -265,7 +253,7 @@ name|BytesReference
 operator|)
 name|qe
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -290,6 +278,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -368,7 +359,7 @@ name|BytesReference
 operator|)
 name|qe
 operator|.
-name|execute
+name|executable
 argument_list|(
 operator|new
 name|CompiledScript
@@ -393,6 +384,9 @@ argument_list|)
 argument_list|,
 name|vars
 argument_list|)
+operator|.
+name|run
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -419,8 +413,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testEscapeJson
 specifier|public
 name|void
@@ -790,7 +782,7 @@ return|return
 name|string
 return|;
 block|}
-comment|/**      * From https://www.ietf.org/rfc/rfc4627.txt:      *       * All Unicode characters may be placed within the      * quotation marks except for the characters that must be escaped:      * quotation mark, reverse solidus, and the control characters (U+0000      * through U+001F).       * */
+comment|/**      * From https://www.ietf.org/rfc/rfc4627.txt:      *      * All Unicode characters may be placed within the      * quotation marks except for the characters that must be escaped:      * quotation mark, reverse solidus, and the control characters (U+0000      * through U+001F).      * */
 DECL|method|isEscapeChar
 specifier|private
 specifier|static

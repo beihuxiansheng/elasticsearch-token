@@ -105,16 +105,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -193,8 +183,6 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testWriteLoadIndex
 specifier|public
 name|void
@@ -270,8 +258,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testLoadMissingIndex
 specifier|public
 name|void
@@ -316,8 +302,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testWriteLoadGlobal
 specifier|public
 name|void
@@ -406,8 +390,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testWriteGlobalStateWithIndexAndNoIndexIsLoaded
 specifier|public
 name|void
@@ -552,12 +534,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|tesLoadGlobal
+DECL|method|testLoadGlobal
 specifier|public
 name|void
-name|tesLoadGlobal
+name|testLoadGlobal
 parameter_list|()
 throws|throws
 name|Exception

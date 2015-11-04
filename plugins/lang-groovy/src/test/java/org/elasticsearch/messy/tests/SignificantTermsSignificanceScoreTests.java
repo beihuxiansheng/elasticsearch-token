@@ -660,16 +660,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1031,8 +1021,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPlugin
 specifier|public
 name|void
@@ -1583,6 +1571,18 @@ name|CustomSignificanceHeuristicPlugin
 extends|extends
 name|Plugin
 block|{
+static|static
+block|{
+name|SignificanceHeuristicStreams
+operator|.
+name|registerStream
+argument_list|(
+name|SimpleHeuristic
+operator|.
+name|STREAM
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|name
@@ -1625,15 +1625,6 @@ operator|.
 name|SimpleHeuristicParser
 operator|.
 name|class
-argument_list|)
-expr_stmt|;
-name|significanceModule
-operator|.
-name|registerStream
-argument_list|(
-name|SimpleHeuristic
-operator|.
-name|STREAM
 argument_list|)
 expr_stmt|;
 block|}
@@ -1922,8 +1913,6 @@ return|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testXContentResponse
 specifier|public
 name|void
@@ -2200,8 +2189,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDeletesIssue7951
 specifier|public
 name|void
@@ -2546,8 +2533,6 @@ name|actionGet
 argument_list|()
 decl_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBackgroundVsSeparateSet
 specifier|public
 name|void
@@ -3498,8 +3483,6 @@ name|indexRequestBuilderList
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testScoresEqualForPositiveAndNegative
 specifier|public
 name|void
@@ -3981,8 +3964,6 @@ name|indexRequestBuilders
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testScriptScore
 specifier|public
 name|void
@@ -4181,8 +4162,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNoNumberFormatExceptionWithDefaultScriptingEngine
 specifier|public
 name|void

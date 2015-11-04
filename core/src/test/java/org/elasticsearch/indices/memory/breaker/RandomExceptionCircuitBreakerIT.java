@@ -340,16 +340,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -483,8 +473,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBreakerWithRandomExceptions
 specifier|public
 name|void
@@ -642,14 +630,6 @@ operator|.
 name|startObject
 argument_list|(
 literal|"fielddata"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"format"
-argument_list|,
-name|randomNumericFieldDataFormat
-argument_list|()
 argument_list|)
 operator|.
 name|endObject
@@ -1357,7 +1337,7 @@ operator|.
 name|getCache
 argument_list|()
 operator|.
-name|cleanUp
+name|refresh
 argument_list|()
 expr_stmt|;
 block|}

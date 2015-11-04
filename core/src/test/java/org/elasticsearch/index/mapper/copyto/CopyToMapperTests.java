@@ -290,16 +290,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -409,8 +399,6 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-annotation|@
-name|Test
 DECL|method|testCopyToFieldsParsing
 specifier|public
 name|void
@@ -1172,13 +1160,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
-name|Test
 DECL|method|testCopyToFieldsInnerObjectParsing
 specifier|public
 name|void
@@ -1440,13 +1421,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
-name|Test
 DECL|method|testCopyToFieldsNonExistingInnerObjectParsing
 specifier|public
 name|void
@@ -1592,8 +1566,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testCopyToFieldMerge
 specifier|public
 name|void

@@ -146,16 +146,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -215,8 +205,6 @@ extends|extends
 name|ESTestCase
 block|{
 comment|/*     * Turkish has some funny casing.     * This test shows how you can solve this kind of thing easily with collation.     * Instead of using LowerCaseFilter, use a turkish collator with primary strength.     * Then things will sort and match correctly.     */
-annotation|@
-name|Test
 DECL|method|testBasicUsage
 specifier|public
 name|void
@@ -294,8 +282,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Test usage of the decomposition option for unicode normalization.     */
-annotation|@
-name|Test
 DECL|method|testNormalization
 specifier|public
 name|void
@@ -380,8 +366,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Test secondary strength, for english case is not significant.     */
-annotation|@
-name|Test
 DECL|method|testSecondaryStrength
 specifier|public
 name|void
@@ -466,8 +450,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Setting alternate=shifted to shift whitespace, punctuation and symbols     * to quaternary level     */
-annotation|@
-name|Test
 DECL|method|testIgnorePunctuation
 specifier|public
 name|void
@@ -552,8 +534,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Setting alternate=shifted and variableTop to shift whitespace, but not     * punctuation or symbols, to quaternary level     */
-annotation|@
-name|Test
 DECL|method|testIgnoreWhitespace
 specifier|public
 name|void
@@ -658,8 +638,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Setting numeric to encode digits with numeric value, so that     * foobar-9 sorts before foobar-10     */
-annotation|@
-name|Test
 DECL|method|testNumerics
 specifier|public
 name|void
@@ -740,8 +718,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Setting caseLevel=true to create an additional case level between     * secondary and tertiary     */
-annotation|@
-name|Test
 DECL|method|testIgnoreAccentsButNotCase
 specifier|public
 name|void
@@ -848,8 +824,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * Setting caseFirst=upper to cause uppercase strings to sort     * before lowercase ones.     */
-annotation|@
-name|Test
 DECL|method|testUpperCaseFirst
 specifier|public
 name|void
@@ -937,8 +911,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*     * For german, you might want oe to sort and match with o umlaut.     * This is not the default, but you can make a customized ruleset to do this.     *     * The default is DIN 5007-1, this shows how to tailor a collator to get DIN 5007-2 behavior.     *  http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4423383     */
-annotation|@
-name|Test
 DECL|method|testCustomRules
 specifier|public
 name|void

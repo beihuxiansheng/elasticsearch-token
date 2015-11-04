@@ -66,20 +66,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Iterators
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -106,15 +92,12 @@ begin_comment
 comment|/** Collections-related utility methods. */
 end_comment
 
-begin_enum
-DECL|enum|CollectionUtils
+begin_class
+DECL|class|CollectionUtils
 specifier|public
-enum|enum
+class|class
 name|CollectionUtils
 block|{
-DECL|enum constant|CollectionUtils
-name|CollectionUtils
-block|;
 DECL|method|sort
 specifier|public
 specifier|static
@@ -1342,11 +1325,11 @@ name|int
 name|i
 init|=
 literal|0
-operator|,
+init|,
 name|j
-operator|=
+init|=
 literal|0
-condition|;
+init|;
 name|i
 operator|<
 name|left
@@ -1358,10 +1341,13 @@ operator|<
 name|right
 operator|.
 name|length
-incr|;
-control|i++
+condition|;
+name|i
+operator|++
 operator|,
-control|j++)
+name|j
+operator|++
+control|)
 block|{
 name|int
 name|a
@@ -1617,7 +1603,7 @@ argument_list|()
 return|;
 block|}
 block|}
-block|;
+empty_stmt|;
 DECL|method|sort
 specifier|public
 specifier|static
@@ -1976,41 +1962,6 @@ expr_stmt|;
 block|}
 return|return
 name|uniqueCount
-return|;
-block|}
-comment|/**      * Combines multiple iterators into a single iterator.      */
-DECL|method|concat
-specifier|public
-specifier|static
-parameter_list|<
-name|T
-parameter_list|>
-name|Iterator
-argument_list|<
-name|T
-argument_list|>
-name|concat
-parameter_list|(
-name|Iterator
-argument_list|<
-name|?
-extends|extends
-name|T
-argument_list|>
-modifier|...
-name|iterators
-parameter_list|)
-block|{
-return|return
-name|Iterators
-operator|.
-expr|<
-name|T
-operator|>
-name|concat
-argument_list|(
-name|iterators
-argument_list|)
 return|;
 block|}
 DECL|method|iterableAsArrayList
@@ -2574,7 +2525,7 @@ name|result
 return|;
 block|}
 block|}
-end_enum
+end_class
 
 end_unit
 

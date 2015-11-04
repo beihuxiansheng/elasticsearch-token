@@ -639,7 +639,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|!=
 name|IndexMetaData
@@ -892,6 +892,9 @@ operator|.
 name|routingTable
 argument_list|(
 name|rtBuilder
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -1083,7 +1086,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 operator|!=
 name|IndexMetaData
@@ -1305,6 +1308,9 @@ operator|.
 name|routingTable
 argument_list|(
 name|rtBuilder
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
 name|build

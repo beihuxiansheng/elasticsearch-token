@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -120,7 +106,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|RoutingTable
 import|;
 end_import
 
@@ -134,7 +120,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingTable
+name|ShardRouting
 import|;
 end_import
 
@@ -225,12 +211,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
+import|import static
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Test
+name|Collections
+operator|.
+name|emptyMap
 import|;
 end_import
 
@@ -323,12 +311,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
-DECL|method|sameHost
+DECL|method|testSameHost
 specifier|public
 name|void
-name|sameHost
+name|testSameHost
 parameter_list|()
 block|{
 name|AllocationService
@@ -485,14 +471,7 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|Version
@@ -518,14 +497,7 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|Version
@@ -718,14 +690,7 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
-name|ImmutableMap
-operator|.
-expr|<
-name|String
-argument_list|,
-name|String
-operator|>
-name|of
+name|emptyMap
 argument_list|()
 argument_list|,
 name|Version

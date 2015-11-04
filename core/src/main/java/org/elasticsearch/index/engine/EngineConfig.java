@@ -152,20 +152,6 @@ name|common
 operator|.
 name|unit
 operator|.
-name|ByteSizeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
 name|ByteSizeValue
 import|;
 end_import
@@ -300,6 +286,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|memory
+operator|.
+name|IndexingMemoryController
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -391,6 +391,12 @@ name|enableGcDeletes
 init|=
 literal|true
 decl_stmt|;
+DECL|field|flushMergesAfter
+specifier|private
+specifier|final
+name|TimeValue
+name|flushMergesAfter
+decl_stmt|;
 DECL|field|codecName
 specifier|private
 specifier|final
@@ -409,12 +415,12 @@ specifier|final
 name|ShardIndexingService
 name|indexingService
 decl_stmt|;
-annotation|@
-name|Nullable
 DECL|field|warmer
 specifier|private
 specifier|final
-name|IndicesWarmer
+name|Engine
+operator|.
+name|Warmer
 name|warmer
 decl_stmt|;
 DECL|field|store
@@ -459,13 +465,13 @@ specifier|final
 name|CodecService
 name|codecService
 decl_stmt|;
-DECL|field|failedEngineListener
+DECL|field|eventListener
 specifier|private
 specifier|final
 name|Engine
 operator|.
-name|FailedEngineListener
-name|failedEngineListener
+name|EventListener
+name|eventListener
 decl_stmt|;
 DECL|field|forceNewTranslog
 specifier|private
@@ -484,12 +490,6 @@ specifier|private
 specifier|final
 name|QueryCachingPolicy
 name|queryCachingPolicy
-decl_stmt|;
-DECL|field|wrappingService
-specifier|private
-specifier|final
-name|IndexSearcherWrappingService
-name|wrappingService
 decl_stmt|;
 comment|/**      * Index setting for compound file on flush. This setting is realtime updateable.      */
 DECL|field|INDEX_COMPOUND_ON_FLUSH
@@ -572,39 +572,6 @@ argument_list|(
 literal|60
 argument_list|)
 decl_stmt|;
-DECL|field|DEFAULT_INDEX_BUFFER_SIZE
-specifier|public
-specifier|static
-specifier|final
-name|ByteSizeValue
-name|DEFAULT_INDEX_BUFFER_SIZE
-init|=
-operator|new
-name|ByteSizeValue
-argument_list|(
-literal|64
-argument_list|,
-name|ByteSizeUnit
-operator|.
-name|MB
-argument_list|)
-decl_stmt|;
-DECL|field|INACTIVE_SHARD_INDEXING_BUFFER
-specifier|public
-specifier|static
-specifier|final
-name|ByteSizeValue
-name|INACTIVE_SHARD_INDEXING_BUFFER
-init|=
-name|ByteSizeValue
-operator|.
-name|parseBytesSizeValue
-argument_list|(
-literal|"500kb"
-argument_list|,
-literal|"INACTIVE_SHARD_INDEXING_BUFFER"
-argument_list|)
-decl_stmt|;
 DECL|field|DEFAULT_VERSION_MAP_SIZE
 specifier|public
 specifier|static
@@ -652,7 +619,9 @@ parameter_list|,
 name|Settings
 name|indexSettings
 parameter_list|,
-name|IndicesWarmer
+name|Engine
+operator|.
+name|Warmer
 name|warmer
 parameter_list|,
 name|Store
@@ -678,8 +647,8 @@ name|codecService
 parameter_list|,
 name|Engine
 operator|.
-name|FailedEngineListener
-name|failedEngineListener
+name|EventListener
+name|eventListener
 parameter_list|,
 name|TranslogRecoveryPerformer
 name|translogRecoveryPerformer
@@ -690,11 +659,11 @@ parameter_list|,
 name|QueryCachingPolicy
 name|queryCachingPolicy
 parameter_list|,
-name|IndexSearcherWrappingService
-name|wrappingService
-parameter_list|,
 name|TranslogConfig
 name|translogConfig
+parameter_list|,
+name|TimeValue
+name|flushMergesAfter
 parameter_list|)
 block|{
 name|this
@@ -726,6 +695,18 @@ operator|.
 name|warmer
 operator|=
 name|warmer
+operator|==
+literal|null
+condition|?
+parameter_list|(
+name|a
+parameter_list|,
+name|b
+parameter_list|)
+lambda|->
+block|{}
+else|:
+name|warmer
 expr_stmt|;
 name|this
 operator|.
@@ -771,15 +752,9 @@ name|codecService
 expr_stmt|;
 name|this
 operator|.
-name|failedEngineListener
+name|eventListener
 operator|=
-name|failedEngineListener
-expr_stmt|;
-name|this
-operator|.
-name|wrappingService
-operator|=
-name|wrappingService
+name|eventListener
 expr_stmt|;
 name|this
 operator|.
@@ -811,9 +786,12 @@ operator|.
 name|DEFAULT_CODEC_NAME
 argument_list|)
 expr_stmt|;
+comment|// We start up inactive and rely on IndexingMemoryController to give us our fair share once we start indexing:
 name|indexingBufferSize
 operator|=
-name|DEFAULT_INDEX_BUFFER_SIZE
+name|IndexingMemoryController
+operator|.
+name|INACTIVE_SHARD_INDEXING_BUFFER
 expr_stmt|;
 name|gcDeletesInMillis
 operator|=
@@ -881,6 +859,12 @@ operator|.
 name|translogConfig
 operator|=
 name|translogConfig
+expr_stmt|;
+name|this
+operator|.
+name|flushMergesAfter
+operator|=
+name|flushMergesAfter
 expr_stmt|;
 block|}
 comment|/** updates {@link #versionMapSize} based on current setting and {@link #indexingBufferSize} */
@@ -1113,7 +1097,7 @@ name|codecName
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a thread-pool mainly used to get estimated time stamps from {@link org.elasticsearch.threadpool.ThreadPool#estimatedTimeInMillis()} and to schedule      * async force merge calls on the {@link org.elasticsearch.threadpool.ThreadPool.Names#OPTIMIZE} thread-pool      */
+comment|/**      * Returns a thread-pool mainly used to get estimated time stamps from {@link org.elasticsearch.threadpool.ThreadPool#estimatedTimeInMillis()} and to schedule      * async force merge calls on the {@link org.elasticsearch.threadpool.ThreadPool.Names#FORCE_MERGE} thread-pool      */
 DECL|method|getThreadPool
 specifier|public
 name|ThreadPool
@@ -1124,7 +1108,7 @@ return|return
 name|threadPool
 return|;
 block|}
-comment|/**      * Returns a {@link org.elasticsearch.index.indexing.ShardIndexingService} used inside the engine to inform about      * pre and post index and create operations. The operations are used for statistic purposes etc.      *      * @see org.elasticsearch.index.indexing.ShardIndexingService#postCreate(org.elasticsearch.index.engine.Engine.Create)      * @see org.elasticsearch.index.indexing.ShardIndexingService#preCreate(org.elasticsearch.index.engine.Engine.Create)      *      */
+comment|/**      * Returns a {@link org.elasticsearch.index.indexing.ShardIndexingService} used inside the engine to inform about      * pre and post index. The operations are used for statistic purposes etc.      *      * @see org.elasticsearch.index.indexing.ShardIndexingService#postIndex(Engine.Index)      * @see org.elasticsearch.index.indexing.ShardIndexingService#preIndex(Engine.Index)      *      */
 DECL|method|getIndexingService
 specifier|public
 name|ShardIndexingService
@@ -1135,12 +1119,12 @@ return|return
 name|indexingService
 return|;
 block|}
-comment|/**      * Returns an {@link org.elasticsearch.indices.IndicesWarmer} used to warm new searchers before they are used for searching.      * Note: This method might retrun<code>null</code>      */
-annotation|@
-name|Nullable
+comment|/**      * Returns an {@link org.elasticsearch.index.engine.Engine.Warmer} used to warm new searchers before they are used for searching.      */
 DECL|method|getWarmer
 specifier|public
-name|IndicesWarmer
+name|Engine
+operator|.
+name|Warmer
 name|getWarmer
 parameter_list|()
 block|{
@@ -1193,16 +1177,16 @@ name|mergeSchedulerConfig
 return|;
 block|}
 comment|/**      * Returns a listener that should be called on engine failure      */
-DECL|method|getFailedEngineListener
+DECL|method|getEventListener
 specifier|public
 name|Engine
 operator|.
-name|FailedEngineListener
-name|getFailedEngineListener
+name|EventListener
+name|getEventListener
 parameter_list|()
 block|{
 return|return
-name|failedEngineListener
+name|eventListener
 return|;
 block|}
 comment|/**      * Returns the latest index settings directly from the index settings service.      */
@@ -1316,16 +1300,6 @@ return|return
 name|queryCachingPolicy
 return|;
 block|}
-DECL|method|getWrappingService
-specifier|public
-name|IndexSearcherWrappingService
-name|getWrappingService
-parameter_list|()
-block|{
-return|return
-name|wrappingService
-return|;
-block|}
 comment|/**      * Returns the translog config for this engine      */
 DECL|method|getTranslogConfig
 specifier|public
@@ -1363,6 +1337,17 @@ parameter_list|()
 block|{
 return|return
 name|create
+return|;
+block|}
+comment|/**      * Returns a {@link TimeValue} at what time interval after the last write modification to the engine finished merges      * should be automatically flushed. This is used to free up transient disk usage of potentially large segments that      * are written after the engine became inactive from an indexing perspective.      */
+DECL|method|getFlushMergesAfter
+specifier|public
+name|TimeValue
+name|getFlushMergesAfter
+parameter_list|()
+block|{
+return|return
+name|flushMergesAfter
 return|;
 block|}
 block|}

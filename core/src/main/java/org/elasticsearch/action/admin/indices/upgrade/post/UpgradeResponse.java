@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response for optimize action.  *  *  */
+comment|/**  * A response for the upgrade action.  *  *  */
 end_comment
 
 begin_class

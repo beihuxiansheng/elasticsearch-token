@@ -184,16 +184,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -256,7 +246,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsInAnyOrder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -390,12 +416,10 @@ name|loadCountedFields
 expr_stmt|;
 block|}
 comment|/**      * It is possible to get the token count in a search response.      */
-annotation|@
-name|Test
-DECL|method|searchReturnsTokenCount
+DECL|method|testSearchReturnsTokenCount
 specifier|public
 name|void
-name|searchReturnsTokenCount
+name|testSearchReturnsTokenCount
 parameter_list|()
 throws|throws
 name|IOException
@@ -465,12 +489,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * It is possible to search by token count.      */
-annotation|@
-name|Test
-DECL|method|searchByTokenCount
+DECL|method|testSearchByTokenCount
 specifier|public
 name|void
-name|searchByTokenCount
+name|testSearchByTokenCount
 parameter_list|()
 throws|throws
 name|IOException
@@ -567,12 +589,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * It is possible to search by token count.      */
-annotation|@
-name|Test
-DECL|method|facetByTokenCount
+DECL|method|testFacetByTokenCount
 specifier|public
 name|void
-name|facetByTokenCount
+name|testFacetByTokenCount
 parameter_list|()
 throws|throws
 name|IOException

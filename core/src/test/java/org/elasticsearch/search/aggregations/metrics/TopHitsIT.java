@@ -110,20 +110,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -437,16 +423,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -2156,8 +2132,6 @@ name|getKeyAsString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBasics
 specifier|public
 name|void
@@ -2506,8 +2480,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIssue11119
 specifier|public
 name|void
@@ -2965,8 +2937,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBreadthFirst
 specifier|public
 name|void
@@ -3226,12 +3196,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testBasics_getProperty
+DECL|method|testBasicsGetProperty
 specifier|public
 name|void
-name|testBasics_getProperty
+name|testBasicsGetProperty
 parameter_list|()
 throws|throws
 name|Exception
@@ -3397,8 +3365,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPagination
 specifier|public
 name|void
@@ -3851,8 +3817,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSortByBucket
 specifier|public
 name|void
@@ -4228,8 +4192,6 @@ literal|10
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testFieldCollapsing
 specifier|public
 name|void
@@ -4665,8 +4627,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFetchFeatures
 specifier|public
 name|void
@@ -4734,9 +4694,16 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|addHighlightedField
+name|highlighter
+argument_list|(
+operator|new
+name|HighlightBuilder
+argument_list|()
+operator|.
+name|field
 argument_list|(
 literal|"text"
+argument_list|)
 argument_list|)
 operator|.
 name|setExplain
@@ -5111,8 +5078,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testInvalidSortField
 specifier|public
 name|void
@@ -5208,115 +5173,38 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testFailWithSubAgg
-specifier|public
-name|void
-name|testFailWithSubAgg
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|source
-init|=
-literal|"{\n"
-operator|+
-literal|"  \"aggs\": {\n"
-operator|+
-literal|"    \"top-tags\": {\n"
-operator|+
-literal|"      \"terms\": {\n"
-operator|+
-literal|"        \"field\": \"tags\"\n"
-operator|+
-literal|"      },\n"
-operator|+
-literal|"      \"aggs\": {\n"
-operator|+
-literal|"        \"top_tags_hits\": {\n"
-operator|+
-literal|"          \"top_hits\": {},\n"
-operator|+
-literal|"          \"aggs\": {\n"
-operator|+
-literal|"            \"max\": {\n"
-operator|+
-literal|"              \"max\": {\n"
-operator|+
-literal|"                \"field\": \"age\"\n"
-operator|+
-literal|"              }\n"
-operator|+
-literal|"            }\n"
-operator|+
-literal|"          }\n"
-operator|+
-literal|"        }\n"
-operator|+
-literal|"      }\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"  }\n"
-operator|+
-literal|"}"
-decl_stmt|;
-try|try
-block|{
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"idx"
-argument_list|)
-operator|.
-name|setTypes
-argument_list|(
-literal|"type"
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
-operator|new
-name|BytesArray
-argument_list|(
-name|source
-argument_list|)
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"Aggregator [top_tags_hits] of type [top_hits] cannot accept sub-aggregations"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Test
+comment|// public void testFailWithSubAgg() throws Exception {
+comment|// String source = "{\n" +
+comment|// "  \"aggs\": {\n" +
+comment|// "    \"top-tags\": {\n" +
+comment|// "      \"terms\": {\n" +
+comment|// "        \"field\": \"tags\"\n" +
+comment|// "      },\n" +
+comment|// "      \"aggs\": {\n" +
+comment|// "        \"top_tags_hits\": {\n" +
+comment|// "          \"top_hits\": {},\n" +
+comment|// "          \"aggs\": {\n" +
+comment|// "            \"max\": {\n" +
+comment|// "              \"max\": {\n" +
+comment|// "                \"field\": \"age\"\n" +
+comment|// "              }\n" +
+comment|// "            }\n" +
+comment|// "          }\n" +
+comment|// "        }\n" +
+comment|// "      }\n" +
+comment|// "    }\n" +
+comment|// "  }\n" +
+comment|// "}";
+comment|// try {
+comment|// client().prepareSearch("idx").setTypes("type")
+comment|// .setSource(new BytesArray(source))
+comment|// .get();
+comment|// fail();
+comment|// } catch (SearchPhaseExecutionException e) {
+comment|// assertThat(e.toString(),
+comment|// containsString("Aggregator [top_tags_hits] of type [top_hits] cannot accept sub-aggregations"));
+comment|// }
+comment|// } NORELEASE this needs to be tested in a top_hits aggregations unit test
 DECL|method|testEmptyIndex
 specifier|public
 name|void
@@ -5408,8 +5296,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTrackScores
 specifier|public
 name|void
@@ -5879,8 +5765,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testTopHitsInNestedSimple
 specifier|public
 name|void
@@ -6447,8 +6331,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTopHitsInSecondLayerNested
 specifier|public
 name|void
@@ -8195,8 +8077,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedFetchFeatures
 specifier|public
 name|void
@@ -8305,9 +8185,16 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|addHighlightedField
+name|highlighter
+argument_list|(
+operator|new
+name|HighlightBuilder
+argument_list|()
+operator|.
+name|field
 argument_list|(
 name|hlField
+argument_list|)
 argument_list|)
 operator|.
 name|setExplain
@@ -8683,8 +8570,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTopHitsInNested
 specifier|public
 name|void
@@ -8754,7 +8639,13 @@ argument_list|(
 literal|"comments"
 argument_list|)
 operator|.
-name|addHighlightedField
+name|highlighter
+argument_list|(
+operator|new
+name|HighlightBuilder
+argument_list|()
+operator|.
+name|field
 argument_list|(
 operator|new
 name|HighlightBuilder
@@ -8771,6 +8662,7 @@ argument_list|(
 literal|"comments.message"
 argument_list|,
 literal|"text"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -9061,8 +8953,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDontExplode
 specifier|public
 name|void

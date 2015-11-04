@@ -88,33 +88,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -154,8 +132,6 @@ name|InputStreamIndexInputTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSingleReadSingleByteLimit
 specifier|public
 name|void
@@ -477,8 +453,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReadMultiSingleByteLimit1
 specifier|public
 name|void
@@ -820,8 +794,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleReadTwoBytesLimit
 specifier|public
 name|void
@@ -1214,8 +1186,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReadMultiTwoBytesLimit1
 specifier|public
 name|void
@@ -1641,8 +1611,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReadMultiFourBytesLimit
 specifier|public
 name|void
@@ -2014,8 +1982,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMarkRest
 specifier|public
 name|void

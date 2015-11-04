@@ -205,10 +205,7 @@ literal|true
 expr_stmt|;
 name|shard
 operator|.
-name|engine
-argument_list|()
-operator|.
-name|flushAndClose
+name|flushAndCloseEngine
 argument_list|()
 expr_stmt|;
 block|}

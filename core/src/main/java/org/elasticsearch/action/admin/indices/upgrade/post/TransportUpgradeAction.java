@@ -492,7 +492,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|OPTIMIZE
+name|FORCE_MERGE
 argument_list|)
 expr_stmt|;
 name|this
@@ -1002,7 +1002,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 operator|.
-name|shardSafe
+name|getShard
 argument_list|(
 name|shardRouting
 operator|.

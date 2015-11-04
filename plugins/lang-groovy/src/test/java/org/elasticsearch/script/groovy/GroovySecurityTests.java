@@ -66,9 +66,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
+name|settings
 operator|.
-name|BytesArray
+name|Settings
 import|;
 end_import
 
@@ -78,11 +78,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|settings
+name|query
 operator|.
-name|Settings
+name|QueryBuilders
 import|;
 end_import
 
@@ -106,7 +106,61 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
+operator|.
+name|ScriptType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|sort
+operator|.
+name|SortBuilders
 import|;
 end_import
 
@@ -119,16 +173,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -299,8 +343,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEvilGroovyScripts
 specifier|public
 name|void
@@ -443,7 +485,7 @@ expr_stmt|;
 comment|// Maps
 name|assertSuccess
 argument_list|(
-literal|"def v = doc['foo'].value; def m = [:]; m.put(\\\"value\\\", v)"
+literal|"def v = doc['foo'].value; def m = [:]; m.put(\"value\", v)"
 argument_list|)
 expr_stmt|;
 comment|// Times
@@ -462,25 +504,25 @@ comment|// Fail cases:
 comment|// AccessControlException[access denied ("java.io.FilePermission" "<<ALL FILES>>" "execute")]
 name|assertFailure
 argument_list|(
-literal|"pr = Runtime.getRuntime().exec(\\\"touch /tmp/gotcha\\\"); pr.waitFor()"
+literal|"pr = Runtime.getRuntime().exec(\"touch /tmp/gotcha\"); pr.waitFor()"
 argument_list|)
 expr_stmt|;
 comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.reflect")]
 name|assertFailure
 argument_list|(
-literal|"d = new DateTime(); d.getClass().getDeclaredMethod(\\\"year\\\").setAccessible(true)"
+literal|"d = new DateTime(); d.getClass().getDeclaredMethod(\"year\").setAccessible(true)"
 argument_list|)
 expr_stmt|;
 name|assertFailure
 argument_list|(
-literal|"d = new DateTime(); d.\\\"${'get' + 'Class'}\\\"()."
+literal|"d = new DateTime(); d.\"${'get' + 'Class'}\"()."
 operator|+
-literal|"\\\"${'getDeclared' + 'Method'}\\\"(\\\"year\\\").\\\"${'set' + 'Accessible'}\\\"(false)"
+literal|"\"${'getDeclared' + 'Method'}\"(\"year\").\"${'set' + 'Accessible'}\"(false)"
 argument_list|)
 expr_stmt|;
 name|assertFailure
 argument_list|(
-literal|"Class.forName(\\\"org.joda.time.DateTime\\\").getDeclaredMethod(\\\"year\\\").setAccessible(true)"
+literal|"Class.forName(\"org.joda.time.DateTime\").getDeclaredMethod(\"year\").setAccessible(true)"
 argument_list|)
 expr_stmt|;
 comment|// AccessControlException[access denied ("groovy.security.GroovyCodeSourcePermission" "/groovy/shell")]
@@ -497,15 +539,21 @@ expr_stmt|;
 comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "accessDeclaredMembers")]
 name|assertFailure
 argument_list|(
-literal|"d = new Date(); java.lang.reflect.Field f = Date.class.getDeclaredField(\\\"fastTime\\\");"
+literal|"d = new Date(); java.lang.reflect.Field f = Date.class.getDeclaredField(\"fastTime\");"
 operator|+
-literal|" f.setAccessible(true); f.get(\\\"fastTime\\\")"
+literal|" f.setAccessible(true); f.get(\"fastTime\")"
 argument_list|)
 expr_stmt|;
 comment|// AccessControlException[access denied ("java.io.FilePermission" "<<ALL FILES>>" "execute")]
 name|assertFailure
 argument_list|(
-literal|"def methodName = 'ex'; Runtime.\\\"${'get' + 'Runtime'}\\\"().\\\"${methodName}ec\\\"(\\\"touch /tmp/gotcha2\\\")"
+literal|"def methodName = 'ex'; Runtime.\"${'get' + 'Runtime'}\"().\"${methodName}ec\"(\"touch /tmp/gotcha2\")"
+argument_list|)
+expr_stmt|;
+comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "modifyThreadGroup")]
+name|assertFailure
+argument_list|(
+literal|"t = new Thread({ println 3 });"
 argument_list|)
 expr_stmt|;
 comment|// test a directory we normally have access to, but the groovy script does not.
@@ -527,11 +575,11 @@ block|{
 comment|// access denied ("java.io.FilePermission" ".../tempDir-00N" "read")
 name|assertFailure
 argument_list|(
-literal|"new File(\\\""
+literal|"new File(\""
 operator|+
 name|dir
 operator|+
-literal|"\\\").exists()"
+literal|"\").exists()"
 argument_list|)
 expr_stmt|;
 block|}
@@ -568,15 +616,41 @@ operator|.
 name|setSource
 argument_list|(
 operator|new
-name|BytesArray
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
 argument_list|(
-literal|"{\"query\": {\"match_all\": {}},"
-operator|+
-literal|"\"sort\":{\"_script\": {\"script\": \""
-operator|+
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
+argument_list|)
+operator|.
+name|sort
+argument_list|(
+name|SortBuilders
+operator|.
+name|scriptSort
+argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|script
 operator|+
-literal|"; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}"
+literal|"; doc['foo'].value + 2"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|"groovy"
+argument_list|,
+literal|null
+argument_list|)
+argument_list|,
+literal|"number"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -660,15 +734,41 @@ operator|.
 name|setSource
 argument_list|(
 operator|new
-name|BytesArray
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|query
 argument_list|(
-literal|"{\"query\": {\"match_all\": {}},"
-operator|+
-literal|"\"sort\":{\"_script\": {\"script\": \""
-operator|+
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
+argument_list|)
+operator|.
+name|sort
+argument_list|(
+name|SortBuilders
+operator|.
+name|scriptSort
+argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|script
 operator|+
-literal|"; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}"
+literal|"; doc['foo'].value + 2"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|"groovy"
+argument_list|,
+literal|null
+argument_list|)
+argument_list|,
+literal|"number"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

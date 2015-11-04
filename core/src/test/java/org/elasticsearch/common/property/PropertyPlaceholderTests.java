@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -58,6 +48,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
 begin_class
 DECL|class|PropertyPlaceholderTests
 specifier|public
@@ -66,8 +68,6 @@ name|PropertyPlaceholderTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimple
 specifier|public
 name|void
@@ -190,8 +190,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testVariousPrefixSuffix
 specifier|public
 name|void
@@ -318,8 +316,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDefaultValue
 specifier|public
 name|void
@@ -396,8 +392,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIgnoredUnresolvedPlaceholder
 specifier|public
 name|void
@@ -460,15 +454,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testNotIgnoredUnresolvedPlaceholder
 specifier|public
 name|void
@@ -516,6 +501,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|propertyPlaceholder
 operator|.
 name|replacePlaceholders
@@ -525,9 +512,33 @@ argument_list|,
 name|placeholderResolver
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"Could not resolve placeholder 'foo'"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testShouldIgnoreMissing
 specifier|public
 name|void
@@ -590,8 +601,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRecursive
 specifier|public
 name|void
@@ -695,8 +704,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedLongerPrefix
 specifier|public
 name|void
@@ -795,8 +802,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedSameLengthPrefixSuffix
 specifier|public
 name|void
@@ -895,8 +900,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedShorterPrefix
 specifier|public
 name|void
@@ -995,15 +998,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testCircularReference
 specifier|public
 name|void
@@ -1069,6 +1063,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|propertyPlaceholder
 operator|.
 name|replacePlaceholders
@@ -1078,9 +1074,33 @@ argument_list|,
 name|placeholderResolver
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"Circular placeholder reference 'foo' in property definitions"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testShouldRemoveMissing
 specifier|public
 name|void

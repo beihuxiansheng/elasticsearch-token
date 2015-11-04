@@ -1690,7 +1690,7 @@ name|isIndexUsingShadowReplicas
 argument_list|(
 name|index
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 condition|)

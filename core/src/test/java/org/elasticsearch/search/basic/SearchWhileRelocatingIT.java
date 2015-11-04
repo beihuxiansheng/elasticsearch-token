@@ -136,16 +136,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -296,8 +286,6 @@ extends|extends
 name|ESIntegTestCase
 block|{
 annotation|@
-name|Test
-annotation|@
 name|Nightly
 DECL|method|testSearchAndRelocateConcurrently0Replicas
 specifier|public
@@ -314,8 +302,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Test
-annotation|@
 name|Nightly
 DECL|method|testSearchAndRelocateConcurrently1Replicas
 specifier|public
@@ -331,8 +317,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchAndRelocateConcurrentlyRanodmReplicas
 specifier|public
 name|void
@@ -562,12 +546,9 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-call|(
-name|long
-call|)
-argument_list|(
+operator|(
 name|numDocs
-argument_list|)
+operator|)
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -738,12 +719,9 @@ name|assertHitCount
 argument_list|(
 name|sr
 argument_list|,
-call|(
-name|long
-call|)
-argument_list|(
+operator|(
 name|numDocs
-argument_list|)
+operator|)
 argument_list|)
 expr_stmt|;
 name|criticalException

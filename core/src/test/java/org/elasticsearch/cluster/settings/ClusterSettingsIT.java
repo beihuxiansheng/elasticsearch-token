@@ -172,11 +172,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
 name|store
 operator|.
-name|IndicesStore
+name|IndexStoreConfig
 import|;
 end_import
 
@@ -196,9 +196,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
+name|elasticsearch
 operator|.
-name|Matchers
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|ClusterScope
 import|;
 end_import
 
@@ -206,9 +210,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Test
+name|Matchers
 import|;
 end_import
 
@@ -225,20 +229,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|ClusterScope
 import|;
 end_import
 
@@ -298,7 +288,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -317,12 +343,10 @@ name|ClusterSettingsIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|clusterNonExistingSettingsUpdate
+DECL|method|testClusterNonExistingSettingsUpdate
 specifier|public
 name|void
-name|clusterNonExistingSettingsUpdate
+name|testClusterNonExistingSettingsUpdate
 parameter_list|()
 block|{
 name|String
@@ -396,18 +420,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|clusterSettingsUpdateResponse
+DECL|method|testClusterSettingsUpdateResponse
 specifier|public
 name|void
-name|clusterSettingsUpdateResponse
+name|testClusterSettingsUpdateResponse
 parameter_list|()
 block|{
 name|String
 name|key1
 init|=
-name|IndicesStore
+name|IndexStoreConfig
 operator|.
 name|INDICES_STORE_THROTTLE_MAX_BYTES_PER_SEC
 decl_stmt|;
@@ -841,8 +863,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdateDiscoveryPublishTimeout
 specifier|public
 name|void
@@ -1115,8 +1135,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterUpdateSettingsWithBlocks
 specifier|public
 name|void
@@ -1344,15 +1362,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testMissingUnits
 specifier|public
 name|void
@@ -1367,7 +1376,8 @@ literal|"test"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Should fail (missing units for refresh_interval):
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -1403,9 +1413,46 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"[index.refresh_interval] with value [10]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"unit is missing or unrecognized"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testMissingUnitsLenient
 specifier|public
 name|void

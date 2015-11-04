@@ -221,16 +221,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -270,7 +260,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -381,8 +395,6 @@ name|refresh
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRoutingTable
 specifier|public
 name|void
@@ -607,8 +619,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNodes
 specifier|public
 name|void
@@ -713,8 +723,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMetadata
 specifier|public
 name|void
@@ -815,8 +823,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexTemplates
 specifier|public
 name|void
@@ -1087,8 +1093,6 @@ literal|"foo_template"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatFilteringByIndexWorksForMetadataAndRoutingTable
 specifier|public
 name|void
@@ -1267,8 +1271,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLargeClusterStatePublishing
 specifier|public
 name|void
@@ -1592,8 +1594,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIndicesOptions
 specifier|public
 name|void
@@ -1745,7 +1745,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1847,7 +1847,7 @@ argument_list|(
 literal|"fuu"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2010,15 +2010,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IndexNotFoundException
-operator|.
-name|class
-argument_list|)
 DECL|method|testIndicesOptionsOnAllowNoIndicesFalse
 specifier|public
 name|void
@@ -2044,6 +2035,8 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -2077,16 +2070,33 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|IndexNotFoundException
-operator|.
-name|class
+literal|"Expected IndexNotFoundException"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexNotFoundException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"no such index"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testIndicesIgnoreUnavailableFalse
 specifier|public
 name|void
@@ -2112,6 +2122,8 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -2145,6 +2157,32 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IndexNotFoundException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexNotFoundException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"no such index"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

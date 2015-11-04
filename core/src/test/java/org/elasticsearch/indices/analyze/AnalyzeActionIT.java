@@ -126,7 +126,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|*
+name|XContentFactory
 import|;
 end_import
 
@@ -159,16 +159,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -210,7 +200,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
 import|;
 end_import
 
@@ -222,7 +212,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|startsWith
 import|;
 end_import
 
@@ -238,12 +276,10 @@ name|AnalyzeActionIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|simpleAnalyzerTests
+DECL|method|testSimpleAnalyzerTests
 specifier|public
 name|void
-name|simpleAnalyzerTests
+name|testSimpleAnalyzerTests
 parameter_list|()
 throws|throws
 name|Exception
@@ -583,12 +619,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|analyzeNumericField
+DECL|method|testAnalyzeNumericField
 specifier|public
 name|void
-name|analyzeNumericField
+name|testAnalyzeNumericField
 parameter_list|()
 throws|throws
 name|IOException
@@ -711,12 +745,10 @@ block|{
 comment|//all good
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|analyzeWithNoIndex
+DECL|method|testAnalyzeWithNoIndex
 specifier|public
 name|void
-name|analyzeWithNoIndex
+name|testAnalyzeWithNoIndex
 parameter_list|()
 throws|throws
 name|Exception
@@ -1108,12 +1140,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|analyzeWithCharFilters
+DECL|method|testAnalyzeWithCharFilters
 specifier|public
 name|void
-name|analyzeWithCharFilters
+name|testAnalyzeWithCharFilters
 parameter_list|()
 throws|throws
 name|Exception
@@ -1500,12 +1530,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|analyzerWithFieldOrTypeTests
+DECL|method|testAnalyzerWithFieldOrTypeTests
 specifier|public
 name|void
-name|analyzerWithFieldOrTypeTests
+name|testAnalyzerWithFieldOrTypeTests
 parameter_list|()
 throws|throws
 name|Exception
@@ -1687,8 +1715,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// issue #5974
 DECL|method|testThatStandardAndDefaultAnalyzersAreSame
 specifier|public
@@ -1893,8 +1919,6 @@ else|:
 literal|"alias"
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseXContentForAnalyzeReuqest
 specifier|public
 name|void
@@ -2024,8 +2048,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseXContentForAnalyzeRequestWithInvalidJsonThrowsException
 specifier|public
 name|void
@@ -2097,8 +2119,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParseXContentForAnalyzeRequestWithUnknownParamThrowsException
 specifier|public
 name|void
@@ -2197,12 +2217,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|analyzerWithMultiValues
+DECL|method|testAnalyzerWithMultiValues
 specifier|public
 name|void
-name|analyzerWithMultiValues
+name|testAnalyzerWithMultiValues
 parameter_list|()
 throws|throws
 name|Exception

@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|IndexReader
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|LeafReaderContext
 import|;
 end_import
 
@@ -115,16 +115,6 @@ operator|.
 name|search
 operator|.
 name|MultiValueMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -290,24 +280,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|clear
-parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|)
-block|{
-name|in
-operator|.
-name|clear
-argument_list|(
-name|reader
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|;
 block|}
@@ -343,8 +315,6 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Test
-annotation|@
 name|Override
 DECL|method|testTermsEnum
 specifier|public
@@ -354,7 +324,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We can't test this, since the returned IFD instance doesn't implement IndexFieldData.WithOrdinals
+name|assumeTrue
+argument_list|(
+literal|"We can't test this, since the returned IFD instance doesn't implement IndexFieldData.WithOrdinals"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

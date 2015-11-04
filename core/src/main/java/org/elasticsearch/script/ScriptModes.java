@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -108,6 +94,18 @@ name|TreeMap
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * Holds the {@link org.elasticsearch.script.ScriptMode}s for each of the different scripting languages available,  * each script source and each scripted operation.  */
 end_comment
@@ -136,7 +134,7 @@ literal|"script.engine"
 decl_stmt|;
 DECL|field|scriptModes
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -205,7 +203,7 @@ block|}
 DECL|method|buildScriptModeSettingsMap
 specifier|private
 specifier|static
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -338,9 +336,7 @@ name|scriptModesMap
 argument_list|)
 expr_stmt|;
 return|return
-name|ImmutableMap
-operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|scriptModesMap
 argument_list|)

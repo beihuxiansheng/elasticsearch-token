@@ -96,16 +96,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -142,12 +132,10 @@ name|ListenerActionIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|verifyThreadedListeners
+DECL|method|testThreadedListeners
 specifier|public
 name|void
-name|verifyThreadedListeners
+name|testThreadedListeners
 parameter_list|()
 throws|throws
 name|Throwable

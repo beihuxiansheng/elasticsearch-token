@@ -141,16 +141,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -186,8 +176,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDocValue
 specifier|public
 name|void

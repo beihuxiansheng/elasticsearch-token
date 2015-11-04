@@ -341,7 +341,7 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the stream that is registered for the given name      *      * @param name The given name      * @return The associated stream      */
 DECL|method|stream
-specifier|public
+specifier|private
 specifier|static
 specifier|synchronized
 name|Stream

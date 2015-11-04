@@ -274,7 +274,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|*
+name|QueryShardException
 import|;
 end_import
 
@@ -388,16 +388,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -471,8 +461,6 @@ name|ToXContent
 operator|.
 name|EMPTY_PARAMS
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testStatus
 specifier|public
 name|void

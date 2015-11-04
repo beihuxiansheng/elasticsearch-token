@@ -677,7 +677,7 @@ name|index
 argument_list|(
 name|current
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;

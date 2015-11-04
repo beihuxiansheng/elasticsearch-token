@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google
@@ -112,11 +100,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Test
+name|IOException
 import|;
 end_import
 
@@ -124,9 +112,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -401,8 +391,6 @@ name|KEEP
 block|,
 name|DISABLED
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsErrorMessageOnFail
 specifier|public
 name|void
@@ -446,8 +434,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingWhenPermissionRemains
 specifier|public
 name|void
@@ -488,8 +474,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingWhenDisabled
 specifier|public
 name|void
@@ -530,8 +514,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingIfFilesystemDoesNotSupportPermissions
 specifier|public
 name|void
@@ -572,8 +554,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsOwnerChange
 specifier|public
 name|void
@@ -630,8 +610,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingIfOwnerRemainsSame
 specifier|public
 name|void
@@ -672,8 +650,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingIfOwnerIsDisabled
 specifier|public
 name|void
@@ -714,8 +690,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingIfFileSystemDoesNotSupportOwners
 specifier|public
 name|void
@@ -756,8 +730,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsIfGroupChanges
 specifier|public
 name|void
@@ -814,8 +786,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingIfGroupRemainsSame
 specifier|public
 name|void
@@ -856,8 +826,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingIfGroupIsDisabled
 specifier|public
 name|void
@@ -898,8 +866,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandLogsNothingIfFileSystemDoesNotSupportGroups
 specifier|public
 name|void
@@ -940,8 +906,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandDoesNotLogAnythingOnFileCreation
 specifier|public
 name|void
@@ -1057,8 +1021,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatCommandWorksIfFileIsDeletedByCommand
 specifier|public
 name|void

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -134,37 +120,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
+name|xcontent
 operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
+name|XContentBuilder
 import|;
 end_import
 
@@ -179,20 +137,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|termvectors
-operator|.
-name|TermVectorsService
 import|;
 end_import
 
@@ -241,6 +185,20 @@ operator|.
 name|search
 operator|.
 name|SearchParseElement
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
 import|;
 end_import
 
@@ -328,16 +286,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -388,15 +336,13 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|client
+name|Collections
 operator|.
-name|Requests
-operator|.
-name|indexRequest
+name|singletonMap
 import|;
 end_import
 
@@ -406,13 +352,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|client
 operator|.
-name|settings
+name|Requests
 operator|.
-name|Settings
-operator|.
-name|settingsBuilder
+name|indexRequest
 import|;
 end_import
 
@@ -454,7 +398,7 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|Matchers
+name|CoreMatchers
 operator|.
 name|equalTo
 import|;
@@ -510,8 +454,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPlugin
 specifier|public
 name|void
@@ -681,8 +623,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|String
-name|searchSource
+name|XContentBuilder
+name|extSource
 init|=
 name|jsonBuilder
 argument_list|()
@@ -699,9 +641,6 @@ argument_list|)
 operator|.
 name|endObject
 argument_list|()
-operator|.
-name|string
-argument_list|()
 decl_stmt|;
 name|SearchResponse
 name|response
@@ -715,9 +654,12 @@ operator|.
 name|setSource
 argument_list|(
 operator|new
-name|BytesArray
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|ext
 argument_list|(
-name|searchSource
+name|extSource
 argument_list|)
 argument_list|)
 operator|.
@@ -1007,9 +949,7 @@ name|parseElements
 parameter_list|()
 block|{
 return|return
-name|ImmutableMap
-operator|.
-name|of
+name|singletonMap
 argument_list|(
 literal|"term_vectors_fetch"
 argument_list|,

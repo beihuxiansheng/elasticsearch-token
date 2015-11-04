@@ -220,7 +220,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor for simple inline template. The template will have no lang,      * content type or params set.      *       * @param template      *            The inline template.      */
+comment|/**      * Constructor for simple inline template. The template will have no lang,      * content type or params set.      *      * @param template      *            The inline template.      */
 DECL|method|Template
 specifier|public
 name|Template
@@ -239,7 +239,7 @@ name|NAME
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor for Template.      *       * @param template      *            The cache key of the template to be compiled/executed. For      *            inline templates this is the actual templates source code. For      *            indexed templates this is the id used in the request. For on      *            file templates this is the file name.      * @param type      *            The type of template -- dynamic, indexed, or file.      * @param lang      *            The language of the template to be compiled/executed.      * @param xContentType      *            The {@link XContentType} of the template.      * @param params      *            The map of parameters the template will be executed with.      */
+comment|/**      * Constructor for Template.      *      * @param template      *            The cache key of the template to be compiled/executed. For      *            inline templates this is the actual templates source code. For      *            indexed templates this is the id used in the request. For on      *            file templates this is the file name.      * @param type      *            The type of template -- dynamic, indexed, or file.      * @param lang      *            The language of the template to be compiled/executed.      * @param xContentType      *            The {@link XContentType} of the template.      * @param params      *            The map of parameters the template will be executed with.      */
 DECL|method|Template
 specifier|public
 name|Template
@@ -278,6 +278,14 @@ argument_list|,
 name|type
 argument_list|,
 name|lang
+operator|==
+literal|null
+condition|?
+name|MustacheScriptEngineService
+operator|.
+name|NAME
+else|:
+name|lang
 argument_list|,
 name|params
 argument_list|)
@@ -289,7 +297,7 @@ operator|=
 name|xContentType
 expr_stmt|;
 block|}
-comment|/**      * Method for getting the {@link XContentType} of the template.      *       * @return The {@link XContentType} of the template.      */
+comment|/**      * Method for getting the {@link XContentType} of the template.      *      * @return The {@link XContentType} of the template.      */
 DECL|method|getContentType
 specifier|public
 name|XContentType

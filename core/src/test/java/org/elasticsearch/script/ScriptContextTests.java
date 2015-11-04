@@ -114,6 +114,18 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_class
 DECL|class|ScriptContextTests
 specifier|public
@@ -368,19 +380,14 @@ name|ScriptException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|contains
+name|containsString
 argument_list|(
 literal|"scripts of type ["
 operator|+

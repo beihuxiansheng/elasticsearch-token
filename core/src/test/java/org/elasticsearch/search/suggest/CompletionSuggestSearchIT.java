@@ -90,9 +90,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 operator|.
-name|OptimizeResponse
+name|ForceMergeResponse
 import|;
 end_import
 
@@ -438,16 +438,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -664,7 +654,91 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItem
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItems
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -761,8 +835,6 @@ operator|new
 name|CompletionMappingBuilder
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testSimple
 specifier|public
 name|void
@@ -948,8 +1020,6 @@ literal|"The Prodigy Firestarter"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSuggestFieldWithPercolateApi
 specifier|public
 name|void
@@ -1207,8 +1277,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBasicPrefixSuggestion
 specifier|public
 name|void
@@ -1297,8 +1365,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatWeightsAreWorking
 specifier|public
 name|void
@@ -1418,8 +1484,6 @@ literal|"The Prodigy"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatWeightMustBeAnInteger
 specifier|public
 name|void
@@ -1517,8 +1581,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatWeightCanBeAString
 specifier|public
 name|void
@@ -1743,8 +1805,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatWeightMustNotBeANonNumberString
 specifier|public
 name|void
@@ -1842,8 +1902,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatWeightAsStringMustBeInt
 specifier|public
 name|void
@@ -1955,8 +2013,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatInputCanBeAStringInsteadOfAnArray
 specifier|public
 name|void
@@ -2030,8 +2086,6 @@ literal|"Boo Fighters"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatPayloadsAreArbitraryJsonObjects
 specifier|public
 name|void
@@ -2374,8 +2428,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPayloadAsNumeric
 specifier|public
 name|void
@@ -2609,8 +2661,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPayloadAsString
 specifier|public
 name|void
@@ -2844,15 +2894,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|MapperException
-operator|.
-name|class
-argument_list|)
 DECL|method|testThatExceptionIsThrownWhenPayloadsAreDisabledButInIndexRequest
 specifier|public
 name|void
@@ -2873,6 +2914,8 @@ argument_list|(
 name|completionMappingBuilder
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -2946,9 +2989,33 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected MapperException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|MapperException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"failed to parse"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testDisabledPreserveSeparators
 specifier|public
 name|void
@@ -3092,8 +3159,6 @@ literal|"Foo Fighters"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEnabledPreserveSeparators
 specifier|public
 name|void
@@ -3221,8 +3286,6 @@ literal|"Foof"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatMultipleInputsAreSupported
 specifier|public
 name|void
@@ -3314,8 +3377,6 @@ literal|"The incredible Foo Fighters"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatShortSyntaxIsWorking
 specifier|public
 name|void
@@ -3392,8 +3453,6 @@ literal|"Firestarter"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatDisablingPositionIncrementsWorkForStopwords
 specifier|public
 name|void
@@ -3484,8 +3543,6 @@ literal|"The Beatles"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatSynonymsWork
 specifier|public
 name|void
@@ -3623,8 +3680,6 @@ literal|"Foo Fighters"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatUpgradeToMultiFieldTypeWorks
 specifier|public
 name|void
@@ -4010,8 +4065,6 @@ literal|"Foo Fighters"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatUpgradeToMultiFieldsWorks
 specifier|public
 name|void
@@ -4383,8 +4436,6 @@ literal|"Foo Fighters"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatFuzzySuggesterWorks
 specifier|public
 name|void
@@ -4555,8 +4606,6 @@ literal|"Nirvana"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatFuzzySuggesterSupportsEditDistances
 specifier|public
 name|void
@@ -4734,8 +4783,6 @@ literal|"Nirvana"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatFuzzySuggesterSupportsTranspositions
 specifier|public
 name|void
@@ -4928,8 +4975,6 @@ literal|"Nirvana"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatFuzzySuggesterSupportsMinPrefixLength
 specifier|public
 name|void
@@ -5108,8 +5153,6 @@ literal|"Nirvana"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatFuzzySuggesterSupportsNonPrefixLength
 specifier|public
 name|void
@@ -5288,8 +5331,6 @@ literal|"Nirvana"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatFuzzySuggesterIsUnicodeAware
 specifier|public
 name|void
@@ -5499,8 +5540,6 @@ literal|"Ã¶Ã¶Ã¶Ã¶Ã¶"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatStatsAreWorking
 specifier|public
 name|void
@@ -6013,8 +6052,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatSortingOnCompletionFieldReturnsUsefulException
 specifier|public
 name|void
@@ -6156,8 +6193,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatSuggestStopFilterWorks
 specifier|public
 name|void
@@ -6430,15 +6465,6 @@ literal|"feed the t"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|MapperParsingException
-operator|.
-name|class
-argument_list|)
 DECL|method|testThatIndexingInvalidFieldsInCompletionFieldResultsInException
 specifier|public
 name|void
@@ -6459,6 +6485,8 @@ argument_list|(
 name|completionMappingBuilder
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -6507,6 +6535,32 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected MapperParsingException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MapperParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"failed to parse"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|assertSuggestions
 specifier|public
@@ -7693,7 +7747,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 name|INDEX
 argument_list|)
@@ -7713,8 +7767,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 comment|// see #3555
 DECL|method|testPrunedSegments
 specifier|public
@@ -7832,7 +7884,7 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// we have 2 docs in a segment...
-name|OptimizeResponse
+name|ForceMergeResponse
 name|actionGet
 init|=
 name|client
@@ -7844,7 +7896,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|()
 operator|.
 name|setFlush
@@ -7917,7 +7969,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|()
 operator|.
 name|setFlush
@@ -7958,15 +8010,23 @@ argument_list|(
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|(
 name|INDEX
+argument_list|)
+operator|.
+name|setSize
+argument_list|(
+literal|0
 argument_list|)
 operator|.
 name|get
 argument_list|()
 operator|.
-name|getCount
+name|getHits
+argument_list|()
+operator|.
+name|totalHits
 argument_list|()
 argument_list|)
 argument_list|)
@@ -8036,8 +8096,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMaxFieldLength
 specifier|public
 name|void
@@ -8373,8 +8431,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 comment|// see #3596
 DECL|method|testVeryLongInput
 specifier|public
@@ -8536,15 +8592,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// see #3648
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|MapperParsingException
-operator|.
-name|class
-argument_list|)
 DECL|method|testReservedChars
 specifier|public
 name|void
@@ -8634,6 +8681,8 @@ literal|0x00
 operator|+
 literal|"bar"
 decl_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -8694,9 +8743,33 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected MapperParsingException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|MapperParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"failed to parse"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// see #5930
 DECL|method|testIssue5930
 specifier|public
@@ -8893,8 +8966,6 @@ expr_stmt|;
 block|}
 block|}
 comment|// see issue #6399
-annotation|@
-name|Test
 DECL|method|testIndexingUnrelatedNullValue
 specifier|public
 name|void

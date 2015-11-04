@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|GeoHashUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|test
@@ -28,32 +42,8 @@ name|ESTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|XGeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
-comment|/**  * Tests for {@link org.apache.lucene.util.XGeoHashUtils}  */
+comment|/**  * Tests for {@link org.apache.lucene.util.GeoHashUtils}  */
 end_comment
 
 begin_class
@@ -64,8 +54,6 @@ name|GeoHashTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testGeohashAsLongRoutines
 specifier|public
 name|void
@@ -141,7 +129,7 @@ block|{
 name|long
 name|geoAsLong
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|longEncode
 argument_list|(
@@ -156,7 +144,7 @@ comment|// string encode from geohashlong encoded location
 name|String
 name|geohashFromLong
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -167,7 +155,7 @@ comment|// string encode from full res lat lon
 name|String
 name|geohash
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
