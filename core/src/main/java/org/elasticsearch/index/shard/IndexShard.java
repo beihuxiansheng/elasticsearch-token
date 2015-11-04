@@ -1767,6 +1767,25 @@ name|INDEX_TRANSLOG_DISABLE_FLUSH
 init|=
 literal|"index.translog.disable_flush"
 decl_stmt|;
+comment|/** If we see no indexing operations after this much time for a given shard, we consider that shard inactive (default: 5 minutes). */
+DECL|field|INDEX_SHARD_INACTIVE_TIME_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_SHARD_INACTIVE_TIME_SETTING
+init|=
+literal|"index.shard.inactive_time"
+decl_stmt|;
+DECL|field|INDICES_INACTIVE_TIME_SETTING
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|INDICES_INACTIVE_TIME_SETTING
+init|=
+literal|"indices.memory.shard_inactive_time"
+decl_stmt|;
 DECL|field|path
 specifier|private
 specifier|final
@@ -1810,6 +1829,12 @@ specifier|private
 specifier|final
 name|IndexSearcherWrapper
 name|searcherWrapper
+decl_stmt|;
+DECL|field|inactiveTime
+specifier|private
+specifier|final
+name|TimeValue
+name|inactiveTime
 decl_stmt|;
 comment|/** True if this shard is still indexing (recently) and false if we've been idle for long enough (as periodically checked by {@link      *  IndexingMemoryController}). */
 DECL|field|active
@@ -1870,6 +1895,35 @@ argument_list|(
 name|shardId
 argument_list|,
 name|indexSettings
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|inactiveTime
+operator|=
+name|this
+operator|.
+name|indexSettings
+operator|.
+name|getAsTime
+argument_list|(
+name|INDEX_SHARD_INACTIVE_TIME_SETTING
+argument_list|,
+name|this
+operator|.
+name|indexSettings
+operator|.
+name|getAsTime
+argument_list|(
+name|INDICES_INACTIVE_TIME_SETTING
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMinutes
+argument_list|(
+literal|5
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -5581,9 +5635,6 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// We are currently inactive, but a new write operation just showed up, so we now notify IMC
-comment|// to wake up and fix our indexing buffer.  We could do this async instead, but cost should
-comment|// be low, and it's rare this happens.
 name|indexEventListener
 operator|.
 name|onShardActive
@@ -6150,10 +6201,7 @@ DECL|method|checkIdle
 specifier|public
 name|boolean
 name|checkIdle
-parameter_list|(
-name|long
-name|inactiveTimeNS
-parameter_list|)
+parameter_list|()
 block|{
 name|Engine
 name|engineOrNull
@@ -6177,7 +6225,10 @@ operator|.
 name|getLastWriteNanos
 argument_list|()
 operator|>=
-name|inactiveTimeNS
+name|inactiveTime
+operator|.
+name|nanos
+argument_list|()
 condition|)
 block|{
 name|boolean
@@ -6231,7 +6282,7 @@ operator|==
 literal|false
 return|;
 block|}
-comment|/** Returns {@code true} if this shard is active (has seen indexing ops in the last {@link      *  IndexingMemoryController#SHARD_INACTIVE_TIME_SETTING} (default 5 minutes), else {@code false}. */
+comment|/** Returns {@code true} if this shard is active (has seen indexing ops in the last {@link      *  IndexShard#INDEX_SHARD_INACTIVE_TIME_SETTING} (default 5 minutes), else {@code false}. */
 DECL|method|getActive
 specifier|public
 name|boolean
@@ -7396,6 +7447,16 @@ parameter_list|()
 block|{
 return|return
 name|indexEventListener
+return|;
+block|}
+DECL|method|getInactiveTime
+specifier|public
+name|TimeValue
+name|getInactiveTime
+parameter_list|()
+block|{
+return|return
+name|inactiveTime
 return|;
 block|}
 DECL|class|EngineRefresher
@@ -8773,21 +8834,7 @@ name|cachingPolicy
 argument_list|,
 name|translogConfig
 argument_list|,
-name|indexSettings
-operator|.
-name|getAsTime
-argument_list|(
-name|IndexingMemoryController
-operator|.
-name|SHARD_INACTIVE_TIME_SETTING
-argument_list|,
-name|TimeValue
-operator|.
-name|timeValueMinutes
-argument_list|(
-literal|5
-argument_list|)
-argument_list|)
+name|inactiveTime
 argument_list|)
 return|;
 block|}

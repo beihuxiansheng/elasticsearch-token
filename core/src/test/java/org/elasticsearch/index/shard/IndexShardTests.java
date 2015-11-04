@@ -3286,6 +3286,12 @@ argument_list|,
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|0
+argument_list|,
+name|IndexShard
+operator|.
+name|INDEX_SHARD_INACTIVE_TIME_SETTING
+argument_list|,
+literal|"0s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3338,9 +3344,7 @@ literal|0
 argument_list|)
 operator|.
 name|checkIdle
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -3353,17 +3357,8 @@ argument_list|)
 expr_stmt|;
 name|assertBusy
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-comment|// should be very very quick
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
 name|IndexStats
 name|indexStats
@@ -3417,7 +3412,6 @@ name|SYNC_COMMIT_ID
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
