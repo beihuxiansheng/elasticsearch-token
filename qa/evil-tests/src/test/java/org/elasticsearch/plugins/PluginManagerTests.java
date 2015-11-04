@@ -710,7 +710,7 @@ name|common
 operator|.
 name|io
 operator|.
-name|FileSystemUtilsTests
+name|FileTestUtils
 operator|.
 name|assertFileContent
 import|;
@@ -729,20 +729,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|PluginInfoTests
-operator|.
-name|writeProperties
 import|;
 end_import
 
@@ -836,10 +822,10 @@ argument_list|)
 comment|// TODO: clean up this test to allow extra files
 comment|// TODO: jimfs is really broken here (throws wrong exception from detection method).
 comment|// if its in your classpath, then do not use plugins!!!!!!
-DECL|class|PluginManagerIT
+DECL|class|PluginManagerTests
 specifier|public
 class|class
-name|PluginManagerIT
+name|PluginManagerTests
 extends|extends
 name|ESIntegTestCase
 block|{
@@ -1149,6 +1135,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|PluginTestUtil
+operator|.
 name|writeProperties
 argument_list|(
 name|structure
@@ -1314,6 +1302,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|PluginTestUtil
+operator|.
 name|writeProperties
 argument_list|(
 name|structure

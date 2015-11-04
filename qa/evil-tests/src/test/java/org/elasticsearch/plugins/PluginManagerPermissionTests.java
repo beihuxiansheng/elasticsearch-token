@@ -292,20 +292,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
-operator|.
-name|PluginInfoTests
-operator|.
-name|writeProperties
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|hamcrest
@@ -2479,6 +2465,8 @@ argument_list|(
 literal|"fake-plugin"
 argument_list|)
 decl_stmt|;
+name|PluginTestUtil
+operator|.
 name|writeProperties
 argument_list|(
 name|structure
