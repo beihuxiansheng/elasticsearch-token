@@ -1559,6 +1559,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+literal|"elected as master"
 argument_list|)
 decl_stmt|;
 return|return

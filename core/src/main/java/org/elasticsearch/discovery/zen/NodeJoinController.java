@@ -1291,6 +1291,8 @@ operator|.
 name|reroute
 argument_list|(
 name|currentState
+argument_list|,
+literal|"nodes joined"
 argument_list|)
 decl_stmt|;
 if|if

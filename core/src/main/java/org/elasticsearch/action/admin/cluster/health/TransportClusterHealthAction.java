@@ -110,6 +110,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|health
+operator|.
+name|ClusterHealthStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexNameExpressionResolver
@@ -1129,13 +1143,14 @@ comment|// We spend too much time in waiting for events such that we might alrea
 comment|// this should not mark the request as timed out
 name|response
 operator|.
-name|timedOut
-operator|=
+name|setTimedOut
+argument_list|(
 name|timedOut
 operator|&&
 name|valid
 operator|==
 literal|false
+argument_list|)
 expr_stmt|;
 return|return
 name|response
@@ -1297,11 +1312,12 @@ parameter_list|)
 block|{
 name|response
 operator|.
-name|status
-operator|=
+name|setStatus
+argument_list|(
 name|ClusterHealthStatus
 operator|.
 name|RED
+argument_list|)
 expr_stmt|;
 comment|// no indices, make sure its RED
 comment|// missing indices, wait a bit more...
@@ -1878,11 +1894,12 @@ argument_list|)
 decl_stmt|;
 name|response
 operator|.
-name|status
-operator|=
+name|setStatus
+argument_list|(
 name|ClusterHealthStatus
 operator|.
 name|RED
+argument_list|)
 expr_stmt|;
 return|return
 name|response
