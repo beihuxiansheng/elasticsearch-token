@@ -274,6 +274,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|geo
+operator|.
+name|GeoPointFieldMapperLegacy
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -375,7 +391,7 @@ parameter_list|,
 name|GeoDistance
 name|geoDistance
 parameter_list|,
-name|GeoPointFieldMapper
+name|GeoPointFieldMapperLegacy
 operator|.
 name|GeoPointFieldType
 name|fieldType

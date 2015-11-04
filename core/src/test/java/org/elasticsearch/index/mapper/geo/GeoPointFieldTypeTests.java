@@ -106,7 +106,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 argument_list|()
@@ -144,14 +144,14 @@ parameter_list|)
 block|{
 operator|(
 operator|(
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)
 name|ft
 operator|)
 operator|.
-name|setGeohashEnabled
+name|setGeoHashEnabled
 argument_list|(
 operator|new
 name|StringFieldMapper
@@ -192,7 +192,7 @@ parameter_list|)
 block|{
 operator|(
 operator|(
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)
