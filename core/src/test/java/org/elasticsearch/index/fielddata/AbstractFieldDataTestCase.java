@@ -1275,6 +1275,9 @@ name|s
 init|=
 name|indexService
 operator|.
+name|cache
+argument_list|()
+operator|.
 name|bitsetFilterCache
 argument_list|()
 decl_stmt|;

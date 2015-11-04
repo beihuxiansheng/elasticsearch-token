@@ -2331,6 +2331,9 @@ block|{
 return|return
 name|indexService
 operator|.
+name|cache
+argument_list|()
+operator|.
 name|bitsetFilterCache
 argument_list|()
 return|;

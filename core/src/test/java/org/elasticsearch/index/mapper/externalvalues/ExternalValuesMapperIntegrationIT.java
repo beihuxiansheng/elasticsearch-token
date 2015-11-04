@@ -223,7 +223,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|)
@@ -540,7 +540,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL_UPPER
 argument_list|)

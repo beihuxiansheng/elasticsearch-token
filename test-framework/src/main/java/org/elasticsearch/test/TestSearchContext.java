@@ -906,6 +906,9 @@ name|fixedBitSetFilterCache
 operator|=
 name|indexService
 operator|.
+name|cache
+argument_list|()
+operator|.
 name|bitsetFilterCache
 argument_list|()
 expr_stmt|;
