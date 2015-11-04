@@ -342,15 +342,6 @@ block|{
 return|return;
 block|}
 specifier|final
-name|IndexMetaData
-name|indexMetaData
-init|=
-name|settings
-operator|.
-name|getIndexMetaData
-argument_list|()
-decl_stmt|;
-specifier|final
 name|Settings
 name|indexSettings
 init|=

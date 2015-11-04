@@ -1822,12 +1822,6 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|field|indexingMemoryController
-specifier|private
-specifier|final
-name|IndexingMemoryController
-name|indexingMemoryController
-decl_stmt|;
 DECL|method|IndexShard
 specifier|public
 name|IndexShard
@@ -2256,15 +2250,6 @@ name|UsageTrackingQueryCachingPolicy
 argument_list|()
 expr_stmt|;
 block|}
-name|this
-operator|.
-name|indexingMemoryController
-operator|=
-name|provider
-operator|.
-name|getIndexingMemoryController
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|engineConfig
@@ -5599,10 +5584,12 @@ block|{
 comment|// We are currently inactive, but a new write operation just showed up, so we now notify IMC
 comment|// to wake up and fix our indexing buffer.  We could do this async instead, but cost should
 comment|// be low, and it's rare this happens.
-name|indexingMemoryController
+name|indexEventListener
 operator|.
-name|forceCheck
-argument_list|()
+name|onShardActive
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -8786,10 +8773,21 @@ name|cachingPolicy
 argument_list|,
 name|translogConfig
 argument_list|,
-name|indexingMemoryController
+name|indexSettings
 operator|.
-name|getInactiveTime
-argument_list|()
+name|getAsTime
+argument_list|(
+name|IndexingMemoryController
+operator|.
+name|SHARD_INACTIVE_TIME_SETTING
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMinutes
+argument_list|(
+literal|5
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 block|}

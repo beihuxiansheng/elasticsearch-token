@@ -601,6 +601,7 @@ end_comment
 begin_class
 DECL|class|IndexService
 specifier|public
+specifier|final
 class|class
 name|IndexService
 extends|extends
@@ -3378,6 +3379,7 @@ return|return
 name|engineFactory
 return|;
 block|}
+comment|// pkg private for testing
 DECL|method|getSearcherWrapper
 specifier|final
 name|IndexSearcherWrapper
@@ -3388,6 +3390,7 @@ return|return
 name|searcherWrapper
 return|;
 block|}
+comment|// pkg private for testing
 DECL|method|getIndexStore
 specifier|final
 name|IndexStore
@@ -3398,6 +3401,7 @@ return|return
 name|indexStore
 return|;
 block|}
+comment|// pkg private for testing
 block|}
 end_class
 
