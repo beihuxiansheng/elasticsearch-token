@@ -1239,14 +1239,14 @@ name|Build
 operator|.
 name|CURRENT
 operator|.
-name|hashShort
+name|shortHash
 argument_list|()
 argument_list|,
 name|Build
 operator|.
 name|CURRENT
 operator|.
-name|timestamp
+name|date
 argument_list|()
 argument_list|)
 expr_stmt|;
