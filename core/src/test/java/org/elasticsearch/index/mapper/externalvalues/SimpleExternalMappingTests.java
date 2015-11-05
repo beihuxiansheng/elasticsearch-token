@@ -166,7 +166,7 @@ argument_list|()
 operator|.
 name|putTypeParser
 argument_list|(
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|,
@@ -175,7 +175,7 @@ name|ExternalMapper
 operator|.
 name|TypeParser
 argument_list|(
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|,
@@ -463,7 +463,7 @@ argument_list|()
 operator|.
 name|putTypeParser
 argument_list|(
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|,
@@ -472,7 +472,7 @@ name|ExternalMapper
 operator|.
 name|TypeParser
 argument_list|(
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|,
@@ -517,7 +517,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|)
@@ -831,7 +831,7 @@ argument_list|()
 operator|.
 name|putTypeParser
 argument_list|(
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|,
@@ -840,7 +840,7 @@ name|ExternalMapper
 operator|.
 name|TypeParser
 argument_list|(
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|,
@@ -855,7 +855,7 @@ argument_list|()
 operator|.
 name|putTypeParser
 argument_list|(
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL_BIS
 argument_list|,
@@ -864,7 +864,7 @@ name|ExternalMapper
 operator|.
 name|TypeParser
 argument_list|(
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL_BIS
 argument_list|,
@@ -909,7 +909,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|)
@@ -945,7 +945,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL_BIS
 argument_list|)

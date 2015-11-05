@@ -1051,6 +1051,8 @@ name|contains
 argument_list|(
 name|settingName
 argument_list|)
+operator|:
+name|settingName
 assert|;
 if|if
 condition|(

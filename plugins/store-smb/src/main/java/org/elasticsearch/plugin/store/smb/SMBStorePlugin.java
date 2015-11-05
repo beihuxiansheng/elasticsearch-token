@@ -106,16 +106,18 @@ return|return
 literal|"SMB Store Plugin"
 return|;
 block|}
-DECL|method|onModule
+annotation|@
+name|Override
+DECL|method|onIndexModule
 specifier|public
 name|void
-name|onModule
+name|onIndexModule
 parameter_list|(
 name|IndexModule
-name|storeModule
+name|indexModule
 parameter_list|)
 block|{
-name|storeModule
+name|indexModule
 operator|.
 name|addIndexStore
 argument_list|(
@@ -126,7 +128,7 @@ operator|::
 operator|new
 argument_list|)
 expr_stmt|;
-name|storeModule
+name|indexModule
 operator|.
 name|addIndexStore
 argument_list|(

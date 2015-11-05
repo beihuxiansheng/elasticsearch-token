@@ -58,6 +58,30 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -83,6 +107,16 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -152,48 +186,6 @@ name|emptyList
 argument_list|()
 return|;
 block|}
-comment|/**      * Per index modules.      */
-DECL|method|indexModules
-specifier|public
-name|Collection
-argument_list|<
-name|Module
-argument_list|>
-name|indexModules
-parameter_list|(
-name|Settings
-name|indexSettings
-parameter_list|)
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-return|;
-block|}
-comment|/**      * Per index services that will be automatically closed.      */
-DECL|method|indexServices
-specifier|public
-name|Collection
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Closeable
-argument_list|>
-argument_list|>
-name|indexServices
-parameter_list|()
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-return|;
-block|}
 comment|/**      * Additional node settings loaded by the plugin. Note that settings that are explicit in the nodes settings can't be      * overwritten with the additional settings. These settings added if they don't exist.      */
 DECL|method|additionalSettings
 specifier|public
@@ -209,6 +201,39 @@ operator|.
 name|EMPTY_SETTINGS
 return|;
 block|}
+comment|/**      * Called once the given {@link IndexService} is fully constructed but not yet published.      * This is used to initialize plugin services that require acess to index level resources      */
+DECL|method|onIndexService
+specifier|public
+name|void
+name|onIndexService
+parameter_list|(
+name|IndexService
+name|indexService
+parameter_list|)
+block|{}
+comment|/**      * Called before a new index is created on a node. The given module can be used to regsiter index-leve      * extensions.      */
+DECL|method|onIndexModule
+specifier|public
+name|void
+name|onIndexModule
+parameter_list|(
+name|IndexModule
+name|indexModule
+parameter_list|)
+block|{}
+comment|/**      * Old-style guice index level extension point.      *      * @deprecated use #onIndexModule instead      */
+annotation|@
+name|Deprecated
+DECL|method|onModule
+specifier|public
+specifier|final
+name|void
+name|onModule
+parameter_list|(
+name|IndexModule
+name|indexModule
+parameter_list|)
+block|{}
 block|}
 end_class
 
