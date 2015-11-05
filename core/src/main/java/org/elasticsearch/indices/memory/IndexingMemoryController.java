@@ -321,7 +321,7 @@ name|SHARD_INACTIVE_TIME_SETTING
 init|=
 literal|"indices.memory.shard_inactive_time"
 decl_stmt|;
-comment|/** How frequently we check indexing memory usage (default: 1 seconds). */
+comment|/** How frequently we check indexing memory usage (default: 5 seconds). */
 DECL|field|SHARD_MEMORY_INTERVAL_TIME_SETTING
 specifier|public
 specifier|static
@@ -703,7 +703,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|1
+literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1091,8 +1091,36 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
+DECL|field|startMS
+name|long
+name|startMS
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
+comment|/** called by IndexShard to record that this many bytes were written to translog */
+DECL|method|bytesWritten
+specifier|public
+name|void
+name|bytesWritten
+parameter_list|(
+name|int
+name|bytes
+parameter_list|)
+block|{
+name|statusChecker
+operator|.
+name|bytesWritten
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
+block|}
 DECL|class|ShardAndBytesUsed
 specifier|static
+specifier|final
 class|class
 name|ShardAndBytesUsed
 implements|implements
@@ -1167,6 +1195,68 @@ name|ShardsIndicesStatusChecker
 implements|implements
 name|Runnable
 block|{
+DECL|field|bytesWrittenSinceCheck
+name|long
+name|bytesWrittenSinceCheck
+decl_stmt|;
+DECL|method|bytesWritten
+specifier|public
+specifier|synchronized
+name|void
+name|bytesWritten
+parameter_list|(
+name|int
+name|bytes
+parameter_list|)
+block|{
+name|bytesWrittenSinceCheck
+operator|+=
+name|bytes
+expr_stmt|;
+if|if
+condition|(
+name|bytesWrittenSinceCheck
+operator|>
+name|indexingBuffer
+operator|.
+name|bytes
+argument_list|()
+operator|/
+literal|20
+condition|)
+block|{
+comment|// NOTE: this is only an approximate check, because bytes written is to the translog, vs indexing memory buffer which is
+comment|// typically smaller.  But this logic is here only as a safety against thread starvation or too infrequent checking,
+comment|// to ensure we are still checking in proportion to bytes processed by indexing:
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+operator|(
+operator|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|startMS
+operator|)
+operator|/
+literal|1000.0
+operator|)
+operator|+
+literal|": NOW CHECK xlog="
+operator|+
+name|bytesWrittenSinceCheck
+argument_list|)
+expr_stmt|;
+name|run
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|run
@@ -1176,6 +1266,8 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// nocommit lower the translog buffer to 8 KB
+comment|// nocommit add defensive try/catch-everything here?  bad if an errant EngineClosedExc kills off this thread!!
 comment|// Fast check to sum up how much heap all shards' indexing buffers are using now:
 name|long
 name|totalBytesUsed
@@ -1209,7 +1301,64 @@ argument_list|(
 name|shardId
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"IMC:   "
+operator|+
+name|shardId
+operator|+
+literal|" using "
+operator|+
+operator|(
+name|getIndexBufferRAMBytesUsed
+argument_list|(
+name|shardId
+argument_list|)
+operator|/
+literal|1024.
+operator|/
+literal|1024.
+operator|)
+operator|+
+literal|" MB"
+argument_list|)
+expr_stmt|;
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+operator|(
+operator|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|startMS
+operator|)
+operator|/
+literal|1000.0
+operator|)
+operator|+
+literal|": TOT="
+operator|+
+name|totalBytesUsed
+operator|+
+literal|" vs "
+operator|+
+name|indexingBuffer
+operator|.
+name|bytes
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|totalBytesUsed
@@ -1311,6 +1460,33 @@ operator|.
 name|poll
 argument_list|()
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"IMC: write "
+operator|+
+name|largest
+operator|.
+name|shardId
+operator|+
+literal|": "
+operator|+
+operator|(
+name|largest
+operator|.
+name|bytesUsed
+operator|/
+literal|1024.
+operator|/
+literal|1024.
+operator|)
+operator|+
+literal|" MB"
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|debug
@@ -1345,6 +1521,10 @@ name|bytesUsed
 expr_stmt|;
 block|}
 block|}
+name|bytesWrittenSinceCheck
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 block|}

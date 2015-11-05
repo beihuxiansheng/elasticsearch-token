@@ -4473,6 +4473,10 @@ condition|(
 name|refreshing
 condition|)
 block|{
+comment|// We tell a "white lie" here, pretending that we instantaneously moved all
+comment|// heap to disk at the start of refresh.  We do this so IMC  behaves as if we
+comment|// are using no heap, else it will just keep asking us when it should be
+comment|// asking others:
 return|return
 literal|0
 return|;
