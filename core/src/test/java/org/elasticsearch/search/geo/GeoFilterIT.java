@@ -328,7 +328,9 @@ name|common
 operator|.
 name|geo
 operator|.
-name|GeoUtils
+name|builders
+operator|.
+name|LineStringBuilder
 import|;
 end_import
 
@@ -1062,6 +1064,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1098,6 +1103,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -1146,6 +1152,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1182,6 +1191,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -1242,6 +1252,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1278,8 +1291,12 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1318,6 +1335,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -1421,7 +1439,7 @@ name|e
 parameter_list|)
 block|{         }
 comment|// Multipolygon: polygon with hole and polygon within the whole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPolygon
 argument_list|()
@@ -1465,6 +1483,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1501,6 +1522,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -1702,7 +1724,7 @@ comment|// the second polygon of size 4x4 equidistant from all sites
 name|MultiPolygonBuilder
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPolygon
 argument_list|()
@@ -1746,6 +1768,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1782,6 +1807,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -2266,6 +2292,9 @@ literal|5
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2302,6 +2331,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -2467,6 +2497,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2503,6 +2536,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -2737,6 +2771,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2771,6 +2808,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()

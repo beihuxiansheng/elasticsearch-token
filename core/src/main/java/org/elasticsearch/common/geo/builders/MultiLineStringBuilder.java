@@ -142,10 +142,7 @@ specifier|private
 specifier|final
 name|ArrayList
 argument_list|<
-name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
+name|LineStringBuilder
 argument_list|>
 name|lines
 init|=
@@ -159,10 +156,7 @@ specifier|public
 name|MultiLineStringBuilder
 name|linestring
 parameter_list|(
-name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
+name|LineStringBuilder
 name|line
 parameter_list|)
 block|{
@@ -300,9 +294,6 @@ expr_stmt|;
 for|for
 control|(
 name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
 name|line
 range|:
 name|lines
@@ -363,9 +354,6 @@ decl_stmt|;
 for|for
 control|(
 name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
 name|line
 range|:
 name|lines
@@ -456,10 +444,7 @@ index|]
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
+name|LineStringBuilder
 argument_list|>
 name|iterator
 init|=

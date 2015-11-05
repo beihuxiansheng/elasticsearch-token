@@ -50,20 +50,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
-name|shape
-operator|.
-name|ShapeCollection
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -167,23 +153,7 @@ name|E
 argument_list|>
 block|{
 DECL|method|BaseLineStringBuilder
-specifier|protected
-name|BaseLineStringBuilder
-parameter_list|()
-block|{
-name|this
-argument_list|(
-operator|new
-name|ArrayList
-argument_list|<
-name|Coordinate
-argument_list|>
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|BaseLineStringBuilder
-specifier|protected
+specifier|public
 name|BaseLineStringBuilder
 parameter_list|(
 name|ArrayList
@@ -419,7 +389,7 @@ return|return
 name|strings
 return|;
 block|}
-comment|/**      * Decompose a linestring given as array of coordinates at a vertical line.      *       * @param dateline x-axis intercept of the vertical line      * @param coordinates coordinates forming the linestring      * @return array of linestrings given as coordinate arrays       */
+comment|/**      * Decompose a linestring given as array of coordinates at a vertical line.      *      * @param dateline x-axis intercept of the vertical line      * @param coordinates coordinates forming the linestring      * @return array of linestrings given as coordinate arrays      */
 DECL|method|decompose
 specifier|protected
 specifier|static
