@@ -889,17 +889,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|searcherWrapper
-operator|=
-name|wrapperFactory
-operator|.
-name|newWrapper
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|bitsetFilterCache
 operator|=
 operator|new
@@ -938,6 +927,18 @@ operator|.
 name|engineFactory
 operator|=
 name|engineFactory
+expr_stmt|;
+comment|// initialize this last -- otherwise if the wrapper requires any other member to be non-null we fail with an NPE
+name|this
+operator|.
+name|searcherWrapper
+operator|=
+name|wrapperFactory
+operator|.
+name|newWrapper
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|numberOfShards

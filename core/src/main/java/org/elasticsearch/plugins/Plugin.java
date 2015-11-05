@@ -201,24 +201,17 @@ operator|.
 name|EMPTY_SETTINGS
 return|;
 block|}
-DECL|method|indexService
+comment|/**      * Called once the given {@link IndexService} is fully constructed but not yet published.      * This is used to initialize plugin services that require acess to index level resources      */
+DECL|method|onIndexService
 specifier|public
-name|List
-argument_list|<
-name|Closeable
-argument_list|>
-name|indexService
+name|void
+name|onIndexService
 parameter_list|(
 name|IndexService
 name|indexService
 parameter_list|)
-block|{
-return|return
-name|Collections
-operator|.
-name|EMPTY_LIST
-return|;
-block|}
+block|{}
+comment|/**      * Called before a new index is created on a node. The given module can be used to regsiter index-leve      * extensions.      */
 DECL|method|onIndexModule
 specifier|public
 name|void
@@ -228,6 +221,9 @@ name|IndexModule
 name|indexModule
 parameter_list|)
 block|{}
+comment|/**      * Old-style guice index level extension point.      *      * @deprecated use #onIndexModule instead      */
+annotation|@
+name|Deprecated
 DECL|method|onModule
 specifier|public
 specifier|final
