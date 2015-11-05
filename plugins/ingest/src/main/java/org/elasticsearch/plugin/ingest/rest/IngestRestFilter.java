@@ -72,7 +72,7 @@ name|ingest
 operator|.
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM_CONTEXT_KEY
+name|PIPELINE_ID_PARAM_CONTEXT_KEY
 import|;
 end_import
 
@@ -127,7 +127,7 @@ name|request
 operator|.
 name|hasParam
 argument_list|(
-name|INGEST_PARAM
+name|PIPELINE_ID_PARAM
 argument_list|)
 condition|)
 block|{
@@ -135,13 +135,13 @@ name|request
 operator|.
 name|putInContext
 argument_list|(
-name|INGEST_PARAM_CONTEXT_KEY
+name|PIPELINE_ID_PARAM_CONTEXT_KEY
 argument_list|,
 name|request
 operator|.
 name|param
 argument_list|(
-name|INGEST_PARAM
+name|PIPELINE_ID_PARAM
 argument_list|)
 argument_list|)
 expr_stmt|;
