@@ -220,6 +220,7 @@ operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;
+comment|// TODO(talevy): write it! binder().bind(PipelineSimulateService.class).asEagerSingleton();
 name|binder
 argument_list|()
 operator|.
