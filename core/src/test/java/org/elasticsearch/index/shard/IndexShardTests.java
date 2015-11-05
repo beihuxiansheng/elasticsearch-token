@@ -3274,6 +3274,13 @@ name|TestLogging
 argument_list|(
 literal|"indices.flush:TRACE,index.shard:TRACE,index.engine:TRACE"
 argument_list|)
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"simonw is working on this"
+argument_list|)
 DECL|method|testMarkAsInactiveTriggersSyncedFlush
 specifier|public
 name|void
