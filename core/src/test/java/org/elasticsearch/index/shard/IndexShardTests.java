@@ -896,6 +896,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -3253,6 +3269,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"indices.flush:TRACE,index.shard:TRACE,index.engine:TRACE"
+argument_list|)
 DECL|method|testMarkAsInactiveTriggersSyncedFlush
 specifier|public
 name|void
