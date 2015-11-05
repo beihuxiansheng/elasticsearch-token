@@ -1363,6 +1363,16 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
+name|assertEquals
+argument_list|(
+literal|"listener must not be null"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// all is well
 block|}
 block|}

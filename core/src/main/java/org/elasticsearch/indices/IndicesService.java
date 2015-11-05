@@ -1821,7 +1821,6 @@ else|:
 literal|""
 argument_list|)
 expr_stmt|;
-comment|// plugin modules must be added here, before others or we can get crazy injection errors...
 specifier|final
 name|IndexModule
 name|indexModule

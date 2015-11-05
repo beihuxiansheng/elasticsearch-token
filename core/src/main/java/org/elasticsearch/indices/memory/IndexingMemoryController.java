@@ -2178,7 +2178,7 @@ name|IndexShard
 name|indexShard
 parameter_list|)
 block|{
-comment|// At least on shard used to be inactive ie. a new write operation just showed up.
+comment|// At least one shard used to be inactive ie. a new write operation just showed up.
 comment|// We try to fix the shards indexing buffer immediately. We could do this async instead, but cost should
 comment|// be low, and it's rare this happens.
 name|forceCheck
