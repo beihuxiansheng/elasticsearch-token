@@ -282,7 +282,7 @@ name|getFromContext
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM_CONTEXT_KEY
+name|PIPELINE_ID_PARAM_CONTEXT_KEY
 argument_list|)
 decl_stmt|;
 if|if
@@ -300,7 +300,7 @@ name|getHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM
+name|PIPELINE_ID_PARAM
 argument_list|)
 expr_stmt|;
 if|if
@@ -464,7 +464,7 @@ name|hasHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_ALREADY_PROCESSED
+name|PIPELINE_ALREADY_PROCESSED
 argument_list|)
 condition|)
 block|{
@@ -567,7 +567,7 @@ name|putHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_ALREADY_PROCESSED
+name|PIPELINE_ALREADY_PROCESSED
 argument_list|,
 literal|true
 argument_list|)

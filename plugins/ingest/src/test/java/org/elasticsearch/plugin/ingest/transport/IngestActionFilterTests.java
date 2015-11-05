@@ -478,7 +478,7 @@ name|putHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM
+name|PIPELINE_ID_PARAM
 argument_list|,
 literal|"_id"
 argument_list|)
@@ -587,7 +587,7 @@ name|putInContext
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM_CONTEXT_KEY
+name|PIPELINE_ID_PARAM_CONTEXT_KEY
 argument_list|,
 literal|"_id"
 argument_list|)
@@ -696,7 +696,7 @@ name|putHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM
+name|PIPELINE_ID_PARAM
 argument_list|,
 literal|"_id"
 argument_list|)
@@ -707,7 +707,7 @@ name|putHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_ALREADY_PROCESSED
+name|PIPELINE_ALREADY_PROCESSED
 argument_list|,
 literal|true
 argument_list|)
@@ -803,7 +803,7 @@ name|putHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM
+name|PIPELINE_ID_PARAM
 argument_list|,
 literal|"_id"
 argument_list|)
@@ -1024,7 +1024,7 @@ name|putHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM
+name|PIPELINE_ID_PARAM
 argument_list|,
 literal|"_id"
 argument_list|)
@@ -1323,7 +1323,7 @@ name|putHeader
 argument_list|(
 name|IngestPlugin
 operator|.
-name|INGEST_PARAM
+name|PIPELINE_ID_PARAM
 argument_list|,
 literal|"_id"
 argument_list|)
