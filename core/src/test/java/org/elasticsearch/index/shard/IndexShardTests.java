@@ -3253,6 +3253,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"simonw is working on a fix"
+argument_list|)
 DECL|method|testMarkAsInactiveTriggersSyncedFlush
 specifier|public
 name|void
