@@ -293,7 +293,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|BaseLineStringBuilder
+name|LineStringBuilder
 name|line
 range|:
 name|lines
@@ -353,13 +353,13 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|BaseLineStringBuilder
+name|LineStringBuilder
 name|line
 range|:
 name|lines
 control|)
 block|{
-name|BaseLineStringBuilder
+name|LineStringBuilder
 operator|.
 name|decompose
 argument_list|(
