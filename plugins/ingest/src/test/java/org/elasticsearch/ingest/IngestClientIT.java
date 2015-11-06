@@ -649,7 +649,9 @@ argument_list|)
 operator|.
 name|putHeader
 argument_list|(
-literal|"ingest"
+name|IngestPlugin
+operator|.
+name|PIPELINE_ID_PARAM
 argument_list|,
 literal|"_id"
 argument_list|)
@@ -775,7 +777,9 @@ argument_list|)
 operator|.
 name|putHeader
 argument_list|(
-literal|"ingest"
+name|IngestPlugin
+operator|.
+name|PIPELINE_ID_PARAM
 argument_list|,
 literal|"_id"
 argument_list|)
