@@ -244,8 +244,6 @@ argument_list|(
 name|config
 argument_list|,
 literal|"path"
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -258,8 +256,6 @@ argument_list|(
 name|config
 argument_list|,
 literal|"expected_value"
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -286,8 +282,6 @@ argument_list|(
 name|config
 argument_list|,
 literal|"add_field_value"
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 return|return

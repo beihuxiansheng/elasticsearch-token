@@ -341,8 +341,6 @@ argument_list|(
 name|config
 argument_list|,
 literal|"field"
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|String
@@ -355,8 +353,6 @@ argument_list|(
 name|config
 argument_list|,
 literal|"pattern"
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|Map

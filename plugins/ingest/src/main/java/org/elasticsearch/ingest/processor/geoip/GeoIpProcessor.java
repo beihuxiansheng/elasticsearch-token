@@ -1019,8 +1019,6 @@ argument_list|(
 name|config
 argument_list|,
 literal|"ip_field"
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|String
