@@ -2087,7 +2087,7 @@ operator|.
 name|getBuild
 argument_list|()
 operator|.
-name|hashShort
+name|shortHash
 argument_list|()
 argument_list|)
 expr_stmt|;
