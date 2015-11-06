@@ -584,7 +584,7 @@ name|mapperParser
 init|=
 name|MapperTestUtils
 operator|.
-name|newMapperParser
+name|newMapperService
 argument_list|(
 name|PathUtils
 operator|.
@@ -592,7 +592,14 @@ name|get
 argument_list|(
 literal|"."
 argument_list|)
+argument_list|,
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
+operator|.
+name|documentMapperParser
+argument_list|()
 decl_stmt|;
 comment|// use CWD b/c it won't be used
 name|mapperParser

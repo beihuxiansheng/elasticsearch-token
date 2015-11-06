@@ -118,6 +118,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|collect
+operator|.
+name|Iterators
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -317,7 +331,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  *      "field1" : "..."  *</pre>  *<p>Or:  *<pre>  * {  *      "file1" : {  *          "_content_type" : "application/pdf",  *          "_content_length" : "500000000",  *          "_name" : "..../something.pdf",  *          "_content" : ""  *      }  * }  *</pre>  *<p/>  * _content_length = Specify the maximum amount of characters to extract from the attachment. If not specified, then the default for  * tika is 100,000 characters. Caution is required when setting large values as this can cause memory issues.  */
+comment|/**  *<pre>  *      "field1" : "..."  *</pre>  *<p>Or:  *<pre>  * {  *      "file1" : {  *          "_content_type" : "application/pdf",  *          "_content_length" : "500000000",  *          "_name" : "..../something.pdf",  *          "_content" : ""  *      }  * }  *</pre>  *<p>  * _content_length = Specify the maximum amount of characters to extract from the attachment. If not specified, then the default for  * tika is 100,000 characters. Caution is required when setting large values as this can cause memory issues.  */
 end_comment
 
 begin_class
@@ -3651,6 +3665,11 @@ comment|// ignore this for now
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|iterator
 specifier|public
 name|Iterator
@@ -3662,7 +3681,7 @@ parameter_list|()
 block|{
 name|List
 argument_list|<
-name|FieldMapper
+name|Mapper
 argument_list|>
 name|extras
 init|=
@@ -3690,7 +3709,7 @@ name|languageMapper
 argument_list|)
 decl_stmt|;
 return|return
-name|CollectionUtils
+name|Iterators
 operator|.
 name|concat
 argument_list|(

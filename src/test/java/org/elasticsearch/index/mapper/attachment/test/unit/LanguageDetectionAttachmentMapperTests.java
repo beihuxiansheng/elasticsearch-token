@@ -289,20 +289,15 @@ name|mapperParser
 init|=
 name|MapperTestUtils
 operator|.
-name|newMapperParser
+name|newMapperService
 argument_list|(
+name|createTempDir
+argument_list|()
+argument_list|,
 name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"path.home"
-argument_list|,
-name|createTempDir
-argument_list|()
-argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -314,6 +309,9 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
+operator|.
+name|documentMapperParser
+argument_list|()
 decl_stmt|;
 name|mapperParser
 operator|.
@@ -513,8 +511,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFrDetection
 specifier|public
 name|void
@@ -531,8 +527,6 @@ literal|"fr"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEnDetection
 specifier|public
 name|void
@@ -549,8 +543,6 @@ literal|"en"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFrForced
 specifier|public
 name|void
@@ -569,9 +561,7 @@ literal|"fr"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This test gives strange results! detection of ":-)" gives "lt" as a result      * @throws Exception      */
-annotation|@
-name|Test
+comment|/**      * This test gives strange results! detection of ":-)" gives "lt" as a result      */
 DECL|method|testNoLanguage
 specifier|public
 name|void
@@ -588,8 +578,6 @@ literal|"lt"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLangDetectDisabled
 specifier|public
 name|void
@@ -612,8 +600,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testLangDetectDocumentEnabled
 specifier|public
 name|void

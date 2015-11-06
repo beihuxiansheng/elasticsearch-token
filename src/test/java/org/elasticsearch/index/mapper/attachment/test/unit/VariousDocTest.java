@@ -54,6 +54,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|mapper
@@ -304,11 +318,18 @@ name|mapperParser
 init|=
 name|MapperTestUtils
 operator|.
-name|newMapperParser
+name|newMapperService
 argument_list|(
 name|createTempDir
 argument_list|()
+argument_list|,
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
+operator|.
+name|documentMapperParser
+argument_list|()
 decl_stmt|;
 name|mapperParser
 operator|.
@@ -344,8 +365,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/104      */
-annotation|@
-name|Test
 DECL|method|testWordDocxDocument104
 specifier|public
 name|void
@@ -368,8 +387,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for encrypted PDF      */
-annotation|@
-name|Test
 DECL|method|testEncryptedPDFDocument
 specifier|public
 name|void
@@ -400,8 +417,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for HTML      */
-annotation|@
-name|Test
 DECL|method|testHtmlDocument
 specifier|public
 name|void
@@ -424,8 +439,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for XHTML      */
-annotation|@
-name|Test
 DECL|method|testXHtmlDocument
 specifier|public
 name|void
@@ -448,8 +461,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for TXT      */
-annotation|@
-name|Test
 DECL|method|testTxtDocument
 specifier|public
 name|void
@@ -472,8 +483,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test for ASCIIDOC      * Not yet supported by Tika: https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/29      */
-annotation|@
-name|Test
 DECL|method|testAsciidocDocument
 specifier|public
 name|void
