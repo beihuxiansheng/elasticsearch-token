@@ -379,7 +379,9 @@ name|indexRequest
 init|=
 operator|new
 name|IndexRequest
-argument_list|()
+argument_list|(
+name|request
+argument_list|)
 decl_stmt|;
 name|indexRequest
 operator|.
