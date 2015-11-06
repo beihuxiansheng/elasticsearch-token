@@ -97,10 +97,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|GeoProcessorTests
+DECL|class|GeoIpProcessorTests
 specifier|public
 class|class
-name|GeoProcessorTests
+name|GeoIpProcessorTests
 extends|extends
 name|ESTestCase
 block|{

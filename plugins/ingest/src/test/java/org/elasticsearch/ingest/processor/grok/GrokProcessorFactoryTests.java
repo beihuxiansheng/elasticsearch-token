@@ -231,9 +231,6 @@ expr_stmt|;
 name|GrokProcessor
 name|processor
 init|=
-operator|(
-name|GrokProcessor
-operator|)
 name|factory
 operator|.
 name|create
