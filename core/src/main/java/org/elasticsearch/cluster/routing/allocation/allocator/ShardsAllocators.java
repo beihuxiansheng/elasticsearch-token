@@ -356,6 +356,23 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
+specifier|final
+name|int
+name|numberOfInFlightFetch
+init|=
+name|gatewayAllocator
+operator|.
+name|getNumberOfInFlightFetch
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|numberOfInFlightFetch
+operator|==
+literal|0
+condition|)
+block|{
+comment|/*              * see https://github.com/elastic/elasticsearch/issues/14387              * if we allow rebalance operations while we are still fetching shard store data              * we might end up with unnecessary rebalance operations which can be super confusion/frustrating              * since once the fetches come back we might just move all the shards back again.              * Therefore we only do a rebalance if we have fetched all information.              */
 return|return
 name|allocator
 operator|.
@@ -363,6 +380,22 @@ name|rebalance
 argument_list|(
 name|allocation
 argument_list|)
+return|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"skip rebalance [{}] shard store fetch operations are still in-flight"
+argument_list|,
+name|numberOfInFlightFetch
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 annotation|@
