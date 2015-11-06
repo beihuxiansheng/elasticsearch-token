@@ -7904,7 +7904,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|restartRandomNode
+name|restartRandomDataNode
 argument_list|(
 name|EMPTY_CALLBACK
 argument_list|)
