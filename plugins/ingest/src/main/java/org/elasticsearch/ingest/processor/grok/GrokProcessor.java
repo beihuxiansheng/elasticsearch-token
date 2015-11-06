@@ -306,6 +306,9 @@ implements|implements
 name|Processor
 operator|.
 name|Factory
+argument_list|<
+name|GrokProcessor
+argument_list|>
 block|{
 DECL|field|grokConfigDirectory
 specifier|private
@@ -314,7 +317,7 @@ name|grokConfigDirectory
 decl_stmt|;
 DECL|method|create
 specifier|public
-name|Processor
+name|GrokProcessor
 name|create
 parameter_list|(
 name|Map

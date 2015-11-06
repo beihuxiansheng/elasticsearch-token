@@ -93,12 +93,17 @@ comment|/**      * A factory that knows how to construct a processor based on a 
 DECL|interface|Factory
 interface|interface
 name|Factory
+parameter_list|<
+name|P
+extends|extends
+name|Processor
+parameter_list|>
 extends|extends
 name|Closeable
 block|{
 comment|/**          * Creates a processor based on the specified map of maps config          */
 DECL|method|create
-name|Processor
+name|P
 name|create
 parameter_list|(
 name|Map
@@ -112,7 +117,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          */
+comment|/**          * Sets the configuration directory when needed to read additional config files          */
 DECL|method|setConfigDirectory
 specifier|default
 name|void
