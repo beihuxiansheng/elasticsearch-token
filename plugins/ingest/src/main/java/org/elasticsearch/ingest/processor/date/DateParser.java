@@ -30,23 +30,18 @@ name|DateTime
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parser for dates provided as strings. Parses into a joda {@link DateTime} object.  * We use our own joda wrapper as we support some formats that are not supported directly by joda.  *  */
+end_comment
+
 begin_interface
 DECL|interface|DateParser
 specifier|public
 interface|interface
 name|DateParser
 block|{
-DECL|method|parseMillis
-specifier|public
-name|long
-name|parseMillis
-parameter_list|(
-name|String
-name|date
-parameter_list|)
-function_decl|;
+comment|/**      * Parser the date provided as a string argument into a joda {@link DateTime} object      */
 DECL|method|parseDateTime
-specifier|public
 name|DateTime
 name|parseDateTime
 parameter_list|(
