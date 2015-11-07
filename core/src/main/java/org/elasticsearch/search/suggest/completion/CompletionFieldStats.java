@@ -110,6 +110,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|regex
@@ -238,7 +248,7 @@ operator|instanceof
 name|CompletionTerms
 condition|)
 block|{
-comment|// TODO: currently we load up the suggester for reporting it's size
+comment|// TODO: currently we load up the suggester for reporting its size
 name|long
 name|fstSize
 init|=
@@ -302,7 +312,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|ElasticsearchException
 argument_list|(
 name|ignored
 argument_list|)

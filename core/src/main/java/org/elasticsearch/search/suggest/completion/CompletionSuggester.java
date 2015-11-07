@@ -971,6 +971,7 @@ block|}
 block|}
 block|}
 comment|// TODO: this should be refactored and moved to lucene
+comment|// see https://issues.apache.org/jira/browse/LUCENE-6880
 DECL|class|TopDocumentsCollector
 specifier|private
 specifier|final
