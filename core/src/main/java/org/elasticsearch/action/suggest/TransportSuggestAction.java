@@ -1092,6 +1092,11 @@ operator|.
 name|mapperService
 argument_list|()
 argument_list|,
+name|indexService
+operator|.
+name|fieldData
+argument_list|()
+argument_list|,
 name|request
 operator|.
 name|shardId

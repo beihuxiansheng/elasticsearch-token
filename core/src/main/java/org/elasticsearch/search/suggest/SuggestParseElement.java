@@ -235,6 +235,11 @@ argument_list|()
 argument_list|,
 name|context
 operator|.
+name|fieldData
+argument_list|()
+argument_list|,
+name|context
+operator|.
 name|shardTarget
 argument_list|()
 operator|.
@@ -270,6 +275,9 @@ name|parser
 parameter_list|,
 name|MapperService
 name|mapperService
+parameter_list|,
+name|IndexFieldDataService
+name|fieldDataService
 parameter_list|,
 name|String
 name|index
@@ -625,6 +633,8 @@ argument_list|(
 name|parser
 argument_list|,
 name|mapperService
+argument_list|,
+name|fieldDataService
 argument_list|,
 name|headersContext
 argument_list|)

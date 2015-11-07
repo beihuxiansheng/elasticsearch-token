@@ -98,6 +98,9 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
+name|IndexFieldDataService
+name|indexFieldDataService
+parameter_list|,
 name|HasContextAndHeaders
 name|headersContext
 parameter_list|)
