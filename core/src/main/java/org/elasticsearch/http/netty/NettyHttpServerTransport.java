@@ -664,6 +664,15 @@ name|DEFAULT_SETTING_PIPELINING_MAX_EVENTS
 init|=
 literal|10000
 decl_stmt|;
+DECL|field|DEFAULT_PORT_RANGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_PORT_RANGE
+init|=
+literal|"9200-9300"
+decl_stmt|;
 DECL|field|networkService
 specifier|protected
 specifier|final
@@ -1136,7 +1145,7 @@ name|get
 argument_list|(
 literal|"http.port"
 argument_list|,
-literal|"9200-9300"
+name|DEFAULT_PORT_RANGE
 argument_list|)
 argument_list|)
 expr_stmt|;
