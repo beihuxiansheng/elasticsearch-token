@@ -2038,10 +2038,10 @@ name|ShardId
 name|shardId
 parameter_list|)
 block|{
-specifier|final
 name|String
 name|ignoreReason
 decl_stmt|;
+comment|// eclipse compiler does not know it is really final
 specifier|final
 name|IndexShard
 name|shard
