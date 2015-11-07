@@ -4,21 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.mapper.attachment.test.standalone
+DECL|package|org.elasticsearch.mapper.attachments
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|mapper
 operator|.
-name|attachment
-operator|.
-name|test
-operator|.
-name|standalone
+name|attachments
 package|;
 end_package
 
@@ -210,31 +204,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
 name|mapper
 operator|.
-name|attachment
+name|attachments
 operator|.
 name|AttachmentMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|attachment
-operator|.
-name|test
-operator|.
-name|MapperTestUtils
 import|;
 end_import
 
