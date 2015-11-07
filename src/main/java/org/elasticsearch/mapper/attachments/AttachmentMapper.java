@@ -2816,22 +2816,6 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// unbox checked exception
-if|if
-condition|(
-name|e
-operator|instanceof
-name|PrivilegedActionException
-condition|)
-block|{
-name|e
-operator|=
-name|e
-operator|.
-name|getCause
-argument_list|()
-expr_stmt|;
-block|}
 comment|// #18: we could ignore errors when Tika does not parse data
 if|if
 condition|(
