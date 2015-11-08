@@ -8807,6 +8807,13 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"reroute and check that nothing has changed"
+argument_list|)
+expr_stmt|;
 name|RoutingAllocation
 operator|.
 name|Result
@@ -9009,6 +9016,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"now set hasFetches to true and reroute we should now see exactly one relocating shard"
+argument_list|)
+expr_stmt|;
 name|hasFetches
 operator|.
 name|set
