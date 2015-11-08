@@ -505,9 +505,9 @@ argument_list|(
 name|is
 argument_list|)
 decl_stmt|;
-name|AttachmentMapper
+name|TikaImpl
 operator|.
-name|parseWithTika
+name|parse
 argument_list|(
 name|bytes
 argument_list|,
@@ -604,9 +604,9 @@ decl_stmt|;
 name|String
 name|parsedContent
 init|=
-name|AttachmentMapper
+name|TikaImpl
 operator|.
-name|parseWithTika
+name|parse
 argument_list|(
 name|bytes
 argument_list|,
