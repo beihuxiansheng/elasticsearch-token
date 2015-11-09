@@ -442,6 +442,28 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Test for .epub      */
+DECL|method|testEpubDocument
+specifier|public
+name|void
+name|testEpubDocument
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertParseable
+argument_list|(
+literal|"testEPUB.epub"
+argument_list|)
+expr_stmt|;
+name|testMapper
+argument_list|(
+literal|"testEPUB.epub"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Test for ASCIIDOC      * Not yet supported by Tika: https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/29      */
 DECL|method|testAsciidocDocument
 specifier|public
