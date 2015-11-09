@@ -382,13 +382,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"skip rebalance more that on shard/store fetch operations is still in-flight"
+literal|"skipping rebalance due to in-flight shard/store fetches"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|false
 return|;
+block|}
 block|}
 annotation|@
 name|Override

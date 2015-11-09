@@ -1162,11 +1162,6 @@ name|changed
 operator|=
 literal|true
 expr_stmt|;
-name|allocation
-operator|.
-name|setHasPendingAsyncFetch
-argument_list|()
-expr_stmt|;
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
