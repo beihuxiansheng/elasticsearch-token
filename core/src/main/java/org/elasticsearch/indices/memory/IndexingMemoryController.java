@@ -178,6 +178,20 @@ name|index
 operator|.
 name|shard
 operator|.
+name|IndexEventListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
 name|IndexShard
 import|;
 end_import
@@ -280,6 +294,8 @@ name|AbstractLifecycleComponent
 argument_list|<
 name|IndexingMemoryController
 argument_list|>
+implements|implements
+name|IndexEventListener
 block|{
 comment|/** How much heap (% or bytes) we will share across all actively indexing shards on this node (default: 10%). */
 DECL|field|INDEX_BUFFER_SIZE_SETTING
@@ -381,16 +397,6 @@ name|MAX_SHARD_TRANSLOG_BUFFER_SIZE_SETTING
 init|=
 literal|"indices.memory.max_shard_translog_buffer_size"
 decl_stmt|;
-comment|/** If we see no indexing operations after this much time for a given shard, we consider that shard inactive (default: 5 minutes). */
-DECL|field|SHARD_INACTIVE_TIME_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SHARD_INACTIVE_TIME_SETTING
-init|=
-literal|"indices.memory.shard_inactive_time"
-decl_stmt|;
 comment|/** How frequently we check shards to find inactive ones (default: 30 seconds). */
 DECL|field|SHARD_INACTIVE_INTERVAL_TIME_SETTING
 specifier|public
@@ -482,12 +488,6 @@ specifier|private
 specifier|final
 name|ByteSizeValue
 name|maxShardTranslogBufferSize
-decl_stmt|;
-DECL|field|inactiveTime
-specifier|private
-specifier|final
-name|TimeValue
-name|inactiveTime
 decl_stmt|;
 DECL|field|interval
 specifier|private
@@ -1046,26 +1046,6 @@ name|KB
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|inactiveTime
-operator|=
-name|this
-operator|.
-name|settings
-operator|.
-name|getAsTime
-argument_list|(
-name|SHARD_INACTIVE_TIME_SETTING
-argument_list|,
-name|TimeValue
-operator|.
-name|timeValueMinutes
-argument_list|(
-literal|5
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// we need to have this relatively small to move a shard from inactive to active fast (enough)
 name|this
 operator|.
@@ -1099,7 +1079,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using indexing buffer size [{}], with {} [{}], {} [{}], {} [{}], {} [{}]"
+literal|"using indexing buffer size [{}], with {} [{}], {} [{}], {} [{}]"
 argument_list|,
 name|this
 operator|.
@@ -1116,12 +1096,6 @@ argument_list|,
 name|this
 operator|.
 name|maxShardIndexBufferSize
-argument_list|,
-name|SHARD_INACTIVE_TIME_SETTING
-argument_list|,
-name|this
-operator|.
-name|inactiveTime
 argument_list|,
 name|SHARD_INACTIVE_INTERVAL_TIME_SETTING
 argument_list|,
@@ -1699,11 +1673,6 @@ condition|(
 name|checkIdle
 argument_list|(
 name|shardId
-argument_list|,
-name|inactiveTime
-operator|.
-name|nanos
-argument_list|()
 argument_list|)
 operator|==
 name|Boolean
@@ -1719,17 +1688,6 @@ argument_list|(
 name|ShardStatusChangeType
 operator|.
 name|BECAME_INACTIVE
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"marking shard {} as inactive (inactive_time[{}]) indexing wise"
-argument_list|,
-name|shardId
-argument_list|,
-name|inactiveTime
 argument_list|)
 expr_stmt|;
 name|shardWasActive
@@ -2078,16 +2036,12 @@ name|checkIdle
 parameter_list|(
 name|ShardId
 name|shardId
-parameter_list|,
-name|long
-name|inactiveTimeNS
 parameter_list|)
 block|{
 name|String
 name|ignoreReason
-init|=
-literal|null
 decl_stmt|;
+comment|// eclipse compiler does not know it is really final
 specifier|final
 name|IndexShard
 name|shard
@@ -2106,13 +2060,38 @@ condition|)
 block|{
 try|try
 block|{
-return|return
+if|if
+condition|(
 name|shard
 operator|.
 name|checkIdle
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
 argument_list|(
-name|inactiveTimeNS
+literal|"marking shard {} as inactive (inactive_time[{}]) indexing wise"
+argument_list|,
+name|shardId
+argument_list|,
+name|shard
+operator|.
+name|getInactiveTime
+argument_list|()
 argument_list|)
+expr_stmt|;
+return|return
+name|Boolean
+operator|.
+name|TRUE
+return|;
+block|}
+return|return
+name|Boolean
+operator|.
+name|FALSE
 return|;
 block|}
 catch|catch
@@ -2188,15 +2167,23 @@ name|BECAME_ACTIVE
 block|,
 name|BECAME_INACTIVE
 block|}
-DECL|method|getInactiveTime
+annotation|@
+name|Override
+DECL|method|onShardActive
 specifier|public
-name|TimeValue
-name|getInactiveTime
-parameter_list|()
+name|void
+name|onShardActive
+parameter_list|(
+name|IndexShard
+name|indexShard
+parameter_list|)
 block|{
-return|return
-name|inactiveTime
-return|;
+comment|// At least one shard used to be inactive ie. a new write operation just showed up.
+comment|// We try to fix the shards indexing buffer immediately. We could do this async instead, but cost should
+comment|// be low, and it's rare this happens.
+name|forceCheck
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

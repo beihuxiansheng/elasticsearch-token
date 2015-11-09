@@ -1525,7 +1525,9 @@ expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
-argument_list|()
+argument_list|(
+name|e1
+argument_list|)
 throw|;
 block|}
 block|}

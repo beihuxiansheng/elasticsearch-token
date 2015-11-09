@@ -66,6 +66,15 @@ name|JavaScriptPlugin
 extends|extends
 name|Plugin
 block|{
+static|static
+block|{
+comment|// install rhino policy on plugin init
+name|JavaScriptScriptEngineService
+operator|.
+name|init
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|name

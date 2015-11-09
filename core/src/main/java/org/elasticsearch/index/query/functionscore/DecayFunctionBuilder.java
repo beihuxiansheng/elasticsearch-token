@@ -352,7 +352,7 @@ name|mapper
 operator|.
 name|geo
 operator|.
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 import|;
 end_import
 
@@ -1213,7 +1213,7 @@ if|if
 condition|(
 name|fieldType
 operator|instanceof
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 condition|)
@@ -1226,7 +1226,7 @@ argument_list|,
 name|context
 argument_list|,
 operator|(
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)
@@ -1555,7 +1555,7 @@ parameter_list|,
 name|QueryShardContext
 name|context
 parameter_list|,
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|fieldType

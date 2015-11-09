@@ -488,14 +488,14 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"build"
+literal|"build_hash"
 argument_list|,
 name|nodeInfo
 operator|.
 name|getBuild
 argument_list|()
 operator|.
-name|hashShort
+name|shortHash
 argument_list|()
 argument_list|)
 expr_stmt|;

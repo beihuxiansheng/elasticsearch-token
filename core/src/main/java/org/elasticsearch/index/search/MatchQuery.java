@@ -999,7 +999,7 @@ block|}
 return|return
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|searchAnalyzer
@@ -1013,7 +1013,7 @@ name|analyzer
 init|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|analysisService

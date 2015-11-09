@@ -5490,7 +5490,7 @@ name|Build
 operator|.
 name|CURRENT
 operator|.
-name|hashShort
+name|shortHash
 argument_list|()
 operator|+
 literal|"/"
@@ -5499,7 +5499,7 @@ name|Build
 operator|.
 name|CURRENT
 operator|.
-name|timestamp
+name|date
 argument_list|()
 operator|+
 literal|", JVM: "

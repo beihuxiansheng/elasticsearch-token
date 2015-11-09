@@ -202,13 +202,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.search.type"
-argument_list|,
-literal|"fixed"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"threadpool.search.size"
 argument_list|,
 literal|1

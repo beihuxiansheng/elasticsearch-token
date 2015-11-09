@@ -596,6 +596,20 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|recovery
+operator|.
+name|RecoverySettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|store
 operator|.
 name|IndicesStore
@@ -1225,14 +1239,14 @@ name|Build
 operator|.
 name|CURRENT
 operator|.
-name|hashShort
+name|shortHash
 argument_list|()
 argument_list|,
 name|Build
 operator|.
 name|CURRENT
 operator|.
-name|timestamp
+name|date
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2473,6 +2487,18 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+name|injector
+operator|.
+name|getInstance
+argument_list|(
+name|RecoverySettings
+operator|.
+name|class
+argument_list|)
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 comment|// we should stop this last since it waits for resources to get released
 comment|// if we had scroll searchers etc or recovery going on we wait for to finish.
 name|injector

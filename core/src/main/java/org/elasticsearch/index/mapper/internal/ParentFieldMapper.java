@@ -1445,7 +1445,7 @@ argument_list|<>
 argument_list|(
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|types
@@ -1462,7 +1462,7 @@ name|documentMapper
 range|:
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|docMappers
