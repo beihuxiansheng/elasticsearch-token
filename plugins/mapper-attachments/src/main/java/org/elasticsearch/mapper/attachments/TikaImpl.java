@@ -471,6 +471,20 @@ name|xml
 operator|.
 name|DcXMLParser
 argument_list|()
+block|,
+operator|new
+name|org
+operator|.
+name|apache
+operator|.
+name|tika
+operator|.
+name|parser
+operator|.
+name|epub
+operator|.
+name|EpubParser
+argument_list|()
 block|,     }
 decl_stmt|;
 comment|/** autodetector based on this subset */
