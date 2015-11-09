@@ -58,6 +58,18 @@ name|sun
 operator|.
 name|jna
 operator|.
+name|NativeLong
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|jna
+operator|.
 name|Pointer
 import|;
 end_import
@@ -224,12 +236,32 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
-comment|/**   * Installs a limited form of secure computing mode,  * to filters system calls to block process execution.  *<p>  * This is only supported on the Linux, Solaris, and Mac OS X operating systems.  *<p>  * On Linux it currently supports on the amd64 architecture, on Linux kernels 3.5 or above, and requires  * {@code CONFIG_SECCOMP} and {@code CONFIG_SECCOMP_FILTER} compiled into the kernel.  *<p>  * On Linux BPF Filters are installed using either {@code seccomp(2)} (3.17+) or {@code prctl(2)} (3.5+). {@code seccomp(2)}  * is preferred, as it allows filters to be applied to any existing threads in the process, and one motivation  * here is to protect against bugs in the JVM. Otherwise, code will fall back to the {@code prctl(2)} method   * which will at least protect elasticsearch application threads.  *<p>  * Linux BPF filters will return {@code EACCES} (Access Denied) for the following system calls:  *<ul>  *<li>{@code execve}</li>  *<li>{@code fork}</li>  *<li>{@code vfork}</li>  *<li>{@code execveat}</li>  *</ul>  *<p>  * On Solaris 10 or higher, the following privileges are dropped with {@code priv_set(3C)}:  *<ul>  *<li>{@code PRIV_PROC_FORK}</li>  *<li>{@code PRIV_PROC_EXEC}</li>  *</ul>  *<p>  * On Mac OS X Leopard or above, a custom {@code sandbox(7)} ("Seatbelt") profile is installed that  * denies the following rules:  *<ul>  *<li>{@code process-fork}</li>  *<li>{@code process-exec}</li>  *</ul>  *<p>  * This is not intended as a sandbox. It is another level of security, mostly intended to annoy  * security researchers and make their lives more difficult in achieving "remote execution" exploits.  * @see<a href="http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">  *      http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt</a>  * @see<a href="https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf">  *      https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf</a>  * @see<a href="https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html">  *      https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html</a>  */
+comment|/**   * Installs a limited form of secure computing mode,  * to filters system calls to block process execution.  *<p>  * This is only supported on the Linux, Solaris, and Mac OS X operating systems.  *<p>  * On Linux it currently supports amd64 and i386 architectures, requires Linux kernel 3.5 or above, and requires  * {@code CONFIG_SECCOMP} and {@code CONFIG_SECCOMP_FILTER} compiled into the kernel.  *<p>  * On Linux BPF Filters are installed using either {@code seccomp(2)} (3.17+) or {@code prctl(2)} (3.5+). {@code seccomp(2)}  * is preferred, as it allows filters to be applied to any existing threads in the process, and one motivation  * here is to protect against bugs in the JVM. Otherwise, code will fall back to the {@code prctl(2)} method   * which will at least protect elasticsearch application threads.  *<p>  * Linux BPF filters will return {@code EACCES} (Access Denied) for the following system calls:  *<ul>  *<li>{@code execve}</li>  *<li>{@code fork}</li>  *<li>{@code vfork}</li>  *<li>{@code execveat}</li>  *</ul>  *<p>  * On Solaris 10 or higher, the following privileges are dropped with {@code priv_set(3C)}:  *<ul>  *<li>{@code PRIV_PROC_FORK}</li>  *<li>{@code PRIV_PROC_EXEC}</li>  *</ul>  *<p>  * On Mac OS X Leopard or above, a custom {@code sandbox(7)} ("Seatbelt") profile is installed that  * denies the following rules:  *<ul>  *<li>{@code process-fork}</li>  *<li>{@code process-exec}</li>  *</ul>  *<p>  * This is not intended as a sandbox. It is another level of security, mostly intended to annoy  * security researchers and make their lives more difficult in achieving "remote execution" exploits.  * @see<a href="http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">  *      http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt</a>  * @see<a href="https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf">  *      https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf</a>  * @see<a href="https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html">  *      https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html</a>  */
 end_comment
 
 begin_comment
@@ -275,25 +307,25 @@ parameter_list|(
 name|int
 name|option
 parameter_list|,
-name|long
+name|NativeLong
 name|arg2
 parameter_list|,
-name|long
+name|NativeLong
 name|arg3
 parameter_list|,
-name|long
+name|NativeLong
 name|arg4
 parameter_list|,
-name|long
+name|NativeLong
 name|arg5
 parameter_list|)
 function_decl|;
 comment|/**           * used to call seccomp(2), its too new...           * this is the only way, DONT use it on some other architecture unless you know wtf you are doing           */
 DECL|method|syscall
-name|long
+name|NativeLong
 name|syscall
 parameter_list|(
-name|long
+name|NativeLong
 name|number
 parameter_list|,
 name|Object
@@ -367,15 +399,6 @@ name|lib
 expr_stmt|;
 block|}
 comment|/** the preferred method is seccomp(2), since we can apply to all threads of the process */
-DECL|field|SECCOMP_SYSCALL_NR
-specifier|static
-specifier|final
-name|int
-name|SECCOMP_SYSCALL_NR
-init|=
-literal|317
-decl_stmt|;
-comment|// since Linux 3.17
 DECL|field|SECCOMP_SET_MODE_FILTER
 specifier|static
 specifier|final
@@ -819,14 +842,6 @@ name|k
 argument_list|)
 return|;
 block|}
-DECL|field|AUDIT_ARCH_X86_64
-specifier|static
-specifier|final
-name|int
-name|AUDIT_ARCH_X86_64
-init|=
-literal|0xC000003E
-decl_stmt|;
 DECL|field|SECCOMP_RET_ERRNO
 specifier|static
 specifier|final
@@ -884,7 +899,8 @@ name|ENOSYS
 init|=
 literal|0x26
 decl_stmt|;
-comment|// offsets (arch dependent) that our BPF checks
+comment|// offsets that our BPF checks
+comment|// check with offsetof() when adding a new arch, move to Arch if different.
 DECL|field|SECCOMP_DATA_NR_OFFSET
 specifier|static
 specifier|final
@@ -901,49 +917,299 @@ name|SECCOMP_DATA_ARCH_OFFSET
 init|=
 literal|0x04
 decl_stmt|;
-comment|// currently these ranges are blocked (inclusive):
-comment|// execve is really the only one needed but why let someone fork a 30G heap? (not really what happens)
-comment|// ...
-comment|// 57: fork
-comment|// 58: vfork
-comment|// 59: execve
-comment|// ...
-comment|// 322: execveat
-comment|// ...
-DECL|field|NR_SYSCALL_FORK
+DECL|class|Arch
 specifier|static
+class|class
+name|Arch
+block|{
+comment|/** AUDIT_ARCH_XXX constant from linux/audit.h */
+DECL|field|audit
 specifier|final
 name|int
-name|NR_SYSCALL_FORK
+name|audit
+decl_stmt|;
+comment|/** syscall limit (necessary for blacklisting on amd64, to ban 32-bit syscalls) */
+DECL|field|limit
+specifier|final
+name|int
+name|limit
+decl_stmt|;
+comment|/** __NR_fork */
+DECL|field|fork
+specifier|final
+name|int
+name|fork
+decl_stmt|;
+comment|/** __NR_vfork */
+DECL|field|vfork
+specifier|final
+name|int
+name|vfork
+decl_stmt|;
+comment|/** __NR_execve */
+DECL|field|execve
+specifier|final
+name|int
+name|execve
+decl_stmt|;
+comment|/**  __NR_execveat */
+DECL|field|execveat
+specifier|final
+name|int
+name|execveat
+decl_stmt|;
+comment|/** __NR_seccomp */
+DECL|field|seccomp
+specifier|final
+name|int
+name|seccomp
+decl_stmt|;
+DECL|method|Arch
+name|Arch
+parameter_list|(
+name|int
+name|audit
+parameter_list|,
+name|int
+name|limit
+parameter_list|,
+name|int
+name|fork
+parameter_list|,
+name|int
+name|vfork
+parameter_list|,
+name|int
+name|execve
+parameter_list|,
+name|int
+name|execveat
+parameter_list|,
+name|int
+name|seccomp
+parameter_list|)
+block|{
+name|this
+operator|.
+name|audit
+operator|=
+name|audit
+expr_stmt|;
+name|this
+operator|.
+name|limit
+operator|=
+name|limit
+expr_stmt|;
+name|this
+operator|.
+name|fork
+operator|=
+name|fork
+expr_stmt|;
+name|this
+operator|.
+name|vfork
+operator|=
+name|vfork
+expr_stmt|;
+name|this
+operator|.
+name|execve
+operator|=
+name|execve
+expr_stmt|;
+name|this
+operator|.
+name|execveat
+operator|=
+name|execveat
+expr_stmt|;
+name|this
+operator|.
+name|seccomp
+operator|=
+name|seccomp
+expr_stmt|;
+block|}
+block|}
+comment|/** supported architectures map keyed by os.arch */
+DECL|field|ARCHITECTURES
+specifier|private
+specifier|static
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Arch
+argument_list|>
+name|ARCHITECTURES
+decl_stmt|;
+static|static
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Arch
+argument_list|>
+name|m
 init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|m
+operator|.
+name|put
+argument_list|(
+literal|"amd64"
+argument_list|,
+operator|new
+name|Arch
+argument_list|(
+literal|0xC000003E
+argument_list|,
+literal|0x3FFFFFFF
+argument_list|,
 literal|57
-decl_stmt|;
-DECL|field|NR_SYSCALL_EXECVE
-specifier|static
-specifier|final
-name|int
-name|NR_SYSCALL_EXECVE
-init|=
+argument_list|,
+literal|58
+argument_list|,
 literal|59
-decl_stmt|;
-DECL|field|NR_SYSCALL_EXECVEAT
-specifier|static
-specifier|final
-name|int
-name|NR_SYSCALL_EXECVEAT
-init|=
+argument_list|,
 literal|322
-decl_stmt|;
-comment|// since Linux 3.19
-DECL|field|NR_SYSCALL_TUXCALL
+argument_list|,
+literal|317
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|m
+operator|.
+name|put
+argument_list|(
+literal|"i386"
+argument_list|,
+operator|new
+name|Arch
+argument_list|(
+literal|0x40000003
+argument_list|,
+literal|0xFFFFFFFF
+argument_list|,
+literal|2
+argument_list|,
+literal|190
+argument_list|,
+literal|11
+argument_list|,
+literal|358
+argument_list|,
+literal|354
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|ARCHITECTURES
+operator|=
+name|Collections
+operator|.
+name|unmodifiableMap
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** invokes prctl() from linux libc library */
+DECL|method|linux_prctl
+specifier|private
 specifier|static
-specifier|final
 name|int
-name|NR_SYSCALL_TUXCALL
-init|=
-literal|184
-decl_stmt|;
-comment|// should return ENOSYS
+name|linux_prctl
+parameter_list|(
+name|int
+name|option
+parameter_list|,
+name|long
+name|arg2
+parameter_list|,
+name|long
+name|arg3
+parameter_list|,
+name|long
+name|arg4
+parameter_list|,
+name|long
+name|arg5
+parameter_list|)
+block|{
+return|return
+name|linux_libc
+operator|.
+name|prctl
+argument_list|(
+name|option
+argument_list|,
+operator|new
+name|NativeLong
+argument_list|(
+name|arg2
+argument_list|)
+argument_list|,
+operator|new
+name|NativeLong
+argument_list|(
+name|arg3
+argument_list|)
+argument_list|,
+operator|new
+name|NativeLong
+argument_list|(
+name|arg4
+argument_list|)
+argument_list|,
+operator|new
+name|NativeLong
+argument_list|(
+name|arg5
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/** invokes syscall() from linux libc library */
+DECL|method|linux_syscall
+specifier|private
+specifier|static
+name|long
+name|linux_syscall
+parameter_list|(
+name|long
+name|number
+parameter_list|,
+name|Object
+modifier|...
+name|args
+parameter_list|)
+block|{
+return|return
+name|linux_libc
+operator|.
+name|syscall
+argument_list|(
+operator|new
+name|NativeLong
+argument_list|(
+name|number
+argument_list|)
+argument_list|,
+name|args
+argument_list|)
+operator|.
+name|longValue
+argument_list|()
+return|;
+block|}
 comment|/** try to install our BPF filters via seccomp() or prctl() to block execution */
 DECL|method|linuxImpl
 specifier|private
@@ -954,6 +1220,19 @@ parameter_list|()
 block|{
 comment|// first be defensive: we can give nice errors this way, at the very least.
 comment|// also, some of these security features get backported to old versions, checking kernel version here is a big no-no!
+specifier|final
+name|Arch
+name|arch
+init|=
+name|ARCHITECTURES
+operator|.
+name|get
+argument_list|(
+name|Constants
+operator|.
+name|OS_ARCH
+argument_list|)
+decl_stmt|;
 name|boolean
 name|supported
 init|=
@@ -961,14 +1240,9 @@ name|Constants
 operator|.
 name|LINUX
 operator|&&
-literal|"amd64"
-operator|.
-name|equals
-argument_list|(
-name|Constants
-operator|.
-name|OS_ARCH
-argument_list|)
+name|arch
+operator|!=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1012,11 +1286,9 @@ comment|// check that unimplemented syscalls actually return ENOSYS
 comment|// you never know (e.g. https://code.google.com/p/chromium/issues/detail?id=439795)
 if|if
 condition|(
-name|linux_libc
-operator|.
-name|syscall
+name|linux_syscall
 argument_list|(
-name|NR_SYSCALL_TUXCALL
+literal|999
 argument_list|)
 operator|>=
 literal|0
@@ -1049,11 +1321,11 @@ comment|// test seccomp(BOGUS)
 name|long
 name|ret
 init|=
-name|linux_libc
-operator|.
-name|syscall
+name|linux_syscall
 argument_list|(
-name|SECCOMP_SYSCALL_NR
+name|arch
+operator|.
+name|seccomp
 argument_list|,
 name|bogusArg
 argument_list|)
@@ -1121,11 +1393,11 @@ block|}
 comment|// test seccomp(VALID, BOGUS)
 name|ret
 operator|=
-name|linux_libc
-operator|.
-name|syscall
+name|linux_syscall
 argument_list|(
-name|SECCOMP_SYSCALL_NR
+name|arch
+operator|.
+name|seccomp
 argument_list|,
 name|SECCOMP_SET_MODE_FILTER
 argument_list|,
@@ -1195,9 +1467,7 @@ block|}
 comment|// test prctl(BOGUS)
 name|ret
 operator|=
-name|linux_libc
-operator|.
-name|prctl
+name|linux_prctl
 argument_list|(
 name|bogusArg
 argument_list|,
@@ -1274,9 +1544,7 @@ comment|// now just normal defensive checks
 comment|// check for GET_NO_NEW_PRIVS
 switch|switch
 condition|(
-name|linux_libc
-operator|.
-name|prctl
+name|linux_prctl
 argument_list|(
 name|PR_GET_NO_NEW_PRIVS
 argument_list|,
@@ -1345,9 +1613,7 @@ block|}
 comment|// check for SECCOMP
 switch|switch
 condition|(
-name|linux_libc
-operator|.
-name|prctl
+name|linux_prctl
 argument_list|(
 name|PR_GET_SECCOMP
 argument_list|,
@@ -1416,9 +1682,7 @@ block|}
 comment|// check for SECCOMP_MODE_FILTER
 if|if
 condition|(
-name|linux_libc
-operator|.
-name|prctl
+name|linux_prctl
 argument_list|(
 name|PR_SET_SECCOMP
 argument_list|,
@@ -1482,9 +1746,7 @@ block|}
 comment|// ok, now set PR_SET_NO_NEW_PRIVS, needed to be able to set a seccomp filter as ordinary user
 if|if
 condition|(
-name|linux_libc
-operator|.
-name|prctl
+name|linux_prctl
 argument_list|(
 name|PR_SET_NO_NEW_PRIVS
 argument_list|,
@@ -1521,9 +1783,7 @@ block|}
 comment|// check it worked
 if|if
 condition|(
-name|linux_libc
-operator|.
-name|prctl
+name|linux_prctl
 argument_list|(
 name|PR_GET_NO_NEW_PRIVS
 argument_list|,
@@ -1557,13 +1817,13 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-comment|// BPF installed to check arch, then syscall range. See https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt for details.
+comment|// BPF installed to check arch, limit, then syscall. See https://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt for details.
 name|SockFilter
 name|insns
 index|[]
 init|=
 block|{
-comment|/* 1 */
+comment|/* 1  */
 name|BPF_STMT
 argument_list|(
 name|BPF_LD
@@ -1576,7 +1836,7 @@ name|SECCOMP_DATA_ARCH_OFFSET
 argument_list|)
 block|,
 comment|//
-comment|/* 2 */
+comment|/* 2  */
 name|BPF_JUMP
 argument_list|(
 name|BPF_JMP
@@ -1585,15 +1845,17 @@ name|BPF_JEQ
 operator|+
 name|BPF_K
 argument_list|,
-name|AUDIT_ARCH_X86_64
+name|arch
+operator|.
+name|audit
 argument_list|,
 literal|0
 argument_list|,
-literal|4
+literal|7
 argument_list|)
 block|,
-comment|// if (arch != amd64) goto fail;
-comment|/* 3 */
+comment|// if (arch != audit) goto fail;
+comment|/* 3  */
 name|BPF_STMT
 argument_list|(
 name|BPF_LD
@@ -1606,41 +1868,7 @@ name|SECCOMP_DATA_NR_OFFSET
 argument_list|)
 block|,
 comment|//
-comment|/* 4 */
-name|BPF_JUMP
-argument_list|(
-name|BPF_JMP
-operator|+
-name|BPF_JGE
-operator|+
-name|BPF_K
-argument_list|,
-name|NR_SYSCALL_FORK
-argument_list|,
-literal|0
-argument_list|,
-literal|3
-argument_list|)
-block|,
-comment|// if (syscall< SYSCALL_FORK) goto pass;
-comment|/* 5 */
-name|BPF_JUMP
-argument_list|(
-name|BPF_JMP
-operator|+
-name|BPF_JEQ
-operator|+
-name|BPF_K
-argument_list|,
-name|NR_SYSCALL_EXECVEAT
-argument_list|,
-literal|1
-argument_list|,
-literal|0
-argument_list|)
-block|,
-comment|// if (syscall == SYSCALL_EXECVEAT) goto fail;
-comment|/* 6 */
+comment|/* 4  */
 name|BPF_JUMP
 argument_list|(
 name|BPF_JMP
@@ -1649,15 +1877,104 @@ name|BPF_JGT
 operator|+
 name|BPF_K
 argument_list|,
-name|NR_SYSCALL_EXECVE
+name|arch
+operator|.
+name|limit
+argument_list|,
+literal|5
+argument_list|,
+literal|0
+argument_list|)
+block|,
+comment|// if (syscall> LIMIT) goto fail;
+comment|/* 5  */
+name|BPF_JUMP
+argument_list|(
+name|BPF_JMP
+operator|+
+name|BPF_JEQ
+operator|+
+name|BPF_K
+argument_list|,
+name|arch
+operator|.
+name|fork
+argument_list|,
+literal|4
+argument_list|,
+literal|0
+argument_list|)
+block|,
+comment|// if (syscall == FORK) goto fail;
+comment|/* 6  */
+name|BPF_JUMP
+argument_list|(
+name|BPF_JMP
+operator|+
+name|BPF_JEQ
+operator|+
+name|BPF_K
+argument_list|,
+name|arch
+operator|.
+name|vfork
+argument_list|,
+literal|3
+argument_list|,
+literal|0
+argument_list|)
+block|,
+comment|// if (syscall == VFORK) goto fail;
+comment|/* 7  */
+name|BPF_JUMP
+argument_list|(
+name|BPF_JMP
+operator|+
+name|BPF_JEQ
+operator|+
+name|BPF_K
+argument_list|,
+name|arch
+operator|.
+name|execve
+argument_list|,
+literal|2
+argument_list|,
+literal|0
+argument_list|)
+block|,
+comment|// if (syscall == EXECVE) goto fail;
+comment|/* 8  */
+name|BPF_JUMP
+argument_list|(
+name|BPF_JMP
+operator|+
+name|BPF_JEQ
+operator|+
+name|BPF_K
+argument_list|,
+name|arch
+operator|.
+name|execveat
 argument_list|,
 literal|1
 argument_list|,
 literal|0
 argument_list|)
 block|,
-comment|// if (syscall> SYSCALL_EXECVE) goto pass;
-comment|/* 7 */
+comment|// if (syscall == EXECVEAT) goto fail;
+comment|/* 9  */
+name|BPF_STMT
+argument_list|(
+name|BPF_RET
+operator|+
+name|BPF_K
+argument_list|,
+name|SECCOMP_RET_ALLOW
+argument_list|)
+block|,
+comment|// pass: return OK;
+comment|/* 10 */
 name|BPF_STMT
 argument_list|(
 name|BPF_RET
@@ -1674,16 +1991,6 @@ operator|)
 argument_list|)
 block|,
 comment|// fail: return EACCES;
-comment|/* 8 */
-name|BPF_STMT
-argument_list|(
-name|BPF_RET
-operator|+
-name|BPF_K
-argument_list|,
-name|SECCOMP_RET_ALLOW
-argument_list|)
-comment|// pass: return OK;
 block|}
 decl_stmt|;
 comment|// seccomp takes a long, so we pass it one explicitly to keep the JNA simple
@@ -1723,17 +2030,21 @@ comment|// install filter, if this works, after this there is no going back!
 comment|// first try it with seccomp(SECCOMP_SET_MODE_FILTER), falling back to prctl()
 if|if
 condition|(
-name|linux_libc
-operator|.
-name|syscall
+name|linux_syscall
 argument_list|(
-name|SECCOMP_SYSCALL_NR
+name|arch
+operator|.
+name|seccomp
 argument_list|,
 name|SECCOMP_SET_MODE_FILTER
 argument_list|,
 name|SECCOMP_FILTER_FLAG_TSYNC
 argument_list|,
+operator|new
+name|NativeLong
+argument_list|(
 name|pointer
+argument_list|)
 argument_list|)
 operator|!=
 literal|0
@@ -1778,9 +2089,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|linux_libc
-operator|.
-name|prctl
+name|linux_prctl
 argument_list|(
 name|PR_SET_SECCOMP
 argument_list|,
@@ -1832,9 +2141,7 @@ block|}
 comment|// now check that the filter was really installed, we should be in filter mode.
 if|if
 condition|(
-name|linux_libc
-operator|.
-name|prctl
+name|linux_prctl
 argument_list|(
 name|PR_GET_SECCOMP
 argument_list|,
