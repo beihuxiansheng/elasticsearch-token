@@ -1701,7 +1701,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|7
+literal|6
 argument_list|)
 argument_list|)
 expr_stmt|;

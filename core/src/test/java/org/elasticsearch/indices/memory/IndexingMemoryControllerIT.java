@@ -205,9 +205,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexingMemoryController
+name|IndexShard
 operator|.
-name|SHARD_INACTIVE_TIME_SETTING
+name|INDEX_SHARD_INACTIVE_TIME_SETTING
 argument_list|,
 literal|"100000h"
 argument_list|,
@@ -433,9 +433,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexingMemoryController
+name|IndexShard
 operator|.
-name|SHARD_INACTIVE_TIME_SETTING
+name|INDEX_SHARD_INACTIVE_TIME_SETTING
 argument_list|,
 literal|"100ms"
 argument_list|,

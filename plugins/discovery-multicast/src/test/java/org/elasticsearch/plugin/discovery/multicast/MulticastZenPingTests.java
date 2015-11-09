@@ -1110,9 +1110,7 @@ name|multicastSocket
 operator|=
 operator|new
 name|MulticastSocket
-argument_list|(
-literal|54328
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|multicastSocket
 operator|.

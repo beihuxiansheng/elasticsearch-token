@@ -79,10 +79,13 @@ literal|"iterators"
 argument_list|)
 throw|;
 block|}
+comment|// explicit generic type argument needed for type inference
 return|return
 operator|new
 name|ConcatenatedIterator
-argument_list|<>
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|iterators
 argument_list|)

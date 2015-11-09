@@ -254,7 +254,6 @@ end_comment
 
 begin_class
 DECL|class|MulticastChannel
-specifier|public
 specifier|abstract
 class|class
 name|MulticastChannel

@@ -260,7 +260,7 @@ name|mapper
 operator|.
 name|geo
 operator|.
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 import|;
 end_import
 
@@ -368,7 +368,7 @@ parameter_list|(
 name|QueryShardContext
 name|context
 parameter_list|,
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|fieldType
@@ -390,7 +390,7 @@ name|geoHashMapper
 init|=
 name|fieldType
 operator|.
-name|geohashFieldType
+name|geoHashFieldType
 argument_list|()
 decl_stmt|;
 if|if
@@ -896,7 +896,7 @@ literal|"failed to parse [{}] query. missing [{}] field [{}]"
 argument_list|,
 name|NAME
 argument_list|,
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|CONTENT_TYPE
 argument_list|,
@@ -910,7 +910,7 @@ operator|!
 operator|(
 name|fieldType
 operator|instanceof
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)
@@ -930,14 +930,14 @@ name|fieldName
 argument_list|)
 throw|;
 block|}
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|geoFieldType
 init|=
 operator|(
 operator|(
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)
@@ -949,7 +949,7 @@ condition|(
 operator|!
 name|geoFieldType
 operator|.
-name|isGeohashPrefixEnabled
+name|isGeoHashPrefixEnabled
 argument_list|()
 condition|)
 block|{

@@ -371,7 +371,7 @@ name|script
 argument_list|,
 name|context
 operator|.
-name|scriptService
+name|getScriptService
 argument_list|()
 argument_list|,
 name|context

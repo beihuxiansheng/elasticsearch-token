@@ -170,6 +170,7 @@ end_comment
 
 begin_function
 DECL|method|resolveValue
+specifier|public
 specifier|static
 name|int
 name|resolveValue

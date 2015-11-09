@@ -50,9 +50,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|fielddata
 operator|.
-name|MapperService
+name|IndexFieldDataService
 import|;
 end_import
 
@@ -64,9 +64,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
+name|mapper
 operator|.
-name|IndexQueryParserService
+name|MapperService
 import|;
 end_import
 
@@ -87,7 +87,6 @@ interface|interface
 name|SuggestContextParser
 block|{
 DECL|method|parse
-specifier|public
 name|SuggestionSearchContext
 operator|.
 name|SuggestionContext
@@ -99,8 +98,8 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|IndexQueryParserService
-name|queryParserService
+name|IndexFieldDataService
+name|indexFieldDataService
 parameter_list|,
 name|HasContextAndHeaders
 name|headersContext

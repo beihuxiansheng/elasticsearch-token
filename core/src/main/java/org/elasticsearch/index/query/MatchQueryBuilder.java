@@ -1280,7 +1280,7 @@ literal|null
 operator|&&
 name|context
 operator|.
-name|analysisService
+name|getAnalysisService
 argument_list|()
 operator|.
 name|analyzer

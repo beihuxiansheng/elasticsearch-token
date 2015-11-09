@@ -918,7 +918,10 @@ parameter_list|)
 lambda|->
 name|c
 operator|.
-name|queryParserService
+name|indexShard
+argument_list|()
+operator|.
+name|getQueryShardContext
 argument_list|()
 operator|.
 name|parse

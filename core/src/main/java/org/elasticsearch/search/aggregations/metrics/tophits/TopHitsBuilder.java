@@ -301,6 +301,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a field to loaded and returned.      */
+DECL|method|addField
+specifier|public
+name|TopHitsBuilder
+name|addField
+parameter_list|(
+name|String
+name|field
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|field
+argument_list|(
+name|field
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned per field.      */
 DECL|method|setNoFields
 specifier|public

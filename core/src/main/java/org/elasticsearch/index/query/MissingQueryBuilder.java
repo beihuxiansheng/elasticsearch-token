@@ -589,7 +589,7 @@ name|FieldNamesFieldType
 operator|)
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|fullName

@@ -797,10 +797,10 @@ name|field
 operator|=
 name|indexService
 operator|.
-name|queryParserService
+name|getIndexSettings
 argument_list|()
 operator|.
-name|defaultField
+name|getDefaultField
 argument_list|()
 expr_stmt|;
 block|}

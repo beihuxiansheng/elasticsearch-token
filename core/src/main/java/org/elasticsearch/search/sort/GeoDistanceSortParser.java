@@ -541,10 +541,13 @@ name|indexCreatedBeforeV2_0
 init|=
 name|context
 operator|.
-name|queryParserService
+name|indexShard
 argument_list|()
 operator|.
-name|getIndexCreatedVersion
+name|getIndexSettings
+argument_list|()
+operator|.
+name|getIndexVersionCreated
 argument_list|()
 operator|.
 name|before

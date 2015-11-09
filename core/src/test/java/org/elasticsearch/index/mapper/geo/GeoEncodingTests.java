@@ -199,12 +199,12 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|GeoPointFieldMapper
+name|GeoPointFieldMapperLegacy
 operator|.
 name|Encoding
 name|encoding
 init|=
-name|GeoPointFieldMapper
+name|GeoPointFieldMapperLegacy
 operator|.
 name|Encoding
 operator|.

@@ -975,7 +975,7 @@ name|childDocMapper
 init|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|documentMapper
@@ -1096,13 +1096,7 @@ name|innerHits
 init|=
 name|context
 operator|.
-name|indexQueryParserService
-argument_list|()
-operator|.
-name|getInnerHitsQueryParserHelper
-argument_list|()
-operator|.
-name|parse
+name|getInnerHitsContext
 argument_list|(
 name|parser
 argument_list|)
@@ -1149,7 +1143,7 @@ literal|null
 argument_list|,
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 argument_list|,
 name|childDocMapper
@@ -1197,7 +1191,7 @@ name|parentDocMapper
 init|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|documentMapper

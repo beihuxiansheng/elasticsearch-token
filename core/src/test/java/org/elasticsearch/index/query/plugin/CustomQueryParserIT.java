@@ -98,7 +98,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|IndexQueryParserService
+name|QueryShardContext
 import|;
 end_import
 
@@ -389,11 +389,11 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|queryParser
+DECL|method|queryShardContext
 specifier|private
 specifier|static
-name|IndexQueryParserService
-name|queryParser
+name|QueryShardContext
+name|queryShardContext
 parameter_list|()
 block|{
 name|IndicesService
@@ -417,7 +417,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|queryParserService
+name|getQueryShardContext
 argument_list|()
 return|;
 block|}
@@ -430,12 +430,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|IndexQueryParserService
-name|queryParser
-init|=
-name|queryParser
-argument_list|()
-decl_stmt|;
 name|Query
 name|q
 init|=
@@ -450,9 +444,7 @@ argument_list|)
 operator|.
 name|toQuery
 argument_list|(
-name|queryParser
-operator|.
-name|getShardContext
+name|queryShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -509,12 +501,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|IndexQueryParserService
-name|queryParser
-init|=
-name|queryParser
-argument_list|()
-decl_stmt|;
 comment|// single clause, serialized as inner object
 name|Query
 name|q
@@ -560,9 +546,7 @@ argument_list|)
 operator|.
 name|toQuery
 argument_list|(
-name|queryParser
-operator|.
-name|getShardContext
+name|queryShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -753,9 +737,7 @@ argument_list|)
 operator|.
 name|toQuery
 argument_list|(
-name|queryParser
-operator|.
-name|getShardContext
+name|queryShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;

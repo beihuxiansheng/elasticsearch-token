@@ -770,7 +770,7 @@ name|fieldType
 init|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|smartNameFieldType

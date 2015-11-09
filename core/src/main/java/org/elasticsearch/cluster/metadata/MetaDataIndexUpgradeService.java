@@ -570,6 +570,8 @@ literal|"index.translog.interval"
 argument_list|,
 literal|"index.translog.sync_interval"
 argument_list|,
+literal|"index.shard.inactive_time"
+argument_list|,
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING

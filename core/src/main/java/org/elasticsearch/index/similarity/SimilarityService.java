@@ -171,6 +171,7 @@ end_import
 begin_class
 DECL|class|SimilarityService
 specifier|public
+specifier|final
 class|class
 name|SimilarityService
 extends|extends
