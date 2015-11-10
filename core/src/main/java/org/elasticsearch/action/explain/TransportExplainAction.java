@@ -939,9 +939,9 @@ name|context
 operator|.
 name|parsedQuery
 argument_list|(
-name|indexService
+name|indexShard
 operator|.
-name|queryParserService
+name|getQueryShardContext
 argument_list|()
 operator|.
 name|toQuery

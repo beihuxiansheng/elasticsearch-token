@@ -360,22 +360,6 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|zen
-operator|.
-name|publish
-operator|.
-name|PendingClusterStateStats
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
 name|InitialStateDiscoveryListener
 import|;
 end_import
@@ -489,6 +473,22 @@ operator|.
 name|ping
 operator|.
 name|ZenPingService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|publish
+operator|.
+name|PendingClusterStateStats
 import|;
 end_import
 
@@ -2402,7 +2402,9 @@ comment|// process any incoming joins (they will fail because we are not the mas
 name|nodeJoinController
 operator|.
 name|stopAccumulatingJoins
-argument_list|()
+argument_list|(
+literal|"not master"
+argument_list|)
 expr_stmt|;
 comment|// send join request
 specifier|final

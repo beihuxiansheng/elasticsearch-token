@@ -70,7 +70,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|IndexQueryParserService
+name|QueryShardContext
 import|;
 end_import
 
@@ -274,7 +274,10 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|queryParserService
+name|indexShard
+argument_list|()
+operator|.
+name|getQueryShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -310,8 +313,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|IndexQueryParserService
-name|queryParserService
+name|QueryShardContext
+name|queryShardContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -759,7 +762,7 @@ name|parseFields
 argument_list|(
 name|parser
 argument_list|,
-name|queryParserService
+name|queryShardContext
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1364,7 +1367,7 @@ name|parseFields
 argument_list|(
 name|parser
 argument_list|,
-name|queryParserService
+name|queryShardContext
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1394,7 +1397,7 @@ name|globalOptionsBuilder
 operator|.
 name|highlightQuery
 argument_list|(
-name|queryParserService
+name|queryShardContext
 operator|.
 name|parse
 argument_list|(
@@ -1527,8 +1530,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|IndexQueryParserService
-name|queryParserService
+name|QueryShardContext
+name|queryShardContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -2282,7 +2285,7 @@ name|fieldOptionsBuilder
 operator|.
 name|highlightQuery
 argument_list|(
-name|queryParserService
+name|queryShardContext
 operator|.
 name|parse
 argument_list|(

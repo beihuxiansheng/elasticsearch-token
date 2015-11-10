@@ -9675,9 +9675,7 @@ literal|"      \"Nevermind\",\n"
 operator|+
 literal|"      \"Nirvana\"\n"
 operator|+
-literal|"    ],\n"
-operator|+
-literal|"    \"output\": \"Nirvana - Nevermind\"\n"
+literal|"    ]\n"
 operator|+
 literal|"  }\n"
 operator|+

@@ -513,7 +513,7 @@ name|typesForQuery
 operator|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|types

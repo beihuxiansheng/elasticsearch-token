@@ -1172,12 +1172,30 @@ name|asUnordered
 argument_list|()
 control|)
 block|{
+comment|// send a request to the shard only if it is assigned to a node that is in the local node's cluster state
+comment|// a scenario in which a shard can be assigned but to a node that is not in the local node's cluster state
+comment|// is when the shard is assigned to the master node, the local node has detected the master as failed
+comment|// and a new master has not yet been elected; in this situation the local node will have removed the
+comment|// master node from the local cluster state, but the shards assigned to the master will still be in the
+comment|// routing table as such
 if|if
 condition|(
 name|shard
 operator|.
 name|assignedToNode
 argument_list|()
+operator|&&
+name|nodes
+operator|.
+name|get
+argument_list|(
+name|shard
+operator|.
+name|currentNodeId
+argument_list|()
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|String

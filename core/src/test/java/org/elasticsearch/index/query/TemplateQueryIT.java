@@ -2301,10 +2301,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString

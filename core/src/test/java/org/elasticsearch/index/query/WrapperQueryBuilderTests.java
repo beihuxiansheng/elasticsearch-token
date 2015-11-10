@@ -295,9 +295,6 @@ operator|new
 name|QueryShardContext
 argument_list|(
 name|context
-operator|.
-name|indexQueryParserService
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|contextCopy
@@ -342,24 +339,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|assertBoost
-specifier|protected
-name|void
-name|assertBoost
-parameter_list|(
-name|WrapperQueryBuilder
-name|queryBuilder
-parameter_list|,
-name|Query
-name|query
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|//no-op boost is checked already above as part of doAssertLuceneQuery as we rely on lucene equals impl
 block|}
 DECL|method|testIllegalArgument
 specifier|public

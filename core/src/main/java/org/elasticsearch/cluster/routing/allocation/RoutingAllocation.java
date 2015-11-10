@@ -431,6 +431,13 @@ name|debugDecision
 init|=
 literal|false
 decl_stmt|;
+DECL|field|hasPendingAsyncFetch
+specifier|private
+name|boolean
+name|hasPendingAsyncFetch
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Creates a new {@link RoutingAllocation}      *       * @param deciders {@link AllocationDeciders} to used to make decisions for routing allocations      * @param routingNodes Routing nodes in the current cluster       * @param nodes TODO: Documentation      */
 DECL|method|RoutingAllocation
 specifier|public
@@ -846,6 +853,31 @@ return|return
 name|decision
 return|;
 block|}
+block|}
+comment|/**      * Returns<code>true</code> iff the current allocation run has not processed all of the in-flight or available      * shard or store fetches. Otherwise<code>true</code>      */
+DECL|method|hasPendingAsyncFetch
+specifier|public
+name|boolean
+name|hasPendingAsyncFetch
+parameter_list|()
+block|{
+return|return
+name|hasPendingAsyncFetch
+return|;
+block|}
+comment|/**      * Sets a flag that signals that current allocation run has not processed all of the in-flight or available shard or store fetches.      * This state is anti-viral and can be reset in on allocation run.      */
+DECL|method|setHasPendingAsyncFetch
+specifier|public
+name|void
+name|setHasPendingAsyncFetch
+parameter_list|()
+block|{
+name|this
+operator|.
+name|hasPendingAsyncFetch
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 end_class

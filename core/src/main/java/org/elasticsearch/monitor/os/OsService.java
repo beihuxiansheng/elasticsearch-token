@@ -86,6 +86,22 @@ name|SingleObjectCache
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|EsExecutors
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -178,6 +194,19 @@ name|refreshInterval
 operator|.
 name|millis
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|info
+operator|.
+name|allocatedProcessors
+operator|=
+name|EsExecutors
+operator|.
+name|boundedNumberOfProcessors
+argument_list|(
+name|settings
+argument_list|)
 expr_stmt|;
 name|osStatsCache
 operator|=

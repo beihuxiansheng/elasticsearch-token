@@ -422,6 +422,36 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|GeoShapeQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] point specified twice. ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|currentFieldName
@@ -489,13 +519,8 @@ name|builder
 init|=
 name|XContentFactory
 operator|.
-name|contentBuilder
-argument_list|(
-name|parser
-operator|.
-name|contentType
+name|jsonBuilder
 argument_list|()
-argument_list|)
 operator|.
 name|copyCurrentStructure
 argument_list|(
@@ -782,6 +807,35 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|GeoShapeQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] unknown token ["
+operator|+
+name|token
+operator|+
+literal|"] after ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 else|else
@@ -795,7 +849,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[geo_shape] query does not support ["
+literal|"["
+operator|+
+name|GeoShapeQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -877,7 +937,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[geo_shape] query does not support ["
+literal|"["
+operator|+
+name|GeoShapeQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+

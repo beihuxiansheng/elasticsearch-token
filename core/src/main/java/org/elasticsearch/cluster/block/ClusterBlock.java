@@ -738,6 +738,11 @@ argument_list|(
 literal|", blocks "
 argument_list|)
 expr_stmt|;
+name|String
+name|delimiter
+init|=
+literal|""
+decl_stmt|;
 for|for
 control|(
 name|ClusterBlockLevel
@@ -750,16 +755,20 @@ name|sb
 operator|.
 name|append
 argument_list|(
+name|delimiter
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|level
 operator|.
 name|name
 argument_list|()
 argument_list|)
-operator|.
-name|append
-argument_list|(
+expr_stmt|;
+name|delimiter
+operator|=
 literal|","
-argument_list|)
 expr_stmt|;
 block|}
 return|return

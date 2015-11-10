@@ -297,10 +297,12 @@ name|INTEGER
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onModule
+annotation|@
+name|Override
+DECL|method|onIndexModule
 specifier|public
 name|void
-name|onModule
+name|onIndexModule
 parameter_list|(
 name|IndexModule
 name|module

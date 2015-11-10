@@ -106,6 +106,22 @@ name|GeoPointFieldMapper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|geo
+operator|.
+name|GeoPointFieldMapperLegacy
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -128,7 +144,7 @@ parameter_list|,
 name|GeoPoint
 name|bottomRight
 parameter_list|,
-name|GeoPointFieldMapper
+name|GeoPointFieldMapperLegacy
 operator|.
 name|GeoPointFieldType
 name|fieldType
@@ -212,7 +228,7 @@ parameter_list|,
 name|GeoPoint
 name|bottomRight
 parameter_list|,
-name|GeoPointFieldMapper
+name|GeoPointFieldMapperLegacy
 operator|.
 name|GeoPointFieldType
 name|fieldType
@@ -346,7 +362,7 @@ parameter_list|,
 name|GeoPoint
 name|bottomRight
 parameter_list|,
-name|GeoPointFieldMapper
+name|GeoPointFieldMapperLegacy
 operator|.
 name|GeoPointFieldType
 name|fieldType

@@ -1497,9 +1497,9 @@ init|=
 operator|new
 name|CodecService
 argument_list|(
-name|INDEX_SETTINGS
-argument_list|,
 literal|null
+argument_list|,
+name|logger
 argument_list|)
 decl_stmt|;
 name|String
@@ -2343,9 +2343,9 @@ argument_list|,
 operator|new
 name|CodecService
 argument_list|(
-name|INDEX_SETTINGS
-argument_list|,
 literal|null
+argument_list|,
+name|logger
 argument_list|)
 argument_list|,
 operator|new
@@ -14094,9 +14094,9 @@ init|=
 operator|new
 name|CodecService
 argument_list|(
-name|INDEX_SETTINGS
-argument_list|,
 literal|null
+argument_list|,
+name|logger
 argument_list|)
 decl_stmt|;
 name|LiveIndexWriterConfig
@@ -17953,9 +17953,9 @@ argument_list|,
 operator|new
 name|CodecService
 argument_list|(
-name|INDEX_SETTINGS
-argument_list|,
 literal|null
+argument_list|,
+name|logger
 argument_list|)
 argument_list|,
 name|config

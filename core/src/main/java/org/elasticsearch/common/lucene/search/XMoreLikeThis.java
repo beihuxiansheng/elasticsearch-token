@@ -1314,7 +1314,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|TermQuery
+name|Query
 name|tq
 init|=
 operator|new
@@ -1365,9 +1365,12 @@ name|score
 operator|)
 decl_stmt|;
 name|tq
-operator|.
-name|setBoost
+operator|=
+operator|new
+name|BoostQuery
 argument_list|(
+name|tq
+argument_list|,
 name|boostFactor
 operator|*
 name|myScore

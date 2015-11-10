@@ -197,6 +197,16 @@ name|IndexShard
 name|indexShard
 parameter_list|)
 block|{}
+comment|/**      * Called when a shard is marked as active ie. was previously inactive and is now active again.      *      * @param indexShard The shard that was marked active      */
+DECL|method|onShardActive
+specifier|default
+name|void
+name|onShardActive
+parameter_list|(
+name|IndexShard
+name|indexShard
+parameter_list|)
+block|{}
 comment|/**      * Called before the index gets created. Note that this is also called      * when the index is created on data nodes      */
 DECL|method|beforeIndexCreated
 specifier|default

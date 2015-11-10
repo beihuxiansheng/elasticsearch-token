@@ -978,7 +978,7 @@ name|analyzerObj
 operator|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|searchAnalyzer
@@ -992,7 +992,7 @@ name|analyzerObj
 operator|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|analysisService

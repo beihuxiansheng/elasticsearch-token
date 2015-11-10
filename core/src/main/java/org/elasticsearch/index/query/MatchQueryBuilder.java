@@ -1014,7 +1014,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Get the setting for handling zero terms queries.      * @see #zeroTermsQuery(ZeroTermsQuery)      */
+comment|/**      * Returns the setting for handling zero terms queries.      */
 DECL|method|zeroTermsQuery
 specifier|public
 name|MatchQuery
@@ -1280,7 +1280,7 @@ literal|null
 operator|&&
 name|context
 operator|.
-name|analysisService
+name|getAnalysisService
 argument_list|()
 operator|.
 name|analyzer

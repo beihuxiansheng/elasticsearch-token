@@ -186,6 +186,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|SocketPermission
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URL
 import|;
 end_import
@@ -774,6 +784,37 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// add bind permissions for testing
+comment|// ephemeral ports (note, on java 7 before update 51, this is a different permission)
+comment|// this should really be the only one allowed for tests, otherwise they have race conditions
+name|perms
+operator|.
+name|add
+argument_list|(
+operator|new
+name|SocketPermission
+argument_list|(
+literal|"localhost:0"
+argument_list|,
+literal|"listen,resolve"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// ... but tests are messy. like file permissions, just let them live in a fantasy for now.
+comment|// TODO: cut over all tests to bind to ephemeral ports
+name|perms
+operator|.
+name|add
+argument_list|(
+operator|new
+name|SocketPermission
+argument_list|(
+literal|"localhost:1024-"
+argument_list|,
+literal|"listen,resolve"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// read test-framework permissions
 specifier|final
 name|Policy

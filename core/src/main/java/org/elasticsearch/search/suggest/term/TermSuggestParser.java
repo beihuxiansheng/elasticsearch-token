@@ -64,9 +64,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|fielddata
 operator|.
-name|MapperService
+name|IndexFieldDataService
 import|;
 end_import
 
@@ -78,9 +78,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
+name|mapper
 operator|.
-name|IndexQueryParserService
+name|MapperService
 import|;
 end_import
 
@@ -194,8 +194,8 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|IndexQueryParserService
-name|queryParserService
+name|IndexFieldDataService
+name|fieldDataService
 parameter_list|,
 name|HasContextAndHeaders
 name|headersContext
@@ -288,9 +288,12 @@ name|suggestion
 argument_list|,
 name|settings
 argument_list|,
-name|queryParserService
+name|mapperService
 operator|.
-name|parseFieldMatcher
+name|getIndexSettings
+argument_list|()
+operator|.
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -452,6 +452,8 @@ literal|"lang-javascript"
 argument_list|,
 literal|"lang-python"
 argument_list|,
+literal|"mapper-attachments"
+argument_list|,
 literal|"mapper-murmur3"
 argument_list|,
 literal|"mapper-size"
@@ -3575,7 +3577,7 @@ name|Build
 operator|.
 name|CURRENT
 operator|.
-name|hashShort
+name|shortHash
 argument_list|()
 argument_list|,
 name|name

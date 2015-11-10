@@ -586,7 +586,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[query_string] query does not support ["
+literal|"["
+operator|+
+name|QueryStringQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -1264,7 +1270,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[query_string] time_zone ["
+literal|"["
+operator|+
+name|QueryStringQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] time_zone ["
 operator|+
 name|parser
 operator|.
@@ -1306,7 +1318,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[query_string] query does not support ["
+literal|"["
+operator|+
+name|QueryStringQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -1314,6 +1332,35 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|QueryStringQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] unknown token ["
+operator|+
+name|token
+operator|+
+literal|"] after ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 if|if
@@ -1332,7 +1379,13 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"query_string must be provided with a [query]"
+literal|"["
+operator|+
+name|QueryStringQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"] must be provided with a [query]"
 argument_list|)
 throw|;
 block|}
