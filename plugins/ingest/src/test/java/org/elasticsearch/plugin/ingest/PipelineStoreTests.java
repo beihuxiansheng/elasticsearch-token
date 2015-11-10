@@ -92,9 +92,9 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|simple
+name|mutate
 operator|.
-name|SimpleProcessor
+name|MutateProcessor
 import|;
 end_import
 
@@ -165,16 +165,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -379,12 +369,12 @@ name|Collections
 operator|.
 name|singletonMap
 argument_list|(
-name|SimpleProcessor
+name|MutateProcessor
 operator|.
 name|TYPE
 argument_list|,
 operator|new
-name|SimpleProcessor
+name|MutateProcessor
 operator|.
 name|Factory
 argument_list|()
