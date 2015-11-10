@@ -8835,9 +8835,6 @@ specifier|public
 name|IndexSearcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)
@@ -9160,9 +9157,6 @@ specifier|public
 name|IndexSearcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)
@@ -9549,15 +9543,10 @@ literal|"boom"
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
 specifier|public
 name|IndexSearcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)

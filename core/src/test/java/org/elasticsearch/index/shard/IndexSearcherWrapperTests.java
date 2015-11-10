@@ -614,9 +614,6 @@ specifier|public
 name|IndexSearcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)
@@ -682,8 +679,6 @@ name|wrapper
 operator|.
 name|wrap
 argument_list|(
-name|ENGINE_CONFIG
-argument_list|,
 name|engineSearcher
 argument_list|)
 decl_stmt|;
@@ -1077,9 +1072,6 @@ specifier|public
 name|IndexSearcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)
@@ -1136,8 +1128,6 @@ name|wrapper
 operator|.
 name|wrap
 argument_list|(
-name|ENGINE_CONFIG
-argument_list|,
 name|engineSearcher
 argument_list|)
 init|)
@@ -1473,8 +1463,6 @@ name|wrapper
 operator|.
 name|wrap
 argument_list|(
-name|ENGINE_CONFIG
-argument_list|,
 name|engineSearcher
 argument_list|)
 decl_stmt|;
@@ -1730,8 +1718,6 @@ name|wrapper
 operator|.
 name|wrap
 argument_list|(
-name|ENGINE_CONFIG
-argument_list|,
 name|engineSearcher
 argument_list|)
 expr_stmt|;
@@ -1804,8 +1790,6 @@ name|wrapper
 operator|.
 name|wrap
 argument_list|(
-name|ENGINE_CONFIG
-argument_list|,
 name|engineSearcher
 argument_list|)
 expr_stmt|;

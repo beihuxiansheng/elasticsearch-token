@@ -3039,9 +3039,6 @@ specifier|public
 name|IndexSearcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)

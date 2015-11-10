@@ -4740,8 +4740,6 @@ name|searcherWrapper
 operator|.
 name|wrap
 argument_list|(
-name|engineConfig
-argument_list|,
 name|searcher
 argument_list|)
 decl_stmt|;
