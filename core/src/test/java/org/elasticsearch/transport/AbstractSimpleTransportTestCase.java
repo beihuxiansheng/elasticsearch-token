@@ -5870,7 +5870,7 @@ name|serviceB
 operator|.
 name|addFailToSendNoConnectRule
 argument_list|(
-name|nodeA
+name|serviceA
 argument_list|)
 expr_stmt|;
 name|TransportFuture
@@ -6135,7 +6135,7 @@ name|serviceB
 operator|.
 name|addUnresponsiveRule
 argument_list|(
-name|nodeA
+name|serviceA
 argument_list|)
 expr_stmt|;
 name|TransportFuture
