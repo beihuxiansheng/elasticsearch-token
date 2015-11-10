@@ -114,7 +114,7 @@ name|NoopGatewayAllocator
 argument_list|()
 decl_stmt|;
 DECL|method|NoopGatewayAllocator
-specifier|private
+specifier|protected
 name|NoopGatewayAllocator
 parameter_list|()
 block|{
