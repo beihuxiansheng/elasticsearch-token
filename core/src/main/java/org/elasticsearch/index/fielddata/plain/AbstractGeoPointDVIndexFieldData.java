@@ -524,17 +524,16 @@ operator|.
 name|fieldDataType
 argument_list|()
 argument_list|,
-comment|// norelease cut over to .before(Version.V_2_2_0) once GeoPointFieldV2 is completely merged
 name|indexSettings
 operator|.
 name|getIndexVersionCreated
 argument_list|()
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 argument_list|)
 return|;

@@ -1347,7 +1347,7 @@ name|lonLat
 index|[
 literal|1
 index|]
-operator|<=
+operator|<
 operator|-
 literal|90
 operator|)
@@ -1368,7 +1368,7 @@ name|lonLat
 index|[
 literal|0
 index|]
-operator|<=
+operator|<
 operator|-
 literal|180
 operator|)

@@ -843,7 +843,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// norelease cut over to .before(Version.2_2_0) once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|context
@@ -851,11 +850,11 @@ operator|.
 name|indexVersionCreated
 argument_list|()
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{

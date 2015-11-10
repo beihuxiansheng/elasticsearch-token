@@ -1067,6 +1067,22 @@ operator|.
 name|V_2_0_0
 argument_list|)
 decl_stmt|;
+specifier|final
+name|boolean
+name|indexCreatedBeforeV2_2
+init|=
+name|context
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_2_0
+argument_list|)
+decl_stmt|;
 comment|// validation was not available prior to 2.x, so to support bwc
 comment|// percolation queries we only ignore_malformed on 2.x created indexes
 if|if
@@ -1181,13 +1197,9 @@ expr_stmt|;
 block|}
 name|Double
 name|fromValue
-init|=
-literal|null
 decl_stmt|;
 name|Double
 name|toValue
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1242,6 +1254,13 @@ name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|indexCreatedBeforeV2_2
+operator|==
+literal|true
+condition|)
+block|{
 name|fromValue
 operator|=
 name|geoDistance
@@ -1255,6 +1274,7 @@ operator|.
 name|DEFAULT
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1320,6 +1340,13 @@ name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|indexCreatedBeforeV2_2
+operator|==
+literal|true
+condition|)
+block|{
 name|toValue
 operator|=
 name|geoDistance
@@ -1334,6 +1361,7 @@ name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
 block|{
 name|toValue
@@ -1346,20 +1374,11 @@ name|point
 argument_list|)
 expr_stmt|;
 block|}
-comment|// norelease cut over to .before(Version.2_2_0) once GeoPointFieldV2 is fully merged
 if|if
 condition|(
-name|context
-operator|.
-name|indexVersionCreated
-argument_list|()
-operator|.
-name|onOrBefore
-argument_list|(
-name|Version
-operator|.
-name|CURRENT
-argument_list|)
+name|indexCreatedBeforeV2_2
+operator|==
+literal|true
 condition|)
 block|{
 name|GeoPointFieldMapperLegacy

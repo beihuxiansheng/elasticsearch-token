@@ -119,9 +119,6 @@ operator|new
 name|FieldDataType
 argument_list|(
 literal|"geo_point"
-argument_list|,
-name|getFieldDataSettings
-argument_list|()
 argument_list|)
 return|;
 block|}

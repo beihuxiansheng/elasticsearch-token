@@ -1683,6 +1683,21 @@ name|IOException
 block|{
 if|if
 condition|(
+name|context
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_2_0
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
 name|queryBuilder
 operator|.
 name|type
@@ -1712,6 +1727,19 @@ argument_list|,
 name|query
 operator|instanceof
 name|InMemoryGeoBoundingBoxQuery
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|assertTrue
+argument_list|(
+literal|"Found no indexed geo query."
+argument_list|,
+name|query
+operator|instanceof
+name|GeoPointInBBoxQuery
 argument_list|)
 expr_stmt|;
 block|}
@@ -2443,7 +2471,6 @@ name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// norelease cut over to .before(Version.2_2_0) once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|queryShardContext
@@ -2452,11 +2479,11 @@ operator|.
 name|indexVersionCreated
 argument_list|()
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{

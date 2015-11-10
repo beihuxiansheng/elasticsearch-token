@@ -779,7 +779,6 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-comment|// norelease cut over to .before(Version.2_2_0) once GeoPointFieldV2 is fully merged
 name|BaseGeoPointFieldMapper
 name|pointMapper
 init|=
@@ -789,11 +788,11 @@ operator|.
 name|indexCreatedVersion
 argument_list|()
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 operator|)
 condition|?
