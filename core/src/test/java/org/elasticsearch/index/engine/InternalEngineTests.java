@@ -5219,9 +5219,6 @@ specifier|public
 name|IndexSearcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)
@@ -5290,11 +5287,6 @@ name|wrapper
 operator|.
 name|wrap
 argument_list|(
-name|engine
-operator|.
-name|config
-argument_list|()
-argument_list|,
 name|engine
 operator|.
 name|acquireSearcher

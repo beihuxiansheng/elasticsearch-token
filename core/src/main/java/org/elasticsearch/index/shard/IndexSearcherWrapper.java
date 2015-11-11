@@ -128,20 +128,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineConfig
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -176,15 +162,12 @@ return|return
 name|reader
 return|;
 block|}
-comment|/**      * @param engineConfig  The engine config which can be used to get the query cache and query cache policy from      *                      when creating a new index searcher      * @param searcher      The provided index searcher to be wrapped to add custom functionality      * @return a new index searcher wrapping the provided index searcher or if no wrapping was performed      *         the provided index searcher      */
+comment|/**      * @param searcher      The provided index searcher to be wrapped to add custom functionality      * @return a new index searcher wrapping the provided index searcher or if no wrapping was performed      *         the provided index searcher      */
 DECL|method|wrap
 specifier|protected
 name|IndexSearcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)
@@ -204,9 +187,6 @@ operator|.
 name|Searcher
 name|wrap
 parameter_list|(
-name|EngineConfig
-name|engineConfig
-parameter_list|,
 name|Engine
 operator|.
 name|Searcher
@@ -318,6 +298,15 @@ block|}
 block|}
 specifier|final
 name|IndexSearcher
+name|origIndexSearcher
+init|=
+name|engineSearcher
+operator|.
+name|searcher
+argument_list|()
+decl_stmt|;
+specifier|final
+name|IndexSearcher
 name|innerIndexSearcher
 init|=
 operator|new
@@ -330,7 +319,7 @@ name|innerIndexSearcher
 operator|.
 name|setQueryCache
 argument_list|(
-name|engineConfig
+name|origIndexSearcher
 operator|.
 name|getQueryCache
 argument_list|()
@@ -340,7 +329,7 @@ name|innerIndexSearcher
 operator|.
 name|setQueryCachingPolicy
 argument_list|(
-name|engineConfig
+name|origIndexSearcher
 operator|.
 name|getQueryCachingPolicy
 argument_list|()
@@ -350,10 +339,12 @@ name|innerIndexSearcher
 operator|.
 name|setSimilarity
 argument_list|(
-name|engineConfig
+name|origIndexSearcher
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// TODO: Right now IndexSearcher isn't wrapper friendly, when it becomes wrapper friendly we should revise this extension point
@@ -365,8 +356,6 @@ name|indexSearcher
 init|=
 name|wrap
 argument_list|(
-name|engineConfig
-argument_list|,
 name|innerIndexSearcher
 argument_list|)
 decl_stmt|;

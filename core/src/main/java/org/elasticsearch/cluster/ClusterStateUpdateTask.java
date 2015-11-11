@@ -120,7 +120,7 @@ argument_list|(
 name|source
 argument_list|,
 operator|new
-name|EsRejectedExecutionException
+name|NotMasterException
 argument_list|(
 literal|"no longer master. source: ["
 operator|+

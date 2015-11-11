@@ -4658,6 +4658,13 @@ name|PluginManager
 operator|.
 name|checkForOfficialPlugins
 argument_list|(
+literal|"mapper-attachments"
+argument_list|)
+expr_stmt|;
+name|PluginManager
+operator|.
+name|checkForOfficialPlugins
+argument_list|(
 literal|"mapper-murmur3"
 argument_list|)
 expr_stmt|;

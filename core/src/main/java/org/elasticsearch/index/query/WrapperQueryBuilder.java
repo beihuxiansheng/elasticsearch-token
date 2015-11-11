@@ -500,19 +500,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|setFinalBoost
-specifier|protected
-name|void
-name|setFinalBoost
-parameter_list|(
-name|Query
-name|query
-parameter_list|)
-block|{
-comment|//no-op this query doesn't support boost
-block|}
-annotation|@
-name|Override
 DECL|method|doReadFrom
 specifier|protected
 name|WrapperQueryBuilder

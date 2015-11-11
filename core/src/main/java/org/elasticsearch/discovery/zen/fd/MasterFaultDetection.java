@@ -182,9 +182,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
-operator|.
-name|zen
+name|cluster
 operator|.
 name|NotMasterException
 import|;

@@ -282,22 +282,6 @@ name|mapper
 operator|.
 name|geo
 operator|.
-name|BaseGeoPointFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|geo
-operator|.
 name|GeoPointFieldMapper
 import|;
 end_import
@@ -965,11 +949,6 @@ literal|"geo_point"
 argument_list|)
 condition|)
 block|{
-name|BaseGeoPointFieldMapper
-operator|.
-name|Builder
-name|builder
-decl_stmt|;
 comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(

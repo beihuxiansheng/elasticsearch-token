@@ -452,6 +452,8 @@ literal|"lang-javascript"
 argument_list|,
 literal|"lang-python"
 argument_list|,
+literal|"mapper-attachments"
+argument_list|,
 literal|"mapper-murmur3"
 argument_list|,
 literal|"mapper-size"

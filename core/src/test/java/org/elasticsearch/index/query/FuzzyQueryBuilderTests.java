@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BoostQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|FuzzyQuery
 import|;
 end_import
@@ -587,6 +601,42 @@ name|parsedQuery
 argument_list|,
 name|instanceOf
 argument_list|(
+name|BoostQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|BoostQuery
+name|boostQuery
+init|=
+operator|(
+name|BoostQuery
+operator|)
+name|parsedQuery
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|boostQuery
+operator|.
+name|getBoost
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|2.0f
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|boostQuery
+operator|.
+name|getQuery
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
 name|FuzzyQuery
 operator|.
 name|class
@@ -599,7 +649,10 @@ init|=
 operator|(
 name|FuzzyQuery
 operator|)
-name|parsedQuery
+name|boostQuery
+operator|.
+name|getQuery
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -653,19 +706,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|fuzzyQuery
-operator|.
-name|getBoost
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|2.0f
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testToQueryWithNumericField
 specifier|public
@@ -702,9 +742,7 @@ literal|"\":{\n"
 operator|+
 literal|"            \"value\":12,\n"
 operator|+
-literal|"            \"fuzziness\":5,\n"
-operator|+
-literal|"            \"boost\":2.0\n"
+literal|"            \"fuzziness\":5\n"
 operator|+
 literal|"        }\n"
 operator|+
