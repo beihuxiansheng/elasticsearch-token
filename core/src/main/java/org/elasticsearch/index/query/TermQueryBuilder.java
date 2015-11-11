@@ -295,7 +295,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doToQuery
-specifier|public
+specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(

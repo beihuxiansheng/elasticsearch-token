@@ -292,7 +292,10 @@ name|field
 argument_list|(
 name|SpanMultiTermQueryParser
 operator|.
-name|MATCH_NAME
+name|MATCH_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|multiTermQueryBuilder

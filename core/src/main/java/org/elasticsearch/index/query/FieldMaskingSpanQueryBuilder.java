@@ -322,7 +322,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"query"
+name|FieldMaskingSpanQueryParser
+operator|.
+name|QUERY_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|queryBuilder
@@ -338,7 +343,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"field"
+name|FieldMaskingSpanQueryParser
+operator|.
+name|FIELD_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|fieldName
 argument_list|)

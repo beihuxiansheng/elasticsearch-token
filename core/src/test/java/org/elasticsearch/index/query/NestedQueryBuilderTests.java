@@ -837,6 +837,130 @@ block|{
 comment|// expected
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"nested\" : {\n"
+operator|+
+literal|"    \"query\" : {\n"
+operator|+
+literal|"      \"bool\" : {\n"
+operator|+
+literal|"        \"must\" : [ {\n"
+operator|+
+literal|"          \"match\" : {\n"
+operator|+
+literal|"            \"obj1.name\" : {\n"
+operator|+
+literal|"              \"query\" : \"blue\",\n"
+operator|+
+literal|"              \"type\" : \"boolean\",\n"
+operator|+
+literal|"              \"operator\" : \"OR\",\n"
+operator|+
+literal|"              \"slop\" : 0,\n"
+operator|+
+literal|"              \"prefix_length\" : 0,\n"
+operator|+
+literal|"              \"max_expansions\" : 50,\n"
+operator|+
+literal|"              \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"              \"lenient\" : false,\n"
+operator|+
+literal|"              \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }, {\n"
+operator|+
+literal|"          \"range\" : {\n"
+operator|+
+literal|"            \"obj1.count\" : {\n"
+operator|+
+literal|"              \"from\" : 5,\n"
+operator|+
+literal|"              \"to\" : null,\n"
+operator|+
+literal|"              \"include_lower\" : false,\n"
+operator|+
+literal|"              \"include_upper\" : true,\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        } ],\n"
+operator|+
+literal|"        \"disable_coord\" : false,\n"
+operator|+
+literal|"        \"adjust_pure_negative\" : true,\n"
+operator|+
+literal|"        \"boost\" : 1.0\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"path\" : \"obj1\",\n"
+operator|+
+literal|"    \"score_mode\" : \"avg\",\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|NestedQueryBuilder
+name|parsed
+init|=
+operator|(
+name|NestedQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+name|ScoreMode
+operator|.
+name|Avg
+argument_list|,
+name|parsed
+operator|.
+name|scoreMode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

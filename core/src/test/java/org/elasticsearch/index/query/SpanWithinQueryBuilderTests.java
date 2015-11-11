@@ -207,6 +207,151 @@ block|{
 comment|// expected
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_within\" : {\n"
+operator|+
+literal|"    \"big\" : {\n"
+operator|+
+literal|"      \"span_near\" : {\n"
+operator|+
+literal|"        \"clauses\" : [ {\n"
+operator|+
+literal|"          \"span_term\" : {\n"
+operator|+
+literal|"            \"field1\" : {\n"
+operator|+
+literal|"              \"value\" : \"bar\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }, {\n"
+operator|+
+literal|"          \"span_term\" : {\n"
+operator|+
+literal|"            \"field1\" : {\n"
+operator|+
+literal|"              \"value\" : \"baz\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        } ],\n"
+operator|+
+literal|"        \"slop\" : 5,\n"
+operator|+
+literal|"        \"in_order\" : true,\n"
+operator|+
+literal|"        \"collect_payloads\" : true,\n"
+operator|+
+literal|"        \"boost\" : 1.0\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"little\" : {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field1\" : {\n"
+operator|+
+literal|"          \"value\" : \"foo\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SpanWithinQueryBuilder
+name|parsed
+init|=
+operator|(
+name|SpanWithinQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"foo"
+argument_list|,
+operator|(
+operator|(
+name|SpanTermQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|littleQuery
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+operator|(
+operator|(
+name|SpanNearQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|bigQuery
+argument_list|()
+operator|)
+operator|.
+name|clauses
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
