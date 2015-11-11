@@ -746,11 +746,6 @@ specifier|private
 name|CapturingTransport
 name|transport
 decl_stmt|;
-DECL|field|transportService
-specifier|private
-name|TransportService
-name|transportService
-decl_stmt|;
 DECL|field|action
 specifier|private
 name|TestTransportBroadcastByNodeAction
@@ -1289,8 +1284,10 @@ argument_list|(
 name|THREAD_POOL
 argument_list|)
 expr_stmt|;
+specifier|final
+name|TransportService
 name|transportService
-operator|=
+init|=
 operator|new
 name|TransportService
 argument_list|(
@@ -1298,7 +1295,7 @@ name|transport
 argument_list|,
 name|THREAD_POOL
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|transportService
 operator|.
 name|start
