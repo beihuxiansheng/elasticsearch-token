@@ -1718,7 +1718,7 @@ name|ClusterBlock
 argument_list|(
 literal|1
 argument_list|,
-literal|""
+literal|"test-block"
 argument_list|,
 literal|false
 argument_list|,
@@ -1780,7 +1780,18 @@ parameter_list|(
 name|ClusterBlockException
 name|expected
 parameter_list|)
-block|{          }
+block|{
+name|assertEquals
+argument_list|(
+literal|"blocked by: [SERVICE_UNAVAILABLE/1/test-block];"
+argument_list|,
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testRequestBlock
 specifier|public
@@ -1894,7 +1905,18 @@ parameter_list|(
 name|ClusterBlockException
 name|expected
 parameter_list|)
-block|{          }
+block|{
+name|assertEquals
+argument_list|(
+literal|"blocked by: [SERVICE_UNAVAILABLE/1/test-block];"
+argument_list|,
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testOneRequestIsSentToEachNodeHoldingAShard
 specifier|public
