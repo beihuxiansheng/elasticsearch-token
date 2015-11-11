@@ -1102,8 +1102,13 @@ operator|.
 name|routingNodes
 argument_list|()
 operator|.
-name|hasUnassigned
+name|unassigned
 argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|changed
@@ -1426,11 +1431,15 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|routingNodes
 operator|.
-name|hasUnassignedPrimaries
+name|unassigned
 argument_list|()
+operator|.
+name|getNumPrimaries
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 comment|// move out if we don't have unassigned primaries

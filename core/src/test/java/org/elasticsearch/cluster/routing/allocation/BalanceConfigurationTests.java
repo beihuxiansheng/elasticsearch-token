@@ -2799,6 +2799,9 @@ name|ShardRouting
 name|sr
 range|:
 name|unassigned
+operator|.
+name|drain
+argument_list|()
 control|)
 block|{
 switch|switch
@@ -3041,11 +3044,6 @@ block|}
 break|break;
 block|}
 block|}
-name|unassigned
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 return|return
 name|changed
 return|;

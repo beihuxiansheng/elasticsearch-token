@@ -1228,8 +1228,13 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|hasUnassigned
+name|unassigned
 argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|logger
