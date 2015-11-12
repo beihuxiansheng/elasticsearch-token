@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.ingest.simulate
+DECL|package|org.elasticsearch.plugin.ingest.transport.simulate
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|plugin
 operator|.
 name|ingest
+operator|.
+name|transport
 operator|.
 name|simulate
 package|;

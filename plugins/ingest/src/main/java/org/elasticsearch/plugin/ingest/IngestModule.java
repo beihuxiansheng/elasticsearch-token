@@ -150,6 +150,8 @@ name|plugin
 operator|.
 name|ingest
 operator|.
+name|transport
+operator|.
 name|simulate
 operator|.
 name|SimulateExecutionService

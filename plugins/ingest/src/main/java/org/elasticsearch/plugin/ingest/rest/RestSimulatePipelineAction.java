@@ -217,7 +217,22 @@ name|Method
 operator|.
 name|POST
 argument_list|,
-literal|"/_ingest/pipeline/{id}/_simulate"
+literal|"/_ingest/pipeline/_simulate/{id}"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|RestRequest
+operator|.
+name|Method
+operator|.
+name|GET
+argument_list|,
+literal|"/_ingest/pipeline/_simulate/{id}"
 argument_list|,
 name|this
 argument_list|)
@@ -237,8 +252,21 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// controller.registerHandler(RestRequest.Method.GET, "/_ingest/pipeline/{id}/_simulate", this);
-comment|// controller.registerHandler(RestRequest.Method.GET, "/_ingest/pipeline/_simulate", this);
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|RestRequest
+operator|.
+name|Method
+operator|.
+name|GET
+argument_list|,
+literal|"/_ingest/pipeline/_simulate"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
