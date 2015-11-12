@@ -406,14 +406,6 @@ argument_list|,
 literal|2
 argument_list|)
 operator|.
-name|put
-argument_list|(
-literal|"transport.host"
-argument_list|,
-literal|"127.0.0.1"
-argument_list|)
-comment|// only bind on one IF we use v4 here by default
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
