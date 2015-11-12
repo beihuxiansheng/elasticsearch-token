@@ -89,6 +89,12 @@ name|Data
 name|data
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the type of a processor      */
+DECL|method|getType
+name|String
+name|getType
+parameter_list|()
+function_decl|;
 comment|/**      * A factory that knows how to construct a processor based on a map of maps.      */
 DECL|interface|Factory
 interface|interface

@@ -271,7 +271,7 @@ name|val
 init|=
 name|ConfigurationUtils
 operator|.
-name|readStringList
+name|readList
 argument_list|(
 name|config
 argument_list|,
