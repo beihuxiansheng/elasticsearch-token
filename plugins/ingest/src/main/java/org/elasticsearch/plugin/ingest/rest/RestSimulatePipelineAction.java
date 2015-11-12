@@ -217,7 +217,7 @@ name|Method
 operator|.
 name|POST
 argument_list|,
-literal|"/_ingest/pipeline/_simulate/{id}"
+literal|"/_ingest/pipeline/{id}/_simulate"
 argument_list|,
 name|this
 argument_list|)
@@ -232,7 +232,7 @@ name|Method
 operator|.
 name|GET
 argument_list|,
-literal|"/_ingest/pipeline/_simulate/{id}"
+literal|"/_ingest/pipeline/{id}/_simulate"
 argument_list|,
 name|this
 argument_list|)
