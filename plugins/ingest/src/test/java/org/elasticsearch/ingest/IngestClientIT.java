@@ -274,7 +274,7 @@ name|transport
 operator|.
 name|simulate
 operator|.
-name|SimulatedItemResponse
+name|SimulateDocumentResult
 import|;
 end_import
 
@@ -727,18 +727,18 @@ argument_list|,
 name|expectedDoc
 argument_list|)
 decl_stmt|;
-name|SimulatedItemResponse
+name|SimulateDocumentResult
 name|expectedResponse
 init|=
 operator|new
-name|SimulatedItemResponse
+name|SimulateDocumentResult
 argument_list|(
 name|expectedData
 argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|SimulatedItemResponse
+name|SimulateDocumentResult
 argument_list|>
 name|expectedResponses
 init|=

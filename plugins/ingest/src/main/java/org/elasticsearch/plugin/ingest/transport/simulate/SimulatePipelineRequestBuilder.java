@@ -107,7 +107,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|id
+name|setId
 argument_list|(
 name|id
 argument_list|)
@@ -127,7 +127,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|verbose
+name|setVerbose
 argument_list|(
 name|verbose
 argument_list|)
@@ -147,7 +147,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|source
 argument_list|)

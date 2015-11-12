@@ -170,7 +170,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestStatusToXContentListener
+name|RestToXContentListener
 import|;
 end_import
 
@@ -296,7 +296,7 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|id
+name|setId
 argument_list|(
 name|restRequest
 operator|.
@@ -308,7 +308,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|verbose
+name|setVerbose
 argument_list|(
 name|restRequest
 operator|.
@@ -332,7 +332,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|RestActions
 operator|.
@@ -354,7 +354,7 @@ argument_list|,
 name|request
 argument_list|,
 operator|new
-name|RestStatusToXContentListener
+name|RestToXContentListener
 argument_list|<>
 argument_list|(
 name|channel
