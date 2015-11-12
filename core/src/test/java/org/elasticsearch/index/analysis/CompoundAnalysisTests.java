@@ -296,31 +296,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasItems
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
+name|*
 import|;
 end_import
 
@@ -369,10 +345,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 decl_stmt|;
 name|AnalysisService
@@ -571,10 +543,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 decl_stmt|;
 name|AnalysisService

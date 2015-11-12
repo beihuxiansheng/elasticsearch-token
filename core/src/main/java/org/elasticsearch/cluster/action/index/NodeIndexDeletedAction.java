@@ -180,6 +180,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndicesService
@@ -449,7 +461,7 @@ name|String
 name|index
 parameter_list|,
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 specifier|final
@@ -592,7 +604,7 @@ parameter_list|,
 name|ClusterState
 name|clusterState
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|)
 throws|throws

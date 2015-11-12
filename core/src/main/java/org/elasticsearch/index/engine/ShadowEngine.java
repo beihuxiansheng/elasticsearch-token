@@ -309,6 +309,9 @@ operator|.
 name|getIndexSettings
 argument_list|()
 operator|.
+name|getSettings
+argument_list|()
+operator|.
 name|getAsTime
 argument_list|(
 name|NONEXISTENT_INDEX_RETRY_WAIT

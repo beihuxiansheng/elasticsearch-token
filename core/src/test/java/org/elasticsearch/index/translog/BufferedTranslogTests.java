@@ -78,18 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|IndexSettingsModule
@@ -115,16 +103,6 @@ operator|.
 name|file
 operator|.
 name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -231,10 +209,6 @@ name|index
 argument_list|()
 argument_list|,
 name|build
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 argument_list|,
 name|Translog

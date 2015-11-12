@@ -677,6 +677,9 @@ name|this
 operator|.
 name|indexSettings
 operator|.
+name|getSettings
+argument_list|()
+operator|.
 name|getAsBoolean
 argument_list|(
 name|MAP_UNMAPPED_FIELDS_AS_STRING

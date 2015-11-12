@@ -168,6 +168,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|merge
 operator|.
 name|MergeStats
@@ -408,7 +420,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|MergeSchedulerConfig
@@ -432,6 +444,9 @@ operator|.
 name|indexSettings
 operator|=
 name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -444,6 +459,8 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|,
+name|this
+operator|.
 name|indexSettings
 argument_list|,
 name|shardId

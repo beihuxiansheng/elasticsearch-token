@@ -283,10 +283,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 decl_stmt|;
 name|Environment

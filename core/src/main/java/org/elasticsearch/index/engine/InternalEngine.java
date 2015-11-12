@@ -344,20 +344,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -395,6 +381,18 @@ operator|.
 name|concurrent
 operator|.
 name|ReleasableLock
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexSettings
 import|;
 end_import
 
@@ -549,18 +547,6 @@ operator|.
 name|translog
 operator|.
 name|TranslogCorruptedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndicesWarmer
 import|;
 end_import
 
@@ -6013,7 +5999,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|MergeSchedulerConfig
