@@ -346,7 +346,7 @@ specifier|private
 name|Security
 parameter_list|()
 block|{}
-comment|/**       * Initializes SecurityManager for the environment      * Can only happen once!      */
+comment|/**       * Initializes SecurityManager for the environment      * Can only happen once!      * @param environment configuration for generating dynamic permissions      * @param filterBadDefaults true if we should filter out bad java defaults in the system policy.      */
 DECL|method|configure
 specifier|static
 name|void
@@ -354,6 +354,9 @@ name|configure
 parameter_list|(
 name|Environment
 name|environment
+parameter_list|,
+name|boolean
+name|filterBadDefaults
 parameter_list|)
 throws|throws
 name|Exception
@@ -375,6 +378,8 @@ name|getPluginPermissions
 argument_list|(
 name|environment
 argument_list|)
+argument_list|,
+name|filterBadDefaults
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -801,6 +806,11 @@ operator|new
 name|Permissions
 argument_list|()
 decl_stmt|;
+name|addClasspathPermissions
+argument_list|(
+name|policy
+argument_list|)
+expr_stmt|;
 name|addFilePermissions
 argument_list|(
 name|policy
@@ -821,6 +831,127 @@ expr_stmt|;
 return|return
 name|policy
 return|;
+block|}
+comment|/** Adds access to classpath jars/classes for jar hell scan, etc */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"accesses fully qualified URLs to configure security"
+argument_list|)
+DECL|method|addClasspathPermissions
+specifier|static
+name|void
+name|addClasspathPermissions
+parameter_list|(
+name|Permissions
+name|policy
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// add permissions to everything in classpath
+comment|// really it should be covered by lib/, but there could be e.g. agents or similar configured)
+for|for
+control|(
+name|URL
+name|url
+range|:
+name|JarHell
+operator|.
+name|parseClassPath
+argument_list|()
+control|)
+block|{
+name|Path
+name|path
+decl_stmt|;
+try|try
+block|{
+name|path
+operator|=
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+name|url
+operator|.
+name|toURI
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|URISyntaxException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+comment|// resource itself
+name|policy
+operator|.
+name|add
+argument_list|(
+operator|new
+name|FilePermission
+argument_list|(
+name|path
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+literal|"read,readlink"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// classes underneath
+if|if
+condition|(
+name|Files
+operator|.
+name|isDirectory
+argument_list|(
+name|path
+argument_list|)
+condition|)
+block|{
+name|policy
+operator|.
+name|add
+argument_list|(
+operator|new
+name|FilePermission
+argument_list|(
+name|path
+operator|.
+name|toString
+argument_list|()
+operator|+
+name|path
+operator|.
+name|getFileSystem
+argument_list|()
+operator|.
+name|getSeparator
+argument_list|()
+operator|+
+literal|"-"
+argument_list|,
+literal|"read,readlink"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|/**      * Adds access to all configurable paths.      */
 DECL|method|addFilePermissions
@@ -1097,6 +1228,8 @@ name|DEFAULT_PORT_RANGE
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// listen is always called with 'localhost' but use wildcard to be sure, no name service is consulted.
+comment|// see SocketPermission implies() code
 name|policy
 operator|.
 name|add
@@ -1104,7 +1237,7 @@ argument_list|(
 operator|new
 name|SocketPermission
 argument_list|(
-literal|"localhost:"
+literal|"*:"
 operator|+
 name|httpRange
 argument_list|,
@@ -1259,6 +1392,8 @@ condition|(
 name|valid
 condition|)
 block|{
+comment|// listen is always called with 'localhost' but use wildcard to be sure, no name service is consulted.
+comment|// see SocketPermission implies() code
 name|policy
 operator|.
 name|add
@@ -1266,7 +1401,7 @@ argument_list|(
 operator|new
 name|SocketPermission
 argument_list|(
-literal|"localhost:"
+literal|"*:"
 operator|+
 name|transportRange
 argument_list|,

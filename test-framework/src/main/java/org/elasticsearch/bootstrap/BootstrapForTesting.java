@@ -495,7 +495,14 @@ operator|new
 name|Permissions
 argument_list|()
 decl_stmt|;
-comment|// add permissions to everything in classpath
+name|Security
+operator|.
+name|addClasspathPermissions
+argument_list|(
+name|perms
+argument_list|)
+expr_stmt|;
+comment|// crazy jython
 for|for
 control|(
 name|URL
@@ -520,50 +527,6 @@ name|toURI
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// resource itself
-name|perms
-operator|.
-name|add
-argument_list|(
-operator|new
-name|FilePermission
-argument_list|(
-name|path
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-literal|"read,readlink"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// classes underneath
-name|perms
-operator|.
-name|add
-argument_list|(
-operator|new
-name|FilePermission
-argument_list|(
-name|path
-operator|.
-name|toString
-argument_list|()
-operator|+
-name|path
-operator|.
-name|getFileSystem
-argument_list|()
-operator|.
-name|getSeparator
-argument_list|()
-operator|+
-literal|"-"
-argument_list|,
-literal|"read,readlink"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// crazy jython...
 name|String
 name|filename
@@ -850,6 +813,8 @@ name|perms
 argument_list|,
 name|getPluginPermissions
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Policy

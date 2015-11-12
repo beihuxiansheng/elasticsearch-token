@@ -186,6 +186,8 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// restrict ourselves to NoPermission
@@ -261,6 +263,8 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertFalse
