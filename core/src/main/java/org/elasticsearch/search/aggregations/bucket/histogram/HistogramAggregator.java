@@ -1226,7 +1226,7 @@ name|keyed
 argument_list|,
 name|minDocCount
 argument_list|,
-name|extendedBounds
+literal|null
 argument_list|,
 literal|null
 argument_list|,
