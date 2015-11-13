@@ -245,7 +245,6 @@ argument_list|>
 name|lowercase
 decl_stmt|;
 DECL|method|MutateProcessor
-specifier|public
 name|MutateProcessor
 parameter_list|(
 name|Map
