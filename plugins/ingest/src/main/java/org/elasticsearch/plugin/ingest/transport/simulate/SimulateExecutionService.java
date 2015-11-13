@@ -180,7 +180,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|SimulateSimpleDocumentResult
+name|SimulateDocumentSimpleResult
 argument_list|(
 name|data
 argument_list|)
@@ -194,7 +194,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SimulateFailedDocumentResult
+name|SimulateDocumentSimpleResult
 argument_list|(
 name|e
 argument_list|)
@@ -202,7 +202,7 @@ return|;
 block|}
 block|}
 DECL|method|executeVerboseItem
-name|SimulateDocumentResult
+name|SimulateDocumentVerboseResult
 name|executeVerboseItem
 parameter_list|(
 name|Pipeline
@@ -334,7 +334,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|SimulateVerboseDocumentResult
+name|SimulateDocumentVerboseResult
 argument_list|(
 name|processorResultList
 argument_list|)
@@ -453,6 +453,11 @@ name|getPipeline
 argument_list|()
 operator|.
 name|getId
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|isVerbose
 argument_list|()
 argument_list|,
 name|responses
