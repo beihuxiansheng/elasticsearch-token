@@ -856,6 +856,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**       * option for elasticsearch.yml etc to turn off our security manager completely,      * for example if you want to have your own configuration or just disable.      */
+comment|// TODO: remove this: http://www.openbsd.org/papers/hackfest2015-pledge/mgp00005.jpg
 DECL|field|SECURITY_SETTING
 specifier|static
 specifier|final
@@ -863,6 +864,16 @@ name|String
 name|SECURITY_SETTING
 init|=
 literal|"security.manager.enabled"
+decl_stmt|;
+comment|/**      * option for elasticsearch.yml to fully respect the system policy, including bad defaults      * from java.      */
+comment|// TODO: remove this hack when insecure defaults are removed from java
+DECL|field|SECURITY_FILTER_BAD_DEFAULTS_SETTING
+specifier|static
+specifier|final
+name|String
+name|SECURITY_FILTER_BAD_DEFAULTS_SETTING
+init|=
+literal|"security.manager.filter_bad_defaults"
 decl_stmt|;
 DECL|method|setupSecurity
 specifier|private
@@ -895,6 +906,15 @@ operator|.
 name|configure
 argument_list|(
 name|environment
+argument_list|,
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|SECURITY_FILTER_BAD_DEFAULTS_SETTING
+argument_list|,
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

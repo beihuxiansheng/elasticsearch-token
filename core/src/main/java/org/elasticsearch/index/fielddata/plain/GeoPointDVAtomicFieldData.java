@@ -318,7 +318,15 @@ index|]
 operator|=
 operator|new
 name|GeoPoint
-argument_list|()
+argument_list|(
+name|Double
+operator|.
+name|NaN
+argument_list|,
+name|Double
+operator|.
+name|NaN
+argument_list|)
 expr_stmt|;
 block|}
 block|}

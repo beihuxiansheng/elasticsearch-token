@@ -74,20 +74,6 @@ name|action
 operator|.
 name|support
 operator|.
-name|ActionFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|support
-operator|.
 name|ActionFilters
 import|;
 end_import
@@ -654,11 +640,6 @@ specifier|private
 name|CapturingTransport
 name|transport
 decl_stmt|;
-DECL|field|transportService
-specifier|private
-name|TransportService
-name|transportService
-decl_stmt|;
 DECL|field|action
 specifier|private
 name|TestTransportBroadcastByNodeAction
@@ -1197,8 +1178,10 @@ argument_list|(
 name|THREAD_POOL
 argument_list|)
 expr_stmt|;
+specifier|final
+name|TransportService
 name|transportService
-operator|=
+init|=
 operator|new
 name|TransportService
 argument_list|(
@@ -1206,7 +1189,7 @@ name|transport
 argument_list|,
 name|THREAD_POOL
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|transportService
 operator|.
 name|start
@@ -1235,9 +1218,7 @@ name|ActionFilters
 argument_list|(
 operator|new
 name|HashSet
-argument_list|<
-name|ActionFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1705,7 +1686,7 @@ name|ClusterBlock
 argument_list|(
 literal|1
 argument_list|,
-literal|""
+literal|"test-block"
 argument_list|,
 literal|false
 argument_list|,
@@ -1767,7 +1748,18 @@ parameter_list|(
 name|ClusterBlockException
 name|expected
 parameter_list|)
-block|{          }
+block|{
+name|assertEquals
+argument_list|(
+literal|"blocked by: [SERVICE_UNAVAILABLE/1/test-block];"
+argument_list|,
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testRequestBlock
 specifier|public
@@ -1881,7 +1873,18 @@ parameter_list|(
 name|ClusterBlockException
 name|expected
 parameter_list|)
-block|{          }
+block|{
+name|assertEquals
+argument_list|(
+literal|"blocked by: [SERVICE_UNAVAILABLE/1/test-block];"
+argument_list|,
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testOneRequestIsSentToEachNodeHoldingAShard
 specifier|public
@@ -2237,15 +2240,19 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
 name|shard
 operator|.
 name|currentNodeId
 argument_list|()
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|masterNode
 operator|.
 name|id
 argument_list|()
+argument_list|)
 condition|)
 block|{
 name|set
@@ -2884,9 +2891,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRouting
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -4888,15 +4888,6 @@ operator|instanceof
 name|NotSerializableExceptionWrapper
 argument_list|)
 expr_stmt|;
-comment|// TODO: fix this test for more java 9 differences
-if|if
-condition|(
-operator|!
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-condition|)
-block|{
 name|assertArrayEquals
 argument_list|(
 name|t
@@ -4990,7 +4981,6 @@ operator|instanceof
 name|NullPointerException
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

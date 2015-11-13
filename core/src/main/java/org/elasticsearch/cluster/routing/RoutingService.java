@@ -432,22 +432,6 @@ if|if
 condition|(
 name|event
 operator|.
-name|source
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-name|CLUSTER_UPDATE_TASK_SOURCE
-argument_list|)
-condition|)
-block|{
-comment|// that's us, ignore this event
-return|return;
-block|}
-if|if
-condition|(
-name|event
-operator|.
 name|state
 argument_list|()
 operator|.

@@ -152,6 +152,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|CommitStats
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -258,7 +272,7 @@ name|Map
 argument_list|<
 name|ShardRouting
 argument_list|,
-name|CommonStats
+name|ShardStats
 argument_list|>
 name|shardStatsMap
 decl_stmt|;
@@ -313,7 +327,7 @@ name|Map
 argument_list|<
 name|ShardRouting
 argument_list|,
-name|CommonStats
+name|ShardStats
 argument_list|>
 name|asMap
 parameter_list|()
@@ -331,7 +345,7 @@ name|Map
 argument_list|<
 name|ShardRouting
 argument_list|,
-name|CommonStats
+name|ShardStats
 argument_list|>
 name|shardStatsMap
 init|=
@@ -358,9 +372,6 @@ name|getShardRouting
 argument_list|()
 argument_list|,
 name|ss
-operator|.
-name|getStats
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

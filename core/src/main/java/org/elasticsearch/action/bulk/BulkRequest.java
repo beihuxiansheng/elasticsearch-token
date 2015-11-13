@@ -398,6 +398,26 @@ name|sizeInBytes
 init|=
 literal|0
 decl_stmt|;
+DECL|method|BulkRequest
+specifier|public
+name|BulkRequest
+parameter_list|()
+block|{     }
+comment|/**      * Creates a bulk request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
+DECL|method|BulkRequest
+specifier|public
+name|BulkRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Adds a list of requests to be executed. Either index or delete requests.      */
 DECL|method|add
 specifier|public

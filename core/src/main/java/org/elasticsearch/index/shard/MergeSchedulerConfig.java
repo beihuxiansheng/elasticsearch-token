@@ -60,6 +60,18 @@ name|EsExecutors
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexSettings
+import|;
+end_import
+
 begin_comment
 comment|/**  * The merge scheduler (<code>ConcurrentMergeScheduler</code>) controls the execution of  * merge operations once they are needed (according to the merge policy).  Merges  * run in separate threads, and when the maximum number of threads is reached,  * further merges will wait until a merge thread becomes available.  *   *<p>The merge scheduler supports the following<b>dynamic</b> settings:  *   *<ul>  *<li><code>index.merge.scheduler.max_thread_count</code>:  *   *     The maximum number of threads that may be merging at once. Defaults to  *<code>Math.max(1, Math.min(4, Runtime.getRuntime().availableProcessors() / 2))</code>  *     which works well for a good solid-state-disk (SSD).  If your index is on  *     spinning platter drives instead, decrease this to 1.  *   *<li><code>index.merge.scheduler.auto_throttle</code>:  *   *     If this is true (the default), then the merge scheduler will rate-limit IO  *     (writes) for merges to an adaptive value depending on how many merges are  *     requested over time.  An application with a low indexing rate that  *     unluckily suddenly requires a large merge will see that merge aggressively  *     throttled, while an application doing heavy indexing will see the throttle  *     move higher to allow merges to keep up with ongoing indexing.  *</ul>  */
 end_comment
@@ -136,13 +148,22 @@ DECL|method|MergeSchedulerConfig
 specifier|public
 name|MergeSchedulerConfig
 parameter_list|(
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|)
 block|{
+specifier|final
+name|Settings
+name|settings
+init|=
+name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
+decl_stmt|;
 name|maxThreadCount
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsInt
 argument_list|(
@@ -164,7 +185,7 @@ name|EsExecutors
 operator|.
 name|boundedNumberOfProcessors
 argument_list|(
-name|indexSettings
+name|settings
 argument_list|)
 operator|/
 literal|2
@@ -174,7 +195,7 @@ argument_list|)
 expr_stmt|;
 name|maxMergeCount
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsInt
 argument_list|(
@@ -189,7 +210,7 @@ name|this
 operator|.
 name|autoThrottle
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
@@ -200,7 +221,7 @@ argument_list|)
 expr_stmt|;
 name|notifyOnMergeFailure
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(

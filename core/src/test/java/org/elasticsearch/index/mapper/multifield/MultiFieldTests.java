@@ -3081,17 +3081,16 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 name|boolean
 name|indexCreatedBefore22
 init|=
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 decl_stmt|;
 name|String

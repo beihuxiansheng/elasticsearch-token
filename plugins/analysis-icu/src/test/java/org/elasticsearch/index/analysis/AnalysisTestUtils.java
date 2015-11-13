@@ -185,16 +185,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -337,11 +327,6 @@ argument_list|(
 name|index
 argument_list|,
 name|indexSettings
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

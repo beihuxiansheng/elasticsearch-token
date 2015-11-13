@@ -230,16 +230,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -400,10 +390,6 @@ literal|"index"
 argument_list|)
 argument_list|,
 name|indexSettings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 decl_stmt|;
 name|environment

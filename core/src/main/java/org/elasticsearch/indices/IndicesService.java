@@ -246,7 +246,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|*
+name|Inject
 import|;
 end_import
 
@@ -494,7 +494,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|IndexEventListener
 import|;
 end_import
 
@@ -508,7 +508,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexEventListener
+name|IndexShard
 import|;
 end_import
 
@@ -537,22 +537,6 @@ operator|.
 name|store
 operator|.
 name|IndexStoreConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|IndicesQueryCache
 import|;
 end_import
 
@@ -725,22 +709,6 @@ operator|.
 name|MapBuilder
 operator|.
 name|newMapBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -2164,15 +2132,12 @@ name|delete
 condition|)
 block|{
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 init|=
 name|indexService
 operator|.
 name|getIndexSettings
-argument_list|()
-operator|.
-name|getSettings
 argument_list|()
 decl_stmt|;
 name|listener
@@ -2185,6 +2150,9 @@ name|index
 argument_list|()
 argument_list|,
 name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// now we are done - try to wipe data on disk if possible
@@ -2711,7 +2679,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 init|=
 name|buildIndexSettings
@@ -2743,7 +2711,7 @@ parameter_list|,
 name|Index
 name|index
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|boolean
@@ -2883,7 +2851,7 @@ parameter_list|,
 name|ShardLock
 name|lock
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|)
 throws|throws
@@ -2957,7 +2925,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 init|=
 name|buildIndexSettings
@@ -3106,7 +3074,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This method returns true if the current node is allowed to delete the      * given index. If the index uses a shared filesystem this method always      * returns false.      * @param index {@code Index} to check whether deletion is allowed      * @param indexSettings {@code Settings} for the given index      * @return true if the index can be deleted on this node      */
+comment|/**      * This method returns true if the current node is allowed to delete the      * given index. If the index uses a shared filesystem this method always      * returns false.      * @param index {@code Index} to check whether deletion is allowed      * @param indexSettings {@code IndexSettings} for the given index      * @return true if the index can be deleted on this node      */
 DECL|method|canDeleteIndexContents
 specifier|public
 name|boolean
@@ -3115,7 +3083,7 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|boolean
@@ -3142,12 +3110,10 @@ comment|// Closed indices may be deleted, even if they are on a shared
 comment|// filesystem. Since it is closed we aren't deleting it for relocation
 if|if
 condition|(
-name|IndexMetaData
+name|indexSettings
 operator|.
 name|isOnSharedFilesystem
-argument_list|(
-name|indexSettings
-argument_list|)
+argument_list|()
 operator|==
 literal|false
 operator|||
@@ -3218,7 +3184,7 @@ argument_list|()
 argument_list|)
 assert|;
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 init|=
 name|buildIndexSettings
@@ -3243,7 +3209,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|)
 block|{
@@ -3265,12 +3231,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|IndexMetaData
+name|indexSettings
 operator|.
 name|isOnSharedFilesystem
-argument_list|(
-name|indexSettings
-argument_list|)
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -3312,12 +3276,10 @@ condition|)
 block|{
 if|if
 condition|(
-name|NodeEnvironment
+name|indexSettings
 operator|.
 name|hasCustomDataPath
-argument_list|(
-name|indexSettings
-argument_list|)
+argument_list|()
 condition|)
 block|{
 return|return
@@ -3372,7 +3334,7 @@ return|;
 block|}
 DECL|method|buildIndexSettings
 specifier|private
-name|Settings
+name|IndexSettings
 name|buildIndexSettings
 parameter_list|(
 name|IndexMetaData
@@ -3382,36 +3344,18 @@ block|{
 comment|// play safe here and make sure that we take node level settings into account.
 comment|// we might run on nodes where we use shard FS and then in the future don't delete
 comment|// actual content.
-name|Settings
-operator|.
-name|Builder
-name|builder
-init|=
-name|settingsBuilder
-argument_list|()
-decl_stmt|;
-name|builder
-operator|.
-name|put
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|put
+return|return
+operator|new
+name|IndexSettings
 argument_list|(
 name|metaData
+argument_list|,
+name|settings
+argument_list|,
+name|Collections
 operator|.
-name|getSettings
-argument_list|()
+name|EMPTY_LIST
 argument_list|)
-expr_stmt|;
-return|return
-name|builder
-operator|.
-name|build
-argument_list|()
 return|;
 block|}
 comment|/**      * Adds a pending delete for the given index shard.      */
@@ -3423,7 +3367,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|settings
 parameter_list|)
 block|{
@@ -3488,7 +3432,7 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|settings
 parameter_list|)
 block|{
@@ -3598,7 +3542,7 @@ name|shardId
 decl_stmt|;
 DECL|field|settings
 specifier|final
-name|Settings
+name|IndexSettings
 name|settings
 decl_stmt|;
 DECL|field|deleteIndex
@@ -3614,7 +3558,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|settings
 parameter_list|)
 block|{
@@ -3657,7 +3601,7 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|settings
 parameter_list|)
 block|{
@@ -3789,7 +3733,7 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|TimeValue
