@@ -90,6 +90,18 @@ name|not
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
+import|;
+end_import
+
 begin_class
 DECL|class|DataTests
 specifier|public
@@ -220,6 +232,33 @@ name|equalTo
 argument_list|(
 literal|"hello world"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testGetPropertyNotFound
+specifier|public
+name|void
+name|testGetPropertyNotFound
+parameter_list|()
+block|{
+name|data
+operator|.
+name|getProperty
+argument_list|(
+literal|"not.here"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|data
+operator|.
+name|getProperty
+argument_list|(
+literal|"not.here"
+argument_list|)
+argument_list|,
+name|nullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

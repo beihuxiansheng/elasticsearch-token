@@ -1072,6 +1072,29 @@ decl_stmt|;
 if|if
 condition|(
 name|oldVal
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot split field. ["
+operator|+
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] is null."
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|oldVal
 operator|instanceof
 name|String
 condition|)
@@ -1395,6 +1418,26 @@ decl_stmt|;
 if|if
 condition|(
 name|val
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot trim field. ["
+operator|+
+name|field
+operator|+
+literal|"] is null."
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|val
 operator|instanceof
 name|String
 condition|)
@@ -1465,6 +1508,26 @@ argument_list|(
 name|field
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|val
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot uppercase field. ["
+operator|+
+name|field
+operator|+
+literal|"] is null."
+argument_list|)
+throw|;
+block|}
+elseif|else
 if|if
 condition|(
 name|val
@@ -1542,6 +1605,26 @@ argument_list|(
 name|field
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|val
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot lowercase field. ["
+operator|+
+name|field
+operator|+
+literal|"] is null."
+argument_list|)
+throw|;
+block|}
+elseif|else
 if|if
 condition|(
 name|val
