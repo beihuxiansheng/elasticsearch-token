@@ -245,7 +245,6 @@ argument_list|>
 name|lowercase
 decl_stmt|;
 DECL|method|MutateProcessor
-specifier|public
 name|MutateProcessor
 parameter_list|(
 name|Map
@@ -651,6 +650,18 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getType
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|TYPE
+return|;
 block|}
 DECL|method|doUpdate
 specifier|private
@@ -1726,7 +1737,7 @@ name|remove
 init|=
 name|ConfigurationUtils
 operator|.
-name|readOptionalStringList
+name|readOptionalList
 argument_list|(
 name|config
 argument_list|,
@@ -1741,7 +1752,7 @@ name|trim
 init|=
 name|ConfigurationUtils
 operator|.
-name|readOptionalStringList
+name|readOptionalList
 argument_list|(
 name|config
 argument_list|,
@@ -1756,7 +1767,7 @@ name|uppercase
 init|=
 name|ConfigurationUtils
 operator|.
-name|readOptionalStringList
+name|readOptionalList
 argument_list|(
 name|config
 argument_list|,
@@ -1771,7 +1782,7 @@ name|lowercase
 init|=
 name|ConfigurationUtils
 operator|.
-name|readOptionalStringList
+name|readOptionalList
 argument_list|(
 name|config
 argument_list|,

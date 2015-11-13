@@ -395,6 +395,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getType
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|TYPE
+return|;
+block|}
 DECL|method|getTimezone
 name|DateTimeZone
 name|getTimezone
@@ -569,7 +581,7 @@ name|matchFormats
 init|=
 name|ConfigurationUtils
 operator|.
-name|readStringList
+name|readList
 argument_list|(
 name|config
 argument_list|,

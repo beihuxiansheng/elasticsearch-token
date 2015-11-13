@@ -234,7 +234,7 @@ name|description
 init|=
 name|ConfigurationUtils
 operator|.
-name|readStringProperty
+name|readOptionalStringProperty
 argument_list|(
 name|config
 argument_list|,

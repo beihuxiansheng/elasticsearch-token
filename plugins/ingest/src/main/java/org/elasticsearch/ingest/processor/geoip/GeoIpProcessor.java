@@ -254,7 +254,7 @@ name|processor
 operator|.
 name|ConfigurationUtils
 operator|.
-name|readStringList
+name|readList
 import|;
 end_import
 
@@ -519,6 +519,18 @@ argument_list|,
 name|geoData
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getType
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|TYPE
+return|;
 block|}
 DECL|method|getSourceField
 name|String
@@ -1275,7 +1287,7 @@ name|String
 argument_list|>
 name|fieldNames
 init|=
-name|readStringList
+name|readList
 argument_list|(
 name|config
 argument_list|,
