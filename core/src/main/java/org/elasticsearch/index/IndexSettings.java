@@ -830,7 +830,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Returns the customDataPath for this index, if configured. null<code>o.w.</code>.      */
+comment|/**      * Returns the customDataPath for this index, if configured.<code>null</code> o.w.      */
 DECL|method|customDataPath
 specifier|public
 name|String
