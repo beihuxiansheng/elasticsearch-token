@@ -180,7 +180,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|SimulateDocumentResult
+name|SimulateSimpleDocumentResult
 argument_list|(
 name|data
 argument_list|)
@@ -194,7 +194,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SimulateDocumentResult
+name|SimulateFailedDocumentResult
 argument_list|(
 name|e
 argument_list|)
@@ -334,7 +334,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|SimulateDocumentResult
+name|SimulateVerboseDocumentResult
 argument_list|(
 name|processorResultList
 argument_list|)

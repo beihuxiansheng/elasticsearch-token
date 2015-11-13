@@ -381,7 +381,7 @@ name|SimulateDocumentResult
 name|expectedItemResponse
 init|=
 operator|new
-name|SimulateDocumentResult
+name|SimulateVerboseDocumentResult
 argument_list|(
 name|Arrays
 operator|.
@@ -455,7 +455,7 @@ name|SimulateDocumentResult
 name|expectedItemResponse
 init|=
 operator|new
-name|SimulateDocumentResult
+name|SimulateSimpleDocumentResult
 argument_list|(
 name|data
 argument_list|)
@@ -519,7 +519,7 @@ name|SimulateDocumentResult
 name|expectedItemResponse
 init|=
 operator|new
-name|SimulateDocumentResult
+name|SimulateVerboseDocumentResult
 argument_list|(
 name|Arrays
 operator|.
@@ -620,7 +620,7 @@ name|SimulateDocumentResult
 name|expectedItemResponse
 init|=
 operator|new
-name|SimulateDocumentResult
+name|SimulateFailedDocumentResult
 argument_list|(
 name|e
 argument_list|)
@@ -690,7 +690,7 @@ name|SimulateDocumentResult
 name|itemResponse
 init|=
 operator|new
-name|SimulateDocumentResult
+name|SimulateSimpleDocumentResult
 argument_list|(
 name|data
 argument_list|)
@@ -811,7 +811,7 @@ name|SimulateDocumentResult
 name|itemResponse
 init|=
 operator|new
-name|SimulateDocumentResult
+name|SimulateVerboseDocumentResult
 argument_list|(
 name|Arrays
 operator|.
