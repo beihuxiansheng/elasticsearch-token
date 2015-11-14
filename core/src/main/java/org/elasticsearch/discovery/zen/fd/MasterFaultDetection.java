@@ -248,20 +248,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportRequestOptions
-operator|.
-name|options
-import|;
-end_import
-
 begin_comment
 comment|/**  * A fault detection that pings the master periodically to see if its alive.  */
 end_comment
@@ -1105,7 +1091,9 @@ specifier|final
 name|TransportRequestOptions
 name|options
 init|=
-name|options
+name|TransportRequestOptions
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -1121,6 +1109,9 @@ name|withTimeout
 argument_list|(
 name|pingRetryTimeout
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|transportService
 operator|.
