@@ -242,20 +242,6 @@ name|CountDownLatch
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportRequestOptions
-operator|.
-name|options
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -598,7 +584,9 @@ literal|"benchmark"
 argument_list|,
 name|message
 argument_list|,
-name|options
+name|TransportRequestOptions
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -609,6 +597,9 @@ name|Type
 operator|.
 name|BULK
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler
@@ -751,7 +742,9 @@ literal|"benchmark"
 argument_list|,
 name|message
 argument_list|,
-name|options
+name|TransportRequestOptions
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -762,6 +755,9 @@ name|Type
 operator|.
 name|STATE
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler

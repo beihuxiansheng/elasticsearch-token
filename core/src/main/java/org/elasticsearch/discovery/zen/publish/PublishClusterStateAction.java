@@ -1638,7 +1638,7 @@ name|options
 init|=
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -1654,6 +1654,9 @@ name|withCompress
 argument_list|(
 literal|false
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|transportService
 operator|.
@@ -1881,7 +1884,7 @@ name|options
 init|=
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -1892,6 +1895,9 @@ name|Type
 operator|.
 name|STATE
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 comment|// no need to put a timeout on the options here, because we want the response to eventually be received
 comment|// and not log an error if it arrives after the timeout

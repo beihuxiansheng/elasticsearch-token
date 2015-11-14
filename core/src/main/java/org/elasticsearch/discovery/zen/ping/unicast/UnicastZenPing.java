@@ -2709,7 +2709,7 @@ name|pingRequest
 argument_list|,
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withTimeout
@@ -2726,6 +2726,9 @@ operator|*
 literal|1.25
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler
