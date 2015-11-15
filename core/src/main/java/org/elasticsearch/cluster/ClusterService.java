@@ -301,7 +301,7 @@ name|int
 name|numberOfPendingTasks
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the maximum wait time for tasks in the queue      *      * @returns A zero time value if the queue is empty, otherwise the time value oldest task waiting in the queue      */
+comment|/**      * Returns the maximum wait time for tasks in the queue      *      * @return A zero time value if the queue is empty, otherwise the time value oldest task waiting in the queue      */
 DECL|method|getMaxTaskWaitTime
 name|TimeValue
 name|getMaxTaskWaitTime

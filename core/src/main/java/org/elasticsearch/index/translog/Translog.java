@@ -1548,7 +1548,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extracts the translog generation from a file name.      *      * @throw IllegalArgumentException if the path doesn't match the expected pattern.      */
+comment|/**      * Extracts the translog generation from a file name.      *      * @throws IllegalArgumentException if the path doesn't match the expected pattern.      */
 DECL|method|parseIdFromFileName
 specifier|public
 specifier|static

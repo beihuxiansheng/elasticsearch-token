@@ -58,10 +58,8 @@ name|GeoHashGrid
 extends|extends
 name|MultiBucketsAggregation
 block|{
-comment|/**      * A bucket that is associated with a {@code geohash_grid} cell. The key of the bucket is the {@cod geohash} of the cell      */
+comment|/**      * A bucket that is associated with a {@code geohash_grid} cell. The key of the bucket is the {@code geohash} of the cell      */
 DECL|interface|Bucket
-specifier|public
-specifier|static
 interface|interface
 name|Bucket
 extends|extends
