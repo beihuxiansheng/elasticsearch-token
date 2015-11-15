@@ -2719,7 +2719,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+literal|"test_1"
 argument_list|,
 literal|"type"
 argument_list|,
@@ -2810,7 +2810,10 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
+name|constantScoreQuery
+argument_list|(
 name|matchQuery
+argument_list|)
 argument_list|)
 operator|.
 name|setSize
