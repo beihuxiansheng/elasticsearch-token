@@ -165,7 +165,7 @@ block|{
 return|return
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -188,6 +188,9 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|)
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 block|}

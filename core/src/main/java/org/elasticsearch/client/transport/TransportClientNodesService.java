@@ -2116,7 +2116,7 @@ argument_list|)
 argument_list|,
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -2132,6 +2132,9 @@ name|withTimeout
 argument_list|(
 name|pingTimeout
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 operator|new
 name|FutureTransportResponseHandler
@@ -2573,7 +2576,7 @@ argument_list|)
 argument_list|,
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -2589,6 +2592,9 @@ name|withTimeout
 argument_list|(
 name|pingTimeout
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler
