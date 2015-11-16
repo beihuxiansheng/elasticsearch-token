@@ -128,6 +128,7 @@ name|NodeSettingsService
 operator|.
 name|Listener
 block|{
+comment|/** "Effectively" infinite (20 GB/sec) default value, because store throttling is disabled by default since      *  we use Lucene's auto-IO throttling instead. */
 DECL|field|DEFAULT_THROTTLE
 specifier|private
 specifier|static
