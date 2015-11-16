@@ -4,15 +4,11 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.cluster.health
+DECL|package|org.elasticsearch.cluster.health
 package|package
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
 operator|.
 name|cluster
 operator|.

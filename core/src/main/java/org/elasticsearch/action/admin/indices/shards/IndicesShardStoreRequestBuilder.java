@@ -74,6 +74,20 @@ name|ElasticsearchClient
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|health
+operator|.
+name|ClusterHealthStatus
+import|;
+end_import
+
 begin_comment
 comment|/**  * Request builder for {@link IndicesShardStoresRequest}  */
 end_comment
@@ -172,7 +186,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set statuses to filter shards to get stores info on.      * @param shardStatuses acceptable values are "green", "yellow", "red" and "all"      * see {@link org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus} for details      */
+comment|/**      * Set statuses to filter shards to get stores info on.      * @param shardStatuses acceptable values are "green", "yellow", "red" and "all"      * see {@link ClusterHealthStatus} for details      */
 DECL|method|setShardStatuses
 specifier|public
 name|IndicesShardStoreRequestBuilder

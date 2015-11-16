@@ -4,15 +4,11 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.cluster.health
+DECL|package|org.elasticsearch.cluster.health
 package|package
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
 operator|.
 name|cluster
 operator|.
@@ -228,10 +224,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|cluster
 operator|.
 name|health
@@ -242,13 +234,10 @@ name|readClusterShardHealth
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ClusterIndexHealth
 specifier|public
+specifier|final
 class|class
 name|ClusterIndexHealth
 implements|implements

@@ -1161,6 +1161,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+literal|"dangling indices allocated"
 argument_list|)
 decl_stmt|;
 return|return
