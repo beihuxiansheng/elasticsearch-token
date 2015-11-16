@@ -128,24 +128,6 @@ name|NodeSettingsService
 operator|.
 name|Listener
 block|{
-comment|/** "Effectively" infinite (20 GB/sec) default value, because store throttling is disabled by default since      *  we use Lucene's auto-IO throttling instead. */
-DECL|field|DEFAULT_THROTTLE
-specifier|private
-specifier|static
-specifier|final
-name|ByteSizeValue
-name|DEFAULT_THROTTLE
-init|=
-operator|new
-name|ByteSizeValue
-argument_list|(
-literal|10240
-argument_list|,
-name|ByteSizeUnit
-operator|.
-name|MB
-argument_list|)
-decl_stmt|;
 comment|/**      * Configures the node / cluster level throttle type. See {@link StoreRateLimiting.Type}.      */
 DECL|field|INDICES_STORE_THROTTLE_TYPE
 specifier|public
@@ -253,7 +235,11 @@ name|getAsBytesSize
 argument_list|(
 literal|"indices.store.throttle.max_bytes_per_sec"
 argument_list|,
-name|DEFAULT_THROTTLE
+operator|new
+name|ByteSizeValue
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|rateLimiting
