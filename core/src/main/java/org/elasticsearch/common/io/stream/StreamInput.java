@@ -421,6 +421,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -2715,8 +2727,11 @@ parameter_list|>
 name|T
 name|readOptionalStreamable
 parameter_list|(
+name|Supplier
+argument_list|<
 name|T
-name|streamable
+argument_list|>
+name|supplier
 parameter_list|)
 throws|throws
 name|IOException
@@ -2727,6 +2742,14 @@ name|readBoolean
 argument_list|()
 condition|)
 block|{
+name|T
+name|streamable
+init|=
+name|supplier
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
 name|streamable
 operator|.
 name|readFrom

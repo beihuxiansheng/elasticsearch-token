@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Information about a build of Elasticsearch.  */
 end_comment
 
 begin_class
@@ -158,6 +158,7 @@ specifier|public
 class|class
 name|Build
 block|{
+comment|/**      * The current build of Elasticsearch. Filled with information scanned at      * startup from the jar.      */
 DECL|field|CURRENT
 specifier|public
 specifier|static
@@ -270,6 +271,40 @@ name|date
 operator|=
 literal|"Unknown"
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|shortHash
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error finding the build shortHash. "
+operator|+
+literal|"Stopping Elasticsearch now so it doesn't run in subtly broken ways. This is likely a build bug."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|date
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error finding the build date. "
+operator|+
+literal|"Stopping Elasticsearch now so it doesn't run in subtly broken ways. This is likely a build bug."
+argument_list|)
+throw|;
 block|}
 name|CURRENT
 operator|=

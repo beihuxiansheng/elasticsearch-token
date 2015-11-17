@@ -2880,9 +2880,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|InternalNestedIdentity
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|version
@@ -4552,9 +4552,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|InternalNestedIdentity
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}
