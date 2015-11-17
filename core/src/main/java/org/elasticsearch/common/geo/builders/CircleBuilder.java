@@ -170,17 +170,6 @@ name|GeoShapeType
 operator|.
 name|CIRCLE
 decl_stmt|;
-DECL|field|PROTOTYPE
-specifier|public
-specifier|static
-specifier|final
-name|CircleBuilder
-name|PROTOTYPE
-init|=
-operator|new
-name|CircleBuilder
-argument_list|()
-decl_stmt|;
 DECL|field|unit
 specifier|private
 name|DistanceUnit

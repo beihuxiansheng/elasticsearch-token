@@ -131,17 +131,6 @@ name|GeoShapeType
 operator|.
 name|POINT
 decl_stmt|;
-DECL|field|PROTOTYPE
-specifier|public
-specifier|static
-specifier|final
-name|PointBuilder
-name|PROTOTYPE
-init|=
-operator|new
-name|PointBuilder
-argument_list|()
-decl_stmt|;
 DECL|field|coordinate
 specifier|private
 name|Coordinate
