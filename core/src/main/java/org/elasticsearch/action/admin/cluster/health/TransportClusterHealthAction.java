@@ -1879,13 +1879,6 @@ name|UnassignedInfo
 operator|.
 name|getNumberOfDelayedUnassigned
 argument_list|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-argument_list|,
-name|settings
-argument_list|,
 name|clusterState
 argument_list|)
 argument_list|,
@@ -1926,13 +1919,6 @@ name|UnassignedInfo
 operator|.
 name|getNumberOfDelayedUnassigned
 argument_list|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-argument_list|,
-name|settings
-argument_list|,
 name|clusterState
 argument_list|)
 argument_list|,

@@ -1792,7 +1792,7 @@ operator|.
 name|unassignedInfo
 argument_list|()
 operator|.
-name|getTimestampInMillis
+name|getUnassignedTimeInMillis
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1815,7 +1815,7 @@ operator|.
 name|unassignedInfo
 argument_list|()
 operator|.
-name|getTimestampInMillis
+name|getUnassignedTimeInMillis
 argument_list|()
 argument_list|)
 argument_list|)
