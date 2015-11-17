@@ -161,7 +161,7 @@ specifier|final
 name|int
 name|NUMBER_OF_TESTBUILDERS
 init|=
-literal|1
+literal|20
 decl_stmt|;
 DECL|field|namedWriteableRegistry
 specifier|private
@@ -197,6 +197,19 @@ operator|.
 name|PROTOTYPE
 argument_list|)
 expr_stmt|;
+name|namedWriteableRegistry
+operator|.
+name|registerPrototype
+argument_list|(
+name|ShapeBuilder
+operator|.
+name|class
+argument_list|,
+name|CircleBuilder
+operator|.
+name|PROTOTYPE
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Create the shape that under test      */
 DECL|method|createTestShapeBuilder
@@ -216,6 +229,8 @@ parameter_list|(
 name|SB
 name|original
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Generic test that creates new shape from a random test shape and checks both for equality      */
 DECL|method|testFromXContent
@@ -263,6 +278,21 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|builder
+operator|=
+name|toXContent
+argument_list|(
+name|testShape
+argument_list|,
+name|randomFrom
+argument_list|(
+name|XContentType
+operator|.
+name|values
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|XContentParser
 name|shapeParser
 init|=
@@ -276,6 +306,16 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|XContentHelper
+operator|.
+name|createParser
+argument_list|(
+name|builder
+operator|.
+name|bytes
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|shapeParser
 operator|.
 name|nextToken
@@ -731,7 +771,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|copyShape
-specifier|private
+specifier|protected
 name|SB
 name|copyShape
 parameter_list|(
