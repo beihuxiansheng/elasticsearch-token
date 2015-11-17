@@ -3159,6 +3159,15 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+literal|"index ["
+operator|+
+name|request
+operator|.
+name|index
+argument_list|()
+operator|+
+literal|"] created"
 argument_list|)
 decl_stmt|;
 name|updatedState

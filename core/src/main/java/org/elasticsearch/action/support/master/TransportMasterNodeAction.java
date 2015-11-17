@@ -1021,9 +1021,7 @@ argument_list|)
 expr_stmt|;
 name|retry
 argument_list|(
-operator|new
-name|MasterNotDiscoveredException
-argument_list|()
+literal|null
 argument_list|,
 name|masterNodeChangedPredicate
 argument_list|)
@@ -1225,7 +1223,11 @@ name|listener
 operator|.
 name|onFailure
 argument_list|(
+operator|new
+name|MasterNotDiscoveredException
+argument_list|(
 name|failure
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

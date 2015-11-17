@@ -376,6 +376,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * Service responsible for submitting open/close index requests  */
 end_comment
@@ -899,6 +909,12 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+literal|"indices closed ["
+operator|+
+name|indicesAsString
+operator|+
+literal|"]"
 argument_list|)
 decl_stmt|;
 comment|//no explicit wait for other nodes needed as we use AckedClusterStateUpdateTask
@@ -1315,6 +1331,12 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+literal|"indices opened ["
+operator|+
+name|indicesAsString
+operator|+
+literal|"]"
 argument_list|)
 decl_stmt|;
 comment|//no explicit wait for other nodes needed as we use AckedClusterStateUpdateTask

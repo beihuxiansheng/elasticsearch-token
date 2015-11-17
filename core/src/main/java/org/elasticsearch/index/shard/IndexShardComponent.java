@@ -22,11 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|settings
-operator|.
-name|Settings
+name|IndexSettings
 import|;
 end_import
 
@@ -46,7 +44,7 @@ name|shardId
 parameter_list|()
 function_decl|;
 DECL|method|indexSettings
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|()
 function_decl|;

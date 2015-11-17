@@ -172,6 +172,30 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|GeoProjectionUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -225,6 +249,20 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
 import|;
 end_import
 
@@ -338,7 +376,7 @@ name|geo
 operator|.
 name|builders
 operator|.
-name|ShapeBuilder
+name|ShapeBuilders
 import|;
 end_import
 
@@ -353,6 +391,34 @@ operator|.
 name|io
 operator|.
 name|Streams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -419,6 +485,18 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
 import|;
 end_import
 
@@ -722,43 +800,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|anyOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsInAnyOrder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThanOrEqualTo
+name|*
 import|;
 end_import
 
@@ -926,7 +968,7 @@ block|{
 try|try
 block|{
 comment|// self intersection polygon
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -982,7 +1024,7 @@ name|e
 parameter_list|)
 block|{         }
 comment|// polygon with hole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1066,7 +1108,7 @@ expr_stmt|;
 try|try
 block|{
 comment|// polygon with overlapping hole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1162,7 +1204,7 @@ block|{         }
 try|try
 block|{
 comment|// polygon with intersection holes
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1298,7 +1340,7 @@ block|{         }
 try|try
 block|{
 comment|// Common line in polygon
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1394,7 +1436,7 @@ comment|//                .close().build();
 comment|//            fail("Polygon intersection not detected";
 comment|//        } catch (InvalidShapeException e) {}
 comment|// Multipolygon: polygon with hole and polygon within the whole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPolygon
 argument_list|()
@@ -1683,7 +1725,7 @@ comment|// the second polygon of size 4x4 equidistant from all sites
 name|MultiPolygonBuilder
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPolygon
 argument_list|()
@@ -1889,7 +1931,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -1946,7 +1988,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -1996,7 +2038,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2053,7 +2095,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2115,7 +2157,7 @@ name|geoDisjointQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2162,7 +2204,7 @@ name|geoDisjointQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2201,7 +2243,7 @@ comment|// Create a polygon that fills the empty area of the polygon defined abo
 name|PolygonBuilder
 name|inverse
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2364,7 +2406,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2402,7 +2444,7 @@ comment|// Create Polygon with hole and common edge
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2488,7 +2530,7 @@ block|{
 comment|// Polygon WithIn Polygon
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2571,7 +2613,7 @@ block|}
 comment|// Create a polygon crossing longitude 180.
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2674,7 +2716,7 @@ expr_stmt|;
 comment|// Create a polygon crossing longitude 180 with hole.
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2832,7 +2874,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2879,7 +2921,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2927,7 +2969,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2974,7 +3016,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -3017,8 +3059,47 @@ argument_list|(
 literal|"/org/elasticsearch/search/geo/gzippedmap.gz"
 argument_list|)
 decl_stmt|;
-name|String
-name|mapping
+name|Version
+name|version
+init|=
+name|VersionUtils
+operator|.
+name|randomVersionBetween
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+argument_list|)
+decl_stmt|;
+name|Settings
+name|settings
+init|=
+name|Settings
+operator|.
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+argument_list|,
+name|version
+argument_list|)
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|XContentBuilder
+name|xContentBuilder
 init|=
 name|XContentFactory
 operator|.
@@ -3049,6 +3130,20 @@ literal|"type"
 argument_list|,
 literal|"geo_point"
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|version
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_2_0
+argument_list|)
+condition|)
+block|{
+name|xContentBuilder
 operator|.
 name|field
 argument_list|(
@@ -3056,6 +3151,9 @@ literal|"lat_lon"
 argument_list|,
 literal|true
 argument_list|)
+expr_stmt|;
+block|}
+name|xContentBuilder
 operator|.
 name|field
 argument_list|(
@@ -3090,10 +3188,7 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
-operator|.
-name|string
-argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3108,11 +3203,19 @@ argument_list|(
 literal|"countries"
 argument_list|)
 operator|.
+name|setSettings
+argument_list|(
+name|settings
+argument_list|)
+operator|.
 name|addMapping
 argument_list|(
 literal|"country"
 argument_list|,
-name|mapping
+name|xContentBuilder
+operator|.
+name|string
+argument_list|()
 argument_list|)
 operator|.
 name|execute
@@ -3374,6 +3477,18 @@ operator|.
 name|getId
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|version
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_2_0
+argument_list|)
+condition|)
+block|{
 name|point
 operator|.
 name|resetFromString
@@ -3395,6 +3510,28 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|point
+operator|.
+name|resetFromIndexHash
+argument_list|(
+name|hit
+operator|.
+name|fields
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"pin"
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|double
 name|dist
 init|=
@@ -3478,9 +3615,11 @@ name|assertThat
 argument_list|(
 name|dist
 argument_list|,
-name|equalTo
+name|closeTo
 argument_list|(
 literal|0d
+argument_list|,
+literal|0.1d
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4509,9 +4648,9 @@ name|lon2
 parameter_list|)
 block|{
 return|return
-name|GeoUtils
+name|GeoProjectionUtils
 operator|.
-name|EARTH_SEMI_MAJOR_AXIS
+name|SEMIMAJOR_AXIS
 operator|*
 name|DistanceUtils
 operator|.

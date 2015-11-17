@@ -1071,6 +1071,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1353,6 +1355,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1671,6 +1675,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -2799,6 +2805,9 @@ name|ShardRouting
 name|sr
 range|:
 name|unassigned
+operator|.
+name|drain
+argument_list|()
 control|)
 block|{
 switch|switch
@@ -3041,11 +3050,6 @@ block|}
 break|break;
 block|}
 block|}
-name|unassigned
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 return|return
 name|changed
 return|;
@@ -3248,6 +3252,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -3514,6 +3520,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable

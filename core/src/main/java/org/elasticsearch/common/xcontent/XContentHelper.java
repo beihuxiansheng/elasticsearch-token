@@ -2527,6 +2527,8 @@ argument_list|(
 name|field
 argument_list|,
 name|compressedStreamInput
+argument_list|,
+name|contentType
 argument_list|)
 expr_stmt|;
 block|}

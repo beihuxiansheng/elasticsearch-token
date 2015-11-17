@@ -748,9 +748,6 @@ operator|.
 name|resolveCustomLocation
 argument_list|(
 name|indexSettings
-operator|.
-name|getSettings
-argument_list|()
 argument_list|,
 name|shardId
 argument_list|)
@@ -929,9 +926,6 @@ operator|.
 name|acquireFSLockForPaths
 argument_list|(
 name|indexSettings
-operator|.
-name|getSettings
-argument_list|()
 argument_list|,
 name|paths
 argument_list|)
@@ -1152,9 +1146,6 @@ operator|.
 name|resolveCustomLocation
 argument_list|(
 name|indexSettings
-operator|.
-name|getSettings
-argument_list|()
 argument_list|,
 name|shardId
 argument_list|)

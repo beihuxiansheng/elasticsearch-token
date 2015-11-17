@@ -124,18 +124,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -167,6 +155,18 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexSettings
 import|;
 end_import
 
@@ -276,18 +276,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndicesWarmer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
 name|memory
 operator|.
 name|IndexingMemoryController
@@ -344,7 +332,7 @@ decl_stmt|;
 DECL|field|indexSettings
 specifier|private
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 decl_stmt|;
 DECL|field|indexingBufferSize
@@ -616,7 +604,7 @@ parameter_list|,
 name|ShardIndexingService
 name|indexingService
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|Engine
@@ -672,6 +660,15 @@ name|shardId
 operator|=
 name|shardId
 expr_stmt|;
+specifier|final
+name|Settings
+name|settings
+init|=
+name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
+decl_stmt|;
 name|this
 operator|.
 name|indexSettings
@@ -760,7 +757,7 @@ name|this
 operator|.
 name|compoundOnFlush
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
@@ -773,7 +770,7 @@ argument_list|)
 expr_stmt|;
 name|codecName
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|get
 argument_list|(
@@ -795,7 +792,7 @@ name|INACTIVE_SHARD_INDEXING_BUFFER
 expr_stmt|;
 name|gcDeletesInMillis
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
@@ -811,7 +808,7 @@ argument_list|()
 expr_stmt|;
 name|versionMapSizeSetting
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|get
 argument_list|(
@@ -833,7 +830,7 @@ name|this
 operator|.
 name|forceNewTranslog
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
@@ -1189,10 +1186,10 @@ return|return
 name|eventListener
 return|;
 block|}
-comment|/**      * Returns the latest index settings directly from the index settings service.      */
+comment|/**      * Returns the index settings for this index.      */
 DECL|method|getIndexSettings
 specifier|public
-name|Settings
+name|IndexSettings
 name|getIndexSettings
 parameter_list|()
 block|{

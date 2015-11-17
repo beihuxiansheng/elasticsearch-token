@@ -792,11 +792,13 @@ expr_stmt|;
 return|return;
 block|}
 name|TransportRequestOptions
-name|transportRequestOptions
+operator|.
+name|Builder
+name|builder
 init|=
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 decl_stmt|;
 if|if
@@ -809,7 +811,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|transportRequestOptions
+name|builder
 operator|.
 name|withTimeout
 argument_list|(
@@ -820,7 +822,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|transportRequestOptions
+name|builder
 operator|.
 name|withCompress
 argument_list|(
@@ -962,7 +964,10 @@ name|transportNodeAction
 argument_list|,
 name|nodeRequest
 argument_list|,
-name|transportRequestOptions
+name|builder
+operator|.
+name|build
+argument_list|()
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler

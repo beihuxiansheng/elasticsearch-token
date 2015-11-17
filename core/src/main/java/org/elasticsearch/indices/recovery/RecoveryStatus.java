@@ -474,6 +474,9 @@ name|indexShard
 operator|.
 name|indexSettings
 argument_list|()
+operator|.
+name|getSettings
+argument_list|()
 argument_list|,
 name|indexShard
 operator|.

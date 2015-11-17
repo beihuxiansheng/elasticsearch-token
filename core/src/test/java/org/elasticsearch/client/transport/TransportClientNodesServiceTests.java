@@ -803,9 +803,9 @@ operator|new
 name|TestRequest
 argument_list|()
 argument_list|,
-operator|new
 name|TransportRequestOptions
-argument_list|()
+operator|.
+name|EMPTY
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler

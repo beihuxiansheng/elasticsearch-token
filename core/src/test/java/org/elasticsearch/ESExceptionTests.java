@@ -2858,17 +2858,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: fix this test
-comment|// on java 9, expected:<sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)>
-comment|//            but was:<sun.reflect.NativeMethodAccessorImpl.invoke0(java.base@9.0/Native Method)>
-if|if
-condition|(
-operator|!
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-condition|)
-block|{
 name|assertArrayEquals
 argument_list|(
 name|e
@@ -2882,7 +2871,6 @@ name|getStackTrace
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|assertTrue
 argument_list|(
 name|e

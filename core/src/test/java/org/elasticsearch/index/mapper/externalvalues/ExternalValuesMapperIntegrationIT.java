@@ -58,7 +58,7 @@ name|geo
 operator|.
 name|builders
 operator|.
-name|ShapeBuilder
+name|ShapeBuilders
 import|;
 end_import
 
@@ -404,7 +404,7 @@ name|geoShapeQuery
 argument_list|(
 literal|"field.shape"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(

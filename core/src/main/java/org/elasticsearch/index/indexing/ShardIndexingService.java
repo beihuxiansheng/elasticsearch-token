@@ -294,6 +294,9 @@ argument_list|(
 name|this
 operator|.
 name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

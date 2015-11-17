@@ -678,8 +678,7 @@ name|INSTANCE
 argument_list|,
 name|TransportResponseOptions
 operator|.
-name|options
-argument_list|()
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
@@ -756,7 +755,7 @@ name|INSTANCE
 argument_list|,
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withCompress
@@ -764,6 +763,9 @@ argument_list|(
 name|randomBoolean
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler

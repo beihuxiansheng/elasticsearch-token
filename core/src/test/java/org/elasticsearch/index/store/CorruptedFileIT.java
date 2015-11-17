@@ -82,10 +82,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|cluster
 operator|.
 name|health
@@ -2902,7 +2898,7 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|Discovery
+name|TransportService
 operator|.
 name|class
 argument_list|,
@@ -2914,9 +2910,6 @@ operator|.
 name|name
 argument_list|()
 argument_list|)
-operator|.
-name|localNode
-argument_list|()
 argument_list|,
 operator|new
 name|MockTransportService
@@ -3570,7 +3563,7 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|Discovery
+name|TransportService
 operator|.
 name|class
 argument_list|,
@@ -3582,9 +3575,6 @@ operator|.
 name|name
 argument_list|()
 argument_list|)
-operator|.
-name|localNode
-argument_list|()
 argument_list|,
 operator|new
 name|MockTransportService

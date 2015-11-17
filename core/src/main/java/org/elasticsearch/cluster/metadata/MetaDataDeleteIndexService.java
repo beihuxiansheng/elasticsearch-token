@@ -278,6 +278,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ScheduledFuture
@@ -870,6 +880,12 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+literal|"deleted indices ["
+operator|+
+name|indices
+operator|+
+literal|"]"
 argument_list|)
 decl_stmt|;
 return|return

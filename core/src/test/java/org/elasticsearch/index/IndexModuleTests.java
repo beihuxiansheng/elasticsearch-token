@@ -322,20 +322,6 @@ name|index
 operator|.
 name|engine
 operator|.
-name|EngineConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
 name|EngineException
 import|;
 end_import
@@ -803,7 +789,7 @@ parameter_list|,
 name|ShardLock
 name|lock
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|)
 throws|throws
@@ -818,7 +804,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|)
 block|{         }
@@ -1091,10 +1077,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 expr_stmt|;
 name|environment
@@ -1359,10 +1341,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 decl_stmt|;
 name|IndexModule
@@ -1512,10 +1490,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 decl_stmt|;
 name|IndexModule
@@ -1877,10 +1851,6 @@ literal|"foo"
 argument_list|)
 argument_list|,
 name|indexSettings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 argument_list|,
 literal|null
@@ -2122,10 +2092,6 @@ literal|"foo"
 argument_list|)
 argument_list|,
 name|indexSettings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 argument_list|,
 literal|null
@@ -2239,10 +2205,6 @@ literal|"foo"
 argument_list|)
 argument_list|,
 name|indexSettings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 argument_list|,
 literal|null
@@ -2347,10 +2309,6 @@ literal|"foo"
 argument_list|)
 argument_list|,
 name|indexSettings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 argument_list|,
 literal|null
@@ -2549,10 +2507,6 @@ literal|"foo"
 argument_list|)
 argument_list|,
 name|indexSettings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 argument_list|,
 literal|null
@@ -2723,10 +2677,6 @@ literal|"foo"
 argument_list|)
 argument_list|,
 name|indexSettings
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_LIST
 argument_list|)
 argument_list|,
 literal|null

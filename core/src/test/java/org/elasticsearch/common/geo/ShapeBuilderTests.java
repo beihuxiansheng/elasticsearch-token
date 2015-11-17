@@ -182,6 +182,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|geo
+operator|.
+name|builders
+operator|.
+name|ShapeBuilders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -269,7 +285,7 @@ block|{
 name|Point
 name|point
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -317,7 +333,7 @@ block|{
 name|Rectangle
 name|rectangle
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newEnvelope
 argument_list|()
@@ -401,7 +417,7 @@ block|{
 name|Polygon
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -543,7 +559,7 @@ block|{
 name|Polygon
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -705,7 +721,7 @@ block|{
 name|Polygon
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -853,7 +869,7 @@ name|testLineStringBuilder
 parameter_list|()
 block|{
 comment|// Building a simple LineString
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -930,7 +946,7 @@ name|build
 argument_list|()
 expr_stmt|;
 comment|// Building a linestring that needs to be wrapped
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -999,7 +1015,7 @@ name|build
 argument_list|()
 expr_stmt|;
 comment|// Building a lineString on the dateline
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -1042,7 +1058,7 @@ name|build
 argument_list|()
 expr_stmt|;
 comment|// Building a lineString on the dateline
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -1087,7 +1103,7 @@ name|void
 name|testMultiLineString
 parameter_list|()
 block|{
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiLinestring
 argument_list|()
@@ -1168,7 +1184,7 @@ name|build
 argument_list|()
 expr_stmt|;
 comment|// LineString that needs to be wrappped
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiLinestring
 argument_list|()
@@ -1253,7 +1269,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1337,7 +1353,7 @@ decl_stmt|;
 name|Circle
 name|circle
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1397,7 +1413,7 @@ argument_list|)
 expr_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1458,7 +1474,7 @@ argument_list|)
 expr_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1520,7 +1536,7 @@ argument_list|)
 expr_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1580,7 +1596,7 @@ argument_list|)
 expr_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1681,7 +1697,7 @@ argument_list|)
 decl_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1751,7 +1767,7 @@ block|{
 name|Shape
 name|shape
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1811,7 +1827,7 @@ block|{
 name|Shape
 name|shape
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -1872,7 +1888,7 @@ comment|// a giant c shape
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2091,7 +2107,7 @@ comment|// a giant c shape
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2318,7 +2334,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2866,7 +2882,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2996,7 +3012,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3057,7 +3073,7 @@ comment|// test case 1: test the positive side of the dateline
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3110,7 +3126,7 @@ expr_stmt|;
 comment|// test case 2: test the negative side of the dateline
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3174,7 +3190,7 @@ comment|// test case 1: test the positive side of the dateline
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3287,7 +3303,7 @@ expr_stmt|;
 comment|// test case 2: test the negative side of the dateline
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3405,7 +3421,7 @@ comment|// test a shape with one tangential (shared) vertex (should pass)
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3528,7 +3544,7 @@ comment|// test a shape with one invalid tangential (shared) vertex (should thro
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3665,7 +3681,7 @@ comment|// test a shape with one tangential (shared) vertex for each hole (shoul
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3825,7 +3841,7 @@ comment|// test shape with two tangential (shared) vertices (should throw except
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3968,7 +3984,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -4032,7 +4048,7 @@ comment|// cw: should produce a multi polygon spanning hemispheres
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -4085,7 +4101,7 @@ expr_stmt|;
 comment|// cw: geo core will convert to ccw across the dateline
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -4144,7 +4160,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()

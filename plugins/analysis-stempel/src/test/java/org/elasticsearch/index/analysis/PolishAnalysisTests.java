@@ -253,16 +253,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -275,24 +265,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
 import|;
 end_import
 
@@ -440,11 +412,6 @@ argument_list|(
 name|index
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

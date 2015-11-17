@@ -86,7 +86,7 @@ name|geo
 operator|.
 name|builders
 operator|.
-name|ShapeBuilder
+name|ShapeBuilders
 import|;
 end_import
 
@@ -1425,7 +1425,7 @@ name|geoShapeQuery
 argument_list|(
 literal|"pin.location"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPoint
 argument_list|()

@@ -178,6 +178,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ScheduledFuture
@@ -432,22 +442,6 @@ if|if
 condition|(
 name|event
 operator|.
-name|source
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-name|CLUSTER_UPDATE_TASK_SOURCE
-argument_list|)
-condition|)
-block|{
-comment|// that's us, ignore this event
-return|return;
-block|}
-if|if
-condition|(
-name|event
-operator|.
 name|state
 argument_list|()
 operator|.
@@ -498,25 +492,18 @@ name|registeredNextDelaySetting
 operator|=
 name|nextDelaySetting
 expr_stmt|;
-comment|// We use System.currentTimeMillis here because we want the
-comment|// next delay from the "now" perspective, rather than the
-comment|// delay from the last time the GatewayAllocator tried to
-comment|// assign/delay the shard
-name|TimeValue
-name|nextDelay
+comment|// We calculate nextDelay based on System.currentTimeMillis() here because we want the next delay from the "now" perspective
+comment|// rather than the delay from the last time the GatewayAllocator tried to assign/delay the shard.
+comment|// The actual calculation is based on the latter though, to account for shards that should have been allocated
+comment|// between unassignedShardsAllocatedTimestamp and System.currentTimeMillis()
+name|long
+name|nextDelayBasedOnUnassignedShardsAllocatedTimestamp
 init|=
-name|TimeValue
-operator|.
-name|timeValueMillis
-argument_list|(
 name|UnassignedInfo
 operator|.
 name|findNextDelayedAllocationIn
 argument_list|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
+name|unassignedShardsAllocatedTimestamp
 argument_list|,
 name|settings
 argument_list|,
@@ -525,6 +512,42 @@ operator|.
 name|state
 argument_list|()
 argument_list|)
+decl_stmt|;
+comment|// adjust from unassignedShardsAllocatedTimestamp to now
+name|long
+name|nextDelayMillis
+init|=
+name|nextDelayBasedOnUnassignedShardsAllocatedTimestamp
+operator|-
+operator|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|unassignedShardsAllocatedTimestamp
+operator|)
+decl_stmt|;
+if|if
+condition|(
+name|nextDelayMillis
+operator|<
+literal|0
+condition|)
+block|{
+name|nextDelayMillis
+operator|=
+literal|0
+expr_stmt|;
+block|}
+name|TimeValue
+name|nextDelay
+init|=
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+name|nextDelayMillis
 argument_list|)
 decl_stmt|;
 name|int
@@ -763,6 +786,8 @@ operator|.
 name|reroute
 argument_list|(
 name|currentState
+argument_list|,
+name|reason
 argument_list|)
 decl_stmt|;
 if|if

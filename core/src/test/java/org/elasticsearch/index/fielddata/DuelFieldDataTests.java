@@ -5471,7 +5471,6 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|assertEquals
 argument_list|(
 name|numValues
@@ -5578,6 +5577,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// missing values were treated as 0,0 which are valid geopoints, this now correctly tests for missing values
+if|if
+condition|(
+name|leftPoints
+operator|.
+name|isEmpty
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
 for|for
 control|(
 name|GeoPoint
@@ -5635,6 +5645,7 @@ name|precision
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

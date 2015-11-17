@@ -298,20 +298,6 @@ name|index
 operator|.
 name|engine
 operator|.
-name|Engine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
 name|RecoveryEngineException
 import|;
 end_import
@@ -805,7 +791,7 @@ name|requestOptions
 operator|=
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withCompress
@@ -832,6 +818,9 @@ operator|.
 name|internalActionTimeout
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * performs the recovery from the local engine to the target      */
@@ -1726,7 +1715,7 @@ name|recoveryInfoFilesRequest
 argument_list|,
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withTimeout
@@ -1736,6 +1725,9 @@ operator|.
 name|internalActionTimeout
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|EmptyTransportResponseHandler
 operator|.
@@ -1856,7 +1848,7 @@ argument_list|)
 argument_list|,
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withTimeout
@@ -1866,6 +1858,9 @@ operator|.
 name|internalActionTimeout
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|EmptyTransportResponseHandler
 operator|.
@@ -2316,7 +2311,7 @@ argument_list|)
 argument_list|,
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withTimeout
@@ -2326,6 +2321,9 @@ operator|.
 name|internalActionTimeout
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|EmptyTransportResponseHandler
 operator|.
@@ -2617,7 +2615,7 @@ argument_list|)
 argument_list|,
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withTimeout
@@ -2627,6 +2625,9 @@ operator|.
 name|internalActionLongTimeout
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|EmptyTransportResponseHandler
 operator|.
@@ -2782,7 +2783,7 @@ name|recoveryOptions
 init|=
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withCompress
@@ -2809,6 +2810,9 @@ operator|.
 name|internalActionLongTimeout
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

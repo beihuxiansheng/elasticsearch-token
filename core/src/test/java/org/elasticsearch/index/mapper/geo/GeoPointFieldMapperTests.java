@@ -587,17 +587,16 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 name|boolean
 name|indexCreatedBefore22
 init|=
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1730,16 +1729,15 @@ argument_list|,
 literal|"geo_point"
 argument_list|)
 decl_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -1868,16 +1866,15 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -1984,16 +1981,15 @@ name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -2100,16 +2096,15 @@ name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -2235,16 +2230,15 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -2679,16 +2673,15 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -3284,16 +3277,15 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -3650,16 +3642,15 @@ literal|1.3
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -3781,16 +3772,15 @@ literal|1.5
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -4049,16 +4039,15 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -4099,7 +4088,7 @@ argument_list|(
 literal|"point"
 argument_list|)
 index|[
-literal|1
+literal|0
 index|]
 operator|.
 name|stringValue
@@ -4366,16 +4355,15 @@ literal|1.3
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -4416,7 +4404,7 @@ argument_list|(
 literal|"point"
 argument_list|)
 index|[
-literal|1
+literal|0
 index|]
 operator|.
 name|stringValue
@@ -4708,16 +4696,15 @@ literal|1.3
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -4764,7 +4751,7 @@ argument_list|(
 literal|"point"
 argument_list|)
 index|[
-literal|1
+literal|0
 index|]
 operator|.
 name|stringValue
@@ -4839,16 +4826,15 @@ literal|1.5
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -5118,16 +5104,15 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -5168,7 +5153,7 @@ argument_list|(
 literal|"point"
 argument_list|)
 index|[
-literal|1
+literal|0
 index|]
 operator|.
 name|stringValue
@@ -5412,16 +5397,15 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -5462,7 +5446,7 @@ argument_list|(
 literal|"point"
 argument_list|)
 index|[
-literal|1
+literal|0
 index|]
 operator|.
 name|stringValue
@@ -5740,16 +5724,15 @@ literal|1.3
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -5790,7 +5773,7 @@ argument_list|(
 literal|"point"
 argument_list|)
 index|[
-literal|1
+literal|0
 index|]
 operator|.
 name|stringValue
@@ -6104,16 +6087,15 @@ literal|1.3
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
@@ -6154,7 +6136,7 @@ argument_list|(
 literal|"point"
 argument_list|)
 index|[
-literal|1
+literal|0
 index|]
 operator|.
 name|stringValue
@@ -6229,16 +6211,15 @@ literal|1.5
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// norelease update to .before(Version.V_2_2_0 once GeoPointFieldV2 is fully merged
 if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
-name|CURRENT
+name|V_2_2_0
 argument_list|)
 condition|)
 block|{
