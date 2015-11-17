@@ -5834,6 +5834,11 @@ name|shard
 operator|.
 name|commitStats
 argument_list|()
+argument_list|,
+name|shard
+operator|.
+name|seqNoStats
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals

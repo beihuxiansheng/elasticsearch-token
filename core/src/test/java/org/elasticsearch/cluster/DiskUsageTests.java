@@ -1010,6 +1010,8 @@ argument_list|,
 name|commonStats0
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 block|,
 operator|new
@@ -1035,6 +1037,8 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|commonStats1
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)

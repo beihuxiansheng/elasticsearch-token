@@ -1454,6 +1454,11 @@ name|indexShard
 operator|.
 name|commitStats
 argument_list|()
+argument_list|,
+name|indexShard
+operator|.
+name|seqNoStats
+argument_list|()
 argument_list|)
 block|}
 argument_list|)

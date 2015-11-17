@@ -394,6 +394,20 @@ name|index
 operator|.
 name|seqno
 operator|.
+name|SeqNoStats
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|seqno
+operator|.
 name|SequenceNumbersService
 import|;
 end_import
@@ -1727,6 +1741,14 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/** get sequence number related stats */
+DECL|method|seqNoStats
+specifier|public
+specifier|abstract
+name|SeqNoStats
+name|seqNoStats
+parameter_list|()
+function_decl|;
 comment|/**      * Read the last segments info from the commit pointed to by the searcher manager      */
 DECL|method|readLastCommittedSegmentInfos
 specifier|protected
