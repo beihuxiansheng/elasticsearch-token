@@ -143,7 +143,7 @@ specifier|private
 name|Coordinate
 name|center
 decl_stmt|;
-comment|/**      * Set the center of the circle      *       * @param center coordinate of the circles center      * @return this      */
+comment|/**      * Set the center of the circle      *      * @param center coordinate of the circles center      * @return this      */
 DECL|method|center
 specifier|public
 name|CircleBuilder
@@ -321,7 +321,8 @@ name|FIELD_TYPE
 argument_list|,
 name|TYPE
 operator|.
-name|shapename
+name|shapeName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder
