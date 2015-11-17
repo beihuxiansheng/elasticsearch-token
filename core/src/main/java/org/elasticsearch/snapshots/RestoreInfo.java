@@ -715,9 +715,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|RestoreInfo
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 return|;
 block|}
