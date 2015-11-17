@@ -221,6 +221,10 @@ operator|.
 name|getProperty
 argument_list|(
 name|matchField
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// TODO(talevy): handle invalid field types

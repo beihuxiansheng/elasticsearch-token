@@ -310,6 +310,10 @@ operator|.
 name|getProperty
 argument_list|(
 name|matchField
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// TODO(talevy): handle custom timestamp fields

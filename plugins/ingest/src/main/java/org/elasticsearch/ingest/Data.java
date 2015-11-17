@@ -183,12 +183,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the value contained in the document for the provided path      * @param path The path within the document in dot-notation      * @return the value for the provided path if existing, null otherwise      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
+comment|/**      * Returns the value contained in the document for the provided path      * @param path The path within the document in dot-notation      * @param clazz The expected class of the field value      * @return the value for the provided path if existing, null otherwise      * @throws IllegalArgumentException if the field is present but is not of the type provided as argument.      */
 DECL|method|getProperty
 specifier|public
 parameter_list|<
@@ -199,6 +194,12 @@ name|getProperty
 parameter_list|(
 name|String
 name|path
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|clazz
 parameter_list|)
 block|{
 name|Object
@@ -209,12 +210,64 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-return|return
-operator|(
-name|T
-operator|)
+if|if
+condition|(
 name|property
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
 return|;
+block|}
+if|if
+condition|(
+name|clazz
+operator|.
+name|isInstance
+argument_list|(
+name|property
+argument_list|)
+condition|)
+block|{
+return|return
+name|clazz
+operator|.
+name|cast
+argument_list|(
+name|property
+argument_list|)
+return|;
+block|}
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"field ["
+operator|+
+name|path
+operator|+
+literal|"] of type ["
+operator|+
+name|property
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"] cannot be cast to ["
+operator|+
+name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 comment|/**      * Checks whether the document contains a value for the provided path      * @param path The path within the document in dot-notation      * @return true if the document contains the property, false otherwise      */
 DECL|method|containsProperty
@@ -227,7 +280,7 @@ name|path
 parameter_list|)
 block|{
 return|return
-name|getProperty
+name|get
 argument_list|(
 name|path
 argument_list|)

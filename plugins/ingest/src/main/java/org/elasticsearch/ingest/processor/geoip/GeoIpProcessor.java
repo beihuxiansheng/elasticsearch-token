@@ -384,6 +384,10 @@ operator|.
 name|getProperty
 argument_list|(
 name|sourceField
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 specifier|final

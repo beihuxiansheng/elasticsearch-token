@@ -758,6 +758,10 @@ name|entry
 operator|.
 name|getKey
 argument_list|()
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|data
@@ -922,6 +926,10 @@ name|entry
 operator|.
 name|getKey
 argument_list|()
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|Object
@@ -1067,6 +1075,10 @@ name|entry
 operator|.
 name|getKey
 argument_list|()
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -1170,6 +1182,10 @@ name|gsubExpression
 operator|.
 name|getFieldName
 argument_list|()
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -1277,6 +1293,10 @@ name|entry
 operator|.
 name|getKey
 argument_list|()
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -1413,6 +1433,10 @@ operator|.
 name|getProperty
 argument_list|(
 name|field
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -1506,6 +1530,10 @@ operator|.
 name|getProperty
 argument_list|(
 name|field
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -1603,6 +1631,10 @@ operator|.
 name|getProperty
 argument_list|(
 name|field
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
