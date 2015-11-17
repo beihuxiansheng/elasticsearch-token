@@ -183,6 +183,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the value contained in the document for the provided path      * @param path The path within the document in dot-notation      * @return the value for the provided path if existing, null otherwise      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -215,7 +216,7 @@ operator|)
 name|property
 return|;
 block|}
-comment|/**      *      * @param path The path within the document in dot-notation      * @return true if the document contains the property, false otherwise      */
+comment|/**      * Checks whether the document contains a value for the provided path      * @param path The path within the document in dot-notation      * @return true if the document contains the property, false otherwise      */
 DECL|method|containsProperty
 specifier|public
 name|boolean
@@ -386,7 +387,7 @@ name|leafKey
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds the provided value to path in document. If path does not exist,      * nested maps will be put in as parent key values until      * leaf key name in path is reached.      *      * @param path The path within the document in dot-notation      * @param value The value to put in for the path key      */
+comment|/**      * Adds the provided value to the provided path in the document.      * If path does not exist, nested maps will be put in as parent key values until      * leaf key name in path is reached.      * @param path The path within the document in dot-notation      * @param value The value to put in for the path key      */
 DECL|method|addField
 specifier|public
 name|void
