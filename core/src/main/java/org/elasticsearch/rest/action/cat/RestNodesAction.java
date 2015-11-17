@@ -1176,6 +1176,15 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"cpu"
+argument_list|,
+literal|"alias:cpu;text-align:right;desc:recent cpu usage"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"load"
 argument_list|,
 literal|"alias:l;text-align:right;desc:most recent load avg"
@@ -2333,6 +2342,30 @@ literal|null
 condition|?
 literal|null
 else|:
+name|Short
+operator|.
+name|toString
+argument_list|(
+name|osStats
+operator|.
+name|getCpu
+argument_list|()
+operator|.
+name|getPercent
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|osStats
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
 name|String
 operator|.
 name|format
@@ -2344,6 +2377,9 @@ argument_list|,
 literal|"%.2f"
 argument_list|,
 name|osStats
+operator|.
+name|getCpu
+argument_list|()
 operator|.
 name|getLoadAverage
 argument_list|()
