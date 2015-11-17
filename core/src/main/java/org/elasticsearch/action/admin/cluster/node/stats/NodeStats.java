@@ -932,9 +932,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|ScriptStats
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|discoveryStats
@@ -943,6 +943,8 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
+parameter_list|()
+lambda|->
 operator|new
 name|DiscoveryStats
 argument_list|(
