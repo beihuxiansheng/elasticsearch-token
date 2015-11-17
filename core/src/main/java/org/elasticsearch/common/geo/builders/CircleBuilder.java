@@ -649,7 +649,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
-name|ShapeBuilder
+name|CircleBuilder
 name|readFrom
 parameter_list|(
 name|StreamInput

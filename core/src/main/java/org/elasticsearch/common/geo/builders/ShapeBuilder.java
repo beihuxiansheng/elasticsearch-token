@@ -4548,9 +4548,11 @@ return|return
 name|type
 argument_list|()
 operator|.
-name|shapename
+name|shapeName
+argument_list|()
 return|;
 block|}
+comment|// NORELEASE this should be deleted as soon as all shape builders implement writable
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -4564,6 +4566,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
+comment|// NORELEASE this should be deleted as soon as all shape builders implement writable
 annotation|@
 name|Override
 DECL|method|readFrom

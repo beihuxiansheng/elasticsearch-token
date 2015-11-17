@@ -383,7 +383,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
-name|ShapeBuilder
+name|PointBuilder
 name|readFrom
 parameter_list|(
 name|StreamInput
