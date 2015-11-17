@@ -1720,10 +1720,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testClusterStatus
+DECL|method|testClusterStatusWhenStateNotRecovered
 specifier|public
 name|void
-name|testClusterStatus
+name|testClusterStatusWhenStateNotRecovered
 parameter_list|()
 throws|throws
 name|Exception
@@ -1798,6 +1798,10 @@ name|ensureAtLeastNumDataNodes
 argument_list|(
 literal|3
 argument_list|)
+expr_stmt|;
+comment|// wait for the cluster status to settle
+name|ensureGreen
+argument_list|()
 expr_stmt|;
 name|response
 operator|=
