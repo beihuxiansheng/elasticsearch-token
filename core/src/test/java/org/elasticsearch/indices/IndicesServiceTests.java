@@ -222,16 +222,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -967,7 +957,7 @@ name|void
 name|testPendingTasks
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IndicesService
 name|indicesService
