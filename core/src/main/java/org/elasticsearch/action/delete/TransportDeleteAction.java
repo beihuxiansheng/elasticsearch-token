@@ -1018,7 +1018,7 @@ argument_list|(
 name|delete
 argument_list|)
 expr_stmt|;
-comment|// update the request with teh version so it will go to the replicas
+comment|// update the request with the version so it will go to the replicas
 name|request
 operator|.
 name|versionType
