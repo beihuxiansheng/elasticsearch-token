@@ -418,6 +418,7 @@ name|leafKey
 argument_list|)
 return|;
 block|}
+comment|/**      * Removes the property identified by the provided path      * @param path the path of the property to be removed      */
 DECL|method|removeProperty
 specifier|public
 name|void
