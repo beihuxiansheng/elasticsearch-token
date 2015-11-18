@@ -184,13 +184,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the value contained in the document for the provided path      * @param path The path within the document in dot-notation      * @param clazz The expected class of the field value      * @return the value for the provided path if existing, null otherwise      * @throws IllegalArgumentException if the field is present but is not of the type provided as argument.      */
-DECL|method|getProperty
+DECL|method|getPropertyValue
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|getProperty
+name|getPropertyValue
 parameter_list|(
 name|String
 name|path
@@ -269,11 +269,11 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Checks whether the document contains a value for the provided path      * @param path The path within the document in dot-notation      * @return true if the document contains the property, false otherwise      */
-DECL|method|containsProperty
+comment|/**      * Checks whether the document contains a value for the provided path      * @param path The path within the document in dot-notation      * @return true if the document contains a non null value for the property, false otherwise      */
+DECL|method|hasPropertyValue
 specifier|public
 name|boolean
-name|containsProperty
+name|hasPropertyValue
 parameter_list|(
 name|String
 name|path
@@ -440,11 +440,11 @@ name|leafKey
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds the provided value to the provided path in the document.      * If path does not exist, nested maps will be put in as parent key values until      * leaf key name in path is reached.      * @param path The path within the document in dot-notation      * @param value The value to put in for the path key      */
-DECL|method|addField
+comment|/**      * Sets the provided value to the provided path in the document.      * Any non existing path element will be created.      * @param path The path within the document in dot-notation      * @param value The value to put in for the path key      */
+DECL|method|setPropertyValue
 specifier|public
 name|void
-name|addField
+name|setPropertyValue
 parameter_list|(
 name|String
 name|path

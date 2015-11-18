@@ -361,7 +361,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -461,7 +461,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"bar"
 argument_list|,
@@ -480,7 +480,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|containsProperty
+name|hasPropertyValue
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -576,7 +576,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"num"
 argument_list|,
@@ -769,7 +769,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"arr"
 argument_list|,
@@ -878,7 +878,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"ip"
 argument_list|,
@@ -1084,7 +1084,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"ip"
 argument_list|,
@@ -1281,7 +1281,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"arr"
 argument_list|,
@@ -1374,7 +1374,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1391,7 +1391,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"ip"
 argument_list|,
@@ -1482,7 +1482,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1501,7 +1501,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"to_strip"
 argument_list|,
@@ -1674,7 +1674,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -1847,7 +1847,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"alpha"
 argument_list|,

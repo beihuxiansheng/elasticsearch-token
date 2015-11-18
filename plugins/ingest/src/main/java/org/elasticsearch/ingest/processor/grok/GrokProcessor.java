@@ -218,7 +218,7 @@ name|field
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|matchField
 argument_list|,
@@ -272,7 +272,7 @@ parameter_list|)
 lambda|->
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|k
 argument_list|,

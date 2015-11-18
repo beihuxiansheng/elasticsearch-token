@@ -191,7 +191,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -317,7 +317,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -373,7 +373,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -429,7 +429,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -593,7 +593,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -692,7 +692,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -817,7 +817,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -917,7 +917,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -1017,7 +1017,7 @@ name|assertThat
 argument_list|(
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,

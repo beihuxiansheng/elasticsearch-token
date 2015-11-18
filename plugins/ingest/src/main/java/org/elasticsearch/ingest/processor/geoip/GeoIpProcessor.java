@@ -381,7 +381,7 @@ name|ip
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|sourceField
 argument_list|,
@@ -516,7 +516,7 @@ throw|;
 block|}
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|targetField
 argument_list|,

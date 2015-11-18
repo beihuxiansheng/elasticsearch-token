@@ -692,7 +692,7 @@ control|)
 block|{
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -738,7 +738,7 @@ if|if
 condition|(
 name|data
 operator|.
-name|containsProperty
+name|hasPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -752,7 +752,7 @@ name|oldVal
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -779,7 +779,7 @@ argument_list|)
 expr_stmt|;
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -920,7 +920,7 @@ name|oldVal
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -1025,7 +1025,7 @@ expr_stmt|;
 block|}
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -1069,7 +1069,7 @@ name|oldVal
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -1113,7 +1113,7 @@ condition|)
 block|{
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -1176,7 +1176,7 @@ name|oldVal
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|gsubExpression
 operator|.
@@ -1238,7 +1238,7 @@ argument_list|)
 decl_stmt|;
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|gsubExpression
 operator|.
@@ -1287,7 +1287,7 @@ name|oldVal
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -1344,7 +1344,7 @@ argument_list|)
 decl_stmt|;
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|entry
 operator|.
@@ -1430,7 +1430,7 @@ name|val
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|field
 argument_list|,
@@ -1468,7 +1468,7 @@ condition|)
 block|{
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|field
 argument_list|,
@@ -1527,7 +1527,7 @@ name|val
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|field
 argument_list|,
@@ -1565,7 +1565,7 @@ condition|)
 block|{
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|field
 argument_list|,
@@ -1628,7 +1628,7 @@ name|val
 init|=
 name|data
 operator|.
-name|getProperty
+name|getPropertyValue
 argument_list|(
 name|field
 argument_list|,
@@ -1666,7 +1666,7 @@ condition|)
 block|{
 name|data
 operator|.
-name|addField
+name|setPropertyValue
 argument_list|(
 name|field
 argument_list|,
