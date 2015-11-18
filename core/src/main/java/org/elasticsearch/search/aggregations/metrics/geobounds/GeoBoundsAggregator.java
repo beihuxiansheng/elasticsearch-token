@@ -1373,9 +1373,6 @@ argument_list|,
 name|InternalGeoBounds
 operator|.
 name|TYPE
-operator|.
-name|name
-argument_list|()
 argument_list|,
 name|input
 argument_list|)

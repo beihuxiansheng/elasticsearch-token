@@ -722,15 +722,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|String
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
 name|TYPE
-operator|.
-name|name
-argument_list|()
 return|;
 block|}
 annotation|@

@@ -1227,9 +1227,6 @@ argument_list|,
 name|InternalStats
 operator|.
 name|TYPE
-operator|.
-name|name
-argument_list|()
 argument_list|,
 name|ValuesSourceType
 operator|.

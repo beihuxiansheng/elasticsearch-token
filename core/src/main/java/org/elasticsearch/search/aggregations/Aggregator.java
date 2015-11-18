@@ -187,9 +187,10 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**          * @return an empty {@link AggregatorFactory} instance for this parser          *         that can be used for deserialization          */
-DECL|method|getFactoryPrototype
+DECL|method|getFactoryPrototypes
 name|AggregatorFactory
-name|getFactoryPrototype
+index|[]
+name|getFactoryPrototypes
 parameter_list|()
 function_decl|;
 block|}

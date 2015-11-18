@@ -24,20 +24,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -341,10 +327,11 @@ block|}
 comment|// NORELEASE implement this method when refactoring this aggregation
 annotation|@
 name|Override
-DECL|method|getFactoryPrototype
+DECL|method|getFactoryPrototypes
 specifier|public
 name|AggregatorFactory
-name|getFactoryPrototype
+index|[]
+name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return

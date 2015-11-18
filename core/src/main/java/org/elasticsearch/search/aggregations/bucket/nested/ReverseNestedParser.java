@@ -301,10 +301,11 @@ block|}
 comment|// NORELEASE implement this method when refactoring this aggregation
 annotation|@
 name|Override
-DECL|method|getFactoryPrototype
+DECL|method|getFactoryPrototypes
 specifier|public
 name|AggregatorFactory
-name|getFactoryPrototype
+index|[]
+name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return

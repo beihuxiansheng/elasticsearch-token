@@ -172,6 +172,22 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|InternalAggregation
+operator|.
+name|Type
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|pipeline
 operator|.
 name|PipelineAggregator
@@ -275,7 +291,7 @@ name|name
 decl_stmt|;
 DECL|field|type
 specifier|protected
-name|String
+name|Type
 name|type
 decl_stmt|;
 DECL|field|parent
@@ -315,7 +331,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|String
+name|Type
 name|type
 parameter_list|)
 block|{
@@ -364,7 +380,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows the {@link AggregatorFactory} to initialize any state prior to      * using it to create {@link Aggregator}s.      *       * @param context      *            the {@link AggregationContext} to use during initialization.      */
+comment|/**      * Allows the {@link AggregatorFactory} to initialize any state prior to      * using it to create {@link Aggregator}s.      *      * @param context      *            the {@link AggregationContext} to use during initialization.      */
 DECL|method|doInit
 specifier|protected
 name|void
@@ -727,6 +743,9 @@ operator|.
 name|field
 argument_list|(
 name|type
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|internalXContent
@@ -803,6 +822,25 @@ parameter_list|()
 block|{
 return|return
 name|type
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|toUtf8
+argument_list|()
+return|;
+block|}
+DECL|method|getType
+specifier|public
+name|String
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+operator|.
+name|name
+argument_list|()
 return|;
 block|}
 comment|/**      * Utility method. Given an {@link AggregatorFactory} that creates {@link Aggregator}s that only know how      * to collect bucket<tt>0</tt>, this returns an aggregator that can collect any bucket.      */

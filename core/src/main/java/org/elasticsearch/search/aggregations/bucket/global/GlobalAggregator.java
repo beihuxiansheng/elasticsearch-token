@@ -458,9 +458,6 @@ argument_list|,
 name|InternalGlobal
 operator|.
 name|TYPE
-operator|.
-name|name
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

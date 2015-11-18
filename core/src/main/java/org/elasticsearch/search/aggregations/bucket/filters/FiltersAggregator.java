@@ -1082,9 +1082,6 @@ argument_list|,
 name|InternalFilters
 operator|.
 name|TYPE
-operator|.
-name|name
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

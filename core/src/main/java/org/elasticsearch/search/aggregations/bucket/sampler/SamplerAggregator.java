@@ -1012,9 +1012,6 @@ argument_list|,
 name|InternalSampler
 operator|.
 name|TYPE
-operator|.
-name|name
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -1133,9 +1130,6 @@ argument_list|,
 name|InternalSampler
 operator|.
 name|TYPE
-operator|.
-name|name
-argument_list|()
 argument_list|,
 name|vsInput
 argument_list|)

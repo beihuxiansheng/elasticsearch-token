@@ -1439,15 +1439,12 @@ parameter_list|()
 block|{         }
 DECL|method|type
 specifier|public
-name|String
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
 name|TYPE
-operator|.
-name|name
-argument_list|()
 return|;
 block|}
 DECL|method|valueType
@@ -3256,6 +3253,9 @@ argument_list|(
 name|factory
 operator|.
 name|type
+argument_list|()
+operator|.
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;

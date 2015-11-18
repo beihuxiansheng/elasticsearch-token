@@ -1602,9 +1602,6 @@ argument_list|,
 name|InternalExtendedStats
 operator|.
 name|TYPE
-operator|.
-name|name
-argument_list|()
 argument_list|,
 name|ValuesSourceType
 operator|.
