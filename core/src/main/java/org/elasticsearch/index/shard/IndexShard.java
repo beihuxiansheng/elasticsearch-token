@@ -8481,6 +8481,11 @@ argument_list|()
 argument_list|,
 name|getIndexUUID
 argument_list|()
+argument_list|,
+name|newRouting
+operator|.
+name|allocationId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|logger
