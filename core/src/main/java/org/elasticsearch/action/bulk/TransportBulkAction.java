@@ -2218,7 +2218,7 @@ operator|.
 name|operationRouting
 argument_list|()
 operator|.
-name|deleteShards
+name|indexShards
 argument_list|(
 name|clusterState
 argument_list|,
@@ -2608,17 +2608,6 @@ argument_list|(
 name|bulkRequest
 argument_list|,
 name|shardId
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|,
 name|bulkRequest
 operator|.
