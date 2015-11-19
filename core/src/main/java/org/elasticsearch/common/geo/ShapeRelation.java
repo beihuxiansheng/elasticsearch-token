@@ -116,6 +116,12 @@ name|WITHIN
 argument_list|(
 literal|"within"
 argument_list|)
+block|,
+DECL|enum constant|CONTAINS
+name|CONTAINS
+argument_list|(
+literal|"contains"
+argument_list|)
 block|;
 DECL|field|relationName
 specifier|private

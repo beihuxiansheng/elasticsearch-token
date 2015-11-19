@@ -756,11 +756,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|Thread
-operator|.
-name|interrupted
-argument_list|()
-expr_stmt|;
+comment|// we intentionally do not want to restore the interruption flag, we're about to shutdown anyway
 block|}
 block|}
 annotation|@
@@ -2083,11 +2079,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|Thread
-operator|.
-name|interrupted
-argument_list|()
-expr_stmt|;
+comment|// we intentionally do not want to restore the interruption flag, we're about to shutdown anyway
 block|}
 finally|finally
 block|{

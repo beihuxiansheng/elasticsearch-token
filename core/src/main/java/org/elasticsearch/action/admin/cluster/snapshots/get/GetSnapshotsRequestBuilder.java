@@ -236,6 +236,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Makes the request ignore unavailable snapshots      *      * @param ignoreUnavailable true to ignore unavailable snapshots.      * @return this builder      */
+DECL|method|setIgnoreUnavailable
+specifier|public
+name|GetSnapshotsRequestBuilder
+name|setIgnoreUnavailable
+parameter_list|(
+name|boolean
+name|ignoreUnavailable
+parameter_list|)
+block|{
+name|request
+operator|.
+name|ignoreUnavailable
+argument_list|(
+name|ignoreUnavailable
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 
