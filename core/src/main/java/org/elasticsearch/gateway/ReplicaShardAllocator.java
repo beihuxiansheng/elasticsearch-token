@@ -1174,7 +1174,7 @@ name|shard
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMillis
+name|timeValueNanos
 argument_list|(
 name|delay
 argument_list|)
