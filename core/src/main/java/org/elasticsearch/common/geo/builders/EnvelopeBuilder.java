@@ -141,6 +141,16 @@ name|GeoShapeType
 operator|.
 name|ENVELOPE
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|EnvelopeBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|EnvelopeBuilder
+argument_list|()
+decl_stmt|;
 DECL|field|topLeft
 specifier|protected
 name|Coordinate

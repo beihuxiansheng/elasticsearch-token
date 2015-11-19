@@ -182,6 +182,16 @@ name|GeoShapeType
 operator|.
 name|MULTIPOINT
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|final
+specifier|static
+name|MultiPointBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|MultiPointBuilder
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|toXContent
@@ -451,7 +461,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
-name|ShapeBuilder
+name|MultiPointBuilder
 name|readFrom
 parameter_list|(
 name|StreamInput
