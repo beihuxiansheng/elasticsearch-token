@@ -1191,6 +1191,8 @@ operator|.
 name|reroute
 argument_list|(
 name|updatedState
+argument_list|,
+literal|"reroute"
 argument_list|)
 decl_stmt|;
 return|return
@@ -1304,6 +1306,8 @@ operator|.
 name|reroute
 argument_list|(
 name|currentState
+argument_list|,
+literal|"reroute"
 argument_list|)
 decl_stmt|;
 return|return

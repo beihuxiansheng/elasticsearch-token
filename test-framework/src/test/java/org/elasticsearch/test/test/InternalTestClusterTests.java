@@ -598,7 +598,7 @@ name|void
 name|testBeforeTest
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|long
 name|clusterSeed

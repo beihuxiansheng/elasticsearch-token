@@ -376,7 +376,7 @@ name|geo
 operator|.
 name|builders
 operator|.
-name|ShapeBuilder
+name|ShapeBuilders
 import|;
 end_import
 
@@ -968,7 +968,7 @@ block|{
 try|try
 block|{
 comment|// self intersection polygon
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1024,7 +1024,7 @@ name|e
 parameter_list|)
 block|{         }
 comment|// polygon with hole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1108,7 +1108,7 @@ expr_stmt|;
 try|try
 block|{
 comment|// polygon with overlapping hole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1204,7 +1204,7 @@ block|{         }
 try|try
 block|{
 comment|// polygon with intersection holes
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1340,7 +1340,7 @@ block|{         }
 try|try
 block|{
 comment|// Common line in polygon
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1436,7 +1436,7 @@ comment|//                .close().build();
 comment|//            fail("Polygon intersection not detected";
 comment|//        } catch (InvalidShapeException e) {}
 comment|// Multipolygon: polygon with hole and polygon within the whole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPolygon
 argument_list|()
@@ -1725,7 +1725,7 @@ comment|// the second polygon of size 4x4 equidistant from all sites
 name|MultiPolygonBuilder
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPolygon
 argument_list|()
@@ -1931,7 +1931,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -1988,7 +1988,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2038,7 +2038,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2095,7 +2095,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2157,7 +2157,7 @@ name|geoDisjointQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2204,7 +2204,7 @@ name|geoDisjointQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2243,7 +2243,7 @@ comment|// Create a polygon that fills the empty area of the polygon defined abo
 name|PolygonBuilder
 name|inverse
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2406,7 +2406,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2444,7 +2444,7 @@ comment|// Create Polygon with hole and common edge
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2530,7 +2530,7 @@ block|{
 comment|// Polygon WithIn Polygon
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2613,7 +2613,7 @@ block|}
 comment|// Create a polygon crossing longitude 180.
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2716,7 +2716,7 @@ expr_stmt|;
 comment|// Create a polygon crossing longitude 180 with hole.
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2874,7 +2874,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2921,7 +2921,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2969,7 +2969,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -3016,7 +3016,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(

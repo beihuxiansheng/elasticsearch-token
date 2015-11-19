@@ -108,7 +108,7 @@ name|geo
 operator|.
 name|builders
 operator|.
-name|ShapeBuilder
+name|ShapeBuilders
 import|;
 end_import
 
@@ -1382,7 +1382,7 @@ comment|// Let's add a Dummy Shape
 name|Point
 name|shape
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(

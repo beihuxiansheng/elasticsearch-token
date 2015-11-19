@@ -250,11 +250,11 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|field|registeredNextDelaySetting
+DECL|field|minDelaySettingAtLastScheduling
 specifier|private
 specifier|volatile
 name|long
-name|registeredNextDelaySetting
+name|minDelaySettingAtLastScheduling
 init|=
 name|Long
 operator|.
@@ -265,14 +265,6 @@ specifier|private
 specifier|volatile
 name|ScheduledFuture
 name|registeredNextDelayFuture
-decl_stmt|;
-DECL|field|unassignedShardsAllocatedTimestamp
-specifier|private
-specifier|volatile
-name|long
-name|unassignedShardsAllocatedTimestamp
-init|=
-literal|0
 decl_stmt|;
 annotation|@
 name|Inject
@@ -383,23 +375,6 @@ operator|.
 name|allocationService
 return|;
 block|}
-comment|/**      * Update the last time the allocator tried to assign unassigned shards      *      * This is used so that both the GatewayAllocator and RoutingService use a      * consistent timestamp for comparing which shards have been delayed to      * avoid a race condition where GatewayAllocator thinks the shard should      * be delayed and the RoutingService thinks it has already passed the delay      * and that the GatewayAllocator has/will handle it.      */
-DECL|method|setUnassignedShardsAllocatedTimestamp
-specifier|public
-name|void
-name|setUnassignedShardsAllocatedTimestamp
-parameter_list|(
-name|long
-name|timeInMillis
-parameter_list|)
-block|{
-name|this
-operator|.
-name|unassignedShardsAllocatedTimestamp
-operator|=
-name|timeInMillis
-expr_stmt|;
-block|}
 comment|/**      * Initiates a reroute.      */
 DECL|method|reroute
 specifier|public
@@ -442,11 +417,11 @@ name|localNodeMaster
 argument_list|()
 condition|)
 block|{
-comment|// figure out when the next unassigned allocation need to happen from now. If this is larger or equal
-comment|// then the last time we checked and scheduled, we are guaranteed to have a reroute until then, so no need
-comment|// to schedule again
+comment|// Figure out if an existing scheduled reroute is good enough or whether we need to cancel and reschedule.
+comment|// If the minimum of the currently relevant delay settings is larger than something we scheduled in the past,
+comment|// we are guaranteed that the planned schedule will happen before any of the current shard delays are expired.
 name|long
-name|nextDelaySetting
+name|minDelaySetting
 init|=
 name|UnassignedInfo
 operator|.
@@ -462,13 +437,42 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|nextDelaySetting
-operator|>
+name|minDelaySetting
+operator|<=
 literal|0
-operator|&&
-name|nextDelaySetting
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"no need to schedule reroute - no delayed unassigned shards, minDelaySetting [{}], scheduled [{}]"
+argument_list|,
+name|minDelaySetting
+argument_list|,
+name|minDelaySettingAtLastScheduling
+argument_list|)
+expr_stmt|;
+name|minDelaySettingAtLastScheduling
+operator|=
+name|Long
+operator|.
+name|MAX_VALUE
+expr_stmt|;
+name|FutureUtils
+operator|.
+name|cancel
+argument_list|(
+name|registeredNextDelayFuture
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|minDelaySetting
 operator|<
-name|registeredNextDelaySetting
+name|minDelaySettingAtLastScheduling
 condition|)
 block|{
 name|FutureUtils
@@ -478,32 +482,21 @@ argument_list|(
 name|registeredNextDelayFuture
 argument_list|)
 expr_stmt|;
-name|registeredNextDelaySetting
+name|minDelaySettingAtLastScheduling
 operator|=
-name|nextDelaySetting
+name|minDelaySetting
 expr_stmt|;
-comment|// We use System.currentTimeMillis here because we want the
-comment|// next delay from the "now" perspective, rather than the
-comment|// delay from the last time the GatewayAllocator tried to
-comment|// assign/delay the shard
 name|TimeValue
 name|nextDelay
 init|=
 name|TimeValue
 operator|.
-name|timeValueMillis
+name|timeValueNanos
 argument_list|(
 name|UnassignedInfo
 operator|.
 name|findNextDelayedAllocationIn
 argument_list|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-argument_list|,
-name|settings
-argument_list|,
 name|event
 operator|.
 name|state
@@ -511,37 +504,35 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|int
-name|unassignedDelayedShards
-init|=
-name|UnassignedInfo
+assert|assert
+name|nextDelay
 operator|.
-name|getNumberOfDelayedUnassigned
-argument_list|(
-name|unassignedShardsAllocatedTimestamp
-argument_list|,
-name|settings
-argument_list|,
-name|event
-operator|.
-name|state
+name|nanos
 argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|unassignedDelayedShards
 operator|>
 literal|0
-condition|)
-block|{
+operator|:
+literal|"next delay must be non 0 as minDelaySetting is ["
+operator|+
+name|minDelaySetting
+operator|+
+literal|"]"
+assert|;
 name|logger
 operator|.
 name|info
 argument_list|(
 literal|"delaying allocation for [{}] unassigned shards, next check in [{}]"
 argument_list|,
-name|unassignedDelayedShards
+name|UnassignedInfo
+operator|.
+name|getNumberOfDelayedUnassigned
+argument_list|(
+name|event
+operator|.
+name|state
+argument_list|()
+argument_list|)
 argument_list|,
 name|nextDelay
 argument_list|)
@@ -573,7 +564,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|registeredNextDelaySetting
+name|minDelaySettingAtLastScheduling
 operator|=
 name|Long
 operator|.
@@ -604,7 +595,7 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
-name|registeredNextDelaySetting
+name|minDelaySettingAtLastScheduling
 operator|=
 name|Long
 operator|.
@@ -615,33 +606,32 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 else|else
 block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"no need to schedule reroute due to delayed unassigned, next_delay_setting [{}], registered [{}]"
+literal|"no need to schedule reroute - current schedule reroute is enough. minDelaySetting [{}], scheduled [{}]"
 argument_list|,
-name|nextDelaySetting
+name|minDelaySetting
 argument_list|,
-name|registeredNextDelaySetting
+name|minDelaySettingAtLastScheduling
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
 comment|// visible for testing
-DECL|method|getRegisteredNextDelaySetting
+DECL|method|getMinDelaySettingAtLastScheduling
 name|long
-name|getRegisteredNextDelaySetting
+name|getMinDelaySettingAtLastScheduling
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|registeredNextDelaySetting
+name|minDelaySettingAtLastScheduling
 return|;
 block|}
 comment|// visible for testing
@@ -747,6 +737,8 @@ operator|.
 name|reroute
 argument_list|(
 name|currentState
+argument_list|,
+name|reason
 argument_list|)
 decl_stmt|;
 if|if

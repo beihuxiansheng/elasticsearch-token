@@ -165,25 +165,14 @@ specifier|final
 name|Validator
 name|ALLOCATION_ALLOW_REBALANCE_VALIDATOR
 init|=
-operator|new
-name|Validator
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|String
-name|validate
 parameter_list|(
-name|String
 name|setting
 parameter_list|,
-name|String
 name|value
 parameter_list|,
-name|ClusterState
 name|clusterState
 parameter_list|)
+lambda|->
 block|{
 try|try
 block|{
@@ -211,7 +200,6 @@ name|setting
 operator|+
 literal|" must be one of: [always, indices_primaries_active, indices_all_active]"
 return|;
-block|}
 block|}
 block|}
 decl_stmt|;

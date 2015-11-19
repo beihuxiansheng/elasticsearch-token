@@ -3497,7 +3497,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|reroute
-specifier|public
+specifier|protected
 name|RoutingAllocation
 operator|.
 name|Result
@@ -3505,6 +3505,9 @@ name|reroute
 parameter_list|(
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|String
+name|reason
 parameter_list|,
 name|boolean
 name|debug

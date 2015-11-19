@@ -318,6 +318,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|geo
+operator|.
+name|GeoShapeQueryTests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -963,7 +977,7 @@ literal|"Unable to create a valid random shape with provided seed"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Creates a random shape useful for randomized testing, NOTE: exercise caution when using this to build random GeometryCollections      * as creating a large random number of random shapes can result in massive resource consumption      * see: {@link org.elasticsearch.search.geo.GeoShapeIntegrationIT#testShapeFilterWithRandomGeoCollection}      *      * The following options are included      * @param nearPoint Create a shape near a provided point      * @param within Create a shape within the provided rectangle (note: if not null this will override the provided point)      * @param st Create a random shape of the provided type      * @return the ShapeBuilder for a random shape      */
+comment|/**      * Creates a random shape useful for randomized testing, NOTE: exercise caution when using this to build random GeometryCollections      * as creating a large random number of random shapes can result in massive resource consumption      * see: {@link GeoShapeQueryTests#testShapeFilterWithRandomGeoCollection}      *      * The following options are included      * @param nearPoint Create a shape near a provided point      * @param within Create a shape within the provided rectangle (note: if not null this will override the provided point)      * @param st Create a random shape of the provided type      * @return the ShapeBuilder for a random shape      */
 DECL|method|createShape
 specifier|private
 specifier|static

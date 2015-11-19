@@ -974,6 +974,15 @@ decl_stmt|;
 if|if
 condition|(
 name|indexConstraintFieldStats
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+name|indexConstraintFieldStats
 operator|.
 name|match
 argument_list|(

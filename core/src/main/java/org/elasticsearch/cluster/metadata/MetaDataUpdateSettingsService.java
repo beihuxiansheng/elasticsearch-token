@@ -2105,6 +2105,8 @@ operator|.
 name|reroute
 argument_list|(
 name|updatedState
+argument_list|,
+literal|"settings update"
 argument_list|)
 decl_stmt|;
 name|updatedState

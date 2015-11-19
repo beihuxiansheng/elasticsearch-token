@@ -281,7 +281,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Basic class for building GeoJSON shapes like Polygons, Linestrings, etc   */
+comment|/**  * Basic class for building GeoJSON shapes like Polygons, Linestrings, etc  */
 end_comment
 
 begin_class
@@ -510,244 +510,7 @@ return|return
 name|jtsGeometry
 return|;
 block|}
-comment|/**      * Create a new point      *       * @param longitude longitude of the point      * @param latitude latitude of the point      * @return a new {@link PointBuilder}      */
-DECL|method|newPoint
-specifier|public
-specifier|static
-name|PointBuilder
-name|newPoint
-parameter_list|(
-name|double
-name|longitude
-parameter_list|,
-name|double
-name|latitude
-parameter_list|)
-block|{
-return|return
-name|newPoint
-argument_list|(
-operator|new
-name|Coordinate
-argument_list|(
-name|longitude
-argument_list|,
-name|latitude
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Create a new {@link PointBuilder} from a {@link Coordinate}      * @param coordinate coordinate defining the position of the point      * @return a new {@link PointBuilder}      */
-DECL|method|newPoint
-specifier|public
-specifier|static
-name|PointBuilder
-name|newPoint
-parameter_list|(
-name|Coordinate
-name|coordinate
-parameter_list|)
-block|{
-return|return
-operator|new
-name|PointBuilder
-argument_list|()
-operator|.
-name|coordinate
-argument_list|(
-name|coordinate
-argument_list|)
-return|;
-block|}
-comment|/**      * Create a new set of points      * @return new {@link MultiPointBuilder}      */
-DECL|method|newMultiPoint
-specifier|public
-specifier|static
-name|MultiPointBuilder
-name|newMultiPoint
-parameter_list|()
-block|{
-return|return
-operator|new
-name|MultiPointBuilder
-argument_list|()
-return|;
-block|}
-comment|/**      * Create a new lineString      * @return a new {@link LineStringBuilder}      */
-DECL|method|newLineString
-specifier|public
-specifier|static
-name|LineStringBuilder
-name|newLineString
-parameter_list|()
-block|{
-return|return
-operator|new
-name|LineStringBuilder
-argument_list|()
-return|;
-block|}
-comment|/**      * Create a new Collection of lineStrings      * @return a new {@link MultiLineStringBuilder}      */
-DECL|method|newMultiLinestring
-specifier|public
-specifier|static
-name|MultiLineStringBuilder
-name|newMultiLinestring
-parameter_list|()
-block|{
-return|return
-operator|new
-name|MultiLineStringBuilder
-argument_list|()
-return|;
-block|}
-comment|/**      * Create a new Polygon      * @return a new {@link PointBuilder}      */
-DECL|method|newPolygon
-specifier|public
-specifier|static
-name|PolygonBuilder
-name|newPolygon
-parameter_list|()
-block|{
-return|return
-operator|new
-name|PolygonBuilder
-argument_list|()
-return|;
-block|}
-comment|/**      * Create a new Polygon      * @return a new {@link PointBuilder}      */
-DECL|method|newPolygon
-specifier|public
-specifier|static
-name|PolygonBuilder
-name|newPolygon
-parameter_list|(
-name|Orientation
-name|orientation
-parameter_list|)
-block|{
-return|return
-operator|new
-name|PolygonBuilder
-argument_list|(
-name|orientation
-argument_list|)
-return|;
-block|}
-comment|/**      * Create a new Collection of polygons      * @return a new {@link MultiPolygonBuilder}      */
-DECL|method|newMultiPolygon
-specifier|public
-specifier|static
-name|MultiPolygonBuilder
-name|newMultiPolygon
-parameter_list|()
-block|{
-return|return
-operator|new
-name|MultiPolygonBuilder
-argument_list|()
-return|;
-block|}
-comment|/**      * Create a new Collection of polygons      * @return a new {@link MultiPolygonBuilder}      */
-DECL|method|newMultiPolygon
-specifier|public
-specifier|static
-name|MultiPolygonBuilder
-name|newMultiPolygon
-parameter_list|(
-name|Orientation
-name|orientation
-parameter_list|)
-block|{
-return|return
-operator|new
-name|MultiPolygonBuilder
-argument_list|(
-name|orientation
-argument_list|)
-return|;
-block|}
-comment|/**      * Create a new GeometryCollection      * @return a new {@link GeometryCollectionBuilder}      */
-DECL|method|newGeometryCollection
-specifier|public
-specifier|static
-name|GeometryCollectionBuilder
-name|newGeometryCollection
-parameter_list|()
-block|{
-return|return
-operator|new
-name|GeometryCollectionBuilder
-argument_list|()
-return|;
-block|}
-comment|/**      * Create a new GeometryCollection      * @return a new {@link GeometryCollectionBuilder}      */
-DECL|method|newGeometryCollection
-specifier|public
-specifier|static
-name|GeometryCollectionBuilder
-name|newGeometryCollection
-parameter_list|(
-name|Orientation
-name|orientation
-parameter_list|)
-block|{
-return|return
-operator|new
-name|GeometryCollectionBuilder
-argument_list|(
-name|orientation
-argument_list|)
-return|;
-block|}
-comment|/**      * create a new Circle      * @return a new {@link CircleBuilder}      */
-DECL|method|newCircleBuilder
-specifier|public
-specifier|static
-name|CircleBuilder
-name|newCircleBuilder
-parameter_list|()
-block|{
-return|return
-operator|new
-name|CircleBuilder
-argument_list|()
-return|;
-block|}
-comment|/**      * create a new rectangle      * @return a new {@link EnvelopeBuilder}      */
-DECL|method|newEnvelope
-specifier|public
-specifier|static
-name|EnvelopeBuilder
-name|newEnvelope
-parameter_list|()
-block|{
-return|return
-operator|new
-name|EnvelopeBuilder
-argument_list|()
-return|;
-block|}
-comment|/**      * create a new rectangle      * @return a new {@link EnvelopeBuilder}      */
-DECL|method|newEnvelope
-specifier|public
-specifier|static
-name|EnvelopeBuilder
-name|newEnvelope
-parameter_list|(
-name|Orientation
-name|orientation
-parameter_list|)
-block|{
-return|return
-operator|new
-name|EnvelopeBuilder
-argument_list|(
-name|orientation
-argument_list|)
-return|;
-block|}
-comment|/**      * Create a new Shape from this builder. Since calling this method could change the      * defined shape. (by inserting new coordinates or change the position of points)      * the builder looses its validity. So this method should only be called once on a builder        * @return new {@link Shape} defined by the builder      */
+comment|/**      * Create a new Shape from this builder. Since calling this method could change the      * defined shape. (by inserting new coordinates or change the position of points)      * the builder looses its validity. So this method should only be called once on a builder      * @return new {@link Shape} defined by the builder      */
 DECL|method|build
 specifier|public
 specifier|abstract
@@ -755,7 +518,7 @@ name|Shape
 name|build
 parameter_list|()
 function_decl|;
-comment|/**      * Recursive method which parses the arrays of coordinates used to define      * Shapes      *       * @param parser      *            Parser that will be read from      * @return CoordinateNode representing the start of the coordinate tree      * @throws IOException      *             Thrown if an error occurs while reading from the      *             XContentParser      */
+comment|/**      * Recursive method which parses the arrays of coordinates used to define      * Shapes      *      * @param parser      *            Parser that will be read from      * @return CoordinateNode representing the start of the coordinate tree      * @throws IOException      *             Thrown if an error occurs while reading from the      *             XContentParser      */
 DECL|method|parseCoordinates
 specifier|private
 specifier|static
@@ -1149,7 +912,7 @@ name|GeoShapeType
 name|type
 parameter_list|()
 function_decl|;
-comment|/**      * Calculate the intersection of a line segment and a vertical dateline.      *       * @param p1      *            start-point of the line segment      * @param p2      *            end-point of the line segment      * @param dateline      *            x-coordinate of the vertical dateline      * @return position of the intersection in the open range (0..1] if the line      *         segment intersects with the line segment. Otherwise this method      *         returns {@link Double#NaN}      */
+comment|/**      * Calculate the intersection of a line segment and a vertical dateline.      *      * @param p1      *            start-point of the line segment      * @param p2      *            end-point of the line segment      * @param dateline      *            x-coordinate of the vertical dateline      * @return position of the intersection in the open range (0..1] if the line      *         segment intersects with the line segment. Otherwise this method      *         returns {@link Double#NaN}      */
 DECL|method|intersection
 specifier|protected
 specifier|static
@@ -1261,7 +1024,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**      * Calculate all intersections of line segments and a vertical line. The      * Array of edges will be ordered asc by the y-coordinate of the      * intersections of edges.      *       * @param dateline      *            x-coordinate of the dateline      * @param edges      *            set of edges that may intersect with the dateline      * @return number of intersecting edges      */
+comment|/**      * Calculate all intersections of line segments and a vertical line. The      * Array of edges will be ordered asc by the y-coordinate of the      * intersections of edges.      *      * @param dateline      *            x-coordinate of the dateline      * @param edges      *            set of edges that may intersect with the dateline      * @return number of intersecting edges      */
 DECL|method|intersections
 specifier|protected
 specifier|static
@@ -1436,7 +1199,7 @@ name|CoordinateNode
 argument_list|>
 name|children
 decl_stmt|;
-comment|/**          * Creates a new leaf CoordinateNode          *           * @param coordinate          *            Coordinate for the Node          */
+comment|/**          * Creates a new leaf CoordinateNode          *          * @param coordinate          *            Coordinate for the Node          */
 DECL|method|CoordinateNode
 specifier|protected
 name|CoordinateNode
@@ -1458,7 +1221,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**          * Creates a new parent CoordinateNode          *           * @param children          *            Children of the Node          */
+comment|/**          * Creates a new parent CoordinateNode          *          * @param children          *            Children of the Node          */
 DECL|method|CoordinateNode
 specifier|protected
 name|CoordinateNode
@@ -1590,7 +1353,7 @@ name|builder
 return|;
 block|}
 block|}
-comment|/**      * This helper class implements a linked list for {@link Coordinate}. It contains      * fields for a dateline intersection and component id       */
+comment|/**      * This helper class implements a linked list for {@link Coordinate}. It contains      * fields for a dateline intersection and component id      */
 DECL|class|Edge
 specifier|protected
 specifier|static
@@ -2080,7 +1843,7 @@ name|maxY
 block|}
 return|;
 block|}
-comment|/**          * Concatenate a set of points to a polygon          *           * @param component          *            component id of the polygon          * @param direction          *            direction of the ring          * @param points          *            list of points to concatenate          * @param pointOffset          *            index of the first point          * @param edges          *            Array of edges to write the result to          * @param edgeOffset          *            index of the first edge in the result          * @param length          *            number of points to use          * @return the edges creates          */
+comment|/**          * Concatenate a set of points to a polygon          *          * @param component          *            component id of the polygon          * @param direction          *            direction of the ring          * @param points          *            list of points to concatenate          * @param pointOffset          *            index of the first point          * @param edges          *            Array of edges to write the result to          * @param edgeOffset          *            index of the first edge in the result          * @param length          *            number of points to use          * @return the edges creates          */
 DECL|method|concat
 specifier|private
 specifier|static
@@ -2365,7 +2128,7 @@ return|return
 name|edges
 return|;
 block|}
-comment|/**          * Create a connected list of a list of coordinates          *           * @param points          *            array of point          * @param offset          *            index of the first point          * @param length          *            number of points          * @return Array of edges          */
+comment|/**          * Create a connected list of a list of coordinates          *          * @param points          *            array of point          * @param offset          *            index of the first point          * @param length          *            number of points          * @return Array of edges          */
 DECL|method|ring
 specifier|protected
 specifier|static
@@ -2624,7 +2387,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**          * Transforms coordinates in the eastern hemisphere (-180:0) to a (180:360) range           */
+comment|/**          * Transforms coordinates in the eastern hemisphere (-180:0) to a (180:360) range          */
 DECL|method|translate
 specifier|protected
 specifier|static
@@ -2664,7 +2427,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**          * Set the intersection of this line segment to the given position          *           * @param position          *            position of the intersection [0..1]          * @return the {@link Coordinate} of the intersection          */
+comment|/**          * Set the intersection of this line segment to the given position          *          * @param position          *            position of the intersection [0..1]          * @return the {@link Coordinate} of the intersection          */
 DECL|method|intersection
 specifier|protected
 name|Coordinate
@@ -3725,6 +3488,8 @@ name|node
 argument_list|)
 expr_stmt|;
 return|return
+name|ShapeBuilders
+operator|.
 name|newPoint
 argument_list|(
 name|node
@@ -3747,6 +3512,8 @@ name|radius
 parameter_list|)
 block|{
 return|return
+name|ShapeBuilders
+operator|.
 name|newCircleBuilder
 argument_list|()
 operator|.
@@ -3938,6 +3705,8 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|ShapeBuilders
+operator|.
 name|newEnvelope
 argument_list|(
 name|orientation
@@ -4116,6 +3885,8 @@ block|}
 name|LineStringBuilder
 name|line
 init|=
+name|ShapeBuilders
+operator|.
 name|newLineString
 argument_list|()
 decl_stmt|;
@@ -4156,6 +3927,8 @@ block|{
 name|MultiLineStringBuilder
 name|multiline
 init|=
+name|ShapeBuilders
+operator|.
 name|newMultiLinestring
 argument_list|()
 decl_stmt|;
@@ -4491,6 +4264,8 @@ block|{
 name|MultiPolygonBuilder
 name|polygons
 init|=
+name|ShapeBuilders
+operator|.
 name|newMultiPolygon
 argument_list|(
 name|orientation
@@ -4576,6 +4351,8 @@ decl_stmt|;
 name|GeometryCollectionBuilder
 name|geometryCollection
 init|=
+name|ShapeBuilders
+operator|.
 name|newGeometryCollection
 argument_list|(
 operator|(

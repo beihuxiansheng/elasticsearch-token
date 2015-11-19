@@ -1163,9 +1163,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|Template
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}

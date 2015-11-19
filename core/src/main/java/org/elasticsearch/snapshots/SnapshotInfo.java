@@ -1454,9 +1454,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|SnapshotInfo
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 return|;
 block|}

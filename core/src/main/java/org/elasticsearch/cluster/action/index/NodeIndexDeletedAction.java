@@ -683,6 +683,22 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] failed to lock all shards for index - interrupted"
+argument_list|,
+name|index
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|interface|Listener
 specifier|public

@@ -24,15 +24,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|cluster
 operator|.
-name|health
-operator|.
-name|ClusterHealthStatus
+name|ClusterState
 import|;
 end_import
 
@@ -44,7 +38,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterState
+name|health
+operator|.
+name|ClusterHealthStatus
 import|;
 end_import
 
