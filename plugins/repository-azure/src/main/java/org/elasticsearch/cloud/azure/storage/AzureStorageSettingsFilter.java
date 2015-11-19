@@ -74,26 +74,6 @@ name|SettingsFilter
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|azure
-operator|.
-name|storage
-operator|.
-name|AzureStorageService
-operator|.
-name|Storage
-operator|.
-name|*
-import|;
-end_import
-
 begin_class
 DECL|class|AzureStorageSettingsFilter
 specifier|public
@@ -125,14 +105,7 @@ name|settingsFilter
 operator|.
 name|addFilter
 argument_list|(
-name|ACCOUNT
-argument_list|)
-expr_stmt|;
-name|settingsFilter
-operator|.
-name|addFilter
-argument_list|(
-name|KEY
+literal|"cloud.azure.storage.*"
 argument_list|)
 expr_stmt|;
 block|}
