@@ -2146,9 +2146,6 @@ name|boolean
 name|handedness
 parameter_list|,
 name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
 name|shell
 parameter_list|,
 name|Coordinate

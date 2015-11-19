@@ -232,9 +232,6 @@ name|GeometryCollectionBuilder
 name|line
 parameter_list|(
 name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
 name|line
 parameter_list|)
 block|{
