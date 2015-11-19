@@ -773,6 +773,29 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Parse and validate the user's S3 Storage Class setting
+name|String
+name|storageClass
+init|=
+name|repositorySettings
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"storage_class"
+argument_list|,
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"repositories.s3.storage_class"
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|String
 name|cannedACL
 init|=
@@ -799,7 +822,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}], max_retries [{}], cannedACL [{}]"
+literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}], max_retries [{}], cannedACL [{}], storageClass [{}]"
 argument_list|,
 name|bucket
 argument_list|,
@@ -818,6 +841,8 @@ argument_list|,
 name|maxRetries
 argument_list|,
 name|cannedACL
+argument_list|,
+name|storageClass
 argument_list|)
 expr_stmt|;
 name|blobStore
@@ -871,6 +896,8 @@ argument_list|,
 name|maxRetries
 argument_list|,
 name|cannedACL
+argument_list|,
+name|storageClass
 argument_list|)
 expr_stmt|;
 name|String
