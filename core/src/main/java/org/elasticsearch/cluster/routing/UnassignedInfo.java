@@ -348,6 +348,7 @@ decl_stmt|;
 comment|// in nanoseconds, used to calculate delay for delayed shard allocation
 DECL|field|lastComputedLeftDelayNanos
 specifier|private
+specifier|volatile
 name|long
 name|lastComputedLeftDelayNanos
 init|=
