@@ -763,25 +763,6 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-comment|// Take a snapshot of the current time and tell the RoutingService
-comment|// about it, so it will use a consistent timestamp for delays
-name|long
-name|lastAllocateUnassignedRun
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
-name|this
-operator|.
-name|routingService
-operator|.
-name|setUnassignedShardsAllocatedTimestamp
-argument_list|(
-name|lastAllocateUnassignedRun
-argument_list|)
-expr_stmt|;
 name|boolean
 name|changed
 init|=
@@ -838,8 +819,6 @@ operator|.
 name|allocateUnassigned
 argument_list|(
 name|allocation
-argument_list|,
-name|lastAllocateUnassignedRun
 argument_list|)
 expr_stmt|;
 return|return
