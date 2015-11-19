@@ -162,22 +162,6 @@ name|Collections
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|azure
-operator|.
-name|AzureRepositoryModule
-operator|.
-name|isSnapshotReady
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -293,16 +277,17 @@ name|RepositoriesModule
 name|module
 parameter_list|)
 block|{
-if|if
-condition|(
-name|isSnapshotReady
-argument_list|(
-name|settings
-argument_list|,
 name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"registering repository type [{}]"
+argument_list|,
+name|AzureRepository
+operator|.
+name|TYPE
 argument_list|)
-condition|)
-block|{
+expr_stmt|;
 name|module
 operator|.
 name|registerRepository
@@ -320,7 +305,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

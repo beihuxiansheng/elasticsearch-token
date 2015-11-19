@@ -351,9 +351,6 @@ block|{
 return|return
 name|blobStore
 operator|.
-name|client
-argument_list|()
-operator|.
 name|blobExists
 argument_list|(
 name|blobStore
@@ -417,9 +414,6 @@ try|try
 block|{
 return|return
 name|blobStore
-operator|.
-name|client
-argument_list|()
 operator|.
 name|getInputStream
 argument_list|(
@@ -583,9 +577,6 @@ name|AzureOutputStream
 argument_list|(
 name|blobStore
 operator|.
-name|client
-argument_list|()
-operator|.
 name|getOutputStream
 argument_list|(
 name|blobStore
@@ -689,9 +680,6 @@ try|try
 block|{
 name|blobStore
 operator|.
-name|client
-argument_list|()
-operator|.
 name|deleteBlob
 argument_list|(
 name|blobStore
@@ -766,9 +754,6 @@ try|try
 block|{
 return|return
 name|blobStore
-operator|.
-name|client
-argument_list|()
 operator|.
 name|listBlobsByPrefix
 argument_list|(
@@ -868,9 +853,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|blobStore
-operator|.
-name|client
-argument_list|()
 operator|.
 name|moveBlob
 argument_list|(

@@ -570,6 +570,9 @@ name|content
 parameter_list|,
 name|OutputStream
 name|bos
+parameter_list|,
+name|XContentType
+name|contentType
 parameter_list|)
 throws|throws
 name|IOException

@@ -234,9 +234,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|AllCircuitBreakerStats
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 decl_stmt|;
 return|return

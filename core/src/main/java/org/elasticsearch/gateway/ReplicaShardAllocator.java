@@ -673,30 +673,14 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-return|return
-name|allocateUnassigned
-argument_list|(
-name|allocation
-argument_list|,
+name|long
+name|nanoTimeNow
+init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
-argument_list|)
-return|;
-block|}
-DECL|method|allocateUnassigned
-specifier|public
-name|boolean
-name|allocateUnassigned
-parameter_list|(
-name|RoutingAllocation
-name|allocation
-parameter_list|,
-name|long
-name|allocateUnassignedTimestapm
-parameter_list|)
-block|{
+decl_stmt|;
 name|boolean
 name|changed
 init|=
@@ -1083,11 +1067,49 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// if we didn't manage to find *any* data (regardless of matching sizes), check if the allocation
-comment|// of the replica shard needs to be delayed, and if so, add it to the ignore unassigned list
-comment|// note: we only care about replica in delayed allocation, since if we have an unassigned primary it
-comment|//       will anyhow wait to find an existing copy of the shard to be allocated
-comment|// note: the other side of the equation is scheduling a reroute in a timely manner, which happens in the RoutingService
+comment|// if we didn't manage to find *any* data (regardless of matching sizes), check if the allocation of the replica shard needs to be delayed
+name|changed
+operator||=
+name|ignoreUnassignedIfDelayed
+argument_list|(
+name|nanoTimeNow
+argument_list|,
+name|allocation
+argument_list|,
+name|unassignedIterator
+argument_list|,
+name|shard
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+return|return
+name|changed
+return|;
+block|}
+comment|/**      * Check if the allocation of the replica is to be delayed. Compute the delay and if it is delayed, add it to the ignore unassigned list      * Note: we only care about replica in delayed allocation, since if we have an unassigned primary it      *       will anyhow wait to find an existing copy of the shard to be allocated      * Note: the other side of the equation is scheduling a reroute in a timely manner, which happens in the RoutingService      *      * PUBLIC FOR TESTS!      *      * @param timeNowNanos Timestamp in nanoseconds representing "now"      * @param allocation the routing allocation      * @param unassignedIterator iterator over unassigned shards      * @param shard the shard which might be delayed      * @return true iff allocation is delayed for this shard      */
+DECL|method|ignoreUnassignedIfDelayed
+specifier|public
+name|boolean
+name|ignoreUnassignedIfDelayed
+parameter_list|(
+name|long
+name|timeNowNanos
+parameter_list|,
+name|RoutingAllocation
+name|allocation
+parameter_list|,
+name|RoutingNodes
+operator|.
+name|UnassignedShards
+operator|.
+name|UnassignedIterator
+name|unassignedIterator
+parameter_list|,
+name|ShardRouting
+name|shard
+parameter_list|)
+block|{
 name|IndexMetaData
 name|indexMetaData
 init|=
@@ -1104,6 +1126,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// calculate delay and store it in UnassignedInfo to be used by RoutingService
 name|long
 name|delay
 init|=
@@ -1112,9 +1135,9 @@ operator|.
 name|unassignedInfo
 argument_list|()
 operator|.
-name|getDelayAllocationExpirationIn
+name|updateDelay
 argument_list|(
-name|allocateUnassignedTimestapm
+name|timeNowNanos
 argument_list|,
 name|settings
 argument_list|,
@@ -1151,27 +1174,24 @@ name|shard
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMillis
+name|timeValueNanos
 argument_list|(
 name|delay
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/**                      * mark it as changed, since we want to kick a publishing to schedule future allocation,                      * see {@link org.elasticsearch.cluster.routing.RoutingService#clusterChanged(ClusterChangedEvent)}).                      */
-name|changed
-operator|=
-literal|true
-expr_stmt|;
+comment|/**              * mark it as changed, since we want to kick a publishing to schedule future allocation,              * see {@link org.elasticsearch.cluster.routing.RoutingService#clusterChanged(ClusterChangedEvent)}).              */
 name|unassignedIterator
 operator|.
 name|removeAndIgnore
 argument_list|()
 expr_stmt|;
-block|}
-block|}
+return|return
+literal|true
+return|;
 block|}
 return|return
-name|changed
+literal|false
 return|;
 block|}
 comment|/**      * Can the shard be allocated on at least one node based on the allocation deciders.      */

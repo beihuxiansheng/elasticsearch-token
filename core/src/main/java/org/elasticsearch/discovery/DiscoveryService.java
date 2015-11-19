@@ -190,6 +190,15 @@ name|SETTING_INITIAL_STATE_TIMEOUT
 init|=
 literal|"discovery.initial_state_timeout"
 decl_stmt|;
+DECL|field|SETTING_DISCOVERY_SEED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SETTING_DISCOVERY_SEED
+init|=
+literal|"discovery.id.seed"
+decl_stmt|;
 DECL|class|InitialStateListener
 specifier|private
 specifier|static
@@ -573,7 +582,9 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"discovery.id.seed"
+name|DiscoveryService
+operator|.
+name|SETTING_DISCOVERY_SEED
 argument_list|)
 decl_stmt|;
 if|if

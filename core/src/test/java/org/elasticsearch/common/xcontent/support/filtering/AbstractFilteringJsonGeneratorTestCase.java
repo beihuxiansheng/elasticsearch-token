@@ -2541,6 +2541,9 @@ operator|.
 name|toBytes
 argument_list|()
 argument_list|)
+argument_list|,
+name|getXContentType
+argument_list|()
 argument_list|)
 operator|.
 name|endObject
@@ -2578,6 +2581,9 @@ operator|.
 name|toBytes
 argument_list|()
 argument_list|)
+argument_list|,
+name|getXContentType
+argument_list|()
 argument_list|)
 operator|.
 name|endObject
@@ -2615,6 +2621,9 @@ operator|.
 name|toBytes
 argument_list|()
 argument_list|)
+argument_list|,
+name|getXContentType
+argument_list|()
 argument_list|)
 operator|.
 name|endObject

@@ -2578,9 +2578,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|TranslogStats
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|suggest
@@ -2589,9 +2589,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|SuggestStats
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|requestCache
@@ -2600,9 +2600,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|RequestCacheStats
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|recoveryStats
@@ -2611,9 +2611,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|RecoveryStats
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}
