@@ -496,6 +496,20 @@ operator|-
 literal|1
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|parent
+operator|.
+name|containsKey
+argument_list|(
+name|leafKey
+argument_list|)
+condition|)
+block|{
+name|modified
+operator|=
+literal|true
+expr_stmt|;
 name|parent
 operator|.
 name|remove
@@ -503,6 +517,7 @@ argument_list|(
 name|leafKey
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getParent
@@ -643,10 +658,6 @@ literal|"cannot add null or empty field"
 argument_list|)
 throw|;
 block|}
-name|modified
-operator|=
-literal|true
-expr_stmt|;
 name|String
 index|[]
 name|pathElements
@@ -869,6 +880,10 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+name|modified
+operator|=
+literal|true
+expr_stmt|;
 block|}
 DECL|method|getIndex
 specifier|public
@@ -900,6 +915,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * Returns the document. Should be used only for reading. Any change made to the returned map will      * not be reflected to the modified flag. Modify the document instead using {@link #setPropertyValue(String, Object)}      * and {@link #removeProperty(String)}      */
 DECL|method|getDocument
 specifier|public
 name|Map
