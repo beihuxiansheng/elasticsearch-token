@@ -1219,6 +1219,11 @@ name|TRANSLOG_FILE_SUFFIX
 argument_list|)
 decl_stmt|;
 comment|// a temp file to copy checkpoint to - note it must be in on the same FS otherwise atomic move won't work
+name|boolean
+name|tempFileRenamed
+init|=
+literal|false
+decl_stmt|;
 try|try
 init|(
 name|ReleasableLock
@@ -1487,6 +1492,10 @@ operator|.
 name|ATOMIC_MOVE
 argument_list|)
 expr_stmt|;
+name|tempFileRenamed
+operator|=
+literal|true
+expr_stmt|;
 comment|// we only fsync the directory the tempFile was already fsynced
 name|IOUtils
 operator|.
@@ -1523,6 +1532,13 @@ name|foundTranslogs
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|tempFileRenamed
+operator|==
+literal|false
+condition|)
+block|{
 try|try
 block|{
 name|Files
@@ -1550,6 +1566,7 @@ argument_list|,
 name|tempFile
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -1670,7 +1687,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extracts the translog generation from a file name.      *      * @throw IllegalArgumentException if the path doesn't match the expected pattern.      */
+comment|/**      * Extracts the translog generation from a file name.      *      * @throws IllegalArgumentException if the path doesn't match the expected pattern.      */
 DECL|method|parseIdFromFileName
 specifier|public
 specifier|static
