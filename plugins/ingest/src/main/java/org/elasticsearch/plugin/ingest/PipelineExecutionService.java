@@ -205,14 +205,11 @@ argument_list|(
 operator|new
 name|IllegalArgumentException
 argument_list|(
-name|LoggerMessageFormat
-operator|.
-name|format
-argument_list|(
-literal|"pipeline with id [{}] does not exist"
-argument_list|,
+literal|"pipeline with id ["
+operator|+
 name|pipelineId
-argument_list|)
+operator|+
+literal|"] does not exist"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -257,7 +254,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -291,7 +288,7 @@ DECL|method|failed
 name|void
 name|failed
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 function_decl|;
