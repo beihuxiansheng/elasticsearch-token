@@ -915,6 +915,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**      * Returns the document. Should be used only for reading. Any change made to the returned map will      * not be reflected to the modified flag. Modify the document instead using {@link #setPropertyValue(String, Object)}      * and {@link #removeProperty(String)}      */
 DECL|method|getDocument
 specifier|public
 name|Map
