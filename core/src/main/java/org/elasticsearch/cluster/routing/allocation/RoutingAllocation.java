@@ -403,7 +403,13 @@ name|hasPendingAsyncFetch
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Creates a new {@link RoutingAllocation}      *       * @param deciders {@link AllocationDeciders} to used to make decisions for routing allocations      * @param routingNodes Routing nodes in the current cluster       * @param nodes TODO: Documentation      */
+DECL|field|currentNanoTime
+specifier|private
+specifier|final
+name|long
+name|currentNanoTime
+decl_stmt|;
+comment|/**      * Creates a new {@link RoutingAllocation}      *  @param deciders {@link AllocationDeciders} to used to make decisions for routing allocations      * @param routingNodes Routing nodes in the current cluster      * @param nodes TODO: Documentation      * @param currentNanoTime the nano time to use for all delay allocation calculation (typically {@link System#nanoTime()})      */
 DECL|method|RoutingAllocation
 specifier|public
 name|RoutingAllocation
@@ -419,6 +425,9 @@ name|nodes
 parameter_list|,
 name|ClusterInfo
 name|clusterInfo
+parameter_list|,
+name|long
+name|currentNanoTime
 parameter_list|)
 block|{
 name|this
@@ -445,6 +454,23 @@ name|clusterInfo
 operator|=
 name|clusterInfo
 expr_stmt|;
+name|this
+operator|.
+name|currentNanoTime
+operator|=
+name|currentNanoTime
+expr_stmt|;
+block|}
+comment|/** returns the nano time captured at the beginning of the allocation. used to make sure all time based decisions are aligned */
+DECL|method|getCurrentNanoTime
+specifier|public
+name|long
+name|getCurrentNanoTime
+parameter_list|()
+block|{
+return|return
+name|currentNanoTime
+return|;
 block|}
 comment|/**      * Get {@link AllocationDeciders} used for allocation      * @return {@link AllocationDeciders} used for allocation      */
 DECL|method|deciders

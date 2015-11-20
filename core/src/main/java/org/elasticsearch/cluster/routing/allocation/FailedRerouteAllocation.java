@@ -251,6 +251,11 @@ argument_list|,
 name|nodes
 argument_list|,
 name|clusterInfo
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

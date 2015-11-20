@@ -250,11 +250,11 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|field|minDelaySettingAtLastScheduling
+DECL|field|minDelaySettingAtLastSchedulingNanos
 specifier|private
 specifier|volatile
 name|long
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 init|=
 name|Long
 operator|.
@@ -425,7 +425,7 @@ name|minDelaySetting
 init|=
 name|UnassignedInfo
 operator|.
-name|findSmallestDelayedAllocationSetting
+name|findSmallestDelayedAllocationSettingNanos
 argument_list|(
 name|settings
 argument_list|,
@@ -450,10 +450,10 @@ literal|"no need to schedule reroute - no delayed unassigned shards, minDelaySet
 argument_list|,
 name|minDelaySetting
 argument_list|,
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 argument_list|)
 expr_stmt|;
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 operator|=
 name|Long
 operator|.
@@ -472,7 +472,7 @@ if|if
 condition|(
 name|minDelaySetting
 operator|<
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 condition|)
 block|{
 name|FutureUtils
@@ -482,7 +482,7 @@ argument_list|(
 name|registeredNextDelayFuture
 argument_list|)
 expr_stmt|;
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 operator|=
 name|minDelaySetting
 expr_stmt|;
@@ -564,7 +564,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 operator|=
 name|Long
 operator|.
@@ -595,7 +595,7 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 operator|=
 name|Long
 operator|.
@@ -616,22 +616,22 @@ literal|"no need to schedule reroute - current schedule reroute is enough. minDe
 argument_list|,
 name|minDelaySetting
 argument_list|,
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
 comment|// visible for testing
-DECL|method|getMinDelaySettingAtLastScheduling
+DECL|method|getMinDelaySettingAtLastSchedulingNanos
 name|long
-name|getMinDelaySettingAtLastScheduling
+name|getMinDelaySettingAtLastSchedulingNanos
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|minDelaySettingAtLastScheduling
+name|minDelaySettingAtLastSchedulingNanos
 return|;
 block|}
 comment|// visible for testing
