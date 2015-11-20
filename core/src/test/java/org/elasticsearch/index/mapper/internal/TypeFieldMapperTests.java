@@ -161,7 +161,7 @@ name|typeMapper
 init|=
 name|docMapper
 operator|.
-name|rootMapper
+name|metadataMapper
 argument_list|(
 name|TypeFieldMapper
 operator|.
@@ -264,7 +264,7 @@ name|typeMapper
 init|=
 name|docMapper
 operator|.
-name|rootMapper
+name|metadataMapper
 argument_list|(
 name|TypeFieldMapper
 operator|.

@@ -500,6 +500,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|mapper
+operator|.
+name|MapperRegistry
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -820,6 +834,9 @@ name|IndexModule
 operator|.
 name|IndexSearcherWrapperFactory
 name|wrapperFactory
+parameter_list|,
+name|MapperRegistry
+name|mapperRegistry
 parameter_list|)
 throws|throws
 name|IOException
@@ -864,6 +881,8 @@ argument_list|,
 name|analysisService
 argument_list|,
 name|similarityService
+argument_list|,
+name|mapperRegistry
 argument_list|)
 expr_stmt|;
 name|this

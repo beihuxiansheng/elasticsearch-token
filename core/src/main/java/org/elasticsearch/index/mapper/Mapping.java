@@ -224,7 +224,7 @@ name|MetadataFieldMapper
 index|[]
 name|metadataMappers
 decl_stmt|;
-DECL|field|rootMappersMap
+DECL|field|metadataMappersMap
 specifier|final
 name|Map
 argument_list|<
@@ -237,7 +237,7 @@ argument_list|>
 argument_list|,
 name|MetadataFieldMapper
 argument_list|>
-name|rootMappersMap
+name|metadataMappersMap
 decl_stmt|;
 DECL|field|meta
 specifier|volatile
@@ -301,7 +301,7 @@ argument_list|>
 argument_list|,
 name|MetadataFieldMapper
 argument_list|>
-name|rootMappersMap
+name|metadataMappersMap
 init|=
 operator|new
 name|HashMap
@@ -346,7 +346,7 @@ name|metadataMapper
 argument_list|)
 expr_stmt|;
 block|}
-name|rootMappersMap
+name|metadataMappersMap
 operator|.
 name|put
 argument_list|(
@@ -406,11 +406,11 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|rootMappersMap
+name|metadataMappersMap
 operator|=
 name|unmodifiableMap
 argument_list|(
-name|rootMappersMap
+name|metadataMappersMap
 argument_list|)
 expr_stmt|;
 name|this
@@ -464,7 +464,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|rootMapper
+DECL|method|metadataMapper
 specifier|public
 parameter_list|<
 name|T
@@ -472,7 +472,7 @@ extends|extends
 name|MetadataFieldMapper
 parameter_list|>
 name|T
-name|rootMapper
+name|metadataMapper
 parameter_list|(
 name|Class
 argument_list|<
@@ -485,7 +485,7 @@ return|return
 operator|(
 name|T
 operator|)
-name|rootMappersMap
+name|metadataMappersMap
 operator|.
 name|get
 argument_list|(
@@ -541,7 +541,7 @@ name|mergeWithMetadataMapper
 init|=
 name|mergeWith
 operator|.
-name|rootMapper
+name|metadataMapper
 argument_list|(
 name|metadataMapper
 operator|.
