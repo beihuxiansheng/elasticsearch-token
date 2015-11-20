@@ -1340,6 +1340,11 @@ name|success
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|acquired
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|listener
@@ -1355,6 +1360,10 @@ name|semaphore
 operator|.
 name|acquire
 argument_list|()
+expr_stmt|;
+name|acquired
+operator|=
+literal|true
 expr_stmt|;
 name|client
 operator|.
@@ -1490,6 +1499,8 @@ if|if
 condition|(
 operator|!
 name|success
+operator|&&
+name|acquired
 condition|)
 block|{
 comment|// if we fail on client.bulk() release the semaphore
