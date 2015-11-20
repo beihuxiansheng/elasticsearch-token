@@ -1170,6 +1170,13 @@ name|toString
 argument_list|()
 argument_list|)
 operator|.
+name|field
+argument_list|(
+literal|"id"
+argument_list|,
+name|id
+argument_list|)
+operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
