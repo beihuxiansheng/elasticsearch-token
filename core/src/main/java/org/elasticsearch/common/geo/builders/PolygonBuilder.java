@@ -118,11 +118,8 @@ operator|.
 name|shell
 operator|=
 operator|new
-name|Ring
-argument_list|<>
+name|LineStringBuilder
 argument_list|(
-name|this
-argument_list|,
 name|points
 argument_list|)
 expr_stmt|;

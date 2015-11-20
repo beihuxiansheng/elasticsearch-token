@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link PointCollection} is an abstract base implementation for all GeoShapes. It simply handles a set of points.   */
+comment|/**  * The {@link PointCollection} is an abstract base implementation for all GeoShapes. It simply handles a set of points.  */
 end_comment
 
 begin_class
@@ -226,7 +226,7 @@ name|thisRef
 argument_list|()
 return|;
 block|}
-comment|/**      * Add a array of points to the collection      *       * @param coordinates array of {@link Coordinate}s to add      * @return this      */
+comment|/**      * Add a array of points to the collection      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
 DECL|method|points
 specifier|public
 name|E
@@ -251,7 +251,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a collection of points to the collection      *       * @param coordinates array of {@link Coordinate}s to add      * @return this      */
+comment|/**      * Add a collection of points to the collection      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
 DECL|method|points
 specifier|public
 name|E
@@ -280,7 +280,7 @@ name|thisRef
 argument_list|()
 return|;
 block|}
-comment|/**      * Copy all points to a new Array      *       * @param closed if set to true the first point of the array is repeated as last element      * @return Array of coordinates      */
+comment|/**      * Copy all points to a new Array      *      * @param closed if set to true the first point of the array is repeated as last element      * @return Array of coordinates      */
 DECL|method|coordinates
 specifier|protected
 name|Coordinate
@@ -341,7 +341,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * builds an array of coordinates to a {@link XContentBuilder}      *       * @param builder builder to use       * @param closed repeat the first point at the end of the array if it's not already defines as last element of the array        * @return the builder      */
+comment|/**      * builds an array of coordinates to a {@link XContentBuilder}      *      * @param builder builder to use      * @param closed repeat the first point at the end of the array if it's not already defines as last element of the array      * @return the builder      */
 DECL|method|coordinatesToXcontent
 specifier|protected
 name|XContentBuilder

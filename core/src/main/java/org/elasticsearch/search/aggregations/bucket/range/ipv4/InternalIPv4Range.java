@@ -194,6 +194,24 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|ip
+operator|.
+name|IpFieldMapper
+operator|.
+name|MAX_IP
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -213,15 +231,6 @@ argument_list|,
 name|InternalIPv4Range
 argument_list|>
 block|{
-DECL|field|MAX_IP
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|MAX_IP
-init|=
-literal|4294967296l
-decl_stmt|;
 DECL|field|TYPE
 specifier|public
 specifier|final
