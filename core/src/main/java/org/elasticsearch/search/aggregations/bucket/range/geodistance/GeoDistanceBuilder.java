@@ -591,7 +591,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add a new range to this aggregation.      *      * @param key  the key to use for this range in the response      * @param from the lower bound on the distances, inclusive      * @parap to   the upper bound on the distances, exclusive      */
+comment|/**      * Add a new range to this aggregation.      *      * @param key  the key to use for this range in the response      * @param from the lower bound on the distances, inclusive      * @param to   the upper bound on the distances, exclusive      */
 DECL|method|addRange
 specifier|public
 name|GeoDistanceBuilder

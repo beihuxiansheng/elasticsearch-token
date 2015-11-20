@@ -2337,7 +2337,7 @@ name|fieldType
 argument_list|()
 return|;
 block|}
-comment|/**      * Parses and indexes inputs      *      * Parsing:      *  Acceptable format:      *   "STRING" - interpreted as field value (input)      *   "ARRAY" - each element can be one of {@link #parse(ParseContext, Token, XContentParser, Map)}      *   "OBJECT" - see {@link #parse(ParseContext, Token, XContentParser, Map)}      *      * Indexing:      *  if context mappings are defined, delegates to {@link ContextMappings#addField(ParseContext.Document, String, String, int, Map)}      *  else adds inputs as a {@link org.apache.lucene.search.suggest.document.SuggestField}      */
+comment|/**      * Parses and indexes inputs      *      * Parsing:      *  Acceptable format:      *   "STRING" - interpreted as field value (input)      *   "ARRAY" - each element can be one of "OBJECT" (see below)      *   "OBJECT" - { "input": STRING|ARRAY, "weight": STRING|INT, "contexts": ARRAY|OBJECT }      *      * Indexing:      *  if context mappings are defined, delegates to {@link ContextMappings#addField(ParseContext.Document, String, String, int, Map)}      *  else adds inputs as a {@link org.apache.lucene.search.suggest.document.SuggestField}      */
 annotation|@
 name|Override
 DECL|method|parse
