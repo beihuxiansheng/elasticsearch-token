@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -363,6 +375,13 @@ comment|/**  * This class provides a simple main class which can be used to test
 end_comment
 
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"commandline tool"
+argument_list|)
 DECL|class|StandaloneRunner
 specifier|public
 class|class
