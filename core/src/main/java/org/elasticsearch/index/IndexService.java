@@ -1370,9 +1370,6 @@ specifier|synchronized
 name|IndexShard
 name|createShard
 parameter_list|(
-name|int
-name|sShardId
-parameter_list|,
 name|ShardRouting
 name|routing
 parameter_list|)
@@ -1401,19 +1398,14 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't create shard ["
+literal|"Can't create shard "
 operator|+
-name|index
-argument_list|()
+name|routing
 operator|.
-name|name
+name|shardId
 argument_list|()
 operator|+
-literal|"]["
-operator|+
-name|sShardId
-operator|+
-literal|"], closed"
+literal|", closed"
 argument_list|)
 throw|;
 block|}
@@ -1432,14 +1424,10 @@ specifier|final
 name|ShardId
 name|shardId
 init|=
-operator|new
-name|ShardId
-argument_list|(
-name|index
+name|routing
+operator|.
+name|shardId
 argument_list|()
-argument_list|,
-name|sShardId
-argument_list|)
 decl_stmt|;
 name|boolean
 name|success
@@ -1911,6 +1899,15 @@ operator|.
 name|afterIndexShardCreated
 argument_list|(
 name|indexShard
+argument_list|)
+expr_stmt|;
+name|indexShard
+operator|.
+name|updateRoutingEntry
+argument_list|(
+name|routing
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|shards
