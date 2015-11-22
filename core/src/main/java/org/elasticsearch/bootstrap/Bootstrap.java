@@ -694,6 +694,11 @@ operator|.
 name|getInstance
 argument_list|()
 expr_stmt|;
+name|JvmInfo
+operator|.
+name|jvmInfo
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|setup
 specifier|private
@@ -1072,6 +1077,31 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/** Set the system property before anything has a chance to trigger its use */
+comment|// TODO: why? is it just a bad default somewhere? or is it some BS around 'but the client' garbage<-- my guess
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"sets logger prefix on initialization"
+argument_list|)
+DECL|method|initLoggerPrefix
+specifier|static
+name|void
+name|initLoggerPrefix
+parameter_list|()
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"es.logger.prefix"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])}      * to startup elasticsearch.      */
 DECL|method|init
 specifier|static
@@ -1086,14 +1116,8 @@ throws|throws
 name|Throwable
 block|{
 comment|// Set the system property before anything has a chance to trigger its use
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"es.logger.prefix"
-argument_list|,
-literal|""
-argument_list|)
+name|initLoggerPrefix
+argument_list|()
 expr_stmt|;
 name|BootstrapCLIParser
 name|bootstrapCLIParser

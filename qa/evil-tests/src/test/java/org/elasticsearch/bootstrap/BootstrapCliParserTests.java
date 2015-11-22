@@ -42,6 +42,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|cli
 operator|.
 name|CliTool
@@ -183,6 +195,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"modifies system properties intentionally"
+argument_list|)
 DECL|class|BootstrapCliParserTests
 specifier|public
 class|class

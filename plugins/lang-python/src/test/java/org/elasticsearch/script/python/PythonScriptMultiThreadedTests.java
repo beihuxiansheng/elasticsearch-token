@@ -80,16 +80,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -182,30 +172,6 @@ name|PythonScriptMultiThreadedTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|After
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-block|{
-comment|// We need to clear some system properties
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"python.cachedir.skip"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"python.console.encoding"
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testExecutableNoRuntimeParams
 specifier|public
 name|void

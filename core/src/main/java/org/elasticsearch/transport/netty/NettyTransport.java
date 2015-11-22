@@ -82,6 +82,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|ReleasablePagedBytesReference
@@ -1949,6 +1961,14 @@ name|scheduledPing
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"sets org.jboss.netty.epollBugWorkaround based on netty.epollBugWorkaround"
+argument_list|)
+comment|// TODO: why be confusing like this? just let the user do it with the netty parameter instead!
 DECL|method|NettyTransport
 specifier|public
 name|NettyTransport
