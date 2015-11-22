@@ -127,7 +127,7 @@ decl_stmt|;
 comment|// create a view of sysprops map that does not allow modifications
 comment|// this must be done this way (e.g. versus an actual typed map), because
 comment|// some test methods still change properties, so whitelisted changes must
-comment|// be reflected in this this view.
+comment|// be reflected in this view.
 DECL|field|SYSTEM_PROPERTIES
 specifier|private
 specifier|static
