@@ -665,8 +665,6 @@ name|index
 operator|.
 name|createShard
 argument_list|(
-literal|0
-argument_list|,
 name|newRouting
 argument_list|)
 decl_stmt|;

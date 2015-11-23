@@ -30,7 +30,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|RoutingNode
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingNode
+name|ShardRouting
 import|;
 end_import
 
@@ -343,6 +343,19 @@ argument_list|)
 expr_stmt|;
 return|return
 name|changed
+return|;
+block|}
+DECL|method|nanoTime
+specifier|protected
+name|long
+name|nanoTime
+parameter_list|()
+block|{
+return|return
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 return|;
 block|}
 annotation|@

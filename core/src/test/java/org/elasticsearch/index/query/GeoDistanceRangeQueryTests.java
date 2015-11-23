@@ -1974,6 +1974,82 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_distance_range\" : {\n"
+operator|+
+literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
+operator|+
+literal|"    \"from\" : \"200km\",\n"
+operator|+
+literal|"    \"to\" : \"400km\",\n"
+operator|+
+literal|"    \"include_lower\" : true,\n"
+operator|+
+literal|"    \"include_upper\" : true,\n"
+operator|+
+literal|"    \"unit\" : \"m\",\n"
+operator|+
+literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+operator|+
+literal|"    \"optimize_bbox\" : \"memory\",\n"
+operator|+
+literal|"    \"validation_method\" : \"STRICT\",\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|GeoDistanceRangeQueryBuilder
+name|parsed
+init|=
+operator|(
+name|GeoDistanceRangeQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+operator|-
+literal|70.0
+argument_list|,
+name|parsed
+operator|.
+name|point
+argument_list|()
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

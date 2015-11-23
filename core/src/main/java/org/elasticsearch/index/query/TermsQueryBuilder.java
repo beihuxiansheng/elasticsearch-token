@@ -1078,7 +1078,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doXContent
-specifier|public
+specifier|protected
 name|void
 name|doXContent
 parameter_list|(

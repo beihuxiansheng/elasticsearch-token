@@ -225,7 +225,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"filter"
+name|ConstantScoreQueryParser
+operator|.
+name|INNER_QUERY_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|filterBuilder

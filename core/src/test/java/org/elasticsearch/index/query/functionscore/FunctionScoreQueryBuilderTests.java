@@ -242,6 +242,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|ExistsQueryBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|MatchAllQueryBuilder
 import|;
 end_import
@@ -3745,6 +3759,128 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"function_score\" : {\n"
+operator|+
+literal|"    \"query\" : { },\n"
+operator|+
+literal|"    \"functions\" : [ {\n"
+operator|+
+literal|"      \"filter\" : { },\n"
+operator|+
+literal|"      \"weight\" : 23.0,\n"
+operator|+
+literal|"      \"random_score\" : { }\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"filter\" : { },\n"
+operator|+
+literal|"      \"weight\" : 5.0\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"score_mode\" : \"multiply\",\n"
+operator|+
+literal|"    \"boost_mode\" : \"multiply\",\n"
+operator|+
+literal|"    \"max_boost\" : 100.0,\n"
+operator|+
+literal|"    \"min_score\" : 1.0,\n"
+operator|+
+literal|"    \"boost\" : 42.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|FunctionScoreQueryBuilder
+name|parsed
+init|=
+operator|(
+name|FunctionScoreQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|filterFunctionBuilders
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|42
+argument_list|,
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|100
+argument_list|,
+name|parsed
+operator|.
+name|maxBoost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|1
+argument_list|,
+name|parsed
+operator|.
+name|getMinScore
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -974,14 +974,9 @@ decl_stmt|;
 if|if
 condition|(
 name|indexConstraintFieldStats
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-continue|continue;
-block|}
-if|if
-condition|(
+operator|&&
 name|indexConstraintFieldStats
 operator|.
 name|match
@@ -1024,7 +1019,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// The index constraint didn't match, so we remove all the field stats of the index we're checking
+comment|// The index constraint didn't match or was empty, so we remove all the field stats of the index we're checking
 name|iterator
 operator|.
 name|remove

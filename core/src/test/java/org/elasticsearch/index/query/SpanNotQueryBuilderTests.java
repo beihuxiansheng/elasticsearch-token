@@ -1231,6 +1231,155 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_not\" : {\n"
+operator|+
+literal|"    \"include\" : {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field1\" : {\n"
+operator|+
+literal|"          \"value\" : \"hoya\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"exclude\" : {\n"
+operator|+
+literal|"      \"span_near\" : {\n"
+operator|+
+literal|"        \"clauses\" : [ {\n"
+operator|+
+literal|"          \"span_term\" : {\n"
+operator|+
+literal|"            \"field1\" : {\n"
+operator|+
+literal|"              \"value\" : \"la\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }, {\n"
+operator|+
+literal|"          \"span_term\" : {\n"
+operator|+
+literal|"            \"field1\" : {\n"
+operator|+
+literal|"              \"value\" : \"hoya\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        } ],\n"
+operator|+
+literal|"        \"slop\" : 0,\n"
+operator|+
+literal|"        \"in_order\" : true,\n"
+operator|+
+literal|"        \"collect_payloads\" : true,\n"
+operator|+
+literal|"        \"boost\" : 1.0\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"pre\" : 0,\n"
+operator|+
+literal|"    \"post\" : 0,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SpanNotQueryBuilder
+name|parsed
+init|=
+operator|(
+name|SpanNotQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"hoya"
+argument_list|,
+operator|(
+operator|(
+name|SpanTermQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|includeQuery
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+operator|(
+operator|(
+name|SpanNearQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|excludeQuery
+argument_list|()
+operator|)
+operator|.
+name|clauses
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

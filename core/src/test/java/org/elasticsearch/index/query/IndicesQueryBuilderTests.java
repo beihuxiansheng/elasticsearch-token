@@ -412,6 +412,134 @@ block|{
 comment|// expected
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"indices\" : {\n"
+operator|+
+literal|"    \"indices\" : [ \"index1\", \"index2\" ],\n"
+operator|+
+literal|"    \"query\" : {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"tag\" : {\n"
+operator|+
+literal|"          \"value\" : \"wow\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"no_match_query\" : {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"tag\" : {\n"
+operator|+
+literal|"          \"value\" : \"kow\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IndicesQueryBuilder
+name|parsed
+init|=
+operator|(
+name|IndicesQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"kow"
+argument_list|,
+operator|(
+operator|(
+name|TermQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|noMatchQuery
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"wow"
+argument_list|,
+operator|(
+operator|(
+name|TermQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|innerQuery
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -2116,6 +2116,71 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_polygon\" : {\n"
+operator|+
+literal|"    \"person.location\" : {\n"
+operator|+
+literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ], [ -70.0, 40.0 ] ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"coerce\" : false,\n"
+operator|+
+literal|"    \"ignore_malformed\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|GeoPolygonQueryBuilder
+name|parsed
+init|=
+operator|(
+name|GeoPolygonQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|4
+argument_list|,
+name|parsed
+operator|.
+name|points
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -875,7 +875,6 @@ operator|.
 name|assignedToNode
 argument_list|()
 decl_stmt|;
-comment|// TODO: replace with JDK 8 native java.util.function.Predicate
 DECL|method|allSatisfyingPredicateShardsGrouped
 specifier|private
 name|GroupShardsIterator
@@ -1095,7 +1094,6 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|// TODO: replace with JDK 8 native java.util.function.Predicate
 DECL|method|allShardsSatisfyingPredicate
 specifier|private
 name|ShardsIterator

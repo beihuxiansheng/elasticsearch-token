@@ -325,6 +325,89 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"constant_score\" : {\n"
+operator|+
+literal|"    \"filter\" : {\n"
+operator|+
+literal|"      \"terms\" : {\n"
+operator|+
+literal|"        \"user\" : [ \"kimchy\", \"elasticsearch\" ],\n"
+operator|+
+literal|"        \"boost\" : 42.0\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"boost\" : 23.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ConstantScoreQueryBuilder
+name|parsed
+init|=
+operator|(
+name|ConstantScoreQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|23.0
+argument_list|,
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|42.0
+argument_list|,
+name|parsed
+operator|.
+name|innerQuery
+argument_list|()
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -206,18 +206,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
 begin_comment
 comment|/**  * Holds additional information as to why the shard is in unassigned state.  */
 end_comment
@@ -367,6 +355,7 @@ specifier|final
 name|Throwable
 name|failure
 decl_stmt|;
+comment|/**      * creates an UnassingedInfo object based **current** time      *      * @param reason  the cause for making this shard unassigned. See {@link Reason} for more information.      * @param message more information about cause.      **/
 DECL|method|UnassignedInfo
 specifier|public
 name|UnassignedInfo
@@ -381,23 +370,24 @@ block|{
 name|this
 argument_list|(
 name|reason
-argument_list|,
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-argument_list|,
-name|System
-operator|.
-name|nanoTime
-argument_list|()
 argument_list|,
 name|message
 argument_list|,
 literal|null
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+argument_list|,
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @param reason               the cause for making this shard unassigned. See {@link Reason} for more information.      * @param message              more information about cause.      * @param failure              the shard level failure that caused this shard to be unassigned, if exists.      * @param unassignedTimeNanos  the time to use as the base for any delayed re-assignment calculation      * @param unassignedTimeMillis the time of unassignment used to display to in our reporting.      */
 DECL|method|UnassignedInfo
 specifier|public
 name|UnassignedInfo
@@ -414,46 +404,12 @@ annotation|@
 name|Nullable
 name|Throwable
 name|failure
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|reason
-argument_list|,
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-argument_list|,
-name|System
-operator|.
-name|nanoTime
-argument_list|()
-argument_list|,
-name|message
-argument_list|,
-name|failure
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|UnassignedInfo
-specifier|private
-name|UnassignedInfo
-parameter_list|(
-name|Reason
-name|reason
+parameter_list|,
+name|long
+name|unassignedTimeNanos
 parameter_list|,
 name|long
 name|unassignedTimeMillis
-parameter_list|,
-name|long
-name|timestampNanos
-parameter_list|,
-name|String
-name|message
-parameter_list|,
-name|Throwable
-name|failure
 parameter_list|)
 block|{
 name|this
@@ -472,7 +428,7 @@ name|this
 operator|.
 name|unassignedTimeNanos
 operator|=
-name|timestampNanos
+name|unassignedTimeNanos
 expr_stmt|;
 name|this
 operator|.
@@ -741,11 +697,11 @@ argument_list|)
 operator|)
 return|;
 block|}
-comment|/**      * The allocation delay value in milliseconds associated with the index (defaulting to node settings if not set).      */
-DECL|method|getAllocationDelayTimeoutSetting
+comment|/**      * The allocation delay value in nano seconds associated with the index (defaulting to node settings if not set).      */
+DECL|method|getAllocationDelayTimeoutSettingNanos
 specifier|public
 name|long
-name|getAllocationDelayTimeoutSetting
+name|getAllocationDelayTimeoutSettingNanos
 parameter_list|(
 name|Settings
 name|settings
@@ -795,7 +751,7 @@ literal|0l
 argument_list|,
 name|delayTimeout
 operator|.
-name|millis
+name|nanos
 argument_list|()
 argument_list|)
 return|;
@@ -811,7 +767,7 @@ return|return
 name|lastComputedLeftDelayNanos
 return|;
 block|}
-comment|/**      * Updates delay left based on current time (in nanoseconds) and index/node settings.      * Should only be called from ReplicaShardAllocator.      * @return updated delay in nanoseconds      */
+comment|/**      * Updates delay left based on current time (in nanoseconds) and index/node settings.      *      * @return updated delay in nanoseconds      */
 DECL|method|updateDelay
 specifier|public
 name|long
@@ -828,9 +784,9 @@ name|indexSettings
 parameter_list|)
 block|{
 name|long
-name|delayTimeoutMillis
+name|delayTimeoutNanos
 init|=
-name|getAllocationDelayTimeoutSetting
+name|getAllocationDelayTimeoutSettingNanos
 argument_list|(
 name|settings
 argument_list|,
@@ -843,7 +799,7 @@ name|newComputedLeftDelayNanos
 decl_stmt|;
 if|if
 condition|(
-name|delayTimeoutMillis
+name|delayTimeoutNanos
 operator|==
 literal|0l
 condition|)
@@ -860,29 +816,13 @@ name|nanoTimeNow
 operator|>=
 name|unassignedTimeNanos
 assert|;
-name|long
-name|delayTimeoutNanos
-init|=
-name|TimeUnit
-operator|.
-name|NANOSECONDS
-operator|.
-name|convert
-argument_list|(
-name|delayTimeoutMillis
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-decl_stmt|;
 name|newComputedLeftDelayNanos
 operator|=
 name|Math
 operator|.
 name|max
 argument_list|(
-literal|0l
+literal|0L
 argument_list|,
 name|delayTimeoutNanos
 operator|-
@@ -974,12 +914,12 @@ return|return
 name|count
 return|;
 block|}
-comment|/**      * Finds the smallest delay expiration setting in milliseconds of all unassigned shards that are still delayed. Returns 0 if there are none.      */
-DECL|method|findSmallestDelayedAllocationSetting
+comment|/**      * Finds the smallest delay expiration setting in nanos of all unassigned shards that are still delayed. Returns 0 if there are none.      */
+DECL|method|findSmallestDelayedAllocationSettingNanos
 specifier|public
 specifier|static
 name|long
-name|findSmallestDelayedAllocationSetting
+name|findSmallestDelayedAllocationSettingNanos
 parameter_list|(
 name|Settings
 name|settings
@@ -989,7 +929,7 @@ name|state
 parameter_list|)
 block|{
 name|long
-name|nextDelaySetting
+name|minDelaySetting
 init|=
 name|Long
 operator|.
@@ -1039,8 +979,8 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|long
-name|leftDelayNanos
+name|boolean
+name|delayed
 init|=
 name|shard
 operator|.
@@ -1049,6 +989,8 @@ argument_list|()
 operator|.
 name|getLastComputedLeftDelayNanos
 argument_list|()
+operator|>
+literal|0
 decl_stmt|;
 name|long
 name|delayTimeoutSetting
@@ -1058,7 +1000,7 @@ operator|.
 name|unassignedInfo
 argument_list|()
 operator|.
-name|getAllocationDelayTimeoutSetting
+name|getAllocationDelayTimeoutSettingNanos
 argument_list|(
 name|settings
 argument_list|,
@@ -1070,9 +1012,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|leftDelayNanos
-operator|>
-literal|0
+name|delayed
 operator|&&
 name|delayTimeoutSetting
 operator|>
@@ -1080,10 +1020,10 @@ literal|0
 operator|&&
 name|delayTimeoutSetting
 operator|<
-name|nextDelaySetting
+name|minDelaySetting
 condition|)
 block|{
-name|nextDelaySetting
+name|minDelaySetting
 operator|=
 name|delayTimeoutSetting
 expr_stmt|;
@@ -1091,7 +1031,7 @@ block|}
 block|}
 block|}
 return|return
-name|nextDelaySetting
+name|minDelaySetting
 operator|==
 name|Long
 operator|.
@@ -1099,7 +1039,7 @@ name|MAX_VALUE
 condition|?
 literal|0l
 else|:
-name|nextDelaySetting
+name|minDelaySetting
 return|;
 block|}
 comment|/**      * Finds the next (closest) delay expiration of an unassigned shard in nanoseconds. Returns 0 if there are none.      */
@@ -1397,9 +1337,11 @@ name|this
 operator|==
 name|o
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 if|if
 condition|(
 name|o
@@ -1414,9 +1356,11 @@ operator|.
 name|getClass
 argument_list|()
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|UnassignedInfo
 name|that
 init|=
@@ -1433,9 +1377,11 @@ name|that
 operator|.
 name|unassignedTimeMillis
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|reason
@@ -1444,9 +1390,11 @@ name|that
 operator|.
 name|reason
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|message
@@ -1469,9 +1417,11 @@ name|message
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 return|return
 operator|!
 operator|(

@@ -3241,6 +3241,102 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"query_string\" : {\n"
+operator|+
+literal|"    \"query\" : \"this AND that OR thus\",\n"
+operator|+
+literal|"    \"default_field\" : \"content\",\n"
+operator|+
+literal|"    \"fields\" : [ ],\n"
+operator|+
+literal|"    \"use_dis_max\" : true,\n"
+operator|+
+literal|"    \"tie_breaker\" : 0.0,\n"
+operator|+
+literal|"    \"default_operator\" : \"or\",\n"
+operator|+
+literal|"    \"auto_generated_phrase_queries\" : false,\n"
+operator|+
+literal|"    \"max_determined_states\" : 10000,\n"
+operator|+
+literal|"    \"lowercase_expanded_terms\" : true,\n"
+operator|+
+literal|"    \"enable_position_increment\" : true,\n"
+operator|+
+literal|"    \"fuzziness\" : \"AUTO\",\n"
+operator|+
+literal|"    \"fuzzy_prefix_length\" : 0,\n"
+operator|+
+literal|"    \"fuzzy_max_expansions\" : 50,\n"
+operator|+
+literal|"    \"phrase_slop\" : 0,\n"
+operator|+
+literal|"    \"locale\" : \"und\",\n"
+operator|+
+literal|"    \"escape\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|QueryStringQueryBuilder
+name|parsed
+init|=
+operator|(
+name|QueryStringQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"this AND that OR thus"
+argument_list|,
+name|parsed
+operator|.
+name|queryString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"content"
+argument_list|,
+name|parsed
+operator|.
+name|defaultField
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

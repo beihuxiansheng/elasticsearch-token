@@ -820,6 +820,71 @@ name|pointTestBuilder
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geohash_cell\" : {\n"
+operator|+
+literal|"    \"neighbors\" : true,\n"
+operator|+
+literal|"    \"precision\" : 3,\n"
+operator|+
+literal|"    \"pin\" : \"t4mk70fgk067\",\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|GeohashCellQuery
+operator|.
+name|Builder
+name|parsed
+init|=
+operator|(
+name|GeohashCellQuery
+operator|.
+name|Builder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|3
+argument_list|,
+name|parsed
+operator|.
+name|precision
+argument_list|()
+operator|.
+name|intValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

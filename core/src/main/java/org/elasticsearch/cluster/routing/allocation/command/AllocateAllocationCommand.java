@@ -1325,6 +1325,16 @@ argument_list|()
 operator|.
 name|getFailure
 argument_list|()
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+argument_list|,
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

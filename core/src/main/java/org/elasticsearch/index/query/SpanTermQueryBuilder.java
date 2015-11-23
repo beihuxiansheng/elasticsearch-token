@@ -295,7 +295,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doToQuery
-specifier|public
+specifier|protected
 name|SpanQuery
 name|doToQuery
 parameter_list|(

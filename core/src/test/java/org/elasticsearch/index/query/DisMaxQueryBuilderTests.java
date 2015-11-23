@@ -801,6 +801,121 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"dis_max\" : {\n"
+operator|+
+literal|"    \"tie_breaker\" : 0.7,\n"
+operator|+
+literal|"    \"queries\" : [ {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"age\" : {\n"
+operator|+
+literal|"          \"value\" : 34,\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"age\" : {\n"
+operator|+
+literal|"          \"value\" : 35,\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"boost\" : 1.2\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|DisMaxQueryBuilder
+name|parsed
+init|=
+operator|(
+name|DisMaxQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|1.2
+argument_list|,
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|0.7
+argument_list|,
+name|parsed
+operator|.
+name|tieBreaker
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|innerQueries
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
