@@ -1536,7 +1536,7 @@ name|build
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a cluster state where local node and master node can be specified      * @param localNode  node in allNodes that is the local node      * @param masterNode node in allNodes that is the master node. Can be null if no master exists      * @param allNodes   all nodes in the cluster      * @return cluster state      */
+comment|/**      * Creates a cluster state where local node and master node can be specified      *      * @param localNode  node in allNodes that is the local node      * @param masterNode node in allNodes that is the master node. Can be null if no master exists      * @param allNodes   all nodes in the cluster      * @return cluster state      */
 DECL|method|state
 specifier|public
 specifier|static

@@ -1052,6 +1052,11 @@ name|nodes
 argument_list|()
 argument_list|,
 name|clusterInfo
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1779,6 +1784,11 @@ name|nodes
 argument_list|()
 argument_list|,
 name|clusterInfo
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals

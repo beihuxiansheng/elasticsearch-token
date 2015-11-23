@@ -26,35 +26,7 @@ name|test
 operator|.
 name|ESTestCase
 operator|.
-name|randomAsciiOfLength
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-operator|.
-name|randomFrom
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-operator|.
-name|randomInt
+name|*
 import|;
 end_import
 

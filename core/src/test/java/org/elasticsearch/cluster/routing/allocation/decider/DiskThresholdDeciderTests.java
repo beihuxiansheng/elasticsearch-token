@@ -7185,6 +7185,11 @@ argument_list|,
 name|discoveryNodes
 argument_list|,
 name|clusterInfo
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Decision
@@ -7395,6 +7400,11 @@ argument_list|,
 name|discoveryNodes
 argument_list|,
 name|clusterInfo
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|decision
@@ -8386,6 +8396,11 @@ argument_list|,
 name|discoveryNodes
 argument_list|,
 name|clusterInfo
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Decision
@@ -8972,6 +8987,11 @@ argument_list|,
 name|discoveryNodes
 argument_list|,
 name|clusterInfo
+argument_list|,
+name|System
+operator|.
+name|nanoTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|decision
