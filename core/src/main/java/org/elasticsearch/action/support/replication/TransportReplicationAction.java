@@ -1607,9 +1607,13 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Retrying operation on replica"
+literal|"Retrying operation on replica, action [{}], request [{}]"
 argument_list|,
 name|t
+argument_list|,
+name|actionName
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 name|observer
@@ -1710,6 +1714,8 @@ name|id
 argument_list|()
 argument_list|,
 name|t
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 block|}
@@ -2131,12 +2137,18 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"primary shard [{}] is not yet active, scheduling a retry."
+literal|"primary shard [{}] is not yet active, scheduling a retry. action [{}], request [{}]"
 argument_list|,
 name|primary
 operator|.
 name|shardId
 argument_list|()
+argument_list|,
+name|actionName
+argument_list|,
+name|internalRequest
+operator|.
+name|request
 argument_list|)
 expr_stmt|;
 name|retryBecauseUnavailable
@@ -2862,9 +2874,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"operation failed"
+literal|"operation failed. action [{}], request [{}]"
 argument_list|,
 name|failure
+argument_list|,
+name|actionName
+argument_list|,
+name|internalRequest
+operator|.
+name|request
 argument_list|)
 expr_stmt|;
 name|listener
@@ -2896,11 +2914,15 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"unexpected error during the primary phase for action [{}]"
+literal|"unexpected error during the primary phase for action [{}], request [{}]"
 argument_list|,
 name|failure
 argument_list|,
 name|actionName
+argument_list|,
+name|internalRequest
+operator|.
+name|request
 argument_list|)
 expr_stmt|;
 if|if
@@ -2959,13 +2981,28 @@ literal|true
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"operation succeeded"
+literal|"operation succeeded. action [{}],request [{}]"
+argument_list|,
+name|actionName
+argument_list|,
+name|internalRequest
+operator|.
+name|request
 argument_list|)
 expr_stmt|;
+block|}
 name|listener
 operator|.
 name|onResponse
@@ -3099,15 +3136,38 @@ name|primaryTerm
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"operation completed on primary [{}]"
+literal|"operation completed on primary [{}], action [{}], request [{}], cluster state version [{}]"
 argument_list|,
 name|primary
+argument_list|,
+name|actionName
+argument_list|,
+name|por
+operator|.
+name|request
+argument_list|,
+name|observer
+operator|.
+name|observedState
+argument_list|()
+operator|.
+name|version
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|replicationPhase
 operator|=
 operator|new
@@ -3158,12 +3218,17 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"had an error while performing operation on primary ({}), scheduling a retry."
+literal|"had an error while performing operation on primary ({}, action [{}], request [{}]), scheduling a retry."
 argument_list|,
 name|e
+argument_list|,
+name|primary
+argument_list|,
+name|actionName
+argument_list|,
+name|internalRequest
 operator|.
-name|getMessage
-argument_list|()
+name|request
 argument_list|)
 expr_stmt|;
 comment|// We have to close here because when we retry we will increment get a new reference on index shard again and we do not want to
@@ -3491,7 +3556,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"not enough active copies of shard [{}] to meet write consistency of [{}] (have {}, needed {}), scheduling a retry."
+literal|"not enough active copies of shard [{}] to meet write consistency of [{}] (have {}, needed {}), scheduling a retry. action [{}], request [{}]"
 argument_list|,
 name|shard
 operator|.
@@ -3503,6 +3568,12 @@ argument_list|,
 name|sizeActive
 argument_list|,
 name|requiredNumber
+argument_list|,
+name|actionName
+argument_list|,
+name|internalRequest
+operator|.
+name|request
 argument_list|)
 expr_stmt|;
 return|return
@@ -3636,19 +3707,26 @@ name|shardId
 parameter_list|,
 name|Throwable
 name|t
+parameter_list|,
+name|ReplicaRequest
+name|request
 parameter_list|)
 block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"failure on replica [{}][{}]"
+literal|"failure on replica [{}][{}], action [{}], request [{}]"
 argument_list|,
 name|t
 argument_list|,
 name|index
 argument_list|,
 name|shardId
+argument_list|,
+name|actionName
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 if|if
@@ -4330,6 +4408,39 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"replication phase started. pending [{}], action [{}], request [{}], cluster state version used [{}]"
+argument_list|,
+name|pending
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|actionName
+argument_list|,
+name|replicaRequest
+argument_list|,
+name|observer
+operator|.
+name|observedState
+argument_list|()
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|pending
 operator|.
 name|get
@@ -4622,13 +4733,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] transport failure during replica request [{}] "
+literal|"[{}] transport failure during replica request [{}], action [{}]"
 argument_list|,
 name|exp
 argument_list|,
 name|node
 argument_list|,
 name|replicaRequest
+argument_list|,
+name|actionName
 argument_list|)
 expr_stmt|;
 if|if
@@ -4771,6 +4884,8 @@ name|id
 argument_list|()
 argument_list|,
 name|e
+argument_list|,
+name|replicaRequest
 argument_list|)
 expr_stmt|;
 block|}
@@ -4828,6 +4943,8 @@ name|id
 argument_list|()
 argument_list|,
 name|e
+argument_list|,
+name|replicaRequest
 argument_list|)
 expr_stmt|;
 name|onReplicaFailure
