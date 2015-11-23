@@ -2767,10 +2767,13 @@ name|o
 decl_stmt|;
 return|return
 name|value
-operator|==
+operator|.
+name|equals
+argument_list|(
 name|that
 operator|.
 name|value
+argument_list|)
 return|;
 block|}
 annotation|@
