@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -869,6 +881,14 @@ name|httpServerAdapter
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"sets org.jboss.netty.epollBugWorkaround based on netty.epollBugWorkaround"
+argument_list|)
+comment|// TODO: why be confusing like this? just let the user do it with the netty parameter instead!
 DECL|method|NettyHttpServerTransport
 specifier|public
 name|NettyHttpServerTransport

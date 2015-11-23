@@ -44,6 +44,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -189,6 +201,13 @@ name|ESTestCase
 block|{
 annotation|@
 name|Before
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"sets es.default.path.home during tests"
+argument_list|)
 DECL|method|setPathHome
 specifier|public
 name|void
@@ -211,6 +230,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|After
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"clears es.default.path.home during tests"
+argument_list|)
 DECL|method|clearPathHome
 specifier|public
 name|void

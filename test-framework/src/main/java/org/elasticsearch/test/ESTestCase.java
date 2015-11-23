@@ -332,6 +332,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -1071,6 +1083,13 @@ block|}
 comment|// randomize and override the number of cpus so tests reproduce regardless of real number of cpus
 annotation|@
 name|BeforeClass
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"sets the number of cpus during tests"
+argument_list|)
 DECL|method|setProcessors
 specifier|public
 specifier|static
@@ -1126,6 +1145,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|AfterClass
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"clears the number of cpus during tests"
+argument_list|)
 DECL|method|restoreProcessors
 specifier|public
 specifier|static

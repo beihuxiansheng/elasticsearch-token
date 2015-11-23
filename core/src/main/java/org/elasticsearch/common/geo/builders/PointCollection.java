@@ -116,13 +116,6 @@ name|Coordinate
 argument_list|>
 name|points
 decl_stmt|;
-DECL|field|translated
-specifier|protected
-name|boolean
-name|translated
-init|=
-literal|false
-decl_stmt|;
 DECL|method|PointCollection
 specifier|protected
 name|PointCollection

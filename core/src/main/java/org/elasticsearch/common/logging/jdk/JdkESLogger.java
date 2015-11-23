@@ -238,7 +238,7 @@ name|setLevel
 argument_list|(
 name|Level
 operator|.
-name|FINE
+name|FINEST
 argument_list|)
 expr_stmt|;
 block|}
