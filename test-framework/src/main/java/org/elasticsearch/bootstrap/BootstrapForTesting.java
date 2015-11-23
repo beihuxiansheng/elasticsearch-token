@@ -449,6 +449,12 @@ operator|.
 name|initializeProbes
 argument_list|()
 expr_stmt|;
+comment|// initialize sysprops
+name|BootstrapInfo
+operator|.
+name|getSystemProperties
+argument_list|()
+expr_stmt|;
 comment|// check for jar hell
 try|try
 block|{

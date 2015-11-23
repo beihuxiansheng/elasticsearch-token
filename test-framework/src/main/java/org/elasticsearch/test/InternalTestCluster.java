@@ -6096,6 +6096,8 @@ name|transportClientRatio
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|InterruptedException
 block|{
 name|super
 operator|.

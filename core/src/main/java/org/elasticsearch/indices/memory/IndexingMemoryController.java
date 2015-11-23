@@ -1419,6 +1419,8 @@ name|warn
 argument_list|(
 literal|"failed to set shard {} index buffer to [{}]"
 argument_list|,
+name|e
+argument_list|,
 name|shardId
 argument_list|,
 name|shardIndexingBufferSize

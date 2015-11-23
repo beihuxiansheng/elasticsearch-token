@@ -627,7 +627,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Read a {@link DistanceUnit} from a {@link StreamInput}       *       * @param in {@link StreamInput} to read the {@link DistanceUnit} from      * @return {@link DistanceUnit} read from the {@link StreamInput}      * @throws IOException if no unit can be read from the {@link StreamInput}      * @thrown ElasticsearchIllegalArgumentException if no matching {@link DistanceUnit} can be found      */
+comment|/**      * Read a {@link DistanceUnit} from a {@link StreamInput}       *       * @param in {@link StreamInput} to read the {@link DistanceUnit} from      * @return {@link DistanceUnit} read from the {@link StreamInput}      * @throws IOException if no unit can be read from the {@link StreamInput}      * @throws IllegalArgumentException if no matching {@link DistanceUnit} can be found      */
 DECL|method|readDistanceUnit
 specifier|public
 specifier|static

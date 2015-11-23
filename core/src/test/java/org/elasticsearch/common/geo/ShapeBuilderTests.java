@@ -156,6 +156,22 @@ name|geo
 operator|.
 name|builders
 operator|.
+name|LineStringBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|geo
+operator|.
+name|builders
+operator|.
 name|PolygonBuilder
 import|;
 end_import
@@ -1109,6 +1125,9 @@ name|newMultiLinestring
 argument_list|()
 operator|.
 name|linestring
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1140,11 +1159,12 @@ literal|100.0
 argument_list|,
 literal|20.0
 argument_list|)
-operator|.
-name|end
-argument_list|()
+argument_list|)
 operator|.
 name|linestring
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1176,9 +1196,7 @@ literal|100.0
 argument_list|,
 literal|0.0
 argument_list|)
-operator|.
-name|end
-argument_list|()
+argument_list|)
 operator|.
 name|build
 argument_list|()
@@ -1190,6 +1208,9 @@ name|newMultiLinestring
 argument_list|()
 operator|.
 name|linestring
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1219,11 +1240,12 @@ literal|150.0
 argument_list|,
 literal|40.0
 argument_list|)
-operator|.
-name|end
-argument_list|()
+argument_list|)
 operator|.
 name|linestring
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1253,9 +1275,7 @@ literal|150.0
 argument_list|,
 literal|0.0
 argument_list|)
-operator|.
-name|end
-argument_list|()
+argument_list|)
 operator|.
 name|build
 argument_list|()
@@ -1964,6 +1984,9 @@ comment|// 3/4 of an embedded 'c', crossing dateline once
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2029,12 +2052,16 @@ argument_list|(
 literal|175
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// embedded hole right of the dateline
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2075,6 +2102,7 @@ operator|-
 literal|179
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -2188,6 +2216,9 @@ comment|// 3/4 of an embedded 'c', crossing dateline once
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2260,12 +2291,16 @@ operator|-
 literal|185
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// embedded hole right of the dateline
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2306,6 +2341,7 @@ operator|-
 literal|179
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -2646,6 +2682,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2855,6 +2894,7 @@ literal|85.0000002
 argument_list|,
 literal|37.1317672
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|Shape
 name|shape
@@ -2945,6 +2985,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2984,6 +3027,7 @@ argument_list|(
 literal|4
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -3245,6 +3289,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3282,6 +3329,7 @@ argument_list|(
 literal|176
 argument_list|,
 literal|10
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -3351,6 +3399,9 @@ expr_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3393,6 +3444,7 @@ operator|-
 literal|176
 argument_list|,
 literal|10
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|shape
@@ -3473,6 +3525,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3515,6 +3570,7 @@ operator|-
 literal|177
 argument_list|,
 literal|10
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -3596,6 +3652,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3632,6 +3691,7 @@ argument_list|(
 literal|164
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 try|try
@@ -3736,6 +3796,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3779,10 +3842,14 @@ literal|177
 argument_list|,
 literal|10
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3812,6 +3879,7 @@ argument_list|(
 literal|172
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -3896,6 +3964,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3935,6 +4006,7 @@ operator|-
 literal|177
 argument_list|,
 literal|10
+argument_list|)
 argument_list|)
 expr_stmt|;
 try|try

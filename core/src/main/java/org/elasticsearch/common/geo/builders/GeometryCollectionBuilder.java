@@ -231,10 +231,7 @@ specifier|public
 name|GeometryCollectionBuilder
 name|line
 parameter_list|(
-name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
+name|LineStringBuilder
 name|line
 parameter_list|)
 block|{
@@ -278,10 +275,7 @@ specifier|public
 name|GeometryCollectionBuilder
 name|polygon
 parameter_list|(
-name|BasePolygonBuilder
-argument_list|<
-name|?
-argument_list|>
+name|PolygonBuilder
 name|polygon
 parameter_list|)
 block|{

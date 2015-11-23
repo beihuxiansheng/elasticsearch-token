@@ -212,21 +212,6 @@ name|void
 name|close
 parameter_list|()
 block|{
-comment|// We need to clear some system properties
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"python.cachedir.skip"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"python.console.encoding"
-argument_list|)
-expr_stmt|;
 name|se
 operator|.
 name|close

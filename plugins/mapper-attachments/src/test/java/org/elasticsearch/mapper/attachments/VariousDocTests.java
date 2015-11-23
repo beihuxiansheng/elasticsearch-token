@@ -360,14 +360,6 @@ argument_list|,
 literal|"is encrypted"
 argument_list|)
 expr_stmt|;
-comment|// TODO Remove when this will be fixed in Tika. See https://issues.apache.org/jira/browse/TIKA-1548
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"sun.font.fontmanager"
-argument_list|)
-expr_stmt|;
 name|testMapper
 argument_list|(
 literal|"encrypted.pdf"

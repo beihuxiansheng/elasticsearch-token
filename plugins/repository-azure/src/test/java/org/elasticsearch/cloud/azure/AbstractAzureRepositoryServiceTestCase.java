@@ -32,6 +32,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|microsoft
+operator|.
+name|azure
+operator|.
+name|storage
+operator|.
+name|LocationMode
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -579,6 +593,12 @@ name|client
 operator|.
 name|deleteFiles
 argument_list|(
+literal|null
+argument_list|,
+name|LocationMode
+operator|.
+name|PRIMARY_ONLY
+argument_list|,
 name|container
 argument_list|,
 name|path
