@@ -197,6 +197,7 @@ operator|.
 name|LINESTRING
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|LineStringBuilder
@@ -973,6 +974,7 @@ argument_list|(
 name|points
 argument_list|,
 name|translated
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1039,10 +1041,12 @@ argument_list|)
 operator|&&
 operator|(
 name|translated
+argument_list|()
 operator|==
 name|other
 operator|.
 name|translated
+argument_list|()
 operator|)
 return|;
 block|}
@@ -1090,6 +1094,7 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|translated
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1150,11 +1155,12 @@ block|}
 name|lineStringBuilder
 operator|.
 name|translated
-operator|=
+argument_list|(
 name|in
 operator|.
 name|readBoolean
 argument_list|()
+argument_list|)
 expr_stmt|;
 return|return
 name|lineStringBuilder

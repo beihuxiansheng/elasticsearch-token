@@ -176,6 +176,7 @@ operator|.
 name|MULTIPOLYGON
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|MultiPolygonBuilder

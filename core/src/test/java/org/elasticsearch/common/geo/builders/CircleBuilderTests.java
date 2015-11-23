@@ -68,6 +68,7 @@ name|CircleBuilder
 argument_list|>
 block|{
 DECL|field|PROTOTYPE
+specifier|final
 specifier|static
 name|CircleBuilderTests
 name|PROTOTYPE

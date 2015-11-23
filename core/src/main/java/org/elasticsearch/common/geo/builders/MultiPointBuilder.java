@@ -183,6 +183,7 @@ operator|.
 name|MULTIPOINT
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|final
 specifier|static
 name|MultiPointBuilder

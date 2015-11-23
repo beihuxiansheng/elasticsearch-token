@@ -74,6 +74,7 @@ name|PointBuilder
 argument_list|>
 block|{
 DECL|field|PROTOTYPE
+specifier|final
 specifier|static
 name|PointBuilderTests
 name|PROTOTYPE

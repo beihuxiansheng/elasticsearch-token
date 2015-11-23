@@ -3707,38 +3707,6 @@ name|shapeName
 argument_list|()
 return|;
 block|}
-comment|// NORELEASE this should be deleted as soon as all shape builders implement writable
-annotation|@
-name|Override
-DECL|method|writeTo
-specifier|public
-name|void
-name|writeTo
-parameter_list|(
-name|StreamOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-block|{     }
-comment|// NORELEASE this should be deleted as soon as all shape builders implement writable
-annotation|@
-name|Override
-DECL|method|readFrom
-specifier|public
-name|ShapeBuilder
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 end_class
 

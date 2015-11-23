@@ -156,8 +156,9 @@ name|shell
 argument_list|()
 operator|.
 name|translated
-operator|=
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 return|return
 name|pgb

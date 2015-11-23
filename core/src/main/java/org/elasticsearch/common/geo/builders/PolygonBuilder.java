@@ -334,6 +334,7 @@ operator|.
 name|POLYGON
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|PolygonBuilder
