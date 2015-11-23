@@ -84,7 +84,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -136,7 +136,7 @@ operator|new
 name|SimulateDocumentSimpleResult
 argument_list|(
 operator|(
-name|Data
+name|IngestDocument
 operator|)
 literal|null
 argument_list|)
@@ -155,8 +155,8 @@ DECL|method|SimulateDocumentSimpleResult
 specifier|public
 name|SimulateDocumentSimpleResult
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 name|this
@@ -166,7 +166,7 @@ operator|=
 operator|new
 name|TransportData
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -202,7 +202,7 @@ expr_stmt|;
 block|}
 DECL|method|getData
 specifier|public
-name|Data
+name|IngestDocument
 name|getData
 parameter_list|()
 block|{

@@ -58,7 +58,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -201,7 +201,7 @@ operator|new
 name|TransportData
 argument_list|(
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 name|index
 argument_list|,
@@ -376,7 +376,7 @@ operator|new
 name|TransportData
 argument_list|(
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 name|otherIndex
 argument_list|,
@@ -449,7 +449,7 @@ operator|new
 name|TransportData
 argument_list|(
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 name|index
 argument_list|,
@@ -498,11 +498,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 init|=
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -551,7 +551,7 @@ init|=
 operator|new
 name|TransportData
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 decl_stmt|;
 name|BytesStreamOutput

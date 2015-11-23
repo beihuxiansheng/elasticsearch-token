@@ -38,7 +38,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -275,11 +275,11 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 init|=
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 literal|"_index"
 argument_list|,
@@ -311,7 +311,7 @@ name|executionService
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|,
 literal|"_id"
 argument_list|,
@@ -345,7 +345,7 @@ argument_list|)
 operator|.
 name|executed
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -395,11 +395,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 init|=
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 literal|"_index"
 argument_list|,
@@ -431,7 +431,7 @@ name|executionService
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|,
 literal|"_id"
 argument_list|,
@@ -458,7 +458,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|verify
@@ -468,7 +468,7 @@ argument_list|)
 operator|.
 name|executed
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|verify
@@ -542,11 +542,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 init|=
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 literal|"_index"
 argument_list|,
@@ -574,7 +574,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|PipelineExecutionService
@@ -595,7 +595,7 @@ name|executionService
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|,
 literal|"_id"
 argument_list|,
@@ -622,7 +622,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|verify
@@ -637,7 +637,7 @@ argument_list|)
 operator|.
 name|executed
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|verify

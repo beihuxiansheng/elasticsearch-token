@@ -776,11 +776,11 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Data
-name|expectedData
+name|IngestDocument
+name|expectedIngestDocument
 init|=
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 literal|"index"
 argument_list|,
@@ -807,7 +807,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|expectedData
+name|expectedIngestDocument
 argument_list|)
 argument_list|)
 expr_stmt|;

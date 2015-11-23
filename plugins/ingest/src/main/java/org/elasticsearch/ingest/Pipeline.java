@@ -136,8 +136,8 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -152,7 +152,7 @@ name|processor
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}

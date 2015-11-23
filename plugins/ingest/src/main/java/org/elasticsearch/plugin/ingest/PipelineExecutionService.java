@@ -84,7 +84,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -171,8 +171,8 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|,
 name|String
 name|pipelineId
@@ -244,14 +244,14 @@ name|pipeline
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|listener
 operator|.
 name|executed
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -283,8 +283,8 @@ DECL|method|executed
 name|void
 name|executed
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 function_decl|;
 DECL|method|failed

@@ -42,7 +42,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -188,10 +188,10 @@ specifier|private
 name|Processor
 name|processor
 decl_stmt|;
-DECL|field|data
+DECL|field|ingestDocument
 specifier|private
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 decl_stmt|;
 annotation|@
 name|Before
@@ -275,10 +275,10 @@ name|processor
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|data
+name|ingestDocument
 operator|=
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 literal|"_index"
 argument_list|,
@@ -328,7 +328,7 @@ name|executeVerboseItem
 argument_list|(
 name|pipeline
 argument_list|,
-name|data
+name|ingestDocument
 argument_list|)
 decl_stmt|;
 name|verify
@@ -343,7 +343,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -422,7 +422,7 @@ name|not
 argument_list|(
 name|sameInstance
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 argument_list|)
 argument_list|)
@@ -444,7 +444,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -507,7 +507,7 @@ name|not
 argument_list|(
 name|sameInstance
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 argument_list|)
 argument_list|)
@@ -529,7 +529,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -570,7 +570,7 @@ name|executeItem
 argument_list|(
 name|pipeline
 argument_list|,
-name|data
+name|ingestDocument
 argument_list|)
 decl_stmt|;
 name|verify
@@ -585,7 +585,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -617,7 +617,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -665,7 +665,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|SimulateDocumentResult
@@ -677,7 +677,7 @@ name|executeVerboseItem
 argument_list|(
 name|pipeline
 argument_list|,
-name|data
+name|ingestDocument
 argument_list|)
 decl_stmt|;
 name|verify
@@ -692,7 +692,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -866,7 +866,7 @@ name|not
 argument_list|(
 name|sameInstance
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 argument_list|)
 argument_list|)
@@ -888,7 +888,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -972,7 +972,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|SimulateDocumentResult
@@ -984,7 +984,7 @@ name|executeItem
 argument_list|(
 name|pipeline
 argument_list|,
-name|data
+name|ingestDocument
 argument_list|)
 decl_stmt|;
 name|verify
@@ -999,7 +999,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 name|assertThat

@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -85,8 +85,8 @@ DECL|method|execute
 name|void
 name|execute
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the type of a processor      */

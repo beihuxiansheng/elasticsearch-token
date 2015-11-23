@@ -26,7 +26,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -209,14 +209,14 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 name|Object
 name|field
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -270,7 +270,7 @@ parameter_list|,
 name|v
 parameter_list|)
 lambda|->
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(

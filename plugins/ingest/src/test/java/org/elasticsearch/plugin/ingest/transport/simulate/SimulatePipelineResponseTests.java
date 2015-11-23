@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -228,11 +228,11 @@ init|=
 name|randomBoolean
 argument_list|()
 decl_stmt|;
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 init|=
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -360,7 +360,7 @@ name|SimulateProcessorResult
 argument_list|(
 name|processorId
 argument_list|,
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -393,7 +393,7 @@ argument_list|(
 operator|new
 name|SimulateDocumentSimpleResult
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -425,7 +425,7 @@ operator|=
 operator|new
 name|SimulateDocumentSimpleResult
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}

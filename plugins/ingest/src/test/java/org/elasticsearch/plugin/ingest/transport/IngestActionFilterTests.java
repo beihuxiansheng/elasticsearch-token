@@ -134,7 +134,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -559,7 +559,7 @@ name|execute
 argument_list|(
 name|any
 argument_list|(
-name|Data
+name|IngestDocument
 operator|.
 name|class
 argument_list|)
@@ -668,7 +668,7 @@ name|execute
 argument_list|(
 name|any
 argument_list|(
-name|Data
+name|IngestDocument
 operator|.
 name|class
 argument_list|)
@@ -881,11 +881,11 @@ parameter_list|)
 throws|throws
 name|Throwable
 block|{
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 init|=
 operator|(
-name|Data
+name|IngestDocument
 operator|)
 name|invocationOnMock
 operator|.
@@ -917,7 +917,7 @@ name|listener
 operator|.
 name|executed
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 return|return
@@ -940,7 +940,7 @@ name|execute
 argument_list|(
 name|any
 argument_list|(
-name|Data
+name|IngestDocument
 operator|.
 name|class
 argument_list|)
@@ -982,7 +982,7 @@ name|execute
 argument_list|(
 name|any
 argument_list|(
-name|Data
+name|IngestDocument
 operator|.
 name|class
 argument_list|)
@@ -1154,7 +1154,7 @@ name|execute
 argument_list|(
 name|any
 argument_list|(
-name|Data
+name|IngestDocument
 operator|.
 name|class
 argument_list|)
@@ -1196,7 +1196,7 @@ name|execute
 argument_list|(
 name|any
 argument_list|(
-name|Data
+name|IngestDocument
 operator|.
 name|class
 argument_list|)

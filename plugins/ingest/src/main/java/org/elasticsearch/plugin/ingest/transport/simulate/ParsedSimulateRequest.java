@@ -28,7 +28,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -123,7 +123,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Data
+name|IngestDocument
 argument_list|>
 name|documents
 decl_stmt|;
@@ -147,7 +147,7 @@ name|pipeline
 parameter_list|,
 name|List
 argument_list|<
-name|Data
+name|IngestDocument
 argument_list|>
 name|documents
 parameter_list|,
@@ -193,7 +193,7 @@ DECL|method|getDocuments
 specifier|public
 name|List
 argument_list|<
-name|Data
+name|IngestDocument
 argument_list|>
 name|getDocuments
 parameter_list|()
@@ -246,7 +246,7 @@ DECL|method|parseDocs
 specifier|private
 name|List
 argument_list|<
-name|Data
+name|IngestDocument
 argument_list|>
 name|parseDocs
 parameter_list|(
@@ -283,9 +283,9 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Data
+name|IngestDocument
 argument_list|>
-name|dataList
+name|ingestDocumentList
 init|=
 operator|new
 name|ArrayList
@@ -324,11 +324,11 @@ operator|.
 name|SOURCE
 argument_list|)
 decl_stmt|;
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 init|=
 operator|new
-name|Data
+name|IngestDocument
 argument_list|(
 name|ConfigurationUtils
 operator|.
@@ -366,16 +366,16 @@ argument_list|,
 name|document
 argument_list|)
 decl_stmt|;
-name|dataList
+name|ingestDocumentList
 operator|.
 name|add
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|dataList
+name|ingestDocumentList
 return|;
 block|}
 DECL|method|parseWithPipelineId
@@ -428,9 +428,9 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Data
+name|IngestDocument
 argument_list|>
-name|dataList
+name|ingestDocumentList
 init|=
 name|parseDocs
 argument_list|(
@@ -443,7 +443,7 @@ name|ParsedSimulateRequest
 argument_list|(
 name|pipeline
 argument_list|,
-name|dataList
+name|ingestDocumentList
 argument_list|,
 name|verbose
 argument_list|)
@@ -509,9 +509,9 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Data
+name|IngestDocument
 argument_list|>
-name|dataList
+name|ingestDocumentList
 init|=
 name|parseDocs
 argument_list|(
@@ -524,7 +524,7 @@ name|ParsedSimulateRequest
 argument_list|(
 name|pipeline
 argument_list|,
-name|dataList
+name|ingestDocumentList
 argument_list|,
 name|verbose
 argument_list|)

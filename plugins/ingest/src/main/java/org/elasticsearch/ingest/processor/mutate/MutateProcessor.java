@@ -38,7 +38,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|Data
+name|IngestDocument
 import|;
 end_import
 
@@ -516,8 +516,8 @@ specifier|public
 name|void
 name|execute
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 if|if
@@ -529,7 +529,7 @@ condition|)
 block|{
 name|doUpdate
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -542,7 +542,7 @@ condition|)
 block|{
 name|doRename
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -555,7 +555,7 @@ condition|)
 block|{
 name|doConvert
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -568,7 +568,7 @@ condition|)
 block|{
 name|doSplit
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -581,7 +581,7 @@ condition|)
 block|{
 name|doGsub
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -594,7 +594,7 @@ condition|)
 block|{
 name|doJoin
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -607,7 +607,7 @@ condition|)
 block|{
 name|doRemove
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -620,7 +620,7 @@ condition|)
 block|{
 name|doTrim
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -633,7 +633,7 @@ condition|)
 block|{
 name|doUppercase
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -646,7 +646,7 @@ condition|)
 block|{
 name|doLowercase
 argument_list|(
-name|data
+name|ingestDocument
 argument_list|)
 expr_stmt|;
 block|}
@@ -668,8 +668,8 @@ specifier|private
 name|void
 name|doUpdate
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -690,7 +690,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
@@ -712,8 +712,8 @@ specifier|private
 name|void
 name|doRename
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -736,7 +736,7 @@ control|)
 block|{
 if|if
 condition|(
-name|data
+name|ingestDocument
 operator|.
 name|hasPropertyValue
 argument_list|(
@@ -750,7 +750,7 @@ block|{
 name|Object
 name|oldVal
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -764,9 +764,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|data
+name|ingestDocument
 operator|.
-name|getDocument
+name|getSource
 argument_list|()
 operator|.
 name|remove
@@ -777,7 +777,7 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
@@ -885,8 +885,8 @@ specifier|private
 name|void
 name|doConvert
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -918,7 +918,7 @@ decl_stmt|;
 name|Object
 name|oldVal
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -1023,7 +1023,7 @@ name|toType
 argument_list|)
 expr_stmt|;
 block|}
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
@@ -1042,8 +1042,8 @@ specifier|private
 name|void
 name|doSplit
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -1067,7 +1067,7 @@ block|{
 name|Object
 name|oldVal
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -1111,7 +1111,7 @@ operator|instanceof
 name|String
 condition|)
 block|{
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
@@ -1159,8 +1159,8 @@ specifier|private
 name|void
 name|doGsub
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -1174,7 +1174,7 @@ block|{
 name|String
 name|oldVal
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -1236,7 +1236,7 @@ name|getReplacement
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
@@ -1260,8 +1260,8 @@ specifier|private
 name|void
 name|doJoin
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -1285,7 +1285,7 @@ block|{
 name|Object
 name|oldVal
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -1342,7 +1342,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
@@ -1384,8 +1384,8 @@ specifier|private
 name|void
 name|doRemove
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -1396,9 +1396,9 @@ range|:
 name|remove
 control|)
 block|{
-name|data
+name|ingestDocument
 operator|.
-name|getDocument
+name|getSource
 argument_list|()
 operator|.
 name|remove
@@ -1413,8 +1413,8 @@ specifier|private
 name|void
 name|doTrim
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -1428,7 +1428,7 @@ block|{
 name|Object
 name|val
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -1466,7 +1466,7 @@ operator|instanceof
 name|String
 condition|)
 block|{
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
@@ -1510,8 +1510,8 @@ specifier|private
 name|void
 name|doUppercase
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -1525,7 +1525,7 @@ block|{
 name|Object
 name|val
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -1563,7 +1563,7 @@ operator|instanceof
 name|String
 condition|)
 block|{
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
@@ -1611,8 +1611,8 @@ specifier|private
 name|void
 name|doLowercase
 parameter_list|(
-name|Data
-name|data
+name|IngestDocument
+name|ingestDocument
 parameter_list|)
 block|{
 for|for
@@ -1626,7 +1626,7 @@ block|{
 name|Object
 name|val
 init|=
-name|data
+name|ingestDocument
 operator|.
 name|getPropertyValue
 argument_list|(
@@ -1664,7 +1664,7 @@ operator|instanceof
 name|String
 condition|)
 block|{
-name|data
+name|ingestDocument
 operator|.
 name|setPropertyValue
 argument_list|(
