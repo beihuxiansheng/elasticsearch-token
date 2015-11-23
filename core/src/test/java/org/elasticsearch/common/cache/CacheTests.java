@@ -4234,9 +4234,6 @@ do|;
 if|if
 condition|(
 name|first
-operator|&&
-operator|!
-name|second
 condition|)
 block|{
 try|try
@@ -4328,9 +4325,6 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|!
-name|first
-operator|&&
 name|second
 condition|)
 block|{
@@ -4342,15 +4336,7 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|first
-operator|&&
-operator|!
-name|second
-condition|)
+else|else
 block|{
 name|cache
 operator|.
