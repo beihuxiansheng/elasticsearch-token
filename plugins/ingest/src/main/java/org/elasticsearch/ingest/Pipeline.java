@@ -412,7 +412,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|"] doesn't support one or more provided configuration parameters ["
+literal|"] doesn't support one or more provided configuration parameters "
 operator|+
 name|Arrays
 operator|.
@@ -426,8 +426,6 @@ operator|.
 name|toArray
 argument_list|()
 argument_list|)
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

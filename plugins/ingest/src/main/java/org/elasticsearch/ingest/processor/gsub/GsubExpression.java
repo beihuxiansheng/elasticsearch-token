@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest.processor.mutate
+DECL|package|org.elasticsearch.ingest.processor.gsub
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|mutate
+name|gsub
 package|;
 end_package
 
