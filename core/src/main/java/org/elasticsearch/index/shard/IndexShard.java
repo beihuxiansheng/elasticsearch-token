@@ -2989,6 +2989,8 @@ name|reason
 parameter_list|)
 throws|throws
 name|IndexShardNotStartedException
+throws|,
+name|InterruptedException
 block|{
 synchronized|synchronized
 init|(
@@ -3023,7 +3025,46 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
+comment|// nocommit: awful hack to work around delay replications being rejected by the primary term check. This is used to make sure all in flight operation are done
+comment|// before primary relocation is done. proper fix coming.
+name|indexShardOperationCounter
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"waiting for op count to reach 0"
+argument_list|)
+expr_stmt|;
+while|while
+condition|(
+name|indexShardOperationCounter
+operator|.
+name|refCount
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
+block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"{} waiting for op count reached 0. continuing..."
+argument_list|)
+expr_stmt|;
 return|return
 name|this
 return|;
@@ -5085,6 +5126,17 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|// nocommit: done to temporary prevent operations on a relocated primary. Remove when properly fixed.
+specifier|final
+name|boolean
+name|decOpCounter
+init|=
+name|state
+operator|!=
+name|IndexShardState
+operator|.
+name|RELOCATED
+decl_stmt|;
 name|changeState
 argument_list|(
 name|IndexShardState
@@ -5094,11 +5146,17 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|decOpCounter
+condition|)
+block|{
 name|indexShardOperationCounter
 operator|.
 name|decRef
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{

@@ -312,7 +312,49 @@ name|index
 operator|.
 name|shard
 operator|.
-name|*
+name|IllegalIndexShardStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShardClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShardState
 import|;
 end_import
 
@@ -2647,11 +2689,23 @@ name|request
 operator|.
 name|markAsRelocated
 argument_list|()
+operator|||
+name|request
+operator|.
+name|recoveryType
+argument_list|()
+operator|==
+name|RecoveryState
+operator|.
+name|Type
+operator|.
+name|RELOCATION
 condition|)
 block|{
 comment|// TODO what happens if the recovery process fails afterwards, we need to mark this back to started
 try|try
 block|{
+comment|// nocommit: awful hack to work around delay replications being rejected by the primary term check. proper fix coming.
 name|shard
 operator|.
 name|relocated
@@ -2674,6 +2728,22 @@ block|{
 comment|// we can ignore this exception since, on the other node, when it moved to phase3
 comment|// it will also send shard started, which might cause the index shard we work against
 comment|// to move be closed by the time we get to the the relocated method
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"interrupted while waiting for pending operation to finish on relocated primary"
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 name|stopWatch

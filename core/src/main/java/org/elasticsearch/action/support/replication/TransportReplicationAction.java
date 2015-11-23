@@ -4418,7 +4418,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"replication phase started. pending [{}], action [{}], request [{}], cluster state version used [{}]"
+literal|"replication phase started. pending [{}], action [{}], request [{}], cluster state version used [{}], primary on start"
 argument_list|,
 name|pending
 operator|.
@@ -4436,6 +4436,8 @@ argument_list|()
 operator|.
 name|version
 argument_list|()
+argument_list|,
+name|originalPrimaryShard
 argument_list|)
 expr_stmt|;
 block|}
@@ -5089,6 +5091,36 @@ literal|true
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"finished replicating action [{}], request [{}], cluster state version [{}], primary on start {}"
+argument_list|,
+name|actionName
+argument_list|,
+name|replicaRequest
+argument_list|,
+name|observer
+operator|.
+name|observedState
+argument_list|()
+operator|.
+name|version
+argument_list|()
+argument_list|,
+name|originalPrimaryShard
+argument_list|)
+expr_stmt|;
+block|}
 name|Releasables
 operator|.
 name|close
