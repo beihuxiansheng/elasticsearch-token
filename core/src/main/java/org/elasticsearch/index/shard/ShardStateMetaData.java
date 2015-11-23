@@ -238,7 +238,7 @@ specifier|final
 name|AllocationId
 name|allocationId
 decl_stmt|;
-comment|// can be null if we read from legacy format (see fromXContent)
+comment|// can be null if we read from legacy format (see fromXContent and MultiDataPathUpgrader)
 DECL|method|ShardStateMetaData
 specifier|public
 name|ShardStateMetaData
@@ -624,6 +624,15 @@ operator|.
 name|indexUUID
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shardStateMetaData
+operator|.
+name|allocationId
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -635,6 +644,7 @@ operator|.
 name|allocationId
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
