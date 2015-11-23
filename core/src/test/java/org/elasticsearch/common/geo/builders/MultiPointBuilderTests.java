@@ -83,6 +83,16 @@ argument_list|<
 name|MultiPointBuilder
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|MultiPointBuilderTests
+name|PROTOTYPE
+init|=
+operator|new
+name|MultiPointBuilderTests
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createTestShapeBuilder

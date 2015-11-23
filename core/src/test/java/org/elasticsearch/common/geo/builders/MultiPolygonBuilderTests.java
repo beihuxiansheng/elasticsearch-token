@@ -87,6 +87,16 @@ argument_list|<
 name|MultiPolygonBuilder
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|MultiPolygonBuilderTests
+name|PROTOTYPE
+init|=
+operator|new
+name|MultiPolygonBuilderTests
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createTestShapeBuilder

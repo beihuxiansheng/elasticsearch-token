@@ -101,6 +101,16 @@ argument_list|<
 name|PolygonBuilder
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|PolygonBuilderTests
+name|PROTOTYPE
+init|=
+operator|new
+name|PolygonBuilderTests
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createTestShapeBuilder

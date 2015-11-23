@@ -99,6 +99,16 @@ argument_list|<
 name|EnvelopeBuilder
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|EnvelopeBuilderTests
+name|PROTOTYPE
+init|=
+operator|new
+name|EnvelopeBuilderTests
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createTestShapeBuilder

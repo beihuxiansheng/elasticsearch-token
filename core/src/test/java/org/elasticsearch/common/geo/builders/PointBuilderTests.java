@@ -73,6 +73,15 @@ argument_list|<
 name|PointBuilder
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+name|PointBuilderTests
+name|PROTOTYPE
+init|=
+operator|new
+name|PointBuilderTests
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createTestShapeBuilder

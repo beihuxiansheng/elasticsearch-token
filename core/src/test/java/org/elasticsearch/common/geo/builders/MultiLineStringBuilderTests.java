@@ -83,6 +83,16 @@ argument_list|<
 name|MultiLineStringBuilder
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|MultiLineStringBuilderTests
+name|PROTOTYPE
+init|=
+operator|new
+name|MultiLineStringBuilderTests
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createTestShapeBuilder

@@ -57,16 +57,25 @@ import|;
 end_import
 
 begin_class
-DECL|class|CirlceBuilderTests
+DECL|class|CircleBuilderTests
 specifier|public
 class|class
-name|CirlceBuilderTests
+name|CircleBuilderTests
 extends|extends
 name|AbstractShapeBuilderTestCase
 argument_list|<
 name|CircleBuilder
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+name|CircleBuilderTests
+name|PROTOTYPE
+init|=
+operator|new
+name|CircleBuilderTests
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createTestShapeBuilder
