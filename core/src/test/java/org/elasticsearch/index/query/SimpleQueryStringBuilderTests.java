@@ -70,22 +70,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2236,6 +2220,103 @@ name|equalTo
 argument_list|(
 name|otherBuilder
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"simple_query_string\" : {\n"
+operator|+
+literal|"    \"query\" : \"\\\"fried eggs\\\" +(eggplant | potato) -frittata\",\n"
+operator|+
+literal|"    \"fields\" : [ \"_all^1.0\", \"body^5.0\" ],\n"
+operator|+
+literal|"    \"analyzer\" : \"snowball\",\n"
+operator|+
+literal|"    \"flags\" : -1,\n"
+operator|+
+literal|"    \"default_operator\" : \"and\",\n"
+operator|+
+literal|"    \"lowercase_expanded_terms\" : true,\n"
+operator|+
+literal|"    \"lenient\" : false,\n"
+operator|+
+literal|"    \"analyze_wildcard\" : false,\n"
+operator|+
+literal|"    \"locale\" : \"und\",\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SimpleQueryStringBuilder
+name|parsed
+init|=
+operator|(
+name|SimpleQueryStringBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"\"fried eggs\" +(eggplant | potato) -frittata"
+argument_list|,
+name|parsed
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|fields
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"snowball"
+argument_list|,
+name|parsed
+operator|.
+name|analyzer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

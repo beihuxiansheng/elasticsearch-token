@@ -295,7 +295,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"big"
+name|SpanContainingQueryParser
+operator|.
+name|BIG_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|big
@@ -311,7 +316,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"little"
+name|SpanContainingQueryParser
+operator|.
+name|LITTLE_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|little

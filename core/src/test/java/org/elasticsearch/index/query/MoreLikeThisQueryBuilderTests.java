@@ -2066,6 +2066,115 @@ name|newItem
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"mlt\" : {\n"
+operator|+
+literal|"    \"fields\" : [ \"title\", \"description\" ],\n"
+operator|+
+literal|"    \"like\" : [ \"and potentially some more text here as well\", {\n"
+operator|+
+literal|"      \"_index\" : \"imdb\",\n"
+operator|+
+literal|"      \"_type\" : \"movies\",\n"
+operator|+
+literal|"      \"_id\" : \"1\"\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"_index\" : \"imdb\",\n"
+operator|+
+literal|"      \"_type\" : \"movies\",\n"
+operator|+
+literal|"      \"_id\" : \"2\"\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"max_query_terms\" : 12,\n"
+operator|+
+literal|"    \"min_term_freq\" : 1,\n"
+operator|+
+literal|"    \"min_doc_freq\" : 5,\n"
+operator|+
+literal|"    \"max_doc_freq\" : 2147483647,\n"
+operator|+
+literal|"    \"min_word_length\" : 0,\n"
+operator|+
+literal|"    \"max_word_length\" : 0,\n"
+operator|+
+literal|"    \"minimum_should_match\" : \"30%\",\n"
+operator|+
+literal|"    \"boost_terms\" : 0.0,\n"
+operator|+
+literal|"    \"include\" : false,\n"
+operator|+
+literal|"    \"fail_on_unsupported_field\" : true,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MoreLikeThisQueryBuilder
+name|parsed
+init|=
+operator|(
+name|MoreLikeThisQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|fields
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"and potentially some more text here as well"
+argument_list|,
+name|parsed
+operator|.
+name|likeTexts
+argument_list|()
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

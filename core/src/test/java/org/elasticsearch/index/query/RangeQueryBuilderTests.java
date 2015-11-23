@@ -2076,6 +2076,84 @@ block|{
 comment|// We expect it
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"range\" : {\n"
+operator|+
+literal|"    \"timestamp\" : {\n"
+operator|+
+literal|"      \"from\" : \"2015-01-01 00:00:00\",\n"
+operator|+
+literal|"      \"to\" : \"now\",\n"
+operator|+
+literal|"      \"include_lower\" : true,\n"
+operator|+
+literal|"      \"include_upper\" : true,\n"
+operator|+
+literal|"      \"time_zone\" : \"+01:00\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|RangeQueryBuilder
+name|parsed
+init|=
+operator|(
+name|RangeQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"2015-01-01 00:00:00"
+argument_list|,
+name|parsed
+operator|.
+name|from
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"now"
+argument_list|,
+name|parsed
+operator|.
+name|to
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

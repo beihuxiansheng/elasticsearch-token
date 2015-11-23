@@ -378,7 +378,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doXContent
-specifier|public
+specifier|protected
 name|void
 name|doXContent
 parameter_list|(
@@ -409,7 +409,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"wildcard"
+name|WildcardQueryParser
+operator|.
+name|WILDCARD_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|value
 argument_list|)
@@ -425,7 +430,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"rewrite"
+name|WildcardQueryParser
+operator|.
+name|REWRITE_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|rewrite
 argument_list|)
