@@ -292,14 +292,14 @@ name|assertThat
 argument_list|(
 name|otherSimulateProcessorResult
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|simulateProcessorResult
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|)
 argument_list|)

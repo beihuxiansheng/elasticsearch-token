@@ -79,10 +79,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DataTests
+DECL|class|IngestDocumentTests
 specifier|public
 class|class
-name|DataTests
+name|IngestDocumentTests
 extends|extends
 name|ESTestCase
 block|{
@@ -93,10 +93,10 @@ name|ingestDocument
 decl_stmt|;
 annotation|@
 name|Before
-DECL|method|setData
+DECL|method|setIngestDocument
 specifier|public
 name|void
-name|setData
+name|setIngestDocument
 parameter_list|()
 block|{
 name|Map

@@ -262,14 +262,14 @@ name|assertThat
 argument_list|(
 name|otherSimulateDocumentSimpleResult
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|simulateDocumentSimpleResult
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|)
 argument_list|)

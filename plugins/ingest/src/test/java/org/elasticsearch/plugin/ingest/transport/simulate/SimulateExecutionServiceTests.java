@@ -415,7 +415,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|not
@@ -439,7 +439,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|equalTo
@@ -500,7 +500,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|not
@@ -524,7 +524,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|equalTo
@@ -612,7 +612,7 @@ name|assertThat
 argument_list|(
 name|simulateDocumentSimpleResult
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|equalTo
@@ -764,7 +764,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|nullValue
@@ -859,7 +859,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|not
@@ -883,7 +883,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1026,7 +1026,7 @@ name|assertThat
 argument_list|(
 name|simulateDocumentSimpleResult
 operator|.
-name|getData
+name|getIngestDocument
 argument_list|()
 argument_list|,
 name|nullValue
