@@ -200,6 +200,18 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
 begin_comment
 comment|/**  * Script holds all the parameters necessary to compile or find in cache and then execute a script.  */
 end_comment
@@ -214,6 +226,39 @@ name|ToXContent
 implements|,
 name|Streamable
 block|{
+comment|/**      * A {@link Supplier} implementation for use when reading a {@link Script}      * using {@link StreamInput#readOptionalStreamable(Supplier)}      */
+DECL|field|SUPPLIER
+specifier|public
+specifier|static
+specifier|final
+name|Supplier
+argument_list|<
+name|Script
+argument_list|>
+name|SUPPLIER
+init|=
+operator|new
+name|Supplier
+argument_list|<
+name|Script
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|Script
+name|get
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Script
+argument_list|()
+return|;
+block|}
+block|}
+decl_stmt|;
 DECL|field|DEFAULT_TYPE
 specifier|public
 specifier|static
@@ -315,7 +360,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor for Script.      *       * @param script      *            The cache key of the script to be compiled/executed. For      *            inline scripts this is the actual script source code. For      *            indexed scripts this is the id used in the request. For on      *            file scripts this is the file name.      * @param type      *            The type of script -- dynamic, indexed, or file.      * @param lang      *            The language of the script to be compiled/executed.      * @param params      *            The map of parameters the script will be executed with.      */
+comment|/**      * Constructor for Script.      *      * @param script      *            The cache key of the script to be compiled/executed. For      *            inline scripts this is the actual script source code. For      *            indexed scripts this is the id used in the request. For on      *            file scripts this is the file name.      * @param type      *            The type of script -- dynamic, indexed, or file.      * @param lang      *            The language of the script to be compiled/executed.      * @param params      *            The map of parameters the script will be executed with.      */
 DECL|method|Script
 specifier|public
 name|Script
@@ -418,7 +463,7 @@ return|return
 name|script
 return|;
 block|}
-comment|/**      * Method for getting the type.      *       * @return The type of script -- inline, indexed, or file.      */
+comment|/**      * Method for getting the type.      *      * @return The type of script -- inline, indexed, or file.      */
 DECL|method|getType
 specifier|public
 name|ScriptType
@@ -435,7 +480,7 @@ else|:
 name|type
 return|;
 block|}
-comment|/**      * Method for getting language.      *       * @return The language of the script to be compiled/executed.      */
+comment|/**      * Method for getting language.      *      * @return The language of the script to be compiled/executed.      */
 DECL|method|getLang
 specifier|public
 name|String
@@ -446,7 +491,7 @@ return|return
 name|lang
 return|;
 block|}
-comment|/**      * Method for getting the parameters.      *       * @return The map of parameters the script will be executed with.      */
+comment|/**      * Method for getting the parameters.      *      * @return The map of parameters the script will be executed with.      */
 DECL|method|getParams
 specifier|public
 name|Map
