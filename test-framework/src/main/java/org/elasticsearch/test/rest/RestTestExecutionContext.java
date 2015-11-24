@@ -302,6 +302,14 @@ name|Object
 argument_list|>
 argument_list|>
 name|bodies
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|)
 throws|throws
 name|IOException
@@ -394,6 +402,8 @@ argument_list|,
 name|requestParams
 argument_list|,
 name|body
+argument_list|,
+name|headers
 argument_list|)
 expr_stmt|;
 comment|//we always stash the last response body
@@ -586,6 +596,14 @@ name|params
 parameter_list|,
 name|String
 name|body
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|headers
 parameter_list|)
 throws|throws
 name|IOException
@@ -602,6 +620,8 @@ argument_list|,
 name|params
 argument_list|,
 name|body
+argument_list|,
+name|headers
 argument_list|)
 return|;
 block|}
