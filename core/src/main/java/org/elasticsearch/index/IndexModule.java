@@ -36,20 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|AbstractModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -254,7 +240,11 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndicesService
+name|cache
+operator|.
+name|query
+operator|.
+name|IndicesQueryCache
 import|;
 end_import
 
@@ -266,11 +256,9 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
+name|mapper
 operator|.
-name|query
-operator|.
-name|IndicesQueryCache
+name|MapperRegistry
 import|;
 end_import
 
@@ -1107,6 +1095,9 @@ name|shardStoreDeleter
 parameter_list|,
 name|NodeServicesProvider
 name|servicesProvider
+parameter_list|,
+name|MapperRegistry
+name|mapperRegistry
 parameter_list|)
 throws|throws
 name|IOException
@@ -1343,6 +1334,8 @@ argument_list|,
 name|eventListener
 argument_list|,
 name|searcherWrapperFactory
+argument_list|,
+name|mapperRegistry
 argument_list|)
 return|;
 block|}

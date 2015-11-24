@@ -302,7 +302,7 @@ name|CLASS_FIELD
 init|=
 literal|"class"
 decl_stmt|;
-comment|/**      * Simple upgrade test for streaming significant terms buckets      */
+comment|/**      * Test for streaming significant terms buckets to old es versions.      */
 DECL|method|testBucketStreaming
 specifier|public
 name|void
@@ -344,37 +344,6 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
-name|logClusterState
-argument_list|()
-expr_stmt|;
-name|boolean
-name|upgraded
-decl_stmt|;
-name|int
-name|upgradedNodesCounter
-init|=
-literal|1
-decl_stmt|;
-do|do
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"testBucketStreaming: upgrading {}st node"
-argument_list|,
-name|upgradedNodesCounter
-operator|++
-argument_list|)
-expr_stmt|;
-name|upgraded
-operator|=
-name|backwardsCluster
-argument_list|()
-operator|.
-name|upgradeOneNode
-argument_list|()
-expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
@@ -384,12 +353,6 @@ expr_stmt|;
 name|checkSignificantTermsAggregationCorrect
 argument_list|()
 expr_stmt|;
-block|}
-do|while
-condition|(
-name|upgraded
-condition|)
-do|;
 name|logger
 operator|.
 name|debug
@@ -740,9 +703,6 @@ expr_stmt|;
 name|StringTerms
 name|classes
 init|=
-operator|(
-name|StringTerms
-operator|)
 name|response
 operator|.
 name|getAggregations

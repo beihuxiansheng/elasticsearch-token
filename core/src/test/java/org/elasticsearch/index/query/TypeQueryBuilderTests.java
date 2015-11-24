@@ -302,6 +302,60 @@ block|{
 comment|// expected
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"type\" : {\n"
+operator|+
+literal|"    \"value\" : \"my_type\",\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|TypeQueryBuilder
+name|parsed
+init|=
+operator|(
+name|TypeQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"my_type"
+argument_list|,
+name|parsed
+operator|.
+name|type
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

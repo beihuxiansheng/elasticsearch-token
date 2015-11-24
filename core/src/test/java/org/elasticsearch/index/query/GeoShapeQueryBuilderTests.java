@@ -1354,6 +1354,74 @@ name|endArray
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_shape\" : {\n"
+operator|+
+literal|"    \"location\" : {\n"
+operator|+
+literal|"      \"shape\" : {\n"
+operator|+
+literal|"        \"type\" : \"envelope\",\n"
+operator|+
+literal|"        \"coordinates\" : [ [ 13.0, 53.0 ], [ 14.0, 52.0 ] ]\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \"relation\" : \"intersects\"\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"boost\" : 42.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|GeoShapeQueryBuilder
+name|parsed
+init|=
+operator|(
+name|GeoShapeQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|42.0
+argument_list|,
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

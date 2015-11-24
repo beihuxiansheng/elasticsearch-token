@@ -232,6 +232,73 @@ block|{
 comment|// expected
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"script\" : {\n"
+operator|+
+literal|"    \"script\" : {\n"
+operator|+
+literal|"      \"inline\" : \"5\",\n"
+operator|+
+literal|"      \"lang\" : \"mockscript\",\n"
+operator|+
+literal|"      \"params\" : { }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"boost\" : 1.0,\n"
+operator|+
+literal|"    \"_name\" : \"PcKdEyPOmR\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ScriptQueryBuilder
+name|parsed
+init|=
+operator|(
+name|ScriptQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"mockscript"
+argument_list|,
+name|parsed
+operator|.
+name|script
+argument_list|()
+operator|.
+name|getLang
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

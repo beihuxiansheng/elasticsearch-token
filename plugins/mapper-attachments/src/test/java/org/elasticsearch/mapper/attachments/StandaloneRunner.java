@@ -595,21 +595,6 @@ name|documentMapperParser
 argument_list|()
 decl_stmt|;
 comment|// use CWD b/c it won't be used
-name|mapperParser
-operator|.
-name|putTypeParser
-argument_list|(
-name|AttachmentMapper
-operator|.
-name|CONTENT_TYPE
-argument_list|,
-operator|new
-name|AttachmentMapper
-operator|.
-name|TypeParser
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|String
 name|mapping
 init|=

@@ -231,6 +231,17 @@ argument_list|,
 name|InternalIPv4Range
 argument_list|>
 block|{
+DECL|field|MAX_IP
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|MAX_IP
+init|=
+literal|1L
+operator|<<
+literal|32
+decl_stmt|;
 DECL|field|TYPE
 specifier|public
 specifier|final

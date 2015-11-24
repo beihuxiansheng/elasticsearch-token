@@ -289,7 +289,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"match"
+name|SpanFirstQueryParser
+operator|.
+name|MATCH_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|matchBuilder
@@ -305,7 +310,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"end"
+name|SpanFirstQueryParser
+operator|.
+name|END_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|end
 argument_list|)

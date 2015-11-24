@@ -539,6 +539,99 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_multi\" : {\n"
+operator|+
+literal|"    \"match\" : {\n"
+operator|+
+literal|"      \"prefix\" : {\n"
+operator|+
+literal|"        \"user\" : {\n"
+operator|+
+literal|"          \"value\" : \"ki\",\n"
+operator|+
+literal|"          \"boost\" : 1.08\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SpanMultiTermQueryBuilder
+name|parsed
+init|=
+operator|(
+name|SpanMultiTermQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"ki"
+argument_list|,
+operator|(
+operator|(
+name|PrefixQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|innerQuery
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|1.08
+argument_list|,
+name|parsed
+operator|.
+name|innerQuery
+argument_list|()
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

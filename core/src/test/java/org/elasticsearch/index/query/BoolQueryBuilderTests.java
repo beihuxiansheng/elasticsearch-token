@@ -1929,6 +1929,186 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|query
+init|=
+literal|"{"
+operator|+
+literal|"\"bool\" : {"
+operator|+
+literal|"  \"must\" : [ {"
+operator|+
+literal|"    \"term\" : {"
+operator|+
+literal|"      \"user\" : {"
+operator|+
+literal|"        \"value\" : \"kimchy\","
+operator|+
+literal|"        \"boost\" : 1.0"
+operator|+
+literal|"      }"
+operator|+
+literal|"    }"
+operator|+
+literal|"  } ],"
+operator|+
+literal|"  \"filter\" : [ {"
+operator|+
+literal|"    \"term\" : {"
+operator|+
+literal|"      \"tag\" : {"
+operator|+
+literal|"        \"value\" : \"tech\","
+operator|+
+literal|"        \"boost\" : 1.0"
+operator|+
+literal|"      }"
+operator|+
+literal|"    }"
+operator|+
+literal|"  } ],"
+operator|+
+literal|"  \"must_not\" : [ {"
+operator|+
+literal|"    \"range\" : {"
+operator|+
+literal|"      \"age\" : {"
+operator|+
+literal|"        \"from\" : 10,"
+operator|+
+literal|"        \"to\" : 20,"
+operator|+
+literal|"        \"include_lower\" : true,"
+operator|+
+literal|"        \"include_upper\" : true,"
+operator|+
+literal|"        \"boost\" : 1.0"
+operator|+
+literal|"      }"
+operator|+
+literal|"    }"
+operator|+
+literal|"  } ],"
+operator|+
+literal|"  \"should\" : [ {"
+operator|+
+literal|"    \"term\" : {"
+operator|+
+literal|"      \"tag\" : {"
+operator|+
+literal|"        \"value\" : \"wow\","
+operator|+
+literal|"        \"boost\" : 1.0"
+operator|+
+literal|"      }"
+operator|+
+literal|"    }"
+operator|+
+literal|"  }, {"
+operator|+
+literal|"    \"term\" : {"
+operator|+
+literal|"      \"tag\" : {"
+operator|+
+literal|"        \"value\" : \"elasticsearch\","
+operator|+
+literal|"        \"boost\" : 1.0"
+operator|+
+literal|"      }"
+operator|+
+literal|"    }"
+operator|+
+literal|"  } ],"
+operator|+
+literal|"  \"disable_coord\" : false,"
+operator|+
+literal|"  \"adjust_pure_negative\" : true,"
+operator|+
+literal|"  \"minimum_should_match\" : \"23\","
+operator|+
+literal|"  \"boost\" : 42.0"
+operator|+
+literal|"}"
+operator|+
+literal|"}"
+decl_stmt|;
+name|BoolQueryBuilder
+name|queryBuilder
+init|=
+operator|(
+name|BoolQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|query
+argument_list|,
+name|queryBuilder
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|42
+argument_list|,
+name|queryBuilder
+operator|.
+name|boost
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|"23"
+argument_list|,
+name|queryBuilder
+operator|.
+name|minimumShouldMatch
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|"kimchy"
+argument_list|,
+operator|(
+operator|(
+name|TermQueryBuilder
+operator|)
+name|queryBuilder
+operator|.
+name|must
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

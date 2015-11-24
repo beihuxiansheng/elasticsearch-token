@@ -401,7 +401,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"prefix"
+name|PrefixQueryParser
+operator|.
+name|PREFIX_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|this
 operator|.
@@ -419,7 +424,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"rewrite"
+name|PrefixQueryParser
+operator|.
+name|REWRITE_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|rewrite
 argument_list|)

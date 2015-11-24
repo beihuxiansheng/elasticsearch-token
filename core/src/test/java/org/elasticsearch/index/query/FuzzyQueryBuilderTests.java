@@ -817,6 +817,89 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"fuzzy\" : {\n"
+operator|+
+literal|"    \"user\" : {\n"
+operator|+
+literal|"      \"value\" : \"ki\",\n"
+operator|+
+literal|"      \"fuzziness\" : \"2\",\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 100,\n"
+operator|+
+literal|"      \"transpositions\" : false,\n"
+operator|+
+literal|"      \"boost\" : 42.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|FuzzyQueryBuilder
+name|parsed
+init|=
+operator|(
+name|FuzzyQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|42.0
+argument_list|,
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|fuzziness
+argument_list|()
+operator|.
+name|asInt
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

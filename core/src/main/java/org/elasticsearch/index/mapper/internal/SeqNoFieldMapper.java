@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Mapper for the _version field. */
+comment|/** Mapper for the _seq_no field. */
 end_comment
 
 begin_class
@@ -333,7 +333,7 @@ specifier|static
 class|class
 name|TypeParser
 implements|implements
-name|Mapper
+name|MetadataFieldMapper
 operator|.
 name|TypeParser
 block|{
@@ -341,7 +341,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|Mapper
+name|MetadataFieldMapper
 operator|.
 name|Builder
 argument_list|<
@@ -377,6 +377,31 @@ operator|+
 literal|" is not configurable"
 argument_list|)
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDefault
+specifier|public
+name|MetadataFieldMapper
+name|getDefault
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|,
+name|MappedFieldType
+name|fieldType
+parameter_list|,
+name|String
+name|typeName
+parameter_list|)
+block|{
+return|return
+operator|new
+name|SeqNoFieldMapper
+argument_list|(
+name|indexSettings
+argument_list|)
+return|;
 block|}
 block|}
 DECL|class|SeqNoFieldType

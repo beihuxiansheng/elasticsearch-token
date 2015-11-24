@@ -957,7 +957,7 @@ name|get
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|)
 decl_stmt|;

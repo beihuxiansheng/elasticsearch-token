@@ -1637,6 +1637,121 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"multi_match\" : {\n"
+operator|+
+literal|"    \"query\" : \"quick brown fox\",\n"
+operator|+
+literal|"    \"fields\" : [ \"title^1.0\", \"title.original^1.0\", \"title.shingles^1.0\" ],\n"
+operator|+
+literal|"    \"type\" : \"most_fields\",\n"
+operator|+
+literal|"    \"operator\" : \"OR\",\n"
+operator|+
+literal|"    \"slop\" : 0,\n"
+operator|+
+literal|"    \"prefix_length\" : 0,\n"
+operator|+
+literal|"    \"max_expansions\" : 50,\n"
+operator|+
+literal|"    \"lenient\" : false,\n"
+operator|+
+literal|"    \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MultiMatchQueryBuilder
+name|parsed
+init|=
+operator|(
+name|MultiMatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"quick brown fox"
+argument_list|,
+name|parsed
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|3
+argument_list|,
+name|parsed
+operator|.
+name|fields
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+name|MultiMatchQueryBuilder
+operator|.
+name|Type
+operator|.
+name|MOST_FIELDS
+argument_list|,
+name|parsed
+operator|.
+name|type
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+name|Operator
+operator|.
+name|OR
+argument_list|,
+name|parsed
+operator|.
+name|operator
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

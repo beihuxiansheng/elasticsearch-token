@@ -3565,6 +3565,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"allocation_id"
+argument_list|)
+expr_stmt|;
 name|allocationId
 operator|.
 name|toXContent
