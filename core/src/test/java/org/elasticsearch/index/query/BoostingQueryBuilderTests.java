@@ -312,6 +312,142 @@ block|{
 comment|//
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"boosting\" : {\n"
+operator|+
+literal|"    \"positive\" : {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"field1\" : {\n"
+operator|+
+literal|"          \"value\" : \"value1\",\n"
+operator|+
+literal|"          \"boost\" : 5.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"negative\" : {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"field2\" : {\n"
+operator|+
+literal|"          \"value\" : \"value2\",\n"
+operator|+
+literal|"          \"boost\" : 8.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"negative_boost\" : 23.0,\n"
+operator|+
+literal|"    \"boost\" : 42.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|BoostingQueryBuilder
+name|queryBuilder
+init|=
+operator|(
+name|BoostingQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|query
+argument_list|,
+name|queryBuilder
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|42
+argument_list|,
+name|queryBuilder
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|23
+argument_list|,
+name|queryBuilder
+operator|.
+name|negativeBoost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|8
+argument_list|,
+name|queryBuilder
+operator|.
+name|negativeQuery
+argument_list|()
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|5
+argument_list|,
+name|queryBuilder
+operator|.
+name|positiveQuery
+argument_list|()
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

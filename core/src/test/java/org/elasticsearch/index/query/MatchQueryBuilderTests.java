@@ -1398,6 +1398,275 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testPhrasePrefixMatchQuery
+specifier|public
+name|void
+name|testPhrasePrefixMatchQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json1
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"match_phrase_prefix\" : {\n"
+operator|+
+literal|"        \"message\" : \"this is a test\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"this is a test\",\n"
+operator|+
+literal|"      \"type\" : \"phrase_prefix\",\n"
+operator|+
+literal|"      \"operator\" : \"OR\",\n"
+operator|+
+literal|"      \"slop\" : 0,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 50,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MatchQueryBuilder
+name|qb
+init|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json1
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|expected
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|String
+name|json2
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"match\" : {\n"
+operator|+
+literal|"        \"message\" : {\n"
+operator|+
+literal|"            \"query\" : \"this is a test\",\n"
+operator|+
+literal|"            \"type\" : \"phrase_prefix\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|qb
+operator|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json2
+argument_list|)
+expr_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|expected
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|String
+name|json3
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"match_phrase_prefix\" : {\n"
+operator|+
+literal|"        \"message\" : {\n"
+operator|+
+literal|"            \"query\" : \"this is a test\",\n"
+operator|+
+literal|"            \"max_expansions\" : 10\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|expected
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"this is a test\",\n"
+operator|+
+literal|"      \"type\" : \"phrase_prefix\",\n"
+operator|+
+literal|"      \"operator\" : \"OR\",\n"
+operator|+
+literal|"      \"slop\" : 0,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 10,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+name|qb
+operator|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json3
+argument_list|)
+expr_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|expected
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSimpleMatchQuery
+specifier|public
+name|void
+name|testSimpleMatchQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"to be or not to be\",\n"
+operator|+
+literal|"      \"type\" : \"boolean\",\n"
+operator|+
+literal|"      \"operator\" : \"AND\",\n"
+operator|+
+literal|"      \"slop\" : 0,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 50,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"ALL\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MatchQueryBuilder
+name|qb
+init|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"to be or not to be"
+argument_list|,
+name|qb
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+name|Operator
+operator|.
+name|AND
+argument_list|,
+name|qb
+operator|.
+name|operator
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

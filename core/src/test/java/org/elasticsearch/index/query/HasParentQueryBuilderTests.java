@@ -1536,6 +1536,98 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"has_parent\" : {\n"
+operator|+
+literal|"    \"query\" : {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"tag\" : {\n"
+operator|+
+literal|"          \"value\" : \"something\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"parent_type\" : \"blog\",\n"
+operator|+
+literal|"    \"score\" : true,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|HasParentQueryBuilder
+name|parsed
+init|=
+operator|(
+name|HasParentQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"blog"
+argument_list|,
+name|parsed
+operator|.
+name|type
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"something"
+argument_list|,
+operator|(
+operator|(
+name|TermQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|query
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

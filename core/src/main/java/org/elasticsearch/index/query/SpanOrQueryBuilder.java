@@ -314,7 +314,12 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-literal|"clauses"
+name|SpanOrQueryParser
+operator|.
+name|CLAUSES_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

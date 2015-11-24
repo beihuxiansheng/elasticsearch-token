@@ -356,6 +356,97 @@ block|{
 comment|// okay
 block|}
 block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"field_masking_span\" : {\n"
+operator|+
+literal|"    \"query\" : {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"value\" : {\n"
+operator|+
+literal|"          \"value\" : 0.5,\n"
+operator|+
+literal|"          \"boost\" : 0.23\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"field\" : \"mapped_geo_shape\",\n"
+operator|+
+literal|"    \"boost\" : 42.0,\n"
+operator|+
+literal|"    \"_name\" : \"KPI\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|FieldMaskingSpanQueryBuilder
+name|parsed
+init|=
+operator|(
+name|FieldMaskingSpanQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|42.0
+argument_list|,
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|0.23
+argument_list|,
+name|parsed
+operator|.
+name|innerQuery
+argument_list|()
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

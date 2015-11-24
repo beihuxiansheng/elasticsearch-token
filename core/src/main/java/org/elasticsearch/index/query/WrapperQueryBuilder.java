@@ -386,7 +386,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"query"
+name|WrapperQueryParser
+operator|.
+name|QUERY_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|source
 argument_list|)

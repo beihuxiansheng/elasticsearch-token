@@ -1379,7 +1379,10 @@ name|array
 argument_list|(
 name|GeoBoundingBoxQueryParser
 operator|.
-name|TOP_LEFT
+name|TOP_LEFT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|topLeft
 operator|.
@@ -1398,7 +1401,10 @@ name|array
 argument_list|(
 name|GeoBoundingBoxQueryParser
 operator|.
-name|BOTTOM_RIGHT
+name|BOTTOM_RIGHT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|bottomRight
 operator|.
@@ -1420,7 +1426,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"validation_method"
+name|GeoBoundingBoxQueryParser
+operator|.
+name|VALIDATION_METHOD_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|validationMethod
 argument_list|)
@@ -1429,7 +1440,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"type"
+name|GeoBoundingBoxQueryParser
+operator|.
+name|TYPE_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|type
 argument_list|)
@@ -1448,7 +1464,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doEquals
-specifier|public
+specifier|protected
 name|boolean
 name|doEquals
 parameter_list|(
@@ -1516,7 +1532,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doHashCode
-specifier|public
+specifier|protected
 name|int
 name|doHashCode
 parameter_list|()
@@ -1541,7 +1557,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doReadFrom
-specifier|public
+specifier|protected
 name|GeoBoundingBoxQueryBuilder
 name|doReadFrom
 parameter_list|(
@@ -1615,7 +1631,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doWriteTo
-specifier|public
+specifier|protected
 name|void
 name|doWriteTo
 parameter_list|(

@@ -391,7 +391,10 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"boost"
+name|BOOST_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|boost
 argument_list|)
@@ -407,7 +410,10 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"_name"
+name|NAME_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|queryName
 argument_list|)
@@ -575,7 +581,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the query name for the query.      */
+comment|/**      * Sets the query name for the query.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -606,7 +612,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Sets the query name for the query.      */
+comment|/**      * Returns the query name for the query.      */
 annotation|@
 name|Override
 DECL|method|queryName
