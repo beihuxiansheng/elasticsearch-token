@@ -107,7 +107,7 @@ parameter_list|>
 extends|extends
 name|Closeable
 block|{
-comment|/**          * Creates a processor based on the specified map of maps config          */
+comment|/**          * Creates a processor based on the specified map of maps config.          *          * Implementations are responsible for removing the used keys, so that after creating a pipeline ingest can          * verify if all configurations settings have been used.          */
 DECL|method|create
 name|P
 name|create

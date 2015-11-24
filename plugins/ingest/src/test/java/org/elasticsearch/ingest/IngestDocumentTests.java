@@ -587,7 +587,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -650,7 +650,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -850,7 +850,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1004,7 +1004,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1060,7 +1060,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1117,7 +1117,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1174,7 +1174,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1231,7 +1231,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1259,7 +1259,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1469,7 +1469,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1496,7 +1496,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1539,7 +1539,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1582,7 +1582,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1625,7 +1625,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|isModified
+name|isSourceModified
 argument_list|()
 argument_list|,
 name|equalTo
