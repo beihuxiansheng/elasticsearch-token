@@ -265,7 +265,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a do section:  *  *   - do:  *      catch:      missing  *      update:  *          index:  test_1  *          type:   test  *          id:     1  *          body:   { doc: { foo: bar } }  *  */
+comment|/**  * Represents a do section:  *  *   - do:  *      catch:      missing  *      headers:  *          Authorization: Basic user:pass  *          Content-Type: application/json  *      update:  *          index:  test_1  *          type:   test  *          id:     1  *          body:   { doc: { foo: bar } }  *  */
 end_comment
 
 begin_class
@@ -410,6 +410,11 @@ argument_list|,
 name|apiCallSection
 operator|.
 name|getBodies
+argument_list|()
+argument_list|,
+name|apiCallSection
+operator|.
+name|getHeaders
 argument_list|()
 argument_list|)
 decl_stmt|;
