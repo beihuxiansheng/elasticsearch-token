@@ -3711,10 +3711,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// issue https://github.com/elasticsearch/elasticsearch/issues/5864
-DECL|method|testRootMappersStillWorking
+DECL|method|testMetadataMappersStillWorking
 specifier|public
 name|void
-name|testRootMappersStillWorking
+name|testMetadataMappersStillWorking
 parameter_list|()
 block|{
 name|String

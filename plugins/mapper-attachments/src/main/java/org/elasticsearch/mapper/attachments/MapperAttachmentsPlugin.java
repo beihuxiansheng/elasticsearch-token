@@ -22,9 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|indices
 operator|.
-name|IndexService
+name|IndicesModule
 import|;
 end_import
 
@@ -72,26 +72,18 @@ return|return
 literal|"Adds the attachment type allowing to parse difference attachment formats"
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|onIndexService
+DECL|method|onModule
 specifier|public
 name|void
-name|onIndexService
+name|onModule
 parameter_list|(
-name|IndexService
-name|indexService
+name|IndicesModule
+name|indicesModule
 parameter_list|)
 block|{
-name|indexService
+name|indicesModule
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|documentMapperParser
-argument_list|()
-operator|.
-name|putTypeParser
+name|registerMapper
 argument_list|(
 literal|"attachment"
 argument_list|,
