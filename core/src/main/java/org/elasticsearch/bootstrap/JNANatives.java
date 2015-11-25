@@ -938,11 +938,8 @@ operator|.
 name|warn
 argument_list|(
 literal|"unable to install syscall filter: "
-operator|+
+argument_list|,
 name|t
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

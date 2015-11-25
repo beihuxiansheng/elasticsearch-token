@@ -1595,11 +1595,6 @@ name|emptyList
 argument_list|()
 argument_list|,
 name|npe
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|npe
 argument_list|)
 argument_list|)
 argument_list|)

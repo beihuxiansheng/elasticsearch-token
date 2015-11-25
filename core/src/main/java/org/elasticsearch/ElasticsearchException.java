@@ -311,6 +311,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|/**      * Construct a<code>ElasticsearchException</code> with the specified cause exception.      */
 DECL|method|ElasticsearchException
 specifier|public
 name|ElasticsearchException

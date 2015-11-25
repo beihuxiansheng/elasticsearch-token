@@ -2846,16 +2846,13 @@ name|tracerLog
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] sent error response (error: [{}])"
+literal|"[{}][{}] sent error response"
+argument_list|,
+name|t
 argument_list|,
 name|requestId
 argument_list|,
 name|action
-argument_list|,
-name|t
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

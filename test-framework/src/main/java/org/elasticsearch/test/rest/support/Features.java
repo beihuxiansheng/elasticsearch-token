@@ -78,6 +78,8 @@ argument_list|(
 literal|"stash_in_path"
 argument_list|,
 literal|"groovy_scripting"
+argument_list|,
+literal|"headers"
 argument_list|)
 decl_stmt|;
 DECL|method|Features
