@@ -731,6 +731,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|updatePipelines
+specifier|synchronized
 name|void
 name|updatePipelines
 parameter_list|()
