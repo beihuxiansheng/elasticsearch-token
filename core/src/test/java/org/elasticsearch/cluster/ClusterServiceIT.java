@@ -4758,6 +4758,9 @@ annotation|@
 name|Override
 specifier|public
 name|Result
+argument_list|<
+name|Task
+argument_list|>
 name|execute
 parameter_list|(
 name|ClusterState
@@ -4797,13 +4800,11 @@ expr_stmt|;
 return|return
 operator|new
 name|Result
+argument_list|<>
 argument_list|(
 name|currentState
 argument_list|,
 name|tasks
-operator|.
-name|size
-argument_list|()
 argument_list|)
 return|;
 block|}

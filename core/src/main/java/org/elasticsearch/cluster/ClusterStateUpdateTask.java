@@ -77,7 +77,7 @@ name|ClusterStateTaskConfig
 implements|,
 name|ClusterStateTaskExecutor
 argument_list|<
-name|Void
+name|ClusterStateUpdateTask
 argument_list|>
 implements|,
 name|ClusterStateTaskListener
@@ -122,6 +122,9 @@ DECL|method|execute
 specifier|final
 specifier|public
 name|Result
+argument_list|<
+name|ClusterStateUpdateTask
+argument_list|>
 name|execute
 parameter_list|(
 name|ClusterState
@@ -129,7 +132,7 @@ name|currentState
 parameter_list|,
 name|List
 argument_list|<
-name|Void
+name|ClusterStateUpdateTask
 argument_list|>
 name|tasks
 parameter_list|)
@@ -147,13 +150,11 @@ decl_stmt|;
 return|return
 operator|new
 name|Result
+argument_list|<>
 argument_list|(
 name|result
 argument_list|,
 name|tasks
-operator|.
-name|size
-argument_list|()
 argument_list|)
 return|;
 block|}
