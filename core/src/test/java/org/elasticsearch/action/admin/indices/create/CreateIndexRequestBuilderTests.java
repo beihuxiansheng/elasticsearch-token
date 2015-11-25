@@ -68,9 +68,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|test
 operator|.
-name|NoOpClient
+name|ESTestCase
 import|;
 end_import
 
@@ -82,7 +82,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|client
+operator|.
+name|NoOpClient
 import|;
 end_import
 
