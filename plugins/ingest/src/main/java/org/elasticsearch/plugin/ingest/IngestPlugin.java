@@ -571,15 +571,11 @@ block|}
 else|else
 block|{
 return|return
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 name|PipelineStore
-operator|.
-name|class
-argument_list|,
-name|PipelineStoreClient
 operator|.
 name|class
 argument_list|)
