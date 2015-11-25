@@ -324,7 +324,6 @@ name|childType
 argument_list|)
 return|;
 block|}
-comment|// NORELEASE implement this method when refactoring this aggregation
 annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
@@ -335,7 +334,20 @@ name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
+operator|new
+name|AggregatorFactory
+index|[]
+block|{
+operator|new
+name|ParentToChildrenAggregator
+operator|.
+name|Factory
+argument_list|(
 literal|null
+argument_list|,
+literal|null
+argument_list|)
+block|}
 return|;
 block|}
 block|}
