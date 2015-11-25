@@ -1203,7 +1203,7 @@ name|field
 parameter_list|)
 block|{
 return|return
-literal|"GeoDistanceRangeFilter("
+literal|"GeoDistanceRangeQuery("
 operator|+
 name|indexFieldData
 operator|.
