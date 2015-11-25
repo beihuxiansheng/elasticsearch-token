@@ -183,13 +183,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the value contained in the document for the provided path      * @param path The path within the document in dot-notation      * @param clazz The expected class of the field value      * @return the value for the provided path if existing, null otherwise      * @throws IllegalArgumentException if the field is present but is not of the type provided as argument.      */
-DECL|method|getPropertyValue
+DECL|method|getFieldValue
 specifier|public
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|getPropertyValue
+name|getFieldValue
 parameter_list|(
 name|String
 name|path
@@ -276,7 +276,7 @@ literal|1
 index|]
 decl_stmt|;
 name|Object
-name|property
+name|fieldValue
 init|=
 name|innerMap
 operator|.
@@ -287,7 +287,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|property
+name|fieldValue
 operator|==
 literal|null
 condition|)
@@ -302,7 +302,7 @@ name|clazz
 operator|.
 name|isInstance
 argument_list|(
-name|property
+name|fieldValue
 argument_list|)
 condition|)
 block|{
@@ -311,7 +311,7 @@ name|clazz
 operator|.
 name|cast
 argument_list|(
-name|property
+name|fieldValue
 argument_list|)
 return|;
 block|}
@@ -325,7 +325,7 @@ name|path
 operator|+
 literal|"] of type ["
 operator|+
-name|property
+name|fieldValue
 operator|.
 name|getClass
 argument_list|()
@@ -344,11 +344,11 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Checks whether the document contains a value for the provided path      * @param path The path within the document in dot-notation      * @return true if the document contains a value for the property, false otherwise      */
-DECL|method|hasPropertyValue
+comment|/**      * Checks whether the document contains a value for the provided path      * @param path The path within the document in dot-notation      * @return true if the document contains a value for the field, false otherwise      */
+DECL|method|hasFieldValue
 specifier|public
 name|boolean
-name|hasPropertyValue
+name|hasFieldValue
 parameter_list|(
 name|String
 name|path
@@ -437,11 +437,11 @@ name|leafKey
 argument_list|)
 return|;
 block|}
-comment|/**      * Removes the property identified by the provided path      * @param path the path of the property to be removed      */
-DECL|method|removeProperty
+comment|/**      * Removes the field identified by the provided path      * @param path the path of the field to be removed      */
+DECL|method|removeField
 specifier|public
 name|void
-name|removeProperty
+name|removeField
 parameter_list|(
 name|String
 name|path
@@ -643,10 +643,10 @@ name|innerMap
 return|;
 block|}
 comment|/**      * Sets the provided value to the provided path in the document.      * Any non existing path element will be created.      * @param path The path within the document in dot-notation      * @param value The value to put in for the path key      */
-DECL|method|setPropertyValue
+DECL|method|setFieldValue
 specifier|public
 name|void
-name|setPropertyValue
+name|setFieldValue
 parameter_list|(
 name|String
 name|path
@@ -927,7 +927,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the document. Should be used only for reading. Any change made to the returned map will      * not be reflected to the modified flag. Modify the document instead using {@link #setPropertyValue(String, Object)}      * and {@link #removeProperty(String)}      */
+comment|/**      * Returns the document. Should be used only for reading. Any change made to the returned map will      * not be reflected to the modified flag. Modify the document instead using {@link #setFieldValue(String, Object)}      * and {@link #removeField(String)}      */
 DECL|method|getSource
 specifier|public
 name|Map

@@ -457,7 +457,7 @@ name|oldValue
 init|=
 name|document
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|entry
 operator|.
@@ -570,7 +570,7 @@ expr_stmt|;
 block|}
 name|document
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 name|entry
 operator|.

@@ -188,7 +188,7 @@ control|)
 block|{
 name|document
 operator|.
-name|removeProperty
+name|removeField
 argument_list|(
 name|field
 argument_list|)

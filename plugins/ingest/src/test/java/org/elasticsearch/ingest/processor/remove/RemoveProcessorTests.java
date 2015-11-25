@@ -249,7 +249,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|field
 argument_list|,
@@ -266,7 +266,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|hasPropertyValue
+name|hasFieldValue
 argument_list|(
 name|field
 argument_list|)

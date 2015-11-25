@@ -156,7 +156,7 @@ name|val
 init|=
 name|document
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|field
 argument_list|,
@@ -186,7 +186,7 @@ throw|;
 block|}
 name|document
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 name|field
 argument_list|,

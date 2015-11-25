@@ -1345,7 +1345,7 @@ parameter_list|)
 block|{
 name|ingestDocument
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 literal|"field2"
 argument_list|,

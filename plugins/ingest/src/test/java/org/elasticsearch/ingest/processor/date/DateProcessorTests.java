@@ -191,7 +191,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -317,7 +317,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -373,7 +373,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -429,7 +429,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -593,7 +593,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -692,7 +692,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -820,7 +820,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -923,7 +923,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,
@@ -1026,7 +1026,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 literal|"date_as_date"
 argument_list|,

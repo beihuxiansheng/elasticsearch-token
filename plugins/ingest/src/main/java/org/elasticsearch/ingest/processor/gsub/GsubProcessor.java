@@ -205,7 +205,7 @@ name|oldVal
 init|=
 name|document
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|gsubExpression
 operator|.
@@ -267,7 +267,7 @@ argument_list|)
 decl_stmt|;
 name|document
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 name|gsubExpression
 operator|.

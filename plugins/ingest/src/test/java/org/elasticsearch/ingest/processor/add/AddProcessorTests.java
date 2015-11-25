@@ -237,7 +237,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|hasPropertyValue
+name|hasFieldValue
 argument_list|(
 name|field
 operator|.
@@ -255,7 +255,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|field
 operator|.
@@ -431,7 +431,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|hasPropertyValue
+name|hasFieldValue
 argument_list|(
 name|field
 operator|.
@@ -449,7 +449,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|field
 operator|.
@@ -498,7 +498,7 @@ argument_list|)
 decl_stmt|;
 name|ingestDocument
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 literal|"field"
 argument_list|,

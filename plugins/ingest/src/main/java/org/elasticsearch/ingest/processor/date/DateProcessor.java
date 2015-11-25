@@ -343,7 +343,7 @@ name|value
 init|=
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|matchField
 argument_list|,
@@ -424,7 +424,7 @@ throw|;
 block|}
 name|ingestDocument
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 name|targetField
 argument_list|,

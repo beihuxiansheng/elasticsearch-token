@@ -337,7 +337,7 @@ block|}
 assert|assert
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|key
 argument_list|,
@@ -396,7 +396,7 @@ condition|)
 do|;
 name|ingestDocument
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 name|fieldName
 argument_list|,

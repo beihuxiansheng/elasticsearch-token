@@ -184,7 +184,7 @@ control|)
 block|{
 name|document
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 name|entry
 operator|.

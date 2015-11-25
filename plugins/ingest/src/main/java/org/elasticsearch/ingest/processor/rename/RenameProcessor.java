@@ -186,7 +186,7 @@ if|if
 condition|(
 name|document
 operator|.
-name|hasPropertyValue
+name|hasFieldValue
 argument_list|(
 name|entry
 operator|.
@@ -199,7 +199,7 @@ if|if
 condition|(
 name|document
 operator|.
-name|hasPropertyValue
+name|hasFieldValue
 argument_list|(
 name|entry
 operator|.
@@ -230,7 +230,7 @@ name|oldValue
 init|=
 name|document
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|entry
 operator|.
@@ -244,7 +244,7 @@ argument_list|)
 decl_stmt|;
 name|document
 operator|.
-name|removeProperty
+name|removeField
 argument_list|(
 name|entry
 operator|.
@@ -254,7 +254,7 @@ argument_list|)
 expr_stmt|;
 name|document
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 name|entry
 operator|.

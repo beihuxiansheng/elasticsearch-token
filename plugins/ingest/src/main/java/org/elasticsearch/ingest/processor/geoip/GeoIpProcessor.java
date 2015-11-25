@@ -381,7 +381,7 @@ name|ip
 init|=
 name|ingestDocument
 operator|.
-name|getPropertyValue
+name|getFieldValue
 argument_list|(
 name|sourceField
 argument_list|,
@@ -516,7 +516,7 @@ throw|;
 block|}
 name|ingestDocument
 operator|.
-name|setPropertyValue
+name|setFieldValue
 argument_list|(
 name|targetField
 argument_list|,
