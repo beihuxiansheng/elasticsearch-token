@@ -52,13 +52,17 @@ name|TimeValue
 import|;
 end_import
 
+begin_comment
+comment|/**  * Cluster state update task configuration for timeout and priority  */
+end_comment
+
 begin_interface
 DECL|interface|ClusterStateTaskConfig
 specifier|public
 interface|interface
 name|ClusterStateTaskConfig
 block|{
-comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link ClusterStateTaskListener#onFailure(String, Throwable)}. May return null to indicate no timeout is needed (default).      */
+comment|/**      * The timeout for this cluster state update task configuration. If      * the cluster state update task isn't processed within this      * timeout, the associated {@link ClusterStateTaskListener#onFailure(String, Throwable)}      * is invoked.      *      * @return the timeout, or null if one is not set      */
 annotation|@
 name|Nullable
 DECL|method|timeout
@@ -66,11 +70,13 @@ name|TimeValue
 name|timeout
 parameter_list|()
 function_decl|;
+comment|/**      * The {@link Priority} for this cluster state update task configuration.      *      * @return the priority      */
 DECL|method|priority
 name|Priority
 name|priority
 parameter_list|()
 function_decl|;
+comment|/**      * Build a cluster state update task configuration with the      * specified {@link Priority} and no timeout.      *      * @param priority the priority for the associated cluster state      *                 update task      * @return the resulting cluster state update task configuration      */
 DECL|method|build
 specifier|static
 name|ClusterStateTaskConfig
@@ -90,6 +96,7 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Build a cluster state update task configuration with the      * specified {@link Priority} and timeout.      *      * @param priority the priority for the associated cluster state      *                 update task      * @param timeout  the timeout for the associated cluster state      *                 update task      * @return the result cluster state update task configuration      */
 DECL|method|build
 specifier|static
 name|ClusterStateTaskConfig

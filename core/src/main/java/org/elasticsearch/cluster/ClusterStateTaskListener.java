@@ -16,22 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|EsRejectedExecutionException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -100,7 +84,6 @@ name|ClusterState
 name|newState
 parameter_list|)
 block|{     }
-empty_stmt|;
 block|}
 end_interface
 
