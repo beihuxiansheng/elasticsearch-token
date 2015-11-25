@@ -204,6 +204,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 try|try
 init|(
 name|ReleasableLock

@@ -2401,6 +2401,9 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|Location
 name|location
 init|=
@@ -2439,6 +2442,16 @@ return|return
 name|location
 return|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+name|ex
+throw|;
 block|}
 catch|catch
 parameter_list|(
