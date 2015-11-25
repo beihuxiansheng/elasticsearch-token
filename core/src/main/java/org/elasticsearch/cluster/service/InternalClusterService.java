@@ -1772,17 +1772,8 @@ operator|.
 name|timeout
 argument_list|()
 argument_list|,
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
-block|{
+lambda|->
 name|threadPool
 operator|.
 name|generic
@@ -1790,30 +1781,14 @@ argument_list|()
 operator|.
 name|execute
 argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
 parameter_list|()
+lambda|->
 block|{
-if|if
-condition|(
-name|updateTask
-operator|.
-name|processed
-operator|.
-name|getAndSet
-argument_list|(
-literal|true
+block|if (updateTask.processed.getAndSet(true
 argument_list|)
 operator|==
 literal|false
-condition|)
+block|)
 block|{
 name|listener
 operator|.
@@ -1835,15 +1810,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-else|else
+block|)
+block|)
+class|;
+end_class
+
+begin_block
+unit|} else
 block|{
 name|updateTasksExecutor
 operator|.
@@ -1853,12 +1826,14 @@ name|updateTask
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
+end_block
+
+begin_expr_stmt
+unit|} catch
+operator|(
 name|EsRejectedExecutionException
 name|e
-parameter_list|)
+operator|)
 block|{
 comment|// ignore cases where we are shutting down..., there is really nothing interesting
 comment|// to be done here...
@@ -1875,8 +1850,10 @@ throw|throw
 name|e
 throw|;
 block|}
-block|}
-block|}
+end_expr_stmt
+
+begin_function
+unit|}     }
 annotation|@
 name|Override
 DECL|method|pendingTasks
@@ -2043,6 +2020,9 @@ return|return
 name|pendingClusterTasks
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|numberOfPendingTasks
@@ -2058,6 +2038,9 @@ name|getNumberOfPendingTasks
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|getMaxTaskWaitTime
@@ -2073,7 +2056,13 @@ name|getMaxTaskWaitTime
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/** asserts that the current thread is the cluster state update thread */
+end_comment
+
+begin_function
 DECL|method|assertClusterStateThread
 specifier|public
 name|boolean
@@ -2102,6 +2091,9 @@ return|return
 literal|true
 return|;
 block|}
+end_function
+
+begin_class
 DECL|class|SourcePrioritizedRunnable
 specifier|static
 specifier|abstract
@@ -2150,6 +2142,9 @@ name|source
 return|;
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|runTasksForExecutor
 parameter_list|<
 name|T
@@ -3830,6 +3825,9 @@ expr_stmt|;
 comment|// TODO: do we want to call updateTask.onFailure here?
 block|}
 block|}
+end_function
+
+begin_class
 DECL|class|UpdateTask
 class|class
 name|UpdateTask
@@ -3948,6 +3946,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|warnAboutSlowTaskIfNeeded
 specifier|private
 name|void
@@ -3988,6 +3989,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_class
 DECL|class|NotifyTimeout
 class|class
 name|NotifyTimeout
@@ -4097,6 +4101,9 @@ block|}
 comment|// note, we rely on the listener to remove itself in case of timeout if needed
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|ReconnectToNodes
 specifier|private
 class|class
@@ -4395,6 +4402,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|nodeRequiresConnection
 specifier|private
 name|boolean
@@ -4414,6 +4424,9 @@ name|node
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_class
 DECL|class|LocalNodeMasterListeners
 specifier|private
 specifier|static
@@ -4623,6 +4636,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|OnMasterRunnable
 specifier|private
 specifier|static
@@ -4667,6 +4683,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|OffMasterRunnable
 specifier|private
 specifier|static
@@ -4711,6 +4730,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|DelegetingAckListener
 specifier|private
 specifier|static
@@ -4806,6 +4828,9 @@ argument_list|)
 throw|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|AckCountDownListener
 specifier|private
 specifier|static
@@ -5155,6 +5180,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|ApplySettings
 class|class
 name|ApplySettings
@@ -5201,8 +5229,8 @@ name|slowTaskLoggingThreshold
 expr_stmt|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
