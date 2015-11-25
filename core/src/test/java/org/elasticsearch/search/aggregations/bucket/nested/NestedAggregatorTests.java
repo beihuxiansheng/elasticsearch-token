@@ -1084,10 +1084,11 @@ operator|.
 name|builder
 argument_list|()
 decl_stmt|;
-name|builder
+name|NestedAggregator
 operator|.
-name|addAggregator
-argument_list|(
+name|Factory
+name|factory
+init|=
 operator|new
 name|NestedAggregator
 operator|.
@@ -1097,6 +1098,12 @@ literal|"test"
 argument_list|,
 literal|"nested_field"
 argument_list|)
+decl_stmt|;
+name|builder
+operator|.
+name|addAggregator
+argument_list|(
+name|factory
 argument_list|)
 expr_stmt|;
 name|AggregatorFactories
