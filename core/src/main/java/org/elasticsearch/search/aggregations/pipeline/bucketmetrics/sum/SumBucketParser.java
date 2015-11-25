@@ -34,24 +34,6 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|BucketHelpers
-operator|.
-name|GapPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
 name|PipelineAggregatorFactory
 import|;
 end_import
@@ -70,7 +52,7 @@ name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
-name|BucketMetricsParser
+name|BucketMetricsFactory
 import|;
 end_import
 
@@ -84,11 +66,11 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|support
+name|pipeline
 operator|.
-name|format
+name|bucketmetrics
 operator|.
-name|ValueFormatter
+name|BucketMetricsParser
 import|;
 end_import
 
@@ -131,7 +113,7 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|PipelineAggregatorFactory
+name|BucketMetricsFactory
 name|buildFactory
 parameter_list|(
 name|String
@@ -140,12 +122,6 @@ parameter_list|,
 name|String
 index|[]
 name|bucketsPaths
-parameter_list|,
-name|GapPolicy
-name|gapPolicy
-parameter_list|,
-name|ValueFormatter
-name|formatter
 parameter_list|,
 name|Map
 argument_list|<
@@ -165,14 +141,9 @@ argument_list|(
 name|pipelineAggregatorName
 argument_list|,
 name|bucketsPaths
-argument_list|,
-name|gapPolicy
-argument_list|,
-name|formatter
 argument_list|)
 return|;
 block|}
-comment|// NORELEASE implement this method when refactoring this aggregation
 annotation|@
 name|Override
 DECL|method|getFactoryPrototype
@@ -182,7 +153,15 @@ name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
+operator|new
+name|SumBucketPipelineAggregator
+operator|.
+name|Factory
+argument_list|(
 literal|null
+argument_list|,
+literal|null
+argument_list|)
 return|;
 block|}
 block|}
