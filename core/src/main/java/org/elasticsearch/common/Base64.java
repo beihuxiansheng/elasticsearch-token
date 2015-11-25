@@ -4202,14 +4202,14 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
-assert|assert
-literal|false
-operator|:
+comment|// not sure why this was an assertion before, running with assertions disabled would mean swallowing this exception
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 name|ex
-operator|.
-name|getMessage
-argument_list|()
-assert|;
+argument_list|)
+throw|;
 block|}
 comment|// end catch
 assert|assert
@@ -4311,14 +4311,13 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
-assert|assert
-literal|false
-operator|:
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 name|ex
-operator|.
-name|getMessage
-argument_list|()
-assert|;
+argument_list|)
+throw|;
 block|}
 comment|// end catch
 assert|assert
@@ -4434,16 +4433,15 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
-assert|assert
-literal|false
-operator|:
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"IOExceptions only come from GZipping, which is turned off: "
-operator|+
+argument_list|,
 name|ex
-operator|.
-name|getMessage
-argument_list|()
-assert|;
+argument_list|)
+throw|;
 block|}
 return|return
 name|encoded

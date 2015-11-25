@@ -3026,6 +3026,8 @@ name|handleMasterGone
 argument_list|(
 name|node
 argument_list|,
+literal|null
+argument_list|,
 literal|"shut_down"
 argument_list|)
 expr_stmt|;
@@ -3492,6 +3494,10 @@ name|DiscoveryNode
 name|masterNode
 parameter_list|,
 specifier|final
+name|Throwable
+name|cause
+parameter_list|,
+specifier|final
 name|String
 name|reason
 parameter_list|)
@@ -3525,6 +3531,8 @@ operator|.
 name|info
 argument_list|(
 literal|"master_left [{}], reason [{}]"
+argument_list|,
+name|cause
 argument_list|,
 name|masterNode
 argument_list|,
@@ -6052,6 +6060,9 @@ parameter_list|(
 name|DiscoveryNode
 name|masterNode
 parameter_list|,
+name|Throwable
+name|cause
+parameter_list|,
 name|String
 name|reason
 parameter_list|)
@@ -6059,6 +6070,8 @@ block|{
 name|handleMasterGone
 argument_list|(
 name|masterNode
+argument_list|,
+name|cause
 argument_list|,
 name|reason
 argument_list|)
