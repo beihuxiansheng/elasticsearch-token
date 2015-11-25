@@ -604,6 +604,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|overrideBucketsPath
+argument_list|()
+operator|&&
 name|bucketsPaths
 operator|!=
 literal|null
@@ -662,6 +666,17 @@ name|builder
 operator|.
 name|endObject
 argument_list|()
+return|;
+block|}
+comment|/**      * @return<code>true</code> if the {@link PipelineAggregatorFactory}      *         overrides the XContent rendering of the bucketPath option.      */
+DECL|method|overrideBucketsPath
+specifier|protected
+name|boolean
+name|overrideBucketsPath
+parameter_list|()
+block|{
+return|return
+literal|false
 return|;
 block|}
 comment|// NORELEASE make this method abstract when agg refactor complete
