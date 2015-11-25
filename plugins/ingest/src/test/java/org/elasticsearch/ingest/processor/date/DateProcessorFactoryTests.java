@@ -545,10 +545,16 @@ name|processor
 operator|.
 name|getLocale
 argument_list|()
+operator|.
+name|toLanguageTag
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|locale
+operator|.
+name|toLanguageTag
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
