@@ -2401,6 +2401,9 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|Location
 name|location
 init|=
@@ -2439,6 +2442,16 @@ return|return
 name|location
 return|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+name|ex
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -6516,9 +6529,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 try|try
 init|(
 name|ReleasableLock
@@ -6530,6 +6540,9 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|currentCommittingTranslog
@@ -6737,9 +6750,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 name|ImmutableTranslogReader
 name|toClose
 init|=
@@ -6756,6 +6766,9 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|currentCommittingTranslog
