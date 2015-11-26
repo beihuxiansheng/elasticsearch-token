@@ -238,7 +238,7 @@ name|common
 operator|.
 name|component
 operator|.
-name|AbstractLifecycleComponent
+name|AbstractComponent
 import|;
 end_import
 
@@ -252,7 +252,7 @@ name|common
 operator|.
 name|component
 operator|.
-name|Lifecycle
+name|LifecycleListener
 import|;
 end_import
 
@@ -280,7 +280,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|Injector
+name|Provider
 import|;
 end_import
 
@@ -504,7 +504,7 @@ specifier|public
 class|class
 name|PipelineStore
 extends|extends
-name|AbstractLifecycleComponent
+name|AbstractComponent
 block|{
 DECL|field|INDEX
 specifier|public
@@ -524,12 +524,6 @@ name|TYPE
 init|=
 literal|"pipeline"
 decl_stmt|;
-DECL|field|injector
-specifier|private
-specifier|final
-name|Injector
-name|injector
-decl_stmt|;
 DECL|field|threadPool
 specifier|private
 specifier|final
@@ -547,6 +541,15 @@ specifier|private
 specifier|final
 name|ClusterService
 name|clusterService
+decl_stmt|;
+DECL|field|clientProvider
+specifier|private
+specifier|final
+name|Provider
+argument_list|<
+name|Client
+argument_list|>
+name|clientProvider
 decl_stmt|;
 DECL|field|pipelineUpdateInterval
 specifier|private
@@ -612,8 +615,11 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Injector
-name|injector
+name|Provider
+argument_list|<
+name|Client
+argument_list|>
+name|clientProvider
 parameter_list|,
 name|ThreadPool
 name|threadPool
@@ -642,12 +648,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|injector
-operator|=
-name|injector
-expr_stmt|;
-name|this
-operator|.
 name|threadPool
 operator|=
 name|threadPool
@@ -657,6 +657,12 @@ operator|.
 name|clusterService
 operator|=
 name|clusterService
+expr_stmt|;
+name|this
+operator|.
+name|clientProvider
+operator|=
+name|clientProvider
 expr_stmt|;
 name|this
 operator|.
@@ -738,43 +744,22 @@ name|PipelineStoreListener
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-block|{
-name|client
-operator|=
-name|injector
+name|clusterService
 operator|.
-name|getInstance
+name|addLifecycleListener
 argument_list|(
-name|Client
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
+operator|new
+name|LifecycleListener
+argument_list|()
+block|{
 annotation|@
 name|Override
-DECL|method|doStop
-specifier|protected
+specifier|public
 name|void
-name|doStop
-parameter_list|()
-block|{     }
-annotation|@
-name|Override
-DECL|method|doClose
-specifier|protected
-name|void
-name|doClose
+name|beforeClose
 parameter_list|()
 block|{
+comment|// Ideally we would implement Closeable, but when a node is stopped this doesn't get invoked:
 try|try
 block|{
 name|IOUtils
@@ -803,6 +788,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Deletes the pipeline specified by id in the request.      */
 DECL|method|delete
 specifier|public
 name|void
@@ -863,6 +853,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|delete
 argument_list|(
@@ -872,6 +863,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Stores the specified pipeline definition in the request.      *      * @throws IllegalArgumentException If the pipeline holds incorrect configuration      */
 DECL|method|put
 specifier|public
 name|void
@@ -886,6 +878,10 @@ name|IndexResponse
 argument_list|>
 name|listener
 parameter_list|)
+throws|throws
+name|IllegalArgumentException
+block|{
+try|try
 block|{
 comment|// validates the pipeline and processor configuration:
 name|Map
@@ -911,8 +907,6 @@ operator|.
 name|v2
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 name|constructPipeline
 argument_list|(
 name|request
@@ -926,18 +920,19 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
-name|listener
-operator|.
-name|onFailure
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
+literal|"Invalid pipeline configuration"
+argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-return|return;
+throw|;
 block|}
 name|IndexRequest
 name|indexRequest
@@ -994,6 +989,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -1003,6 +999,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the pipeline by the specified id      */
 DECL|method|get
 specifier|public
 name|Pipeline
@@ -1201,7 +1198,7 @@ argument_list|>
 name|config
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 return|return
 name|factory
@@ -1222,7 +1219,7 @@ name|void
 name|updatePipelines
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|// note: this process isn't fast or smart, but the idea is that there will not be many pipelines,
 comment|// so for that reason the goal is to keep the update logic simple.
@@ -1424,18 +1421,6 @@ name|void
 name|startUpdateWorker
 parameter_list|()
 block|{
-if|if
-condition|(
-name|lifecycleState
-argument_list|()
-operator|==
-name|Lifecycle
-operator|.
-name|State
-operator|.
-name|STARTED
-condition|)
-block|{
 name|threadPool
 operator|.
 name|schedule
@@ -1453,7 +1438,6 @@ name|Updater
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|existPipeline
 name|boolean
@@ -1484,6 +1468,7 @@ name|GetResponse
 name|response
 init|=
 name|client
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1568,11 +1553,37 @@ operator|.
 name|createIterator
 argument_list|(
 name|client
+argument_list|()
 argument_list|,
 name|scrollTimeout
 argument_list|,
 name|searchRequest
 argument_list|)
+return|;
+block|}
+DECL|method|client
+specifier|private
+name|Client
+name|client
+parameter_list|()
+block|{
+if|if
+condition|(
+name|client
+operator|==
+literal|null
+condition|)
+block|{
+name|client
+operator|=
+name|clientProvider
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|client
 return|;
 block|}
 DECL|class|Updater

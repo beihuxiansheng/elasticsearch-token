@@ -126,7 +126,7 @@ name|void
 name|testRename
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -347,7 +347,7 @@ name|void
 name|testRenameNonExistingField
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -423,7 +423,7 @@ name|void
 name|testRenameExistingFieldNullValue
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument

@@ -133,7 +133,7 @@ name|void
 name|testJoinStrings
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -385,7 +385,7 @@ name|void
 name|testJoinIntegers
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -633,7 +633,7 @@ name|void
 name|testJoinNonListField
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -743,7 +743,7 @@ name|void
 name|testJoinNonExistingField
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument

@@ -114,7 +114,7 @@ name|void
 name|testAddExistingFields
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -284,7 +284,7 @@ name|void
 name|testAddNewFields
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -478,7 +478,7 @@ name|void
 name|testAddFieldsTypeMismatch
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument

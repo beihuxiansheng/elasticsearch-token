@@ -156,7 +156,7 @@ name|void
 name|testGsub
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -295,7 +295,7 @@ name|void
 name|testGsubNotAStringValue
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -414,7 +414,7 @@ name|void
 name|testGsubNullValue
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument

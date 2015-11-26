@@ -156,7 +156,7 @@ name|void
 name|testRemoveFields
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -285,7 +285,7 @@ name|void
 name|testRemoveNonExistingField
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument

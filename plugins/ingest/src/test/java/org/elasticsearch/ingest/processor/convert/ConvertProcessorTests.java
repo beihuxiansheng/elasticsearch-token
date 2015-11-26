@@ -132,7 +132,7 @@ name|void
 name|testConvertInt
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -307,7 +307,7 @@ name|void
 name|testConvertIntList
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -555,7 +555,7 @@ name|void
 name|testConvertIntError
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -679,7 +679,7 @@ name|void
 name|testConvertFloat
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -852,7 +852,7 @@ name|void
 name|testConvertFloatList
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -1098,7 +1098,7 @@ name|void
 name|testConvertFloatError
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -1222,7 +1222,7 @@ name|void
 name|testConvertBoolean
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -1422,7 +1422,7 @@ name|void
 name|testConvertBooleanList
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -1690,7 +1690,7 @@ name|void
 name|testConvertBooleanError
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -1844,7 +1844,7 @@ name|void
 name|testConvertString
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -2103,7 +2103,7 @@ name|void
 name|testConvertStringList
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -2430,7 +2430,7 @@ name|void
 name|testConvertNullField
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument

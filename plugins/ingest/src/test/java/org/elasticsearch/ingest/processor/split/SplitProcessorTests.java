@@ -114,7 +114,7 @@ name|void
 name|testSplit
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -255,7 +255,7 @@ name|void
 name|testSplitNullValue
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -356,7 +356,7 @@ name|void
 name|testSplitNonStringValue
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument

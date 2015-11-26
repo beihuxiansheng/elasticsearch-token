@@ -139,6 +139,8 @@ parameter_list|(
 name|IngestDocument
 name|ingestDocument
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 for|for
 control|(
@@ -227,7 +229,7 @@ argument_list|>
 name|processorRegistry
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|String
 name|description

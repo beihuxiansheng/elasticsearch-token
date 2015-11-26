@@ -88,6 +88,8 @@ parameter_list|(
 name|IngestDocument
 name|ingestDocument
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Gets the type of a processor      */
 DECL|method|getType
@@ -121,7 +123,7 @@ argument_list|>
 name|config
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 function_decl|;
 comment|/**          * Sets the configuration directory when needed to read additional config files          */
 DECL|method|setConfigDirectory

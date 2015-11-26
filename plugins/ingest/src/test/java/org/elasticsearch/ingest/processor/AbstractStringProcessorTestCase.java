@@ -165,7 +165,7 @@ name|void
 name|testProcessor
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IngestDocument
 name|ingestDocument
@@ -327,7 +327,7 @@ name|void
 name|testNullValue
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|String
 name|fieldName
@@ -415,7 +415,7 @@ name|void
 name|testNonStringValue
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|String
 name|fieldName
