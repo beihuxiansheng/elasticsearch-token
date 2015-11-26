@@ -169,6 +169,7 @@ end_comment
 begin_class
 DECL|class|SettingsFilter
 specifier|public
+specifier|final
 class|class
 name|SettingsFilter
 extends|extends
@@ -197,8 +198,6 @@ name|CopyOnWriteArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|SettingsFilter
 specifier|public
 name|SettingsFilter
