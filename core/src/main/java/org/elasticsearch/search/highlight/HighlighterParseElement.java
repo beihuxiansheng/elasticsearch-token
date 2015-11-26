@@ -401,6 +401,7 @@ block|}
 block|}
 DECL|method|parse
 specifier|public
+specifier|static
 name|SearchContextHighlight
 name|parse
 parameter_list|(
@@ -1613,7 +1614,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|parseFields
-specifier|protected
+specifier|private
+specifier|static
 name|SearchContextHighlight
 operator|.
 name|FieldOptions

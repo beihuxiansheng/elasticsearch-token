@@ -1117,7 +1117,11 @@ name|field
 argument_list|(
 literal|"boundary_chars"
 argument_list|,
+operator|new
+name|String
+argument_list|(
 name|boundaryChars
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
