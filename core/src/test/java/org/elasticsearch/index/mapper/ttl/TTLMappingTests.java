@@ -3207,11 +3207,8 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 comment|// _ttl in a document never worked, so backcompat is ignoring the field
-name|assertEquals
+name|assertNull
 argument_list|(
-operator|-
-literal|1
-argument_list|,
 name|request
 operator|.
 name|ttl

@@ -534,15 +534,10 @@ name|ttl
 argument_list|(
 name|request
 operator|.
-name|paramAsTime
+name|param
 argument_list|(
 literal|"ttl"
-argument_list|,
-literal|null
 argument_list|)
-operator|.
-name|millis
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
