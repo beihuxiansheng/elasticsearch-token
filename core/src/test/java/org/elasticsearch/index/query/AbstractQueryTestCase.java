@@ -4559,27 +4559,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-literal|"different queries should have different hashcode"
-argument_list|,
-name|secondQuery
-operator|.
-name|hashCode
-argument_list|()
-argument_list|,
-name|not
-argument_list|(
-name|equalTo
-argument_list|(
-name|firstQuery
-operator|.
-name|hashCode
-argument_list|()
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|queryParser
