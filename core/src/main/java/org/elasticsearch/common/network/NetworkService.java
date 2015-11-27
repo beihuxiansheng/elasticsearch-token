@@ -163,7 +163,6 @@ end_comment
 begin_class
 DECL|class|NetworkService
 specifier|public
-specifier|final
 class|class
 name|NetworkService
 extends|extends
