@@ -528,7 +528,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_FILE_CHUNK_SIZE
+name|INDICES_RECOVERY_FILE_CHUNK_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|new
 name|ByteSizeValue

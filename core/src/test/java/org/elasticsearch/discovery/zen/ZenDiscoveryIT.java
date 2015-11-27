@@ -783,7 +783,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_REJOIN_ON_MASTER_GONE
+name|REJOIN_ON_MASTER_GONE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

@@ -612,7 +612,10 @@ name|put
 argument_list|(
 name|DiscoverySettings
 operator|.
-name|PUBLISH_TIMEOUT
+name|PUBLISH_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)

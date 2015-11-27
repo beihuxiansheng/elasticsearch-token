@@ -5833,7 +5833,10 @@ name|put
 argument_list|(
 name|InternalClusterService
 operator|.
-name|SETTING_CLUSTER_SERVICE_SLOW_TASK_LOGGING_THRESHOLD
+name|CLUSTER_SERVICE_SLOW_TASK_LOGGING_THRESHOLD_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10s"
 argument_list|)
@@ -6104,7 +6107,10 @@ name|put
 argument_list|(
 name|InternalClusterService
 operator|.
-name|SETTING_CLUSTER_SERVICE_SLOW_TASK_LOGGING_THRESHOLD
+name|CLUSTER_SERVICE_SLOW_TASK_LOGGING_THRESHOLD_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10ms"
 argument_list|)

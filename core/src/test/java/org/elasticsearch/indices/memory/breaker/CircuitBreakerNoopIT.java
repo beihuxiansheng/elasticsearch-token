@@ -259,6 +259,9 @@ argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|FIELDDATA_CIRCUIT_BREAKER_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10b"
 argument_list|)
@@ -278,6 +281,9 @@ argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|REQUEST_CIRCUIT_BREAKER_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10b"
 argument_list|)

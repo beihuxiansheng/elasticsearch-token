@@ -510,7 +510,10 @@ name|put
 argument_list|(
 name|DiscoverySettings
 operator|.
-name|NO_MASTER_BLOCK
+name|NO_MASTER_BLOCK_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"all"
 argument_list|)
@@ -1609,7 +1612,10 @@ name|put
 argument_list|(
 name|DiscoverySettings
 operator|.
-name|NO_MASTER_BLOCK
+name|NO_MASTER_BLOCK_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"write"
 argument_list|)

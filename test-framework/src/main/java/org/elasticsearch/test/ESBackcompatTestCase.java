@@ -695,7 +695,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_COMPRESS
+name|INDICES_RECOVERY_COMPRESS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -1344,7 +1347,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_COMPRESS
+name|INDICES_RECOVERY_COMPRESS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

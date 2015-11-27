@@ -490,7 +490,10 @@ name|put
 argument_list|(
 name|ConcurrentRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|100
 argument_list|)
@@ -876,7 +879,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.
@@ -925,7 +931,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_REBALANCE_ENABLE
+name|CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.
@@ -940,7 +949,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.

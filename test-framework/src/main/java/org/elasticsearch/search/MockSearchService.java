@@ -128,11 +128,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|common
 operator|.
 name|settings
 operator|.
-name|NodeSettingsService
+name|ClusterSettingsService
 import|;
 end_import
 
@@ -406,8 +406,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|NodeSettingsService
-name|nodeSettingsService
+name|ClusterSettingsService
+name|clusterSettingsService
 parameter_list|,
 name|ClusterService
 name|clusterService
@@ -447,7 +447,7 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|nodeSettingsService
+name|clusterSettingsService
 argument_list|,
 name|clusterService
 argument_list|,

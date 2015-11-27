@@ -190,11 +190,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|common
 operator|.
 name|settings
 operator|.
-name|NodeSettingsService
+name|ClusterSettingsService
 import|;
 end_import
 
@@ -272,8 +272,8 @@ parameter_list|,
 name|MetaDataDeleteIndexService
 name|deleteIndexService
 parameter_list|,
-name|NodeSettingsService
-name|nodeSettingsService
+name|ClusterSettingsService
+name|clusterSettingsService
 parameter_list|,
 name|ActionFilters
 name|actionFilters

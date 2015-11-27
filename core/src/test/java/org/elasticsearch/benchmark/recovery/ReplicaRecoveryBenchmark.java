@@ -427,7 +427,10 @@ name|put
 argument_list|(
 name|DiskThresholdDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED
+name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"false"
 argument_list|)
