@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest.processor.add
+DECL|package|org.elasticsearch.ingest.processor.set
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|add
+name|set
 package|;
 end_package
 
@@ -74,27 +74,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|*
 import|;
 end_import
 
@@ -111,17 +91,17 @@ import|;
 end_import
 
 begin_class
-DECL|class|AddProcessorTests
+DECL|class|SetProcessorTests
 specifier|public
 class|class
-name|AddProcessorTests
+name|SetProcessorTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|method|testAddExistingFields
+DECL|method|testSetExistingFields
 specifier|public
 name|void
-name|testAddExistingFields
+name|testSetExistingFields
 parameter_list|()
 throws|throws
 name|Exception
@@ -213,7 +193,7 @@ name|Processor
 name|processor
 init|=
 operator|new
-name|AddProcessor
+name|SetProcessor
 argument_list|(
 name|fields
 argument_list|)
@@ -288,10 +268,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testAddNewFields
+DECL|method|testSetNewFields
 specifier|public
 name|void
-name|testAddNewFields
+name|testSetNewFields
 parameter_list|()
 throws|throws
 name|Exception
@@ -407,7 +387,7 @@ name|Processor
 name|processor
 init|=
 operator|new
-name|AddProcessor
+name|SetProcessor
 argument_list|(
 name|fields
 argument_list|)
@@ -482,10 +462,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testAddFieldsTypeMismatch
+DECL|method|testSetFieldsTypeMismatch
 specifier|public
 name|void
-name|testAddFieldsTypeMismatch
+name|testSetFieldsTypeMismatch
 parameter_list|()
 throws|throws
 name|Exception
@@ -519,7 +499,7 @@ name|Processor
 name|processor
 init|=
 operator|new
-name|AddProcessor
+name|SetProcessor
 argument_list|(
 name|Collections
 operator|.

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest.processor.add
+DECL|package|org.elasticsearch.ingest.processor.set
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|add
+name|set
 package|;
 end_package
 
@@ -93,10 +93,10 @@ comment|/**  * Processor that adds new fields with their corresponding values. I
 end_comment
 
 begin_class
-DECL|class|AddProcessor
+DECL|class|SetProcessor
 specifier|public
 class|class
-name|AddProcessor
+name|SetProcessor
 implements|implements
 name|Processor
 block|{
@@ -107,7 +107,7 @@ specifier|final
 name|String
 name|TYPE
 init|=
-literal|"add"
+literal|"set"
 decl_stmt|;
 DECL|field|fields
 specifier|private
@@ -120,8 +120,8 @@ name|Object
 argument_list|>
 name|fields
 decl_stmt|;
-DECL|method|AddProcessor
-name|AddProcessor
+DECL|method|SetProcessor
+name|SetProcessor
 parameter_list|(
 name|Map
 argument_list|<
@@ -222,14 +222,14 @@ name|Processor
 operator|.
 name|Factory
 argument_list|<
-name|AddProcessor
+name|SetProcessor
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|create
 specifier|public
-name|AddProcessor
+name|SetProcessor
 name|create
 parameter_list|(
 name|Map
@@ -262,7 +262,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|AddProcessor
+name|SetProcessor
 argument_list|(
 name|Collections
 operator|.

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest.processor.add
+DECL|package|org.elasticsearch.ingest.processor.set
 package|package
 name|org
 operator|.
@@ -14,25 +14,9 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|add
+name|set
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|processor
-operator|.
-name|join
-operator|.
-name|JoinProcessor
-import|;
-end_import
 
 begin_import
 import|import
@@ -99,10 +83,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|AddProcessorFactoryTests
+DECL|class|SetProcessorFactoryTests
 specifier|public
 class|class
-name|AddProcessorFactoryTests
+name|SetProcessorFactoryTests
 extends|extends
 name|ESTestCase
 block|{
@@ -114,13 +98,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|AddProcessor
+name|SetProcessor
 operator|.
 name|Factory
 name|factory
 init|=
 operator|new
-name|AddProcessor
+name|SetProcessor
 operator|.
 name|Factory
 argument_list|()
@@ -164,8 +148,8 @@ argument_list|,
 name|fields
 argument_list|)
 expr_stmt|;
-name|AddProcessor
-name|addProcessor
+name|SetProcessor
+name|setProcessor
 init|=
 name|factory
 operator|.
@@ -176,7 +160,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|addProcessor
+name|setProcessor
 operator|.
 name|getFields
 argument_list|()
@@ -196,13 +180,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|AddProcessor
+name|SetProcessor
 operator|.
 name|Factory
 name|factory
 init|=
 operator|new
-name|AddProcessor
+name|SetProcessor
 operator|.
 name|Factory
 argument_list|()

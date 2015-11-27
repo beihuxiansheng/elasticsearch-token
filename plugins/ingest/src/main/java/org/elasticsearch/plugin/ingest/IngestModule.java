@@ -70,9 +70,9 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|add
+name|set
 operator|.
-name|AddProcessor
+name|SetProcessor
 import|;
 end_import
 
@@ -465,12 +465,12 @@ argument_list|)
 expr_stmt|;
 name|addProcessor
 argument_list|(
-name|AddProcessor
+name|SetProcessor
 operator|.
 name|TYPE
 argument_list|,
 operator|new
-name|AddProcessor
+name|SetProcessor
 operator|.
 name|Factory
 argument_list|()
