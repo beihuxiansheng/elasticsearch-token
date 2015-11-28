@@ -846,9 +846,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 specifier|final
 name|long
 name|position
@@ -864,6 +861,9 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|position
 operator|=
 name|writtenOffset
@@ -1080,9 +1080,6 @@ parameter_list|()
 throws|throws
 name|TranslogException
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|channelReference
@@ -1102,6 +1099,9 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|flush
 argument_list|()
 expr_stmt|;

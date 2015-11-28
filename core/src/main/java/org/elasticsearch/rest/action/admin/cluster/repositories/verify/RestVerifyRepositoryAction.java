@@ -50,26 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|repositories
-operator|.
-name|verify
-operator|.
-name|VerifyRepositoryResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
 name|Client
@@ -161,10 +141,6 @@ operator|.
 name|POST
 import|;
 end_import
-
-begin_comment
-comment|/**  * Registers repositories  */
-end_comment
 
 begin_class
 DECL|class|RestVerifyRepositoryAction
@@ -292,9 +268,7 @@ name|verifyRepositoryRequest
 argument_list|,
 operator|new
 name|RestToXContentListener
-argument_list|<
-name|VerifyRepositoryResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|channel
 argument_list|)
