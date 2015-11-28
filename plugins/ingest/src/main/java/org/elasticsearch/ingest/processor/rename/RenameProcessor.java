@@ -186,7 +186,7 @@ if|if
 condition|(
 name|document
 operator|.
-name|hasFieldValue
+name|hasField
 argument_list|(
 name|entry
 operator|.
@@ -199,7 +199,7 @@ if|if
 condition|(
 name|document
 operator|.
-name|hasFieldValue
+name|hasField
 argument_list|(
 name|entry
 operator|.

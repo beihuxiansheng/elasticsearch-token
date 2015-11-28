@@ -499,7 +499,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|hasFieldValue
+name|hasField
 argument_list|(
 name|fieldName
 argument_list|)
@@ -514,7 +514,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|hasFieldValue
+name|hasField
 argument_list|(
 name|newFieldName
 argument_list|)

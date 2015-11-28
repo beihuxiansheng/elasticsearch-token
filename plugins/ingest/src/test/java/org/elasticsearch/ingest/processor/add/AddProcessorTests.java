@@ -72,9 +72,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|Collections
 import|;
 end_import
 
@@ -84,7 +84,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -237,7 +247,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|hasFieldValue
+name|hasField
 argument_list|(
 name|field
 operator|.
@@ -431,7 +441,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|hasFieldValue
+name|hasField
 argument_list|(
 name|field
 operator|.
@@ -551,7 +561,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"cannot add field to parent [field] of type [java.lang.String], [java.util.Map] expected instead."
+literal|"cannot set [inner] with parent object of type [java.lang.String] as part of path [field.inner]"
 argument_list|)
 argument_list|)
 expr_stmt|;
