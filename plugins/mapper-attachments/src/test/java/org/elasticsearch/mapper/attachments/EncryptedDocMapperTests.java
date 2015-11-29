@@ -458,9 +458,9 @@ name|indexName
 argument_list|()
 argument_list|)
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
-literal|"text/html; charset=ISO-8859-1"
+literal|"text/html;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1129,9 +1129,9 @@ name|indexName
 argument_list|()
 argument_list|)
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
-literal|"text/html; charset=ISO-8859-1"
+literal|"text/html;"
 argument_list|)
 argument_list|)
 expr_stmt|;
