@@ -158,7 +158,7 @@ specifier|public
 class|class
 name|CompletionFieldStats
 block|{
-comment|/**      * Returns total in-heap bytes used by all suggesters.  This method is<code>O(numIndexedFields)</code>.      *      * @param fieldNamePatterns if non-null, any completion field name matching any of these patterns will break out its in-heap bytes      * separately in the returned {@link CompletionStats}      */
+comment|/**      * Returns total in-heap bytes used by all suggesters.  This method has CPU cost<code>O(numIndexedFields)</code>.      *      * @param fieldNamePatterns if non-null, any completion field name matching any of these patterns will break out its in-heap bytes      * separately in the returned {@link CompletionStats}      */
 DECL|method|completionStats
 specifier|public
 specifier|static
