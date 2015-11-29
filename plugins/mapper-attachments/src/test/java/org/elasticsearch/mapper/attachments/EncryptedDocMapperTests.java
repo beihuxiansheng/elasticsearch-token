@@ -496,9 +496,9 @@ operator|.
 name|longValue
 argument_list|()
 argument_list|,
-name|is
+name|greaterThan
 argument_list|(
-literal|344L
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1167,9 +1167,9 @@ operator|.
 name|longValue
 argument_list|()
 argument_list|,
-name|is
+name|greaterThan
 argument_list|(
-literal|344L
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
