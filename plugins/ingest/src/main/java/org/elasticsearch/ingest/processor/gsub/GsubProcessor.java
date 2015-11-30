@@ -62,16 +62,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -320,7 +310,7 @@ argument_list|>
 name|config
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|List
 argument_list|<

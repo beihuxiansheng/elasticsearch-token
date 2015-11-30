@@ -64,16 +64,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -186,8 +176,6 @@ parameter_list|,
 name|String
 name|matchField
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -345,7 +333,7 @@ argument_list|>
 name|config
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|String
 name|matchField

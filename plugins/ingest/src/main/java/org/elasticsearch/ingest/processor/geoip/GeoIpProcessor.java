@@ -1221,7 +1221,7 @@ argument_list|>
 name|config
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|String
 name|ipField

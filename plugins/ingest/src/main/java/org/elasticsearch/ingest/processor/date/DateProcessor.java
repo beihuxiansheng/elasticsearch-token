@@ -531,6 +531,8 @@ name|Object
 argument_list|>
 name|config
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|String
 name|matchField
