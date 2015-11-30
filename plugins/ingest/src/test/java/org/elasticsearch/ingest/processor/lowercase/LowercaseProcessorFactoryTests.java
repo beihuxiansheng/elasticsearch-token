@@ -34,16 +34,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collections
@@ -106,7 +96,7 @@ name|void
 name|testCreate
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|LowercaseProcessor
 operator|.
@@ -184,7 +174,7 @@ name|void
 name|testCreateMissingFields
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|LowercaseProcessor
 operator|.
