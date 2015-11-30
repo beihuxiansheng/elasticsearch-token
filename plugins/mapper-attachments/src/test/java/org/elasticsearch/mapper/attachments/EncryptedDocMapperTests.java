@@ -458,9 +458,9 @@ name|indexName
 argument_list|()
 argument_list|)
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
-literal|"text/html; charset=ISO-8859-1"
+literal|"text/html;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -496,9 +496,9 @@ operator|.
 name|longValue
 argument_list|()
 argument_list|,
-name|is
+name|greaterThan
 argument_list|(
-literal|344L
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1129,9 +1129,9 @@ name|indexName
 argument_list|()
 argument_list|)
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
-literal|"text/html; charset=ISO-8859-1"
+literal|"text/html;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1167,9 +1167,9 @@ operator|.
 name|longValue
 argument_list|()
 argument_list|,
-name|is
+name|greaterThan
 argument_list|(
-literal|344L
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
