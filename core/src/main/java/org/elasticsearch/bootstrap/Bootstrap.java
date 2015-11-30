@@ -1138,6 +1138,11 @@ argument_list|(
 name|args
 argument_list|)
 decl_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|CliTool
