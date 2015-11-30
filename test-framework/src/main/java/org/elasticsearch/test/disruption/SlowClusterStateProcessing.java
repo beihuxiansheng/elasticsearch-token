@@ -496,13 +496,13 @@ name|submitStateUpdateTask
 argument_list|(
 literal|"service_disruption_delay"
 argument_list|,
+operator|new
+name|ClusterStateUpdateTask
+argument_list|(
 name|Priority
 operator|.
 name|IMMEDIATE
-argument_list|,
-operator|new
-name|ClusterStateUpdateTask
-argument_list|()
+argument_list|)
 block|{
 annotation|@
 name|Override
