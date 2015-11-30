@@ -390,6 +390,15 @@ name|BASE_PATH
 init|=
 literal|"repositories.s3.base_path"
 decl_stmt|;
+DECL|field|PATH_STYLE_ACCESS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PATH_STYLE_ACCESS
+init|=
+literal|"repositories.s3.path_style_access"
+decl_stmt|;
 block|}
 DECL|method|client
 name|AmazonS3
@@ -437,6 +446,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|Boolean
+name|pathStyleAccess
 parameter_list|)
 function_decl|;
 block|}

@@ -290,6 +290,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|Boolean
+name|pathStyleAccess
 parameter_list|)
 block|{
 return|return
@@ -310,6 +313,8 @@ argument_list|,
 name|key
 argument_list|,
 name|maxRetries
+argument_list|,
+name|pathStyleAccess
 argument_list|)
 argument_list|)
 return|;
