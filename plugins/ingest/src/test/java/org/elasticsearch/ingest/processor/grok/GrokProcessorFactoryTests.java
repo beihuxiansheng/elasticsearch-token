@@ -188,15 +188,10 @@ operator|new
 name|GrokProcessor
 operator|.
 name|Factory
-argument_list|()
-decl_stmt|;
-name|factory
-operator|.
-name|setConfigDirectory
 argument_list|(
 name|configDir
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|Map
 argument_list|<
 name|String

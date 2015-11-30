@@ -106,8 +106,6 @@ name|P
 extends|extends
 name|Processor
 parameter_list|>
-extends|extends
-name|Closeable
 block|{
 comment|/**          * Creates a processor based on the specified map of maps config.          *          * Implementations are responsible for removing the used keys, so that after creating a pipeline ingest can          * verify if all configurations settings have been used.          */
 DECL|method|create
@@ -125,26 +123,6 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**          * Sets the configuration directory when needed to read additional config files          */
-DECL|method|setConfigDirectory
-specifier|default
-name|void
-name|setConfigDirectory
-parameter_list|(
-name|Path
-name|configDirectory
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
-DECL|method|close
-specifier|default
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-block|{         }
 block|}
 block|}
 end_interface
