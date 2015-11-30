@@ -645,7 +645,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|randomDocument
-specifier|private
+specifier|public
 specifier|static
 name|Map
 argument_list|<
