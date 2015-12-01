@@ -477,7 +477,7 @@ name|put
 argument_list|(
 name|Storage
 operator|.
-name|ACCOUNT
+name|ACCOUNT_DEPRECATED
 argument_list|,
 literal|"myaccount1"
 argument_list|)
@@ -486,7 +486,7 @@ name|put
 argument_list|(
 name|Storage
 operator|.
-name|KEY
+name|KEY_DEPRECATED
 argument_list|,
 literal|"mykey1"
 argument_list|)
