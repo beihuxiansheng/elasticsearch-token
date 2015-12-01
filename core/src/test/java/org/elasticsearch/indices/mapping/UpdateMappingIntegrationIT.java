@@ -389,13 +389,6 @@ name|UpdateMappingIntegrationIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/15129"
-argument_list|)
 DECL|method|testDynamicUpdates
 specifier|public
 name|void
