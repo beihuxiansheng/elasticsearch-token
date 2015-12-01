@@ -1447,7 +1447,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Merge failed"
+literal|"mapper [foo] cannot be changed from type [long] to [double]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1493,7 +1493,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Merge failed"
+literal|"mapper [foo] cannot be changed from type [long] to [double]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1772,13 +1772,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// same as the testConflictNewType except that the mapping update is on an existing type
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/15049"
-argument_list|)
 DECL|method|testConflictNewTypeUpdate
 specifier|public
 name|void
