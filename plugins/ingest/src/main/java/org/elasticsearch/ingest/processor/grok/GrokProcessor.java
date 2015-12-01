@@ -200,9 +200,11 @@ parameter_list|(
 name|IngestDocument
 name|ingestDocument
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Object
-name|field
+name|String
+name|fieldValue
 init|=
 name|ingestDocument
 operator|.
@@ -210,19 +212,11 @@ name|getFieldValue
 argument_list|(
 name|matchField
 argument_list|,
-name|Object
+name|String
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO(talevy): handle invalid field types
-if|if
-condition|(
-name|field
-operator|instanceof
-name|String
-condition|)
-block|{
 name|Map
 argument_list|<
 name|String
@@ -235,10 +229,7 @@ name|grok
 operator|.
 name|captures
 argument_list|(
-operator|(
-name|String
-operator|)
-name|field
+name|fieldValue
 argument_list|)
 decl_stmt|;
 if|if
@@ -269,6 +260,19 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Grok expression does not match field value: ["
+operator|+
+name|fieldValue
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 annotation|@
