@@ -605,6 +605,11 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Exception expected"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -619,9 +624,9 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|startsWith
+name|equalTo
 argument_list|(
-literal|"database file [does-not-exist.mmdb] doesn't exist in"
+literal|"database file [does-not-exist.mmdb] doesn't exist"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -884,6 +889,11 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"exception expected"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -937,6 +947,11 @@ operator|.
 name|create
 argument_list|(
 name|config
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"exception expected"
 argument_list|)
 expr_stmt|;
 block|}
