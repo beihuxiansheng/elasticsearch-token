@@ -82,9 +82,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
+name|index
 operator|.
-name|SearchResponse
+name|IndexRequestBuilder
 import|;
 end_import
 
@@ -96,9 +96,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
+name|search
 operator|.
-name|IndexRequestBuilder
+name|SearchResponse
 import|;
 end_import
 
@@ -326,55 +326,7 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_BLOCKS_METADATA
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_BLOCKS_READ
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_BLOCKS_WRITE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_READ_ONLY
+name|*
 import|;
 end_import
 
@@ -406,39 +358,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertBlocked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertThrows
+name|*
 import|;
 end_import
 
@@ -450,55 +370,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasEntry
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasKey
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
+name|*
 import|;
 end_import
 
@@ -517,6 +389,13 @@ name|UpdateMappingIntegrationIT
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/15129"
+argument_list|)
 DECL|method|testDynamicUpdates
 specifier|public
 name|void
