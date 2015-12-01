@@ -1542,7 +1542,7 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
-comment|// only add the current relevant mapping (if exists)
+comment|// only add the current relevant mapping (if exists and not yet added)
 if|if
 condition|(
 name|indexMetaData
@@ -1551,6 +1551,20 @@ name|getMappings
 argument_list|()
 operator|.
 name|containsKey
+argument_list|(
+name|request
+operator|.
+name|type
+argument_list|()
+argument_list|)
+operator|&&
+operator|!
+name|indexService
+operator|.
+name|mapperService
+argument_list|()
+operator|.
+name|hasMapping
 argument_list|(
 name|request
 operator|.
