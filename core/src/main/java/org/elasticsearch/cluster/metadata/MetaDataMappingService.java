@@ -368,13 +368,13 @@ specifier|final
 name|IndicesService
 name|indicesService
 decl_stmt|;
-DECL|field|refreshExectuor
+DECL|field|refreshExecutor
 specifier|final
 name|ClusterStateTaskExecutor
 argument_list|<
 name|RefreshTask
 argument_list|>
-name|refreshExectuor
+name|refreshExecutor
 init|=
 operator|new
 name|RefreshTaskExecutor
@@ -1295,7 +1295,7 @@ operator|.
 name|HIGH
 argument_list|)
 argument_list|,
-name|refreshExectuor
+name|refreshExecutor
 argument_list|,
 parameter_list|(
 name|source
