@@ -172,31 +172,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|closeTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
+name|*
 import|;
 end_import
 
@@ -466,7 +442,19 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"fieldName must not be null or empty"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 name|GeoDistanceQueryBuilder
 name|query
@@ -515,7 +503,19 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"distance must not be null or empty"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -553,7 +553,7 @@ expr_stmt|;
 block|}
 name|fail
 argument_list|(
-literal|"must not be null or empty"
+literal|"distance must not be null or empty"
 argument_list|)
 expr_stmt|;
 block|}
@@ -563,9 +563,27 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"distance must not be null or empty"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 try|try
+block|{
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
 block|{
 name|query
 operator|.
@@ -576,21 +594,8 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"unit must not be null"
-argument_list|)
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|ex
-parameter_list|)
-block|{
-comment|// expected
-block|}
-try|try
+else|else
 block|{
 name|query
 operator|.
@@ -601,9 +606,10 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
 name|fail
 argument_list|(
-literal|"unit must not be null"
+literal|"distance must not be null"
 argument_list|)
 expr_stmt|;
 block|}
@@ -613,9 +619,73 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"distance unit must not be null"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 try|try
+block|{
+name|query
+operator|.
+name|distance
+argument_list|(
+name|randomIntBetween
+argument_list|(
+name|Integer
+operator|.
+name|MIN_VALUE
+argument_list|,
+literal|0
+argument_list|)
+argument_list|,
+name|DistanceUnit
+operator|.
+name|DEFAULT
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"distance must be greater than zero"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|ex
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"distance must be greater than zero"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
 block|{
 name|query
 operator|.
@@ -624,6 +694,17 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|query
+operator|.
+name|geohash
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
 name|fail
 argument_list|(
 literal|"geohash must not be null"
@@ -636,7 +717,19 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"geohash must not be null or empty"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -659,7 +752,19 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"geoDistance must not be null"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -682,7 +787,19 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"optimizeBbox must not be null"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Overridden here to ensure the test is only run if at least one type is      * present in the mappings. Geo queries do not execute if the field is not      * explicitly mapped      */
