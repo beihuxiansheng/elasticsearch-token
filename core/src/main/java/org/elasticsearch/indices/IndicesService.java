@@ -2918,7 +2918,7 @@ name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method deletes the shard contents on disk for the given shard ID. This method will fail if the shard deleting      * is prevented by {@link #canDeleteShardContent(org.elasticsearch.index.shard.ShardId, org.elasticsearch.cluster.metadata.IndexMetaData)}      * of if the shards lock can not be acquired.      *      * On data nodes, if the deleted shard is the last shard folder in its index, the method will attempt to remove the index folder as well.      *      * @param reason the reason for the shard deletion      * @param shardId the shards ID to delete      * @param clusterState . This is required to access the indexes settings etc.      * @throws IOException if an IOException occurs      */
+comment|/**      * This method deletes the shard contents on disk for the given shard ID. This method will fail if the shard deleting      * is prevented by {@link #canDeleteShardContent(ShardId, IndexSettings)}      * of if the shards lock can not be acquired.      *      * On data nodes, if the deleted shard is the last shard folder in its index, the method will attempt to remove the index folder as well.      *      * @param reason the reason for the shard deletion      * @param shardId the shards ID to delete      * @param clusterState . This is required to access the indexes settings etc.      * @throws IOException if an IOException occurs      */
 DECL|method|deleteShardStore
 specifier|public
 name|void
@@ -3185,7 +3185,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff the shards content for the given shard can be deleted.      * This method will return<code>false</code> if:      *<ul>      *<li>if the shard is still allocated / active on this node</li>      *<li>if for instance if the shard is located on shared and should not be deleted</li>      *<li>if the shards data locations do not exists</li>      *</ul>      *      * @param shardId the shard to delete.      * @param metaData the shards index metadata. This is required to access the indexes settings etc.      */
+comment|/**      * Returns<code>true</code> iff the shards content for the given shard can be deleted.      * This method will return<code>false</code> if:      *<ul>      *<li>if the shard is still allocated / active on this node</li>      *<li>if for instance if the shard is located on shared and should not be deleted</li>      *<li>if the shards data locations do not exists</li>      *</ul>      *      * @param shardId the shard to delete.      * @param indexSettings the shards's relevant {@link IndexSettings}. This is required to access the indexes settings etc.      */
 DECL|method|canDeleteShardContent
 specifier|public
 name|boolean
@@ -3194,13 +3194,10 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|IndexMetaData
-name|metaData
+name|IndexSettings
+name|indexSettings
 parameter_list|)
 block|{
-comment|// we need the metadata here since we have to build the complete settings
-comment|// to decide where the shard content lives. In the future we might even need more info here ie. for shadow replicas
-comment|// The plan was to make it harder to miss-use and ask for metadata instead of simple settings
 assert|assert
 name|shardId
 operator|.
@@ -3209,42 +3206,15 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|metaData
+name|indexSettings
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|)
 assert|;
-specifier|final
-name|IndexSettings
-name|indexSettings
-init|=
-name|buildIndexSettings
-argument_list|(
-name|metaData
-argument_list|)
-decl_stmt|;
-return|return
-name|canDeleteShardContent
-argument_list|(
-name|shardId
-argument_list|,
-name|indexSettings
-argument_list|)
-return|;
-block|}
-DECL|method|canDeleteShardContent
-specifier|private
-name|boolean
-name|canDeleteShardContent
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
-name|IndexSettings
-name|indexSettings
-parameter_list|)
-block|{
 specifier|final
 name|IndexService
 name|indexService
