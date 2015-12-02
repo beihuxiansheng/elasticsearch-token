@@ -3742,8 +3742,6 @@ parameter_list|,
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 block|{
 name|super
 operator|.

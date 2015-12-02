@@ -1903,8 +1903,6 @@ parameter_list|,
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 block|{
 if|if
 condition|(
@@ -3695,8 +3693,6 @@ parameter_list|,
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 block|{
 name|FieldMapper
 name|mergeWithMultiField

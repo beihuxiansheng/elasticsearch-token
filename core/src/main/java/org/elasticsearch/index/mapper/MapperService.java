@@ -1604,12 +1604,21 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|MergeMappingException
+name|IllegalArgumentException
+argument_list|(
+literal|"Merge failed with failures {"
+operator|+
+name|Arrays
+operator|.
+name|toString
 argument_list|(
 name|result
 operator|.
 name|buildConflicts
 argument_list|()
+argument_list|)
+operator|+
+literal|"}"
 argument_list|)
 throw|;
 block|}
