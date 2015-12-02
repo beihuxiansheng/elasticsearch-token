@@ -567,12 +567,7 @@ block|}
 argument_list|)
 decl_stmt|;
 comment|// assist type inference
-name|List
-argument_list|<
-name|Instance
-argument_list|>
-name|items
-init|=
+return|return
 name|instanceList
 operator|.
 name|isEmpty
@@ -580,6 +575,9 @@ argument_list|()
 condition|?
 name|Collections
 operator|.
+expr|<
+name|Instance
+operator|>
 name|emptyList
 argument_list|()
 else|:
@@ -587,9 +585,6 @@ name|instanceList
 operator|.
 name|getItems
 argument_list|()
-decl_stmt|;
-return|return
-name|items
 return|;
 block|}
 catch|catch
@@ -617,19 +612,14 @@ name|e
 argument_list|)
 expr_stmt|;
 comment|// assist type inference
-name|List
-argument_list|<
-name|Instance
-argument_list|>
-name|items
-init|=
+return|return
 name|Collections
 operator|.
+expr|<
+name|Instance
+operator|>
 name|emptyList
 argument_list|()
-decl_stmt|;
-return|return
-name|items
 return|;
 block|}
 block|}
