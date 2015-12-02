@@ -438,6 +438,15 @@ name|NAME
 init|=
 literal|"ingest"
 decl_stmt|;
+DECL|field|NODE_INGEST_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NODE_INGEST_SETTING
+init|=
+literal|"node.ingest"
+decl_stmt|;
 DECL|field|nodeSettings
 specifier|private
 specifier|final
@@ -579,7 +588,7 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-name|PipelineStore
+name|PipelineStoreBootstrapper
 operator|.
 name|class
 argument_list|)
@@ -606,6 +615,14 @@ name|additionalSettings
 argument_list|(
 name|nodeSettings
 argument_list|)
+argument_list|)
+comment|// TODO: in a followup issue this should be made configurable
+operator|.
+name|put
+argument_list|(
+name|NODE_INGEST_SETTING
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|build

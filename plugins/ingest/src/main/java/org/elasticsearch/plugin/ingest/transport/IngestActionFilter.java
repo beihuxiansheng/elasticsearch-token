@@ -210,6 +210,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plugin
+operator|.
+name|ingest
+operator|.
+name|PipelineStoreBootstrapper
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -244,8 +258,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|PipelineExecutionService
-name|executionService
+name|PipelineStoreBootstrapper
+name|bootstrapper
 parameter_list|)
 block|{
 name|super
@@ -257,7 +271,10 @@ name|this
 operator|.
 name|executionService
 operator|=
-name|executionService
+name|bootstrapper
+operator|.
+name|getPipelineExecutionService
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

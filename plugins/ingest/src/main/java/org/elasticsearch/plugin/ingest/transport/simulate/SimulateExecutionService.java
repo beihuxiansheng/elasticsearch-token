@@ -38,20 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ingest
 operator|.
 name|IngestDocument
@@ -118,7 +104,6 @@ end_import
 
 begin_class
 DECL|class|SimulateExecutionService
-specifier|public
 class|class
 name|SimulateExecutionService
 block|{
@@ -141,10 +126,7 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|SimulateExecutionService
-specifier|public
 name|SimulateExecutionService
 parameter_list|(
 name|ThreadPool
