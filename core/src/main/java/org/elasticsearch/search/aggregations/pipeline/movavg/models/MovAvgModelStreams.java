@@ -101,7 +101,8 @@ name|STREAMS
 init|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 decl_stmt|;
 static|static
 block|{

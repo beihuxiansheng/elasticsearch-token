@@ -643,7 +643,8 @@ name|indexMetaData
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
