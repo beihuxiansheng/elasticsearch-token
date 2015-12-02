@@ -997,7 +997,8 @@ name|ScriptContextRegistry
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1011,7 +1012,8 @@ name|settings
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_SET
+name|emptySet
+argument_list|()
 argument_list|,
 operator|new
 name|NamedWriteableRegistry

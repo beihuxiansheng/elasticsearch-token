@@ -1065,7 +1065,8 @@ name|recoveredTranslogs
 operator|=
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 expr_stmt|;
 name|IOUtils
 operator|.
@@ -3247,7 +3248,8 @@ name|View
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)

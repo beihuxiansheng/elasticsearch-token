@@ -1749,7 +1749,8 @@ name|settings
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|,
 name|indexNameMatcher
 argument_list|)
@@ -3385,7 +3386,8 @@ name|settings
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|)
 return|;
 block|}

@@ -1369,7 +1369,8 @@ name|indexMetaData
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// add mappings for all types, we need them for cross-type validation

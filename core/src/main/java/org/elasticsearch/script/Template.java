@@ -499,11 +499,6 @@ return|return
 name|template
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parse
 specifier|public
 specifier|static
@@ -531,7 +526,8 @@ name|TemplateParser
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|,
 name|MustacheScriptEngineService
 operator|.
@@ -548,11 +544,6 @@ name|parseFieldMatcher
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parse
 specifier|public
 specifier|static
@@ -574,7 +565,8 @@ name|TemplateParser
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|,
 name|MustacheScriptEngineService
 operator|.
