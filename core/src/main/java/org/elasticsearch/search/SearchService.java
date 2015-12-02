@@ -1098,20 +1098,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|profile
-operator|.
-name|Profilers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|query
 operator|.
 name|QueryPhase
@@ -5225,7 +5211,7 @@ name|SearchParseException
 argument_list|(
 name|context
 argument_list|,
-literal|"failed to parse rescore source ["
+literal|"failed to parse aggregation source ["
 operator|+
 name|sSource
 operator|+
