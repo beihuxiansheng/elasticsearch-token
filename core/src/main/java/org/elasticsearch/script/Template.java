@@ -499,11 +499,6 @@ return|return
 name|template
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parse
 specifier|public
 specifier|static
@@ -549,11 +544,6 @@ name|parseFieldMatcher
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parse
 specifier|public
 specifier|static
