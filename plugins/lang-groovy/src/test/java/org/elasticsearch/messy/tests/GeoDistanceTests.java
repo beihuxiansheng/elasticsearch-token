@@ -8749,8 +8749,10 @@ name|KILOMETERS
 operator|.
 name|toString
 argument_list|(
-name|randomInt
+name|randomIntBetween
 argument_list|(
+literal|1
+argument_list|,
 literal|10000
 argument_list|)
 argument_list|)

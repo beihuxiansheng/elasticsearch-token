@@ -1701,8 +1701,6 @@ operator|.
 name|innerXContent
 argument_list|(
 name|builder
-argument_list|,
-name|EMPTY_PARAMS
 argument_list|)
 expr_stmt|;
 name|builder

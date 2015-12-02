@@ -325,6 +325,13 @@ argument_list|,
 literal|"127.0.0.1"
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"transport.tcp.port"
+argument_list|,
+literal|"0"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;

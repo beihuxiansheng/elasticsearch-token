@@ -2085,6 +2085,8 @@ name|mapperService
 operator|.
 name|addMappers
 argument_list|(
+name|type
+argument_list|,
 name|objectMappers
 argument_list|,
 name|fieldMappers

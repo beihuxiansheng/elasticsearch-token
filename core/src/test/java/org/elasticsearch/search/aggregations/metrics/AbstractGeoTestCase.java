@@ -1393,7 +1393,7 @@ literal|"type=geo_point"
 argument_list|,
 name|NUMBER_FIELD_NAME
 argument_list|,
-literal|"type=long"
+literal|"type=long,store=true"
 argument_list|,
 literal|"tag"
 argument_list|,
@@ -1839,7 +1839,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Integer
+name|Long
 name|value
 init|=
 name|hitField
@@ -1856,6 +1856,9 @@ operator|+
 literal|" has wrong value"
 argument_list|,
 name|value
+operator|.
+name|intValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
