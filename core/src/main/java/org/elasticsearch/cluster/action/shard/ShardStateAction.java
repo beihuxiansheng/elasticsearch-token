@@ -1144,12 +1144,6 @@ range|:
 name|tasks
 control|)
 block|{
-name|task
-operator|.
-name|processed
-operator|=
-literal|true
-expr_stmt|;
 name|shardRoutingsToBeApplied
 operator|.
 name|add
@@ -1468,12 +1462,6 @@ range|:
 name|tasks
 control|)
 block|{
-name|task
-operator|.
-name|processed
-operator|=
-literal|true
-expr_stmt|;
 name|shardRoutingsToBeApplied
 operator|.
 name|add
@@ -1708,12 +1696,6 @@ DECL|field|failure
 name|Throwable
 name|failure
 decl_stmt|;
-DECL|field|processed
-specifier|volatile
-name|boolean
-name|processed
-decl_stmt|;
-comment|// state field, no need to serialize
 DECL|method|ShardRoutingEntry
 specifier|public
 name|ShardRoutingEntry
