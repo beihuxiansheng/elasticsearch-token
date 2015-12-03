@@ -562,18 +562,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|allTasks
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-return|return
-name|currentState
-return|;
-block|}
 comment|// break down to tasks per index, so we can optimize the on demand index service creation
 comment|// to only happen for the duration of a single index processing of its respective events
 name|Map
