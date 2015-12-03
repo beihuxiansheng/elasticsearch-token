@@ -1153,7 +1153,7 @@ name|Builder
 argument_list|<
 name|ShardRoutingEntry
 argument_list|>
-name|builder
+name|batchResultBuilder
 init|=
 name|BatchResult
 operator|.
@@ -1263,7 +1263,7 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
-name|builder
+name|batchResultBuilder
 operator|.
 name|successes
 argument_list|(
@@ -1277,7 +1277,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|builder
+name|batchResultBuilder
 operator|.
 name|failures
 argument_list|(
@@ -1288,7 +1288,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|builder
+name|batchResultBuilder
 operator|.
 name|build
 argument_list|(
