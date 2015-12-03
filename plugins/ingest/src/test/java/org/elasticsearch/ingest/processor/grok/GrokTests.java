@@ -182,7 +182,9 @@ range|:
 name|inputStreams
 control|)
 block|{
-name|PatternUtils
+name|GrokProcessor
+operator|.
+name|Factory
 operator|.
 name|loadBankFromStream
 argument_list|(
