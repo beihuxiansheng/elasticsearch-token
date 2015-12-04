@@ -130,7 +130,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|PluginsInfo
+name|PluginsAndModules
 import|;
 end_import
 
@@ -508,7 +508,7 @@ decl_stmt|;
 DECL|field|info
 specifier|private
 specifier|final
-name|PluginsInfo
+name|PluginsAndModules
 name|info
 decl_stmt|;
 DECL|field|onModuleReferences
@@ -610,7 +610,7 @@ expr_stmt|;
 name|info
 operator|=
 operator|new
-name|PluginsInfo
+name|PluginsAndModules
 argument_list|()
 expr_stmt|;
 name|List
@@ -1303,7 +1303,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|plugins
-specifier|public
+specifier|private
 name|List
 argument_list|<
 name|Tuple
@@ -1791,10 +1791,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get information about plugins (jvm and site plugins).      */
+comment|/**      * Get information about plugins and modules      */
 DECL|method|info
 specifier|public
-name|PluginsInfo
+name|PluginsAndModules
 name|info
 parameter_list|()
 block|{

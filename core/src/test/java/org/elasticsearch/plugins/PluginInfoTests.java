@@ -40,7 +40,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|PluginsInfo
+name|PluginsAndModules
 import|;
 end_import
 
@@ -1434,11 +1434,11 @@ name|void
 name|testPluginListSorted
 parameter_list|()
 block|{
-name|PluginsInfo
+name|PluginsAndModules
 name|pluginsInfo
 init|=
 operator|new
-name|PluginsInfo
+name|PluginsAndModules
 argument_list|()
 decl_stmt|;
 name|pluginsInfo

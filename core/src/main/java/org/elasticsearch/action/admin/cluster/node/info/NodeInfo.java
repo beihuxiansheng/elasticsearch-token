@@ -337,7 +337,7 @@ annotation|@
 name|Nullable
 DECL|field|plugins
 specifier|private
-name|PluginsInfo
+name|PluginsAndModules
 name|plugins
 decl_stmt|;
 DECL|method|NodeInfo
@@ -404,7 +404,7 @@ name|http
 parameter_list|,
 annotation|@
 name|Nullable
-name|PluginsInfo
+name|PluginsAndModules
 name|plugins
 parameter_list|)
 block|{
@@ -639,7 +639,7 @@ annotation|@
 name|Nullable
 DECL|method|getPlugins
 specifier|public
-name|PluginsInfo
+name|PluginsAndModules
 name|getPlugins
 parameter_list|()
 block|{
@@ -922,7 +922,7 @@ block|{
 name|plugins
 operator|=
 operator|new
-name|PluginsInfo
+name|PluginsAndModules
 argument_list|()
 expr_stmt|;
 name|plugins

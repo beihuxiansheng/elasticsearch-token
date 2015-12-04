@@ -155,10 +155,10 @@ comment|/**  * Information about plugins and modules  */
 end_comment
 
 begin_class
-DECL|class|PluginsInfo
+DECL|class|PluginsAndModules
 specifier|public
 class|class
-name|PluginsInfo
+name|PluginsAndModules
 implements|implements
 name|Streamable
 implements|,
@@ -180,9 +180,9 @@ name|PluginInfo
 argument_list|>
 name|modules
 decl_stmt|;
-DECL|method|PluginsInfo
+DECL|method|PluginsAndModules
 specifier|public
-name|PluginsInfo
+name|PluginsAndModules
 parameter_list|()
 block|{
 name|plugins
