@@ -1128,6 +1128,14 @@ throw|throw
 name|requestBlockException
 throw|;
 block|}
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1142,6 +1150,7 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|ShardsIterator
 name|shardIt
 init|=
@@ -1541,6 +1550,14 @@ name|NodeResponse
 name|response
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1555,6 +1572,7 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// this is defensive to protect against the possibility of double invocation
 comment|// the current implementation of TransportService#sendRequest guards against this
 comment|// but concurrency is hard, safety is important, and the small performance loss here does not matter
@@ -1823,6 +1841,14 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1834,6 +1860,7 @@ argument_list|,
 name|totalShards
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 index|[]
@@ -1999,6 +2026,14 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -2013,6 +2048,7 @@ name|shortSummary
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|ShardOperationResult
 name|result
 init|=
@@ -2032,6 +2068,14 @@ index|]
 operator|=
 name|result
 expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -2046,6 +2090,7 @@ name|shortSummary
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
