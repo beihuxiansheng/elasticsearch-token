@@ -194,7 +194,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|PluginsInfo
+name|PluginsAndModules
 import|;
 end_import
 
@@ -5469,7 +5469,7 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|PluginsInfo
+name|PluginsAndModules
 name|plugins
 init|=
 name|response
@@ -5608,7 +5608,7 @@ name|anyHaveUrls
 init|=
 name|plugins
 operator|.
-name|getInfos
+name|getPluginInfos
 argument_list|()
 operator|.
 name|stream
@@ -5849,7 +5849,7 @@ name|String
 argument_list|>
 name|filterAndMap
 parameter_list|(
-name|PluginsInfo
+name|PluginsAndModules
 name|pluginsInfo
 parameter_list|,
 name|Predicate
@@ -5870,7 +5870,7 @@ block|{
 return|return
 name|pluginsInfo
 operator|.
-name|getInfos
+name|getPluginInfos
 argument_list|()
 operator|.
 name|stream

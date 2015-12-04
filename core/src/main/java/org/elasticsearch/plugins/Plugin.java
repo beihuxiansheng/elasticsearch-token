@@ -201,7 +201,7 @@ operator|.
 name|EMPTY_SETTINGS
 return|;
 block|}
-comment|/**      * Called before a new index is created on a node. The given module can be used to regsiter index-leve      * extensions.      */
+comment|/**      * Called before a new index is created on a node. The given module can be used to register index-level      * extensions.      */
 DECL|method|onIndexModule
 specifier|public
 name|void
