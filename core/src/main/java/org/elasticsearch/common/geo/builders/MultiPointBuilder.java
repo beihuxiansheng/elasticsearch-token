@@ -305,6 +305,9 @@ argument_list|)
 expr_stmt|;
 block|}
 name|XShapeCollection
+argument_list|<
+name|Point
+argument_list|>
 name|multiPoints
 init|=
 operator|new

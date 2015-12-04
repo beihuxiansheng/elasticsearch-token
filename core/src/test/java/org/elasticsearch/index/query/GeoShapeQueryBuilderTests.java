@@ -166,22 +166,6 @@ name|geo
 operator|.
 name|builders
 operator|.
-name|PolygonBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|geo
-operator|.
-name|builders
-operator|.
 name|ShapeBuilder
 import|;
 end_import
@@ -445,32 +429,6 @@ argument_list|,
 name|shapeType
 argument_list|)
 decl_stmt|;
-comment|// NORELEASE PolygonBuilder gets validated on creation, so the shells 'translate'  might get set
-comment|// this causes problems in the test, because  we can't parse this property in fromXContent
-comment|// so we switch it to false again.
-if|if
-condition|(
-name|shape
-operator|instanceof
-name|PolygonBuilder
-condition|)
-block|{
-operator|(
-operator|(
-name|PolygonBuilder
-operator|)
-name|shape
-operator|)
-operator|.
-name|shell
-argument_list|()
-operator|.
-name|translated
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 name|GeoShapeQueryBuilder
 name|builder
 decl_stmt|;

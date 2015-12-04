@@ -346,11 +346,11 @@ name|createTestShapeBuilder
 parameter_list|()
 function_decl|;
 comment|/**      * mutate the given shape so the returned shape is different      */
-DECL|method|mutate
+DECL|method|createMutation
 specifier|protected
 specifier|abstract
 name|SB
-name|mutate
+name|createMutation
 parameter_list|(
 name|SB
 name|original
@@ -498,6 +498,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test serialization and deserialization of the test shape.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testSerialization
 specifier|public
 name|void
@@ -530,6 +535,9 @@ decl_stmt|;
 name|SB
 name|deserializedShape
 init|=
+operator|(
+name|SB
+operator|)
 name|copyShape
 argument_list|(
 name|testShape
@@ -565,6 +573,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test equality and hashCode properties      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|testEqualsAndHashcode
 specifier|public
 name|void
@@ -652,7 +665,7 @@ name|assertThat
 argument_list|(
 literal|"different shapes should not be equal"
 argument_list|,
-name|mutate
+name|createMutation
 argument_list|(
 name|firstShape
 argument_list|)
@@ -669,6 +682,9 @@ expr_stmt|;
 name|SB
 name|secondShape
 init|=
+operator|(
+name|SB
+operator|)
 name|copyShape
 argument_list|(
 name|firstShape
@@ -731,6 +747,9 @@ expr_stmt|;
 name|SB
 name|thirdShape
 init|=
+operator|(
+name|SB
+operator|)
 name|copyShape
 argument_list|(
 name|secondShape
@@ -835,11 +854,11 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|copyShape
-specifier|protected
-name|SB
+specifier|static
+name|ShapeBuilder
 name|copyShape
 parameter_list|(
-name|SB
+name|ShapeBuilder
 name|original
 parameter_list|)
 throws|throws
@@ -904,26 +923,13 @@ name|getWriteableName
 argument_list|()
 argument_list|)
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-name|SB
-name|copy
-init|=
-operator|(
-name|SB
-operator|)
+return|return
 name|prototype
 operator|.
 name|readFrom
 argument_list|(
 name|in
 argument_list|)
-decl_stmt|;
-return|return
-name|copy
 return|;
 block|}
 block|}
