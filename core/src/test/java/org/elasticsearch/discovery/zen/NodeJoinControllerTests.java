@@ -3445,6 +3445,11 @@ name|clusterState
 operator|.
 name|routingTable
 argument_list|()
+argument_list|,
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -3481,6 +3486,11 @@ name|clusterState
 operator|.
 name|routingTable
 argument_list|()
+argument_list|,
+name|clusterState
+operator|.
+name|metaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -3514,6 +3524,11 @@ argument_list|,
 name|clusterState
 operator|.
 name|routingTable
+argument_list|()
+argument_list|,
+name|clusterState
+operator|.
+name|metaData
 argument_list|()
 argument_list|)
 return|;

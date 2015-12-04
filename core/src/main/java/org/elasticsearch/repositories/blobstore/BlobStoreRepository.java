@@ -1479,7 +1479,8 @@ name|indices
 init|=
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 decl_stmt|;
 name|Snapshot
 name|snapshot

@@ -1008,7 +1008,8 @@ name|idxSettings
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|MapperRegistry

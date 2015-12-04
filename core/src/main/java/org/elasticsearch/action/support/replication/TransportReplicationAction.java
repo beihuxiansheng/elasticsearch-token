@@ -94,20 +94,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|bulk
-operator|.
-name|BulkShardRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|index
 operator|.
 name|IndexRequest
@@ -5605,15 +5591,11 @@ block|}
 comment|/** Utility method to create either an index or a create operation depending      *  on the {@link OpType} of the request. */
 DECL|method|prepareIndexOperationOnPrimary
 specifier|private
-specifier|final
 name|Engine
 operator|.
 name|Index
 name|prepareIndexOperationOnPrimary
 parameter_list|(
-name|BulkShardRequest
-name|shardRequest
-parameter_list|,
 name|IndexRequest
 name|request
 parameter_list|,
@@ -5733,9 +5715,6 @@ name|IndexResponse
 argument_list|>
 name|executeIndexRequestOnPrimary
 parameter_list|(
-name|BulkShardRequest
-name|shardRequest
-parameter_list|,
 name|IndexRequest
 name|request
 parameter_list|,
@@ -5752,8 +5731,6 @@ name|operation
 init|=
 name|prepareIndexOperationOnPrimary
 argument_list|(
-name|shardRequest
-argument_list|,
 name|request
 argument_list|,
 name|indexShard
@@ -5813,8 +5790,6 @@ name|operation
 operator|=
 name|prepareIndexOperationOnPrimary
 argument_list|(
-name|shardRequest
-argument_list|,
 name|request
 argument_list|,
 name|indexShard

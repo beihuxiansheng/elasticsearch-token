@@ -4697,36 +4697,7 @@ argument_list|,
 literal|86
 argument_list|)
 block|,
-DECL|enum constant|MERGE_MAPPING_EXCEPTION
-name|MERGE_MAPPING_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeMappingException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeMappingException
-operator|::
-operator|new
-argument_list|,
-literal|87
-argument_list|)
-block|,
+comment|// 87 used to be for MergeMappingException
 DECL|enum constant|INVALID_INDEX_TEMPLATE_EXCEPTION
 name|INVALID_INDEX_TEMPLATE_EXCEPTION
 argument_list|(

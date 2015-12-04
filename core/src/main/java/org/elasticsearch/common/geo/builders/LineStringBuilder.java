@@ -154,13 +154,6 @@ name|GeoShapeType
 operator|.
 name|LINESTRING
 decl_stmt|;
-DECL|field|translated
-specifier|protected
-name|boolean
-name|translated
-init|=
-literal|false
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|toXContent

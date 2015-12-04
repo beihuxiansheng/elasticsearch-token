@@ -3505,8 +3505,6 @@ parameter_list|,
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 block|{
 comment|// ignore this for now
 block|}

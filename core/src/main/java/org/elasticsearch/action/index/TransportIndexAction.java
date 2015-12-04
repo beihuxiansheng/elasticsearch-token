@@ -1161,8 +1161,6 @@ name|result
 init|=
 name|executeIndexRequestOnPrimary
 argument_list|(
-literal|null
-argument_list|,
 name|request
 argument_list|,
 name|indexShard

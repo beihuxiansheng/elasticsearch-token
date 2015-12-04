@@ -164,7 +164,8 @@ name|this
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
