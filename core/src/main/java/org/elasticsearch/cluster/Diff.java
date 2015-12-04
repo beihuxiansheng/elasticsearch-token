@@ -53,7 +53,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Applies difference to the specified part and retunrs the resulted part      */
+comment|/**      * Applies difference to the specified part and returns the resulted part      */
 DECL|method|apply
 name|T
 name|apply
