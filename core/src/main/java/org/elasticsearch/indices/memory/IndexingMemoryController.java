@@ -1360,16 +1360,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|calcAndSetShardBuffers
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|calcAndSetShardBuffers
-specifier|private
-name|void
-name|calcAndSetShardBuffers
-parameter_list|()
-block|{
 name|List
 argument_list|<
 name|IndexShard
