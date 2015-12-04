@@ -329,6 +329,8 @@ name|PluginsService
 argument_list|(
 name|settings
 argument_list|,
+literal|null
+argument_list|,
 operator|new
 name|Environment
 argument_list|(
