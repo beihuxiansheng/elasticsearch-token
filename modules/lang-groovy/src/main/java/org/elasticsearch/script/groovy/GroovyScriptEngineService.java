@@ -912,9 +912,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// same logic as GroovyClassLoader.parseClass() but with a different codesource string:
-name|GroovyCodeSource
-name|gcs
-init|=
+return|return
 name|AccessController
 operator|.
 name|doPrivileged
@@ -922,16 +920,21 @@ argument_list|(
 operator|new
 name|PrivilegedAction
 argument_list|<
-name|GroovyCodeSource
+name|Object
 argument_list|>
 argument_list|()
 block|{
 specifier|public
-name|GroovyCodeSource
+name|Class
+argument_list|<
+name|?
+argument_list|>
 name|run
 parameter_list|()
 block|{
-return|return
+name|GroovyCodeSource
+name|gcs
+init|=
 operator|new
 name|GroovyCodeSource
 argument_list|(
@@ -943,10 +946,6 @@ name|BootstrapInfo
 operator|.
 name|UNTRUSTED_CODEBASE
 argument_list|)
-return|;
-block|}
-block|}
-argument_list|)
 decl_stmt|;
 name|gcs
 operator|.
@@ -955,12 +954,18 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// TODO: we could be more complicated and paranoid, and move this to separate block, to
+comment|// sandbox the compilation process itself better.
 return|return
 name|loader
 operator|.
 name|parseClass
 argument_list|(
 name|gcs
+argument_list|)
+return|;
+block|}
+block|}
 argument_list|)
 return|;
 block|}
@@ -1600,11 +1605,36 @@ parameter_list|()
 block|{
 try|try
 block|{
+comment|// NOTE: we truncate the stack because IndyInterface has security issue (needs getClassLoader)
+comment|// we don't do a security check just as a tradeoff, it cannot really escalate to anything.
+return|return
+name|AccessController
+operator|.
+name|doPrivileged
+argument_list|(
+operator|new
+name|PrivilegedAction
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|Object
+name|run
+parameter_list|()
+block|{
 return|return
 name|script
 operator|.
 name|run
 argument_list|()
+return|;
+block|}
+block|}
+argument_list|)
 return|;
 block|}
 catch|catch
