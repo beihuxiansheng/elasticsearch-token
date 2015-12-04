@@ -695,6 +695,26 @@ argument_list|,
 name|permissions
 argument_list|)
 expr_stmt|;
+comment|// modules file: ro
+name|assertExactPermissions
+argument_list|(
+operator|new
+name|FilePermission
+argument_list|(
+name|environment
+operator|.
+name|modulesFile
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+literal|"read,readlink"
+argument_list|)
+argument_list|,
+name|permissions
+argument_list|)
+expr_stmt|;
 comment|// config file: ro
 name|assertExactPermissions
 argument_list|(
