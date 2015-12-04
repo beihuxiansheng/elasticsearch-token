@@ -5608,7 +5608,7 @@ name|anyHaveUrls
 init|=
 name|plugins
 operator|.
-name|getInfos
+name|getPluginInfos
 argument_list|()
 operator|.
 name|stream
@@ -5870,7 +5870,7 @@ block|{
 return|return
 name|pluginsInfo
 operator|.
-name|getInfos
+name|getPluginInfos
 argument_list|()
 operator|.
 name|stream

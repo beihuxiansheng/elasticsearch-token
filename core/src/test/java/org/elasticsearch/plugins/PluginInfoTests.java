@@ -1439,13 +1439,11 @@ name|pluginsInfo
 init|=
 operator|new
 name|PluginsInfo
-argument_list|(
-literal|5
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1468,7 +1466,7 @@ argument_list|)
 expr_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1491,7 +1489,7 @@ argument_list|)
 expr_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1514,7 +1512,7 @@ argument_list|)
 expr_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1537,7 +1535,7 @@ argument_list|)
 expr_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1567,7 +1565,7 @@ name|infos
 init|=
 name|pluginsInfo
 operator|.
-name|getInfos
+name|getPluginInfos
 argument_list|()
 decl_stmt|;
 name|List

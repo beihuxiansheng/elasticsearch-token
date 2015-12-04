@@ -921,9 +921,13 @@ condition|)
 block|{
 name|plugins
 operator|=
+operator|new
 name|PluginsInfo
+argument_list|()
+expr_stmt|;
+name|plugins
 operator|.
-name|readPluginsInfo
+name|readFrom
 argument_list|(
 name|in
 argument_list|)
