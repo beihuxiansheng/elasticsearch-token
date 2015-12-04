@@ -1843,6 +1843,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// damn leniency
+if|if
+condition|(
+name|Files
+operator|.
+name|notExists
+argument_list|(
+name|modulesDirectory
+argument_list|)
+condition|)
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 name|List
 argument_list|<
 name|Bundle
