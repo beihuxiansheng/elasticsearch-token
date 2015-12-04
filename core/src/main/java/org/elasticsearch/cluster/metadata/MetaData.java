@@ -4555,14 +4555,6 @@ name|INDICES_STORE_THROTTLE_MAX_BYTES_PER_SEC
 argument_list|,
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_FILE_CHUNK_SIZE
-argument_list|,
-name|RecoverySettings
-operator|.
-name|INDICES_RECOVERY_TRANSLOG_SIZE
-argument_list|,
-name|RecoverySettings
-operator|.
 name|INDICES_RECOVERY_MAX_BYTES_PER_SEC
 argument_list|)
 argument_list|)
