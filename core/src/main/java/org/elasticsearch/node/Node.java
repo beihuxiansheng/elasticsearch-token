@@ -1347,6 +1347,11 @@ name|tmpSettings
 argument_list|,
 name|tmpEnv
 operator|.
+name|modulesFile
+argument_list|()
+argument_list|,
+name|tmpEnv
+operator|.
 name|pluginsFile
 argument_list|()
 argument_list|,

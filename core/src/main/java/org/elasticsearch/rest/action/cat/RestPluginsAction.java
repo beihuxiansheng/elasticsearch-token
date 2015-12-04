@@ -693,7 +693,7 @@ operator|.
 name|getPlugins
 argument_list|()
 operator|.
-name|getInfos
+name|getPluginInfos
 argument_list|()
 control|)
 block|{

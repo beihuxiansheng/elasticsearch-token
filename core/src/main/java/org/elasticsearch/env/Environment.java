@@ -244,6 +244,12 @@ specifier|final
 name|Path
 name|pluginsFile
 decl_stmt|;
+DECL|field|modulesFile
+specifier|private
+specifier|final
+name|Path
+name|modulesFile
+decl_stmt|;
 DECL|field|sharedDataFile
 specifier|private
 specifier|final
@@ -897,6 +903,15 @@ argument_list|(
 literal|"lib"
 argument_list|)
 expr_stmt|;
+name|modulesFile
+operator|=
+name|homeFile
+operator|.
+name|resolve
+argument_list|(
+literal|"modules"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * The settings used to build this environment.      */
 DECL|method|settings
@@ -1257,6 +1272,16 @@ parameter_list|()
 block|{
 return|return
 name|libFile
+return|;
+block|}
+DECL|method|modulesFile
+specifier|public
+name|Path
+name|modulesFile
+parameter_list|()
+block|{
+return|return
+name|modulesFile
 return|;
 block|}
 DECL|method|logsFile
