@@ -204,20 +204,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeMappingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -1187,7 +1173,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MergeMappingException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -1200,7 +1186,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"mapper [body] of different type"
+literal|"mapper [body] cannot be changed from type [string] to [int]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1281,7 +1267,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MergeMappingException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{

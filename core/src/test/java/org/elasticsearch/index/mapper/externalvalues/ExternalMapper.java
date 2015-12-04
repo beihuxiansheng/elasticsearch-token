@@ -220,20 +220,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeMappingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MergeResult
 import|;
 end_import
@@ -1475,8 +1461,6 @@ parameter_list|,
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 block|{
 comment|// ignore this for now
 block|}

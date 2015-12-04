@@ -168,20 +168,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeMappingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MergeResult
 import|;
 end_import
@@ -245,6 +231,18 @@ operator|.
 name|StreamsUtils
 operator|.
 name|copyToStringFromClasspath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -1436,11 +1434,23 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MergeMappingException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"mapper [foo] cannot be changed from type [long] to [double]"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
@@ -1470,11 +1480,23 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MergeMappingException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"mapper [foo] cannot be changed from type [long] to [double]"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 name|assertTrue
 argument_list|(
@@ -1750,13 +1772,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// same as the testConflictNewType except that the mapping update is on an existing type
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/15049"
-argument_list|)
 DECL|method|testConflictNewTypeUpdate
 specifier|public
 name|void
