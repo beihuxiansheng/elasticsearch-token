@@ -546,7 +546,7 @@ annotation|@
 name|Override
 DECL|method|checkIdle
 specifier|protected
-name|Boolean
+name|boolean
 name|checkIdle
 parameter_list|(
 name|IndexShard
@@ -591,7 +591,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|null
+literal|true
 return|;
 block|}
 elseif|else
