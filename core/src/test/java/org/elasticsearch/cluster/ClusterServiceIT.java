@@ -5265,6 +5265,16 @@ range|:
 name|executors
 control|)
 block|{
+if|if
+condition|(
+name|counts
+operator|.
+name|containsKey
+argument_list|(
+name|executor
+argument_list|)
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 operator|(
@@ -5285,6 +5295,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// assert the correct number of clusterStateProcessed events were triggered
 for|for
