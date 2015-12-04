@@ -61,7 +61,6 @@ name|GeometryCollectionBuilder
 name|createTestShapeBuilder
 parameter_list|()
 block|{
-comment|// NORELEASE check of GeometryCollectionBuilder should parse maintain orientation
 name|GeometryCollectionBuilder
 name|geometryCollection
 init|=
@@ -264,12 +263,6 @@ argument_list|(
 name|original
 argument_list|)
 decl_stmt|;
-comment|// NORELEASE check of GeometryCollectionBuilder should parse maintain orientation
-comment|//        if (randomBoolean()) {
-comment|//            // toggle orientation
-comment|//            mutation.orientation = (mutation.orientation == Orientation.LEFT ? Orientation.RIGHT : Orientation.LEFT);
-comment|//        } else {
-comment|// change one shape
 if|if
 condition|(
 name|mutation
@@ -486,7 +479,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//        }
 return|return
 name|mutation
 return|;

@@ -1358,8 +1358,6 @@ literal|"      \"shape\" : {\n"
 operator|+
 literal|"        \"type\" : \"envelope\",\n"
 operator|+
-literal|"        \"orientation\" : \"right\",\n"
-operator|+
 literal|"        \"coordinates\" : [ [ 13.0, 53.0 ], [ 14.0, 52.0 ] ]\n"
 operator|+
 literal|"      },\n"
