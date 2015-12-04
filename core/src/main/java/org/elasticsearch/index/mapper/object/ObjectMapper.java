@@ -2659,8 +2659,6 @@ specifier|final
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 block|{
 if|if
 condition|(
