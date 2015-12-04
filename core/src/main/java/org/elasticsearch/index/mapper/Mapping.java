@@ -110,6 +110,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Comparator
 import|;
 end_import
@@ -130,7 +140,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|HashSet
 import|;
 end_import
 
@@ -141,6 +151,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -181,16 +201,25 @@ name|Mapping
 implements|implements
 name|ToXContent
 block|{
+comment|// Set of fields that were included into the root object mapper before 2.0
 DECL|field|LEGACY_INCLUDE_IN_OBJECT
 specifier|public
 specifier|static
 specifier|final
-name|List
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|LEGACY_INCLUDE_IN_OBJECT
 init|=
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|(
 name|Arrays
 operator|.
 name|asList
@@ -206,6 +235,8 @@ argument_list|,
 literal|"_timestamp"
 argument_list|,
 literal|"_ttl"
+argument_list|)
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|indexCreated
