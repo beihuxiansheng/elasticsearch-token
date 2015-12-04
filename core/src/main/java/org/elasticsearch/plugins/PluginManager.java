@@ -411,6 +411,25 @@ literal|"service.bat"
 argument_list|)
 argument_list|)
 decl_stmt|;
+DECL|field|MODULES
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|MODULES
+init|=
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
+argument_list|(
+literal|"lang-expression"
+argument_list|,
+literal|"lang-groovy"
+argument_list|)
+argument_list|)
+decl_stmt|;
 DECL|field|OFFICIAL_PLUGINS
 specifier|static
 specifier|final
@@ -443,10 +462,6 @@ argument_list|,
 literal|"discovery-gce"
 argument_list|,
 literal|"discovery-multicast"
-argument_list|,
-literal|"lang-expression"
-argument_list|,
-literal|"lang-groovy"
 argument_list|,
 literal|"lang-javascript"
 argument_list|,
@@ -1379,6 +1394,36 @@ argument_list|,
 name|info
 argument_list|)
 expr_stmt|;
+comment|// don't let luser install plugin as a module...
+comment|// they might be unavoidably in maven central and are packaged up the same way)
+if|if
+condition|(
+name|MODULES
+operator|.
+name|contains
+argument_list|(
+name|info
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"plugin '"
+operator|+
+name|info
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' cannot be installed like this, it is a system module"
+argument_list|)
+throw|;
+block|}
 comment|// update name in handle based on 'name' property found in descriptor file
 name|pluginHandle
 operator|=
