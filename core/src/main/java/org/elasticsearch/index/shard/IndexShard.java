@@ -6184,7 +6184,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"shard is now inactive"
+literal|"marking shard as inactive (inactive_time=[{}]) indexing wise"
+argument_list|,
+name|inactiveTime
 argument_list|)
 expr_stmt|;
 name|indexEventListener
