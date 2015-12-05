@@ -735,10 +735,15 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"[plugin-missing-descriptor] missing plugin descriptor"
+literal|"missing plugin descriptor"
 argument_list|)
 argument_list|)
 expr_stmt|;
