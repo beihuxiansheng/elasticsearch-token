@@ -1424,13 +1424,6 @@ operator|==
 literal|0
 condition|)
 block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"no active shards"
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 name|ByteSizeValue
