@@ -1177,7 +1177,7 @@ name|List
 argument_list|<
 name|IndexShard
 argument_list|>
-name|activeShards
+name|availableShards
 init|=
 operator|new
 name|ArrayList
@@ -1208,7 +1208,7 @@ name|shard
 argument_list|)
 condition|)
 block|{
-name|activeShards
+name|availableShards
 operator|.
 name|add
 argument_list|(
@@ -1219,7 +1219,7 @@ block|}
 block|}
 block|}
 return|return
-name|activeShards
+name|availableShards
 return|;
 block|}
 comment|/** returns true if shard exists and is availabe for updates */
