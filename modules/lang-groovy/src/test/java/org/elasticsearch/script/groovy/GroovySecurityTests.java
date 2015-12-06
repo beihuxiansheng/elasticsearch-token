@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|codehaus
+operator|.
+name|groovy
+operator|.
+name|control
+operator|.
+name|MultipleCompilationErrorsException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -94,6 +108,16 @@ end_import
 
 begin_import
 import|import
+name|groovy
+operator|.
+name|lang
+operator|.
+name|MissingPropertyException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -108,9 +132,29 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|PrivilegedActionException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|AbstractMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -131,6 +175,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -199,9 +253,7 @@ name|GroovyScriptEngineService
 argument_list|(
 name|Settings
 operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
+name|EMPTY
 argument_list|)
 expr_stmt|;
 comment|// otherwise will exit your VM and other bad stuff
@@ -253,10 +305,38 @@ argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;
-comment|// field access
+comment|// field access (via map)
 name|assertSuccess
 argument_list|(
 literal|"def foo = doc['foo'].value; if (foo == null) { return 5; }"
+argument_list|)
+expr_stmt|;
+comment|// field access (via list)
+name|assertSuccess
+argument_list|(
+literal|"def foo = mylist[0]; if (foo == null) { return 5; }"
+argument_list|)
+expr_stmt|;
+comment|// field access (via array)
+name|assertSuccess
+argument_list|(
+literal|"def foo = myarray[0]; if (foo == null) { return 5; }"
+argument_list|)
+expr_stmt|;
+comment|// field access (via object)
+name|assertSuccess
+argument_list|(
+literal|"def foo = myobject.primitive.toString(); if (foo == null) { return 5; }"
+argument_list|)
+expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"def foo = myobject.object.toString(); if (foo == null) { return 5; }"
+argument_list|)
+expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"def foo = myobject.list[0].primitive.toString(); if (foo == null) { return 5; }"
 argument_list|)
 expr_stmt|;
 comment|// List
@@ -296,16 +376,53 @@ literal|"def n = [1,2,3]; GroovyCollections.max(n)"
 argument_list|)
 expr_stmt|;
 comment|// Fail cases:
-comment|// AccessControlException[access denied ("java.io.FilePermission" "<<ALL FILES>>" "execute")]
 name|assertFailure
 argument_list|(
 literal|"pr = Runtime.getRuntime().exec(\"touch /tmp/gotcha\"); pr.waitFor()"
+argument_list|,
+name|MissingPropertyException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
-comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "accessClassInPackage.sun.reflect")]
+comment|// infamous:
+name|assertFailure
+argument_list|(
+literal|"java.lang.Math.class.forName(\"java.lang.Runtime\")"
+argument_list|,
+name|PrivilegedActionException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// filtered directly by our classloader
+name|assertFailure
+argument_list|(
+literal|"getClass().getClassLoader().loadClass(\"java.lang.Runtime\").availableProcessors()"
+argument_list|,
+name|PrivilegedActionException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// unfortunately, we have access to other classloaders (due to indy mechanism needing getClassLoader permission)
+comment|// but we can't do much with them directly at least.
+name|assertFailure
+argument_list|(
+literal|"myobject.getClass().getClassLoader().loadClass(\"java.lang.Runtime\").availableProcessors()"
+argument_list|,
+name|SecurityException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|assertFailure
 argument_list|(
 literal|"d = new DateTime(); d.getClass().getDeclaredMethod(\"year\").setAccessible(true)"
+argument_list|,
+name|SecurityException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|assertFailure
@@ -313,42 +430,66 @@ argument_list|(
 literal|"d = new DateTime(); d.\"${'get' + 'Class'}\"()."
 operator|+
 literal|"\"${'getDeclared' + 'Method'}\"(\"year\").\"${'set' + 'Accessible'}\"(false)"
+argument_list|,
+name|SecurityException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|assertFailure
 argument_list|(
 literal|"Class.forName(\"org.joda.time.DateTime\").getDeclaredMethod(\"year\").setAccessible(true)"
+argument_list|,
+name|MissingPropertyException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
-comment|// AccessControlException[access denied ("groovy.security.GroovyCodeSourcePermission" "/groovy/shell")]
 name|assertFailure
 argument_list|(
 literal|"Eval.me('2 + 2')"
+argument_list|,
+name|MissingPropertyException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|assertFailure
 argument_list|(
 literal|"Eval.x(5, 'x + 2')"
+argument_list|,
+name|MissingPropertyException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
-comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "accessDeclaredMembers")]
 name|assertFailure
 argument_list|(
 literal|"d = new Date(); java.lang.reflect.Field f = Date.class.getDeclaredField(\"fastTime\");"
 operator|+
 literal|" f.setAccessible(true); f.get(\"fastTime\")"
+argument_list|,
+name|MultipleCompilationErrorsException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
-comment|// AccessControlException[access denied ("java.io.FilePermission" "<<ALL FILES>>" "execute")]
 name|assertFailure
 argument_list|(
 literal|"def methodName = 'ex'; Runtime.\"${'get' + 'Runtime'}\"().\"${methodName}ec\"(\"touch /tmp/gotcha2\")"
+argument_list|,
+name|MissingPropertyException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
-comment|// AccessControlException[access denied ("java.lang.RuntimePermission" "modifyThreadGroup")]
 name|assertFailure
 argument_list|(
 literal|"t = new Thread({ println 3 });"
+argument_list|,
+name|MultipleCompilationErrorsException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// test a directory we normally have access to, but the groovy script does not.
@@ -367,7 +508,6 @@ operator|.
 name|WINDOWS
 condition|)
 block|{
-comment|// access denied ("java.io.FilePermission" ".../tempDir-00N" "read")
 name|assertFailure
 argument_list|(
 literal|"new File(\""
@@ -375,6 +515,10 @@ operator|+
 name|dir
 operator|+
 literal|"\").exists()"
+argument_list|,
+name|MultipleCompilationErrorsException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -436,6 +580,45 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|vars
+operator|.
+name|put
+argument_list|(
+literal|"mylist"
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|vars
+operator|.
+name|put
+argument_list|(
+literal|"myarray"
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|vars
+operator|.
+name|put
+argument_list|(
+literal|"myobject"
+argument_list|,
+operator|new
+name|MyObject
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|se
 operator|.
 name|executable
@@ -468,6 +651,53 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
+DECL|class|MyObject
+specifier|public
+specifier|static
+class|class
+name|MyObject
+block|{
+DECL|method|getPrimitive
+specifier|public
+name|int
+name|getPrimitive
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+DECL|method|getObject
+specifier|public
+name|Object
+name|getObject
+parameter_list|()
+block|{
+return|return
+literal|"value"
+return|;
+block|}
+DECL|method|getList
+specifier|public
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|getList
+parameter_list|()
+block|{
+return|return
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+operator|new
+name|MyObject
+argument_list|()
+argument_list|)
+return|;
+block|}
+block|}
 comment|/** asserts that a script runs without exception */
 DECL|method|assertSuccess
 specifier|private
@@ -492,6 +722,14 @@ name|assertFailure
 parameter_list|(
 name|String
 name|script
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
+name|exceptionClass
 parameter_list|)
 block|{
 try|try
@@ -526,17 +764,33 @@ argument_list|(
 name|cause
 argument_list|)
 expr_stmt|;
-name|assertTrue
+if|if
+condition|(
+name|exceptionClass
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|cause
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
 argument_list|(
 literal|"unexpected exception: "
 operator|+
 name|cause
 argument_list|,
-name|cause
-operator|instanceof
-name|SecurityException
+name|expected
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 block|}
 block|}
 block|}
