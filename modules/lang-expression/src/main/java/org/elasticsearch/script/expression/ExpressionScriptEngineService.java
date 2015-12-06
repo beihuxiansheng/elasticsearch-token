@@ -366,6 +366,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|AccessControlContext
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|AccessController
 import|;
 end_import
@@ -664,6 +674,15 @@ parameter_list|()
 block|{
 try|try
 block|{
+comment|// snapshot our context here, we check on behalf of the expression
+name|AccessControlContext
+name|engineContext
+init|=
+name|AccessController
+operator|.
+name|getContext
+argument_list|()
+decl_stmt|;
 name|ClassLoader
 name|loader
 init|=
@@ -708,7 +727,7 @@ name|ClassNotFoundException
 block|{
 try|try
 block|{
-name|sm
+name|engineContext
 operator|.
 name|checkPermission
 argument_list|(
