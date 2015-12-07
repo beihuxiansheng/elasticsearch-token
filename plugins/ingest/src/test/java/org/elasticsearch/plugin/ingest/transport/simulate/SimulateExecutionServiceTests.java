@@ -80,7 +80,7 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|Processor
+name|CompoundProcessor
 import|;
 end_import
 
@@ -283,7 +283,7 @@ name|pipeline
 decl_stmt|;
 DECL|field|processor
 specifier|private
-name|Processor
+name|CompoundProcessor
 name|processor
 decl_stmt|;
 DECL|field|ingestDocument
@@ -336,7 +336,7 @@ name|processor
 operator|=
 name|mock
 argument_list|(
-name|Processor
+name|CompoundProcessor
 operator|.
 name|class
 argument_list|)
@@ -363,9 +363,8 @@ literal|"_id"
 argument_list|,
 literal|"_description"
 argument_list|,
-name|Arrays
-operator|.
-name|asList
+operator|new
+name|CompoundProcessor
 argument_list|(
 name|processor
 argument_list|,
@@ -373,7 +372,6 @@ name|processor
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//ingestDocument = new IngestDocument("_index", "_type", "_id", Collections.singletonMap("foo", "bar"));
 name|ingestDocument
 operator|=
 name|RandomDocumentPicks
