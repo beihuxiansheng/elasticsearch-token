@@ -307,7 +307,8 @@ name|environment
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|,
 name|environment

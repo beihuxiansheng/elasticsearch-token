@@ -1278,6 +1278,13 @@ name|TestLogging
 argument_list|(
 literal|"cluster.service:TRACE"
 argument_list|)
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/14932"
+argument_list|)
 DECL|method|testDeleteCreateInOneBulk
 specifier|public
 name|void

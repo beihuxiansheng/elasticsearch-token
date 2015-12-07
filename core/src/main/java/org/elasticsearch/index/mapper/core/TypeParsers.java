@@ -2771,6 +2771,32 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|multiFieldName
+operator|.
+name|contains
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"Field name ["
+operator|+
+name|multiFieldName
+operator|+
+literal|"] which is a multi field of ["
+operator|+
+name|name
+operator|+
+literal|"] cannot contain '.'"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 operator|!
 operator|(
 name|multiFieldEntry

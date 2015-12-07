@@ -6490,7 +6490,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the cluster's minimum master node and make sure the response is acknowledge.      * Note: this doesn't guaranty the new settings is in effect, just that it has been received bu all nodes.      */
+comment|/**      * Sets the cluster's minimum master node and make sure the response is acknowledge.      * Note: this doesn't guarantee that the new setting has taken effect, just that it has been received by all nodes.      */
 DECL|method|setMinimumMasterNodes
 specifier|public
 name|void

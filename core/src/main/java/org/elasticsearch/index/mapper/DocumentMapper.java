@@ -1989,18 +1989,6 @@ operator|.
 name|isWriteLockedByCurrentThread
 argument_list|()
 assert|;
-comment|// first ensure we don't have any incompatible new fields
-name|mapperService
-operator|.
-name|checkNewMappersCompatibility
-argument_list|(
-name|objectMappers
-argument_list|,
-name|fieldMappers
-argument_list|,
-name|updateAllTypes
-argument_list|)
-expr_stmt|;
 comment|// update mappers for this document type
 name|Map
 argument_list|<
@@ -2085,6 +2073,8 @@ name|mapperService
 operator|.
 name|addMappers
 argument_list|(
+name|type
+argument_list|,
 name|objectMappers
 argument_list|,
 name|fieldMappers
@@ -2117,6 +2107,17 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|mapperService
+operator|.
+name|checkMappersCompatibility
+argument_list|(
+name|type
+argument_list|,
+name|mapping
+argument_list|,
+name|updateAllTypes
+argument_list|)
+expr_stmt|;
 specifier|final
 name|MergeResult
 name|mergeResult

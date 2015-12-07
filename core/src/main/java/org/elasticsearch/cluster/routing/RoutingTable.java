@@ -1542,6 +1542,11 @@ argument_list|,
 name|after
 operator|.
 name|indicesRouting
+argument_list|,
+name|DiffableUtils
+operator|.
+name|getStringKeySerializer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1569,6 +1574,11 @@ operator|.
 name|readImmutableOpenMapDiff
 argument_list|(
 name|in
+argument_list|,
+name|DiffableUtils
+operator|.
+name|getStringKeySerializer
+argument_list|()
 argument_list|,
 name|IndexRoutingTable
 operator|.

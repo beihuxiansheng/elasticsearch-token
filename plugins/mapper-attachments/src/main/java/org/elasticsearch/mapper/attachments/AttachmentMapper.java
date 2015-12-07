@@ -3505,8 +3505,6 @@ parameter_list|,
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 block|{
 comment|// ignore this for now
 block|}
@@ -3592,7 +3590,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|name
+name|simpleName
 argument_list|()
 argument_list|)
 expr_stmt|;

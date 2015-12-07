@@ -922,6 +922,16 @@ argument_list|,
 name|sumRamBytesUsed
 argument_list|)
 expr_stmt|;
+comment|// onDocIdSetEviction might sometimes be called with a number
+comment|// of entries equal to zero if the cache for the given segment
+comment|// was already empty when the close listener was called
+if|if
+condition|(
+name|numEntries
+operator|>
+literal|0
+condition|)
+block|{
 comment|// We can't use ShardCoreKeyMap here because its core closed
 comment|// listener is called before the listener of the cache which
 comment|// triggers this eviction. So instead we use use stats2 that
@@ -980,6 +990,7 @@ argument_list|(
 name|readerCoreKey
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@

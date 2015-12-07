@@ -742,6 +742,13 @@ argument_list|,
 literal|true
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"http.port"
+argument_list|,
+literal|"0"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -882,6 +889,13 @@ argument_list|(
 literal|"http.pipelining"
 argument_list|,
 literal|false
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"http.port"
+argument_list|,
+literal|"0"
 argument_list|)
 operator|.
 name|build

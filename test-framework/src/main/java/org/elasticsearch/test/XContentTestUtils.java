@@ -625,7 +625,11 @@ block|{
 return|return
 name|path
 operator|+
-literal|": the second element is not a map"
+literal|": the second element is not a map (got "
+operator|+
+name|second
+operator|+
+literal|")"
 return|;
 block|}
 block|}

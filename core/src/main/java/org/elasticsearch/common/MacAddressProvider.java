@@ -254,8 +254,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|SocketException
-name|se
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|logger
@@ -264,7 +264,7 @@ name|warn
 argument_list|(
 literal|"Unable to get mac address, will use a dummy address"
 argument_list|,
-name|se
+name|t
 argument_list|)
 expr_stmt|;
 comment|// address will be set below

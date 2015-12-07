@@ -82,9 +82,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
+name|index
 operator|.
-name|SearchResponse
+name|IndexRequestBuilder
 import|;
 end_import
 
@@ -96,9 +96,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
+name|search
 operator|.
-name|IndexRequestBuilder
+name|SearchResponse
 import|;
 end_import
 
@@ -195,20 +195,6 @@ operator|.
 name|mapper
 operator|.
 name|MapperService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeMappingException
 import|;
 end_import
 
@@ -326,55 +312,7 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_BLOCKS_METADATA
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_BLOCKS_READ
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_BLOCKS_WRITE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_READ_ONLY
+name|*
 import|;
 end_import
 
@@ -406,39 +344,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertBlocked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertThrows
+name|*
 import|;
 end_import
 
@@ -450,55 +356,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasEntry
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasKey
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
+name|*
 import|;
 end_import
 
@@ -1315,7 +1173,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MergeMappingException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -1328,7 +1186,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"mapper [body] of different type"
+literal|"mapper [body] cannot be changed from type [string] to [int]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1409,7 +1267,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MergeMappingException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{

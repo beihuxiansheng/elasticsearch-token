@@ -566,21 +566,21 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+comment|// assist type inference
+return|return
 name|instanceList
 operator|.
 name|isEmpty
 argument_list|()
-condition|)
-block|{
-return|return
+condition|?
 name|Collections
 operator|.
-name|EMPTY_LIST
-return|;
-block|}
-return|return
+expr|<
+name|Instance
+operator|>
+name|emptyList
+argument_list|()
+else|:
 name|instanceList
 operator|.
 name|getItems
@@ -611,10 +611,15 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+comment|// assist type inference
 return|return
 name|Collections
 operator|.
-name|EMPTY_LIST
+expr|<
+name|Instance
+operator|>
+name|emptyList
+argument_list|()
 return|;
 block|}
 block|}

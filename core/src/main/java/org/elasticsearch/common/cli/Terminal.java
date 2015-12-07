@@ -531,7 +531,7 @@ literal|"%s"
 argument_list|,
 name|t
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
