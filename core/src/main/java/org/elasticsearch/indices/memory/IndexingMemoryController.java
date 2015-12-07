@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -1228,18 +1216,12 @@ specifier|protected
 name|boolean
 name|shardAvailable
 parameter_list|(
-annotation|@
-name|Nullable
 name|IndexShard
 name|shard
 parameter_list|)
 block|{
 comment|// shadow replica doesn't have an indexing buffer
 return|return
-name|shard
-operator|!=
-literal|null
-operator|&&
 name|shard
 operator|.
 name|canIndex
@@ -1272,13 +1254,6 @@ name|ByteSizeValue
 name|shardTranslogBufferSize
 parameter_list|)
 block|{
-if|if
-condition|(
-name|shard
-operator|!=
-literal|null
-condition|)
-block|{
 try|try
 block|{
 name|shard
@@ -1294,13 +1269,7 @@ block|}
 catch|catch
 parameter_list|(
 name|EngineClosedException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|FlushNotAllowedEngineException
 name|e
 parameter_list|)
@@ -1329,7 +1298,6 @@ argument_list|,
 name|shardIndexingBufferSize
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/** check if any shards active status changed, now. */
