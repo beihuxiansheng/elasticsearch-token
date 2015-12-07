@@ -174,6 +174,9 @@ parameter_list|<
 name|HB
 extends|extends
 name|AbstractHighlighterBuilder
+parameter_list|<
+name|?
+parameter_list|>
 parameter_list|>
 block|{
 DECL|field|PRE_TAGS_FIELD
@@ -484,6 +487,9 @@ decl_stmt|;
 DECL|field|highlightQuery
 specifier|protected
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|highlightQuery
 decl_stmt|;
 DECL|field|order
@@ -799,6 +805,9 @@ name|HB
 name|highlightQuery
 parameter_list|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|highlightQuery
 parameter_list|)
 block|{
@@ -819,6 +828,9 @@ comment|/**      * @return the value set by {@link #highlightQuery(QueryBuilder)
 DECL|method|highlightQuery
 specifier|public
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|highlightQuery
 parameter_list|()
 block|{
