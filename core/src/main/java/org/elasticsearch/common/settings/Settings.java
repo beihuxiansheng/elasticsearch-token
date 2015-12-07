@@ -3789,7 +3789,7 @@ argument_list|()
 argument_list|,
 name|in
 operator|.
-name|readString
+name|readOptionalString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3862,7 +3862,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeOptionalString
 argument_list|(
 name|entry
 operator|.
@@ -4313,6 +4313,27 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+DECL|method|putNull
+specifier|public
+name|Builder
+name|putNull
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|put
+argument_list|(
+name|key
+argument_list|,
+operator|(
+name|String
+operator|)
+literal|null
+argument_list|)
 return|;
 block|}
 comment|/**          * Sets a setting with the provided setting key and class as value.          *          * @param key   The setting key          * @param clazz The setting class value          * @return The builder          */
