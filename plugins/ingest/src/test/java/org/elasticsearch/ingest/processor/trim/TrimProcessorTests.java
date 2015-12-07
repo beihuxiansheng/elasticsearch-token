@@ -46,16 +46,6 @@ name|AbstractStringProcessorTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
 begin_class
 DECL|class|TrimProcessorTests
 specifier|public
@@ -71,18 +61,15 @@ specifier|protected
 name|AbstractStringProcessor
 name|newProcessor
 parameter_list|(
-name|Collection
-argument_list|<
 name|String
-argument_list|>
-name|fields
+name|field
 parameter_list|)
 block|{
 return|return
 operator|new
 name|TrimProcessor
 argument_list|(
-name|fields
+name|field
 argument_list|)
 return|;
 block|}
