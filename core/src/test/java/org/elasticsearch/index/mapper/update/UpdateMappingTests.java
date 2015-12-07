@@ -1682,10 +1682,15 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"conflicts with existing mapping in other types"
+literal|"mapper [foo] cannot be changed from type [long] to [double]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1729,10 +1734,15 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"conflicts with existing mapping in other types"
+literal|"mapper [foo] cannot be changed from type [long] to [double]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1990,10 +2000,15 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"conflicts with existing mapping in other types"
+literal|"mapper [foo] cannot be changed from type [long] to [double]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2037,10 +2052,15 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"conflicts with existing mapping in other types"
+literal|"mapper [foo] cannot be changed from type [long] to [double]"
 argument_list|)
 argument_list|)
 expr_stmt|;
