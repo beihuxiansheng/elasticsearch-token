@@ -4564,10 +4564,6 @@ argument_list|,
 name|RecoverySettings
 operator|.
 name|INDICES_RECOVERY_MAX_BYTES_PER_SEC
-argument_list|,
-name|RecoverySettings
-operator|.
-name|INDICES_RECOVERY_MAX_SIZE_PER_SEC
 argument_list|)
 argument_list|)
 decl_stmt|;
