@@ -4836,7 +4836,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|256
+literal|8
 argument_list|)
 decl_stmt|;
 name|int
@@ -4863,7 +4863,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 name|CountDownLatch
-name|latch
+name|updateLatch
 init|=
 operator|new
 name|CountDownLatch
@@ -4929,7 +4929,7 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-name|latch
+name|updateLatch
 operator|.
 name|countDown
 argument_list|()
@@ -5191,9 +5191,13 @@ name|ClusterStateTaskConfig
 operator|.
 name|build
 argument_list|(
+name|randomFrom
+argument_list|(
 name|Priority
 operator|.
-name|NORMAL
+name|values
+argument_list|()
+argument_list|)
 argument_list|)
 argument_list|,
 name|executor
@@ -5238,7 +5242,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// wait until all the cluster state updates have been processed
-name|latch
+name|updateLatch
 operator|.
 name|await
 argument_list|()
@@ -5265,6 +5269,16 @@ range|:
 name|executors
 control|)
 block|{
+if|if
+condition|(
+name|counts
+operator|.
+name|containsKey
+argument_list|(
+name|executor
+argument_list|)
+condition|)
+block|{
 name|assertEquals
 argument_list|(
 operator|(
@@ -5285,6 +5299,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// assert the correct number of clusterStateProcessed events were triggered
 for|for

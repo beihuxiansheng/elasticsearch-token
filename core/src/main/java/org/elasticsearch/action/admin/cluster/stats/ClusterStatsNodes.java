@@ -546,7 +546,7 @@ operator|.
 name|getPlugins
 argument_list|()
 operator|.
-name|getInfos
+name|getPluginInfos
 argument_list|()
 argument_list|)
 expr_stmt|;
