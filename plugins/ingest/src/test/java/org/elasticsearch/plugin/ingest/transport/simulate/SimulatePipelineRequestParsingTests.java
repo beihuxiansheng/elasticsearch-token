@@ -718,7 +718,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|INDEX
 argument_list|)
@@ -741,7 +741,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|TYPE
 argument_list|)
@@ -764,7 +764,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|ID
 argument_list|)
@@ -1325,7 +1325,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|INDEX
 argument_list|)
@@ -1348,7 +1348,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|TYPE
 argument_list|)
@@ -1371,7 +1371,7 @@ name|assertThat
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|ID
 argument_list|)

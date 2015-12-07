@@ -266,7 +266,7 @@ argument_list|)
 expr_stmt|;
 name|ingestDocument
 operator|.
-name|setMetaData
+name|setEsMetadata
 argument_list|(
 name|entry
 operator|.

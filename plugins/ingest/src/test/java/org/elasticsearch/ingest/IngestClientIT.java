@@ -1121,6 +1121,14 @@ literal|"type"
 argument_list|,
 literal|"id"
 argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|source
 argument_list|)
 decl_stmt|;

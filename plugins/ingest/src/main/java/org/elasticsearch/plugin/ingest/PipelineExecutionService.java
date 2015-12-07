@@ -388,7 +388,7 @@ name|index
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|IngestDocument
 operator|.
@@ -404,7 +404,7 @@ name|type
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|IngestDocument
 operator|.
@@ -420,7 +420,7 @@ name|id
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|IngestDocument
 operator|.
@@ -436,7 +436,7 @@ name|routing
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|IngestDocument
 operator|.
@@ -452,7 +452,7 @@ name|parent
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|IngestDocument
 operator|.
@@ -468,7 +468,7 @@ name|timestamp
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|IngestDocument
 operator|.
@@ -484,7 +484,7 @@ name|ttl
 argument_list|(
 name|ingestDocument
 operator|.
-name|getMetadata
+name|getEsMetadata
 argument_list|(
 name|IngestDocument
 operator|.
