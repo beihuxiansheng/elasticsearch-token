@@ -401,7 +401,6 @@ block|}
 block|}
 DECL|method|parse
 specifier|public
-specifier|static
 name|SearchContextHighlight
 name|parse
 parameter_list|(
