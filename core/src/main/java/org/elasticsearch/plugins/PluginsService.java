@@ -2290,7 +2290,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|NoSuchFileException
+name|IOException
 name|e
 parameter_list|)
 block|{
@@ -2298,16 +2298,14 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Existing plugin ["
+literal|"Could not load plugin descriptor for existing plugin ["
 operator|+
 name|plugin
 operator|.
 name|getFileName
 argument_list|()
 operator|+
-literal|"] missing plugin descriptor. "
-operator|+
-literal|"Was the plugin built before 2.0?"
+literal|"]. Was the plugin built before 2.0?"
 argument_list|,
 name|e
 argument_list|)

@@ -743,7 +743,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"missing plugin descriptor"
+literal|"Could not load plugin descriptor for existing plugin"
 argument_list|)
 argument_list|)
 expr_stmt|;
