@@ -307,7 +307,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|warn
+name|error
 argument_list|(
 literal|"failed to rollback settings for [{}]"
 argument_list|,
@@ -323,7 +323,7 @@ return|return
 name|build
 return|;
 block|}
-comment|/**      * Applies the given settings to all the settings consumers or to none of them. The settings      * will be merged with the node settings before they are applied while given settings override existing node      * settings.      * @param settings the settings to apply      * @return the unmerged applied settings     */
+comment|/**      * Applies the given settings to all the settings consumers or to none of them. The settings      * will be merged with the node settings before they are applied while given settings override existing node      * settings.      * @param newSettings the settings to apply      * @return the unmerged applied settings     */
 DECL|method|applySettings
 specifier|public
 specifier|synchronized
@@ -331,7 +331,7 @@ name|Settings
 name|applySettings
 parameter_list|(
 name|Settings
-name|settings
+name|newSettings
 parameter_list|)
 block|{
 if|if
@@ -340,7 +340,7 @@ name|lastSettingsApplied
 operator|!=
 literal|null
 operator|&&
-name|settings
+name|newSettings
 operator|.
 name|equals
 argument_list|(
@@ -350,7 +350,7 @@ condition|)
 block|{
 comment|// nothing changed in the settings, ignore
 return|return
-name|settings
+name|newSettings
 return|;
 block|}
 specifier|final
@@ -371,7 +371,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|settings
+name|newSettings
 argument_list|)
 operator|.
 name|build
@@ -495,7 +495,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|warn
+name|error
 argument_list|(
 literal|"failed to refresh settings for [{}]"
 argument_list|,
@@ -522,7 +522,7 @@ name|String
 argument_list|>
 name|entry
 range|:
-name|settings
+name|newSettings
 operator|.
 name|getAsMap
 argument_list|()
@@ -626,7 +626,7 @@ block|}
 return|return
 name|lastSettingsApplied
 operator|=
-name|settings
+name|newSettings
 return|;
 block|}
 comment|/**      * Adds a settings consumer with a predicate that is only evaluated at update time.      *<p>      * Note: Only settings registered in {@link org.elasticsearch.cluster.ClusterModule} can be changed dynamically.      *</p>      */

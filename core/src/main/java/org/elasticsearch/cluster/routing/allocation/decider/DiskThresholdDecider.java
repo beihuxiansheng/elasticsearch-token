@@ -510,7 +510,7 @@ name|validWatermarkSetting
 argument_list|(
 name|s
 argument_list|,
-literal|"cluster.routing.allocation.disk.watermark.low"
+literal|"cluster.routing.allocation.disk.watermark.high"
 argument_list|)
 argument_list|,
 literal|true
