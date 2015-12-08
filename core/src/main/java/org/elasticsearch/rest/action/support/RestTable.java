@@ -503,6 +503,16 @@ argument_list|(
 name|bytesOut
 argument_list|)
 decl_stmt|;
+name|int
+name|lastHeader
+init|=
+name|headers
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+decl_stmt|;
 if|if
 condition|(
 name|verbose
@@ -567,6 +577,13 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|col
+operator|!=
+name|lastHeader
+condition|)
+block|{
 name|out
 operator|.
 name|append
@@ -574,6 +591,7 @@ argument_list|(
 literal|" "
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|out
 operator|.
@@ -661,6 +679,13 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|col
+operator|!=
+name|lastHeader
+condition|)
+block|{
 name|out
 operator|.
 name|append
@@ -668,6 +693,7 @@ argument_list|(
 literal|" "
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|out
 operator|.
