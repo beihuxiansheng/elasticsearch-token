@@ -2116,6 +2116,7 @@ range|:
 name|jarStream
 control|)
 block|{
+comment|// normalize with toRealPath to get symlinks out of our hair
 name|bundle
 operator|.
 name|urls
@@ -2123,6 +2124,9 @@ operator|.
 name|add
 argument_list|(
 name|jar
+operator|.
+name|toRealPath
+argument_list|()
 operator|.
 name|toUri
 argument_list|()
@@ -2357,11 +2361,15 @@ range|:
 name|jarStream
 control|)
 block|{
+comment|// normalize with toRealPath to get symlinks out of our hair
 name|urls
 operator|.
 name|add
 argument_list|(
 name|jar
+operator|.
+name|toRealPath
+argument_list|()
 operator|.
 name|toUri
 argument_list|()
