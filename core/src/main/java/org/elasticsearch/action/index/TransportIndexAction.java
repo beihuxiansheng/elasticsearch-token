@@ -1670,7 +1670,7 @@ name|RetryOnPrimaryException
 argument_list|(
 name|shardId
 argument_list|,
-literal|"Dynamics mappings are not available on the node that holds the primary yet"
+literal|"Dynamic mappings are not available on the node that holds the primary yet"
 argument_list|)
 throw|;
 block|}
