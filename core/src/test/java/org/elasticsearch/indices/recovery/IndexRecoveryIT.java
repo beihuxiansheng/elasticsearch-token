@@ -1248,7 +1248,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|/
-literal|10
+literal|5
 decl_stmt|;
 name|assertTrue
 argument_list|(
