@@ -1506,10 +1506,12 @@ argument_list|(
 name|supersetSize
 argument_list|)
 expr_stmt|;
-name|significanceHeuristic
+name|SignificanceHeuristicStreams
 operator|.
 name|writeTo
 argument_list|(
+name|significanceHeuristic
+argument_list|,
 name|out
 argument_list|)
 expr_stmt|;

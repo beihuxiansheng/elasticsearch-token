@@ -839,6 +839,8 @@ operator|.
 name|toXContent
 argument_list|(
 name|builder
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 if|if
@@ -852,7 +854,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|AbstractTermsParametersParser
+name|TermsAggregatorFactory
 operator|.
 name|SHOW_TERM_DOC_COUNT_ERROR
 operator|.
@@ -874,7 +876,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|AbstractTermsParametersParser
+name|TermsAggregatorFactory
 operator|.
 name|EXECUTION_HINT_FIELD_NAME
 operator|.

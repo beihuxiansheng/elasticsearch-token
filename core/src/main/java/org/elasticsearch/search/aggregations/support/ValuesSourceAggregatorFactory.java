@@ -1931,7 +1931,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|doWriteTo
-specifier|public
+specifier|protected
+specifier|final
 name|void
 name|doWriteTo
 parameter_list|(
@@ -2102,6 +2103,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
+specifier|final
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|VS
@@ -2441,6 +2443,7 @@ annotation|@
 name|Override
 DECL|method|doHashCode
 specifier|public
+specifier|final
 name|int
 name|doHashCode
 parameter_list|()
@@ -2491,6 +2494,7 @@ annotation|@
 name|Override
 DECL|method|doEquals
 specifier|public
+specifier|final
 name|boolean
 name|doEquals
 parameter_list|(

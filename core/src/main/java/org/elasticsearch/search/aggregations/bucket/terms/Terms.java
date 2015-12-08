@@ -576,6 +576,27 @@ name|byte
 name|id
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
+DECL|method|hashCode
+specifier|public
+specifier|abstract
+name|int
+name|hashCode
+parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+DECL|method|equals
+specifier|public
+specifier|abstract
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|obj
+parameter_list|)
+function_decl|;
 block|}
 end_class
 

@@ -116,7 +116,7 @@ name|bucket
 operator|.
 name|terms
 operator|.
-name|AbstractTermsParametersParser
+name|TermsAggregator
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|bucket
 operator|.
 name|terms
 operator|.
-name|TermsAggregator
+name|TermsAggregatorFactory
 import|;
 end_import
 
@@ -789,6 +789,8 @@ operator|.
 name|toXContent
 argument_list|(
 name|builder
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 if|if
@@ -802,7 +804,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|AbstractTermsParametersParser
+name|TermsAggregatorFactory
 operator|.
 name|EXECUTION_HINT_FIELD_NAME
 operator|.
@@ -962,7 +964,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|SignificantTermsParametersParser
+name|SignificantTermsAggregatorFactory
 operator|.
 name|BACKGROUND_FILTER
 operator|.

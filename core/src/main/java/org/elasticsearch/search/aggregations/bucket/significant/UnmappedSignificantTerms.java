@@ -366,7 +366,7 @@ name|minDocCount
 argument_list|,
 name|JLHScore
 operator|.
-name|INSTANCE
+name|PROTOTYPE
 argument_list|,
 name|BUCKETS
 argument_list|,
