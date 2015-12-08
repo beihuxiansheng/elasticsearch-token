@@ -1613,7 +1613,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|parseFields
-specifier|protected
+specifier|private
+specifier|static
 name|SearchContextHighlight
 operator|.
 name|FieldOptions
