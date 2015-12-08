@@ -384,8 +384,6 @@ name|OK
 argument_list|,
 name|renderResponse
 argument_list|(
-name|clusterSettings
-argument_list|,
 name|response
 operator|.
 name|getState
@@ -406,13 +404,9 @@ expr_stmt|;
 block|}
 DECL|method|renderResponse
 specifier|private
-specifier|static
 name|XContentBuilder
 name|renderResponse
 parameter_list|(
-name|ClusterSettings
-name|settings
-parameter_list|,
 name|ClusterState
 name|state
 parameter_list|,
@@ -501,7 +495,7 @@ argument_list|(
 literal|"defaults"
 argument_list|)
 expr_stmt|;
-name|settings
+name|clusterSettings
 operator|.
 name|diff
 argument_list|(
@@ -512,6 +506,10 @@ argument_list|()
 operator|.
 name|settings
 argument_list|()
+argument_list|,
+name|this
+operator|.
+name|settings
 argument_list|)
 operator|.
 name|toXContent
