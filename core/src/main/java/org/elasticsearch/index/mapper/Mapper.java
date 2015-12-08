@@ -740,17 +740,18 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/** Return the merge of {@code mergeWith} into this.      *  Both {@code this} and {@code mergeWith} will be left unmodified. */
 DECL|method|merge
 specifier|public
 specifier|abstract
-name|void
+name|Mapper
 name|merge
 parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeResult
-name|mergeResult
+name|boolean
+name|updateAllTypes
 parameter_list|)
 function_decl|;
 block|}

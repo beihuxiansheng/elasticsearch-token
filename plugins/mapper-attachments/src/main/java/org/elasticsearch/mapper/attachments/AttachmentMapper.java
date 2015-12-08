@@ -3494,16 +3494,16 @@ name|IOException
 block|{      }
 annotation|@
 name|Override
-DECL|method|merge
-specifier|public
+DECL|method|doMerge
+specifier|protected
 name|void
-name|merge
+name|doMerge
 parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeResult
-name|mergeResult
+name|boolean
+name|updateAllTypes
 parameter_list|)
 block|{
 comment|// ignore this for now
