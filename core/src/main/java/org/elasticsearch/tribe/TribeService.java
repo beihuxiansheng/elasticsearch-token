@@ -1001,17 +1001,6 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|sb
-operator|.
-name|put
-argument_list|(
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|sb
