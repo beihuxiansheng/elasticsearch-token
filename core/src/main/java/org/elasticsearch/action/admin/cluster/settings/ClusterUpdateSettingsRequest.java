@@ -162,7 +162,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Map
 import|;
 end_import
 
