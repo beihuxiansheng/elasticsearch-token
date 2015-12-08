@@ -907,8 +907,6 @@ argument_list|<>
 argument_list|(
 literal|"foo.bar"
 argument_list|,
-literal|"_na_"
-argument_list|,
 parameter_list|(
 name|s
 parameter_list|)
@@ -1008,8 +1006,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 literal|"foo.bar"
-argument_list|,
-literal|""
 argument_list|,
 parameter_list|(
 name|s

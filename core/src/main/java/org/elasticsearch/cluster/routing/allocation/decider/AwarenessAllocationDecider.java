@@ -230,8 +230,6 @@ argument_list|<>
 argument_list|(
 literal|"cluster.routing.allocation.awareness.attributes"
 argument_list|,
-literal|"_na_"
-argument_list|,
 literal|""
 argument_list|,
 name|Strings

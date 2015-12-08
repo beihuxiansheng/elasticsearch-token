@@ -458,8 +458,6 @@ argument_list|<>
 argument_list|(
 literal|"cluster.routing.allocation.disk.watermark.low"
 argument_list|,
-literal|"_na_"
-argument_list|,
 literal|"85%"
 argument_list|,
 parameter_list|(
@@ -497,8 +495,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 literal|"cluster.routing.allocation.disk.watermark.high"
-argument_list|,
-literal|"_na_"
 argument_list|,
 literal|"90%"
 argument_list|,

@@ -167,8 +167,6 @@ argument_list|<>
 argument_list|(
 literal|"cluster.routing.allocation.enable"
 argument_list|,
-literal|"_na_"
-argument_list|,
 name|Allocation
 operator|.
 name|ALL
@@ -213,8 +211,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 literal|"cluster.routing.rebalance.enable"
-argument_list|,
-literal|"_na_"
 argument_list|,
 name|Rebalance
 operator|.

@@ -129,8 +129,6 @@ argument_list|<>
 argument_list|(
 literal|"indices.store.throttle.type"
 argument_list|,
-literal|"_na_"
-argument_list|,
 name|StoreRateLimiting
 operator|.
 name|Type

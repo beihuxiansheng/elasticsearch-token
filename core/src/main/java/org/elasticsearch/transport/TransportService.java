@@ -638,8 +638,6 @@ argument_list|<>
 argument_list|(
 literal|"transport.tracer.include"
 argument_list|,
-literal|"_na_"
-argument_list|,
 literal|""
 argument_list|,
 name|Strings
@@ -671,8 +669,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 literal|"transport.tracer.exclude"
-argument_list|,
-literal|"_na_"
 argument_list|,
 literal|"internal:discovery/zen/fd*,"
 operator|+

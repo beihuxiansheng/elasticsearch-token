@@ -229,12 +229,6 @@ specifier|final
 name|String
 name|key
 decl_stmt|;
-DECL|field|description
-specifier|private
-specifier|final
-name|String
-name|description
-decl_stmt|;
 DECL|field|defaultValue
 specifier|private
 specifier|final
@@ -276,9 +270,6 @@ parameter_list|(
 name|String
 name|key
 parameter_list|,
-name|String
-name|description
-parameter_list|,
 name|Function
 argument_list|<
 name|Settings
@@ -307,12 +298,6 @@ operator|.
 name|key
 operator|=
 name|key
-expr_stmt|;
-name|this
-operator|.
-name|description
-operator|=
-name|description
 expr_stmt|;
 name|this
 operator|.
@@ -348,17 +333,6 @@ parameter_list|()
 block|{
 return|return
 name|key
-return|;
-block|}
-comment|/**      * Returns a human readable description of this setting      */
-DECL|method|getDescription
-specifier|public
-name|String
-name|getDescription
-parameter_list|()
-block|{
-return|return
-name|description
 return|;
 block|}
 comment|/**      * Returns<code>true</code> iff this setting is dynamically updateable, otherwise<code>false</code>      */
@@ -475,7 +449,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|t
 parameter_list|)
 block|{
@@ -574,15 +548,6 @@ argument_list|(
 literal|"key"
 argument_list|,
 name|key
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|field
-argument_list|(
-literal|"description"
-argument_list|,
-name|description
 argument_list|)
 expr_stmt|;
 name|builder
@@ -1305,9 +1270,6 @@ name|String
 name|key
 parameter_list|,
 name|String
-name|description
-parameter_list|,
-name|String
 name|defaultValue
 parameter_list|,
 name|Function
@@ -1328,8 +1290,6 @@ block|{
 name|this
 argument_list|(
 name|key
-argument_list|,
-name|description
 argument_list|,
 parameter_list|(
 name|s
@@ -1373,8 +1333,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 name|key
-argument_list|,
-literal|"_na_"
 argument_list|,
 parameter_list|(
 name|s
@@ -1428,8 +1386,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 name|key
-argument_list|,
-literal|"_na_"
 argument_list|,
 parameter_list|(
 name|s
@@ -1522,8 +1478,6 @@ argument_list|<>
 argument_list|(
 name|key
 argument_list|,
-literal|"_na_"
-argument_list|,
 parameter_list|(
 name|s
 parameter_list|)
@@ -1577,8 +1531,6 @@ argument_list|<>
 argument_list|(
 name|key
 argument_list|,
-literal|"_na_"
-argument_list|,
 parameter_list|(
 name|s
 parameter_list|)
@@ -1631,8 +1583,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 name|key
-argument_list|,
-literal|"_na_"
 argument_list|,
 parameter_list|(
 name|s
@@ -1690,8 +1640,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 name|key
-argument_list|,
-literal|"_na_"
 argument_list|,
 parameter_list|(
 name|s
@@ -1816,8 +1764,6 @@ name|Settings
 argument_list|>
 argument_list|(
 name|key
-argument_list|,
-literal|"_na_"
 argument_list|,
 literal|""
 argument_list|,
@@ -2151,8 +2097,6 @@ argument_list|<>
 argument_list|(
 name|key
 argument_list|,
-literal|"_na_"
-argument_list|,
 name|defaultValue
 argument_list|,
 parameter_list|(
@@ -2298,8 +2242,6 @@ argument_list|<>
 argument_list|(
 name|key
 argument_list|,
-literal|"_na_"
-argument_list|,
 parameter_list|(
 name|s
 parameter_list|)
@@ -2364,8 +2306,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 name|key
-argument_list|,
-literal|"_na_"
 argument_list|,
 parameter_list|(
 name|s

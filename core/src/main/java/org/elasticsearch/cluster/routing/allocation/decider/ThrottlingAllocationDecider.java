@@ -211,8 +211,6 @@ argument_list|<>
 argument_list|(
 literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
-literal|"_na_"
-argument_list|,
 parameter_list|(
 name|s
 parameter_list|)

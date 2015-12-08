@@ -210,8 +210,6 @@ argument_list|<>
 argument_list|(
 literal|"discovery.zen.commit_timeout"
 argument_list|,
-literal|"_na_"
-argument_list|,
 parameter_list|(
 name|s
 parameter_list|)
@@ -267,8 +265,6 @@ name|Setting
 argument_list|<>
 argument_list|(
 literal|"discovery.zen.no_master_block"
-argument_list|,
-literal|"_na_"
 argument_list|,
 literal|"write"
 argument_list|,
