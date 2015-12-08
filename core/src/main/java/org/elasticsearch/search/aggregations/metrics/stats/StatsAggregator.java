@@ -309,10 +309,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|StatsAggegator
+DECL|class|StatsAggregator
 specifier|public
 class|class
-name|StatsAggegator
+name|StatsAggregator
 extends|extends
 name|NumericMetricsAggregator
 operator|.
@@ -346,9 +346,9 @@ DECL|field|maxes
 name|DoubleArray
 name|maxes
 decl_stmt|;
-DECL|method|StatsAggegator
+DECL|method|StatsAggregator
 specifier|public
-name|StatsAggegator
+name|StatsAggregator
 parameter_list|(
 name|String
 name|name
@@ -1195,7 +1195,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|StatsAggegator
+name|StatsAggregator
 argument_list|(
 name|name
 argument_list|,
@@ -1256,7 +1256,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|StatsAggegator
+name|StatsAggregator
 argument_list|(
 name|name
 argument_list|,
