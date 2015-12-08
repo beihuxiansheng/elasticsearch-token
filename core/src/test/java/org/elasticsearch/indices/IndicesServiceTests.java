@@ -474,6 +474,21 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|IndexSettings
+name|indexSettings
+init|=
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
+argument_list|(
+literal|"test"
+argument_list|,
+name|meta
+operator|.
+name|getSettings
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|assertFalse
 argument_list|(
 literal|"no shard location"
@@ -490,7 +505,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|meta
+name|indexSettings
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -528,7 +543,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|meta
+name|indexSettings
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -557,7 +572,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|meta
+name|indexSettings
 argument_list|)
 argument_list|)
 expr_stmt|;

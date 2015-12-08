@@ -421,16 +421,16 @@ name|submitStateUpdateTask
 argument_list|(
 literal|"cluster_reroute (api)"
 argument_list|,
-name|Priority
-operator|.
-name|IMMEDIATE
-argument_list|,
 operator|new
 name|AckedClusterStateUpdateTask
 argument_list|<
 name|ClusterRerouteResponse
 argument_list|>
 argument_list|(
+name|Priority
+operator|.
+name|IMMEDIATE
+argument_list|,
 name|request
 argument_list|,
 name|listener

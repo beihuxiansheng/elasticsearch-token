@@ -2760,8 +2760,6 @@ block|}
 return|return
 name|executeIndexRequestOnPrimary
 argument_list|(
-name|request
-argument_list|,
 name|indexRequest
 argument_list|,
 name|indexShard

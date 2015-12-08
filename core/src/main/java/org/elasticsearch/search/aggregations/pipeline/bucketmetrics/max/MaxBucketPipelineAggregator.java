@@ -545,7 +545,8 @@ name|formatter
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|,
 name|metaData
 argument_list|()

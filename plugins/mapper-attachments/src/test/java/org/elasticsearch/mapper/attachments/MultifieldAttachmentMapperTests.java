@@ -615,11 +615,6 @@ init|=
 literal|"This is an elasticsearch mapper attachment test."
 decl_stmt|;
 name|String
-name|contentType
-init|=
-literal|"text/plain; charset=ISO-8859-1"
-decl_stmt|;
-name|String
 name|forcedName
 init|=
 literal|"dummyname.txt"
@@ -790,9 +785,9 @@ operator|.
 name|stringValue
 argument_list|()
 argument_list|,
-name|is
+name|startsWith
 argument_list|(
-name|contentType
+literal|"text/plain;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -827,9 +822,9 @@ operator|.
 name|stringValue
 argument_list|()
 argument_list|,
-name|is
+name|startsWith
 argument_list|(
-name|contentType
+literal|"text/plain;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1035,9 +1030,9 @@ operator|.
 name|stringValue
 argument_list|()
 argument_list|,
-name|is
+name|startsWith
 argument_list|(
-name|contentType
+literal|"text/plain;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1072,9 +1067,9 @@ operator|.
 name|stringValue
 argument_list|()
 argument_list|,
-name|is
+name|startsWith
 argument_list|(
-name|contentType
+literal|"text/plain;"
 argument_list|)
 argument_list|)
 expr_stmt|;

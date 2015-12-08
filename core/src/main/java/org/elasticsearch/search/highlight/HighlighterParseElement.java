@@ -174,8 +174,99 @@ name|HighlighterParseElement
 implements|implements
 name|SearchParseElement
 block|{
+comment|/** default for whether to highlight fields based on the source even if stored separately */
+DECL|field|DEFAULT_FORCE_SOURCE
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|DEFAULT_FORCE_SOURCE
+init|=
+literal|false
+decl_stmt|;
+comment|/** default for whether a field should be highlighted only if a query matches that field */
+DECL|field|DEFAULT_REQUIRE_FIELD_MATCH
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|DEFAULT_REQUIRE_FIELD_MATCH
+init|=
+literal|true
+decl_stmt|;
+comment|/** default for whether<tt>fvh</tt> should provide highlighting on filter clauses */
+DECL|field|DEFAULT_HIGHLIGHT_FILTER
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|DEFAULT_HIGHLIGHT_FILTER
+init|=
+literal|false
+decl_stmt|;
+comment|/** default for highlight fragments being ordered by score */
+DECL|field|DEFAULT_SCORE_ORDERED
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|DEFAULT_SCORE_ORDERED
+init|=
+literal|false
+decl_stmt|;
+comment|/** the default encoder setting */
+DECL|field|DEFAULT_ENCODER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_ENCODER
+init|=
+literal|"default"
+decl_stmt|;
+comment|/** default for the maximum number of phrases the fvh will consider */
+DECL|field|DEFAULT_PHRASE_LIMIT
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_PHRASE_LIMIT
+init|=
+literal|256
+decl_stmt|;
+comment|/** default for fragment size when there are no matches */
+DECL|field|DEFAULT_NO_MATCH_SIZE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_NO_MATCH_SIZE
+init|=
+literal|0
+decl_stmt|;
+comment|/** the default number of fragments for highlighting */
+DECL|field|DEFAULT_NUMBER_OF_FRAGMENTS
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_NUMBER_OF_FRAGMENTS
+init|=
+literal|5
+decl_stmt|;
+comment|/** the default number of fragments size in characters */
+DECL|field|DEFAULT_FRAGMENT_CHAR_SIZE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_FRAGMENT_CHAR_SIZE
+init|=
+literal|100
+decl_stmt|;
+comment|/** the default opening tag  */
 DECL|field|DEFAULT_PRE_TAGS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -189,8 +280,9 @@ block|{
 literal|"<em>"
 block|}
 decl_stmt|;
+comment|/** the default closing tag  */
 DECL|field|DEFAULT_POST_TAGS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -204,8 +296,9 @@ block|{
 literal|"</em>"
 block|}
 decl_stmt|;
+comment|/** the default opening tags when<tt>tag_schema = "styled"</tt>  */
 DECL|field|STYLED_PRE_TAG
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -234,8 +327,9 @@ block|,
 literal|"<em class=\"hlt10\">"
 block|}
 decl_stmt|;
+comment|/** the default closing tags when<tt>tag_schema = "styled"</tt>  */
 DECL|field|STYLED_POST_TAGS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -378,37 +472,37 @@ argument_list|)
 operator|.
 name|scoreOrdered
 argument_list|(
-literal|false
+name|DEFAULT_SCORE_ORDERED
 argument_list|)
 operator|.
 name|highlightFilter
 argument_list|(
-literal|false
+name|DEFAULT_HIGHLIGHT_FILTER
 argument_list|)
 operator|.
 name|requireFieldMatch
 argument_list|(
-literal|true
+name|DEFAULT_REQUIRE_FIELD_MATCH
 argument_list|)
 operator|.
 name|forceSource
 argument_list|(
-literal|false
+name|DEFAULT_FORCE_SOURCE
 argument_list|)
 operator|.
 name|fragmentCharSize
 argument_list|(
-literal|100
+name|DEFAULT_FRAGMENT_CHAR_SIZE
 argument_list|)
 operator|.
 name|numberOfFragments
 argument_list|(
-literal|5
+name|DEFAULT_NUMBER_OF_FRAGMENTS
 argument_list|)
 operator|.
 name|encoder
 argument_list|(
-literal|"default"
+name|DEFAULT_ENCODER
 argument_list|)
 operator|.
 name|boundaryMaxScan
@@ -427,12 +521,12 @@ argument_list|)
 operator|.
 name|noMatchSize
 argument_list|(
-literal|0
+name|DEFAULT_NO_MATCH_SIZE
 argument_list|)
 operator|.
 name|phraseLimit
 argument_list|(
-literal|256
+name|DEFAULT_PHRASE_LIMIT
 argument_list|)
 decl_stmt|;
 while|while

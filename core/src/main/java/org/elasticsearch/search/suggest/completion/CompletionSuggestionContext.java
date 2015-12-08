@@ -220,7 +220,8 @@ name|queryContexts
 init|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 decl_stmt|;
 DECL|field|mapperService
 specifier|private
@@ -244,7 +245,8 @@ name|payloadFields
 init|=
 name|Collections
 operator|.
-name|EMPTY_SET
+name|emptySet
+argument_list|()
 decl_stmt|;
 DECL|method|CompletionSuggestionContext
 name|CompletionSuggestionContext

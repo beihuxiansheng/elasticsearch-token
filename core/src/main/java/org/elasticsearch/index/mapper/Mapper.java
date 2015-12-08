@@ -629,8 +629,6 @@ parameter_list|,
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 function_decl|;
 block|}
 end_class

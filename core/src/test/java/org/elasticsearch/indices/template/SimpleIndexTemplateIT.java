@@ -1037,6 +1037,7 @@ literal|"value1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// field2 is not stored.
 name|assertThat
 argument_list|(
 name|searchResponse
@@ -1053,20 +1054,11 @@ name|field
 argument_list|(
 literal|"field2"
 argument_list|)
-operator|.
-name|value
-argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
-literal|"value 2"
-argument_list|)
+name|nullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this will still be loaded because of the source feature
 name|client
 argument_list|()
 operator|.

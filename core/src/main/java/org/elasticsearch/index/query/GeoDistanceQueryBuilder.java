@@ -612,10 +612,9 @@ literal|"distance unit must not be null"
 argument_list|)
 throw|;
 block|}
-name|this
-operator|.
-name|distance
-operator|=
+name|double
+name|newDistance
+init|=
 name|DistanceUnit
 operator|.
 name|parse
@@ -628,6 +627,27 @@ name|DistanceUnit
 operator|.
 name|DEFAULT
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|newDistance
+operator|<=
+literal|0.0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"distance must be greater than zero"
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
+name|distance
+operator|=
+name|newDistance
 expr_stmt|;
 return|return
 name|this
@@ -781,7 +801,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"optimizeBox must not be null"
+literal|"optimizeBbox must not be null"
 argument_list|)
 throw|;
 block|}

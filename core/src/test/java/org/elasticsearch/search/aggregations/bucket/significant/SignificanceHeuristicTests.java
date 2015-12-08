@@ -897,7 +897,8 @@ name|buckets
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -972,7 +973,8 @@ name|buckets
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
