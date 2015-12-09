@@ -245,15 +245,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|ESTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"nopush"
-argument_list|)
 DECL|class|TemplateQueryBuilderTests
 specifier|public
 class|class
@@ -381,6 +372,16 @@ name|templateBase
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|"mockscript"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 return|;
