@@ -1781,9 +1781,22 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
+literal|"illegal value can't update [discovery.zen.minimum_master_nodes] from [1] to [2]"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|"cannot set discovery.zen.minimum_master_nodes to more than the current master nodes count [1]"
 argument_list|,
 name|ex
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()
