@@ -378,6 +378,8 @@ operator|.
 name|extractMetadata
 argument_list|()
 decl_stmt|;
+comment|//it's fine to set all metadata fields all the time, as ingest document holds their starting values
+comment|//before ingestion, which might also get modified during ingestion.
 name|indexRequest
 operator|.
 name|index
