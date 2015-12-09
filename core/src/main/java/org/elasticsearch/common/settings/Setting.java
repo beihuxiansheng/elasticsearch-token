@@ -327,6 +327,7 @@ block|}
 comment|/**      * Returns the settings key or a prefix if this setting is a group setting      * @see #isGroupSetting()      */
 DECL|method|getKey
 specifier|public
+specifier|final
 name|String
 name|getKey
 parameter_list|()
@@ -338,6 +339,7 @@ block|}
 comment|/**      * Returns<code>true</code> iff this setting is dynamically updateable, otherwise<code>false</code>      */
 DECL|method|isDynamic
 specifier|public
+specifier|final
 name|boolean
 name|isDynamic
 parameter_list|()
@@ -349,6 +351,7 @@ block|}
 comment|/**      * Returns the settings scope      */
 DECL|method|getScope
 specifier|public
+specifier|final
 name|Scope
 name|getScope
 parameter_list|()
@@ -371,6 +374,7 @@ block|}
 comment|/**      * Returns the default values string representation for this setting.      * @param settings a settings object for settings that has a default value depending on another setting if available      */
 DECL|method|getDefault
 specifier|public
+specifier|final
 name|String
 name|getDefault
 parameter_list|(
@@ -390,6 +394,7 @@ block|}
 comment|/**      * Returns<code>true</code> iff this setting is present in the given settings object. Otherwise<code>false</code>      */
 DECL|method|exists
 specifier|public
+specifier|final
 name|boolean
 name|exists
 parameter_list|(
@@ -476,6 +481,7 @@ block|}
 comment|/**      * Returns the raw (string) settings value. If the setting is not present in the given settings object the default value is returned      * instead. This is useful if the value can't be parsed due to an invalid value to access the actual value.      */
 DECL|method|getRaw
 specifier|public
+specifier|final
 name|String
 name|getRaw
 parameter_list|(
@@ -524,6 +530,7 @@ annotation|@
 name|Override
 DECL|method|toXContent
 specifier|public
+specifier|final
 name|XContentBuilder
 name|toXContent
 parameter_list|(
@@ -609,6 +616,7 @@ DECL|enum constant|INDEX
 name|INDEX
 block|;     }
 DECL|method|newUpdater
+specifier|final
 name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
@@ -705,6 +713,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * this is used for settings that depend on each other... see {@link org.elasticsearch.common.settings.AbstractScopedSettings#addSettingsUpdateConsumer(Setting, Setting, BiConsumer)} and it's      * usage for details.      */
 DECL|method|compoundUpdater
 specifier|static
 parameter_list|<
