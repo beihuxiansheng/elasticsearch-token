@@ -225,7 +225,7 @@ argument_list|<>
 argument_list|(
 name|ingestDocument
 operator|.
-name|getSource
+name|getSourceAndMetadata
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -444,7 +444,7 @@ name|innerMap
 init|=
 name|ingestDocument
 operator|.
-name|getSource
+name|getSourceAndMetadata
 argument_list|()
 decl_stmt|;
 if|if
@@ -580,7 +580,7 @@ name|randomIngestDocument
 argument_list|(
 name|random
 argument_list|,
-name|randomDocument
+name|randomSource
 argument_list|(
 name|random
 argument_list|)
@@ -603,7 +603,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|document
+name|source
 parameter_list|)
 block|{
 name|String
@@ -732,11 +732,11 @@ name|timestamp
 argument_list|,
 name|ttl
 argument_list|,
-name|document
+name|source
 argument_list|)
 return|;
 block|}
-DECL|method|randomDocument
+DECL|method|randomSource
 specifier|public
 specifier|static
 name|Map
@@ -745,7 +745,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|randomDocument
+name|randomSource
 parameter_list|(
 name|Random
 name|random

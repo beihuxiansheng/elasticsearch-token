@@ -192,11 +192,6 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

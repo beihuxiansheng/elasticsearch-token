@@ -154,6 +154,14 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|//TODO this processor needs to be removed, as the set processor allows now to set any field, including metadata ones.
+end_comment
+
+begin_comment
+comment|//The only reason for it to be still here is that it supports templating, we will remove once any processor supports templating.
+end_comment
+
 begin_class
 DECL|class|MetaDataProcessor
 specifier|public
@@ -224,7 +232,7 @@ name|model
 init|=
 name|ingestDocument
 operator|.
-name|getSource
+name|getSourceAndMetadata
 argument_list|()
 decl_stmt|;
 for|for
@@ -266,11 +274,14 @@ argument_list|)
 expr_stmt|;
 name|ingestDocument
 operator|.
-name|setEsMetadata
+name|setFieldValue
 argument_list|(
 name|entry
 operator|.
 name|getKey
+argument_list|()
+operator|.
+name|getFieldName
 argument_list|()
 argument_list|,
 name|writer

@@ -1139,14 +1139,14 @@ operator|.
 name|getIngestDocument
 argument_list|()
 operator|.
-name|getSource
+name|getSourceAndMetadata
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|ingestDocument
 operator|.
-name|getSource
+name|getSourceAndMetadata
 argument_list|()
 argument_list|)
 argument_list|)
