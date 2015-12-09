@@ -48,20 +48,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|ESLoggerFactory
@@ -99,18 +85,6 @@ operator|.
 name|function
 operator|.
 name|Consumer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
 import|;
 end_import
 
@@ -760,7 +734,7 @@ operator|=
 name|newSettings
 return|;
 block|}
-comment|/**      * Adds a settings consumer with a predicate that is only evaluated at update time.      *<p>      * Note: Only settings registered in {@link org.elasticsearch.cluster.ClusterModule} can be changed dynamically.      *</p>      */
+comment|/**      * Adds a settings consumer with a predicate that is only evaluated at update time.      *<p>      * Note: Only settings registered in {@link SettingsModule} can be changed dynamically.      *</p>      */
 DECL|method|addSettingsUpdateConsumer
 specifier|public
 specifier|synchronized
@@ -838,7 +812,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a settings consumer that accepts the values for two settings. The consumer if only notified if one or both settings change.      *<p>      * Note: Only settings registered in {@link org.elasticsearch.cluster.ClusterModule} can be changed dynamically.      *</p>      * This method registers a compound updater that is useful if two settings are depending on each other. The consumer is always provided      * with both values even if only one of the two changes.      */
+comment|/**      * Adds a settings consumer that accepts the values for two settings. The consumer if only notified if one or both settings change.      *<p>      * Note: Only settings registered in {@link SettingsModule} can be changed dynamically.      *</p>      * This method registers a compound updater that is useful if two settings are depending on each other. The consumer is always provided      * with both values even if only one of the two changes.      */
 DECL|method|addSettingsUpdateConsumer
 specifier|public
 specifier|synchronized
