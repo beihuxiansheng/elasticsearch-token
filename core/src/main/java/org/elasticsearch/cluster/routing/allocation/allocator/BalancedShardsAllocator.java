@@ -685,9 +685,7 @@ name|WeightFunction
 argument_list|(
 name|indexBalance
 argument_list|,
-name|weightFunction
-operator|.
-name|shardBalance
+name|shardBalanceFactor
 argument_list|)
 expr_stmt|;
 block|}
