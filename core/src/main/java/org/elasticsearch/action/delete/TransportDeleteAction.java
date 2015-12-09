@@ -1082,9 +1082,6 @@ name|indexShard
 operator|.
 name|shardId
 argument_list|()
-operator|.
-name|getIndex
-argument_list|()
 argument_list|,
 name|request
 operator|.

@@ -1658,9 +1658,6 @@ operator|new
 name|IndexResponse
 argument_list|(
 name|shardId
-operator|.
-name|getIndex
-argument_list|()
 argument_list|,
 name|request
 operator|.

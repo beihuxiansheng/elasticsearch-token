@@ -58,7 +58,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -679,7 +679,7 @@ name|ReplicationRequest
 parameter_list|,
 name|Response
 extends|extends
-name|ActionWriteResponse
+name|ReplicationResponse
 parameter_list|>
 extends|extends
 name|TransportAction
@@ -1237,7 +1237,7 @@ name|WriteResult
 parameter_list|<
 name|T
 extends|extends
-name|ActionWriteResponse
+name|ReplicationResponse
 parameter_list|>
 block|{
 DECL|field|response
@@ -1290,7 +1290,7 @@ specifier|public
 parameter_list|<
 name|T
 extends|extends
-name|ActionWriteResponse
+name|ReplicationResponse
 parameter_list|>
 name|T
 name|response
@@ -1303,7 +1303,7 @@ operator|.
 name|setShardInfo
 argument_list|(
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 argument_list|()
@@ -4852,7 +4852,7 @@ name|indexShardReference
 argument_list|)
 expr_stmt|;
 specifier|final
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -4877,7 +4877,7 @@ decl_stmt|;
 name|failuresArray
 operator|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -4927,7 +4927,7 @@ operator|++
 index|]
 operator|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -4964,7 +4964,7 @@ else|else
 block|{
 name|failuresArray
 operator|=
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|EMPTY
 expr_stmt|;
@@ -4974,7 +4974,7 @@ operator|.
 name|setShardInfo
 argument_list|(
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 argument_list|(

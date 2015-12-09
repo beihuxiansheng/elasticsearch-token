@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -4535,7 +4535,7 @@ name|get
 argument_list|()
 decl_stmt|;
 specifier|final
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 name|shardInfo
@@ -5743,7 +5743,7 @@ specifier|static
 class|class
 name|Response
 extends|extends
-name|ActionWriteResponse
+name|ReplicationResponse
 block|{     }
 DECL|class|Action
 class|class

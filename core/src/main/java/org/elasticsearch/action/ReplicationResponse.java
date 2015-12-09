@@ -40,18 +40,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|bootstrap
-operator|.
-name|Elasticsearch
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -166,22 +154,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|json
-operator|.
-name|JsonXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|rest
 operator|.
 name|RestStatus
@@ -198,25 +170,15 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
 begin_comment
 comment|/**  * Base class for write action responses.  */
 end_comment
 
 begin_class
-DECL|class|ActionWriteResponse
+DECL|class|ReplicationResponse
 specifier|public
 class|class
-name|ActionWriteResponse
+name|ReplicationResponse
 extends|extends
 name|ActionResponse
 block|{
@@ -224,7 +186,7 @@ DECL|field|EMPTY
 specifier|public
 specifier|final
 specifier|static
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -233,7 +195,7 @@ index|[]
 name|EMPTY
 init|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -269,7 +231,7 @@ argument_list|)
 expr_stmt|;
 name|shardInfo
 operator|=
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
