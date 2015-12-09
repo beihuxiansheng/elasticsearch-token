@@ -2141,7 +2141,6 @@ parameter_list|(
 name|s
 parameter_list|)
 lambda|->
-block|{
 name|validate
 argument_list|(
 name|s
@@ -2149,11 +2148,6 @@ operator|.
 name|getAsGroups
 argument_list|()
 argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
 argument_list|)
 expr_stmt|;
 block|}

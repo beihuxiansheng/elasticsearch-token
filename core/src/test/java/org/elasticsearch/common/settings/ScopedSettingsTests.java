@@ -498,9 +498,12 @@ parameter_list|(
 name|s
 parameter_list|)
 lambda|->
+name|assertTrue
+argument_list|(
 name|s
 operator|>
 literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|AtomicInteger

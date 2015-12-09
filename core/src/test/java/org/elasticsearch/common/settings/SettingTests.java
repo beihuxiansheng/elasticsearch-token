@@ -1959,7 +1959,10 @@ parameter_list|(
 name|s
 parameter_list|)
 lambda|->
-literal|false
+name|assertFalse
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 decl_stmt|;
 try|try

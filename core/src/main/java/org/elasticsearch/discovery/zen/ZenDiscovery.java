@@ -1369,9 +1369,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-return|return
-literal|true
-return|;
 block|}
 argument_list|)
 expr_stmt|;

@@ -782,7 +782,7 @@ name|T
 argument_list|>
 name|consumer
 parameter_list|,
-name|Predicate
+name|Consumer
 argument_list|<
 name|T
 argument_list|>
@@ -838,7 +838,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a settings consumer that accepts the values for two settings. The consumer if only notified if one or both settings change.      *<p>      * Note: Only settings registered in {@link org.elasticsearch.cluster.ClusterModule} can be changed dynamically.      *</p>      */
+comment|/**      * Adds a settings consumer that accepts the values for two settings. The consumer if only notified if one or both settings change.      *<p>      * Note: Only settings registered in {@link org.elasticsearch.cluster.ClusterModule} can be changed dynamically.      *</p>      * This method registers a compound updater that is useful if two settings are depending on each other. The consumer is always provided      * with both values even if only one of the two changes.      */
 DECL|method|addSettingsUpdateConsumer
 specifier|public
 specifier|synchronized
@@ -983,7 +983,7 @@ parameter_list|(
 name|s
 parameter_list|)
 lambda|->
-literal|true
+block|{}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1128,7 +1128,7 @@ name|isDynamic
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a settings object that contains all clustersettings that are not      * already set in the given source. The diff contains either the default value for each      * setting or the settings value in the given default settings.      */
+comment|/**      * Returns a settings object that contains all settings that are not      * already set in the given source. The diff contains either the default value for each      * setting or the settings value in the given default settings.      */
 DECL|method|diff
 specifier|public
 name|Settings
