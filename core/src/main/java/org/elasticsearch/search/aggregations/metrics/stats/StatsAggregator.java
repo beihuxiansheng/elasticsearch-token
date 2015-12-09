@@ -1377,7 +1377,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|StatsAggegator
+name|StatsAggregator
 operator|.
 name|Factory
 argument_list|(

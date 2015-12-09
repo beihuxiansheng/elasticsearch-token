@@ -32,7 +32,7 @@ name|metrics
 operator|.
 name|stats
 operator|.
-name|StatsAggegator
+name|StatsAggregator
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|StatsTests
 extends|extends
 name|AbstractNumericMetricTestCase
 argument_list|<
-name|StatsAggegator
+name|StatsAggregator
 operator|.
 name|Factory
 argument_list|>
@@ -53,7 +53,7 @@ annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|StatsAggegator
+name|StatsAggregator
 operator|.
 name|Factory
 name|doCreateTestAggregatorFactory
@@ -61,7 +61,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|StatsAggegator
+name|StatsAggregator
 operator|.
 name|Factory
 argument_list|(
