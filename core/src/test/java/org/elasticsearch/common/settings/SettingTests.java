@@ -262,7 +262,7 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|SettingUpdater
 name|settingUpdater
@@ -412,7 +412,7 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|SettingUpdater
 name|settingUpdater
@@ -720,7 +720,7 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|SettingUpdater
 name|settingUpdater
@@ -1062,7 +1062,7 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|SettingUpdater
 name|settingUpdater
@@ -1268,7 +1268,7 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|SettingUpdater
 name|settingUpdater
@@ -1504,7 +1504,7 @@ name|isGroupSetting
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|SettingUpdater
 name|settingUpdater
@@ -1936,7 +1936,7 @@ literal|"foo.baz.bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|SettingUpdater
 name|predicateSettingUpdater
@@ -2143,7 +2143,7 @@ operator|.
 name|Cluster
 argument_list|)
 decl_stmt|;
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|SettingUpdater
 name|settingUpdater

@@ -448,20 +448,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ClusterSettingsService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|repositories
 operator|.
 name|RepositoriesService
@@ -800,11 +786,11 @@ operator|.
 name|newBlockingQueue
 argument_list|()
 decl_stmt|;
-DECL|field|clusterSettingsService
+DECL|field|clusterSettings
 specifier|private
 specifier|final
-name|ClusterSettingsService
-name|clusterSettingsService
+name|ClusterSettings
+name|clusterSettings
 decl_stmt|;
 annotation|@
 name|Inject
@@ -836,8 +822,8 @@ parameter_list|,
 name|MetaDataIndexUpgradeService
 name|metaDataIndexUpgradeService
 parameter_list|,
-name|ClusterSettingsService
-name|clusterSettingsService
+name|ClusterSettings
+name|clusterSettings
 parameter_list|)
 block|{
 name|super
@@ -917,9 +903,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|clusterSettingsService
+name|clusterSettings
 operator|=
-name|clusterSettingsService
+name|clusterSettings
 expr_stmt|;
 block|}
 comment|/**      * Restores snapshot specified in the restore request.      *      * @param request  restore request      * @param listener restore listener      */
@@ -2817,7 +2803,7 @@ operator|.
 name|persistentSettings
 argument_list|()
 decl_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|dryRun
 argument_list|(

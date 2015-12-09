@@ -609,7 +609,7 @@ DECL|enum constant|Index
 name|Index
 block|;     }
 DECL|method|newUpdater
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 name|newUpdater
@@ -645,7 +645,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|newUpdater
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 name|newUpdater
@@ -712,7 +712,7 @@ name|A
 parameter_list|,
 name|B
 parameter_list|>
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 name|compoundUpdater
@@ -772,7 +772,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 name|aSettingUpdater
@@ -791,7 +791,7 @@ name|settings
 argument_list|)
 decl_stmt|;
 specifier|final
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 name|bSettingUpdater
@@ -811,7 +811,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 argument_list|()
@@ -964,7 +964,7 @@ specifier|private
 class|class
 name|Updater
 implements|implements
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 block|{
@@ -1833,7 +1833,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 name|newUpdater
@@ -1889,7 +1889,7 @@ name|this
 decl_stmt|;
 return|return
 operator|new
-name|SettingsService
+name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
 argument_list|()

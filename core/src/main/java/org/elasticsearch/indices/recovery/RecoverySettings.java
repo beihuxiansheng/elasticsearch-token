@@ -84,6 +84,20 @@ name|common
 operator|.
 name|settings
 operator|.
+name|ClusterSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Setting
 import|;
 end_import
@@ -157,20 +171,6 @@ operator|.
 name|concurrent
 operator|.
 name|EsExecutors
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ClusterSettingsService
 import|;
 end_import
 
@@ -765,8 +765,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterSettingsService
-name|clusterSettingsService
+name|ClusterSettings
+name|clusterSettings
 parameter_list|)
 block|{
 name|super
@@ -1016,7 +1016,7 @@ argument_list|,
 name|compress
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1027,7 +1027,7 @@ operator|::
 name|setFileChunkSize
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1038,7 +1038,7 @@ operator|::
 name|setTranslogOps
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1049,7 +1049,7 @@ operator|::
 name|setTranslogSize
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1060,7 +1060,7 @@ operator|::
 name|setCompress
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1071,7 +1071,7 @@ operator|::
 name|setConcurrentStreams
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1082,7 +1082,7 @@ operator|::
 name|setConcurrentSmallFileStreams
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1093,7 +1093,7 @@ operator|::
 name|setMaxBytesPerSec
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1104,7 +1104,7 @@ operator|::
 name|setRetryDelayStateSync
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1115,7 +1115,7 @@ operator|::
 name|setRetryDelayNetwork
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1126,7 +1126,7 @@ operator|::
 name|setInternalActionTimeout
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1137,7 +1137,7 @@ operator|::
 name|setInternalActionLongTimeout
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(

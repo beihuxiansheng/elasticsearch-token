@@ -258,7 +258,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Settings
+name|ClusterSettings
 import|;
 end_import
 
@@ -272,7 +272,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ClusterSettingsService
+name|Settings
 import|;
 end_import
 
@@ -337,11 +337,11 @@ specifier|final
 name|AllocationService
 name|allocationService
 decl_stmt|;
-DECL|field|clusterSettingsService
+DECL|field|clusterSettings
 specifier|private
 specifier|final
-name|ClusterSettingsService
-name|clusterSettingsService
+name|ClusterSettings
+name|clusterSettings
 decl_stmt|;
 annotation|@
 name|Inject
@@ -370,8 +370,8 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|ClusterSettingsService
-name|clusterSettingsService
+name|ClusterSettings
+name|clusterSettings
 parameter_list|)
 block|{
 name|super
@@ -405,9 +405,9 @@ name|allocationService
 expr_stmt|;
 name|this
 operator|.
-name|clusterSettingsService
+name|clusterSettings
 operator|=
-name|clusterSettingsService
+name|clusterSettings
 expr_stmt|;
 block|}
 annotation|@
@@ -580,7 +580,7 @@ init|=
 operator|new
 name|SettingsUpdater
 argument_list|(
-name|clusterSettingsService
+name|clusterSettings
 argument_list|)
 decl_stmt|;
 name|clusterService

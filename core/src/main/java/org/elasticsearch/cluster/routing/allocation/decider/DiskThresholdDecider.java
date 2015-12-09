@@ -330,20 +330,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ClusterSettingsService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -1158,17 +1144,13 @@ argument_list|(
 name|settings
 argument_list|,
 operator|new
-name|ClusterSettingsService
+name|ClusterSettings
 argument_list|(
 name|settings
 argument_list|,
-operator|new
-name|ClusterSettings
-argument_list|(
 name|ClusterSettings
 operator|.
 name|BUILT_IN_CLUSTER_SETTINGS
-argument_list|)
 argument_list|)
 argument_list|,
 name|EmptyClusterInfoService
@@ -1188,8 +1170,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterSettingsService
-name|clusterSettingsService
+name|ClusterSettings
+name|clusterSettings
 parameter_list|,
 name|ClusterInfoService
 name|infoService
@@ -1268,7 +1250,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1279,7 +1261,7 @@ operator|::
 name|setLowWatermark
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1290,7 +1272,7 @@ operator|::
 name|setHighWatermark
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1301,7 +1283,7 @@ operator|::
 name|setIncludeRelocations
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -1312,7 +1294,7 @@ operator|::
 name|setRerouteInterval
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(

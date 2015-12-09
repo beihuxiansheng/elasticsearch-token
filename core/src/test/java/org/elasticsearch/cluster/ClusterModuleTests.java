@@ -214,20 +214,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ClusterSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|settings
@@ -274,7 +260,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ClusterSettingsService
+name|ClusterSettings
 import|;
 end_import
 
@@ -557,16 +543,13 @@ name|assertInstanceBinding
 argument_list|(
 name|module
 argument_list|,
-name|ClusterSettingsService
+name|ClusterSettings
 operator|.
 name|class
 argument_list|,
 name|service
 lambda|->
 name|service
-operator|.
-name|getClusterSettings
-argument_list|()
 operator|.
 name|hasDynamicSetting
 argument_list|(

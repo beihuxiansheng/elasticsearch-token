@@ -132,20 +132,6 @@ name|Settings
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ClusterSettingsService
-import|;
-end_import
-
 begin_comment
 comment|/**  * This {@link org.elasticsearch.cluster.routing.allocation.decider.AllocationDecider} prevents shards that  * are currently been snapshotted to be moved to other nodes.  */
 end_comment
@@ -233,17 +219,13 @@ argument_list|(
 name|settings
 argument_list|,
 operator|new
-name|ClusterSettingsService
+name|ClusterSettings
 argument_list|(
 name|settings
 argument_list|,
-operator|new
-name|ClusterSettings
-argument_list|(
 name|ClusterSettings
 operator|.
 name|BUILT_IN_CLUSTER_SETTINGS
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -257,8 +239,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ClusterSettingsService
-name|clusterSettingsService
+name|ClusterSettings
+name|clusterSettings
 parameter_list|)
 block|{
 name|super
@@ -275,7 +257,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|clusterSettingsService
+name|clusterSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
