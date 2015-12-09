@@ -232,7 +232,7 @@ argument_list|()
 condition|)
 block|{
 case|case
-name|Cluster
+name|CLUSTER
 case|:
 if|if
 condition|(
@@ -276,7 +276,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|Index
+name|INDEX
 case|:
 throw|throw
 operator|new

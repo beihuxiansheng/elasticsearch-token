@@ -602,11 +602,11 @@ specifier|public
 enum|enum
 name|Scope
 block|{
-DECL|enum constant|Cluster
-name|Cluster
+DECL|enum constant|CLUSTER
+name|CLUSTER
 block|,
-DECL|enum constant|Index
-name|Index
+DECL|enum constant|INDEX
+name|INDEX
 block|;     }
 DECL|method|newUpdater
 name|AbstractScopedSettings

@@ -184,7 +184,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|INDEX_ROUTING_ALLOCATION_ENABLE
@@ -229,7 +229,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|INDEX_ROUTING_REBALANCE_ENABLE

@@ -190,7 +190,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/**      * sets the timeout for receiving enough acks for a specific cluster state and committing it. failing      * to receive responses within this window will cause the cluster state change to be rejected.      */
@@ -247,7 +247,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|NO_MASTER_BLOCK_SETTING
@@ -278,7 +278,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|PUBLISH_DIFF_ENABLE_SETTING
@@ -305,7 +305,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|NO_MASTER_BLOCK_ID

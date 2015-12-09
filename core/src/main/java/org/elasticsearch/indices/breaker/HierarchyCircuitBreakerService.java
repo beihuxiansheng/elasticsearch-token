@@ -274,7 +274,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|FIELDDATA_CIRCUIT_BREAKER_LIMIT_SETTING
@@ -301,7 +301,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|FIELDDATA_CIRCUIT_BREAKER_OVERHEAD_SETTING
@@ -330,7 +330,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|FIELDDATA_CIRCUIT_BREAKER_TYPE_SETTING
@@ -366,7 +366,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|REQUEST_CIRCUIT_BREAKER_OVERHEAD_SETTING
@@ -395,7 +395,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|REQUEST_CIRCUIT_BREAKER_TYPE_SETTING

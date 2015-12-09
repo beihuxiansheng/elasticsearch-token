@@ -152,7 +152,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|Setting
@@ -175,7 +175,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|AbstractScopedSettings
@@ -408,7 +408,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|Setting
@@ -431,7 +431,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|AbstractScopedSettings
@@ -1010,7 +1010,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 argument_list|,
 name|Setting
@@ -1027,7 +1027,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1092,7 +1092,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|Setting
@@ -1115,7 +1115,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|ClusterSettings

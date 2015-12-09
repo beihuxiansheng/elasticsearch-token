@@ -211,7 +211,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 annotation|@

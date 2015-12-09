@@ -225,7 +225,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|// This is the minimum version a master needs to be on, otherwise it gets ignored

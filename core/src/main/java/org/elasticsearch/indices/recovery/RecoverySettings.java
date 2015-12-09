@@ -266,7 +266,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_RECOVERY_TRANSLOG_OPS_SETTING
@@ -293,7 +293,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_RECOVERY_TRANSLOG_SIZE_SETTING
@@ -328,7 +328,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_RECOVERY_COMPRESS_SETTING
@@ -355,7 +355,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_RECOVERY_CONCURRENT_STREAMS_SETTING
@@ -382,7 +382,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_RECOVERY_CONCURRENT_SMALL_FILE_STREAMS_SETTING
@@ -409,7 +409,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_RECOVERY_MAX_BYTES_PER_SEC_SETTING
@@ -444,7 +444,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/**      * how long to wait before retrying after issues cause by cluster state syncing between nodes      * i.e., local node is not yet known on remote node, remote shard not yet started etc.      */
@@ -477,7 +477,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/** how long to wait before retrying after network related issues */
@@ -510,7 +510,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/** timeout value to use for requests made as part of the recovery process */
@@ -543,7 +543,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/**      * timeout value to use for requests made as part of the recovery process that are expected to take long time.      * defaults to twice `indices.recovery.internal_action_timeout`.      */
@@ -600,7 +600,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/**      * recoveries that don't show any activity for more then this interval will be failed.      * defaults to `indices.recovery.internal_action_long_timeout`      */
@@ -644,7 +644,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|SMALL_FILE_CUTOFF_BYTES

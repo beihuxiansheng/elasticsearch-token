@@ -124,7 +124,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -216,7 +216,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -396,7 +396,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|AtomicReference
@@ -600,7 +600,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -691,7 +691,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|AtomicReference
@@ -840,7 +840,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -933,7 +933,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1029,7 +1029,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -1244,7 +1244,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -1405,7 +1405,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1419,7 +1419,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 expr_stmt|;
 name|integerSetting
@@ -1438,7 +1438,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Index
+name|INDEX
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1452,7 +1452,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Index
+name|INDEX
 argument_list|)
 expr_stmt|;
 block|}
@@ -1493,7 +1493,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -2120,7 +2120,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|Setting
@@ -2143,7 +2143,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 name|ClusterSettings

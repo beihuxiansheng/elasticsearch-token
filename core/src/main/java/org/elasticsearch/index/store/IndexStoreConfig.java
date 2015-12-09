@@ -150,7 +150,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/**      * Configures the node / cluster level throttle intensity. The default is<tt>10240 MB</tt>      */
@@ -182,7 +182,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|rateLimitingType

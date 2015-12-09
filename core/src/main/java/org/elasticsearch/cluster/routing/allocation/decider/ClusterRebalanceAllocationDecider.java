@@ -177,7 +177,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/**      * An enum representation for the configured re-balance type.      */

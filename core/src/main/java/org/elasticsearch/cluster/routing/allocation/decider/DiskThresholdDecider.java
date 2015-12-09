@@ -425,7 +425,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
@@ -463,7 +463,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
@@ -501,7 +501,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_INCLUDE_RELOCATIONS_SETTING
@@ -528,7 +528,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 empty_stmt|;
@@ -561,7 +561,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 comment|/**      * Listens for a node to go over the high watermark and kicks off an empty      * reroute if it does. Also responsible for logging about nodes that have      * passed the disk watermarks      */

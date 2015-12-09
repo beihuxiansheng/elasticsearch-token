@@ -254,7 +254,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|CLUSTER_ROUTING_INCLUDE_GROUP_SETTING
@@ -279,7 +279,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|CLUSTER_ROUTING_EXCLUDE_GROUP_SETTING
@@ -304,7 +304,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 decl_stmt|;
 DECL|field|clusterRequireFilters

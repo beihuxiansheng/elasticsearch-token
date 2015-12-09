@@ -535,7 +535,7 @@ name|Setting
 operator|.
 name|Scope
 operator|.
-name|Cluster
+name|CLUSTER
 argument_list|)
 argument_list|)
 expr_stmt|;
