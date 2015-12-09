@@ -368,7 +368,7 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|parseField
+name|parseTextField
 import|;
 end_import
 
@@ -902,7 +902,7 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-name|parseField
+name|parseTextField
 argument_list|(
 name|builder
 argument_list|,
