@@ -4061,11 +4061,14 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no templates are defined, we use float by default instead of double
+comment|// since this is much more space-efficient and should be enough most of
+comment|// the time
 name|builder
 operator|=
 name|MapperBuilders
 operator|.
-name|doubleField
+name|floatField
 argument_list|(
 name|currentFieldName
 argument_list|)
@@ -4156,11 +4159,14 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no templates are defined, we use float by default instead of double
+comment|// since this is much more space-efficient and should be enough most of
+comment|// the time
 name|builder
 operator|=
 name|MapperBuilders
 operator|.
-name|doubleField
+name|floatField
 argument_list|(
 name|currentFieldName
 argument_list|)
