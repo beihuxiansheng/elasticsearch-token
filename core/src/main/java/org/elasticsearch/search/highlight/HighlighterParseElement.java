@@ -700,7 +700,7 @@ name|preTags
 argument_list|(
 name|HighlightBuilder
 operator|.
-name|STYLED_PRE_TAG
+name|DEFAULT_STYLED_PRE_TAG
 argument_list|)
 expr_stmt|;
 name|globalOptionsBuilder
@@ -709,7 +709,7 @@ name|postTags
 argument_list|(
 name|HighlightBuilder
 operator|.
-name|STYLED_POST_TAGS
+name|DEFAULT_STYLED_POST_TAGS
 argument_list|)
 expr_stmt|;
 block|}
