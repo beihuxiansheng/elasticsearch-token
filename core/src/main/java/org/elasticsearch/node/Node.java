@@ -2694,18 +2694,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-name|injector
-operator|.
-name|getInstance
-argument_list|(
-name|RecoverySettings
-operator|.
-name|class
-argument_list|)
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 comment|// we should stop this last since it waits for resources to get released
 comment|// if we had scroll searchers etc or recovery going on we wait for to finish.
 name|injector
