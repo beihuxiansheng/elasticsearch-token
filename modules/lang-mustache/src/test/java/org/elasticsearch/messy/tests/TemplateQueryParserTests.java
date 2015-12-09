@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.query
+DECL|package|org.elasticsearch.messy.tests
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|messy
 operator|.
-name|query
+name|tests
 package|;
 end_package
 
@@ -392,6 +392,34 @@ name|index
 operator|.
 name|query
 operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|TemplateQueryParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|functionscore
 operator|.
 name|ScoreFunctionParser
@@ -667,6 +695,15 @@ comment|// NOTE: this can't be migrated to ESSingleNodeTestCase because of the c
 end_comment
 
 begin_class
+annotation|@
+name|ESTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"nopush"
+argument_list|)
 DECL|class|TemplateQueryParserTests
 specifier|public
 class|class
@@ -770,13 +807,16 @@ argument_list|()
 argument_list|,
 operator|new
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 block|{
 name|Client
 operator|.
 name|class
 block|}
-argument_list|,
+operator|,
 parameter_list|(
 name|proxy1
 parameter_list|,
@@ -794,8 +834,8 @@ literal|"client is just a dummy"
 argument_list|)
 throw|;
 block|}
-argument_list|)
-decl_stmt|;
+block|)
+function|;
 name|Index
 name|index
 init|=
@@ -1155,6 +1195,9 @@ name|indicesQueriesRegistry
 argument_list|)
 expr_stmt|;
 block|}
+end_class
+
+begin_function
 annotation|@
 name|Override
 annotation|@
@@ -1185,6 +1228,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testParser
 specifier|public
 name|void
@@ -1271,6 +1317,9 @@ name|MatchAllDocsQuery
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|testParseTemplateAsSingleStringWithConditionalClause
 specifier|public
 name|void
@@ -1358,7 +1407,13 @@ name|MatchAllDocsQuery
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Test that the template query parser can parse and evaluate template      * expressed as a single string but still it expects only the query      * specification (thus this test should fail with specific exception).      */
+end_comment
+
+begin_function
 DECL|method|testParseTemplateFailsToParseCompleteQueryAsSingleString
 specifier|public
 name|void
@@ -1460,6 +1515,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|testParserCanExtractTemplateNames
 specifier|public
 name|void
@@ -1540,8 +1598,8 @@ name|MatchAllDocsQuery
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
