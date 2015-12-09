@@ -363,14 +363,6 @@ argument_list|(
 name|ingestDocument
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ingestDocument
-operator|.
-name|isSourceModified
-argument_list|()
-condition|)
-block|{
 name|indexRequest
 operator|.
 name|source
@@ -381,7 +373,6 @@ name|getSource
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|indexRequest
 operator|.
 name|index
