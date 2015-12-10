@@ -629,7 +629,7 @@ operator|.
 name|postTags
 return|;
 block|}
-comment|/**      * Set the fragment size in characters, defaults to {@link HighlighterParseElement#DEFAULT_FRAGMENT_CHAR_SIZE}      */
+comment|/**      * Set the fragment size in characters, defaults to {@link HighlightBuilder#DEFAULT_FRAGMENT_CHAR_SIZE}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -670,7 +670,7 @@ operator|.
 name|fragmentSize
 return|;
 block|}
-comment|/**      * Set the number of fragments, defaults to {@link HighlighterParseElement#DEFAULT_NUMBER_OF_FRAGMENTS}      */
+comment|/**      * Set the number of fragments, defaults to {@link HighlightBuilder#DEFAULT_NUMBER_OF_FRAGMENTS}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1632,7 +1632,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * internal hashCode calculation to overwrite for the implementing classes.      */
+comment|/**      * fields only present in subclass should contribute to hashCode in the implementation      */
 DECL|method|doHashCode
 specifier|protected
 specifier|abstract
@@ -1878,7 +1878,7 @@ name|other
 argument_list|)
 return|;
 block|}
-comment|/**      * internal equals to overwrite for the implementing classes.      */
+comment|/**      * fields only present in subclass should be checked for equality in the implementation      */
 DECL|method|doEquals
 specifier|protected
 specifier|abstract

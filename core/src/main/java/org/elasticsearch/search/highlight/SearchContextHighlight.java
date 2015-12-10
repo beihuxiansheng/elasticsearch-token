@@ -207,6 +207,17 @@ operator|=
 name|globalForceSource
 expr_stmt|;
 block|}
+DECL|method|globalForceSource
+name|boolean
+name|globalForceSource
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|globalForceSource
+return|;
+block|}
 DECL|method|forceSource
 specifier|public
 name|boolean
