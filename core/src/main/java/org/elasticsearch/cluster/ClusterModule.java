@@ -1804,17 +1804,6 @@ argument_list|)
 expr_stmt|;
 name|registerClusterDynamicSetting
 argument_list|(
-name|RecoverySettings
-operator|.
-name|INDICES_RECOVERY_MAX_SIZE_PER_SEC
-argument_list|,
-name|Validator
-operator|.
-name|BYTES_SIZE
-argument_list|)
-expr_stmt|;
-name|registerClusterDynamicSetting
-argument_list|(
 name|ThreadPool
 operator|.
 name|THREADPOOL_GROUP

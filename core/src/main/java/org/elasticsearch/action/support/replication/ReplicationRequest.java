@@ -227,9 +227,11 @@ operator|.
 name|MINUTES
 argument_list|)
 decl_stmt|;
-DECL|field|internalShardId
+comment|/**      * Target shard the request should execute on. In case of index and delete requests,      * shard id gets resolved by the transport action before performing request operation      * and at request creation time for shard-level bulk, refresh and flush requests.      */
+DECL|field|shardId
+specifier|protected
 name|ShardId
-name|internalShardId
+name|shardId
 decl_stmt|;
 DECL|field|seqNo
 name|long
@@ -278,6 +280,39 @@ name|super
 argument_list|(
 name|request
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a new request with resolved shard id      */
+DECL|method|ReplicationRequest
+specifier|public
+name|ReplicationRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|,
+name|ShardId
+name|shardId
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|index
+operator|=
+name|shardId
+operator|.
+name|getIndex
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|shardId
+operator|=
+name|shardId
 expr_stmt|;
 block|}
 comment|/**      * Copy constructor that creates a new request that is a copy of the one provided as an argument.      */
@@ -343,11 +378,12 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|internalShardId
+name|shardId
 operator|=
 name|request
 operator|.
-name|internalShardId
+name|shardId
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -356,6 +392,7 @@ operator|=
 name|request
 operator|.
 name|seqNo
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -364,6 +401,7 @@ operator|=
 name|request
 operator|.
 name|primaryTerm
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * A timeout to wait if the index operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
@@ -523,7 +561,7 @@ operator|.
 name|consistencyLevel
 return|;
 block|}
-comment|/**      * @return the shardId of the shard where this operation should be executed on.      * can be null in case the shardId is determined by a single document (index, type, id) for example for index or delete request.      */
+comment|/**      * @return the shardId of the shard where this operation should be executed on.      * can be null if the shardID has not yet been resolved      */
 specifier|public
 annotation|@
 name|Nullable
@@ -533,7 +571,7 @@ name|shardId
 parameter_list|()
 block|{
 return|return
-name|internalShardId
+name|shardId
 return|;
 block|}
 comment|/**      * Sets the consistency level of write. Defaults to {@link org.elasticsearch.action.WriteConsistencyLevel#DEFAULT}      */
@@ -681,7 +719,7 @@ name|readBoolean
 argument_list|()
 condition|)
 block|{
-name|internalShardId
+name|shardId
 operator|=
 name|ShardId
 operator|.
@@ -693,7 +731,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|internalShardId
+name|shardId
 operator|=
 literal|null
 expr_stmt|;
@@ -763,7 +801,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|internalShardId
+name|shardId
 operator|!=
 literal|null
 condition|)
@@ -775,7 +813,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|internalShardId
+name|shardId
 operator|.
 name|writeTo
 argument_list|(
@@ -832,6 +870,7 @@ name|primaryTerm
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the target shard id for the request. The shard id is set when a      * index/delete request is resolved by the transport action      */
 DECL|method|setShardId
 specifier|public
 name|T
@@ -843,18 +882,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|internalShardId
+name|shardId
 operator|=
 name|shardId
-expr_stmt|;
-name|this
-operator|.
-name|index
-operator|=
-name|shardId
-operator|.
-name|getIndex
-argument_list|()
 expr_stmt|;
 return|return
 operator|(
@@ -862,6 +892,35 @@ name|T
 operator|)
 name|this
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+if|if
+condition|(
+name|shardId
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|shardId
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+name|index
+return|;
+block|}
 block|}
 block|}
 end_class

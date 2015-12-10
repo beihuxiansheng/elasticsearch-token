@@ -300,10 +300,7 @@ operator|new
 name|ReplicationRequest
 argument_list|(
 name|request
-argument_list|)
-operator|.
-name|setShardId
-argument_list|(
+argument_list|,
 name|shardId
 argument_list|)
 return|;

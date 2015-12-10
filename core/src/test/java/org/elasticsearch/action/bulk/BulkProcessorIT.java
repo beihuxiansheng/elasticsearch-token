@@ -832,7 +832,7 @@ name|randomIntBetween
 argument_list|(
 literal|0
 argument_list|,
-literal|10
+literal|7
 argument_list|)
 decl_stmt|;
 name|int
@@ -1114,6 +1114,11 @@ control|)
 block|{
 name|assertThat
 argument_list|(
+name|bulkItemResponse
+operator|.
+name|getFailureMessage
+argument_list|()
+argument_list|,
 name|bulkItemResponse
 operator|.
 name|isFailed

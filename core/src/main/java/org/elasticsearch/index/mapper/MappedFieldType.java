@@ -1192,19 +1192,13 @@ parameter_list|()
 function_decl|;
 comment|/** Checks this type is the same type as other. Adds a conflict if they are different. */
 DECL|method|checkTypeName
-specifier|public
+specifier|private
 specifier|final
 name|void
 name|checkTypeName
 parameter_list|(
 name|MappedFieldType
 name|other
-parameter_list|,
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|conflicts
 parameter_list|)
 block|{
 if|if
@@ -1223,9 +1217,9 @@ operator|==
 literal|false
 condition|)
 block|{
-name|conflicts
-operator|.
-name|add
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
 literal|"mapper ["
 operator|+
@@ -1249,7 +1243,7 @@ argument_list|()
 operator|+
 literal|"]"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 elseif|else
 if|if
@@ -1307,6 +1301,11 @@ name|boolean
 name|strict
 parameter_list|)
 block|{
+name|checkTypeName
+argument_list|(
+name|other
+argument_list|)
+expr_stmt|;
 name|boolean
 name|indexed
 init|=

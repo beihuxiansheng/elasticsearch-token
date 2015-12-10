@@ -56,7 +56,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|StatusToXContent
 import|;
 end_import
 
@@ -118,6 +118,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -139,7 +151,7 @@ name|DocWriteResponse
 extends|extends
 name|ReplicationResponse
 implements|implements
-name|ToXContent
+name|StatusToXContent
 block|{
 DECL|field|shardId
 specifier|private
@@ -300,6 +312,21 @@ parameter_list|()
 block|{
 return|return
 name|seqNo
+return|;
+block|}
+comment|/** returns the rest status for this response (based on {@link ShardInfo#status()} */
+DECL|method|status
+specifier|public
+name|RestStatus
+name|status
+parameter_list|()
+block|{
+return|return
+name|getShardInfo
+argument_list|()
+operator|.
+name|status
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -527,6 +554,8 @@ name|Fields
 operator|.
 name|_INDEX
 argument_list|,
+name|shardId
+operator|.
 name|getIndex
 argument_list|()
 argument_list|)
@@ -537,8 +566,7 @@ name|Fields
 operator|.
 name|_TYPE
 argument_list|,
-name|getType
-argument_list|()
+name|type
 argument_list|)
 operator|.
 name|field
@@ -547,8 +575,7 @@ name|Fields
 operator|.
 name|_ID
 argument_list|,
-name|getId
-argument_list|()
+name|id
 argument_list|)
 operator|.
 name|field
@@ -557,8 +584,16 @@ name|Fields
 operator|.
 name|_VERSION
 argument_list|,
-name|getVersion
-argument_list|()
+name|version
+argument_list|)
+expr_stmt|;
+name|shardInfo
+operator|.
+name|toXContent
+argument_list|(
+name|builder
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 comment|//nocommit: i'm not sure we want to expose it in the api but it will be handy for debugging while we work...
@@ -597,15 +632,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|shardInfo
-operator|.
-name|toXContent
-argument_list|(
-name|builder
-argument_list|,
-name|params
-argument_list|)
-expr_stmt|;
 return|return
 name|builder
 return|;

@@ -965,16 +965,8 @@ argument_list|()
 decl_stmt|;
 name|shard
 operator|.
-name|incrementOperationCounter
-argument_list|(
-name|shard
-operator|.
-name|routingEntry
+name|incrementOperationCounterOnPrimary
 argument_list|()
-operator|.
-name|primaryTerm
-argument_list|()
-argument_list|)
 expr_stmt|;
 try|try
 block|{

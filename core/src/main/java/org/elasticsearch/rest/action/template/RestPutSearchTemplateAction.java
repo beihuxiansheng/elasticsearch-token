@@ -94,9 +94,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|mustache
-operator|.
-name|MustacheScriptEngineService
+name|Template
 import|;
 end_import
 
@@ -321,9 +319,9 @@ name|request
 parameter_list|)
 block|{
 return|return
-name|MustacheScriptEngineService
+name|Template
 operator|.
-name|NAME
+name|DEFAULT_LANG
 return|;
 block|}
 block|}
