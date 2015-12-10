@@ -614,7 +614,7 @@ operator|=
 name|newSettings
 return|;
 block|}
-comment|/**      * Adds a settings consumer with a predicate that is only evaluated at update time.      *<p>      * Note: Only settings registered in {@link SettingsModule} can be changed dynamically.      *</p>      */
+comment|/**      * Adds a settings consumer with a predicate that is only evaluated at update time.      *<p>      * Note: Only settings registered in {@link SettingsModule} can be changed dynamically.      *</p>      * @param validator an additional validator that is only applied to updates of this setting.      *                  This is useful to add additional validation to settings at runtime compared to at startup time.      */
 DECL|method|addSettingsUpdateConsumer
 specifier|public
 specifier|synchronized
@@ -640,7 +640,7 @@ name|Consumer
 argument_list|<
 name|T
 argument_list|>
-name|predicate
+name|validator
 parameter_list|)
 block|{
 if|if
@@ -685,7 +685,7 @@ name|consumer
 argument_list|,
 name|logger
 argument_list|,
-name|predicate
+name|validator
 argument_list|)
 argument_list|)
 expr_stmt|;
