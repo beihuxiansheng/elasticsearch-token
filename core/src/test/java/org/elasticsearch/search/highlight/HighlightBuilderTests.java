@@ -2902,9 +2902,9 @@ return|return
 name|builder
 return|;
 block|}
-comment|/**      * create random shape that is put under test      */
+comment|/**      * create random highlight builder that is put under test      */
 DECL|method|randomHighlighterBuilder
-specifier|private
+specifier|public
 specifier|static
 name|HighlightBuilder
 name|randomHighlighterBuilder
