@@ -194,20 +194,6 @@ name|settingsBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|NodeBuilder
-operator|.
-name|nodeBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment

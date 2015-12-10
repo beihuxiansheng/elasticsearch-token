@@ -294,20 +294,6 @@ name|matchAllQuery
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|NodeBuilder
-operator|.
-name|nodeBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -364,10 +350,8 @@ decl_stmt|;
 name|Node
 name|node1
 init|=
-name|nodeBuilder
-argument_list|()
-operator|.
-name|settings
+operator|new
+name|Node
 argument_list|(
 name|settingsBuilder
 argument_list|()
@@ -383,9 +367,12 @@ literal|"name"
 argument_list|,
 literal|"node1"
 argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 operator|.
-name|node
+name|start
 argument_list|()
 decl_stmt|;
 name|Client

@@ -143,18 +143,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|NodeBuilder
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -182,7 +170,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|geoDistanceQuery
+name|boolQuery
 import|;
 end_import
 
@@ -198,7 +186,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|boolQuery
+name|geoDistanceQuery
 import|;
 end_import
 
@@ -241,16 +229,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Node
-name|node
+name|Settings
+name|settings
 init|=
-name|NodeBuilder
+name|Settings
 operator|.
-name|nodeBuilder
+name|builder
 argument_list|()
 operator|.
-name|clusterName
+name|put
 argument_list|(
+literal|"cluste.name"
+argument_list|,
 name|GeoDistanceSearchBenchmark
 operator|.
 name|class
@@ -259,7 +249,19 @@ name|getSimpleName
 argument_list|()
 argument_list|)
 operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|Node
 name|node
+init|=
+operator|new
+name|Node
+argument_list|(
+name|settings
+argument_list|)
+operator|.
+name|start
 argument_list|()
 decl_stmt|;
 name|Client
