@@ -2275,7 +2275,7 @@ name|Version
 operator|.
 name|class
 operator|.
-name|getDeclaredFields
+name|getFields
 argument_list|()
 decl_stmt|;
 name|List

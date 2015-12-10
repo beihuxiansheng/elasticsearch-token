@@ -831,7 +831,7 @@ operator|.
 name|getRawType
 argument_list|()
 operator|.
-name|getDeclaredConstructors
+name|getConstructors
 argument_list|()
 control|)
 block|{

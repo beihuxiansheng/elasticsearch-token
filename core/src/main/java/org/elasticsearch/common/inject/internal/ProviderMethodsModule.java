@@ -463,7 +463,7 @@ name|method
 range|:
 name|c
 operator|.
-name|getDeclaredMethods
+name|getMethods
 argument_list|()
 control|)
 block|{

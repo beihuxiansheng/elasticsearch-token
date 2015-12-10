@@ -5325,7 +5325,7 @@ name|constructor
 init|=
 name|clazz
 operator|.
-name|getDeclaredConstructor
+name|getConstructor
 argument_list|()
 decl_stmt|;
 name|assertThat
