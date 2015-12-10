@@ -901,13 +901,6 @@ argument_list|)
 expr_stmt|;
 name|registerQueryParser
 argument_list|(
-name|MissingQueryParser
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|registerQueryParser
-argument_list|(
 name|MatchNoneQueryParser
 operator|.
 name|class
