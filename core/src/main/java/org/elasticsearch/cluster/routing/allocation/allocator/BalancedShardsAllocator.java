@@ -611,10 +611,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|weightFunction
-operator|=
-operator|new
-name|WeightFunction
+name|setWeightFunction
 argument_list|(
 name|INDEX_BALANCE_FACTOR_SETTING
 operator|.
@@ -667,7 +664,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setWeightFunction
-specifier|public
+specifier|private
 name|void
 name|setWeightFunction
 parameter_list|(
@@ -690,7 +687,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setThreshold
-specifier|public
+specifier|private
 name|void
 name|setThreshold
 parameter_list|(
