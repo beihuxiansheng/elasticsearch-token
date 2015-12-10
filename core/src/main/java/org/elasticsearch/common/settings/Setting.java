@@ -277,6 +277,7 @@ specifier|final
 name|Scope
 name|scope
 decl_stmt|;
+comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param dynamic true iff this setting can be dynamically updateable      * @param scope the scope of this setting      */
 DECL|method|Setting
 specifier|public
 name|Setting
