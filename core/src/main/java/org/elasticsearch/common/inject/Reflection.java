@@ -84,7 +84,7 @@ name|InvalidConstructor
 operator|.
 name|class
 operator|.
-name|getDeclaredConstructor
+name|getConstructor
 argument_list|()
 return|;
 block|}

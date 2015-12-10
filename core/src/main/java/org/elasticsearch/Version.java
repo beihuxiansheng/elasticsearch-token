@@ -3963,7 +3963,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_5_4_0
+name|LUCENE_5_5_0
 argument_list|)
 decl_stmt|;
 DECL|field|CURRENT

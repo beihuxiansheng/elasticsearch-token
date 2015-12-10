@@ -5470,7 +5470,7 @@ name|Client
 operator|.
 name|class
 operator|.
-name|getDeclaredMethod
+name|getMethod
 argument_list|(
 literal|"get"
 argument_list|,
@@ -5529,7 +5529,7 @@ name|Client
 operator|.
 name|class
 operator|.
-name|getDeclaredMethod
+name|getMethod
 argument_list|(
 literal|"multiTermVectors"
 argument_list|,
@@ -5588,7 +5588,7 @@ name|Object
 operator|.
 name|class
 operator|.
-name|getDeclaredMethod
+name|getMethod
 argument_list|(
 literal|"toString"
 argument_list|)
