@@ -617,6 +617,7 @@ block|}
 return|;
 block|}
 DECL|class|MultiFieldParserContext
+specifier|static
 class|class
 name|MultiFieldParserContext
 extends|extends
