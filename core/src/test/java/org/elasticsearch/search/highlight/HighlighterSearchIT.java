@@ -22257,14 +22257,11 @@ argument_list|()
 operator|.
 name|mustNot
 argument_list|(
-name|constantScoreQuery
-argument_list|(
 name|QueryBuilders
 operator|.
 name|existsQuery
 argument_list|(
 literal|"field1"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
