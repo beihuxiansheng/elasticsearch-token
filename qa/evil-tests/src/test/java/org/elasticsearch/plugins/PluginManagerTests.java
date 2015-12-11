@@ -4656,6 +4656,13 @@ name|PluginManager
 operator|.
 name|checkForOfficialPlugins
 argument_list|(
+literal|"lang-plan-a"
+argument_list|)
+expr_stmt|;
+name|PluginManager
+operator|.
+name|checkForOfficialPlugins
+argument_list|(
 literal|"lang-python"
 argument_list|)
 expr_stmt|;

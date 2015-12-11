@@ -264,18 +264,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|NodeBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
 name|internal
 operator|.
 name|InternalSettingsPreparer
@@ -839,28 +827,16 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|NodeBuilder
-name|nodeBuilder
-init|=
-name|NodeBuilder
-operator|.
-name|nodeBuilder
-argument_list|()
-operator|.
-name|settings
+name|node
+operator|=
+operator|new
+name|Node
 argument_list|(
 name|nodeSettings
 argument_list|)
-decl_stmt|;
-name|node
-operator|=
-name|nodeBuilder
-operator|.
-name|build
-argument_list|()
 expr_stmt|;
 block|}
-comment|/**       * option for elasticsearch.yml etc to turn off our security manager completely,      * for example if you want to have your own configuration or just disable.      */
+comment|/**      * option for elasticsearch.yml etc to turn off our security manager completely,      * for example if you want to have your own configuration or just disable.      */
 comment|// TODO: remove this: http://www.openbsd.org/papers/hackfest2015-pledge/mgp00005.jpg
 DECL|field|SECURITY_SETTING
 specifier|static

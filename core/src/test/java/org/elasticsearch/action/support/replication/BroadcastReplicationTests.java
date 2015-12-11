@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -866,7 +866,7 @@ name|ShardId
 argument_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 argument_list|>
 name|shardRequests
@@ -1041,7 +1041,7 @@ name|ShardId
 argument_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 argument_list|>
 name|shardRequests
@@ -1051,19 +1051,19 @@ operator|.
 name|capturedShardRequests
 control|)
 block|{
-name|ActionWriteResponse
-name|actionWriteResponse
+name|ReplicationResponse
+name|replicationResponse
 init|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 decl_stmt|;
-name|actionWriteResponse
+name|replicationResponse
 operator|.
 name|setShardInfo
 argument_list|(
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 argument_list|(
@@ -1072,7 +1072,7 @@ argument_list|,
 literal|1
 argument_list|,
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1090,7 +1090,7 @@ argument_list|()
 operator|.
 name|onResponse
 argument_list|(
-name|actionWriteResponse
+name|replicationResponse
 argument_list|)
 expr_stmt|;
 block|}
@@ -1219,7 +1219,7 @@ name|ShardId
 argument_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 argument_list|>
 name|shardRequests
@@ -1235,7 +1235,7 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1244,7 +1244,7 @@ index|[]
 name|failures
 init|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1267,11 +1267,11 @@ name|succeeded
 operator|+=
 name|shardsSucceeded
 expr_stmt|;
-name|ActionWriteResponse
-name|actionWriteResponse
+name|ReplicationResponse
+name|replicationResponse
 init|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 decl_stmt|;
 if|if
@@ -1288,7 +1288,7 @@ comment|//sometimes add failure (no failure means shard unavailable)
 name|failures
 operator|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1303,7 +1303,7 @@ literal|0
 index|]
 operator|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1338,12 +1338,12 @@ name|failed
 operator|++
 expr_stmt|;
 block|}
-name|actionWriteResponse
+name|replicationResponse
 operator|.
 name|setShardInfo
 argument_list|(
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 argument_list|(
@@ -1362,7 +1362,7 @@ argument_list|()
 operator|.
 name|onResponse
 argument_list|(
-name|actionWriteResponse
+name|replicationResponse
 argument_list|)
 expr_stmt|;
 block|}
@@ -1611,7 +1611,7 @@ name|BroadcastResponse
 argument_list|,
 name|ReplicationRequest
 argument_list|,
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 block|{
 DECL|field|capturedShardRequests
@@ -1625,7 +1625,7 @@ name|ShardId
 argument_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 argument_list|>
 argument_list|>
@@ -1690,13 +1690,13 @@ annotation|@
 name|Override
 DECL|method|newShardResponse
 specifier|protected
-name|ActionWriteResponse
+name|ReplicationResponse
 name|newShardResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 return|;
 block|}
@@ -1774,7 +1774,7 @@ name|shardId
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 name|shardActionListener
 parameter_list|)

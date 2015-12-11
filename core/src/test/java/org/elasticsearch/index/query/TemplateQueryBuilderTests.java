@@ -224,6 +224,16 @@ name|templateBase
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|"mockscript"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 return|;

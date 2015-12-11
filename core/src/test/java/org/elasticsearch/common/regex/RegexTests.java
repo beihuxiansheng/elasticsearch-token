@@ -101,6 +101,8 @@ block|,
 literal|"COMMENTS"
 block|,
 literal|"UNICODE_CHAR_CLASS"
+block|,
+literal|"UNICODE_CHARACTER_CLASS"
 block|}
 decl_stmt|;
 name|int

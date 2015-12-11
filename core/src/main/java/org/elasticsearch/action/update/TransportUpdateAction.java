@@ -1341,7 +1341,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getIndex
+name|getShardId
 argument_list|()
 argument_list|,
 name|response
@@ -1645,7 +1645,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getIndex
+name|getShardId
 argument_list|()
 argument_list|,
 name|response
@@ -1856,7 +1856,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getIndex
+name|getShardId
 argument_list|()
 argument_list|,
 name|response

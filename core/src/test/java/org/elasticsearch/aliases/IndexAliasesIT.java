@@ -9506,7 +9506,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"requires an [alias] to be set"
+literal|"[alias] may not be empty string"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9565,7 +9565,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"requires an [alias] to be set"
+literal|"[alias] may not be empty string"
 argument_list|)
 argument_list|)
 expr_stmt|;

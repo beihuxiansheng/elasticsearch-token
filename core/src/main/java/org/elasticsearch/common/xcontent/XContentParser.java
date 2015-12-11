@@ -448,12 +448,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Is the number type estimated or not (i.e. an int might actually be a long, its just low enough      * to be an int).      */
-DECL|method|estimatedNumberType
-name|boolean
-name|estimatedNumberType
-parameter_list|()
-function_decl|;
 DECL|method|shortValue
 name|short
 name|shortValue

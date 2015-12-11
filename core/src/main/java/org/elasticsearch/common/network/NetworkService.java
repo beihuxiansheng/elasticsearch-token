@@ -585,7 +585,7 @@ return|return
 name|addresses
 return|;
 block|}
-comment|/**      * Resolves {@code publishHosts} to a single publish address. The fact that it returns      * only one address is just a current limitation.      *<p>      * If {@code publishHosts} resolves to more than one address,<b>then one is selected with magic</b>,      * and the user is warned (they can always just be more specific).      * @param publishHosts list of hosts to publish as. this may contain special pseudo-hostnames      *                     such as _local_ (see the documentation). if it is null, it will be populated      *                     based on global default settings.      * @return single internet address      */
+comment|/**      * Resolves {@code publishHosts} to a single publish address. The fact that it returns      * only one address is just a current limitation.      *<p>      * If {@code publishHosts} resolves to more than one address,<b>then one is selected with magic</b>      * @param publishHosts list of hosts to publish as. this may contain special pseudo-hostnames      *                     such as _local_ (see the documentation). if it is null, it will be populated      *                     based on global default settings.      * @return single internet address      */
 comment|// TODO: needs to be InetAddress[]
 DECL|method|resolvePublishHostAddresses
 specifier|public
@@ -815,7 +815,8 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// 3. warn user if we end out with multiple publish addresses
+comment|// 3. if we end out with multiple publish addresses, select by preference.
+comment|// don't warn the user, or they will get confused by bind_host vs publish_host etc.
 if|if
 condition|(
 name|addresses
@@ -863,30 +864,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|}
-expr_stmt|;
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"publish host: {} resolves to multiple addresses, auto-selecting {{}} as single publish address"
-argument_list|,
-name|Arrays
-operator|.
-name|toString
-argument_list|(
-name|publishHosts
-argument_list|)
-argument_list|,
-name|NetworkAddress
-operator|.
-name|format
-argument_list|(
-name|addresses
-index|[
-literal|0
-index|]
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 return|return

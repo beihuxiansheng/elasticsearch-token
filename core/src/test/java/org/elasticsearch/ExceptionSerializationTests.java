@@ -1389,7 +1389,7 @@ if|if
 condition|(
 name|clazz
 operator|.
-name|getDeclaredMethod
+name|getMethod
 argument_list|(
 literal|"writeTo"
 argument_list|,

@@ -825,7 +825,16 @@ name|cluster
 argument_list|()
 operator|.
 name|prepareGetRepositories
-argument_list|()
+argument_list|(
+name|randomFrom
+argument_list|(
+literal|"_all"
+argument_list|,
+literal|"*"
+argument_list|,
+literal|"test-repo-*"
+argument_list|)
+argument_list|)
 operator|.
 name|get
 argument_list|()

@@ -156,20 +156,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|mustache
-operator|.
-name|MustacheScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -206,6 +192,16 @@ name|Template
 extends|extends
 name|Script
 block|{
+comment|/** Default templating language */
+DECL|field|DEFAULT_LANG
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_LANG
+init|=
+literal|"mustache"
+decl_stmt|;
 DECL|field|contentType
 specifier|private
 name|XContentType
@@ -233,9 +229,7 @@ name|super
 argument_list|(
 name|template
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|)
 expr_stmt|;
 block|}
@@ -281,9 +275,7 @@ name|lang
 operator|==
 literal|null
 condition|?
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 else|:
 name|lang
 argument_list|,
@@ -529,9 +521,7 @@ operator|.
 name|emptyMap
 argument_list|()
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|)
 operator|.
 name|parse
@@ -568,9 +558,7 @@ operator|.
 name|emptyMap
 argument_list|()
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|)
 operator|.
 name|parse
@@ -612,9 +600,7 @@ name|TemplateParser
 argument_list|(
 name|additionalTemplateFieldNames
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|)
 operator|.
 name|parse
@@ -880,9 +866,7 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|,
 name|contentType
 argument_list|,
