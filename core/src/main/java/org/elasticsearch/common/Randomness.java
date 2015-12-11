@@ -335,9 +335,6 @@ assert|;
 if|if
 condition|(
 name|LOCAL
-operator|.
-name|get
-argument_list|()
 operator|==
 literal|null
 condition|)
