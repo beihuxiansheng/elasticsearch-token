@@ -3701,6 +3701,12 @@ operator|.
 name|runWithPrivateRandomness
 argument_list|(
 operator|new
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
 name|Randomness
 argument_list|(
 name|seed
@@ -8469,6 +8475,7 @@ argument_list|(
 name|builders
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
