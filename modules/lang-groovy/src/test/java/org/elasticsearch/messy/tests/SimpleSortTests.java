@@ -5147,7 +5147,7 @@ block|{
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|assertAcked
@@ -5632,11 +5632,13 @@ name|builder
 argument_list|)
 expr_stmt|;
 block|}
-name|Randomness
+name|Collections
 operator|.
 name|shuffle
 argument_list|(
 name|builders
+argument_list|,
+name|random
 argument_list|)
 expr_stmt|;
 for|for
