@@ -3439,6 +3439,7 @@ name|withCompress
 argument_list|(
 literal|false
 argument_list|)
+comment|// lucene files are already compressed and therefore compressing this won't really help much so we are safing the cpu for other things
 operator|.
 name|withType
 argument_list|(

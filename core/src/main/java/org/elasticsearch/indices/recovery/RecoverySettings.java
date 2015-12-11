@@ -667,7 +667,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using max_bytes_per_sec[{}], concurrent_streams [{}], file_chunk_size [{}], translog_size [{}]"
+literal|"using max_bytes_per_sec[{}], concurrent_streams [{}]"
 argument_list|,
 name|maxBytesPerSec
 argument_list|,
