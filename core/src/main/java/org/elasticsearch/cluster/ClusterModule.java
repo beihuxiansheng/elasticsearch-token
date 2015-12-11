@@ -740,6 +740,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|EngineConfig
@@ -1820,7 +1832,7 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|TranslogConfig
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_DURABILITY
 argument_list|,
