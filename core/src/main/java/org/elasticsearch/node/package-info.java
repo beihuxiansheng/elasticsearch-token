@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_comment
-comment|/**  * Allow to build a {@link org.elasticsearch.node.Node} using {@link org.elasticsearch.node.NodeBuilder} which is a  * node within the cluster.  */
+comment|/**  * Allow to build a {@link org.elasticsearch.node.Node} which is a  * node within the cluster.  */
 end_comment
 
 begin_package
