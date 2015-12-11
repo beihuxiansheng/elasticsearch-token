@@ -4812,6 +4812,10 @@ name|DiscoveryNode
 name|node
 parameter_list|,
 specifier|final
+name|ClusterState
+name|state
+parameter_list|,
+specifier|final
 name|MembershipAction
 operator|.
 name|JoinCallback
@@ -4928,15 +4932,50 @@ argument_list|)
 expr_stmt|;
 comment|// validate the join request, will throw a failure if it fails, which will get back to the
 comment|// node calling the join request
+try|try
+block|{
 name|membership
 operator|.
 name|sendValidateJoinRequestBlocking
 argument_list|(
 name|node
 argument_list|,
+name|state
+argument_list|,
 name|joinTimeout
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to validate incoming join request from node [{}]"
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|onFailure
+argument_list|(
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"failure when sending a validation request to node"
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|nodeJoinController
 operator|.
 name|handleJoinRequest
@@ -5936,6 +5975,11 @@ block|{
 name|handleJoinRequest
 argument_list|(
 name|node
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|,
 name|callback
 argument_list|)

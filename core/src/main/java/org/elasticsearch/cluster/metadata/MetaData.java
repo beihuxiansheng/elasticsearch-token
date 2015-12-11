@@ -1041,7 +1041,7 @@ literal|"No custom metadata prototype registered for type ["
 operator|+
 name|type
 operator|+
-literal|"]"
+literal|"], node likely missing plugins"
 argument_list|)
 throw|;
 block|}
