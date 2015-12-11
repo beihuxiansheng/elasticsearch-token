@@ -3097,9 +3097,6 @@ literal|"test using _default_ mappings: [{}]"
 argument_list|,
 name|mappings
 operator|.
-name|bytesStream
-argument_list|()
-operator|.
 name|bytes
 argument_list|()
 operator|.
