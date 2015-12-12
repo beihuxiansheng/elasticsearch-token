@@ -3588,13 +3588,7 @@ operator|.
 name|injector
 return|;
 block|}
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"Need to specify port and pass to formatter"
-argument_list|)
+comment|/** Writes a file to the logs dir containing the ports for the given transport type */
 DECL|method|writePortsFile
 specifier|private
 name|void
@@ -3656,8 +3650,7 @@ block|{
 name|InetSocketAddress
 name|socketAddress
 init|=
-operator|new
-name|InetSocketAddress
+name|buildAddress
 argument_list|(
 name|address
 operator|.
@@ -3770,6 +3763,36 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Need to specify address and port"
+argument_list|)
+DECL|method|buildAddress
+specifier|private
+specifier|static
+name|InetSocketAddress
+name|buildAddress
+parameter_list|(
+name|String
+name|address
+parameter_list|,
+name|int
+name|port
+parameter_list|)
+block|{
+return|return
+operator|new
+name|InetSocketAddress
+argument_list|(
+name|address
+argument_list|,
+name|port
+argument_list|)
+return|;
 block|}
 block|}
 end_class
