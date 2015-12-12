@@ -581,13 +581,6 @@ return|return
 name|client
 return|;
 block|}
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"Must use port when creating address"
-argument_list|)
 DECL|method|startClient
 specifier|private
 specifier|static
@@ -644,6 +637,19 @@ operator|+
 name|stringAddress
 argument_list|)
 decl_stmt|;
+name|InetAddress
+name|inetAddress
+init|=
+name|InetAddress
+operator|.
+name|getByName
+argument_list|(
+name|url
+operator|.
+name|getHost
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|transportAddresses
 index|[
 name|i
@@ -656,10 +662,7 @@ argument_list|(
 operator|new
 name|InetSocketAddress
 argument_list|(
-name|url
-operator|.
-name|getHost
-argument_list|()
+name|inetAddress
 argument_list|,
 name|url
 operator|.
