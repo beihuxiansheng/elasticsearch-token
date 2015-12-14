@@ -168,6 +168,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|network
+operator|.
+name|NetworkModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -211,18 +225,6 @@ operator|.
 name|internal
 operator|.
 name|InternalSettingsPreparer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportModule
 import|;
 end_import
 
@@ -778,7 +780,7 @@ case|case
 literal|"node.local"
 case|:
 case|case
-name|TransportModule
+name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 case|:
@@ -788,7 +790,7 @@ operator|.
 name|DISCOVERY_TYPE_KEY
 case|:
 case|case
-name|TransportModule
+name|NetworkModule
 operator|.
 name|TRANSPORT_SERVICE_TYPE_KEY
 case|:
