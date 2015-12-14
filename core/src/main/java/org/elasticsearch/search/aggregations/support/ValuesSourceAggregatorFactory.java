@@ -2442,7 +2442,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doHashCode
-specifier|public
+specifier|protected
 specifier|final
 name|int
 name|doHashCode
@@ -2493,7 +2493,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|doEquals
-specifier|public
+specifier|protected
 specifier|final
 name|boolean
 name|doEquals
