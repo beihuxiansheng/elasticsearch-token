@@ -108,6 +108,20 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperService
+import|;
+end_import
+
 begin_comment
 comment|/**  * Encapsulates the logic of whether a new index should be automatically created when  * a write operation is about to happen in a non existing index.  */
 end_comment
@@ -130,6 +144,12 @@ specifier|private
 specifier|final
 name|boolean
 name|globallyDisabled
+decl_stmt|;
+DECL|field|dynamicMappingDisabled
+specifier|private
+specifier|final
+name|boolean
+name|dynamicMappingDisabled
 decl_stmt|;
 DECL|field|matches
 specifier|private
@@ -169,6 +189,22 @@ operator|.
 name|resolver
 operator|=
 name|resolver
+expr_stmt|;
+name|dynamicMappingDisabled
+operator|=
+operator|!
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|MapperService
+operator|.
+name|INDEX_MAPPER_DYNAMIC_SETTING
+argument_list|,
+name|MapperService
+operator|.
+name|INDEX_MAPPER_DYNAMIC_DEFAULT
+argument_list|)
 expr_stmt|;
 name|String
 name|value
@@ -363,6 +399,8 @@ block|}
 if|if
 condition|(
 name|globallyDisabled
+operator|||
+name|dynamicMappingDisabled
 condition|)
 block|{
 return|return
