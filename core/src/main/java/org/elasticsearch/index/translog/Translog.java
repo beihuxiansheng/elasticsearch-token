@@ -3000,6 +3000,9 @@ name|generation
 condition|)
 block|{
 comment|// if we have a new one it's already synced
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|current
 operator|.
