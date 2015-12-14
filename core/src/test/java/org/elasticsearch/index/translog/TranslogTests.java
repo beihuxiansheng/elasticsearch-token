@@ -10041,7 +10041,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"no space left on device"
+literal|"__FAKE__ no space left on device"
 argument_list|)
 throw|;
 block|}
@@ -10171,7 +10171,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"no space left on device"
+literal|"__FAKE__ no space left on device"
 argument_list|,
 name|ex
 operator|.
@@ -10273,7 +10273,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"no space left on device"
+literal|"__FAKE__ no space left on device"
 argument_list|)
 expr_stmt|;
 block|}

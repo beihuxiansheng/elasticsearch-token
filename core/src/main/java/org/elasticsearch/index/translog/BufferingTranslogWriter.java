@@ -592,12 +592,12 @@ expr_stmt|;
 block|}
 comment|// we can do this outside of the write lock but we have to protect from
 comment|// concurrent syncs
-try|try
-block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
 comment|// just for kicks - the checkpoint happens or not either way
+try|try
+block|{
 name|checkpoint
 argument_list|(
 name|offsetToSync
@@ -610,7 +610,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Throwable
 name|ex
 parameter_list|)
 block|{

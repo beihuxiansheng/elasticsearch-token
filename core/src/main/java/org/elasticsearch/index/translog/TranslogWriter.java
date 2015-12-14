@@ -880,13 +880,6 @@ init|)
 block|{
 if|if
 condition|(
-name|throwable
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
 name|tragedy
 operator|==
 literal|null
@@ -906,7 +899,6 @@ argument_list|(
 name|throwable
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|close
 argument_list|()

@@ -4586,7 +4586,7 @@ condition|)
 block|{
 name|failEngine
 argument_list|(
-literal|"already closed by tragic event"
+literal|"already closed by tragic event on the index writer"
 argument_list|,
 name|indexWriter
 operator|.
@@ -4615,7 +4615,7 @@ condition|)
 block|{
 name|failEngine
 argument_list|(
-literal|"already closed by tragic event"
+literal|"already closed by tragic event on the translog"
 argument_list|,
 name|translog
 operator|.
