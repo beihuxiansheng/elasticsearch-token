@@ -3613,6 +3613,27 @@ block|{
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
+comment|// nocommit OK to throw EngineClosedExc?
+name|long
+name|ramBytesUsed
+init|=
+name|getEngine
+argument_list|()
+operator|.
+name|indexBufferRAMBytesUsed
+argument_list|()
+decl_stmt|;
+name|indexingMemoryController
+operator|.
+name|addRefreshingBytes
+argument_list|(
+name|shardId
+argument_list|,
+name|ramBytesUsed
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|logger
@@ -3625,9 +3646,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"refresh with source: {}"
+literal|"refresh with source: {} indexBufferRAMBytesUsed={}"
 argument_list|,
 name|source
+argument_list|,
+name|ramBytesUsed
 argument_list|)
 expr_stmt|;
 block|}
@@ -3659,6 +3682,19 @@ operator|-
 name|time
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|indexingMemoryController
+operator|.
+name|removeRefreshingBytes
+argument_list|(
+name|shardId
+argument_list|,
+name|ramBytesUsed
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|refreshStats
 specifier|public

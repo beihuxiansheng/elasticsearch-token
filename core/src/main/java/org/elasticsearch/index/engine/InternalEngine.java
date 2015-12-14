@@ -790,12 +790,6 @@ specifier|volatile
 name|SegmentInfos
 name|lastCommittedSegmentInfos
 decl_stmt|;
-DECL|field|refreshing
-specifier|private
-specifier|volatile
-name|boolean
-name|refreshing
-decl_stmt|;
 DECL|field|throttle
 specifier|private
 specifier|final
@@ -3233,10 +3227,6 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|refreshing
-operator|=
-literal|true
-expr_stmt|;
 name|searcherManager
 operator|.
 name|maybeRefreshBlocking
@@ -3292,13 +3282,6 @@ argument_list|,
 name|t
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-name|refreshing
-operator|=
-literal|false
-expr_stmt|;
 block|}
 comment|// TODO: maybe we should just put a scheduled job in threadPool?
 comment|// We check for pruning in each delete request, but we also prune here e.g. in case a delete burst comes in and then no more deletes
@@ -4468,21 +4451,6 @@ name|long
 name|indexBufferRAMBytesUsed
 parameter_list|()
 block|{
-if|if
-condition|(
-name|refreshing
-condition|)
-block|{
-comment|// We tell a "white lie" here, pretending that we instantaneously moved all
-comment|// heap to disk at the start of refresh.  We do this so IMC  behaves as if we
-comment|// are using no heap, else it will just keep asking us when it should be
-comment|// asking others:
-return|return
-literal|0
-return|;
-block|}
-else|else
-block|{
 return|return
 name|indexWriter
 operator|.
@@ -4494,7 +4462,6 @@ operator|.
 name|ramBytesUsedForRefresh
 argument_list|()
 return|;
-block|}
 block|}
 annotation|@
 name|Override
