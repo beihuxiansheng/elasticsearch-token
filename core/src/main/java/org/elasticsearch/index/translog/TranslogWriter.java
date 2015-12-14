@@ -342,8 +342,9 @@ specifier|volatile
 name|long
 name|writtenOffset
 decl_stmt|;
+comment|/* if we hit an exception that we can't recover from we assign it to this var and ship it with every AlreadyClosedException we throw */
 DECL|field|tragicEvent
-specifier|protected
+specifier|private
 specifier|volatile
 name|Throwable
 name|tragicEvent
@@ -1008,12 +1009,14 @@ block|{     }
 comment|/**      * write all buffered ops to disk and fsync file      */
 DECL|method|sync
 specifier|public
+specifier|synchronized
 name|void
 name|sync
 parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// synchronized to ensure only one sync happens a time
 comment|// check if we really need to sync here...
 if|if
 condition|(
@@ -1035,18 +1038,30 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|lastSyncedOffset
-operator|=
+specifier|final
+name|long
+name|offset
+init|=
 name|writtenOffset
-expr_stmt|;
+decl_stmt|;
+specifier|final
+name|int
+name|opsCount
+init|=
+name|operationCounter
+decl_stmt|;
 name|checkpoint
 argument_list|(
-name|lastSyncedOffset
+name|offset
 argument_list|,
-name|operationCounter
+name|opsCount
 argument_list|,
 name|channelReference
 argument_list|)
+expr_stmt|;
+name|lastSyncedOffset
+operator|=
+name|offset
 expr_stmt|;
 block|}
 block|}

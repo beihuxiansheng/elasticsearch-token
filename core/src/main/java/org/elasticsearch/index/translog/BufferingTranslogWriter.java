@@ -280,23 +280,9 @@ operator|.
 name|length
 argument_list|()
 expr_stmt|;
-return|return
-operator|new
-name|Translog
-operator|.
-name|Location
-argument_list|(
-name|generation
-argument_list|,
-name|offset
-argument_list|,
-name|data
-operator|.
-name|length
-argument_list|()
-argument_list|)
-return|;
 block|}
+else|else
+block|{
 if|if
 condition|(
 name|data
@@ -329,6 +315,7 @@ operator|.
 name|length
 argument_list|()
 expr_stmt|;
+block|}
 name|operationCounter
 operator|++
 expr_stmt|;
@@ -534,7 +521,6 @@ annotation|@
 name|Override
 DECL|method|syncNeeded
 specifier|public
-specifier|synchronized
 name|boolean
 name|syncNeeded
 parameter_list|()
@@ -549,6 +535,7 @@ annotation|@
 name|Override
 DECL|method|sync
 specifier|public
+specifier|synchronized
 name|void
 name|sync
 parameter_list|()
@@ -557,21 +544,14 @@ name|IOException
 block|{
 if|if
 condition|(
-operator|!
 name|syncNeeded
 argument_list|()
 condition|)
 block|{
-return|return;
-block|}
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+comment|// this call gives a better exception that the incRef if we are closed by a tragic event
 name|channelReference
 operator|.
 name|incRef
@@ -582,6 +562,10 @@ block|{
 specifier|final
 name|long
 name|offsetToSync
+decl_stmt|;
+specifier|final
+name|int
+name|opsCounter
 decl_stmt|;
 try|try
 init|(
@@ -601,6 +585,10 @@ name|offsetToSync
 operator|=
 name|totalOffset
 expr_stmt|;
+name|opsCounter
+operator|=
+name|operationCounter
+expr_stmt|;
 block|}
 comment|// we can do this outside of the write lock but we have to protect from
 comment|// concurrent syncs
@@ -609,11 +597,12 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+comment|// just for kicks - the checkpoint happens or not either way
 name|checkpoint
 argument_list|(
 name|offsetToSync
 argument_list|,
-name|operationCounter
+name|opsCounter
 argument_list|,
 name|channelReference
 argument_list|)
