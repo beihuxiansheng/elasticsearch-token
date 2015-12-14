@@ -343,11 +343,11 @@ name|long
 name|writtenOffset
 decl_stmt|;
 comment|/* if we hit an exception that we can't recover from we assign it to this var and ship it with every AlreadyClosedException we throw */
-DECL|field|tragicEvent
+DECL|field|tragedy
 specifier|private
 specifier|volatile
 name|Throwable
-name|tragicEvent
+name|tragedy
 decl_stmt|;
 DECL|method|TranslogWriter
 specifier|public
@@ -678,6 +678,17 @@ name|throwable
 throw|;
 block|}
 block|}
+comment|/** If this {@code TranslogWriter} was closed as a side-effect of a tragic exception,      *  e.g. disk full while flushing a new segment, this returns the root cause exception.      *  Otherwise (no tragic exception has occurred) it returns null. */
+DECL|method|getTragicException
+specifier|public
+name|Throwable
+name|getTragicException
+parameter_list|()
+block|{
+return|return
+name|tragedy
+return|;
+block|}
 DECL|enum|Type
 specifier|public
 enum|enum
@@ -876,19 +887,19 @@ condition|)
 block|{
 if|if
 condition|(
-name|tragicEvent
+name|tragedy
 operator|==
 literal|null
 condition|)
 block|{
-name|tragicEvent
+name|tragedy
 operator|=
 name|throwable
 expr_stmt|;
 block|}
 else|else
 block|{
-name|tragicEvent
+name|tragedy
 operator|.
 name|addSuppressed
 argument_list|(
@@ -1687,7 +1698,7 @@ argument_list|()
 operator|+
 literal|"] is already closed"
 argument_list|,
-name|tragicEvent
+name|tragedy
 argument_list|)
 throw|;
 block|}
