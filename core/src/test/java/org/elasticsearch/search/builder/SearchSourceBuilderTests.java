@@ -2027,11 +2027,6 @@ name|rescoreBuilder
 init|=
 operator|new
 name|RescoreBuilder
-argument_list|()
-decl_stmt|;
-name|rescoreBuilder
-operator|.
-name|rescorer
 argument_list|(
 name|RescoreBuilder
 operator|.
@@ -2057,7 +2052,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|builder
 operator|.
 name|addRescorer
