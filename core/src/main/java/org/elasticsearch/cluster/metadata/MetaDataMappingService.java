@@ -266,20 +266,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesService
@@ -1605,9 +1591,7 @@ literal|null
 condition|)
 block|{
 comment|// first, simulate
-name|MergeResult
-name|mergeResult
-init|=
+comment|// this will just throw exceptions in case of problems
 name|existingMapper
 operator|.
 name|merge
@@ -1624,36 +1608,7 @@ operator|.
 name|updateAllTypes
 argument_list|()
 argument_list|)
-decl_stmt|;
-comment|// if we have conflicts, throw an exception
-if|if
-condition|(
-name|mergeResult
-operator|.
-name|hasConflicts
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Merge failed with failures {"
-operator|+
-name|Arrays
-operator|.
-name|toString
-argument_list|(
-name|mergeResult
-operator|.
-name|buildConflicts
-argument_list|()
-argument_list|)
-operator|+
-literal|"}"
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 block|}
 else|else
 block|{
