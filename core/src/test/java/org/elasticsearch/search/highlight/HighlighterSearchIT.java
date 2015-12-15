@@ -546,22 +546,6 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|missingQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
 name|multiMatchQuery
 import|;
 end_import
@@ -675,6 +659,22 @@ operator|.
 name|QueryBuilders
 operator|.
 name|wildcardQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|existsQuery
 import|;
 end_import
 
@@ -22252,11 +22252,14 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|constantScoreQuery
+name|boolQuery
+argument_list|()
+operator|.
+name|mustNot
 argument_list|(
 name|QueryBuilders
 operator|.
-name|missingQuery
+name|existsQuery
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -22553,9 +22556,9 @@ literal|"field1:photo*"
 argument_list|)
 argument_list|)
 operator|.
-name|filter
+name|mustNot
 argument_list|(
-name|missingQuery
+name|existsQuery
 argument_list|(
 literal|"field_null"
 argument_list|)

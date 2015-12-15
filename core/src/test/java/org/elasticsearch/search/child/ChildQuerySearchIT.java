@@ -13107,7 +13107,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Merge failed with failures {[The _parent field's type option can't be changed: [null]->[parent]"
+literal|"The _parent field's type option can't be changed: [null]->[parent]"
 argument_list|)
 argument_list|)
 expr_stmt|;

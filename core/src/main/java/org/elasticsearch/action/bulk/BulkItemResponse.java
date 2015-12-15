@@ -291,6 +291,9 @@ name|response
 operator|.
 name|status
 argument_list|()
+operator|.
+name|getStatus
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -347,6 +350,9 @@ operator|.
 name|STATUS
 argument_list|,
 name|failure
+operator|.
+name|getStatus
+argument_list|()
 operator|.
 name|getStatus
 argument_list|()

@@ -574,22 +574,6 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|missingQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
 name|moreLikeThisQuery
 import|;
 end_import
@@ -1680,22 +1664,6 @@ argument_list|(
 literal|"name"
 argument_list|,
 literal|"kimchy elasticsearch"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testMissing
-specifier|public
-name|void
-name|testMissing
-parameter_list|()
-block|{
-name|missingQuery
-argument_list|(
-literal|"user"
-argument_list|,
-literal|true
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
