@@ -88,16 +88,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -217,8 +207,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * test exception on missing `end` and `match` parameter in parser      */
-annotation|@
-name|Test
 DECL|method|testParseEnd
 specifier|public
 name|void
@@ -397,6 +385,96 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_first\" : {\n"
+operator|+
+literal|"    \"match\" : {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"user\" : {\n"
+operator|+
+literal|"          \"value\" : \"kimchy\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"end\" : 3,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SpanFirstQueryBuilder
+name|parsed
+init|=
+operator|(
+name|SpanFirstQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|3
+argument_list|,
+name|parsed
+operator|.
+name|end
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"kimchy"
+argument_list|,
+operator|(
+operator|(
+name|SpanTermQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|innerQuery
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

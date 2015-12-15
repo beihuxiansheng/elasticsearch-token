@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntIntMap
+name|IntIntHashMap
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntIntHashMap
+name|IntIntMap
 import|;
 end_import
 
@@ -157,16 +157,6 @@ operator|.
 name|hamcrest
 operator|.
 name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -311,12 +301,10 @@ extends|extends
 name|ESIntegTestCase
 block|{
 comment|/**      * Making sure that if there are multiple aggregations, working on the same field, yet require different      * value source type, they can all still work. It used to fail as we used to cache the ValueSource by the      * field name. If the cached value source was of type "bytes" and another aggregation on the field required to see      * it as "numeric", it didn't work. Now we cache the Value Sources by a custom key (field name + ValueSource type)      * so there's no conflict there.      */
-annotation|@
-name|Test
-DECL|method|multipleAggs_OnSameField_WithDifferentRequiredValueSourceType
+DECL|method|testMultipleAggsOnSameField_WithDifferentRequiredValueSourceType
 specifier|public
 name|void
-name|multipleAggs_OnSameField_WithDifferentRequiredValueSourceType
+name|testMultipleAggsOnSameField_WithDifferentRequiredValueSourceType
 parameter_list|()
 throws|throws
 name|Exception
@@ -690,12 +678,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Some top aggs (eg. date_/histogram) that are executed on unmapped fields, will generate an estimate count of buckets - zero.      * when the sub aggregator is then created, it will take this estimation into account. This used to cause      * and an ArrayIndexOutOfBoundsException...      */
-annotation|@
-name|Test
-DECL|method|subAggregationForTopAggregationOnUnmappedField
+DECL|method|testSubAggregationForTopAggregationOnUnmappedField
 specifier|public
 name|void
-name|subAggregationForTopAggregationOnUnmappedField
+name|testSubAggregationForTopAggregationOnUnmappedField
 parameter_list|()
 throws|throws
 name|Exception

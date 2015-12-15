@@ -73,16 +73,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -106,8 +96,6 @@ name|ParseDocumentTypeLevelsTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testNoLevel
 specifier|public
 name|void
@@ -272,8 +260,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTypeLevel
 specifier|public
 name|void
@@ -446,8 +432,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoLevelWithFieldTypeAsValue
 specifier|public
 name|void
@@ -637,8 +621,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTypeLevelWithFieldTypeAsValue
 specifier|public
 name|void
@@ -836,8 +818,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoLevelWithFieldTypeAsObject
 specifier|public
 name|void
@@ -1018,8 +998,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTypeLevelWithFieldTypeAsObject
 specifier|public
 name|void
@@ -1225,8 +1203,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoLevelWithFieldTypeAsValueNotFirst
 specifier|public
 name|void
@@ -1424,8 +1400,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTypeLevelWithFieldTypeAsValueNotFirst
 specifier|public
 name|void
@@ -1623,8 +1597,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoLevelWithFieldTypeAsObjectNotFirst
 specifier|public
 name|void
@@ -1823,8 +1795,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTypeLevelWithFieldTypeAsObjectNotFirst
 specifier|public
 name|void

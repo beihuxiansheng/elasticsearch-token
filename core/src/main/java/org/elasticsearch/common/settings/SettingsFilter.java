@@ -50,20 +50,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|regex
 operator|.
 name|Regex
@@ -169,6 +155,7 @@ end_comment
 begin_class
 DECL|class|SettingsFilter
 specifier|public
+specifier|final
 class|class
 name|SettingsFilter
 extends|extends
@@ -197,8 +184,6 @@ name|CopyOnWriteArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|SettingsFilter
 specifier|public
 name|SettingsFilter

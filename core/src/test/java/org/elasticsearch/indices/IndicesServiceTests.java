@@ -162,6 +162,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|ShardId
@@ -196,11 +208,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|test
+operator|.
+name|IndexSettingsModule
 import|;
 end_import
 
@@ -310,15 +324,19 @@ init|=
 name|getIndicesService
 argument_list|()
 decl_stmt|;
-name|Settings
+name|IndexSettings
 name|idxSettings
 init|=
-name|settings
-argument_list|(
-name|Version
+name|IndexSettingsModule
 operator|.
-name|CURRENT
-argument_list|)
+name|newIndexSettings
+argument_list|(
+literal|"test"
+argument_list|,
+name|Settings
+operator|.
+name|builder
+argument_list|()
 operator|.
 name|put
 argument_list|(
@@ -368,6 +386,7 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
@@ -455,6 +474,21 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|IndexSettings
+name|indexSettings
+init|=
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
+argument_list|(
+literal|"test"
+argument_list|,
+name|meta
+operator|.
+name|getSettings
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|assertFalse
 argument_list|(
 literal|"no shard location"
@@ -471,7 +505,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|meta
+name|indexSettings
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -509,7 +543,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|meta
+name|indexSettings
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -538,7 +572,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|meta
+name|indexSettings
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -938,7 +972,7 @@ name|void
 name|testPendingTasks
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|IndicesService
 name|indicesService

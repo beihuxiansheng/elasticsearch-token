@@ -76,9 +76,33 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|BytesRefs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|core
+operator|.
+name|IsEqual
 import|;
 end_import
 
@@ -103,16 +127,6 @@ operator|.
 name|time
 operator|.
 name|DateTimeZone
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -170,7 +184,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
 import|;
 end_import
 
@@ -319,7 +381,7 @@ condition|(
 name|createShardContext
 argument_list|()
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|smartNameFieldType
@@ -904,8 +966,6 @@ argument_list|()
 throw|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -1041,15 +1101,6 @@ comment|// expected
 block|}
 block|}
 comment|/**      * Specifying a timezone together with a numeric range query should throw an exception.      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|QueryShardException
-operator|.
-name|class
-argument_list|)
 DECL|method|testToQueryNonDateWithTimezone
 specifier|public
 name|void
@@ -1086,6 +1137,8 @@ argument_list|(
 literal|"UTC"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|query
 operator|.
 name|toQuery
@@ -1094,17 +1147,34 @@ name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected QueryShardException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|QueryShardException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"[range] time_zone can not be applied"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Specifying a timezone together with an unmapped field should throw an exception.      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|QueryShardException
-operator|.
-name|class
-argument_list|)
 DECL|method|testToQueryUnmappedWithTimezone
 specifier|public
 name|void
@@ -1141,6 +1211,8 @@ argument_list|(
 literal|"UTC"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|query
 operator|.
 name|toQuery
@@ -1149,9 +1221,33 @@ name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected QueryShardException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|QueryShardException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"[range] time_zone can not be applied"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testToQueryNumericField
 specifier|public
 name|void
@@ -1299,8 +1395,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDateRangeQueryFormat
 specifier|public
 name|void
@@ -1506,8 +1600,6 @@ block|{
 comment|// We expect it
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDateRangeBoundaries
 specifier|public
 name|void
@@ -1796,8 +1888,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDateRangeQueryTimezone
 specifier|public
 name|void
@@ -2008,6 +2098,197 @@ name|e
 parameter_list|)
 block|{
 comment|// We expect it
+block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"range\" : {\n"
+operator|+
+literal|"    \"timestamp\" : {\n"
+operator|+
+literal|"      \"from\" : \"2015-01-01 00:00:00\",\n"
+operator|+
+literal|"      \"to\" : \"now\",\n"
+operator|+
+literal|"      \"include_lower\" : true,\n"
+operator|+
+literal|"      \"include_upper\" : true,\n"
+operator|+
+literal|"      \"time_zone\" : \"+01:00\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|RangeQueryBuilder
+name|parsed
+init|=
+operator|(
+name|RangeQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"2015-01-01 00:00:00"
+argument_list|,
+name|parsed
+operator|.
+name|from
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"now"
+argument_list|,
+name|parsed
+operator|.
+name|to
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testNamedQueryParsing
+specifier|public
+name|void
+name|testNamedQueryParsing
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"range\" : {\n"
+operator|+
+literal|"    \"timestamp\" : {\n"
+operator|+
+literal|"      \"from\" : \"2015-01-01 00:00:00\",\n"
+operator|+
+literal|"      \"to\" : \"now\",\n"
+operator|+
+literal|"      \"boost\" : 1.0,\n"
+operator|+
+literal|"      \"_name\" : \"my_range\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|json
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"range\" : {\n"
+operator|+
+literal|"    \"timestamp\" : {\n"
+operator|+
+literal|"      \"from\" : \"2015-01-01 00:00:00\",\n"
+operator|+
+literal|"      \"to\" : \"now\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"_name\" : \"my_range\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+comment|// non strict parsing should accept "_name" on top level
+name|assertNotNull
+argument_list|(
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// with strict parsing, ParseField will throw exception
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Strict parsing should trigger exception for '_name' on top level"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"Deprecated field [_name] used, replaced by [query name is not supported in short version of range query]"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

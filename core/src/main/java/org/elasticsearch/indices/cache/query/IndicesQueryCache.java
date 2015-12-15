@@ -56,6 +56,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BulkScorer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Explanation
 import|;
 end_import
@@ -908,6 +922,16 @@ argument_list|,
 name|sumRamBytesUsed
 argument_list|)
 expr_stmt|;
+comment|// onDocIdSetEviction might sometimes be called with a number
+comment|// of entries equal to zero if the cache for the given segment
+comment|// was already empty when the close listener was called
+if|if
+condition|(
+name|numEntries
+operator|>
+literal|0
+condition|)
+block|{
 comment|// We can't use ShardCoreKeyMap here because its core closed
 comment|// listener is called before the listener of the cache which
 comment|// triggers this eviction. So instead we use use stats2 that
@@ -966,6 +990,7 @@ argument_list|(
 name|readerCoreKey
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -1469,6 +1494,38 @@ return|return
 name|in
 operator|.
 name|scorer
+argument_list|(
+name|context
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|bulkScorer
+specifier|public
+name|BulkScorer
+name|bulkScorer
+parameter_list|(
+name|LeafReaderContext
+name|context
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|shardKeyMap
+operator|.
+name|add
+argument_list|(
+name|context
+operator|.
+name|reader
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|in
+operator|.
+name|bulkScorer
 argument_list|(
 name|context
 argument_list|)

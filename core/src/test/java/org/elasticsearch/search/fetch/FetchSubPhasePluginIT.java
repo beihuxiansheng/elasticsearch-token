@@ -120,9 +120,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
+name|xcontent
 operator|.
-name|BytesArray
+name|XContentBuilder
 import|;
 end_import
 
@@ -185,6 +185,20 @@ operator|.
 name|search
 operator|.
 name|SearchParseElement
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
 import|;
 end_import
 
@@ -267,16 +281,6 @@ operator|.
 name|ESIntegTestCase
 operator|.
 name|Scope
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -394,7 +398,7 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|Matchers
+name|CoreMatchers
 operator|.
 name|equalTo
 import|;
@@ -450,8 +454,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPlugin
 specifier|public
 name|void
@@ -621,8 +623,8 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|String
-name|searchSource
+name|XContentBuilder
+name|extSource
 init|=
 name|jsonBuilder
 argument_list|()
@@ -639,9 +641,6 @@ argument_list|)
 operator|.
 name|endObject
 argument_list|()
-operator|.
-name|string
-argument_list|()
 decl_stmt|;
 name|SearchResponse
 name|response
@@ -655,9 +654,12 @@ operator|.
 name|setSource
 argument_list|(
 operator|new
-name|BytesArray
+name|SearchSourceBuilder
+argument_list|()
+operator|.
+name|ext
 argument_list|(
-name|searchSource
+name|extSource
 argument_list|)
 argument_list|)
 operator|.

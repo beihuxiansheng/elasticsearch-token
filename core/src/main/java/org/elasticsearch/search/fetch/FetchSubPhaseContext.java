@@ -36,6 +36,7 @@ literal|false
 decl_stmt|;
 comment|/**      * Set if this phase should be executed at all.      */
 DECL|method|setHitExecutionNeeded
+specifier|public
 name|void
 name|setHitExecutionNeeded
 parameter_list|(

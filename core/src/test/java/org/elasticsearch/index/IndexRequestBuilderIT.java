@@ -98,16 +98,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -138,6 +128,18 @@ name|ExecutionException
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_class
 DECL|class|IndexRequestBuilderIT
 specifier|public
@@ -146,8 +148,6 @@ name|IndexRequestBuilderIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSetSource
 specifier|public
 name|void
@@ -355,20 +355,13 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
-DECL|method|testOddNumberOfSourceObjetc
+DECL|method|testOddNumberOfSourceObjects
 specifier|public
 name|void
-name|testOddNumberOfSourceObjetc
+name|testOddNumberOfSourceObjects
 parameter_list|()
+block|{
+try|try
 block|{
 name|client
 argument_list|()
@@ -382,14 +375,8 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-operator|(
-name|Object
-operator|)
 literal|"test_field"
 argument_list|,
-operator|(
-name|Object
-operator|)
 literal|"foobar"
 argument_list|,
 operator|new
@@ -397,6 +384,32 @@ name|Object
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"The number of object passed must be even but was [3]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

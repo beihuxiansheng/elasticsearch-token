@@ -200,6 +200,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -231,18 +243,6 @@ operator|.
 name|query
 operator|.
 name|QueryBuilders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParsingException
 import|;
 end_import
 
@@ -291,16 +291,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -550,12 +540,10 @@ name|SimpleIndexTemplateIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|simpleIndexTemplateTests
+DECL|method|testSimpleIndexTemplateTests
 specifier|public
 name|void
-name|simpleIndexTemplateTests
+name|testSimpleIndexTemplateTests
 parameter_list|()
 throws|throws
 name|Exception
@@ -1049,6 +1037,7 @@ literal|"value1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// field2 is not stored.
 name|assertThat
 argument_list|(
 name|searchResponse
@@ -1065,20 +1054,11 @@ name|field
 argument_list|(
 literal|"field2"
 argument_list|)
-operator|.
-name|value
-argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
-literal|"value 2"
-argument_list|)
+name|nullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this will still be loaded because of the source feature
 name|client
 argument_list|()
 operator|.
@@ -1247,8 +1227,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDeleteIndexTemplate
 specifier|public
 name|void
@@ -1866,8 +1844,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatGetIndexTemplatesWorks
 specifier|public
 name|void
@@ -2144,8 +2120,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatGetIndexTemplatesWithSimpleRegexWorks
 specifier|public
 name|void
@@ -2833,8 +2807,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatInvalidGetIndexTemplatesFails
 specifier|public
 name|void
@@ -2945,8 +2917,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 annotation|@
 name|AwaitsFix
 argument_list|(
@@ -3144,8 +3114,6 @@ block|{
 comment|//everything fine
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testInvalidSettings
 specifier|public
 name|void
@@ -3865,8 +3833,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexTemplateWithAliasesInSource
 specifier|public
 name|void
@@ -4108,8 +4074,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexTemplateWithAliasesSource
 specifier|public
 name|void
@@ -4374,8 +4338,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDuplicateAlias
 specifier|public
 name|void
@@ -4537,8 +4499,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasInvalidFilterValidJson
 specifier|public
 name|void
@@ -4741,8 +4701,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasInvalidFilterInvalidJson
 specifier|public
 name|void
@@ -4853,8 +4811,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasNameExistingIndex
 specifier|public
 name|void
@@ -4933,8 +4889,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasEmptyName
 specifier|public
 name|void
@@ -5013,8 +4967,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAliasWithMultipleIndexRoutings
 specifier|public
 name|void
@@ -5093,8 +5045,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMultipleAliasesPrecedence
 specifier|public
 name|void
@@ -5157,9 +5107,17 @@ name|filter
 argument_list|(
 name|QueryBuilders
 operator|.
-name|missingQuery
+name|boolQuery
+argument_list|()
+operator|.
+name|mustNot
+argument_list|(
+name|QueryBuilders
+operator|.
+name|existsQuery
 argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5449,8 +5407,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testStrictAliasParsingInIndicesCreatedViaTemplates
 specifier|public
 name|void

@@ -146,16 +146,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -310,17 +300,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|indexModules
+DECL|method|nodeModules
 specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
-name|indexModules
-parameter_list|(
-name|Settings
-name|indexSettings
-parameter_list|)
+name|nodeModules
+parameter_list|()
 block|{
 return|return
 name|Collections
@@ -397,8 +384,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSettingsFiltering
 specifier|public
 name|void

@@ -151,12 +151,18 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|INITIALIZING
 import|;
 end_import
 
@@ -172,7 +178,39 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|RELOCATING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|UNASSIGNED
 import|;
 end_import
 
@@ -239,8 +277,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testClusterConcurrentRebalance
 specifier|public
 name|void
@@ -610,11 +646,6 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|RoutingTable
-name|prevRoutingTable
-init|=
-name|routingTable
-decl_stmt|;
 name|routingTable
 operator|=
 name|strategy
@@ -622,6 +653,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -769,10 +802,6 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 decl_stmt|;
-name|prevRoutingTable
-operator|=
-name|routingTable
-expr_stmt|;
 name|routingTable
 operator|=
 name|strategy
@@ -1022,10 +1051,6 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|prevRoutingTable
-operator|=
-name|routingTable
-expr_stmt|;
 name|routingTable
 operator|=
 name|strategy
@@ -1033,6 +1058,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1186,10 +1213,6 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 expr_stmt|;
-name|prevRoutingTable
-operator|=
-name|routingTable
-expr_stmt|;
 name|routingTable
 operator|=
 name|strategy
@@ -1283,10 +1306,6 @@ name|clusterState
 operator|.
 name|getRoutingNodes
 argument_list|()
-expr_stmt|;
-name|prevRoutingTable
-operator|=
-name|routingTable
 expr_stmt|;
 name|routingTable
 operator|=
@@ -1382,10 +1401,6 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 expr_stmt|;
-name|prevRoutingTable
-operator|=
-name|routingTable
-expr_stmt|;
 name|routingTable
 operator|=
 name|strategy
@@ -1479,10 +1494,6 @@ name|clusterState
 operator|.
 name|getRoutingNodes
 argument_list|()
-expr_stmt|;
-name|prevRoutingTable
-operator|=
-name|routingTable
 expr_stmt|;
 name|routingTable
 operator|=

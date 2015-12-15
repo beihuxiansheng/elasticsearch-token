@@ -100,18 +100,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represent information about snapshot  */
 end_comment
@@ -471,13 +459,10 @@ name|this
 argument_list|(
 literal|""
 argument_list|,
-operator|(
-name|List
-argument_list|<
-name|String
-argument_list|>
-operator|)
-name|EMPTY_LIST
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -776,17 +761,11 @@ literal|31
 operator|*
 name|result
 operator|+
-call|(
-name|int
-call|)
+name|Long
+operator|.
+name|hashCode
 argument_list|(
 name|startTime
-operator|^
-operator|(
-name|startTime
-operator|>>>
-literal|32
-operator|)
 argument_list|)
 expr_stmt|;
 return|return

@@ -530,7 +530,7 @@ condition|(
 operator|!
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
 name|equals
@@ -549,7 +549,7 @@ name|indexName
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;

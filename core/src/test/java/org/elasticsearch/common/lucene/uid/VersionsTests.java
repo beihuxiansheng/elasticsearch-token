@@ -446,16 +446,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -631,8 +621,6 @@ return|return
 name|newReader
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testVersions
 specifier|public
 name|void
@@ -1254,8 +1242,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNestedDocuments
 specifier|public
 name|void
@@ -1695,8 +1681,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBackwardCompatibility
 specifier|public
 name|void
@@ -2149,8 +2133,6 @@ block|}
 return|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMergingOldIndices
 specifier|public
 name|void

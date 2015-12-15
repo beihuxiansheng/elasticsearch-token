@@ -138,9 +138,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|test
 operator|.
-name|TransportService
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -148,9 +150,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|transport
+operator|.
+name|TransportService
 import|;
 end_import
 
@@ -167,34 +171,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|NodeBuilder
-operator|.
-name|nodeBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -271,8 +247,6 @@ name|TransportClientIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPickingUpChangesInDiscoveryNode
 specifier|public
 name|void
@@ -336,8 +310,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNodeVersionIsUpdated
 specifier|public
 name|void
@@ -367,15 +339,8 @@ decl_stmt|;
 name|Node
 name|node
 init|=
-name|nodeBuilder
-argument_list|()
-operator|.
-name|data
-argument_list|(
-literal|false
-argument_list|)
-operator|.
-name|settings
+operator|new
+name|Node
 argument_list|(
 name|Settings
 operator|.
@@ -415,6 +380,20 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"node.data"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cluster.name"
+argument_list|,
+literal|"foobar"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|InternalSettingsPreparer
 operator|.
 name|IGNORE_SYSTEM_PROPERTIES_SETTING
@@ -426,14 +405,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-operator|.
-name|clusterName
-argument_list|(
-literal|"foobar"
-argument_list|)
-operator|.
-name|build
-argument_list|()
 decl_stmt|;
 name|node
 operator|.
@@ -614,8 +585,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatTransportClientSettingIsSet
 specifier|public
 name|void
@@ -666,8 +635,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatTransportClientSettingCannotBeChanged
 specifier|public
 name|void

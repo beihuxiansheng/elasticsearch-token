@@ -494,7 +494,8 @@ name|extensionClass
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_SET
+name|emptySet
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -801,6 +802,16 @@ range|:
 name|extensions
 control|)
 block|{
+name|binder
+operator|.
+name|bind
+argument_list|(
+name|clazz
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 name|allocationMultibinder
 operator|.
 name|addBinding
@@ -810,9 +821,6 @@ name|to
 argument_list|(
 name|clazz
 argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
 expr_stmt|;
 block|}
 block|}

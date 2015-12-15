@@ -80,26 +80,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -192,32 +172,6 @@ name|PythonScriptMultiThreadedTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|After
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-block|{
-comment|// We need to clear some system properties
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"python.cachedir.skip"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"python.console.encoding"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testExecutableNoRuntimeParams
 specifier|public
 name|void
@@ -563,7 +517,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    @Test public void testExecutableWithRuntimeParams() throws Exception {
+comment|//    public void testExecutableWithRuntimeParams() throws Exception {
 comment|//        final PythonScriptEngineService se = new PythonScriptEngineService(Settings.Builder.EMPTY_SETTINGS);
 comment|//        final Object compiled = se.compile("x + y");
 comment|//        final AtomicBoolean failed = new AtomicBoolean();
@@ -604,8 +558,6 @@ comment|//        barrier.await();
 comment|//        latch.await();
 comment|//        assertThat(failed.get(), equalTo(false));
 comment|//    }
-annotation|@
-name|Test
 DECL|method|testExecute
 specifier|public
 name|void

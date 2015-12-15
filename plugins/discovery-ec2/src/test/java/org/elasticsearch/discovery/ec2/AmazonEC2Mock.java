@@ -6233,6 +6233,29 @@ literal|"Not supported in mock"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|modifySpotFleetRequest
+specifier|public
+name|ModifySpotFleetRequestResult
+name|modifySpotFleetRequest
+parameter_list|(
+name|ModifySpotFleetRequestRequest
+name|modifySpotFleetRequestRequest
+parameter_list|)
+throws|throws
+name|AmazonServiceException
+throws|,
+name|AmazonClientException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 

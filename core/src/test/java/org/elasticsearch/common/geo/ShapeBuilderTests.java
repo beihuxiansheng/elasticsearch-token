@@ -156,6 +156,22 @@ name|geo
 operator|.
 name|builders
 operator|.
+name|LineStringBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|geo
+operator|.
+name|builders
+operator|.
 name|PolygonBuilder
 import|;
 end_import
@@ -182,9 +198,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|ESTestCase
+name|geo
+operator|.
+name|builders
+operator|.
+name|ShapeBuilders
 import|;
 end_import
 
@@ -192,9 +212,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ESTestCase
 import|;
 end_import
 
@@ -210,7 +232,51 @@ name|hamcrest
 operator|.
 name|ElasticsearchGeoAssertions
 operator|.
-name|*
+name|assertMultiLineString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchGeoAssertions
+operator|.
+name|assertMultiPolygon
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchGeoAssertions
+operator|.
+name|assertPolygon
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -235,7 +301,7 @@ block|{
 name|Point
 name|point
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -283,7 +349,7 @@ block|{
 name|Rectangle
 name|rectangle
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newEnvelope
 argument_list|()
@@ -367,7 +433,7 @@ block|{
 name|Polygon
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -509,7 +575,7 @@ block|{
 name|Polygon
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -671,7 +737,7 @@ block|{
 name|Polygon
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -819,7 +885,7 @@ name|testLineStringBuilder
 parameter_list|()
 block|{
 comment|// Building a simple LineString
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -896,7 +962,7 @@ name|build
 argument_list|()
 expr_stmt|;
 comment|// Building a linestring that needs to be wrapped
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -965,7 +1031,7 @@ name|build
 argument_list|()
 expr_stmt|;
 comment|// Building a lineString on the dateline
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -1008,7 +1074,7 @@ name|build
 argument_list|()
 expr_stmt|;
 comment|// Building a lineString on the dateline
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -1053,12 +1119,15 @@ name|void
 name|testMultiLineString
 parameter_list|()
 block|{
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiLinestring
 argument_list|()
 operator|.
 name|linestring
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1090,11 +1159,12 @@ literal|100.0
 argument_list|,
 literal|20.0
 argument_list|)
-operator|.
-name|end
-argument_list|()
+argument_list|)
 operator|.
 name|linestring
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1126,20 +1196,21 @@ literal|100.0
 argument_list|,
 literal|0.0
 argument_list|)
-operator|.
-name|end
-argument_list|()
+argument_list|)
 operator|.
 name|build
 argument_list|()
 expr_stmt|;
 comment|// LineString that needs to be wrappped
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiLinestring
 argument_list|()
 operator|.
 name|linestring
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1169,11 +1240,12 @@ literal|150.0
 argument_list|,
 literal|40.0
 argument_list|)
-operator|.
-name|end
-argument_list|()
+argument_list|)
 operator|.
 name|linestring
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1203,30 +1275,21 @@ literal|150.0
 argument_list|,
 literal|0.0
 argument_list|)
-operator|.
-name|end
-argument_list|()
+argument_list|)
 operator|.
 name|build
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|InvalidShapeException
-operator|.
-name|class
-argument_list|)
 DECL|method|testPolygonSelfIntersection
 specifier|public
 name|void
 name|testPolygonSelfIntersection
 parameter_list|()
 block|{
-name|ShapeBuilder
+try|try
+block|{
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1269,6 +1332,32 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected InvalidShapeException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidShapeException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Self-intersection at or near point (0.0"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testGeoCircle
 specifier|public
@@ -1284,7 +1373,7 @@ decl_stmt|;
 name|Circle
 name|circle
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1344,7 +1433,7 @@ argument_list|)
 expr_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1405,7 +1494,7 @@ argument_list|)
 expr_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1467,7 +1556,7 @@ argument_list|)
 expr_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1527,7 +1616,7 @@ argument_list|)
 expr_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1628,7 +1717,7 @@ argument_list|)
 decl_stmt|;
 name|circle
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newCircleBuilder
 argument_list|()
@@ -1698,7 +1787,7 @@ block|{
 name|Shape
 name|shape
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1758,7 +1847,7 @@ block|{
 name|Shape
 name|shape
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newLineString
 argument_list|()
@@ -1819,7 +1908,7 @@ comment|// a giant c shape
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1895,6 +1984,9 @@ comment|// 3/4 of an embedded 'c', crossing dateline once
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1960,12 +2052,16 @@ argument_list|(
 literal|175
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// embedded hole right of the dateline
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2006,6 +2102,7 @@ operator|-
 literal|179
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -2038,7 +2135,7 @@ comment|// a giant c shape
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2119,6 +2216,9 @@ comment|// 3/4 of an embedded 'c', crossing dateline once
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2191,12 +2291,16 @@ operator|-
 literal|185
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// embedded hole right of the dateline
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2237,6 +2341,7 @@ operator|-
 literal|179
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -2265,7 +2370,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2577,6 +2682,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2786,6 +2894,7 @@ literal|85.0000002
 argument_list|,
 literal|37.1317672
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|Shape
 name|shape
@@ -2813,7 +2922,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2876,6 +2985,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2915,6 +3027,7 @@ argument_list|(
 literal|4
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -2943,7 +3056,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3004,7 +3117,7 @@ comment|// test case 1: test the positive side of the dateline
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3057,7 +3170,7 @@ expr_stmt|;
 comment|// test case 2: test the negative side of the dateline
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3121,7 +3234,7 @@ comment|// test case 1: test the positive side of the dateline
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3176,6 +3289,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3213,6 +3329,7 @@ argument_list|(
 literal|176
 argument_list|,
 literal|10
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Shape
@@ -3234,7 +3351,7 @@ expr_stmt|;
 comment|// test case 2: test the negative side of the dateline
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3282,6 +3399,9 @@ expr_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3324,6 +3444,7 @@ operator|-
 literal|176
 argument_list|,
 literal|10
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|shape
@@ -3352,7 +3473,7 @@ comment|// test a shape with one tangential (shared) vertex (should pass)
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3404,6 +3525,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3447,6 +3571,7 @@ literal|177
 argument_list|,
 literal|10
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|Shape
 name|shape
@@ -3465,15 +3590,6 @@ name|shape
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|InvalidShapeException
-operator|.
-name|class
-argument_list|)
 DECL|method|testShapeWithInvalidTangentialHole
 specifier|public
 name|void
@@ -3484,7 +3600,7 @@ comment|// test a shape with one invalid tangential (shared) vertex (should thro
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3536,6 +3652,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3573,10 +3692,10 @@ literal|164
 argument_list|,
 literal|0
 argument_list|)
+argument_list|)
 expr_stmt|;
-name|Shape
-name|shape
-init|=
+try|try
+block|{
 name|builder
 operator|.
 name|close
@@ -3584,12 +3703,33 @@ argument_list|()
 operator|.
 name|build
 argument_list|()
-decl_stmt|;
-name|assertMultiPolygon
+expr_stmt|;
+name|fail
 argument_list|(
-name|shape
+literal|"Expected InvalidShapeException"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidShapeException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"interior cannot share more than one point with the exterior"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testBoundaryShapeWithTangentialHole
 specifier|public
@@ -3601,7 +3741,7 @@ comment|// test a shape with one tangential (shared) vertex for each hole (shoul
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3656,6 +3796,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3699,10 +3842,14 @@ literal|177
 argument_list|,
 literal|10
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3733,6 +3880,7 @@ literal|172
 argument_list|,
 literal|0
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|Shape
 name|shape
@@ -3751,15 +3899,6 @@ name|shape
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|InvalidShapeException
-operator|.
-name|class
-argument_list|)
 DECL|method|testBoundaryShapeWithInvalidTangentialHole
 specifier|public
 name|void
@@ -3770,7 +3909,7 @@ comment|// test shape with two tangential (shared) vertices (should throw except
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3825,6 +3964,9 @@ decl_stmt|;
 name|builder
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -3865,10 +4007,10 @@ literal|177
 argument_list|,
 literal|10
 argument_list|)
+argument_list|)
 expr_stmt|;
-name|Shape
-name|shape
-init|=
+try|try
+block|{
 name|builder
 operator|.
 name|close
@@ -3876,16 +4018,35 @@ argument_list|()
 operator|.
 name|build
 argument_list|()
-decl_stmt|;
-name|assertMultiPolygon
+expr_stmt|;
+name|fail
 argument_list|(
-name|shape
+literal|"Expected InvalidShapeException"
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|InvalidShapeException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"interior cannot share more than one point with the exterior"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Test an enveloping polygon around the max mercator bounds      */
-annotation|@
-name|Test
 DECL|method|testBoundaryShape
 specifier|public
 name|void
@@ -3895,7 +4056,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -3949,8 +4110,6 @@ name|shape
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShapeWithAlternateOrientation
 specifier|public
 name|void
@@ -3961,7 +4120,7 @@ comment|// cw: should produce a multi polygon spanning hemispheres
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -4014,7 +4173,7 @@ expr_stmt|;
 comment|// cw: geo core will convert to ccw across the dateline
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -4064,15 +4223,6 @@ name|shape
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|InvalidShapeException
-operator|.
-name|class
-argument_list|)
 DECL|method|testInvalidShapeWithConsecutiveDuplicatePoints
 specifier|public
 name|void
@@ -4082,7 +4232,7 @@ block|{
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -4123,9 +4273,8 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-name|Shape
-name|shape
-init|=
+try|try
+block|{
 name|builder
 operator|.
 name|close
@@ -4133,12 +4282,33 @@ argument_list|()
 operator|.
 name|build
 argument_list|()
-decl_stmt|;
-name|assertPolygon
+expr_stmt|;
+name|fail
 argument_list|(
-name|shape
+literal|"Expected InvalidShapeException"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InvalidShapeException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"duplicate consecutive coordinates at: ("
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

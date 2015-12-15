@@ -118,16 +118,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -233,8 +223,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * test setting the source for the request with different available setters      */
-annotation|@
-name|Test
 DECL|method|testSetSource
 specifier|public
 name|void

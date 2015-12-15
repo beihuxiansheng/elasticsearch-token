@@ -961,6 +961,11 @@ name|scriptService
 operator|.
 name|stats
 argument_list|()
+argument_list|,
+name|discovery
+operator|.
+name|stats
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -998,6 +1003,9 @@ name|circuitBreaker
 parameter_list|,
 name|boolean
 name|script
+parameter_list|,
+name|boolean
+name|discoveryStats
 parameter_list|)
 block|{
 comment|// for indices stats we want to include previous allocated shards stats as well (it will
@@ -1129,6 +1137,15 @@ argument_list|,
 name|script
 condition|?
 name|scriptService
+operator|.
+name|stats
+argument_list|()
+else|:
+literal|null
+argument_list|,
+name|discoveryStats
+condition|?
+name|discovery
 operator|.
 name|stats
 argument_list|()

@@ -148,6 +148,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|text
+operator|.
+name|ParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -186,11 +196,10 @@ name|S3RepositoryPlugin
 extends|extends
 name|Plugin
 block|{
+comment|// ClientConfiguration clinit has some classloader problems
+comment|// TODO: fix that
 static|static
 block|{
-comment|// This internal config is deserialized but with wrong access modifiers,
-comment|// cannot work without suppressAccessChecks permission right now. We force
-comment|// a one time load with elevated privileges as a workaround.
 name|SecurityManager
 name|sm
 init|=
@@ -240,7 +249,7 @@ name|Class
 operator|.
 name|forName
 argument_list|(
-literal|"com.amazonaws.internal.config.InternalConfig$Factory"
+literal|"com.amazonaws.ClientConfiguration"
 argument_list|)
 expr_stmt|;
 block|}
@@ -254,8 +263,6 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Unable to initialize internal aws config"
-argument_list|,
 name|e
 argument_list|)
 throw|;

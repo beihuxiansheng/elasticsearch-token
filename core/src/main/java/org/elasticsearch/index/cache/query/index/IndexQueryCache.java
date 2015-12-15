@@ -78,20 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
@@ -106,7 +92,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -123,20 +109,6 @@ operator|.
 name|query
 operator|.
 name|QueryCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
 import|;
 end_import
 
@@ -181,12 +153,7 @@ DECL|method|IndexQueryCache
 specifier|public
 name|IndexQueryCache
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 name|IndicesQueryCache
@@ -195,8 +162,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
@@ -248,6 +213,7 @@ operator|.
 name|clearIndex
 argument_list|(
 name|index
+argument_list|()
 operator|.
 name|getName
 argument_list|()

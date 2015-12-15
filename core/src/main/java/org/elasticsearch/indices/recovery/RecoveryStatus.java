@@ -60,6 +60,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|node
@@ -474,6 +484,9 @@ name|indexShard
 operator|.
 name|indexSettings
 argument_list|()
+operator|.
+name|getSettings
+argument_list|()
 argument_list|,
 name|indexShard
 operator|.
@@ -816,10 +829,12 @@ name|cancel
 argument_list|(
 literal|"failed recovery ["
 operator|+
-name|e
+name|ExceptionsHelper
 operator|.
-name|getMessage
-argument_list|()
+name|stackTrace
+argument_list|(
+name|e
+argument_list|)
 operator|+
 literal|"]"
 argument_list|)

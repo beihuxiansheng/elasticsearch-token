@@ -64,16 +64,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -302,8 +292,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -366,6 +354,105 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_or\" : {\n"
+operator|+
+literal|"    \"clauses\" : [ {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field\" : {\n"
+operator|+
+literal|"          \"value\" : \"value1\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field\" : {\n"
+operator|+
+literal|"          \"value\" : \"value2\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field\" : {\n"
+operator|+
+literal|"          \"value\" : \"value3\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SpanOrQueryBuilder
+name|parsed
+init|=
+operator|(
+name|SpanOrQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|3
+argument_list|,
+name|parsed
+operator|.
+name|clauses
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

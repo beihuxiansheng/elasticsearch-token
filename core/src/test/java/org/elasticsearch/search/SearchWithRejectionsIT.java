@@ -88,16 +88,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -212,13 +202,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.search.type"
-argument_list|,
-literal|"fixed"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"threadpool.search.size"
 argument_list|,
 literal|1
@@ -235,8 +218,6 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOpenContextsAfterRejections
 specifier|public
 name|void

@@ -59,16 +59,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -101,8 +91,6 @@ extends|extends
 name|ESSmokeClientTestCase
 block|{
 comment|/**      * Check that we are connected to a cluster named "elasticsearch".      */
-annotation|@
-name|Test
 DECL|method|testSimpleClient
 specifier|public
 name|void
@@ -171,8 +159,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Create an index and index some docs      */
-annotation|@
-name|Test
 DECL|method|testPutDocument
 specifier|public
 name|void

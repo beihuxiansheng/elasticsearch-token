@@ -148,16 +148,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -190,7 +180,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -202,8 +228,6 @@ name|MultiTermVectorsIT
 extends|extends
 name|AbstractTermVectorsTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDuelESLucene
 specifier|public
 name|void
@@ -436,8 +460,6 @@ throw|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMissingIndexThrowsMissingIndex
 specifier|public
 name|void
@@ -561,8 +583,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMultiTermVectorsWithVersion
 specifier|public
 name|void

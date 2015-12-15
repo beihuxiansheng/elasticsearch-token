@@ -266,6 +266,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|BigArrays
@@ -281,6 +295,18 @@ operator|.
 name|index
 operator|.
 name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexSettings
 import|;
 end_import
 
@@ -528,6 +554,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
+name|IndexSettingsModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -561,16 +599,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -646,24 +674,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -729,7 +739,7 @@ name|replicaEngine
 decl_stmt|;
 DECL|field|defaultSettings
 specifier|private
-name|Settings
+name|IndexSettings
 name|defaultSettings
 decl_stmt|;
 DECL|field|codecName
@@ -765,10 +775,9 @@ init|=
 operator|new
 name|CodecService
 argument_list|(
-name|shardId
-operator|.
-name|index
-argument_list|()
+literal|null
+argument_list|,
+name|logger
 argument_list|)
 decl_stmt|;
 name|String
@@ -816,6 +825,12 @@ expr_stmt|;
 block|}
 name|defaultSettings
 operator|=
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
+argument_list|(
+literal|"test"
+argument_list|,
 name|Settings
 operator|.
 name|builder
@@ -863,6 +878,7 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// TODO randomize more settings
 name|threadPool
@@ -1291,6 +1307,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|IndexSettings
+name|indexSettings
+init|=
+name|IndexSettingsModule
+operator|.
+name|newIndexSettings
+argument_list|(
+name|shardId
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
 specifier|final
 name|DirectoryService
 name|directoryService
@@ -1300,7 +1333,7 @@ name|DirectoryService
 argument_list|(
 name|shardId
 argument_list|,
-name|EMPTY_SETTINGS
+name|indexSettings
 argument_list|)
 block|{
 annotation|@
@@ -1335,7 +1368,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|EMPTY_SETTINGS
+name|indexSettings
 argument_list|,
 name|directoryService
 argument_list|,
@@ -1409,7 +1442,7 @@ specifier|protected
 name|ShadowEngine
 name|createShadowEngine
 parameter_list|(
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|Store
@@ -1444,7 +1477,7 @@ specifier|protected
 name|InternalEngine
 name|createInternalEngine
 parameter_list|(
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|Store
@@ -1473,7 +1506,7 @@ specifier|protected
 name|InternalEngine
 name|createInternalEngine
 parameter_list|(
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|Store
@@ -1516,7 +1549,7 @@ specifier|public
 name|EngineConfig
 name|config
 parameter_list|(
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|,
 name|Store
@@ -1607,16 +1640,15 @@ argument_list|,
 operator|new
 name|CodecService
 argument_list|(
-name|shardId
-operator|.
-name|index
-argument_list|()
+literal|null
+argument_list|,
+name|logger
 argument_list|)
 argument_list|,
 operator|new
 name|Engine
 operator|.
-name|FailedEngineListener
+name|EventListener
 argument_list|()
 block|{
 annotation|@
@@ -1625,9 +1657,6 @@ specifier|public
 name|void
 name|onFailedEngine
 parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
 name|String
 name|reason
 parameter_list|,
@@ -1654,6 +1683,13 @@ name|getDefaultQueryCachingPolicy
 argument_list|()
 argument_list|,
 name|translogConfig
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMinutes
+argument_list|(
+literal|5
+argument_list|)
 argument_list|)
 decl_stmt|;
 try|try
@@ -2028,8 +2064,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSegments
 specifier|public
 name|void
@@ -2123,6 +2157,9 @@ name|boolean
 name|defaultCompound
 init|=
 name|defaultSettings
+operator|.
+name|getSettings
+argument_list|()
 operator|.
 name|getAsBoolean
 argument_list|(
@@ -4282,8 +4319,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testVerboseSegments
 specifier|public
 name|void
@@ -4681,8 +4716,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShadowEngineIgnoresWriteOperations
 specifier|public
 name|void
@@ -5523,8 +5556,6 @@ name|release
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleOperations
 specifier|public
 name|void
@@ -7571,8 +7602,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSearchResultRelease
 specifier|public
 name|void
@@ -8010,8 +8039,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailEngineOnCorruption
 specifier|public
 name|void
@@ -8200,8 +8227,6 @@ block|{
 comment|// all is well
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testExtractShardId
 specifier|public
 name|void
@@ -8257,8 +8282,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Random test that throws random exception and ensures all references are      * counted down / released and resources are closed.      */
-annotation|@
-name|Test
 DECL|method|testFailStart
 specifier|public
 name|void
@@ -8567,8 +8590,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSettings
 specifier|public
 name|void
@@ -8581,10 +8602,9 @@ init|=
 operator|new
 name|CodecService
 argument_list|(
-name|shardId
-operator|.
-name|index
-argument_list|()
+literal|null
+argument_list|,
+name|logger
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -8612,8 +8632,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShadowEngineCreationRetry
 specifier|public
 name|void

@@ -122,16 +122,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -171,6 +161,18 @@ operator|.
 name|CoreMatchers
 operator|.
 name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -258,8 +260,6 @@ expr_stmt|;
 block|}
 name|Object
 name|value
-init|=
-literal|""
 decl_stmt|;
 if|if
 condition|(
@@ -313,7 +313,10 @@ literal|1
 argument_list|,
 literal|10
 argument_list|)
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|" "
 argument_list|)
 expr_stmt|;
@@ -850,17 +853,6 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
-comment|// the real query will have boost applied, so we set it to our expeced as well
-name|expectedTermQuery
-operator|.
-name|setBoost
-argument_list|(
-name|queryBuilder
-operator|.
-name|boost
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 name|expectedTermQuery
@@ -1109,9 +1101,6 @@ operator|.
 name|text
 argument_list|()
 operator|.
-name|toString
-argument_list|()
-operator|.
 name|toLowerCase
 argument_list|(
 name|Locale
@@ -1346,15 +1335,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|QueryShardException
-operator|.
-name|class
-argument_list|)
 DECL|method|testBadAnalyzer
 specifier|public
 name|void
@@ -1381,11 +1361,308 @@ argument_list|(
 literal|"bogusAnalyzer"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|matchQuery
 operator|.
 name|toQuery
 argument_list|(
 name|createShardContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected QueryShardException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|QueryShardException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"analyzer [bogusAnalyzer] not found"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testPhrasePrefixMatchQuery
+specifier|public
+name|void
+name|testPhrasePrefixMatchQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json1
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"match_phrase_prefix\" : {\n"
+operator|+
+literal|"        \"message\" : \"this is a test\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"this is a test\",\n"
+operator|+
+literal|"      \"type\" : \"phrase_prefix\",\n"
+operator|+
+literal|"      \"operator\" : \"OR\",\n"
+operator|+
+literal|"      \"slop\" : 0,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 50,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MatchQueryBuilder
+name|qb
+init|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json1
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|expected
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|String
+name|json2
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"match\" : {\n"
+operator|+
+literal|"        \"message\" : {\n"
+operator|+
+literal|"            \"query\" : \"this is a test\",\n"
+operator|+
+literal|"            \"type\" : \"phrase_prefix\"\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|qb
+operator|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json2
+argument_list|)
+expr_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|expected
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|String
+name|json3
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"match_phrase_prefix\" : {\n"
+operator|+
+literal|"        \"message\" : {\n"
+operator|+
+literal|"            \"query\" : \"this is a test\",\n"
+operator|+
+literal|"            \"max_expansions\" : 10\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|expected
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"this is a test\",\n"
+operator|+
+literal|"      \"type\" : \"phrase_prefix\",\n"
+operator|+
+literal|"      \"operator\" : \"OR\",\n"
+operator|+
+literal|"      \"slop\" : 0,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 10,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+name|qb
+operator|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json3
+argument_list|)
+expr_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|expected
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSimpleMatchQuery
+specifier|public
+name|void
+name|testSimpleMatchQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"to be or not to be\",\n"
+operator|+
+literal|"      \"type\" : \"boolean\",\n"
+operator|+
+literal|"      \"operator\" : \"AND\",\n"
+operator|+
+literal|"      \"slop\" : 0,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 50,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"ALL\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MatchQueryBuilder
+name|qb
+init|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"to be or not to be"
+argument_list|,
+name|qb
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+name|Operator
+operator|.
+name|AND
+argument_list|,
+name|qb
+operator|.
+name|operator
 argument_list|()
 argument_list|)
 expr_stmt|;

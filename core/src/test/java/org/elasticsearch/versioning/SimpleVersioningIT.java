@@ -194,11 +194,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|util
 operator|.
-name|Test
+name|HashMap
 import|;
 end_import
 
@@ -208,7 +208,47 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -322,8 +362,6 @@ name|SimpleVersioningIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testExternalVersioningInitialDelete
 specifier|public
 name|void
@@ -483,8 +521,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testForce
 specifier|public
 name|void
@@ -839,8 +875,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalGTE
 specifier|public
 name|void
@@ -1307,8 +1341,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalVersioning
 specifier|public
 name|void
@@ -1937,8 +1969,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testRequireUnitsOnUpdateSettings
 specifier|public
 name|void
@@ -2032,8 +2062,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testInternalVersioningInitialDelete
 specifier|public
 name|void
@@ -2124,8 +2152,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testInternalVersioning
 specifier|public
 name|void
@@ -2705,8 +2731,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleVersioningWithFlush
 specifier|public
 name|void
@@ -3128,8 +3152,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testVersioningWithBulk
 specifier|public
 name|void
@@ -4131,8 +4153,6 @@ argument_list|()
 return|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRandomIDsAndVersions
 specifier|public
 name|void
@@ -5380,8 +5400,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDeleteNotLost
 specifier|public
 name|void
@@ -5681,8 +5699,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGCDeletesZero
 specifier|public
 name|void

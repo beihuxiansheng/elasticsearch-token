@@ -655,7 +655,7 @@ name|inetAddress
 init|=
 name|networkService
 operator|.
-name|resolvePublishHostAddress
+name|resolvePublishHostAddresses
 argument_list|(
 literal|null
 argument_list|)

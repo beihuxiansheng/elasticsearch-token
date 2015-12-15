@@ -78,20 +78,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
 name|IndexSettings
 import|;
 end_import
@@ -131,17 +117,12 @@ specifier|final
 name|Version
 name|version
 decl_stmt|;
-comment|/**      * Constructs a new analyzer component, with the index name and its settings and the analyzer name.      *      * @param index         The index name      * @param indexSettings The index settings      * @param name          The analyzer name      */
+comment|/**      * Constructs a new analyzer component, with the index name and its settings and the analyzer name.      *      * @param indexSettings the settings and the name of the index      * @param name          The analyzer name      */
 DECL|method|AbstractIndexAnalyzerProvider
 specifier|public
 name|AbstractIndexAnalyzerProvider
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 name|String
@@ -153,8 +134,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
@@ -172,7 +151,12 @@ name|Analysis
 operator|.
 name|parseAnalysisVersion
 argument_list|(
+name|this
+operator|.
 name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
 argument_list|,
 name|settings
 argument_list|,

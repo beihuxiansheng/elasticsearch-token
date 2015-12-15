@@ -1559,6 +1559,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+literal|"elected as master"
 argument_list|)
 decl_stmt|;
 return|return
@@ -1798,6 +1800,22 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|stats
+specifier|public
+name|DiscoveryStats
+name|stats
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DiscoveryStats
+argument_list|(
+literal|null
+argument_list|)
+return|;
 block|}
 DECL|method|members
 specifier|private

@@ -208,16 +208,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -233,24 +223,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
-name|PipelineAggregatorBuilders
-operator|.
-name|extendedStatsBucket
 import|;
 end_import
 
@@ -315,6 +287,24 @@ operator|.
 name|AggregationBuilders
 operator|.
 name|terms
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|PipelineAggregatorBuilders
+operator|.
+name|extendedStatsBucket
 import|;
 end_import
 
@@ -693,12 +683,10 @@ name|ensureSearchable
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testDocCount_topLevel
+DECL|method|testDocCountTopLevel
 specifier|public
 name|void
-name|testDocCount_topLevel
+name|testDocCountTopLevel
 parameter_list|()
 throws|throws
 name|Exception
@@ -1090,12 +1078,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testDocCount_asSubAgg
+DECL|method|testDocCountAsSubAgg
 specifier|public
 name|void
-name|testDocCount_asSubAgg
+name|testDocCountAsSubAgg
 parameter_list|()
 throws|throws
 name|Exception
@@ -1599,12 +1585,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testMetric_topLevel
+DECL|method|testMetricTopLevel
 specifier|public
 name|void
-name|testMetric_topLevel
+name|testMetricTopLevel
 parameter_list|()
 throws|throws
 name|Exception
@@ -2005,12 +1989,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testMetric_asSubAgg
+DECL|method|testMetricAsSubAgg
 specifier|public
 name|void
-name|testMetric_asSubAgg
+name|testMetricAsSubAgg
 parameter_list|()
 throws|throws
 name|Exception
@@ -2559,12 +2541,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testMetric_asSubAggWithInsertZeros
+DECL|method|testMetricAsSubAggWithInsertZeros
 specifier|public
 name|void
-name|testMetric_asSubAggWithInsertZeros
+name|testMetricAsSubAggWithInsertZeros
 parameter_list|()
 throws|throws
 name|Exception
@@ -3109,8 +3089,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNoBuckets
 specifier|public
 name|void
@@ -3295,12 +3273,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testBadSigma_asSubAgg
+DECL|method|testBadSigmaAsSubAgg
 specifier|public
 name|void
-name|testBadSigma_asSubAgg
+name|testBadSigmaAsSubAgg
 parameter_list|()
 throws|throws
 name|Exception
@@ -3425,8 +3401,6 @@ block|{
 comment|// All good
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNested
 specifier|public
 name|void

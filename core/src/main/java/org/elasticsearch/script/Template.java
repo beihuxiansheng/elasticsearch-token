@@ -156,20 +156,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|mustache
-operator|.
-name|MustacheScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -206,6 +192,16 @@ name|Template
 extends|extends
 name|Script
 block|{
+comment|/** Default templating language */
+DECL|field|DEFAULT_LANG
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_LANG
+init|=
+literal|"mustache"
+decl_stmt|;
 DECL|field|contentType
 specifier|private
 name|XContentType
@@ -220,7 +216,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor for simple inline template. The template will have no lang,      * content type or params set.      *       * @param template      *            The inline template.      */
+comment|/**      * Constructor for simple inline template. The template will have no lang,      * content type or params set.      *      * @param template      *            The inline template.      */
 DECL|method|Template
 specifier|public
 name|Template
@@ -233,13 +229,11 @@ name|super
 argument_list|(
 name|template
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor for Template.      *       * @param template      *            The cache key of the template to be compiled/executed. For      *            inline templates this is the actual templates source code. For      *            indexed templates this is the id used in the request. For on      *            file templates this is the file name.      * @param type      *            The type of template -- dynamic, indexed, or file.      * @param lang      *            The language of the template to be compiled/executed.      * @param xContentType      *            The {@link XContentType} of the template.      * @param params      *            The map of parameters the template will be executed with.      */
+comment|/**      * Constructor for Template.      *      * @param template      *            The cache key of the template to be compiled/executed. For      *            inline templates this is the actual templates source code. For      *            indexed templates this is the id used in the request. For on      *            file templates this is the file name.      * @param type      *            The type of template -- dynamic, indexed, or file.      * @param lang      *            The language of the template to be compiled/executed.      * @param xContentType      *            The {@link XContentType} of the template.      * @param params      *            The map of parameters the template will be executed with.      */
 DECL|method|Template
 specifier|public
 name|Template
@@ -278,6 +272,12 @@ argument_list|,
 name|type
 argument_list|,
 name|lang
+operator|==
+literal|null
+condition|?
+name|DEFAULT_LANG
+else|:
+name|lang
 argument_list|,
 name|params
 argument_list|)
@@ -289,7 +289,7 @@ operator|=
 name|xContentType
 expr_stmt|;
 block|}
-comment|/**      * Method for getting the {@link XContentType} of the template.      *       * @return The {@link XContentType} of the template.      */
+comment|/**      * Method for getting the {@link XContentType} of the template.      *      * @return The {@link XContentType} of the template.      */
 DECL|method|getContentType
 specifier|public
 name|XContentType
@@ -491,11 +491,6 @@ return|return
 name|template
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parse
 specifier|public
 specifier|static
@@ -523,11 +518,10 @@ name|TemplateParser
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|)
 operator|.
 name|parse
@@ -540,11 +534,6 @@ name|parseFieldMatcher
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|parse
 specifier|public
 specifier|static
@@ -566,11 +555,10 @@ name|TemplateParser
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|)
 operator|.
 name|parse
@@ -612,9 +600,7 @@ name|TemplateParser
 argument_list|(
 name|additionalTemplateFieldNames
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|)
 operator|.
 name|parse
@@ -880,9 +866,7 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-name|MustacheScriptEngineService
-operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|,
 name|contentType
 argument_list|,

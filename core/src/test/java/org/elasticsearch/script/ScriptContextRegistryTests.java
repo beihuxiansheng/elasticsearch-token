@@ -38,16 +38,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -76,6 +66,18 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_class
 DECL|class|ScriptContextRegistryTests
 specifier|public
@@ -84,8 +86,6 @@ name|ScriptContextRegistryTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testValidateCustomScriptContextsOperation
 specifier|public
 name|void
@@ -161,8 +161,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testValidateCustomScriptContextsPluginName
 specifier|public
 name|void
@@ -238,15 +236,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testValidateCustomScriptContextsEmptyPluginName
 specifier|public
 name|void
@@ -255,6 +244,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 operator|new
 name|ScriptContext
 operator|.
@@ -270,16 +261,33 @@ argument_list|,
 literal|"test"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
+literal|"Expected exception"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"plugin name cannot be empty"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testValidateCustomScriptContextsEmptyOperation
 specifier|public
 name|void
@@ -287,6 +295,8 @@ name|testValidateCustomScriptContextsEmptyOperation
 parameter_list|()
 throws|throws
 name|IOException
+block|{
+try|try
 block|{
 operator|new
 name|ScriptContext
@@ -303,9 +313,33 @@ else|:
 literal|""
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected exception"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"operation name cannot be empty"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testDuplicatedPluginScriptContexts
 specifier|public
 name|void
@@ -365,8 +399,6 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|Matchers
-operator|.
 name|containsString
 argument_list|(
 literal|"script context [testplugin_test] cannot be registered twice"
@@ -375,8 +407,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNonDuplicatedPluginScriptContexts
 specifier|public
 name|void

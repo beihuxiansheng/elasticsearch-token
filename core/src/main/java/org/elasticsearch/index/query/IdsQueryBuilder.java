@@ -372,7 +372,12 @@ name|builder
 operator|.
 name|array
 argument_list|(
-literal|"types"
+name|IdsQueryParser
+operator|.
+name|TYPE_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|types
 argument_list|)
@@ -381,7 +386,12 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-literal|"values"
+name|IdsQueryParser
+operator|.
+name|VALUES_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -513,7 +523,7 @@ name|typesForQuery
 operator|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|types

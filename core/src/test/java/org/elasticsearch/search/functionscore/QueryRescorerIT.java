@@ -288,16 +288,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -376,7 +366,151 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertFirstHit
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertFourthHit
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSecondHit
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertThirdHit
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|hasId
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|hasScore
 import|;
 end_import
 
@@ -388,7 +522,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -404,8 +562,6 @@ name|QueryRescorerIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testEnforceWindowSize
 specifier|public
 name|void
@@ -567,10 +723,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|1.0f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|1
 argument_list|)
 operator|.
@@ -676,8 +829,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testRescorePhrase
 specifier|public
 name|void
@@ -904,10 +1055,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|2
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|5
 argument_list|)
 operator|.
@@ -1046,10 +1194,7 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|5
 argument_list|)
 operator|.
@@ -1140,10 +1285,7 @@ literal|"the quick brown"
 argument_list|)
 operator|)
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|5
 argument_list|)
 operator|.
@@ -1191,8 +1333,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreDocs
 specifier|public
 name|void
@@ -1795,10 +1935,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|2.0f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|20
 argument_list|)
 operator|.
@@ -1937,10 +2074,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|2.0f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|20
 argument_list|)
 operator|.
@@ -2080,10 +2214,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|2.0f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|20
 argument_list|)
 operator|.
@@ -2130,8 +2261,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Tests a rescore window smaller than number of hits:
-annotation|@
-name|Test
 DECL|method|testSmallRescoreWindow
 specifier|public
 name|void
@@ -2589,10 +2718,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|2.0f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|2
 argument_list|)
 operator|.
@@ -2729,10 +2855,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|2.0f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|3
 argument_list|)
 operator|.
@@ -2810,8 +2933,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Tests a rescorer that penalizes the scores:
-annotation|@
-name|Test
 DECL|method|testRescorerMadeScoresWorse
 specifier|public
 name|void
@@ -3284,10 +3405,7 @@ argument_list|(
 operator|-
 literal|1f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|3
 argument_list|)
 operator|.
@@ -3896,8 +4014,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 comment|// forces QUERY_THEN_FETCH because of https://github.com/elasticsearch/elasticsearch/issues/4829
 DECL|method|testEquivalence
 specifier|public
@@ -4080,13 +4196,23 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|0.0f
 argument_list|)
-argument_list|)
-comment|// no weight - so we basically use the same score as the actual query
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 name|rescoreWindow
 argument_list|)
+comment|// no
+comment|// weight
+comment|// -
+comment|// so
+comment|// we
+comment|// basically
+comment|// use
+comment|// the
+comment|// same
+comment|// score
+comment|// as
+comment|// the
+comment|// actual
+comment|// query
 operator|.
 name|execute
 argument_list|()
@@ -4246,10 +4372,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|1.0f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 name|rescoreWindow
 argument_list|)
 operator|.
@@ -4349,10 +4472,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|1.0f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|2
 operator|*
 name|rescoreWindow
@@ -4376,8 +4496,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testExplain
 specifier|public
 name|void
@@ -4605,10 +4723,7 @@ name|setRescoreQueryWeight
 argument_list|(
 literal|0.4f
 argument_list|)
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|5
 argument_list|)
 operator|.
@@ -5067,10 +5182,7 @@ operator|.
 name|setRescorer
 argument_list|(
 name|innerRescoreQuery
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|5
 argument_list|)
 operator|.
@@ -5276,20 +5388,14 @@ operator|.
 name|addRescorer
 argument_list|(
 name|innerRescoreQuery
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|5
 argument_list|)
 operator|.
 name|addRescorer
 argument_list|(
 name|outerRescoreQuery
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|10
 argument_list|)
 operator|.
@@ -5417,8 +5523,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testScoring
 specifier|public
 name|void
@@ -5860,10 +5964,7 @@ operator|.
 name|setRescorer
 argument_list|(
 name|rescoreQuery
-argument_list|)
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|50
 argument_list|)
 operator|.
@@ -6718,8 +6819,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMultipleRescores
 specifier|public
 name|void
@@ -6841,22 +6940,21 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|()
-operator|.
-name|setRescoreWindow
-argument_list|(
-name|numDocs
-argument_list|)
 decl_stmt|;
 name|request
 operator|.
 name|addRescorer
 argument_list|(
 name|eightIsGreat
+argument_list|,
+name|numDocs
 argument_list|)
 operator|.
 name|addRescorer
 argument_list|(
 name|sevenIsBetter
+argument_list|,
+name|numDocs
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -6903,6 +7001,8 @@ operator|.
 name|addRescorer
 argument_list|(
 name|eightIsGreat
+argument_list|,
+name|numDocs
 argument_list|)
 operator|.
 name|addRescorer
@@ -7013,6 +7113,8 @@ operator|.
 name|addRescorer
 argument_list|(
 name|ninetyIsGood
+argument_list|,
+name|numDocs
 argument_list|)
 operator|.
 name|addRescorer
@@ -7429,12 +7531,7 @@ operator|.
 name|matchAllQuery
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|request
-operator|.
-name|setRescoreWindow
-argument_list|(
+argument_list|,
 literal|50
 argument_list|)
 expr_stmt|;

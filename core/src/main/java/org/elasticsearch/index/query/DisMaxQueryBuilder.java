@@ -316,7 +316,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"tie_breaker"
+name|DisMaxQueryParser
+operator|.
+name|TIE_BREAKER_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|tieBreaker
 argument_list|)
@@ -325,7 +330,12 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-literal|"queries"
+name|DisMaxQueryParser
+operator|.
+name|QUERIES_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

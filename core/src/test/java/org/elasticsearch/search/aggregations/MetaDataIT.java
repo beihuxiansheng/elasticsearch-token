@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntIntMap
+name|IntIntHashMap
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntIntHashMap
+name|IntIntMap
 import|;
 end_import
 
@@ -95,16 +95,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -201,12 +191,10 @@ extends|extends
 name|ESIntegTestCase
 block|{
 comment|/**      * Making sure that if there are multiple aggregations, working on the same field, yet require different      * value source type, they can all still work. It used to fail as we used to cache the ValueSource by the      * field name. If the cached value source was of type "bytes" and another aggregation on the field required to see      * it as "numeric", it didn't work. Now we cache the Value Sources by a custom key (field name + ValueSource type)      * so there's no conflict there.      */
-annotation|@
-name|Test
-DECL|method|meta_data_set_on_aggregation_result
+DECL|method|testMetaDataSetOnAggregationResult
 specifier|public
 name|void
-name|meta_data_set_on_aggregation_result
+name|testMetaDataSetOnAggregationResult
 parameter_list|()
 throws|throws
 name|Exception

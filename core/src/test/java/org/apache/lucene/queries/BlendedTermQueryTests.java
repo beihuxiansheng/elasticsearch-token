@@ -204,16 +204,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -268,8 +258,6 @@ name|BlendedTermQueryTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testBooleanQuery
 specifier|public
 name|void
@@ -802,8 +790,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDismaxQuery
 specifier|public
 name|void
@@ -1597,8 +1583,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBasics
 specifier|public
 name|void
@@ -1945,8 +1929,6 @@ return|return
 name|searcher
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExtractTerms
 specifier|public
 name|void

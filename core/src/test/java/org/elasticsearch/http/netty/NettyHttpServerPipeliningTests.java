@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -107,6 +95,22 @@ operator|.
 name|http
 operator|.
 name|HttpServerTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|http
+operator|.
+name|netty
+operator|.
+name|NettyHttpServerTransport
+operator|.
+name|HttpChannelPipelineFactory
 import|;
 end_import
 
@@ -386,11 +390,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|nio
 operator|.
-name|Test
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -494,15 +500,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
+name|hamcrest
 operator|.
-name|http
+name|Matchers
 operator|.
-name|netty
-operator|.
-name|NettyHttpServerTransport
-operator|.
-name|HttpChannelPipelineFactory
+name|contains
 import|;
 end_import
 
@@ -514,7 +516,19 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|hasSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -707,8 +721,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatHttpPipeliningWorksWhenEnabled
 specifier|public
 name|void
@@ -728,6 +740,13 @@ argument_list|(
 literal|"http.pipelining"
 argument_list|,
 literal|true
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"http.port"
+argument_list|,
+literal|"0"
 argument_list|)
 operator|.
 name|build
@@ -851,8 +870,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatHttpPipeliningCanBeDisabled
 specifier|public
 name|void
@@ -872,6 +889,13 @@ argument_list|(
 literal|"http.pipelining"
 argument_list|,
 literal|false
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"http.port"
+argument_list|,
+literal|"0"
 argument_list|)
 operator|.
 name|build
@@ -1515,7 +1539,9 @@ expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
-argument_list|()
+argument_list|(
+name|e1
+argument_list|)
 throw|;
 block|}
 block|}

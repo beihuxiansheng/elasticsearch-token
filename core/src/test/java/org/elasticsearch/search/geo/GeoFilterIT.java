@@ -164,7 +164,31 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|GeoProjectionUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
 import|;
 end_import
 
@@ -234,6 +258,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Priority
@@ -290,7 +328,9 @@ name|common
 operator|.
 name|geo
 operator|.
-name|GeoUtils
+name|builders
+operator|.
+name|LineStringBuilder
 import|;
 end_import
 
@@ -338,7 +378,7 @@ name|geo
 operator|.
 name|builders
 operator|.
-name|ShapeBuilder
+name|ShapeBuilders
 import|;
 end_import
 
@@ -353,6 +393,34 @@ operator|.
 name|io
 operator|.
 name|Streams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentBuilder
 import|;
 end_import
 
@@ -426,9 +494,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|BeforeClass
+name|test
+operator|.
+name|VersionUtils
 import|;
 end_import
 
@@ -438,7 +508,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Test
+name|BeforeClass
 import|;
 end_import
 
@@ -499,16 +569,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -742,43 +802,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|anyOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsInAnyOrder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThanOrEqualTo
+name|*
 import|;
 end_import
 
@@ -937,8 +961,6 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShapeBuilders
 specifier|public
 name|void
@@ -948,7 +970,7 @@ block|{
 try|try
 block|{
 comment|// self intersection polygon
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1004,7 +1026,7 @@ name|e
 parameter_list|)
 block|{         }
 comment|// polygon with hole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1042,6 +1064,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1078,6 +1103,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -1088,7 +1114,7 @@ expr_stmt|;
 try|try
 block|{
 comment|// polygon with overlapping hole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1126,6 +1152,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1162,6 +1191,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -1184,7 +1214,7 @@ block|{         }
 try|try
 block|{
 comment|// polygon with intersection holes
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1222,6 +1252,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1258,8 +1291,12 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1298,6 +1335,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -1320,7 +1358,7 @@ block|{         }
 try|try
 block|{
 comment|// Common line in polygon
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -1400,28 +1438,16 @@ name|InvalidShapeException
 name|e
 parameter_list|)
 block|{         }
-comment|// Not specified
-comment|//        try {
-comment|//            // two overlapping polygons within a multipolygon
-comment|//            ShapeBuilder.newMultiPolygon()
-comment|//                .polygon()
-comment|//                    .point(-10, -10)
-comment|//                    .point(-10, 10)
-comment|//                    .point(10, 10)
-comment|//                    .point(10, -10)
-comment|//                .close()
-comment|//                .polygon()
-comment|//                    .point(-5, -5).point(-5, 5).point(5, 5).point(5, -5)
-comment|//                .close().build();
-comment|//            fail("Polygon intersection not detected";
-comment|//        } catch (InvalidShapeException e) {}
 comment|// Multipolygon: polygon with hole and polygon within the whole
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPolygon
 argument_list|()
 operator|.
 name|polygon
+argument_list|(
+operator|new
+name|PolygonBuilder
 argument_list|()
 operator|.
 name|point
@@ -1457,6 +1483,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1493,11 +1522,16 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|polygon
+argument_list|(
+operator|new
+name|PolygonBuilder
 argument_list|()
 operator|.
 name|point
@@ -1534,29 +1568,12 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|build
 argument_list|()
 expr_stmt|;
-comment|// Not supported
-comment|//        try {
-comment|//            // Multipolygon: polygon with hole and polygon within the hole but overlapping
-comment|//            ShapeBuilder.newMultiPolygon()
-comment|//                .polygon()
-comment|//                    .point(-10, -10).point(-10, 10).point(10, 10).point(10, -10)
-comment|//                    .hole()
-comment|//                        .point(-5, -5).point(-5, 5).point(5, 5).point(5, -5)
-comment|//                    .close()
-comment|//                .close()
-comment|//                .polygon()
-comment|//                    .point(-4, -4).point(-4, 6).point(4, 6).point(4, -4)
-comment|//                .close()
-comment|//                .build();
-comment|//            fail("Polygon intersection not detected";
-comment|//        } catch (InvalidShapeException e) {}
 block|}
-annotation|@
-name|Test
 DECL|method|testShapeRelations
 specifier|public
 name|void
@@ -1707,12 +1724,15 @@ comment|// the second polygon of size 4x4 equidistant from all sites
 name|MultiPolygonBuilder
 name|polygon
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newMultiPolygon
 argument_list|()
 operator|.
 name|polygon
+argument_list|(
+operator|new
+name|PolygonBuilder
 argument_list|()
 operator|.
 name|point
@@ -1748,6 +1768,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -1784,11 +1807,16 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|polygon
+argument_list|(
+operator|new
+name|PolygonBuilder
 argument_list|()
 operator|.
 name|point
@@ -1825,6 +1853,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|BytesReference
 name|data
@@ -1913,7 +1942,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -1970,7 +1999,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2020,7 +2049,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2077,7 +2106,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2139,7 +2168,7 @@ name|geoDisjointQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2186,7 +2215,7 @@ name|geoDisjointQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2225,7 +2254,7 @@ comment|// Create a polygon that fills the empty area of the polygon defined abo
 name|PolygonBuilder
 name|inverse
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2263,6 +2292,9 @@ literal|5
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2299,6 +2331,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -2388,7 +2421,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2426,7 +2459,7 @@ comment|// Create Polygon with hole and common edge
 name|PolygonBuilder
 name|builder
 init|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2464,6 +2497,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2500,6 +2536,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -2512,7 +2549,7 @@ block|{
 comment|// Polygon WithIn Polygon
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2595,7 +2632,7 @@ block|}
 comment|// Create a polygon crossing longitude 180.
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2698,7 +2735,7 @@ expr_stmt|;
 comment|// Create a polygon crossing longitude 180 with hole.
 name|builder
 operator|=
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPolygon
 argument_list|()
@@ -2734,6 +2771,9 @@ literal|10
 argument_list|)
 operator|.
 name|hole
+argument_list|(
+operator|new
+name|LineStringBuilder
 argument_list|()
 operator|.
 name|point
@@ -2768,6 +2808,7 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+argument_list|)
 operator|.
 name|close
 argument_list|()
@@ -2856,7 +2897,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2903,7 +2944,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2951,7 +2992,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -2998,7 +3039,7 @@ name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -3024,12 +3065,10 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|bulktest
+DECL|method|testBulk
 specifier|public
 name|void
-name|bulktest
+name|testBulk
 parameter_list|()
 throws|throws
 name|Exception
@@ -3043,8 +3082,47 @@ argument_list|(
 literal|"/org/elasticsearch/search/geo/gzippedmap.gz"
 argument_list|)
 decl_stmt|;
-name|String
-name|mapping
+name|Version
+name|version
+init|=
+name|VersionUtils
+operator|.
+name|randomVersionBetween
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+argument_list|)
+decl_stmt|;
+name|Settings
+name|settings
+init|=
+name|Settings
+operator|.
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+argument_list|,
+name|version
+argument_list|)
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+name|XContentBuilder
+name|xContentBuilder
 init|=
 name|XContentFactory
 operator|.
@@ -3075,6 +3153,20 @@ literal|"type"
 argument_list|,
 literal|"geo_point"
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|version
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_2_0
+argument_list|)
+condition|)
+block|{
+name|xContentBuilder
 operator|.
 name|field
 argument_list|(
@@ -3082,6 +3174,9 @@ literal|"lat_lon"
 argument_list|,
 literal|true
 argument_list|)
+expr_stmt|;
+block|}
+name|xContentBuilder
 operator|.
 name|field
 argument_list|(
@@ -3116,10 +3211,7 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
-operator|.
-name|string
-argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -3134,11 +3226,19 @@ argument_list|(
 literal|"countries"
 argument_list|)
 operator|.
+name|setSettings
+argument_list|(
+name|settings
+argument_list|)
+operator|.
 name|addMapping
 argument_list|(
 literal|"country"
 argument_list|,
-name|mapping
+name|xContentBuilder
+operator|.
+name|string
+argument_list|()
 argument_list|)
 operator|.
 name|execute
@@ -3400,6 +3500,18 @@ operator|.
 name|getId
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|version
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_2_0
+argument_list|)
+condition|)
+block|{
 name|point
 operator|.
 name|resetFromString
@@ -3421,6 +3533,28 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|point
+operator|.
+name|resetFromIndexHash
+argument_list|(
+name|hit
+operator|.
+name|fields
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"pin"
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|double
 name|dist
 init|=
@@ -3504,17 +3638,17 @@ name|assertThat
 argument_list|(
 name|dist
 argument_list|,
-name|equalTo
+name|closeTo
 argument_list|(
 literal|0d
+argument_list|,
+literal|0.1d
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testGeohashCellFilter
 specifier|public
 name|void
@@ -3548,7 +3682,7 @@ name|CharSequence
 argument_list|>
 name|neighbors
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|neighbors
 argument_list|(
@@ -3563,7 +3697,7 @@ name|CharSequence
 argument_list|>
 name|parentNeighbors
 init|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|neighbors
 argument_list|(
@@ -3985,13 +4119,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"random testing of setting"
-argument_list|)
-expr_stmt|;
 name|List
 argument_list|<
 name|GeohashCellQuery
@@ -4010,43 +4137,6 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
-for|for
-control|(
-name|int
-name|j
-init|=
-name|filterBuilders
-operator|.
-name|size
-argument_list|()
-operator|*
-literal|2
-operator|*
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
-init|;
-name|j
-operator|>
-literal|0
-condition|;
-name|j
-operator|--
-control|)
-block|{
-name|Collections
-operator|.
-name|shuffle
-argument_list|(
-name|filterBuilders
-argument_list|,
-name|getRandom
-argument_list|()
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|GeohashCellQuery
@@ -4213,225 +4303,6 @@ throw|;
 block|}
 block|}
 block|}
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"Testing lat/lon format"
-argument_list|)
-expr_stmt|;
-name|String
-name|pointTest1
-init|=
-literal|"{\"geohash_cell\": {\"pin\": {\"lat\": "
-operator|+
-name|point
-operator|.
-name|lat
-argument_list|()
-operator|+
-literal|",\"lon\": "
-operator|+
-name|point
-operator|.
-name|lon
-argument_list|()
-operator|+
-literal|"},\"precision\": "
-operator|+
-name|precision
-operator|+
-literal|",\"neighbors\": true}}"
-decl_stmt|;
-name|SearchResponse
-name|results3
-init|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"locations"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-name|QueryBuilders
-operator|.
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|setPostFilter
-argument_list|(
-name|pointTest1
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-decl_stmt|;
-name|assertHitCount
-argument_list|(
-name|results3
-argument_list|,
-name|neighbors
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"Testing String format"
-argument_list|)
-expr_stmt|;
-name|String
-name|pointTest2
-init|=
-literal|"{\"geohash_cell\": {\"pin\": \""
-operator|+
-name|point
-operator|.
-name|lat
-argument_list|()
-operator|+
-literal|","
-operator|+
-name|point
-operator|.
-name|lon
-argument_list|()
-operator|+
-literal|"\",\"precision\": "
-operator|+
-name|precision
-operator|+
-literal|",\"neighbors\": true}}"
-decl_stmt|;
-name|SearchResponse
-name|results4
-init|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"locations"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-name|QueryBuilders
-operator|.
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|setPostFilter
-argument_list|(
-name|pointTest2
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-decl_stmt|;
-name|assertHitCount
-argument_list|(
-name|results4
-argument_list|,
-name|neighbors
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"Testing Array format"
-argument_list|)
-expr_stmt|;
-name|String
-name|pointTest3
-init|=
-literal|"{\"geohash_cell\": {\"pin\": ["
-operator|+
-name|point
-operator|.
-name|lon
-argument_list|()
-operator|+
-literal|","
-operator|+
-name|point
-operator|.
-name|lat
-argument_list|()
-operator|+
-literal|"],\"precision\": "
-operator|+
-name|precision
-operator|+
-literal|",\"neighbors\": true}}"
-decl_stmt|;
-name|SearchResponse
-name|results5
-init|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"locations"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-name|QueryBuilders
-operator|.
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|setPostFilter
-argument_list|(
-name|pointTest3
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-decl_stmt|;
-name|assertHitCount
-argument_list|(
-name|results5
-argument_list|,
-name|neighbors
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testNeighbors
 specifier|public
 name|void
@@ -4441,7 +4312,7 @@ block|{
 comment|// Simple root case
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4478,7 +4349,7 @@ expr_stmt|;
 comment|// Root cases (Outer cells)
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4508,7 +4379,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4538,7 +4409,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4568,7 +4439,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4599,7 +4470,7 @@ expr_stmt|;
 comment|// Root crossing dateline
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4635,7 +4506,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4672,7 +4543,7 @@ expr_stmt|;
 comment|// level1: simple case
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4709,7 +4580,7 @@ expr_stmt|;
 comment|// Level1: crossing cells
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4745,7 +4616,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -4800,9 +4671,9 @@ name|lon2
 parameter_list|)
 block|{
 return|return
-name|GeoUtils
+name|GeoProjectionUtils
 operator|.
-name|EARTH_SEMI_MAJOR_AXIS
+name|SEMIMAJOR_AXIS
 operator|*
 name|DistanceUtils
 operator|.
@@ -4918,7 +4789,7 @@ argument_list|)
 decl_stmt|;
 name|strategy
 operator|.
-name|makeFilter
+name|makeQuery
 argument_list|(
 name|args
 argument_list|)

@@ -329,16 +329,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -453,12 +443,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
-DECL|method|moveShardCommand
+DECL|method|testMoveShardCommand
 specifier|public
 name|void
-name|moveShardCommand
+name|testMoveShardCommand
 parameter_list|()
 block|{
 name|AllocationService
@@ -633,6 +621,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 decl_stmt|;
 name|clusterState
@@ -971,12 +961,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|allocateCommand
+DECL|method|testAllocateCommand
 specifier|public
 name|void
-name|allocateCommand
+name|testAllocateCommand
 parameter_list|()
 block|{
 name|AllocationService
@@ -1190,6 +1178,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 decl_stmt|;
 name|clusterState
@@ -1974,12 +1964,10 @@ name|e
 parameter_list|)
 block|{         }
 block|}
-annotation|@
-name|Test
-DECL|method|cancelCommand
+DECL|method|testCancelCommand
 specifier|public
 name|void
-name|cancelCommand
+name|testCancelCommand
 parameter_list|()
 block|{
 name|AllocationService
@@ -2173,6 +2161,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 decl_stmt|;
 name|clusterState
@@ -4180,12 +4170,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|serialization
+DECL|method|testSerialization
 specifier|public
 name|void
-name|serialization
+name|testSerialization
 parameter_list|()
 throws|throws
 name|Exception
@@ -4566,12 +4554,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|xContent
+DECL|method|testXContent
 specifier|public
 name|void
-name|xContent
+name|testXContent
 parameter_list|()
 throws|throws
 name|Exception

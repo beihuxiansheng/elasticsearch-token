@@ -264,18 +264,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|NodeBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
 name|internal
 operator|.
 name|InternalSettingsPreparer
@@ -694,6 +682,11 @@ operator|.
 name|getInstance
 argument_list|()
 expr_stmt|;
+name|JvmInfo
+operator|.
+name|jvmInfo
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|setup
 specifier|private
@@ -834,28 +827,17 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|NodeBuilder
-name|nodeBuilder
-init|=
-name|NodeBuilder
-operator|.
-name|nodeBuilder
-argument_list|()
-operator|.
-name|settings
+name|node
+operator|=
+operator|new
+name|Node
 argument_list|(
 name|nodeSettings
 argument_list|)
-decl_stmt|;
-name|node
-operator|=
-name|nodeBuilder
-operator|.
-name|build
-argument_list|()
 expr_stmt|;
 block|}
-comment|/**       * option for elasticsearch.yml etc to turn off our security manager completely,      * for example if you want to have your own configuration or just disable.      */
+comment|/**      * option for elasticsearch.yml etc to turn off our security manager completely,      * for example if you want to have your own configuration or just disable.      */
+comment|// TODO: remove this: http://www.openbsd.org/papers/hackfest2015-pledge/mgp00005.jpg
 DECL|field|SECURITY_SETTING
 specifier|static
 specifier|final
@@ -863,6 +845,16 @@ name|String
 name|SECURITY_SETTING
 init|=
 literal|"security.manager.enabled"
+decl_stmt|;
+comment|/**      * option for elasticsearch.yml to fully respect the system policy, including bad defaults      * from java.      */
+comment|// TODO: remove this hack when insecure defaults are removed from java
+DECL|field|SECURITY_FILTER_BAD_DEFAULTS_SETTING
+specifier|static
+specifier|final
+name|String
+name|SECURITY_FILTER_BAD_DEFAULTS_SETTING
+init|=
+literal|"security.manager.filter_bad_defaults"
 decl_stmt|;
 DECL|method|setupSecurity
 specifier|private
@@ -895,6 +887,15 @@ operator|.
 name|configure
 argument_list|(
 name|environment
+argument_list|,
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|SECURITY_FILTER_BAD_DEFAULTS_SETTING
+argument_list|,
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1052,6 +1053,31 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/** Set the system property before anything has a chance to trigger its use */
+comment|// TODO: why? is it just a bad default somewhere? or is it some BS around 'but the client' garbage<-- my guess
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"sets logger prefix on initialization"
+argument_list|)
+DECL|method|initLoggerPrefix
+specifier|static
+name|void
+name|initLoggerPrefix
+parameter_list|()
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"es.logger.prefix"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])}      * to startup elasticsearch.      */
 DECL|method|init
 specifier|static
@@ -1066,14 +1092,8 @@ throws|throws
 name|Throwable
 block|{
 comment|// Set the system property before anything has a chance to trigger its use
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"es.logger.prefix"
-argument_list|,
-literal|""
-argument_list|)
+name|initLoggerPrefix
+argument_list|()
 expr_stmt|;
 name|BootstrapCLIParser
 name|bootstrapCLIParser
@@ -1105,8 +1125,6 @@ operator|!=
 name|status
 condition|)
 block|{
-name|System
-operator|.
 name|exit
 argument_list|(
 name|status
@@ -1701,14 +1719,37 @@ argument_list|,
 name|settingName
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
 name|exit
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Allowed to exit explicitly in bootstrap phase"
+argument_list|)
+DECL|method|exit
+specifier|private
+specifier|static
+name|void
+name|exit
+parameter_list|(
+name|int
+name|status
+parameter_list|)
+block|{
+name|System
+operator|.
+name|exit
+argument_list|(
+name|status
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

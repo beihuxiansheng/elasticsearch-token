@@ -58,16 +58,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -97,6 +87,18 @@ operator|.
 name|CoreMatchers
 operator|.
 name|nullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -223,15 +225,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * test that missing "filter" element causes {@link ParsingException}      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|ParsingException
-operator|.
-name|class
-argument_list|)
 DECL|method|testFilterElement
 specifier|public
 name|void
@@ -251,14 +244,40 @@ name|NAME
 operator|+
 literal|"\" : {}"
 decl_stmt|;
+try|try
+block|{
 name|parseQuery
 argument_list|(
 name|queryString
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ParsingException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"requires a 'filter' element"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -287,6 +306,107 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|testUnknownField
+specifier|public
+name|void
+name|testUnknownField
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test doesn't apply for query filter queries"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"constant_score\" : {\n"
+operator|+
+literal|"    \"filter\" : {\n"
+operator|+
+literal|"      \"terms\" : {\n"
+operator|+
+literal|"        \"user\" : [ \"kimchy\", \"elasticsearch\" ],\n"
+operator|+
+literal|"        \"boost\" : 42.0\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"boost\" : 23.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|ConstantScoreQueryBuilder
+name|parsed
+init|=
+operator|(
+name|ConstantScoreQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|23.0
+argument_list|,
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|42.0
+argument_list|,
+name|parsed
+operator|.
+name|innerQuery
+argument_list|()
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

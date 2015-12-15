@@ -54,10 +54,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|cluster
 operator|.
 name|health
@@ -422,7 +418,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalTestCluster
+name|ESIntegTestCase
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -430,9 +428,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|InternalTestCluster
 import|;
 end_import
 
@@ -480,7 +480,55 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|*
+name|SETTING_BLOCKS_METADATA
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_BLOCKS_READ
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_BLOCKS_WRITE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_READ_ONLY
 import|;
 end_import
 
@@ -517,20 +565,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -630,12 +664,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
-DECL|method|rerouteWithCommands_disableAllocationSettings
+DECL|method|testRerouteWithCommands_disableAllocationSettings
 specifier|public
 name|void
-name|rerouteWithCommands_disableAllocationSettings
+name|testRerouteWithCommands_disableAllocationSettings
 parameter_list|()
 throws|throws
 name|Exception
@@ -673,12 +705,10 @@ name|commonSettings
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|rerouteWithCommands_enableAllocationSettings
+DECL|method|testRerouteWithCommands_enableAllocationSettings
 specifier|public
 name|void
-name|rerouteWithCommands_enableAllocationSettings
+name|testRerouteWithCommands_enableAllocationSettings
 parameter_list|()
 throws|throws
 name|Exception
@@ -1527,12 +1557,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|rerouteWithAllocateLocalGateway_disableAllocationSettings
+DECL|method|testRerouteWithAllocateLocalGateway_disableAllocationSettings
 specifier|public
 name|void
-name|rerouteWithAllocateLocalGateway_disableAllocationSettings
+name|testRerouteWithAllocateLocalGateway_disableAllocationSettings
 parameter_list|()
 throws|throws
 name|Exception
@@ -1570,12 +1598,10 @@ name|commonSettings
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|rerouteWithAllocateLocalGateway_enableAllocationSettings
+DECL|method|testRerouteWithAllocateLocalGateway_enableAllocationSettings
 specifier|public
 name|void
-name|rerouteWithAllocateLocalGateway_enableAllocationSettings
+name|testRerouteWithAllocateLocalGateway_enableAllocationSettings
 parameter_list|()
 throws|throws
 name|Exception
@@ -1607,8 +1633,6 @@ name|commonSettings
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDelayWithALargeAmountOfShards
 specifier|public
 name|void
@@ -2717,12 +2741,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|rerouteExplain
+DECL|method|testRerouteExplain
 specifier|public
 name|void
-name|rerouteExplain
+name|testRerouteExplain
 parameter_list|()
 block|{
 name|Settings
@@ -3184,8 +3206,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterRerouteWithBlocks
 specifier|public
 name|void

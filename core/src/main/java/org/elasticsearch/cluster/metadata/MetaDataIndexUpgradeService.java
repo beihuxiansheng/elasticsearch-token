@@ -118,7 +118,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -184,9 +184,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
+name|indices
 operator|.
-name|ScriptService
+name|mapper
+operator|.
+name|MapperRegistry
 import|;
 end_import
 
@@ -196,7 +198,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Locale
+name|Collections
 import|;
 end_import
 
@@ -252,11 +254,11 @@ name|MetaDataIndexUpgradeService
 extends|extends
 name|AbstractComponent
 block|{
-DECL|field|scriptService
+DECL|field|mapperRegistry
 specifier|private
 specifier|final
-name|ScriptService
-name|scriptService
+name|MapperRegistry
+name|mapperRegistry
 decl_stmt|;
 annotation|@
 name|Inject
@@ -267,8 +269,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|ScriptService
-name|scriptService
+name|MapperRegistry
+name|mapperRegistry
 parameter_list|)
 block|{
 name|super
@@ -278,9 +280,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|scriptService
+name|mapperRegistry
 operator|=
-name|scriptService
+name|mapperRegistry
 expr_stmt|;
 block|}
 comment|/**      * Checks that the index can be upgraded to the current version of the master node.      *      *<p>      * If the index does not need upgrade it returns the index metadata unchanged, otherwise it returns a modified index metadata. If index      * cannot be updated the method throws an exception.      */
@@ -352,7 +354,7 @@ block|{
 return|return
 name|indexMetaData
 operator|.
-name|upgradeVersion
+name|getUpgradedVersion
 argument_list|()
 operator|.
 name|onOrAfter
@@ -436,7 +438,7 @@ if|if
 condition|(
 name|indexMetaData
 operator|.
-name|creationVersion
+name|getCreationVersion
 argument_list|()
 operator|.
 name|onOrAfter
@@ -585,6 +587,8 @@ literal|"index.translog.interval"
 argument_list|,
 literal|"index.translog.sync_interval"
 argument_list|,
+literal|"index.shard.inactive_time"
+argument_list|,
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
@@ -623,7 +627,7 @@ name|settings
 init|=
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 decl_stmt|;
 name|Settings
@@ -833,7 +837,7 @@ name|version
 argument_list|(
 name|indexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|.
@@ -865,41 +869,42 @@ name|IndexMetaData
 name|indexMetaData
 parameter_list|)
 block|{
-name|Index
-name|index
+try|try
+block|{
+comment|// We cannot instantiate real analysis server at this point because the node might not have
+comment|// been started yet. However, we don't really need real analyzers at this stage - so we can fake it
+name|IndexSettings
+name|indexSettings
 init|=
 operator|new
-name|Index
+name|IndexSettings
 argument_list|(
 name|indexMetaData
+argument_list|,
+name|this
 operator|.
-name|getIndex
+name|settings
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Settings
-name|settings
-init|=
-name|indexMetaData
-operator|.
-name|settings
-argument_list|()
-decl_stmt|;
-try|try
-block|{
 name|SimilarityService
 name|similarityService
 init|=
 operator|new
 name|SimilarityService
 argument_list|(
-name|index
+name|indexSettings
 argument_list|,
-name|settings
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// We cannot instantiate real analysis server at this point because the node might not have
-comment|// been started yet. However, we don't really need real analyzers at this stage - so we can fake it
 try|try
 init|(
 name|AnalysisService
@@ -908,9 +913,7 @@ init|=
 operator|new
 name|FakeAnalysisService
 argument_list|(
-name|index
-argument_list|,
-name|settings
+name|indexSettings
 argument_list|)
 init|)
 block|{
@@ -922,15 +925,13 @@ init|=
 operator|new
 name|MapperService
 argument_list|(
-name|index
-argument_list|,
-name|settings
+name|indexSettings
 argument_list|,
 name|analysisService
 argument_list|,
 name|similarityService
 argument_list|,
-name|scriptService
+name|mapperRegistry
 argument_list|)
 init|)
 block|{
@@ -999,13 +1000,6 @@ operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"], reason: ["
-operator|+
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-operator|+
 literal|"]"
 argument_list|,
 name|ex
@@ -1035,7 +1029,7 @@ name|put
 argument_list|(
 name|indexMetaData
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 argument_list|)
 operator|.
@@ -1112,18 +1106,33 @@ DECL|method|FakeAnalysisService
 specifier|public
 name|FakeAnalysisService
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-name|Settings
+name|IndexSettings
 name|indexSettings
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

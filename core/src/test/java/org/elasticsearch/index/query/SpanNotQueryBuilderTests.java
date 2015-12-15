@@ -88,16 +88,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -146,7 +136,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
@@ -349,8 +363,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArgument
 specifier|public
 name|void
@@ -410,8 +422,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDist
 specifier|public
 name|void
@@ -535,8 +545,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testPrePost
 specifier|public
 name|void
@@ -672,8 +680,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * test correct parsing of `dist` parameter, this should create builder with pre/post set to same value      */
-annotation|@
-name|Test
 DECL|method|testParseDist
 specifier|public
 name|void
@@ -842,8 +848,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * test exceptions for three types of broken json, missing include / exclude and both dist and pre/post specified      */
-annotation|@
-name|Test
 DECL|method|testParserExceptions
 specifier|public
 name|void
@@ -1226,6 +1230,155 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_not\" : {\n"
+operator|+
+literal|"    \"include\" : {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field1\" : {\n"
+operator|+
+literal|"          \"value\" : \"hoya\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"exclude\" : {\n"
+operator|+
+literal|"      \"span_near\" : {\n"
+operator|+
+literal|"        \"clauses\" : [ {\n"
+operator|+
+literal|"          \"span_term\" : {\n"
+operator|+
+literal|"            \"field1\" : {\n"
+operator|+
+literal|"              \"value\" : \"la\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }, {\n"
+operator|+
+literal|"          \"span_term\" : {\n"
+operator|+
+literal|"            \"field1\" : {\n"
+operator|+
+literal|"              \"value\" : \"hoya\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        } ],\n"
+operator|+
+literal|"        \"slop\" : 0,\n"
+operator|+
+literal|"        \"in_order\" : true,\n"
+operator|+
+literal|"        \"collect_payloads\" : true,\n"
+operator|+
+literal|"        \"boost\" : 1.0\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"pre\" : 0,\n"
+operator|+
+literal|"    \"post\" : 0,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SpanNotQueryBuilder
+name|parsed
+init|=
+operator|(
+name|SpanNotQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"hoya"
+argument_list|,
+operator|(
+operator|(
+name|SpanTermQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|includeQuery
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+operator|(
+operator|(
+name|SpanNearQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|excludeQuery
+argument_list|()
+operator|)
+operator|.
+name|clauses
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

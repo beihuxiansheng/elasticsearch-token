@@ -450,7 +450,7 @@ name|searchScript
 init|=
 name|context
 operator|.
-name|scriptService
+name|getScriptService
 argument_list|()
 operator|.
 name|search

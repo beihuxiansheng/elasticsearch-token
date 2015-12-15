@@ -251,16 +251,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -415,12 +405,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
-DECL|method|moveShardOnceNewNodeWithAttributeAdded1
+DECL|method|testMoveShardOnceNewNodeWithAttributeAdded1
 specifier|public
 name|void
-name|moveShardOnceNewNodeWithAttributeAdded1
+name|testMoveShardOnceNewNodeWithAttributeAdded1
 parameter_list|()
 block|{
 name|AllocationService
@@ -622,6 +610,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -834,6 +824,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1013,6 +1005,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1081,6 +1075,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1138,12 +1134,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|moveShardOnceNewNodeWithAttributeAdded2
+DECL|method|testMoveShardOnceNewNodeWithAttributeAdded2
 specifier|public
 name|void
-name|moveShardOnceNewNodeWithAttributeAdded2
+name|testMoveShardOnceNewNodeWithAttributeAdded2
 parameter_list|()
 block|{
 name|AllocationService
@@ -1360,6 +1354,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1572,6 +1568,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1751,6 +1749,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1819,6 +1819,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1876,12 +1878,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|moveShardOnceNewNodeWithAttributeAdded3
+DECL|method|testMoveShardOnceNewNodeWithAttributeAdded3
 specifier|public
 name|void
-name|moveShardOnceNewNodeWithAttributeAdded3
+name|testMoveShardOnceNewNodeWithAttributeAdded3
 parameter_list|()
 block|{
 name|AllocationService
@@ -2119,6 +2119,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -2439,6 +2441,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -2687,6 +2691,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -2755,6 +2761,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -2881,6 +2889,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -2896,12 +2906,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|moveShardOnceNewNodeWithAttributeAdded4
+DECL|method|testMoveShardOnceNewNodeWithAttributeAdded4
 specifier|public
 name|void
-name|moveShardOnceNewNodeWithAttributeAdded4
+name|testMoveShardOnceNewNodeWithAttributeAdded4
 parameter_list|()
 block|{
 name|AllocationService
@@ -3158,6 +3166,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -3370,6 +3380,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -3699,6 +3711,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -3767,6 +3781,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -4002,6 +4018,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -4017,12 +4035,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|moveShardOnceNewNodeWithAttributeAdded5
+DECL|method|testMoveShardOnceNewNodeWithAttributeAdded5
 specifier|public
 name|void
-name|moveShardOnceNewNodeWithAttributeAdded5
+name|testMoveShardOnceNewNodeWithAttributeAdded5
 parameter_list|()
 block|{
 name|AllocationService
@@ -4224,6 +4240,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -4436,6 +4454,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -4615,6 +4635,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -4683,6 +4705,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -4860,6 +4884,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -4875,12 +4901,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|moveShardOnceNewNodeWithAttributeAdded6
+DECL|method|testMoveShardOnceNewNodeWithAttributeAdded6
 specifier|public
 name|void
-name|moveShardOnceNewNodeWithAttributeAdded6
+name|testMoveShardOnceNewNodeWithAttributeAdded6
 parameter_list|()
 block|{
 name|AllocationService
@@ -5112,6 +5136,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -5324,6 +5350,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -5503,6 +5531,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -5571,6 +5601,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -5748,6 +5780,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -5763,12 +5797,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|fullAwareness1
+DECL|method|testFullAwareness1
 specifier|public
 name|void
-name|fullAwareness1
+name|testFullAwareness1
 parameter_list|()
 block|{
 name|AllocationService
@@ -5977,6 +6009,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -6169,6 +6203,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -6348,6 +6384,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -6416,6 +6454,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -6473,12 +6513,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|fullAwareness2
+DECL|method|testFullAwareness2
 specifier|public
 name|void
-name|fullAwareness2
+name|testFullAwareness2
 parameter_list|()
 block|{
 name|AllocationService
@@ -6702,6 +6740,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -6894,6 +6934,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -7073,6 +7115,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -7141,6 +7185,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -7198,12 +7244,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|fullAwareness3
+DECL|method|testFullAwareness3
 specifier|public
 name|void
-name|fullAwareness3
+name|testFullAwareness3
 parameter_list|()
 block|{
 name|AllocationService
@@ -7488,6 +7532,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -7654,6 +7700,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -7879,6 +7927,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -7947,6 +7997,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -8073,6 +8125,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -8088,8 +8142,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUnbalancedZones
 specifier|public
 name|void
@@ -8317,6 +8369,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -8611,6 +8665,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -8840,8 +8896,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUnassignedShardsWithUnbalancedZones
 specifier|public
 name|void
@@ -9107,6 +9161,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable

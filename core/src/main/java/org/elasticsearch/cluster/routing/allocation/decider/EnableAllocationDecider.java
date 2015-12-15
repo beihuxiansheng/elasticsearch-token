@@ -320,7 +320,7 @@ name|index
 argument_list|()
 argument_list|)
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 decl_stmt|;
 name|String
@@ -561,7 +561,7 @@ name|index
 argument_list|()
 argument_list|)
 operator|.
-name|settings
+name|getSettings
 argument_list|()
 decl_stmt|;
 name|String

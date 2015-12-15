@@ -70,19 +70,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|mozilla
 operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|javascript
 operator|.
-name|junit
-operator|.
-name|Before
+name|EcmaError
 import|;
 end_import
 
@@ -136,13 +128,20 @@ name|JavaScriptScriptEngineService
 name|se
 decl_stmt|;
 annotation|@
-name|Before
-DECL|method|setup
+name|Override
+DECL|method|setUp
 specifier|public
 name|void
-name|setup
+name|setUp
 parameter_list|()
+throws|throws
+name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|se
 operator|=
 operator|new
@@ -155,18 +154,38 @@ operator|.
 name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
+comment|// otherwise will exit your VM and other bad stuff
+name|assumeTrue
+argument_list|(
+literal|"test requires security manager to be enabled"
+argument_list|,
+name|System
+operator|.
+name|getSecurityManager
+argument_list|()
+operator|!=
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
-name|After
-DECL|method|close
+name|Override
+DECL|method|tearDown
 specifier|public
 name|void
-name|close
+name|tearDown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|se
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
@@ -253,6 +272,14 @@ name|assertFailure
 parameter_list|(
 name|String
 name|script
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
+name|exceptionClass
 parameter_list|)
 block|{
 try|try
@@ -287,17 +314,67 @@ argument_list|(
 name|cause
 argument_list|)
 expr_stmt|;
-name|assertTrue
+if|if
+condition|(
+name|exceptionClass
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|cause
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
 argument_list|(
 literal|"unexpected exception: "
 operator|+
-name|cause
+name|expected
 argument_list|,
-name|cause
-operator|instanceof
-name|SecurityException
+name|expected
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|EcmaError
+name|expected
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exceptionClass
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|expected
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+literal|"unexpected exception: "
+operator|+
+name|expected
+argument_list|,
+name|expected
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 comment|/** Test some javascripts that are ok */
@@ -324,11 +401,17 @@ specifier|public
 name|void
 name|testNotOK
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// sanity check :)
 name|assertFailure
 argument_list|(
 literal|"java.lang.Runtime.getRuntime().halt(0)"
+argument_list|,
+name|EcmaError
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// check a few things more restrictive than the ordinary policy
@@ -336,12 +419,51 @@ comment|// no network
 name|assertFailure
 argument_list|(
 literal|"new java.net.Socket(\"localhost\", 1024)"
+argument_list|,
+name|EcmaError
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// no files
 name|assertFailure
 argument_list|(
 literal|"java.io.File.createTempFile(\"test\", \"tmp\")"
+argument_list|,
+name|EcmaError
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDefinitelyNotOK
+specifier|public
+name|void
+name|testDefinitelyNotOK
+parameter_list|()
+block|{
+comment|// no mucking with security controller
+name|assertFailure
+argument_list|(
+literal|"var ctx = org.mozilla.javascript.Context.getCurrentContext(); "
+operator|+
+literal|"ctx.setSecurityController(new org.mozilla.javascript.PolicySecurityController());"
+argument_list|,
+name|EcmaError
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// no compiling scripts from scripts
+name|assertFailure
+argument_list|(
+literal|"var ctx = org.mozilla.javascript.Context.getCurrentContext(); "
+operator|+
+literal|"ctx.compileString(\"1 + 1\", \"foobar\", 1, null); "
+argument_list|,
+name|EcmaError
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

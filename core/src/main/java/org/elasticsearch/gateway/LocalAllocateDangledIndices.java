@@ -757,7 +757,7 @@ index|[
 name|i
 index|]
 operator|.
-name|index
+name|getIndex
 argument_list|()
 expr_stmt|;
 block|}
@@ -884,7 +884,7 @@ name|hasIndex
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -902,7 +902,7 @@ name|hasAlias
 argument_list|(
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)
@@ -915,7 +915,7 @@ literal|"ignoring dangled index [{}] on node [{}] due to an existing alias with 
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
@@ -963,7 +963,7 @@ name|ex
 argument_list|,
 name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
@@ -993,7 +993,7 @@ name|version
 argument_list|(
 name|indexMetaData
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|+
 literal|1
@@ -1052,7 +1052,7 @@ name|append
 argument_list|(
 name|upgradedIndexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -1065,7 +1065,7 @@ name|append
 argument_list|(
 name|upgradedIndexMetaData
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|)
 operator|.
@@ -1161,6 +1161,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+literal|"dangling indices allocated"
 argument_list|)
 decl_stmt|;
 return|return

@@ -48,16 +48,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -158,8 +148,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -218,6 +206,151 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_containing\" : {\n"
+operator|+
+literal|"    \"big\" : {\n"
+operator|+
+literal|"      \"span_near\" : {\n"
+operator|+
+literal|"        \"clauses\" : [ {\n"
+operator|+
+literal|"          \"span_term\" : {\n"
+operator|+
+literal|"            \"field1\" : {\n"
+operator|+
+literal|"              \"value\" : \"bar\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }, {\n"
+operator|+
+literal|"          \"span_term\" : {\n"
+operator|+
+literal|"            \"field1\" : {\n"
+operator|+
+literal|"              \"value\" : \"baz\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        } ],\n"
+operator|+
+literal|"        \"slop\" : 5,\n"
+operator|+
+literal|"        \"in_order\" : true,\n"
+operator|+
+literal|"        \"collect_payloads\" : true,\n"
+operator|+
+literal|"        \"boost\" : 1.0\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"little\" : {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field1\" : {\n"
+operator|+
+literal|"          \"value\" : \"foo\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SpanContainingQueryBuilder
+name|parsed
+init|=
+operator|(
+name|SpanContainingQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+operator|(
+operator|(
+name|SpanNearQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|bigQuery
+argument_list|()
+operator|)
+operator|.
+name|clauses
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"foo"
+argument_list|,
+operator|(
+operator|(
+name|SpanTermQueryBuilder
+operator|)
+name|parsed
+operator|.
+name|littleQuery
+argument_list|()
+operator|)
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

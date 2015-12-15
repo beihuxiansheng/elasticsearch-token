@@ -173,11 +173,6 @@ argument_list|<
 name|L
 argument_list|>
 block|{
-DECL|field|rootFailure
-specifier|private
-name|Throwable
-name|rootFailure
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|actionGet
@@ -339,9 +334,6 @@ operator|new
 name|ElasticsearchTimeoutException
 argument_list|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -533,18 +525,6 @@ name|L
 name|listenerResponse
 parameter_list|)
 function_decl|;
-annotation|@
-name|Override
-DECL|method|getRootFailure
-specifier|public
-name|Throwable
-name|getRootFailure
-parameter_list|()
-block|{
-return|return
-name|rootFailure
-return|;
-block|}
 block|}
 end_class
 

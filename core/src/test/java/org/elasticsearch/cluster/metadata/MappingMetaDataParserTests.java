@@ -87,16 +87,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -144,8 +134,6 @@ name|MappingMetaDataParserTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testParseIdAlone
 specifier|public
 name|void
@@ -375,8 +363,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFailIfIdIsNoValue
 specifier|public
 name|void
@@ -656,8 +642,6 @@ block|{
 comment|// bogus its an object
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testParseRoutingAlone
 specifier|public
 name|void
@@ -885,8 +869,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseTimestampAlone
 specifier|public
 name|void
@@ -1116,8 +1098,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseTimestampEquals
 specifier|public
 name|void
@@ -1247,8 +1227,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseIdAndRoutingAndTimestamp
 specifier|public
 name|void
@@ -1441,8 +1419,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseIdAndRoutingAndTimestampWithPath
 specifier|public
 name|void
@@ -1673,8 +1649,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseIdWithPath
 specifier|public
 name|void
@@ -1942,8 +1916,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseRoutingWithPath
 specifier|public
 name|void
@@ -2209,8 +2181,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseTimestampWithPath
 specifier|public
 name|void
@@ -2471,8 +2441,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseIdAndRoutingAndTimestampWithinSamePath
 specifier|public
 name|void
@@ -2710,8 +2678,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseIdAndRoutingAndTimestampWithinSamePathAndMoreLevels
 specifier|public
 name|void
@@ -2973,8 +2939,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseIdAndRoutingAndTimestampWithSameRepeatedObject
 specifier|public
 name|void
@@ -3213,9 +3177,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//
-annotation|@
-name|Test
 DECL|method|testParseIdRoutingTimestampWithRepeatedField
 specifier|public
 name|void
@@ -3417,8 +3378,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseNoIdRoutingWithRepeatedFieldAndObject
 specifier|public
 name|void
@@ -3626,8 +3585,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParseRoutingWithRepeatedFieldAndValidRouting
 specifier|public
 name|void

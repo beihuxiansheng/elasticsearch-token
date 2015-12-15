@@ -158,16 +158,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1158,6 +1148,9 @@ name|asList
 argument_list|(
 name|files
 argument_list|)
+argument_list|,
+name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -3482,8 +3475,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testConcurrentModificationIndexFileDetailsMap
 specifier|public
 name|void
@@ -3548,6 +3539,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -3629,8 +3622,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFileHashCodeAndEquals
 specifier|public
 name|void

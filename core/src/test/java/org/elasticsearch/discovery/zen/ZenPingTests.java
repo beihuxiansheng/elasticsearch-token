@@ -96,16 +96,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -144,8 +134,6 @@ name|ZenPingTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testPingCollection
 specifier|public
 name|void
@@ -395,6 +383,9 @@ operator|.
 name|shuffle
 argument_list|(
 name|pings
+argument_list|,
+name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ZenPing

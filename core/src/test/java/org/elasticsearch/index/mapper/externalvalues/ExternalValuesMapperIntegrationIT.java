@@ -58,7 +58,7 @@ name|geo
 operator|.
 name|builders
 operator|.
-name|ShapeBuilder
+name|ShapeBuilders
 import|;
 end_import
 
@@ -111,16 +111,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -179,8 +169,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalValues
 specifier|public
 name|void
@@ -235,7 +223,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL
 argument_list|)
@@ -416,7 +404,7 @@ name|geoShapeQuery
 argument_list|(
 literal|"field.shape"
 argument_list|,
-name|ShapeBuilder
+name|ShapeBuilders
 operator|.
 name|newPoint
 argument_list|(
@@ -508,8 +496,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExternalValuesWithMultifield
 specifier|public
 name|void
@@ -554,7 +540,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-name|RegisterExternalTypes
+name|ExternalMapperPlugin
 operator|.
 name|EXTERNAL_UPPER
 argument_list|)

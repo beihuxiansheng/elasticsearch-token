@@ -110,16 +110,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -196,8 +186,6 @@ extends|extends
 name|ESIntegTestCase
 block|{
 comment|/**      * Verifies that when there is no delay timeout, a 1/1 index shard will immediately      * get allocated to a free node when the node hosting it leaves the cluster.      */
-annotation|@
-name|Test
 DECL|method|testNoDelayedTimeout
 specifier|public
 name|void
@@ -315,8 +303,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * When we do have delayed allocation set, verifies that even though there is a node      * free to allocate the unassigned shard when the node hosting it leaves, it doesn't      * get allocated. Once we bring the node back, it gets allocated since it existed      * on it before.      */
-annotation|@
-name|Test
 DECL|method|testDelayedAllocationNodeLeavesAndComesBack
 specifier|public
 name|void
@@ -445,8 +431,13 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|hasUnassigned
+name|unassigned
 argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 argument_list|,
 name|equalTo
 argument_list|(
@@ -498,8 +489,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * With a very small delay timeout, verify that it expires and we get to green even      * though the node hosting the shard is not coming back.      */
-annotation|@
-name|Test
 DECL|method|testDelayedAllocationTimesOut
 specifier|public
 name|void
@@ -664,8 +653,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verify that when explicitly changing the value of the index setting for the delayed      * allocation to a very small value, it kicks the allocation of the unassigned shard      * even though the node it was hosted on will not come back.      */
-annotation|@
-name|Test
 DECL|method|testDelayedAllocationChangeWithSettingTo100ms
 specifier|public
 name|void
@@ -794,8 +781,13 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|hasUnassigned
+name|unassigned
 argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 argument_list|,
 name|equalTo
 argument_list|(
@@ -908,8 +900,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verify that when explicitly changing the value of the index setting for the delayed      * allocation to 0, it kicks the allocation of the unassigned shard      * even though the node it was hosted on will not come back.      */
-annotation|@
-name|Test
 DECL|method|testDelayedAllocationChangeWithSettingTo0
 specifier|public
 name|void
@@ -1038,8 +1028,13 @@ operator|.
 name|getRoutingNodes
 argument_list|()
 operator|.
-name|hasUnassigned
+name|unassigned
 argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1281,7 +1276,7 @@ name|shuffle
 argument_list|(
 name|startedShards
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;

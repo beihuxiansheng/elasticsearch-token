@@ -115,7 +115,8 @@ name|STREAMS
 init|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 decl_stmt|;
 static|static
 block|{
@@ -372,7 +373,7 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the stream that is registered for the given name      *      * @param name The given name      * @return The associated stream      */
 DECL|method|stream
-specifier|public
+specifier|private
 specifier|static
 specifier|synchronized
 name|Stream

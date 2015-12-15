@@ -138,6 +138,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/** A {@link Query} that only matches documents that are greater than or equal  *  to a configured doc ID. */
 end_comment
@@ -182,14 +192,17 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-literal|31
-operator|*
+name|Objects
+operator|.
+name|hash
+argument_list|(
 name|super
 operator|.
 name|hashCode
 argument_list|()
-operator|+
+argument_list|,
 name|minDoc
+argument_list|)
 return|;
 block|}
 annotation|@

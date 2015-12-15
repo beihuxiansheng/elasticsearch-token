@@ -86,16 +86,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -152,12 +142,10 @@ name|CollectionUtilsTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|rotateEmpty
+DECL|method|testRotateEmpty
 specifier|public
 name|void
-name|rotateEmpty
+name|testRotateEmpty
 parameter_list|()
 block|{
 name|assertTrue
@@ -180,12 +168,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|rotate
+DECL|method|testRotate
 specifier|public
 name|void
-name|rotate
+name|testRotate
 parameter_list|()
 block|{
 specifier|final
@@ -397,8 +383,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSortAndDedupByteRefArray
 specifier|public
 name|void
@@ -521,7 +505,7 @@ name|shuffle
 argument_list|(
 name|tmpList
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -676,8 +660,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSortByteRefArray
 specifier|public
 name|void
@@ -778,7 +760,7 @@ name|shuffle
 argument_list|(
 name|values
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;

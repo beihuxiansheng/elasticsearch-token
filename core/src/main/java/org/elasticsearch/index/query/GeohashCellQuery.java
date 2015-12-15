@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|XGeoHashUtils
+name|GeoHashUtils
 import|;
 end_import
 
@@ -75,6 +75,18 @@ operator|.
 name|common
 operator|.
 name|ParseField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParsingException
 import|;
 end_import
 
@@ -248,7 +260,7 @@ name|mapper
 operator|.
 name|geo
 operator|.
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 import|;
 end_import
 
@@ -356,7 +368,7 @@ parameter_list|(
 name|QueryShardContext
 name|context
 parameter_list|,
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|fieldType
@@ -378,7 +390,7 @@ name|geoHashMapper
 init|=
 name|fieldType
 operator|.
-name|geohashFieldType
+name|geoHashFieldType
 argument_list|()
 decl_stmt|;
 if|if
@@ -657,7 +669,7 @@ name|this
 operator|.
 name|geohash
 operator|=
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|stringEncode
 argument_list|(
@@ -884,7 +896,7 @@ literal|"failed to parse [{}] query. missing [{}] field [{}]"
 argument_list|,
 name|NAME
 argument_list|,
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|CONTENT_TYPE
 argument_list|,
@@ -898,7 +910,7 @@ operator|!
 operator|(
 name|fieldType
 operator|instanceof
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)
@@ -918,14 +930,14 @@ name|fieldName
 argument_list|)
 throw|;
 block|}
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 name|geoFieldType
 init|=
 operator|(
 operator|(
-name|GeoPointFieldMapper
+name|BaseGeoPointFieldMapper
 operator|.
 name|GeoPointFieldType
 operator|)
@@ -937,7 +949,7 @@ condition|(
 operator|!
 name|geoFieldType
 operator|.
-name|isGeohashPrefixEnabled
+name|isGeoHashPrefixEnabled
 argument_list|()
 condition|)
 block|{
@@ -1014,7 +1026,7 @@ name|geoFieldType
 argument_list|,
 name|geohash
 argument_list|,
-name|XGeoHashUtils
+name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
@@ -1702,6 +1714,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|fieldName
+operator|==
+literal|null
+condition|)
+block|{
 name|fieldName
 operator|=
 name|field
@@ -1722,7 +1741,8 @@ operator|.
 name|VALUE_STRING
 condition|)
 block|{
-comment|// A string indicates either a geohash or a lat/lon
+comment|// A string indicates either a geohash or a
+comment|// lat/lon
 comment|// string
 name|String
 name|location
@@ -1779,6 +1799,34 @@ operator|.
 name|geohash
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] field name already set to ["
+operator|+
+name|fieldName
+operator|+
+literal|"] but found ["
+operator|+
+name|field
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}

@@ -1094,7 +1094,7 @@ argument_list|()
 argument_list|,
 name|indexService
 operator|.
-name|queryParserService
+name|fieldData
 argument_list|()
 argument_list|,
 name|request

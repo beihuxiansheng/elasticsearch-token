@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BoostQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|FuzzyQuery
 import|;
 end_import
@@ -107,16 +121,6 @@ operator|.
 name|hamcrest
 operator|.
 name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -362,8 +366,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -443,8 +445,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testUnsupportedFuzzinessForStringType
 specifier|public
 name|void
@@ -534,8 +534,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testToQueryWithStringField
 specifier|public
 name|void
@@ -603,6 +601,42 @@ name|parsedQuery
 argument_list|,
 name|instanceOf
 argument_list|(
+name|BoostQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|BoostQuery
+name|boostQuery
+init|=
+operator|(
+name|BoostQuery
+operator|)
+name|parsedQuery
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|boostQuery
+operator|.
+name|getBoost
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|2.0f
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|boostQuery
+operator|.
+name|getQuery
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
 name|FuzzyQuery
 operator|.
 name|class
@@ -615,7 +649,10 @@ init|=
 operator|(
 name|FuzzyQuery
 operator|)
-name|parsedQuery
+name|boostQuery
+operator|.
+name|getQuery
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -669,22 +706,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|fuzzyQuery
-operator|.
-name|getBoost
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|2.0f
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testToQueryWithNumericField
 specifier|public
 name|void
@@ -720,9 +742,7 @@ literal|"\":{\n"
 operator|+
 literal|"            \"value\":12,\n"
 operator|+
-literal|"            \"fuzziness\":5,\n"
-operator|+
-literal|"            \"boost\":2.0\n"
+literal|"            \"fuzziness\":5\n"
 operator|+
 literal|"        }\n"
 operator|+
@@ -794,6 +814,89 @@ name|equalTo
 argument_list|(
 literal|17l
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"fuzzy\" : {\n"
+operator|+
+literal|"    \"user\" : {\n"
+operator|+
+literal|"      \"value\" : \"ki\",\n"
+operator|+
+literal|"      \"fuzziness\" : \"2\",\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 100,\n"
+operator|+
+literal|"      \"transpositions\" : false,\n"
+operator|+
+literal|"      \"boost\" : 42.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|FuzzyQueryBuilder
+name|parsed
+init|=
+operator|(
+name|FuzzyQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|42.0
+argument_list|,
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|fuzziness
+argument_list|()
+operator|.
+name|asInt
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

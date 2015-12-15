@@ -200,16 +200,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -361,12 +351,10 @@ argument_list|()
 return|;
 block|}
 comment|// see https://github.com/elasticsearch/elasticsearch/issues/5998
-annotation|@
-name|Test
-DECL|method|shardMinDocCountSignificantTermsTest
+DECL|method|testShardMinDocCountSignificantTermsTest
 specifier|public
 name|void
-name|shardMinDocCountSignificantTermsTest
+name|testShardMinDocCountSignificantTermsTest
 parameter_list|()
 throws|throws
 name|Exception
@@ -881,12 +869,10 @@ expr_stmt|;
 block|}
 block|}
 comment|// see https://github.com/elasticsearch/elasticsearch/issues/5998
-annotation|@
-name|Test
-DECL|method|shardMinDocCountTermsTest
+DECL|method|testShardMinDocCountTermsTest
 specifier|public
 name|void
-name|shardMinDocCountTermsTest
+name|testShardMinDocCountTermsTest
 parameter_list|()
 throws|throws
 name|Exception

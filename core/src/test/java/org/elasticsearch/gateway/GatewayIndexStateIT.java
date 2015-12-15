@@ -234,9 +234,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalTestCluster
+name|ESIntegTestCase
 operator|.
-name|RestartCallback
+name|Scope
 import|;
 end_import
 
@@ -244,9 +244,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|InternalTestCluster
+operator|.
+name|RestartCallback
 import|;
 end_import
 
@@ -279,20 +283,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -388,8 +378,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testMappingMetaDataParsed
 specifier|public
 name|void
@@ -630,8 +618,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleOpenClose
 specifier|public
 name|void
@@ -724,7 +710,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -887,7 +873,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1094,7 +1080,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1272,7 +1258,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1362,7 +1348,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1517,7 +1503,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1665,8 +1651,6 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testJustMasterNode
 specifier|public
 name|void
@@ -1884,8 +1868,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testJustMasterNodeAndJustDataNode
 specifier|public
 name|void
@@ -2012,8 +1994,6 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTwoNodesSingleDoc
 specifier|public
 name|void
@@ -2246,7 +2226,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|state
+name|getState
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2424,8 +2404,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testDanglingIndicesConflictWithAlias
 specifier|public
 name|void
@@ -2873,8 +2851,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDanglingIndices
 specifier|public
 name|void

@@ -22,10 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|cluster
 operator|.
 name|health
@@ -81,16 +77,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -176,7 +162,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -197,8 +219,6 @@ name|SearchPreferenceIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 comment|// see #2896
 DECL|method|testStopOneNodePreferenceWithRedState
 specifier|public
@@ -571,12 +591,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|noPreferenceRandom
+DECL|method|testNoPreferenceRandom
 specifier|public
 name|void
-name|noPreferenceRandom
+name|testNoPreferenceRandom
 parameter_list|()
 throws|throws
 name|Exception
@@ -749,12 +767,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|simplePreferenceTests
+DECL|method|testSimplePreference
 specifier|public
 name|void
-name|simplePreferenceTests
+name|testSimplePreference
 parameter_list|()
 throws|throws
 name|Exception
@@ -1222,8 +1238,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReplicaPreference
 specifier|public
 name|void
@@ -1433,15 +1447,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testThatSpecifyingNonExistingNodesReturnsUsefulError
 specifier|public
 name|void
@@ -1458,6 +1463,8 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -1481,6 +1488,32 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"No data node with id[DOES-NOT-EXIST] found"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

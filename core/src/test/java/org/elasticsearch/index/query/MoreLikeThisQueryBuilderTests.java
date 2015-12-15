@@ -340,16 +340,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1591,20 +1581,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
 DECL|method|testValidateEmptyFields
 specifier|public
 name|void
 name|testValidateEmptyFields
 parameter_list|()
+block|{
+try|try
 block|{
 operator|new
 name|MoreLikeThisQueryBuilder
@@ -1625,16 +1608,33 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Test
+name|fail
 argument_list|(
-name|expected
-operator|=
-name|IllegalArgumentException
-operator|.
-name|class
+literal|"Expected IllegalArgumentException"
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"requires 'fields' to be specified"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testValidateEmptyLike
 specifier|public
 name|void
@@ -1671,6 +1671,8 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+try|try
+block|{
 operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|(
@@ -1679,9 +1681,33 @@ argument_list|,
 name|likeItems
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected IllegalArgumentException"
+argument_list|)
+expr_stmt|;
 block|}
-annotation|@
-name|Test
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"requires either 'like' texts or items to be specified"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testUnsupportedFields
 specifier|public
 name|void
@@ -1781,8 +1807,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreLikeThisBuilder
 specifier|public
 name|void
@@ -1913,8 +1937,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testItemSerialization
 specifier|public
 name|void
@@ -1969,8 +1991,6 @@ name|newItem
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testItemFromXContent
 specifier|public
 name|void
@@ -2043,6 +2063,115 @@ argument_list|(
 name|expectedItem
 argument_list|,
 name|newItem
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"mlt\" : {\n"
+operator|+
+literal|"    \"fields\" : [ \"title\", \"description\" ],\n"
+operator|+
+literal|"    \"like\" : [ \"and potentially some more text here as well\", {\n"
+operator|+
+literal|"      \"_index\" : \"imdb\",\n"
+operator|+
+literal|"      \"_type\" : \"movies\",\n"
+operator|+
+literal|"      \"_id\" : \"1\"\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"_index\" : \"imdb\",\n"
+operator|+
+literal|"      \"_type\" : \"movies\",\n"
+operator|+
+literal|"      \"_id\" : \"2\"\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"max_query_terms\" : 12,\n"
+operator|+
+literal|"    \"min_term_freq\" : 1,\n"
+operator|+
+literal|"    \"min_doc_freq\" : 5,\n"
+operator|+
+literal|"    \"max_doc_freq\" : 2147483647,\n"
+operator|+
+literal|"    \"min_word_length\" : 0,\n"
+operator|+
+literal|"    \"max_word_length\" : 0,\n"
+operator|+
+literal|"    \"minimum_should_match\" : \"30%\",\n"
+operator|+
+literal|"    \"boost_terms\" : 0.0,\n"
+operator|+
+literal|"    \"include\" : false,\n"
+operator|+
+literal|"    \"fail_on_unsupported_field\" : true,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MoreLikeThisQueryBuilder
+name|parsed
+init|=
+operator|(
+name|MoreLikeThisQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|fields
+argument_list|()
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"and potentially some more text here as well"
+argument_list|,
+name|parsed
+operator|.
+name|likeTexts
+argument_list|()
+index|[
+literal|0
+index|]
 argument_list|)
 expr_stmt|;
 block|}

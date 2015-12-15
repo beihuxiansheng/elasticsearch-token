@@ -472,6 +472,34 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ESIntegTestCase
+operator|.
+name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESIntegTestCase
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|InternalTestCluster
 import|;
 end_import
@@ -594,16 +622,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -689,34 +707,6 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
 import|;
 end_import
 
@@ -1077,28 +1067,6 @@ comment|// just to make test quicker
 operator|.
 name|put
 argument_list|(
-literal|"transport.host"
-argument_list|,
-literal|"127.0.0.1"
-argument_list|)
-comment|// only bind on one IF we use v4 here by default
-operator|.
-name|put
-argument_list|(
-literal|"transport.bind_host"
-argument_list|,
-literal|"127.0.0.1"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"transport.publish_host"
-argument_list|,
-literal|"127.0.0.1"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"gateway.local.list_timeout"
 argument_list|,
 literal|"10s"
@@ -1253,12 +1221,10 @@ block|}
 block|}
 block|}
 comment|/**      * Test that no split brain occurs under partial network partition. See https://github.com/elasticsearch/elasticsearch/issues/2488      */
-annotation|@
-name|Test
-DECL|method|failWithMinimumMasterNodesConfigured
+DECL|method|testFailWithMinimumMasterNodesConfigured
 specifier|public
 name|void
-name|failWithMinimumMasterNodesConfigured
+name|testFailWithMinimumMasterNodesConfigured
 parameter_list|()
 throws|throws
 name|Exception
@@ -1394,8 +1360,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verify that nodes fault detection works after master (re) election      */
-annotation|@
-name|Test
 DECL|method|testNodesFDAfterMasterReelection
 specifier|public
 name|void
@@ -1545,8 +1509,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verify that the proper block is applied when nodes loose their master      */
-annotation|@
-name|Test
 DECL|method|testVerifyApiBlocksDuringPartition
 specifier|public
 name|void
@@ -1917,8 +1879,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This test isolates the master from rest of the cluster, waits for a new master to be elected, restores the partition      * and verifies that all node agree on the new cluster state      */
-annotation|@
-name|Test
 DECL|method|testIsolateMasterAndVerifyClusterStateConsensus
 specifier|public
 name|void
@@ -2306,8 +2266,6 @@ block|}
 block|}
 block|}
 comment|/**      * Test that we do not loose document whose indexing request was successful, under a randomly selected disruption scheme      * We also collect&amp; report the type of indexing failures that occur.      *<p>      * This test is a superset of tests run in the Jepsen test suite, with the exception of versioned updates      */
-annotation|@
-name|Test
 comment|// NOTE: if you remove the awaitFix, make sure to port the test to the 1.x branch
 annotation|@
 name|LuceneTestCase
@@ -2988,6 +2946,9 @@ operator|.
 name|shuffle
 argument_list|(
 name|semaphores
+argument_list|,
+name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -3306,8 +3267,6 @@ block|}
 block|}
 block|}
 comment|/**      * Test that cluster recovers from a long GC on master that causes other nodes to elect a new one      */
-annotation|@
-name|Test
 DECL|method|testMasterNodeGCs
 specifier|public
 name|void
@@ -3531,8 +3490,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that emulates a frozen elected master node that unfreezes and pushes his cluster state to other nodes      * that already are following another elected master node. These nodes should reject this cluster state and prevent      * them from following the stale master.      */
-annotation|@
-name|Test
 DECL|method|testStaleMasterNotHijackingMajority
 specifier|public
 name|void
@@ -3970,13 +3927,13 @@ name|submitStateUpdateTask
 argument_list|(
 literal|"sneaky-update"
 argument_list|,
+operator|new
+name|ClusterStateUpdateTask
+argument_list|(
 name|Priority
 operator|.
 name|IMMEDIATE
-argument_list|,
-operator|new
-name|ClusterStateUpdateTask
-argument_list|()
+argument_list|)
 block|{
 annotation|@
 name|Override
@@ -4301,8 +4258,6 @@ block|}
 block|}
 comment|/**      * Test that a document which is indexed on the majority side of a partition, is available from the minority side,      * once the partition is healed      */
 annotation|@
-name|Test
-annotation|@
 name|TestLogging
 argument_list|(
 name|value
@@ -4385,7 +4340,7 @@ name|shuffle
 argument_list|(
 name|nodes
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4695,12 +4650,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * A 4 node cluster with m_m_n set to 3 and each node has one unicast enpoint. One node partitions from the master node.      * The temporal unicast responses is empty. When partition is solved the one ping response contains a master node.      * The rejoining node should take this master node and connect.      */
-annotation|@
-name|Test
-DECL|method|unicastSinglePingResponseContainsMaster
+DECL|method|testUnicastSinglePingResponseContainsMaster
 specifier|public
 name|void
-name|unicastSinglePingResponseContainsMaster
+name|testUnicastSinglePingResponseContainsMaster
 parameter_list|()
 throws|throws
 name|Exception
@@ -4892,16 +4845,14 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Test
-annotation|@
 name|TestLogging
 argument_list|(
 literal|"discovery.zen:TRACE,cluster.service:TRACE"
 argument_list|)
-DECL|method|isolatedUnicastNodes
+DECL|method|testIsolatedUnicastNodes
 specifier|public
 name|void
-name|isolatedUnicastNodes
+name|testIsolatedUnicastNodes
 parameter_list|()
 throws|throws
 name|Exception
@@ -5080,8 +5031,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test cluster join with issues in cluster state publishing *      */
-annotation|@
-name|Test
 DECL|method|testClusterJoinDespiteOfPublishingIssues
 specifier|public
 name|void
@@ -5173,6 +5122,27 @@ operator|.
 name|nodes
 argument_list|()
 decl_stmt|;
+name|TransportService
+name|masterTranspotService
+init|=
+name|internalCluster
+argument_list|()
+operator|.
+name|getInstance
+argument_list|(
+name|TransportService
+operator|.
+name|class
+argument_list|,
+name|discoveryNodes
+operator|.
+name|masterNode
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|logger
 operator|.
 name|info
@@ -5206,10 +5176,7 @@ name|nonMasterTransportService
 operator|.
 name|addFailToSendNoConnectRule
 argument_list|(
-name|discoveryNodes
-operator|.
-name|masterNode
-argument_list|()
+name|masterTranspotService
 argument_list|)
 expr_stmt|;
 name|assertNoMaster
@@ -5246,6 +5213,27 @@ argument_list|,
 name|masterNode
 argument_list|)
 decl_stmt|;
+name|TransportService
+name|localTransportService
+init|=
+name|internalCluster
+argument_list|()
+operator|.
+name|getInstance
+argument_list|(
+name|TransportService
+operator|.
+name|class
+argument_list|,
+name|discoveryNodes
+operator|.
+name|localNode
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|randomBoolean
@@ -5256,10 +5244,7 @@ name|masterTransportService
 operator|.
 name|addFailToSendNoConnectRule
 argument_list|(
-name|discoveryNodes
-operator|.
-name|localNode
-argument_list|()
+name|localTransportService
 argument_list|,
 name|PublishClusterStateAction
 operator|.
@@ -5273,10 +5258,7 @@ name|masterTransportService
 operator|.
 name|addFailToSendNoConnectRule
 argument_list|(
-name|discoveryNodes
-operator|.
-name|localNode
-argument_list|()
+name|localTransportService
 argument_list|,
 name|PublishClusterStateAction
 operator|.
@@ -5309,10 +5291,7 @@ name|nonMasterTransportService
 operator|.
 name|addDelegate
 argument_list|(
-name|discoveryNodes
-operator|.
-name|masterNode
-argument_list|()
+name|masterTranspotService
 argument_list|,
 operator|new
 name|MockTransportService
@@ -5404,20 +5383,14 @@ name|masterTransportService
 operator|.
 name|clearRule
 argument_list|(
-name|discoveryNodes
-operator|.
-name|localNode
-argument_list|()
+name|localTransportService
 argument_list|)
 expr_stmt|;
 name|nonMasterTransportService
 operator|.
 name|clearRule
 argument_list|(
-name|discoveryNodes
-operator|.
-name|masterNode
-argument_list|()
+name|localTransportService
 argument_list|)
 expr_stmt|;
 name|ensureStableCluster
@@ -5434,8 +5407,6 @@ name|stopRandomNonMasterNode
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testClusterFormingWithASlowNode
 specifier|public
 name|void
@@ -5536,8 +5507,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an asymetric break between a master and one of the nodes and makes      * sure that the node is removed form the cluster, that the node start pinging and that      * the cluster reforms when healed.      */
-annotation|@
-name|Test
 annotation|@
 name|TestLogging
 argument_list|(
@@ -5648,15 +5617,12 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|ClusterService
+name|TransportService
 operator|.
 name|class
 argument_list|,
 name|nonMasterNode
 argument_list|)
-operator|.
-name|localNode
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5671,15 +5637,12 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|ClusterService
+name|TransportService
 operator|.
 name|class
 argument_list|,
 name|nonMasterNode
 argument_list|)
-operator|.
-name|localNode
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5732,12 +5695,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * This test creates a scenario where a primary shard (0 replicas) relocates and is in POST_RECOVERY on the target      * node but already deleted on the source node. Search request should still work.      */
-annotation|@
-name|Test
-DECL|method|searchWithRelocationAndSlowClusterStateProcessing
+DECL|method|testSearchWithRelocationAndSlowClusterStateProcessing
 specifier|public
 name|void
-name|searchWithRelocationAndSlowClusterStateProcessing
+name|testSearchWithRelocationAndSlowClusterStateProcessing
 parameter_list|()
 throws|throws
 name|Exception
@@ -6065,13 +6026,21 @@ argument_list|(
 name|client
 argument_list|()
 operator|.
-name|prepareCount
+name|prepareSearch
 argument_list|()
+operator|.
+name|setSize
+argument_list|(
+literal|0
+argument_list|)
 operator|.
 name|get
 argument_list|()
 operator|.
-name|getCount
+name|getHits
+argument_list|()
+operator|.
+name|totalHits
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6081,8 +6050,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndexImportedFromDataOnlyNodesIfMasterLostDataFolder
 specifier|public
 name|void
@@ -6245,8 +6212,6 @@ name|bugUrl
 operator|=
 literal|"https://github.com/elastic/elasticsearch/issues/11665"
 argument_list|)
-annotation|@
-name|Test
 DECL|method|testIndicesDeleted
 specifier|public
 name|void
@@ -6632,6 +6597,9 @@ operator|.
 name|shuffle
 argument_list|(
 name|list
+argument_list|,
+name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|setDisruptionScheme

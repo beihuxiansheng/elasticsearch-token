@@ -459,14 +459,6 @@ operator|new
 name|QueryShardContext
 argument_list|(
 name|context
-operator|.
-name|index
-argument_list|()
-argument_list|,
-name|context
-operator|.
-name|indexQueryParserService
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|contextCopy
@@ -503,19 +495,6 @@ name|context
 argument_list|)
 return|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|setFinalBoost
-specifier|protected
-name|void
-name|setFinalBoost
-parameter_list|(
-name|Query
-name|query
-parameter_list|)
-block|{
-comment|//no-op this query doesn't support boost
 block|}
 annotation|@
 name|Override

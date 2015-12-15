@@ -196,16 +196,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -318,7 +308,79 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|both
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|either
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
 import|;
 end_import
 
@@ -330,8 +392,6 @@ name|BulkProcessorIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testThatBulkProcessorCountIsCorrect
 specifier|public
 name|void
@@ -516,8 +576,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testBulkProcessorFlush
 specifier|public
 name|void
@@ -737,8 +795,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testBulkProcessorConcurrentRequests
 specifier|public
 name|void
@@ -776,7 +832,7 @@ name|randomIntBetween
 argument_list|(
 literal|0
 argument_list|,
-literal|10
+literal|7
 argument_list|)
 decl_stmt|;
 name|int
@@ -1060,6 +1116,11 @@ name|assertThat
 argument_list|(
 name|bulkItemResponse
 operator|.
+name|getFailureMessage
+argument_list|()
+argument_list|,
+name|bulkItemResponse
+operator|.
 name|isFailed
 argument_list|()
 argument_list|,
@@ -1156,8 +1217,6 @@ name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|//https://github.com/elasticsearch/elasticsearch/issues/5038
 DECL|method|testBulkProcessorConcurrentRequestsNoNodeAvailableException
 specifier|public
@@ -1459,8 +1518,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBulkProcessorWaitOnClose
 specifier|public
 name|void
@@ -1542,9 +1599,6 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-operator|(
-name|ByteSizeUnit
-operator|)
 name|RandomPicks
 operator|.
 name|randomFrom
@@ -1728,8 +1782,6 @@ name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testBulkProcessorConcurrentRequestsReadOnlyIndex
 specifier|public
 name|void

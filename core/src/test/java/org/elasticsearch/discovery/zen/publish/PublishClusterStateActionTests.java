@@ -140,6 +140,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Randomness
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|ImmutableOpenMap
@@ -383,16 +395,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -1566,8 +1568,6 @@ name|DEFAULT
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleClusterStatePublishing
 specifier|public
 name|void
@@ -2253,8 +2253,6 @@ name|clusterState
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUnexpectedDiffPublishing
 specifier|public
 name|void
@@ -2456,8 +2454,6 @@ name|clusterState
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testDisablingDiffPublishing
 specifier|public
 name|void
@@ -2727,8 +2723,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test not waiting on publishing works correctly (i.e., publishing times out)      */
-annotation|@
-name|Test
 DECL|method|testSimultaneousClusterStatePublishing
 specifier|public
 name|void
@@ -3129,8 +3123,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSerializationFailureDuringDiffPublishing
 specifier|public
 name|void
@@ -5090,14 +5082,11 @@ argument_list|(
 literal|"--> committing states"
 argument_list|)
 expr_stmt|;
-name|Collections
+name|Randomness
 operator|.
 name|shuffle
 argument_list|(
 name|states
-argument_list|,
-name|random
-argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -5609,7 +5598,7 @@ operator|+
 name|i
 argument_list|)
 operator|.
-name|numberOfShards
+name|getNumberOfShards
 argument_list|()
 argument_list|,
 name|equalTo

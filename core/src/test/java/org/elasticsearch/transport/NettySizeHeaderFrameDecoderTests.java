@@ -16,13 +16,11 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|nio
+name|elasticsearch
 operator|.
-name|charset
-operator|.
-name|StandardCharsets
+name|Version
 import|;
 end_import
 
@@ -32,7 +30,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
+name|cache
+operator|.
+name|recycler
+operator|.
+name|MockPageCacheRecycler
 import|;
 end_import
 
@@ -114,6 +116,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|MockBigArrays
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|breaker
@@ -145,34 +161,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|MockBigArrays
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cache
-operator|.
-name|recycler
-operator|.
-name|MockPageCacheRecycler
 import|;
 end_import
 
@@ -224,16 +212,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -269,6 +247,18 @@ operator|.
 name|net
 operator|.
 name|Socket
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -333,6 +323,13 @@ argument_list|(
 literal|"transport.host"
 argument_list|,
 literal|"127.0.0.1"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"transport.tcp.port"
+argument_list|,
+literal|"0"
 argument_list|)
 operator|.
 name|build
@@ -520,8 +517,6 @@ name|threadPool
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatTextMessageIsReturnedOnHTTPLikeRequest
 specifier|public
 name|void
@@ -635,8 +630,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testThatNothingIsReturnedForOtherInvalidPackets
 specifier|public
 name|void

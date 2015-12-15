@@ -83,16 +83,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -112,8 +102,6 @@ name|IndexDeleteByQueryResponseTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testIncrements
 specifier|public
 name|void
@@ -443,8 +431,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNegativeCounters
 specifier|public
 name|void
@@ -680,8 +666,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNegativeIncrements
 specifier|public
 name|void
@@ -917,8 +901,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSerialization
 specifier|public
 name|void

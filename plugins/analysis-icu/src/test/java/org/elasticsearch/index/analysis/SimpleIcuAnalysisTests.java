@@ -44,11 +44,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|io
 operator|.
-name|Test
+name|IOException
 import|;
 end_import
 
@@ -108,13 +108,13 @@ name|SimpleIcuAnalysisTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testDefaultsIcuAnalysis
 specifier|public
 name|void
 name|testDefaultsIcuAnalysis
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Settings
 name|settings

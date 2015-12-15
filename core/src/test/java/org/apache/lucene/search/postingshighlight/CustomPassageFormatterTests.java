@@ -77,16 +77,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -110,18 +100,6 @@ name|notNullValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
 begin_class
 DECL|class|CustomPassageFormatterTests
 specifier|public
@@ -130,8 +108,6 @@ name|CustomPassageFormatterTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimpleFormat
 specifier|public
 name|void
@@ -462,8 +438,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testHtmlEncodeFormat
 specifier|public
 name|void

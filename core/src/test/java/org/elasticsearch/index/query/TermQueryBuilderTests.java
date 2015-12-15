@@ -100,16 +100,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -139,6 +129,18 @@ operator|.
 name|CoreMatchers
 operator|.
 name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -314,15 +316,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|ParsingException
-operator|.
-name|class
-argument_list|)
 DECL|method|testTermArray
 specifier|public
 name|void
@@ -344,9 +337,95 @@ literal|"    }\n"
 operator|+
 literal|"}"
 decl_stmt|;
+try|try
+block|{
 name|parseQuery
 argument_list|(
 name|queryAsString
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ParsingException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"[term] query does not support array of values"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"term\" : {\n"
+operator|+
+literal|"    \"exact_value\" : {\n"
+operator|+
+literal|"      \"value\" : \"Quick Foxes!\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|TermQueryBuilder
+name|parsed
+init|=
+operator|(
+name|TermQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"Quick Foxes!"
+argument_list|,
+name|parsed
+operator|.
+name|value
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

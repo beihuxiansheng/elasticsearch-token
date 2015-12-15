@@ -64,16 +64,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -100,8 +90,6 @@ name|SearchStatsUnitTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 comment|// https://github.com/elasticsearch/elasticsearch/issues/7644
 DECL|method|testShardLevelSearchGroupStats
 specifier|public

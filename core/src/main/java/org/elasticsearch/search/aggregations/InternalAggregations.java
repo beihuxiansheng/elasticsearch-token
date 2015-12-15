@@ -998,9 +998,9 @@ name|in
 operator|.
 name|readOptionalStreamable
 argument_list|(
-operator|new
 name|InternalAggregations
-argument_list|()
+operator|::
+operator|new
 argument_list|)
 return|;
 block|}

@@ -50,6 +50,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|ScriptService
@@ -152,7 +164,8 @@ name|this
 argument_list|(
 name|Collections
 operator|.
-name|EMPTY_MAP
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -234,6 +247,9 @@ name|suggesters
 parameter_list|,
 name|ScriptService
 name|scriptService
+parameter_list|,
+name|IndicesService
+name|indexServices
 parameter_list|)
 block|{
 name|this
@@ -243,6 +259,8 @@ argument_list|(
 name|suggesters
 argument_list|,
 name|scriptService
+argument_list|,
+name|indexServices
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -268,6 +286,9 @@ name|suggesters
 parameter_list|,
 name|ScriptService
 name|scriptService
+parameter_list|,
+name|IndicesService
+name|indexServices
 parameter_list|)
 block|{
 specifier|final
@@ -294,6 +315,8 @@ operator|new
 name|PhraseSuggester
 argument_list|(
 name|scriptService
+argument_list|,
+name|indexServices
 argument_list|)
 argument_list|)
 expr_stmt|;

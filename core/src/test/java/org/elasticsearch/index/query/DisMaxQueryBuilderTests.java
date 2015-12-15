@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BoostQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|DisjunctionMaxQuery
 import|;
 end_import
@@ -69,16 +83,6 @@ operator|.
 name|search
 operator|.
 name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -470,8 +474,6 @@ name|alternateVersions
 return|;
 block|}
 comment|/**      * test `null`return value for missing inner queries      */
-annotation|@
-name|Test
 DECL|method|testNoInnerQueries
 specifier|public
 name|void
@@ -500,8 +502,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test inner query parsing to null. Current DSL allows inner filter element to parse to<tt>null</tt>.      * Those should be ignored upstream. To test this, we use inner {@link ConstantScoreQueryBuilder}      * with empty inner filter.      */
-annotation|@
-name|Test
 DECL|method|testInnerQueryReturnsNull
 specifier|public
 name|void
@@ -556,8 +556,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -595,8 +593,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testToQueryInnerPrefixQuery
 specifier|public
 name|void
@@ -710,11 +706,28 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|PrefixQuery
-name|firstQ
+name|assertThat
+argument_list|(
+name|disjuncts
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|instanceOf
+argument_list|(
+name|BoostQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|BoostQuery
+name|boostQuery
 init|=
 operator|(
-name|PrefixQuery
+name|BoostQuery
 operator|)
 name|disjuncts
 operator|.
@@ -722,6 +735,50 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+operator|(
+name|double
+operator|)
+name|boostQuery
+operator|.
+name|getBoost
+argument_list|()
+argument_list|,
+name|closeTo
+argument_list|(
+literal|1.2
+argument_list|,
+literal|0.00001
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|boostQuery
+operator|.
+name|getQuery
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|PrefixQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|PrefixQuery
+name|firstQ
+init|=
+operator|(
+name|PrefixQuery
+operator|)
+name|boostQuery
+operator|.
+name|getQuery
+argument_list|()
 decl_stmt|;
 comment|// since age is automatically registered in data, we encode it as numeric
 name|assertThat
@@ -743,22 +800,119 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"dis_max\" : {\n"
+operator|+
+literal|"    \"tie_breaker\" : 0.7,\n"
+operator|+
+literal|"    \"queries\" : [ {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"age\" : {\n"
+operator|+
+literal|"          \"value\" : 34,\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"term\" : {\n"
+operator|+
+literal|"        \"age\" : {\n"
+operator|+
+literal|"          \"value\" : 35,\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"boost\" : 1.2\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|DisMaxQueryBuilder
+name|parsed
+init|=
 operator|(
-name|double
+name|DisMaxQueryBuilder
 operator|)
-name|firstQ
-operator|.
-name|getBoost
-argument_list|()
-argument_list|,
-name|closeTo
+name|parseQuery
 argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
 literal|1.2
 argument_list|,
-literal|0.00001
+name|parsed
+operator|.
+name|boost
+argument_list|()
+argument_list|,
+literal|0.0001
 argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|0.7
+argument_list|,
+name|parsed
+operator|.
+name|tieBreaker
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|2
+argument_list|,
+name|parsed
+operator|.
+name|innerQueries
+argument_list|()
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

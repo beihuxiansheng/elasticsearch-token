@@ -46,16 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -208,9 +198,6 @@ name|query
 operator|.
 name|cutoffFrequency
 argument_list|(
-operator|(
-name|float
-operator|)
 name|randomIntBetween
 argument_list|(
 literal|1
@@ -410,8 +397,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -485,8 +470,135 @@ block|{
 comment|// okay
 block|}
 block|}
-annotation|@
-name|Test
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"common\" : {\n"
+operator|+
+literal|"    \"body\" : {\n"
+operator|+
+literal|"      \"query\" : \"nelly the elephant not as a cartoon\",\n"
+operator|+
+literal|"      \"disable_coord\" : true,\n"
+operator|+
+literal|"      \"high_freq_operator\" : \"AND\",\n"
+operator|+
+literal|"      \"low_freq_operator\" : \"OR\",\n"
+operator|+
+literal|"      \"cutoff_frequency\" : 0.001,\n"
+operator|+
+literal|"      \"minimum_should_match\" : {\n"
+operator|+
+literal|"        \"low_freq\" : \"2\",\n"
+operator|+
+literal|"        \"high_freq\" : \"3\"\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \"boost\" : 42.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|CommonTermsQueryBuilder
+name|queryBuilder
+init|=
+operator|(
+name|CommonTermsQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|query
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|query
+argument_list|,
+name|queryBuilder
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|42
+argument_list|,
+name|queryBuilder
+operator|.
+name|boost
+argument_list|,
+literal|0.00001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|0.001
+argument_list|,
+name|queryBuilder
+operator|.
+name|cutoffFrequency
+argument_list|()
+argument_list|,
+literal|0.0001
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+name|Operator
+operator|.
+name|OR
+argument_list|,
+name|queryBuilder
+operator|.
+name|lowFreqOperator
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+name|Operator
+operator|.
+name|AND
+argument_list|,
+name|queryBuilder
+operator|.
+name|highFreqOperator
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|query
+argument_list|,
+literal|"nelly the elephant not as a cartoon"
+argument_list|,
+name|queryBuilder
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testNoTermsFromQueryString
 specifier|public
 name|void
@@ -530,8 +642,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQuery1
 specifier|public
 name|void
@@ -607,8 +717,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQuery2
 specifier|public
 name|void
@@ -686,8 +794,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCommonTermsQuery3
 specifier|public
 name|void
@@ -763,8 +869,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// see #11730
 DECL|method|testCommonTermsQuery4
 specifier|public

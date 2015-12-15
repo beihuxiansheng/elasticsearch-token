@@ -104,35 +104,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|compress
 operator|.
 name|CompressedXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|*
 import|;
 end_import
 
@@ -254,31 +228,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -323,10 +277,11 @@ expr_stmt|;
 name|MapperService
 name|mapperService
 init|=
-name|queryParserService
+name|queryShardContext
 argument_list|()
 operator|.
-name|mapperService
+name|getMapperService
+argument_list|()
 decl_stmt|;
 name|mapperService
 operator|.
@@ -398,19 +353,18 @@ specifier|final
 name|MapperService
 name|mapperService
 init|=
-name|queryParserService
+name|queryShardContext
 argument_list|()
 operator|.
-name|mapperService
+name|getMapperService
+argument_list|()
 decl_stmt|;
 specifier|final
 name|IndexFieldDataService
 name|fieldData
 init|=
-name|queryParserService
+name|indexFieldDataService
 argument_list|()
-operator|.
-name|fieldDataService
 decl_stmt|;
 name|TestSearchContext
 name|testSearchContext
@@ -790,248 +744,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|testParseDeprecatedFilter
-specifier|public
-name|void
-name|testParseDeprecatedFilter
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|XContentBuilder
-name|builder
-init|=
-name|XContentFactory
-operator|.
-name|jsonBuilder
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-decl_stmt|;
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
-name|builder
-operator|.
-name|startObject
-argument_list|(
-literal|"nested"
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|startObject
-argument_list|(
-literal|"filter"
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|startObject
-argument_list|(
-literal|"terms"
-argument_list|)
-operator|.
-name|array
-argument_list|(
-name|STRING_FIELD_NAME
-argument_list|,
-literal|"a"
-argument_list|,
-literal|"b"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-comment|// deprecated
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-name|builder
-operator|.
-name|field
-argument_list|(
-literal|"path"
-argument_list|,
-literal|"foo.bar"
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-name|QueryShardContext
-name|shardContext
-init|=
-name|createShardContext
-argument_list|()
-decl_stmt|;
-name|QueryParseContext
-name|context
-init|=
-name|shardContext
-operator|.
-name|parseContext
-argument_list|()
-decl_stmt|;
-name|XContentParser
-name|parser
-init|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|XContentType
-operator|.
-name|JSON
-argument_list|)
-operator|.
-name|createParser
-argument_list|(
-name|builder
-operator|.
-name|string
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|context
-operator|.
-name|reset
-argument_list|(
-name|parser
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|parseFieldMatcher
-argument_list|(
-name|ParseFieldMatcher
-operator|.
-name|STRICT
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|context
-operator|.
-name|parseInnerQueryBuilder
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"filter is deprecated"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|ex
-parameter_list|)
-block|{
-name|assertEquals
-argument_list|(
-literal|"Deprecated field [filter] used, replaced by [query]"
-argument_list|,
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|parser
-operator|=
-name|XContentFactory
-operator|.
-name|xContent
-argument_list|(
-name|XContentType
-operator|.
-name|JSON
-argument_list|)
-operator|.
-name|createParser
-argument_list|(
-name|builder
-operator|.
-name|string
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|reset
-argument_list|(
-name|parser
-argument_list|)
-expr_stmt|;
-name|NestedQueryBuilder
-name|queryBuilder
-init|=
-operator|(
-name|NestedQueryBuilder
-operator|)
-name|context
-operator|.
-name|parseInnerQueryBuilder
-argument_list|()
-decl_stmt|;
-name|QueryBuilder
-name|query
-init|=
-name|queryBuilder
-operator|.
-name|query
-argument_list|()
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|query
-operator|instanceof
-name|TermsQueryBuilder
-argument_list|)
-expr_stmt|;
-name|TermsQueryBuilder
-name|tqb
-init|=
-operator|(
-name|TermsQueryBuilder
-operator|)
-name|query
-decl_stmt|;
-name|assertEquals
-argument_list|(
-name|tqb
-operator|.
-name|values
-argument_list|()
-argument_list|,
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-literal|"a"
-argument_list|,
-literal|"b"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testValidate
 specifier|public
 name|void
@@ -1124,6 +836,130 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"nested\" : {\n"
+operator|+
+literal|"    \"query\" : {\n"
+operator|+
+literal|"      \"bool\" : {\n"
+operator|+
+literal|"        \"must\" : [ {\n"
+operator|+
+literal|"          \"match\" : {\n"
+operator|+
+literal|"            \"obj1.name\" : {\n"
+operator|+
+literal|"              \"query\" : \"blue\",\n"
+operator|+
+literal|"              \"type\" : \"boolean\",\n"
+operator|+
+literal|"              \"operator\" : \"OR\",\n"
+operator|+
+literal|"              \"slop\" : 0,\n"
+operator|+
+literal|"              \"prefix_length\" : 0,\n"
+operator|+
+literal|"              \"max_expansions\" : 50,\n"
+operator|+
+literal|"              \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"              \"lenient\" : false,\n"
+operator|+
+literal|"              \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }, {\n"
+operator|+
+literal|"          \"range\" : {\n"
+operator|+
+literal|"            \"obj1.count\" : {\n"
+operator|+
+literal|"              \"from\" : 5,\n"
+operator|+
+literal|"              \"to\" : null,\n"
+operator|+
+literal|"              \"include_lower\" : false,\n"
+operator|+
+literal|"              \"include_upper\" : true,\n"
+operator|+
+literal|"              \"boost\" : 1.0\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        } ],\n"
+operator|+
+literal|"        \"disable_coord\" : false,\n"
+operator|+
+literal|"        \"adjust_pure_negative\" : true,\n"
+operator|+
+literal|"        \"boost\" : 1.0\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"path\" : \"obj1\",\n"
+operator|+
+literal|"    \"score_mode\" : \"avg\",\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|NestedQueryBuilder
+name|parsed
+init|=
+operator|(
+name|NestedQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+name|ScoreMode
+operator|.
+name|Avg
+argument_list|,
+name|parsed
+operator|.
+name|scoreMode
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

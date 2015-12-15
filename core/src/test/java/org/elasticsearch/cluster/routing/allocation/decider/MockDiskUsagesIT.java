@@ -172,16 +172,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -386,8 +376,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 comment|//@TestLogging("org.elasticsearch.cluster:TRACE,org.elasticsearch.cluster.routing.allocation.decider:TRACE")
 DECL|method|testRerouteOccursOnDiskPassingHighWatermark
 specifier|public

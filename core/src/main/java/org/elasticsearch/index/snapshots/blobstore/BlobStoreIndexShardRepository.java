@@ -1385,11 +1385,6 @@ argument_list|(
 name|shardId
 argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}
@@ -2260,12 +2255,7 @@ name|IndexShardSnapshotFailedException
 argument_list|(
 name|shardId
 argument_list|,
-literal|"error deleting index files during cleanup, reason: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
+literal|"error deleting index files during cleanup"
 argument_list|,
 name|e
 argument_list|)

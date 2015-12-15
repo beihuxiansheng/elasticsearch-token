@@ -52,10 +52,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|cluster
 operator|.
 name|health
@@ -267,16 +263,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -320,7 +306,55 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|boolQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|nestedQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
 import|;
 end_import
 
@@ -336,7 +370,39 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
 import|;
 end_import
 
@@ -348,7 +414,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|startsWith
 import|;
 end_import
 
@@ -360,12 +474,10 @@ name|SimpleNestedIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|simpleNested
+DECL|method|testSimpleNested
 specifier|public
 name|void
-name|simpleNested
+name|testSimpleNested
 parameter_list|()
 throws|throws
 name|Exception
@@ -1377,12 +1489,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|multiNested
+DECL|method|testMultiNested
 specifier|public
 name|void
-name|multiNested
+name|testMultiNested
 parameter_list|()
 throws|throws
 name|Exception
@@ -2203,8 +2313,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// When IncludeNestedDocsQuery is wrapped in a FilteredQuery then a in-finite loop occurs b/c of a bug in IncludeNestedDocsQuery#advance()
 comment|// This IncludeNestedDocsQuery also needs to be aware of the filter from alias
 DECL|method|testDeleteNestedDocsWithAlias
@@ -2527,8 +2635,6 @@ literal|6
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExplain
 specifier|public
 name|void
@@ -2784,8 +2890,6 @@ comment|//        assertThat(explanation.getDetails()[0].getDescription(), equal
 comment|//        assertThat(explanation.getDetails()[1].getValue(), equalTo(1f));
 comment|//        assertThat(explanation.getDetails()[1].getDescription(), equalTo("Child[1]"));
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleNestedSorting
 specifier|public
 name|void
@@ -3534,12 +3638,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testSimpleNestedSorting_withNestedFilterMissing
+DECL|method|testSimpleNestedSortingWithNestedFilterMissing
 specifier|public
 name|void
-name|testSimpleNestedSorting_withNestedFilterMissing
+name|testSimpleNestedSortingWithNestedFilterMissing
 parameter_list|()
 throws|throws
 name|Exception
@@ -4413,8 +4515,6 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSortNestedWithNestedFilter
 specifier|public
 name|void
@@ -7718,9 +7818,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// https://github.com/elasticsearch/elasticsearch/issues/9305
+comment|// Issue #9305
 DECL|method|testNestedSortingWithNestedFilterAsFilter
 specifier|public
 name|void
@@ -8611,8 +8709,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testCheckFixedBitSetCache
 specifier|public
 name|void

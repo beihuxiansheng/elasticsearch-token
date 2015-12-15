@@ -75,7 +75,7 @@ specifier|final
 name|long
 name|freeBytes
 decl_stmt|;
-comment|/**      * Create a new DiskUsage, if {@code totalBytes} is 0, {@get getFreeDiskAsPercentage}      * will always return 100.0% free      */
+comment|/**      * Create a new DiskUsage, if {@code totalBytes} is 0, {@link #getFreeDiskAsPercentage()}      * will always return 100.0% free      */
 DECL|method|DiskUsage
 specifier|public
 name|DiskUsage

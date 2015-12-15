@@ -194,6 +194,24 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|ip
+operator|.
+name|IpFieldMapper
+operator|.
+name|MAX_IP
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -220,7 +238,9 @@ specifier|final
 name|long
 name|MAX_IP
 init|=
-literal|4294967296l
+literal|1L
+operator|<<
+literal|32
 decl_stmt|;
 DECL|field|TYPE
 specifier|public

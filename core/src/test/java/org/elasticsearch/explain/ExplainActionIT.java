@@ -202,16 +202,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -356,8 +346,6 @@ name|ExplainActionIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimple
 specifier|public
 name|void
@@ -974,13 +962,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
-name|Test
 DECL|method|testExplainWithFields
 specifier|public
 name|void
@@ -1576,8 +1557,6 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-annotation|@
-name|Test
 DECL|method|testExplainWitSource
 specifier|public
 name|void
@@ -1918,8 +1897,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExplainWithFilteredAlias
 specifier|public
 name|void
@@ -2048,8 +2025,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testExplainWithFilteredAliasFetchSource
 specifier|public
 name|void
@@ -2328,12 +2303,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|explainDateRangeInQueryString
+DECL|method|testExplainDateRangeInQueryString
 specifier|public
 name|void
-name|explainDateRangeInQueryString
+name|testExplainDateRangeInQueryString
 parameter_list|()
 block|{
 name|createIndex
@@ -2487,12 +2460,10 @@ else|:
 literal|"alias"
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|streamExplainTest
+DECL|method|testStreamExplain
 specifier|public
 name|void
-name|streamExplainTest
+name|testStreamExplain
 parameter_list|()
 throws|throws
 name|Exception

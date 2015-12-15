@@ -114,16 +114,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -222,29 +212,12 @@ name|void
 name|close
 parameter_list|()
 block|{
-comment|// We need to clear some system properties
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"python.cachedir.skip"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"python.console.encoding"
-argument_list|)
-expr_stmt|;
 name|se
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleEquation
 specifier|public
 name|void
@@ -321,8 +294,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMapAccess
 specifier|public
 name|void
@@ -590,8 +561,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testObjectMapInter
 specifier|public
 name|void
@@ -831,8 +800,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAccessListInScript
 specifier|public
 name|void
@@ -1135,8 +1102,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChangingVarsCrossExecution1
 specifier|public
 name|void
@@ -1292,8 +1257,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChangingVarsCrossExecution2
 specifier|public
 name|void

@@ -229,6 +229,12 @@ specifier|final
 name|RoutingTable
 name|routingTable
 decl_stmt|;
+DECL|field|metaData
+specifier|private
+specifier|final
+name|MetaData
+name|metaData
+decl_stmt|;
 DECL|field|explanations
 specifier|private
 name|RoutingExplanations
@@ -238,7 +244,7 @@ operator|new
 name|RoutingExplanations
 argument_list|()
 decl_stmt|;
-comment|/**          * Creates a new {@link RoutingAllocation.Result}          *          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          */
+comment|/**          * Creates a new {@link RoutingAllocation.Result}          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          */
 DECL|method|Result
 specifier|public
 name|Result
@@ -248,6 +254,9 @@ name|changed
 parameter_list|,
 name|RoutingTable
 name|routingTable
+parameter_list|,
+name|MetaData
+name|metaData
 parameter_list|)
 block|{
 name|this
@@ -262,8 +271,14 @@ name|routingTable
 operator|=
 name|routingTable
 expr_stmt|;
+name|this
+operator|.
+name|metaData
+operator|=
+name|metaData
+expr_stmt|;
 block|}
-comment|/**          * Creates a new {@link RoutingAllocation.Result}          *           * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param explanations Explanation for the reroute actions          */
+comment|/**          * Creates a new {@link RoutingAllocation.Result}          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          * @param explanations Explanation for the reroute actions          */
 DECL|method|Result
 specifier|public
 name|Result
@@ -273,6 +288,9 @@ name|changed
 parameter_list|,
 name|RoutingTable
 name|routingTable
+parameter_list|,
+name|MetaData
+name|metaData
 parameter_list|,
 name|RoutingExplanations
 name|explanations
@@ -289,6 +307,12 @@ operator|.
 name|routingTable
 operator|=
 name|routingTable
+expr_stmt|;
+name|this
+operator|.
+name|metaData
+operator|=
+name|metaData
 expr_stmt|;
 name|this
 operator|.
@@ -308,6 +332,17 @@ return|return
 name|this
 operator|.
 name|changed
+return|;
+block|}
+comment|/**          * Get the {@link MetaData} referenced by this result          * @return referenced {@link MetaData}          */
+DECL|method|metaData
+specifier|public
+name|MetaData
+name|metaData
+parameter_list|()
+block|{
+return|return
+name|metaData
 return|;
 block|}
 comment|/**          * Get the {@link RoutingTable} referenced by this result          * @return referenced {@link RoutingTable}          */
@@ -396,7 +431,20 @@ name|debugDecision
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Creates a new {@link RoutingAllocation}      *       * @param deciders {@link AllocationDeciders} to used to make decisions for routing allocations      * @param routingNodes Routing nodes in the current cluster       * @param nodes TODO: Documentation      */
+DECL|field|hasPendingAsyncFetch
+specifier|private
+name|boolean
+name|hasPendingAsyncFetch
+init|=
+literal|false
+decl_stmt|;
+DECL|field|currentNanoTime
+specifier|private
+specifier|final
+name|long
+name|currentNanoTime
+decl_stmt|;
+comment|/**      * Creates a new {@link RoutingAllocation}      *  @param deciders {@link AllocationDeciders} to used to make decisions for routing allocations      * @param routingNodes Routing nodes in the current cluster      * @param nodes TODO: Documentation      * @param currentNanoTime the nano time to use for all delay allocation calculation (typically {@link System#nanoTime()})      */
 DECL|method|RoutingAllocation
 specifier|public
 name|RoutingAllocation
@@ -412,6 +460,9 @@ name|nodes
 parameter_list|,
 name|ClusterInfo
 name|clusterInfo
+parameter_list|,
+name|long
+name|currentNanoTime
 parameter_list|)
 block|{
 name|this
@@ -438,6 +489,23 @@ name|clusterInfo
 operator|=
 name|clusterInfo
 expr_stmt|;
+name|this
+operator|.
+name|currentNanoTime
+operator|=
+name|currentNanoTime
+expr_stmt|;
+block|}
+comment|/** returns the nano time captured at the beginning of the allocation. used to make sure all time based decisions are aligned */
+DECL|method|getCurrentNanoTime
+specifier|public
+name|long
+name|getCurrentNanoTime
+parameter_list|()
+block|{
+return|return
+name|currentNanoTime
+return|;
 block|}
 comment|/**      * Get {@link AllocationDeciders} used for allocation      * @return {@link AllocationDeciders} used for allocation      */
 DECL|method|deciders
@@ -811,6 +879,31 @@ return|return
 name|decision
 return|;
 block|}
+block|}
+comment|/**      * Returns<code>true</code> iff the current allocation run has not processed all of the in-flight or available      * shard or store fetches. Otherwise<code>true</code>      */
+DECL|method|hasPendingAsyncFetch
+specifier|public
+name|boolean
+name|hasPendingAsyncFetch
+parameter_list|()
+block|{
+return|return
+name|hasPendingAsyncFetch
+return|;
+block|}
+comment|/**      * Sets a flag that signals that current allocation run has not processed all of the in-flight or available shard or store fetches.      * This state is anti-viral and can be reset in on allocation run.      */
+DECL|method|setHasPendingAsyncFetch
+specifier|public
+name|void
+name|setHasPendingAsyncFetch
+parameter_list|()
+block|{
+name|this
+operator|.
+name|hasPendingAsyncFetch
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 end_class

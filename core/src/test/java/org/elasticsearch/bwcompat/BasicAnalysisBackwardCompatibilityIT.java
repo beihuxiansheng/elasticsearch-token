@@ -124,16 +124,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -274,8 +264,6 @@ literal|"[\u17B4\u17B5\u17D3\u17CB-\u17D1\u17DD\u1036\u17C6\u1A74\u1038\u17C7\u0
 argument_list|)
 decl_stmt|;
 comment|/**      * Simple upgrade test for analyzers to make sure they analyze to the same tokens after upgrade      * TODO we need this for random tokenizers / tokenfilters as well      */
-annotation|@
-name|Test
 DECL|method|testAnalyzerTokensAfterUpgrade
 specifier|public
 name|void
@@ -309,13 +297,6 @@ name|length
 operator|*
 literal|10
 argument_list|)
-decl_stmt|;
-name|StringBuilder
-name|builder
-init|=
-operator|new
-name|StringBuilder
-argument_list|()
 decl_stmt|;
 name|String
 index|[]

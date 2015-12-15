@@ -36,20 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|ByteSizeValue
@@ -91,8 +77,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|index
-operator|.
-name|settings
 operator|.
 name|IndexSettings
 import|;
@@ -195,15 +179,6 @@ name|INDEX_TRANSLOG_FS_TYPE
 init|=
 literal|"index.translog.fs.type"
 decl_stmt|;
-DECL|field|INDEX_TRANSLOG_BUFFER_SIZE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_TRANSLOG_BUFFER_SIZE
-init|=
-literal|"index.translog.fs.buffer_size"
-decl_stmt|;
 DECL|field|INDEX_TRANSLOG_SYNC_INTERVAL
 specifier|public
 specifier|static
@@ -274,7 +249,7 @@ decl_stmt|;
 DECL|field|indexSettings
 specifier|private
 specifier|final
-name|Settings
+name|IndexSettings
 name|indexSettings
 decl_stmt|;
 DECL|field|shardId
@@ -300,9 +275,7 @@ parameter_list|,
 name|Path
 name|translogPath
 parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 name|Translog
@@ -367,6 +340,9 @@ name|fromString
 argument_list|(
 name|indexSettings
 operator|.
+name|getSettings
+argument_list|()
+operator|.
 name|get
 argument_list|(
 name|INDEX_TRANSLOG_FS_TYPE
@@ -389,16 +365,9 @@ operator|=
 operator|(
 name|int
 operator|)
-name|indexSettings
-operator|.
-name|getAsBytesSize
-argument_list|(
-name|INDEX_TRANSLOG_BUFFER_SIZE
-argument_list|,
 name|IndexingMemoryController
 operator|.
 name|SHARD_TRANSLOG_BUFFER
-argument_list|)
 operator|.
 name|bytes
 argument_list|()
@@ -406,6 +375,9 @@ expr_stmt|;
 name|syncInterval
 operator|=
 name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
 operator|.
 name|getAsTime
 argument_list|(
@@ -548,7 +520,7 @@ return|return
 name|syncOnEachOperation
 return|;
 block|}
-comment|/**      * Retruns the current translog buffer size.      */
+comment|/**      * Returns the current translog buffer size.      */
 DECL|method|getBufferSizeBytes
 specifier|public
 name|int
@@ -570,10 +542,10 @@ return|return
 name|syncInterval
 return|;
 block|}
-comment|/**      * Returns the current index settings      */
+comment|/**      * Returns the index indexSettings      */
 DECL|method|getIndexSettings
 specifier|public
-name|Settings
+name|IndexSettings
 name|getIndexSettings
 parameter_list|()
 block|{

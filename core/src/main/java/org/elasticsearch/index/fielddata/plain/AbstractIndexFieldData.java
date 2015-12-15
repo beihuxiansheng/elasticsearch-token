@@ -28,20 +28,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|LeafReaderContext
 import|;
 end_import
@@ -104,20 +90,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
@@ -132,7 +104,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexSettings
 import|;
 end_import
 
@@ -161,20 +133,6 @@ operator|.
 name|mapper
 operator|.
 name|MappedFieldType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
 import|;
 end_import
 
@@ -235,12 +193,7 @@ DECL|method|AbstractIndexFieldData
 specifier|public
 name|AbstractIndexFieldData
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
-annotation|@
 name|IndexSettings
-name|Settings
 name|indexSettings
 parameter_list|,
 name|MappedFieldType
@@ -257,8 +210,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
@@ -360,7 +311,10 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// If the field doesn't exist, then don't bother with loading and adding an empty instance to the field data cache
+comment|// Some leaf readers may be wrapped and report different set of fields and use the same cache key.
+comment|// If a field can't be found then it doesn't mean it isn't there,
+comment|// so if a field doesn't exist then we don't cache it and just return an empty field data instance.
+comment|// The next time the field is found, we do cache.
 return|return
 name|empty
 argument_list|(
@@ -418,11 +372,6 @@ throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
 name|e
 argument_list|)
 throw|;

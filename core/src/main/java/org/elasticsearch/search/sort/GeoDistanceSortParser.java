@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DocIdSet
+name|DocIdSetIterator
 import|;
 end_import
 
@@ -82,21 +82,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|QueryWrapperFilter
+name|Query
 import|;
 end_import
 
@@ -555,10 +541,13 @@ name|indexCreatedBeforeV2_0
 init|=
 name|context
 operator|.
-name|queryParserService
+name|indexShard
 argument_list|()
 operator|.
-name|getIndexCreatedVersion
+name|getIndexSettings
+argument_list|()
+operator|.
+name|getIndexVersionCreated
 argument_list|()
 operator|.
 name|before
@@ -1320,7 +1309,7 @@ name|newNonNestedFilter
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Filter
+name|Query
 name|innerDocumentsFilter
 decl_stmt|;
 if|if
@@ -1334,14 +1323,10 @@ block|{
 comment|// TODO: use queries instead
 name|innerDocumentsFilter
 operator|=
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 name|nestedHelper
 operator|.
 name|getInnerFilter
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1364,7 +1349,17 @@ name|Nested
 argument_list|(
 name|rootDocumentsFilter
 argument_list|,
+name|context
+operator|.
+name|searcher
+argument_list|()
+operator|.
+name|createNormalizedWeight
+argument_list|(
 name|innerDocumentsFilter
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1521,7 +1516,7 @@ name|context
 argument_list|)
 decl_stmt|;
 specifier|final
-name|DocIdSet
+name|DocIdSetIterator
 name|innerDocs
 init|=
 name|nested

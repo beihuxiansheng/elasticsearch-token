@@ -58,6 +58,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Randomness
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -411,6 +423,25 @@ literal|"service.bat"
 argument_list|)
 argument_list|)
 decl_stmt|;
+DECL|field|MODULES
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|MODULES
+init|=
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
+argument_list|(
+literal|"lang-expression"
+argument_list|,
+literal|"lang-groovy"
+argument_list|)
+argument_list|)
+decl_stmt|;
 DECL|field|OFFICIAL_PLUGINS
 specifier|static
 specifier|final
@@ -444,19 +475,21 @@ literal|"discovery-gce"
 argument_list|,
 literal|"discovery-multicast"
 argument_list|,
-literal|"lang-expression"
-argument_list|,
-literal|"lang-groovy"
-argument_list|,
 literal|"lang-javascript"
 argument_list|,
+literal|"lang-plan-a"
+argument_list|,
 literal|"lang-python"
+argument_list|,
+literal|"mapper-attachments"
 argument_list|,
 literal|"mapper-murmur3"
 argument_list|,
 literal|"mapper-size"
 argument_list|,
 literal|"repository-azure"
+argument_list|,
+literal|"repository-hdfs"
 argument_list|,
 literal|"repository-s3"
 argument_list|,
@@ -666,8 +699,9 @@ name|PluginHandle
 argument_list|(
 literal|"temp_name"
 operator|+
-operator|new
-name|Random
+name|Randomness
+operator|.
+name|get
 argument_list|()
 operator|.
 name|nextInt
@@ -1377,25 +1411,35 @@ argument_list|,
 name|info
 argument_list|)
 expr_stmt|;
-comment|// check for jar hell before any copying
+comment|// don't let luser install plugin as a module...
+comment|// they might be unavoidably in maven central and are packaged up the same way)
 if|if
 condition|(
-name|info
+name|MODULES
 operator|.
-name|isJvm
-argument_list|()
-condition|)
-block|{
-name|jarHellCheck
+name|contains
 argument_list|(
-name|root
-argument_list|,
 name|info
 operator|.
-name|isIsolated
+name|getName
 argument_list|()
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"plugin '"
+operator|+
+name|info
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' cannot be installed like this, it is a system module"
+argument_list|)
+throw|;
 block|}
 comment|// update name in handle based on 'name' property found in descriptor file
 name|pluginHandle
@@ -1458,6 +1502,26 @@ operator|+
 literal|"' command"
 argument_list|)
 throw|;
+block|}
+comment|// check for jar hell before any copying
+if|if
+condition|(
+name|info
+operator|.
+name|isJvm
+argument_list|()
+condition|)
+block|{
+name|jarHellCheck
+argument_list|(
+name|root
+argument_list|,
+name|info
+operator|.
+name|isIsolated
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// read optional security policy (extra permissions)
 comment|// if it exists, confirm or warn the user
@@ -3210,7 +3274,7 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"Plugin %s not found. Run plugin --list to get list of installed plugins."
+literal|"Plugin %s not found. Run \"plugin list\" to get list of installed plugins."
 argument_list|,
 name|name
 argument_list|)
@@ -3575,7 +3639,7 @@ name|Build
 operator|.
 name|CURRENT
 operator|.
-name|hashShort
+name|shortHash
 argument_list|()
 argument_list|,
 name|name

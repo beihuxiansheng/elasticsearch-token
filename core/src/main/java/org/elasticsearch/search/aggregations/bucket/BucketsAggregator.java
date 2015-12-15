@@ -230,7 +230,7 @@ extends|extends
 name|AggregatorBase
 block|{
 DECL|field|bigArrays
-specifier|protected
+specifier|private
 specifier|final
 name|BigArrays
 name|bigArrays
@@ -348,6 +348,7 @@ block|}
 comment|/**      * Utility method to collect the given doc in the given bucket (identified by the bucket ordinal)      */
 DECL|method|collectBucket
 specifier|public
+specifier|final
 name|void
 name|collectBucket
 parameter_list|(

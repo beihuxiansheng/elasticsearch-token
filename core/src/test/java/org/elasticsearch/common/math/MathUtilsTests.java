@@ -28,16 +28,6 @@ name|ESTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_class
 DECL|class|MathUtilsTests
 specifier|public
@@ -46,12 +36,10 @@ name|MathUtilsTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
-DECL|method|mod
+DECL|method|testMod
 specifier|public
 name|void
-name|mod
+name|testMod
 parameter_list|()
 block|{
 specifier|final

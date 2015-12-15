@@ -357,16 +357,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -466,8 +456,6 @@ name|numberOfReplicas
 init|=
 literal|2
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testIndexBalance
 specifier|public
 name|void
@@ -664,8 +652,6 @@ name|balanceTreshold
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testReplicaBalance
 specifier|public
 name|void
@@ -1085,6 +1071,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1367,6 +1355,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -1685,6 +1675,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -2316,8 +2308,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testPersistedSettings
 specifier|public
 name|void
@@ -2660,8 +2650,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoRebalanceOnPrimaryOverload
 specifier|public
 name|void
@@ -2817,6 +2805,9 @@ name|ShardRouting
 name|sr
 range|:
 name|unassigned
+operator|.
+name|drain
+argument_list|()
 control|)
 block|{
 switch|switch
@@ -3059,11 +3050,6 @@ block|}
 break|break;
 block|}
 block|}
-name|unassigned
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 return|return
 name|changed
 return|;
@@ -3266,6 +3252,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -3532,6 +3520,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable

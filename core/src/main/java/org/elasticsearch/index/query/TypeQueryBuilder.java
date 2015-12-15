@@ -328,7 +328,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"value"
+name|TypeQueryParser
+operator|.
+name|VALUE_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|type
 operator|.
@@ -381,7 +386,7 @@ name|documentMapper
 init|=
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|documentMapper

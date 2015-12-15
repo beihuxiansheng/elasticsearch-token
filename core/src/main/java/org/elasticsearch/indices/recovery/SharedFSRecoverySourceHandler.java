@@ -278,16 +278,9 @@ name|shard
 operator|.
 name|failShard
 argument_list|(
-literal|"primary relocation failed on shared filesystem caused by: ["
-operator|+
-name|t
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|"]"
+literal|"primary relocation failed on shared filesystem"
 argument_list|,
-literal|null
+name|t
 argument_list|)
 expr_stmt|;
 block|}

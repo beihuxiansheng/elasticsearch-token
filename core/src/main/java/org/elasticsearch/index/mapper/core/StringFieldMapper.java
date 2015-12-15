@@ -248,20 +248,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeMappingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MergeResult
 import|;
 end_import
@@ -382,7 +368,7 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|parseField
+name|parseTextField
 import|;
 end_import
 
@@ -916,7 +902,7 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-name|parseField
+name|parseTextField
 argument_list|(
 name|builder
 argument_list|,
@@ -2154,8 +2140,6 @@ parameter_list|,
 name|MergeResult
 name|mergeResult
 parameter_list|)
-throws|throws
-name|MergeMappingException
 block|{
 name|super
 operator|.

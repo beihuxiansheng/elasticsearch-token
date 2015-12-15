@@ -22,7 +22,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -199,16 +199,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -294,8 +284,6 @@ specifier|private
 name|int
 name|numNodes
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testIndexAndDelete
 specifier|public
 name|void
@@ -362,8 +350,6 @@ name|deleteResponse
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testUpdate
 specifier|public
 name|void
@@ -411,12 +397,10 @@ name|updateResponse
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testBulk_withIndexAndDeleteItems
+DECL|method|testBulkWithIndexAndDeleteItems
 specifier|public
 name|void
-name|testBulk_withIndexAndDeleteItems
+name|testBulkWithIndexAndDeleteItems
 parameter_list|()
 throws|throws
 name|Exception
@@ -575,12 +559,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|testBulk_withUpdateItems
+DECL|method|testBulkWithUpdateItems
 specifier|public
 name|void
-name|testBulk_withUpdateItems
+name|testBulkWithUpdateItems
 parameter_list|()
 throws|throws
 name|Exception
@@ -844,7 +826,7 @@ specifier|private
 name|void
 name|assertShardInfo
 parameter_list|(
-name|ActionWriteResponse
+name|ReplicationResponse
 name|response
 parameter_list|)
 block|{
@@ -863,7 +845,7 @@ specifier|private
 name|void
 name|assertShardInfo
 parameter_list|(
-name|ActionWriteResponse
+name|ReplicationResponse
 name|response
 parameter_list|,
 name|int

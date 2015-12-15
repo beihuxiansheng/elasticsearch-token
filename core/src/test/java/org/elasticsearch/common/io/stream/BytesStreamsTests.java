@@ -88,16 +88,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -140,6 +130,18 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests for {@link BytesStreamOutput} paging behaviour.  */
 end_comment
@@ -152,8 +154,6 @@ name|BytesStreamsTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testEmpty
 specifier|public
 name|void
@@ -201,8 +201,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleByte
 specifier|public
 name|void
@@ -282,8 +280,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleShortPage
 specifier|public
 name|void
@@ -369,8 +365,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalBulkWrite
 specifier|public
 name|void
@@ -423,8 +417,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleShortPageBulkWrite
 specifier|public
 name|void
@@ -533,8 +525,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleFullPageBulkWrite
 specifier|public
 name|void
@@ -603,8 +593,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleFullPageBulkWriteWithOffset
 specifier|public
 name|void
@@ -708,8 +696,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleFullPageBulkWriteWithOffsetCrossover
 specifier|public
 name|void
@@ -816,8 +802,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSingleFullPage
 specifier|public
 name|void
@@ -905,8 +889,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testOneFullOneShortPage
 specifier|public
 name|void
@@ -996,8 +978,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testTwoFullOneShortPage
 specifier|public
 name|void
@@ -1091,8 +1071,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSeek
 specifier|public
 name|void
@@ -1200,8 +1178,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSkip
 specifier|public
 name|void
@@ -1262,8 +1238,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleStreams
 specifier|public
 name|void
@@ -1803,8 +1777,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNamedWriteable
 specifier|public
 name|void
@@ -1914,8 +1886,6 @@ name|namedWriteableIn
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNamedWriteableDuplicates
 specifier|public
 name|void
@@ -2027,8 +1997,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNamedWriteableUnknownCategory
 specifier|public
 name|void
@@ -2129,8 +2097,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testNamedWriteableUnknownNamedWriteable
 specifier|public
 name|void
@@ -2290,15 +2256,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|UnsupportedOperationException
-operator|.
-name|class
-argument_list|)
 DECL|method|testNamedWriteableNotSupportedWithoutWrapping
 specifier|public
 name|void
@@ -2348,6 +2305,8 @@ name|toBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|in
 operator|.
 name|readNamedWriteable
@@ -2357,6 +2316,32 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected UnsupportedOperationException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsupportedOperationException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"can't read named writeable from StreamInput"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|class|BaseNamedWriteable
 specifier|private
@@ -2595,8 +2580,6 @@ name|bugUrl
 operator|=
 literal|"https://github.com/elastic/elasticsearch/issues/12620"
 argument_list|)
-annotation|@
-name|Test
 DECL|method|testAccessAfterClose
 specifier|public
 name|void

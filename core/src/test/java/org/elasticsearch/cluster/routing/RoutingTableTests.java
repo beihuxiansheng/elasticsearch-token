@@ -177,16 +177,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -683,6 +673,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 decl_stmt|;
 name|this
@@ -869,8 +861,6 @@ name|numberOfShards
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testAllShards
 specifier|public
 name|void
@@ -974,8 +964,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testHasIndex
 specifier|public
 name|void
@@ -1017,8 +1005,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndex
 specifier|public
 name|void
@@ -1064,8 +1050,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIndicesRouting
 specifier|public
 name|void
@@ -1126,8 +1110,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShardsWithState
 specifier|public
 name|void
@@ -1446,8 +1428,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testActivePrimaryShardsGrouped
 specifier|public
 name|void
@@ -1850,8 +1830,6 @@ block|{
 comment|// expected
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAllActiveShardsGrouped
 specifier|public
 name|void
@@ -2251,8 +2229,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testAllAssignedShardsGrouped
 specifier|public
 name|void

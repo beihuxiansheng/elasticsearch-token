@@ -98,16 +98,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -287,7 +277,7 @@ name|shuffle
 argument_list|(
 name|nodes
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -295,12 +285,10 @@ return|return
 name|nodes
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|sortByMasterLikelihood
+DECL|method|testSortByMasterLikelihood
 specifier|public
 name|void
-name|sortByMasterLikelihood
+name|testSortByMasterLikelihood
 parameter_list|()
 block|{
 name|List
@@ -429,12 +417,10 @@ name|node
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-DECL|method|electMaster
+DECL|method|testElectMaster
 specifier|public
 name|void
-name|electMaster
+name|testElectMaster
 parameter_list|()
 block|{
 name|List

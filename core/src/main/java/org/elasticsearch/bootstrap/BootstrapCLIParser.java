@@ -72,6 +72,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|cli
 operator|.
 name|CliTool
@@ -466,14 +478,14 @@ name|Build
 operator|.
 name|CURRENT
 operator|.
-name|hashShort
+name|shortHash
 argument_list|()
 argument_list|,
 name|Build
 operator|.
 name|CURRENT
 operator|.
-name|timestamp
+name|date
 argument_list|()
 argument_list|,
 name|JvmInfo
@@ -613,6 +625,14 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+comment|// TODO: don't use system properties as a way to do this, its horrible...
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Sets system properties passed as CLI parameters"
+argument_list|)
 DECL|method|parse
 specifier|public
 specifier|static

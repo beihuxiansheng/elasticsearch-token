@@ -295,7 +295,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"field"
+name|ExistsQueryParser
+operator|.
+name|FIELD_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
 name|fieldName
 argument_list|)
@@ -359,7 +364,7 @@ name|FieldNamesFieldType
 operator|)
 name|context
 operator|.
-name|mapperService
+name|getMapperService
 argument_list|()
 operator|.
 name|fullName

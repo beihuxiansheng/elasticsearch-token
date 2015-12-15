@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -424,16 +424,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -532,7 +522,43 @@ name|replication
 operator|.
 name|ClusterStateCreationUtils
 operator|.
-name|*
+name|state
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|replication
+operator|.
+name|ClusterStateCreationUtils
+operator|.
+name|stateWithAssignedPrimariesAndOneReplica
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|replication
+operator|.
+name|ClusterStateCreationUtils
+operator|.
+name|stateWithNoShard
 import|;
 end_import
 
@@ -544,7 +570,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
 import|;
 end_import
 
@@ -725,8 +775,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNotStartedPrimary
 specifier|public
 name|void
@@ -818,7 +866,7 @@ name|ShardId
 argument_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 argument_list|>
 name|shardRequests
@@ -913,8 +961,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testStartedPrimary
 specifier|public
 name|void
@@ -995,7 +1041,7 @@ name|ShardId
 argument_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 argument_list|>
 name|shardRequests
@@ -1005,19 +1051,19 @@ operator|.
 name|capturedShardRequests
 control|)
 block|{
-name|ActionWriteResponse
-name|actionWriteResponse
+name|ReplicationResponse
+name|replicationResponse
 init|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 decl_stmt|;
-name|actionWriteResponse
+name|replicationResponse
 operator|.
 name|setShardInfo
 argument_list|(
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 argument_list|(
@@ -1026,7 +1072,7 @@ argument_list|,
 literal|1
 argument_list|,
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1044,7 +1090,7 @@ argument_list|()
 operator|.
 name|onResponse
 argument_list|(
-name|actionWriteResponse
+name|replicationResponse
 argument_list|)
 expr_stmt|;
 block|}
@@ -1080,8 +1126,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testResultCombine
 specifier|public
 name|void
@@ -1175,7 +1219,7 @@ name|ShardId
 argument_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 argument_list|>
 name|shardRequests
@@ -1191,7 +1235,7 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1200,7 +1244,7 @@ index|[]
 name|failures
 init|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1223,11 +1267,11 @@ name|succeeded
 operator|+=
 name|shardsSucceeded
 expr_stmt|;
-name|ActionWriteResponse
-name|actionWriteResponse
+name|ReplicationResponse
+name|replicationResponse
 init|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 decl_stmt|;
 if|if
@@ -1244,7 +1288,7 @@ comment|//sometimes add failure (no failure means shard unavailable)
 name|failures
 operator|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1259,7 +1303,7 @@ literal|0
 index|]
 operator|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -1294,12 +1338,12 @@ name|failed
 operator|++
 expr_stmt|;
 block|}
-name|actionWriteResponse
+name|replicationResponse
 operator|.
 name|setShardInfo
 argument_list|(
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 argument_list|(
@@ -1318,7 +1362,7 @@ argument_list|()
 operator|.
 name|onResponse
 argument_list|(
-name|actionWriteResponse
+name|replicationResponse
 argument_list|)
 expr_stmt|;
 block|}
@@ -1367,8 +1411,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testNoShards
 specifier|public
 name|void
@@ -1430,8 +1472,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testShardsList
 specifier|public
 name|void
@@ -1571,7 +1611,7 @@ name|BroadcastResponse
 argument_list|,
 name|ReplicationRequest
 argument_list|,
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 block|{
 DECL|field|capturedShardRequests
@@ -1585,7 +1625,7 @@ name|ShardId
 argument_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 argument_list|>
 argument_list|>
@@ -1650,13 +1690,13 @@ annotation|@
 name|Override
 DECL|method|newShardResponse
 specifier|protected
-name|ActionWriteResponse
+name|ReplicationResponse
 name|newShardResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 return|;
 block|}
@@ -1734,7 +1774,7 @@ name|shardId
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 name|shardActionListener
 parameter_list|)

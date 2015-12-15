@@ -813,7 +813,9 @@ literal|"query"
 argument_list|,
 literal|"no nodes to search on"
 argument_list|,
-literal|null
+name|ShardSearchFailure
+operator|.
+name|EMPTY_ARRAY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -975,7 +977,9 @@ literal|"Fetch failed"
 argument_list|,
 name|e
 argument_list|,
-literal|null
+name|ShardSearchFailure
+operator|.
+name|EMPTY_ARRAY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1196,6 +1200,8 @@ literal|"query"
 argument_list|,
 literal|"all shards failed"
 argument_list|,
+name|t
+argument_list|,
 name|buildShardFailures
 argument_list|()
 argument_list|)
@@ -1229,7 +1235,9 @@ literal|"Fetch failed"
 argument_list|,
 name|e
 argument_list|,
-literal|null
+name|ShardSearchFailure
+operator|.
+name|EMPTY_ARRAY
 argument_list|)
 argument_list|)
 expr_stmt|;

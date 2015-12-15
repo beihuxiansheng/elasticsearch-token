@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|IndexQueryParserService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -53,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Matcher to use in combination with {@link ParseField} while parsing requests. Matches a {@link ParseField}  * against a field name and throw deprecation exception depending on the current value of the {@link IndexQueryParserService#PARSE_STRICT} setting.  */
+comment|/**  * Matcher to use in combination with {@link ParseField} while parsing requests. Matches a {@link ParseField}  * against a field name and throw deprecation exception depending on the current value of the {@link #PARSE_STRICT} setting.  */
 end_comment
 
 begin_class
@@ -62,6 +48,15 @@ specifier|public
 class|class
 name|ParseFieldMatcher
 block|{
+DECL|field|PARSE_STRICT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PARSE_STRICT
+init|=
+literal|"index.query.parse.strict"
+decl_stmt|;
 DECL|field|EMPTY
 specifier|public
 specifier|static
@@ -117,8 +112,6 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-name|IndexQueryParserService
-operator|.
 name|PARSE_STRICT
 argument_list|,
 literal|false
@@ -173,7 +166,7 @@ operator|=
 name|parseFlags
 expr_stmt|;
 block|}
-comment|/**      * Matches a {@link ParseField} against a field name, and throws deprecation exception depending on the current      * value of the {@link IndexQueryParserService#PARSE_STRICT} setting.      * @param fieldName the field name found in the request while parsing      * @param parseField the parse field that we are looking for      * @throws IllegalArgumentException whenever we are in strict mode and the request contained a deprecated field      * @return true whenever the parse field that we are looking for was found, false otherwise      */
+comment|/**      * Matches a {@link ParseField} against a field name, and throws deprecation exception depending on the current      * value of the {@link #PARSE_STRICT} setting.      * @param fieldName the field name found in the request while parsing      * @param parseField the parse field that we are looking for      * @throws IllegalArgumentException whenever we are in strict mode and the request contained a deprecated field      * @return true whenever the parse field that we are looking for was found, false otherwise      */
 DECL|method|match
 specifier|public
 name|boolean

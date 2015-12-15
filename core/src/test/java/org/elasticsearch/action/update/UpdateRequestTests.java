@@ -78,6 +78,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -152,16 +166,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -198,30 +202,6 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
 begin_class
 DECL|class|UpdateRequestTests
 specifier|public
@@ -230,8 +210,6 @@ name|UpdateRequestTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testUpdateRequest
 specifier|public
 name|void
@@ -1307,8 +1285,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 comment|// Related to issue 3256
 DECL|method|testUpdateRequestWithTTL
 specifier|public
@@ -1318,14 +1294,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|long
+name|TimeValue
 name|providedTTLValue
 init|=
-name|randomIntBetween
+name|TimeValue
+operator|.
+name|parseTimeValue
 argument_list|(
-literal|500
+name|randomTimeValue
+argument_list|()
 argument_list|,
-literal|1000
+literal|null
+argument_list|,
+literal|"ttl"
 argument_list|)
 decl_stmt|;
 name|Settings

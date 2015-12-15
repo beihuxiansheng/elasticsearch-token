@@ -422,7 +422,7 @@ name|indexMapper
 init|=
 name|docMapper
 operator|.
-name|rootMapper
+name|metadataMapper
 argument_list|(
 name|IndexFieldMapper
 operator|.
@@ -569,7 +569,7 @@ name|indexMapper
 init|=
 name|docMapper
 operator|.
-name|rootMapper
+name|metadataMapper
 argument_list|(
 name|IndexFieldMapper
 operator|.
@@ -1050,7 +1050,7 @@ name|indexMapper
 init|=
 name|docMapper
 operator|.
-name|rootMapper
+name|metadataMapper
 argument_list|(
 name|IndexFieldMapper
 operator|.

@@ -152,16 +152,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -306,12 +296,10 @@ name|build
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
-DECL|method|simulateSearchRejectionLoad
+DECL|method|testSimulatedSearchRejectionLoad
 specifier|public
 name|void
-name|simulateSearchRejectionLoad
+name|testSimulatedSearchRejectionLoad
 parameter_list|()
 throws|throws
 name|Throwable

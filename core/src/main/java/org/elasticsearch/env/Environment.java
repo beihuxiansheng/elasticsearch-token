@@ -244,6 +244,12 @@ specifier|final
 name|Path
 name|pluginsFile
 decl_stmt|;
+DECL|field|modulesFile
+specifier|private
+specifier|final
+name|Path
+name|modulesFile
+decl_stmt|;
 DECL|field|sharedDataFile
 specifier|private
 specifier|final
@@ -897,6 +903,15 @@ argument_list|(
 literal|"lib"
 argument_list|)
 expr_stmt|;
+name|modulesFile
+operator|=
+name|homeFile
+operator|.
+name|resolve
+argument_list|(
+literal|"modules"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * The settings used to build this environment.      */
 DECL|method|settings
@@ -1259,6 +1274,16 @@ return|return
 name|libFile
 return|;
 block|}
+DECL|method|modulesFile
+specifier|public
+name|Path
+name|modulesFile
+parameter_list|()
+block|{
+return|return
+name|modulesFile
+return|;
+block|}
 DECL|method|logsFile
 specifier|public
 name|Path
@@ -1291,7 +1316,7 @@ return|return
 name|tmpFile
 return|;
 block|}
-comment|/**      * Looks up the filestore associated with a Path.      *<p>      * This is an enhanced version of {@link Files#getFileStore(Path)}:      *<ul>      *<li>On *nix systems, the store returned for the root filesystem will contain      *       the actual filesystem type (e.g. {@code ext4}) instead of {@code rootfs}.      *<li>On some systems, the custom attribute {@code lucene:spins} is supported      *       via the {@link FileStore#getAttribute(String)} method.      *<li>Only requires the security permissions of {@link Files#getFileStore(Path)},      *       no permissions to the actual mount point are required.      *<li>Exception handling has the same semantics as {@link Files#getFileStore(Path)}.      *<li>Works around https://bugs.openjdk.java.net/browse/JDK-8034057.      *</ul>      */
+comment|/**      * Looks up the filestore associated with a Path.      *<p>      * This is an enhanced version of {@link Files#getFileStore(Path)}:      *<ul>      *<li>On *nix systems, the store returned for the root filesystem will contain      *       the actual filesystem type (e.g. {@code ext4}) instead of {@code rootfs}.      *<li>On some systems, the custom attribute {@code lucene:spins} is supported      *       via the {@link FileStore#getAttribute(String)} method.      *<li>Only requires the security permissions of {@link Files#getFileStore(Path)},      *       no permissions to the actual mount point are required.      *<li>Exception handling has the same semantics as {@link Files#getFileStore(Path)}.      *<li>Works around https://bugs.openjdk.java.net/browse/JDK-8034057.      *<li>Gives a better exception when filestore cannot be retrieved from inside a FreeBSD jail.      *</ul>      */
 DECL|method|getFileStore
 specifier|public
 specifier|static

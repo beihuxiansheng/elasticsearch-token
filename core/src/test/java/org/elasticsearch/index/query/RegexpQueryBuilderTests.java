@@ -46,16 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -333,8 +323,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testIllegalArguments
 specifier|public
 name|void
@@ -407,6 +395,80 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+block|}
+DECL|method|testFromJson
+specifier|public
+name|void
+name|testFromJson
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"regexp\" : {\n"
+operator|+
+literal|"    \"name.first\" : {\n"
+operator|+
+literal|"      \"value\" : \"s.*y\",\n"
+operator|+
+literal|"      \"flags_value\" : 7,\n"
+operator|+
+literal|"      \"max_determinized_states\" : 20000,\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|RegexpQueryBuilder
+name|parsed
+init|=
+operator|(
+name|RegexpQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|parsed
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|"s.*y"
+argument_list|,
+name|parsed
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+literal|20000
+argument_list|,
+name|parsed
+operator|.
+name|maxDeterminizedStates
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

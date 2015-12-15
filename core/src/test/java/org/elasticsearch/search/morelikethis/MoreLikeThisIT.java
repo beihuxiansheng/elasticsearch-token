@@ -22,10 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
 name|cluster
 operator|.
 name|health
@@ -206,16 +202,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -262,13 +248,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|client
 operator|.
-name|query
+name|Requests
 operator|.
-name|MoreLikeThisQueryBuilder
-operator|.
-name|ids
+name|indexAliasesRequest
 import|;
 end_import
 
@@ -282,7 +266,21 @@ name|client
 operator|.
 name|Requests
 operator|.
-name|*
+name|indexRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|refreshRequest
 import|;
 end_import
 
@@ -344,6 +342,22 @@ name|index
 operator|.
 name|query
 operator|.
+name|MoreLikeThisQueryBuilder
+operator|.
+name|ids
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|QueryBuilders
 operator|.
 name|moreLikeThisQuery
@@ -378,7 +392,103 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertOrderedSearchHits
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchHits
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -418,8 +528,6 @@ name|MoreLikeThisIT
 extends|extends
 name|ESIntegTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimpleMoreLikeThis
 specifier|public
 name|void
@@ -680,8 +788,6 @@ literal|1l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleMoreLikeOnLongField
 specifier|public
 name|void
@@ -950,8 +1056,6 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreLikeThisWithAliases
 specifier|public
 name|void
@@ -1618,8 +1722,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreLikeThisIssue2197
 specifier|public
 name|void
@@ -1867,9 +1969,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// See: https://github.com/elasticsearch/elasticsearch/issues/2489
+comment|// Issue #2489
 DECL|method|testMoreLikeWithCustomRouting
 specifier|public
 name|void
@@ -2063,9 +2163,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// See issue: https://github.com/elasticsearch/elasticsearch/issues/3039
+comment|// Issue #3039
 DECL|method|testMoreLikeThisIssueRoutingNotSerialized
 specifier|public
 name|void
@@ -2268,9 +2366,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-comment|// See issue https://github.com/elasticsearch/elasticsearch/issues/3252
+comment|// Issue #3252
 DECL|method|testNumericField
 specifier|public
 name|void
@@ -2971,8 +3067,6 @@ literal|0l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleMoreLikeInclude
 specifier|public
 name|void
@@ -3644,8 +3738,6 @@ literal|3l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSimpleMoreLikeThisIdsMultipleTypes
 specifier|public
 name|void
@@ -3974,8 +4066,6 @@ name|numOfTypes
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreLikeThisMultiValueFields
 specifier|public
 name|void
@@ -4290,8 +4380,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMinimumShouldMatch
 specifier|public
 name|void
@@ -4572,8 +4660,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreLikeThisArtificialDocs
 specifier|public
 name|void
@@ -4772,8 +4858,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreLikeThisMalformedArtificialDocs
 specifier|public
 name|void
@@ -5257,8 +5341,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMoreLikeThisUnlike
 specifier|public
 name|void
@@ -5653,8 +5735,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
 DECL|method|testSelectFields
 specifier|public
 name|void

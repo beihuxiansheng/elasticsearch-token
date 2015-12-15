@@ -890,14 +890,9 @@ name|sendingController
 operator|.
 name|markAsFailed
 argument_list|(
-literal|"unexpected error ["
-operator|+
+literal|"unexpected error"
+argument_list|,
 name|t
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 condition|)
 block|{
@@ -908,14 +903,9 @@ name|Discovery
 operator|.
 name|FailedToCommitClusterStateException
 argument_list|(
-literal|"unexpected error [{}]"
+literal|"unexpected error"
 argument_list|,
 name|t
-argument_list|,
-name|t
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1638,7 +1628,7 @@ name|options
 init|=
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -1654,6 +1644,9 @@ name|withCompress
 argument_list|(
 literal|false
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|transportService
 operator|.
@@ -1881,7 +1874,7 @@ name|options
 init|=
 name|TransportRequestOptions
 operator|.
-name|options
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -1892,6 +1885,9 @@ name|Type
 operator|.
 name|STATE
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 comment|// no need to put a timeout on the options here, because we want the response to eventually be received
 comment|// and not log an error if it arrives after the timeout
@@ -3447,6 +3443,61 @@ expr_stmt|;
 name|committed
 operator|=
 literal|true
+expr_stmt|;
+name|committedOrFailedLatch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+comment|/**          * tries marking the publishing as failed, if a decision wasn't made yet          *          * @return true if the publishing was failed and the cluster state is *not* committed          **/
+DECL|method|markAsFailed
+specifier|synchronized
+specifier|private
+name|boolean
+name|markAsFailed
+parameter_list|(
+name|String
+name|details
+parameter_list|,
+name|Throwable
+name|reason
+parameter_list|)
+block|{
+if|if
+condition|(
+name|committedOrFailed
+argument_list|()
+condition|)
+block|{
+return|return
+name|committed
+operator|==
+literal|false
+return|;
+block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"failed to commit version [{}]. {}"
+argument_list|,
+name|reason
+argument_list|,
+name|clusterState
+operator|.
+name|version
+argument_list|()
+argument_list|,
+name|details
+argument_list|)
+expr_stmt|;
+name|committed
+operator|=
+literal|false
 expr_stmt|;
 name|committedOrFailedLatch
 operator|.

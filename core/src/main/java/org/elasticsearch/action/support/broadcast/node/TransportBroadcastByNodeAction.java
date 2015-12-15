@@ -1128,6 +1128,14 @@ throw|throw
 name|requestBlockException
 throw|;
 block|}
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1142,6 +1150,7 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|ShardsIterator
 name|shardIt
 init|=
@@ -1172,12 +1181,30 @@ name|asUnordered
 argument_list|()
 control|)
 block|{
+comment|// send a request to the shard only if it is assigned to a node that is in the local node's cluster state
+comment|// a scenario in which a shard can be assigned but to a node that is not in the local node's cluster state
+comment|// is when the shard is assigned to the master node, the local node has detected the master as failed
+comment|// and a new master has not yet been elected; in this situation the local node will have removed the
+comment|// master node from the local cluster state, but the shards assigned to the master will still be in the
+comment|// routing table as such
 if|if
 condition|(
 name|shard
 operator|.
 name|assignedToNode
 argument_list|()
+operator|&&
+name|nodes
+operator|.
+name|get
+argument_list|(
+name|shard
+operator|.
+name|currentNodeId
+argument_list|()
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|String
@@ -1523,6 +1550,14 @@ name|NodeResponse
 name|response
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1537,6 +1572,7 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// this is defensive to protect against the possibility of double invocation
 comment|// the current implementation of TransportService#sendRequest guards against this
 comment|// but concurrency is hard, safety is important, and the small performance loss here does not matter
@@ -1805,6 +1841,14 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1816,6 +1860,7 @@ argument_list|,
 name|totalShards
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Object
 index|[]
@@ -1981,6 +2026,14 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1995,6 +2048,7 @@ name|shortSummary
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|ShardOperationResult
 name|result
 init|=
@@ -2014,6 +2068,14 @@ index|]
 operator|=
 name|result
 expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -2028,6 +2090,7 @@ name|shortSummary
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

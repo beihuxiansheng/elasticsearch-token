@@ -183,16 +183,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -275,12 +265,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Test
-DECL|method|simpleFailedNodeTest
+DECL|method|testSimpleFailedNodeTest
 specifier|public
 name|void
-name|simpleFailedNodeTest
+name|testSimpleFailedNodeTest
 parameter_list|()
 block|{
 name|AllocationService
@@ -515,6 +503,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable
@@ -825,6 +815,8 @@ operator|.
 name|reroute
 argument_list|(
 name|clusterState
+argument_list|,
+literal|"reroute"
 argument_list|)
 operator|.
 name|routingTable

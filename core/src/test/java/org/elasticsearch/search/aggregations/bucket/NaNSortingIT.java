@@ -193,16 +193,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -1008,12 +998,10 @@ name|agg
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|stringTerms
+DECL|method|testStringTerms
 specifier|public
 name|void
-name|stringTerms
+name|testStringTerms
 parameter_list|()
 block|{
 name|testTerms
@@ -1022,12 +1010,10 @@ literal|"string_value"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|longTerms
+DECL|method|testLongTerms
 specifier|public
 name|void
-name|longTerms
+name|testLongTerms
 parameter_list|()
 block|{
 name|testTerms
@@ -1036,12 +1022,10 @@ literal|"long_value"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|doubleTerms
+DECL|method|testDoubleTerms
 specifier|public
 name|void
-name|doubleTerms
+name|testDoubleTerms
 parameter_list|()
 block|{
 name|testTerms
@@ -1050,12 +1034,10 @@ literal|"double_value"
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|longHistogram
+DECL|method|testLongHistogram
 specifier|public
 name|void
-name|longHistogram
+name|testLongHistogram
 parameter_list|()
 block|{
 specifier|final

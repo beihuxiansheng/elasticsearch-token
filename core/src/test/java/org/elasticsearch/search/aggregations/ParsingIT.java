@@ -16,895 +16,589 @@ name|aggregations
 package|;
 end_package
 
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|generators
-operator|.
-name|RandomStrings
-import|;
-end_import
+begin_comment
+comment|// NORELEASE move these tests to unit tests when aggs refactoring is done
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchPhaseExecutionException
-import|;
-end_import
+begin_comment
+comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|json
-operator|.
-name|JsonXContent
-import|;
-end_import
+begin_comment
+comment|//    public void testTwoTypes() throws Exception {
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-import|;
-end_import
+begin_comment
+comment|//        createIndex("idx");
+end_comment
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
+begin_comment
+comment|//        ensureGreen();
+end_comment
 
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|SecureRandom
-import|;
-end_import
+begin_comment
+comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Matcher
-import|;
-end_import
+begin_comment
+comment|//            .startObject()
+end_comment
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
+begin_comment
+comment|//                .startObject("in_stock")
+end_comment
 
-begin_class
-DECL|class|ParsingIT
-specifier|public
-class|class
-name|ParsingIT
-extends|extends
-name|ESIntegTestCase
-block|{
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|SearchPhaseExecutionException
-operator|.
-name|class
-argument_list|)
-DECL|method|testTwoTypes
-specifier|public
-name|void
-name|testTwoTypes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|createIndex
-argument_list|(
-literal|"idx"
-argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"idx"
-argument_list|)
-operator|.
-name|setAggregations
-argument_list|(
-name|JsonXContent
-operator|.
-name|contentBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"in_stock"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"filter"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"range"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"stock"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"gt"
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"terms"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"stock"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|SearchPhaseExecutionException
-operator|.
-name|class
-argument_list|)
-DECL|method|testTwoAggs
-specifier|public
-name|void
-name|testTwoAggs
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|createIndex
-argument_list|(
-literal|"idx"
-argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"idx"
-argument_list|)
-operator|.
-name|setAggregations
-argument_list|(
-name|JsonXContent
-operator|.
-name|contentBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"by_date"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"date_histogram"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"timestamp"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"interval"
-argument_list|,
-literal|"month"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"aggs"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"tag_count"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"cardinality"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"tag"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"aggs"
-argument_list|)
-comment|// 2nd "aggs": illegal
-operator|.
-name|startObject
-argument_list|(
-literal|"tag_count2"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"cardinality"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"tag"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|SearchPhaseExecutionException
-operator|.
-name|class
-argument_list|)
-DECL|method|testInvalidAggregationName
-specifier|public
-name|void
-name|testInvalidAggregationName
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Matcher
-name|matcher
-init|=
-name|Pattern
-operator|.
-name|compile
-argument_list|(
-literal|"[^\\[\\]>]+"
-argument_list|)
-operator|.
-name|matcher
-argument_list|(
-literal|""
-argument_list|)
-decl_stmt|;
-name|String
-name|name
-decl_stmt|;
-name|SecureRandom
-name|rand
-init|=
-operator|new
-name|SecureRandom
-argument_list|()
-decl_stmt|;
-name|int
-name|len
-init|=
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
-decl_stmt|;
-name|char
-index|[]
-name|word
-init|=
-operator|new
-name|char
-index|[
-name|len
-index|]
-decl_stmt|;
-while|while
-condition|(
-literal|true
-condition|)
-block|{
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|word
-operator|.
-name|length
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|word
-index|[
-name|i
-index|]
-operator|=
-operator|(
-name|char
-operator|)
-name|rand
-operator|.
-name|nextInt
-argument_list|(
-literal|127
-argument_list|)
-expr_stmt|;
-block|}
-name|name
-operator|=
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|word
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|matcher
-operator|.
-name|reset
-argument_list|(
-name|name
-argument_list|)
-operator|.
-name|matches
-argument_list|()
-condition|)
-block|{
-break|break;
-block|}
-block|}
-name|createIndex
-argument_list|(
-literal|"idx"
-argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"idx"
-argument_list|)
-operator|.
-name|setAggregations
-argument_list|(
-name|JsonXContent
-operator|.
-name|contentBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-name|name
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"filter"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"range"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"stock"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"gt"
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|SearchPhaseExecutionException
-operator|.
-name|class
-argument_list|)
-DECL|method|testSameAggregationName
-specifier|public
-name|void
-name|testSameAggregationName
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|createIndex
-argument_list|(
-literal|"idx"
-argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
-specifier|final
-name|String
-name|name
-init|=
-name|RandomStrings
-operator|.
-name|randomAsciiOfLength
-argument_list|(
-name|getRandom
-argument_list|()
-argument_list|,
-literal|10
-argument_list|)
-decl_stmt|;
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"idx"
-argument_list|)
-operator|.
-name|setAggregations
-argument_list|(
-name|JsonXContent
-operator|.
-name|contentBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-name|name
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"terms"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"a"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-name|name
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"terms"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"b"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|SearchPhaseExecutionException
-operator|.
-name|class
-argument_list|)
-DECL|method|testMissingName
-specifier|public
-name|void
-name|testMissingName
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|createIndex
-argument_list|(
-literal|"idx"
-argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"idx"
-argument_list|)
-operator|.
-name|setAggregations
-argument_list|(
-name|JsonXContent
-operator|.
-name|contentBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"by_date"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"date_histogram"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"timestamp"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"interval"
-argument_list|,
-literal|"month"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"aggs"
-argument_list|)
-comment|// the aggregation name is missing
-comment|//.startObject("tag_count")
-operator|.
-name|startObject
-argument_list|(
-literal|"cardinality"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"tag"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-comment|//.endObject()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|SearchPhaseExecutionException
-operator|.
-name|class
-argument_list|)
-DECL|method|testMissingType
-specifier|public
-name|void
-name|testMissingType
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|createIndex
-argument_list|(
-literal|"idx"
-argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"idx"
-argument_list|)
-operator|.
-name|setAggregations
-argument_list|(
-name|JsonXContent
-operator|.
-name|contentBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"by_date"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"date_histogram"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"timestamp"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"interval"
-argument_list|,
-literal|"month"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"aggs"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"tag_count"
-argument_list|)
-comment|// the aggregation type is missing
-comment|//.startObject("cardinality")
-operator|.
-name|field
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"tag"
-argument_list|)
-comment|//.endObject()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-end_class
+begin_comment
+comment|//                    .startObject("filter")
+end_comment
+
+begin_comment
+comment|//                        .startObject("range")
+end_comment
+
+begin_comment
+comment|//                            .startObject("stock")
+end_comment
+
+begin_comment
+comment|//                                .field("gt", 0)
+end_comment
+
+begin_comment
+comment|//                            .endObject()
+end_comment
+
+begin_comment
+comment|//                        .endObject()
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//                    .startObject("terms")
+end_comment
+
+begin_comment
+comment|//                        .field("field", "stock")
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//                .endObject()
+end_comment
+
+begin_comment
+comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
+comment|//    }
+end_comment
+
+begin_comment
+comment|//
+end_comment
+
+begin_comment
+comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
+comment|//    public void testTwoAggs() throws Exception {
+end_comment
+
+begin_comment
+comment|//        createIndex("idx");
+end_comment
+
+begin_comment
+comment|//        ensureGreen();
+end_comment
+
+begin_comment
+comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
+comment|//            .startObject()
+end_comment
+
+begin_comment
+comment|//                .startObject("by_date")
+end_comment
+
+begin_comment
+comment|//                    .startObject("date_histogram")
+end_comment
+
+begin_comment
+comment|//                        .field("field", "timestamp")
+end_comment
+
+begin_comment
+comment|//                        .field("interval", "month")
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//                    .startObject("aggs")
+end_comment
+
+begin_comment
+comment|//                        .startObject("tag_count")
+end_comment
+
+begin_comment
+comment|//                            .startObject("cardinality")
+end_comment
+
+begin_comment
+comment|//                                .field("field", "tag")
+end_comment
+
+begin_comment
+comment|//                            .endObject()
+end_comment
+
+begin_comment
+comment|//                        .endObject()
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//                    .startObject("aggs") // 2nd "aggs": illegal
+end_comment
+
+begin_comment
+comment|//                        .startObject("tag_count2")
+end_comment
+
+begin_comment
+comment|//                            .startObject("cardinality")
+end_comment
+
+begin_comment
+comment|//                                .field("field", "tag")
+end_comment
+
+begin_comment
+comment|//                            .endObject()
+end_comment
+
+begin_comment
+comment|//                        .endObject()
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
+comment|//    }
+end_comment
+
+begin_comment
+comment|//
+end_comment
+
+begin_comment
+comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
+comment|//    public void testInvalidAggregationName() throws Exception {
+end_comment
+
+begin_comment
+comment|//
+end_comment
+
+begin_comment
+comment|//        Matcher matcher = Pattern.compile("[^\\[\\]>]+").matcher("");
+end_comment
+
+begin_comment
+comment|//        String name;
+end_comment
+
+begin_comment
+comment|//        SecureRandom rand = new SecureRandom();
+end_comment
+
+begin_comment
+comment|//        int len = randomIntBetween(1, 5);
+end_comment
+
+begin_comment
+comment|//        char[] word = new char[len];
+end_comment
+
+begin_comment
+comment|//        while(true) {
+end_comment
+
+begin_comment
+comment|//            for (int i = 0; i< word.length; i++) {
+end_comment
+
+begin_comment
+comment|//                word[i] = (char) rand.nextInt(127);
+end_comment
+
+begin_comment
+comment|//            }
+end_comment
+
+begin_comment
+comment|//            name = String.valueOf(word);
+end_comment
+
+begin_comment
+comment|//            if (!matcher.reset(name).matches()) {
+end_comment
+
+begin_comment
+comment|//                break;
+end_comment
+
+begin_comment
+comment|//            }
+end_comment
+
+begin_comment
+comment|//        }
+end_comment
+
+begin_comment
+comment|//
+end_comment
+
+begin_comment
+comment|//        createIndex("idx");
+end_comment
+
+begin_comment
+comment|//        ensureGreen();
+end_comment
+
+begin_comment
+comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
+comment|//            .startObject()
+end_comment
+
+begin_comment
+comment|//                .startObject(name)
+end_comment
+
+begin_comment
+comment|//                    .startObject("filter")
+end_comment
+
+begin_comment
+comment|//                        .startObject("range")
+end_comment
+
+begin_comment
+comment|//                            .startObject("stock")
+end_comment
+
+begin_comment
+comment|//                                .field("gt", 0)
+end_comment
+
+begin_comment
+comment|//                            .endObject()
+end_comment
+
+begin_comment
+comment|//                        .endObject()
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
+comment|//    }
+end_comment
+
+begin_comment
+comment|//
+end_comment
+
+begin_comment
+comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
+comment|//    public void testSameAggregationName() throws Exception {
+end_comment
+
+begin_comment
+comment|//        createIndex("idx");
+end_comment
+
+begin_comment
+comment|//        ensureGreen();
+end_comment
+
+begin_comment
+comment|//        final String name = RandomStrings.randomAsciiOfLength(getRandom(), 10);
+end_comment
+
+begin_comment
+comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
+comment|//            .startObject()
+end_comment
+
+begin_comment
+comment|//                .startObject(name)
+end_comment
+
+begin_comment
+comment|//                    .startObject("terms")
+end_comment
+
+begin_comment
+comment|//                        .field("field", "a")
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//                .endObject()
+end_comment
+
+begin_comment
+comment|//                .startObject(name)
+end_comment
+
+begin_comment
+comment|//                    .startObject("terms")
+end_comment
+
+begin_comment
+comment|//                        .field("field", "b")
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//                .endObject()
+end_comment
+
+begin_comment
+comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
+comment|//    }
+end_comment
+
+begin_comment
+comment|//
+end_comment
+
+begin_comment
+comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
+comment|//    public void testMissingName() throws Exception {
+end_comment
+
+begin_comment
+comment|//        createIndex("idx");
+end_comment
+
+begin_comment
+comment|//        ensureGreen();
+end_comment
+
+begin_comment
+comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
+comment|//            .startObject()
+end_comment
+
+begin_comment
+comment|//                .startObject("by_date")
+end_comment
+
+begin_comment
+comment|//                    .startObject("date_histogram")
+end_comment
+
+begin_comment
+comment|//                        .field("field", "timestamp")
+end_comment
+
+begin_comment
+comment|//                        .field("interval", "month")
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//                    .startObject("aggs")
+end_comment
+
+begin_comment
+comment|//                        // the aggregation name is missing
+end_comment
+
+begin_comment
+comment|//                        //.startObject("tag_count")
+end_comment
+
+begin_comment
+comment|//                            .startObject("cardinality")
+end_comment
+
+begin_comment
+comment|//                                .field("field", "tag")
+end_comment
+
+begin_comment
+comment|//                            .endObject()
+end_comment
+
+begin_comment
+comment|//                        //.endObject()
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
+comment|//    }
+end_comment
+
+begin_comment
+comment|//
+end_comment
+
+begin_comment
+comment|//    @Test(expected=SearchPhaseExecutionException.class)
+end_comment
+
+begin_comment
+comment|//    public void testMissingType() throws Exception {
+end_comment
+
+begin_comment
+comment|//        createIndex("idx");
+end_comment
+
+begin_comment
+comment|//        ensureGreen();
+end_comment
+
+begin_comment
+comment|//        client().prepareSearch("idx").setAggregations(JsonXContent.contentBuilder()
+end_comment
+
+begin_comment
+comment|//            .startObject()
+end_comment
+
+begin_comment
+comment|//                .startObject("by_date")
+end_comment
+
+begin_comment
+comment|//                    .startObject("date_histogram")
+end_comment
+
+begin_comment
+comment|//                        .field("field", "timestamp")
+end_comment
+
+begin_comment
+comment|//                        .field("interval", "month")
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//                    .startObject("aggs")
+end_comment
+
+begin_comment
+comment|//                        .startObject("tag_count")
+end_comment
+
+begin_comment
+comment|//                            // the aggregation type is missing
+end_comment
+
+begin_comment
+comment|//                            //.startObject("cardinality")
+end_comment
+
+begin_comment
+comment|//                                .field("field", "tag")
+end_comment
+
+begin_comment
+comment|//                            //.endObject()
+end_comment
+
+begin_comment
+comment|//                        .endObject()
+end_comment
+
+begin_comment
+comment|//                    .endObject()
+end_comment
+
+begin_comment
+comment|//            .endObject()).execute().actionGet();
+end_comment
+
+begin_comment
+comment|//    }
+end_comment
 
 end_unit
 

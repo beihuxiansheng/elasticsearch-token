@@ -1069,7 +1069,7 @@ literal|"<head><meta http-equiv=\"refresh\" content=\"0; URL="
 operator|+
 name|redirectUrl
 operator|+
-literal|"></head>"
+literal|"\"></head>"
 argument_list|)
 decl_stmt|;
 name|restResponse

@@ -182,9 +182,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
-operator|.
-name|zen
+name|cluster
 operator|.
 name|NotMasterException
 import|;
@@ -250,20 +248,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportRequestOptions
-operator|.
-name|options
-import|;
-end_import
-
 begin_comment
 comment|/**  * A fault detection that pings the master periodically to see if its alive.  */
 end_comment
@@ -298,6 +282,9 @@ name|onMasterFailure
 parameter_list|(
 name|DiscoveryNode
 name|masterNode
+parameter_list|,
+name|Throwable
+name|cause
 parameter_list|,
 name|String
 name|reason
@@ -626,14 +613,9 @@ name|notifyMasterFailure
 argument_list|(
 name|masterNode
 argument_list|,
-literal|"failed to perform initial connect ["
-operator|+
 name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|"]"
+argument_list|,
+literal|"failed to perform initial connect "
 argument_list|)
 expr_stmt|;
 return|return;
@@ -901,6 +883,8 @@ name|notifyMasterFailure
 argument_list|(
 name|masterNode
 argument_list|,
+literal|null
+argument_list|,
 literal|"transport disconnected (with verified connect)"
 argument_list|)
 expr_stmt|;
@@ -921,6 +905,8 @@ name|notifyMasterFailure
 argument_list|(
 name|node
 argument_list|,
+literal|null
+argument_list|,
 literal|"transport disconnected"
 argument_list|)
 expr_stmt|;
@@ -935,6 +921,10 @@ parameter_list|(
 specifier|final
 name|DiscoveryNode
 name|masterNode
+parameter_list|,
+specifier|final
+name|Throwable
+name|cause
 parameter_list|,
 specifier|final
 name|String
@@ -984,6 +974,8 @@ operator|.
 name|onMasterFailure
 argument_list|(
 name|masterNode
+argument_list|,
+name|cause
 argument_list|,
 name|reason
 argument_list|)
@@ -1107,7 +1099,9 @@ specifier|final
 name|TransportRequestOptions
 name|options
 init|=
-name|options
+name|TransportRequestOptions
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|withType
@@ -1123,6 +1117,9 @@ name|withTimeout
 argument_list|(
 name|pingRetryTimeout
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|transportService
 operator|.
@@ -1303,6 +1300,8 @@ name|notifyMasterFailure
 argument_list|(
 name|masterToPing
 argument_list|,
+name|exp
+argument_list|,
 literal|"no longer master"
 argument_list|)
 expr_stmt|;
@@ -1332,6 +1331,8 @@ name|notifyMasterFailure
 argument_list|(
 name|masterToPing
 argument_list|,
+name|exp
+argument_list|,
 literal|"not master"
 argument_list|)
 expr_stmt|;
@@ -1360,6 +1361,8 @@ expr_stmt|;
 name|notifyMasterFailure
 argument_list|(
 name|masterToPing
+argument_list|,
+name|exp
 argument_list|,
 literal|"do not exists on master, act as master failure"
 argument_list|)
@@ -1415,6 +1418,8 @@ comment|// not good, failure
 name|notifyMasterFailure
 argument_list|(
 name|masterToPing
+argument_list|,
+literal|null
 argument_list|,
 literal|"failed to ping, tried ["
 operator|+

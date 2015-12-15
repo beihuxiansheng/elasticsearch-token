@@ -50,17 +50,11 @@ implements|implements
 name|ScriptContext
 block|{
 DECL|enum constant|AGGS
-DECL|enum constant|MAPPING
 DECL|enum constant|SEARCH
 DECL|enum constant|UPDATE
 name|AGGS
 argument_list|(
 literal|"aggs"
-argument_list|)
-block|,
-name|MAPPING
-argument_list|(
-literal|"mapping"
 argument_list|)
 block|,
 name|SEARCH

@@ -30,16 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -80,8 +70,6 @@ name|RegexTests
 extends|extends
 name|ESTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testFlags
 specifier|public
 name|void
@@ -113,6 +101,8 @@ block|,
 literal|"COMMENTS"
 block|,
 literal|"UNICODE_CHAR_CLASS"
+block|,
+literal|"UNICODE_CHARACTER_CLASS"
 block|}
 decl_stmt|;
 name|int
@@ -344,13 +334,6 @@ expr_stmt|;
 comment|// accepts the flags?
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|1000
-argument_list|)
 DECL|method|testDoubleWildcardMatch
 specifier|public
 name|void

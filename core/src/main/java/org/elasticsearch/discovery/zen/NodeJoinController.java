@@ -70,6 +70,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|NotMasterException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|block
 operator|.
 name|ClusterBlocks
@@ -474,7 +486,9 @@ argument_list|)
 condition|)
 block|{
 name|stopAccumulatingJoins
-argument_list|()
+argument_list|(
+literal|"election closed"
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -688,13 +702,13 @@ name|reason
 operator|+
 literal|"])"
 argument_list|,
+operator|new
+name|ClusterStateUpdateTask
+argument_list|(
 name|Priority
 operator|.
 name|IMMEDIATE
-argument_list|,
-operator|new
-name|ClusterStateUpdateTask
-argument_list|()
+argument_list|)
 block|{
 annotation|@
 name|Override
@@ -768,7 +782,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Accumulates any future incoming join request. Pending join requests will be processed in the final steps of becoming a      * master or when {@link #stopAccumulatingJoins()} is called.      */
+comment|/**      * Accumulates any future incoming join request. Pending join requests will be processed in the final steps of becoming a      * master or when {@link #stopAccumulatingJoins(String)} is called.      */
 DECL|method|startAccumulatingJoins
 specifier|public
 name|void
@@ -815,13 +829,18 @@ DECL|method|stopAccumulatingJoins
 specifier|public
 name|void
 name|stopAccumulatingJoins
-parameter_list|()
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
 block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"stopping join accumulation"
+literal|"stopping join accumulation ([{}])"
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -866,7 +885,11 @@ condition|)
 block|{
 name|processJoins
 argument_list|(
-literal|"stopping to accumulate joins"
+literal|"pending joins after accumulation stop ["
+operator|+
+name|reason
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1045,6 +1068,18 @@ operator|.
 name|requiredMasterJoins
 condition|)
 block|{
+if|if
+condition|(
+name|context
+operator|.
+name|pendingSetAsMasterTask
+operator|.
+name|get
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1058,6 +1093,7 @@ operator|.
 name|requiredMasterJoins
 argument_list|)
 expr_stmt|;
+block|}
 return|return;
 block|}
 if|if
@@ -1097,13 +1133,13 @@ name|submitStateUpdateTask
 argument_list|(
 name|source
 argument_list|,
+operator|new
+name|ProcessJoinsTask
+argument_list|(
 name|Priority
 operator|.
 name|IMMEDIATE
-argument_list|,
-operator|new
-name|ProcessJoinsTask
-argument_list|()
+argument_list|)
 block|{
 annotation|@
 name|Override
@@ -1255,6 +1291,8 @@ operator|.
 name|reroute
 argument_list|(
 name|currentState
+argument_list|,
+literal|"nodes joined"
 argument_list|)
 decl_stmt|;
 if|if
@@ -1394,13 +1432,13 @@ name|reason
 operator|+
 literal|")"
 argument_list|,
+operator|new
+name|ProcessJoinsTask
+argument_list|(
 name|Priority
 operator|.
 name|URGENT
-argument_list|,
-operator|new
-name|ProcessJoinsTask
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1673,6 +1711,20 @@ name|nodeAdded
 init|=
 literal|false
 decl_stmt|;
+DECL|method|ProcessJoinsTask
+specifier|public
+name|ProcessJoinsTask
+parameter_list|(
+name|Priority
+name|priority
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|priority
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|execute
