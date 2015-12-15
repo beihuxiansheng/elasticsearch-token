@@ -504,11 +504,6 @@ parameter_list|,
 name|Dynamic
 name|dynamic
 parameter_list|,
-name|ContentPath
-operator|.
-name|Type
-name|pathType
-parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -597,8 +592,6 @@ argument_list|,
 name|enabled
 argument_list|,
 name|dynamic
-argument_list|,
-name|pathType
 argument_list|,
 name|mappers
 argument_list|,
@@ -1195,11 +1188,6 @@ parameter_list|,
 name|Dynamic
 name|dynamic
 parameter_list|,
-name|ContentPath
-operator|.
-name|Type
-name|pathType
-parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -1236,8 +1224,6 @@ operator|.
 name|NO
 argument_list|,
 name|dynamic
-argument_list|,
-name|pathType
 argument_list|,
 name|mappers
 argument_list|)

@@ -1544,32 +1544,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ContentPath
-operator|.
-name|Type
-name|origPathType
-init|=
-name|context
-operator|.
-name|path
-argument_list|()
-operator|.
-name|pathType
-argument_list|()
-decl_stmt|;
-name|context
-operator|.
-name|path
-argument_list|()
-operator|.
-name|pathType
-argument_list|(
-name|mapper
-operator|.
-name|pathType
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// if we are at the end of the previous object, advance
 if|if
 condition|(
@@ -1813,16 +1787,6 @@ block|}
 block|}
 block|}
 comment|// restore the enable path flag
-name|context
-operator|.
-name|path
-argument_list|()
-operator|.
-name|pathType
-argument_list|(
-name|origPathType
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|nested
@@ -2317,14 +2281,6 @@ operator|.
 name|enabled
 argument_list|(
 literal|true
-argument_list|)
-operator|.
-name|pathType
-argument_list|(
-name|mapper
-operator|.
-name|pathType
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// if this is a non root object, then explicitly set the dynamic behavior if set
@@ -4266,7 +4222,7 @@ operator|.
 name|path
 argument_list|()
 operator|.
-name|fullPathAsText
+name|pathAsText
 argument_list|(
 name|currentFieldName
 argument_list|)
@@ -4898,7 +4854,7 @@ operator|.
 name|path
 argument_list|()
 operator|.
-name|fullPathAsText
+name|pathAsText
 argument_list|(
 name|paths
 index|[
@@ -5057,14 +5013,6 @@ name|enabled
 argument_list|(
 literal|true
 argument_list|)
-operator|.
-name|pathType
-argument_list|(
-name|parent
-operator|.
-name|pathType
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 name|Mapper
@@ -5125,7 +5073,7 @@ operator|.
 name|path
 argument_list|()
 operator|.
-name|fullPathAsText
+name|pathAsText
 argument_list|(
 name|paths
 index|[
