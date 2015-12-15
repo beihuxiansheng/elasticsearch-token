@@ -2513,6 +2513,11 @@ argument_list|(
 literal|"tags"
 argument_list|)
 operator|.
+name|otherBucket
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|otherBucketKey
 argument_list|(
 literal|"foobar"
