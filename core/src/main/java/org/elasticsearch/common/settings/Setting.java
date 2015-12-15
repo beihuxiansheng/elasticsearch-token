@@ -476,6 +476,16 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
+name|IllegalArgumentException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|t
 parameter_list|)
