@@ -792,8 +792,6 @@ specifier|final
 name|IndexSettings
 name|indexSettings
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|IndexService
 specifier|public
 name|IndexService
