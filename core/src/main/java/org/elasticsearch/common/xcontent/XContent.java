@@ -87,17 +87,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates a new generator using the provided writer.      */
-DECL|method|createGenerator
-name|XContentGenerator
-name|createGenerator
-parameter_list|(
-name|Writer
-name|writer
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Creates a parser over the provided string content.      */
 DECL|method|createParser
 name|XContentParser

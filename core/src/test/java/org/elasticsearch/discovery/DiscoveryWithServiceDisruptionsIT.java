@@ -2961,6 +2961,9 @@ operator|.
 name|shuffle
 argument_list|(
 name|semaphores
+argument_list|,
+name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -4352,7 +4355,7 @@ name|shuffle
 argument_list|(
 name|nodes
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6612,6 +6615,9 @@ operator|.
 name|shuffle
 argument_list|(
 name|list
+argument_list|,
+name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|setDisruptionScheme

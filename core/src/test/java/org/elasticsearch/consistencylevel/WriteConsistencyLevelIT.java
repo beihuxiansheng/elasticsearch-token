@@ -409,7 +409,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test][0] Not enough active copies to meet write consistency of [QUORUM] (have 1, needed 2). Timeout: [100ms], request: index {[test][type1][1], source[{ type1 : { \"id\" : \"1\", \"name\" : \"test\" } }]}"
+literal|"[test][0] Not enough active copies to meet write consistency of [QUORUM] (have 1, needed 2). Timeout: [100ms], request: [index {[test][type1][1], source[{ type1 : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -622,7 +622,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test][0] Not enough active copies to meet write consistency of [ALL] (have 2, needed 3). Timeout: [100ms], request: index {[test][type1][1], source[{ type1 : { \"id\" : \"1\", \"name\" : \"test\" } }]}"
+literal|"[test][0] Not enough active copies to meet write consistency of [ALL] (have 2, needed 3). Timeout: [100ms], request: [index {[test][type1][1], source[{ type1 : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
 argument_list|)
 argument_list|)
 expr_stmt|;

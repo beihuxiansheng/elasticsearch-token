@@ -4304,7 +4304,7 @@ name|shuffle
 argument_list|(
 name|discoveryNodes
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;

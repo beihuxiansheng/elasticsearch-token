@@ -22,7 +22,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -826,7 +826,7 @@ specifier|private
 name|void
 name|assertShardInfo
 parameter_list|(
-name|ActionWriteResponse
+name|ReplicationResponse
 name|response
 parameter_list|)
 block|{
@@ -845,7 +845,7 @@ specifier|private
 name|void
 name|assertShardInfo
 parameter_list|(
-name|ActionWriteResponse
+name|ReplicationResponse
 name|response
 parameter_list|,
 name|int

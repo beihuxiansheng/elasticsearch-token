@@ -261,7 +261,7 @@ name|TestClass
 operator|.
 name|class
 operator|.
-name|getDeclaredMethod
+name|getMethod
 argument_list|(
 literal|"annotatedTestMethod"
 argument_list|)
@@ -701,7 +701,7 @@ name|TestClass
 operator|.
 name|class
 operator|.
-name|getDeclaredMethod
+name|getMethod
 argument_list|(
 literal|"annotatedTestMethod"
 argument_list|)
@@ -805,7 +805,7 @@ name|TestClass
 operator|.
 name|class
 operator|.
-name|getDeclaredMethod
+name|getMethod
 argument_list|(
 literal|"annotatedTestMethod2"
 argument_list|)

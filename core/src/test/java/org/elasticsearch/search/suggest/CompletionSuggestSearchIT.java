@@ -7876,8 +7876,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLength
 argument_list|(
-operator|new
-name|Random
+name|random
 argument_list|()
 argument_list|,
 literal|10
@@ -7938,8 +7937,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLength
 argument_list|(
-operator|new
-name|Random
+name|random
 argument_list|()
 argument_list|,
 literal|10

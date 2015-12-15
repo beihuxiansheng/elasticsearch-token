@@ -4586,9 +4586,38 @@ condition|)
 block|{
 name|failEngine
 argument_list|(
-literal|"already closed by tragic event"
+literal|"already closed by tragic event on the index writer"
 argument_list|,
 name|indexWriter
+operator|.
+name|getTragicException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|translog
+operator|.
+name|isOpen
+argument_list|()
+operator|==
+literal|false
+operator|&&
+name|translog
+operator|.
+name|getTragicException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|failEngine
+argument_list|(
+literal|"already closed by tragic event on the translog"
+argument_list|,
+name|translog
 operator|.
 name|getTragicException
 argument_list|()
@@ -4606,6 +4635,8 @@ name|t
 operator|!=
 literal|null
 operator|&&
+operator|(
+operator|(
 name|indexWriter
 operator|.
 name|isOpen
@@ -4619,6 +4650,24 @@ name|getTragicException
 argument_list|()
 operator|==
 name|t
+operator|)
+operator|||
+operator|(
+name|translog
+operator|.
+name|isOpen
+argument_list|()
+operator|==
+literal|false
+operator|&&
+name|translog
+operator|.
+name|getTragicException
+argument_list|()
+operator|==
+name|t
+operator|)
+operator|)
 condition|)
 block|{
 comment|// this spot on - we are handling the tragic event exception here so we have to fail the engine

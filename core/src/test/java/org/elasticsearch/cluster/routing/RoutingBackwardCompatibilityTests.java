@@ -98,18 +98,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
-operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -145,18 +133,6 @@ operator|.
 name|io
 operator|.
 name|InputStreamReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
 import|;
 end_import
 

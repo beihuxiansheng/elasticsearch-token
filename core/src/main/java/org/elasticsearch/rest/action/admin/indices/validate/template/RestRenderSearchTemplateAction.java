@@ -330,20 +330,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|mustache
-operator|.
-name|MustacheScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -716,9 +702,9 @@ name|ScriptType
 operator|.
 name|INDEXED
 argument_list|,
-name|MustacheScriptEngineService
+name|Template
 operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|,
 literal|null
 argument_list|,

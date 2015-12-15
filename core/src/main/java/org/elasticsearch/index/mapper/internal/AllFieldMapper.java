@@ -416,7 +416,7 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|parseField
+name|parseTextField
 import|;
 end_import
 
@@ -861,7 +861,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|parseField
+name|parseTextField
 argument_list|(
 name|builder
 argument_list|,

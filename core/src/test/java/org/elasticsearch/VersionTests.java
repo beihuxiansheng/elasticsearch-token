@@ -1400,7 +1400,7 @@ name|Version
 operator|.
 name|class
 operator|.
-name|getDeclaredFields
+name|getFields
 argument_list|()
 control|)
 block|{

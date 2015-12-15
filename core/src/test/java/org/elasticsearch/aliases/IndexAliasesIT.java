@@ -9506,7 +9506,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"requires an [alias] to be set"
+literal|"[alias] may not be empty string"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9565,7 +9565,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"requires an [alias] to be set"
+literal|"[alias] may not be empty string"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10259,9 +10259,17 @@ name|filter
 argument_list|(
 name|QueryBuilders
 operator|.
-name|missingQuery
+name|boolQuery
+argument_list|()
+operator|.
+name|mustNot
+argument_list|(
+name|QueryBuilders
+operator|.
+name|existsQuery
 argument_list|(
 literal|"field"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
