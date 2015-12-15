@@ -1069,6 +1069,23 @@ literal|"ShadowEngine has no IndexWriter"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|writeIndexingBuffer
+specifier|public
+name|void
+name|writeIndexingBuffer
+parameter_list|()
+block|{
+comment|// No indexing buffer
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"ShadowEngine has no IndexWriter"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 

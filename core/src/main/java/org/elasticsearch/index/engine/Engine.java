@@ -2595,6 +2595,17 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
+comment|/**      * Called when our engine is using too much heap and should move buffered indexed/deleted documents to disk.      */
+comment|// NOTE: do NOT rename this to something containing flush or refresh!
+DECL|method|writeIndexingBuffer
+specifier|public
+specifier|abstract
+name|void
+name|writeIndexingBuffer
+parameter_list|()
+throws|throws
+name|EngineException
+function_decl|;
 comment|/**      * Flushes the state of the engine including the transaction log, clearing memory.      *      * @param force         if<code>true</code> a lucene commit is executed even if no changes need to be committed.      * @param waitIfOngoing if<code>true</code> this call will block until all currently running flushes have finished.      *                      Otherwise this call will return without blocking.      * @return the commit Id for the resulting commit      */
 DECL|method|flush
 specifier|public

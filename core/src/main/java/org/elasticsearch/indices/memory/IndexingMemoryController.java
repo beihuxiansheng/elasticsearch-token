@@ -786,10 +786,11 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addRefreshingBytes
+comment|/** Shard calls this to notify us that this many bytes are being asynchronously moved from RAM to disk */
+DECL|method|addWritingBytes
 specifier|public
 name|void
-name|addRefreshingBytes
+name|addWritingBytes
 parameter_list|(
 name|IndexShard
 name|shard
@@ -808,10 +809,11 @@ name|numBytes
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|removeRefreshingBytes
+comment|/** Shard calls this to notify us that this many bytes are are done being asynchronously moved from RAM to disk */
+DECL|method|removeWritingBytes
 specifier|public
 name|void
-name|removeRefreshingBytes
+name|removeWritingBytes
 parameter_list|(
 name|IndexShard
 name|shard
@@ -820,6 +822,7 @@ name|long
 name|numBytes
 parameter_list|)
 block|{
+comment|// nocommit this can fail, if two refreshes are running "concurrently"
 name|Long
 name|result
 init|=
@@ -974,10 +977,10 @@ argument_list|()
 return|;
 block|}
 comment|/** ask this shard to refresh, in the background, to free up heap */
-DECL|method|refreshShardAsync
+DECL|method|writeIndexingBufferAsync
 specifier|protected
 name|void
-name|refreshShardAsync
+name|writeIndexingBufferAsync
 parameter_list|(
 name|IndexShard
 name|shard
@@ -985,10 +988,8 @@ parameter_list|)
 block|{
 name|shard
 operator|.
-name|refreshAsync
-argument_list|(
-literal|"memory"
-argument_list|)
+name|writeIndexingBufferAsync
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** returns true if shard exists and is availabe for updates */
@@ -1140,6 +1141,7 @@ DECL|field|bytesWrittenSinceCheck
 name|long
 name|bytesWrittenSinceCheck
 decl_stmt|;
+comment|/** Shard calls this on each indexing/delete op */
 DECL|method|bytesWritten
 specifier|public
 specifier|synchronized
@@ -1167,8 +1169,9 @@ literal|20
 condition|)
 block|{
 comment|// NOTE: this is only an approximate check, because bytes written is to the translog, vs indexing memory buffer which is
-comment|// typically smaller.  But this logic is here only as a safety against thread starvation or too infrequent checking,
-comment|// to ensure we are still checking in proportion to bytes processed by indexing:
+comment|// typically smaller but can be larger in extreme cases (many unique terms).  This logic is here only as a safety against
+comment|// thread starvation or too infrequent checking, to ensure we are still checking periodically, in proportion to bytes
+comment|// processed by indexing:
 name|System
 operator|.
 name|out
@@ -1532,7 +1535,7 @@ name|bytesUsed
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|refreshShardAsync
+name|writeIndexingBufferAsync
 argument_list|(
 name|largest
 operator|.

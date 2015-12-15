@@ -365,10 +365,10 @@ parameter_list|)
 block|{         }
 annotation|@
 name|Override
-DECL|method|refreshShardAsync
+DECL|method|writeIndexingBufferAsync
 specifier|public
 name|void
-name|refreshShardAsync
+name|writeIndexingBufferAsync
 parameter_list|(
 name|IndexShard
 name|shard
