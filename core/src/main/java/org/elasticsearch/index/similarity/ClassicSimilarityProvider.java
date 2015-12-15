@@ -28,7 +28,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 
@@ -47,30 +47,30 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link SimilarityProvider} for {@link DefaultSimilarity}.  *<p>  * Configuration options available:  *<ul>  *<li>discount_overlaps</li>  *</ul>  * @see DefaultSimilarity For more information about configuration  */
+comment|/**  * {@link SimilarityProvider} for {@link ClassicSimilarity}.  *<p>  * Configuration options available:  *<ul>  *<li>discount_overlaps</li>  *</ul>  * @see ClassicSimilarity For more information about configuration  */
 end_comment
 
 begin_class
-DECL|class|DefaultSimilarityProvider
+DECL|class|ClassicSimilarityProvider
 specifier|public
 class|class
-name|DefaultSimilarityProvider
+name|ClassicSimilarityProvider
 extends|extends
 name|AbstractSimilarityProvider
 block|{
 DECL|field|similarity
 specifier|private
 specifier|final
-name|DefaultSimilarity
+name|ClassicSimilarity
 name|similarity
 init|=
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
-DECL|method|DefaultSimilarityProvider
+DECL|method|ClassicSimilarityProvider
 specifier|public
-name|DefaultSimilarityProvider
+name|ClassicSimilarityProvider
 parameter_list|(
 name|String
 name|name
@@ -111,7 +111,7 @@ annotation|@
 name|Override
 DECL|method|get
 specifier|public
-name|DefaultSimilarity
+name|ClassicSimilarity
 name|get
 parameter_list|()
 block|{
