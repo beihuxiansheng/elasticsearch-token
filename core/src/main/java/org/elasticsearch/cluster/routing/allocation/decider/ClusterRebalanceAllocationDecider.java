@@ -290,6 +290,7 @@ block|}
 block|}
 DECL|field|type
 specifier|private
+specifier|volatile
 name|ClusterRebalanceType
 name|type
 decl_stmt|;
@@ -386,7 +387,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setType
-specifier|public
+specifier|private
 name|void
 name|setType
 parameter_list|(

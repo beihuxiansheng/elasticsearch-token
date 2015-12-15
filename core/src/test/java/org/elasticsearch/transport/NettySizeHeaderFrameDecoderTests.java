@@ -373,7 +373,7 @@ argument_list|)
 expr_stmt|;
 name|threadPool
 operator|.
-name|setNodeSettingsService
+name|setClusterSettings
 argument_list|(
 operator|new
 name|ClusterSettings

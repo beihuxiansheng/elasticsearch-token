@@ -2106,10 +2106,10 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|setNodeSettingsService
+DECL|method|setClusterSettings
 specifier|public
 name|void
-name|setNodeSettingsService
+name|setClusterSettings
 parameter_list|(
 name|ClusterSettings
 name|clusterSettings

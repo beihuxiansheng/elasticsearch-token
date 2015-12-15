@@ -858,7 +858,7 @@ name|Settings
 name|previous
 parameter_list|)
 function_decl|;
-comment|/**          * Returns the instance value for the current settings. This method is stateless and idempotent.          */
+comment|/**          * Returns the instance value for the current settings. This method is stateless and idempotent.          * This method will throw an exception if the source of this value is invalid.          */
 DECL|method|getValue
 name|T
 name|getValue

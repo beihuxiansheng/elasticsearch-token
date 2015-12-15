@@ -145,6 +145,8 @@ literal|"cluster.routing.allocation.cluster_concurrent_rebalance"
 argument_list|,
 literal|2
 argument_list|,
+literal|0
+argument_list|,
 literal|true
 argument_list|,
 name|Setting
@@ -211,7 +213,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setClusterConcurrentRebalance
-specifier|public
+specifier|private
 name|void
 name|setClusterConcurrentRebalance
 parameter_list|(

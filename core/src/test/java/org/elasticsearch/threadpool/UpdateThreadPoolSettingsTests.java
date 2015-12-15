@@ -566,7 +566,7 @@ argument_list|)
 decl_stmt|;
 name|threadPool
 operator|.
-name|setNodeSettingsService
+name|setClusterSettings
 argument_list|(
 name|clusterSettings
 argument_list|)
@@ -739,7 +739,7 @@ argument_list|)
 decl_stmt|;
 name|threadPool
 operator|.
-name|setNodeSettingsService
+name|setClusterSettings
 argument_list|(
 name|clusterSettings
 argument_list|)
@@ -1268,7 +1268,7 @@ argument_list|)
 decl_stmt|;
 name|threadPool
 operator|.
-name|setNodeSettingsService
+name|setClusterSettings
 argument_list|(
 name|clusterSettings
 argument_list|)
@@ -1884,7 +1884,7 @@ argument_list|)
 decl_stmt|;
 name|threadPool
 operator|.
-name|setNodeSettingsService
+name|setClusterSettings
 argument_list|(
 name|clusterSettings
 argument_list|)
@@ -2308,7 +2308,7 @@ argument_list|)
 decl_stmt|;
 name|threadPool
 operator|.
-name|setNodeSettingsService
+name|setClusterSettings
 argument_list|(
 name|clusterSettings
 argument_list|)
@@ -2592,7 +2592,7 @@ argument_list|)
 decl_stmt|;
 name|threadPool
 operator|.
-name|setNodeSettingsService
+name|setClusterSettings
 argument_list|(
 name|clusterSettings
 argument_list|)

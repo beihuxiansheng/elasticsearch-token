@@ -3211,7 +3211,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Checks if a watermark string is a valid percentage or byte size value,      * returning true if valid, false if invalid.      */
+comment|/**      * Checks if a watermark string is a valid percentage or byte size value,      * @return the watermark value given      */
 DECL|method|validWatermarkSetting
 specifier|public
 specifier|static

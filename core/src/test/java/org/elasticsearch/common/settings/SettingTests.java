@@ -326,7 +326,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchParseException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{

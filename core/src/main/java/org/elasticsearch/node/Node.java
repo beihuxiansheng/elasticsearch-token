@@ -1814,7 +1814,7 @@ argument_list|)
 expr_stmt|;
 name|threadPool
 operator|.
-name|setNodeSettingsService
+name|setClusterSettings
 argument_list|(
 name|injector
 operator|.
