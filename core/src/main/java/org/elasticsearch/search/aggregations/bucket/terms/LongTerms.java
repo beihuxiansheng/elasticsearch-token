@@ -560,9 +560,9 @@ name|getKeyAsString
 parameter_list|()
 block|{
 return|return
-name|String
+name|formatter
 operator|.
-name|valueOf
+name|format
 argument_list|(
 name|term
 argument_list|)
