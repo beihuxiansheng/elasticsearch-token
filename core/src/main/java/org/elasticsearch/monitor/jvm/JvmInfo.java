@@ -1838,7 +1838,12 @@ literal|null
 condition|?
 literal|"unknown"
 else|:
+name|Boolean
+operator|.
+name|toString
+argument_list|(
 name|usingCompressedOops
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|builder
