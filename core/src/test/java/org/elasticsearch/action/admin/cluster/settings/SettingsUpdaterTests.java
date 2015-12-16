@@ -971,6 +971,15 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|""
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Failed to parse value [not a float] for setting [cluster.routing.allocation.balance.index]"

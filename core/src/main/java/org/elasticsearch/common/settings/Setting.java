@@ -518,6 +518,31 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
+name|NumberFormatException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Failed to parse value ["
+operator|+
+name|value
+operator|+
+literal|"] for setting ["
+operator|+
+name|getKey
+argument_list|()
+operator|+
+literal|"]"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|IllegalArgumentException
 name|ex
 parameter_list|)
