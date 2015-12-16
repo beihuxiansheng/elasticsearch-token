@@ -4119,6 +4119,13 @@ name|newClusterState
 argument_list|)
 expr_stmt|;
 block|}
+name|executor
+operator|.
+name|clusterStatePublished
+argument_list|(
+name|newClusterState
+argument_list|)
+expr_stmt|;
 name|TimeValue
 name|executionTime
 init|=
