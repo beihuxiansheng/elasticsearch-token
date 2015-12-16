@@ -917,6 +917,23 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"adding header [{} => {}]"
+argument_list|,
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|httpUriRequest
 operator|.
 name|addHeader

@@ -2187,12 +2187,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Field [{}] is defined as a field in mapping ["
+literal|"Field ["
 operator|+
 name|fieldMapper
 operator|.
 name|name
 argument_list|()
+operator|+
+literal|"] is defined as a field in mapping ["
+operator|+
+name|type
 operator|+
 literal|"] but this name is already used for an object in other types"
 argument_list|)

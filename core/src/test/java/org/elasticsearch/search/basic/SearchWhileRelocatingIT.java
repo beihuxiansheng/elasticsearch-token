@@ -395,7 +395,7 @@ argument_list|)
 operator|.
 name|addMapping
 argument_list|(
-literal|"type1"
+literal|"type"
 argument_list|,
 literal|"loc"
 argument_list|,
