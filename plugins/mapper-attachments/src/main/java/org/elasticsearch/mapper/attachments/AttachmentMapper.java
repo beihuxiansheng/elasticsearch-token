@@ -634,6 +634,10 @@ argument_list|,
 operator|new
 name|AttachmentFieldType
 argument_list|()
+argument_list|,
+operator|new
+name|AttachmentFieldType
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
