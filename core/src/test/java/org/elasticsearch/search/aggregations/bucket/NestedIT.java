@@ -3516,10 +3516,9 @@ name|startDate
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|"1414800000000"
+literal|"2014-11-01T00:00:00.000Z"
 argument_list|)
 decl_stmt|;
-comment|// 2014-11-01T00:00:00.000Z
 name|assertThat
 argument_list|(
 name|bucket
@@ -3552,10 +3551,9 @@ name|endDate
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|"1417305600000"
+literal|"2014-11-30T00:00:00.000Z"
 argument_list|)
 expr_stmt|;
-comment|// 2014-11-30T00:00:00.000Z
 name|assertThat
 argument_list|(
 name|bucket
@@ -3719,10 +3717,9 @@ name|startDate
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|"1417392000000"
+literal|"2014-12-01T00:00:00.000Z"
 argument_list|)
 expr_stmt|;
-comment|// 2014-12-01T00:00:00.000Z
 name|assertThat
 argument_list|(
 name|bucket
@@ -3754,10 +3751,9 @@ name|endDate
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|"1419984000000"
+literal|"2014-12-31T00:00:00.000Z"
 argument_list|)
 expr_stmt|;
-comment|// 2014-12-31T00:00:00.000Z
 name|assertThat
 argument_list|(
 name|bucket
