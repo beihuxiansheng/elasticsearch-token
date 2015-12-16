@@ -656,7 +656,7 @@ name|indices
 operator|.
 name|forcemerge
 operator|.
-name|ForceMergeRequestBuilder
+name|ForceMergeRequest
 import|;
 end_import
 
@@ -674,7 +674,7 @@ name|indices
 operator|.
 name|forcemerge
 operator|.
-name|ForceMergeRequest
+name|ForceMergeRequestBuilder
 import|;
 end_import
 
@@ -1198,7 +1198,7 @@ name|indices
 operator|.
 name|shards
 operator|.
-name|IndicesShardStoresResponse
+name|IndicesShardStoresRequest
 import|;
 end_import
 
@@ -1216,7 +1216,7 @@ name|indices
 operator|.
 name|shards
 operator|.
-name|IndicesShardStoresRequest
+name|IndicesShardStoresResponse
 import|;
 end_import
 
@@ -1271,6 +1271,60 @@ operator|.
 name|stats
 operator|.
 name|IndicesStatsResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|flush
+operator|.
+name|SyncedFlushRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|flush
+operator|.
+name|SyncedFlushRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|flush
+operator|.
+name|SyncedFlushResponse
 import|;
 end_import
 
@@ -2275,6 +2329,43 @@ comment|/**      * Explicitly flush one or more indices (releasing memory from t
 DECL|method|prepareFlush
 name|FlushRequestBuilder
 name|prepareFlush
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
+function_decl|;
+comment|/**      * Explicitly sync flush one or more indices (write sync id to shards for faster recovery).      *      * @param request The sync flush request      * @return A result future      * @see org.elasticsearch.client.Requests#syncedFlushRequest(String...)      */
+DECL|method|syncedFlush
+name|ActionFuture
+argument_list|<
+name|SyncedFlushResponse
+argument_list|>
+name|syncedFlush
+parameter_list|(
+name|SyncedFlushRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Explicitly sync flush one or more indices (write sync id to shards for faster recovery).      *      * @param request  The sync flush request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#syncedFlushRequest(String...)      */
+DECL|method|syncedFlush
+name|void
+name|syncedFlush
+parameter_list|(
+name|SyncedFlushRequest
+name|request
+parameter_list|,
+name|ActionListener
+argument_list|<
+name|SyncedFlushResponse
+argument_list|>
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Explicitly sync flush one or more indices (write sync id to shards for faster recovery).      */
+DECL|method|prepareSyncedFlush
+name|SyncedFlushRequestBuilder
+name|prepareSyncedFlush
 parameter_list|(
 name|String
 modifier|...
