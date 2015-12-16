@@ -913,8 +913,6 @@ argument_list|,
 name|searchService
 argument_list|,
 name|syncedFlushService
-argument_list|,
-name|indexingMemoryController
 argument_list|)
 expr_stmt|;
 name|this

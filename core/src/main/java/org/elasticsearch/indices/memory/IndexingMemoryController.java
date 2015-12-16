@@ -214,20 +214,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexEventListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|IndexShard
 import|;
 end_import
@@ -284,10 +270,6 @@ name|ThreadPool
 import|;
 end_import
 
-begin_comment
-comment|// nocommit what is IndexEventListener
-end_comment
-
 begin_class
 DECL|class|IndexingMemoryController
 specifier|public
@@ -298,8 +280,6 @@ name|AbstractLifecycleComponent
 argument_list|<
 name|IndexingMemoryController
 argument_list|>
-implements|implements
-name|IndexEventListener
 block|{
 comment|/** How much heap (% or bytes) we will share across all actively indexing shards on this node (default: 10%). */
 DECL|field|INDEX_BUFFER_SIZE_SETTING
@@ -855,18 +835,13 @@ name|long
 name|numBytes
 parameter_list|)
 block|{
-comment|// nocommit this can fail, if two refreshes are running "concurrently"
-name|Long
-name|result
-init|=
 name|writingBytes
 operator|.
 name|remove
 argument_list|(
 name|shard
 argument_list|)
-decl_stmt|;
-comment|//assert result != null;
+expr_stmt|;
 name|logger
 operator|.
 name|debug
@@ -1074,15 +1049,6 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
-DECL|field|startMS
-name|long
-name|startMS
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 comment|/** called by IndexShard to record that this many bytes were written to translog */
 DECL|method|bytesWritten
 specifier|public

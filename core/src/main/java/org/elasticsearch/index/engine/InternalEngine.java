@@ -796,6 +796,19 @@ specifier|final
 name|IndexThrottle
 name|throttle
 decl_stmt|;
+comment|// How many callers are currently requesting index throttling.  Currently there are only two times we do this: when merges are falling
+comment|// behind and when writing indexing buffer to disk is too slow.  When this is 0, there is no throttling, else we throttling incoming
+comment|// indexing ops to a single thread:
+DECL|field|throttleRequestCount
+specifier|private
+specifier|final
+name|AtomicInteger
+name|throttleRequestCount
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 DECL|method|InternalEngine
 specifier|public
 name|InternalEngine
@@ -3345,22 +3358,6 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 decl_stmt|;
-name|boolean
-name|useRefresh
-init|=
-name|versionMapRefreshPending
-operator|.
-name|get
-argument_list|()
-operator|||
-operator|(
-name|indexingBufferBytes
-operator|/
-literal|4
-operator|<
-name|versionMapBytes
-operator|)
-decl_stmt|;
 comment|// we obtain a read lock here, since we don't want a flush to happen while we are refreshing
 comment|// since it flushes the index as well (though, in terms of concurrency, we are allowed to do it)
 try|try
@@ -3377,6 +3374,22 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+name|boolean
+name|useRefresh
+init|=
+name|versionMapRefreshPending
+operator|.
+name|get
+argument_list|()
+operator|||
+operator|(
+name|indexingBufferBytes
+operator|/
+literal|4
+operator|<
+name|versionMapBytes
+operator|)
+decl_stmt|;
 if|if
 condition|(
 name|useRefresh
@@ -3486,30 +3499,6 @@ argument_list|,
 name|t
 argument_list|)
 throw|;
-block|}
-comment|// TODO: maybe we should just put a scheduled job in threadPool?
-comment|// We check for pruning in each delete request, but we also prune here e.g. in case a delete burst comes in and then no more deletes
-comment|// for a long time:
-if|if
-condition|(
-name|useRefresh
-condition|)
-block|{
-name|maybePruneDeletedTombstones
-argument_list|()
-expr_stmt|;
-name|versionMapRefreshPending
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|mergeScheduler
-operator|.
-name|refreshConfig
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -6055,16 +6044,6 @@ name|searcher
 return|;
 block|}
 block|}
-DECL|field|throttleRequestCount
-specifier|private
-specifier|final
-name|AtomicInteger
-name|throttleRequestCount
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|activateThrottling

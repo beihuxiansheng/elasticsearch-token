@@ -511,7 +511,6 @@ name|INDEX_CODEC_SETTING
 init|=
 literal|"index.codec"
 decl_stmt|;
-comment|/**      * Index setting to control the index buffer size.      * This setting is<b>not</b> realtime updateable.      */
 comment|/** if set to true the engine will start even if the translog id in the commit point can not be found */
 DECL|field|INDEX_FORCE_NEW_TRANSLOG
 specifier|public
@@ -767,7 +766,8 @@ operator|.
 name|DEFAULT_CODEC_NAME
 argument_list|)
 expr_stmt|;
-comment|// We give IndexWriter a huge buffer, so it won't flush on its own.  Instead, IndexingMemoryController periodically checks
+comment|// We give IndexWriter a "huge" (256 MB) buffer, so it won't flush on its own unless the ES indexing buffer is also huge and/or
+comment|// there are not too many shards allocated to this node.  Instead, IndexingMemoryController periodically checks
 comment|// and refreshes the most heap-consuming shards when total indexing heap usage across all shards is too high:
 name|indexingBufferSize
 operator|=

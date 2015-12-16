@@ -3409,6 +3409,7 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
+comment|// Notify IMC so that it can go and check heap used by all indexing buffers periodically:
 name|indexingMemoryController
 operator|.
 name|bytesWritten
@@ -3748,6 +3749,7 @@ argument_list|(
 name|delete
 argument_list|)
 expr_stmt|;
+comment|// Notify IMC so that it can go and check heap used by all indexing buffers periodically:
 name|indexingMemoryController
 operator|.
 name|bytesWritten
@@ -3791,6 +3793,7 @@ name|acquireSearcher
 argument_list|)
 return|;
 block|}
+comment|/** Writes all indexing changes to disk and opens a new searcher reflecting all changes.  This can throw {@link EngineClosedException}. */
 DECL|method|refresh
 specifier|public
 name|void
@@ -3803,7 +3806,6 @@ block|{
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
-comment|// nocommit OK to throw EngineClosedExc?
 name|long
 name|ramBytesUsed
 init|=
@@ -3828,11 +3830,15 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"refresh with source: {} indexBufferRAMBytesUsed={}"
+literal|"refresh with source [{}] indexBufferRAMBytesUsed [{}]"
 argument_list|,
 name|source
 argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
 name|ramBytesUsed
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|long
@@ -6208,20 +6214,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns {@code true} if this shard is active (has seen indexing ops in the last {@link      * IndexingMemoryController#SHARD_INACTIVE_TIME_SETTING} (default 5 minutes), else {@code false}.      */
-DECL|method|getActive
-specifier|public
-name|boolean
-name|getActive
-parameter_list|()
-block|{
-return|return
-name|active
-operator|.
-name|get
-argument_list|()
-return|;
-block|}
 DECL|method|isFlushOnClose
 specifier|public
 specifier|final
@@ -7406,7 +7398,6 @@ condition|(
 name|e
 operator|instanceof
 name|RefreshFailedEngineException
-name|e
 condition|)
 block|{
 name|RefreshFailedEngineException
