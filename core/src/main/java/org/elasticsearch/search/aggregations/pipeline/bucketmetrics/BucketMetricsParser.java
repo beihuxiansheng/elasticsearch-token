@@ -40,6 +40,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -52,9 +64,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|SearchParseException
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -105,20 +119,6 @@ operator|.
 name|pipeline
 operator|.
 name|PipelineAggregatorFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -233,7 +233,7 @@ parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
+name|QueryParseContext
 name|context
 parameter_list|)
 throws|throws
@@ -563,9 +563,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Missing required field ["
 operator|+
@@ -579,11 +582,6 @@ operator|+
 name|pipelineAggregatorName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -644,17 +642,18 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Could not parse settings for aggregation ["
 operator|+
 name|pipelineAggregatorName
 operator|+
 literal|"]."
-argument_list|,
-literal|null
 argument_list|,
 name|exception
 argument_list|)
@@ -672,9 +671,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Unexpected tokens "
 operator|+
@@ -688,8 +690,6 @@ operator|+
 name|pipelineAggregatorName
 operator|+
 literal|"]."
-argument_list|,
-literal|null
 argument_list|)
 throw|;
 block|}

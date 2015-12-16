@@ -3996,6 +3996,8 @@ argument_list|,
 name|parseFieldMatcher
 argument_list|,
 name|defaultSearchTimeout
+argument_list|,
+name|fetchPhase
 argument_list|)
 decl_stmt|;
 name|SearchContext

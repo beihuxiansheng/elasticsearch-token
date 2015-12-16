@@ -28,6 +28,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -40,9 +52,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|SearchParseException
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -71,20 +85,6 @@ operator|.
 name|aggregations
 operator|.
 name|AggregatorFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -142,7 +142,7 @@ parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
+name|QueryParseContext
 name|context
 parameter_list|)
 throws|throws
@@ -241,9 +241,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Unknown key for a "
 operator|+
@@ -258,11 +261,6 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -271,9 +269,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Unexpected token "
 operator|+
@@ -284,11 +285,6 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]."
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -303,20 +299,18 @@ block|{
 comment|// "field" doesn't exist, so we fall back to the context of the ancestors
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Missing [path] field for nested aggregation ["
 operator|+
 name|aggregationName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}

@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -82,9 +94,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|SearchParseException
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -182,20 +196,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -280,7 +280,7 @@ specifier|static
 name|GapPolicy
 name|parse
 parameter_list|(
-name|SearchContext
+name|QueryParseContext
 name|context
 parameter_list|,
 name|String
@@ -401,9 +401,9 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|tokenLocation
 argument_list|,
 literal|"Invalid gap policy: ["
 operator|+
@@ -412,8 +412,6 @@ operator|+
 literal|"], accepted values: "
 operator|+
 name|validNames
-argument_list|,
-name|tokenLocation
 argument_list|)
 throw|;
 block|}

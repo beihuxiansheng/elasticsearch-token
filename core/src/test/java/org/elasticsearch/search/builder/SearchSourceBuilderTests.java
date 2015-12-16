@@ -2094,7 +2094,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-literal|true
+name|randomBoolean
+argument_list|()
 condition|)
 block|{
 comment|// NORELEASE need a method to randomly build content for ext

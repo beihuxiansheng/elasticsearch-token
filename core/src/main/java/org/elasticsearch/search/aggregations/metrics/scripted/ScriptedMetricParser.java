@@ -40,9 +40,35 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -92,18 +118,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|aggregations
 operator|.
 name|Aggregator
@@ -121,20 +135,6 @@ operator|.
 name|aggregations
 operator|.
 name|AggregatorFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -345,7 +345,7 @@ parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
+name|QueryParseContext
 name|context
 parameter_list|)
 throws|throws
@@ -673,9 +673,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Unknown key for a "
 operator|+
@@ -690,11 +693,6 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -730,9 +728,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Unknown key for a "
 operator|+
@@ -747,11 +748,6 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -760,9 +756,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Unexpected token "
 operator|+
@@ -773,11 +772,6 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]."
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -845,16 +839,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
-argument_list|,
-literal|"init_script params are not supported. Parameters for the init_script must be specified in the params field on the scripted_metric aggregator not inside the init_script object"
-argument_list|,
 name|parser
 operator|.
 name|getTokenLocation
 argument_list|()
+argument_list|,
+literal|"init_script params are not supported. Parameters for the init_script must be specified in the params field on the scripted_metric aggregator not inside the init_script object"
 argument_list|)
 throw|;
 block|}
@@ -921,16 +913,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
-argument_list|,
-literal|"map_script params are not supported. Parameters for the map_script must be specified in the params field on the scripted_metric aggregator not inside the map_script object"
-argument_list|,
 name|parser
 operator|.
 name|getTokenLocation
 argument_list|()
+argument_list|,
+literal|"map_script params are not supported. Parameters for the map_script must be specified in the params field on the scripted_metric aggregator not inside the map_script object"
 argument_list|)
 throw|;
 block|}
@@ -997,16 +987,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
-argument_list|,
-literal|"combine_script params are not supported. Parameters for the combine_script must be specified in the params field on the scripted_metric aggregator not inside the combine_script object"
-argument_list|,
 name|parser
 operator|.
 name|getTokenLocation
 argument_list|()
+argument_list|,
+literal|"combine_script params are not supported. Parameters for the combine_script must be specified in the params field on the scripted_metric aggregator not inside the combine_script object"
 argument_list|)
 throw|;
 block|}
@@ -1069,20 +1057,18 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"map_script field is required in ["
 operator|+
 name|aggregationName
 operator|+
 literal|"]."
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}

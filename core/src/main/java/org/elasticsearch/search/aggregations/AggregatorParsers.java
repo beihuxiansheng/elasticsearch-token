@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -80,9 +92,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|SearchParseException
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -115,20 +129,6 @@ operator|.
 name|pipeline
 operator|.
 name|PipelineAggregatorFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -498,7 +498,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses the aggregation request recursively generating aggregator factories in turn.      *      * @param parser    The input xcontent that will be parsed.      * @param context   The search context.      *      * @return          The parsed aggregator factories.      *      * @throws IOException When parsing fails for unknown reasons.      */
+comment|/**      * Parses the aggregation request recursively generating aggregator factories in turn.      *      * @param parser    The input xcontent that will be parsed.      * @param parseContext   The parse context.      *      * @return          The parsed aggregator factories.      *      * @throws IOException When parsing fails for unknown reasons.      */
 DECL|method|parseAggregators
 specifier|public
 name|AggregatorFactories
@@ -507,8 +507,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
-name|context
+name|QueryParseContext
+name|parseContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -518,7 +518,7 @@ name|parseAggregators
 argument_list|(
 name|parser
 argument_list|,
-name|context
+name|parseContext
 argument_list|,
 literal|0
 argument_list|)
@@ -532,8 +532,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
-name|context
+name|QueryParseContext
+name|parseContext
 parameter_list|,
 name|int
 name|level
@@ -600,20 +600,18 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Unexpected token "
 operator|+
 name|token
 operator|+
 literal|" in [aggs]: aggregations definitions must start with the name of the aggregation."
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -642,20 +640,18 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Invalid aggregation name ["
 operator|+
 name|aggregationName
 operator|+
 literal|"]. Aggregation names must be alpha-numeric and can only contain '_' and '-'"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -679,9 +675,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Aggregation definition for ["
 operator|+
@@ -700,11 +699,6 @@ operator|.
 name|START_OBJECT
 operator|+
 literal|"]."
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -764,9 +758,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Expected ["
 operator|+
@@ -836,9 +833,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Found two sub aggregation definitions under ["
 operator|+
@@ -905,9 +905,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Expected ["
 operator|+
@@ -938,11 +941,6 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -969,9 +967,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Expected ["
 operator|+
@@ -994,11 +995,6 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1008,7 +1004,7 @@ name|parseAggregators
 argument_list|(
 name|binaryParser
 argument_list|,
-name|context
+name|parseContext
 argument_list|,
 name|level
 operator|+
@@ -1059,20 +1055,18 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Found two sub aggregation definitions under ["
 operator|+
 name|aggregationName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1082,7 +1076,7 @@ name|parseAggregators
 argument_list|(
 name|parser
 argument_list|,
-name|context
+name|parseContext
 argument_list|,
 name|level
 operator|+
@@ -1100,9 +1094,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Found two aggregation type definitions in ["
 operator|+
@@ -1119,11 +1116,6 @@ operator|+
 name|fieldName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1136,9 +1128,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Found two aggregation type definitions in ["
 operator|+
@@ -1153,11 +1148,6 @@ operator|+
 name|fieldName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1197,9 +1187,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Could not find aggregator type ["
 operator|+
@@ -1210,11 +1203,6 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1230,7 +1218,7 @@ name|aggregationName
 argument_list|,
 name|parser
 argument_list|,
-name|context
+name|parseContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -1247,7 +1235,7 @@ name|aggregationName
 argument_list|,
 name|parser
 argument_list|,
-name|context
+name|parseContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -1257,9 +1245,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Expected ["
 operator|+
@@ -1282,11 +1273,6 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1304,9 +1290,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Missing definition for aggregation ["
 operator|+
@@ -1401,9 +1390,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"Aggregation ["
 operator|+

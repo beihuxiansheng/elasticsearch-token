@@ -5580,7 +5580,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ScriptField
-specifier|private
+specifier|public
 name|ScriptField
 parameter_list|(
 name|String
