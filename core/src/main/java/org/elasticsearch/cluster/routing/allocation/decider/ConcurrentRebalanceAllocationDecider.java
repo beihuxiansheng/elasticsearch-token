@@ -145,7 +145,8 @@ literal|"cluster.routing.allocation.cluster_concurrent_rebalance"
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 literal|true
 argument_list|,
