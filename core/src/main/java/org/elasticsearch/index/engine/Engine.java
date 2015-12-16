@@ -5012,6 +5012,22 @@ name|isTopLevelReader
 parameter_list|)
 function_decl|;
 block|}
+comment|/**      * Request that this engine throttle incoming indexing requests to one thread.  Must be matched by a later call to {@link deactivateThrottling}.      */
+DECL|method|activateThrottling
+specifier|public
+specifier|abstract
+name|void
+name|activateThrottling
+parameter_list|()
+function_decl|;
+comment|/**      * Reverses a previous {@link #activateThrottling} call.      */
+DECL|method|deactivateThrottling
+specifier|public
+specifier|abstract
+name|void
+name|deactivateThrottling
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

@@ -1086,6 +1086,38 @@ literal|"ShadowEngine has no IndexWriter"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|activateThrottling
+specifier|public
+name|void
+name|activateThrottling
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"ShadowEngine has no IndexWriter"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|deactivateThrottling
+specifier|public
+name|void
+name|deactivateThrottling
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"ShadowEngine has no IndexWriter"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 

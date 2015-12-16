@@ -398,6 +398,21 @@ specifier|final
 name|TimeValue
 name|interval
 decl_stmt|;
+comment|/** Contains shards currently being throttled because we can't write segments quickly enough */
+DECL|field|throttled
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|IndexShard
+argument_list|>
+name|throttled
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
 DECL|field|scheduler
 specifier|private
 specifier|volatile
@@ -441,18 +456,8 @@ specifier|final
 name|ShardsIndicesStatusChecker
 name|statusChecker
 decl_stmt|;
-comment|/** How many bytes we are currently moving to disk by the engine to refresh */
-DECL|field|bytesRefreshingNow
-specifier|private
-specifier|final
-name|AtomicLong
-name|bytesRefreshingNow
-init|=
-operator|new
-name|AtomicLong
-argument_list|()
-decl_stmt|;
-DECL|field|refreshingBytes
+comment|/** Maps each shard to how many bytes it is currently, asynchronously, writing to disk */
+DECL|field|writingBytes
 specifier|private
 specifier|final
 name|Map
@@ -461,7 +466,7 @@ name|IndexShard
 argument_list|,
 name|Long
 argument_list|>
-name|refreshingBytes
+name|writingBytes
 init|=
 operator|new
 name|ConcurrentHashMap
@@ -786,7 +791,7 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Shard calls this to notify us that this many bytes are being asynchronously moved from RAM to disk */
+comment|/** Shard calls this when it starts writing its indexing buffer to disk to notify us */
 DECL|method|addWritingBytes
 specifier|public
 name|void
@@ -799,7 +804,7 @@ name|long
 name|numBytes
 parameter_list|)
 block|{
-name|refreshingBytes
+name|writingBytes
 operator|.
 name|put
 argument_list|(
@@ -808,8 +813,26 @@ argument_list|,
 name|numBytes
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"IMC: add writing bytes for {}, {} MB"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|numBytes
+operator|/
+literal|1024.
+operator|/
+literal|1024.
+argument_list|)
+expr_stmt|;
 block|}
-comment|/** Shard calls this to notify us that this many bytes are are done being asynchronously moved from RAM to disk */
+comment|/** Shard calls when it's done writing these bytes to disk */
 DECL|method|removeWritingBytes
 specifier|public
 name|void
@@ -826,7 +849,7 @@ comment|// nocommit this can fail, if two refreshes are running "concurrently"
 name|Long
 name|result
 init|=
-name|refreshingBytes
+name|writingBytes
 operator|.
 name|remove
 argument_list|(
@@ -838,6 +861,18 @@ name|result
 operator|!=
 literal|null
 assert|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"IMC: clear writing bytes for {}"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1020,7 +1055,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** check if any shards active status changed, now. */
+comment|/** used by tests to check if any shards active status changed, now. */
 DECL|method|forceCheck
 specifier|public
 name|void
@@ -1165,37 +1200,13 @@ operator|.
 name|bytes
 argument_list|()
 operator|/
-literal|20
+literal|30
 condition|)
 block|{
 comment|// NOTE: this is only an approximate check, because bytes written is to the translog, vs indexing memory buffer which is
 comment|// typically smaller but can be larger in extreme cases (many unique terms).  This logic is here only as a safety against
 comment|// thread starvation or too infrequent checking, to ensure we are still checking periodically, in proportion to bytes
 comment|// processed by indexing:
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-operator|(
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|startMS
-operator|)
-operator|/
-literal|1000.0
-operator|)
-operator|+
-literal|": NOW CHECK xlog="
-operator|+
-name|bytesWrittenSinceCheck
-argument_list|)
-expr_stmt|;
 name|run
 argument_list|()
 expr_stmt|;
@@ -1210,10 +1221,17 @@ name|void
 name|run
 parameter_list|()
 block|{
-comment|// nocommit add defensive try/catch-everything here?  bad if an errant EngineClosedExc kills off this thread!!
-comment|// Fast check to sum up how much heap all shards' indexing buffers are using now:
+comment|// NOTE: even if we hit an errant exc here, our ThreadPool.scheduledWithFixedDelay will log the exception and re-invoke us
+comment|// again, on schedule
+comment|// First pass to sum up how much heap all shards' indexing buffers are using now, and how many bytes they are currently moving
+comment|// to disk:
 name|long
 name|totalBytesUsed
+init|=
+literal|0
+decl_stmt|;
+name|long
+name|totalBytesWriting
 init|=
 literal|0
 decl_stmt|;
@@ -1237,17 +1255,18 @@ name|nanos
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// nocommit explain why order is important here!
+comment|// How many bytes this shard is currently (async'd) moving from heap to disk:
 name|Long
-name|bytes
+name|shardWritingBytes
 init|=
-name|refreshingBytes
+name|writingBytes
 operator|.
 name|get
 argument_list|(
 name|shard
 argument_list|)
 decl_stmt|;
+comment|// How many heap bytes this shard is currently using
 name|long
 name|shardBytesUsed
 init|=
@@ -1258,18 +1277,21 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|bytes
+name|shardWritingBytes
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// Only count up bytes not already being refreshed:
 name|shardBytesUsed
 operator|-=
-name|bytes
+name|shardWritingBytes
 expr_stmt|;
-comment|// If the refresh completed just after we pulled refreshingBytes and before we pulled index buffer bytes, then we could
-comment|// have a negative value here:
+name|totalBytesWriting
+operator|+=
+name|shardWritingBytes
+expr_stmt|;
+comment|// If the refresh completed just after we pulled shardWritingBytes and before we pulled shardBytesUsed, then we could
+comment|// have a negative value here.  So we just skip this shard since that means it's now using very little heap:
 if|if
 condition|(
 name|shardBytesUsed
@@ -1284,85 +1306,20 @@ name|totalBytesUsed
 operator|+=
 name|shardBytesUsed
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"IMC:   "
-operator|+
-name|shard
-operator|.
-name|shardId
-argument_list|()
-operator|+
-literal|" using "
-operator|+
-operator|(
-name|shardBytesUsed
-operator|/
-literal|1024.
-operator|/
-literal|1024.
-operator|)
-operator|+
-literal|" MB"
-argument_list|)
-expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-operator|(
-operator|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|startMS
-operator|)
-operator|/
-literal|1000.0
-operator|)
-operator|+
-literal|": TOT="
-operator|+
-name|totalBytesUsed
-operator|+
-literal|" vs "
-operator|+
-name|indexingBuffer
-operator|.
-name|bytes
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
-name|totalBytesUsed
-operator|-
-name|bytesRefreshingNow
+name|logger
 operator|.
-name|get
-argument_list|()
-operator|>
-name|indexingBuffer
-operator|.
-name|bytes
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
-comment|// OK we are using too much; make a queue and ask largest shard(s) to refresh:
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"now refreshing some shards: total indexing bytes used [{}] vs index_buffer_size [{}]"
+literal|"total indexing heap bytes used [{}] vs {} [{}], currently writing bytes [{}]"
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -1370,7 +1327,50 @@ argument_list|(
 name|totalBytesUsed
 argument_list|)
 argument_list|,
+name|INDEX_BUFFER_SIZE_SETTING
+argument_list|,
 name|indexingBuffer
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|totalBytesWriting
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|totalBytesUsed
+operator|>
+name|indexingBuffer
+operator|.
+name|bytes
+argument_list|()
+condition|)
+block|{
+comment|// OK we are now over-budget; fill the priority queue and ask largest shard(s) to refresh:
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"now write some indexing buffers: total indexing heap bytes used [{}] vs {} [{}], currently writing bytes [{}]"
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|totalBytesUsed
+argument_list|)
+argument_list|,
+name|INDEX_BUFFER_SIZE_SETTING
+argument_list|,
+name|indexingBuffer
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|totalBytesWriting
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|PriorityQueue
@@ -1393,17 +1393,18 @@ name|availableShards
 argument_list|()
 control|)
 block|{
-comment|// nocommit explain why order is important here!
+comment|// How many bytes this shard is currently (async'd) moving from heap to disk:
 name|Long
-name|bytes
+name|shardWritingBytes
 init|=
-name|refreshingBytes
+name|writingBytes
 operator|.
 name|get
 argument_list|(
 name|shard
 argument_list|)
 decl_stmt|;
+comment|// How many heap bytes this shard is currently using
 name|long
 name|shardBytesUsed
 init|=
@@ -1414,7 +1415,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|bytes
+name|shardWritingBytes
 operator|!=
 literal|null
 condition|)
@@ -1422,10 +1423,10 @@ block|{
 comment|// Only count up bytes not already being refreshed:
 name|shardBytesUsed
 operator|-=
-name|bytes
+name|shardWritingBytes
 expr_stmt|;
-comment|// If the refresh completed just after we pulled refreshingBytes and before we pulled index buffer bytes, then we could
-comment|// have a negative value here:
+comment|// If the refresh completed just after we pulled shardWritingBytes and before we pulled shardBytesUsed, then we could
+comment|// have a negative value here.  So we just skip this shard since that means it's now using very little heap:
 if|if
 condition|(
 name|shardBytesUsed
@@ -1443,6 +1444,56 @@ operator|>
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|shardWritingBytes
+operator|!=
+literal|null
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"shard [{}] is using [{}] heap, writing [{}] heap"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|shardBytesUsed
+argument_list|,
+name|shardWritingBytes
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"shard [{}] is using [{}] heap, not writing any bytes"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|shardBytesUsed
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|queue
 operator|.
 name|add
@@ -1458,6 +1509,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// If we are using more than 50% of our budget across both indexing buffer and bytes we are moving to disk, then we now
+comment|// throttle the top shards to give back-pressure:
+name|boolean
+name|doThrottle
+init|=
+operator|(
+name|totalBytesWriting
+operator|+
+name|totalBytesUsed
+operator|)
+operator|>
+literal|1.5
+operator|*
+name|indexingBuffer
+operator|.
+name|bytes
+argument_list|()
+decl_stmt|;
 while|while
 condition|(
 name|totalBytesUsed
@@ -1483,41 +1552,11 @@ operator|.
 name|poll
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"IMC: write "
-operator|+
-name|largest
-operator|.
-name|shard
-operator|.
-name|shardId
-argument_list|()
-operator|+
-literal|": "
-operator|+
-operator|(
-name|largest
-operator|.
-name|bytesUsed
-operator|/
-literal|1024.
-operator|/
-literal|1024.
-operator|)
-operator|+
-literal|" MB"
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"refresh shard [{}] to free up its [{}] indexing buffer"
+literal|"write indexing buffer to disk for shard [{}] to free up its [{}] indexing buffer"
 argument_list|,
 name|largest
 operator|.
@@ -1547,6 +1586,92 @@ operator|-=
 name|largest
 operator|.
 name|bytesUsed
+expr_stmt|;
+if|if
+condition|(
+name|doThrottle
+operator|&&
+name|throttled
+operator|.
+name|contains
+argument_list|(
+name|largest
+operator|.
+name|shard
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"now throttling indexing for shard [{}]: segment writing can't keep up"
+argument_list|,
+name|largest
+operator|.
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|throttled
+operator|.
+name|add
+argument_list|(
+name|largest
+operator|.
+name|shard
+argument_list|)
+expr_stmt|;
+name|largest
+operator|.
+name|shard
+operator|.
+name|activateThrottling
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|doThrottle
+operator|==
+literal|false
+condition|)
+block|{
+for|for
+control|(
+name|IndexShard
+name|shard
+range|:
+name|throttled
+control|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"stop throttling indexing for shard [{}]"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|shard
+operator|.
+name|deactivateThrottling
+argument_list|()
+expr_stmt|;
+block|}
+name|throttled
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}
