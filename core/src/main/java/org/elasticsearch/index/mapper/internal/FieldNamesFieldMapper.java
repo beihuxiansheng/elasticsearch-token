@@ -1232,12 +1232,11 @@ operator|.
 name|freeze
 argument_list|()
 expr_stmt|;
-name|fieldTypeRef
+name|this
 operator|.
-name|set
-argument_list|(
+name|fieldType
+operator|=
 name|newFieldType
-argument_list|)
 expr_stmt|;
 block|}
 block|}
