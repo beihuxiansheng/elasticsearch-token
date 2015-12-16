@@ -42,20 +42,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -124,7 +110,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|groupSettings
+DECL|field|complexMatchers
 specifier|private
 specifier|final
 name|Map
@@ -136,7 +122,7 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|groupSettings
+name|complexMatchers
 init|=
 operator|new
 name|HashMap
@@ -239,7 +225,7 @@ name|isGroupSetting
 argument_list|()
 condition|)
 block|{
-name|groupSettings
+name|complexMatchers
 operator|.
 name|put
 argument_list|(
@@ -1036,7 +1022,7 @@ argument_list|>
 argument_list|>
 name|entry
 range|:
-name|groupSettings
+name|complexMatchers
 operator|.
 name|entrySet
 argument_list|()
