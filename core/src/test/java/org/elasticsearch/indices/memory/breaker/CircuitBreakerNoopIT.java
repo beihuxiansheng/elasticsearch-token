@@ -249,6 +249,9 @@ argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|FIELDDATA_CIRCUIT_BREAKER_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"noop"
 argument_list|)
@@ -271,6 +274,9 @@ argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|REQUEST_CIRCUIT_BREAKER_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"noop"
 argument_list|)
