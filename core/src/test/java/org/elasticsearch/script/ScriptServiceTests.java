@@ -1707,7 +1707,16 @@ name|randomIntBetween
 argument_list|(
 literal|0
 argument_list|,
-literal|10
+name|ScriptType
+operator|.
+name|values
+argument_list|()
+operator|.
+name|length
+operator|*
+name|scriptContexts
+operator|.
+name|length
 argument_list|)
 decl_stmt|;
 name|Map
