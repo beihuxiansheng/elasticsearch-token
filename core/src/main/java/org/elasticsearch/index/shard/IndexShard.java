@@ -8903,16 +8903,12 @@ name|IndexingMemoryController
 operator|.
 name|SHARD_INACTIVE_TIME_SETTING
 argument_list|,
-name|TimeValue
+name|IndexingMemoryController
 operator|.
-name|timeValueMinutes
-argument_list|(
-literal|5
-argument_list|)
+name|SHARD_DEFAULT_INACTIVE_TIME
 argument_list|)
 argument_list|)
 return|;
-comment|// nocommit
 block|}
 DECL|class|IndexShardOperationCounter
 specifier|private

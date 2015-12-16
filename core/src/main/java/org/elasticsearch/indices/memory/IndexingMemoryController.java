@@ -341,6 +341,21 @@ name|SHARD_INACTIVE_TIME_SETTING
 init|=
 literal|"indices.memory.shard_inactive_time"
 decl_stmt|;
+comment|/** Default value (5 minutes) for indices.memory.shard_inactive_time */
+DECL|field|SHARD_DEFAULT_INACTIVE_TIME
+specifier|public
+specifier|static
+specifier|final
+name|TimeValue
+name|SHARD_DEFAULT_INACTIVE_TIME
+init|=
+name|TimeValue
+operator|.
+name|timeValueMinutes
+argument_list|(
+literal|5
+argument_list|)
+decl_stmt|;
 comment|/** How frequently we check indexing memory usage (default: 5 seconds). */
 DECL|field|SHARD_MEMORY_INTERVAL_TIME_SETTING
 specifier|public
@@ -730,12 +745,7 @@ name|getAsTime
 argument_list|(
 name|SHARD_INACTIVE_TIME_SETTING
 argument_list|,
-name|TimeValue
-operator|.
-name|timeValueMinutes
-argument_list|(
-literal|5
-argument_list|)
+name|SHARD_DEFAULT_INACTIVE_TIME
 argument_list|)
 expr_stmt|;
 comment|// we need to have this relatively small to free up heap quickly enough
@@ -856,11 +866,7 @@ argument_list|(
 name|shard
 argument_list|)
 decl_stmt|;
-assert|assert
-name|result
-operator|!=
-literal|null
-assert|;
+comment|//assert result != null;
 name|logger
 operator|.
 name|debug
