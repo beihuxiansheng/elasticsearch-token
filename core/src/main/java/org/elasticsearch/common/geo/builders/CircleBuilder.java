@@ -185,6 +185,10 @@ DECL|field|unit
 specifier|private
 name|DistanceUnit
 name|unit
+init|=
+name|DistanceUnit
+operator|.
+name|DEFAULT
 decl_stmt|;
 DECL|field|radius
 specifier|private
@@ -196,6 +200,19 @@ specifier|private
 name|Coordinate
 name|center
 decl_stmt|;
+comment|/**      * Creates a circle centered at [0.0, 0.0].      * Center can be changed by calling {@link #center(Coordinate)} later.      */
+DECL|method|CircleBuilder
+specifier|public
+name|CircleBuilder
+parameter_list|()
+block|{
+name|this
+operator|.
+name|center
+operator|=
+name|ZERO_ZERO
+expr_stmt|;
+block|}
 comment|/**      * Set the center of the circle      *      * @param center coordinate of the circles center      * @return this      */
 DECL|method|center
 specifier|public
