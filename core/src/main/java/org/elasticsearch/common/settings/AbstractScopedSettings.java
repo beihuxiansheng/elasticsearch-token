@@ -221,7 +221,7 @@ if|if
 condition|(
 name|entry
 operator|.
-name|isGroupSetting
+name|hasComplexMatcher
 argument_list|()
 condition|)
 block|{

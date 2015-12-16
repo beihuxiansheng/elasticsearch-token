@@ -429,7 +429,6 @@ return|;
 block|}
 comment|/**      * Returns<code>true</code> iff this setting is a group setting. Group settings represent a set of settings      * rather than a single value. The key, see {@link #getKey()}, in contrast to non-group settings is a prefix like<tt>cluster.store.</tt>      * that matches all settings with this prefix.      */
 DECL|method|isGroupSetting
-specifier|public
 name|boolean
 name|isGroupSetting
 parameter_list|()
