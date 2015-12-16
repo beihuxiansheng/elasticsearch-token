@@ -99,6 +99,8 @@ operator|.
 name|stats
 operator|.
 name|CommonStatsFlags
+operator|.
+name|Flag
 import|;
 end_import
 
@@ -117,8 +119,6 @@ operator|.
 name|stats
 operator|.
 name|CommonStatsFlags
-operator|.
-name|Flag
 import|;
 end_import
 
@@ -440,6 +440,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|TranslogConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|cache
@@ -473,18 +487,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -501,6 +503,18 @@ operator|.
 name|ESIntegTestCase
 operator|.
 name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -4044,6 +4058,15 @@ argument_list|(
 literal|"index.merge.policy.type"
 argument_list|,
 literal|"tiered"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|TranslogConfig
+operator|.
+name|INDEX_TRANSLOG_DURABILITY
+argument_list|,
+literal|"ASYNC"
 argument_list|)
 argument_list|)
 argument_list|)
