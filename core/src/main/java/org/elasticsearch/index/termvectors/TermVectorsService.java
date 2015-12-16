@@ -1373,7 +1373,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|field
 argument_list|)
@@ -1603,7 +1603,7 @@ name|analyzer
 operator|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|field
 argument_list|)
@@ -1924,7 +1924,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|field
 operator|.

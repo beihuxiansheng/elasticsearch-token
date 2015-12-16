@@ -256,10 +256,7 @@ block|{
 return|return
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 return|;
 block|}
@@ -388,10 +385,7 @@ literal|"GeoBoundingBoxFilter("
 operator|+
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 operator|+
 literal|", "

@@ -1961,15 +1961,9 @@ argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
 operator|.
-name|setNames
-argument_list|(
-operator|new
-name|MappedFieldType
-operator|.
-name|Names
+name|setName
 argument_list|(
 literal|"_dummy"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE

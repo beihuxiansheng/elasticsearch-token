@@ -1424,7 +1424,7 @@ name|fieldType
 init|=
 name|context
 operator|.
-name|smartNameFieldTypeFromAnyType
+name|smartNameFieldType
 argument_list|(
 name|input
 operator|.

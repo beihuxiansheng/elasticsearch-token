@@ -423,15 +423,9 @@ argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
 operator|.
-name|setNames
-argument_list|(
-operator|new
-name|MappedFieldType
-operator|.
-name|Names
+name|setName
 argument_list|(
 name|NAME
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
@@ -1039,10 +1033,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [enabled] across all types."
@@ -1589,10 +1580,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|fieldName

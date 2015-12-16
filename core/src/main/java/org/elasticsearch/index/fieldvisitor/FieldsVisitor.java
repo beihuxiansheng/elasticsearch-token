@@ -608,7 +608,7 @@ name|fieldType
 init|=
 name|mapperService
 operator|.
-name|indexName
+name|fullName
 argument_list|(
 name|entry
 operator|.
@@ -754,10 +754,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 operator|.
 name|equals
