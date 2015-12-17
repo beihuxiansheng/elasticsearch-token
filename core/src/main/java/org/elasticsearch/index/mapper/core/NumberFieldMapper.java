@@ -472,6 +472,8 @@ argument_list|(
 name|name
 argument_list|,
 name|fieldType
+argument_list|,
+name|fieldType
 argument_list|)
 expr_stmt|;
 name|this

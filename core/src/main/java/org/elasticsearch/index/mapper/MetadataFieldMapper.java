@@ -171,6 +171,9 @@ name|name
 parameter_list|,
 name|MappedFieldType
 name|fieldType
+parameter_list|,
+name|MappedFieldType
+name|defaultFieldType
 parameter_list|)
 block|{
 name|super
@@ -178,6 +181,8 @@ argument_list|(
 name|name
 argument_list|,
 name|fieldType
+argument_list|,
+name|defaultFieldType
 argument_list|)
 expr_stmt|;
 block|}

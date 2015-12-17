@@ -448,6 +448,10 @@ operator|.
 name|SIZE_FIELD_TYPE
 else|:
 name|existing
+argument_list|,
+name|Defaults
+operator|.
+name|SIZE_FIELD_TYPE
 argument_list|)
 expr_stmt|;
 name|builder
