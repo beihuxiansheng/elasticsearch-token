@@ -521,6 +521,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"spuriously fails on Jenkins. Investigation ongoing."
+argument_list|)
 DECL|method|testAsyncRetryBacksOff
 specifier|public
 name|void
