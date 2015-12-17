@@ -608,6 +608,13 @@ name|assertOnFailureNeverCalled
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"spuriously fails on Jenkins. Investigation ongoing."
+argument_list|)
 DECL|method|testAsyncRetryFailsAfterBacksOff
 specifier|public
 name|void
