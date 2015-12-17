@@ -426,7 +426,14 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|terms
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 block|{
 name|extractWeightedTerms
 argument_list|(
