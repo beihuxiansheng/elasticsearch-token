@@ -178,7 +178,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringAndBytesText
+name|Text
 import|;
 end_import
 
@@ -708,7 +708,7 @@ operator|.
 name|id
 operator|=
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|id
 argument_list|)
@@ -762,7 +762,7 @@ operator|.
 name|id
 operator|=
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|id
 argument_list|)
@@ -1605,7 +1605,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 operator|new
 name|BytesArray
@@ -4461,7 +4461,7 @@ operator|.
 name|field
 operator|=
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|field
 argument_list|)
