@@ -3806,6 +3806,12 @@ block|{
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|canIndex
+argument_list|()
+condition|)
+block|{
 name|long
 name|ramBytesUsed
 init|=
@@ -3824,8 +3830,6 @@ argument_list|,
 name|ramBytesUsed
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|logger
 operator|.
 name|debug
@@ -3841,6 +3845,8 @@ name|ramBytesUsed
 argument_list|)
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|long
 name|time
 init|=
@@ -3879,6 +3885,47 @@ argument_list|(
 name|this
 argument_list|,
 name|ramBytesUsed
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"refresh with source [{}]"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+name|long
+name|time
+init|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+decl_stmt|;
+name|getEngine
+argument_list|()
+operator|.
+name|refresh
+argument_list|(
+name|source
+argument_list|)
+expr_stmt|;
+name|refreshMetric
+operator|.
+name|inc
+argument_list|(
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+operator|-
+name|time
 argument_list|)
 expr_stmt|;
 block|}
@@ -7531,6 +7578,12 @@ init|=
 name|getEngine
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|canIndex
+argument_list|()
+condition|)
+block|{
 name|long
 name|bytes
 init|=
@@ -7539,9 +7592,9 @@ operator|.
 name|indexBufferRAMBytesUsed
 argument_list|()
 decl_stmt|;
-comment|// NOTE: this can be an overestimate by up to 20%, if engine uses IW.flush not refresh, but this is fine because
-comment|// after the writes finish, IMC will poll again and see that there's still up to the 20% being used and continue
-comment|// writing if necessary:
+comment|// NOTE: this can be an overestimate by up to 20%, if engine uses IW.flush not refresh, because version map
+comment|// memory is low enough, but this is fine because after the writes finish, IMC will poll again and see that
+comment|// there's still up to the 20% being used and continue writing if necessary:
 name|indexingMemoryController
 operator|.
 name|addWritingBytes
@@ -7574,6 +7627,16 @@ name|this
 argument_list|,
 name|bytes
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|getEngine
+argument_list|()
+operator|.
+name|writeIndexingBuffer
+argument_list|()
 expr_stmt|;
 block|}
 block|}

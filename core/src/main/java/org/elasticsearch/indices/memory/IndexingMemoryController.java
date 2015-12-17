@@ -414,7 +414,7 @@ specifier|volatile
 name|ScheduledFuture
 name|scheduler
 decl_stmt|;
-DECL|field|CAN_UPDATE_INDEX_BUFFER_STATES
+DECL|field|CAN_WRITE_INDEX_BUFFER_STATES
 specifier|private
 specifier|static
 specifier|final
@@ -422,7 +422,7 @@ name|EnumSet
 argument_list|<
 name|IndexShardState
 argument_list|>
-name|CAN_UPDATE_INDEX_BUFFER_STATES
+name|CAN_WRITE_INDEX_BUFFER_STATES
 init|=
 name|EnumSet
 operator|.
@@ -807,18 +807,18 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"IMC: add writing bytes for {}, {} MB"
+literal|"add [{}] writing bytes for shard [{}]"
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|numBytes
+argument_list|)
 argument_list|,
 name|shard
 operator|.
 name|shardId
 argument_list|()
-argument_list|,
-name|numBytes
-operator|/
-literal|1024.
-operator|/
-literal|1024.
 argument_list|)
 expr_stmt|;
 block|}
@@ -846,13 +846,23 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"IMC: clear writing bytes for {}"
+literal|"clear [{}] writing bytes for shard [{}]"
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|numBytes
+argument_list|)
 argument_list|,
 name|shard
 operator|.
 name|shardId
 argument_list|()
 argument_list|)
+expr_stmt|;
+comment|// Since some bytes just freed up, now we check again to give throttling a chance to stop:
+name|forceCheck
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -953,11 +963,22 @@ range|:
 name|indexService
 control|)
 block|{
+comment|// shadow replica doesn't have an indexing buffer
 if|if
 condition|(
-name|shardAvailable
+name|shard
+operator|.
+name|canIndex
+argument_list|()
+operator|&&
+name|CAN_WRITE_INDEX_BUFFER_STATES
+operator|.
+name|contains
 argument_list|(
 name|shard
+operator|.
+name|state
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1008,34 +1029,6 @@ name|writeIndexingBufferAsync
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** returns true if shard exists and is availabe for updates */
-DECL|method|shardAvailable
-specifier|protected
-name|boolean
-name|shardAvailable
-parameter_list|(
-name|IndexShard
-name|shard
-parameter_list|)
-block|{
-comment|// shadow replica doesn't have an indexing buffer
-return|return
-name|shard
-operator|.
-name|canIndex
-argument_list|()
-operator|&&
-name|CAN_UPDATE_INDEX_BUFFER_STATES
-operator|.
-name|contains
-argument_list|(
-name|shard
-operator|.
-name|state
-argument_list|()
-argument_list|)
-return|;
-block|}
 comment|/** used by tests to check if any shards active status changed, now. */
 DECL|method|forceCheck
 specifier|public
@@ -1065,6 +1058,38 @@ name|bytesWritten
 argument_list|(
 name|bytes
 argument_list|)
+expr_stmt|;
+block|}
+comment|/** Asks this shard to throttle indexing to one thread */
+DECL|method|activateThrottling
+specifier|protected
+name|void
+name|activateThrottling
+parameter_list|(
+name|IndexShard
+name|shard
+parameter_list|)
+block|{
+name|shard
+operator|.
+name|activateThrottling
+argument_list|()
+expr_stmt|;
+block|}
+comment|/** Asks this shard to stop throttling indexing to one thread */
+DECL|method|deactivateThrottling
+specifier|protected
+name|void
+name|deactivateThrottling
+parameter_list|(
+name|IndexShard
+name|shard
+parameter_list|)
+block|{
+name|shard
+operator|.
+name|deactivateThrottling
+argument_list|()
 expr_stmt|;
 block|}
 DECL|class|ShardAndBytesUsed
@@ -1311,6 +1336,24 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// If we are using more than 50% of our budget across both indexing buffer and bytes we are still moving to disk, then we now
+comment|// throttle the top shards to send back-pressure to ongoing indexing:
+name|boolean
+name|doThrottle
+init|=
+operator|(
+name|totalBytesWriting
+operator|+
+name|totalBytesUsed
+operator|)
+operator|>
+literal|1.5
+operator|*
+name|indexingBuffer
+operator|.
+name|bytes
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|totalBytesUsed
@@ -1481,24 +1524,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// If we are using more than 50% of our budget across both indexing buffer and bytes we are moving to disk, then we now
-comment|// throttle the top shards to give back-pressure:
-name|boolean
-name|doThrottle
-init|=
-operator|(
-name|totalBytesWriting
-operator|+
-name|totalBytesUsed
-operator|)
-operator|>
-literal|1.5
-operator|*
-name|indexingBuffer
-operator|.
-name|bytes
-argument_list|()
-decl_stmt|;
 while|while
 condition|(
 name|totalBytesUsed
@@ -1598,13 +1623,14 @@ operator|.
 name|shard
 argument_list|)
 expr_stmt|;
+name|activateThrottling
+argument_list|(
 name|largest
 operator|.
 name|shard
-operator|.
-name|activateThrottling
-argument_list|()
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -1634,10 +1660,10 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|shard
-operator|.
 name|deactivateThrottling
-argument_list|()
+argument_list|(
+name|shard
+argument_list|)
 expr_stmt|;
 block|}
 name|throttled
@@ -1646,14 +1672,13 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-block|}
 name|bytesWrittenSinceCheck
 operator|=
 literal|0
 expr_stmt|;
 block|}
 block|}
-comment|/**      * ask this shard to check now whether it is inactive, and reduces its indexing and translog buffers if so.      * return false if the shard is not idle, otherwise true      */
+comment|/**      * ask this shard to check now whether it is inactive, and reduces its indexing buffer if so.      */
 DECL|method|checkIdle
 specifier|protected
 name|void
