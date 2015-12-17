@@ -716,6 +716,7 @@ name|latch
 decl_stmt|;
 DECL|field|countOnResponseCalled
 specifier|private
+specifier|volatile
 name|int
 name|countOnResponseCalled
 init|=
@@ -723,11 +724,13 @@ literal|0
 decl_stmt|;
 DECL|field|lastFailure
 specifier|private
+specifier|volatile
 name|Throwable
 name|lastFailure
 decl_stmt|;
 DECL|field|response
 specifier|private
+specifier|volatile
 name|BulkResponse
 name|response
 decl_stmt|;
