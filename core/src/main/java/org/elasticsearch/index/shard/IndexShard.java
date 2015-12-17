@@ -6761,14 +6761,18 @@ argument_list|()
 operator|:
 literal|"recover from store only makes sense if the shard is a primary shard"
 assert|;
-specifier|final
 name|boolean
 name|shouldExist
 init|=
 name|shardRouting
 operator|.
 name|allocatedPostIndexCreate
+argument_list|(
+name|idxSettings
+operator|.
+name|getIndexMetaData
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|StoreRecovery
 name|storeRecovery
