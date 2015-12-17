@@ -2326,7 +2326,7 @@ name|useCompressedOops
 operator|=
 name|in
 operator|.
-name|readOptionalString
+name|readString
 argument_list|()
 expr_stmt|;
 block|}
@@ -2496,7 +2496,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalString
+name|writeString
 argument_list|(
 name|useCompressedOops
 argument_list|)
