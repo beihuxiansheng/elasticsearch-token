@@ -3830,6 +3830,8 @@ argument_list|,
 name|ramBytesUsed
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|logger
 operator|.
 name|debug
@@ -3845,8 +3847,6 @@ name|ramBytesUsed
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|long
 name|time
 init|=
@@ -6194,7 +6194,7 @@ name|onShardFailure
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Called by {@link IndexingMemoryController} to check whether more than {@code inactiveTimeNS} has passed since the last      *  indexing operation, and become inactive (reducing indexing and translog buffers to tiny values) if so. */
+comment|/** Called by {@link IndexingMemoryController} to check whether more than {@code inactiveTimeNS} has passed since the last      *  indexing operation, and notify listeners that we are now inactive so e.g. sync'd flush can happen. */
 DECL|method|checkIdle
 specifier|public
 name|void
@@ -7546,6 +7546,20 @@ name|void
 name|writeIndexingBufferAsync
 parameter_list|()
 block|{
+if|if
+condition|(
+name|canIndex
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 name|threadPool
 operator|.
 name|executor
@@ -7578,12 +7592,6 @@ init|=
 name|getEngine
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|canIndex
-argument_list|()
-condition|)
-block|{
 name|long
 name|bytes
 init|=
@@ -7627,16 +7635,6 @@ name|this
 argument_list|,
 name|bytes
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|getEngine
-argument_list|()
-operator|.
-name|writeIndexingBuffer
-argument_list|()
 expr_stmt|;
 block|}
 block|}

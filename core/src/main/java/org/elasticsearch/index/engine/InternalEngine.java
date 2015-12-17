@@ -796,9 +796,9 @@ specifier|final
 name|IndexThrottle
 name|throttle
 decl_stmt|;
-comment|// How many callers are currently requesting index throttling.  Currently there are only two times we do this: when merges are falling
-comment|// behind and when writing indexing buffer to disk is too slow.  When this is 0, there is no throttling, else we throttling incoming
-comment|// indexing ops to a single thread:
+comment|// How many callers are currently requesting index throttling.  Currently there are only two situations where we do this: when merges
+comment|// are falling behind and when writing indexing buffer to disk is too slow.  When this is 0, there is no throttling, else we throttling
+comment|// incoming indexing ops to a single thread:
 DECL|field|throttleRequestCount
 specifier|private
 specifier|final
@@ -3339,6 +3339,22 @@ parameter_list|()
 throws|throws
 name|EngineException
 block|{
+comment|// we obtain a read lock here, since we don't want a flush to happen while we are writing
+comment|// since it flushes the index as well (though, in terms of concurrency, we are allowed to do it)
+try|try
+init|(
+name|ReleasableLock
+name|lock
+init|=
+name|readLock
+operator|.
+name|acquire
+argument_list|()
+init|)
+block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 comment|// TODO: it's not great that we secretly tie searcher visibility to "freeing up heap" here... really we should keep two
 comment|// searcher managers, one for searching which is only refreshed by the schedule the user requested (refresh_interval, or invoking
 comment|// refresh API), and another for version map interactions:
@@ -3358,22 +3374,6 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 decl_stmt|;
-comment|// we obtain a read lock here, since we don't want a flush to happen while we are refreshing
-comment|// since it flushes the index as well (though, in terms of concurrency, we are allowed to do it)
-try|try
-init|(
-name|ReleasableLock
-name|lock
-init|=
-name|readLock
-operator|.
-name|acquire
-argument_list|()
-init|)
-block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 name|boolean
 name|useRefresh
 init|=
