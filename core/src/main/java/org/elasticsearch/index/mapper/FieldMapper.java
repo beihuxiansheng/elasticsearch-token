@@ -458,6 +458,9 @@ name|name
 parameter_list|,
 name|MappedFieldType
 name|fieldType
+parameter_list|,
+name|MappedFieldType
+name|defaultFieldType
 parameter_list|)
 block|{
 name|super
@@ -478,7 +481,7 @@ name|this
 operator|.
 name|defaultFieldType
 operator|=
-name|fieldType
+name|defaultFieldType
 operator|.
 name|clone
 argument_list|()

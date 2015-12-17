@@ -627,6 +627,10 @@ argument_list|,
 operator|new
 name|ExternalFieldType
 argument_list|()
+argument_list|,
+operator|new
+name|ExternalFieldType
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

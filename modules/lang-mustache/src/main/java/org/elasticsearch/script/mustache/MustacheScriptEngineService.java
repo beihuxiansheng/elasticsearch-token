@@ -404,6 +404,14 @@ name|compile
 parameter_list|(
 name|String
 name|template
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|params
 parameter_list|)
 block|{
 comment|/** Factory to generate Mustache objects from. */

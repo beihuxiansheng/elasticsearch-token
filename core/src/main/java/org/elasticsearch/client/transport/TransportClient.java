@@ -442,18 +442,6 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|TransportModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
 name|TransportService
 import|;
 end_import
@@ -521,7 +509,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.  *<p>  * The transport client important modules used is the {@link org.elasticsearch.transport.TransportModule} which is  * started in client mode (only connects, no bind).  */
+comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.  *<p>  * The transport client important modules used is the {@link org.elasticsearch.common.network.NetworkModule} which is  * started in client mode (only connects, no bind).  */
 end_comment
 
 begin_class
@@ -853,6 +841,12 @@ operator|new
 name|NetworkModule
 argument_list|(
 name|networkService
+argument_list|,
+name|this
+operator|.
+name|settings
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -885,19 +879,6 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TransportModule
-argument_list|(
-name|this
-operator|.
-name|settings
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|modules
-operator|.
-name|add
-argument_list|(
-operator|new
 name|SearchModule
 argument_list|()
 block|{
@@ -922,15 +903,6 @@ name|ActionModule
 argument_list|(
 literal|true
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|modules
-operator|.
-name|add
-argument_list|(
-operator|new
-name|ClientTransportModule
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|modules

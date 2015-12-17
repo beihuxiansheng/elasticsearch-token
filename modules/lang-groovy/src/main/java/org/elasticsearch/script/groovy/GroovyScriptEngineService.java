@@ -926,6 +926,14 @@ name|compile
 parameter_list|(
 name|String
 name|script
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|params
 parameter_list|)
 block|{
 try|try
