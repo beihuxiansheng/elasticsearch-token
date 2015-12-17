@@ -156,7 +156,7 @@ name|groupSetting
 argument_list|(
 literal|"transport.profiles."
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|Setting
 operator|.
