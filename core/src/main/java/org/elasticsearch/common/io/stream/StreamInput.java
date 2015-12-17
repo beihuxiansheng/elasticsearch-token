@@ -216,7 +216,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringAndBytesText
+name|Text
 import|;
 end_import
 
@@ -1401,7 +1401,7 @@ return|;
 block|}
 return|return
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|readBytesReference
 argument_list|(
@@ -1427,7 +1427,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|readBytesReference
 argument_list|(
