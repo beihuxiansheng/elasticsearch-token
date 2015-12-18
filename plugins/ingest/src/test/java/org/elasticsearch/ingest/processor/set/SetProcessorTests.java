@@ -518,6 +518,7 @@ expr_stmt|;
 block|}
 DECL|method|createSetProcessor
 specifier|private
+specifier|static
 name|Processor
 name|createSetProcessor
 parameter_list|(
