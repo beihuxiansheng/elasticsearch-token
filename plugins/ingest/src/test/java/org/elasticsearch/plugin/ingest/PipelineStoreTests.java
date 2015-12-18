@@ -130,34 +130,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Injector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Provider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -174,7 +146,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -394,7 +366,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|any
 import|;
 end_import
 
@@ -419,18 +427,6 @@ operator|.
 name|Mockito
 operator|.
 name|when
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-operator|.
-name|any
 import|;
 end_import
 
@@ -595,7 +591,7 @@ argument_list|,
 literal|"1"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
@@ -739,7 +735,7 @@ argument_list|,
 literal|"2"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
@@ -959,7 +955,7 @@ argument_list|,
 literal|"1"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
@@ -1105,7 +1101,7 @@ argument_list|,
 literal|"2"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
@@ -1265,7 +1261,7 @@ argument_list|,
 literal|"foo"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
@@ -1298,7 +1294,7 @@ argument_list|,
 literal|"bar"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
@@ -1331,7 +1327,7 @@ argument_list|,
 literal|"foobar"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
@@ -1820,6 +1816,8 @@ operator|new
 name|InternalSearchResponse
 argument_list|(
 name|hits1
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
