@@ -2475,6 +2475,11 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+name|closeOnTragicEvent
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|TranslogException
@@ -2827,9 +2832,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|AlreadyClosedException
-decl||
-name|IOException
+name|Throwable
 name|ex
 parameter_list|)
 block|{
@@ -2960,9 +2963,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|AlreadyClosedException
-decl||
-name|IOException
+name|Throwable
 name|ex
 parameter_list|)
 block|{
