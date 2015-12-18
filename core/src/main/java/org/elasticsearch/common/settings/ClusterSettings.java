@@ -769,6 +769,10 @@ argument_list|,
 name|Transport
 operator|.
 name|TRANSPORT_PROFILES_SETTING
+argument_list|,
+name|Transport
+operator|.
+name|TRANSPORT_TCP_COMPRESS
 argument_list|)
 argument_list|)
 argument_list|)

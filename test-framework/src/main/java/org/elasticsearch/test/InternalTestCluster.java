@@ -2898,9 +2898,10 @@ name|put
 argument_list|(
 name|Transport
 operator|.
-name|TransportSettings
-operator|.
 name|TRANSPORT_TCP_COMPRESS
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|rarely
 argument_list|(
