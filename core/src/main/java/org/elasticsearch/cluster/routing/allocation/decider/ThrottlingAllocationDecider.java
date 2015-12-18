@@ -26,16 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|routing

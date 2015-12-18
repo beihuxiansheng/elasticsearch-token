@@ -482,6 +482,22 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
+name|existsQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
 name|fuzzyQuery
 import|;
 end_import
@@ -659,22 +675,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|wildcardQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|existsQuery
 import|;
 end_import
 

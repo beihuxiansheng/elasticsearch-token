@@ -102,20 +102,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|joda
 operator|.
 name|time
@@ -162,7 +148,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertHitCount
 import|;
 end_import
 
@@ -178,7 +164,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertHitCount
+name|assertSearchHits
 import|;
 end_import
 

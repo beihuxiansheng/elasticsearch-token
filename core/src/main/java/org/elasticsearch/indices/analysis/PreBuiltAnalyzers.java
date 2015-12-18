@@ -718,7 +718,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|StandardHtmlStripAnalyzer
+name|SnowballAnalyzer
 import|;
 end_import
 
@@ -732,7 +732,7 @@ name|index
 operator|.
 name|analysis
 operator|.
-name|SnowballAnalyzer
+name|StandardHtmlStripAnalyzer
 import|;
 end_import
 

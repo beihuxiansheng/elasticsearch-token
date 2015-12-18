@@ -354,7 +354,7 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|parseTextField
+name|parseMultiField
 import|;
 end_import
 
@@ -372,7 +372,7 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|parseMultiField
+name|parseTextField
 import|;
 end_import
 

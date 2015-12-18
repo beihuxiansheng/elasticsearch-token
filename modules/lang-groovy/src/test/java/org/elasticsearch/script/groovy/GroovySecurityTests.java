@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|groovy
+operator|.
+name|lang
+operator|.
+name|MissingPropertyException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -103,16 +113,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|groovy
-operator|.
-name|lang
-operator|.
-name|MissingPropertyException
 import|;
 end_import
 

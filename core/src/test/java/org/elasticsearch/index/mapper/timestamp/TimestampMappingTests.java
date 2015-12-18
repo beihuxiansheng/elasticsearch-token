@@ -610,18 +610,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|isIn
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|lessThanOrEqualTo
 import|;
 end_import

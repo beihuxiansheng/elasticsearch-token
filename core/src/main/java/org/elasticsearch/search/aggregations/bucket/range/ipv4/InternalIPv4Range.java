@@ -194,24 +194,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|ip
-operator|.
-name|IpFieldMapper
-operator|.
-name|MAX_IP
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment

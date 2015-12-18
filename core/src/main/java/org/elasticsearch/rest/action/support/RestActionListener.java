@@ -82,16 +82,6 @@ name|RestChannel
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * An action listener that requires {@link #processResponse(Object)} to be implemented  * and will automatically handle failures.  */
 end_comment

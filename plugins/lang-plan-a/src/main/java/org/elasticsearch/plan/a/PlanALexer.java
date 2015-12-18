@@ -18,11 +18,15 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|antlr
 operator|.
-name|Set
+name|v4
+operator|.
+name|runtime
+operator|.
+name|CharStream
 import|;
 end_import
 
@@ -50,7 +54,7 @@ name|v4
 operator|.
 name|runtime
 operator|.
-name|CharStream
+name|RuleContext
 import|;
 end_import
 
@@ -64,7 +68,7 @@ name|v4
 operator|.
 name|runtime
 operator|.
-name|Token
+name|RuntimeMetaData
 import|;
 end_import
 
@@ -78,7 +82,7 @@ name|v4
 operator|.
 name|runtime
 operator|.
-name|TokenStream
+name|Vocabulary
 import|;
 end_import
 
@@ -92,7 +96,7 @@ name|v4
 operator|.
 name|runtime
 operator|.
-name|*
+name|VocabularyImpl
 import|;
 end_import
 
@@ -108,7 +112,55 @@ name|runtime
 operator|.
 name|atn
 operator|.
-name|*
+name|ATN
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|antlr
+operator|.
+name|v4
+operator|.
+name|runtime
+operator|.
+name|atn
+operator|.
+name|ATNDeserializer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|antlr
+operator|.
+name|v4
+operator|.
+name|runtime
+operator|.
+name|atn
+operator|.
+name|LexerATNSimulator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|antlr
+operator|.
+name|v4
+operator|.
+name|runtime
+operator|.
+name|atn
+operator|.
+name|PredictionContextCache
 import|;
 end_import
 
@@ -130,17 +182,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|antlr
+name|util
 operator|.
-name|v4
-operator|.
-name|runtime
-operator|.
-name|misc
-operator|.
-name|*
+name|Set
 import|;
 end_import
 

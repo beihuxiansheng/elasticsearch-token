@@ -60,30 +60,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -141,22 +117,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
-operator|.
-name|Scope
-operator|.
-name|SUITE
 import|;
 end_import
 

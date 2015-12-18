@@ -99,8 +99,6 @@ operator|.
 name|stats
 operator|.
 name|CommonStatsFlags
-operator|.
-name|Flag
 import|;
 end_import
 
@@ -119,6 +117,8 @@ operator|.
 name|stats
 operator|.
 name|CommonStatsFlags
+operator|.
+name|Flag
 import|;
 end_import
 
@@ -487,6 +487,18 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -503,18 +515,6 @@ operator|.
 name|ESIntegTestCase
 operator|.
 name|Scope
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESIntegTestCase
 import|;
 end_import
 

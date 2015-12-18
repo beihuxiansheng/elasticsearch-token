@@ -26,7 +26,7 @@ name|azure
 operator|.
 name|storage
 operator|.
-name|StorageException
+name|LocationMode
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|azure
 operator|.
 name|storage
 operator|.
-name|LocationMode
+name|StorageException
 import|;
 end_import
 
