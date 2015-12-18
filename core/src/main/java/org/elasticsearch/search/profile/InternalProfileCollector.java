@@ -220,7 +220,7 @@ operator|.
 name|collectorName
 return|;
 block|}
-comment|/**      * Creates a human-friendly representation of the Collector name.      *      * Bucket Collectors use the aggregation name in their toString() method,      * which makes the profiled output a bit nicer.      *      * @param c The Collector to derive a name from      * @return  A (hopefully) prettier name      */
+comment|/**      * Creates a human-friendly representation of the Collector name.      *      * InternalBucket Collectors use the aggregation name in their toString() method,      * which makes the profiled output a bit nicer.      *      * @param c The Collector to derive a name from      * @return  A (hopefully) prettier name      */
 DECL|method|deriveCollectorName
 specifier|private
 name|String
