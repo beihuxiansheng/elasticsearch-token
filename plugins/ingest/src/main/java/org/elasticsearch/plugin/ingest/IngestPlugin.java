@@ -688,6 +688,13 @@ name|NetworkModule
 name|networkModule
 parameter_list|)
 block|{
+if|if
+condition|(
+name|transportClient
+operator|==
+literal|false
+condition|)
+block|{
 name|networkModule
 operator|.
 name|registerRestHandler
@@ -724,6 +731,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
