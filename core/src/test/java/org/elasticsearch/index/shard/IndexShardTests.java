@@ -1368,6 +1368,11 @@ decl_stmt|;
 name|AllocationId
 name|allocationId
 init|=
+name|randomBoolean
+argument_list|()
+condition|?
+literal|null
+else|:
 name|randomAllocationId
 argument_list|()
 decl_stmt|;
@@ -2805,6 +2810,17 @@ name|void
 name|testShardStateMetaHashCodeEquals
 parameter_list|()
 block|{
+name|AllocationId
+name|allocationId
+init|=
+name|randomBoolean
+argument_list|()
+condition|?
+literal|null
+else|:
+name|randomAllocationId
+argument_list|()
+decl_stmt|;
 name|ShardStateMetaData
 name|meta
 init|=
@@ -2824,8 +2840,7 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|randomAllocationId
-argument_list|()
+name|allocationId
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -3031,6 +3046,16 @@ operator|++
 control|)
 block|{
 comment|// just a sanity check that we impl hashcode
+name|allocationId
+operator|=
+name|randomBoolean
+argument_list|()
+condition|?
+literal|null
+else|:
+name|randomAllocationId
+argument_list|()
+expr_stmt|;
 name|meta
 operator|=
 operator|new
@@ -3049,8 +3074,7 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|randomAllocationId
-argument_list|()
+name|allocationId
 argument_list|)
 expr_stmt|;
 name|hashCodes

@@ -1198,6 +1198,7 @@ argument_list|)
 condition|)
 block|{
 comment|// verify we can parse it
+comment|// NOTE: never apply the default here
 name|DocumentMapper
 name|mapper
 init|=
@@ -1273,6 +1274,29 @@ return|;
 block|}
 else|else
 block|{
+try|try
+init|(
+name|ReleasableLock
+name|lock
+init|=
+name|mappingWriteLock
+operator|.
+name|acquire
+argument_list|()
+init|)
+block|{
+comment|// only apply the default mapping if we don't have the type yet
+name|applyDefault
+operator|&=
+name|mappers
+operator|.
+name|containsKey
+argument_list|(
+name|type
+argument_list|)
+operator|==
+literal|false
+expr_stmt|;
 return|return
 name|merge
 argument_list|(
@@ -1290,6 +1314,7 @@ argument_list|)
 return|;
 block|}
 block|}
+block|}
 comment|// never expose this to the outside world, we need to reparse the doc mapper so we get fresh
 comment|// instances of field mappers to properly remove existing doc mapper
 DECL|method|merge
@@ -1303,17 +1328,6 @@ parameter_list|,
 name|boolean
 name|updateAllTypes
 parameter_list|)
-block|{
-try|try
-init|(
-name|ReleasableLock
-name|lock
-init|=
-name|mappingWriteLock
-operator|.
-name|acquire
-argument_list|()
-init|)
 block|{
 if|if
 condition|(
@@ -1761,7 +1775,6 @@ assert|;
 return|return
 name|mapper
 return|;
-block|}
 block|}
 block|}
 DECL|method|typeNameStartsWithIllegalDot

@@ -156,7 +156,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringAndBytesText
+name|Text
 import|;
 end_import
 
@@ -907,7 +907,7 @@ decl_stmt|;
 DECL|field|typeText
 specifier|private
 specifier|final
-name|StringAndBytesText
+name|Text
 name|typeText
 decl_stmt|;
 DECL|field|mappingSource
@@ -1032,7 +1032,7 @@ operator|.
 name|typeText
 operator|=
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|this
 operator|.

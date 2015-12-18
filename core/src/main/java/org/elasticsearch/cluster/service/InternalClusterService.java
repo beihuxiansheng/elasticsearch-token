@@ -454,7 +454,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -2413,7 +2413,7 @@ operator|.
 name|priority
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 name|source
 argument_list|)

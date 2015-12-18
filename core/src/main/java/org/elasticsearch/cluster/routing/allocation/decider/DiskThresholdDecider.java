@@ -138,6 +138,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|routing
 operator|.
 name|RoutingNode
@@ -1834,6 +1848,22 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// a flag for whether the primary shard has been previously allocated
+name|IndexMetaData
+name|indexMetaData
+init|=
+name|allocation
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|index
+argument_list|(
+name|shardRouting
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|boolean
 name|primaryHasBeenAllocated
 init|=
@@ -1845,7 +1875,9 @@ operator|&&
 name|shardRouting
 operator|.
 name|allocatedPostIndexCreate
-argument_list|()
+argument_list|(
+name|indexMetaData
+argument_list|)
 decl_stmt|;
 comment|// checks for exact byte comparisons
 if|if

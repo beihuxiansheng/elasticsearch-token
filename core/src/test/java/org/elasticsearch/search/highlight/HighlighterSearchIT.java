@@ -14061,7 +14061,7 @@ literal|2
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"here is another one that is very<em>long</em><em>tag</em> and has the<em>tag</em> token near the end"
+literal|"here is another one that is very<em>long</em><em>tag</em> and has the tag token near the end"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14163,7 +14163,7 @@ literal|2
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"here is another one that is very<em>long</em><em>tag</em> and has the<em>tag</em> token near the end"
+literal|"here is another one that is very<em>long</em><em>tag</em> and has the tag token near the end"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -18515,7 +18515,7 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"The<xxx>quick</xxx><xxx>brown</xxx> fox jumps over the lazy<xxx>quick</xxx> dog"
+literal|"The<xxx>quick</xxx><xxx>brown</xxx> fox jumps over the lazy quick dog"
 argument_list|)
 argument_list|)
 expr_stmt|;

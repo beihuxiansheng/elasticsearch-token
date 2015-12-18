@@ -332,7 +332,7 @@ name|backoffPolicy
 init|=
 name|BackoffPolicy
 operator|.
-name|noBackoff
+name|exponentialBackoff
 argument_list|()
 decl_stmt|;
 comment|/**          * Creates a builder of bulk processor with the client to use and the listener that will be used          * to be notified on the completion of bulk requests.          */
@@ -460,7 +460,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets a custom backoff policy. The backoff policy defines how the bulk processor should handle retries of bulk requests internally          * in case they have failed due to resource constraints (i.e. a thread pool was full).          *          * The default is to not back off, i.e. failing immediately.          */
+comment|/**          * Sets a custom backoff policy. The backoff policy defines how the bulk processor should handle retries of bulk requests internally          * in case they have failed due to resource constraints (i.e. a thread pool was full).          *          * The default is to back off exponentially.          *          * @see org.elasticsearch.action.bulk.BackoffPolicy#exponentialBackoff()          */
 DECL|method|setBackoffPolicy
 specifier|public
 name|Builder
