@@ -26,9 +26,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
-operator|.
-name|XContentParser
+name|ParsingException
 import|;
 end_import
 
@@ -40,7 +38,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParsingException
+name|xcontent
+operator|.
+name|XContentParser
 import|;
 end_import
 

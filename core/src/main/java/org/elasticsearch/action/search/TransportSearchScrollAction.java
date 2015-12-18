@@ -184,7 +184,25 @@ name|type
 operator|.
 name|ParsedScrollId
 operator|.
-name|*
+name|QUERY_AND_FETCH_TYPE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|type
+operator|.
+name|ParsedScrollId
+operator|.
+name|QUERY_THEN_FETCH_TYPE
 import|;
 end_import
 

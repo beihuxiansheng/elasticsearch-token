@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|IndexReader
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|LeafReaderContext
 import|;
 end_import
 
@@ -129,20 +129,6 @@ operator|.
 name|internal
 operator|.
 name|SearchContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|lookup
-operator|.
-name|SearchLookup
 import|;
 end_import
 

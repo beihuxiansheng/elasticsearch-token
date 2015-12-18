@@ -46,7 +46,9 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorBuilder
+name|BucketHelpers
+operator|.
+name|GapPolicy
 import|;
 end_import
 
@@ -62,9 +64,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|BucketHelpers
-operator|.
-name|GapPolicy
+name|PipelineAggregatorBuilder
 import|;
 end_import
 

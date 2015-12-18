@@ -22,7 +22,19 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|*
+name|ActionFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionListener
 import|;
 end_import
 

@@ -18,22 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamInput
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io

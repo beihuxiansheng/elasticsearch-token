@@ -165,16 +165,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.

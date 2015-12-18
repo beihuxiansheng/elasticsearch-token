@@ -300,20 +300,6 @@ name|TransportService
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterState
-operator|.
-name|builder
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment

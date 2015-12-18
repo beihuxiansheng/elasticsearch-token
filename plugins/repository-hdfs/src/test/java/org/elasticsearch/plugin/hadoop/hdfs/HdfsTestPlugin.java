@@ -48,22 +48,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugin
-operator|.
-name|hadoop
-operator|.
-name|hdfs
-operator|.
-name|HdfsPlugin
-import|;
-end_import
-
 begin_class
 DECL|class|HdfsTestPlugin
 specifier|public

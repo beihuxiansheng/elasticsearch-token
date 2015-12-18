@@ -18,30 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|Adler32
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -64,7 +40,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IndexOutput
+name|Directory
 import|;
 end_import
 
@@ -92,7 +68,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|Directory
+name|IndexOutput
 import|;
 end_import
 
@@ -108,8 +84,32 @@ name|ESTestCase
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|zip
+operator|.
+name|Adler32
+import|;
+end_import
+
 begin_comment
-comment|/**   * Simple tests for LegacyVerification (old segments)  * @deprecated remove this test when support for lucene 4.x   *             segments is not longer needed.   */
+comment|/**  * Simple tests for LegacyVerification (old segments)  * @deprecated remove this test when support for lucene 4.x  *             segments is not longer needed.  */
 end_comment
 
 begin_class

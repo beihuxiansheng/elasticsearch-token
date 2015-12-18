@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ReplicationResponse
+name|NoShardAvailableActionException
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|NoShardAvailableActionException
+name|ReplicationResponse
 import|;
 end_import
 

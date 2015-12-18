@@ -54,7 +54,35 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|*
+name|AtomicFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|FieldDataType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|IndexFieldData
 import|;
 end_import
 
@@ -73,6 +101,20 @@ operator|.
 name|XFieldComparatorSource
 operator|.
 name|Nested
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|IndexFieldDataCache
 import|;
 end_import
 
@@ -126,9 +168,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|indices
 operator|.
-name|MultiValueMode
+name|breaker
+operator|.
+name|CircuitBreakerService
 import|;
 end_import
 
@@ -138,11 +182,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|search
 operator|.
-name|breaker
-operator|.
-name|CircuitBreakerService
+name|MultiValueMode
 import|;
 end_import
 

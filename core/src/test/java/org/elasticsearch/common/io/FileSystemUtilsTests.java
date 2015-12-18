@@ -50,16 +50,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Assert
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Before
 import|;
 end_import
@@ -136,13 +126,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|hamcrest
+name|io
 operator|.
-name|ElasticsearchAssertions
+name|FileTestUtils
 operator|.
-name|assertFileNotExists
+name|assertFileContent
 import|;
 end_import
 
@@ -152,13 +142,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|io
+name|hamcrest
 operator|.
-name|FileTestUtils
+name|ElasticsearchAssertions
 operator|.
-name|assertFileContent
+name|assertFileNotExists
 import|;
 end_import
 

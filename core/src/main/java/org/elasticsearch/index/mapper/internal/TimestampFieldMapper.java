@@ -216,7 +216,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ParseContext
+name|MetadataFieldMapper
 import|;
 end_import
 
@@ -230,7 +230,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MetadataFieldMapper
+name|ParseContext
 import|;
 end_import
 

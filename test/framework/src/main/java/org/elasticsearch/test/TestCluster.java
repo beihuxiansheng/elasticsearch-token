@@ -230,7 +230,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
 import|;
 end_import
 

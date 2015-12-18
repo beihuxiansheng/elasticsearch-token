@@ -217,16 +217,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -239,24 +229,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|set
-operator|.
-name|Sets
-operator|.
-name|newHashSet
 import|;
 end_import
 

@@ -20,37 +20,29 @@ end_comment
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|carrotsearch
 operator|.
-name|IOException
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Name
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|carrotsearch
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|randomizedtesting
 operator|.
-name|elasticsearch
+name|annotations
 operator|.
-name|plugin
-operator|.
-name|hadoop
-operator|.
-name|hdfs
-operator|.
-name|HdfsPlugin
+name|ParametersFactory
 import|;
 end_import
 
@@ -112,29 +104,21 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|carrotsearch
+name|io
 operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Name
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|carrotsearch
+name|util
 operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|ParametersFactory
+name|Collection
 import|;
 end_import
 

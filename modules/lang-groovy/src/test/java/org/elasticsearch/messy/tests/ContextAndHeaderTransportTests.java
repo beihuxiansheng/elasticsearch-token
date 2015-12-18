@@ -804,22 +804,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|SuggestBuilders
-operator|.
-name|phraseSuggestion
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -890,35 +874,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertSuggestionSize
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
 name|hasStatus
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
 import|;
 end_import
 

@@ -74,16 +74,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|Matcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|TypeSafeMatcher
 import|;
 end_import

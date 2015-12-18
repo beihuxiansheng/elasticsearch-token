@@ -26,9 +26,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
+name|breaker
 operator|.
-name|ClusterSettings
+name|CircuitBreaker
 import|;
 end_import
 
@@ -40,9 +40,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|breaker
+name|settings
 operator|.
-name|CircuitBreaker
+name|ClusterSettings
 import|;
 end_import
 
