@@ -1462,7 +1462,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)
@@ -1529,7 +1532,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"all"
 argument_list|)

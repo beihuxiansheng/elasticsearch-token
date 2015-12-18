@@ -6636,7 +6636,10 @@ name|put
 argument_list|(
 name|ElectMasterService
 operator|.
-name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|n
 argument_list|)
@@ -9344,7 +9347,10 @@ name|put
 argument_list|(
 name|MetaData
 operator|.
-name|SETTING_READ_ONLY
+name|SETTING_READ_ONLY_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|value
 argument_list|)
@@ -10362,7 +10368,10 @@ name|put
 argument_list|(
 name|DiskThresholdDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK
+name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1b"
 argument_list|)
@@ -10371,7 +10380,10 @@ name|put
 argument_list|(
 name|DiskThresholdDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1b"
 argument_list|)

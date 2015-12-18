@@ -129,7 +129,10 @@ name|put
 argument_list|(
 name|DestructiveOperations
 operator|.
-name|REQUIRES_NAME
+name|REQUIRES_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -288,7 +291,10 @@ name|put
 argument_list|(
 name|DestructiveOperations
 operator|.
-name|REQUIRES_NAME
+name|REQUIRES_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -377,7 +383,10 @@ name|put
 argument_list|(
 name|DestructiveOperations
 operator|.
-name|REQUIRES_NAME
+name|REQUIRES_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -603,7 +612,10 @@ name|put
 argument_list|(
 name|DestructiveOperations
 operator|.
-name|REQUIRES_NAME
+name|REQUIRES_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

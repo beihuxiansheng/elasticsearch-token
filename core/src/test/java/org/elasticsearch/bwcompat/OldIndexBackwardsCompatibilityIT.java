@@ -871,7 +871,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_CONCURRENT_SMALL_FILE_STREAMS
+name|INDICES_RECOVERY_CONCURRENT_SMALL_FILE_STREAMS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|30
 argument_list|)

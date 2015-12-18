@@ -301,7 +301,10 @@ name|put
 argument_list|(
 name|ElectMasterService
 operator|.
-name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|2
 argument_list|)

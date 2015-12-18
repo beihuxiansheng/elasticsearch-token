@@ -891,7 +891,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_CONCURRENT_STREAMS
+name|INDICES_RECOVERY_CONCURRENT_STREAMS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|10
 argument_list|)
@@ -900,7 +903,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_CONCURRENT_SMALL_FILE_STREAMS
+name|INDICES_RECOVERY_CONCURRENT_SMALL_FILE_STREAMS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|10
 argument_list|)
@@ -909,7 +915,10 @@ name|put
 argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|5
 argument_list|)
