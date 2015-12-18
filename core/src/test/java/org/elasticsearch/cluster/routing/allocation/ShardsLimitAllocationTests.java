@@ -829,7 +829,10 @@ name|put
 argument_list|(
 name|ShardsLimitAllocationDecider
 operator|.
-name|CLUSTER_TOTAL_SHARDS_PER_NODE
+name|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -1209,7 +1212,10 @@ name|put
 argument_list|(
 name|ShardsLimitAllocationDecider
 operator|.
-name|CLUSTER_TOTAL_SHARDS_PER_NODE
+name|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|2
 argument_list|)

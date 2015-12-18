@@ -128,6 +128,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -266,6 +276,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"1 + 2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -428,6 +443,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"obj1"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -536,6 +556,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"obj1['l'][0]"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -670,6 +695,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"ctx['obj2'] = { 'prop2' : 'value2' }; ctx['obj1']['prop1'] = 'uvalue1'"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -933,6 +963,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"l[0]"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -981,6 +1016,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"l[3]"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1077,6 +1117,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"l[3]['prop1']"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1159,6 +1204,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"ctx['value']"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ExecutableScript
@@ -1305,6 +1355,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ExecutableScript

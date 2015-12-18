@@ -548,7 +548,7 @@ name|decider
 operator|.
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
 import|;
 end_import
 
@@ -682,7 +682,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)
@@ -691,7 +694,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_REBALANCE_ENABLE
+name|CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)
@@ -721,7 +727,10 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Allocation
 operator|.
@@ -1575,7 +1584,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)
@@ -1584,7 +1596,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_REBALANCE_ENABLE
+name|CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)
@@ -1614,7 +1629,10 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Allocation
 operator|.
@@ -2894,7 +2912,10 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Allocation
 operator|.

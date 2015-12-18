@@ -68,6 +68,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -535,6 +545,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"return ((Map<String, Object>)input.get(\"ctx\")).get(\"value\");"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ExecutableScript
@@ -654,6 +669,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"return input.get(\"value\");"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ExecutableScript

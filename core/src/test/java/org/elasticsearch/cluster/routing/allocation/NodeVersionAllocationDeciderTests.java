@@ -362,7 +362,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -1917,7 +1920,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -2374,7 +2380,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)

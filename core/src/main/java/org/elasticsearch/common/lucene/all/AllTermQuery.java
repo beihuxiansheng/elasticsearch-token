@@ -949,6 +949,18 @@ operator|.
 name|ord
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|state
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Term does not exist in this segment
+return|return
+literal|null
+return|;
+block|}
 name|termsEnum
 operator|.
 name|seekExact

@@ -835,10 +835,10 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testFastCloseAfterCreateDoesNotClose
+DECL|method|testFastCloseAfterCreateContinuesCreateAfterOpen
 specifier|public
 name|void
-name|testFastCloseAfterCreateDoesNotClose
+name|testFastCloseAfterCreateContinuesCreateAfterOpen
 parameter_list|()
 block|{
 name|logger
@@ -936,8 +936,6 @@ name|RED
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|client
 argument_list|()
 operator|.
@@ -955,20 +953,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Exception should have been thrown"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexPrimaryShardNotAllocatedException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 name|logger
 operator|.
 name|info
@@ -1006,6 +990,23 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareOpen
+argument_list|(
+literal|"test"
 argument_list|)
 operator|.
 name|get

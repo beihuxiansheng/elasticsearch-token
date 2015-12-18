@@ -210,7 +210,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -473,7 +473,7 @@ operator|.
 name|Entry
 argument_list|(
 operator|new
-name|StringText
+name|Text
 argument_list|(
 name|spare
 operator|.
@@ -820,7 +820,7 @@ operator|.
 name|Option
 argument_list|(
 operator|new
-name|StringText
+name|Text
 argument_list|(
 name|suggestDoc
 operator|.

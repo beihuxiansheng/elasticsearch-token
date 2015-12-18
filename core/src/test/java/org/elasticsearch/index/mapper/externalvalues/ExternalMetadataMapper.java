@@ -527,6 +527,8 @@ argument_list|(
 name|CONTENT_TYPE
 argument_list|,
 name|FIELD_TYPE
+argument_list|,
+name|FIELD_TYPE
 argument_list|)
 expr_stmt|;
 block|}

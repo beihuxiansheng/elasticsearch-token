@@ -194,7 +194,10 @@ name|put
 argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES
+name|CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -203,7 +206,10 @@ name|put
 argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)

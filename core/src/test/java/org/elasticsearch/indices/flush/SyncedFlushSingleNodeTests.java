@@ -860,7 +860,7 @@ argument_list|)
 expr_stmt|;
 name|SyncedFlushService
 operator|.
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 name|response
 init|=
 name|syncedFlushResult

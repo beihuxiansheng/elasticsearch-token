@@ -635,9 +635,7 @@ name|updateSettingsRequest
 argument_list|,
 operator|new
 name|AcknowledgedRestListener
-argument_list|<
-name|UpdateSettingsResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|channel
 argument_list|)

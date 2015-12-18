@@ -850,6 +850,10 @@ argument_list|,
 name|Defaults
 operator|.
 name|FIELD_TYPE
+argument_list|,
+name|Defaults
+operator|.
+name|FIELD_TYPE
 argument_list|)
 expr_stmt|;
 block|}
@@ -1372,7 +1376,9 @@ name|setOrientation
 argument_list|(
 name|ShapeBuilder
 operator|.
-name|orientationFromString
+name|Orientation
+operator|.
+name|fromString
 argument_list|(
 name|fieldNode
 operator|.
