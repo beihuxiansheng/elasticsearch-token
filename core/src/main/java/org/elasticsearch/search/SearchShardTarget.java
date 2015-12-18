@@ -84,7 +84,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringAndBytesText
+name|Text
 import|;
 end_import
 
@@ -174,7 +174,7 @@ condition|?
 literal|null
 else|:
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|nodeId
 argument_list|)
@@ -184,7 +184,7 @@ operator|.
 name|index
 operator|=
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|index
 argument_list|)

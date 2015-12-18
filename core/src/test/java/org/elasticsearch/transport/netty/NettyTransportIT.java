@@ -60,11 +60,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|client
 operator|.
-name|health
-operator|.
-name|ClusterHealthStatus
+name|Client
 import|;
 end_import
 
@@ -74,9 +72,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
+name|cluster
 operator|.
-name|Client
+name|health
+operator|.
+name|ClusterHealthStatus
 import|;
 end_import
 
@@ -151,6 +151,20 @@ operator|.
 name|logging
 operator|.
 name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|network
+operator|.
+name|NetworkModule
 import|;
 end_import
 
@@ -311,18 +325,6 @@ operator|.
 name|transport
 operator|.
 name|RequestHandlerRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportModule
 import|;
 end_import
 
@@ -518,7 +520,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TransportModule
+name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
@@ -713,13 +715,13 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|TransportModule
-name|transportModule
+name|NetworkModule
+name|module
 parameter_list|)
 block|{
-name|transportModule
+name|module
 operator|.
-name|addTransport
+name|registerTransport
 argument_list|(
 literal|"exception-throwing"
 argument_list|,

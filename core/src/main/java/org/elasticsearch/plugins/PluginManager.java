@@ -489,6 +489,8 @@ literal|"mapper-size"
 argument_list|,
 literal|"repository-azure"
 argument_list|,
+literal|"repository-hdfs"
+argument_list|,
 literal|"repository-s3"
 argument_list|,
 literal|"store-smb"

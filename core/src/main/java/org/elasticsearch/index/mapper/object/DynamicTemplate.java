@@ -736,7 +736,7 @@ name|pathMatch
 argument_list|,
 name|path
 operator|.
-name|fullPathAsText
+name|pathAsText
 argument_list|(
 name|name
 argument_list|)
@@ -778,7 +778,7 @@ name|pathUnmatch
 argument_list|,
 name|path
 operator|.
-name|fullPathAsText
+name|pathAsText
 argument_list|(
 name|name
 argument_list|)

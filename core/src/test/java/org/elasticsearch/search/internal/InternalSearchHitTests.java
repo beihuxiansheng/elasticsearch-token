@@ -58,7 +58,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -203,7 +203,7 @@ argument_list|,
 literal|"_id"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"_type"
 argument_list|)
@@ -229,7 +229,7 @@ argument_list|,
 literal|"_id"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"_type"
 argument_list|)
@@ -284,7 +284,7 @@ argument_list|,
 literal|"_id"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"_type"
 argument_list|)
@@ -310,7 +310,7 @@ argument_list|,
 literal|"_id"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"_type"
 argument_list|)
@@ -343,7 +343,7 @@ argument_list|,
 literal|"_id"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"_type"
 argument_list|)
@@ -422,7 +422,7 @@ argument_list|,
 literal|"_id"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"_type"
 argument_list|)

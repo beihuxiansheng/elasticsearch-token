@@ -181,6 +181,21 @@ name|Scroll
 name|scroll
 parameter_list|()
 function_decl|;
+comment|/**      * Sets if this shard search needs to be profiled or not      * @param profile True if the shard should be profiled      */
+DECL|method|setProfile
+name|void
+name|setProfile
+parameter_list|(
+name|boolean
+name|profile
+parameter_list|)
+function_decl|;
+comment|/**      * Returns true if this shard search is being profiled or not      */
+DECL|method|isProfile
+name|boolean
+name|isProfile
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the cache key for this shard search request, based on its content      */
 DECL|method|cacheKey
 name|BytesReference
