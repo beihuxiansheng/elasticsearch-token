@@ -26,7 +26,7 @@ name|hadoop
 operator|.
 name|fs
 operator|.
-name|FileSystem
+name|FileContext
 import|;
 end_import
 
@@ -41,9 +41,9 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|FsCallback
+DECL|interface|FcCallback
 interface|interface
-name|FsCallback
+name|FcCallback
 parameter_list|<
 name|V
 parameter_list|>
@@ -52,8 +52,8 @@ DECL|method|doInHdfs
 name|V
 name|doInHdfs
 parameter_list|(
-name|FileSystem
-name|fs
+name|FileContext
+name|fc
 parameter_list|)
 throws|throws
 name|IOException

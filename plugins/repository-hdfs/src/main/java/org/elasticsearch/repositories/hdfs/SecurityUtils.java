@@ -26,7 +26,7 @@ name|hadoop
 operator|.
 name|fs
 operator|.
-name|FileSystem
+name|FileContext
 import|;
 end_import
 
@@ -151,10 +151,10 @@ parameter_list|>
 name|V
 name|execute
 parameter_list|(
-name|FileSystemFactory
-name|ffs
+name|FileContextFactory
+name|fcf
 parameter_list|,
-name|FsCallback
+name|FcCallback
 argument_list|<
 name|V
 argument_list|>
@@ -166,9 +166,9 @@ block|{
 return|return
 name|execute
 argument_list|(
-name|ffs
+name|fcf
 operator|.
-name|getFileSystem
+name|getFileContext
 argument_list|()
 argument_list|,
 name|callback
@@ -183,10 +183,10 @@ parameter_list|>
 name|V
 name|execute
 parameter_list|(
-name|FileSystem
-name|fs
+name|FileContext
+name|fc
 parameter_list|,
-name|FsCallback
+name|FcCallback
 argument_list|<
 name|V
 argument_list|>
@@ -249,7 +249,7 @@ name|callback
 operator|.
 name|doInHdfs
 argument_list|(
-name|fs
+name|fc
 argument_list|)
 return|;
 block|}

@@ -26,7 +26,7 @@ name|hadoop
 operator|.
 name|fs
 operator|.
-name|FileSystem
+name|FileContext
 import|;
 end_import
 
@@ -41,13 +41,13 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|FileSystemFactory
+DECL|interface|FileContextFactory
 interface|interface
-name|FileSystemFactory
+name|FileContextFactory
 block|{
-DECL|method|getFileSystem
-name|FileSystem
-name|getFileSystem
+DECL|method|getFileContext
+name|FileContext
+name|getFileContext
 parameter_list|()
 throws|throws
 name|IOException

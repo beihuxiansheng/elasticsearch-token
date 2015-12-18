@@ -226,20 +226,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
-operator|.
-name|ThirdParty
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|store
 operator|.
 name|MockFSDirectoryService
@@ -304,9 +290,23 @@ begin_comment
 comment|/**  * You must specify {@code -Dtests.thirdparty=true}  */
 end_comment
 
+begin_comment
+comment|// Make sure to start MiniHDFS cluster before
+end_comment
+
+begin_comment
+comment|// otherwise, one will get some wierd PrivateCredentialPermission exception
+end_comment
+
+begin_comment
+comment|// caused by the HDFS fallback code (which doesn't do much anyway)
+end_comment
+
+begin_comment
+comment|// @ThirdParty
+end_comment
+
 begin_class
-annotation|@
-name|ThirdParty
 annotation|@
 name|ClusterScope
 argument_list|(
@@ -476,6 +476,11 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
+DECL|field|port
+specifier|private
+name|int
+name|port
+decl_stmt|;
 annotation|@
 name|Before
 DECL|method|wipeBefore
@@ -488,6 +493,13 @@ throws|throws
 name|Exception
 block|{
 name|wipeRepositories
+argument_list|()
+expr_stmt|;
+name|port
+operator|=
+name|MiniHDFS
+operator|.
+name|getPort
 argument_list|()
 expr_stmt|;
 name|path
@@ -561,7 +573,15 @@ name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
-comment|//.put("uri", "hdfs://127.0.0.1:51227")
+operator|.
+name|put
+argument_list|(
+literal|"uri"
+argument_list|,
+literal|"hdfs://127.0.0.1:"
+operator|+
+name|port
+argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -574,13 +594,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"uri"
-argument_list|,
-literal|"es-hdfs://./build/"
-argument_list|)
+comment|// .put("uri", "es-hdfs:///")
 operator|.
 name|put
 argument_list|(
@@ -1402,7 +1416,16 @@ name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
-comment|// .put("uri", "hdfs://127.0.0.1:51227/")
+operator|.
+name|put
+argument_list|(
+literal|"uri"
+argument_list|,
+literal|"hdfs://127.0.0.1:"
+operator|+
+name|port
+argument_list|)
+comment|// .put("uri", "es-hdfs:///")
 operator|.
 name|put
 argument_list|(
@@ -1414,13 +1437,6 @@ name|class
 operator|.
 name|getName
 argument_list|()
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"uri"
-argument_list|,
-literal|"es-hdfs:///"
 argument_list|)
 operator|.
 name|put
