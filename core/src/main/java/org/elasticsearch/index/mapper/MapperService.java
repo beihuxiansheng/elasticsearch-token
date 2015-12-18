@@ -1376,7 +1376,7 @@ name|mapper
 init|=
 name|documentParser
 operator|.
-name|parseCompressed
+name|parse
 argument_list|(
 name|type
 argument_list|,
@@ -2653,7 +2653,7 @@ block|}
 return|return
 name|documentParser
 operator|.
-name|parseCompressed
+name|parse
 argument_list|(
 name|mappingType
 argument_list|,
