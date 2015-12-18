@@ -169,6 +169,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -521,13 +535,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"spuriously fails on Jenkins. Investigation ongoing."
-argument_list|)
 DECL|method|testAsyncRetryBacksOff
 specifier|public
 name|void
@@ -615,13 +622,6 @@ name|assertOnFailureNeverCalled
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"spuriously fails on Jenkins. Investigation ongoing."
-argument_list|)
 DECL|method|testAsyncRetryFailsAfterBacksOff
 specifier|public
 name|void
@@ -730,11 +730,13 @@ name|latch
 decl_stmt|;
 DECL|field|countOnResponseCalled
 specifier|private
-specifier|volatile
-name|int
+specifier|final
+name|AtomicInteger
 name|countOnResponseCalled
 init|=
-literal|0
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 DECL|field|lastFailure
 specifier|private
@@ -787,11 +789,6 @@ name|BulkResponse
 name|bulkItemResponses
 parameter_list|)
 block|{
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|response
@@ -799,7 +796,14 @@ operator|=
 name|bulkItemResponses
 expr_stmt|;
 name|countOnResponseCalled
-operator|++
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -813,16 +817,16 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|lastFailure
 operator|=
 name|e
+expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|assertOnResponseCalled
@@ -834,6 +838,9 @@ block|{
 name|assertThat
 argument_list|(
 name|countOnResponseCalled
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
