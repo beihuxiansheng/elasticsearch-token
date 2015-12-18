@@ -290,6 +290,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_class
 DECL|class|PhraseSuggestParser
 specifier|public
@@ -1162,6 +1172,11 @@ operator|.
 name|SEARCH
 argument_list|,
 name|headersContext
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|suggestion

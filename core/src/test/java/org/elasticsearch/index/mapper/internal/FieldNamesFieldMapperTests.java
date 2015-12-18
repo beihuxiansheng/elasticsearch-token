@@ -1761,6 +1761,8 @@ argument_list|(
 literal|"_dummy"
 argument_list|,
 name|FIELD_TYPE
+argument_list|,
+name|FIELD_TYPE
 argument_list|)
 block|{
 annotation|@

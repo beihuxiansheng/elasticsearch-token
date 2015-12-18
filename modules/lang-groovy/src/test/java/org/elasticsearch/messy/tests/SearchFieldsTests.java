@@ -5322,11 +5322,6 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-literal|"properties"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
 literal|"_source"
 argument_list|)
 operator|.
@@ -5339,6 +5334,11 @@ argument_list|)
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|startObject
+argument_list|(
+literal|"properties"
+argument_list|)
 operator|.
 name|startObject
 argument_list|(
@@ -7322,11 +7322,6 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-literal|"properties"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
 literal|"_source"
 argument_list|)
 operator|.
@@ -7339,6 +7334,11 @@ argument_list|)
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|startObject
+argument_list|(
+literal|"properties"
+argument_list|)
 operator|.
 name|startObject
 argument_list|(

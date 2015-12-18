@@ -184,20 +184,6 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|text
-operator|.
 name|Text
 import|;
 end_import
@@ -1129,7 +1115,7 @@ name|Text
 name|phrase
 init|=
 operator|new
-name|StringText
+name|Text
 argument_list|(
 name|spare
 operator|.
@@ -1179,7 +1165,7 @@ expr_stmt|;
 name|highlighted
 operator|=
 operator|new
-name|StringText
+name|Text
 argument_list|(
 name|spare
 operator|.
@@ -1310,7 +1296,7 @@ operator|.
 name|Entry
 argument_list|(
 operator|new
-name|StringText
+name|Text
 argument_list|(
 name|spare
 operator|.

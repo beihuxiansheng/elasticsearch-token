@@ -376,7 +376,10 @@ name|put
 argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|5
 argument_list|)
@@ -385,7 +388,10 @@ name|put
 argument_list|(
 name|ConcurrentRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|10
 argument_list|)
@@ -455,7 +461,10 @@ name|put
 argument_list|(
 name|DiscoverySettings
 operator|.
-name|PUBLISH_TIMEOUT
+name|PUBLISH_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"0"
 argument_list|)

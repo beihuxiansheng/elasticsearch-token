@@ -750,6 +750,17 @@ name|assertThat
 argument_list|(
 name|storeStatus
 operator|.
+name|getAllocationId
+argument_list|()
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|storeStatus
+operator|.
 name|getNode
 argument_list|()
 argument_list|,
@@ -1029,7 +1040,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getAllocation
+name|getAllocationStatus
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1038,7 +1049,7 @@ name|IndicesShardStoresResponse
 operator|.
 name|StoreStatus
 operator|.
-name|Allocation
+name|AllocationStatus
 operator|.
 name|PRIMARY
 argument_list|)

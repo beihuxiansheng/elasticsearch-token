@@ -192,7 +192,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringAndBytesText
+name|Text
 import|;
 end_import
 
@@ -1536,7 +1536,7 @@ block|{
 name|typeText
 operator|=
 operator|new
-name|StringAndBytesText
+name|Text
 argument_list|(
 name|fieldsVisitor
 operator|.

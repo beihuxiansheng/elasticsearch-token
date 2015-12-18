@@ -1315,7 +1315,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_MAX_BYTES_PER_SEC
+name|INDICES_RECOVERY_MAX_BYTES_PER_SEC_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|chunkSize
 argument_list|,
@@ -1390,7 +1393,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_MAX_BYTES_PER_SEC
+name|INDICES_RECOVERY_MAX_BYTES_PER_SEC_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"20mb"
 argument_list|)
@@ -4613,7 +4619,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_RETRY_DELAY_NETWORK
+name|INDICES_RECOVERY_RETRY_DELAY_NETWORK_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"100ms"
 argument_list|)
@@ -4622,7 +4631,10 @@ name|put
 argument_list|(
 name|RecoverySettings
 operator|.
-name|INDICES_RECOVERY_INTERNAL_ACTION_TIMEOUT
+name|INDICES_RECOVERY_INTERNAL_ACTION_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1s"
 argument_list|)

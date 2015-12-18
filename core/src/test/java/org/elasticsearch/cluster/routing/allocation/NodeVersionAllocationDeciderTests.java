@@ -264,39 +264,7 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|INITIALIZING
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRoutingState
-operator|.
-name|STARTED
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRoutingState
-operator|.
-name|UNASSIGNED
+name|*
 import|;
 end_import
 
@@ -338,43 +306,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
+name|*
 import|;
 end_import
 
@@ -430,7 +362,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -1985,7 +1920,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -2277,7 +2215,7 @@ name|shuffle
 argument_list|(
 name|nodes
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2442,7 +2380,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
