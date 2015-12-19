@@ -724,13 +724,6 @@ argument_list|()
 return|;
 block|}
 block|}
-argument_list|,
-name|SecurityUtils
-operator|.
-name|AccBridge
-operator|.
-name|acc
-argument_list|()
 argument_list|)
 return|;
 block|}
