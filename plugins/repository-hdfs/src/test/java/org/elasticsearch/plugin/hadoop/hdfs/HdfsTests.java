@@ -495,20 +495,8 @@ block|{
 name|wipeRepositories
 argument_list|()
 expr_stmt|;
-name|port
-operator|=
-name|MiniHDFS
-operator|.
-name|getPort
-argument_list|()
-expr_stmt|;
-name|path
-operator|=
-literal|"build/data/repo-"
-operator|+
-name|randomInt
-argument_list|()
-expr_stmt|;
+comment|//port = MiniHDFS.getPort();
+comment|//path = "build/data/repo-" + randomInt();
 block|}
 annotation|@
 name|After
