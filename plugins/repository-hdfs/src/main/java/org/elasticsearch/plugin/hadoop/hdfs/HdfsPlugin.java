@@ -230,11 +230,6 @@ return|return
 literal|"HDFS Repository Plugin"
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|onModule
 specifier|public
 name|void

@@ -228,7 +228,7 @@ name|Settings
 name|settings
 parameter_list|,
 name|FileContextFactory
-name|ffs
+name|fcf
 parameter_list|,
 name|Path
 name|path
@@ -248,7 +248,7 @@ name|this
 operator|.
 name|fcf
 operator|=
-name|ffs
+name|fcf
 expr_stmt|;
 name|this
 operator|.
