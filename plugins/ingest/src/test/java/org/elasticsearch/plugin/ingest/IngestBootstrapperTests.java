@@ -375,10 +375,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|PipelineBootstrapperTests
+DECL|class|IngestBootstrapperTests
 specifier|public
 class|class
-name|PipelineBootstrapperTests
+name|IngestBootstrapperTests
 extends|extends
 name|ESTestCase
 block|{
@@ -389,7 +389,7 @@ name|store
 decl_stmt|;
 DECL|field|bootstrapper
 specifier|private
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 name|bootstrapper
 decl_stmt|;
 annotation|@
@@ -473,7 +473,7 @@ decl_stmt|;
 name|bootstrapper
 operator|=
 operator|new
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 argument_list|(
 name|Settings
 operator|.
@@ -604,11 +604,11 @@ argument_list|,
 name|transportService
 argument_list|)
 decl_stmt|;
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 name|bootstrapper
 init|=
 operator|new
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 argument_list|(
 name|settings
 argument_list|,

@@ -256,7 +256,7 @@ name|plugin
 operator|.
 name|ingest
 operator|.
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 import|;
 end_import
 
@@ -449,12 +449,12 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 name|bootstrapper
 init|=
 name|mock
 argument_list|(
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 operator|.
 name|class
 argument_list|)
@@ -1404,12 +1404,12 @@ argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 name|bootstrapper
 init|=
 name|mock
 argument_list|(
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 operator|.
 name|class
 argument_list|)

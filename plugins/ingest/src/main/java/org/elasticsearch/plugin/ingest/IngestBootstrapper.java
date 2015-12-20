@@ -224,11 +224,15 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Instantiates and wires all the services that the ingest plugin will be needing.  * Also the bootstrapper is in charge of starting and stopping the ingest plugin based on the cluster state.  */
+end_comment
+
 begin_class
-DECL|class|PipelineStoreBootstrapper
+DECL|class|IngestBootstrapper
 specifier|public
 class|class
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 extends|extends
 name|AbstractLifecycleComponent
 implements|implements
@@ -271,9 +275,9 @@ name|processorFactoryProvider
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|PipelineStoreBootstrapper
+DECL|method|IngestBootstrapper
 specifier|public
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 parameter_list|(
 name|Settings
 name|settings
@@ -357,8 +361,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// for testing:
-DECL|method|PipelineStoreBootstrapper
-name|PipelineStoreBootstrapper
+DECL|method|IngestBootstrapper
+name|IngestBootstrapper
 parameter_list|(
 name|Settings
 name|settings

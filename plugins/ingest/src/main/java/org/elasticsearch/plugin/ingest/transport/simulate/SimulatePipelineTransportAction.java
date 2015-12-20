@@ -140,7 +140,7 @@ name|plugin
 operator|.
 name|ingest
 operator|.
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 import|;
 end_import
 
@@ -165,16 +165,6 @@ operator|.
 name|transport
 operator|.
 name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -234,7 +224,7 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 name|bootstrapper
 parameter_list|)
 block|{

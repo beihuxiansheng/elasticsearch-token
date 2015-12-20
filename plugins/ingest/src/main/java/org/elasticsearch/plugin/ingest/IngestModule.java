@@ -340,7 +340,7 @@ argument_list|()
 operator|.
 name|bind
 argument_list|(
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 operator|.
 name|class
 argument_list|)

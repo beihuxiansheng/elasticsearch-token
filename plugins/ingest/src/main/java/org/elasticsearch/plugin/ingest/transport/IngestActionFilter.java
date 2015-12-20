@@ -218,7 +218,7 @@ name|plugin
 operator|.
 name|ingest
 operator|.
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 import|;
 end_import
 
@@ -258,7 +258,7 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 name|bootstrapper
 parameter_list|)
 block|{

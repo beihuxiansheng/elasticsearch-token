@@ -140,7 +140,7 @@ name|plugin
 operator|.
 name|ingest
 operator|.
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 import|;
 end_import
 
@@ -208,7 +208,7 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 name|bootstrapper
 parameter_list|)
 block|{

@@ -82,20 +82,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesReference
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -154,7 +140,7 @@ name|plugin
 operator|.
 name|ingest
 operator|.
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 import|;
 end_import
 
@@ -188,27 +174,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -252,7 +218,7 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|PipelineStoreBootstrapper
+name|IngestBootstrapper
 name|bootstrapper
 parameter_list|)
 block|{
