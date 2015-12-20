@@ -236,7 +236,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-comment|// hack: on Windows, Shell's cinit has a similar problem that on unix,
+comment|// hack: on Windows, Shell's clinit has a similar problem that on unix,
 comment|// but here we can workaround it for now by setting hadoop home
 comment|// TODO: remove THIS when hadoop is fixed
 name|Path
