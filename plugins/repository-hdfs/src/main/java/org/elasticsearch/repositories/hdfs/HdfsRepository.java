@@ -250,6 +250,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|blobstore
 operator|.
 name|BlobPath
@@ -1388,6 +1400,13 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Where is this reading configuration files from? It should use Environment for ES conf dir"
+argument_list|)
 DECL|method|addConfigLocation
 specifier|private
 name|void
