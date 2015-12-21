@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.hadoop.hdfs
+DECL|package|org.elasticsearch.repositories.hdfs
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
-operator|.
-name|hadoop
+name|repositories
 operator|.
 name|hdfs
 package|;
@@ -72,13 +70,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
+name|plugins
 operator|.
-name|hadoop
-operator|.
-name|hdfs
-operator|.
-name|HdfsPlugin
+name|Plugin
 import|;
 end_import
 
@@ -88,9 +82,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|repositories
 operator|.
-name|Plugin
+name|hdfs
+operator|.
+name|HdfsPlugin
 import|;
 end_import
 

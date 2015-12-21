@@ -376,18 +376,6 @@ name|BlobStoreRepository
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
 begin_class
 DECL|class|HdfsRepository
 specifier|public
@@ -431,12 +419,6 @@ specifier|final
 name|RepositorySettings
 name|repositorySettings
 decl_stmt|;
-DECL|field|threadPool
-specifier|private
-specifier|final
-name|ThreadPool
-name|threadPool
-decl_stmt|;
 DECL|field|path
 specifier|private
 specifier|final
@@ -473,9 +455,6 @@ name|repositorySettings
 parameter_list|,
 name|IndexShardRepository
 name|indexShardRepository
-parameter_list|,
-name|ThreadPool
-name|threadPool
 parameter_list|)
 throws|throws
 name|IOException
@@ -497,12 +476,6 @@ operator|.
 name|repositorySettings
 operator|=
 name|repositorySettings
-expr_stmt|;
-name|this
-operator|.
-name|threadPool
-operator|=
-name|threadPool
 expr_stmt|;
 name|uri
 operator|=
@@ -836,8 +809,6 @@ argument_list|,
 name|this
 argument_list|,
 name|hdfsPath
-argument_list|,
-name|threadPool
 argument_list|)
 expr_stmt|;
 block|}
