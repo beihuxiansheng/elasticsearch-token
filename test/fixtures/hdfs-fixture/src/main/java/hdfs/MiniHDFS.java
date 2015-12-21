@@ -215,6 +215,18 @@ index|]
 argument_list|)
 decl_stmt|;
 comment|// hadoop-home/, so logs will not complain
+if|if
+condition|(
+name|System
+operator|.
+name|getenv
+argument_list|(
+literal|"HADOOP_HOME"
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
 name|Path
 name|hadoopHome
 init|=
@@ -247,6 +259,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// hdfs-data/, where any data is going
 name|Path
 name|hdfsHome

@@ -245,6 +245,8 @@ parameter_list|()
 block|{
 comment|// hack: on Windows, Shell's clinit has a similar problem that on unix,
 comment|// but here we can workaround it for now by setting hadoop home
+comment|// on unix: we still want to set this to something we control, because
+comment|// if the user happens to have HADOOP_HOME in their environment -> checkHadoopHome goes boom
 comment|// TODO: remove THIS when hadoop is fixed
 name|Path
 name|hadoopHome
@@ -257,13 +259,6 @@ init|=
 literal|null
 decl_stmt|;
 try|try
-block|{
-if|if
-condition|(
-name|Constants
-operator|.
-name|WINDOWS
-condition|)
 block|{
 name|hadoopHome
 operator|=
@@ -291,7 +286,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|Class
 operator|.
 name|forName
@@ -333,13 +327,6 @@ block|}
 finally|finally
 block|{
 comment|// try to clean up the hack
-if|if
-condition|(
-name|Constants
-operator|.
-name|WINDOWS
-condition|)
-block|{
 if|if
 condition|(
 name|oldValue
@@ -392,7 +379,6 @@ name|IOException
 name|thisIsBestEffort
 parameter_list|)
 block|{}
-block|}
 block|}
 return|return
 literal|null
