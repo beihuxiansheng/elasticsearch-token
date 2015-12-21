@@ -457,16 +457,6 @@ operator|.
 name|ATOMIC_MOVE
 argument_list|)
 expr_stmt|;
-comment|// don't rely on hadoop thread leaks, wait forever, until you kill me
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-name|Long
-operator|.
-name|MAX_VALUE
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
