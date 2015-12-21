@@ -9611,7 +9611,7 @@ literal|"{\n"
 operator|+
 literal|"  \"settings\": {\n"
 operator|+
-literal|"    \"index.translog.disable_flush\": true,\n"
+literal|"    \"index.translog.flush_threshold_size\": \"1pb\",\n"
 operator|+
 literal|"    \"refresh_interval\": \"-1\"\n"
 operator|+
@@ -9761,7 +9761,7 @@ literal|"{\n"
 operator|+
 literal|"  \"settings\": {\n"
 operator|+
-literal|"    \"index.translog.disable_flush\": true,\n"
+literal|"    \"index.translog.flush_threshold_size\": \"1pb\",\n"
 operator|+
 literal|"    \"refresh_interval\": \"-1\"\n"
 operator|+
@@ -10110,7 +10110,7 @@ literal|"{\n"
 operator|+
 literal|"  \"settings\": {\n"
 operator|+
-literal|"    \"index.translog.disable_flush\": true,\n"
+literal|"    \"index.translog.flush_threshold_size\": \"1pb\",\n"
 operator|+
 literal|"    \"refresh_interval\": \"-1\",\n"
 operator|+
@@ -10232,7 +10232,7 @@ literal|"{\n"
 operator|+
 literal|"  \"settings\": {\n"
 operator|+
-literal|"    \"index.translog.disable_flush\": true,\n"
+literal|"    \"index.translog.flush_threshold_size\": \"1pb\",\n"
 operator|+
 literal|"    \"refresh_interval\": \"-1\"\n"
 operator|+
@@ -10605,7 +10605,7 @@ literal|"{\n"
 operator|+
 literal|"  \"settings\": {\n"
 operator|+
-literal|"    \"index.translog.disable_flush\": true,\n"
+literal|"    \"index.translog.flush_threshold_size\": \"1pb\",\n"
 operator|+
 literal|"    \"refresh_interval\": \"-1\",\n"
 operator|+
@@ -10880,7 +10880,7 @@ literal|"{\n"
 operator|+
 literal|"  \"settings\": {\n"
 operator|+
-literal|"    \"index.translog.disable_flush\": true,\n"
+literal|"    \"index.translog.flush_threshold_size\": \"1pb\",\n"
 operator|+
 literal|"    \"refresh_interval\": \"-1\",\n"
 operator|+
