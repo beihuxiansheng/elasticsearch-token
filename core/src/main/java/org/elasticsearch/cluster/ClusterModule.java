@@ -1358,17 +1358,6 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|TranslogConfig
-operator|.
-name|INDEX_TRANSLOG_FS_TYPE
-argument_list|,
-name|Validator
-operator|.
-name|EMPTY
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
 name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_REPLICAS
