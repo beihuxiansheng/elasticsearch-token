@@ -139,6 +139,7 @@ end_comment
 begin_class
 DECL|class|HdfsPlugin
 specifier|public
+specifier|final
 class|class
 name|HdfsPlugin
 extends|extends

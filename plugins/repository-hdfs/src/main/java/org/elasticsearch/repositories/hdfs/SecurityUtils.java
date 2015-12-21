@@ -92,6 +92,7 @@ end_import
 
 begin_class
 DECL|class|SecurityUtils
+specifier|final
 class|class
 name|SecurityUtils
 block|{
