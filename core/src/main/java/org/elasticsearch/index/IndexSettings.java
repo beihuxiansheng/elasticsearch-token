@@ -1400,7 +1400,7 @@ name|durability
 return|;
 block|}
 DECL|method|getFromSettings
-specifier|public
+specifier|private
 name|Translog
 operator|.
 name|Durability
