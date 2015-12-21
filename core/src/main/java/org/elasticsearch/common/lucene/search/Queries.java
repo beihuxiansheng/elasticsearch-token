@@ -1056,14 +1056,6 @@ name|calc
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|optionalClauseCount
-operator|<
-name|result
-condition|?
-name|optionalClauseCount
-else|:
-operator|(
 name|result
 operator|<
 literal|0
@@ -1071,8 +1063,6 @@ condition|?
 literal|0
 else|:
 name|result
-operator|)
-operator|)
 return|;
 block|}
 block|}
