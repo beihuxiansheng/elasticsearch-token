@@ -484,6 +484,8 @@ name|resolveIndexRouting
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 literal|"test1"
 argument_list|)
 argument_list|,
@@ -504,6 +506,8 @@ argument_list|()
 operator|.
 name|resolveIndexRouting
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 literal|"alias"
@@ -528,6 +532,8 @@ name|resolveIndexRouting
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 literal|"test1"
 argument_list|)
 argument_list|,
@@ -548,6 +554,8 @@ argument_list|()
 operator|.
 name|resolveIndexRouting
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 literal|"alias10"
@@ -572,6 +580,8 @@ argument_list|()
 operator|.
 name|resolveIndexRouting
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 literal|"alias20"
@@ -598,6 +608,8 @@ name|resolveIndexRouting
 argument_list|(
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 literal|"alias21"
 argument_list|)
 argument_list|,
@@ -620,6 +632,8 @@ argument_list|()
 operator|.
 name|resolveIndexRouting
 argument_list|(
+literal|null
+argument_list|,
 literal|"3"
 argument_list|,
 literal|"test1"
@@ -644,7 +658,36 @@ argument_list|()
 operator|.
 name|resolveIndexRouting
 argument_list|(
+literal|null
+argument_list|,
 literal|"0"
+argument_list|,
+literal|"alias10"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"0"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Force the alias routing and ignore the parent.
+name|assertThat
+argument_list|(
+name|clusterService
+argument_list|()
+operator|.
+name|state
+argument_list|()
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|resolveIndexRouting
+argument_list|(
+literal|"1"
+argument_list|,
+literal|null
 argument_list|,
 literal|"alias10"
 argument_list|)
@@ -668,6 +711,8 @@ argument_list|()
 operator|.
 name|resolveIndexRouting
 argument_list|(
+literal|null
+argument_list|,
 literal|"1"
 argument_list|,
 literal|"alias10"
@@ -700,6 +745,8 @@ argument_list|()
 operator|.
 name|resolveIndexRouting
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 literal|"alias0"

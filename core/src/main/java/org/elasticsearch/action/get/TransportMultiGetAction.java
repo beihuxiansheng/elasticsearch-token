@@ -503,6 +503,11 @@ name|resolveIndexRouting
 argument_list|(
 name|item
 operator|.
+name|parent
+argument_list|()
+argument_list|,
+name|item
+operator|.
 name|routing
 argument_list|()
 argument_list|,

@@ -2084,7 +2084,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|parent
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
