@@ -54,18 +54,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|log4j
-operator|.
-name|BasicConfigurator
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -212,12 +200,6 @@ literal|"MiniHDFS<baseDirectory>"
 argument_list|)
 throw|;
 block|}
-comment|// configure logging, so we see all HDFS server logs if something goes wrong
-name|BasicConfigurator
-operator|.
-name|configure
-argument_list|()
-expr_stmt|;
 comment|// configure Paths
 name|Path
 name|baseDir
