@@ -76,6 +76,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|SpecialPermission
@@ -229,6 +243,14 @@ name|Void
 name|evilHadoopInit
 parameter_list|()
 block|{
+comment|// hack: on Windows, Shell's clinit has a similar problem that on unix,
+comment|// but here we can workaround it for now by setting hadoop home
+comment|// TODO: remove THIS when hadoop is fixed
+name|Path
+name|hadoopHome
+init|=
+literal|null
+decl_stmt|;
 name|String
 name|oldValue
 init|=
@@ -236,12 +258,15 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-comment|// hack: on Windows, Shell's clinit has a similar problem that on unix,
-comment|// but here we can workaround it for now by setting hadoop home
-comment|// TODO: remove THIS when hadoop is fixed
-name|Path
+if|if
+condition|(
+name|Constants
+operator|.
+name|WINDOWS
+condition|)
+block|{
 name|hadoopHome
-init|=
+operator|=
 name|Files
 operator|.
 name|createTempDirectory
@@ -251,7 +276,7 @@ argument_list|)
 operator|.
 name|toAbsolutePath
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|oldValue
 operator|=
 name|System
@@ -266,6 +291,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|Class
 operator|.
 name|forName
@@ -306,6 +332,14 @@ throw|;
 block|}
 finally|finally
 block|{
+comment|// try to clean up the hack
+if|if
+condition|(
+name|Constants
+operator|.
+name|WINDOWS
+condition|)
+block|{
 if|if
 condition|(
 name|oldValue
@@ -332,6 +366,32 @@ argument_list|,
 name|oldValue
 argument_list|)
 expr_stmt|;
+block|}
+try|try
+block|{
+comment|// try to clean up our temp dir too if we can
+if|if
+condition|(
+name|hadoopHome
+operator|!=
+literal|null
+condition|)
+block|{
+name|Files
+operator|.
+name|delete
+argument_list|(
+name|hadoopHome
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|thisIsBestEffort
+parameter_list|)
+block|{}
 block|}
 block|}
 return|return
