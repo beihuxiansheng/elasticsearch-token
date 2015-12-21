@@ -356,13 +356,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"conf"
-argument_list|,
-literal|"additional-cfg.xml, conf-2.xml"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"chunk_size"
 argument_list|,
 name|randomIntBetween
