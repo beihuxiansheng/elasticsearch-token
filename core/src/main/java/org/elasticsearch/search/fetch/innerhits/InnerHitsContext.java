@@ -1423,8 +1423,8 @@ literal|null
 return|;
 block|}
 specifier|final
-name|DocIdSetIterator
-name|childrenIterator
+name|Scorer
+name|childrenScorer
 init|=
 name|childWeight
 operator|.
@@ -1435,7 +1435,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|childrenIterator
+name|childrenScorer
 operator|==
 literal|null
 condition|)
@@ -1444,6 +1444,14 @@ return|return
 literal|null
 return|;
 block|}
+name|DocIdSetIterator
+name|childrenIterator
+init|=
+name|childrenScorer
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
 specifier|final
 name|DocIdSetIterator
 name|it

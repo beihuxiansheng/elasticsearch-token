@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DocIdSetIterator
+name|Query
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|Scorer
 import|;
 end_import
 
@@ -1797,8 +1797,8 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|DocIdSetIterator
-name|iterator
+name|Scorer
+name|scorer
 init|=
 name|nestedWeight
 operator|.
@@ -1809,7 +1809,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|iterator
+name|scorer
 operator|==
 literal|null
 condition|)
@@ -1818,7 +1818,10 @@ continue|continue;
 block|}
 if|if
 condition|(
+name|scorer
+operator|.
 name|iterator
+argument_list|()
 operator|.
 name|advance
 argument_list|(
