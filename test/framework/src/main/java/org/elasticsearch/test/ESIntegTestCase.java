@@ -3611,7 +3611,7 @@ name|random
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|values
 argument_list|()

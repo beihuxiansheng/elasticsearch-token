@@ -5818,10 +5818,10 @@ literal|'}'
 return|;
 block|}
 block|}
-DECL|enum|Durabilty
+DECL|enum|Durability
 specifier|public
 enum|enum
-name|Durabilty
+name|Durability
 block|{
 comment|/**          * Async durability - translogs are synced based on a time interval.          */
 DECL|enum constant|ASYNC

@@ -481,7 +481,7 @@ name|INDEX_TRANSLOG_DURABILITY
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|ASYNC
 argument_list|)
@@ -833,7 +833,7 @@ name|INDEX_TRANSLOG_DURABILITY
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|ASYNC
 argument_list|)
@@ -1183,7 +1183,7 @@ name|INDEX_TRANSLOG_DURABILITY
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|ASYNC
 argument_list|)
@@ -1747,7 +1747,7 @@ name|INDEX_TRANSLOG_DURABILITY
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|ASYNC
 argument_list|)

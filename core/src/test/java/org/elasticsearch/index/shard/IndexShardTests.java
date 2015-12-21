@@ -4002,7 +4002,7 @@ name|shard
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|REQUEST
 argument_list|)
@@ -4027,7 +4027,7 @@ name|shard
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|ASYNC
 argument_list|)
@@ -4072,7 +4072,7 @@ name|shard
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|REQUEST
 argument_list|)
@@ -4112,7 +4112,7 @@ name|shard
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|ASYNC
 argument_list|)
@@ -4152,7 +4152,7 @@ name|shard
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|REQUEST
 argument_list|)
@@ -4224,7 +4224,7 @@ name|shard
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|ASYNC
 argument_list|)
@@ -4282,7 +4282,7 @@ name|shard
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|REQUEST
 argument_list|)
@@ -4312,8 +4312,8 @@ name|shard
 parameter_list|,
 name|Translog
 operator|.
-name|Durabilty
-name|durabilty
+name|Durability
+name|durability
 parameter_list|)
 block|{
 name|client
@@ -4346,7 +4346,7 @@ name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_DURABILITY
 argument_list|,
-name|durabilty
+name|durability
 operator|.
 name|name
 argument_list|()
@@ -4361,7 +4361,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|durabilty
+name|durability
 argument_list|,
 name|shard
 operator|.
@@ -6803,7 +6803,7 @@ name|INDEX_TRANSLOG_DURABILITY
 argument_list|,
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|REQUEST
 argument_list|)

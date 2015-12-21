@@ -1586,7 +1586,7 @@ name|assertEquals
 argument_list|(
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|ASYNC
 argument_list|,
@@ -1627,7 +1627,7 @@ name|assertEquals
 argument_list|(
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|REQUEST
 argument_list|,
@@ -1684,7 +1684,7 @@ name|assertEquals
 argument_list|(
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|REQUEST
 argument_list|,
