@@ -1432,6 +1432,8 @@ name|actualDoc
 init|=
 name|scorer
 operator|.
+name|iterator
+operator|.
 name|advance
 argument_list|(
 name|doc
