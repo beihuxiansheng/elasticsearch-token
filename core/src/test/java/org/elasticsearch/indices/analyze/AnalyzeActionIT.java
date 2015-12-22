@@ -5341,7 +5341,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"failed to find analyzer"
+literal|"failed to find global analyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;
