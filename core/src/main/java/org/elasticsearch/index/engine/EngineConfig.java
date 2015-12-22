@@ -353,14 +353,6 @@ specifier|volatile
 name|String
 name|versionMapSizeSetting
 decl_stmt|;
-DECL|field|compoundOnFlush
-specifier|private
-specifier|volatile
-name|boolean
-name|compoundOnFlush
-init|=
-literal|true
-decl_stmt|;
 DECL|field|gcDeletesInMillis
 specifier|private
 name|long
@@ -478,16 +470,6 @@ specifier|private
 specifier|final
 name|QueryCachingPolicy
 name|queryCachingPolicy
-decl_stmt|;
-comment|/**      * Index setting for compound file on flush. This setting is realtime updateable.      */
-DECL|field|INDEX_COMPOUND_ON_FLUSH
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_COMPOUND_ON_FLUSH
-init|=
-literal|"index.compound_on_flush"
 decl_stmt|;
 comment|/**      * Index setting to enable / disable deletes garbage collection.      * This setting is realtime updateable      */
 DECL|field|INDEX_GC_DELETES_SETTING
@@ -752,21 +734,6 @@ operator|.
 name|eventListener
 operator|=
 name|eventListener
-expr_stmt|;
-name|this
-operator|.
-name|compoundOnFlush
-operator|=
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|EngineConfig
-operator|.
-name|INDEX_COMPOUND_ON_FLUSH
-argument_list|,
-name|compoundOnFlush
-argument_list|)
 expr_stmt|;
 name|codecName
 operator|=
@@ -1045,17 +1012,6 @@ return|return
 name|indexingBufferSize
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff flushed segments should be written as compound file system. Defaults to<code>true</code>      */
-DECL|method|isCompoundOnFlush
-specifier|public
-name|boolean
-name|isCompoundOnFlush
-parameter_list|()
-block|{
-return|return
-name|compoundOnFlush
-return|;
-block|}
 comment|/**      * Returns the GC deletes cycle in milliseconds.      */
 DECL|method|getGcDeletesInMillis
 specifier|public
@@ -1245,23 +1201,6 @@ operator|.
 name|gcDeletesInMillis
 operator|=
 name|gcDeletesInMillis
-expr_stmt|;
-block|}
-comment|/**      * Sets if flushed segments should be written as compound file system. Defaults to<code>true</code>      */
-DECL|method|setCompoundOnFlush
-specifier|public
-name|void
-name|setCompoundOnFlush
-parameter_list|(
-name|boolean
-name|compoundOnFlush
-parameter_list|)
-block|{
-name|this
-operator|.
-name|compoundOnFlush
-operator|=
-name|compoundOnFlush
 expr_stmt|;
 block|}
 comment|/**      * Returns the {@link org.elasticsearch.index.shard.TranslogRecoveryPerformer} for this engine. This class is used      * to apply transaction log operations to the engine. It encapsulates all the logic to transfer the translog entry into      * an indexing operation.      */

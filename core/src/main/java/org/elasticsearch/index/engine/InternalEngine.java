@@ -2198,16 +2198,6 @@ name|mbFrac
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|iwc
-operator|.
-name|setUseCompoundFile
-argument_list|(
-name|engineConfig
-operator|.
-name|isCompoundOnFlush
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -5582,14 +5572,10 @@ name|iwc
 operator|.
 name|setUseCompoundFile
 argument_list|(
-name|this
-operator|.
-name|engineConfig
-operator|.
-name|isCompoundOnFlush
-argument_list|()
+literal|true
 argument_list|)
 expr_stmt|;
+comment|// always use compound on flush - reduces # of file-handles on refresh
 comment|// Warm-up hook for newly-merged segments. Warming up segments here is better since it will be performed at the end
 comment|// of the merge operation and won't slow down _refresh
 name|iwc

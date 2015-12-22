@@ -1493,17 +1493,6 @@ name|registerIndexDynamicSetting
 argument_list|(
 name|EngineConfig
 operator|.
-name|INDEX_COMPOUND_ON_FLUSH
-argument_list|,
-name|Validator
-operator|.
-name|BOOLEAN
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
-name|EngineConfig
-operator|.
 name|INDEX_GC_DELETES_SETTING
 argument_list|,
 name|Validator
