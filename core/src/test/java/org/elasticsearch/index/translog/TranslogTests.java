@@ -1080,17 +1080,9 @@ argument_list|,
 name|build
 argument_list|)
 argument_list|,
-name|Translog
-operator|.
-name|Durabilty
-operator|.
-name|REQUEST
-argument_list|,
 name|BigArrays
 operator|.
 name|NON_RECYCLING_INSTANCE
-argument_list|,
-literal|null
 argument_list|,
 name|bufferSize
 argument_list|)

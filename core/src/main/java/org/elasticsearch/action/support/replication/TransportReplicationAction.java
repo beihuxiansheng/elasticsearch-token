@@ -5488,7 +5488,7 @@ argument_list|()
 operator|==
 name|Translog
 operator|.
-name|Durabilty
+name|Durability
 operator|.
 name|REQUEST
 operator|&&

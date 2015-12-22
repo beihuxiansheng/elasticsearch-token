@@ -1727,17 +1727,9 @@ name|translogPath
 argument_list|,
 name|indexSettings
 argument_list|,
-name|Translog
-operator|.
-name|Durabilty
-operator|.
-name|REQUEST
-argument_list|,
 name|BigArrays
 operator|.
 name|NON_RECYCLING_INSTANCE
-argument_list|,
-name|threadPool
 argument_list|)
 decl_stmt|;
 name|EngineConfig

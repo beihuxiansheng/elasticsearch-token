@@ -140,6 +140,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Priority
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -194,9 +206,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|IndexSettings
+name|unit
+operator|.
+name|TimeValue
 import|;
 end_import
 
@@ -211,20 +225,6 @@ operator|.
 name|shard
 operator|.
 name|IndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogConfig
 import|;
 end_import
 
@@ -277,22 +277,6 @@ operator|.
 name|engine
 operator|.
 name|MockEngineSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
 import|;
 end_import
 
@@ -441,6 +425,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -558,11 +554,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.translog:TRACE,index.gateway:TRACE"
-argument_list|)
 DECL|method|testCorruptTranslogFiles
 specifier|public
 name|void
@@ -640,16 +631,6 @@ argument_list|,
 literal|false
 argument_list|)
 comment|// never flush - always recover from translog
-operator|.
-name|put
-argument_list|(
-name|TranslogConfig
-operator|.
-name|INDEX_TRANSLOG_SYNC_INTERVAL
-argument_list|,
-literal|"1s"
-argument_list|)
-comment|// fsync the translog every second
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -750,18 +731,43 @@ operator|.
 name|fullRestart
 argument_list|()
 expr_stmt|;
-comment|// node needs time to start recovery and discover the translog corruption
-name|Thread
+name|client
+argument_list|()
 operator|.
-name|sleep
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareHealth
+argument_list|()
+operator|.
+name|setWaitForYellowStatus
+argument_list|()
+operator|.
+name|setTimeout
+argument_list|(
+operator|new
+name|TimeValue
 argument_list|(
 literal|1000
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
-expr_stmt|;
-name|enableTranslogFlush
+argument_list|)
+operator|.
+name|setWaitForEvents
 argument_list|(
-literal|"test"
+name|Priority
+operator|.
+name|LANGUID
 argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -794,6 +800,11 @@ name|SearchPhaseExecutionException
 name|e
 parameter_list|)
 block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 comment|// Good, all shards should be failed because there is only a
 comment|// single shard and its translog is corrupt
 block|}
