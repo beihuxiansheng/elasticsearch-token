@@ -291,12 +291,11 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
+literal|"type"
+argument_list|,
 name|documentMapper
 operator|.
 name|mappingSource
-argument_list|()
-operator|.
-name|string
 argument_list|()
 argument_list|)
 expr_stmt|;

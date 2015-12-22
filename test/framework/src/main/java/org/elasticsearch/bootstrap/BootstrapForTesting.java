@@ -44,59 +44,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestSecurityManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|SecureSM
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|bootstrap
-operator|.
-name|Bootstrap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|bootstrap
-operator|.
-name|ESPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|bootstrap
-operator|.
-name|Security
 import|;
 end_import
 
@@ -367,7 +317,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Initializes natives and installs test security manager  * (init'd early by base classes to ensure it happens regardless of which  * test case happens to be first, test ordering, etc).   *<p>  * The idea is to mimic as much as possible what happens with ES in production  * mode (e.g. assign permissions and install security manager the same way)  */
+comment|/**  * Initializes natives and installs test security manager  * (init'd early by base classes to ensure it happens regardless of which  * test case happens to be first, test ordering, etc).  *<p>  * The idea is to mimic as much as possible what happens with ES in production  * mode (e.g. assign permissions and install security manager the same way)  */
 end_comment
 
 begin_class
@@ -998,7 +948,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**       * we dont know which codesources belong to which plugin, so just remove the permission from key codebases      * like core, test-framework, etc. this way tests fail if accesscontroller blocks are missing.      */
+comment|/**      * we dont know which codesources belong to which plugin, so just remove the permission from key codebases      * like core, test-framework, etc. this way tests fail if accesscontroller blocks are missing.      */
 annotation|@
 name|SuppressForbidden
 argument_list|(

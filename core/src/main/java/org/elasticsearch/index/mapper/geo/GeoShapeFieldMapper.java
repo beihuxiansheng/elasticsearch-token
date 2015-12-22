@@ -1376,7 +1376,9 @@ name|setOrientation
 argument_list|(
 name|ShapeBuilder
 operator|.
-name|orientationFromString
+name|Orientation
+operator|.
+name|fromString
 argument_list|(
 name|fieldNode
 operator|.

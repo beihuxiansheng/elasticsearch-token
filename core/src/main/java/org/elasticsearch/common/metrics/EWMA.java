@@ -24,9 +24,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|atomic
-operator|.
-name|LongAdder
+name|TimeUnit
 import|;
 end_import
 
@@ -38,12 +36,14 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
+name|atomic
+operator|.
+name|LongAdder
 import|;
 end_import
 
 begin_comment
-comment|/**  * An exponentially-weighted moving average.  *   *<p>  * Taken from codahale metric module, changed to use LongAdder  *  * @see<a href="http://www.teamquest.com/pdfs/whitepaper/ldavg1.pdf">UNIX Load Average Part 1: How It Works</a>  * @see<a href="http://www.teamquest.com/pdfs/whitepaper/ldavg2.pdf">UNIX Load Average Part 2: Not Your Average Average</a>  */
+comment|/**  * An exponentially-weighted moving average.  *  *<p>  * Taken from codahale metric module, changed to use LongAdder  *  * @see<a href="http://www.teamquest.com/pdfs/whitepaper/ldavg1.pdf">UNIX Load Average Part 1: How It Works</a>  * @see<a href="http://www.teamquest.com/pdfs/whitepaper/ldavg2.pdf">UNIX Load Average Part 2: Not Your Average Average</a>  */
 end_comment
 
 begin_class

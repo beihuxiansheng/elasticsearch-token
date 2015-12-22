@@ -90,20 +90,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|text
-operator|.
-name|Text
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io

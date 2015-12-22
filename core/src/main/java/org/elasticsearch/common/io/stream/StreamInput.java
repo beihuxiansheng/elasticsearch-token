@@ -214,9 +214,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|text
+name|geo
 operator|.
-name|Text
+name|builders
+operator|.
+name|ShapeBuilder
 import|;
 end_import
 
@@ -3371,6 +3373,24 @@ return|return
 name|readNamedWriteable
 argument_list|(
 name|QueryBuilder
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+comment|/**      * Reads a {@link ShapeBuilder} from the current stream      */
+DECL|method|readShape
+specifier|public
+name|ShapeBuilder
+name|readShape
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|readNamedWriteable
+argument_list|(
+name|ShapeBuilder
 operator|.
 name|class
 argument_list|)

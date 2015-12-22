@@ -165,16 +165,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -226,7 +216,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|startsWith
 import|;
 end_import
 
@@ -286,7 +300,13 @@ name|mapperParser
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|mapping
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|byte
@@ -455,7 +475,13 @@ name|mapperParser
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|builtMapping
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|json
@@ -655,7 +681,13 @@ name|mapperParser
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|mapping
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|byte
@@ -771,7 +803,13 @@ name|mapperParser
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|mapping
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|byte
@@ -940,7 +978,13 @@ name|mapperParser
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|builtMapping
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|json

@@ -186,7 +186,43 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|*
+name|Executors
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -249,7 +285,7 @@ name|BulkResponse
 name|response
 parameter_list|)
 function_decl|;
-comment|/**          * Callback after a failed execution of bulk request.          */
+comment|/**          * Callback after a failed execution of bulk request.          *          * Note that in case an instance of<code>InterruptedException</code> is passed, which means that request processing has been          * cancelled externally, the thread's interruption status has been restored prior to calling this method.          */
 DECL|method|afterBulk
 name|void
 name|afterBulk

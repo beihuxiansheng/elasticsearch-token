@@ -588,22 +588,6 @@ name|test
 operator|.
 name|hamcrest
 operator|.
-name|DoubleMatcher
-operator|.
-name|nearlyEqual
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertSearchResponse

@@ -28,7 +28,77 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|*
+name|DocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|DocValuesType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|LeafReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|LeafReaderContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|NumericDocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|SortedNumericDocValues
 import|;
 end_import
 
@@ -82,7 +152,35 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|*
+name|AtomicNumericFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|FieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|FieldDataType
 import|;
 end_import
 
@@ -101,6 +199,48 @@ operator|.
 name|XFieldComparatorSource
 operator|.
 name|Nested
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|IndexNumericFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|NumericDoubleValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -467,7 +607,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * FieldData implementation for integral types.      *<p>      * Order of values within a document is consistent with       * {@link Long#compareTo(Long)}.      *<p>      * Although the API is multi-valued, most codecs in Lucene specialize       * for the case where documents have at most one value. In this case      * {@link DocValues#unwrapSingleton(SortedNumericDocValues)} will return      * the underlying single-valued NumericDocValues representation, and       * {@link DocValues#unwrapSingletonBits(SortedNumericDocValues)} will return      * a Bits matching documents that have a real value (as opposed to missing).      */
+comment|/**      * FieldData implementation for integral types.      *<p>      * Order of values within a document is consistent with      * {@link Long#compareTo(Long)}.      *<p>      * Although the API is multi-valued, most codecs in Lucene specialize      * for the case where documents have at most one value. In this case      * {@link DocValues#unwrapSingleton(SortedNumericDocValues)} will return      * the underlying single-valued NumericDocValues representation, and      * {@link DocValues#unwrapSingletonBits(SortedNumericDocValues)} will return      * a Bits matching documents that have a real value (as opposed to missing).      */
 DECL|class|SortedNumericLongFieldData
 specifier|static
 specifier|final
@@ -571,7 +711,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * FieldData implementation for 32-bit float values.      *<p>      * Order of values within a document is consistent with      * {@link Float#compareTo(Float)}, hence the following reversible      * transformation is applied at both index and search:      * {@code bits ^ (bits>> 31)& 0x7fffffff}      *<p>      * Although the API is multi-valued, most codecs in Lucene specialize       * for the case where documents have at most one value. In this case      * {@link FieldData#unwrapSingleton(SortedNumericDoubleValues)} will return      * the underlying single-valued NumericDoubleValues representation, and       * {@link FieldData#unwrapSingletonBits(SortedNumericDoubleValues)} will return      * a Bits matching documents that have a real value (as opposed to missing).      */
+comment|/**      * FieldData implementation for 32-bit float values.      *<p>      * Order of values within a document is consistent with      * {@link Float#compareTo(Float)}, hence the following reversible      * transformation is applied at both index and search:      * {@code bits ^ (bits>> 31)& 0x7fffffff}      *<p>      * Although the API is multi-valued, most codecs in Lucene specialize      * for the case where documents have at most one value. In this case      * {@link FieldData#unwrapSingleton(SortedNumericDoubleValues)} will return      * the underlying single-valued NumericDoubleValues representation, and      * {@link FieldData#unwrapSingletonBits(SortedNumericDoubleValues)} will return      * a Bits matching documents that have a real value (as opposed to missing).      */
 DECL|class|SortedNumericFloatFieldData
 specifier|static
 specifier|final
@@ -724,7 +864,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**       * Wraps a NumericDocValues and exposes a single 32-bit float per document.      */
+comment|/**      * Wraps a NumericDocValues and exposes a single 32-bit float per document.      */
 DECL|class|SingleFloatValues
 specifier|static
 specifier|final
@@ -781,7 +921,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**       * Wraps a SortedNumericDocValues and exposes multiple 32-bit floats per document.      */
+comment|/**      * Wraps a SortedNumericDocValues and exposes multiple 32-bit floats per document.      */
 DECL|class|MultiFloatValues
 specifier|static
 specifier|final
@@ -872,7 +1012,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * FieldData implementation for 64-bit double values.      *<p>      * Order of values within a document is consistent with      * {@link Double#compareTo(Double)}, hence the following reversible      * transformation is applied at both index and search:      * {@code bits ^ (bits>> 63)& 0x7fffffffffffffffL}      *<p>      * Although the API is multi-valued, most codecs in Lucene specialize       * for the case where documents have at most one value. In this case      * {@link FieldData#unwrapSingleton(SortedNumericDoubleValues)} will return      * the underlying single-valued NumericDoubleValues representation, and       * {@link FieldData#unwrapSingletonBits(SortedNumericDoubleValues)} will return      * a Bits matching documents that have a real value (as opposed to missing).      */
+comment|/**      * FieldData implementation for 64-bit double values.      *<p>      * Order of values within a document is consistent with      * {@link Double#compareTo(Double)}, hence the following reversible      * transformation is applied at both index and search:      * {@code bits ^ (bits>> 63)& 0x7fffffffffffffffL}      *<p>      * Although the API is multi-valued, most codecs in Lucene specialize      * for the case where documents have at most one value. In this case      * {@link FieldData#unwrapSingleton(SortedNumericDoubleValues)} will return      * the underlying single-valued NumericDoubleValues representation, and      * {@link FieldData#unwrapSingletonBits(SortedNumericDoubleValues)} will return      * a Bits matching documents that have a real value (as opposed to missing).      */
 DECL|class|SortedNumericDoubleFieldData
 specifier|static
 specifier|final

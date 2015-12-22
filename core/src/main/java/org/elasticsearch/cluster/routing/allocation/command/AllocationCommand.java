@@ -26,16 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|routing
@@ -178,7 +168,7 @@ extends|extends
 name|AllocationCommand
 parameter_list|>
 block|{
-comment|/**          * Reads an {@link AllocationCommand} of type<code>T</code> from a {@link StreamInput}          * @param in {@link StreamInput} to read the {@link AllocationCommand} from           * @return {@link AllocationCommand} read from the {@link StreamInput}          * @throws IOException if something happens during reading          */
+comment|/**          * Reads an {@link AllocationCommand} of type<code>T</code> from a {@link StreamInput}          * @param in {@link StreamInput} to read the {@link AllocationCommand} from          * @return {@link AllocationCommand} read from the {@link StreamInput}          * @throws IOException if something happens during reading          */
 DECL|method|readFrom
 name|T
 name|readFrom

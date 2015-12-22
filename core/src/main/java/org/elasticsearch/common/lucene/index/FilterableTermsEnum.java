@@ -154,6 +154,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|Scorer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Weight
 import|;
 end_import
@@ -576,8 +590,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|DocIdSetIterator
-name|docs
+name|Scorer
+name|scorer
 init|=
 name|weight
 operator|.
@@ -588,7 +602,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|docs
+name|scorer
 operator|==
 literal|null
 condition|)
@@ -596,6 +610,14 @@ block|{
 comment|// fully filtered, none matching, no need to iterate on this
 continue|continue;
 block|}
+name|DocIdSetIterator
+name|docs
+init|=
+name|scorer
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
 comment|// we want to force apply deleted docs
 specifier|final
 name|Bits

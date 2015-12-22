@@ -870,7 +870,7 @@ operator|.
 name|routing
 return|;
 block|}
-comment|/**      * The parent id is used for the upsert request and also implicitely sets the routing if not already set.      */
+comment|/**      * The parent id is used for the upsert request.      */
 DECL|method|parent
 specifier|public
 name|UpdateRequest
@@ -886,18 +886,6 @@ name|parent
 operator|=
 name|parent
 expr_stmt|;
-if|if
-condition|(
-name|routing
-operator|==
-literal|null
-condition|)
-block|{
-name|routing
-operator|=
-name|parent
-expr_stmt|;
-block|}
 return|return
 name|this
 return|;

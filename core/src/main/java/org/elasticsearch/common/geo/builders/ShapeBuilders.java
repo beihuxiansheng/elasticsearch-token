@@ -219,27 +219,6 @@ name|GeometryCollectionBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Create a new GeometryCollection      *      * @return a new {@link GeometryCollectionBuilder}      */
-DECL|method|newGeometryCollection
-specifier|public
-specifier|static
-name|GeometryCollectionBuilder
-name|newGeometryCollection
-parameter_list|(
-name|ShapeBuilder
-operator|.
-name|Orientation
-name|orientation
-parameter_list|)
-block|{
-return|return
-operator|new
-name|GeometryCollectionBuilder
-argument_list|(
-name|orientation
-argument_list|)
-return|;
-block|}
 comment|/**      * create a new Circle      *      * @return a new {@link CircleBuilder}      */
 DECL|method|newCircleBuilder
 specifier|public
@@ -266,27 +245,6 @@ return|return
 operator|new
 name|EnvelopeBuilder
 argument_list|()
-return|;
-block|}
-comment|/**      * create a new rectangle      *      * @return a new {@link EnvelopeBuilder}      */
-DECL|method|newEnvelope
-specifier|public
-specifier|static
-name|EnvelopeBuilder
-name|newEnvelope
-parameter_list|(
-name|ShapeBuilder
-operator|.
-name|Orientation
-name|orientation
-parameter_list|)
-block|{
-return|return
-operator|new
-name|EnvelopeBuilder
-argument_list|(
-name|orientation
-argument_list|)
 return|;
 block|}
 block|}

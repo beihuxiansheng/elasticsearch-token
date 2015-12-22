@@ -20,21 +20,29 @@ end_package
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|spatial4j
 operator|.
-name|IOException
+name|core
+operator|.
+name|shape
+operator|.
+name|Point
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|vividsolutions
 operator|.
-name|Objects
+name|jts
+operator|.
+name|geom
+operator|.
+name|Coordinate
 import|;
 end_import
 
@@ -86,29 +94,21 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|spatial4j
+name|io
 operator|.
-name|core
-operator|.
-name|shape
-operator|.
-name|Point
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|vividsolutions
+name|util
 operator|.
-name|jts
-operator|.
-name|geom
-operator|.
-name|Coordinate
+name|Objects
 import|;
 end_import
 

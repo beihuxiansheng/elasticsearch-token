@@ -18,16 +18,6 @@ end_comment
 
 begin_import
 import|import
-name|java
-operator|.
-name|text
-operator|.
-name|ParseException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|antlr
@@ -107,6 +97,16 @@ operator|.
 name|runtime
 operator|.
 name|Token
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|text
+operator|.
+name|ParseException
 import|;
 end_import
 

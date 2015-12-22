@@ -14,39 +14,35 @@ name|hdfs
 package|;
 end_package
 
+begin_comment
+comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|carrotsearch
 operator|.
-name|IOException
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Name
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|carrotsearch
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|randomizedtesting
 operator|.
-name|elasticsearch
+name|annotations
 operator|.
-name|plugin
-operator|.
-name|hadoop
-operator|.
-name|hdfs
-operator|.
-name|HdfsPlugin
+name|ParametersFactory
 import|;
 end_import
 
@@ -108,29 +104,21 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|carrotsearch
+name|io
 operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Name
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|carrotsearch
+name|util
 operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|ParametersFactory
+name|Collection
 import|;
 end_import
 

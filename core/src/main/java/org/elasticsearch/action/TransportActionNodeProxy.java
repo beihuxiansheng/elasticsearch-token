@@ -78,7 +78,19 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|*
+name|TransportRequestOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportService
 import|;
 end_import
 

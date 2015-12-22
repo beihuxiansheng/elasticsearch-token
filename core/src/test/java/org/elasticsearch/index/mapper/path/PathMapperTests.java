@@ -24,6 +24,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|compress
+operator|.
+name|CompressedXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|mapper
@@ -136,7 +150,13 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|mapping
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// test full name
