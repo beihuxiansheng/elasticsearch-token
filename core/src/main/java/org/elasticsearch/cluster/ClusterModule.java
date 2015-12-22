@@ -1865,17 +1865,6 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|IndicesRequestCache
-operator|.
-name|DEPRECATED_INDEX_CACHE_REQUEST_ENABLED
-argument_list|,
-name|Validator
-operator|.
-name|BOOLEAN
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
