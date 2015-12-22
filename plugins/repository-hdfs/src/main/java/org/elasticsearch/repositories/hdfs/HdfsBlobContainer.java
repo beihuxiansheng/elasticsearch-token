@@ -329,7 +329,7 @@ name|execute
 argument_list|(
 name|blobStore
 operator|.
-name|fileContextFactory
+name|getRepository
 argument_list|()
 argument_list|,
 operator|new
@@ -405,7 +405,7 @@ name|execute
 argument_list|(
 name|blobStore
 operator|.
-name|fileContextFactory
+name|getRepository
 argument_list|()
 argument_list|,
 operator|new
@@ -479,7 +479,7 @@ name|execute
 argument_list|(
 name|blobStore
 operator|.
-name|fileContextFactory
+name|getRepository
 argument_list|()
 argument_list|,
 operator|new
@@ -551,7 +551,7 @@ name|execute
 argument_list|(
 name|blobStore
 operator|.
-name|fileContextFactory
+name|getRepository
 argument_list|()
 argument_list|,
 operator|new
@@ -588,7 +588,7 @@ argument_list|)
 argument_list|,
 name|blobStore
 operator|.
-name|bufferSizeInBytes
+name|getBufferSizeInBytes
 argument_list|()
 argument_list|)
 return|;
@@ -622,7 +622,7 @@ name|execute
 argument_list|(
 name|blobStore
 operator|.
-name|fileContextFactory
+name|getRepository
 argument_list|()
 argument_list|,
 operator|new
@@ -688,7 +688,7 @@ name|bufferSize
 argument_list|(
 name|blobStore
 operator|.
-name|bufferSizeInBytes
+name|getBufferSizeInBytes
 argument_list|()
 argument_list|)
 block|}
@@ -722,7 +722,7 @@ name|byte
 index|[
 name|blobStore
 operator|.
-name|bufferSizeInBytes
+name|getBufferSizeInBytes
 argument_list|()
 index|]
 decl_stmt|;
@@ -804,7 +804,7 @@ name|execute
 argument_list|(
 name|blobStore
 operator|.
-name|fileContextFactory
+name|getRepository
 argument_list|()
 argument_list|,
 operator|new
@@ -963,7 +963,7 @@ name|execute
 argument_list|(
 name|blobStore
 operator|.
-name|fileContextFactory
+name|getRepository
 argument_list|()
 argument_list|,
 operator|new

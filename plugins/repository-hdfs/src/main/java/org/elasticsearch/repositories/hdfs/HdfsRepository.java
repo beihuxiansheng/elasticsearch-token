@@ -368,8 +368,6 @@ class|class
 name|HdfsRepository
 extends|extends
 name|BlobStoreRepository
-implements|implements
-name|FileContextFactory
 block|{
 DECL|field|basePath
 specifier|private
@@ -797,10 +795,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// as the FileSystem is long-lived and might go away, make sure to check it before it's being used.
-annotation|@
-name|Override
 DECL|method|getFileContext
-specifier|public
 name|FileContext
 name|getFileContext
 parameter_list|()

@@ -94,8 +94,8 @@ parameter_list|>
 name|V
 name|execute
 parameter_list|(
-name|FileContextFactory
-name|fcf
+name|HdfsRepository
+name|repository
 parameter_list|,
 name|FcCallback
 argument_list|<
@@ -109,7 +109,7 @@ block|{
 return|return
 name|execute
 argument_list|(
-name|fcf
+name|repository
 operator|.
 name|getFileContext
 argument_list|()
