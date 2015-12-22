@@ -418,7 +418,7 @@ specifier|final
 name|String
 name|PIPELINE_ID_PARAM
 init|=
-literal|"pipeline_id"
+literal|"pipeline"
 decl_stmt|;
 DECL|field|PIPELINE_ALREADY_PROCESSED
 specifier|public
