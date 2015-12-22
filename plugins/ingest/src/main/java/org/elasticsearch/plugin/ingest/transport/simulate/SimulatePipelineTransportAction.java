@@ -126,7 +126,7 @@ name|plugin
 operator|.
 name|ingest
 operator|.
-name|PipelineStore
+name|IngestBootstrapper
 import|;
 end_import
 
@@ -140,7 +140,7 @@ name|plugin
 operator|.
 name|ingest
 operator|.
-name|IngestBootstrapper
+name|PipelineStore
 import|;
 end_import
 

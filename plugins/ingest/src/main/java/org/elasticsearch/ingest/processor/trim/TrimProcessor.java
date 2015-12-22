@@ -32,16 +32,6 @@ name|AbstractStringProcessor
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
 begin_comment
 comment|/**  * Processor that trims the content of string fields.  * Throws exception is the field is not of type string.  */
 end_comment

@@ -60,7 +60,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
 import|;
 end_import
 
@@ -72,7 +82,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
 import|;
 end_import
 
