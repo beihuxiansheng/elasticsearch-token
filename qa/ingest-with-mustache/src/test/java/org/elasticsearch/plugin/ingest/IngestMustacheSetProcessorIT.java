@@ -24,7 +24,19 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|*
+name|IngestDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|ValueSource
 import|;
 end_import
 
