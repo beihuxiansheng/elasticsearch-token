@@ -148,6 +148,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|reflect
+operator|.
+name|ReflectPermission
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|AccessController
@@ -171,6 +183,18 @@ operator|.
 name|security
 operator|.
 name|PrivilegedExceptionAction
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|security
+operator|.
+name|auth
+operator|.
+name|AuthPermission
 import|;
 end_import
 
@@ -552,6 +576,9 @@ name|IOException
 function_decl|;
 block|}
 comment|/**      * Executes the provided operation against this store      */
+comment|// we can do FS ops with only two elevated permissions:
+comment|// 1) hadoop dynamic proxy is messy with access rules
+comment|// 2) allow hadoop to add credentials to our Subject
 DECL|method|execute
 parameter_list|<
 name|V
@@ -642,6 +669,20 @@ argument_list|)
 return|;
 block|}
 block|}
+argument_list|,
+literal|null
+argument_list|,
+operator|new
+name|ReflectPermission
+argument_list|(
+literal|"suppressAccessChecks"
+argument_list|)
+argument_list|,
+operator|new
+name|AuthPermission
+argument_list|(
+literal|"modifyPrivateCredentials"
+argument_list|)
 argument_list|)
 return|;
 block|}
