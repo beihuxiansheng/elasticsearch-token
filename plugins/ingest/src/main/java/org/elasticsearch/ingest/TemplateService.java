@@ -28,6 +28,10 @@ begin_comment
 comment|/**  * Abstraction for the template engine.  */
 end_comment
 
+begin_comment
+comment|// NOTE: this abstraction is added because the 'org.elasticsearch.ingest' has the requirement to be ES agnostic
+end_comment
+
 begin_interface
 DECL|interface|TemplateService
 specifier|public
