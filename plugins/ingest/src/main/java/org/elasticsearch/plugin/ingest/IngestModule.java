@@ -314,6 +314,12 @@ name|IngestModule
 extends|extends
 name|AbstractModule
 block|{
+DECL|field|ingestEnabled
+specifier|private
+specifier|final
+name|boolean
+name|ingestEnabled
+decl_stmt|;
 DECL|field|processorFactoryProviders
 specifier|private
 specifier|final
@@ -330,6 +336,21 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|method|IngestModule
+specifier|public
+name|IngestModule
+parameter_list|(
+name|boolean
+name|ingestEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ingestEnabled
+operator|=
+name|ingestEnabled
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|configure
@@ -338,6 +359,9 @@ name|void
 name|configure
 parameter_list|()
 block|{
+comment|// Even if ingest isn't enable we still need to make sure that rest requests with pipeline
+comment|// param copy the pipeline into the context, so that in IngestDisabledActionFilter
+comment|// index/bulk requests can be failed
 name|binder
 argument_list|()
 operator|.
@@ -351,6 +375,11 @@ operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|ingestEnabled
+condition|)
+block|{
 name|binder
 argument_list|()
 operator|.
@@ -706,6 +735,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Adds a processor factory under a specific type name.      */
