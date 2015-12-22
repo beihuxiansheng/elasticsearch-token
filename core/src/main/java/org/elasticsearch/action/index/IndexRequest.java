@@ -1286,7 +1286,7 @@ operator|.
 name|routing
 return|;
 block|}
-comment|/**      * Sets the parent id of this document. If routing is not set, automatically set it as the      * routing as well.      */
+comment|/**      * Sets the parent id of this document.      */
 DECL|method|parent
 specifier|public
 name|IndexRequest
@@ -1302,18 +1302,6 @@ name|parent
 operator|=
 name|parent
 expr_stmt|;
-if|if
-condition|(
-name|routing
-operator|==
-literal|null
-condition|)
-block|{
-name|routing
-operator|=
-name|parent
-expr_stmt|;
-block|}
 return|return
 name|this
 return|;
@@ -2469,6 +2457,8 @@ name|metaData
 operator|.
 name|resolveIndexRouting
 argument_list|(
+name|parent
+argument_list|,
 name|routing
 argument_list|,
 name|index

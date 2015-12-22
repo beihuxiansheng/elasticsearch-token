@@ -460,6 +460,11 @@ name|resolveIndexRouting
 argument_list|(
 name|termVectorsRequest
 operator|.
+name|parent
+argument_list|()
+argument_list|,
+name|termVectorsRequest
+operator|.
 name|routing
 argument_list|()
 argument_list|,

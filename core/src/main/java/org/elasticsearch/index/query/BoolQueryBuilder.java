@@ -1064,9 +1064,15 @@ operator|.
 name|minimumShouldMatch
 operator|==
 literal|null
+operator|&&
+name|shouldClauses
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
-comment|//will be applied for real only if there are should clauses
 name|minimumShouldMatch
 operator|=
 literal|"1"

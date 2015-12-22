@@ -6878,9 +6878,18 @@ name|put
 argument_list|(
 name|IndexShard
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_OPS
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,
-literal|1
+operator|new
+name|ByteSizeValue
+argument_list|(
+literal|133
+comment|/* size of the operation + header&footer*/
+argument_list|,
+name|ByteSizeUnit
+operator|.
+name|BYTES
+argument_list|)
 argument_list|)
 operator|.
 name|build
@@ -7162,15 +7171,6 @@ name|put
 argument_list|(
 name|IndexShard
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_OPS
-argument_list|,
-literal|1000
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|IndexShard
-operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,
 operator|new
@@ -7398,9 +7398,18 @@ name|put
 argument_list|(
 name|IndexShard
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_OPS
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,
-literal|1
+operator|new
+name|ByteSizeValue
+argument_list|(
+literal|133
+comment|/* size of the operation + header&footer*/
+argument_list|,
+name|ByteSizeUnit
+operator|.
+name|BYTES
+argument_list|)
 argument_list|)
 operator|.
 name|build

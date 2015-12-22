@@ -696,6 +696,11 @@ name|resolveIndexRouting
 argument_list|(
 name|request
 operator|.
+name|parent
+argument_list|()
+argument_list|,
+name|request
+operator|.
 name|routing
 argument_list|()
 argument_list|,

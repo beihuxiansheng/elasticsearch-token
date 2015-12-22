@@ -674,6 +674,9 @@ name|scorer
 argument_list|(
 name|leaf
 argument_list|)
+operator|.
+name|iterator
+argument_list|()
 decl_stmt|;
 for|for
 control|(

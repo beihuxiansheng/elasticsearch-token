@@ -443,7 +443,7 @@ name|InternalRequest
 name|request
 parameter_list|)
 block|{
-comment|// update the routing (request#index here is possibly an alias)
+comment|// update the routing (request#index here is possibly an alias or a parent)
 name|request
 operator|.
 name|request
@@ -458,6 +458,14 @@ argument_list|()
 operator|.
 name|resolveIndexRouting
 argument_list|(
+name|request
+operator|.
+name|request
+argument_list|()
+operator|.
+name|parent
+argument_list|()
+argument_list|,
 name|request
 operator|.
 name|request

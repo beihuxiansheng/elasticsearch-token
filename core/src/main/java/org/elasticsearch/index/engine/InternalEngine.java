@@ -6556,18 +6556,6 @@ argument_list|,
 name|exc
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|config
-argument_list|()
-operator|.
-name|getMergeSchedulerConfig
-argument_list|()
-operator|.
-name|isNotifyOnMergeFailure
-argument_list|()
-condition|)
-block|{
 name|engineConfig
 operator|.
 name|getThreadPool
@@ -6637,7 +6625,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|commitIndexWriter
