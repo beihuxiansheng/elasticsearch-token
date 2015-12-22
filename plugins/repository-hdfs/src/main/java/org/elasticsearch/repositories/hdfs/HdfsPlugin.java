@@ -278,6 +278,13 @@ argument_list|(
 literal|"org.apache.hadoop.util.ShutdownHookManager"
 argument_list|)
 expr_stmt|;
+name|Class
+operator|.
+name|forName
+argument_list|(
+literal|"org.apache.hadoop.conf.Configuration"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
