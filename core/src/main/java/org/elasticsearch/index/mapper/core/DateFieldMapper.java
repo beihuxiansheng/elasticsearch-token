@@ -1820,10 +1820,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 operator|.
@@ -2200,10 +2197,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [format] across all types."
@@ -2240,10 +2234,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [locale] across all types."
@@ -2274,10 +2265,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [numeric_resolution] across all types."
@@ -2737,10 +2725,7 @@ name|NumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|numericPrecisionStep
@@ -2907,10 +2892,7 @@ name|NumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|numericPrecisionStep
@@ -3522,10 +3504,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 argument_list|,
 name|dateAsString

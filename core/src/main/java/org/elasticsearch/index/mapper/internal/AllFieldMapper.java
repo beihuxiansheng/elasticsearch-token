@@ -536,15 +536,9 @@ argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
 operator|.
-name|setNames
-argument_list|(
-operator|new
-name|MappedFieldType
-operator|.
-name|Names
+name|setName
 argument_list|(
 name|NAME
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
@@ -1366,10 +1360,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|context
@@ -1920,10 +1911,7 @@ operator|+
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] enabled is "

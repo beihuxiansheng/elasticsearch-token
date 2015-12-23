@@ -194,13 +194,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|mapper
-operator|.
-name|MappedFieldType
-operator|.
-name|Names
+name|MultiValueMode
 import|;
 end_import
 
@@ -215,18 +211,6 @@ operator|.
 name|breaker
 operator|.
 name|CircuitBreakerService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|MultiValueMode
 import|;
 end_import
 
@@ -278,8 +262,8 @@ parameter_list|,
 name|IndexFieldDataCache
 name|cache
 parameter_list|,
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 parameter_list|,
 name|CircuitBreakerService
 name|breakerService
@@ -295,7 +279,7 @@ operator|.
 name|getIndex
 argument_list|()
 argument_list|,
-name|fieldNames
+name|fieldName
 argument_list|,
 name|fieldDataType
 argument_list|)
@@ -386,10 +370,7 @@ operator|.
 name|reader
 argument_list|()
 argument_list|,
-name|fieldNames
-operator|.
-name|indexName
-argument_list|()
+name|fieldName
 argument_list|)
 return|;
 block|}
@@ -470,10 +451,7 @@ argument_list|()
 operator|.
 name|fieldInfo
 argument_list|(
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 argument_list|)
 operator|!=

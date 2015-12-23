@@ -363,7 +363,7 @@ name|uidMapper
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|UidFieldMapper
 operator|.

@@ -4493,10 +4493,7 @@ name|field
 else|:
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;

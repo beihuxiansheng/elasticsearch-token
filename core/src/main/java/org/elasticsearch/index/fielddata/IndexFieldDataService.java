@@ -244,22 +244,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
-operator|.
-name|Names
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MapperService
 import|;
 end_import
@@ -500,10 +484,7 @@ literal|"Can't load fielddata on ["
 operator|+
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] of index ["
@@ -1509,8 +1490,8 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 parameter_list|,
 name|FieldDataType
 name|fieldDataType
@@ -1528,8 +1509,8 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 parameter_list|,
 name|FieldDataType
 name|fieldDataType
@@ -1766,12 +1747,12 @@ name|fieldType
 parameter_list|)
 block|{
 specifier|final
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 init|=
 name|fieldType
 operator|.
-name|names
+name|name
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1796,10 +1777,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"found no fielddata type for field ["
 operator|+
-name|fieldNames
-operator|.
-name|fullName
-argument_list|()
+name|fieldName
 operator|+
 literal|"]"
 argument_list|)
@@ -1859,10 +1837,7 @@ name|warn
 argument_list|(
 literal|"field ["
 operator|+
-name|fieldNames
-operator|.
-name|fullName
-argument_list|()
+name|fieldName
 operator|+
 literal|"] has no doc values, will use default field data format"
 argument_list|)
@@ -1915,10 +1890,7 @@ name|format
 operator|+
 literal|"] for field ["
 operator|+
-name|fieldNames
-operator|.
-name|fullName
-argument_list|()
+name|fieldName
 operator|+
 literal|"], will use default"
 argument_list|)
@@ -1980,10 +1952,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"failed to find field data builder for field "
 operator|+
-name|fieldNames
-operator|.
-name|fullName
-argument_list|()
+name|fieldName
 operator|+
 literal|", and type "
 operator|+
@@ -2008,10 +1977,7 @@ name|fieldDataCaches
 operator|.
 name|get
 argument_list|(
-name|fieldNames
-operator|.
-name|indexName
-argument_list|()
+name|fieldName
 argument_list|)
 expr_stmt|;
 if|if
@@ -2069,7 +2035,7 @@ argument_list|,
 name|index
 argument_list|()
 argument_list|,
-name|fieldNames
+name|fieldName
 argument_list|,
 name|type
 argument_list|)
@@ -2107,10 +2073,7 @@ name|cacheType
 operator|+
 literal|"] for field ["
 operator|+
-name|fieldNames
-operator|.
-name|fullName
-argument_list|()
+name|fieldName
 operator|+
 literal|"]"
 argument_list|)
@@ -2120,10 +2083,7 @@ name|fieldDataCaches
 operator|.
 name|put
 argument_list|(
-name|fieldNames
-operator|.
-name|indexName
-argument_list|()
+name|fieldName
 argument_list|,
 name|cache
 argument_list|)
