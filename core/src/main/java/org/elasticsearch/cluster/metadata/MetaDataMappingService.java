@@ -1678,8 +1678,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// first, simulate
-comment|// this will just throw exceptions in case of problems
+comment|// first, simulate: just call merge and ignore the result
 name|existingMapper
 operator|.
 name|merge
@@ -1688,8 +1687,6 @@ name|newMapper
 operator|.
 name|mapping
 argument_list|()
-argument_list|,
-literal|true
 argument_list|,
 name|request
 operator|.
