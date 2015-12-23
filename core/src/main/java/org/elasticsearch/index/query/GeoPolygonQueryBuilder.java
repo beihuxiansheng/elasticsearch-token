@@ -965,10 +965,7 @@ name|GeoPointInPolygonQuery
 argument_list|(
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 argument_list|,
 name|lons

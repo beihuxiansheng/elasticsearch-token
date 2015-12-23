@@ -448,10 +448,7 @@ literal|"Global-ordinals[{}][{}] took {} ms"
 argument_list|,
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|fullName
+name|getFieldName
 argument_list|()
 argument_list|,
 name|ordinalMap
@@ -481,7 +478,7 @@ name|indexSettings
 argument_list|,
 name|indexFieldData
 operator|.
-name|getFieldNames
+name|getFieldName
 argument_list|()
 argument_list|,
 name|indexFieldData
@@ -681,7 +678,7 @@ name|indexSettings
 argument_list|,
 name|indexFieldData
 operator|.
-name|getFieldNames
+name|getFieldName
 argument_list|()
 argument_list|,
 name|indexFieldData

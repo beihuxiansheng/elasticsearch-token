@@ -360,11 +360,9 @@ name|fieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|fieldName
-argument_list|,
-name|types
 argument_list|)
 decl_stmt|;
 if|if
@@ -500,11 +498,9 @@ name|fieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|fieldName
-argument_list|,
-name|types
 argument_list|)
 decl_stmt|;
 if|if

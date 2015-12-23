@@ -286,6 +286,23 @@ name|allVersions
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|v
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// no need to test, we don't support upgrading from these versions
+continue|continue;
+block|}
 name|IndexService
 name|indexService
 init|=
@@ -488,6 +505,23 @@ name|allVersions
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|v
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// no need to test, we don't support upgrading from these versions
+continue|continue;
+block|}
 name|IndexService
 name|indexService
 init|=

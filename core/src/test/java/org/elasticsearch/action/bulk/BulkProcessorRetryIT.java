@@ -320,7 +320,7 @@ name|put
 argument_list|(
 literal|"threadpool.bulk.queue_size"
 argument_list|,
-literal|20
+literal|30
 argument_list|)
 operator|.
 name|build

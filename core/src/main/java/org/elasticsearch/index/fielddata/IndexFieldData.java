@@ -460,11 +460,9 @@ return|;
 block|}
 block|}
 comment|/**      * The field name.      */
-DECL|method|getFieldNames
-name|MappedFieldType
-operator|.
-name|Names
-name|getFieldNames
+DECL|method|getFieldName
+name|String
+name|getFieldName
 parameter_list|()
 function_decl|;
 comment|/**      * The field data type.      */

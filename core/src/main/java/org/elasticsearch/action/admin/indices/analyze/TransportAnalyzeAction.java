@@ -950,7 +950,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|request
 operator|.
@@ -999,10 +999,7 @@ name|field
 operator|=
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 expr_stmt|;
 block|}

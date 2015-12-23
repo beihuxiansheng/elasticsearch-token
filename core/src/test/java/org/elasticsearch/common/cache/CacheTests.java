@@ -3388,7 +3388,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|200
+literal|32
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -3774,7 +3774,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|256
+literal|32
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -4195,7 +4195,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|200
+literal|32
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -4508,7 +4508,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|200
+literal|32
 argument_list|)
 decl_stmt|;
 specifier|final

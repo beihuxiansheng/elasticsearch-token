@@ -583,10 +583,7 @@ name|getFields
 argument_list|(
 name|completionFieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -812,10 +809,7 @@ name|getFields
 argument_list|(
 name|completionFieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1039,10 +1033,7 @@ name|getFields
 argument_list|(
 name|completionFieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1306,10 +1297,7 @@ name|getFields
 argument_list|(
 name|completionFieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 decl_stmt|;

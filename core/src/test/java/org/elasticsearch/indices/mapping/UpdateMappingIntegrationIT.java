@@ -1314,7 +1314,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"mapper [body] cannot be changed from type [string] to [int]"
+literal|"mapper [body] of different type, current_type [string], merged_type [integer]"
 argument_list|)
 argument_list|)
 expr_stmt|;

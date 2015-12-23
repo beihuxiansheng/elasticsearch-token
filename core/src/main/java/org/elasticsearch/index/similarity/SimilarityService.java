@@ -972,7 +972,7 @@ name|fieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|name
 argument_list|)

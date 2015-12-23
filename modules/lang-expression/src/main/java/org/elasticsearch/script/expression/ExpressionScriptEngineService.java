@@ -1217,7 +1217,7 @@ name|fieldType
 init|=
 name|mapper
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|fieldname
 argument_list|)
