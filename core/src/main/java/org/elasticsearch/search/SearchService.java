@@ -4016,8 +4016,6 @@ name|Standard
 operator|.
 name|SEARCH
 argument_list|,
-name|context
-argument_list|,
 name|Collections
 operator|.
 name|emptyMap

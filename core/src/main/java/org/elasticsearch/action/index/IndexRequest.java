@@ -44,18 +44,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ActionRequestValidationException
 import|;
 end_import
@@ -742,21 +730,6 @@ specifier|public
 name|IndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Creates an index request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
-DECL|method|IndexRequest
-specifier|public
-name|IndexRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Copy constructor that creates a new index request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
 DECL|method|IndexRequest
 specifier|public
@@ -764,16 +737,11 @@ name|IndexRequest
 parameter_list|(
 name|IndexRequest
 name|indexRequest
-parameter_list|,
-name|ActionRequest
-name|originalRequest
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|indexRequest
-argument_list|,
-name|originalRequest
 argument_list|)
 expr_stmt|;
 name|this

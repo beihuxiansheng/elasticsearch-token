@@ -6315,6 +6315,16 @@ argument_list|(
 name|version
 argument_list|)
 expr_stmt|;
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
+operator|.
+name|writeTo
+argument_list|(
+name|stream
+argument_list|)
+expr_stmt|;
 name|stream
 operator|.
 name|writeString

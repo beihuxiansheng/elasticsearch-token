@@ -314,18 +314,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|HasContextAndHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Nullable
 import|;
 end_import
@@ -1184,9 +1172,6 @@ argument_list|<
 name|PercolateShardResponse
 argument_list|>
 name|shardResponses
-parameter_list|,
-name|HasContextAndHeaders
-name|headersContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -1225,8 +1210,6 @@ init|=
 name|reduceAggregations
 argument_list|(
 name|shardResponses
-argument_list|,
-name|headersContext
 argument_list|)
 decl_stmt|;
 return|return
@@ -1463,8 +1446,6 @@ init|=
 name|reduceAggregations
 argument_list|(
 name|shardResponses
-argument_list|,
-name|headersContext
 argument_list|)
 decl_stmt|;
 return|return
@@ -2658,9 +2639,6 @@ argument_list|<
 name|PercolateShardResponse
 argument_list|>
 name|shardResults
-parameter_list|,
-name|HasContextAndHeaders
-name|headersContext
 parameter_list|)
 block|{
 if|if
@@ -2734,8 +2712,6 @@ argument_list|(
 name|bigArrays
 argument_list|,
 name|scriptService
-argument_list|,
-name|headersContext
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2840,8 +2816,6 @@ argument_list|(
 name|bigArrays
 argument_list|,
 name|scriptService
-argument_list|,
-name|headersContext
 argument_list|)
 argument_list|)
 decl_stmt|;

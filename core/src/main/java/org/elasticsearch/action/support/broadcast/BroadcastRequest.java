@@ -154,21 +154,7 @@ DECL|method|BroadcastRequest
 specifier|public
 name|BroadcastRequest
 parameter_list|()
-block|{      }
-DECL|method|BroadcastRequest
-specifier|protected
-name|BroadcastRequest
-parameter_list|(
-name|ActionRequest
-name|originalRequest
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|originalRequest
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|BroadcastRequest
 specifier|protected
 name|BroadcastRequest

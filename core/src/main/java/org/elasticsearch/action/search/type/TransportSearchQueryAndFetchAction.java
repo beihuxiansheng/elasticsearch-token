@@ -514,8 +514,6 @@ argument_list|,
 name|firstResults
 argument_list|,
 name|firstResults
-argument_list|,
-name|request
 argument_list|)
 decl_stmt|;
 name|String

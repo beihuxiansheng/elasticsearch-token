@@ -1462,6 +1462,11 @@ name|settings
 argument_list|,
 name|UPDATE_THREAD_NAME
 argument_list|)
+argument_list|,
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

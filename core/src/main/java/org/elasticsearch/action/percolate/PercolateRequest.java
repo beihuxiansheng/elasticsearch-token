@@ -334,11 +334,6 @@ name|BytesReference
 name|docSource
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|indices
@@ -1025,9 +1020,7 @@ name|getRequest
 operator|=
 operator|new
 name|GetRequest
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|getRequest
 operator|.
