@@ -20,22 +20,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|core
-operator|.
-name|io
-operator|.
-name|JsonStringEncoder
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|github
 operator|.
 name|mustachejava
@@ -77,14 +61,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A MustacheFactory that does simple JSON escaping.  */
+comment|/**  * A MustacheFactory that does no string escaping.  */
 end_comment
 
 begin_class
-DECL|class|JsonEscapingMustacheFactory
+DECL|class|NoneEscapingMustacheFactory
 specifier|final
 class|class
-name|JsonEscapingMustacheFactory
+name|NoneEscapingMustacheFactory
 extends|extends
 name|DefaultMustacheFactory
 block|{
@@ -108,15 +92,7 @@ name|writer
 operator|.
 name|write
 argument_list|(
-name|JsonStringEncoder
-operator|.
-name|getInstance
-argument_list|()
-operator|.
-name|quoteAsString
-argument_list|(
 name|value
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
