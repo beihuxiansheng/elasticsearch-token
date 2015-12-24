@@ -316,6 +316,24 @@ name|parseField
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|TypeParsers
+operator|.
+name|parseMultiField
+import|;
+end_import
+
 begin_comment
 comment|/**  * A field mapper for boolean fields.  */
 end_comment
@@ -716,6 +734,29 @@ name|propNode
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|iterator
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|parseMultiField
+argument_list|(
+name|builder
+argument_list|,
+name|name
+argument_list|,
+name|parserContext
+argument_list|,
+name|propName
+argument_list|,
+name|propNode
+argument_list|)
+condition|)
+block|{
 name|iterator
 operator|.
 name|remove
