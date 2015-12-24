@@ -1440,18 +1440,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-operator|&&
 name|mapper
 operator|.
 name|type
@@ -1609,21 +1597,6 @@ name|mapper
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-condition|)
-block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1638,22 +1611,6 @@ operator|+
 literal|"] must not start with a '.'"
 argument_list|)
 throw|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Type [{}] starts with a '.', it is recommended not to start a type name with a '.'"
-argument_list|,
-name|mapper
-operator|.
-name|type
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// 1. compute the merged DocumentMapper
 name|DocumentMapper
@@ -2393,53 +2350,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-block|}
-if|if
-condition|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_3_0_0
-argument_list|)
-condition|)
-block|{
-comment|// Before 3.0 some metadata mappers are also registered under the root object mapper
-comment|// So we avoid false positives by deduplicating mappers
-comment|// given that we check exact equality, this would still catch the case that a mapper
-comment|// is defined under the root object
-name|Collection
-argument_list|<
-name|FieldMapper
-argument_list|>
-name|uniqueFieldMappers
-init|=
-name|Collections
-operator|.
-name|newSetFromMap
-argument_list|(
-operator|new
-name|IdentityHashMap
-argument_list|<>
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|uniqueFieldMappers
-operator|.
-name|addAll
-argument_list|(
-name|fieldMappers
-argument_list|)
-expr_stmt|;
-name|fieldMappers
-operator|=
-name|uniqueFieldMappers
-expr_stmt|;
 block|}
 specifier|final
 name|Set
