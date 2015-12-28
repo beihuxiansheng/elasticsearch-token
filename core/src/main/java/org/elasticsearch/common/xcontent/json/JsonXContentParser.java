@@ -316,12 +316,37 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|currentToken
+argument_list|()
+operator|.
+name|isValue
+argument_list|()
+condition|)
+block|{
 return|return
 name|parser
 operator|.
 name|getText
 argument_list|()
 return|;
+block|}
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Can't get text on a "
+operator|+
+name|currentToken
+argument_list|()
+operator|+
+literal|" at "
+operator|+
+name|getTokenLocation
+argument_list|()
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
