@@ -1390,30 +1390,6 @@ return|return
 name|avgShardsPerNode
 return|;
 block|}
-comment|/**          * Returns the global average of primaries per node          */
-DECL|method|avgPrimariesPerNode
-specifier|public
-name|float
-name|avgPrimariesPerNode
-parameter_list|()
-block|{
-return|return
-operator|(
-operator|(
-name|float
-operator|)
-name|metaData
-operator|.
-name|numberOfShards
-argument_list|()
-operator|)
-operator|/
-name|nodes
-operator|.
-name|size
-argument_list|()
-return|;
-block|}
 comment|/**          * Returns a new {@link NodeSorter} that sorts the nodes based on their          * current weight with respect to the index passed to the sorter. The          * returned sorter is not sorted. Use {@link NodeSorter#reset(String)}          * to sort based on an index.          */
 DECL|method|newNodeSorter
 specifier|private
