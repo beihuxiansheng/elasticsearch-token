@@ -912,19 +912,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|documentMapper
-argument_list|(
-literal|"type"
-argument_list|)
-operator|.
 name|merge
-argument_list|(
-name|indexService
-operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|parse
 argument_list|(
 literal|"type"
 argument_list|,
@@ -936,12 +924,6 @@ operator|.
 name|bytes
 argument_list|()
 argument_list|)
-argument_list|,
-literal|true
-argument_list|)
-operator|.
-name|mapping
-argument_list|()
 argument_list|,
 literal|false
 argument_list|,
@@ -1171,19 +1153,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|documentMapper
-argument_list|(
-literal|"type"
-argument_list|)
-operator|.
 name|merge
-argument_list|(
-name|indexService
-operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|parse
 argument_list|(
 literal|"type"
 argument_list|,
@@ -1195,12 +1165,6 @@ operator|.
 name|bytes
 argument_list|()
 argument_list|)
-argument_list|,
-literal|true
-argument_list|)
-operator|.
-name|mapping
-argument_list|()
 argument_list|,
 literal|true
 argument_list|,
@@ -1409,7 +1373,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"mapper [foo] cannot be changed from type [long] to [double]"
+literal|"mapper [foo] of different type, current_type [long], merged_type [double]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1455,7 +1419,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"mapper [foo] cannot be changed from type [long] to [double]"
+literal|"mapper [foo] of different type, current_type [long], merged_type [double]"
 argument_list|)
 argument_list|)
 expr_stmt|;

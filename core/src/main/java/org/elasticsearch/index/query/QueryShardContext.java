@@ -1548,12 +1548,9 @@ name|name
 argument_list|,
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|name
-argument_list|,
-name|getTypes
-argument_list|()
 argument_list|)
 argument_list|)
 return|;
@@ -1573,9 +1570,6 @@ operator|.
 name|getObjectMapper
 argument_list|(
 name|name
-argument_list|,
-name|getTypes
-argument_list|()
 argument_list|)
 return|;
 block|}

@@ -256,7 +256,7 @@ name|indexName
 init|=
 name|mapperService
 operator|.
-name|indexName
+name|fullName
 argument_list|(
 name|field
 argument_list|)

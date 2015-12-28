@@ -323,10 +323,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 argument_list|)
 argument_list|)
@@ -387,10 +384,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|values

@@ -1579,10 +1579,7 @@ name|NumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|numericPrecisionStep
@@ -1682,10 +1679,7 @@ name|NumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|numericPrecisionStep
@@ -1952,10 +1946,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 argument_list|,
 name|ipAsString

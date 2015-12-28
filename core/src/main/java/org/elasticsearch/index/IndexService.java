@@ -2981,10 +2981,8 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|MappedFieldType
-operator|.
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 parameter_list|,
 name|FieldDataType
 name|fieldDataType
@@ -3030,7 +3028,7 @@ name|onCache
 argument_list|(
 name|shardId
 argument_list|,
-name|fieldNames
+name|fieldName
 argument_list|,
 name|fieldDataType
 argument_list|,
@@ -3050,10 +3048,8 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|MappedFieldType
-operator|.
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 parameter_list|,
 name|FieldDataType
 name|fieldDataType
@@ -3102,7 +3098,7 @@ name|onRemoval
 argument_list|(
 name|shardId
 argument_list|,
-name|fieldNames
+name|fieldName
 argument_list|,
 name|fieldDataType
 argument_list|,

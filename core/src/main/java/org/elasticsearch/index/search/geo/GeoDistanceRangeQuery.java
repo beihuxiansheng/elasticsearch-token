@@ -704,10 +704,7 @@ block|{
 return|return
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 return|;
 block|}
@@ -1162,10 +1159,7 @@ condition|(
 operator|!
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 operator|.
 name|equals
@@ -1174,10 +1168,7 @@ name|filter
 operator|.
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 argument_list|)
 condition|)
@@ -1215,10 +1206,7 @@ literal|"GeoDistanceRangeQuery("
 operator|+
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 operator|+
 literal|", "
@@ -1406,10 +1394,7 @@ name|result
 operator|+
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 operator|.
 name|hashCode

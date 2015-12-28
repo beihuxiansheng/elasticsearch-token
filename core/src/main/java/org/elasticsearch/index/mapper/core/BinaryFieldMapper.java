@@ -1052,10 +1052,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|value
@@ -1091,10 +1088,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1113,10 +1107,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|value
@@ -1132,10 +1123,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|field

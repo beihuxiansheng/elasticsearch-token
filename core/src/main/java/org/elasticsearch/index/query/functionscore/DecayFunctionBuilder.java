@@ -2635,10 +2635,7 @@ block|{
 return|return
 name|fieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|fullName
+name|getFieldName
 argument_list|()
 return|;
 block|}
@@ -3064,10 +3061,7 @@ block|{
 return|return
 name|fieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|fullName
+name|getFieldName
 argument_list|()
 return|;
 block|}

@@ -3088,7 +3088,7 @@ name|mapperService
 argument_list|()
 decl_stmt|;
 name|DocumentMapper
-name|stage1
+name|docMapper
 init|=
 name|mapperService
 operator|.
@@ -3283,7 +3283,7 @@ comment|// verify nothing changed
 name|FieldMapper
 name|fieldMapper
 init|=
-name|stage1
+name|docMapper
 operator|.
 name|mappers
 argument_list|()
@@ -3481,6 +3481,8 @@ operator|.
 name|string
 argument_list|()
 expr_stmt|;
+name|docMapper
+operator|=
 name|mapperService
 operator|.
 name|merge
@@ -3500,7 +3502,7 @@ argument_list|)
 expr_stmt|;
 name|fieldMapper
 operator|=
-name|stage1
+name|docMapper
 operator|.
 name|mappers
 argument_list|()

@@ -480,7 +480,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 literal|"location"
 argument_list|)
@@ -601,7 +601,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 literal|"location"
 argument_list|)

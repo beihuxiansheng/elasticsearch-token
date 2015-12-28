@@ -1319,7 +1319,7 @@ name|fieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|suggestion
 operator|.
@@ -2429,7 +2429,7 @@ if|if
 condition|(
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|generator
 operator|.

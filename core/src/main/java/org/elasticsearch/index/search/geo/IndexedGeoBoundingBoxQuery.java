@@ -151,10 +151,7 @@ literal|"lat/lon is not enabled (indexed) for field ["
 operator|+
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"], can't use indexed filter on it"

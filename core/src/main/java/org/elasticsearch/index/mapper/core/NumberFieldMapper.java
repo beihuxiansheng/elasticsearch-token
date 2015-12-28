@@ -958,10 +958,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [precision_step] values"
@@ -1404,10 +1401,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|value
@@ -1820,10 +1814,7 @@ name|super
 argument_list|(
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|fieldType

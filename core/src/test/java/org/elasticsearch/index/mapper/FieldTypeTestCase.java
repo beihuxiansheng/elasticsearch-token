@@ -893,15 +893,9 @@ argument_list|()
 decl_stmt|;
 name|fieldType
 operator|.
-name|setNames
-argument_list|(
-operator|new
-name|MappedFieldType
-operator|.
-name|Names
+name|setName
 argument_list|(
 literal|"foo"
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1187,11 +1181,11 @@ block|{
 return|return
 literal|"MappedFieldType{"
 operator|+
-literal|"names="
+literal|"name="
 operator|+
 name|ft
 operator|.
-name|names
+name|name
 argument_list|()
 operator|+
 literal|", boost="
