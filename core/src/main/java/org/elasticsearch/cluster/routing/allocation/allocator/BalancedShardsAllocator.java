@@ -1635,7 +1635,7 @@ control|(
 name|String
 name|index
 range|:
-name|buildWeightOrderedIndidces
+name|buildWeightOrderedIndices
 argument_list|(
 name|sorter
 argument_list|)
@@ -1984,11 +1984,11 @@ name|changed
 return|;
 block|}
 comment|/**          * This builds a initial index ordering where the indices are returned          * in most unbalanced first. We need this in order to prevent over          * allocations on added nodes from one index when the weight parameters          * for global balance overrule the index balance at an intermediate          * state. For example this can happen if we have 3 nodes and 3 indices          * with 3 shards and 1 shard. At the first stage all three nodes hold          * 2 shard for each index. now we add another node and the first index          * is balanced moving 3 two of the nodes over to the new node since it          * has no shards yet and global balance for the node is way below          * average. To re-balance we need to move shards back eventually likely          * to the nodes we relocated them from.          */
-DECL|method|buildWeightOrderedIndidces
+DECL|method|buildWeightOrderedIndices
 specifier|private
 name|String
 index|[]
-name|buildWeightOrderedIndidces
+name|buildWeightOrderedIndices
 parameter_list|(
 name|NodeSorter
 name|sorter
