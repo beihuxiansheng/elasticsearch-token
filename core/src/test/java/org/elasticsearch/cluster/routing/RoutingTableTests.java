@@ -341,14 +341,19 @@ name|put
 argument_list|(
 literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
-literal|10
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
+comment|// don't limit recoveries
 operator|.
 name|put
 argument_list|(
 literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
 argument_list|,
-literal|10
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 operator|.
 name|build
