@@ -547,7 +547,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * RecoverySourceHandler handles the three phases of shard recovery, which is  * everything relating to copying the segment files as well as sending translog  * operations across the wire once the segments have been copied.  */
+comment|/**  * RecoverySourceHandler handles the three phases of shard recovery, which is  * everything relating to copying the segment files as well as sending translog  * operations across the wire once the segments have been copied.  *  * Note: There is always one source handler per recovery that handles all the  * file and translog transfer. This handler is completely isolated from other recoveries  * while the {@link RateLimiter} passed via {@link RecoverySettings} is shared across recoveries  * originating from this nodes to throttle the number bytes send during file transfer. The transaction log  * phase bypasses the rate limiter entirely.  */
 end_comment
 
 begin_class
@@ -2902,9 +2902,6 @@ comment|// so we need to move it as fast as possible. Note, since we
 comment|// index docs to replicas while the index files are recovered
 comment|// the lock can potentially be removed, in which case, it might
 comment|// make sense to re-enable throttling in this phase
-comment|//                if (recoverySettings.rateLimiter() != null) {
-comment|//                    recoverySettings.rateLimiter().pause(size);
-comment|//                }
 name|cancellableThreads
 operator|.
 name|execute
@@ -3437,6 +3434,7 @@ specifier|final
 name|long
 name|throttleTimeInNanos
 decl_stmt|;
+comment|// always fetch the ratelimiter - it might be updated in real-time on the recovery settings
 specifier|final
 name|RateLimiter
 name|rl
@@ -3732,7 +3730,7 @@ name|READONCE
 argument_list|)
 init|)
 block|{
-comment|// it's fine that we are only having the indexInput int he try/with block. The copy methods handles
+comment|// it's fine that we are only having the indexInput in the try/with block. The copy methods handles
 comment|// exceptions during close correctly and doesn't hide the original exception.
 name|Streams
 operator|.

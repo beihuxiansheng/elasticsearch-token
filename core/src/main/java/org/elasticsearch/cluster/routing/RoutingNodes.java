@@ -4109,25 +4109,6 @@ block|}
 block|}
 block|}
 block|}
-comment|//            if (outgoing != value.outgoing) {
-comment|//                incoming = 0;
-comment|//                outgoing = 0;
-comment|//                for (ShardRouting routing : routingNode) {
-comment|//                    if (routing.initializing()) {
-comment|//                        incoming++;
-comment|//                    } else if (routing.relocating()) {
-comment|//                        outgoing++;
-comment|//                    }
-comment|//                    if (routing.primary()&& (routing.initializing()&& routing.relocatingNodeId() != null) == false) { // we don't count the initialization end of the primary relocation
-comment|//                        List<ShardRouting> shardRoutings = routingNodes.assignedShards.get(routing.shardId());
-comment|//                        for (ShardRouting assigned : shardRoutings) {
-comment|//                            if (assigned.primary() == false&& assigned.initializing()&& assigned.relocatingNodeId() == null) {
-comment|//                                outgoing++;
-comment|//                            }
-comment|//                        }
-comment|//                    }
-comment|//                }
-comment|//            }
 assert|assert
 name|incoming
 operator|==
