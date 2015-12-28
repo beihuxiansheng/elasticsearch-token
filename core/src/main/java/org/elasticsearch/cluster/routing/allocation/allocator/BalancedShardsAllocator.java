@@ -973,9 +973,6 @@ specifier|public
 name|float
 name|weight
 parameter_list|(
-name|Operation
-name|operation
-parameter_list|,
 name|Balancer
 name|balancer
 parameter_list|,
@@ -1032,25 +1029,6 @@ operator|*
 name|weightIndex
 return|;
 block|}
-block|}
-comment|/**      * An enum that donates the actual operation the {@link WeightFunction} is      * applied to.      */
-DECL|enum|Operation
-specifier|public
-specifier|static
-enum|enum
-name|Operation
-block|{
-comment|/**          * Provided during balance operations.          */
-DECL|enum constant|BALANCE
-name|BALANCE
-block|,
-comment|/**          * Provided during initial allocation operation for unassigned shards.          */
-DECL|enum constant|ALLOCATE
-name|ALLOCATE
-block|,
-comment|/**          * Provided during move operation.          */
-DECL|enum constant|MOVE
-name|MOVE
 block|}
 comment|/**      * A {@link Balancer}      */
 DECL|class|Balancer
@@ -1344,7 +1322,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**          * Returns a new {@link NodeSorter} that sorts the nodes based on their          * current weight with respect to the index passed to the sorter. The          * returned sorter is not sorted. Use {@link NodeSorter#reset(org.elasticsearch.cluster.routing.allocation.allocator.BalancedShardsAllocator.Operation, String)}          * to sort based on an index.          */
+comment|/**          * Returns a new {@link NodeSorter} that sorts the nodes based on their          * current weight with respect to the index passed to the sorter. The          * returned sorter is not sorted. Use {@link NodeSorter#reset(String)}          * to sort based on an index.          */
 DECL|method|newNodeSorter
 specifier|private
 name|NodeSorter
@@ -1659,10 +1637,6 @@ name|index
 range|:
 name|buildWeightOrderedIndidces
 argument_list|(
-name|Operation
-operator|.
-name|BALANCE
-argument_list|,
 name|sorter
 argument_list|)
 control|)
@@ -1671,10 +1645,6 @@ name|sorter
 operator|.
 name|reset
 argument_list|(
-name|Operation
-operator|.
-name|BALANCE
-argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -1898,10 +1868,6 @@ if|if
 condition|(
 name|tryRelocateShard
 argument_list|(
-name|Operation
-operator|.
-name|BALANCE
-argument_list|,
 name|minNode
 argument_list|,
 name|maxNode
@@ -1922,10 +1888,6 @@ name|sorter
 operator|.
 name|weight
 argument_list|(
-name|Operation
-operator|.
-name|BALANCE
-argument_list|,
 name|modelNodes
 index|[
 name|lowIdx
@@ -1941,10 +1903,6 @@ name|sorter
 operator|.
 name|weight
 argument_list|(
-name|Operation
-operator|.
-name|BALANCE
-argument_list|,
 name|modelNodes
 index|[
 name|highIdx
@@ -2032,9 +1990,6 @@ name|String
 index|[]
 name|buildWeightOrderedIndidces
 parameter_list|(
-name|Operation
-name|operation
-parameter_list|,
 name|NodeSorter
 name|sorter
 parameter_list|)
@@ -2096,8 +2051,6 @@ name|sorter
 operator|.
 name|reset
 argument_list|(
-name|operation
-argument_list|,
 name|indices
 index|[
 name|i
@@ -2384,10 +2337,6 @@ name|sorter
 operator|.
 name|reset
 argument_list|(
-name|Operation
-operator|.
-name|MOVE
-argument_list|,
 name|shard
 operator|.
 name|getIndex
@@ -3210,10 +3159,6 @@ name|weight
 operator|.
 name|weight
 argument_list|(
-name|Operation
-operator|.
-name|ALLOCATE
-argument_list|,
 name|this
 argument_list|,
 name|node
@@ -3767,9 +3712,6 @@ specifier|private
 name|boolean
 name|tryRelocateShard
 parameter_list|(
-name|Operation
-name|operation
-parameter_list|,
 name|ModelNode
 name|minNode
 parameter_list|,
@@ -4010,8 +3952,6 @@ name|weight
 operator|.
 name|weight
 argument_list|(
-name|operation
-argument_list|,
 name|this
 argument_list|,
 name|minNode
@@ -4023,8 +3963,6 @@ name|weight
 operator|.
 name|weight
 argument_list|(
-name|operation
-argument_list|,
 name|this
 argument_list|,
 name|maxNode
@@ -5164,9 +5102,6 @@ specifier|public
 name|void
 name|reset
 parameter_list|(
-name|Operation
-name|operation
-parameter_list|,
 name|String
 name|index
 parameter_list|)
@@ -5201,8 +5136,6 @@ index|]
 operator|=
 name|weight
 argument_list|(
-name|operation
-argument_list|,
 name|modelNodes
 index|[
 name|i
@@ -5225,9 +5158,6 @@ specifier|public
 name|float
 name|weight
 parameter_list|(
-name|Operation
-name|operation
-parameter_list|,
 name|ModelNode
 name|node
 parameter_list|)
@@ -5237,8 +5167,6 @@ name|function
 operator|.
 name|weight
 argument_list|(
-name|operation
-argument_list|,
 name|balancer
 argument_list|,
 name|node
