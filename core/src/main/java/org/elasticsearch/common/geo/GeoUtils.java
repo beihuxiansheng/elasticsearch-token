@@ -1706,7 +1706,7 @@ name|field
 init|=
 name|parser
 operator|.
-name|text
+name|currentName
 argument_list|()
 decl_stmt|;
 if|if
