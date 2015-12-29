@@ -821,7 +821,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|,
@@ -1091,7 +1091,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|,
@@ -1425,7 +1425,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|,
@@ -1770,7 +1770,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|,
@@ -2126,7 +2126,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -2436,7 +2436,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -2747,7 +2747,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -3048,7 +3048,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -3341,7 +3341,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -3626,7 +3626,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 literal|"test1"
 argument_list|)
@@ -4159,7 +4159,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 name|indices
 argument_list|)
@@ -4405,7 +4405,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 name|indices
 argument_list|)
@@ -4706,7 +4706,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 name|indices
 argument_list|)
@@ -4921,7 +4921,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 name|indices
 argument_list|)
@@ -5175,7 +5175,7 @@ argument_list|)
 expr_stmt|;
 name|verify
 argument_list|(
-name|refresh
+name|refreshBuilder
 argument_list|(
 name|indices
 argument_list|)
@@ -9672,11 +9672,11 @@ name|indices
 argument_list|)
 return|;
 block|}
-DECL|method|refresh
+DECL|method|refreshBuilder
 specifier|private
 specifier|static
 name|RefreshRequestBuilder
-name|refresh
+name|refreshBuilder
 parameter_list|(
 name|String
 modifier|...
