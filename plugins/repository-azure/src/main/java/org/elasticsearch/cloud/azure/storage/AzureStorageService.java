@@ -146,6 +146,15 @@ name|KEY_DEPRECATED
 init|=
 literal|"cloud.azure.storage.key"
 decl_stmt|;
+DECL|field|TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TIMEOUT
+init|=
+literal|"cloud.azure.storage.timeout"
+decl_stmt|;
 DECL|field|ACCOUNT
 specifier|public
 specifier|static
