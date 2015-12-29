@@ -1744,7 +1744,7 @@ literal|true
 argument_list|,
 name|ShardRoutingState
 operator|.
-name|UNASSIGNED
+name|INITIALIZING
 argument_list|,
 literal|1
 argument_list|,
