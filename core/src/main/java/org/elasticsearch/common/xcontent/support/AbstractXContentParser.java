@@ -858,6 +858,7 @@ annotation|@
 name|Override
 DECL|method|textOrNull
 specifier|public
+specifier|final
 name|String
 name|textOrNull
 parameter_list|()

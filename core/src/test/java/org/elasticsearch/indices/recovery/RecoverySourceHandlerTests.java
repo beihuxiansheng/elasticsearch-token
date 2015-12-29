@@ -1057,8 +1057,6 @@ argument_list|,
 name|store
 argument_list|,
 name|targetStore
-argument_list|,
-name|recoverySettings
 argument_list|)
 expr_stmt|;
 block|}
@@ -1582,8 +1580,6 @@ argument_list|(
 name|store
 argument_list|,
 name|targetStore
-argument_list|,
-name|recoverySettings
 argument_list|)
 expr_stmt|;
 block|}
@@ -2061,8 +2057,6 @@ argument_list|(
 name|store
 argument_list|,
 name|targetStore
-argument_list|,
-name|recoverySettings
 argument_list|)
 expr_stmt|;
 block|}
