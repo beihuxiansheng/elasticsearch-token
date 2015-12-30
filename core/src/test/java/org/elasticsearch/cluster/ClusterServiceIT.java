@@ -5063,8 +5063,7 @@ block|{
 name|int
 name|tracking
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 annotation|@
 name|Override
@@ -5102,8 +5101,6 @@ argument_list|(
 literal|"task was executed out of order"
 argument_list|,
 name|tracking
-operator|+
-literal|1
 argument_list|,
 operator|(
 name|int
@@ -5525,8 +5522,6 @@ block|{
 name|assertEquals
 argument_list|(
 name|tasksSubmittedPerThread
-operator|-
-literal|1
 argument_list|,
 name|executors
 index|[
