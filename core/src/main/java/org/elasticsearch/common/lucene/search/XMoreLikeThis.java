@@ -288,7 +288,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 
@@ -690,7 +690,7 @@ specifier|private
 name|TFIDFSimilarity
 name|similarity
 decl_stmt|;
-comment|// = new DefaultSimilarity();
+comment|// = new ClassicSimilarity();
 comment|/**      * IndexReader to use      */
 DECL|field|ir
 specifier|private
@@ -768,7 +768,7 @@ argument_list|(
 name|ir
 argument_list|,
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 argument_list|)
 expr_stmt|;
