@@ -3779,15 +3779,6 @@ name|equals
 argument_list|(
 name|value
 argument_list|)
-operator|&&
-name|parserContext
-operator|.
-name|getSimilarity
-argument_list|(
-name|value
-argument_list|)
-operator|==
-literal|null
 condition|)
 block|{
 comment|// "default" similarity has been renamed into "classic" in 3.x.
