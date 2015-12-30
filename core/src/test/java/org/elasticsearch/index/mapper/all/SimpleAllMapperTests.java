@@ -2707,12 +2707,7 @@ literal|"similarity"
 argument_list|,
 name|similarity
 operator|=
-name|randomBoolean
-argument_list|()
-condition|?
 literal|"BM25"
-else|:
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
