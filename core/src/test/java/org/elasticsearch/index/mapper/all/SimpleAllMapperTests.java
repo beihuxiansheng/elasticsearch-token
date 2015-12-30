@@ -2712,7 +2712,7 @@ argument_list|()
 condition|?
 literal|"BM25"
 else|:
-literal|"TF/IDF"
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -3100,13 +3100,6 @@ condition|(
 name|similarity
 operator|==
 literal|null
-operator|||
-name|similarity
-operator|.
-name|equals
-argument_list|(
-literal|"TF/IDF"
-argument_list|)
 condition|)
 block|{
 name|assertThat
