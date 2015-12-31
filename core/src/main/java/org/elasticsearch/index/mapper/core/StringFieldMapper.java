@@ -1929,12 +1929,12 @@ return|return
 operator|new
 name|ValueAndBoost
 argument_list|(
-operator|(
-name|String
-operator|)
 name|context
 operator|.
 name|externalValue
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|,
 name|defaultBoost
