@@ -1907,11 +1907,11 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|()
-throw|;
+comment|// this field does not exist in the mappings yet
+comment|// this can happen if this mapper represents a mapping update
+return|return
+name|this
+return|;
 block|}
 elseif|else
 if|if
