@@ -4835,6 +4835,11 @@ name|shardStateAction
 operator|.
 name|shardFailed
 argument_list|(
+name|clusterService
+operator|.
+name|state
+argument_list|()
+argument_list|,
 name|shard
 argument_list|,
 name|indexUUID
