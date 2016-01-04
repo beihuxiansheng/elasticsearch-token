@@ -447,13 +447,7 @@ name|StringFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|positionIncrementGap
-argument_list|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-argument_list|)
+name|POSITION_INCREMENT_GAP
 decl_stmt|;
 if|if
 condition|(
