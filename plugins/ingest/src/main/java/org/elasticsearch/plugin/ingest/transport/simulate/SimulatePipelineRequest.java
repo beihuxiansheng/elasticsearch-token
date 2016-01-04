@@ -847,6 +847,8 @@ name|INDEX
 operator|.
 name|getFieldName
 argument_list|()
+argument_list|,
+literal|"_index"
 argument_list|)
 argument_list|,
 name|ConfigurationUtils
@@ -861,6 +863,8 @@ name|TYPE
 operator|.
 name|getFieldName
 argument_list|()
+argument_list|,
+literal|"_type"
 argument_list|)
 argument_list|,
 name|ConfigurationUtils
@@ -875,6 +879,8 @@ name|ID
 operator|.
 name|getFieldName
 argument_list|()
+argument_list|,
+literal|"_id"
 argument_list|)
 argument_list|,
 name|ConfigurationUtils
