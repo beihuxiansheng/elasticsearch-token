@@ -1136,14 +1136,14 @@ literal|"{} failed to send failure [{}] while failing shard [{}]"
 argument_list|,
 name|channelThrowable
 argument_list|,
-name|t
-argument_list|,
 name|request
 operator|.
 name|shardRouting
 operator|.
 name|shardId
 argument_list|()
+argument_list|,
+name|t
 argument_list|,
 name|request
 operator|.
