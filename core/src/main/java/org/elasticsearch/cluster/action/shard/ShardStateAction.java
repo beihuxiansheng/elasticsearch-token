@@ -700,7 +700,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"re-sending failed shard [{}], index UUID [{}], reason [{}]"
+literal|"{} re-sending failed shard [{}], index UUID [{}], reason [{}]"
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|failure
 argument_list|,
@@ -783,7 +788,12 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"no master known to fail shard [{}]"
+literal|"{} no master known to fail shard [{}]"
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|shardRouting
 argument_list|)
@@ -894,9 +904,16 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"unexpected failure while sending request to [{}] to fail shard [{}]"
+literal|"{} unexpected failure while sending request to [{}] to fail shard [{}]"
 argument_list|,
 name|exp
+argument_list|,
+name|shardRoutingEntry
+operator|.
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|masterNode
 argument_list|,
@@ -989,9 +1006,16 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"unexpected failure while failing shard [{}]"
+literal|"{} unexpected failure while failing shard [{}]"
 argument_list|,
 name|t
+argument_list|,
+name|request
+operator|.
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|request
 operator|.
@@ -1018,11 +1042,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to send failure [{}] while failing shard [{}]"
+literal|"{} failed to send failure [{}] while failing shard [{}]"
 argument_list|,
 name|channelThrowable
 argument_list|,
 name|t
+argument_list|,
+name|request
+operator|.
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|request
 operator|.
@@ -1045,7 +1076,14 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"no longer master while failing shard [{}]"
+literal|"{} no longer master while failing shard [{}]"
+argument_list|,
+name|request
+operator|.
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|request
 operator|.
@@ -1076,9 +1114,16 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to send no longer master while failing shard [{}]"
+literal|"{} failed to send no longer master while failing shard [{}]"
 argument_list|,
 name|channelThrowable
+argument_list|,
+name|request
+operator|.
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|request
 operator|.
@@ -1127,9 +1172,16 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to send response while failing shard [{}]"
+literal|"{} failed to send response while failing shard [{}]"
 argument_list|,
 name|channelThrowable
+argument_list|,
+name|request
+operator|.
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|request
 operator|.
@@ -1159,7 +1211,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"{} received shard failed for {}"
+literal|"{} received shard failed for [{}]"
 argument_list|,
 name|shardRoutingEntry
 operator|.
@@ -1514,7 +1566,12 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"no master known to start shard [{}]"
+literal|"{} no master known to start shard [{}]"
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|shardRouting
 argument_list|)
@@ -1589,9 +1646,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failure sending start shard [{}] to [{}]"
+literal|"{} failure sending start shard [{}] to [{}]"
 argument_list|,
 name|exp
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|masterNode
 argument_list|,
@@ -1680,7 +1742,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"received shard started for {}"
+literal|"{} received shard started for [{}]"
+argument_list|,
+name|shardRoutingEntry
+operator|.
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|shardRoutingEntry
 argument_list|)
