@@ -771,7 +771,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|get
+name|apply
 argument_list|(
 name|environment
 argument_list|,

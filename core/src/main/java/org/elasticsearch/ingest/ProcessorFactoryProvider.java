@@ -26,12 +26,20 @@ name|Environment
 import|;
 end_import
 
-begin_comment
-comment|/**  * The ingest framework (pipeline, processor and processor factory) can't rely on ES specific code. However some  * processors rely on reading files from the config directory. We can't add Environment as a constructor parameter,  * so we need some code that provides the physical location of the configuration directory to the processor factories  * that need this and this is what this processor factory provider does.  */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|BiFunction
+import|;
+end_import
 
 begin_comment
-comment|//TODO this abstraction could be removed once ingest-core is part of es core?
+comment|/**  * Functional interface that allows to create a {@link org.elasticsearch.ingest.Processor.Factory} once all the needed  * components are available at a later stage, more specifically the {@link Environment} and the {@link TemplateService}  * which some processors need.  */
 end_comment
 
 begin_interface
@@ -41,21 +49,18 @@ DECL|interface|ProcessorFactoryProvider
 specifier|public
 interface|interface
 name|ProcessorFactoryProvider
-block|{
-DECL|method|get
+extends|extends
+name|BiFunction
+argument_list|<
+name|Environment
+argument_list|,
+name|TemplateService
+argument_list|,
 name|Processor
 operator|.
 name|Factory
-name|get
-parameter_list|(
-name|Environment
-name|environment
-parameter_list|,
-name|TemplateService
-name|templateService
-parameter_list|)
-function_decl|;
-block|}
+argument_list|>
+block|{  }
 end_interface
 
 end_unit
