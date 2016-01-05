@@ -7593,10 +7593,10 @@ block|}
 block|}
 block|}
 comment|/**      * Called when our shard is using too much heap and should move buffered indexed/deleted documents to disk.      */
-DECL|method|writeIndexingBufferAsync
+DECL|method|writeIndexingBuffer
 specifier|public
 name|void
-name|writeIndexingBufferAsync
+name|writeIndexingBuffer
 parameter_list|()
 block|{
 if|if
@@ -7613,30 +7613,6 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-name|threadPool
-operator|.
-name|executor
-argument_list|(
-name|ThreadPool
-operator|.
-name|Names
-operator|.
-name|REFRESH
-argument_list|)
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
 try|try
 block|{
 name|Engine
@@ -7656,13 +7632,6 @@ decl_stmt|;
 comment|// NOTE: this can be an overestimate by up to 20%, if engine uses IW.flush not refresh, because version map
 comment|// memory is low enough, but this is fine because after the writes finish, IMC will poll again and see that
 comment|// there's still up to the 20% being used and continue writing if necessary:
-name|writingBytes
-operator|.
-name|addAndGet
-argument_list|(
-name|bytes
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|debug
@@ -7679,10 +7648,16 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|writingBytes
+operator|.
+name|addAndGet
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
 try|try
 block|{
-name|getEngine
-argument_list|()
+name|engine
 operator|.
 name|writeIndexingBuffer
 argument_list|()
@@ -7690,6 +7665,15 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// nocommit but we don't promptly stop index throttling anymore?
+name|writingBytes
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
+name|bytes
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|debug
@@ -7706,15 +7690,6 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// nocommit but we don't promptly stop index throttling anymore?
-name|writingBytes
-operator|.
-name|addAndGet
-argument_list|(
-operator|-
-name|bytes
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -7729,10 +7704,7 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-argument_list|)
-expr_stmt|;
+empty_stmt|;
 block|}
 DECL|class|EngineRefresher
 specifier|final
