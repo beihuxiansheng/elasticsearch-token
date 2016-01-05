@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest.processor
+DECL|package|org.elasticsearch.ingest
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|processor
 package|;
 end_package
 
@@ -257,10 +255,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testReadStringProperty_InvalidType
+DECL|method|testReadStringPropertyInvalidType
 specifier|public
 name|void
-name|testReadStringProperty_InvalidType
+name|testReadStringPropertyInvalidType
 parameter_list|()
 block|{
 try|try

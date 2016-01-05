@@ -318,7 +318,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|TemplateService
+name|ProcessorFactoryProvider
 import|;
 end_import
 
@@ -330,7 +330,17 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|TemplateService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
 operator|.
 name|Processor
 import|;

@@ -48,8 +48,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
-operator|.
 name|Processor
 import|;
 end_import

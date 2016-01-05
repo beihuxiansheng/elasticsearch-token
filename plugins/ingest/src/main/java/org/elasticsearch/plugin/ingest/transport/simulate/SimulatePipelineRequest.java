@@ -122,8 +122,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
-operator|.
 name|ConfigurationUtils
 import|;
 end_import

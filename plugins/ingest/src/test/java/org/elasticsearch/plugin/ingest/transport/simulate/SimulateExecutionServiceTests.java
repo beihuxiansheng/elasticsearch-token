@@ -78,8 +78,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
-operator|.
 name|CompoundProcessor
 import|;
 end_import
@@ -125,16 +123,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 

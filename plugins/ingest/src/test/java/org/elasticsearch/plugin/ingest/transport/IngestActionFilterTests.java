@@ -50,18 +50,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|bulk
 operator|.
 name|BulkItemResponse
@@ -198,8 +186,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
-operator|.
 name|CompoundProcessor
 import|;
 end_import
@@ -211,8 +197,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|processor
 operator|.
 name|Processor
 import|;
@@ -350,16 +334,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -413,18 +387,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
 import|;
 end_import
 

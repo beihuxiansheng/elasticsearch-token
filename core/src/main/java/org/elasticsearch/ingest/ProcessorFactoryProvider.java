@@ -16,59 +16,45 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|Map
+name|env
+operator|.
+name|Environment
 import|;
 end_import
 
 begin_comment
-comment|/**  * Abstraction for the template engine.  */
+comment|/**  * The ingest framework (pipeline, processor and processor factory) can't rely on ES specific code. However some  * processors rely on reading files from the config directory. We can't add Environment as a constructor parameter,  * so we need some code that provides the physical location of the configuration directory to the processor factories  * that need this and this is what this processor factory provider does.  */
 end_comment
 
 begin_comment
-comment|// NOTE: this abstraction is added because the 'org.elasticsearch.ingest' has the requirement to be ES agnostic
+comment|//TODO this abstraction could be removed once ingest-core is part of es core?
 end_comment
 
 begin_interface
-DECL|interface|TemplateService
+annotation|@
+name|FunctionalInterface
+DECL|interface|ProcessorFactoryProvider
 specifier|public
 interface|interface
+name|ProcessorFactoryProvider
+block|{
+DECL|method|get
+name|Processor
+operator|.
+name|Factory
+name|get
+parameter_list|(
+name|Environment
+name|environment
+parameter_list|,
 name|TemplateService
-block|{
-DECL|method|compile
-name|Template
-name|compile
-parameter_list|(
-name|String
-name|template
+name|templateService
 parameter_list|)
 function_decl|;
-DECL|interface|Template
-interface|interface
-name|Template
-block|{
-DECL|method|execute
-name|String
-name|execute
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|model
-parameter_list|)
-function_decl|;
-DECL|method|getKey
-name|String
-name|getKey
-parameter_list|()
-function_decl|;
-block|}
 block|}
 end_interface
 

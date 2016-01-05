@@ -52,8 +52,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
-operator|.
 name|CompoundProcessor
 import|;
 end_import
@@ -65,8 +63,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
-operator|.
-name|processor
 operator|.
 name|Processor
 import|;
