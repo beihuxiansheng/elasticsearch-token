@@ -771,6 +771,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|throwable
+operator|!=
+literal|null
+operator|:
+literal|"throwable must not be null in a tragic event"
+assert|;
 if|if
 condition|(
 name|tragedy
