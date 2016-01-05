@@ -932,12 +932,6 @@ name|opsCounter
 operator|=
 name|operationCounter
 expr_stmt|;
-comment|// we can do this outside of the write lock but we have to protect from
-comment|// concurrent syncs
-name|ensureOpen
-argument_list|()
-expr_stmt|;
-comment|// just for kicks - the checkpoint happens or not either way
 try|try
 block|{
 name|checkpoint
