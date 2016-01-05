@@ -4500,7 +4500,7 @@ name|String
 name|name
 parameter_list|,
 name|int
-name|requestedSize
+name|size
 parameter_list|)
 block|{
 name|int
@@ -4515,6 +4515,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|name
 operator|.
 name|equals
@@ -4532,29 +4533,38 @@ name|Names
 operator|.
 name|INDEX
 argument_list|)
+operator|)
+operator|&&
+name|size
+operator|>
+name|availableProcessors
 condition|)
 block|{
 comment|// We use a hard max size for the indexing pools, because if too many threads enter Lucene's IndexWriter, it means
 comment|// too many segments written, too frequently, too much merging, etc:
 comment|// TODO: I would love to be loud here (throw an exception if you ask for a too-big size), but I think this is dangerous
 comment|// because on upgrade this setting could be in cluster state and hard for the user to correct?
-return|return
-name|Math
+name|logger
 operator|.
-name|min
+name|warn
 argument_list|(
-name|requestedSize
+literal|"requested thread pool size [{}] for [{}] is too large; setting to maximum [{}] instead"
+argument_list|,
+name|size
+argument_list|,
+name|name
 argument_list|,
 name|availableProcessors
 argument_list|)
-return|;
+expr_stmt|;
+name|size
+operator|=
+name|availableProcessors
+expr_stmt|;
 block|}
-else|else
-block|{
 return|return
-name|requestedSize
+name|size
 return|;
-block|}
 block|}
 DECL|method|updateSettings
 specifier|private
