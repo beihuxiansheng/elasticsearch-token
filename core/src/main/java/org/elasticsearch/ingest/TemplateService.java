@@ -25,15 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstraction for the template engine.  */
-end_comment
-
-begin_comment
-comment|// NOTE: this abstraction is added because the 'org.elasticsearch.ingest' has the requirement to be ES agnostic
-end_comment
-
-begin_comment
-comment|//TODO this abstraction could be removed once ingest-core is part of es core?
+comment|/**  * Abstraction for the ingest template engine: allows to compile a template into a {@link Template} object.  * A compiled template can be executed by calling its {@link Template#execute(Map)} method.  */
 end_comment
 
 begin_interface

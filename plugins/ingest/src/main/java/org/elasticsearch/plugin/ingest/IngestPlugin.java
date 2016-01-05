@@ -1438,7 +1438,7 @@ name|module
 operator|.
 name|registerScriptContext
 argument_list|(
-name|InternalTemplateService
+name|MustacheTemplateService
 operator|.
 name|INGEST_SCRIPT_CONTEXT
 argument_list|)
