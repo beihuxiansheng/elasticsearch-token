@@ -1124,6 +1124,13 @@ literal|"TestClusterService wasn't initialized with a thread pool"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|timeout
+operator|!=
+literal|null
+condition|)
+block|{
 name|NotifyTimeout
 name|notifyTimeout
 init|=
@@ -1161,6 +1168,7 @@ argument_list|(
 name|notifyTimeout
 argument_list|)
 expr_stmt|;
+block|}
 name|listeners
 operator|.
 name|add
