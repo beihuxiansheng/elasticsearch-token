@@ -224,13 +224,13 @@ if|if
 condition|(
 name|logger
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"register {} [{}] [{}] [{}]"
 argument_list|,
@@ -287,7 +287,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"unregister task for id: {}"
 argument_list|,
