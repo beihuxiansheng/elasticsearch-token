@@ -1059,6 +1059,13 @@ literal|"at least one reader must be recovered"
 argument_list|)
 throw|;
 block|}
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 name|current
 operator|=
 name|createWriter
@@ -1078,6 +1085,32 @@ name|translogGeneration
 operator|.
 name|translogFileGeneration
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// we have to close all the recovered ones otherwise we leak file handles here
+comment|// for instance if we have a lot of tlog and we can't create the writer we keep on holding
+comment|// on to all the uncommitted tlog files if we don't close
+if|if
+condition|(
+name|success
+operator|==
+literal|false
+condition|)
+block|{
+name|IOUtils
+operator|.
+name|closeWhileHandlingException
+argument_list|(
+name|recoveredTranslogs
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 else|else
 block|{
