@@ -3970,7 +3970,10 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getThrottleTimeInMillis
+name|getThrottleTime
+argument_list|()
+operator|.
+name|millis
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4259,7 +4262,10 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getThrottleTimeInMillis
+name|getThrottleTime
+argument_list|()
+operator|.
+name|millis
 argument_list|()
 operator|>
 literal|0
@@ -4611,7 +4617,10 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getThrottleTimeInMillis
+name|getThrottleTime
+argument_list|()
+operator|.
+name|millis
 argument_list|()
 argument_list|,
 name|equalTo
