@@ -1352,11 +1352,29 @@ init|(
 name|this
 init|)
 block|{
+comment|// we only flush here if it's really really needed - try to minimize the impact of the read operation
+comment|// in some cases ie. a tragic event we might still be able to read the relevant value
+comment|// which is not really important in production but some test can make most strict assumptions
+comment|// if we don't fail in this call unless absolutely necessary.
+if|if
+condition|(
+name|position
+operator|+
+name|targetBuffer
+operator|.
+name|remaining
+argument_list|()
+operator|>
+name|getWrittenOffset
+argument_list|()
+condition|)
+block|{
 name|outputStream
 operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// we don't have to have a lock here because we only write ahead to the file, so all writes has been complete
