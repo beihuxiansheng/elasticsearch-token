@@ -635,8 +635,6 @@ specifier|final
 name|boolean
 name|stored
 init|=
-name|indexCreatedBefore22
-operator|==
 literal|false
 decl_stmt|;
 name|assertThat
