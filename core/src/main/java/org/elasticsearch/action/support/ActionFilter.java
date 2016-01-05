@@ -80,6 +80,18 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|Task
+import|;
+end_import
+
 begin_comment
 comment|/**  * A filter allowing to filter transport actions  */
 end_comment
@@ -101,6 +113,9 @@ DECL|method|apply
 name|void
 name|apply
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|String
 name|action
 parameter_list|,
@@ -166,6 +181,9 @@ specifier|final
 name|void
 name|apply
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|String
 name|action
 parameter_list|,
@@ -195,6 +213,8 @@ name|chain
 operator|.
 name|proceed
 argument_list|(
+name|task
+argument_list|,
 name|action
 argument_list|,
 name|request
