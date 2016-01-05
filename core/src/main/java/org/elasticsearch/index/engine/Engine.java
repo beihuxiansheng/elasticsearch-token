@@ -2002,11 +2002,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** How much heap is used that would be freed by a refresh.  Note that this may throw {@link AlreadyClosedException}. */
-DECL|method|indexBufferRAMBytesUsed
+DECL|method|getIndexBufferRAMBytesUsed
 specifier|abstract
 specifier|public
 name|long
-name|indexBufferRAMBytesUsed
+name|getIndexBufferRAMBytesUsed
 parameter_list|()
 function_decl|;
 DECL|method|getSegmentInfo

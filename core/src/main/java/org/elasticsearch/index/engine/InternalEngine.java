@@ -3357,7 +3357,8 @@ argument_list|()
 expr_stmt|;
 comment|// TODO: it's not great that we secretly tie searcher visibility to "freeing up heap" here... really we should keep two
 comment|// searcher managers, one for searching which is only refreshed by the schedule the user requested (refresh_interval, or invoking
-comment|// refresh API), and another for version map interactions:
+comment|// refresh API), and another for version map interactions.  See #15768.
+specifier|final
 name|long
 name|versionMapBytes
 init|=
@@ -3366,6 +3367,7 @@ operator|.
 name|ramBytesUsedForRefresh
 argument_list|()
 decl_stmt|;
+specifier|final
 name|long
 name|indexingBufferBytes
 init|=
@@ -3374,6 +3376,7 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 decl_stmt|;
+specifier|final
 name|boolean
 name|useRefresh
 init|=
@@ -4831,10 +4834,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|indexBufferRAMBytesUsed
+DECL|method|getIndexBufferRAMBytesUsed
 specifier|public
 name|long
-name|indexBufferRAMBytesUsed
+name|getIndexBufferRAMBytesUsed
 parameter_list|()
 block|{
 return|return
@@ -6064,6 +6067,10 @@ assert|assert
 name|count
 operator|>=
 literal|1
+operator|:
+literal|"invalid post-increment throttleRequestCount="
+operator|+
+name|count
 assert|;
 if|if
 condition|(
@@ -6099,6 +6106,10 @@ assert|assert
 name|count
 operator|>=
 literal|0
+operator|:
+literal|"invalid post-decrement throttleRequestCount="
+operator|+
+name|count
 assert|;
 if|if
 condition|(

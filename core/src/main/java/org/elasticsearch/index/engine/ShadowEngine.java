@@ -1054,10 +1054,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|indexBufferRAMBytesUsed
+DECL|method|getIndexBufferRAMBytesUsed
 specifier|public
 name|long
-name|indexBufferRAMBytesUsed
+name|getIndexBufferRAMBytesUsed
 parameter_list|()
 block|{
 comment|// No IndexWriter nor version map
