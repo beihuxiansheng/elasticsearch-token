@@ -224,6 +224,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|Task
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -324,6 +336,9 @@ specifier|public
 name|void
 name|apply
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|String
 name|action
 parameter_list|,
@@ -378,6 +393,8 @@ name|chain
 operator|.
 name|proceed
 argument_list|(
+name|task
+argument_list|,
 name|action
 argument_list|,
 name|request
@@ -397,6 +414,8 @@ condition|)
 block|{
 name|processIndexRequest
 argument_list|(
+name|task
+argument_list|,
 name|action
 argument_list|,
 name|listener
@@ -449,6 +468,8 @@ name|listener
 decl_stmt|;
 name|processBulkIndexRequest
 argument_list|(
+name|task
+argument_list|,
 name|bulkRequest
 argument_list|,
 name|pipelineId
@@ -467,6 +488,8 @@ name|chain
 operator|.
 name|proceed
 argument_list|(
+name|task
+argument_list|,
 name|action
 argument_list|,
 name|request
@@ -512,6 +535,9 @@ DECL|method|processIndexRequest
 name|void
 name|processIndexRequest
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|String
 name|action
 parameter_list|,
@@ -547,6 +573,8 @@ name|chain
 operator|.
 name|proceed
 argument_list|(
+name|task
+argument_list|,
 name|action
 argument_list|,
 name|indexRequest
@@ -605,6 +633,8 @@ name|chain
 operator|.
 name|proceed
 argument_list|(
+name|task
+argument_list|,
 name|action
 argument_list|,
 name|indexRequest
@@ -620,6 +650,9 @@ DECL|method|processBulkIndexRequest
 name|void
 name|processBulkIndexRequest
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|BulkRequest
 name|original
 parameter_list|,
@@ -745,6 +778,8 @@ name|chain
 operator|.
 name|proceed
 argument_list|(
+name|task
+argument_list|,
 name|action
 argument_list|,
 name|bulkRequest
