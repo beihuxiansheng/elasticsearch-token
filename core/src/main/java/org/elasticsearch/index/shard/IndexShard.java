@@ -2494,12 +2494,8 @@ name|shardId
 argument_list|,
 name|indexSettings
 argument_list|,
-name|mapperService
-argument_list|,
 name|newQueryShardContext
 argument_list|()
-argument_list|,
-name|indexFieldDataService
 argument_list|)
 expr_stmt|;
 comment|// We start up inactive
