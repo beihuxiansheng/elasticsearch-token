@@ -318,7 +318,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|ProcessorFactoryProvider
+name|Processor
 import|;
 end_import
 
@@ -343,18 +343,6 @@ operator|.
 name|ingest
 operator|.
 name|TemplateService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|Processor
 import|;
 end_import
 
@@ -543,6 +531,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|BiFunction
 import|;
 end_import
 
@@ -758,7 +758,19 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|ProcessorFactoryProvider
+name|BiFunction
+argument_list|<
+name|Environment
+argument_list|,
+name|TemplateService
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 argument_list|>
 name|entry
 range|:

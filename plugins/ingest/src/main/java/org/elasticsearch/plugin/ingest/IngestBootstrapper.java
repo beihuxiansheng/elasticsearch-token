@@ -260,18 +260,6 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|ProcessorFactoryProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
 name|ProcessorsRegistry
 import|;
 end_import
@@ -329,16 +317,6 @@ operator|.
 name|io
 operator|.
 name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 

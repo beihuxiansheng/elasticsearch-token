@@ -28,8 +28,32 @@ name|AbstractModule
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|BiFunction
+import|;
+end_import
+
 begin_comment
-comment|/**  * Registry for processor factories  * @see org.elasticsearch.ingest.Processor.Factory  * @see ProcessorFactoryProvider  */
+comment|/**  * Registry for processor factories  * @see org.elasticsearch.ingest.Processor.Factory  */
 end_comment
 
 begin_class
@@ -90,7 +114,19 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|ProcessorFactoryProvider
+name|BiFunction
+argument_list|<
+name|Environment
+argument_list|,
+name|TemplateService
+argument_list|,
+name|Processor
+operator|.
+name|Factory
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
 name|processorFactoryProvider
 parameter_list|)
 block|{
