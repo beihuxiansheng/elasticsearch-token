@@ -302,20 +302,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|test
@@ -422,26 +408,6 @@ name|LuceneTests
 extends|extends
 name|ESTestCase
 block|{
-comment|/**      * simple test that ensures that we bump the version on Upgrade      */
-DECL|method|testVersion
-specifier|public
-name|void
-name|testVersion
-parameter_list|()
-block|{
-comment|// note this is just a silly sanity check, we test it in lucene, and we point to it this way
-name|assertEquals
-argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
-name|Version
-operator|.
-name|LATEST
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testWaitForIndex
 specifier|public
 name|void
