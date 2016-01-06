@@ -195,7 +195,7 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-name|MustacheTemplateService
+name|InternalTemplateService
 operator|.
 name|INGEST_SCRIPT_CONTEXT
 argument_list|)
@@ -230,7 +230,7 @@ decl_stmt|;
 name|templateService
 operator|=
 operator|new
-name|MustacheTemplateService
+name|InternalTemplateService
 argument_list|(
 name|scriptService
 argument_list|)

@@ -1153,7 +1153,7 @@ argument_list|,
 parameter_list|(
 name|environment
 parameter_list|,
-name|mustacheFactory
+name|templateService
 parameter_list|)
 lambda|->
 operator|new
@@ -1438,7 +1438,7 @@ name|module
 operator|.
 name|registerScriptContext
 argument_list|(
-name|MustacheTemplateService
+name|InternalTemplateService
 operator|.
 name|INGEST_SCRIPT_CONTEXT
 argument_list|)

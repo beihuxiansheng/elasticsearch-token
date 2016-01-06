@@ -738,7 +738,7 @@ name|TemplateService
 name|templateService
 init|=
 operator|new
-name|MustacheTemplateService
+name|InternalTemplateService
 argument_list|(
 name|scriptService
 argument_list|)

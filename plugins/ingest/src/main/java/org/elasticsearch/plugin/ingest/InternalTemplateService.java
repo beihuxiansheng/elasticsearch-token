@@ -123,9 +123,9 @@ import|;
 end_import
 
 begin_class
-DECL|class|MustacheTemplateService
+DECL|class|InternalTemplateService
 class|class
-name|MustacheTemplateService
+name|InternalTemplateService
 implements|implements
 name|TemplateService
 block|{
@@ -154,8 +154,8 @@ specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
-DECL|method|MustacheTemplateService
-name|MustacheTemplateService
+DECL|method|InternalTemplateService
+name|InternalTemplateService
 parameter_list|(
 name|ScriptService
 name|scriptService
