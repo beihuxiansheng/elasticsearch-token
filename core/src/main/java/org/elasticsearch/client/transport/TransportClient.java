@@ -901,6 +901,10 @@ argument_list|(
 operator|new
 name|ActionModule
 argument_list|(
+name|this
+operator|.
+name|settings
+argument_list|,
 literal|true
 argument_list|)
 argument_list|)

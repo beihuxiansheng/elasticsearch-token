@@ -24,6 +24,8 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
+name|core
+operator|.
 name|IngestDocument
 import|;
 end_import
@@ -35,6 +37,8 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
+operator|.
+name|core
 operator|.
 name|TemplateService
 import|;
@@ -48,6 +52,8 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
+name|core
+operator|.
 name|ValueSource
 import|;
 end_import
@@ -60,6 +66,8 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
+name|core
+operator|.
 name|ConfigurationUtils
 import|;
 end_import
@@ -71,6 +79,8 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
+operator|.
+name|core
 operator|.
 name|Processor
 import|;

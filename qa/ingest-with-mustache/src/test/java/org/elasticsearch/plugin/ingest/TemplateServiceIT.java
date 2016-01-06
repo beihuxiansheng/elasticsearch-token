@@ -24,6 +24,8 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
+name|core
+operator|.
 name|TemplateService
 import|;
 end_import

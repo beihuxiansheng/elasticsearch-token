@@ -718,7 +718,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|ProcessorsModule
+name|IngestModule
 import|;
 end_import
 
@@ -1770,6 +1770,10 @@ argument_list|(
 operator|new
 name|ActionModule
 argument_list|(
+name|this
+operator|.
+name|settings
+argument_list|,
 literal|false
 argument_list|)
 argument_list|)
@@ -1846,7 +1850,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ProcessorsModule
+name|IngestModule
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -24,6 +24,8 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
+name|core
+operator|.
 name|IngestDocument
 import|;
 end_import
@@ -47,6 +49,8 @@ operator|.
 name|elasticsearch
 operator|.
 name|ingest
+operator|.
+name|core
 operator|.
 name|Processor
 import|;
