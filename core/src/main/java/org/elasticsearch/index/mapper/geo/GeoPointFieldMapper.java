@@ -341,13 +341,6 @@ argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
 operator|.
-name|setStored
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|FIELD_TYPE
-operator|.
 name|freeze
 argument_list|()
 expr_stmt|;

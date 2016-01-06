@@ -982,9 +982,6 @@ operator|+
 literal|", query:"
 operator|+
 name|query
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 block|}

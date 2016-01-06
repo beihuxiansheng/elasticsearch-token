@@ -5278,7 +5278,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install https://user:pass@localhost:%s/foo.zip --verbose --timeout 1s"
+literal|"install https://user:pass@localhost:%s/foo.zip --verbose --timeout 10s"
 argument_list|,
 name|port
 argument_list|)

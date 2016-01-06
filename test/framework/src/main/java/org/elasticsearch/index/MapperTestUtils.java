@@ -374,6 +374,10 @@ argument_list|,
 name|similarityService
 argument_list|,
 name|mapperRegistry
+argument_list|,
+parameter_list|()
+lambda|->
+literal|null
 argument_list|)
 return|;
 block|}

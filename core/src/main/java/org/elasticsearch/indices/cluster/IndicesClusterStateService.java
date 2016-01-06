@@ -2989,16 +2989,16 @@ name|shardStateAction
 operator|.
 name|resendShardFailed
 argument_list|(
+name|event
+operator|.
+name|state
+argument_list|()
+argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
 name|getIndexUUID
-argument_list|()
-argument_list|,
-name|nodes
-operator|.
-name|masterNode
 argument_list|()
 argument_list|,
 literal|"master "
@@ -3734,6 +3734,8 @@ name|shardStateAction
 operator|.
 name|shardStarted
 argument_list|(
+name|state
+argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -3756,11 +3758,6 @@ name|state
 argument_list|()
 operator|+
 literal|"], mark shard as started"
-argument_list|,
-name|nodes
-operator|.
-name|masterNode
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3883,16 +3880,13 @@ name|shardStateAction
 operator|.
 name|resendShardFailed
 argument_list|(
+name|state
+argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
 name|getIndexUUID
-argument_list|()
-argument_list|,
-name|nodes
-operator|.
-name|masterNode
 argument_list|()
 argument_list|,
 literal|"master "
@@ -4263,6 +4257,8 @@ name|shardStateAction
 operator|.
 name|shardStarted
 argument_list|(
+name|state
+argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -4413,6 +4409,8 @@ name|shardStateAction
 operator|.
 name|shardStarted
 argument_list|(
+name|state
+argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -4796,6 +4794,11 @@ name|shardStateAction
 operator|.
 name|shardStarted
 argument_list|(
+name|clusterService
+operator|.
+name|state
+argument_list|()
+argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -5166,6 +5169,11 @@ name|shardStateAction
 operator|.
 name|shardFailed
 argument_list|(
+name|clusterService
+operator|.
+name|state
+argument_list|()
+argument_list|,
 name|shardRouting
 argument_list|,
 name|indexUUID

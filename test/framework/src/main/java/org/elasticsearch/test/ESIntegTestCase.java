@@ -7748,7 +7748,11 @@ specifier|protected
 specifier|final
 name|RefreshResponse
 name|refresh
-parameter_list|()
+parameter_list|(
+name|String
+modifier|...
+name|indices
+parameter_list|)
 block|{
 name|waitForRelocation
 argument_list|()
@@ -7767,7 +7771,9 @@ name|indices
 argument_list|()
 operator|.
 name|prepareRefresh
-argument_list|()
+argument_list|(
+name|indices
+argument_list|)
 operator|.
 name|execute
 argument_list|()
@@ -7802,7 +7808,9 @@ name|indices
 argument_list|)
 expr_stmt|;
 name|refresh
-argument_list|()
+argument_list|(
+name|indices
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Flush some or all indices in the cluster.      */

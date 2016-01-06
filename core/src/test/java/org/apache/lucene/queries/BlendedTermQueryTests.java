@@ -296,7 +296,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 
@@ -2109,7 +2109,7 @@ name|BM25Similarity
 argument_list|()
 else|:
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 decl_stmt|;
 name|searcher

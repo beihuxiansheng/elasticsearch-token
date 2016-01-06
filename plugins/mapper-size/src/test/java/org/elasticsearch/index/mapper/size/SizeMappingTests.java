@@ -416,6 +416,10 @@ name|indices
 operator|.
 name|getMapperRegistry
 argument_list|()
+argument_list|,
+name|indexService
+operator|::
+name|getQueryShardContext
 argument_list|)
 expr_stmt|;
 name|parser
@@ -731,6 +735,10 @@ name|similarityService
 argument_list|()
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|indexService
+operator|::
+name|getQueryShardContext
 argument_list|)
 expr_stmt|;
 name|DocumentMapper

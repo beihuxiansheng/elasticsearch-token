@@ -400,11 +400,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoShapeFieldMapper
-operator|.
-name|Defaults
-operator|.
-name|LEGACY_DISTANCE_ERROR_PCT
+literal|0.025d
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -186,7 +186,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DefaultSimilarity
+name|ClassicSimilarity
 import|;
 end_import
 
@@ -890,7 +890,7 @@ operator|==
 literal|null
 condition|?
 operator|new
-name|DefaultSimilarity
+name|ClassicSimilarity
 argument_list|()
 else|:
 name|similarity

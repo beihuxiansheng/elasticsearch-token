@@ -368,6 +368,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|similarity
 operator|.
 name|SimilarityService
@@ -576,6 +590,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|stream
 operator|.
 name|Collectors
@@ -620,18 +646,6 @@ end_import
 
 begin_import
 import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableSet
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -668,6 +682,24 @@ name|String
 name|DEFAULT_MAPPING
 init|=
 literal|"_default_"
+decl_stmt|;
+DECL|field|INDEX_MAPPER_DYNAMIC_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_MAPPER_DYNAMIC_SETTING
+init|=
+literal|"index.mapper.dynamic"
+decl_stmt|;
+DECL|field|INDEX_MAPPER_DYNAMIC_DEFAULT
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|INDEX_MAPPER_DYNAMIC_DEFAULT
+init|=
+literal|true
 decl_stmt|;
 DECL|field|META_FIELDS
 specifier|private
@@ -856,6 +888,12 @@ name|similarityService
 parameter_list|,
 name|MapperRegistry
 name|mapperRegistry
+parameter_list|,
+name|Supplier
+argument_list|<
+name|QueryShardContext
+argument_list|>
+name|queryShardContextSupplier
 parameter_list|)
 block|{
 name|super
@@ -893,6 +931,8 @@ argument_list|,
 name|similarityService
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|queryShardContextSupplier
 argument_list|)
 expr_stmt|;
 name|this
@@ -974,9 +1014,9 @@ argument_list|()
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"index.mapper.dynamic"
+name|INDEX_MAPPER_DYNAMIC_SETTING
 argument_list|,
-literal|true
+name|INDEX_MAPPER_DYNAMIC_DEFAULT
 argument_list|)
 expr_stmt|;
 name|defaultPercolatorMappingSource
@@ -989,9 +1029,7 @@ literal|"\"properties\" : {\n"
 operator|+
 literal|"\"query\" : {\n"
 operator|+
-literal|"\"type\" : \"object\",\n"
-operator|+
-literal|"\"enabled\" : false\n"
+literal|"\"type\" : \"percolator\"\n"
 operator|+
 literal|"}\n"
 operator|+
@@ -1440,18 +1478,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-operator|&&
 name|mapper
 operator|.
 name|type
@@ -1609,21 +1635,6 @@ name|mapper
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-condition|)
-block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1638,22 +1649,6 @@ operator|+
 literal|"] must not start with a '.'"
 argument_list|)
 throw|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Type [{}] starts with a '.', it is recommended not to start a type name with a '.'"
-argument_list|,
-name|mapper
-operator|.
-name|type
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// 1. compute the merged DocumentMapper
 name|DocumentMapper
@@ -2393,53 +2388,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-block|}
-if|if
-condition|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_3_0_0
-argument_list|)
-condition|)
-block|{
-comment|// Before 3.0 some metadata mappers are also registered under the root object mapper
-comment|// So we avoid false positives by deduplicating mappers
-comment|// given that we check exact equality, this would still catch the case that a mapper
-comment|// is defined under the root object
-name|Collection
-argument_list|<
-name|FieldMapper
-argument_list|>
-name|uniqueFieldMappers
-init|=
-name|Collections
-operator|.
-name|newSetFromMap
-argument_list|(
-operator|new
-name|IdentityHashMap
-argument_list|<>
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|uniqueFieldMappers
-operator|.
-name|addAll
-argument_list|(
-name|fieldMappers
-argument_list|)
-expr_stmt|;
-name|fieldMappers
-operator|=
-name|uniqueFieldMappers
-expr_stmt|;
 block|}
 specifier|final
 name|Set

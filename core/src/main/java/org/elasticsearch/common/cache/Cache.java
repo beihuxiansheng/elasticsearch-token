@@ -1200,6 +1200,11 @@ init|=
 literal|256
 decl_stmt|;
 DECL|field|segments
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 specifier|private
 specifier|final
 name|CacheSegment
@@ -1928,6 +1933,7 @@ name|onRemoval
 argument_list|(
 operator|new
 name|RemovalNotification
+argument_list|<>
 argument_list|(
 name|tuple
 operator|.

@@ -338,6 +338,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|tasks
+operator|.
+name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -847,6 +859,9 @@ specifier|protected
 name|void
 name|doExecute
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 specifier|final
 name|Request
 name|request
@@ -863,6 +878,8 @@ name|super
 operator|.
 name|doExecute
 argument_list|(
+name|task
+argument_list|,
 name|request
 argument_list|,
 operator|new
@@ -1057,6 +1074,9 @@ specifier|protected
 name|void
 name|masterOperation
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|Request
 name|request
 parameter_list|,

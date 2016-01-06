@@ -2688,6 +2688,11 @@ argument_list|(
 name|this
 argument_list|,
 name|context
+operator|.
+name|createExternalValueContext
+argument_list|(
+name|point
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

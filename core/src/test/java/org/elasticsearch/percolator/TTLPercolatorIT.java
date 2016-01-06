@@ -1362,6 +1362,11 @@ literal|500
 argument_list|)
 argument_list|)
 operator|.
+name|setRefresh
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|execute
 argument_list|()
 operator|.

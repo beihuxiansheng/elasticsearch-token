@@ -233,6 +233,7 @@ name|startTime
 expr_stmt|;
 block|}
 DECL|method|PercolateShardRequest
+specifier|public
 name|PercolateShardRequest
 parameter_list|(
 name|ShardId
@@ -353,6 +354,7 @@ name|onlyCount
 return|;
 block|}
 DECL|method|documentType
+specifier|public
 name|void
 name|documentType
 parameter_list|(
@@ -368,6 +370,7 @@ name|documentType
 expr_stmt|;
 block|}
 DECL|method|source
+specifier|public
 name|void
 name|source
 parameter_list|(
@@ -383,6 +386,7 @@ name|source
 expr_stmt|;
 block|}
 DECL|method|docSource
+specifier|public
 name|void
 name|docSource
 parameter_list|(
