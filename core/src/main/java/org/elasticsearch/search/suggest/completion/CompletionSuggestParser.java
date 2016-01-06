@@ -998,7 +998,7 @@ name|mappedFieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|suggestion
 operator|.
@@ -1072,10 +1072,7 @@ literal|"suggester ["
 operator|+
 name|type
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] doesn't expect any context"

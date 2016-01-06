@@ -274,6 +274,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskManager
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -633,6 +645,18 @@ name|timeValueMillis
 argument_list|(
 literal|0
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getTaskManager
+specifier|public
+name|TaskManager
+name|getTaskManager
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 annotation|@

@@ -366,8 +366,7 @@ literal|0
 argument_list|,
 literal|"node1"
 argument_list|,
-name|randomBoolean
-argument_list|()
+literal|true
 argument_list|,
 name|ShardRoutingState
 operator|.
@@ -390,8 +389,7 @@ literal|1
 argument_list|,
 literal|"node2"
 argument_list|,
-name|randomBoolean
-argument_list|()
+literal|true
 argument_list|,
 name|ShardRoutingState
 operator|.
@@ -416,8 +414,7 @@ literal|"node1"
 argument_list|,
 literal|"node2"
 argument_list|,
-name|randomBoolean
-argument_list|()
+literal|true
 argument_list|,
 name|ShardRoutingState
 operator|.

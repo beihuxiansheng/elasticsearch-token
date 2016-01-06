@@ -112,6 +112,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskManager
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -308,6 +320,12 @@ comment|/**      * Returns the maximum wait time for tasks in the queue      *  
 DECL|method|getMaxTaskWaitTime
 name|TimeValue
 name|getMaxTaskWaitTime
+parameter_list|()
+function_decl|;
+comment|/**      * Returns task manager created in the cluster service      */
+DECL|method|getTaskManager
+name|TaskManager
+name|getTaskManager
 parameter_list|()
 function_decl|;
 block|}

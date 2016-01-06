@@ -406,7 +406,7 @@ name|put
 argument_list|(
 name|Storage
 operator|.
-name|ACCOUNT
+name|ACCOUNT_DEPRECATED
 argument_list|,
 literal|"mock_azure_account"
 argument_list|)
@@ -415,7 +415,7 @@ name|put
 argument_list|(
 name|Storage
 operator|.
-name|KEY
+name|KEY_DEPRECATED
 argument_list|,
 literal|"mock_azure_key"
 argument_list|)

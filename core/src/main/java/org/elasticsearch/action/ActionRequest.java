@@ -110,7 +110,7 @@ argument_list|)
 expr_stmt|;
 comment|// this does not set the listenerThreaded API, if needed, its up to the caller to set it
 comment|// since most times, we actually want it to not be threaded...
-comment|//this.listenerThreaded = request.listenerThreaded();
+comment|// this.listenerThreaded = request.listenerThreaded();
 block|}
 DECL|method|validate
 specifier|public

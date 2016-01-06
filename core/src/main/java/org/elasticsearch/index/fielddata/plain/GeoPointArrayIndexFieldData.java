@@ -406,7 +406,7 @@ name|indexSettings
 argument_list|,
 name|fieldType
 operator|.
-name|names
+name|name
 argument_list|()
 argument_list|,
 name|fieldType
@@ -466,10 +466,8 @@ parameter_list|(
 name|IndexSettings
 name|indexSettings
 parameter_list|,
-name|MappedFieldType
-operator|.
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 parameter_list|,
 name|FieldDataType
 name|fieldDataType
@@ -489,7 +487,7 @@ name|super
 argument_list|(
 name|indexSettings
 argument_list|,
-name|fieldNames
+name|fieldName
 argument_list|,
 name|fieldDataType
 argument_list|,
@@ -537,10 +535,7 @@ name|reader
 operator|.
 name|terms
 argument_list|(
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -754,6 +754,22 @@ name|boolean
 name|updateAllTypes
 parameter_list|)
 function_decl|;
+comment|/**      * Update the field type of this mapper. This is necessary because some mapping updates      * can modify mappings across several types. This method must return a copy of the mapper      * so that the current mapper is not modified.      */
+DECL|method|updateFieldType
+specifier|public
+specifier|abstract
+name|Mapper
+name|updateFieldType
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|MappedFieldType
+argument_list|>
+name|fullNameToFieldType
+parameter_list|)
+function_decl|;
 block|}
 end_class
 

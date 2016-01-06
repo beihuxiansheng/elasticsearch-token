@@ -1225,7 +1225,7 @@ operator|.
 name|searchContext
 argument_list|()
 operator|.
-name|smartNameFieldTypeFromAnyType
+name|smartNameFieldType
 argument_list|(
 name|field
 argument_list|)

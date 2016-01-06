@@ -602,16 +602,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|// The RecordingPerReaderBucketCollector assumes per segment recording which isn't the case for this
 end_comment
@@ -1195,8 +1185,8 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|DocIdSetIterator
-name|childDocsIter
+name|Scorer
+name|childDocsScorer
 init|=
 name|childFilter
 operator|.
@@ -1207,13 +1197,21 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|childDocsIter
+name|childDocsScorer
 operator|==
 literal|null
 condition|)
 block|{
 continue|continue;
 block|}
+name|DocIdSetIterator
+name|childDocsIter
+init|=
+name|childDocsScorer
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
 specifier|final
 name|LeafBucketCollector
 name|sub
@@ -1823,10 +1821,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|parentChildIndexFieldData

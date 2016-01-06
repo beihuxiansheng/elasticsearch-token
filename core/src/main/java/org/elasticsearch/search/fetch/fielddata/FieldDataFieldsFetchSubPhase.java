@@ -521,7 +521,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|field
 operator|.

@@ -1669,7 +1669,16 @@ name|put
 argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_CONCURRENT_RECOVERIES
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_INCOMING_RECOVERIES_SETTING
+argument_list|,
+literal|1
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|ThrottlingAllocationDecider
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_OUTGOING_RECOVERIES_SETTING
 argument_list|,
 literal|1
 argument_list|)

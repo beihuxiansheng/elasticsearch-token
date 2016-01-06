@@ -1769,10 +1769,7 @@ block|{
 comment|//noinspection unchecked
 name|reg
 operator|.
-name|getHandler
-argument_list|()
-operator|.
-name|messageReceived
+name|processMessageReceived
 argument_list|(
 name|request
 argument_list|,
@@ -2046,10 +2043,7 @@ name|Exception
 block|{
 name|reg
 operator|.
-name|getHandler
-argument_list|()
-operator|.
-name|messageReceived
+name|processMessageReceived
 argument_list|(
 name|request
 argument_list|,

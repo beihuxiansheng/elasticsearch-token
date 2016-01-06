@@ -1485,10 +1485,7 @@ name|getFieldQuery
 argument_list|(
 name|currentFieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|queryText
@@ -3057,10 +3054,7 @@ name|getPossiblyAnalyzedPrefixQuery
 argument_list|(
 name|currentFieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|termStr
@@ -3782,10 +3776,7 @@ name|indexedNameField
 operator|=
 name|currentFieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 expr_stmt|;
 return|return

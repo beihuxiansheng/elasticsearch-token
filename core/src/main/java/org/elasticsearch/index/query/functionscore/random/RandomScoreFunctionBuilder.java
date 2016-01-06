@@ -507,7 +507,7 @@ operator|.
 name|getMapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 literal|"_uid"
 argument_list|)

@@ -919,8 +919,6 @@ operator|.
 name|Bytes
 operator|.
 name|WithOrdinals
-operator|.
-name|FieldData
 operator|)
 name|valuesSource
 argument_list|,
@@ -1035,6 +1033,21 @@ name|count
 argument_list|()
 operator|>
 literal|0
+comment|// we need the FieldData impl to be able to extract the
+comment|// segment to global ord mapping
+operator|||
+name|valuesSource
+operator|.
+name|getClass
+argument_list|()
+operator|!=
+name|ValuesSource
+operator|.
+name|Bytes
+operator|.
+name|FieldData
+operator|.
+name|class
 condition|)
 block|{
 return|return

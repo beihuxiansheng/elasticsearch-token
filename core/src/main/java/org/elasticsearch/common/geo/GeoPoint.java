@@ -671,15 +671,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"["
-operator|+
 name|lat
 operator|+
 literal|", "
 operator|+
 name|lon
-operator|+
-literal|"]"
 return|;
 block|}
 DECL|method|parseFromLatLon

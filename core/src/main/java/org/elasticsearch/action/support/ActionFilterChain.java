@@ -52,6 +52,18 @@ name|ActionResponse
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|Task
+import|;
+end_import
+
 begin_comment
 comment|/**  * A filter chain allowing to continue and process the transport action request  */
 end_comment
@@ -67,6 +79,9 @@ DECL|method|proceed
 name|void
 name|proceed
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 specifier|final
 name|String
 name|action

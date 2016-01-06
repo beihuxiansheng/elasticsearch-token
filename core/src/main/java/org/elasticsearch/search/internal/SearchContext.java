@@ -1780,22 +1780,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Looks up the given field, but does not restrict to fields in the types set on this context.      */
 DECL|method|smartNameFieldType
 specifier|public
 specifier|abstract
 name|MappedFieldType
 name|smartNameFieldType
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-function_decl|;
-comment|/**      * Looks up the given field, but does not restrict to fields in the types set on this context.      */
-DECL|method|smartNameFieldTypeFromAnyType
-specifier|public
-specifier|abstract
-name|MappedFieldType
-name|smartNameFieldTypeFromAnyType
 parameter_list|(
 name|String
 name|name

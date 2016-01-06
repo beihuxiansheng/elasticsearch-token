@@ -341,13 +341,6 @@ argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
 operator|.
-name|setStored
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|FIELD_TYPE
-operator|.
 name|freeze
 argument_list|()
 expr_stmt|;
@@ -758,10 +751,7 @@ argument_list|(
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|point

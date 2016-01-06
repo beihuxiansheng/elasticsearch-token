@@ -260,10 +260,7 @@ literal|": field("
 operator|+
 name|fieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|toString
+name|getFieldName
 argument_list|()
 operator|+
 literal|")"

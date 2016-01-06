@@ -372,7 +372,7 @@ operator|.
 name|getMapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|DATE_FIELD_NAME
 argument_list|)
