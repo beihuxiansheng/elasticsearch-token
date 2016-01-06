@@ -1032,6 +1032,104 @@ init|=
 name|readCheckpoint
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Path
+name|nextTranslogFile
+init|=
+name|location
+operator|.
+name|resolve
+argument_list|(
+name|getFilename
+argument_list|(
+name|checkpoint
+operator|.
+name|generation
+operator|+
+literal|1
+argument_list|)
+argument_list|)
+decl_stmt|;
+specifier|final
+name|Path
+name|currentCheckpointFile
+init|=
+name|location
+operator|.
+name|resolve
+argument_list|(
+name|getCommitCheckpointFileName
+argument_list|(
+name|checkpoint
+operator|.
+name|generation
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// this is special handling for error condition when we create a new writer but we fail to bake
+comment|// the newly written file (generation+1) into the checkpoint. This is still a valid state
+comment|// we just need to cleanup before we continue
+comment|// we hit this before and then blindly deleted the new generation even though we managed to bake it in and then hit this:
+comment|// https://discuss.elastic.co/t/cannot-recover-index-because-of-missing-tanslog-files/38336 as an example
+comment|//
+comment|// For this to happen we must have already copied the translog.ckp file into translog-gen.ckp so we first check if that file exists
+comment|// if not we don't even try to clean it up and wait until we fail creating it
+assert|assert
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|nextTranslogFile
+argument_list|)
+operator|==
+literal|false
+operator|||
+name|Files
+operator|.
+name|size
+argument_list|(
+name|nextTranslogFile
+argument_list|)
+operator|<=
+name|TranslogWriter
+operator|.
+name|getHeaderLength
+argument_list|(
+name|translogUUID
+argument_list|)
+assert|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|currentCheckpointFile
+argument_list|)
+comment|// current checkpoint is already copied
+operator|&&
+name|Files
+operator|.
+name|deleteIfExists
+argument_list|(
+name|nextTranslogFile
+argument_list|)
+condition|)
+block|{
+comment|// delete it and log a warning
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Deleted invalid next generation before opening writer {} this is like caused by some previously tragic exception "
+argument_list|,
+name|nextTranslogFile
+operator|.
+name|getFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|recoveredTranslogs
