@@ -4483,7 +4483,7 @@ argument_list|()
 decl_stmt|;
 name|logger
 operator|.
-name|error
+name|trace
 argument_list|(
 literal|"From: "
 operator|+
@@ -4521,16 +4521,6 @@ name|node
 argument_list|()
 operator|.
 name|version
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|error
-argument_list|(
-name|routingNodes
-operator|.
-name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
