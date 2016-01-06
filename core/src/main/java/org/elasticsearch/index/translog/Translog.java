@@ -1097,6 +1097,12 @@ name|getHeaderLength
 argument_list|(
 name|translogUUID
 argument_list|)
+operator|:
+literal|"unexpected translog file: ["
+operator|+
+name|nextTranslogFile
+operator|+
+literal|"]"
 assert|;
 if|if
 condition|(
@@ -1121,7 +1127,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Deleted invalid next generation before opening writer {} this is like caused by some previously tragic exception "
+literal|"deleted previously created, but not yet committed, next generation [{}]. This can happen due to a tragic exception when creating a new generation"
 argument_list|,
 name|nextTranslogFile
 operator|.
