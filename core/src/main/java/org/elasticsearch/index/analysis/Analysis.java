@@ -893,9 +893,9 @@ name|parseVersion
 argument_list|(
 name|sVersion
 argument_list|,
-name|Lucene
+name|Version
 operator|.
-name|ANALYZER_VERSION
+name|LATEST
 argument_list|,
 name|logger
 argument_list|)
@@ -925,9 +925,9 @@ name|parseVersion
 argument_list|(
 name|sVersion
 argument_list|,
-name|Lucene
+name|Version
 operator|.
-name|ANALYZER_VERSION
+name|LATEST
 argument_list|,
 name|logger
 argument_list|)
