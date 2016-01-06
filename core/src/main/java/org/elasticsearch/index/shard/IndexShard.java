@@ -3917,7 +3917,6 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// nocommit but we don't promptly stop index throttling anymore?
 name|writingBytes
 operator|.
 name|addAndGet
@@ -7665,7 +7664,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// nocommit but we don't promptly stop index throttling anymore?
 name|writingBytes
 operator|.
 name|addAndGet

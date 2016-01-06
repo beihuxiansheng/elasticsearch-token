@@ -1967,6 +1967,23 @@ name|getIndexBufferRAMBytesUsed
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|writeIndexingBufferAsync
+parameter_list|(
+name|IndexShard
+name|shard
+parameter_list|)
+block|{
+comment|// just do it sync'd for this test
+name|shard
+operator|.
+name|writeIndexingBuffer
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 decl_stmt|;
 for|for
