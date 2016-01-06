@@ -216,16 +216,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Explicit
@@ -704,15 +694,6 @@ argument_list|(
 literal|"50m"
 argument_list|)
 decl_stmt|;
-DECL|field|LEGACY_DISTANCE_ERROR_PCT
-specifier|public
-specifier|static
-specifier|final
-name|double
-name|LEGACY_DISTANCE_ERROR_PCT
-init|=
-literal|0.025d
-decl_stmt|;
 DECL|field|ORIENTATION
 specifier|public
 specifier|static
@@ -723,6 +704,15 @@ init|=
 name|Orientation
 operator|.
 name|RIGHT
+decl_stmt|;
+DECL|field|LEGACY_DISTANCE_ERROR_PCT
+specifier|public
+specifier|static
+specifier|final
+name|double
+name|LEGACY_DISTANCE_ERROR_PCT
+init|=
+literal|0.025d
 decl_stmt|;
 DECL|field|COERCE
 specifier|public
@@ -760,15 +750,9 @@ comment|// setting name here is a hack so freeze can be called...instead all the
 comment|// moved to the default ctor for GeoShapeFieldType, and defaultFieldType() should be removed from mappers...
 name|FIELD_TYPE
 operator|.
-name|setNames
-argument_list|(
-operator|new
-name|MappedFieldType
-operator|.
-name|Names
+name|setName
 argument_list|(
 literal|"DoesNotExist"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
@@ -986,53 +970,6 @@ if|if
 condition|(
 name|geoShapeFieldType
 operator|.
-name|tree
-operator|.
-name|equals
-argument_list|(
-name|Names
-operator|.
-name|TREE_QUADTREE
-argument_list|)
-operator|&&
-name|context
-operator|.
-name|indexCreatedVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-condition|)
-block|{
-name|geoShapeFieldType
-operator|.
-name|setTree
-argument_list|(
-literal|"legacyquadtree"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|context
-operator|.
-name|indexCreatedVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-operator|||
-operator|(
-name|geoShapeFieldType
-operator|.
 name|treeLevels
 argument_list|()
 operator|==
@@ -1044,7 +981,6 @@ name|precisionInMeters
 argument_list|()
 operator|<
 literal|0
-operator|)
 condition|)
 block|{
 name|geoShapeFieldType
@@ -1988,10 +1924,7 @@ name|RecursivePrefixTreeStrategy
 argument_list|(
 name|prefixTree
 argument_list|,
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2017,10 +1950,7 @@ name|TermQueryPrefixTreeStrategy
 argument_list|(
 name|prefixTree
 argument_list|,
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2109,10 +2039,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [strategy]"
@@ -2142,10 +2069,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [tree]"
@@ -2171,10 +2095,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different points_only"
@@ -2200,10 +2121,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [tree_levels]"
@@ -2227,10 +2145,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [precision]"
@@ -2259,10 +2174,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [orientation] across all types."
@@ -2286,10 +2198,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [distance_error_pct] across all types."
@@ -2895,10 +2804,7 @@ operator|+
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"}] is configured for points only but a "
@@ -3019,10 +2925,7 @@ operator|+
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"]"

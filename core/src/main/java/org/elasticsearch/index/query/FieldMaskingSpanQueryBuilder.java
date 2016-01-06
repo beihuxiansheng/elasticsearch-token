@@ -403,10 +403,7 @@ name|fieldInQuery
 operator|=
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 expr_stmt|;
 block|}

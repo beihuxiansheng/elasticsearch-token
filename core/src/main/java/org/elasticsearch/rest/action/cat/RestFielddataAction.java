@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongMap
+name|ObjectLongHashMap
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongHashMap
+name|ObjectLongMap
 import|;
 end_import
 
@@ -176,7 +176,43 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|*
+name|RestChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestController
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestResponse
 import|;
 end_import
 

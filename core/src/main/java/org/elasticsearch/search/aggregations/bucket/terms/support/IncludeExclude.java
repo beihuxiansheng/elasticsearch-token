@@ -751,7 +751,7 @@ name|automaton
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Computes which global ordinals are accepted by this IncludeExclude instance.          *           */
+comment|/**          * Computes which global ordinals are accepted by this IncludeExclude instance.          *          */
 annotation|@
 name|Override
 DECL|method|acceptedGlobalOrdinals

@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -213,24 +203,6 @@ operator|.
 name|ESIntegTestCase
 operator|.
 name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|matcher
-operator|.
-name|Matchers
-operator|.
-name|not
 import|;
 end_import
 

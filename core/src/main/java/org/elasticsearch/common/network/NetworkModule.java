@@ -294,6 +294,28 @@ name|admin
 operator|.
 name|cluster
 operator|.
+name|node
+operator|.
+name|tasks
+operator|.
+name|RestListTasksAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|cluster
+operator|.
 name|repositories
 operator|.
 name|delete
@@ -2601,6 +2623,11 @@ name|class
 argument_list|,
 comment|// no abstract cat action
 name|RestCatAction
+operator|.
+name|class
+argument_list|,
+comment|// Tasks API
+name|RestListTasksAction
 operator|.
 name|class
 argument_list|)

@@ -249,7 +249,7 @@ decl_stmt|;
 DECL|method|Stats
 name|Stats
 parameter_list|()
-block|{          }
+block|{}
 DECL|method|Stats
 specifier|public
 name|Stats
@@ -425,6 +425,7 @@ expr_stmt|;
 comment|//When combining if one is throttled set result to throttled.
 block|}
 block|}
+comment|/**          * The total number of indexing operations          */
 DECL|method|getIndexCount
 specifier|public
 name|long
@@ -435,6 +436,7 @@ return|return
 name|indexCount
 return|;
 block|}
+comment|/**          * The number of failed indexing operations          */
 DECL|method|getIndexFailedCount
 specifier|public
 name|long
@@ -445,6 +447,7 @@ return|return
 name|indexFailedCount
 return|;
 block|}
+comment|/**          * The total amount of time spend on executing index operations.          */
 DECL|method|getIndexTime
 specifier|public
 name|TimeValue
@@ -459,16 +462,7 @@ name|indexTimeInMillis
 argument_list|)
 return|;
 block|}
-DECL|method|getIndexTimeInMillis
-specifier|public
-name|long
-name|getIndexTimeInMillis
-parameter_list|()
-block|{
-return|return
-name|indexTimeInMillis
-return|;
-block|}
+comment|/**          * Returns the currently in-flight indexing operations.          */
 DECL|method|getIndexCurrent
 specifier|public
 name|long
@@ -479,6 +473,7 @@ return|return
 name|indexCurrent
 return|;
 block|}
+comment|/**          * Returns the number of delete operation executed          */
 DECL|method|getDeleteCount
 specifier|public
 name|long
@@ -500,17 +495,6 @@ return|return
 name|isThrottled
 return|;
 block|}
-comment|/**          * Gets the amount of time in milliseconds that the index has been under merge throttling control          */
-DECL|method|getThrottleTimeInMillis
-specifier|public
-name|long
-name|getThrottleTimeInMillis
-parameter_list|()
-block|{
-return|return
-name|throttleTimeInMillis
-return|;
-block|}
 comment|/**          * Gets the amount of time in a TimeValue that the index has been under merge throttling control          */
 DECL|method|getThrottleTime
 specifier|public
@@ -526,6 +510,7 @@ name|throttleTimeInMillis
 argument_list|)
 return|;
 block|}
+comment|/**          * The total amount of time spend on executing delete operations.          */
 DECL|method|getDeleteTime
 specifier|public
 name|TimeValue
@@ -540,16 +525,7 @@ name|deleteTimeInMillis
 argument_list|)
 return|;
 block|}
-DECL|method|getDeleteTimeInMillis
-specifier|public
-name|long
-name|getDeleteTimeInMillis
-parameter_list|()
-block|{
-return|return
-name|deleteTimeInMillis
-return|;
-block|}
+comment|/**          * Returns the currently in-flight delete operations          */
 DECL|method|getDeleteCurrent
 specifier|public
 name|long

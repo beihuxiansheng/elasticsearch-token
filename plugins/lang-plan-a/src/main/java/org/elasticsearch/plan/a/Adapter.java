@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|antlr
@@ -67,6 +47,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -78,7 +78,23 @@ name|a
 operator|.
 name|Definition
 operator|.
-name|*
+name|Cast
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plan
+operator|.
+name|a
+operator|.
+name|Definition
+operator|.
+name|Type
 import|;
 end_import
 
@@ -94,7 +110,23 @@ name|a
 operator|.
 name|PlanAParser
 operator|.
-name|*
+name|ExpressionContext
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plan
+operator|.
+name|a
+operator|.
+name|PlanAParser
+operator|.
+name|PrecedenceContext
 import|;
 end_import
 

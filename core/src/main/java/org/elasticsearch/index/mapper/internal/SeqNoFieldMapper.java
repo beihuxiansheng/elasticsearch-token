@@ -238,15 +238,9 @@ static|static
 block|{
 name|FIELD_TYPE
 operator|.
-name|setNames
-argument_list|(
-operator|new
-name|MappedFieldType
-operator|.
-name|Names
+name|setName
 argument_list|(
 name|NAME
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE

@@ -172,7 +172,55 @@ name|recycler
 operator|.
 name|Recyclers
 operator|.
-name|*
+name|concurrent
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|recycler
+operator|.
+name|Recyclers
+operator|.
+name|concurrentDeque
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|recycler
+operator|.
+name|Recyclers
+operator|.
+name|dequeFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|recycler
+operator|.
+name|Recyclers
+operator|.
+name|none
 import|;
 end_import
 

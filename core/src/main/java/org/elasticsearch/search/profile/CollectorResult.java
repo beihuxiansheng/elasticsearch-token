@@ -542,7 +542,7 @@ operator|.
 name|getPreferredName
 argument_list|()
 argument_list|,
-name|toString
+name|getName
 argument_list|()
 argument_list|)
 operator|.
@@ -553,7 +553,8 @@ operator|.
 name|getPreferredName
 argument_list|()
 argument_list|,
-name|reason
+name|getReason
+argument_list|()
 argument_list|)
 operator|.
 name|field

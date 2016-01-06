@@ -52,7 +52,57 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -81,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * K&ouml;lner Phonetik  *  * H.J. Postel, Die K&ouml;lner Phonetik. Ein Verfahren zu Identifizierung  * von Personennamen auf der Grundlage der Gestaltanalyse. IBM-Nachrichten 19 (1969), 925-931  *  * Algorithmus aus der Matching Toolbox von Rainer Schnell  * Java-Programmierung von J&ouml;rg Reiher  *  * mit&Auml;nderungen von JÃ¶rg Prante  *   */
+comment|/**  * K&ouml;lner Phonetik  *  * H.J. Postel, Die K&ouml;lner Phonetik. Ein Verfahren zu Identifizierung  * von Personennamen auf der Grundlage der Gestaltanalyse. IBM-Nachrichten 19 (1969), 925-931  *  * Algorithmus aus der Matching Toolbox von Rainer Schnell  * Java-Programmierung von J&ouml;rg Reiher  *  * mit&Auml;nderungen von JÃ¶rg Prante  *  */
 end_comment
 
 begin_class
@@ -293,7 +343,7 @@ operator|=
 name|useOnlyPrimaryCode
 expr_stmt|;
 block|}
-comment|/**      * Get variation patterns      *       * @return string array of variations      */
+comment|/**      * Get variation patterns      *      * @return string array of variations      */
 DECL|method|getPatterns
 specifier|protected
 name|String

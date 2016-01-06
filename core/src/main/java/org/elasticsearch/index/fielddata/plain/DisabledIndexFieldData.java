@@ -54,7 +54,35 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|*
+name|AtomicFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|FieldDataType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|IndexFieldData
 import|;
 end_import
 
@@ -84,9 +112,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|fielddata
 operator|.
-name|MappedFieldType
+name|IndexFieldDataCache
 import|;
 end_import
 
@@ -101,8 +129,6 @@ operator|.
 name|mapper
 operator|.
 name|MappedFieldType
-operator|.
-name|Names
 import|;
 end_import
 
@@ -126,9 +152,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|indices
 operator|.
-name|MultiValueMode
+name|breaker
+operator|.
+name|CircuitBreakerService
 import|;
 end_import
 
@@ -138,11 +166,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|search
 operator|.
-name|breaker
-operator|.
-name|CircuitBreakerService
+name|MultiValueMode
 import|;
 end_import
 
@@ -207,7 +233,7 @@ name|indexSettings
 argument_list|,
 name|fieldType
 operator|.
-name|names
+name|name
 argument_list|()
 argument_list|,
 name|fieldType
@@ -227,8 +253,8 @@ parameter_list|(
 name|IndexSettings
 name|indexSettings
 parameter_list|,
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 parameter_list|,
 name|FieldDataType
 name|fieldDataType
@@ -241,7 +267,7 @@ name|super
 argument_list|(
 name|indexSettings
 argument_list|,
-name|fieldNames
+name|fieldName
 argument_list|,
 name|fieldDataType
 argument_list|,
@@ -319,10 +345,7 @@ name|IllegalStateException
 argument_list|(
 literal|"Field data loading is forbidden on "
 operator|+
-name|getFieldNames
-argument_list|()
-operator|.
-name|fullName
+name|getFieldName
 argument_list|()
 argument_list|)
 return|;

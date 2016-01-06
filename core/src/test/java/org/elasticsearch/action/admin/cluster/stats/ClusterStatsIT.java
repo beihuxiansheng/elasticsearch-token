@@ -54,11 +54,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|client
 operator|.
-name|health
-operator|.
-name|ClusterHealthStatus
+name|Requests
 import|;
 end_import
 
@@ -68,9 +66,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
+name|cluster
 operator|.
-name|Requests
+name|health
+operator|.
+name|ClusterHealthStatus
 import|;
 end_import
 

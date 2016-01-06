@@ -222,7 +222,7 @@ name|field
 argument_list|(
 literal|"similarity"
 argument_list|,
-literal|"default"
+literal|"classic"
 argument_list|)
 operator|.
 name|field

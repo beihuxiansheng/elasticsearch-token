@@ -24,20 +24,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|LeafReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|CollectionStatistics
@@ -243,7 +229,7 @@ argument_list|()
 return|;
 block|}
 comment|// TODO: might be good to get the field lengths here somewhere?
-comment|/*      * Returns a TermInfo object that can be used to access information on      * specific terms. flags can be set as described in TermInfo.      *       * TODO: here might be potential for running time improvement? If we knew in      * advance which terms are requested, we could provide an array which the      * user could then iterate over.      */
+comment|/*      * Returns a TermInfo object that can be used to access information on      * specific terms. flags can be set as described in TermInfo.      *      * TODO: here might be potential for running time improvement? If we knew in      * advance which terms are requested, we could provide an array which the      * user could then iterate over.      */
 DECL|method|get
 specifier|public
 name|IndexFieldTerm

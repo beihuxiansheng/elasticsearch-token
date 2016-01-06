@@ -184,7 +184,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|*
+name|ScheduledFuture
 import|;
 end_import
 

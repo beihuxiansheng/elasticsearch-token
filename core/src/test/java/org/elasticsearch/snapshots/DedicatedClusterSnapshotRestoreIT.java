@@ -4156,8 +4156,13 @@ argument_list|)
 expr_stmt|;
 block|}
 name|refresh
-argument_list|()
+argument_list|(
+literal|"test-idx-closed"
+argument_list|,
+literal|"test-idx-all"
+argument_list|)
 expr_stmt|;
+comment|// don't refresh test-idx-some it will take 30 sec until it times out...
 name|assertThat
 argument_list|(
 name|client

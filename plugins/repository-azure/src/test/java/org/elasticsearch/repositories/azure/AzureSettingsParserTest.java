@@ -110,7 +110,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|hasSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -441,7 +477,7 @@ name|put
 argument_list|(
 name|Storage
 operator|.
-name|ACCOUNT
+name|ACCOUNT_DEPRECATED
 argument_list|,
 literal|"myaccount1"
 argument_list|)
@@ -450,7 +486,7 @@ name|put
 argument_list|(
 name|Storage
 operator|.
-name|KEY
+name|KEY_DEPRECATED
 argument_list|,
 literal|"mykey1"
 argument_list|)

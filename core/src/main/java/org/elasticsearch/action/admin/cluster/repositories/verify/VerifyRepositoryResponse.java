@@ -102,7 +102,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|*
+name|ToXContent
 import|;
 end_import
 
@@ -112,9 +112,39 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|repositories
+name|common
 operator|.
-name|VerificationFailure
+name|xcontent
+operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentBuilderString
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentHelper
 import|;
 end_import
 
@@ -125,16 +155,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 

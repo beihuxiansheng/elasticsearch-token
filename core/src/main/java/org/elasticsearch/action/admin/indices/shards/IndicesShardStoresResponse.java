@@ -286,7 +286,7 @@ name|IndicesShardStoresResponse
 operator|.
 name|StoreStatus
 operator|.
-name|*
+name|readStoreStatus
 import|;
 end_import
 

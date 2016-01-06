@@ -252,7 +252,9 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|SearchScript
+name|ScriptService
+operator|.
+name|ScriptType
 import|;
 end_import
 
@@ -264,9 +266,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
-name|ScriptType
+name|SearchScript
 import|;
 end_import
 
@@ -11601,7 +11601,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"Bucket "
+literal|"InternalBucket "
 operator|+
 name|i
 operator|+

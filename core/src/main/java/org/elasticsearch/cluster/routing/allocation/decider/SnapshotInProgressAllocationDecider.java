@@ -84,9 +84,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
+name|inject
 operator|.
-name|ClusterSettings
+name|Inject
 import|;
 end_import
 
@@ -98,9 +98,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|settings
 operator|.
-name|Inject
+name|ClusterSettings
 import|;
 end_import
 

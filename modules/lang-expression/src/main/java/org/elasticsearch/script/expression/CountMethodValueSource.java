@@ -106,18 +106,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|MultiValueMode
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -321,10 +309,7 @@ literal|"count: field("
 operator|+
 name|fieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|toString
+name|getFieldName
 argument_list|()
 operator|+
 literal|")"

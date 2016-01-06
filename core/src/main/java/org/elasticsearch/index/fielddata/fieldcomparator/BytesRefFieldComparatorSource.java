@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|BinaryDocValues
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|BinaryDocValues
+name|LeafReaderContext
 import|;
 end_import
 
@@ -140,7 +140,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
+name|BitSet
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BitSet
+name|Bits
 import|;
 end_import
 
@@ -462,10 +462,7 @@ name|equals
 argument_list|(
 name|indexFieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|indexName
+name|getFieldName
 argument_list|()
 argument_list|)
 assert|;
@@ -865,7 +862,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**       * A view of a SortedDocValues where missing values       * are replaced with the specified term        */
+comment|/**      * A view of a SortedDocValues where missing values      * are replaced with the specified term      */
 comment|// TODO: move this out if we need it for other reasons
 DECL|class|ReplaceMissing
 specifier|static

@@ -96,7 +96,105 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|*
+name|ConstantScoreQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|FuzzyQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|MultiTermQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|PrefixQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|RegexpQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermRangeQuery
 import|;
 end_import
 
@@ -293,242 +391,6 @@ name|MappedFieldType
 extends|extends
 name|FieldType
 block|{
-DECL|class|Names
-specifier|public
-specifier|static
-class|class
-name|Names
-block|{
-DECL|field|indexName
-specifier|private
-specifier|final
-name|String
-name|indexName
-decl_stmt|;
-DECL|field|originalIndexName
-specifier|private
-specifier|final
-name|String
-name|originalIndexName
-decl_stmt|;
-DECL|field|fullName
-specifier|private
-specifier|final
-name|String
-name|fullName
-decl_stmt|;
-DECL|method|Names
-specifier|public
-name|Names
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|name
-argument_list|,
-name|name
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|Names
-specifier|public
-name|Names
-parameter_list|(
-name|String
-name|indexName
-parameter_list|,
-name|String
-name|originalIndexName
-parameter_list|,
-name|String
-name|fullName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|indexName
-operator|=
-name|indexName
-expr_stmt|;
-name|this
-operator|.
-name|originalIndexName
-operator|=
-name|originalIndexName
-expr_stmt|;
-name|this
-operator|.
-name|fullName
-operator|=
-name|fullName
-expr_stmt|;
-block|}
-comment|/**          * The indexed name of the field. This is the name under which we will          * store it in the index.          */
-DECL|method|indexName
-specifier|public
-name|String
-name|indexName
-parameter_list|()
-block|{
-return|return
-name|indexName
-return|;
-block|}
-comment|/**          * The original index name, before any "path" modifications performed on it.          */
-DECL|method|originalIndexName
-specifier|public
-name|String
-name|originalIndexName
-parameter_list|()
-block|{
-return|return
-name|originalIndexName
-return|;
-block|}
-comment|/**          * The full name, including dot path.          */
-DECL|method|fullName
-specifier|public
-name|String
-name|fullName
-parameter_list|()
-block|{
-return|return
-name|fullName
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|equals
-specifier|public
-name|boolean
-name|equals
-parameter_list|(
-name|Object
-name|o
-parameter_list|)
-block|{
-if|if
-condition|(
-name|o
-operator|==
-literal|null
-operator|||
-name|getClass
-argument_list|()
-operator|!=
-name|o
-operator|.
-name|getClass
-argument_list|()
-condition|)
-return|return
-literal|false
-return|;
-name|Names
-name|names
-init|=
-operator|(
-name|Names
-operator|)
-name|o
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|fullName
-operator|.
-name|equals
-argument_list|(
-name|names
-operator|.
-name|fullName
-argument_list|)
-condition|)
-return|return
-literal|false
-return|;
-if|if
-condition|(
-operator|!
-name|indexName
-operator|.
-name|equals
-argument_list|(
-name|names
-operator|.
-name|indexName
-argument_list|)
-condition|)
-return|return
-literal|false
-return|;
-if|if
-condition|(
-operator|!
-name|originalIndexName
-operator|.
-name|equals
-argument_list|(
-name|names
-operator|.
-name|originalIndexName
-argument_list|)
-condition|)
-return|return
-literal|false
-return|;
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|hashCode
-specifier|public
-name|int
-name|hashCode
-parameter_list|()
-block|{
-name|int
-name|result
-init|=
-name|indexName
-operator|.
-name|hashCode
-argument_list|()
-decl_stmt|;
-name|result
-operator|=
-literal|31
-operator|*
-name|result
-operator|+
-name|originalIndexName
-operator|.
-name|hashCode
-argument_list|()
-expr_stmt|;
-name|result
-operator|=
-literal|31
-operator|*
-name|result
-operator|+
-name|fullName
-operator|.
-name|hashCode
-argument_list|()
-expr_stmt|;
-return|return
-name|result
-return|;
-block|}
-block|}
 DECL|enum|Loading
 specifier|public
 enum|enum
@@ -710,10 +572,10 @@ throw|;
 block|}
 block|}
 block|}
-DECL|field|names
+DECL|field|name
 specifier|private
-name|Names
-name|names
+name|String
+name|name
 decl_stmt|;
 DECL|field|boost
 specifier|private
@@ -782,11 +644,11 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|names
+name|name
 operator|=
 name|ref
 operator|.
-name|names
+name|name
 argument_list|()
 expr_stmt|;
 name|this
@@ -1043,11 +905,11 @@ name|Objects
 operator|.
 name|equals
 argument_list|(
-name|names
+name|name
 argument_list|,
 name|fieldType
 operator|.
-name|names
+name|name
 argument_list|)
 operator|&&
 name|Objects
@@ -1148,7 +1010,7 @@ operator|.
 name|hashCode
 argument_list|()
 argument_list|,
-name|names
+name|name
 argument_list|,
 name|boost
 argument_list|,
@@ -1223,11 +1085,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
-argument_list|()
+name|name
 operator|+
 literal|"] cannot be changed from type ["
 operator|+
@@ -1350,10 +1208,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [index] values"
@@ -1377,10 +1232,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [store] values"
@@ -1408,10 +1260,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [doc_values] values, cannot change from disabled to enabled"
@@ -1436,10 +1285,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [omit_norms] values, cannot change from disable to enabled"
@@ -1463,10 +1309,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [store_term_vector] values"
@@ -1490,10 +1333,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [store_term_vector_offsets] values"
@@ -1517,10 +1357,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [store_term_vector_positions] values"
@@ -1544,10 +1381,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [store_term_vector_payloads] values"
@@ -1605,10 +1439,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [analyzer]"
@@ -1646,10 +1477,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [analyzer]"
@@ -1685,50 +1513,10 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [analyzer]"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|names
-argument_list|()
-operator|.
-name|indexName
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|other
-operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|conflicts
-operator|.
-name|add
-argument_list|(
-literal|"mapper ["
-operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
-argument_list|()
-operator|+
-literal|"] has different [index_name]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1756,10 +1544,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [similarity]"
@@ -1788,10 +1573,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [omit_norms] across all types."
@@ -1815,10 +1597,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [boost] across all types."
@@ -1842,10 +1621,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [norms.loading] across all types."
@@ -1876,10 +1652,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [search_analyzer] across all types."
@@ -1910,10 +1683,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [search_quote_analyzer] across all types."
@@ -1944,10 +1714,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [fielddata] across all types."
@@ -1978,10 +1745,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [null_value] across all types."
@@ -2010,23 +1774,23 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|names
+DECL|method|name
 specifier|public
-name|Names
-name|names
+name|String
+name|name
 parameter_list|()
 block|{
 return|return
-name|names
+name|name
 return|;
 block|}
-DECL|method|setNames
+DECL|method|setName
 specifier|public
 name|void
-name|setNames
+name|setName
 parameter_list|(
-name|Names
-name|names
+name|String
+name|name
 parameter_list|)
 block|{
 name|checkIfFrozen
@@ -2034,9 +1798,9 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|names
+name|name
 operator|=
-name|names
+name|name
 expr_stmt|;
 block|}
 DECL|method|boost
@@ -2406,10 +2170,7 @@ return|return
 operator|new
 name|Term
 argument_list|(
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|indexedValueForSearch
@@ -2508,9 +2269,7 @@ return|return
 operator|new
 name|TermsQuery
 argument_list|(
-name|names
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|bytesRefs
@@ -2539,10 +2298,7 @@ return|return
 operator|new
 name|TermRangeQuery
 argument_list|(
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|lowerTerm
@@ -2718,9 +2474,7 @@ name|context
 argument_list|,
 literal|"Cannot use regular expression to filter numeric field ["
 operator|+
-name|names
-operator|.
-name|fullName
+name|name
 operator|+
 literal|"]"
 argument_list|)
