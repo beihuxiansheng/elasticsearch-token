@@ -82,18 +82,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
-operator|.
-name|PluginInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -293,6 +281,18 @@ operator|.
 name|jvm
 operator|.
 name|JvmInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plugins
+operator|.
+name|PluginInfo
 import|;
 end_import
 

@@ -132,19 +132,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|empty
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
+name|contains
 import|;
 end_import
 
@@ -275,10 +263,9 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|,
-name|is
+name|contains
 argument_list|(
-name|empty
-argument_list|()
+literal|"cloud.azure.storage.azure1.default"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -361,10 +348,9 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|,
-name|is
+name|contains
 argument_list|(
-name|empty
-argument_list|()
+literal|"cloud.azure.storage.azure1.default"
 argument_list|)
 argument_list|)
 expr_stmt|;

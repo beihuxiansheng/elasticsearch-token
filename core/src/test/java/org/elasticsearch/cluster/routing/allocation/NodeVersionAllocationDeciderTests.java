@@ -264,7 +264,39 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|INITIALIZING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|UNASSIGNED
 import|;
 end_import
 
@@ -306,7 +338,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -353,7 +421,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -362,7 +430,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -1908,7 +1979,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -1917,7 +1988,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -2365,7 +2439,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -2374,7 +2448,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)

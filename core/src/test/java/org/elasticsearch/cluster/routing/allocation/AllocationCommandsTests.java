@@ -459,7 +459,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -979,7 +979,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)
@@ -988,7 +991,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_REBALANCE_ENABLE
+name|CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)
@@ -1982,7 +1988,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)
@@ -1991,7 +2000,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_REBALANCE_ENABLE
+name|CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"none"
 argument_list|)

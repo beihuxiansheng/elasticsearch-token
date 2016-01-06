@@ -158,18 +158,6 @@ name|util
 operator|.
 name|Collections
 operator|.
-name|singleton
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
 name|unmodifiableMap
 import|;
 end_import
@@ -1937,6 +1925,14 @@ name|compile
 parameter_list|(
 name|String
 name|script
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|params
 parameter_list|)
 block|{
 return|return

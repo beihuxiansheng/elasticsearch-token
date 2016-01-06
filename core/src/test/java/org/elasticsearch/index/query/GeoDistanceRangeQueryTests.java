@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|GeoDistanceUtils
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|SloppyMath
+name|NumericUtils
 import|;
 end_import
 
@@ -351,11 +351,19 @@ specifier|final
 name|double
 name|maxRadius
 init|=
-name|GeoUtils
+name|GeoDistanceUtils
 operator|.
-name|maxRadialDistance
+name|maxRadialDistanceMeters
 argument_list|(
 name|point
+operator|.
+name|lon
+argument_list|()
+argument_list|,
+name|point
+operator|.
+name|lat
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final

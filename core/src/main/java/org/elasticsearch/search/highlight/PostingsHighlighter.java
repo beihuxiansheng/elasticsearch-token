@@ -174,7 +174,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -741,10 +741,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|highlighterContext
@@ -956,7 +953,7 @@ name|highlighterContext
 operator|.
 name|fieldName
 argument_list|,
-name|StringText
+name|Text
 operator|.
 name|convertFromStringArray
 argument_list|(

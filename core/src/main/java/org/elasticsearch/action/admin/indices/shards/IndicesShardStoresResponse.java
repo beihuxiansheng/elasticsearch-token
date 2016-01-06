@@ -286,7 +286,7 @@ name|IndicesShardStoresResponse
 operator|.
 name|StoreStatus
 operator|.
-name|*
+name|readStoreStatus
 import|;
 end_import
 
@@ -330,21 +330,26 @@ specifier|private
 name|long
 name|version
 decl_stmt|;
+DECL|field|allocationId
+specifier|private
+name|String
+name|allocationId
+decl_stmt|;
 DECL|field|storeException
 specifier|private
 name|Throwable
 name|storeException
 decl_stmt|;
-DECL|field|allocation
+DECL|field|allocationStatus
 specifier|private
-name|Allocation
-name|allocation
+name|AllocationStatus
+name|allocationStatus
 decl_stmt|;
 comment|/**          * The status of the shard store with respect to the cluster          */
-DECL|enum|Allocation
+DECL|enum|AllocationStatus
 specifier|public
 enum|enum
-name|Allocation
+name|AllocationStatus
 block|{
 comment|/**              * Allocated as primary              */
 DECL|enum constant|PRIMARY
@@ -382,8 +387,8 @@ specifier|final
 name|byte
 name|id
 decl_stmt|;
-DECL|method|Allocation
-name|Allocation
+DECL|method|AllocationStatus
+name|AllocationStatus
 parameter_list|(
 name|byte
 name|id
@@ -399,7 +404,7 @@ block|}
 DECL|method|fromId
 specifier|private
 specifier|static
-name|Allocation
+name|AllocationStatus
 name|fromId
 parameter_list|(
 name|byte
@@ -434,7 +439,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"unknown id for allocation ["
+literal|"unknown id for allocation status ["
 operator|+
 name|id
 operator|+
@@ -477,7 +482,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"unknown id for allocation ["
+literal|"unknown id for allocation status ["
 operator|+
 name|id
 operator|+
@@ -489,7 +494,7 @@ block|}
 DECL|method|readFrom
 specifier|private
 specifier|static
-name|Allocation
+name|AllocationStatus
 name|readFrom
 parameter_list|(
 name|StreamInput
@@ -543,8 +548,11 @@ parameter_list|,
 name|long
 name|version
 parameter_list|,
-name|Allocation
-name|allocation
+name|String
+name|allocationId
+parameter_list|,
+name|AllocationStatus
+name|allocationStatus
 parameter_list|,
 name|Throwable
 name|storeException
@@ -564,9 +572,15 @@ name|version
 expr_stmt|;
 name|this
 operator|.
-name|allocation
+name|allocationId
 operator|=
-name|allocation
+name|allocationId
+expr_stmt|;
+name|this
+operator|.
+name|allocationStatus
+operator|=
+name|allocationStatus
 expr_stmt|;
 name|this
 operator|.
@@ -586,7 +600,7 @@ return|return
 name|node
 return|;
 block|}
-comment|/**          * Version of the store, used to select the store that will be          * used as a primary.          */
+comment|/**          * Version of the store          */
 DECL|method|getVersion
 specifier|public
 name|long
@@ -595,6 +609,17 @@ parameter_list|()
 block|{
 return|return
 name|version
+return|;
+block|}
+comment|/**          * AllocationStatus id of the store, used to select the store that will be          * used as a primary.          */
+DECL|method|getAllocationId
+specifier|public
+name|String
+name|getAllocationId
+parameter_list|()
+block|{
+return|return
+name|allocationId
 return|;
 block|}
 comment|/**          * Exception while trying to open the          * shard index or from when the shard failed          */
@@ -608,15 +633,15 @@ return|return
 name|storeException
 return|;
 block|}
-comment|/**          * The allocation status of the store.          * {@link Allocation#PRIMARY} indicates a primary shard copy          * {@link Allocation#REPLICA} indicates a replica shard copy          * {@link Allocation#UNUSED} indicates an unused shard copy          */
-DECL|method|getAllocation
+comment|/**          * The allocationStatus status of the store.          * {@link AllocationStatus#PRIMARY} indicates a primary shard copy          * {@link AllocationStatus#REPLICA} indicates a replica shard copy          * {@link AllocationStatus#UNUSED} indicates an unused shard copy          */
+DECL|method|getAllocationStatus
 specifier|public
-name|Allocation
-name|getAllocation
+name|AllocationStatus
+name|getAllocationStatus
 parameter_list|()
 block|{
 return|return
-name|allocation
+name|allocationStatus
 return|;
 block|}
 DECL|method|readStoreStatus
@@ -677,9 +702,16 @@ operator|.
 name|readLong
 argument_list|()
 expr_stmt|;
-name|allocation
+name|allocationId
 operator|=
-name|Allocation
+name|in
+operator|.
+name|readOptionalString
+argument_list|()
+expr_stmt|;
+name|allocationStatus
+operator|=
+name|AllocationStatus
 operator|.
 name|readFrom
 argument_list|(
@@ -730,7 +762,14 @@ argument_list|(
 name|version
 argument_list|)
 expr_stmt|;
-name|allocation
+name|out
+operator|.
+name|writeOptionalString
+argument_list|(
+name|allocationId
+argument_list|)
+expr_stmt|;
+name|allocationStatus
 operator|.
 name|writeTo
 argument_list|(
@@ -812,9 +851,20 @@ name|field
 argument_list|(
 name|Fields
 operator|.
+name|ALLOCATION_ID
+argument_list|,
+name|allocationId
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+name|Fields
+operator|.
 name|ALLOCATED
 argument_list|,
-name|allocation
+name|allocationStatus
 operator|.
 name|value
 argument_list|()
@@ -932,13 +982,13 @@ name|Integer
 operator|.
 name|compare
 argument_list|(
-name|allocation
+name|allocationStatus
 operator|.
 name|id
 argument_list|,
 name|other
 operator|.
-name|allocation
+name|allocationStatus
 operator|.
 name|id
 argument_list|)
@@ -1955,6 +2005,18 @@ operator|new
 name|XContentBuilderString
 argument_list|(
 literal|"version"
+argument_list|)
+decl_stmt|;
+DECL|field|ALLOCATION_ID
+specifier|static
+specifier|final
+name|XContentBuilderString
+name|ALLOCATION_ID
+init|=
+operator|new
+name|XContentBuilderString
+argument_list|(
+literal|"allocation_id"
 argument_list|)
 decl_stmt|;
 DECL|field|STORE_EXCEPTION

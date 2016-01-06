@@ -58,18 +58,6 @@ name|FilterDirectory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Nullable
-import|;
-end_import
-
 begin_comment
 comment|/**  * Utils for working with {@link Directory} classes.  */
 end_comment

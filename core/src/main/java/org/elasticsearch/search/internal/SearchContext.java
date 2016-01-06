@@ -244,22 +244,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|QueryCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|fielddata
 operator|.
 name|IndexFieldDataService
@@ -544,6 +528,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|profile
+operator|.
+name|Profilers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|query
 operator|.
 name|QuerySearchResult
@@ -584,7 +582,37 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -1552,6 +1580,14 @@ name|FetchSearchResult
 name|fetchResult
 parameter_list|()
 function_decl|;
+comment|/**      * Return a handle over the profilers for the current search request, or {@code null} if profiling is not enabled.      */
+DECL|method|getProfilers
+specifier|public
+specifier|abstract
+name|Profilers
+name|getProfilers
+parameter_list|()
+function_decl|;
 comment|/**      * Schedule the release of a resource. The time when {@link Releasable#close()} will be called on this object      * is function of the provided {@link Lifetime}.      */
 DECL|method|addReleasable
 specifier|public
@@ -1723,22 +1759,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Looks up the given field, but does not restrict to fields in the types set on this context.      */
 DECL|method|smartNameFieldType
 specifier|public
 specifier|abstract
 name|MappedFieldType
 name|smartNameFieldType
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-function_decl|;
-comment|/**      * Looks up the given field, but does not restrict to fields in the types set on this context.      */
-DECL|method|smartNameFieldTypeFromAnyType
-specifier|public
-specifier|abstract
-name|MappedFieldType
-name|smartNameFieldTypeFromAnyType
 parameter_list|(
 name|String
 name|name
@@ -1795,13 +1821,6 @@ comment|/**          * This life time is for objects that need to live until the
 DECL|enum constant|CONTEXT
 name|CONTEXT
 block|}
-DECL|method|getQueryCache
-specifier|public
-specifier|abstract
-name|QueryCache
-name|getQueryCache
-parameter_list|()
-function_decl|;
 block|}
 end_class
 

@@ -44,6 +44,16 @@ name|String
 name|getProfileName
 parameter_list|()
 function_decl|;
+DECL|method|getRequestId
+name|long
+name|getRequestId
+parameter_list|()
+function_decl|;
+DECL|method|getChannelType
+name|String
+name|getChannelType
+parameter_list|()
+function_decl|;
 DECL|method|sendResponse
 name|void
 name|sendResponse

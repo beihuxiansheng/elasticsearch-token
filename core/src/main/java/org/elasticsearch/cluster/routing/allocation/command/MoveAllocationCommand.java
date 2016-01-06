@@ -54,7 +54,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|RoutingNode
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingNode
+name|ShardRouting
 import|;
 end_import
 

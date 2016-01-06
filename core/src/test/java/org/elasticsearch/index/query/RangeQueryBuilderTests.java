@@ -98,18 +98,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
-operator|.
-name|core
-operator|.
-name|IsEqual
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|joda
 operator|.
 name|time
@@ -384,7 +372,7 @@ operator|.
 name|getMapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|DATE_FIELD_NAME
 argument_list|)

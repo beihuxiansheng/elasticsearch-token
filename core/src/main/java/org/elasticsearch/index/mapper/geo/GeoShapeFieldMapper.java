@@ -216,16 +216,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Explicit
@@ -417,20 +407,6 @@ operator|.
 name|mapper
 operator|.
 name|MapperParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeResult
 import|;
 end_import
 
@@ -718,15 +694,6 @@ argument_list|(
 literal|"50m"
 argument_list|)
 decl_stmt|;
-DECL|field|LEGACY_DISTANCE_ERROR_PCT
-specifier|public
-specifier|static
-specifier|final
-name|double
-name|LEGACY_DISTANCE_ERROR_PCT
-init|=
-literal|0.025d
-decl_stmt|;
 DECL|field|ORIENTATION
 specifier|public
 specifier|static
@@ -737,6 +704,15 @@ init|=
 name|Orientation
 operator|.
 name|RIGHT
+decl_stmt|;
+DECL|field|LEGACY_DISTANCE_ERROR_PCT
+specifier|public
+specifier|static
+specifier|final
+name|double
+name|LEGACY_DISTANCE_ERROR_PCT
+init|=
+literal|0.025d
 decl_stmt|;
 DECL|field|COERCE
 specifier|public
@@ -774,15 +750,9 @@ comment|// setting name here is a hack so freeze can be called...instead all the
 comment|// moved to the default ctor for GeoShapeFieldType, and defaultFieldType() should be removed from mappers...
 name|FIELD_TYPE
 operator|.
-name|setNames
-argument_list|(
-operator|new
-name|MappedFieldType
-operator|.
-name|Names
+name|setName
 argument_list|(
 literal|"DoesNotExist"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
@@ -860,6 +830,10 @@ block|{
 name|super
 argument_list|(
 name|name
+argument_list|,
+name|Defaults
+operator|.
+name|FIELD_TYPE
 argument_list|,
 name|Defaults
 operator|.
@@ -996,53 +970,6 @@ if|if
 condition|(
 name|geoShapeFieldType
 operator|.
-name|tree
-operator|.
-name|equals
-argument_list|(
-name|Names
-operator|.
-name|TREE_QUADTREE
-argument_list|)
-operator|&&
-name|context
-operator|.
-name|indexCreatedVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-condition|)
-block|{
-name|geoShapeFieldType
-operator|.
-name|setTree
-argument_list|(
-literal|"legacyquadtree"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|context
-operator|.
-name|indexCreatedVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-operator|||
-operator|(
-name|geoShapeFieldType
-operator|.
 name|treeLevels
 argument_list|()
 operator|==
@@ -1054,7 +981,6 @@ name|precisionInMeters
 argument_list|()
 operator|<
 literal|0
-operator|)
 condition|)
 block|{
 name|geoShapeFieldType
@@ -1386,7 +1312,9 @@ name|setOrientation
 argument_list|(
 name|ShapeBuilder
 operator|.
-name|orientationFromString
+name|Orientation
+operator|.
+name|fromString
 argument_list|(
 name|fieldNode
 operator|.
@@ -1996,10 +1924,7 @@ name|RecursivePrefixTreeStrategy
 argument_list|(
 name|prefixTree
 argument_list|,
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2025,10 +1950,7 @@ name|TermQueryPrefixTreeStrategy
 argument_list|(
 name|prefixTree
 argument_list|,
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2117,10 +2039,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [strategy]"
@@ -2150,10 +2069,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [tree]"
@@ -2179,10 +2095,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different points_only"
@@ -2208,10 +2121,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [tree_levels]"
@@ -2235,10 +2145,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] has different [precision]"
@@ -2267,10 +2174,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [orientation] across all types."
@@ -2294,10 +2198,7 @@ name|add
 argument_list|(
 literal|"mapper ["
 operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [distance_error_pct] across all types."
@@ -2903,10 +2804,7 @@ operator|+
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"}] is configured for points only but a "
@@ -3027,10 +2925,7 @@ operator|+
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"]"
@@ -3064,46 +2959,27 @@ name|IOException
 block|{     }
 annotation|@
 name|Override
-DECL|method|merge
-specifier|public
+DECL|method|doMerge
+specifier|protected
 name|void
-name|merge
+name|doMerge
 parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeResult
-name|mergeResult
+name|boolean
+name|updateAllTypes
 parameter_list|)
 block|{
 name|super
 operator|.
-name|merge
+name|doMerge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeResult
+name|updateAllTypes
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|mergeWith
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
 name|GeoShapeFieldMapper
 name|gsfm
 init|=
@@ -3112,23 +2988,6 @@ name|GeoShapeFieldMapper
 operator|)
 name|mergeWith
 decl_stmt|;
-if|if
-condition|(
-name|mergeResult
-operator|.
-name|simulate
-argument_list|()
-operator|==
-literal|false
-operator|&&
-name|mergeResult
-operator|.
-name|hasConflicts
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
 if|if
 condition|(
 name|gsfm
@@ -3147,7 +3006,6 @@ name|gsfm
 operator|.
 name|coerce
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@

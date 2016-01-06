@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|groovy
+operator|.
+name|lang
+operator|.
+name|MissingPropertyException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -103,16 +113,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|groovy
-operator|.
-name|lang
-operator|.
-name|MissingPropertyException
 import|;
 end_import
 
@@ -355,12 +355,6 @@ comment|// Maps
 name|assertSuccess
 argument_list|(
 literal|"def v = doc['foo'].value; def m = [:]; m.put(\"value\", v)"
-argument_list|)
-expr_stmt|;
-comment|// serialization to json (this is best effort considering the unsafe etc at play)
-name|assertSuccess
-argument_list|(
-literal|"def x = 5; groovy.json.JsonOutput.toJson(x)"
 argument_list|)
 expr_stmt|;
 comment|// Times
@@ -641,6 +635,11 @@ operator|.
 name|compile
 argument_list|(
 name|script
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,

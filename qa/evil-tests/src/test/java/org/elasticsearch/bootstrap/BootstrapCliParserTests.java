@@ -178,7 +178,43 @@ name|CliTool
 operator|.
 name|ExitStatus
 operator|.
-name|*
+name|OK
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|cli
+operator|.
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|OK_AND_EXIT
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|cli
+operator|.
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|USAGE
 import|;
 end_import
 
@@ -190,7 +226,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItem
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 

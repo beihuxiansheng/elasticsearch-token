@@ -40,11 +40,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|action
 operator|.
-name|health
+name|search
 operator|.
-name|ClusterHealthStatus
+name|SearchResponse
 import|;
 end_import
 
@@ -54,11 +54,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|cluster
 operator|.
-name|search
+name|health
 operator|.
-name|SearchResponse
+name|ClusterHealthStatus
 import|;
 end_import
 

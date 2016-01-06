@@ -36,7 +36,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -90,7 +100,7 @@ operator|=
 name|iterators
 expr_stmt|;
 block|}
-comment|/**      * Returns the total number of shards within all groups       * @return total number of shards      */
+comment|/**      * Returns the total number of shards within all groups      * @return total number of shards      */
 DECL|method|totalSize
 specifier|public
 name|int
@@ -122,7 +132,7 @@ return|return
 name|size
 return|;
 block|}
-comment|/**      * Returns the total number of shards plus the number of empty groups      * @return number of shards and empty groups       */
+comment|/**      * Returns the total number of shards plus the number of empty groups      * @return number of shards and empty groups      */
 DECL|method|totalSizeWith1ForEmpty
 specifier|public
 name|int

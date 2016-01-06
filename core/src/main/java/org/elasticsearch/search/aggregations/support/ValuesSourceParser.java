@@ -338,6 +338,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -1414,7 +1424,7 @@ name|fieldType
 init|=
 name|context
 operator|.
-name|smartNameFieldTypeFromAnyType
+name|smartNameFieldType
 argument_list|(
 name|input
 operator|.
@@ -1699,6 +1709,11 @@ operator|.
 name|Standard
 operator|.
 name|AGGS
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 return|;
 block|}

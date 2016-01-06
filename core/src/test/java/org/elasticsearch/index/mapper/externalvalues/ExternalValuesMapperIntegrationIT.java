@@ -552,7 +552,7 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-literal|"f"
+literal|"g"
 argument_list|)
 operator|.
 name|field
@@ -669,7 +669,7 @@ name|QueryBuilders
 operator|.
 name|termQuery
 argument_list|(
-literal|"f.f.raw"
+literal|"f.g.raw"
 argument_list|,
 literal|"FOO BAR"
 argument_list|)

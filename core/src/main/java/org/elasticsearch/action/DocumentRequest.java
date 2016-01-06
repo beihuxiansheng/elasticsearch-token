@@ -82,6 +82,12 @@ name|String
 name|routing
 parameter_list|()
 function_decl|;
+comment|/**      * Get the parent for this request      * @return the Parent      */
+DECL|method|parent
+name|String
+name|parent
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

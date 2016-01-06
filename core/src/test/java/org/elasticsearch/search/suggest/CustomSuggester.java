@@ -54,7 +54,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -255,7 +255,7 @@ name|Entry
 argument_list|<>
 argument_list|(
 operator|new
-name|StringText
+name|Text
 argument_list|(
 name|firstSuggestion
 argument_list|)
@@ -334,7 +334,7 @@ name|Entry
 argument_list|<>
 argument_list|(
 operator|new
-name|StringText
+name|Text
 argument_list|(
 name|secondSuggestion
 argument_list|)

@@ -173,9 +173,7 @@ name|observingContext
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|ObservingContext
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|null
 argument_list|)
@@ -473,7 +471,7 @@ if|if
 condition|(
 name|timeoutTimeLeftMS
 operator|<=
-literal|0l
+literal|0L
 condition|)
 block|{
 comment|// things have timeout while we were busy -> notify
@@ -1172,7 +1170,6 @@ block|}
 block|}
 DECL|interface|Listener
 specifier|public
-specifier|static
 interface|interface
 name|Listener
 block|{
@@ -1207,7 +1204,6 @@ name|ChangePredicate
 block|{
 comment|/**          * a rough check used when starting to monitor for a new change. Called infrequently can be less accurate.          *          * @return true if newState should be accepted          */
 DECL|method|apply
-specifier|public
 name|boolean
 name|apply
 parameter_list|(
@@ -1230,7 +1226,6 @@ parameter_list|)
 function_decl|;
 comment|/**          * called to see whether a cluster change should be accepted          *          * @return true if changedEvent.state() should be accepted          */
 DECL|method|apply
-specifier|public
 name|boolean
 name|apply
 parameter_list|(
@@ -1272,8 +1267,8 @@ name|ClusterStateStatus
 name|newStatus
 parameter_list|)
 block|{
-if|if
-condition|(
+return|return
+operator|(
 name|previousState
 operator|!=
 name|newState
@@ -1281,17 +1276,12 @@ operator|||
 name|previousStatus
 operator|!=
 name|newStatus
-condition|)
-block|{
-return|return
+operator|)
+operator|&&
 name|validate
 argument_list|(
 name|newState
 argument_list|)
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 DECL|method|validate
@@ -1315,8 +1305,7 @@ name|ClusterChangedEvent
 name|changedEvent
 parameter_list|)
 block|{
-if|if
-condition|(
+return|return
 name|changedEvent
 operator|.
 name|previousState
@@ -1332,9 +1321,7 @@ argument_list|()
 operator|.
 name|version
 argument_list|()
-condition|)
-block|{
-return|return
+operator|&&
 name|validate
 argument_list|(
 name|changedEvent
@@ -1342,10 +1329,6 @@ operator|.
 name|state
 argument_list|()
 argument_list|)
-return|;
-block|}
-return|return
-literal|false
 return|;
 block|}
 block|}

@@ -624,6 +624,14 @@ name|compile
 parameter_list|(
 name|String
 name|script
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|params
 parameter_list|)
 block|{
 comment|// classloader created here
@@ -1209,7 +1217,7 @@ name|fieldType
 init|=
 name|mapper
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|fieldname
 argument_list|)

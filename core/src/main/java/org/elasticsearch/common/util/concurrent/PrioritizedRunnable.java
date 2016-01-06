@@ -30,20 +30,6 @@ name|Priority
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment

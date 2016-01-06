@@ -90,7 +90,7 @@ name|nio
 operator|.
 name|file
 operator|.
-name|*
+name|Path
 import|;
 end_import
 

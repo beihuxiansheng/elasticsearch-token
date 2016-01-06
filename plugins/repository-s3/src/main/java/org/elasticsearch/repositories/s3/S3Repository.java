@@ -436,7 +436,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Bucket setting is not set - use global region setting
+comment|// InternalBucket setting is not set - use global region setting
 name|String
 name|regionSetting
 init|=

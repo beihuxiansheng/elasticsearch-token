@@ -96,6 +96,16 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Callback invoked after new cluster state is published. Note that      * this method is not invoked if the cluster state was not updated.      */
+DECL|method|clusterStatePublished
+specifier|default
+name|void
+name|clusterStatePublished
+parameter_list|(
+name|ClusterState
+name|newClusterState
+parameter_list|)
+block|{     }
 comment|/**      * Represents the result of a batched execution of cluster state update tasks      * @param<T> the type of the cluster state update task      */
 DECL|class|BatchResult
 class|class

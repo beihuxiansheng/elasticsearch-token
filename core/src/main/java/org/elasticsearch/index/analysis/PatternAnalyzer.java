@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|Tokenizer
+name|TokenStream
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|Tokenizer
 import|;
 end_import
 

@@ -136,26 +136,6 @@ name|snapshots
 operator|.
 name|get
 operator|.
-name|GetSnapshotsRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|snapshots
-operator|.
-name|get
-operator|.
 name|GetSnapshotsResponse
 import|;
 end_import
@@ -364,9 +344,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
+name|index
 operator|.
-name|SearchResponse
+name|IndexRequestBuilder
 import|;
 end_import
 
@@ -378,9 +358,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
+name|search
 operator|.
-name|IndexRequestBuilder
+name|SearchResponse
 import|;
 end_import
 
@@ -583,18 +563,6 @@ operator|.
 name|common
 operator|.
 name|Priority
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
 import|;
 end_import
 
@@ -855,20 +823,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|Requests
-operator|.
-name|getSnapshotsRequest
 import|;
 end_import
 

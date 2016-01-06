@@ -82,9 +82,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
+name|common
 operator|.
-name|Environment
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -94,11 +96,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Environment
 import|;
 end_import
 

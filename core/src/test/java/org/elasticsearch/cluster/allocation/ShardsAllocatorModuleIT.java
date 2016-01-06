@@ -140,7 +140,7 @@ name|test
 operator|.
 name|ESIntegTestCase
 operator|.
-name|*
+name|Scope
 import|;
 end_import
 

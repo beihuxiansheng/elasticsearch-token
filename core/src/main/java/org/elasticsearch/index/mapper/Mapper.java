@@ -740,17 +740,34 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
+comment|/** Return the merge of {@code mergeWith} into this.      *  Both {@code this} and {@code mergeWith} will be left unmodified. */
 DECL|method|merge
 specifier|public
 specifier|abstract
-name|void
+name|Mapper
 name|merge
 parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeResult
-name|mergeResult
+name|boolean
+name|updateAllTypes
+parameter_list|)
+function_decl|;
+comment|/**      * Update the field type of this mapper. This is necessary because some mapping updates      * can modify mappings across several types. This method must return a copy of the mapper      * so that the current mapper is not modified.      */
+DECL|method|updateFieldType
+specifier|public
+specifier|abstract
+name|Mapper
+name|updateFieldType
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|MappedFieldType
+argument_list|>
+name|fullNameToFieldType
 parameter_list|)
 function_decl|;
 block|}

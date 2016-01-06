@@ -62,7 +62,19 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|*
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Template
 import|;
 end_import
 
