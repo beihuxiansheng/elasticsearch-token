@@ -2182,6 +2182,13 @@ name|context
 operator|.
 name|isOnlyCount
 argument_list|()
+operator|||
+name|context
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 name|TotalHitCountCollector
