@@ -104,6 +104,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ingest
+operator|.
+name|ProcessorsRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESSingleNodeTestCase
@@ -161,16 +173,6 @@ operator|.
 name|mockito
 operator|.
 name|Mockito
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -294,9 +296,8 @@ name|clusterService
 argument_list|,
 name|transportService
 argument_list|,
-name|Collections
-operator|.
-name|emptyMap
+operator|new
+name|ProcessorsRegistry
 argument_list|()
 argument_list|)
 expr_stmt|;
