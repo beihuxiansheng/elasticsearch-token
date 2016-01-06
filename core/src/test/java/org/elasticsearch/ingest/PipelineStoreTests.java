@@ -250,16 +250,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -343,6 +333,30 @@ operator|.
 name|Matchers
 operator|.
 name|nullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|argThat
 import|;
 end_import
 
@@ -440,8 +454,6 @@ name|client
 operator|.
 name|search
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -464,8 +476,6 @@ name|client
 operator|.
 name|searchScroll
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -565,8 +575,6 @@ name|client
 operator|.
 name|search
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -586,8 +594,6 @@ name|client
 operator|.
 name|get
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -661,8 +667,6 @@ name|client
 operator|.
 name|get
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -1002,8 +1006,6 @@ name|client
 operator|.
 name|search
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -1568,8 +1570,6 @@ name|id
 parameter_list|)
 block|{
 return|return
-name|Matchers
-operator|.
 name|argThat
 argument_list|(
 operator|new

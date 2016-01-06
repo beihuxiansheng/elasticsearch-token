@@ -366,16 +366,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -439,6 +429,30 @@ operator|.
 name|Is
 operator|.
 name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|anyString
 import|;
 end_import
 
@@ -556,8 +570,6 @@ name|threadPool
 operator|.
 name|executor
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -684,8 +696,6 @@ name|client
 operator|.
 name|search
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -710,8 +720,6 @@ name|client
 operator|.
 name|searchScroll
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -824,8 +832,6 @@ name|client
 operator|.
 name|search
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -847,8 +853,6 @@ name|client
 operator|.
 name|get
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -1300,8 +1304,6 @@ argument_list|)
 operator|.
 name|stop
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)
@@ -1421,8 +1423,6 @@ argument_list|)
 operator|.
 name|stop
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)
@@ -1479,8 +1479,6 @@ argument_list|)
 operator|.
 name|stop
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)
@@ -1843,8 +1841,6 @@ argument_list|)
 operator|.
 name|stop
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)
@@ -1901,8 +1897,6 @@ argument_list|)
 operator|.
 name|stop
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)
@@ -2185,8 +2179,6 @@ argument_list|)
 operator|.
 name|stop
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)
@@ -2243,8 +2235,6 @@ argument_list|)
 operator|.
 name|stop
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)
@@ -2545,8 +2535,6 @@ argument_list|)
 operator|.
 name|stop
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)

@@ -212,16 +212,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|invocation
 operator|.
 name|InvocationOnMock
@@ -279,6 +269,54 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|any
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|anyBoolean
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|anyString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Matchers
+operator|.
+name|argThat
 import|;
 end_import
 
@@ -417,8 +455,6 @@ name|threadPool
 operator|.
 name|executor
 argument_list|(
-name|Matchers
-operator|.
 name|anyString
 argument_list|()
 argument_list|)
@@ -571,8 +607,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|Throwable
@@ -591,8 +625,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|anyBoolean
 argument_list|()
 argument_list|)
@@ -719,8 +751,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -858,8 +888,6 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -964,8 +992,6 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -980,8 +1006,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -1271,8 +1295,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|RuntimeException
@@ -1291,8 +1313,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|anyBoolean
 argument_list|()
 argument_list|)
@@ -1483,8 +1503,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|RuntimeException
@@ -1747,8 +1765,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|RuntimeException
@@ -1767,8 +1783,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|anyBoolean
 argument_list|()
 argument_list|)
@@ -2063,8 +2077,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|RuntimeException
@@ -2083,8 +2095,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|anyBoolean
 argument_list|()
 argument_list|)
@@ -2245,8 +2255,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -2402,8 +2410,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|(
 name|ElasticsearchParseException
@@ -2422,8 +2428,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|anyBoolean
 argument_list|()
 argument_list|)
@@ -2557,8 +2561,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -2742,8 +2744,6 @@ argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -3006,8 +3006,6 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|Matchers
-operator|.
 name|any
 argument_list|()
 argument_list|)
@@ -3052,8 +3050,6 @@ name|source
 parameter_list|)
 block|{
 return|return
-name|Matchers
-operator|.
 name|argThat
 argument_list|(
 operator|new
