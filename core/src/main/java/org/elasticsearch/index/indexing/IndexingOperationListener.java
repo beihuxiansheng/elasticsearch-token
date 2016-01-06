@@ -59,18 +59,6 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p>      * Note, long operations should not occur under this callback.      */
-DECL|method|postIndexUnderLock
-specifier|public
-name|void
-name|postIndexUnderLock
-parameter_list|(
-name|Engine
-operator|.
-name|Index
-name|index
-parameter_list|)
-block|{      }
 comment|/**      * Called after the indexing operation occurred.      */
 DECL|method|postIndex
 specifier|public
@@ -116,18 +104,6 @@ return|return
 name|delete
 return|;
 block|}
-comment|/**      * Called after the delete occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p>      * Note, long operations should not occur under this callback.      */
-DECL|method|postDeleteUnderLock
-specifier|public
-name|void
-name|postDeleteUnderLock
-parameter_list|(
-name|Engine
-operator|.
-name|Delete
-name|delete
-parameter_list|)
-block|{      }
 comment|/**      * Called after the delete operation occurred.      */
 DECL|method|postDelete
 specifier|public
