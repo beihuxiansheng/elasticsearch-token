@@ -56,8 +56,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|append
-operator|.
 name|AppendProcessor
 import|;
 end_import
@@ -71,8 +69,6 @@ operator|.
 name|ingest
 operator|.
 name|processor
-operator|.
-name|convert
 operator|.
 name|ConvertProcessor
 import|;
@@ -88,8 +84,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|date
-operator|.
 name|DateProcessor
 import|;
 end_import
@@ -103,8 +97,6 @@ operator|.
 name|ingest
 operator|.
 name|processor
-operator|.
-name|fail
 operator|.
 name|FailProcessor
 import|;
@@ -120,8 +112,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|geoip
-operator|.
 name|GeoIpProcessor
 import|;
 end_import
@@ -135,8 +125,6 @@ operator|.
 name|ingest
 operator|.
 name|processor
-operator|.
-name|grok
 operator|.
 name|GrokProcessor
 import|;
@@ -152,8 +140,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|gsub
-operator|.
 name|GsubProcessor
 import|;
 end_import
@@ -167,8 +153,6 @@ operator|.
 name|ingest
 operator|.
 name|processor
-operator|.
-name|join
 operator|.
 name|JoinProcessor
 import|;
@@ -184,8 +168,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|lowercase
-operator|.
 name|LowercaseProcessor
 import|;
 end_import
@@ -199,8 +181,6 @@ operator|.
 name|ingest
 operator|.
 name|processor
-operator|.
-name|remove
 operator|.
 name|RemoveProcessor
 import|;
@@ -216,8 +196,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|rename
-operator|.
 name|RenameProcessor
 import|;
 end_import
@@ -231,8 +209,6 @@ operator|.
 name|ingest
 operator|.
 name|processor
-operator|.
-name|set
 operator|.
 name|SetProcessor
 import|;
@@ -248,8 +224,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|split
-operator|.
 name|SplitProcessor
 import|;
 end_import
@@ -264,8 +238,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|trim
-operator|.
 name|TrimProcessor
 import|;
 end_import
@@ -279,8 +251,6 @@ operator|.
 name|ingest
 operator|.
 name|processor
-operator|.
-name|uppercase
 operator|.
 name|UppercaseProcessor
 import|;

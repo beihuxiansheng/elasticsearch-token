@@ -182,8 +182,6 @@ name|ingest
 operator|.
 name|processor
 operator|.
-name|set
-operator|.
 name|SetProcessor
 import|;
 end_import
