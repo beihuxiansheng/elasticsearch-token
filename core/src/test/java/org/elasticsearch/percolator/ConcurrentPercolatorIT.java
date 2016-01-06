@@ -1148,6 +1148,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"reproduces= -Dtests.seed=DA9C1BDEB045305C"
+argument_list|)
 DECL|method|testConcurrentAddingAndPercolating
 specifier|public
 name|void
