@@ -1357,6 +1357,17 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getTag
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 decl_stmt|;
 name|when

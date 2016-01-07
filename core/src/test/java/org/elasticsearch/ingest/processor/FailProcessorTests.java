@@ -133,6 +133,11 @@ init|=
 operator|new
 name|FailProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 operator|new
 name|TestTemplateService
 operator|.

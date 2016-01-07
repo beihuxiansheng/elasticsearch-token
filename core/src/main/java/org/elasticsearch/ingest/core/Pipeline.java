@@ -420,7 +420,7 @@ name|Object
 argument_list|>
 argument_list|>
 argument_list|>
-name|onFailureProcessorConfigs
+name|processorConfigs
 init|=
 name|ConfigurationUtils
 operator|.
@@ -435,7 +435,7 @@ name|List
 argument_list|<
 name|Processor
 argument_list|>
-name|onFailureProcessors
+name|processors
 init|=
 operator|new
 name|ArrayList
@@ -444,7 +444,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|onFailureProcessorConfigs
+name|processorConfigs
 operator|!=
 literal|null
 condition|)
@@ -464,7 +464,7 @@ argument_list|>
 argument_list|>
 name|processorConfigWithKey
 range|:
-name|onFailureProcessorConfigs
+name|processorConfigs
 control|)
 block|{
 for|for
@@ -490,7 +490,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|onFailureProcessors
+name|processors
 operator|.
 name|add
 argument_list|(
@@ -514,7 +514,7 @@ block|}
 block|}
 block|}
 return|return
-name|onFailureProcessors
+name|processors
 return|;
 block|}
 DECL|method|readProcessor

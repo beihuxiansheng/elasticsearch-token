@@ -545,6 +545,11 @@ return|return
 operator|new
 name|SetProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|templateService
 operator|.
 name|compile

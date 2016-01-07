@@ -174,6 +174,11 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 literal|"source_field"
 argument_list|,
 operator|new
@@ -489,6 +494,11 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 literal|"source_field"
 argument_list|,
 operator|new
@@ -707,6 +717,11 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 literal|"source_field"
 argument_list|,
 operator|new
@@ -848,6 +863,11 @@ init|=
 operator|new
 name|GeoIpProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 literal|"source_field"
 argument_list|,
 operator|new
