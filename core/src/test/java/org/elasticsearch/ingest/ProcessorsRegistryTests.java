@@ -144,7 +144,7 @@ argument_list|()
 decl_stmt|;
 name|processorsRegistry
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 literal|"1"
 argument_list|,
@@ -170,7 +170,7 @@ argument_list|()
 decl_stmt|;
 name|processorsRegistry
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 literal|"2"
 argument_list|,
@@ -198,7 +198,7 @@ try|try
 block|{
 name|processorsRegistry
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 literal|"1"
 argument_list|,

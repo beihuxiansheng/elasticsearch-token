@@ -344,7 +344,7 @@ parameter_list|)
 block|{
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|GeoIpProcessor
 operator|.
@@ -370,7 +370,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|GrokProcessor
 operator|.
@@ -396,7 +396,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|DateProcessor
 operator|.
@@ -417,7 +417,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|SetProcessor
 operator|.
@@ -440,7 +440,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|AppendProcessor
 operator|.
@@ -463,7 +463,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|RenameProcessor
 operator|.
@@ -484,7 +484,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|RemoveProcessor
 operator|.
@@ -507,7 +507,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|SplitProcessor
 operator|.
@@ -528,7 +528,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|JoinProcessor
 operator|.
@@ -549,7 +549,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|UppercaseProcessor
 operator|.
@@ -570,7 +570,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|LowercaseProcessor
 operator|.
@@ -591,7 +591,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|TrimProcessor
 operator|.
@@ -612,7 +612,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|ConvertProcessor
 operator|.
@@ -633,7 +633,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|GsubProcessor
 operator|.
@@ -654,7 +654,7 @@ argument_list|)
 expr_stmt|;
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|FailProcessor
 operator|.

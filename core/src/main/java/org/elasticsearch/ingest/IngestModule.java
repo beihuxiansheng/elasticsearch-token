@@ -176,10 +176,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Adds a processor factory under a specific type name.      */
-DECL|method|addProcessor
+DECL|method|registerProcessor
 specifier|public
 name|void
-name|addProcessor
+name|registerProcessor
 parameter_list|(
 name|String
 name|type
@@ -202,7 +202,7 @@ parameter_list|)
 block|{
 name|processorsRegistry
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 name|type
 argument_list|,

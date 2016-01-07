@@ -1780,7 +1780,7 @@ parameter_list|)
 block|{
 name|ingestModule
 operator|.
-name|addProcessor
+name|registerProcessor
 argument_list|(
 literal|"test"
 argument_list|,

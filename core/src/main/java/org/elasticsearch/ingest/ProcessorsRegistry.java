@@ -131,10 +131,10 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Adds a processor factory under a specific name.      */
-DECL|method|addProcessor
+DECL|method|registerProcessor
 specifier|public
 name|void
-name|addProcessor
+name|registerProcessor
 parameter_list|(
 name|String
 name|name
