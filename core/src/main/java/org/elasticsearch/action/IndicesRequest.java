@@ -58,13 +58,13 @@ name|Replaceable
 extends|extends
 name|IndicesRequest
 block|{
-comment|/*          * Sets the array of indices that the action relates to          */
+comment|/**          * Sets the indices that the action relates to.          */
 DECL|method|indices
 name|IndicesRequest
 name|indices
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|indices
 parameter_list|)
 function_decl|;
