@@ -265,7 +265,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: this switch seems very wrong...either each case should be breaking, or this should not be a switch
 switch|switch
 condition|(
 name|field
@@ -286,6 +285,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|IdFieldMapper
 operator|.
@@ -301,6 +301,7 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|TypeFieldMapper
 operator|.
@@ -316,6 +317,7 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 block|}
 if|if
