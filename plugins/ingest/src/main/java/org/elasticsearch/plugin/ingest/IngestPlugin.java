@@ -342,11 +342,6 @@ name|IngestModule
 name|ingestModule
 parameter_list|)
 block|{
-if|if
-condition|(
-name|ingestEnabled
-condition|)
-block|{
 name|ingestModule
 operator|.
 name|addProcessor
@@ -680,7 +675,6 @@ name|templateService
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
