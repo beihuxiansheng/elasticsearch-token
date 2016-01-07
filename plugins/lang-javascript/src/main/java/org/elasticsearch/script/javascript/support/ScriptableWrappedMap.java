@@ -20,30 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|mozilla
-operator|.
-name|javascript
-operator|.
-name|Scriptable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mozilla
-operator|.
-name|javascript
-operator|.
-name|Wrapper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -82,6 +58,30 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|mozilla
+operator|.
+name|javascript
+operator|.
+name|Scriptable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mozilla
+operator|.
+name|javascript
+operator|.
+name|Wrapper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implementation of a Scriptable Map. This is the best choice where you want values to be  * persisted directly to an underlying map supplied on construction. The class automatically  * wraps/unwraps JS objects as they enter/leave the underlying map via the Scriptable interface  * methods - objects are untouched if accessed via the usual Map interface methods.  *<p>Access should be by string key only - not integer index - unless you are sure the wrapped  * map will maintain insertion order of the elements.  *  *  */
 end_comment
@@ -93,12 +93,22 @@ class|class
 name|ScriptableWrappedMap
 implements|implements
 name|ScriptableMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 implements|,
 name|Wrapper
 block|{
 DECL|field|map
 specifier|private
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|map
 decl_stmt|;
 DECL|field|parentScope
@@ -146,6 +156,11 @@ specifier|public
 name|ScriptableWrappedMap
 parameter_list|(
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|map
 parameter_list|)
 block|{
@@ -165,6 +180,11 @@ name|Scriptable
 name|scope
 parameter_list|,
 name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 name|map
 parameter_list|)
 block|{
@@ -181,7 +201,8 @@ operator|=
 name|map
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)     * @see org.mozilla.javascript.Wrapper#unwrap()     */
+annotation|@
+name|Override
 DECL|method|unwrap
 specifier|public
 name|Object
@@ -192,7 +213,8 @@ return|return
 name|map
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#getClassName()      */
+annotation|@
+name|Override
 DECL|method|getClassName
 specifier|public
 name|String
@@ -203,7 +225,8 @@ return|return
 literal|"ScriptableWrappedMap"
 return|;
 block|}
-comment|/* (non-Javadoc)     * @see org.mozilla.javascript.Scriptable#get(java.lang.String, org.mozilla.javascript.Scriptable)     */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Object
@@ -263,7 +286,8 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#get(int, org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Object
@@ -287,6 +311,9 @@ init|=
 literal|0
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|itrValues
 init|=
 name|map
@@ -339,7 +366,8 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#has(java.lang.String, org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|has
 specifier|public
 name|boolean
@@ -362,7 +390,8 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#has(int, org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|has
 specifier|public
 name|boolean
@@ -393,12 +422,8 @@ name|index
 operator|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#put(java.lang.String, org.mozilla.javascript.Scriptable, java.lang.Object)      */
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
+name|Override
 DECL|method|put
 specifier|public
 name|void
@@ -429,7 +454,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#put(int, org.mozilla.javascript.Scriptable, java.lang.Object)      */
+annotation|@
+name|Override
 DECL|method|put
 specifier|public
 name|void
@@ -447,7 +473,8 @@ parameter_list|)
 block|{
 comment|// TODO: implement?
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#delete(java.lang.String)      */
+annotation|@
+name|Override
 DECL|method|delete
 specifier|public
 name|void
@@ -465,7 +492,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#delete(int)      */
+annotation|@
+name|Override
 DECL|method|delete
 specifier|public
 name|void
@@ -481,6 +509,9 @@ init|=
 literal|0
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|itrKeys
 init|=
 name|map
@@ -529,7 +560,8 @@ break|break;
 block|}
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#getPrototype()      */
+annotation|@
+name|Override
 DECL|method|getPrototype
 specifier|public
 name|Scriptable
@@ -542,7 +574,8 @@ operator|.
 name|prototype
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#setPrototype(org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|setPrototype
 specifier|public
 name|void
@@ -559,7 +592,8 @@ operator|=
 name|prototype
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#getParentScope()      */
+annotation|@
+name|Override
 DECL|method|getParentScope
 specifier|public
 name|Scriptable
@@ -572,7 +606,8 @@ operator|.
 name|parentScope
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#setParentScope(org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|setParentScope
 specifier|public
 name|void
@@ -589,7 +624,8 @@ operator|=
 name|parent
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#getIds()      */
+annotation|@
+name|Override
 DECL|method|getIds
 specifier|public
 name|Object
@@ -607,13 +643,17 @@ name|toArray
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#getDefaultValue(java.lang.Class)      */
+annotation|@
+name|Override
 DECL|method|getDefaultValue
 specifier|public
 name|Object
 name|getDefaultValue
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|hint
 parameter_list|)
 block|{
@@ -621,7 +661,8 @@ return|return
 literal|null
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.mozilla.javascript.Scriptable#hasInstance(org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|hasInstance
 specifier|public
 name|boolean
@@ -667,7 +708,8 @@ name|instance
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)     * @see java.util.Map#clear()     */
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -682,7 +724,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#containsKey(java.lang.Object)      */
+annotation|@
+name|Override
 DECL|method|containsKey
 specifier|public
 name|boolean
@@ -703,7 +746,8 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#containsValue(java.lang.Object)      */
+annotation|@
+name|Override
 DECL|method|containsValue
 specifier|public
 name|boolean
@@ -724,10 +768,21 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#entrySet()      */
+annotation|@
+name|Override
 DECL|method|entrySet
 specifier|public
 name|Set
+argument_list|<
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
 name|entrySet
 parameter_list|()
 block|{
@@ -740,7 +795,8 @@ name|entrySet
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#get(java.lang.Object)      */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Object
@@ -761,7 +817,8 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#isEmpty()      */
+annotation|@
+name|Override
 DECL|method|isEmpty
 specifier|public
 name|boolean
@@ -781,10 +838,14 @@ literal|0
 operator|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#keySet()      */
+annotation|@
+name|Override
 DECL|method|keySet
 specifier|public
 name|Set
+argument_list|<
+name|Object
+argument_list|>
 name|keySet
 parameter_list|()
 block|{
@@ -797,7 +858,8 @@ name|keySet
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#put(java.lang.Object, java.lang.Object)      */
+annotation|@
+name|Override
 DECL|method|put
 specifier|public
 name|Object
@@ -823,13 +885,23 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#putAll(java.util.Map)      */
+annotation|@
+name|Override
 DECL|method|putAll
 specifier|public
 name|void
 name|putAll
 parameter_list|(
 name|Map
+argument_list|<
+name|?
+extends|extends
+name|Object
+argument_list|,
+name|?
+extends|extends
+name|Object
+argument_list|>
 name|t
 parameter_list|)
 block|{
@@ -843,7 +915,8 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#remove(java.lang.Object)      */
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|Object
@@ -864,7 +937,8 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#size()      */
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -880,10 +954,14 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.util.Map#values()      */
+annotation|@
+name|Override
 DECL|method|values
 specifier|public
 name|Collection
+argument_list|<
+name|Object
+argument_list|>
 name|values
 parameter_list|()
 block|{
@@ -896,7 +974,6 @@ name|values
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see java.lang.Object#toString()      */
 annotation|@
 name|Override
 DECL|method|toString
