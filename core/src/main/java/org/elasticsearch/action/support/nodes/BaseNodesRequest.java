@@ -121,14 +121,17 @@ specifier|abstract
 class|class
 name|BaseNodesRequest
 parameter_list|<
-name|T
+name|Self
 extends|extends
 name|BaseNodesRequest
+parameter_list|<
+name|Self
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
 argument_list|<
-name|T
+name|Self
 argument_list|>
 block|{
 DECL|field|ALL_NODES
@@ -163,6 +166,9 @@ specifier|protected
 name|BaseNodesRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|,
 name|String
@@ -218,7 +224,7 @@ argument_list|)
 DECL|method|nodesIds
 specifier|public
 specifier|final
-name|T
+name|Self
 name|nodesIds
 parameter_list|(
 name|String
@@ -234,7 +240,7 @@ name|nodesIds
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Self
 operator|)
 name|this
 return|;
@@ -259,7 +265,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Self
 name|timeout
 parameter_list|(
 name|TimeValue
@@ -274,7 +280,7 @@ name|timeout
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Self
 operator|)
 name|this
 return|;
@@ -287,7 +293,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Self
 name|timeout
 parameter_list|(
 name|String
@@ -317,7 +323,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Self
 operator|)
 name|this
 return|;

@@ -143,14 +143,17 @@ specifier|abstract
 class|class
 name|AcknowledgedRequest
 parameter_list|<
-name|T
+name|Self
 extends|extends
 name|MasterNodeRequest
+parameter_list|<
+name|Self
+parameter_list|>
 parameter_list|>
 extends|extends
 name|MasterNodeRequest
 argument_list|<
-name|T
+name|Self
 argument_list|>
 implements|implements
 name|AckedRequest
@@ -184,6 +187,9 @@ specifier|protected
 name|AcknowledgedRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|)
 block|{
@@ -202,7 +208,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Self
 name|timeout
 parameter_list|(
 name|String
@@ -234,7 +240,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Self
 operator|)
 name|this
 return|;
@@ -248,7 +254,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Self
 name|timeout
 parameter_list|(
 name|TimeValue
@@ -263,7 +269,7 @@ name|timeout
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Self
 operator|)
 name|this
 return|;

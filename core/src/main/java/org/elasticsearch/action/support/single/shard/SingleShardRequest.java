@@ -161,14 +161,17 @@ specifier|abstract
 class|class
 name|SingleShardRequest
 parameter_list|<
-name|T
+name|Self
 extends|extends
 name|SingleShardRequest
+parameter_list|<
+name|Self
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
 argument_list|<
-name|T
+name|Self
 argument_list|>
 implements|implements
 name|IndicesRequest
@@ -229,6 +232,9 @@ specifier|protected
 name|SingleShardRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|)
 block|{
@@ -243,6 +249,9 @@ specifier|protected
 name|SingleShardRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|,
 name|String
@@ -318,7 +327,7 @@ argument_list|)
 DECL|method|index
 specifier|public
 specifier|final
-name|T
+name|Self
 name|index
 parameter_list|(
 name|String
@@ -333,7 +342,7 @@ name|index
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Self
 operator|)
 name|this
 return|;
@@ -388,7 +397,7 @@ argument_list|)
 DECL|method|operationThreaded
 specifier|public
 specifier|final
-name|T
+name|Self
 name|operationThreaded
 parameter_list|(
 name|boolean
@@ -403,7 +412,7 @@ name|threadedOperation
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Self
 operator|)
 name|this
 return|;
