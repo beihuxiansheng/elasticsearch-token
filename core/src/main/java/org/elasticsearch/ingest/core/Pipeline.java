@@ -350,7 +350,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No processor type exist with name ["
+literal|"No processor type exists with name ["
 operator|+
 name|type
 operator|+
