@@ -608,7 +608,7 @@ name|metrics
 operator|.
 name|avg
 operator|.
-name|AvgBuilder
+name|AvgAggregator
 import|;
 end_import
 
@@ -972,7 +972,7 @@ name|stats
 operator|.
 name|extended
 operator|.
-name|ExtendedStatsBuilder
+name|ExtendedStatsAggregator
 import|;
 end_import
 
@@ -1122,7 +1122,9 @@ comment|/**      * Create a new {@link Avg} aggregation with the given name.    
 DECL|method|avg
 specifier|public
 specifier|static
-name|AvgBuilder
+name|AvgAggregator
+operator|.
+name|Factory
 name|avg
 parameter_list|(
 name|String
@@ -1131,7 +1133,9 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|AvgBuilder
+name|AvgAggregator
+operator|.
+name|Factory
 argument_list|(
 name|name
 argument_list|)
@@ -1217,7 +1221,9 @@ comment|/**      * Create a new {@link ExtendedStats} aggregation with the given
 DECL|method|extendedStats
 specifier|public
 specifier|static
-name|ExtendedStatsBuilder
+name|ExtendedStatsAggregator
+operator|.
+name|Factory
 name|extendedStats
 parameter_list|(
 name|String
@@ -1226,7 +1232,9 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ExtendedStatsBuilder
+name|ExtendedStatsAggregator
+operator|.
+name|Factory
 argument_list|(
 name|name
 argument_list|)
