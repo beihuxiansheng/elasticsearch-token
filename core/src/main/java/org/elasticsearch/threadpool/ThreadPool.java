@@ -294,6 +294,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|IngestModule
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1994,6 +2006,16 @@ literal|"5m"
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|IngestModule
+operator|.
+name|isIngestEnabled
+argument_list|(
+name|settings
+argument_list|)
+condition|)
+block|{
 name|add
 argument_list|(
 name|defaultExecutorTypeSettings
@@ -2017,6 +2039,7 @@ literal|200
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|defaultExecutorTypeSettings

@@ -3222,6 +3222,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|IngestModule
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -3431,13 +3443,11 @@ name|this
 operator|.
 name|ingestEnabled
 operator|=
-name|settings
+name|IngestModule
 operator|.
-name|getAsBoolean
+name|isIngestEnabled
 argument_list|(
-literal|"node.ingest"
-argument_list|,
-literal|false
+name|settings
 argument_list|)
 expr_stmt|;
 name|this
