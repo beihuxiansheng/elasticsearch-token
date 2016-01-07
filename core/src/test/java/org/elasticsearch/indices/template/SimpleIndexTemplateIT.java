@@ -540,6 +540,13 @@ name|SimpleIndexTemplateIT
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"temporarily ignored till we have removed the ingest index template"
+argument_list|)
 DECL|method|testSimpleIndexTemplateTests
 specifier|public
 name|void
@@ -3114,6 +3121,13 @@ block|{
 comment|//everything fine
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"temporarily ignored till we have removed the ingest index template"
+argument_list|)
 DECL|method|testInvalidSettings
 specifier|public
 name|void
