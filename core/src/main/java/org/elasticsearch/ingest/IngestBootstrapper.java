@@ -306,6 +306,18 @@ name|InputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|RejectedExecutionException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Instantiates and wires all the services that the ingest plugin will be needing.  * Also the bootstrapper is in charge of starting and stopping the ingest plugin based on the cluster state.  */
 end_comment
@@ -1028,6 +1040,8 @@ name|MetaData
 name|metaData
 parameter_list|)
 block|{
+try|try
+block|{
 name|threadPool
 operator|.
 name|executor
@@ -1092,6 +1106,23 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|RejectedExecutionException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"async pipeline store start failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|stopPipelineStore
 name|void
 name|stopPipelineStore
@@ -1099,6 +1130,8 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|)
+block|{
+try|try
 block|{
 name|threadPool
 operator|.
@@ -1145,6 +1178,23 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RejectedExecutionException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"async pipeline store stop failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
