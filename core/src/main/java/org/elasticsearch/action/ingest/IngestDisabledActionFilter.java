@@ -247,7 +247,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"ingest plugin is disabled, cannot execute pipeline with id ["
+literal|"node.ingest is set to false, cannot execute pipeline with id ["
 operator|+
 name|pipelineId
 operator|+
