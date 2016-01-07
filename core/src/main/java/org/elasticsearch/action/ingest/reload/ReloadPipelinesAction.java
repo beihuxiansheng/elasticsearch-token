@@ -340,7 +340,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|SAME
+name|MANAGEMENT
 argument_list|,
 name|this
 argument_list|)
@@ -580,7 +580,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|MANAGEMENT
+name|SAME
 return|;
 block|}
 block|}
