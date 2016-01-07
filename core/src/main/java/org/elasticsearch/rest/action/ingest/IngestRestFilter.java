@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|inject
+name|ingest
 operator|.
-name|Inject
+name|IngestActionFilter
 import|;
 end_import
 
@@ -38,11 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|common
 operator|.
-name|core
+name|inject
 operator|.
-name|ConfigurationUtils
+name|Inject
 import|;
 end_import
 
@@ -157,7 +157,7 @@ name|request
 operator|.
 name|hasParam
 argument_list|(
-name|ConfigurationUtils
+name|IngestActionFilter
 operator|.
 name|PIPELINE_ID_PARAM
 argument_list|)
@@ -167,7 +167,7 @@ name|request
 operator|.
 name|putInContext
 argument_list|(
-name|ConfigurationUtils
+name|IngestActionFilter
 operator|.
 name|PIPELINE_ID_PARAM_CONTEXT_KEY
 argument_list|,
@@ -175,7 +175,7 @@ name|request
 operator|.
 name|param
 argument_list|(
-name|ConfigurationUtils
+name|IngestActionFilter
 operator|.
 name|PIPELINE_ID_PARAM
 argument_list|)

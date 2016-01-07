@@ -92,20 +92,6 @@ name|Task
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|ConfigurationUtils
-import|;
-end_import
-
 begin_class
 DECL|class|IngestDisabledActionFilter
 specifier|public
@@ -145,7 +131,7 @@ name|request
 operator|.
 name|getFromContext
 argument_list|(
-name|ConfigurationUtils
+name|IngestActionFilter
 operator|.
 name|PIPELINE_ID_PARAM_CONTEXT_KEY
 argument_list|)
@@ -169,7 +155,7 @@ name|request
 operator|.
 name|getHeader
 argument_list|(
-name|ConfigurationUtils
+name|IngestActionFilter
 operator|.
 name|PIPELINE_ID_PARAM
 argument_list|)
