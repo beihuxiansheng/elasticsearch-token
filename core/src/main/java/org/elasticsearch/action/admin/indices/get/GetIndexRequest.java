@@ -183,19 +183,6 @@ literal|2
 argument_list|,
 literal|"_settings"
 argument_list|)
-block|,
-DECL|enum constant|WARMERS
-name|WARMERS
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|3
-argument_list|,
-literal|"_warmers"
-argument_list|,
-literal|"_warmer"
-argument_list|)
 block|;
 DECL|field|FEATURES
 specifier|private
@@ -543,10 +530,6 @@ block|,
 name|Feature
 operator|.
 name|SETTINGS
-block|,
-name|Feature
-operator|.
-name|WARMERS
 block|}
 decl_stmt|;
 DECL|field|features

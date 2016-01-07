@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|mozilla
-operator|.
-name|javascript
-operator|.
-name|Scriptable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -57,6 +45,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mozilla
+operator|.
+name|javascript
+operator|.
+name|Scriptable
 import|;
 end_import
 
@@ -147,6 +147,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#getClassName()      */
+annotation|@
+name|Override
 DECL|method|getClassName
 specifier|public
 name|String
@@ -158,6 +160,8 @@ literal|"ScriptableMap"
 return|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#get(java.lang.String, org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Object
@@ -199,6 +203,8 @@ return|;
 block|}
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#get(int, org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Object
@@ -222,6 +228,9 @@ init|=
 literal|0
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|V
+argument_list|>
 name|itrValues
 init|=
 name|this
@@ -258,6 +267,8 @@ name|value
 return|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#has(java.lang.String, org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|has
 specifier|public
 name|boolean
@@ -279,6 +290,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#has(int, org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|has
 specifier|public
 name|boolean
@@ -310,6 +323,8 @@ operator|)
 return|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#put(java.lang.String, org.mozilla.javascript.Scriptable, java.lang.Object)      */
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -346,6 +361,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#put(int, org.mozilla.javascript.Scriptable, java.lang.Object)      */
+annotation|@
+name|Override
 DECL|method|put
 specifier|public
 name|void
@@ -364,6 +381,8 @@ block|{
 comment|// TODO: implement?
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#delete(java.lang.String)      */
+annotation|@
+name|Override
 DECL|method|delete
 specifier|public
 name|void
@@ -381,6 +400,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#delete(int)      */
+annotation|@
+name|Override
 DECL|method|delete
 specifier|public
 name|void
@@ -396,6 +417,9 @@ init|=
 literal|0
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|K
+argument_list|>
 name|itrKeys
 init|=
 name|this
@@ -443,6 +467,8 @@ block|}
 block|}
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#getPrototype()      */
+annotation|@
+name|Override
 DECL|method|getPrototype
 specifier|public
 name|Scriptable
@@ -456,6 +482,8 @@ name|prototype
 return|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#setPrototype(org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|setPrototype
 specifier|public
 name|void
@@ -473,6 +501,8 @@ name|prototype
 expr_stmt|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#getParentScope()      */
+annotation|@
+name|Override
 DECL|method|getParentScope
 specifier|public
 name|Scriptable
@@ -486,6 +516,8 @@ name|parentScope
 return|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#setParentScope(org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|setParentScope
 specifier|public
 name|void
@@ -503,6 +535,8 @@ name|parent
 expr_stmt|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#getIds()      */
+annotation|@
+name|Override
 DECL|method|getIds
 specifier|public
 name|Object
@@ -519,12 +553,17 @@ argument_list|()
 return|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#getDefaultValue(java.lang.Class)      */
+annotation|@
+name|Override
 DECL|method|getDefaultValue
 specifier|public
 name|Object
 name|getDefaultValue
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|hint
 parameter_list|)
 block|{
@@ -533,6 +572,8 @@ literal|null
 return|;
 block|}
 comment|/**      * @see org.mozilla.javascript.Scriptable#hasInstance(org.mozilla.javascript.Scriptable)      */
+annotation|@
+name|Override
 DECL|method|hasInstance
 specifier|public
 name|boolean
