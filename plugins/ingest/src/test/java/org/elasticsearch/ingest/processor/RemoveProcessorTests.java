@@ -24,6 +24,8 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
+name|core
+operator|.
 name|IngestDocument
 import|;
 end_import
@@ -49,6 +51,20 @@ operator|.
 name|ingest
 operator|.
 name|TestTemplateService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|core
+operator|.
+name|Processor
 import|;
 end_import
 

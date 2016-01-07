@@ -186,7 +186,23 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
+name|core
+operator|.
 name|IngestDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|core
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -418,7 +434,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|core
 operator|.
 name|ConfigurationUtils
 operator|.
@@ -434,7 +450,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|core
 operator|.
 name|ConfigurationUtils
 operator|.
