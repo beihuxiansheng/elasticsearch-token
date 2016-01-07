@@ -137,7 +137,6 @@ name|ScriptService
 name|scriptService
 decl_stmt|;
 DECL|method|InternalTemplateService
-specifier|public
 name|InternalTemplateService
 parameter_list|(
 name|ScriptService

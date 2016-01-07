@@ -4,13 +4,11 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.ingest
+DECL|package|org.elasticsearch.ingest
 package|package
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|plugin
 operator|.
 name|ingest
 package|;
