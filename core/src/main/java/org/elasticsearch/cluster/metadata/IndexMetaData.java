@@ -388,20 +388,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|warmer
-operator|.
-name|IndexWarmersMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|joda
 operator|.
 name|time
@@ -732,21 +718,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-static|static
-block|{
-comment|// register non plugin custom metadata
-name|registerPrototype
-argument_list|(
-name|IndexWarmersMetaData
-operator|.
-name|TYPE
-argument_list|,
-name|IndexWarmersMetaData
-operator|.
-name|PROTO
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Register a custom index meta data factory. Make sure to call it from a static block.      */
 DECL|method|registerPrototype
 specifier|public
@@ -5805,6 +5776,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+literal|"warmers"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+comment|// TODO: do this in 4.0:
+comment|// throw new IllegalArgumentException("Warmers are not supported anymore - are you upgrading from 1.x?");
+comment|// ignore: warmers have been removed in 3.0 and are
+comment|// simply ignored when upgrading from 2.x
+assert|assert
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|major
+operator|<=
+literal|3
+assert|;
 block|}
 else|else
 block|{
