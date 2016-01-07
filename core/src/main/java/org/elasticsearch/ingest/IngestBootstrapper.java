@@ -1084,7 +1084,7 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|e1
 parameter_list|)
 block|{
 name|logger
@@ -1093,14 +1093,33 @@ name|warn
 argument_list|(
 literal|"pipeline store failed to start, retrying..."
 argument_list|,
-name|e
+name|e1
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|startPipelineStore
 argument_list|(
 name|metaData
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RejectedExecutionException
+name|e2
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"async pipeline store start retry failed"
+argument_list|,
+name|e2
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
