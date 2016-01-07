@@ -437,6 +437,27 @@ argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;
+name|boolean
+name|isNoTribeNode
+init|=
+name|settings
+operator|.
+name|getByPrefix
+argument_list|(
+literal|"tribe."
+argument_list|)
+operator|.
+name|getAsMap
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|isNoTribeNode
+condition|)
+block|{
 name|clusterService
 operator|.
 name|add
@@ -444,6 +465,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// for testing:
 DECL|method|IngestBootstrapper
