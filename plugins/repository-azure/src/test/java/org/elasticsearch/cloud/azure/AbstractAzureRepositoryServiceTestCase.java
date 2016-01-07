@@ -18,29 +18,21 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|microsoft
+name|net
 operator|.
-name|azure
-operator|.
-name|storage
-operator|.
-name|LocationMode
+name|URISyntaxException
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|microsoft
+name|util
 operator|.
-name|azure
-operator|.
-name|storage
-operator|.
-name|StorageException
+name|Collection
 import|;
 end_import
 
@@ -198,21 +190,29 @@ end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|net
+name|microsoft
 operator|.
-name|URISyntaxException
+name|azure
+operator|.
+name|storage
+operator|.
+name|LocationMode
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|util
+name|microsoft
 operator|.
-name|Collection
+name|azure
+operator|.
+name|storage
+operator|.
+name|StorageException
 import|;
 end_import
 
@@ -371,6 +371,12 @@ block|}
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// Supports deprecated settings for testing backwards compatibility
 DECL|method|nodeSettings
 specifier|protected
 name|Settings

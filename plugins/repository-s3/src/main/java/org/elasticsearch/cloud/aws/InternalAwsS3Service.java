@@ -654,6 +654,12 @@ name|maxRetries
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// Handles deprecated settings.
 DECL|method|getClient
 specifier|private
 specifier|synchronized

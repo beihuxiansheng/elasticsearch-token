@@ -472,6 +472,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// Supports deprecated parameters for backwards compatibility
 DECL|method|client
 specifier|public
 specifier|synchronized
@@ -974,12 +982,7 @@ name|pow
 argument_list|(
 literal|2
 argument_list|,
-operator|(
-operator|(
-name|double
-operator|)
 name|retriesAttempted
-operator|)
 operator|/
 literal|2.0d
 argument_list|)

@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -129,26 +149,6 @@ operator|.
 name|repositories
 operator|.
 name|RepositorySettings
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -374,6 +374,12 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Parses settings and read all settings available under cloud.azure.storage.*      * @param settings settings to parse      * @return A tuple with v1 = primary storage and v2 = secondary storage      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// Supports deprecated settings
 DECL|method|parse
 specifier|public
 specifier|static
