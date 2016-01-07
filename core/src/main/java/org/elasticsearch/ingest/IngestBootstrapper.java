@@ -840,6 +840,8 @@ name|void
 name|forkAndInstallIngestIndexTemplate
 parameter_list|()
 block|{
+try|try
+block|{
 name|threadPool
 operator|.
 name|executor
@@ -881,6 +883,23 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|RejectedExecutionException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"async fork and install template failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|installIngestIndexTemplate
 name|void
