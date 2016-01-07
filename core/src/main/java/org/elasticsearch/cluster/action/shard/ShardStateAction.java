@@ -2174,6 +2174,16 @@ operator|=
 name|failure
 expr_stmt|;
 block|}
+DECL|method|getShardRouting
+specifier|public
+name|ShardRouting
+name|getShardRouting
+parameter_list|()
+block|{
+return|return
+name|shardRouting
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|readFrom

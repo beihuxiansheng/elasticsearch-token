@@ -1005,6 +1005,12 @@ argument_list|,
 name|similarityService
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|IndexService
+operator|.
+name|this
+operator|::
+name|getQueryShardContext
 argument_list|)
 expr_stmt|;
 name|this
