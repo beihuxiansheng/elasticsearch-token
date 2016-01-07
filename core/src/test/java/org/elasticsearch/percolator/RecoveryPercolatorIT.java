@@ -1978,6 +1978,13 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"sometimes reprodes with: gradle :core:integTest -Dtests.seed=21DDCAA92013B00C -Dtests.class=org.elasticsearch.percolator.RecoveryPercolatorIT -Dtests.method=\"testMultiPercolatorRecovery\""
+argument_list|)
 DECL|method|testMultiPercolatorRecovery
 specifier|public
 name|void

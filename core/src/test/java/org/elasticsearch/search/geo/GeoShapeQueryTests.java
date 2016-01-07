@@ -2826,7 +2826,7 @@ literal|"type"
 argument_list|,
 literal|"location"
 argument_list|,
-literal|"type=geo_shape"
+literal|"type=geo_shape,tree=quadtree"
 argument_list|)
 operator|.
 name|execute
@@ -2997,6 +2997,8 @@ argument_list|(
 name|getRandom
 argument_list|()
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|GeometryCollectionBuilder
@@ -3030,7 +3032,7 @@ literal|"type"
 argument_list|,
 literal|"location"
 argument_list|,
-literal|"type=geo_shape"
+literal|"type=geo_shape,tree=quadtree"
 argument_list|)
 operator|.
 name|execute
@@ -3214,7 +3216,7 @@ name|relation
 argument_list|(
 name|ShapeRelation
 operator|.
-name|INTERSECTS
+name|CONTAINS
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -3304,7 +3306,7 @@ literal|"type"
 argument_list|,
 literal|"location"
 argument_list|,
-literal|"type=geo_shape"
+literal|"type=geo_shape,tree=quadtree"
 argument_list|)
 operator|.
 name|execute
