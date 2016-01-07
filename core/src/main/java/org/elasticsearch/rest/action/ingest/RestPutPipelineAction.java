@@ -68,8 +68,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|put
-operator|.
 name|PutPipelineAction
 import|;
 end_import
@@ -83,8 +81,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|put
 operator|.
 name|PutPipelineRequest
 import|;

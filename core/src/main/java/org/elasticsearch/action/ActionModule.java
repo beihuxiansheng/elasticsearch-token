@@ -2568,8 +2568,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|delete
-operator|.
 name|DeletePipelineAction
 import|;
 end_import
@@ -2583,8 +2581,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|delete
 operator|.
 name|DeletePipelineTransportAction
 import|;
@@ -2600,8 +2596,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|get
-operator|.
 name|GetPipelineAction
 import|;
 end_import
@@ -2615,8 +2609,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|get
 operator|.
 name|GetPipelineTransportAction
 import|;
@@ -2632,8 +2624,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|put
-operator|.
 name|PutPipelineAction
 import|;
 end_import
@@ -2647,8 +2637,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|put
 operator|.
 name|PutPipelineTransportAction
 import|;
@@ -2664,8 +2652,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|simulate
-operator|.
 name|SimulatePipelineAction
 import|;
 end_import
@@ -2679,8 +2665,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|simulate
 operator|.
 name|SimulatePipelineTransportAction
 import|;

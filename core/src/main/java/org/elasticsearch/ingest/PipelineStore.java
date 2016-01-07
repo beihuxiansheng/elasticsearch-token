@@ -306,8 +306,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|delete
-operator|.
 name|DeletePipelineRequest
 import|;
 end_import
@@ -322,8 +320,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|put
-operator|.
 name|PutPipelineRequest
 import|;
 end_import
@@ -337,8 +333,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|reload
 operator|.
 name|ReloadPipelinesAction
 import|;

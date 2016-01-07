@@ -80,8 +80,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|get
-operator|.
 name|GetPipelineAction
 import|;
 end_import
@@ -95,8 +93,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|get
 operator|.
 name|GetPipelineRequest
 import|;

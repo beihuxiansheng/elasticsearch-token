@@ -122,8 +122,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|delete
-operator|.
 name|DeletePipelineAction
 import|;
 end_import
@@ -137,8 +135,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|delete
 operator|.
 name|DeletePipelineRequestBuilder
 import|;
@@ -154,8 +150,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|get
-operator|.
 name|GetPipelineAction
 import|;
 end_import
@@ -169,8 +163,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|get
 operator|.
 name|GetPipelineRequestBuilder
 import|;
@@ -186,8 +178,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|get
-operator|.
 name|GetPipelineResponse
 import|;
 end_import
@@ -201,8 +191,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|put
 operator|.
 name|PutPipelineAction
 import|;
@@ -218,8 +206,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|put
-operator|.
 name|PutPipelineRequestBuilder
 import|;
 end_import
@@ -233,8 +219,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|simulate
 operator|.
 name|SimulateDocumentSimpleResult
 import|;
@@ -250,8 +234,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|simulate
-operator|.
 name|SimulatePipelineAction
 import|;
 end_import
@@ -266,8 +248,6 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|simulate
-operator|.
 name|SimulatePipelineRequestBuilder
 import|;
 end_import
@@ -281,8 +261,6 @@ operator|.
 name|action
 operator|.
 name|ingest
-operator|.
-name|simulate
 operator|.
 name|SimulatePipelineResponse
 import|;
