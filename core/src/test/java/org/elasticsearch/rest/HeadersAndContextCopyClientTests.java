@@ -2770,17 +2770,6 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareDeleteWarmer
-argument_list|()
-block|,
-name|client
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
 name|prepareTypesExists
 argument_list|(
 literal|"type"

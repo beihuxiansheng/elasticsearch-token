@@ -4900,36 +4900,7 @@ argument_list|,
 literal|92
 argument_list|)
 block|,
-DECL|enum constant|INDEX_WARMER_MISSING_EXCEPTION
-name|INDEX_WARMER_MISSING_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|warmer
-operator|.
-name|IndexWarmerMissingException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|warmer
-operator|.
-name|IndexWarmerMissingException
-operator|::
-operator|new
-argument_list|,
-literal|93
-argument_list|)
-block|,
+comment|// 93 used to be for IndexWarmerMissingException
 DECL|enum constant|NO_NODE_AVAILABLE_EXCEPTION
 name|NO_NODE_AVAILABLE_EXCEPTION
 argument_list|(

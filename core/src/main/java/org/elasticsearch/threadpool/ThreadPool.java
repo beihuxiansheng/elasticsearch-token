@@ -2903,7 +2903,11 @@ name|scheduler
 operator|.
 name|schedule
 argument_list|(
+operator|new
+name|LoggingRunnable
+argument_list|(
 name|command
+argument_list|)
 argument_list|,
 name|delay
 operator|.
@@ -5191,6 +5195,9 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 annotation|@
