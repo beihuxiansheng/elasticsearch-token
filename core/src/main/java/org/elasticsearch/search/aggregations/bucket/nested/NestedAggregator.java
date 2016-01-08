@@ -978,6 +978,9 @@ class|class
 name|Factory
 extends|extends
 name|AggregatorFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|field|path
 specifier|private

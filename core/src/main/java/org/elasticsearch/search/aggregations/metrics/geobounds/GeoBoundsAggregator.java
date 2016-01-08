@@ -1433,6 +1433,8 @@ argument_list|<
 name|ValuesSource
 operator|.
 name|GeoPoint
+argument_list|,
+name|Factory
 argument_list|>
 block|{
 DECL|field|wrapLongitude
@@ -1471,7 +1473,7 @@ block|}
 comment|/**          * Set whether to wrap longitudes. Defaults to true.          */
 DECL|method|wrapLongitude
 specifier|public
-name|void
+name|Factory
 name|wrapLongitude
 parameter_list|(
 name|boolean
@@ -1484,6 +1486,9 @@ name|wrapLongitude
 operator|=
 name|wrapLongitude
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get whether to wrap longitudes.          */
 DECL|method|wrapLongitude
@@ -1608,12 +1613,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|ValuesSourceAggregatorFactory
-argument_list|<
-name|ValuesSource
-operator|.
-name|GeoPoint
-argument_list|>
+name|Factory
 name|innerReadFrom
 parameter_list|(
 name|String

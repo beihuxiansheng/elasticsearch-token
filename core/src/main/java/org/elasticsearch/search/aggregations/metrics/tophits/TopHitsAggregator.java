@@ -1689,6 +1689,9 @@ class|class
 name|Factory
 extends|extends
 name|AggregatorFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|field|sortParseElement
 specifier|private
@@ -1801,7 +1804,7 @@ block|}
 comment|/**          * From index to start the search from. Defaults to<tt>0</tt>.          */
 DECL|method|from
 specifier|public
-name|void
+name|Factory
 name|from
 parameter_list|(
 name|int
@@ -1814,6 +1817,9 @@ name|from
 operator|=
 name|from
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the from index to start the search from.          **/
 DECL|method|from
@@ -1829,7 +1835,7 @@ block|}
 comment|/**          * The number of search hits to return. Defaults to<tt>10</tt>.          */
 DECL|method|size
 specifier|public
-name|void
+name|Factory
 name|size
 parameter_list|(
 name|int
@@ -1842,6 +1848,9 @@ name|size
 operator|=
 name|size
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the number of search hits to return.          */
 DECL|method|size
@@ -1857,7 +1866,7 @@ block|}
 comment|/**          * Adds a sort against the given field name and the sort ordering.          *          * @param name          *            The name of the field          * @param order          *            The sort ordering          */
 DECL|method|sort
 specifier|public
-name|void
+name|Factory
 name|sort
 parameter_list|(
 name|String
@@ -1882,11 +1891,14 @@ name|order
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Add a sort against the given field name.          *          * @param name          *            The name of the field to sort by          */
 DECL|method|sort
 specifier|public
-name|void
+name|Factory
 name|sort
 parameter_list|(
 name|String
@@ -1903,11 +1915,14 @@ name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Adds a sort builder.          */
 DECL|method|sort
 specifier|public
-name|void
+name|Factory
 name|sort
 parameter_list|(
 name|SortBuilder
@@ -1986,11 +2001,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Adds a sort builder.          */
 DECL|method|sorts
 specifier|public
-name|void
+name|Factory
 name|sorts
 parameter_list|(
 name|List
@@ -2037,6 +2055,9 @@ name|sort
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the bytes representing the sort builders for this request.          */
 DECL|method|sorts
@@ -2055,7 +2076,7 @@ block|}
 comment|/**          * Adds highlight to perform as part of the search.          */
 DECL|method|highlighter
 specifier|public
-name|void
+name|Factory
 name|highlighter
 parameter_list|(
 name|HighlightBuilder
@@ -2068,6 +2089,9 @@ name|highlightBuilder
 operator|=
 name|highlightBuilder
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the hightlighter builder for this request.          */
 DECL|method|highlighter
@@ -2083,7 +2107,7 @@ block|}
 comment|/**          * Indicates whether the response should contain the stored _source for          * every hit          */
 DECL|method|fetchSource
 specifier|public
-name|void
+name|Factory
 name|fetchSource
 parameter_list|(
 name|boolean
@@ -2122,11 +2146,14 @@ name|fetch
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Indicate that _source should be returned with every hit, with an          * "include" and/or "exclude" set which can include simple wildcard          * elements.          *          * @param include          *            An optional include (optionally wildcarded) pattern to          *            filter the returned _source          * @param exclude          *            An optional exclude (optionally wildcarded) pattern to          *            filter the returned _source          */
 DECL|method|fetchSource
 specifier|public
-name|void
+name|Factory
 name|fetchSource
 parameter_list|(
 annotation|@
@@ -2173,11 +2200,14 @@ name|exclude
 block|}
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Indicate that _source should be returned with every hit, with an          * "include" and/or "exclude" set which can include simple wildcard          * elements.          *          * @param includes          *            An optional list of include (optionally wildcarded)          *            pattern to filter the returned _source          * @param excludes          *            An optional list of exclude (optionally wildcarded)          *            pattern to filter the returned _source          */
 DECL|method|fetchSource
 specifier|public
-name|void
+name|Factory
 name|fetchSource
 parameter_list|(
 annotation|@
@@ -2203,11 +2233,14 @@ argument_list|,
 name|excludes
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Indicate how the _source should be fetched.          */
 DECL|method|fetchSource
 specifier|public
-name|void
+name|Factory
 name|fetchSource
 parameter_list|(
 annotation|@
@@ -2222,6 +2255,9 @@ name|fetchSourceContext
 operator|=
 name|fetchSourceContext
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the {@link FetchSourceContext} which defines how the _source          * should be fetched.          */
 DECL|method|fetchSource
@@ -2237,7 +2273,7 @@ block|}
 comment|/**          * Adds a field to load and return (note, it must be stored) as part of          * the search request. If none are specified, the source of the document          * will be return.          */
 DECL|method|field
 specifier|public
-name|void
+name|Factory
 name|field
 parameter_list|(
 name|String
@@ -2266,11 +2302,14 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Sets the fields to load and return as part of the search request. If          * none are specified, the source of the document will be returned.          */
 DECL|method|fields
 specifier|public
-name|void
+name|Factory
 name|fields
 parameter_list|(
 name|List
@@ -2286,11 +2325,14 @@ name|fieldNames
 operator|=
 name|fields
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Sets no fields to be loaded, resulting in only id and type to be          * returned per field.          */
 DECL|method|noFields
 specifier|public
-name|void
+name|Factory
 name|noFields
 parameter_list|()
 block|{
@@ -2303,6 +2345,9 @@ operator|.
 name|emptyList
 argument_list|()
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the fields to load and return as part of the search request.          */
 DECL|method|fields
@@ -2321,7 +2366,7 @@ block|}
 comment|/**          * Adds a field to load from the field data cache and return as part of          * the search request.          */
 DECL|method|fieldDataField
 specifier|public
-name|void
+name|Factory
 name|fieldDataField
 parameter_list|(
 name|String
@@ -2350,11 +2395,14 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Adds fields to load from the field data cache and return as part of          * the search request.          */
 DECL|method|fieldDataFields
 specifier|public
-name|void
+name|Factory
 name|fieldDataFields
 parameter_list|(
 name|List
@@ -2386,6 +2434,9 @@ argument_list|(
 name|names
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the field-data fields.          */
 DECL|method|fieldDataFields
@@ -2404,7 +2455,7 @@ block|}
 comment|/**          * Adds a script field under the given name with the provided script.          *          * @param name          *            The name of the field          * @param script          *            The script          */
 DECL|method|scriptField
 specifier|public
-name|void
+name|Factory
 name|scriptField
 parameter_list|(
 name|String
@@ -2423,11 +2474,14 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Adds a script field under the given name with the provided script.          *          * @param name          *            The name of the field          * @param script          *            The script          */
 DECL|method|scriptField
 specifier|public
-name|void
+name|Factory
 name|scriptField
 parameter_list|(
 name|String
@@ -2470,10 +2524,13 @@ name|ignoreFailure
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|scriptFields
 specifier|public
-name|void
+name|Factory
 name|scriptFields
 parameter_list|(
 name|List
@@ -2511,6 +2568,9 @@ argument_list|(
 name|scriptFields
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the script fields.          */
 DECL|method|scriptFields
@@ -2529,7 +2589,7 @@ block|}
 comment|/**          * Should each {@link org.elasticsearch.search.SearchHit} be returned          * with an explanation of the hit (ranking).          */
 DECL|method|explain
 specifier|public
-name|void
+name|Factory
 name|explain
 parameter_list|(
 name|boolean
@@ -2542,6 +2602,9 @@ name|explain
 operator|=
 name|explain
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Indicates whether each search hit will be returned with an          * explanation of the hit (ranking)          */
 DECL|method|explain
@@ -2557,7 +2620,7 @@ block|}
 comment|/**          * Should each {@link org.elasticsearch.search.SearchHit} be returned          * with a version associated with it.          */
 DECL|method|version
 specifier|public
-name|void
+name|Factory
 name|version
 parameter_list|(
 name|boolean
@@ -2570,6 +2633,9 @@ name|version
 operator|=
 name|version
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Indicates whether the document's version will be included in the          * search hits.          */
 DECL|method|version
@@ -2585,7 +2651,7 @@ block|}
 comment|/**          * Applies when sorting, and controls if scores will be tracked as well.          * Defaults to<tt>false</tt>.          */
 DECL|method|trackScores
 specifier|public
-name|void
+name|Factory
 name|trackScores
 parameter_list|(
 name|boolean
@@ -2598,6 +2664,9 @@ name|trackScores
 operator|=
 name|trackScores
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Indicates whether scores will be tracked for this request.          */
 DECL|method|trackScores
@@ -3078,7 +3147,7 @@ annotation|@
 name|Override
 DECL|method|subFactories
 specifier|public
-name|AggregatorFactory
+name|Factory
 name|subFactories
 parameter_list|(
 name|AggregatorFactories

@@ -571,6 +571,8 @@ argument_list|<
 name|ValuesSource
 operator|.
 name|Numeric
+argument_list|,
+name|Factory
 argument_list|>
 block|{
 DECL|field|percents
@@ -626,7 +628,7 @@ block|}
 comment|/**          * Set the percentiles to compute.          */
 DECL|method|percents
 specifier|public
-name|void
+name|Factory
 name|percents
 parameter_list|(
 name|double
@@ -662,6 +664,9 @@ name|percents
 operator|=
 name|sortedPercents
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the percentiles to compute.          */
 DECL|method|percents
@@ -678,7 +683,7 @@ block|}
 comment|/**          * Set whether the XContent response should be keyed          */
 DECL|method|keyed
 specifier|public
-name|void
+name|Factory
 name|keyed
 parameter_list|(
 name|boolean
@@ -691,6 +696,9 @@ name|keyed
 operator|=
 name|keyed
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get whether the XContent response should be keyed          */
 DECL|method|keyed
@@ -706,7 +714,7 @@ block|}
 comment|/**          * Expert: set the compression. Higher values improve accuracy but also          * memory usage.          */
 DECL|method|compression
 specifier|public
-name|void
+name|Factory
 name|compression
 parameter_list|(
 name|double
@@ -719,6 +727,9 @@ name|compression
 operator|=
 name|compression
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Expert: set the compression. Higher values improve accuracy but also          * memory usage.          */
 DECL|method|compression
@@ -861,10 +872,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|ValuesSourceAggregatorFactory
-argument_list|<
-name|Numeric
-argument_list|>
+name|Factory
 name|innerReadFrom
 parameter_list|(
 name|String

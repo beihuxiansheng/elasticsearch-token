@@ -936,6 +936,8 @@ argument_list|<
 name|ValuesSource
 operator|.
 name|GeoPoint
+argument_list|,
+name|Factory
 argument_list|>
 block|{
 DECL|method|Factory
@@ -1072,12 +1074,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|ValuesSourceAggregatorFactory
-argument_list|<
-name|ValuesSource
-operator|.
-name|GeoPoint
-argument_list|>
+name|Factory
 name|innerReadFrom
 parameter_list|(
 name|String

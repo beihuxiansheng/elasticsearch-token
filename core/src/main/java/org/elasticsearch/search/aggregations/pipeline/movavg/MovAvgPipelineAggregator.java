@@ -1942,7 +1942,7 @@ block|}
 comment|/**          * Sets the format to use on the output of this aggregation.          */
 DECL|method|format
 specifier|public
-name|void
+name|Factory
 name|format
 parameter_list|(
 name|String
@@ -1955,6 +1955,9 @@ name|format
 operator|=
 name|format
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the format to use on the output of this aggregation.          */
 DECL|method|format
@@ -1970,7 +1973,7 @@ block|}
 comment|/**          * Sets the GapPolicy to use on the output of this aggregation.          */
 DECL|method|gapPolicy
 specifier|public
-name|void
+name|Factory
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -1983,6 +1986,9 @@ name|gapPolicy
 operator|=
 name|gapPolicy
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the GapPolicy to use on the output of this aggregation.          */
 DECL|method|gapPolicy
@@ -2036,7 +2042,7 @@ block|}
 comment|/**          * Sets the window size for the moving average. This window will "slide"          * across the series, and the values inside that window will be used to          * calculate the moving avg value          *          * @param window          *            Size of window          */
 DECL|method|window
 specifier|public
-name|void
+name|Factory
 name|window
 parameter_list|(
 name|int
@@ -2049,6 +2055,9 @@ name|window
 operator|=
 name|window
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the window size for the moving average. This window will "slide"          * across the series, and the values inside that window will be used to          * calculate the moving avg value          */
 DECL|method|window
@@ -2064,7 +2073,7 @@ block|}
 comment|/**          * Sets a MovAvgModel for the Moving Average. The model is used to          * define what type of moving average you want to use on the series          *          * @param model          *            A MovAvgModel which has been prepopulated with settings          */
 DECL|method|model
 specifier|public
-name|void
+name|Factory
 name|model
 parameter_list|(
 name|MovAvgModel
@@ -2077,6 +2086,9 @@ name|model
 operator|=
 name|model
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets a MovAvgModel for the Moving Average. The model is used to          * define what type of moving average you want to use on the series          */
 DECL|method|model
@@ -2092,7 +2104,7 @@ block|}
 comment|/**          * Sets the number of predictions that should be returned. Each          * prediction will be spaced at the intervals specified in the          * histogram. E.g "predict: 2" will return two new buckets at the end of          * the histogram with the predicted values.          *          * @param predict          *            Number of predictions to make          */
 DECL|method|predict
 specifier|public
-name|void
+name|Factory
 name|predict
 parameter_list|(
 name|int
@@ -2105,6 +2117,9 @@ name|predict
 operator|=
 name|predict
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the number of predictions that should be returned. Each          * prediction will be spaced at the intervals specified in the          * histogram. E.g "predict: 2" will return two new buckets at the end of          * the histogram with the predicted values.          */
 DECL|method|predict
@@ -2120,7 +2135,7 @@ block|}
 comment|/**          * Sets whether the model should be fit to the data using a cost          * minimizing algorithm.          *          * @param minimize          *            If the model should be fit to the underlying data          */
 DECL|method|minimize
 specifier|public
-name|void
+name|Factory
 name|minimize
 parameter_list|(
 name|boolean
@@ -2133,6 +2148,9 @@ name|minimize
 operator|=
 name|minimize
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets whether the model should be fit to the data using a cost          * minimizing algorithm.          */
 DECL|method|minimize

@@ -117,15 +117,7 @@ literal|1
 argument_list|,
 literal|20
 argument_list|)
-argument_list|)
-decl_stmt|;
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
-name|factory
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|QueryBuilders
 operator|.
 name|termQuery
@@ -145,7 +137,10 @@ literal|20
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// NORELEASE make RandomQueryBuilder work outside of the
+comment|// AbstractQueryTestCase
+comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
 return|return
 name|factory
 return|;

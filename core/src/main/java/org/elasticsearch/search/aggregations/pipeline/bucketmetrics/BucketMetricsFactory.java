@@ -212,6 +212,14 @@ specifier|public
 specifier|abstract
 class|class
 name|BucketMetricsFactory
+parameter_list|<
+name|AF
+extends|extends
+name|BucketMetricsFactory
+parameter_list|<
+name|AF
+parameter_list|>
+parameter_list|>
 extends|extends
 name|PipelineAggregatorFactory
 block|{
@@ -259,7 +267,7 @@ block|}
 comment|/**      * Sets the format to use on the output of this aggregation.      */
 DECL|method|format
 specifier|public
-name|void
+name|AF
 name|format
 parameter_list|(
 name|String
@@ -272,6 +280,12 @@ name|format
 operator|=
 name|format
 expr_stmt|;
+return|return
+operator|(
+name|AF
+operator|)
+name|this
+return|;
 block|}
 comment|/**      * Gets the format to use on the output of this aggregation.      */
 DECL|method|format
@@ -325,7 +339,7 @@ block|}
 comment|/**      * Sets the gap policy to use for this aggregation.      */
 DECL|method|gapPolicy
 specifier|public
-name|void
+name|AF
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -338,6 +352,12 @@ name|gapPolicy
 operator|=
 name|gapPolicy
 expr_stmt|;
+return|return
+operator|(
+name|AF
+operator|)
+name|this
+return|;
 block|}
 comment|/**      * Gets the gap policy to use for this aggregation.      */
 DECL|method|gapPolicy

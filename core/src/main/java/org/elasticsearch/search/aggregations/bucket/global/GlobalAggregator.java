@@ -442,6 +442,9 @@ class|class
 name|Factory
 extends|extends
 name|AggregatorFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|method|Factory
 specifier|public
@@ -555,7 +558,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
-name|AggregatorFactory
+name|Factory
 name|doReadFrom
 parameter_list|(
 name|String

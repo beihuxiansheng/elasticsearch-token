@@ -239,6 +239,8 @@ specifier|protected
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|Numeric
+argument_list|,
+name|?
 argument_list|>
 name|buildFactory
 parameter_list|(

@@ -262,6 +262,13 @@ specifier|protected
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|ValuesSource
+argument_list|,
+name|ValueCountAggregator
+operator|.
+name|Factory
+argument_list|<
+name|ValuesSource
+argument_list|>
 argument_list|>
 name|createFactory
 parameter_list|(
@@ -305,6 +312,9 @@ name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
 name|AggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|getFactoryPrototypes
 parameter_list|()

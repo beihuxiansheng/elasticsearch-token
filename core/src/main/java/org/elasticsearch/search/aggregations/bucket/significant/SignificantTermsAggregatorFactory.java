@@ -629,6 +629,8 @@ extends|extends
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|ValuesSource
+argument_list|,
+name|SignificantTermsAggregatorFactory
 argument_list|>
 implements|implements
 name|Releasable
@@ -1322,7 +1324,7 @@ return|;
 block|}
 DECL|method|bucketCountThresholds
 specifier|public
-name|void
+name|SignificantTermsAggregatorFactory
 name|bucketCountThresholds
 parameter_list|(
 name|TermsAggregator
@@ -1337,11 +1339,14 @@ name|bucketCountThresholds
 operator|=
 name|bucketCountThresholds
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Expert: sets an execution hint to the aggregation.      */
 DECL|method|executionHint
 specifier|public
-name|void
+name|SignificantTermsAggregatorFactory
 name|executionHint
 parameter_list|(
 name|String
@@ -1354,6 +1359,9 @@ name|executionHint
 operator|=
 name|executionHint
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Expert: gets an execution hint to the aggregation.      */
 DECL|method|executionHint
@@ -1368,7 +1376,7 @@ return|;
 block|}
 DECL|method|backgroundFilter
 specifier|public
-name|void
+name|SignificantTermsAggregatorFactory
 name|backgroundFilter
 parameter_list|(
 name|QueryBuilder
@@ -1384,6 +1392,9 @@ name|filterBuilder
 operator|=
 name|filterBuilder
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|backgroundFilter
 specifier|public
@@ -1401,7 +1412,7 @@ block|}
 comment|/**      * Set terms to include and exclude from the aggregation results      */
 DECL|method|includeExclude
 specifier|public
-name|void
+name|SignificantTermsAggregatorFactory
 name|includeExclude
 parameter_list|(
 name|IncludeExclude
@@ -1414,6 +1425,9 @@ name|includeExclude
 operator|=
 name|includeExclude
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Get terms to include and exclude from the aggregation results      */
 DECL|method|includeExclude
@@ -1428,7 +1442,7 @@ return|;
 block|}
 DECL|method|significanceHeuristic
 specifier|public
-name|void
+name|SignificantTermsAggregatorFactory
 name|significanceHeuristic
 parameter_list|(
 name|SignificanceHeuristic
@@ -1441,6 +1455,9 @@ name|significanceHeuristic
 operator|=
 name|significanceHeuristic
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|significanceHeuristic
 specifier|public
@@ -2387,10 +2404,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|ValuesSourceAggregatorFactory
-argument_list|<
-name|ValuesSource
-argument_list|>
+name|SignificantTermsAggregatorFactory
 name|innerReadFrom
 parameter_list|(
 name|String

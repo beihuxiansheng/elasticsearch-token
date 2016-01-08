@@ -1312,7 +1312,7 @@ block|}
 comment|/**          * Sets the format to use on the output of this aggregation.          */
 DECL|method|format
 specifier|public
-name|void
+name|Factory
 name|format
 parameter_list|(
 name|String
@@ -1325,6 +1325,9 @@ name|format
 operator|=
 name|format
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the format to use on the output of this aggregation.          */
 DECL|method|format
@@ -1378,7 +1381,7 @@ block|}
 comment|/**          * Sets the gap policy to use for this aggregation.          */
 DECL|method|gapPolicy
 specifier|public
-name|void
+name|Factory
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -1391,6 +1394,9 @@ name|gapPolicy
 operator|=
 name|gapPolicy
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the gap policy to use for this aggregation.          */
 DECL|method|gapPolicy

@@ -618,6 +618,9 @@ class|class
 name|Factory
 extends|extends
 name|BucketMetricsFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|field|sigma
 specifier|private
@@ -654,7 +657,7 @@ block|}
 comment|/**          * Set the value of sigma to use when calculating the standard deviation          * bounds          */
 DECL|method|sigma
 specifier|public
-name|void
+name|Factory
 name|sigma
 parameter_list|(
 name|double
@@ -667,6 +670,9 @@ name|sigma
 operator|=
 name|sigma
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the value of sigma to use when calculating the standard deviation          * bounds          */
 DECL|method|sigma

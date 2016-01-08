@@ -1041,7 +1041,7 @@ block|}
 comment|/**          * Sets the gap policy to use for this aggregation.          */
 DECL|method|gapPolicy
 specifier|public
-name|void
+name|Factory
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -1054,6 +1054,9 @@ name|gapPolicy
 operator|=
 name|gapPolicy
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the gap policy to use for this aggregation.          */
 DECL|method|gapPolicy

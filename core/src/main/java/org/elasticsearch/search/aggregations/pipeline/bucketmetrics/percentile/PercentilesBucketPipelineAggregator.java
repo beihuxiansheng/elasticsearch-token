@@ -759,6 +759,9 @@ class|class
 name|Factory
 extends|extends
 name|BucketMetricsFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|field|percents
 specifier|private
@@ -825,7 +828,7 @@ block|}
 comment|/**          * Set the percentages to calculate percentiles for in this aggregation          */
 DECL|method|percents
 specifier|public
-name|void
+name|Factory
 name|percents
 parameter_list|(
 name|double
@@ -839,6 +842,9 @@ name|percents
 operator|=
 name|percents
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override

@@ -869,7 +869,7 @@ block|}
 comment|/**          * Sets the format to use on the output of this aggregation.          */
 DECL|method|format
 specifier|public
-name|void
+name|Factory
 name|format
 parameter_list|(
 name|String
@@ -882,6 +882,9 @@ name|format
 operator|=
 name|format
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the format to use on the output of this aggregation.          */
 DECL|method|format

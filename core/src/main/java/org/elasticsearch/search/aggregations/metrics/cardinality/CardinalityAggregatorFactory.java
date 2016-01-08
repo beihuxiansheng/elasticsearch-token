@@ -261,6 +261,11 @@ operator|.
 name|LeafOnly
 argument_list|<
 name|VS
+argument_list|,
+name|CardinalityAggregatorFactory
+argument_list|<
+name|VS
+argument_list|>
 argument_list|>
 block|{
 DECL|field|PRECISION_THRESHOLD_FIELD
@@ -314,7 +319,10 @@ block|}
 comment|/**      * Set a precision threshold. Higher values improve accuracy but also      * increase memory usage.      */
 DECL|method|precisionThreshold
 specifier|public
-name|void
+name|CardinalityAggregatorFactory
+argument_list|<
+name|VS
+argument_list|>
 name|precisionThreshold
 parameter_list|(
 name|long
@@ -327,6 +335,9 @@ name|precisionThreshold
 operator|=
 name|precisionThreshold
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Get the precision threshold. Higher values improve accuracy but also      * increase memory usage. Will return<code>null</code> if the      * precisionThreshold has not been set yet.      */
 DECL|method|precisionThreshold
@@ -506,7 +517,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|ValuesSourceAggregatorFactory
+name|CardinalityAggregatorFactory
 argument_list|<
 name|VS
 argument_list|>

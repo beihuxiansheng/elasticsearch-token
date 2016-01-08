@@ -842,6 +842,9 @@ class|class
 name|Factory
 extends|extends
 name|AggregatorFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|field|path
 specifier|private
@@ -869,7 +872,7 @@ block|}
 comment|/**          * Set the path to use for this nested aggregation. The path must match          * the path to a nested object in the mappings. If it is not specified          * then this aggregation will go back to the root document.          */
 DECL|method|path
 specifier|public
-name|void
+name|Factory
 name|path
 parameter_list|(
 name|String
@@ -882,6 +885,9 @@ name|path
 operator|=
 name|path
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the path to use for this nested aggregation.          */
 DECL|method|path

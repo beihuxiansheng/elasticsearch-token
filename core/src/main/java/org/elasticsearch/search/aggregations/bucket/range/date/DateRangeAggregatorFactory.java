@@ -115,6 +115,9 @@ class|class
 name|DateRangeAggregatorFactory
 extends|extends
 name|Factory
+argument_list|<
+name|DateRangeAggregatorFactory
+argument_list|>
 block|{
 DECL|method|DateRangeAggregatorFactory
 specifier|public

@@ -439,6 +439,8 @@ extends|extends
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|ValuesSource
+argument_list|,
+name|TermsAggregatorFactory
 argument_list|>
 block|{
 DECL|field|EXECUTION_HINT_FIELD_NAME
@@ -1395,7 +1397,7 @@ return|;
 block|}
 DECL|method|bucketCountThresholds
 specifier|public
-name|void
+name|TermsAggregatorFactory
 name|bucketCountThresholds
 parameter_list|(
 name|TermsAggregator
@@ -1410,11 +1412,14 @@ name|bucketCountThresholds
 operator|=
 name|bucketCountThresholds
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Sets the order in which the buckets will be returned.      */
 DECL|method|order
 specifier|public
-name|void
+name|TermsAggregatorFactory
 name|order
 parameter_list|(
 name|List
@@ -1432,6 +1437,9 @@ name|orders
 operator|=
 name|order
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Gets the order in which the buckets will be returned.      */
 DECL|method|order
@@ -1452,7 +1460,7 @@ block|}
 comment|/**      * Expert: sets an execution hint to the aggregation.      */
 DECL|method|executionHint
 specifier|public
-name|void
+name|TermsAggregatorFactory
 name|executionHint
 parameter_list|(
 name|String
@@ -1465,6 +1473,9 @@ name|executionHint
 operator|=
 name|executionHint
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Expert: gets an execution hint to the aggregation.      */
 DECL|method|executionHint
@@ -1480,7 +1491,7 @@ block|}
 comment|/**      * Expert: set the collection mode.      */
 DECL|method|collectMode
 specifier|public
-name|void
+name|TermsAggregatorFactory
 name|collectMode
 parameter_list|(
 name|SubAggCollectionMode
@@ -1493,6 +1504,9 @@ name|collectMode
 operator|=
 name|mode
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Expert: get the collection mode.      */
 DECL|method|collectMode
@@ -1508,7 +1522,7 @@ block|}
 comment|/**      * Set terms to include and exclude from the aggregation results      */
 DECL|method|includeExclude
 specifier|public
-name|void
+name|TermsAggregatorFactory
 name|includeExclude
 parameter_list|(
 name|IncludeExclude
@@ -1521,6 +1535,9 @@ name|includeExclude
 operator|=
 name|includeExclude
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Get terms to include and exclude from the aggregation results      */
 DECL|method|includeExclude
@@ -1547,7 +1564,7 @@ block|}
 comment|/**      * Set whether doc count error will be return for individual terms      */
 DECL|method|showTermDocCountError
 specifier|public
-name|void
+name|TermsAggregatorFactory
 name|showTermDocCountError
 parameter_list|(
 name|boolean
@@ -1560,6 +1577,9 @@ name|showTermDocCountError
 operator|=
 name|showTermDocCountError
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override
@@ -2478,10 +2498,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|ValuesSourceAggregatorFactory
-argument_list|<
-name|ValuesSource
-argument_list|>
+name|TermsAggregatorFactory
 name|innerReadFrom
 parameter_list|(
 name|String

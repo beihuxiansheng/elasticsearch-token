@@ -595,6 +595,8 @@ argument_list|<
 name|ValuesSource
 operator|.
 name|Numeric
+argument_list|,
+name|Factory
 argument_list|>
 block|{
 DECL|field|values
@@ -646,7 +648,7 @@ block|}
 comment|/**          * Set the values to compute percentiles from.          */
 DECL|method|values
 specifier|public
-name|void
+name|Factory
 name|values
 parameter_list|(
 name|double
@@ -682,6 +684,9 @@ name|values
 operator|=
 name|sortedValues
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the values to compute percentiles from.          */
 DECL|method|values
@@ -698,7 +703,7 @@ block|}
 comment|/**          * Set whether the XContent response should be keyed          */
 DECL|method|keyed
 specifier|public
-name|void
+name|Factory
 name|keyed
 parameter_list|(
 name|boolean
@@ -711,6 +716,9 @@ name|keyed
 operator|=
 name|keyed
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get whether the XContent response should be keyed          */
 DECL|method|keyed
@@ -726,7 +734,7 @@ block|}
 comment|/**          * Expert: set the number of significant digits in the values.          */
 DECL|method|numberOfSignificantValueDigits
 specifier|public
-name|void
+name|Factory
 name|numberOfSignificantValueDigits
 parameter_list|(
 name|int
@@ -739,6 +747,9 @@ name|numberOfSignificantValueDigits
 operator|=
 name|numberOfSignificantValueDigits
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Expert: set the number of significant digits in the values.          */
 DECL|method|numberOfSignificantValueDigits
@@ -881,10 +892,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|ValuesSourceAggregatorFactory
-argument_list|<
-name|Numeric
-argument_list|>
+name|Factory
 name|innerReadFrom
 parameter_list|(
 name|String

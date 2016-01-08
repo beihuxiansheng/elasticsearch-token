@@ -769,6 +769,8 @@ argument_list|<
 name|ValuesSource
 operator|.
 name|Numeric
+argument_list|,
+name|Factory
 argument_list|>
 block|{
 DECL|method|Factory
@@ -918,6 +920,8 @@ specifier|protected
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|Numeric
+argument_list|,
+name|Factory
 argument_list|>
 name|innerReadFrom
 parameter_list|(

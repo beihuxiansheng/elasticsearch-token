@@ -1115,6 +1115,9 @@ class|class
 name|Factory
 extends|extends
 name|AggregatorFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|field|DEFAULT_SHARD_SAMPLE_SIZE
 specifier|public
@@ -1153,7 +1156,7 @@ block|}
 comment|/**          * Set the max num docs to be returned from each shard.          */
 DECL|method|shardSize
 specifier|public
-name|void
+name|Factory
 name|shardSize
 parameter_list|(
 name|int
@@ -1166,6 +1169,9 @@ name|shardSize
 operator|=
 name|shardSize
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the max num docs to be returned from each shard.          */
 DECL|method|shardSize
@@ -1391,6 +1397,8 @@ extends|extends
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|ValuesSource
+argument_list|,
+name|DiversifiedFactory
 argument_list|>
 block|{
 DECL|field|TYPE
@@ -1467,7 +1475,7 @@ block|}
 comment|/**          * Set the max num docs to be returned from each shard.          */
 DECL|method|shardSize
 specifier|public
-name|void
+name|DiversifiedFactory
 name|shardSize
 parameter_list|(
 name|int
@@ -1480,6 +1488,9 @@ name|shardSize
 operator|=
 name|shardSize
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the max num docs to be returned from each shard.          */
 DECL|method|shardSize
@@ -1495,7 +1506,7 @@ block|}
 comment|/**          * Set the max num docs to be returned per value.          */
 DECL|method|maxDocsPerValue
 specifier|public
-name|void
+name|DiversifiedFactory
 name|maxDocsPerValue
 parameter_list|(
 name|int
@@ -1508,6 +1519,9 @@ name|maxDocsPerValue
 operator|=
 name|maxDocsPerValue
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the max num docs to be returned per value.          */
 DECL|method|maxDocsPerValue
@@ -1523,7 +1537,7 @@ block|}
 comment|/**          * Set the execution hint.          */
 DECL|method|executionHint
 specifier|public
-name|void
+name|DiversifiedFactory
 name|executionHint
 parameter_list|(
 name|String
@@ -1536,6 +1550,9 @@ name|executionHint
 operator|=
 name|executionHint
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the execution hint.          */
 DECL|method|executionHint
@@ -1891,10 +1908,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|ValuesSourceAggregatorFactory
-argument_list|<
-name|ValuesSource
-argument_list|>
+name|DiversifiedFactory
 name|innerReadFrom
 parameter_list|(
 name|String

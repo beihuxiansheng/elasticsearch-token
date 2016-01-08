@@ -539,6 +539,9 @@ class|class
 name|Factory
 extends|extends
 name|BucketMetricsFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|method|Factory
 specifier|public

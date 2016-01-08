@@ -340,6 +340,8 @@ specifier|final
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|ValuesSource
+argument_list|,
+name|?
 argument_list|>
 name|createFactory
 parameter_list|(
@@ -564,6 +566,8 @@ specifier|abstract
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|ValuesSource
+argument_list|,
+name|?
 argument_list|>
 name|doCreateFactory
 parameter_list|(

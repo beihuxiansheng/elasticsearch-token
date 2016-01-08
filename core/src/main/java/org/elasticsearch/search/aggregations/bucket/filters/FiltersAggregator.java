@@ -1446,6 +1446,9 @@ class|class
 name|Factory
 extends|extends
 name|AggregatorFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|field|filters
 specifier|private
@@ -1476,6 +1479,7 @@ name|otherBucketKey
 init|=
 literal|"_other_"
 decl_stmt|;
+comment|/**          * @param name          *            the name of this aggregation          * @param filters          *            the KeyedFilters to use with this aggregation.          */
 DECL|method|Factory
 specifier|public
 name|Factory
@@ -1512,6 +1516,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|/**          * @param name          *            the name of this aggregation          * @param filters          *            the filters to use with this aggregation          */
 DECL|method|Factory
 specifier|public
 name|Factory
@@ -1606,7 +1611,7 @@ block|}
 comment|/**          * Set whether to include a bucket for documents not matching any filter          */
 DECL|method|otherBucket
 specifier|public
-name|void
+name|Factory
 name|otherBucket
 parameter_list|(
 name|boolean
@@ -1619,6 +1624,9 @@ name|otherBucket
 operator|=
 name|otherBucket
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get whether to include a bucket for documents not matching any filter          */
 DECL|method|otherBucket
@@ -1634,7 +1642,7 @@ block|}
 comment|/**          * Set the key to use for the bucket for documents not matching any          * filter.          */
 DECL|method|otherBucketKey
 specifier|public
-name|void
+name|Factory
 name|otherBucketKey
 parameter_list|(
 name|String
@@ -1647,6 +1655,9 @@ name|otherBucketKey
 operator|=
 name|otherBucketKey
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Get the key to use for the bucket for documents not matching any          * filter.          */
 DECL|method|otherBucketKey
@@ -1860,7 +1871,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
-name|AggregatorFactory
+name|Factory
 name|doReadFrom
 parameter_list|(
 name|String

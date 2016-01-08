@@ -789,6 +789,9 @@ class|class
 name|Factory
 extends|extends
 name|AggregatorFactory
+argument_list|<
+name|Factory
+argument_list|>
 block|{
 DECL|field|initScript
 specifier|private
@@ -841,7 +844,7 @@ block|}
 comment|/**          * Set the<tt>init</tt> script.          */
 DECL|method|initScript
 specifier|public
-name|void
+name|Factory
 name|initScript
 parameter_list|(
 name|Script
@@ -854,11 +857,25 @@ name|initScript
 operator|=
 name|initScript
 expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Get the<tt>init</tt> script.          */
+DECL|method|initScript
+specifier|public
+name|Script
+name|initScript
+parameter_list|()
+block|{
+return|return
+name|initScript
+return|;
 block|}
 comment|/**          * Set the<tt>map</tt> script.          */
 DECL|method|mapScript
 specifier|public
-name|void
+name|Factory
 name|mapScript
 parameter_list|(
 name|Script
@@ -871,11 +888,25 @@ name|mapScript
 operator|=
 name|mapScript
 expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Get the<tt>map</tt> script.          */
+DECL|method|mapScript
+specifier|public
+name|Script
+name|mapScript
+parameter_list|()
+block|{
+return|return
+name|mapScript
+return|;
 block|}
 comment|/**          * Set the<tt>combine</tt> script.          */
 DECL|method|combineScript
 specifier|public
-name|void
+name|Factory
 name|combineScript
 parameter_list|(
 name|Script
@@ -888,11 +919,25 @@ name|combineScript
 operator|=
 name|combineScript
 expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Get the<tt>combine</tt> script.          */
+DECL|method|combineScript
+specifier|public
+name|Script
+name|combineScript
+parameter_list|()
+block|{
+return|return
+name|combineScript
+return|;
 block|}
 comment|/**          * Set the<tt>reduce</tt> script.          */
 DECL|method|reduceScript
 specifier|public
-name|void
+name|Factory
 name|reduceScript
 parameter_list|(
 name|Script
@@ -905,11 +950,25 @@ name|reduceScript
 operator|=
 name|reduceScript
 expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Get the<tt>reduce</tt> script.          */
+DECL|method|reduceScript
+specifier|public
+name|Script
+name|reduceScript
+parameter_list|()
+block|{
+return|return
+name|reduceScript
+return|;
 block|}
 comment|/**          * Set parameters that will be available in the<tt>init</tt>,          *<tt>map</tt> and<tt>combine</tt> phases.          */
 DECL|method|params
 specifier|public
-name|void
+name|Factory
 name|params
 parameter_list|(
 name|Map
@@ -927,6 +986,25 @@ name|params
 operator|=
 name|params
 expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Get parameters that will be available in the<tt>init</tt>,          *<tt>map</tt> and<tt>combine</tt> phases.          */
+DECL|method|params
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|params
+parameter_list|()
+block|{
+return|return
+name|params
+return|;
 block|}
 annotation|@
 name|Override

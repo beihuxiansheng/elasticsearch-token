@@ -205,6 +205,9 @@ class|class
 name|IPv4RangeAggregatorFactory
 extends|extends
 name|Factory
+argument_list|<
+name|IPv4RangeAggregatorFactory
+argument_list|>
 block|{
 DECL|method|IPv4RangeAggregatorFactory
 specifier|public

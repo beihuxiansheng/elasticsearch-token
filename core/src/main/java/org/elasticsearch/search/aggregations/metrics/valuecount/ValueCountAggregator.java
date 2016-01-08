@@ -712,6 +712,11 @@ operator|.
 name|LeafOnly
 argument_list|<
 name|VS
+argument_list|,
+name|Factory
+argument_list|<
+name|VS
+argument_list|>
 argument_list|>
 block|{
 DECL|method|Factory
@@ -861,6 +866,11 @@ specifier|protected
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|VS
+argument_list|,
+name|Factory
+argument_list|<
+name|VS
+argument_list|>
 argument_list|>
 name|innerReadFrom
 parameter_list|(

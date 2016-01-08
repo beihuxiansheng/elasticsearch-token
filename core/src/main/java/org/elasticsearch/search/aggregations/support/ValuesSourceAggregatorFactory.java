@@ -442,9 +442,21 @@ parameter_list|<
 name|VS
 extends|extends
 name|ValuesSource
+parameter_list|,
+name|AF
+extends|extends
+name|ValuesSourceAggregatorFactory
+parameter_list|<
+name|VS
+parameter_list|,
+name|AF
+parameter_list|>
 parameter_list|>
 extends|extends
 name|AggregatorFactory
+argument_list|<
+name|AF
+argument_list|>
 block|{
 DECL|class|LeafOnly
 specifier|public
@@ -456,11 +468,22 @@ parameter_list|<
 name|VS
 extends|extends
 name|ValuesSource
+parameter_list|,
+name|AF
+extends|extends
+name|ValuesSourceAggregatorFactory
+parameter_list|<
+name|VS
+parameter_list|,
+name|AF
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|VS
+argument_list|,
+name|AF
 argument_list|>
 block|{
 DECL|method|LeafOnly
@@ -525,7 +548,7 @@ annotation|@
 name|Override
 DECL|method|subFactories
 specifier|public
-name|AggregatorFactory
+name|AF
 name|subFactories
 parameter_list|(
 name|AggregatorFactories
@@ -744,7 +767,7 @@ block|}
 comment|/**      * Sets the field to use for this aggregation.      */
 DECL|method|field
 specifier|public
-name|void
+name|AF
 name|field
 parameter_list|(
 name|String
@@ -757,6 +780,12 @@ name|field
 operator|=
 name|field
 expr_stmt|;
+return|return
+operator|(
+name|AF
+operator|)
+name|this
+return|;
 block|}
 comment|/**      * Gets the field to use for this aggregation.      */
 DECL|method|field
@@ -772,7 +801,7 @@ block|}
 comment|/**      * Sets the script to use for this aggregation.      */
 DECL|method|script
 specifier|public
-name|void
+name|AF
 name|script
 parameter_list|(
 name|Script
@@ -785,6 +814,12 @@ name|script
 operator|=
 name|script
 expr_stmt|;
+return|return
+operator|(
+name|AF
+operator|)
+name|this
+return|;
 block|}
 comment|/**      * Gets the script to use for this aggregation.      */
 DECL|method|script
@@ -800,7 +835,7 @@ block|}
 comment|/**      * Sets the {@link ValueType} for the value produced by this aggregation      */
 DECL|method|valueType
 specifier|public
-name|void
+name|AF
 name|valueType
 parameter_list|(
 name|ValueType
@@ -813,6 +848,12 @@ name|valueType
 operator|=
 name|valueType
 expr_stmt|;
+return|return
+operator|(
+name|AF
+operator|)
+name|this
+return|;
 block|}
 comment|/**      * Gets the {@link ValueType} for the value produced by this aggregation      */
 DECL|method|valueType
@@ -828,7 +869,7 @@ block|}
 comment|/**      * Sets the format to use for the output of the aggregation.      */
 DECL|method|format
 specifier|public
-name|void
+name|AF
 name|format
 parameter_list|(
 name|String
@@ -841,6 +882,12 @@ name|format
 operator|=
 name|format
 expr_stmt|;
+return|return
+operator|(
+name|AF
+operator|)
+name|this
+return|;
 block|}
 comment|/**      * Gets the format to use for the output of the aggregation.      */
 DECL|method|format
@@ -856,7 +903,7 @@ block|}
 comment|/**      * Sets the value to use when the aggregation finds a missing value in a      * document      */
 DECL|method|missing
 specifier|public
-name|void
+name|AF
 name|missing
 parameter_list|(
 name|Object
@@ -869,6 +916,12 @@ name|missing
 operator|=
 name|missing
 expr_stmt|;
+return|return
+operator|(
+name|AF
+operator|)
+name|this
+return|;
 block|}
 comment|/**      * Gets the value to use when the aggregation finds a missing value in a      * document      */
 DECL|method|missing
@@ -884,7 +937,7 @@ block|}
 comment|/**      * Sets the time zone to use for this aggregation      */
 DECL|method|timeZone
 specifier|public
-name|void
+name|AF
 name|timeZone
 parameter_list|(
 name|DateTimeZone
@@ -897,6 +950,12 @@ name|timeZone
 operator|=
 name|timeZone
 expr_stmt|;
+return|return
+operator|(
+name|AF
+operator|)
+name|this
+return|;
 block|}
 comment|/**      * Gets the time zone to use for this aggregation      */
 DECL|method|timeZone
@@ -2107,6 +2166,8 @@ specifier|final
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|VS
+argument_list|,
+name|AF
 argument_list|>
 name|doReadFrom
 parameter_list|(
@@ -2159,6 +2220,8 @@ block|}
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|VS
+argument_list|,
+name|AF
 argument_list|>
 name|factory
 init|=
@@ -2275,6 +2338,8 @@ specifier|protected
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|VS
+argument_list|,
+name|AF
 argument_list|>
 name|innerReadFrom
 parameter_list|(
@@ -2505,12 +2570,16 @@ block|{
 name|ValuesSourceAggregatorFactory
 argument_list|<
 name|?
+argument_list|,
+name|?
 argument_list|>
 name|other
 init|=
 operator|(
 name|ValuesSourceAggregatorFactory
 argument_list|<
+name|?
+argument_list|,
 name|?
 argument_list|>
 operator|)

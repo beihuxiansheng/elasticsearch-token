@@ -1015,7 +1015,7 @@ block|}
 comment|/**          * Sets the lag to use when calculating the serial difference.          */
 DECL|method|lag
 specifier|public
-name|void
+name|Factory
 name|lag
 parameter_list|(
 name|int
@@ -1028,6 +1028,9 @@ name|lag
 operator|=
 name|lag
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the lag to use when calculating the serial difference.          */
 DECL|method|lag
@@ -1043,7 +1046,7 @@ block|}
 comment|/**          * Sets the format to use on the output of this aggregation.          */
 DECL|method|format
 specifier|public
-name|void
+name|Factory
 name|format
 parameter_list|(
 name|String
@@ -1056,6 +1059,9 @@ name|format
 operator|=
 name|format
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the format to use on the output of this aggregation.          */
 DECL|method|format
@@ -1071,7 +1077,7 @@ block|}
 comment|/**          * Sets the GapPolicy to use on the output of this aggregation.          */
 DECL|method|gapPolicy
 specifier|public
-name|void
+name|Factory
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -1084,6 +1090,9 @@ name|gapPolicy
 operator|=
 name|gapPolicy
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**          * Gets the GapPolicy to use on the output of this aggregation.          */
 DECL|method|gapPolicy
