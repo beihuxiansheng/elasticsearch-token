@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstraction for the ingest template engine: allows to compile a template into a {@link Template} object.  * A compiled template can be executed by calling its {@link Template#execute(Map)} method.  */
+comment|/**  * Abstraction for the ingest template engine used to decouple {@link IngestDocument} from {@link org.elasticsearch.script.ScriptService}.  * Allows to compile a template into an ingest {@link Template} object.  * A compiled template can be executed by calling its {@link Template#execute(Map)} method.  */
 end_comment
 
 begin_interface
