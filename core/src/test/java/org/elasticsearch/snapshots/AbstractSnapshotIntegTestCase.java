@@ -1253,6 +1253,9 @@ name|Priority
 name|passThroughPriority
 parameter_list|)
 block|{
+comment|// Waiting for the 70 seconds here to make sure that the last check at 65 sec mark in assertBusyPendingTasks has a chance
+comment|// to finish before we timeout on the cluster state block. Otherwise the last check in assertBusyPendingTasks kicks in
+comment|// after the cluster state block clean up takes place and it's assert doesn't reflect the actual failure
 name|this
 argument_list|(
 name|clusterService
@@ -1265,9 +1268,9 @@ name|passThroughPriority
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMinutes
+name|timeValueSeconds
 argument_list|(
-literal|1
+literal|70
 argument_list|)
 argument_list|)
 expr_stmt|;
