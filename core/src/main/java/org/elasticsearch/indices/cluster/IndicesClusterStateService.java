@@ -2970,11 +2970,6 @@ name|shardStateAction
 operator|.
 name|resendShardFailed
 argument_list|(
-name|event
-operator|.
-name|state
-argument_list|()
-argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -3861,8 +3856,6 @@ name|shardStateAction
 operator|.
 name|resendShardFailed
 argument_list|(
-name|state
-argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -5150,11 +5143,6 @@ name|shardStateAction
 operator|.
 name|shardFailed
 argument_list|(
-name|clusterService
-operator|.
-name|state
-argument_list|()
-argument_list|,
 name|shardRouting
 argument_list|,
 name|indexUUID
