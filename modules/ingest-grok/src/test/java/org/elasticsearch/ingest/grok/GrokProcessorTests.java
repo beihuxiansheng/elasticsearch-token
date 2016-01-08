@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest.processor
+DECL|package|org.elasticsearch.ingest.grok
 package|package
 name|org
 operator|.
@@ -12,9 +12,21 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|grok
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|RandomDocumentPicks
+import|;
+end_import
 
 begin_import
 import|import
@@ -38,7 +50,23 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|RandomDocumentPicks
+name|grok
+operator|.
+name|Grok
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|grok
+operator|.
+name|GrokProcessor
 import|;
 end_import
 

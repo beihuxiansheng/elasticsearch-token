@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest.processor
+DECL|package|org.elasticsearch.ingest.grok
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|grok
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|grok
 operator|.
 name|Grok
 import|;
@@ -38,7 +38,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|grok
 operator|.
 name|GrokProcessor
 import|;
@@ -253,7 +253,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/grok/patterns/grok-patterns"
+literal|"/patterns/grok-patterns"
 argument_list|)
 argument_list|,
 name|getClass
@@ -261,7 +261,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"/grok/patterns/linux-syslog"
+literal|"/patterns/linux-syslog"
 argument_list|)
 argument_list|)
 expr_stmt|;
