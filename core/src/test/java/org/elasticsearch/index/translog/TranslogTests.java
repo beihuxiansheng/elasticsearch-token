@@ -13786,6 +13786,26 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// we survived all the randomness!!!
+comment|// lets close the translog and if it succeeds we are all synced again. If we don't do this we will close
+comment|// it in the finally block but miss to copy over unsynced docs to syncedDocs and fail the assertion down the road...
+name|failableTLog
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|syncedDocs
+operator|.
+name|addAll
+argument_list|(
+name|unsynced
+argument_list|)
+expr_stmt|;
+name|unsynced
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
