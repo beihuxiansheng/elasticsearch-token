@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest
+DECL|package|org.elasticsearch.ingest.geoip
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|ingest
+operator|.
+name|geoip
 package|;
 end_package
 
@@ -39,20 +41,6 @@ operator|.
 name|annotations
 operator|.
 name|ParametersFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugin
-operator|.
-name|ingest
-operator|.
-name|IngestPlugin
 import|;
 end_import
 
@@ -133,10 +121,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|IngestRestIT
+DECL|class|IngestGeoIpRestIT
 specifier|public
 class|class
-name|IngestRestIT
+name|IngestGeoIpRestIT
 extends|extends
 name|ESRestTestCase
 block|{
@@ -159,15 +147,15 @@ block|{
 return|return
 name|pluginList
 argument_list|(
-name|IngestPlugin
+name|IngestGeoIpPlugin
 operator|.
 name|class
 argument_list|)
 return|;
 block|}
-DECL|method|IngestRestIT
+DECL|method|IngestGeoIpRestIT
 specifier|public
-name|IngestRestIT
+name|IngestGeoIpRestIT
 parameter_list|(
 annotation|@
 name|Name

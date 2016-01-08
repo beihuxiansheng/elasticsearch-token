@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.ingest
+DECL|package|org.elasticsearch.ingest.geoip
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
-operator|.
 name|ingest
+operator|.
+name|geoip
 package|;
 end_package
 
@@ -34,20 +34,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|processor
-operator|.
-name|GeoIpProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -55,22 +41,13 @@ import|;
 end_import
 
 begin_class
-DECL|class|IngestPlugin
+DECL|class|IngestGeoIpPlugin
 specifier|public
 class|class
-name|IngestPlugin
+name|IngestGeoIpPlugin
 extends|extends
 name|Plugin
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"ingest"
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|name
@@ -80,7 +57,7 @@ name|name
 parameter_list|()
 block|{
 return|return
-name|NAME
+literal|"ingest-geoip"
 return|;
 block|}
 annotation|@

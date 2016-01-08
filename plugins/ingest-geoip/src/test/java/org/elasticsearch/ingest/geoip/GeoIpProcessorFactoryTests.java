@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.ingest.processor
+DECL|package|org.elasticsearch.ingest.geoip
 package|package
 name|org
 operator|.
@@ -12,23 +12,9 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|geoip
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|processor
-operator|.
-name|GeoIpProcessor
-import|;
-end_import
 
 begin_import
 import|import
@@ -239,12 +225,7 @@ name|configDir
 operator|.
 name|resolve
 argument_list|(
-literal|"ingest"
-argument_list|)
-operator|.
-name|resolve
-argument_list|(
-literal|"geoip"
+literal|"ingest-geoip"
 argument_list|)
 decl_stmt|;
 name|Files
