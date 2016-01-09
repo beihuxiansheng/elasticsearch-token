@@ -5679,28 +5679,13 @@ name|LockObtainFailedException
 name|ex
 parameter_list|)
 block|{
-name|boolean
-name|isLocked
-init|=
-name|IndexWriter
-operator|.
-name|isLocked
-argument_list|(
-name|store
-operator|.
-name|directory
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Could not lock IndexWriter isLocked [{}]"
+literal|"could not lock IndexWriter"
 argument_list|,
 name|ex
-argument_list|,
-name|isLocked
 argument_list|)
 expr_stmt|;
 throw|throw
