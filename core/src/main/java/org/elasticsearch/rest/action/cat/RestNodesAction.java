@@ -376,7 +376,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|indexing
+name|shard
 operator|.
 name|IndexingStats
 import|;

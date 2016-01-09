@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.indexing
+DECL|package|org.elasticsearch.index
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|index
-operator|.
-name|indexing
 package|;
 end_package
 
@@ -140,6 +138,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexingOperationListener
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -180,6 +192,8 @@ specifier|public
 specifier|final
 class|class
 name|IndexingSlowLog
+implements|implements
+name|IndexingOperationListener
 block|{
 DECL|field|reformat
 specifier|private
@@ -800,6 +814,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|postIndex
+specifier|public
 name|void
 name|postIndex
 parameter_list|(
@@ -807,11 +822,22 @@ name|Engine
 operator|.
 name|Index
 name|index
-parameter_list|,
-name|long
-name|tookInNanos
 parameter_list|)
 block|{
+specifier|final
+name|long
+name|took
+init|=
+name|index
+operator|.
+name|endTime
+argument_list|()
+operator|-
+name|index
+operator|.
+name|startTime
+argument_list|()
+decl_stmt|;
 name|postIndexing
 argument_list|(
 name|index
@@ -819,7 +845,7 @@ operator|.
 name|parsedDoc
 argument_list|()
 argument_list|,
-name|tookInNanos
+name|took
 argument_list|)
 expr_stmt|;
 block|}
