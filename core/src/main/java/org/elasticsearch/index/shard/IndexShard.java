@@ -1334,8 +1334,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|memory
-operator|.
 name|IndexingMemoryController
 import|;
 end_import
