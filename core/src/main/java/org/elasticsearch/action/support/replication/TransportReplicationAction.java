@@ -4686,11 +4686,6 @@ block|{
 name|performOnReplica
 argument_list|(
 name|shard
-argument_list|,
-name|shard
-operator|.
-name|currentNodeId
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4706,10 +4701,8 @@ block|{
 name|performOnReplica
 argument_list|(
 name|shard
-argument_list|,
-name|shard
 operator|.
-name|relocatingNodeId
+name|buildTargetRelocatingShard
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4724,14 +4717,18 @@ parameter_list|(
 specifier|final
 name|ShardRouting
 name|shard
-parameter_list|,
-specifier|final
-name|String
-name|nodeId
 parameter_list|)
 block|{
 comment|// if we don't have that node, it means that it might have failed and will be created again, in
 comment|// this case, we don't have to do the operation, and just let it failover
+name|String
+name|nodeId
+init|=
+name|shard
+operator|.
+name|currentNodeId
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!

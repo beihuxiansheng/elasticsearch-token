@@ -2660,6 +2660,12 @@ return|return
 name|k
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
+comment|// Uses fallthrough to implement a well know hashing algorithm
 DECL|method|hash3_x64_128
 specifier|public
 specifier|static
@@ -3162,9 +3168,6 @@ case|:
 name|k1
 operator|^=
 operator|(
-operator|(
-name|long
-operator|)
 name|key
 index|[
 name|offset

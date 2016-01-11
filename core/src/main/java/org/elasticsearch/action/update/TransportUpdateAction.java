@@ -2084,9 +2084,6 @@ condition|)
 block|{
 name|shard
 operator|.
-name|indexingService
-argument_list|()
-operator|.
 name|noopUpdate
 argument_list|(
 name|request

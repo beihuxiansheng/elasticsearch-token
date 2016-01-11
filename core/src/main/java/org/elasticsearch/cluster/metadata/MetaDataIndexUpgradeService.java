@@ -950,6 +950,10 @@ argument_list|,
 name|similarityService
 argument_list|,
 name|mapperRegistry
+argument_list|,
+parameter_list|()
+lambda|->
+literal|null
 argument_list|)
 init|)
 block|{
@@ -1025,7 +1029,13 @@ argument_list|)
 throw|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * Marks index as upgraded so we don't have to test it again      */
+end_comment
+
+begin_function
 DECL|method|markAsUpgraded
 specifier|private
 name|IndexMetaData
@@ -1082,7 +1092,13 @@ name|build
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * A fake analysis server that returns the same keyword analyzer for all requests      */
+end_comment
+
+begin_class
 DECL|class|FakeAnalysisService
 specifier|private
 specifier|static
@@ -1195,8 +1211,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 

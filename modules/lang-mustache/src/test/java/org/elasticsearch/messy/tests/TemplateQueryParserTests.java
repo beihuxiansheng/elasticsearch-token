@@ -1095,6 +1095,10 @@ argument_list|,
 name|similarityService
 argument_list|,
 name|mapperRegistry
+argument_list|,
+parameter_list|()
+lambda|->
+name|context
 argument_list|)
 decl_stmt|;
 name|IndexFieldDataService

@@ -3187,9 +3187,6 @@ argument_list|()
 decl_stmt|;
 name|indexShard
 operator|.
-name|indexingService
-argument_list|()
-operator|.
 name|noopUpdate
 argument_list|(
 name|updateRequest

@@ -373,6 +373,14 @@ name|numOps
 operator|++
 expr_stmt|;
 block|}
+name|engine
+operator|.
+name|getTranslog
+argument_list|()
+operator|.
+name|sync
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

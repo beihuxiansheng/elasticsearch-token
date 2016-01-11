@@ -16104,6 +16104,7 @@ name|definition
 operator|.
 name|longType
 expr_stmt|;
+break|break;
 case|case
 name|FLOAT
 case|:
@@ -16126,6 +16127,7 @@ name|definition
 operator|.
 name|floatType
 expr_stmt|;
+break|break;
 case|case
 name|DOUBLE
 case|:
@@ -16148,6 +16150,7 @@ name|definition
 operator|.
 name|doubleType
 expr_stmt|;
+break|break;
 default|default:
 name|incremd
 operator|.

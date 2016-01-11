@@ -213,7 +213,6 @@ name|settings
 decl_stmt|;
 comment|// pkg private so it is settable by tests
 DECL|field|computeServiceImpl
-specifier|static
 name|Class
 argument_list|<
 name|?
@@ -226,22 +225,6 @@ name|AzureComputeServiceImpl
 operator|.
 name|class
 decl_stmt|;
-DECL|method|getComputeServiceImpl
-specifier|public
-specifier|static
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|AzureComputeService
-argument_list|>
-name|getComputeServiceImpl
-parameter_list|()
-block|{
-return|return
-name|computeServiceImpl
-return|;
-block|}
 annotation|@
 name|Inject
 DECL|method|AzureDiscoveryModule
