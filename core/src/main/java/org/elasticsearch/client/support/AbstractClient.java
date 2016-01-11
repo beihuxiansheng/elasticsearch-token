@@ -4848,6 +4848,20 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ingest
+operator|.
+name|WritePipelineResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|percolate
 operator|.
 name|MultiPercolateAction
@@ -7924,7 +7938,7 @@ name|request
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|IndexResponse
+name|WritePipelineResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -7947,7 +7961,7 @@ DECL|method|putPipeline
 specifier|public
 name|ActionFuture
 argument_list|<
-name|IndexResponse
+name|WritePipelineResponse
 argument_list|>
 name|putPipeline
 parameter_list|(
@@ -7998,7 +8012,7 @@ name|request
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|DeleteResponse
+name|WritePipelineResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -8021,7 +8035,7 @@ DECL|method|deletePipeline
 specifier|public
 name|ActionFuture
 argument_list|<
-name|DeleteResponse
+name|WritePipelineResponse
 argument_list|>
 name|deletePipeline
 parameter_list|(

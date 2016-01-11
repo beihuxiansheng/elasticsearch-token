@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
+name|ActionRequestValidationException
 import|;
 end_import
 
@@ -36,7 +36,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequestValidationException
+name|support
+operator|.
+name|master
+operator|.
+name|MasterNodeReadRequest
 import|;
 end_import
 
@@ -102,7 +106,10 @@ specifier|public
 class|class
 name|GetPipelineRequest
 extends|extends
-name|ActionRequest
+name|MasterNodeReadRequest
+argument_list|<
+name|GetPipelineRequest
+argument_list|>
 block|{
 DECL|field|ids
 specifier|private

@@ -64,7 +64,7 @@ name|Action
 argument_list|<
 name|PutPipelineRequest
 argument_list|,
-name|IndexResponse
+name|WritePipelineResponse
 argument_list|,
 name|PutPipelineRequestBuilder
 argument_list|>
@@ -125,13 +125,13 @@ annotation|@
 name|Override
 DECL|method|newResponse
 specifier|public
-name|IndexResponse
+name|WritePipelineResponse
 name|newResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|IndexResponse
+name|WritePipelineResponse
 argument_list|()
 return|;
 block|}

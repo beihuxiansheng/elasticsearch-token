@@ -24,7 +24,11 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequestBuilder
+name|support
+operator|.
+name|master
+operator|.
+name|MasterNodeReadOperationRequestBuilder
 import|;
 end_import
 
@@ -46,7 +50,7 @@ specifier|public
 class|class
 name|GetPipelineRequestBuilder
 extends|extends
-name|ActionRequestBuilder
+name|MasterNodeReadOperationRequestBuilder
 argument_list|<
 name|GetPipelineRequest
 argument_list|,
