@@ -1736,7 +1736,7 @@ argument_list|(
 literal|"top_comments"
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 literal|"_uid"
 argument_list|,

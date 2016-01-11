@@ -1044,7 +1044,7 @@ name|metrics
 operator|.
 name|tophits
 operator|.
-name|TopHitsBuilder
+name|TopHitsAggregator
 import|;
 end_import
 
@@ -1648,7 +1648,9 @@ comment|/**      * Create a new {@link TopHits} aggregation with the given name.
 DECL|method|topHits
 specifier|public
 specifier|static
-name|TopHitsBuilder
+name|TopHitsAggregator
+operator|.
+name|Factory
 name|topHits
 parameter_list|(
 name|String
@@ -1657,7 +1659,9 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TopHitsBuilder
+name|TopHitsAggregator
+operator|.
+name|Factory
 argument_list|(
 name|name
 argument_list|)
