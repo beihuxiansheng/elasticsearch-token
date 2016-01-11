@@ -266,9 +266,6 @@ argument_list|,
 name|ValueCountAggregator
 operator|.
 name|Factory
-argument_list|<
-name|ValuesSource
-argument_list|>
 argument_list|>
 name|createFactory
 parameter_list|(
@@ -295,13 +292,8 @@ operator|new
 name|ValueCountAggregator
 operator|.
 name|Factory
-argument_list|<
-name|ValuesSource
-argument_list|>
 argument_list|(
 name|aggregationName
-argument_list|,
-name|valuesSourceType
 argument_list|,
 name|targetValueType
 argument_list|)
@@ -328,12 +320,7 @@ operator|new
 name|ValueCountAggregator
 operator|.
 name|Factory
-argument_list|<
-name|ValuesSource
-argument_list|>
 argument_list|(
-literal|null
-argument_list|,
 literal|null
 argument_list|,
 literal|null
