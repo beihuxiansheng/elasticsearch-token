@@ -332,6 +332,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|tasks
+operator|.
+name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -531,6 +543,9 @@ specifier|protected
 name|void
 name|doExecute
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 specifier|final
 name|PercolateRequest
 name|request
@@ -648,6 +663,8 @@ name|super
 operator|.
 name|doExecute
 argument_list|(
+name|task
+argument_list|,
 operator|new
 name|PercolateRequest
 argument_list|(
@@ -688,6 +705,8 @@ name|super
 operator|.
 name|doExecute
 argument_list|(
+name|task
+argument_list|,
 name|request
 argument_list|,
 name|listener

@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -55,18 +45,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|tasks
-operator|.
-name|ChildTask
 import|;
 end_import
 
@@ -245,7 +223,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ChildTask
+name|Task
 argument_list|(
 name|id
 argument_list|,

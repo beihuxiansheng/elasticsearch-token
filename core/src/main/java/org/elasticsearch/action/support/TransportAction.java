@@ -377,6 +377,7 @@ return|return
 name|future
 return|;
 block|}
+comment|/**      * Use this method when the transport action call should result in creation of a new task associated with the call.      *      * This is a typical behavior.      */
 DECL|method|execute
 specifier|public
 specifier|final
@@ -497,8 +498,9 @@ return|return
 name|task
 return|;
 block|}
+comment|/**      * Use this method when the transport action should continue to run in the context of the current task      */
 DECL|method|execute
-specifier|private
+specifier|public
 specifier|final
 name|void
 name|execute
