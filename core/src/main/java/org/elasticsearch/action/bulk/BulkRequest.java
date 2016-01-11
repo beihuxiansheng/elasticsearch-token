@@ -1190,6 +1190,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 literal|true
 argument_list|)
 return|;
@@ -1234,6 +1236,8 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+literal|null
+argument_list|,
 name|allowExplicitIndex
 argument_list|)
 return|;
@@ -1266,6 +1270,11 @@ name|Nullable
 name|String
 index|[]
 name|defaultFields
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|defaultPipeline
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1494,6 +1503,11 @@ name|int
 name|retryOnConflict
 init|=
 literal|0
+decl_stmt|;
+name|String
+name|pipeline
+init|=
+name|defaultPipeline
 decl_stmt|;
 comment|// at this stage, next token can either be END_OBJECT (and use default index and type, with auto generated id)
 comment|// or START_OBJECT which will have another set of parameters
@@ -1904,6 +1918,25 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"pipeline"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|pipeline
+operator|=
+name|parser
+operator|.
+name|text
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"fields"
 operator|.
 name|equals
@@ -2230,6 +2263,11 @@ argument_list|(
 name|versionType
 argument_list|)
 operator|.
+name|pipeline
+argument_list|(
+name|pipeline
+argument_list|)
+operator|.
 name|source
 argument_list|(
 name|data
@@ -2300,6 +2338,11 @@ name|equals
 argument_list|(
 name|opType
 argument_list|)
+argument_list|)
+operator|.
+name|pipeline
+argument_list|(
+name|pipeline
 argument_list|)
 operator|.
 name|source
@@ -2377,6 +2420,11 @@ operator|.
 name|create
 argument_list|(
 literal|true
+argument_list|)
+operator|.
+name|pipeline
+argument_list|(
+name|pipeline
 argument_list|)
 operator|.
 name|source
