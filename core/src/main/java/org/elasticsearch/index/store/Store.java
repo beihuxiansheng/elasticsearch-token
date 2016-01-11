@@ -1024,6 +1024,17 @@ name|Closeable
 implements|,
 name|RefCounted
 block|{
+DECL|field|FIRST_LUCENE_CHECKSUM_VERSION
+specifier|private
+specifier|static
+specifier|final
+name|Version
+name|FIRST_LUCENE_CHECKSUM_VERSION
+init|=
+name|Version
+operator|.
+name|LUCENE_4_8_0
+decl_stmt|;
 DECL|field|CODEC
 specifier|static
 specifier|final
@@ -2477,9 +2488,7 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_4_8
+name|FIRST_LUCENE_CHECKSUM_VERSION
 argument_list|)
 assert|;
 name|output
@@ -2620,9 +2629,7 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_4_8_0
+name|FIRST_LUCENE_CHECKSUM_VERSION
 argument_list|)
 assert|;
 return|return
@@ -2819,9 +2826,7 @@ argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_4_8_0
+name|FIRST_LUCENE_CHECKSUM_VERSION
 argument_list|)
 condition|)
 block|{
@@ -4125,17 +4130,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|FIRST_LUCENE_CHECKSUM_VERSION
-specifier|private
-specifier|static
-specifier|final
-name|Version
-name|FIRST_LUCENE_CHECKSUM_VERSION
-init|=
-name|Version
-operator|.
-name|LUCENE_4_8
-decl_stmt|;
 DECL|field|metadata
 specifier|private
 specifier|final
@@ -4645,6 +4639,11 @@ name|getUserData
 argument_list|()
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|Version
 name|maxVersion
 init|=
@@ -5027,6 +5026,12 @@ argument_list|)
 return|;
 block|}
 comment|/**          * Reads legacy checksum files found in the directory.          *<p>          * Files are expected to start with _checksums- prefix          * followed by long file version. Only file with the highest version is read, all other files are ignored.          *          * @param directory the directory to read checksums from          * @return a map of file checksums and the checksum file version          */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// Legacy checksum needs legacy methods
 DECL|method|readLegacyChecksums
 specifier|static
 name|Tuple
@@ -5148,6 +5153,7 @@ comment|// version
 return|return
 operator|new
 name|Tuple
+argument_list|<>
 argument_list|(
 name|indexInput
 operator|.
@@ -5162,6 +5168,7 @@ block|}
 return|return
 operator|new
 name|Tuple
+argument_list|<>
 argument_list|(
 operator|new
 name|HashMap
@@ -6808,6 +6815,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// Legacy checksum uses legacy methods
 DECL|method|writeChecksums
 specifier|synchronized
 name|void
