@@ -128,17 +128,17 @@ specifier|protected
 name|int
 name|count
 decl_stmt|;
-comment|/**      * Create a non recycling {@link BytesStreamOutput} with 1 initial page acquired.      */
+comment|/**      * Create a non recycling {@link BytesStreamOutput} with an initial capacity of 0.      */
 DECL|method|BytesStreamOutput
 specifier|public
 name|BytesStreamOutput
 parameter_list|()
 block|{
+comment|// since this impl is not recycling anyway, don't bother aligning to
+comment|// the page size, this will even save memory
 name|this
 argument_list|(
-name|BigArrays
-operator|.
-name|PAGE_SIZE_IN_BYTES
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.indices.memory
+DECL|package|org.elasticsearch.indices
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|memory
 package|;
 end_package
 
@@ -26,21 +24,7 @@ name|common
 operator|.
 name|component
 operator|.
-name|AbstractLifecycleComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
+name|AbstractComponent
 import|;
 end_import
 
@@ -204,18 +188,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
-operator|.
-name|IndicesService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|monitor
 operator|.
 name|jvm
@@ -233,6 +205,16 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
 import|;
 end_import
 
@@ -284,12 +266,11 @@ specifier|public
 class|class
 name|IndexingMemoryController
 extends|extends
-name|AbstractLifecycleComponent
-argument_list|<
-name|IndexingMemoryController
-argument_list|>
+name|AbstractComponent
 implements|implements
 name|IndexEventListener
+implements|,
+name|Closeable
 block|{
 comment|/** How much heap (% or bytes) we will share across all actively indexing shards on this node (default: 10%). */
 DECL|field|INDEX_BUFFER_SIZE_SETTING
@@ -388,29 +369,6 @@ argument_list|,
 literal|"INACTIVE_SHARD_INDEXING_BUFFER"
 argument_list|)
 decl_stmt|;
-comment|/** Once a shard becomes inactive, we reduce the {@code Translog} buffer to this value (1 KB) to let active shards use the heap instead. */
-DECL|field|INACTIVE_SHARD_TRANSLOG_BUFFER
-specifier|public
-specifier|static
-specifier|final
-name|ByteSizeValue
-name|INACTIVE_SHARD_TRANSLOG_BUFFER
-init|=
-name|ByteSizeValue
-operator|.
-name|parseBytesSizeValue
-argument_list|(
-literal|"1kb"
-argument_list|,
-literal|"INACTIVE_SHARD_TRANSLOG_BUFFER"
-argument_list|)
-decl_stmt|;
-DECL|field|threadPool
-specifier|private
-specifier|final
-name|ThreadPool
-name|threadPool
-decl_stmt|;
 DECL|field|indicesService
 specifier|private
 specifier|final
@@ -443,7 +401,7 @@ name|interval
 decl_stmt|;
 DECL|field|scheduler
 specifier|private
-specifier|volatile
+specifier|final
 name|ScheduledFuture
 name|scheduler
 decl_stmt|;
@@ -484,10 +442,7 @@ specifier|final
 name|ShardsIndicesStatusChecker
 name|statusChecker
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|IndexingMemoryController
-specifier|public
 name|IndexingMemoryController
 parameter_list|(
 name|Settings
@@ -526,7 +481,6 @@ expr_stmt|;
 block|}
 comment|// for testing
 DECL|method|IndexingMemoryController
-specifier|protected
 name|IndexingMemoryController
 parameter_list|(
 name|Settings
@@ -546,12 +500,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|threadPool
-operator|=
-name|threadPool
 expr_stmt|;
 name|this
 operator|.
@@ -834,20 +782,30 @@ operator|.
 name|interval
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-block|{
-comment|// it's fine to run it on the scheduler thread, no busy work
 name|this
 operator|.
 name|scheduler
 operator|=
+name|scheduleTask
+argument_list|(
+name|threadPool
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|scheduleTask
+specifier|protected
+name|ScheduledFuture
+argument_list|<
+name|?
+argument_list|>
+name|scheduleTask
+parameter_list|(
+name|ThreadPool
+name|threadPool
+parameter_list|)
+block|{
+comment|// it's fine to run it on the scheduler thread, no busy work
+return|return
 name|threadPool
 operator|.
 name|scheduleWithFixedDelay
@@ -856,14 +814,14 @@ name|statusChecker
 argument_list|,
 name|interval
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStop
-specifier|protected
+DECL|method|close
+specifier|public
 name|void
-name|doStop
+name|close
 parameter_list|()
 block|{
 name|FutureUtils
@@ -873,22 +831,9 @@ argument_list|(
 name|scheduler
 argument_list|)
 expr_stmt|;
-name|scheduler
-operator|=
-literal|null
-expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|doClose
-specifier|protected
-name|void
-name|doClose
-parameter_list|()
-block|{     }
 comment|/**      * returns the current budget for the total amount of indexing buffers of      * active shards on this node      */
 DECL|method|indexingBufferSize
-specifier|public
 name|ByteSizeValue
 name|indexingBufferSize
 parameter_list|()
@@ -1042,7 +987,6 @@ block|}
 block|}
 comment|/** check if any shards active status changed, now. */
 DECL|method|forceCheck
-specifier|public
 name|void
 name|forceCheck
 parameter_list|()

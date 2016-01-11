@@ -1443,6 +1443,22 @@ operator|==
 name|factory
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|hashCode
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+comment|// This way both this and its factory hash to the same spot, making hashCode consistent.
+return|return
+name|factory
+operator|.
+name|hashCode
+argument_list|()
+return|;
+block|}
 comment|/**      * Returns true if {@code thrown} can be thrown by {@code invoked} without wrapping.      */
 DECL|method|canRethrow
 specifier|static
