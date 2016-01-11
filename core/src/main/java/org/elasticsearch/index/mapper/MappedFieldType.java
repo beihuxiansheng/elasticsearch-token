@@ -2158,7 +2158,7 @@ return|;
 block|}
 comment|/** Creates a term associated with the field of this mapper for the given value */
 DECL|method|createTerm
-specifier|public
+specifier|protected
 name|Term
 name|createTerm
 parameter_list|(
