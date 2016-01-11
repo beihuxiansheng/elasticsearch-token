@@ -1320,8 +1320,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1476,8 +1474,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1644,8 +1640,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|IndexSettings
@@ -1830,8 +1824,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|IndexSettings
@@ -2028,8 +2020,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -2223,8 +2213,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -2340,8 +2328,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -2706,8 +2692,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -2821,8 +2805,6 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertTrue

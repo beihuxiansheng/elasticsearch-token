@@ -96,6 +96,22 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|AbstractRunnable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|FutureUtils
 import|;
 end_import
@@ -853,13 +869,6 @@ name|threadPool
 parameter_list|)
 block|{
 comment|// it's fine to run it on the scheduler thread, no busy work
-if|if
-condition|(
-name|threadPool
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 name|threadPool
 operator|.
@@ -870,14 +879,6 @@ argument_list|,
 name|interval
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-comment|// tests pass null for threadPool --> no periodic checking
-return|return
-literal|null
-return|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -1032,20 +1033,45 @@ operator|.
 name|execute
 argument_list|(
 operator|new
-name|Runnable
+name|AbstractRunnable
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
 name|void
-name|run
+name|doRun
 parameter_list|()
 block|{
 name|shard
 operator|.
 name|writeIndexingBuffer
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to write indexing buffer for shard [{}]; ignoring"
+argument_list|,
+name|t
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1280,7 +1306,7 @@ argument_list|(
 name|bytes
 argument_list|)
 decl_stmt|;
-if|if
+while|while
 condition|(
 name|totalBytes
 operator|>
@@ -1314,7 +1340,7 @@ comment|// NOTE: this is only an approximate check, because bytes written is to 
 comment|// typically smaller but can be larger in extreme cases (many unique terms).  This logic is here only as a safety against
 comment|// thread starvation or too infrequent checking, to ensure we are still checking periodically, in proportion to bytes
 comment|// processed by indexing:
-name|run
+name|runUnlocked
 argument_list|()
 expr_stmt|;
 block|}
@@ -1326,6 +1352,10 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+break|break;
 block|}
 block|}
 block|}

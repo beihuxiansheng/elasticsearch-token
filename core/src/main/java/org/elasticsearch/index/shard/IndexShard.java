@@ -3502,8 +3502,12 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
-name|markLastWrite
-argument_list|()
+name|active
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|index
 operator|=
@@ -3876,8 +3880,12 @@ argument_list|(
 name|delete
 argument_list|)
 expr_stmt|;
-name|markLastWrite
-argument_list|()
+name|active
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|delete
 operator|=
@@ -6061,21 +6069,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** Sets {@code active} to true if we were inactive. */
-DECL|method|markLastWrite
-specifier|private
-name|void
-name|markLastWrite
-parameter_list|()
-block|{
-name|active
-operator|.
-name|set
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|ensureWriteAllowed
 specifier|private
 name|void
@@ -6425,6 +6418,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** Returns number of heap bytes used by the indexing buffer for this shard, or 0 if the shard is closed */
 DECL|method|getIndexBufferRAMBytesUsed
 specifier|public
 name|long
