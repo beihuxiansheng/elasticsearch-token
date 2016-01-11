@@ -3626,7 +3626,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"use flush to write indexing buffer (heap size=[{}]) since version map is small (heap size=[{}])"
+literal|"use IndexWriter.flush to write indexing buffer (heap size=[{}]) since version map is small (heap size=[{}])"
 argument_list|,
 operator|new
 name|ByteSizeValue
