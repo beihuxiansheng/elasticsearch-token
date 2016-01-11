@@ -351,6 +351,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//this shouldn't be needed here but we do it for consistency with index api which requires it to prevent double execution
+name|indexRequest
+operator|.
+name|pipeline
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

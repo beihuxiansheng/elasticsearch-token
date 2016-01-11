@@ -315,14 +315,6 @@ name|AbstractComponent
 implements|implements
 name|ActionFilter
 block|{
-DECL|field|PIPELINE_ALREADY_PROCESSED
-specifier|static
-specifier|final
-name|String
-name|PIPELINE_ALREADY_PROCESSED
-init|=
-literal|"ingest_already_processed"
-decl_stmt|;
 DECL|field|executionService
 specifier|private
 specifier|final
@@ -620,34 +612,6 @@ name|IndexRequest
 name|indexRequest
 parameter_list|)
 block|{
-comment|// The IndexRequest has the same type on the node that receives the request and the node that
-comment|// processes the primary action. This could lead to a pipeline being executed twice for the same
-comment|// index request, hence this check
-if|if
-condition|(
-name|indexRequest
-operator|.
-name|hasHeader
-argument_list|(
-name|PIPELINE_ALREADY_PROCESSED
-argument_list|)
-condition|)
-block|{
-name|chain
-operator|.
-name|proceed
-argument_list|(
-name|task
-argument_list|,
-name|action
-argument_list|,
-name|indexRequest
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 name|executionService
 operator|.
 name|execute
@@ -683,13 +647,14 @@ argument_list|,
 name|success
 lambda|->
 block|{
+comment|// TransportIndexAction uses IndexRequest and same action name on the node that receives the request and the node that
+comment|// processes the primary action. This could lead to a pipeline being executed twice for the same
+comment|// index request, hence we set the pipeline to null once its execution completed.
 name|indexRequest
 operator|.
-name|putHeader
+name|pipeline
 argument_list|(
-name|PIPELINE_ALREADY_PROCESSED
-argument_list|,
-literal|true
+literal|null
 argument_list|)
 expr_stmt|;
 name|chain
