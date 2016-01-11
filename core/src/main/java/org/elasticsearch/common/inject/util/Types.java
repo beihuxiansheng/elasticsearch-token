@@ -196,7 +196,7 @@ specifier|private
 name|Types
 parameter_list|()
 block|{     }
-comment|/**      * Returns a new parameterized type, applying {@code typeArguments} to      * {@code rawType}. The returned type does not have an owner type.      *      * @return a {@link java.io.Serializable serializable} parameterized type.      */
+comment|/**      * Returns a new parameterized type, applying {@code typeArguments} to      * {@code rawType}. The returned type does not have an owner type.      *      * @return a parameterized type.      */
 DECL|method|newParameterizedType
 specifier|public
 specifier|static
@@ -222,7 +222,7 @@ name|typeArguments
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new parameterized type, applying {@code typeArguments} to      * {@code rawType} and enclosed by {@code ownerType}.      *      * @return a {@link java.io.Serializable serializable} parameterized type.      */
+comment|/**      * Returns a new parameterized type, applying {@code typeArguments} to      * {@code rawType} and enclosed by {@code ownerType}.      *      * @return a parameterized type.      */
 DECL|method|newParameterizedTypeWithOwner
 specifier|public
 specifier|static
@@ -252,7 +252,7 @@ name|typeArguments
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an array type whose elements are all instances of      * {@code componentType}.      *      * @return a {@link java.io.Serializable serializable} generic array type.      */
+comment|/**      * Returns an array type whose elements are all instances of      * {@code componentType}.      *      * @return a generic array type.      */
 DECL|method|arrayOf
 specifier|public
 specifier|static
@@ -332,7 +332,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a type modelling a {@link List} whose elements are of type      * {@code elementType}.      *      * @return a {@link java.io.Serializable serializable} parameterized type.      */
+comment|/**      * Returns a type modelling a {@link List} whose elements are of type      * {@code elementType}.      *      * @return a parameterized type.      */
 DECL|method|listOf
 specifier|public
 specifier|static
@@ -354,7 +354,7 @@ name|elementType
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a type modelling a {@link Set} whose elements are of type      * {@code elementType}.      *      * @return a {@link java.io.Serializable serializable} parameterized type.      */
+comment|/**      * Returns a type modelling a {@link Set} whose elements are of type      * {@code elementType}.      *      * @return a parameterized type.      */
 DECL|method|setOf
 specifier|public
 specifier|static
@@ -376,7 +376,7 @@ name|elementType
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a type modelling a {@link Map} whose keys are of type      * {@code keyType} and whose values are of type {@code valueType}.      *      * @return a {@link java.io.Serializable serializable} parameterized type.      */
+comment|/**      * Returns a type modelling a {@link Map} whose keys are of type      * {@code keyType} and whose values are of type {@code valueType}.      *      * @return a parameterized type.      */
 DECL|method|mapOf
 specifier|public
 specifier|static
@@ -404,7 +404,7 @@ argument_list|)
 return|;
 block|}
 comment|// for other custom collections types, use newParameterizedType()
-comment|/**      * Returns a type modelling a {@link Provider} that provides elements of type      * {@code elementType}.      *      * @return a {@link java.io.Serializable serializable} parameterized type.      */
+comment|/**      * Returns a type modelling a {@link Provider} that provides elements of type      * {@code elementType}.      *      * @return a parameterized type.      */
 DECL|method|providerOf
 specifier|public
 specifier|static
