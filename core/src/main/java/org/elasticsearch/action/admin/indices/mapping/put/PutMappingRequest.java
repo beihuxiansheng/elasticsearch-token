@@ -436,7 +436,7 @@ name|PutMappingRequest
 name|indices
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|indices
 parameter_list|)
 block|{

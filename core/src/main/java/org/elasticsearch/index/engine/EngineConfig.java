@@ -206,20 +206,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|indexing
-operator|.
-name|ShardIndexingService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|MergeSchedulerConfig
@@ -289,8 +275,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|memory
 operator|.
 name|IndexingMemoryController
 import|;
@@ -390,12 +374,6 @@ specifier|private
 specifier|final
 name|ThreadPool
 name|threadPool
-decl_stmt|;
-DECL|field|indexingService
-specifier|private
-specifier|final
-name|ShardIndexingService
-name|indexingService
 decl_stmt|;
 DECL|field|warmer
 specifier|private
@@ -566,9 +544,6 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|ShardIndexingService
-name|indexingService
-parameter_list|,
 name|IndexSettings
 name|indexSettings
 parameter_list|,
@@ -645,12 +620,6 @@ operator|.
 name|threadPool
 operator|=
 name|threadPool
-expr_stmt|;
-name|this
-operator|.
-name|indexingService
-operator|=
-name|indexingService
 expr_stmt|;
 name|this
 operator|.
@@ -836,7 +805,7 @@ operator|=
 name|enableGcDeletes
 expr_stmt|;
 block|}
-comment|/**      * Returns the initial index buffer size. This setting is only read on startup and otherwise controlled by {@link org.elasticsearch.indices.memory.IndexingMemoryController}      */
+comment|/**      * Returns the initial index buffer size. This setting is only read on startup and otherwise controlled by {@link IndexingMemoryController}      */
 DECL|method|getIndexingBufferSize
 specifier|public
 name|ByteSizeValue
@@ -894,17 +863,6 @@ parameter_list|()
 block|{
 return|return
 name|threadPool
-return|;
-block|}
-comment|/**      * Returns a {@link org.elasticsearch.index.indexing.ShardIndexingService} used inside the engine to inform about      * pre and post index. The operations are used for statistic purposes etc.      *      * @see org.elasticsearch.index.indexing.ShardIndexingService#postIndex(Engine.Index)      * @see org.elasticsearch.index.indexing.ShardIndexingService#preIndex(Engine.Index)      *      */
-DECL|method|getIndexingService
-specifier|public
-name|ShardIndexingService
-name|getIndexingService
-parameter_list|()
-block|{
-return|return
-name|indexingService
 return|;
 block|}
 comment|/**      * Returns an {@link org.elasticsearch.index.engine.Engine.Warmer} used to warm new searchers before they are used for searching.      */

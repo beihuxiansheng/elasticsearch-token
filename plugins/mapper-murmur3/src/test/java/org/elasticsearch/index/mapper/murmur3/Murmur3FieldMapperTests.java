@@ -337,6 +337,10 @@ name|similarityService
 argument_list|()
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|indexService
+operator|::
+name|getQueryShardContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -990,6 +994,10 @@ name|similarityService
 argument_list|()
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|indexService
+operator|::
+name|getQueryShardContext
 argument_list|)
 expr_stmt|;
 name|String
@@ -1158,6 +1166,10 @@ name|similarityService
 argument_list|()
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|indexService
+operator|::
+name|getQueryShardContext
 argument_list|)
 expr_stmt|;
 name|String

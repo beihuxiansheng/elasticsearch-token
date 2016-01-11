@@ -2323,6 +2323,10 @@ argument_list|,
 name|similarityService
 argument_list|,
 name|mapperRegistry
+argument_list|,
+parameter_list|()
+lambda|->
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|indexFieldDataService

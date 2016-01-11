@@ -766,8 +766,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|indexing
-operator|.
 name|IndexingSlowLog
 import|;
 end_import

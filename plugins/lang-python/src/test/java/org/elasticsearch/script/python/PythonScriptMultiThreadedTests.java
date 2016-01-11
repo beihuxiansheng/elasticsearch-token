@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Randomness
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -129,18 +141,6 @@ operator|.
 name|concurrent
 operator|.
 name|CyclicBarrier
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadLocalRandom
 import|;
 end_import
 
@@ -330,9 +330,9 @@ expr_stmt|;
 name|long
 name|x
 init|=
-name|ThreadLocalRandom
+name|Randomness
 operator|.
-name|current
+name|get
 argument_list|()
 operator|.
 name|nextInt
@@ -341,9 +341,9 @@ decl_stmt|;
 name|long
 name|y
 init|=
-name|ThreadLocalRandom
+name|Randomness
 operator|.
-name|current
+name|get
 argument_list|()
 operator|.
 name|nextInt
@@ -545,13 +545,13 @@ comment|//            threads[i] = new Thread(new Runnable() {
 comment|//                @Override public void run() {
 comment|//                    try {
 comment|//                        barrier.await();
-comment|//                        long x = ThreadLocalRandom.current().nextInt();
+comment|//                        long x = Randomness.get().nextInt();
 comment|//                        Map<String, Object> vars = new HashMap<String, Object>();
 comment|//                        vars.put("x", x);
 comment|//                        ExecutableScript script = se.executable(compiled, vars);
 comment|//                        Map<String, Object> runtimeVars = new HashMap<String, Object>();
 comment|//                        for (int i = 0; i< 100000; i++) {
-comment|//                            long y = ThreadLocalRandom.current().nextInt();
+comment|//                            long y = Randomness.get().nextInt();
 comment|//                            long addition = x + y;
 comment|//                            runtimeVars.put("y", y);
 comment|//                            long result = ((Number) script.run(runtimeVars)).longValue();
@@ -753,9 +753,9 @@ block|{
 name|long
 name|x
 init|=
-name|ThreadLocalRandom
+name|Randomness
 operator|.
-name|current
+name|get
 argument_list|()
 operator|.
 name|nextInt
@@ -764,9 +764,9 @@ decl_stmt|;
 name|long
 name|y
 init|=
-name|ThreadLocalRandom
+name|Randomness
 operator|.
-name|current
+name|get
 argument_list|()
 operator|.
 name|nextInt

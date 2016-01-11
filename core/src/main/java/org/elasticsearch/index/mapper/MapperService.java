@@ -368,6 +368,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|similarity
 operator|.
 name|SimilarityService
@@ -576,6 +590,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|stream
 operator|.
 name|Collectors
@@ -615,18 +641,6 @@ operator|.
 name|Collections
 operator|.
 name|unmodifiableMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableSet
 import|;
 end_import
 
@@ -874,6 +888,12 @@ name|similarityService
 parameter_list|,
 name|MapperRegistry
 name|mapperRegistry
+parameter_list|,
+name|Supplier
+argument_list|<
+name|QueryShardContext
+argument_list|>
+name|queryShardContextSupplier
 parameter_list|)
 block|{
 name|super
@@ -911,6 +931,8 @@ argument_list|,
 name|similarityService
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|queryShardContextSupplier
 argument_list|)
 expr_stmt|;
 name|this
@@ -1007,9 +1029,7 @@ literal|"\"properties\" : {\n"
 operator|+
 literal|"\"query\" : {\n"
 operator|+
-literal|"\"type\" : \"object\",\n"
-operator|+
-literal|"\"enabled\" : false\n"
+literal|"\"type\" : \"percolator\"\n"
 operator|+
 literal|"}\n"
 operator|+
