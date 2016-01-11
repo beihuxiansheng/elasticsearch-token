@@ -4333,8 +4333,6 @@ name|listener
 argument_list|)
 argument_list|,
 name|reference
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
