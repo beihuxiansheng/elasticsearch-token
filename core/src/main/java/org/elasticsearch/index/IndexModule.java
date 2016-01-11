@@ -240,6 +240,18 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|IndexingMemoryController
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|cache
 operator|.
 name|query
@@ -1138,6 +1150,9 @@ name|servicesProvider
 parameter_list|,
 name|MapperRegistry
 name|mapperRegistry
+parameter_list|,
+name|IndexingMemoryController
+name|indexingMemoryController
 parameter_list|)
 throws|throws
 name|IOException
@@ -1376,6 +1391,8 @@ argument_list|,
 name|searcherWrapperFactory
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|indexingMemoryController
 argument_list|)
 return|;
 block|}
