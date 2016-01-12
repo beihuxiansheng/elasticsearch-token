@@ -2572,6 +2572,7 @@ name|void
 name|onSuccess
 parameter_list|()
 block|{         }
+comment|/**          * Notification for non-channel exceptions that are not handled          * by {@link ShardStateAction}.          *          * The exceptions that are handled by {@link ShardStateAction}          * are:          *  - {@link NotMasterException}          *  - {@link NodeDisconnectedException}          *  - {@link Discovery.FailedToCommitClusterStateException}          *          * Any other exception is communicated to the requester via          * this notification.          *          * @param e the unexpected cause of the failure on the master          */
 DECL|method|onShardFailedFailure
 specifier|default
 name|void
