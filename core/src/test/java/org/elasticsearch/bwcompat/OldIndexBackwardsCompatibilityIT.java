@@ -420,9 +420,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|EngineConfig
+name|IndexSettings
 import|;
 end_import
 
@@ -3163,7 +3161,7 @@ name|put
 argument_list|(
 literal|"refresh_interval"
 argument_list|,
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|DEFAULT_REFRESH_INTERVAL
 argument_list|)
