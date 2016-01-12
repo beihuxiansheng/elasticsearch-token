@@ -253,7 +253,7 @@ specifier|final
 name|int
 name|NUMBER_OF_TESTBUILDERS
 init|=
-literal|20
+literal|100
 decl_stmt|;
 DECL|field|namedWriteableRegistry
 specifier|private
