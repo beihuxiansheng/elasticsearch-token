@@ -4000,7 +4000,15 @@ block|{
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
-comment|//        if (getEngine().refreshNeeded()) {
+if|if
+condition|(
+name|getEngine
+argument_list|()
+operator|.
+name|refreshNeeded
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|canIndex
@@ -4137,7 +4145,7 @@ name|time
 argument_list|)
 expr_stmt|;
 block|}
-comment|//        }
+block|}
 block|}
 comment|/** Returns how many bytes we are currently moving from heap to disk */
 DECL|method|getWritingBytes
