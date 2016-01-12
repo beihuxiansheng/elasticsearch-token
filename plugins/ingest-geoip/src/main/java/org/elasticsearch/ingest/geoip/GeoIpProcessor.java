@@ -1383,6 +1383,7 @@ name|Path
 name|configDirectory
 parameter_list|)
 block|{
+comment|// TODO(simonw): same as fro grok we should load this outside of the factory in a static method and hass the map to the ctor
 name|Path
 name|geoIpConfigDirectory
 init|=

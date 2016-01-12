@@ -542,6 +542,7 @@ argument_list|,
 literal|"description"
 argument_list|)
 decl_stmt|;
+comment|// TODO(simonw): can we make these strings constants?
 name|List
 argument_list|<
 name|Processor

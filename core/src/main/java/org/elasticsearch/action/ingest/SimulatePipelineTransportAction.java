@@ -278,6 +278,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -301,6 +302,7 @@ operator|.
 name|v2
 argument_list|()
 decl_stmt|;
+specifier|final
 name|SimulatePipelineRequest
 operator|.
 name|Parsed

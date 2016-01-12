@@ -758,6 +758,7 @@ name|INGEST
 init|=
 literal|"ingest"
 decl_stmt|;
+comment|//TODO(simonw): wow what is the reason for having yet another threadpool? I really think we should just use index for this.
 block|}
 DECL|enum|ThreadPoolType
 specifier|public
