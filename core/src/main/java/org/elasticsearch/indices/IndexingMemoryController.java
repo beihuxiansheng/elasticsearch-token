@@ -1352,6 +1352,16 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Could be while we were checking, more bytes arrived:
+name|totalBytes
+operator|=
+name|bytesWrittenSinceCheck
+operator|.
+name|addAndGet
+argument_list|(
+name|bytes
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
