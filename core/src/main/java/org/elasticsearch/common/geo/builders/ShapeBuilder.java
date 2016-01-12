@@ -524,30 +524,7 @@ DECL|method|ShapeBuilder
 specifier|protected
 name|ShapeBuilder
 parameter_list|()
-block|{      }
-DECL|method|coordinate
-specifier|protected
-specifier|static
-name|Coordinate
-name|coordinate
-parameter_list|(
-name|double
-name|longitude
-parameter_list|,
-name|double
-name|latitude
-parameter_list|)
-block|{
-return|return
-operator|new
-name|Coordinate
-argument_list|(
-name|longitude
-argument_list|,
-name|latitude
-argument_list|)
-return|;
-block|}
+block|{     }
 DECL|method|jtsGeometry
 specifier|protected
 name|JtsGeometry
@@ -3109,11 +3086,11 @@ argument_list|(
 name|coordinates
 argument_list|)
 expr_stmt|;
-name|PointListBuilder
+name|CoordinatesBuilder
 name|points
 init|=
 operator|new
-name|PointListBuilder
+name|CoordinatesBuilder
 argument_list|()
 decl_stmt|;
 for|for
@@ -3128,7 +3105,7 @@ control|)
 block|{
 name|points
 operator|.
-name|point
+name|coordinate
 argument_list|(
 name|node
 operator|.
@@ -3142,7 +3119,7 @@ name|MultiPointBuilder
 argument_list|(
 name|points
 operator|.
-name|list
+name|build
 argument_list|()
 argument_list|)
 return|;
@@ -3185,11 +3162,11 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|PointListBuilder
+name|CoordinatesBuilder
 name|line
 init|=
 operator|new
-name|PointListBuilder
+name|CoordinatesBuilder
 argument_list|()
 decl_stmt|;
 for|for
@@ -3204,7 +3181,7 @@ control|)
 block|{
 name|line
 operator|.
-name|point
+name|coordinate
 argument_list|(
 name|node
 operator|.
@@ -3218,9 +3195,6 @@ operator|.
 name|newLineString
 argument_list|(
 name|line
-operator|.
-name|list
-argument_list|()
 argument_list|)
 return|;
 block|}
@@ -3503,8 +3477,6 @@ operator|new
 name|PolygonBuilder
 argument_list|(
 name|shell
-operator|.
-name|points
 argument_list|,
 name|orientation
 argument_list|)

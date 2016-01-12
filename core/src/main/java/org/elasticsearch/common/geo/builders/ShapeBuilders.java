@@ -147,6 +147,25 @@ name|list
 argument_list|)
 return|;
 block|}
+comment|/**      * Create a new lineString      * @return a new {@link LineStringBuilder}      */
+DECL|method|newLineString
+specifier|public
+specifier|static
+name|LineStringBuilder
+name|newLineString
+parameter_list|(
+name|CoordinatesBuilder
+name|coordinates
+parameter_list|)
+block|{
+return|return
+operator|new
+name|LineStringBuilder
+argument_list|(
+name|coordinates
+argument_list|)
+return|;
+block|}
 comment|/**      * Create a new Collection of lineStrings      * @return a new {@link MultiLineStringBuilder}      */
 DECL|method|newMultiLinestring
 specifier|public
@@ -161,7 +180,7 @@ name|MultiLineStringBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Create a new Polygon      * @return a new {@link PointBuilder}      */
+comment|/**      * Create a new PolygonBuilder      * @return a new {@link PolygonBuilder}      */
 DECL|method|newPolygon
 specifier|public
 specifier|static
@@ -172,6 +191,32 @@ name|List
 argument_list|<
 name|Coordinate
 argument_list|>
+name|shell
+parameter_list|)
+block|{
+return|return
+operator|new
+name|PolygonBuilder
+argument_list|(
+operator|new
+name|CoordinatesBuilder
+argument_list|()
+operator|.
+name|coordinates
+argument_list|(
+name|shell
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Create a new PolygonBuilder      * @return a new {@link PolygonBuilder}      */
+DECL|method|newPolygon
+specifier|public
+specifier|static
+name|PolygonBuilder
+name|newPolygon
+parameter_list|(
+name|CoordinatesBuilder
 name|shell
 parameter_list|)
 block|{

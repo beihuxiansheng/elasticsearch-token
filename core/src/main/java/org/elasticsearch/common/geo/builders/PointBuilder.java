@@ -132,7 +132,6 @@ operator|.
 name|POINT
 decl_stmt|;
 DECL|field|PROTOTYPE
-specifier|public
 specifier|static
 specifier|final
 name|PointBuilder

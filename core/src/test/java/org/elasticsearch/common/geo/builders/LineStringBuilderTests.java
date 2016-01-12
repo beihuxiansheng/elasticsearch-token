@@ -73,6 +73,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -106,6 +116,12 @@ block|{
 operator|new
 name|LineStringBuilder
 argument_list|(
+operator|(
+name|List
+argument_list|<
+name|Coordinate
+argument_list|>
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -141,10 +157,7 @@ operator|new
 name|LineStringBuilder
 argument_list|(
 operator|new
-name|PointListBuilder
-argument_list|()
-operator|.
-name|list
+name|CoordinatesBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -180,18 +193,15 @@ operator|new
 name|LineStringBuilder
 argument_list|(
 operator|new
-name|PointListBuilder
+name|CoordinatesBuilder
 argument_list|()
 operator|.
-name|point
+name|coordinate
 argument_list|(
 literal|0.0
 argument_list|,
 literal|0.0
 argument_list|)
-operator|.
-name|list
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -382,7 +392,7 @@ block|}
 return|return
 name|mutation
 operator|.
-name|points
+name|coordinates
 argument_list|(
 name|coordinates
 argument_list|)

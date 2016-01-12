@@ -73,14 +73,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder for a list of points (of {@link Coordinate} type).  * Enables chaining of individual points either as long/lat pairs  * or as {@link Coordinate} elements, arrays or collections.  */
+comment|/**  * A builder for a list of coordinates.  * Enables chaining of individual coordinates either as long/lat pairs  * or as {@link Coordinate} elements, arrays or collections.  */
 end_comment
 
 begin_class
-DECL|class|PointListBuilder
+DECL|class|CoordinatesBuilder
 specifier|public
 class|class
-name|PointListBuilder
+name|CoordinatesBuilder
 block|{
 DECL|field|points
 specifier|private
@@ -96,39 +96,11 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Add a new point to the collection      * @param longitude longitude of the coordinate      * @param latitude latitude of the coordinate      * @return this      */
-DECL|method|point
+comment|/**      * Add a new coordinate to the collection      * @param coordinate the coordinate to add      * @return this      */
+DECL|method|coordinate
 specifier|public
-name|PointListBuilder
-name|point
-parameter_list|(
-name|double
-name|longitude
-parameter_list|,
-name|double
-name|latitude
-parameter_list|)
-block|{
-return|return
-name|this
-operator|.
-name|point
-argument_list|(
-operator|new
-name|Coordinate
-argument_list|(
-name|longitude
-argument_list|,
-name|latitude
-argument_list|)
-argument_list|)
-return|;
-block|}
-comment|/**      * Add a new point to the collection      * @param coordinate coordinate of the point      * @return this      */
-DECL|method|point
-specifier|public
-name|PointListBuilder
-name|point
+name|CoordinatesBuilder
+name|coordinate
 parameter_list|(
 name|Coordinate
 name|coordinate
@@ -147,11 +119,39 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add a array of points to the collection      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
-DECL|method|points
+comment|/**      * Add a new coordinate to the collection      * @param longitude longitude of the coordinate      * @param latitude latitude of the coordinate      * @return this      */
+DECL|method|coordinate
 specifier|public
-name|PointListBuilder
-name|points
+name|CoordinatesBuilder
+name|coordinate
+parameter_list|(
+name|double
+name|longitude
+parameter_list|,
+name|double
+name|latitude
+parameter_list|)
+block|{
+return|return
+name|this
+operator|.
+name|coordinate
+argument_list|(
+operator|new
+name|Coordinate
+argument_list|(
+name|longitude
+argument_list|,
+name|latitude
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Add an array of coordinates to the current coordinates      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
+DECL|method|coordinates
+specifier|public
+name|CoordinatesBuilder
+name|coordinates
 parameter_list|(
 name|Coordinate
 modifier|...
@@ -161,7 +161,7 @@ block|{
 return|return
 name|this
 operator|.
-name|points
+name|coordinates
 argument_list|(
 name|Arrays
 operator|.
@@ -172,11 +172,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a collection of points to the collection      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
-DECL|method|points
+comment|/**      * Add a collection of coordinates to the current coordinates      *      * @param coordinates collection of {@link Coordinate}s to add      * @return this      */
+DECL|method|coordinates
 specifier|public
-name|PointListBuilder
-name|points
+name|CoordinatesBuilder
+name|coordinates
 parameter_list|(
 name|Collection
 argument_list|<
@@ -200,10 +200,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Closes the current list of points by adding the starting point as the end point      * if they are not already the same      */
+comment|/**      * Makes a closed ring out of the current coordinates by adding the starting point as the end point.      * Will have no effect of starting and end point are already the same coordinate.      */
 DECL|method|close
 specifier|public
-name|PointListBuilder
+name|CoordinatesBuilder
 name|close
 parameter_list|()
 block|{
@@ -263,14 +263,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @return the current list of points      */
-DECL|method|list
+comment|/**      * @return a list containing the current coordinates      */
+DECL|method|build
 specifier|public
 name|List
 argument_list|<
 name|Coordinate
 argument_list|>
-name|list
+name|build
 parameter_list|()
 block|{
 return|return
