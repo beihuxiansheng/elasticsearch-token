@@ -1974,7 +1974,7 @@ name|capturedRequests
 init|=
 name|transport
 operator|.
-name|capturedRequestsByTargetNode
+name|getCapturedRequestsByTargetNodeAndClear
 argument_list|()
 decl_stmt|;
 name|ShardsIterator
@@ -2220,7 +2220,7 @@ name|capturedRequests
 init|=
 name|transport
 operator|.
-name|capturedRequestsByTargetNode
+name|getCapturedRequestsByTargetNodeAndClear
 argument_list|()
 decl_stmt|;
 comment|// the master should not be in the list of nodes that requests were sent to
@@ -2839,14 +2839,9 @@ name|capturedRequests
 init|=
 name|transport
 operator|.
-name|capturedRequestsByTargetNode
+name|getCapturedRequestsByTargetNodeAndClear
 argument_list|()
 decl_stmt|;
-name|transport
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|ShardsIterator
 name|shardIt
 init|=

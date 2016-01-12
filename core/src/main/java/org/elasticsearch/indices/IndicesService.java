@@ -2024,13 +2024,6 @@ argument_list|(
 name|indexModule
 argument_list|)
 expr_stmt|;
-name|indexModule
-operator|.
-name|addIndexEventListener
-argument_list|(
-name|indexingMemoryController
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|IndexEventListener
@@ -2090,6 +2083,8 @@ argument_list|,
 name|nodeServicesProvider
 argument_list|,
 name|mapperRegistry
+argument_list|,
+name|indexingMemoryController
 argument_list|)
 decl_stmt|;
 name|boolean

@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|lang
 operator|.
 name|annotation
@@ -152,8 +142,6 @@ name|AbstractMatcher
 argument_list|<
 name|Object
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 annotation|@
 name|Override
@@ -193,15 +181,6 @@ name|any
 argument_list|()
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 comment|/**      * Inverts the given matcher.      */
 DECL|method|not
@@ -248,8 +227,6 @@ name|AbstractMatcher
 argument_list|<
 name|T
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|delegate
 specifier|final
@@ -372,15 +349,6 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 DECL|method|checkForRuntimeRetention
 specifier|private
@@ -479,8 +447,6 @@ name|AbstractMatcher
 argument_list|<
 name|AnnotatedElement
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|annotationType
 specifier|private
@@ -614,15 +580,6 @@ operator|+
 literal|".class)"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 comment|/**      * Returns a matcher which matches elements (methods, classes, etc.)      * with a given annotation.      */
 DECL|method|annotatedWith
@@ -657,8 +614,6 @@ name|AbstractMatcher
 argument_list|<
 name|AnnotatedElement
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|annotation
 specifier|private
@@ -797,15 +752,6 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 comment|/**      * Returns a matcher which matches subclasses of the given type (as well as      * the given type).      */
 DECL|method|subclassesOf
@@ -843,8 +789,6 @@ name|AbstractMatcher
 argument_list|<
 name|Class
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|superclass
 specifier|private
@@ -967,15 +911,6 @@ operator|+
 literal|".class)"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 comment|/**      * Returns a matcher which matches objects equal to the given object.      */
 DECL|method|only
@@ -1009,8 +944,6 @@ name|AbstractMatcher
 argument_list|<
 name|Object
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|value
 specifier|private
@@ -1124,15 +1057,6 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 comment|/**      * Returns a matcher which matches only the given object.      */
 DECL|method|identicalTo
@@ -1167,8 +1091,6 @@ name|AbstractMatcher
 argument_list|<
 name|Object
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|value
 specifier|private
@@ -1278,15 +1200,6 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 comment|/**      * Returns a matcher which matches classes in the given package. Packages are specific to their      * classloader, so classes with the same package name may not have the same package at runtime.      */
 DECL|method|inPackage
@@ -1321,8 +1234,6 @@ name|AbstractMatcher
 argument_list|<
 name|Class
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|targetPackage
 specifier|private
@@ -1476,15 +1387,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 comment|/**      * Returns a matcher which matches classes in the given package and its subpackages. Unlike      * {@link #inPackage(Package) inPackage()}, this matches classes from any classloader.      *      * @since 2.0      */
 DECL|method|inSubpackage
@@ -1519,8 +1421,6 @@ name|AbstractMatcher
 argument_list|<
 name|Class
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|targetPackageName
 specifier|private
@@ -1647,15 +1547,6 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 comment|/**      * Returns a matcher which matches methods with matching return types.      */
 DECL|method|returns
@@ -1698,8 +1589,6 @@ name|AbstractMatcher
 argument_list|<
 name|Method
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|returnType
 specifier|private
@@ -1832,15 +1721,6 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 block|}
 end_class
