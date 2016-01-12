@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.indices.memory
+DECL|package|org.elasticsearch.indices
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|memory
 package|;
 end_package
 
@@ -104,9 +102,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|test
 operator|.
-name|IndicesService
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -116,9 +114,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|threadpool
 operator|.
-name|ESSingleNodeTestCase
+name|ThreadPool
 import|;
 end_import
 
@@ -179,6 +177,18 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledFuture
 import|;
 end_import
 
@@ -686,6 +696,24 @@ expr_stmt|;
 name|forceCheck
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|scheduleTask
+specifier|protected
+name|ScheduledFuture
+argument_list|<
+name|?
+argument_list|>
+name|scheduleTask
+parameter_list|(
+name|ThreadPool
+name|threadPool
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 DECL|method|testShardAdditionAndRemoval

@@ -543,6 +543,8 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|AttachmentMapper
@@ -573,6 +575,8 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|String
@@ -1607,14 +1611,6 @@ name|parse
 argument_list|(
 name|propName
 argument_list|,
-operator|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-operator|)
 name|propNode
 argument_list|,
 name|parserContext
@@ -2334,6 +2330,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// https://github.com/elastic/elasticsearch/issues/15843
 DECL|method|parse
 specifier|public
 name|Mapper

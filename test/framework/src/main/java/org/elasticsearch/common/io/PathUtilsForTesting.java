@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Exposes some package private stuff in PathUtils for framework purposes only!   */
+comment|/**  * Exposes some package private stuff in PathUtils for framework purposes only!  */
 end_comment
 
 begin_class
@@ -53,6 +53,12 @@ class|class
 name|PathUtilsForTesting
 block|{
 comment|/** Sets a new default filesystem for testing */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// https://github.com/elastic/elasticsearch/issues/15845
 DECL|method|setup
 specifier|public
 specifier|static

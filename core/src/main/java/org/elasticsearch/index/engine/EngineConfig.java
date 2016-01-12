@@ -192,20 +192,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|indexing
-operator|.
-name|ShardIndexingService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|MergeSchedulerConfig
@@ -275,8 +261,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|memory
 operator|.
 name|IndexingMemoryController
 import|;
@@ -986,7 +970,7 @@ operator|=
 name|enableGcDeletes
 expr_stmt|;
 block|}
-comment|/**      * Returns the initial index buffer size. This setting is only read on startup and otherwise controlled by {@link org.elasticsearch.indices.memory.IndexingMemoryController}      */
+comment|/**      * Returns the initial index buffer size. This setting is only read on startup and otherwise controlled by {@link IndexingMemoryController}      */
 DECL|method|getIndexingBufferSize
 specifier|public
 name|ByteSizeValue

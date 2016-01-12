@@ -296,6 +296,13 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"ThreadLocalRandom is okay when not running tests"
+argument_list|)
 DECL|method|getWithoutSeed
 specifier|private
 specifier|static
