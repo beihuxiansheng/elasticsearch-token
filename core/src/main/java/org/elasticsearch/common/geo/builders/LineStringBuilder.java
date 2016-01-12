@@ -195,7 +195,7 @@ argument_list|<
 name|LineStringBuilder
 argument_list|>
 block|{
-comment|/**      * Construct a new LineString.      * Per GeoJSON spec (http://geojson.org/geojson-spec.html#linestring)      * a LineString must contain two or more coordinates      * @param coordinates the initial list of coordinates      * @throw {@link IllegalArgumentException} if there are less then two coordinates defined      */
+comment|/**      * Construct a new LineString.      * Per GeoJSON spec (http://geojson.org/geojson-spec.html#linestring)      * a LineString must contain two or more coordinates      * @param coordinates the initial list of coordinates      * @throws IllegalArgumentException if there are less then two coordinates defined      */
 DECL|method|LineStringBuilder
 specifier|public
 name|LineStringBuilder
