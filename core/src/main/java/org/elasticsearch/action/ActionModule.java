@@ -2434,7 +2434,7 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|IngestDisabledActionFilter
+name|IngestProxyActionFilter
 import|;
 end_import
 
@@ -3457,7 +3457,7 @@ else|else
 block|{
 name|registerFilter
 argument_list|(
-name|IngestDisabledActionFilter
+name|IngestProxyActionFilter
 operator|.
 name|class
 argument_list|)
