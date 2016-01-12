@@ -634,20 +634,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//at least one node must not have ingest enabled, and that will always be the last one
-name|builder
-operator|.
-name|localNodeId
-argument_list|(
-literal|"node"
-operator|+
-operator|(
-name|totalNodes
-operator|-
-literal|1
-operator|)
-argument_list|)
-expr_stmt|;
 name|when
 argument_list|(
 name|clusterState
