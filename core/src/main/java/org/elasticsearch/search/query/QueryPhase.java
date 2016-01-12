@@ -1421,7 +1421,9 @@ argument_list|>
 name|topDocsCollector
 decl_stmt|;
 name|ScoreDoc
-name|lastEmittedDoc
+name|after
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1450,7 +1452,7 @@ argument_list|,
 name|totalNumDocs
 argument_list|)
 expr_stmt|;
-name|lastEmittedDoc
+name|after
 operator|=
 name|scrollContext
 operator|.
@@ -1528,7 +1530,7 @@ argument_list|(
 operator|new
 name|MinDocQuery
 argument_list|(
-name|lastEmittedDoc
+name|after
 operator|.
 name|doc
 operator|+
@@ -1562,9 +1564,12 @@ block|}
 block|}
 else|else
 block|{
-name|lastEmittedDoc
+name|after
 operator|=
-literal|null
+name|searchContext
+operator|.
+name|searchAfter
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1611,7 +1616,7 @@ argument_list|,
 operator|(
 name|FieldDoc
 operator|)
-name|lastEmittedDoc
+name|after
 argument_list|,
 literal|true
 argument_list|,
@@ -1674,7 +1679,7 @@ name|create
 argument_list|(
 name|numDocs
 argument_list|,
-name|lastEmittedDoc
+name|after
 argument_list|)
 expr_stmt|;
 block|}
