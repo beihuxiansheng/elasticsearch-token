@@ -448,11 +448,6 @@ specifier|static
 name|ThreadPool
 name|THREAD_POOL
 decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|AtomicBoolean
-name|timeout
-decl_stmt|;
 DECL|field|shardStateAction
 specifier|private
 name|TestShardStateAction
@@ -661,14 +656,6 @@ expr_stmt|;
 name|transportService
 operator|.
 name|start
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|timeout
-operator|=
-operator|new
-name|AtomicBoolean
 argument_list|()
 expr_stmt|;
 name|shardStateAction
