@@ -1264,18 +1264,6 @@ end_import
 
 begin_import
 import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|apache
@@ -1397,6 +1385,18 @@ operator|.
 name|Assert
 operator|.
 name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
 import|;
 end_import
 
@@ -7065,6 +7065,12 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// https://github.com/elastic/elasticsearch/issues/15844
 DECL|method|randomlyResetClients
 specifier|private
 name|void

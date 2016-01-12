@@ -326,6 +326,12 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+comment|// Supertype declaration has raw types
 DECL|method|nodeServices
 specifier|public
 name|Collection

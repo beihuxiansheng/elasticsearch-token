@@ -399,27 +399,6 @@ argument_list|,
 literal|"snapshots"
 argument_list|)
 decl_stmt|;
-comment|// We use sometime deprecated settings in tests
-name|builder
-operator|.
-name|put
-argument_list|(
-name|Storage
-operator|.
-name|ACCOUNT_DEPRECATED
-argument_list|,
-literal|"mock_azure_account"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|Storage
-operator|.
-name|KEY_DEPRECATED
-argument_list|,
-literal|"mock_azure_key"
-argument_list|)
-expr_stmt|;
 return|return
 name|builder
 operator|.
