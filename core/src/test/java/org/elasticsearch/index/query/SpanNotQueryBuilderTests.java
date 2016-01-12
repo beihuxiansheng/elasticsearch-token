@@ -1300,8 +1300,6 @@ literal|"        \"slop\" : 0,\n"
 operator|+
 literal|"        \"in_order\" : true,\n"
 operator|+
-literal|"        \"collect_payloads\" : true,\n"
-operator|+
 literal|"        \"boost\" : 1.0\n"
 operator|+
 literal|"      }\n"

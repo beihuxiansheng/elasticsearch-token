@@ -2054,11 +2054,6 @@ name|inOrder
 argument_list|(
 literal|false
 argument_list|)
-operator|.
-name|collectPayloads
-argument_list|(
-literal|false
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testSpanNot

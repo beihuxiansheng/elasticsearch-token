@@ -64,6 +64,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -194,14 +204,6 @@ block|}
 name|queryBuilder
 operator|.
 name|inOrder
-argument_list|(
-name|randomBoolean
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|queryBuilder
-operator|.
-name|collectPayloads
 argument_list|(
 name|randomBoolean
 argument_list|()
@@ -478,8 +480,6 @@ literal|"    \"slop\" : 12,\n"
 operator|+
 literal|"    \"in_order\" : false,\n"
 operator|+
-literal|"    \"collect_payloads\" : false,\n"
-operator|+
 literal|"    \"boost\" : 1.0\n"
 operator|+
 literal|"  }\n"
@@ -543,18 +543,97 @@ name|inOrder
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testCollectPayloadsDeprecated
+specifier|public
+name|void
+name|testCollectPayloadsDeprecated
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|assertEquals
 argument_list|(
-name|json
+literal|"We can remove support for ignoring collect_payloads in 4.0"
 argument_list|,
-literal|false
+literal|3
 argument_list|,
-name|parsed
+name|Version
 operator|.
-name|collectPayloads
-argument_list|()
+name|CURRENT
+operator|.
+name|major
 argument_list|)
 expr_stmt|;
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"span_near\" : {\n"
+operator|+
+literal|"    \"clauses\" : [ {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field\" : {\n"
+operator|+
+literal|"          \"value\" : \"value1\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field\" : {\n"
+operator|+
+literal|"          \"value\" : \"value2\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"span_term\" : {\n"
+operator|+
+literal|"        \"field\" : {\n"
+operator|+
+literal|"          \"value\" : \"value3\",\n"
+operator|+
+literal|"          \"boost\" : 1.0\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"slop\" : 12,\n"
+operator|+
+literal|"    \"in_order\" : false,\n"
+operator|+
+literal|"    \"collect_payloads\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+comment|// Just don't throw an error and we're fine
 block|}
 block|}
 end_class
