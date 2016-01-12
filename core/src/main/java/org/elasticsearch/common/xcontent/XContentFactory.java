@@ -582,6 +582,21 @@ name|XContentType
 name|type
 parameter_list|)
 block|{
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot get xcontent for unknown type"
+argument_list|)
+throw|;
+block|}
 return|return
 name|type
 operator|.
