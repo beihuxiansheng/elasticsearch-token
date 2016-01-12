@@ -74,6 +74,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -631,6 +643,10 @@ decl_stmt|;
 name|parseQuery
 argument_list|(
 name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
 argument_list|)
 expr_stmt|;
 comment|// Just don't throw an error and we're fine

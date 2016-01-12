@@ -136,6 +136,11 @@ name|ParseField
 argument_list|(
 literal|"collect_payloads"
 argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"no longer supported"
+argument_list|)
 decl_stmt|;
 DECL|field|CLAUSES_FIELD
 specifier|public
