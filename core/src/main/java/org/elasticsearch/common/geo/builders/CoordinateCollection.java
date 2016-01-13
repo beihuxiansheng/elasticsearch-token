@@ -62,16 +62,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Arrays
 import|;
 end_import
@@ -86,20 +76,30 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * The {@link PointCollection} is an abstract base implementation for all GeoShapes. It simply handles a set of points.  */
+comment|/**  * The {@link CoordinateCollection} is an abstract base implementation for {@link LineStringBuilder} and {@link MultiPointBuilder}.  * It holds a common list of {@link Coordinate}, provides setters for adding elements to the list and can render this to XContent.  */
 end_comment
 
 begin_class
-DECL|class|PointCollection
+DECL|class|CoordinateCollection
 specifier|public
 specifier|abstract
 class|class
-name|PointCollection
+name|CoordinateCollection
 parameter_list|<
 name|E
 extends|extends
-name|PointCollection
+name|CoordinateCollection
 parameter_list|<
 name|E
 parameter_list|>
@@ -107,47 +107,54 @@ parameter_list|>
 extends|extends
 name|ShapeBuilder
 block|{
-DECL|field|points
+DECL|field|coordinates
 specifier|protected
 specifier|final
-name|ArrayList
+name|List
 argument_list|<
 name|Coordinate
 argument_list|>
-name|points
+name|coordinates
 decl_stmt|;
-DECL|method|PointCollection
+comment|/**      * Construct a new collection of coordinates.      * @param coordinates an initial list of coordinates      * @throws IllegalArgumentException if coordinates is<tt>null</tt> or empty      */
+DECL|method|CoordinateCollection
 specifier|protected
-name|PointCollection
-parameter_list|()
-block|{
-name|this
-argument_list|(
-operator|new
-name|ArrayList
-argument_list|<
-name|Coordinate
-argument_list|>
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|PointCollection
-specifier|protected
-name|PointCollection
+name|CoordinateCollection
 parameter_list|(
-name|ArrayList
+name|List
 argument_list|<
 name|Coordinate
 argument_list|>
-name|points
+name|coordinates
 parameter_list|)
 block|{
+if|if
+condition|(
+name|coordinates
+operator|==
+literal|null
+operator|||
+name|coordinates
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot create point collection with empty set of points"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
-name|points
+name|coordinates
 operator|=
-name|points
+name|coordinates
 expr_stmt|;
 block|}
 annotation|@
@@ -168,11 +175,11 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      * Add a new point to the collection      * @param longitude longitude of the coordinate      * @param latitude latitude of the coordinate      * @return this      */
-DECL|method|point
+comment|/**      * Add a new coordinate to the collection      * @param longitude longitude of the coordinate      * @param latitude latitude of the coordinate      * @return this      */
+DECL|method|coordinate
 specifier|public
 name|E
-name|point
+name|coordinate
 parameter_list|(
 name|double
 name|longitude
@@ -184,9 +191,10 @@ block|{
 return|return
 name|this
 operator|.
-name|point
-argument_list|(
 name|coordinate
+argument_list|(
+operator|new
+name|Coordinate
 argument_list|(
 name|longitude
 argument_list|,
@@ -195,11 +203,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a new point to the collection      * @param coordinate coordinate of the point      * @return this      */
-DECL|method|point
+comment|/**      * Add a new coordinate to the collection      * @param coordinate coordinate of the point      * @return this      */
+DECL|method|coordinate
 specifier|public
 name|E
-name|point
+name|coordinate
 parameter_list|(
 name|Coordinate
 name|coordinate
@@ -207,7 +215,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|points
+name|coordinates
 operator|.
 name|add
 argument_list|(
@@ -219,11 +227,11 @@ name|thisRef
 argument_list|()
 return|;
 block|}
-comment|/**      * Add a array of points to the collection      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
-DECL|method|points
+comment|/**      * Add a array of coordinates to the collection      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
+DECL|method|coordinates
 specifier|public
 name|E
-name|points
+name|coordinates
 parameter_list|(
 name|Coordinate
 modifier|...
@@ -233,7 +241,7 @@ block|{
 return|return
 name|this
 operator|.
-name|points
+name|coordinates
 argument_list|(
 name|Arrays
 operator|.
@@ -244,11 +252,11 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a collection of points to the collection      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
-DECL|method|points
+comment|/**      * Add a collection of coordinates to the collection      *      * @param coordinates array of {@link Coordinate}s to add      * @return this      */
+DECL|method|coordinates
 specifier|public
 name|E
-name|points
+name|coordinates
 parameter_list|(
 name|Collection
 argument_list|<
@@ -261,7 +269,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|points
+name|coordinates
 operator|.
 name|addAll
 argument_list|(
@@ -273,7 +281,7 @@ name|thisRef
 argument_list|()
 return|;
 block|}
-comment|/**      * Copy all points to a new Array      *      * @param closed if set to true the first point of the array is repeated as last element      * @return Array of coordinates      */
+comment|/**      * Copy all coordinate to a new Array      *      * @param closed if set to true the first point of the array is repeated as last element      * @return Array of coordinates      */
 DECL|method|coordinates
 specifier|protected
 name|Coordinate
@@ -288,14 +296,14 @@ name|Coordinate
 index|[]
 name|result
 init|=
-name|points
+name|coordinates
 operator|.
 name|toArray
 argument_list|(
 operator|new
 name|Coordinate
 index|[
-name|points
+name|coordinates
 operator|.
 name|size
 argument_list|()
@@ -357,16 +365,16 @@ expr_stmt|;
 for|for
 control|(
 name|Coordinate
-name|point
+name|coord
 range|:
-name|points
+name|coordinates
 control|)
 block|{
 name|toXContent
 argument_list|(
 name|builder
 argument_list|,
-name|point
+name|coord
 argument_list|)
 expr_stmt|;
 block|}
@@ -378,7 +386,7 @@ block|{
 name|Coordinate
 name|start
 init|=
-name|points
+name|coordinates
 operator|.
 name|get
 argument_list|(
@@ -388,11 +396,11 @@ decl_stmt|;
 name|Coordinate
 name|end
 init|=
-name|points
+name|coordinates
 operator|.
 name|get
 argument_list|(
-name|points
+name|coordinates
 operator|.
 name|size
 argument_list|()
@@ -423,7 +431,7 @@ name|toXContent
 argument_list|(
 name|builder
 argument_list|,
-name|points
+name|coordinates
 operator|.
 name|get
 argument_list|(

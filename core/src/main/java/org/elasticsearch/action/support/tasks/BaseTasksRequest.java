@@ -158,14 +158,17 @@ specifier|public
 class|class
 name|BaseTasksRequest
 parameter_list|<
-name|T
+name|Request
 extends|extends
 name|BaseTasksRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
 argument_list|<
-name|T
+name|Request
 argument_list|>
 block|{
 DECL|field|ALL_ACTIONS
@@ -258,6 +261,9 @@ specifier|public
 name|BaseTasksRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|,
 name|String
@@ -303,7 +309,7 @@ argument_list|)
 DECL|method|actions
 specifier|public
 specifier|final
-name|T
+name|Request
 name|actions
 parameter_list|(
 name|String
@@ -319,7 +325,7 @@ name|actions
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -356,7 +362,7 @@ argument_list|)
 DECL|method|nodesIds
 specifier|public
 specifier|final
-name|T
+name|Request
 name|nodesIds
 parameter_list|(
 name|String
@@ -372,7 +378,7 @@ name|nodesIds
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -395,7 +401,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|parentNode
 specifier|public
-name|T
+name|Request
 name|parentNode
 parameter_list|(
 name|String
@@ -410,7 +416,7 @@ name|parentNode
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -433,7 +439,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|parentTaskId
 specifier|public
-name|T
+name|Request
 name|parentTaskId
 parameter_list|(
 name|long
@@ -448,7 +454,7 @@ name|parentTaskId
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -473,7 +479,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Request
 name|timeout
 parameter_list|(
 name|TimeValue
@@ -488,7 +494,7 @@ name|timeout
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -501,7 +507,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Request
 name|timeout
 parameter_list|(
 name|String
@@ -531,7 +537,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;

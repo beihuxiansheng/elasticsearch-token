@@ -1453,7 +1453,7 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_REFRESH_INTERVAL
 argument_list|,
