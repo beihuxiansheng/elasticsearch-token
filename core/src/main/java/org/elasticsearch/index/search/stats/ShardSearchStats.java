@@ -201,19 +201,15 @@ DECL|method|ShardSearchStats
 specifier|public
 name|ShardSearchStats
 parameter_list|(
-name|Settings
-name|indexSettings
+name|SearchSlowLog
+name|searchSlowLog
 parameter_list|)
 block|{
 name|this
 operator|.
 name|slowLogSearchService
 operator|=
-operator|new
-name|SearchSlowLog
-argument_list|(
-name|indexSettings
-argument_list|)
+name|searchSlowLog
 expr_stmt|;
 block|}
 comment|/**      * Returns the stats, including group specific stats. If the groups are null/0 length, then nothing      * is returned for them. If they are set, then only groups provided will be returned, or      *<tt>_all</tt> for all groups.      */

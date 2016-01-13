@@ -222,9 +222,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
-name|IndexShard
+name|IndexSettings
 import|;
 end_import
 
@@ -624,7 +622,7 @@ comment|// never flush - always recover from translog
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_FLUSH_ON_CLOSE
 argument_list|,
@@ -1351,7 +1349,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,
@@ -1413,7 +1411,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,

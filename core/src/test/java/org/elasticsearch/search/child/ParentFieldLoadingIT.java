@@ -196,8 +196,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
 name|MergePolicyConfig
 import|;
 end_import

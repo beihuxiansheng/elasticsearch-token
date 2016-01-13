@@ -486,6 +486,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|IndexEventListener
@@ -528,8 +540,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
 name|MergePolicyConfig
 import|;
 end_import
@@ -559,20 +569,6 @@ operator|.
 name|recovery
 operator|.
 name|RecoveryFileChunkRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|recovery
-operator|.
-name|RecoverySettings
 import|;
 end_import
 
@@ -1366,7 +1362,7 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,
@@ -2163,7 +2159,7 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,
@@ -4262,7 +4258,7 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,
@@ -4694,7 +4690,7 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,

@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.shard
+DECL|package|org.elasticsearch.index
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|index
-operator|.
-name|shard
 package|;
 end_package
 
@@ -95,6 +93,32 @@ operator|.
 name|index
 operator|.
 name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|MergePolicyConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
 import|;
 end_import
 
