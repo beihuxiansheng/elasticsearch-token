@@ -384,7 +384,7 @@ name|search
 operator|.
 name|rescore
 operator|.
-name|RescoreBuilder
+name|RescoreBaseBuilder
 import|;
 end_import
 
@@ -1881,7 +1881,7 @@ specifier|public
 name|SearchSourceBuilder
 name|addRescorer
 parameter_list|(
-name|RescoreBuilder
+name|RescoreBaseBuilder
 name|rescoreBuilder
 parameter_list|)
 block|{

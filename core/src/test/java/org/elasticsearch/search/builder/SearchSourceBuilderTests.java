@@ -544,7 +544,7 @@ name|search
 operator|.
 name|rescore
 operator|.
-name|RescoreBuilder
+name|RescoreBaseBuilder
 import|;
 end_import
 
@@ -2038,13 +2038,13 @@ operator|++
 control|)
 block|{
 comment|// NORELEASE need a random rescore builder method
-name|RescoreBuilder
+name|RescoreBaseBuilder
 name|rescoreBuilder
 init|=
 operator|new
-name|RescoreBuilder
+name|RescoreBaseBuilder
 argument_list|(
-name|RescoreBuilder
+name|RescoreBaseBuilder
 operator|.
 name|queryRescorer
 argument_list|(

@@ -92,6 +92,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|internal
@@ -176,7 +190,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Parses the {@link RescoreSearchContext} for this impelementation      *      * @param parser  the parser to read the context from      * @param context the current search context      * @return the parsed {@link RescoreSearchContext}      * @throws IOException if an {@link IOException} occurs while parsing the context      */
+comment|/**      * Parses the {@link RescoreSearchContext} for this impelementation      *      * @param parser  the parser to read the context from      * @param context the current shard context      * @return the parsed {@link RescoreSearchContext}      * @throws IOException if an {@link IOException} occurs while parsing the context      */
 DECL|method|parse
 specifier|public
 name|RescoreSearchContext
@@ -185,7 +199,7 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
