@@ -898,9 +898,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_REFRESH_INTERVAL
 import|;
