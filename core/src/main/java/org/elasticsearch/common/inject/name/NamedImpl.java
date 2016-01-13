@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|lang
 operator|.
 name|annotation
@@ -56,8 +46,6 @@ class|class
 name|NamedImpl
 implements|implements
 name|Named
-implements|,
-name|Serializable
 block|{
 DECL|field|value
 specifier|private
@@ -215,15 +203,6 @@ operator|.
 name|class
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 end_class
 

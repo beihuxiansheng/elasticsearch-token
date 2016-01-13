@@ -106,16 +106,6 @@ name|InstantConverter
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  * BaseDateTime is an abstract implementation of ReadableDateTime that stores  * data in<code>long</code> and<code>Chronology</code> fields.  *<p>  * This class should generally not be used directly by API users.  * The {@link ReadableDateTime} interface should be used when different  * kinds of date/time objects are to be referenced.  *<p>  * BaseDateTime subclasses may be mutable and not thread-safe.  *  * @author Stephen Colebourne  * @author Kandarp Shah  * @author Brian S O'Neill  * @since 1.0  */
 end_comment
@@ -130,20 +120,7 @@ extends|extends
 name|AbstractDateTime
 implements|implements
 name|ReadableDateTime
-implements|,
-name|Serializable
 block|{
-comment|/**      * Serialization lock      */
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|6728882245981L
-decl_stmt|;
 comment|/**      * The millis from 1970-01-01T00:00:00Z      */
 comment|// THIS IS THE ES CHANGE not to have it volatile...
 DECL|field|iMillis
