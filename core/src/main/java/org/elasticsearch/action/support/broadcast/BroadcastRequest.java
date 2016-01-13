@@ -120,14 +120,17 @@ specifier|public
 class|class
 name|BroadcastRequest
 parameter_list|<
-name|T
+name|Request
 extends|extends
 name|BroadcastRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
 argument_list|<
-name|T
+name|Request
 argument_list|>
 implements|implements
 name|IndicesRequest
@@ -160,6 +163,9 @@ specifier|protected
 name|BroadcastRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|originalRequest
 parameter_list|)
 block|{
@@ -208,7 +214,7 @@ name|Override
 DECL|method|indices
 specifier|public
 specifier|final
-name|T
+name|Request
 name|indices
 parameter_list|(
 name|String
@@ -224,7 +230,7 @@ name|indices
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -261,7 +267,7 @@ argument_list|)
 DECL|method|indicesOptions
 specifier|public
 specifier|final
-name|T
+name|Request
 name|indicesOptions
 parameter_list|(
 name|IndicesOptions
@@ -276,7 +282,7 @@ name|indicesOptions
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;

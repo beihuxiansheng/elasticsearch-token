@@ -198,14 +198,17 @@ specifier|public
 class|class
 name|ReplicationRequest
 parameter_list|<
-name|T
+name|Request
 extends|extends
 name|ReplicationRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
 argument_list|<
-name|T
+name|Request
 argument_list|>
 implements|implements
 name|IndicesRequest
@@ -265,6 +268,9 @@ specifier|public
 name|ReplicationRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|)
 block|{
@@ -280,6 +286,9 @@ specifier|public
 name|ReplicationRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|,
 name|ShardId
@@ -312,7 +321,7 @@ DECL|method|ReplicationRequest
 specifier|protected
 name|ReplicationRequest
 parameter_list|(
-name|T
+name|Request
 name|request
 parameter_list|)
 block|{
@@ -329,10 +338,13 @@ DECL|method|ReplicationRequest
 specifier|protected
 name|ReplicationRequest
 parameter_list|(
-name|T
+name|Request
 name|request
 parameter_list|,
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|originalRequest
 parameter_list|)
 block|{
@@ -378,7 +390,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Request
 name|timeout
 parameter_list|(
 name|TimeValue
@@ -393,7 +405,7 @@ name|timeout
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -402,7 +414,7 @@ comment|/**      * A timeout to wait if the index operation can't be performed i
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Request
 name|timeout
 parameter_list|(
 name|String
@@ -461,7 +473,7 @@ argument_list|)
 DECL|method|index
 specifier|public
 specifier|final
-name|T
+name|Request
 name|index
 parameter_list|(
 name|String
@@ -476,7 +488,7 @@ name|index
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -548,7 +560,7 @@ argument_list|)
 DECL|method|consistencyLevel
 specifier|public
 specifier|final
-name|T
+name|Request
 name|consistencyLevel
 parameter_list|(
 name|WriteConsistencyLevel
@@ -563,7 +575,7 @@ name|consistencyLevel
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -754,9 +766,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sets the target shard id for the request. The shard id is set when a      * index/delete request is resolved by the transport action      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setShardId
 specifier|public
-name|T
+name|Request
 name|setShardId
 parameter_list|(
 name|ShardId
@@ -771,7 +788,7 @@ name|shardId
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
