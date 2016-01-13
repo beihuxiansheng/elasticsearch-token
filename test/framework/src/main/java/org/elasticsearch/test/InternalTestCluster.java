@@ -2857,10 +2857,7 @@ name|Plugin
 argument_list|>
 argument_list|>
 name|getPlugins
-parameter_list|(
-name|long
-name|seed
-parameter_list|)
+parameter_list|()
 block|{
 name|Set
 argument_list|<
@@ -4521,9 +4518,7 @@ argument_list|>
 name|plugins
 init|=
 name|getPlugins
-argument_list|(
-name|seed
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|String
 name|name
