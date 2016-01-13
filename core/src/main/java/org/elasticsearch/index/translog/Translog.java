@@ -3190,6 +3190,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|AlreadyClosedException
+name|inner
+parameter_list|)
+block|{
+comment|// don't do anything in this case. The AlreadyClosedException comes from TranslogWriter and we should not add it as suppressed because
+comment|// will contain the Exception ex as cause. See also https://github.com/elastic/elasticsearch/issues/15941
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|inner
 parameter_list|)
@@ -3201,6 +3210,16 @@ argument_list|(
 name|inner
 argument_list|)
 expr_stmt|;
+assert|assert
+operator|(
+name|ex
+operator|!=
+name|inner
+operator|.
+name|getCause
+argument_list|()
+operator|)
+assert|;
 block|}
 block|}
 block|}
