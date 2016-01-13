@@ -79,7 +79,6 @@ end_comment
 begin_class
 DECL|class|CompoundProcessor
 specifier|public
-specifier|final
 class|class
 name|CompoundProcessor
 implements|implements
