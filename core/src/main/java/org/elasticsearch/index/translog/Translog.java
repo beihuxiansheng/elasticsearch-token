@@ -3203,13 +3203,6 @@ name|Exception
 name|inner
 parameter_list|)
 block|{
-name|ex
-operator|.
-name|addSuppressed
-argument_list|(
-name|inner
-argument_list|)
-expr_stmt|;
 assert|assert
 operator|(
 name|ex
@@ -3220,6 +3213,13 @@ name|getCause
 argument_list|()
 operator|)
 assert|;
+name|ex
+operator|.
+name|addSuppressed
+argument_list|(
+name|inner
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
