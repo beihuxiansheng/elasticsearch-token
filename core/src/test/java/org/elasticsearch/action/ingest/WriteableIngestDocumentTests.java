@@ -856,9 +856,8 @@ decl_stmt|;
 name|WriteableIngestDocument
 name|otherWriteableIngestDocument
 init|=
+operator|new
 name|WriteableIngestDocument
-operator|.
-name|readWriteableIngestDocumentFrom
 argument_list|(
 name|streamInput
 argument_list|)

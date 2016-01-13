@@ -301,9 +301,8 @@ return|return
 operator|new
 name|SimulateDocumentSimpleResult
 argument_list|(
+operator|new
 name|WriteableIngestDocument
-operator|.
-name|readWriteableIngestDocumentFrom
 argument_list|(
 name|in
 argument_list|)
