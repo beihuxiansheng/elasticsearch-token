@@ -2752,7 +2752,7 @@ operator|.
 name|ingestMetadata
 return|;
 block|}
-comment|/**      * Returns the document including its metadata fields, unless {@link #extractMetadata()} has been called, in which case the      * metadata fields will not be present anymore. Should be used only for reading.      * Modify the document instead using {@link #setFieldValue(String, Object)} and {@link #removeField(String)}      */
+comment|/**      * Returns the document including its metadata fields, unless {@link #extractMetadata()} has been called, in which case the      * metadata fields will not be present anymore.      * Modify the document instead using {@link #setFieldValue(String, Object)} and {@link #removeField(String)}      */
 DECL|method|getSourceAndMetadata
 specifier|public
 name|Map
