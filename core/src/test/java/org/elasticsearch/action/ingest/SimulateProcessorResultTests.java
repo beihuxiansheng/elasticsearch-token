@@ -243,9 +243,8 @@ decl_stmt|;
 name|SimulateProcessorResult
 name|otherSimulateProcessorResult
 init|=
+operator|new
 name|SimulateProcessorResult
-operator|.
-name|readSimulateProcessorResultFrom
 argument_list|(
 name|streamInput
 argument_list|)

@@ -388,6 +388,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// TODO(simonw): we should have a static helper method to load these patterns and make this
+comment|// factory only accept a String->String map instead. That way we can load
+comment|// the patterns in the IngestGrokPlugin ctor or even in a static context and this ctor doesn't need to throw any exception.
 name|Map
 argument_list|<
 name|String

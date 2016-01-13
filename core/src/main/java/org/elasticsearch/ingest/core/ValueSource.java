@@ -277,6 +277,7 @@ name|value
 operator|instanceof
 name|Integer
 operator|||
+comment|// TODO(simonw): maybe we just check for Number?
 name|value
 operator|instanceof
 name|Long

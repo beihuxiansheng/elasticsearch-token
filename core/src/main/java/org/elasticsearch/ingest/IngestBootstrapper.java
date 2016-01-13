@@ -374,6 +374,10 @@ specifier|final
 name|ProcessorsRegistry
 name|processorsRegistry
 decl_stmt|;
+comment|// TODO(simonw): I would like to stress this abstraction a little more and move it's construction into
+comment|// NodeService and instead of making it AbstractLifecycleComponent just impl Closeable.
+comment|// that way we can start the effort of making NodeModule the central point of required service and also move the registration of the
+comment|// pipelines into NodeModule? I'd really like to prevent adding yet another module.
 annotation|@
 name|Inject
 DECL|method|IngestBootstrapper
