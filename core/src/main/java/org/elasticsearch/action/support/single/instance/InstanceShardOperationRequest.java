@@ -161,17 +161,17 @@ specifier|abstract
 class|class
 name|InstanceShardOperationRequest
 parameter_list|<
-name|Self
+name|Request
 extends|extends
 name|InstanceShardOperationRequest
 parameter_list|<
-name|Self
+name|Request
 parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
 argument_list|<
-name|Self
+name|Request
 argument_list|>
 implements|implements
 name|IndicesRequest
@@ -326,7 +326,7 @@ argument_list|)
 DECL|method|index
 specifier|public
 specifier|final
-name|Self
+name|Request
 name|index
 parameter_list|(
 name|String
@@ -341,7 +341,7 @@ name|index
 expr_stmt|;
 return|return
 operator|(
-name|Self
+name|Request
 operator|)
 name|this
 return|;
@@ -365,7 +365,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|Self
+name|Request
 name|timeout
 parameter_list|(
 name|TimeValue
@@ -380,7 +380,7 @@ name|timeout
 expr_stmt|;
 return|return
 operator|(
-name|Self
+name|Request
 operator|)
 name|this
 return|;
@@ -389,7 +389,7 @@ comment|/**      * A timeout to wait if the index operation can't be performed i
 DECL|method|timeout
 specifier|public
 specifier|final
-name|Self
+name|Request
 name|timeout
 parameter_list|(
 name|String

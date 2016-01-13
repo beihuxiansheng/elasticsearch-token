@@ -127,17 +127,17 @@ specifier|abstract
 class|class
 name|ClusterInfoRequest
 parameter_list|<
-name|Self
+name|Request
 extends|extends
 name|ClusterInfoRequest
 parameter_list|<
-name|Self
+name|Request
 parameter_list|>
 parameter_list|>
 extends|extends
 name|MasterNodeReadRequest
 argument_list|<
-name|Self
+name|Request
 argument_list|>
 implements|implements
 name|IndicesRequest
@@ -183,7 +183,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|indices
 specifier|public
-name|Self
+name|Request
 name|indices
 parameter_list|(
 name|String
@@ -199,7 +199,7 @@ name|indices
 expr_stmt|;
 return|return
 operator|(
-name|Self
+name|Request
 operator|)
 name|this
 return|;
@@ -211,7 +211,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|types
 specifier|public
-name|Self
+name|Request
 name|types
 parameter_list|(
 name|String
@@ -227,7 +227,7 @@ name|types
 expr_stmt|;
 return|return
 operator|(
-name|Self
+name|Request
 operator|)
 name|this
 return|;
@@ -239,7 +239,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|indicesOptions
 specifier|public
-name|Self
+name|Request
 name|indicesOptions
 parameter_list|(
 name|IndicesOptions
@@ -254,7 +254,7 @@ name|indicesOptions
 expr_stmt|;
 return|return
 operator|(
-name|Self
+name|Request
 operator|)
 name|this
 return|;
