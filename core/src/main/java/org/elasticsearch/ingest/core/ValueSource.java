@@ -275,20 +275,7 @@ literal|null
 operator|||
 name|value
 operator|instanceof
-name|Integer
-operator|||
-comment|// TODO(simonw): maybe we just check for Number?
-name|value
-operator|instanceof
-name|Long
-operator|||
-name|value
-operator|instanceof
-name|Float
-operator|||
-name|value
-operator|instanceof
-name|Double
+name|Number
 operator|||
 name|value
 operator|instanceof
