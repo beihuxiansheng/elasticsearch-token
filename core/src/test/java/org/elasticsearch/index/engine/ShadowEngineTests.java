@@ -490,8 +490,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
 name|MergeSchedulerConfig
 import|;
 end_import
@@ -968,7 +966,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
 argument_list|,
@@ -1581,12 +1579,6 @@ name|store
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|MergeSchedulerConfig
-argument_list|(
-name|indexSettings
-argument_list|)
-argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -1651,12 +1643,6 @@ name|store
 argument_list|,
 name|translogPath
 argument_list|,
-operator|new
-name|MergeSchedulerConfig
-argument_list|(
-name|indexSettings
-argument_list|)
-argument_list|,
 name|mergePolicy
 argument_list|)
 argument_list|,
@@ -1677,9 +1663,6 @@ name|store
 parameter_list|,
 name|Path
 name|translogPath
-parameter_list|,
-name|MergeSchedulerConfig
-name|mergeSchedulerConfig
 parameter_list|,
 name|MergePolicy
 name|mergePolicy
@@ -1728,8 +1711,6 @@ name|createSnapshotDeletionPolicy
 argument_list|()
 argument_list|,
 name|mergePolicy
-argument_list|,
-name|mergeSchedulerConfig
 argument_list|,
 name|iwc
 operator|.

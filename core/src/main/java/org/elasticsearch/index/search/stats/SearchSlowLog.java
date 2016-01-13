@@ -315,6 +315,7 @@ operator|+
 literal|".level"
 decl_stmt|;
 DECL|method|SearchSlowLog
+specifier|public
 name|SearchSlowLog
 parameter_list|(
 name|Settings
@@ -834,7 +835,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|onRefreshSettings
-specifier|synchronized
+specifier|public
 name|void
 name|onRefreshSettings
 parameter_list|(
