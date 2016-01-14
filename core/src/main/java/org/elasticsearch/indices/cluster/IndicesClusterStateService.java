@@ -3713,8 +3713,6 @@ name|shardStateAction
 operator|.
 name|shardStarted
 argument_list|(
-name|state
-argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -3737,6 +3735,8 @@ name|state
 argument_list|()
 operator|+
 literal|"], mark shard as started"
+argument_list|,
+name|SHARD_STATE_ACTION_LISTENER
 argument_list|)
 expr_stmt|;
 block|}
@@ -4234,8 +4234,6 @@ name|shardStateAction
 operator|.
 name|shardStarted
 argument_list|(
-name|state
-argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -4244,6 +4242,8 @@ name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"after recovery from store"
+argument_list|,
+name|SHARD_STATE_ACTION_LISTENER
 argument_list|)
 expr_stmt|;
 block|}
@@ -4386,8 +4386,6 @@ name|shardStateAction
 operator|.
 name|shardStarted
 argument_list|(
-name|state
-argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -4396,6 +4394,8 @@ name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"after recovery from repository"
+argument_list|,
+name|SHARD_STATE_ACTION_LISTENER
 argument_list|)
 expr_stmt|;
 block|}
@@ -4771,11 +4771,6 @@ name|shardStateAction
 operator|.
 name|shardStarted
 argument_list|(
-name|clusterService
-operator|.
-name|state
-argument_list|()
-argument_list|,
 name|shardRouting
 argument_list|,
 name|indexMetaData
@@ -4791,6 +4786,8 @@ name|getSourceNode
 argument_list|()
 operator|+
 literal|"]"
+argument_list|,
+name|SHARD_STATE_ACTION_LISTENER
 argument_list|)
 expr_stmt|;
 block|}
