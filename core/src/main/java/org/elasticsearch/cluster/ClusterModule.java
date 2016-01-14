@@ -1575,17 +1575,6 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|ShardsLimitAllocationDecider
-operator|.
-name|INDEX_TOTAL_SHARDS_PER_NODE
-argument_list|,
-name|Validator
-operator|.
-name|INTEGER
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
 name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_EXPUNGE_DELETES_ALLOWED
