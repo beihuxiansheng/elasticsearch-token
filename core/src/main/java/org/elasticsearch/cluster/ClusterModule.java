@@ -1366,17 +1366,6 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|IndexSettings
-operator|.
-name|INDEX_REFRESH_INTERVAL
-argument_list|,
-name|Validator
-operator|.
-name|TIME
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
 name|PrimaryShardAllocator
 operator|.
 name|INDEX_RECOVERY_INITIAL_SHARDS

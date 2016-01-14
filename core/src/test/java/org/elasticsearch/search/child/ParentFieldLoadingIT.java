@@ -331,7 +331,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_REFRESH_INTERVAL
+name|INDEX_REFRESH_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|-
 literal|1
