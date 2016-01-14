@@ -4929,14 +4929,9 @@ name|retryRequests
 init|=
 name|transport
 operator|.
-name|capturedRequests
+name|getCapturedRequestsAndClear
 argument_list|()
 decl_stmt|;
-name|transport
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
