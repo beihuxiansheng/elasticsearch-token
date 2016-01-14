@@ -160,7 +160,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestBootstrapper
+name|PipelineStore
 import|;
 end_import
 
@@ -170,9 +170,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|node
 operator|.
-name|PipelineStore
+name|service
+operator|.
+name|NodeService
 import|;
 end_import
 
@@ -243,8 +245,8 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|IngestBootstrapper
-name|bootstrapper
+name|NodeService
+name|nodeService
 parameter_list|)
 block|{
 name|super
@@ -274,7 +276,10 @@ name|this
 operator|.
 name|pipelineStore
 operator|=
-name|bootstrapper
+name|nodeService
+operator|.
+name|getIngestService
+argument_list|()
 operator|.
 name|getPipelineStore
 argument_list|()

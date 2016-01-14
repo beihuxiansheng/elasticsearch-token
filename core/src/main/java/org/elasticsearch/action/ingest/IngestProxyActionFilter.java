@@ -218,9 +218,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|node
 operator|.
-name|IngestModule
+name|NodeModule
 import|;
 end_import
 
@@ -750,9 +750,9 @@ name|randomIngestNode
 parameter_list|()
 block|{
 assert|assert
-name|IngestModule
+name|NodeModule
 operator|.
-name|isIngestEnabled
+name|isNodeIngestEnabled
 argument_list|(
 name|clusterService
 operator|.
@@ -792,9 +792,9 @@ control|)
 block|{
 if|if
 condition|(
-name|IngestModule
+name|NodeModule
 operator|.
-name|isIngestEnabled
+name|isNodeIngestEnabled
 argument_list|(
 name|node
 operator|.

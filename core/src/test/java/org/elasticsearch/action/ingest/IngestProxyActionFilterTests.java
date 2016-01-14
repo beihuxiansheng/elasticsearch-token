@@ -210,9 +210,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|node
 operator|.
-name|IngestModule
+name|NodeModule
 import|;
 end_import
 
@@ -2078,9 +2078,9 @@ name|node
 parameter_list|)
 block|{
 return|return
-name|IngestModule
+name|NodeModule
 operator|.
-name|isIngestEnabled
+name|isNodeIngestEnabled
 argument_list|(
 name|node
 operator|.

@@ -244,6 +244,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|node
+operator|.
+name|NodeModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -1700,7 +1712,7 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|IngestModule
+name|NodeModule
 name|ingestModule
 parameter_list|)
 block|{

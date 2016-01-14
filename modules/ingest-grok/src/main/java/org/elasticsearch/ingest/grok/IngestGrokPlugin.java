@@ -22,9 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|node
 operator|.
-name|IngestModule
+name|NodeModule
 import|;
 end_import
 
@@ -232,11 +232,11 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|IngestModule
-name|ingestModule
+name|NodeModule
+name|nodeModule
 parameter_list|)
 block|{
-name|ingestModule
+name|nodeModule
 operator|.
 name|registerProcessor
 argument_list|(

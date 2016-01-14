@@ -36,37 +36,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
-operator|.
-name|IndexResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|ActionFilters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|HandledTransportAction
 import|;
 end_import
 
@@ -188,7 +160,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|IngestBootstrapper
+name|PipelineStore
 import|;
 end_import
 
@@ -198,9 +170,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|node
 operator|.
-name|PipelineStore
+name|service
+operator|.
+name|NodeService
 import|;
 end_import
 
@@ -271,8 +245,8 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|IngestBootstrapper
-name|bootstrapper
+name|NodeService
+name|nodeService
 parameter_list|)
 block|{
 name|super
@@ -302,7 +276,10 @@ name|this
 operator|.
 name|pipelineStore
 operator|=
-name|bootstrapper
+name|nodeService
+operator|.
+name|getIngestService
+argument_list|()
 operator|.
 name|getPipelineStore
 argument_list|()
