@@ -1309,11 +1309,6 @@ name|indexSettings
 operator|.
 name|getNodeSettings
 argument_list|()
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

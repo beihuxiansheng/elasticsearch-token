@@ -1931,11 +1931,6 @@ name|this
 operator|.
 name|settings
 argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-argument_list|,
 name|indexNameMatcher
 argument_list|)
 decl_stmt|;
@@ -3539,11 +3534,6 @@ argument_list|(
 name|metaData
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 return|;
 block|}

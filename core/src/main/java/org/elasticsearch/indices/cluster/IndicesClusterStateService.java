@@ -1749,11 +1749,6 @@ argument_list|(
 name|metaData
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|indicesService

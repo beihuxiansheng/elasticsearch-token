@@ -665,11 +665,6 @@ argument_list|,
 name|Settings
 operator|.
 name|EMPTY
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|AnalysisService

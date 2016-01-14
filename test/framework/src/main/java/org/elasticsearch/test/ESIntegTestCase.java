@@ -3210,7 +3210,10 @@ name|put
 argument_list|(
 name|MergeSchedulerConfig
 operator|.
-name|AUTO_THROTTLE
+name|AUTO_THROTTLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -3401,7 +3404,10 @@ name|put
 argument_list|(
 name|MergeSchedulerConfig
 operator|.
-name|MAX_MERGE_COUNT
+name|MAX_MERGE_COUNT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|maxMergeCount
 argument_list|)
@@ -3412,7 +3418,10 @@ name|put
 argument_list|(
 name|MergeSchedulerConfig
 operator|.
-name|MAX_THREAD_COUNT
+name|MAX_THREAD_COUNT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|maxThreadCount
 argument_list|)
