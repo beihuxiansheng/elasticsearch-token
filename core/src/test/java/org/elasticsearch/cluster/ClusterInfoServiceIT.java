@@ -953,7 +953,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
+name|INDEX_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.

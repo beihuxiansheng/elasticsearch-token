@@ -639,7 +639,10 @@ name|registerIndexDynamicSetting
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_ALLOCATION_ENABLE
+name|INDEX_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Validator
 operator|.
@@ -664,7 +667,10 @@ literal|"Cannot register setting ["
 operator|+
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_ALLOCATION_ENABLE
+name|INDEX_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"] twice"
 argument_list|)
