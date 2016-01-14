@@ -344,9 +344,10 @@ name|indexMd
 operator|.
 name|getSettings
 argument_list|()
+argument_list|,
+name|settings
 argument_list|)
 decl_stmt|;
-comment|// TODO this sucks as it's not taking the node level setting into account
 comment|// Capture the limit here in case it changes during this method's
 comment|// execution
 specifier|final
@@ -572,9 +573,10 @@ name|indexMd
 operator|.
 name|getSettings
 argument_list|()
+argument_list|,
+name|settings
 argument_list|)
 decl_stmt|;
-comment|// TODO this sucks as it's not taking the node level setting into account
 comment|// Capture the limit here in case it changes during this method's
 comment|// execution
 specifier|final

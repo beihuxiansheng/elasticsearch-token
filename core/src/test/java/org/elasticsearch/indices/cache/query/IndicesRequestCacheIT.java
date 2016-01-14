@@ -246,7 +246,10 @@ name|setSettings
 argument_list|(
 name|IndicesRequestCache
 operator|.
-name|INDEX_CACHE_REQUEST_ENABLED
+name|INDEX_CACHE_REQUEST_ENABLED_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

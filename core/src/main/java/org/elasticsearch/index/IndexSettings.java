@@ -254,6 +254,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|cache
+operator|.
+name|request
+operator|.
+name|IndicesRequestCache
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -872,6 +888,10 @@ argument_list|,
 name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
+argument_list|,
+name|IndicesRequestCache
+operator|.
+name|INDEX_CACHE_REQUEST_ENABLED_SETTING
 argument_list|)
 argument_list|)
 argument_list|)

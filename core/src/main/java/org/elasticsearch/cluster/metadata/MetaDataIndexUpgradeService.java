@@ -592,6 +592,9 @@ argument_list|,
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
