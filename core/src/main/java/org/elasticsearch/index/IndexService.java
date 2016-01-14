@@ -4239,7 +4239,7 @@ name|indexService
 operator|.
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"scheduling {} every {}"
 argument_list|,
@@ -4274,7 +4274,7 @@ name|indexService
 operator|.
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"scheduled {} disabled"
 argument_list|,
