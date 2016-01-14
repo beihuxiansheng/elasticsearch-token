@@ -1881,6 +1881,7 @@ name|Settings
 name|settings
 parameter_list|()
 function_decl|;
+comment|/**      * Returns a new lightweight Client that applies all given headers to each of the requests      * issued from it.      */
 DECL|method|filterWithHeader
 name|Client
 name|filterWithHeader
