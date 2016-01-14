@@ -1377,17 +1377,6 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|IndexSettings
-operator|.
-name|INDEX_GC_DELETES_SETTING
-argument_list|,
-name|Validator
-operator|.
-name|TIME
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
 name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_WARN
