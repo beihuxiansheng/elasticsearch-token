@@ -411,16 +411,6 @@ argument_list|(
 literal|60
 argument_list|)
 decl_stmt|;
-comment|/**      * Index setting to control if a flush is executed before engine is closed. The default is<code>true</code>      */
-DECL|field|INDEX_FLUSH_ON_CLOSE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_FLUSH_ON_CLOSE
-init|=
-literal|"index.flush_on_close"
-decl_stmt|;
 comment|/**      * Index setting to enable / disable deletes garbage collection.      * This setting is realtime updateable      */
 DECL|field|INDEX_GC_DELETES_SETTING
 specifier|public
@@ -574,12 +564,6 @@ specifier|private
 specifier|volatile
 name|ByteSizeValue
 name|flushThresholdSize
-decl_stmt|;
-DECL|field|flushOnClose
-specifier|private
-specifier|final
-name|boolean
-name|flushOnClose
 decl_stmt|;
 DECL|field|mergeSchedulerConfig
 specifier|private
@@ -1038,19 +1022,6 @@ name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|flushOnClose
-operator|=
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|IndexSettings
-operator|.
-name|INDEX_FLUSH_ON_CLOSE
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|mergeSchedulerConfig
@@ -2148,17 +2119,6 @@ parameter_list|()
 block|{
 return|return
 name|flushThresholdSize
-return|;
-block|}
-comment|/**      * Returns<code>true</code> iff this index should be flushed on close. Default is<code>true</code>      */
-DECL|method|isFlushOnClose
-specifier|public
-name|boolean
-name|isFlushOnClose
-parameter_list|()
-block|{
-return|return
-name|flushOnClose
 return|;
 block|}
 comment|/**      * Returns the {@link MergeSchedulerConfig}      */
