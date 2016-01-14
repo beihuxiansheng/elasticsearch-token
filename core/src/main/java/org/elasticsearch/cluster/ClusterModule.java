@@ -1234,17 +1234,6 @@ name|registerIndexDynamicSetting
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_EXPUNGE_DELETES_ALLOWED
-argument_list|,
-name|Validator
-operator|.
-name|DOUBLE
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
-name|MergePolicyConfig
-operator|.
 name|INDEX_MERGE_POLICY_FLOOR_SEGMENT
 argument_list|,
 name|Validator
