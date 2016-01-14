@@ -1240,9 +1240,6 @@ operator|new
 name|IndexingSlowLog
 argument_list|(
 name|indexSettings
-operator|.
-name|getSettings
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Add our slowLog to the incoming IndexingOperationListeners:
@@ -3731,33 +3728,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-try|try
-block|{
-name|slowLog
-operator|.
-name|onRefreshSettings
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
-comment|// this will be refactored soon anyway so duplication is ok here
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to refresh slowlog settings"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 block|}
 try|try
 block|{
