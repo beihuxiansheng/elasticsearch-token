@@ -208,7 +208,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|INGEST
+name|INDEX
 argument_list|)
 operator|.
 name|execute
@@ -285,7 +285,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|INGEST
+name|INDEX
 argument_list|)
 operator|.
 name|execute
