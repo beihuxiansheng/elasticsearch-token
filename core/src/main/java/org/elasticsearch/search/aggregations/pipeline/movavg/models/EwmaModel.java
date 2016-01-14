@@ -780,8 +780,10 @@ name|MovAvgModelBuilder
 block|{
 DECL|field|alpha
 specifier|private
-name|Double
+name|double
 name|alpha
+init|=
+name|DEFAULT_ALPHA
 decl_stmt|;
 comment|/**          * Alpha controls the smoothing of the data.  Alpha = 1 retains no memory of past values          * (e.g. a random walk), while alpha = 0 retains infinite memory of past values (e.g.          * the series mean).  Useful values are somewhere in between.  Defaults to 0.5.          *          * @param alpha A double between 0-1 inclusive, controls data smoothing          *          * @return The builder to continue chaining          */
 DECL|method|alpha
@@ -848,13 +850,6 @@ name|getPreferredName
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|alpha
-operator|!=
-literal|null
-condition|)
-block|{
 name|builder
 operator|.
 name|field
@@ -864,7 +859,6 @@ argument_list|,
 name|alpha
 argument_list|)
 expr_stmt|;
-block|}
 name|builder
 operator|.
 name|endObject
@@ -872,6 +866,22 @@ argument_list|()
 expr_stmt|;
 return|return
 name|builder
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|build
+specifier|public
+name|MovAvgModel
+name|build
+parameter_list|()
+block|{
+return|return
+operator|new
+name|EwmaModel
+argument_list|(
+name|alpha
+argument_list|)
 return|;
 block|}
 block|}

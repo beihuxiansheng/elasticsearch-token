@@ -310,7 +310,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AbstractAggregationBuilder
+name|AggregatorFactory
 import|;
 end_import
 
@@ -324,7 +324,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|pipeline
+operator|.
+name|PipelineAggregatorFactory
 import|;
 end_import
 
@@ -1618,13 +1620,16 @@ return|return
 name|trackScores
 return|;
 block|}
-comment|/**      * Add an aggregation to perform as part of the search.      *      * NORELEASE REMOVE WHEN AGG REFACTORING IS COMPLETE      */
+comment|/**      * Add an aggregation to perform as part of the search.      */
 DECL|method|aggregation
 specifier|public
 name|SearchSourceBuilder
 name|aggregation
 parameter_list|(
-name|AbstractAggregationBuilder
+name|AggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 name|aggregation
 parameter_list|)
 block|{
@@ -1707,7 +1712,7 @@ specifier|public
 name|SearchSourceBuilder
 name|aggregation
 parameter_list|(
-name|AggregatorFactory
+name|PipelineAggregatorFactory
 name|aggregation
 parameter_list|)
 block|{

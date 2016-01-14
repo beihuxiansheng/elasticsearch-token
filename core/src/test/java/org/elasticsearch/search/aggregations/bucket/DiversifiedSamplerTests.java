@@ -82,22 +82,6 @@ name|ExecutionMode
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|ValuesSourceType
-import|;
-end_import
-
 begin_class
 DECL|class|DiversifiedSamplerTests
 specifier|public
@@ -133,12 +117,6 @@ operator|.
 name|DiversifiedFactory
 argument_list|(
 literal|"foo"
-argument_list|,
-name|ValuesSourceType
-operator|.
-name|ANY
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|String

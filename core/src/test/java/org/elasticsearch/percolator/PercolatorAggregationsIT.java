@@ -1351,10 +1351,7 @@ operator|.
 name|maxBucket
 argument_list|(
 literal|"max_a"
-argument_list|)
-operator|.
-name|setBucketsPaths
-argument_list|(
+argument_list|,
 literal|"a>_count"
 argument_list|)
 argument_list|)
@@ -2076,10 +2073,7 @@ operator|.
 name|maxBucket
 argument_list|(
 literal|"max_terms"
-argument_list|)
-operator|.
-name|setBucketsPaths
-argument_list|(
+argument_list|,
 literal|"terms>_count"
 argument_list|)
 argument_list|)

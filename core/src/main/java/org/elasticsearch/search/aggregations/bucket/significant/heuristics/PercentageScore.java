@@ -173,10 +173,10 @@ literal|"percentage"
 argument_list|)
 decl_stmt|;
 DECL|method|PercentageScore
-specifier|private
+specifier|public
 name|PercentageScore
 parameter_list|()
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getWriteableName

@@ -346,7 +346,7 @@ name|aggregations
 operator|.
 name|AggregationBuilders
 operator|.
-name|range
+name|sum
 import|;
 end_import
 
@@ -362,7 +362,7 @@ name|aggregations
 operator|.
 name|AggregationBuilders
 operator|.
-name|sum
+name|range
 import|;
 end_import
 

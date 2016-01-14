@@ -3102,10 +3102,7 @@ operator|.
 name|filter
 argument_list|(
 literal|"all"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|termQuery
 argument_list|(
 literal|"multi"
@@ -3123,10 +3120,7 @@ operator|.
 name|filter
 argument_list|(
 literal|"test1"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|termQuery
 argument_list|(
 literal|"name"

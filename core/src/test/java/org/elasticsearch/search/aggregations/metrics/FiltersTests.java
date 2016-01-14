@@ -118,26 +118,6 @@ name|KeyedFilter
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_class
 DECL|class|FiltersTests
 specifier|public
@@ -178,18 +158,15 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-name|List
-argument_list|<
 name|KeyedFilter
-argument_list|>
+index|[]
 name|filters
 init|=
 operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(
+name|KeyedFilter
+index|[
 name|size
-argument_list|)
+index|]
 decl_stmt|;
 for|for
 control|(
@@ -210,9 +187,10 @@ comment|// NORELEASE make RandomQueryBuilder work outside of the
 comment|// AbstractQueryTestCase
 comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
 name|filters
-operator|.
-name|add
-argument_list|(
+index|[
+name|i
+index|]
+operator|=
 operator|new
 name|KeyedFilter
 argument_list|(
@@ -239,7 +217,6 @@ argument_list|(
 literal|5
 argument_list|,
 literal|20
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

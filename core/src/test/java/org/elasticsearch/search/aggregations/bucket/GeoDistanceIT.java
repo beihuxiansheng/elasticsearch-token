@@ -78,6 +78,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|geo
+operator|.
+name|GeoPoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -1088,6 +1102,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -1101,12 +1123,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -1567,6 +1583,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -1580,12 +1604,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -2075,6 +2093,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -2088,12 +2114,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -2559,6 +2579,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -2572,12 +2600,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -3041,6 +3063,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -3054,12 +3084,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -4044,16 +4068,19 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"geo_dist"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"location"
-argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
 argument_list|)
 operator|.
 name|addRange
@@ -4361,6 +4388,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -4389,12 +4424,6 @@ name|GeoDistance
 operator|.
 name|ARC
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(

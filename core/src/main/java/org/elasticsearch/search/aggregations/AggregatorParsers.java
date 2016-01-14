@@ -328,30 +328,16 @@ name|parser
 argument_list|)
 expr_stmt|;
 name|AggregatorFactory
-index|[]
-name|factoryPrototypes
+argument_list|<
+name|?
+argument_list|>
+name|factoryPrototype
 init|=
 name|parser
 operator|.
 name|getFactoryPrototypes
 argument_list|()
 decl_stmt|;
-comment|// NORELEASE remove this check when agg refactoring complete
-if|if
-condition|(
-name|factoryPrototypes
-operator|!=
-literal|null
-condition|)
-block|{
-for|for
-control|(
-name|AggregatorFactory
-name|factoryPrototype
-range|:
-name|factoryPrototypes
-control|)
-block|{
 name|namedWriteableRegistry
 operator|.
 name|registerPrototype
@@ -363,8 +349,6 @@ argument_list|,
 name|factoryPrototype
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 name|this
 operator|.
@@ -425,14 +409,6 @@ operator|.
 name|getFactoryPrototype
 argument_list|()
 decl_stmt|;
-comment|// NORELEASE remove this check when agg refactoring complete
-if|if
-condition|(
-name|factoryPrototype
-operator|!=
-literal|null
-condition|)
-block|{
 name|namedWriteableRegistry
 operator|.
 name|registerPrototype
@@ -444,7 +420,6 @@ argument_list|,
 name|factoryPrototype
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|this
 operator|.

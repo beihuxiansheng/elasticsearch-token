@@ -554,6 +554,9 @@ argument_list|(
 name|pipelineAggregatorName
 argument_list|,
 name|bucketsPaths
+index|[
+literal|0
+index|]
 argument_list|)
 decl_stmt|;
 if|if

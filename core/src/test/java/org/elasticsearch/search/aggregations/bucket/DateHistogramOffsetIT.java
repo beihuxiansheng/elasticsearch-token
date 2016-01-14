@@ -631,7 +631,7 @@ argument_list|(
 name|DATE_FORMAT
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -825,7 +825,7 @@ argument_list|(
 name|DATE_FORMAT
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1038,7 +1038,7 @@ argument_list|(
 name|DATE_FORMAT
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.

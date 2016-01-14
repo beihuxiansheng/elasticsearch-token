@@ -154,7 +154,7 @@ name|range
 operator|.
 name|date
 operator|.
-name|DateRangeBuilder
+name|DateRangeAggregatorFactory
 import|;
 end_import
 
@@ -928,7 +928,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DateRangeBuilder
+name|DateRangeAggregatorFactory
 name|rangeBuilder
 init|=
 name|dateRange

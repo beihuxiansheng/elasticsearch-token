@@ -720,6 +720,9 @@ argument_list|(
 name|reducerName
 argument_list|,
 name|bucketsPaths
+index|[
+literal|0
+index|]
 argument_list|)
 decl_stmt|;
 if|if

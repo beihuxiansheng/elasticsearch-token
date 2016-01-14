@@ -332,8 +332,6 @@ name|TermsAggregatorFactory
 argument_list|(
 name|aggregationName
 argument_list|,
-name|valuesSourceType
-argument_list|,
 name|targetValueType
 argument_list|)
 decl_stmt|;
@@ -694,6 +692,10 @@ argument_list|,
 literal|"Order elements must be of type object in ["
 operator|+
 name|aggregationName
+operator|+
+literal|"] found token of type ["
+operator|+
+name|token
 operator|+
 literal|"]."
 argument_list|)
@@ -1128,25 +1130,20 @@ name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
 name|AggregatorFactory
-index|[]
+argument_list|<
+name|?
+argument_list|>
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-operator|new
-name|AggregatorFactory
-index|[]
-block|{
 operator|new
 name|TermsAggregatorFactory
 argument_list|(
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
-block|}
 return|;
 block|}
 block|}

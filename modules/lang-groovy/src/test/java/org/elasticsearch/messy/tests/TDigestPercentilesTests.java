@@ -232,7 +232,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|PercentilesBuilder
+name|PercentilesAggregatorFactory
 import|;
 end_import
 
@@ -601,10 +601,10 @@ block|}
 DECL|method|randomCompression
 specifier|private
 specifier|static
-name|PercentilesBuilder
+name|PercentilesAggregatorFactory
 name|randomCompression
 parameter_list|(
-name|PercentilesBuilder
+name|PercentilesAggregatorFactory
 name|builder
 parameter_list|)
 block|{

@@ -90,8 +90,7 @@ name|String
 name|name
 parameter_list|,
 name|String
-index|[]
-name|bucketsPaths
+name|bucketsPath
 parameter_list|)
 block|{
 name|Factory
@@ -102,7 +101,7 @@ name|Factory
 argument_list|(
 name|name
 argument_list|,
-name|bucketsPaths
+name|bucketsPath
 argument_list|)
 decl_stmt|;
 if|if

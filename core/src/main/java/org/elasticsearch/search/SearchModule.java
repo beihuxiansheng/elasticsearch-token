@@ -4830,7 +4830,6 @@ argument_list|(
 name|aggregatorParsers
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|bind
 argument_list|(
 name|AggregationParseElement

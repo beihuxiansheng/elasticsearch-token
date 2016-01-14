@@ -599,6 +599,9 @@ argument_list|(
 name|pipelineAggregatorName
 argument_list|,
 name|bucketsPaths
+index|[
+literal|0
+index|]
 argument_list|,
 name|leftover
 argument_list|)
@@ -714,7 +717,6 @@ name|String
 name|pipelineAggregatorName
 parameter_list|,
 name|String
-index|[]
 name|bucketsPaths
 parameter_list|,
 name|Map

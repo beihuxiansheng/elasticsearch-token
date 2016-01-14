@@ -168,22 +168,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|ValuesSourceType
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -319,10 +303,6 @@ operator|new
 name|TermsAggregatorFactory
 argument_list|(
 name|name
-argument_list|,
-name|ValuesSourceType
-operator|.
-name|ANY
 argument_list|,
 literal|null
 argument_list|)

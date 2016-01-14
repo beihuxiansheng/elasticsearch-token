@@ -156,8 +156,7 @@ name|String
 name|pipelineAggregatorName
 parameter_list|,
 name|String
-index|[]
-name|bucketsPaths
+name|bucketsPath
 parameter_list|,
 name|Map
 argument_list|<
@@ -262,7 +261,7 @@ name|Factory
 argument_list|(
 name|pipelineAggregatorName
 argument_list|,
-name|bucketsPaths
+name|bucketsPath
 argument_list|)
 decl_stmt|;
 if|if

@@ -155,13 +155,14 @@ DECL|enum constant|Deprecated
 annotation|@
 name|Deprecated
 DECL|enum constant|ANY
-DECL|enum constant|STRING
 name|ANY
 argument_list|(
 operator|(
 name|byte
 operator|)
 literal|0
+argument_list|,
+literal|"any"
 argument_list|,
 literal|"any"
 argument_list|,
@@ -178,12 +179,15 @@ operator|.
 name|RAW
 argument_list|)
 block|,
+DECL|enum constant|STRING
 name|STRING
 argument_list|(
 operator|(
 name|byte
 operator|)
 literal|1
+argument_list|,
+literal|"string"
 argument_list|,
 literal|"string"
 argument_list|,
@@ -210,6 +214,8 @@ operator|)
 literal|2
 argument_list|,
 literal|"byte|short|integer|long"
+argument_list|,
+literal|"long"
 argument_list|,
 name|ValuesSourceType
 operator|.
@@ -247,6 +253,8 @@ operator|)
 literal|3
 argument_list|,
 literal|"float|double"
+argument_list|,
+literal|"double"
 argument_list|,
 name|ValuesSourceType
 operator|.
@@ -296,6 +304,8 @@ literal|4
 argument_list|,
 literal|"number"
 argument_list|,
+literal|"number"
+argument_list|,
 name|ValuesSourceType
 operator|.
 name|NUMERIC
@@ -330,6 +340,8 @@ operator|(
 name|byte
 operator|)
 literal|5
+argument_list|,
+literal|"date"
 argument_list|,
 literal|"date"
 argument_list|,
@@ -372,6 +384,8 @@ literal|6
 argument_list|,
 literal|"ip"
 argument_list|,
+literal|"ip"
+argument_list|,
 name|ValuesSourceType
 operator|.
 name|NUMERIC
@@ -409,6 +423,8 @@ literal|7
 argument_list|,
 literal|"numeric"
 argument_list|,
+literal|"numeric"
+argument_list|,
 name|ValuesSourceType
 operator|.
 name|NUMERIC
@@ -443,6 +459,8 @@ operator|(
 name|byte
 operator|)
 literal|8
+argument_list|,
+literal|"geo_point"
 argument_list|,
 literal|"geo_point"
 argument_list|,
@@ -503,6 +521,11 @@ specifier|final
 name|byte
 name|id
 decl_stmt|;
+DECL|field|preferredName
+specifier|private
+name|String
+name|preferredName
+decl_stmt|;
 DECL|method|ValueType
 specifier|private
 name|ValueType
@@ -512,6 +535,9 @@ name|id
 parameter_list|,
 name|String
 name|description
+parameter_list|,
+name|String
+name|preferredName
 parameter_list|,
 name|ValuesSourceType
 name|valuesSourceType
@@ -542,6 +568,12 @@ name|description
 expr_stmt|;
 name|this
 operator|.
+name|preferredName
+operator|=
+name|preferredName
+expr_stmt|;
+name|this
+operator|.
 name|valuesSourceType
 operator|=
 name|valuesSourceType
@@ -567,6 +599,16 @@ parameter_list|()
 block|{
 return|return
 name|description
+return|;
+block|}
+DECL|method|getPreferredName
+specifier|public
+name|String
+name|getPreferredName
+parameter_list|()
+block|{
+return|return
+name|preferredName
 return|;
 block|}
 DECL|method|getValuesSourceType

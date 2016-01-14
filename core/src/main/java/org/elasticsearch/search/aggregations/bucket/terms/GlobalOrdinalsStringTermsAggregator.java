@@ -2212,7 +2212,7 @@ literal|null
 operator|||
 name|factories
 operator|.
-name|count
+name|countAggregators
 argument_list|()
 operator|==
 literal|0

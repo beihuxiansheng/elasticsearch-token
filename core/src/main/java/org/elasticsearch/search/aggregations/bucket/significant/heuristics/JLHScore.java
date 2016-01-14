@@ -173,10 +173,10 @@ literal|"jlh"
 argument_list|)
 decl_stmt|;
 DECL|method|JLHScore
-specifier|private
+specifier|public
 name|JLHScore
 parameter_list|()
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getWriteableName
@@ -447,7 +447,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse [jhl] significance heuristic. expected an empty object, but found [{}] instead"
+literal|"failed to parse [jlh] significance heuristic. expected an empty object, but found [{}] instead"
 argument_list|,
 name|parser
 operator|.

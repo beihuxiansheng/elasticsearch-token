@@ -140,7 +140,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AbstractAggregationBuilder
+name|AggregatorFactory
 import|;
 end_import
 
@@ -154,7 +154,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|pipeline
+operator|.
+name|PipelineAggregatorFactory
 import|;
 end_import
 
@@ -1112,13 +1114,16 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an aggregation to the search operation.      *      * NORELEASE REMOVE WHEN AGG REFACTORING IS COMPLETE      */
+comment|/**      * Adds an aggregation to the search operation.      */
 DECL|method|addAggregation
 specifier|public
 name|SearchRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AbstractAggregationBuilder
+name|AggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 name|aggregation
 parameter_list|)
 block|{
@@ -1140,7 +1145,7 @@ specifier|public
 name|SearchRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AggregatorFactory
+name|PipelineAggregatorFactory
 name|aggregation
 parameter_list|)
 block|{

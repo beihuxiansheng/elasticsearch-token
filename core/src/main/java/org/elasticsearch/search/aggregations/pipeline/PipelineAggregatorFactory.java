@@ -446,9 +446,9 @@ name|metaData
 argument_list|)
 expr_stmt|;
 block|}
-comment|// NORELEASE make this abstract when agg refactor complete
 DECL|method|doWriteTo
 specifier|protected
+specifier|abstract
 name|void
 name|doWriteTo
 parameter_list|(
@@ -457,8 +457,7 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
-comment|// NORELEASE remove this method when agg refactor complete
+function_decl|;
 annotation|@
 name|Override
 DECL|method|getWriteableName
@@ -526,9 +525,9 @@ return|return
 name|factory
 return|;
 block|}
-comment|// NORELEASE make this abstract when agg refactor complete
 DECL|method|doReadFrom
 specifier|protected
+specifier|abstract
 name|PipelineAggregatorFactory
 name|doReadFrom
 parameter_list|(
@@ -544,11 +543,7 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-return|return
-literal|null
-return|;
-block|}
+function_decl|;
 annotation|@
 name|Override
 DECL|method|toXContent
@@ -679,9 +674,9 @@ return|return
 literal|false
 return|;
 block|}
-comment|// NORELEASE make this method abstract when agg refactor complete
 DECL|method|internalXContent
 specifier|protected
+specifier|abstract
 name|XContentBuilder
 name|internalXContent
 parameter_list|(
@@ -693,11 +688,7 @@ name|params
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-return|return
-name|builder
-return|;
-block|}
+function_decl|;
 annotation|@
 name|Override
 DECL|method|hashCode
@@ -729,18 +720,13 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|// NORELEASE make this method abstract here when agg refactor complete (so
-comment|// that subclasses are forced to implement it)
 DECL|method|doHashCode
 specifier|protected
+specifier|abstract
 name|int
 name|doHashCode
 parameter_list|()
-block|{
-return|return
-literal|0
-return|;
-block|}
+function_decl|;
 annotation|@
 name|Override
 DECL|method|equals
@@ -857,21 +843,16 @@ name|obj
 argument_list|)
 return|;
 block|}
-comment|// NORELEASE make this method abstract here when agg refactor complete (so
-comment|// that subclasses are forced to implement it)
 DECL|method|doEquals
 specifier|protected
+specifier|abstract
 name|boolean
 name|doEquals
 parameter_list|(
 name|Object
 name|obj
 parameter_list|)
-block|{
-return|return
-literal|true
-return|;
-block|}
+function_decl|;
 block|}
 end_class
 

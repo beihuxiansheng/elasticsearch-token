@@ -742,7 +742,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -842,10 +842,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|QueryBuilders
 operator|.
 name|matchAllQuery
@@ -864,7 +861,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -983,7 +980,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1090,10 +1087,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|QueryBuilders
 operator|.
 name|matchAllQuery
@@ -1124,7 +1118,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1252,10 +1246,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 operator|.
@@ -1271,7 +1262,7 @@ argument_list|(
 literal|"nested.date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1401,7 +1392,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1536,7 +1527,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1671,7 +1662,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1804,7 +1795,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1940,7 +1931,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2076,7 +2067,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2208,7 +2199,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2323,7 +2314,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2342,7 +2333,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2470,7 +2461,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.

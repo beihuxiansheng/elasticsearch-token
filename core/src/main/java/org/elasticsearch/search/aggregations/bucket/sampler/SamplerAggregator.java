@@ -1452,12 +1452,6 @@ name|DiversifiedFactory
 parameter_list|(
 name|String
 name|name
-parameter_list|,
-name|ValuesSourceType
-name|valueSourceType
-parameter_list|,
-name|ValueType
-name|valueType
 parameter_list|)
 block|{
 name|super
@@ -1466,9 +1460,11 @@ name|name
 argument_list|,
 name|TYPE
 argument_list|,
-name|valueSourceType
+name|ValuesSourceType
+operator|.
+name|ANY
 argument_list|,
-name|valueType
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1933,10 +1929,6 @@ operator|new
 name|DiversifiedFactory
 argument_list|(
 name|name
-argument_list|,
-name|valuesSourceType
-argument_list|,
-name|targetValueType
 argument_list|)
 decl_stmt|;
 name|factory

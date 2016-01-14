@@ -331,15 +331,13 @@ name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
 name|AggregatorFactory
-index|[]
+argument_list|<
+name|?
+argument_list|>
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-operator|new
-name|AggregatorFactory
-index|[]
-block|{
 operator|new
 name|NestedAggregator
 operator|.
@@ -349,7 +347,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-block|}
 return|;
 block|}
 block|}

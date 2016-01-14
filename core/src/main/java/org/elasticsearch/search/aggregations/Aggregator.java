@@ -237,7 +237,9 @@ function_decl|;
 comment|/**          * @return an empty {@link AggregatorFactory} instance for this parser          *         that can be used for deserialization          */
 DECL|method|getFactoryPrototypes
 name|AggregatorFactory
-index|[]
+argument_list|<
+name|?
+argument_list|>
 name|getFactoryPrototypes
 parameter_list|()
 function_decl|;

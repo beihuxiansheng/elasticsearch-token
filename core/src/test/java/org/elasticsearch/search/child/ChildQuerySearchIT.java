@@ -4697,10 +4697,7 @@ operator|.
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|boolQuery
 argument_list|()
 operator|.

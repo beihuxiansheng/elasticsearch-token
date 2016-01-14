@@ -302,6 +302,24 @@ name|bucket
 operator|.
 name|histogram
 operator|.
+name|ExtendedBounds
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|histogram
+operator|.
 name|Histogram
 import|;
 end_import
@@ -1405,7 +1423,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1772,7 +1790,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1786,7 +1804,12 @@ argument_list|)
 operator|.
 name|timeZone
 argument_list|(
+name|DateTimeZone
+operator|.
+name|forID
+argument_list|(
 literal|"+01:00"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -2423,7 +2446,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2598,7 +2621,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2766,7 +2789,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2934,7 +2957,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -3102,7 +3125,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -3771,7 +3794,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -4312,7 +4335,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -4498,7 +4521,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -4684,7 +4707,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -4872,7 +4895,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -5079,7 +5102,7 @@ literal|null
 argument_list|)
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -5447,7 +5470,7 @@ argument_list|(
 literal|"dates"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -5898,7 +5921,7 @@ argument_list|(
 literal|"dates"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -6174,7 +6197,7 @@ literal|null
 argument_list|)
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -6645,7 +6668,7 @@ literal|null
 argument_list|)
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -7340,7 +7363,7 @@ literal|null
 argument_list|)
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -7721,7 +7744,7 @@ literal|null
 argument_list|)
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -8276,7 +8299,7 @@ literal|null
 argument_list|)
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -8742,7 +8765,7 @@ literal|null
 argument_list|)
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -9422,7 +9445,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -9525,7 +9548,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -10232,10 +10255,15 @@ argument_list|)
 operator|.
 name|timeZone
 argument_list|(
+name|DateTimeZone
+operator|.
+name|forID
+argument_list|(
 literal|"-02:00"
 argument_list|)
+argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -10900,7 +10928,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -10918,6 +10946,9 @@ comment|// when explicitly specifying a format, the extended bounds should be de
 operator|.
 name|extendedBounds
 argument_list|(
+operator|new
+name|ExtendedBounds
+argument_list|(
 name|format
 argument_list|(
 name|boundsMin
@@ -10930,6 +10961,7 @@ argument_list|(
 name|boundsMax
 argument_list|,
 name|pattern
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -11441,7 +11473,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -11454,9 +11486,6 @@ operator|.
 name|timeZone
 argument_list|(
 name|timezone
-operator|.
-name|getID
-argument_list|()
 argument_list|)
 operator|.
 name|minDocCount
@@ -11466,9 +11495,13 @@ argument_list|)
 operator|.
 name|extendedBounds
 argument_list|(
+operator|new
+name|ExtendedBounds
+argument_list|(
 literal|"now/d"
 argument_list|,
 literal|"now/d+23h"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -11874,7 +11907,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -12064,10 +12097,15 @@ argument_list|)
 operator|.
 name|timeZone
 argument_list|(
+name|DateTimeZone
+operator|.
+name|forID
+argument_list|(
 literal|"+01:00"
 argument_list|)
+argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -12530,7 +12568,7 @@ argument_list|(
 literal|"d"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -12539,7 +12577,12 @@ argument_list|)
 operator|.
 name|timeZone
 argument_list|(
+name|DateTimeZone
+operator|.
+name|forID
+argument_list|(
 literal|"Asia/Jerusalem"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -12736,7 +12779,7 @@ argument_list|(
 literal|"d"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -12745,7 +12788,12 @@ argument_list|)
 operator|.
 name|timeZone
 argument_list|(
+name|DateTimeZone
+operator|.
+name|forID
+argument_list|(
 literal|"CET"
+argument_list|)
 argument_list|)
 operator|.
 name|minDocCount
@@ -12971,7 +13019,7 @@ literal|"test8209"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * see issue #9634, negative interval in date_histogram should raise exception      */
+comment|/**      * see issue #9634, negative dateHistogramInterval in date_histogram should raise exception      */
 DECL|method|testExceptionOnNegativeInterval
 specifier|public
 name|void
@@ -13044,7 +13092,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"ElasticsearchParseException"
+literal|"IllegalArgumentException"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13080,7 +13128,7 @@ argument_list|(
 literal|"_timestamp"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|randomFrom
 argument_list|(
