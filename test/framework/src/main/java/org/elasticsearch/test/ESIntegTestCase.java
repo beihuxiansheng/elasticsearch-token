@@ -3529,7 +3529,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -3566,7 +3569,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|new
 name|ByteSizeValue

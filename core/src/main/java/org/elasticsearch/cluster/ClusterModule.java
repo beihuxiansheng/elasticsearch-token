@@ -1540,17 +1540,6 @@ operator|.
 name|EMPTY
 argument_list|)
 expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
-name|IndexSettings
-operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
-argument_list|,
-name|Validator
-operator|.
-name|BYTES_SIZE
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|registerIndexDynamicSetting
 specifier|public
