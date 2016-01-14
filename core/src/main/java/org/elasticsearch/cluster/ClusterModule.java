@@ -1705,17 +1705,6 @@ operator|.
 name|TIME
 argument_list|)
 expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
-name|DefaultSearchContext
-operator|.
-name|MAX_RESULT_WINDOW
-argument_list|,
-name|Validator
-operator|.
-name|POSITIVE_INTEGER
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|registerIndexDynamicSetting
 specifier|public
