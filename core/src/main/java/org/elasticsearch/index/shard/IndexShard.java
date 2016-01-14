@@ -5258,11 +5258,6 @@ operator|!=
 literal|null
 operator|&&
 name|flushEngine
-operator|&&
-name|indexSettings
-operator|.
-name|isFlushOnClose
-argument_list|()
 condition|)
 block|{
 name|engine
