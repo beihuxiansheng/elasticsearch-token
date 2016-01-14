@@ -683,6 +683,8 @@ literal|"discovery-gce"
 argument_list|,
 literal|"discovery-multicast"
 argument_list|,
+literal|"ingest-geoip"
+argument_list|,
 literal|"lang-javascript"
 argument_list|,
 literal|"lang-plan-a"
