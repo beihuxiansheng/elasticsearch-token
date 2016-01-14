@@ -564,20 +564,13 @@ operator|.
 name|primaryStorageSettings
 operator|==
 literal|null
-operator|||
-name|this
-operator|.
-name|secondariesStorageSettings
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No azure storage can be found. Check your elasticsearch.yml."
+literal|"No primary azure storage can be found. Check your elasticsearch.yml."
 argument_list|)
 throw|;
 block|}
