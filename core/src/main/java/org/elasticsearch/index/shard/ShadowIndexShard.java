@@ -172,10 +172,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|search
-operator|.
-name|stats
-operator|.
 name|SearchSlowLog
 import|;
 end_import
