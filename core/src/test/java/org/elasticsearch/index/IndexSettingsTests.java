@@ -1398,7 +1398,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_DURABILITY
+name|INDEX_TRANSLOG_DURABILITY_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"async"
 argument_list|)
@@ -1451,7 +1454,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_DURABILITY
+name|INDEX_TRANSLOG_DURABILITY_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"request"
 argument_list|)

@@ -4198,7 +4198,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_DURABILITY
+name|INDEX_TRANSLOG_DURABILITY_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|durability
 operator|.
@@ -6724,7 +6727,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_DURABILITY
+name|INDEX_TRANSLOG_DURABILITY_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Translog
 operator|.

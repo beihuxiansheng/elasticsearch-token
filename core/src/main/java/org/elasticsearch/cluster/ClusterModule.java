@@ -1696,17 +1696,6 @@ argument_list|)
 expr_stmt|;
 name|registerIndexDynamicSetting
 argument_list|(
-name|IndexSettings
-operator|.
-name|INDEX_TRANSLOG_DURABILITY
-argument_list|,
-name|Validator
-operator|.
-name|EMPTY
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
 name|IndicesWarmer
 operator|.
 name|INDEX_WARMER_ENABLED
