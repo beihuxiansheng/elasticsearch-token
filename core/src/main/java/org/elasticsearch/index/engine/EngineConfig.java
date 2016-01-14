@@ -208,20 +208,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|MergeSchedulerConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|ShardId
 import|;
 end_import
@@ -292,18 +278,6 @@ name|ThreadPool
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
 begin_comment
 comment|/*  * Holds all the configuration that is used to create an {@link Engine}.  * Once {@link Engine} has been created with this object, changes to this  * object will affect the {@link Engine} instance.  */
 end_comment
@@ -338,16 +312,6 @@ specifier|private
 specifier|final
 name|ByteSizeValue
 name|indexingBufferSize
-decl_stmt|;
-DECL|field|gcDeletesInMillis
-specifier|private
-name|long
-name|gcDeletesInMillis
-init|=
-name|DEFAULT_GC_DELETES
-operator|.
-name|millis
-argument_list|()
 decl_stmt|;
 DECL|field|enableGcDeletes
 specifier|private
@@ -401,12 +365,6 @@ specifier|final
 name|MergePolicy
 name|mergePolicy
 decl_stmt|;
-DECL|field|mergeSchedulerConfig
-specifier|private
-specifier|final
-name|MergeSchedulerConfig
-name|mergeSchedulerConfig
-decl_stmt|;
 DECL|field|analyzer
 specifier|private
 specifier|final
@@ -451,16 +409,6 @@ specifier|final
 name|QueryCachingPolicy
 name|queryCachingPolicy
 decl_stmt|;
-comment|/**      * Index setting to enable / disable deletes garbage collection.      * This setting is realtime updateable      */
-DECL|field|INDEX_GC_DELETES_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_GC_DELETES_SETTING
-init|=
-literal|"index.gc_deletes"
-decl_stmt|;
 comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      */
 DECL|field|INDEX_CODEC_SETTING
 specifier|public
@@ -480,37 +428,6 @@ name|String
 name|INDEX_FORCE_NEW_TRANSLOG
 init|=
 literal|"index.engine.force_new_translog"
-decl_stmt|;
-DECL|field|DEFAULT_REFRESH_INTERVAL
-specifier|public
-specifier|static
-specifier|final
-name|TimeValue
-name|DEFAULT_REFRESH_INTERVAL
-init|=
-operator|new
-name|TimeValue
-argument_list|(
-literal|1
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-decl_stmt|;
-DECL|field|DEFAULT_GC_DELETES
-specifier|public
-specifier|static
-specifier|final
-name|TimeValue
-name|DEFAULT_GC_DELETES
-init|=
-name|TimeValue
-operator|.
-name|timeValueSeconds
-argument_list|(
-literal|60
-argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_CODEC_NAME
 specifier|private
@@ -560,9 +477,6 @@ name|deletionPolicy
 parameter_list|,
 name|MergePolicy
 name|mergePolicy
-parameter_list|,
-name|MergeSchedulerConfig
-name|mergeSchedulerConfig
 parameter_list|,
 name|Analyzer
 name|analyzer
@@ -659,12 +573,6 @@ name|mergePolicy
 expr_stmt|;
 name|this
 operator|.
-name|mergeSchedulerConfig
-operator|=
-name|mergeSchedulerConfig
-expr_stmt|;
-name|this
-operator|.
 name|analyzer
 operator|=
 name|analyzer
@@ -716,22 +624,6 @@ name|ByteSizeUnit
 operator|.
 name|MB
 argument_list|)
-expr_stmt|;
-name|gcDeletesInMillis
-operator|=
-name|settings
-operator|.
-name|getAsTime
-argument_list|(
-name|INDEX_GC_DELETES_SETTING
-argument_list|,
-name|EngineConfig
-operator|.
-name|DEFAULT_GC_DELETES
-argument_list|)
-operator|.
-name|millis
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -816,18 +708,7 @@ return|return
 name|indexingBufferSize
 return|;
 block|}
-comment|/**      * Returns the GC deletes cycle in milliseconds.      */
-DECL|method|getGcDeletesInMillis
-specifier|public
-name|long
-name|getGcDeletesInMillis
-parameter_list|()
-block|{
-return|return
-name|gcDeletesInMillis
-return|;
-block|}
-comment|/**      * Returns<code>true</code> iff delete garbage collection in the engine should be enabled. This setting is updateable      * in realtime and forces a volatile read. Consumers can safely read this value directly go fetch it's latest value. The default is<code>true</code>      *<p>      *     Engine GC deletion if enabled collects deleted documents from in-memory realtime data structures after a certain amount of      *     time ({@link #getGcDeletesInMillis()} if enabled. Before deletes are GCed they will cause re-adding the document that was deleted      *     to fail.      *</p>      */
+comment|/**      * Returns<code>true</code> iff delete garbage collection in the engine should be enabled. This setting is updateable      * in realtime and forces a volatile read. Consumers can safely read this value directly go fetch it's latest value. The default is<code>true</code>      *<p>      *     Engine GC deletion if enabled collects deleted documents from in-memory realtime data structures after a certain amount of      *     time ({@link IndexSettings#getGcDeletesInMillis()} if enabled. Before deletes are GCed they will cause re-adding the document that was deleted      *     to fail.      *</p>      */
 DECL|method|isEnableGcDeletes
 specifier|public
 name|boolean
@@ -911,17 +792,6 @@ return|return
 name|mergePolicy
 return|;
 block|}
-comment|/**      * Returns the {@link MergeSchedulerConfig}      */
-DECL|method|getMergeSchedulerConfig
-specifier|public
-name|MergeSchedulerConfig
-name|getMergeSchedulerConfig
-parameter_list|()
-block|{
-return|return
-name|mergeSchedulerConfig
-return|;
-block|}
 comment|/**      * Returns a listener that should be called on engine failure      */
 DECL|method|getEventListener
 specifier|public
@@ -978,23 +848,6 @@ block|{
 return|return
 name|similarity
 return|;
-block|}
-comment|/**      * Sets the GC deletes cycle in milliseconds.      */
-DECL|method|setGcDeletesInMillis
-specifier|public
-name|void
-name|setGcDeletesInMillis
-parameter_list|(
-name|long
-name|gcDeletesInMillis
-parameter_list|)
-block|{
-name|this
-operator|.
-name|gcDeletesInMillis
-operator|=
-name|gcDeletesInMillis
-expr_stmt|;
 block|}
 comment|/**      * Returns the {@link org.elasticsearch.index.shard.TranslogRecoveryPerformer} for this engine. This class is used      * to apply transaction log operations to the engine. It encapsulates all the logic to transfer the translog entry into      * an indexing operation.      */
 DECL|method|getTranslogRecoveryPerformer

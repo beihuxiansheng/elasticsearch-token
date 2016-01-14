@@ -79,9 +79,12 @@ specifier|abstract
 class|class
 name|ActionRequest
 parameter_list|<
-name|T
+name|Request
 extends|extends
 name|ActionRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|>
 extends|extends
 name|TransportRequest
@@ -100,6 +103,9 @@ specifier|protected
 name|ActionRequest
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|)
 block|{

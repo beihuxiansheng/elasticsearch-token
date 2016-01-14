@@ -208,9 +208,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|Engine
+name|IndexSettings
 import|;
 end_import
 
@@ -222,9 +220,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
+name|engine
 operator|.
-name|IndexShard
+name|Engine
 import|;
 end_import
 
@@ -1385,7 +1383,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,

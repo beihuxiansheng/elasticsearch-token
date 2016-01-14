@@ -64,6 +64,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|EngineAccess
@@ -102,18 +114,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|is
 import|;
 end_import
@@ -141,7 +141,6 @@ argument_list|(
 literal|"foo"
 argument_list|)
 decl_stmt|;
-comment|// INDEX_COMPOUND_ON_FLUSH
 name|InternalEngine
 name|engine
 init|=
@@ -178,21 +177,6 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// VERSION MAP SIZE
-name|long
-name|indexBufferSize
-init|=
-name|engine
-operator|.
-name|config
-argument_list|()
-operator|.
-name|getIndexingBufferSize
-argument_list|()
-operator|.
-name|bytes
-argument_list|()
-decl_stmt|;
 specifier|final
 name|int
 name|iters
@@ -219,12 +203,6 @@ name|i
 operator|++
 control|)
 block|{
-name|boolean
-name|compoundOnFlush
-init|=
-name|randomBoolean
-argument_list|()
-decl_stmt|;
 comment|// Tricky: TimeValue.parseTimeValue casts this long to a double, which steals 11 of the 64 bits for exponent, so we can't use
 comment|// the full long range here else the assert below fails:
 name|long
@@ -254,7 +232,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
 argument_list|,
@@ -276,7 +254,7 @@ name|build
 operator|.
 name|getAsTime
 argument_list|(
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
 argument_list|,
@@ -334,6 +312,9 @@ operator|.
 name|config
 argument_list|()
 operator|.
+name|getIndexSettings
+argument_list|()
+operator|.
 name|getGcDeletesInMillis
 argument_list|()
 argument_list|,
@@ -350,19 +331,6 @@ argument_list|,
 name|gcDeletes
 argument_list|)
 expr_stmt|;
-name|indexBufferSize
-operator|=
-name|engine
-operator|.
-name|config
-argument_list|()
-operator|.
-name|getIndexingBufferSize
-argument_list|()
-operator|.
-name|bytes
-argument_list|()
-expr_stmt|;
 block|}
 name|Settings
 name|settings
@@ -374,7 +342,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
 argument_list|,
@@ -440,7 +408,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
 argument_list|,
@@ -502,7 +470,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
 argument_list|,

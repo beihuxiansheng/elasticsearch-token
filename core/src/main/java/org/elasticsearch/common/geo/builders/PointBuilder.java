@@ -132,7 +132,6 @@ operator|.
 name|POINT
 decl_stmt|;
 DECL|field|PROTOTYPE
-specifier|public
 specifier|static
 specifier|final
 name|PointBuilder
@@ -147,6 +146,19 @@ specifier|private
 name|Coordinate
 name|coordinate
 decl_stmt|;
+comment|/**      * Create a point at [0.0,0.0]      */
+DECL|method|PointBuilder
+specifier|public
+name|PointBuilder
+parameter_list|()
+block|{
+name|this
+operator|.
+name|coordinate
+operator|=
+name|ZERO_ZERO
+expr_stmt|;
+block|}
 DECL|method|coordinate
 specifier|public
 name|PointBuilder

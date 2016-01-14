@@ -1291,14 +1291,6 @@ block|}
 else|else
 block|{
 comment|// Missing units:
-if|if
-condition|(
-name|Settings
-operator|.
-name|getSettingsRequireUnits
-argument_list|()
-condition|)
-block|{
 throw|throw
 operator|new
 name|ElasticsearchParseException
@@ -1310,20 +1302,6 @@ argument_list|,
 name|sValue
 argument_list|)
 throw|;
-block|}
-else|else
-block|{
-comment|// Leniency default to bytes:
-name|bytes
-operator|=
-name|Long
-operator|.
-name|parseLong
-argument_list|(
-name|sValue
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch

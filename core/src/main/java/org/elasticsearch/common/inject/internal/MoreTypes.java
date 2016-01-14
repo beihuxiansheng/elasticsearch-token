@@ -66,16 +66,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|lang
 operator|.
 name|reflect
@@ -708,7 +698,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Returns a type that is functionally equal but not necessarily equal      * according to {@link Object#equals(Object) Object.equals()}. The returned      * type is {@link Serializable}.      */
+comment|/**      * Returns a type that is functionally equal but not necessarily equal      * according to {@link Object#equals(Object) Object.equals()}.      */
 DECL|method|canonicalize
 specifier|public
 specifier|static
@@ -887,31 +877,6 @@ return|return
 name|type
 return|;
 block|}
-block|}
-comment|/**      * Returns a type that's functionally equal but not necessarily equal      * according to {@link Object#equals(Object) Object.equals}. The returned      * member is {@link Serializable}.      */
-DECL|method|serializableCopy
-specifier|public
-specifier|static
-name|Member
-name|serializableCopy
-parameter_list|(
-name|Member
-name|member
-parameter_list|)
-block|{
-return|return
-name|member
-operator|instanceof
-name|MemberImpl
-condition|?
-name|member
-else|:
-operator|new
-name|MemberImpl
-argument_list|(
-name|member
-argument_list|)
-return|;
 block|}
 DECL|method|getRawType
 specifier|public
@@ -2554,8 +2519,6 @@ name|ParameterizedTypeImpl
 implements|implements
 name|ParameterizedType
 implements|,
-name|Serializable
-implements|,
 name|CompositeType
 block|{
 DECL|field|ownerType
@@ -2930,15 +2893,6 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 end_class
 
@@ -2950,8 +2904,6 @@ class|class
 name|GenericArrayTypeImpl
 implements|implements
 name|GenericArrayType
-implements|,
-name|Serializable
 implements|,
 name|CompositeType
 block|{
@@ -3071,15 +3023,6 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 end_class
 
@@ -3095,8 +3038,6 @@ class|class
 name|WildcardTypeImpl
 implements|implements
 name|WildcardType
-implements|,
-name|Serializable
 implements|,
 name|CompositeType
 block|{
@@ -3410,15 +3351,6 @@ name|this
 argument_list|)
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 end_class
 
@@ -3485,8 +3417,6 @@ class|class
 name|MemberImpl
 implements|implements
 name|Member
-implements|,
-name|Serializable
 block|{
 DECL|field|declaringClass
 specifier|private

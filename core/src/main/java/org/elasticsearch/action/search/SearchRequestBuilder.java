@@ -1294,9 +1294,6 @@ name|addRescorer
 argument_list|(
 operator|new
 name|RescoreBuilder
-argument_list|()
-operator|.
-name|rescorer
 argument_list|(
 name|rescorer
 argument_list|)
@@ -1328,9 +1325,6 @@ name|addRescorer
 argument_list|(
 operator|new
 name|RescoreBuilder
-argument_list|()
-operator|.
-name|rescorer
 argument_list|(
 name|rescorer
 argument_list|)

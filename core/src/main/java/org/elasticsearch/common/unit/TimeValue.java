@@ -1500,14 +1500,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|Settings
-operator|.
-name|getSettingsRequireUnits
-argument_list|()
-condition|)
-block|{
 comment|// Missing units:
 throw|throw
 operator|new
@@ -1520,20 +1512,6 @@ argument_list|,
 name|sValue
 argument_list|)
 throw|;
-block|}
-else|else
-block|{
-comment|// Leniency default to msec for bwc:
-name|millis
-operator|=
-name|Long
-operator|.
-name|parseLong
-argument_list|(
-name|sValue
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 operator|new

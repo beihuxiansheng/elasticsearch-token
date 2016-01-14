@@ -785,6 +785,9 @@ argument_list|(
 name|MockEngineSupport
 operator|.
 name|WRAP_READER_RATIO
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1.0d
 argument_list|)

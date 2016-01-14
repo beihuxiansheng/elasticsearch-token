@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.shard
+DECL|package|org.elasticsearch.index
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|index
-operator|.
-name|shard
 package|;
 end_package
 
@@ -129,22 +127,12 @@ name|int
 name|maxMergeCount
 decl_stmt|;
 DECL|method|MergeSchedulerConfig
-specifier|public
 name|MergeSchedulerConfig
 parameter_list|(
-name|IndexSettings
-name|indexSettings
-parameter_list|)
-block|{
-specifier|final
 name|Settings
 name|settings
-init|=
-name|indexSettings
-operator|.
-name|getSettings
-argument_list|()
-decl_stmt|;
+parameter_list|)
+block|{
 name|maxThreadCount
 operator|=
 name|settings
@@ -217,7 +205,6 @@ return|;
 block|}
 comment|/**      * Enables / disables auto throttling on the {@link ConcurrentMergeScheduler}      */
 DECL|method|setAutoThrottle
-specifier|public
 name|void
 name|setAutoThrottle
 parameter_list|(
@@ -245,7 +232,6 @@ return|;
 block|}
 comment|/**      * Expert: directly set the maximum number of merge threads and      * simultaneous merges allowed.      */
 DECL|method|setMaxThreadCount
-specifier|public
 name|void
 name|setMaxThreadCount
 parameter_list|(
@@ -273,7 +259,6 @@ return|;
 block|}
 comment|/**      *      * Expert: set the maximum number of simultaneous merges allowed.      */
 DECL|method|setMaxMergeCount
-specifier|public
 name|void
 name|setMaxMergeCount
 parameter_list|(
