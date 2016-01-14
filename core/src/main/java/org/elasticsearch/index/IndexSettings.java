@@ -1516,7 +1516,7 @@ name|MergePolicyConfig
 argument_list|(
 name|logger
 argument_list|,
-name|settings
+name|this
 argument_list|)
 expr_stmt|;
 assert|assert

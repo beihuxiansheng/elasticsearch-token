@@ -1307,17 +1307,6 @@ operator|.
 name|NON_NEGATIVE_DOUBLE
 argument_list|)
 expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
-name|MergePolicyConfig
-operator|.
-name|INDEX_COMPOUND_FORMAT
-argument_list|,
-name|Validator
-operator|.
-name|EMPTY
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|registerIndexDynamicSetting
 specifier|public

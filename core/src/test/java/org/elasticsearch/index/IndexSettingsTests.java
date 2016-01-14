@@ -1327,7 +1327,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|newIndexMeta
-specifier|private
+specifier|public
+specifier|static
 name|IndexMetaData
 name|newIndexMeta
 parameter_list|(

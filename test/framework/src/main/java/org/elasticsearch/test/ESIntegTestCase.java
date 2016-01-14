@@ -3337,7 +3337,10 @@ name|put
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_COMPOUND_FORMAT
+name|INDEX_COMPOUND_FORMAT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|random
 operator|.
