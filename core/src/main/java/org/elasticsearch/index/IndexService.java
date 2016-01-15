@@ -4245,6 +4245,16 @@ name|mustReschedule
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|indexService
+operator|.
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|indexService
 operator|.
 name|logger
@@ -4259,6 +4269,7 @@ argument_list|,
 name|interval
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|scheduledFuture
