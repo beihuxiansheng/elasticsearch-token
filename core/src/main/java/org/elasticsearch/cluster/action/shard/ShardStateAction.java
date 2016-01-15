@@ -1112,6 +1112,37 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"new cluster state [{}] after waiting for master election to fail shard [{}]"
+argument_list|,
+name|shardRoutingEntry
+operator|.
+name|getShardRouting
+argument_list|()
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|prettyPrint
+argument_list|()
+argument_list|,
+name|shardRoutingEntry
+argument_list|)
+expr_stmt|;
+block|}
 name|sendShardFailed
 argument_list|(
 name|observer
@@ -1131,7 +1162,7 @@ parameter_list|()
 block|{
 name|logger
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"{} node closed while handling failed shard [{}]"
 argument_list|,
