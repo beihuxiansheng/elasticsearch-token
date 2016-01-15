@@ -507,7 +507,7 @@ name|executionService
 argument_list|)
 expr_stmt|;
 name|NodeService
-name|bootstrapper
+name|nodeService
 init|=
 name|mock
 argument_list|(
@@ -518,7 +518,7 @@ argument_list|)
 decl_stmt|;
 name|when
 argument_list|(
-name|bootstrapper
+name|nodeService
 operator|.
 name|getIngestService
 argument_list|()
@@ -538,7 +538,7 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-name|bootstrapper
+name|nodeService
 argument_list|)
 expr_stmt|;
 block|}
@@ -1420,7 +1420,7 @@ name|executionService
 argument_list|)
 expr_stmt|;
 name|NodeService
-name|bootstrapper
+name|nodeService
 init|=
 name|mock
 argument_list|(
@@ -1431,7 +1431,7 @@ argument_list|)
 decl_stmt|;
 name|when
 argument_list|(
-name|bootstrapper
+name|nodeService
 operator|.
 name|getIngestService
 argument_list|()
@@ -1451,7 +1451,7 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-name|bootstrapper
+name|nodeService
 argument_list|)
 expr_stmt|;
 name|BulkRequest

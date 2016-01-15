@@ -1713,10 +1713,10 @@ name|void
 name|onModule
 parameter_list|(
 name|NodeModule
-name|ingestModule
+name|nodeModule
 parameter_list|)
 block|{
-name|ingestModule
+name|nodeModule
 operator|.
 name|registerProcessor
 argument_list|(
