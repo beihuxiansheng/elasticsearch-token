@@ -960,6 +960,16 @@ name|TransportException
 name|exp
 parameter_list|)
 block|{
+assert|assert
+name|exp
+operator|.
+name|getCause
+argument_list|()
+operator|!=
+literal|null
+operator|:
+name|exp
+assert|;
 if|if
 condition|(
 name|isMasterChannelException
