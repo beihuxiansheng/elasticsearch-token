@@ -7840,9 +7840,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|FilterAllocationDecider
+name|IndexMetaData
 operator|.
-name|INDEX_ROUTING_INCLUDE_GROUP
+name|INDEX_ROUTING_INCLUDE_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|".tag"
 argument_list|,
