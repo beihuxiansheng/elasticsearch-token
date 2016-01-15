@@ -129,12 +129,6 @@ index|[]
 name|filters
 parameter_list|)
 block|{
-name|this
-operator|.
-name|inclusive
-operator|=
-name|inclusive
-expr_stmt|;
 if|if
 condition|(
 name|CollectionUtils
@@ -153,6 +147,12 @@ literal|"filters cannot be null or empty"
 argument_list|)
 throw|;
 block|}
+name|this
+operator|.
+name|inclusive
+operator|=
+name|inclusive
+expr_stmt|;
 name|this
 operator|.
 name|filters

@@ -34,22 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|dataformat
-operator|.
-name|cbor
-operator|.
-name|CBORGenerator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -115,11 +99,13 @@ modifier|...
 name|filters
 parameter_list|)
 block|{
-name|super
+name|this
 argument_list|(
 name|jsonGenerator
 argument_list|,
 name|os
+argument_list|,
+literal|true
 argument_list|,
 name|filters
 argument_list|)
@@ -136,7 +122,7 @@ name|OutputStream
 name|os
 parameter_list|,
 name|boolean
-name|inclusiveFilters
+name|inclusive
 parameter_list|,
 name|String
 index|[]
@@ -149,7 +135,7 @@ name|jsonGenerator
 argument_list|,
 name|os
 argument_list|,
-name|inclusiveFilters
+name|inclusive
 argument_list|,
 name|filters
 argument_list|)

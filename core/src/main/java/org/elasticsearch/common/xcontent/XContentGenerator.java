@@ -570,16 +570,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|writeStartObject
-name|void
-name|writeStartObject
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 block|}
 end_interface
 

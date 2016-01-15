@@ -2217,27 +2217,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|writeStartObject
-specifier|public
-name|void
-name|writeStartObject
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|generator
-operator|.
-name|writeObjectFieldStart
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 
