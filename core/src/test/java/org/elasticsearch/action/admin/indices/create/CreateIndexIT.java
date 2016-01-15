@@ -1533,6 +1533,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/14932,https://github.com/elastic/elasticsearch/pull/15853"
+argument_list|)
 DECL|method|testCreateAndDeleteIndexConcurrently
 specifier|public
 name|void

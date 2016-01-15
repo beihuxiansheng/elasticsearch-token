@@ -566,6 +566,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|search
+operator|.
+name|stats
+operator|.
+name|SearchSlowLog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|IndexEventListener
@@ -983,6 +999,12 @@ specifier|final
 name|AsyncTranslogFSync
 name|fsyncTask
 decl_stmt|;
+DECL|field|searchSlowLog
+specifier|private
+specifier|final
+name|SearchSlowLog
+name|searchSlowLog
+decl_stmt|;
 DECL|method|IndexService
 specifier|public
 name|IndexService
@@ -1300,6 +1322,17 @@ operator|new
 name|AsyncRefreshTask
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+name|searchSlowLog
+operator|=
+operator|new
+name|SearchSlowLog
+argument_list|(
+name|indexSettings
+operator|.
+name|getSettings
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2164,6 +2197,8 @@ argument_list|,
 name|searcherWrapper
 argument_list|,
 name|nodeServicesProvider
+argument_list|,
+name|searchSlowLog
 argument_list|)
 expr_stmt|;
 comment|// no indexing listeners - shadow  engines don't index
@@ -2200,6 +2235,8 @@ argument_list|,
 name|searcherWrapper
 argument_list|,
 name|nodeServicesProvider
+argument_list|,
+name|searchSlowLog
 argument_list|,
 name|listeners
 argument_list|)
@@ -2790,6 +2827,16 @@ name|nodeServicesProvider
 operator|.
 name|getThreadPool
 argument_list|()
+return|;
+block|}
+DECL|method|getSearchSlowLog
+specifier|public
+name|SearchSlowLog
+name|getSearchSlowLog
+parameter_list|()
+block|{
+return|return
+name|searchSlowLog
 return|;
 block|}
 DECL|class|StoreCloseListener
@@ -3646,10 +3693,8 @@ try|try
 block|{
 name|shard
 operator|.
-name|onRefreshSettings
-argument_list|(
-name|settings
-argument_list|)
+name|onSettingsChanged
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -3662,7 +3707,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] failed to refresh shard settings"
+literal|"[{}] failed to notify shard about setting change"
 argument_list|,
 name|e
 argument_list|,
@@ -3706,6 +3751,33 @@ block|}
 try|try
 block|{
 name|slowLog
+operator|.
+name|onRefreshSettings
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
+comment|// this will be refactored soon anyway so duplication is ok here
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to refresh slowlog settings"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|searchSlowLog
 operator|.
 name|onRefreshSettings
 argument_list|(
@@ -4167,7 +4239,7 @@ name|indexService
 operator|.
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"scheduling {} every {}"
 argument_list|,
@@ -4202,7 +4274,7 @@ name|indexService
 operator|.
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"scheduled {} disabled"
 argument_list|,

@@ -1555,7 +1555,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
 argument_list|,
