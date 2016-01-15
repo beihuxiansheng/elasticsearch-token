@@ -762,11 +762,6 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|t
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 name|throwables
 operator|.
 name|add

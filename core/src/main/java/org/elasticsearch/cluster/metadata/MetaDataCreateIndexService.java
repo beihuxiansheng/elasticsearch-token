@@ -3696,9 +3696,14 @@ block|}
 elseif|else
 if|if
 condition|(
+name|Strings
+operator|.
+name|isEmpty
+argument_list|(
 name|customPath
-operator|!=
-literal|null
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 name|Path
