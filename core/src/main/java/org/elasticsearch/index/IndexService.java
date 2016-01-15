@@ -3654,15 +3654,6 @@ name|metadata
 argument_list|)
 condition|)
 block|{
-specifier|final
-name|Settings
-name|settings
-init|=
-name|indexSettings
-operator|.
-name|getSettings
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 specifier|final

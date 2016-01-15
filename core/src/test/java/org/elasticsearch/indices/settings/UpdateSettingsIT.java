@@ -463,7 +463,7 @@ comment|// this one can change
 operator|.
 name|put
 argument_list|(
-literal|"index.cache.filter.type"
+literal|"index.fielddata.cache"
 argument_list|,
 literal|"none"
 argument_list|)
@@ -545,7 +545,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"index.cache.filter.type"
+literal|"index.fielddata.cache"
 argument_list|)
 argument_list|,
 name|nullValue
@@ -596,7 +596,7 @@ name|getSetting
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"index.cache.filter.type"
+literal|"index.fielddata.cache"
 argument_list|)
 argument_list|,
 name|nullValue
@@ -891,7 +891,7 @@ comment|// this one can change
 operator|.
 name|put
 argument_list|(
-literal|"index.cache.filter.type"
+literal|"index.fielddata.cache"
 argument_list|,
 literal|"none"
 argument_list|)
@@ -962,7 +962,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"index.cache.filter.type"
+literal|"index.fielddata.cache"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1016,7 +1016,7 @@ name|getSetting
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"index.cache.filter.type"
+literal|"index.fielddata.cache"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -2171,7 +2171,7 @@ name|message
 operator|.
 name|contains
 argument_list|(
-literal|"updating [index.merge.scheduler.max_thread_count] from [10000] to [1]"
+literal|"update [index.merge.scheduler.max_thread_count] from [10000] to [1]"
 argument_list|)
 condition|)
 block|{
@@ -2195,7 +2195,7 @@ name|message
 operator|.
 name|contains
 argument_list|(
-literal|"updating [index.merge.scheduler.auto_throttle] from [true] to [false]"
+literal|"update [index.merge.scheduler.auto_throttle] from [true] to [false]"
 argument_list|)
 condition|)
 block|{

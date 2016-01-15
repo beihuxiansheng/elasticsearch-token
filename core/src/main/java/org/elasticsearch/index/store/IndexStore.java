@@ -280,7 +280,7 @@ name|rateLimiting
 operator|.
 name|getType
 argument_list|()
-operator|!=
+operator|==
 name|StoreRateLimiting
 operator|.
 name|Type
