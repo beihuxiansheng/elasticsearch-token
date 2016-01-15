@@ -843,6 +843,17 @@ name|processorsRegistry
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the node      */
+DECL|method|getNode
+specifier|public
+name|Node
+name|getNode
+parameter_list|()
+block|{
+return|return
+name|node
+return|;
+block|}
 comment|/**      * Adds a processor factory under a specific type name.      */
 DECL|method|registerProcessor
 specifier|public

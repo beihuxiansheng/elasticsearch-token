@@ -1953,6 +1953,17 @@ return|return
 name|client
 return|;
 block|}
+comment|/**      * Returns the environment of the node      */
+DECL|method|getEnvironment
+specifier|public
+name|Environment
+name|getEnvironment
+parameter_list|()
+block|{
+return|return
+name|environment
+return|;
+block|}
 comment|/**      * Start the node. If the node is already started, this method is no-op.      */
 DECL|method|start
 specifier|public
