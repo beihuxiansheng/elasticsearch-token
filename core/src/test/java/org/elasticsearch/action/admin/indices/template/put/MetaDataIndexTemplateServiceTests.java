@@ -689,6 +689,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|MetaDataIndexTemplateService
@@ -760,6 +762,11 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|t
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 name|throwables
 operator|.
 name|add
