@@ -1440,7 +1440,6 @@ name|EMPTY_SETTINGS
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// this will fail because we now reset each setting which is not passed with the sttings update. are we sure this is the desired behavior?
 name|assertEquals
 argument_list|(
 operator|(
@@ -1459,8 +1458,6 @@ argument_list|,
 name|MergePolicyConfig
 operator|.
 name|DEFAULT_EXPUNGE_DELETES_ALLOWED
-operator|+
-literal|1.0d
 argument_list|,
 literal|0.0d
 argument_list|)
