@@ -201,7 +201,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"Plugin that allows to plug in ingest processors"
+literal|"Ingest processor that adds information about the geographical location of ip addresses"
 return|;
 block|}
 DECL|method|onModule
