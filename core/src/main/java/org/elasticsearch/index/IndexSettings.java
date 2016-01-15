@@ -680,7 +680,7 @@ literal|1
 argument_list|,
 name|TimeUnit
 operator|.
-name|MICROSECONDS
+name|MILLISECONDS
 argument_list|)
 argument_list|,
 literal|true

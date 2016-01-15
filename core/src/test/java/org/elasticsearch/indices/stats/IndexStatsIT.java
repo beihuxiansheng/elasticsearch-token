@@ -4102,13 +4102,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"index.merge.policy.type"
-argument_list|,
-literal|"tiered"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_DURABILITY_SETTING

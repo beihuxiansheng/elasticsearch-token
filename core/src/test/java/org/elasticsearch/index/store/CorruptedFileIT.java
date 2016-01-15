@@ -656,6 +656,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|InternalSettingsPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|InternalTestCluster
 import|;
 end_import
@@ -1241,8 +1253,19 @@ operator|.
 name|TestPlugin
 operator|.
 name|class
+argument_list|,
+name|MockFSIndexStore
+operator|.
+name|TestPlugin
+operator|.
+name|class
+argument_list|,
+name|InternalSettingsPlugin
+operator|.
+name|class
 argument_list|)
 return|;
+comment|// uses index.version.created
 block|}
 comment|/**      * Tests that we can actually recover from a corruption on the primary given that we have replica shards around.      */
 DECL|method|testCorruptFileAndRecover
@@ -1354,7 +1377,10 @@ name|put
 argument_list|(
 name|MockFSIndexStore
 operator|.
-name|CHECK_INDEX_ON_CLOSE
+name|INDEX_CHECK_INDEX_ON_CLOSE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -1380,13 +1406,6 @@ name|PB
 argument_list|)
 argument_list|)
 comment|// no translog based flush - it might change the .liv / segments.N files
-operator|.
-name|put
-argument_list|(
-literal|"indices.recovery.concurrent_streams"
-argument_list|,
-literal|10
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2154,7 +2173,10 @@ name|put
 argument_list|(
 name|MockFSIndexStore
 operator|.
-name|CHECK_INDEX_ON_CLOSE
+name|INDEX_CHECK_INDEX_ON_CLOSE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -2180,13 +2202,6 @@ name|PB
 argument_list|)
 argument_list|)
 comment|// no translog based flush - it might change the .liv / segments.N files
-operator|.
-name|put
-argument_list|(
-literal|"indices.recovery.concurrent_streams"
-argument_list|,
-literal|10
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3437,7 +3452,10 @@ name|put
 argument_list|(
 name|MockFSIndexStore
 operator|.
-name|CHECK_INDEX_ON_CLOSE
+name|INDEX_CHECK_INDEX_ON_CLOSE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -4262,7 +4280,10 @@ name|put
 argument_list|(
 name|MockFSIndexStore
 operator|.
-name|CHECK_INDEX_ON_CLOSE
+name|INDEX_CHECK_INDEX_ON_CLOSE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -4288,13 +4309,6 @@ name|PB
 argument_list|)
 argument_list|)
 comment|// no translog based flush - it might change the .liv / segments.N files
-operator|.
-name|put
-argument_list|(
-literal|"indices.recovery.concurrent_streams"
-argument_list|,
-literal|10
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4700,7 +4714,10 @@ name|put
 argument_list|(
 name|MockFSIndexStore
 operator|.
-name|CHECK_INDEX_ON_CLOSE
+name|INDEX_CHECK_INDEX_ON_CLOSE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -4726,13 +4743,6 @@ name|PB
 argument_list|)
 argument_list|)
 comment|// no translog based flush - it might change the .liv / segments.N files
-operator|.
-name|put
-argument_list|(
-literal|"indices.recovery.concurrent_streams"
-argument_list|,
-literal|10
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

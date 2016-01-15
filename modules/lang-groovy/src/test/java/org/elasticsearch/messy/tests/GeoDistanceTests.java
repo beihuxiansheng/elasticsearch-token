@@ -306,7 +306,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalSettingsPluging
+name|InternalSettingsPlugin
 import|;
 end_import
 
@@ -359,16 +359,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -673,7 +663,7 @@ name|GroovyPlugin
 operator|.
 name|class
 argument_list|,
-name|InternalSettingsPluging
+name|InternalSettingsPlugin
 operator|.
 name|class
 argument_list|)

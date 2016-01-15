@@ -470,6 +470,7 @@ name|INDEX_MERGE_ENABLED
 init|=
 literal|"index.merge.enabled"
 decl_stmt|;
+comment|// don't convert to Setting<> and register... we only set this in tests and register via a plugin
 DECL|method|MergePolicyConfig
 name|MergePolicyConfig
 parameter_list|(

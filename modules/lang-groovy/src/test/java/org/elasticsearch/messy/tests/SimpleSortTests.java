@@ -478,7 +478,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalSettingsPluging
+name|InternalSettingsPlugin
 import|;
 end_import
 
@@ -1079,7 +1079,7 @@ name|GroovyPlugin
 operator|.
 name|class
 argument_list|,
-name|InternalSettingsPluging
+name|InternalSettingsPlugin
 operator|.
 name|class
 argument_list|)

@@ -815,7 +815,10 @@ name|put
 argument_list|(
 name|MockFSIndexStore
 operator|.
-name|CHECK_INDEX_ON_CLOSE
+name|INDEX_CHECK_INDEX_ON_CLOSE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

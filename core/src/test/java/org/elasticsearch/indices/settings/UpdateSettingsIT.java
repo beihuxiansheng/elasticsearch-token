@@ -1299,7 +1299,10 @@ name|put
 argument_list|(
 name|Store
 operator|.
-name|INDEX_STORE_STATS_REFRESH_INTERVAL
+name|INDEX_STORE_STATS_REFRESH_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)

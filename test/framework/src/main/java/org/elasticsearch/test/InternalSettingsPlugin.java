@@ -55,11 +55,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|InternalSettingsPluging
+DECL|class|InternalSettingsPlugin
 specifier|public
 specifier|final
 class|class
-name|InternalSettingsPluging
+name|InternalSettingsPlugin
 extends|extends
 name|Plugin
 block|{

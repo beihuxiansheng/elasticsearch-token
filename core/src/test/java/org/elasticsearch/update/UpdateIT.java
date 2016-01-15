@@ -382,6 +382,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|InternalSettingsPlugin
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -2282,6 +2294,11 @@ argument_list|,
 name|ExtractContextInSourceScriptPlugin
 operator|.
 name|class
+argument_list|,
+name|InternalSettingsPlugin
+operator|.
+name|class
+comment|// uses index.merge.enabled
 argument_list|)
 return|;
 block|}

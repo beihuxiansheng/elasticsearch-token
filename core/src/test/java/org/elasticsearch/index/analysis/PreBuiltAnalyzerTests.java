@@ -170,7 +170,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalSettingsPluging
+name|InternalSettingsPlugin
 import|;
 end_import
 
@@ -273,7 +273,7 @@ block|{
 return|return
 name|pluginList
 argument_list|(
-name|InternalSettingsPluging
+name|InternalSettingsPlugin
 operator|.
 name|class
 argument_list|)
