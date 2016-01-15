@@ -76,7 +76,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_AUTO_EXPAND_REPLICAS
 argument_list|,
-literal|""
+literal|"false"
 argument_list|,
 parameter_list|(
 name|value
