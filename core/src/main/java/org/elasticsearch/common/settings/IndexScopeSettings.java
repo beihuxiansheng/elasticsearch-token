@@ -893,6 +893,18 @@ name|IndexSettings
 operator|.
 name|MAX_RESULT_WINDOW_SETTING
 argument_list|,
+name|IndexSettings
+operator|.
+name|INDEX_TRANSLOG_SYNC_INTERVAL_SETTING
+argument_list|,
+name|IndexSettings
+operator|.
+name|DEFAULT_FIELD_SETTING
+argument_list|,
+name|IndexSettings
+operator|.
+name|QUERY_STRING_LENIENT_SETTING
+argument_list|,
 name|ShardsLimitAllocationDecider
 operator|.
 name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
@@ -933,6 +945,23 @@ name|FieldMapper
 operator|.
 name|COERCE_SETTING
 argument_list|,
+comment|// this sucks but we can't really validate all the analyzers/similarity in here
+name|Setting
+operator|.
+name|groupSetting
+argument_list|(
+literal|"index.similarity."
+argument_list|,
+literal|false
+argument_list|,
+name|Setting
+operator|.
+name|Scope
+operator|.
+name|INDEX
+argument_list|)
+argument_list|,
+comment|// this allows similarity settings to be passed
 name|Setting
 operator|.
 name|groupSetting
@@ -947,7 +976,7 @@ name|Scope
 operator|.
 name|INDEX
 argument_list|)
-comment|// this sucks but we can't really validate all the analyzers
+comment|// this allows analysis settings to be passed
 argument_list|)
 argument_list|)
 argument_list|)

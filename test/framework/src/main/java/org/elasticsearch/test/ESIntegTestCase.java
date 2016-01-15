@@ -3678,7 +3678,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_SYNC_INTERVAL
+name|INDEX_TRANSLOG_SYNC_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -3693,7 +3696,10 @@ name|put
 argument_list|(
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_SYNC_INTERVAL
+name|INDEX_TRANSLOG_SYNC_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|RandomInts
 operator|.
