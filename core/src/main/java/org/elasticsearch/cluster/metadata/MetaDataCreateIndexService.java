@@ -3580,15 +3580,13 @@ block|{
 name|String
 name|customPath
 init|=
-name|settings
+name|IndexMetaData
+operator|.
+name|INDEX_DATA_PATH_SETTING
 operator|.
 name|get
 argument_list|(
-name|IndexMetaData
-operator|.
-name|SETTING_DATA_PATH
-argument_list|,
-literal|null
+name|settings
 argument_list|)
 decl_stmt|;
 name|List
@@ -3604,9 +3602,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Strings
+operator|.
+name|isEmpty
+argument_list|(
 name|customPath
-operator|!=
-literal|null
+argument_list|)
+operator|==
+literal|false
 operator|&&
 name|env
 operator|.
@@ -3679,6 +3682,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|//nocommit - this can be removed?
 name|Integer
 name|number_of_primaries
 init|=

@@ -4664,7 +4664,10 @@ name|put
 argument_list|(
 name|PrimaryShardAllocator
 operator|.
-name|INDEX_RECOVERY_INITIAL_SHARDS
+name|INDEX_RECOVERY_INITIAL_SHARDS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"one"
 argument_list|)
