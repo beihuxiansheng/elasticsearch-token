@@ -1096,17 +1096,6 @@ name|registerIndexDynamicSetting
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
-argument_list|,
-name|Validator
-operator|.
-name|DOUBLE_GTE_2
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
-name|MergePolicyConfig
-operator|.
 name|INDEX_MERGE_POLICY_RECLAIM_DELETES_WEIGHT
 argument_list|,
 name|Validator

@@ -3790,7 +3790,10 @@ name|put
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
+name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"2"
 argument_list|)
@@ -4065,7 +4068,10 @@ name|put
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
+name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"2"
 argument_list|)

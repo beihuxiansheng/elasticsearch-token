@@ -1386,7 +1386,7 @@ operator|(
 operator|(
 name|TieredMergePolicy
 operator|)
-name|mp
+name|indexSettings
 operator|.
 name|getMergePolicy
 argument_list|()
@@ -1402,10 +1402,14 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|mp
+name|indexSettings
 operator|.
-name|onRefreshSettings
+name|updateIndexMetaData
 argument_list|(
+name|newIndexMeta
+argument_list|(
+literal|"index"
+argument_list|,
 name|Settings
 operator|.
 name|builder
@@ -1415,7 +1419,10 @@ name|put
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
+name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|MergePolicyConfig
 operator|.
@@ -1427,6 +1434,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -1434,7 +1442,7 @@ operator|(
 operator|(
 name|TieredMergePolicy
 operator|)
-name|mp
+name|indexSettings
 operator|.
 name|getMergePolicy
 argument_list|()
@@ -1634,7 +1642,7 @@ operator|(
 operator|(
 name|TieredMergePolicy
 operator|)
-name|mp
+name|indexSettings
 operator|.
 name|getMergePolicy
 argument_list|()
@@ -1646,8 +1654,6 @@ argument_list|,
 name|MergePolicyConfig
 operator|.
 name|DEFAULT_SEGMENTS_PER_TIER
-operator|+
-literal|1
 argument_list|,
 literal|0
 argument_list|)
