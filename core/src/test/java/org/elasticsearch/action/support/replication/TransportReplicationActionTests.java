@@ -5049,11 +5049,7 @@ name|void
 name|testCounterOnPrimary
 parameter_list|()
 throws|throws
-name|InterruptedException
-throws|,
-name|ExecutionException
-throws|,
-name|IOException
+name|Exception
 block|{
 specifier|final
 name|String
@@ -5197,21 +5193,14 @@ argument_list|()
 expr_stmt|;
 comment|// shard operation should be ongoing, so the counter is at 2
 comment|// we have to wait here because increment happens in thread
-name|awaitBusy
+name|assertBusy
 argument_list|(
 parameter_list|()
 lambda|->
-name|count
-operator|.
-name|get
-argument_list|()
-operator|==
-literal|2
-argument_list|)
-expr_stmt|;
 name|assertIndexShardCounter
 argument_list|(
 literal|2
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -5667,6 +5656,11 @@ argument_list|(
 operator|new
 name|Request
 argument_list|()
+operator|.
+name|setShardId
+argument_list|(
+name|shardId
+argument_list|)
 argument_list|,
 name|createTransportChannel
 argument_list|(
@@ -5694,16 +5688,14 @@ argument_list|()
 expr_stmt|;
 comment|// shard operation should be ongoing, so the counter is at 2
 comment|// we have to wait here because increment happens in thread
-name|awaitBusy
+name|assertBusy
 argument_list|(
 parameter_list|()
 lambda|->
-name|count
-operator|.
-name|get
-argument_list|()
-operator|==
+name|assertIndexShardCounter
+argument_list|(
 literal|2
+argument_list|)
 argument_list|)
 expr_stmt|;
 operator|(
