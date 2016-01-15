@@ -20,18 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
-operator|.
-name|Environment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ingest
 operator|.
 name|core
@@ -94,7 +82,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|BiFunction
+name|Function
 import|;
 end_import
 
@@ -149,8 +137,6 @@ argument_list|(
 literal|"1"
 argument_list|,
 parameter_list|(
-name|environment
-parameter_list|,
 name|templateService
 parameter_list|)
 lambda|->
@@ -175,8 +161,6 @@ argument_list|(
 literal|"2"
 argument_list|,
 parameter_list|(
-name|environment
-parameter_list|,
 name|templateService
 parameter_list|)
 lambda|->
@@ -203,8 +187,6 @@ argument_list|(
 literal|"1"
 argument_list|,
 parameter_list|(
-name|environment
-parameter_list|,
 name|templateService
 parameter_list|)
 lambda|->
@@ -245,10 +227,8 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|BiFunction
+name|Function
 argument_list|<
-name|Environment
-argument_list|,
 name|TemplateService
 argument_list|,
 name|Processor
@@ -288,10 +268,8 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|BiFunction
+name|Function
 argument_list|<
-name|Environment
-argument_list|,
 name|TemplateService
 argument_list|,
 name|Processor
@@ -330,8 +308,6 @@ operator|.
 name|apply
 argument_list|(
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 argument_list|,
 name|equalTo
@@ -364,8 +340,6 @@ argument_list|()
 operator|.
 name|apply
 argument_list|(
-literal|null
-argument_list|,
 literal|null
 argument_list|)
 argument_list|,

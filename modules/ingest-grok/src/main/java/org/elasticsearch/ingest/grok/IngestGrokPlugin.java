@@ -245,8 +245,6 @@ operator|.
 name|TYPE
 argument_list|,
 parameter_list|(
-name|environment
-parameter_list|,
 name|templateService
 parameter_list|)
 lambda|->

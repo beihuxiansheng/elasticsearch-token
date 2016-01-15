@@ -262,30 +262,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|sameInstance
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
-name|Matchers
-operator|.
-name|any
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|mockito
 operator|.
 name|Mockito
@@ -353,8 +329,6 @@ argument_list|(
 literal|"set"
 argument_list|,
 parameter_list|(
-name|environment
-parameter_list|,
 name|templateService
 parameter_list|)
 lambda|->
@@ -375,8 +349,6 @@ operator|.
 name|buildProcessorFactoryRegistry
 argument_list|(
 name|registry
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|)
