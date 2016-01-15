@@ -1723,8 +1723,6 @@ argument_list|(
 literal|"test"
 argument_list|,
 parameter_list|(
-name|environment
-parameter_list|,
 name|templateService
 parameter_list|)
 lambda|->

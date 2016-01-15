@@ -20,18 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
-operator|.
-name|Environment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ingest
 operator|.
 name|core
@@ -92,7 +80,7 @@ name|util
 operator|.
 name|function
 operator|.
-name|BiFunction
+name|Function
 import|;
 end_import
 
@@ -109,10 +97,8 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|BiFunction
+name|Function
 argument_list|<
-name|Environment
-argument_list|,
 name|TemplateService
 argument_list|,
 name|Processor
@@ -139,10 +125,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|BiFunction
+name|Function
 argument_list|<
-name|Environment
-argument_list|,
 name|TemplateService
 argument_list|,
 name|Processor
@@ -155,10 +139,8 @@ argument_list|>
 name|processorFactoryProvider
 parameter_list|)
 block|{
-name|BiFunction
+name|Function
 argument_list|<
-name|Environment
-argument_list|,
 name|TemplateService
 argument_list|,
 name|Processor
@@ -209,10 +191,8 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|BiFunction
+name|Function
 argument_list|<
-name|Environment
-argument_list|,
 name|TemplateService
 argument_list|,
 name|Processor
