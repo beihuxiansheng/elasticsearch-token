@@ -117,6 +117,24 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a new generator using the provided output stream and some      * filters.      */
+DECL|method|createGenerator
+name|XContentGenerator
+name|createGenerator
+parameter_list|(
+name|OutputStream
+name|os
+parameter_list|,
+name|String
+index|[]
+name|filters
+parameter_list|,
+name|boolean
+name|inclusiveFilters
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Creates a parser over the provided string content.      */
 DECL|method|createParser
 name|XContentParser
