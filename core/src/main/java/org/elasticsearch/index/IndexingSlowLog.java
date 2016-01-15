@@ -613,6 +613,9 @@ name|deleteLogger
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_INDEXING_SLOWLOG_REFORMAT_SETTING
@@ -634,6 +637,9 @@ name|INDEX_INDEXING_SLOWLOG_REFORMAT_SETTING
 argument_list|)
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -660,6 +666,9 @@ argument_list|()
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_INFO_SETTING
@@ -684,6 +693,9 @@ name|nanos
 argument_list|()
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -710,6 +722,9 @@ argument_list|()
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_TRACE_SETTING
@@ -735,6 +750,9 @@ argument_list|()
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_INDEXING_SLOWLOG_LEVEL_SETTING
@@ -755,6 +773,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(

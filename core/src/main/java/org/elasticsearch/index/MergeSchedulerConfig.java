@@ -279,6 +279,9 @@ parameter_list|)
 block|{
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|MAX_THREAD_COUNT_SETTING
@@ -290,6 +293,9 @@ argument_list|)
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|MAX_MERGE_COUNT_SETTING
@@ -300,6 +306,9 @@ name|setMaxMergeCount
 argument_list|)
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(

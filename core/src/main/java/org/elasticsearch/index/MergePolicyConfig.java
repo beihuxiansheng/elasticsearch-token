@@ -488,6 +488,9 @@ name|logger
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_COMPOUND_FORMAT_SETTING
@@ -498,6 +501,9 @@ name|setNoCFSRatio
 argument_list|)
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -510,6 +516,9 @@ argument_list|)
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_MERGE_POLICY_FLOOR_SEGMENT_SETTING
@@ -520,6 +529,9 @@ name|floorSegmentSetting
 argument_list|)
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -532,6 +544,9 @@ argument_list|)
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE_EXPLICIT_SETTING
@@ -542,6 +557,9 @@ name|maxMergesAtOnceExplicit
 argument_list|)
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -554,6 +572,9 @@ argument_list|)
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER_SETTING
@@ -564,6 +585,9 @@ name|segmentsPerTier
 argument_list|)
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(

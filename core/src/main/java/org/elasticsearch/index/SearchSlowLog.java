@@ -637,6 +637,9 @@ argument_list|)
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_SEARCH_SLOWLOG_REFORMAT
@@ -658,6 +661,9 @@ name|INDEX_SEARCH_SLOWLOG_REFORMAT
 argument_list|)
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -684,6 +690,9 @@ argument_list|()
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_QUERY_INFO_SETTING
@@ -708,6 +717,9 @@ name|nanos
 argument_list|()
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -734,6 +746,9 @@ argument_list|()
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_QUERY_TRACE_SETTING
@@ -758,6 +773,9 @@ name|nanos
 argument_list|()
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -784,6 +802,9 @@ argument_list|()
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_FETCH_INFO_SETTING
@@ -808,6 +829,9 @@ name|nanos
 argument_list|()
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
@@ -834,6 +858,9 @@ argument_list|()
 expr_stmt|;
 name|indexSettings
 operator|.
+name|getScopedSettings
+argument_list|()
+operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_FETCH_TRACE_SETTING
@@ -858,6 +885,9 @@ name|nanos
 argument_list|()
 expr_stmt|;
 name|indexSettings
+operator|.
+name|getScopedSettings
+argument_list|()
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
