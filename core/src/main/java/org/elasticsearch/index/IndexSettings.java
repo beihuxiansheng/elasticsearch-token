@@ -1108,6 +1108,10 @@ name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE_EXPLICIT_SETTING
 argument_list|,
+name|MergePolicyConfig
+operator|.
+name|INDEX_MERGE_POLICY_MAX_MERGED_SEGMENT_SETTING
+argument_list|,
 name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_DURABILITY_SETTING

@@ -1096,17 +1096,6 @@ name|registerIndexDynamicSetting
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_MAX_MERGED_SEGMENT
-argument_list|,
-name|Validator
-operator|.
-name|BYTES_SIZE
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
-name|MergePolicyConfig
-operator|.
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
 argument_list|,
 name|Validator
