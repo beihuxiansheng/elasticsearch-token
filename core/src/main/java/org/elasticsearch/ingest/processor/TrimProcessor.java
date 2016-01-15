@@ -41,11 +41,16 @@ DECL|method|TrimProcessor
 name|TrimProcessor
 parameter_list|(
 name|String
+name|processorId
+parameter_list|,
+name|String
 name|field
 parameter_list|)
 block|{
 name|super
 argument_list|(
+name|processorId
+argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
@@ -101,6 +106,9 @@ name|TrimProcessor
 name|newProcessor
 parameter_list|(
 name|String
+name|processorTag
+parameter_list|,
+name|String
 name|field
 parameter_list|)
 block|{
@@ -108,6 +116,8 @@ return|return
 operator|new
 name|TrimProcessor
 argument_list|(
+name|processorTag
+argument_list|,
 name|field
 argument_list|)
 return|;

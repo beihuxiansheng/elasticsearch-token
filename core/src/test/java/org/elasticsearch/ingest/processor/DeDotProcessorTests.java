@@ -176,6 +176,11 @@ init|=
 operator|new
 name|DeDotProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|separator
 argument_list|)
 decl_stmt|;
@@ -281,6 +286,11 @@ init|=
 operator|new
 name|DeDotProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 literal|"_"
 argument_list|)
 decl_stmt|;
@@ -407,6 +417,11 @@ init|=
 operator|new
 name|DeDotProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 literal|"_"
 argument_list|)
 decl_stmt|;

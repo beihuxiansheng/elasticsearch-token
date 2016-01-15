@@ -180,6 +180,11 @@ init|=
 operator|new
 name|SplitProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|fieldName
 argument_list|,
 literal|"\\."
@@ -264,6 +269,11 @@ init|=
 operator|new
 name|SplitProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|fieldName
 argument_list|,
 literal|"\\."
@@ -343,6 +353,11 @@ init|=
 operator|new
 name|SplitProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 literal|"field"
 argument_list|,
 literal|"\\."
@@ -435,6 +450,11 @@ init|=
 operator|new
 name|SplitProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|fieldName
 argument_list|,
 literal|"\\."

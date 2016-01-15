@@ -160,6 +160,11 @@ init|=
 operator|new
 name|RemoveProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 operator|new
 name|TestTemplateService
 operator|.
@@ -233,6 +238,11 @@ init|=
 operator|new
 name|RemoveProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 operator|new
 name|TestTemplateService
 operator|.

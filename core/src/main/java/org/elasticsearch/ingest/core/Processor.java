@@ -53,6 +53,12 @@ name|String
 name|getType
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the tag of a processor.      */
+DECL|method|getTag
+name|String
+name|getTag
+parameter_list|()
+function_decl|;
 comment|/**      * A factory that knows how to construct a processor based on a map of maps.      */
 DECL|interface|Factory
 interface|interface

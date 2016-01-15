@@ -49,6 +49,11 @@ return|return
 operator|new
 name|LowercaseProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|field
 argument_list|)
 return|;

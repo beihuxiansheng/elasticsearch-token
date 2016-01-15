@@ -1722,15 +1722,15 @@ name|registerProcessor
 argument_list|(
 literal|"test"
 argument_list|,
-parameter_list|(
 name|templateService
-parameter_list|)
 lambda|->
 name|config
 lambda|->
 operator|new
 name|TestProcessor
 argument_list|(
+literal|"id"
+argument_list|,
 literal|"test"
 argument_list|,
 name|ingestDocument

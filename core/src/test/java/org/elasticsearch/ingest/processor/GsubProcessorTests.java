@@ -172,6 +172,11 @@ init|=
 operator|new
 name|GsubProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|fieldName
 argument_list|,
 name|Pattern
@@ -261,6 +266,11 @@ init|=
 operator|new
 name|GsubProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|fieldName
 argument_list|,
 name|Pattern
@@ -354,6 +364,11 @@ init|=
 operator|new
 name|GsubProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 name|fieldName
 argument_list|,
 name|Pattern
@@ -440,6 +455,11 @@ init|=
 operator|new
 name|GsubProcessor
 argument_list|(
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+argument_list|,
 literal|"field"
 argument_list|,
 name|Pattern

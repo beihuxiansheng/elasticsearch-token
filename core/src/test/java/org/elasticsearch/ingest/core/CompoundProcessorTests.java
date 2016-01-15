@@ -445,6 +445,8 @@ init|=
 operator|new
 name|TestProcessor
 argument_list|(
+literal|"id"
+argument_list|,
 literal|"first"
 argument_list|,
 name|ingestDocument
@@ -601,6 +603,8 @@ init|=
 operator|new
 name|TestProcessor
 argument_list|(
+literal|"id"
+argument_list|,
 literal|"first"
 argument_list|,
 name|ingestDocument
@@ -622,6 +626,8 @@ init|=
 operator|new
 name|TestProcessor
 argument_list|(
+literal|"id"
+argument_list|,
 literal|"second"
 argument_list|,
 name|ingestDocument
