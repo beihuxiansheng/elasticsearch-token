@@ -698,7 +698,10 @@ name|put
 argument_list|(
 name|AwarenessAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_FORCE_GROUP
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_FORCE_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"zone.values"
 argument_list|,
@@ -709,7 +712,10 @@ name|put
 argument_list|(
 name|AwarenessAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTES
+name|CLUSTER_ROUTING_ALLOCATION_AWARENESS_ATTRIBUTE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"zone"
 argument_list|)
@@ -718,7 +724,10 @@ name|put
 argument_list|(
 name|ElectMasterService
 operator|.
-name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|3
 argument_list|)

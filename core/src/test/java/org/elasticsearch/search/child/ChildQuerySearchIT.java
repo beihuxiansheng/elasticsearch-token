@@ -80,20 +80,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
-operator|.
-name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|explain
 operator|.
 name|ExplainResponse
@@ -125,6 +111,20 @@ operator|.
 name|search
 operator|.
 name|SearchPhaseExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchResponse
 import|;
 end_import
 
@@ -215,20 +215,6 @@ operator|.
 name|index
 operator|.
 name|IndexModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MergeMappingException
 import|;
 end_import
 
@@ -13108,7 +13094,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MergeMappingException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -13121,7 +13107,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Merge failed with failures {[The _parent field's type option can't be changed: [null]->[parent]"
+literal|"The _parent field's type option can't be changed: [null]->[parent]"
 argument_list|)
 argument_list|)
 expr_stmt|;

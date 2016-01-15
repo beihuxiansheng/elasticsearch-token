@@ -212,6 +212,11 @@ specifier|private
 name|String
 name|routing
 decl_stmt|;
+DECL|field|parent
+specifier|private
+name|String
+name|parent
+decl_stmt|;
 DECL|field|preference
 specifier|private
 name|String
@@ -320,6 +325,14 @@ operator|=
 name|getRequest
 operator|.
 name|routing
+expr_stmt|;
+name|this
+operator|.
+name|parent
+operator|=
+name|getRequest
+operator|.
+name|parent
 expr_stmt|;
 name|this
 operator|.
@@ -606,7 +619,18 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the parent id of this document. Will simply set the routing to this value, as it is only      * used for routing with delete requests.      */
+comment|/**      * @return The parent for this request.      */
+DECL|method|parent
+specifier|public
+name|String
+name|parent
+parameter_list|()
+block|{
+return|return
+name|parent
+return|;
+block|}
+comment|/**      * Sets the parent id of this document.      */
 DECL|method|parent
 specifier|public
 name|GetRequest
@@ -616,18 +640,12 @@ name|String
 name|parent
 parameter_list|)
 block|{
-if|if
-condition|(
-name|routing
-operator|==
-literal|null
-condition|)
-block|{
-name|routing
+name|this
+operator|.
+name|parent
 operator|=
 name|parent
 expr_stmt|;
-block|}
 return|return
 name|this
 return|;
@@ -986,6 +1004,13 @@ operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
+name|parent
+operator|=
+name|in
+operator|.
+name|readOptionalString
+argument_list|()
+expr_stmt|;
 name|preference
 operator|=
 name|in
@@ -1168,6 +1193,13 @@ operator|.
 name|writeOptionalString
 argument_list|(
 name|routing
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeOptionalString
+argument_list|(
+name|parent
 argument_list|)
 expr_stmt|;
 name|out

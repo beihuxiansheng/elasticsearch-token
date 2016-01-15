@@ -1086,18 +1086,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|error
-argument_list|(
-literal|"failed while executing the initial scroll request"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|listener
-operator|.
-name|onFailure
+name|finishHim
 argument_list|(
 name|e
 argument_list|)

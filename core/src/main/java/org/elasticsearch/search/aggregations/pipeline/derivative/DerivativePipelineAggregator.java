@@ -916,7 +916,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Bucket keys must be either a Number or a DateTime for aggregation "
+literal|"InternalBucket keys must be either a Number or a DateTime for aggregation "
 operator|+
 name|name
 argument_list|()

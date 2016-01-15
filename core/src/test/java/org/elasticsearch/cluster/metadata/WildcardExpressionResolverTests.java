@@ -576,11 +576,9 @@ name|equalTo
 argument_list|(
 name|newHashSet
 argument_list|(
-literal|"alias1"
+literal|"testXXX"
 argument_list|,
-literal|"alias2"
-argument_list|,
-literal|"alias3"
+literal|"testXYY"
 argument_list|,
 literal|"testYYY"
 argument_list|)

@@ -62,7 +62,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -75,18 +75,6 @@ operator|.
 name|action
 operator|.
 name|ShardOperationFailedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|UnavailableShardsException
 import|;
 end_import
 
@@ -407,7 +395,7 @@ name|ReplicationRequest
 parameter_list|,
 name|ShardResponse
 extends|extends
-name|ActionWriteResponse
+name|ReplicationResponse
 parameter_list|>
 extends|extends
 name|HandledTransportAction
@@ -695,7 +683,7 @@ init|=
 name|newShardResponse
 argument_list|()
 decl_stmt|;
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -716,7 +704,7 @@ block|{
 name|failures
 operator|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -728,7 +716,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -736,7 +724,7 @@ name|Failure
 name|failure
 init|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -772,7 +760,7 @@ decl_stmt|;
 name|failures
 operator|=
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.
@@ -796,7 +784,7 @@ operator|.
 name|setShardInfo
 argument_list|(
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 argument_list|(
@@ -1078,7 +1066,7 @@ name|i
 operator|++
 control|)
 block|{
-name|ActionWriteResponse
+name|ReplicationResponse
 name|shardResponse
 init|=
 name|shardsResponses
@@ -1146,7 +1134,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|ActionWriteResponse
+name|ReplicationResponse
 operator|.
 name|ShardInfo
 operator|.

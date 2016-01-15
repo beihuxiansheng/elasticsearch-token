@@ -421,7 +421,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -430,7 +430,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -1614,7 +1617,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -1623,7 +1626,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -2766,7 +2772,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -2775,7 +2781,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -3493,7 +3502,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -3502,7 +3511,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -3978,7 +3990,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -3987,7 +3999,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -4776,7 +4791,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -4785,7 +4800,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)

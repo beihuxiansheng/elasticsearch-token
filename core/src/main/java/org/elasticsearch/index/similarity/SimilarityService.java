@@ -184,7 +184,7 @@ specifier|static
 name|String
 name|DEFAULT_SIMILARITY
 init|=
-literal|"default"
+literal|"classic"
 decl_stmt|;
 DECL|field|defaultSimilarity
 specifier|private
@@ -292,9 +292,9 @@ name|defaults
 operator|.
 name|put
 argument_list|(
-literal|"default"
+literal|"classic"
 argument_list|,
-name|DefaultSimilarityProvider
+name|ClassicSimilarityProvider
 operator|::
 operator|new
 argument_list|)
@@ -314,9 +314,9 @@ name|buildIn
 operator|.
 name|put
 argument_list|(
-literal|"default"
+literal|"classic"
 argument_list|,
-name|DefaultSimilarityProvider
+name|ClassicSimilarityProvider
 operator|::
 operator|new
 argument_list|)
@@ -972,7 +972,7 @@ name|fieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|name
 argument_list|)

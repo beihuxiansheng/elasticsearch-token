@@ -204,11 +204,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|tasks
 operator|.
-name|settings
-operator|.
-name|NodeSettingsService
+name|Task
 import|;
 end_import
 
@@ -233,16 +231,6 @@ operator|.
 name|transport
 operator|.
 name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -295,9 +283,6 @@ name|threadPool
 parameter_list|,
 name|MetaDataIndexStateService
 name|indexStateService
-parameter_list|,
-name|NodeSettingsService
-name|nodeSettingsService
 parameter_list|,
 name|ActionFilters
 name|actionFilters
@@ -383,6 +368,9 @@ specifier|protected
 name|void
 name|doExecute
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|OpenIndexRequest
 name|request
 parameter_list|,
@@ -407,6 +395,8 @@ name|super
 operator|.
 name|doExecute
 argument_list|(
+name|task
+argument_list|,
 name|request
 argument_list|,
 name|listener

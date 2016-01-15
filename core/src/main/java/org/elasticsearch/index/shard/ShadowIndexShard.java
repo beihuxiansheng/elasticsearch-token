@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -182,6 +172,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|search
+operator|.
+name|stats
+operator|.
+name|SearchSlowLog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|similarity
 operator|.
 name|SimilarityService
@@ -213,6 +219,16 @@ operator|.
 name|translog
 operator|.
 name|TranslogStats
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -270,6 +286,9 @@ name|wrapper
 parameter_list|,
 name|NodeServicesProvider
 name|provider
+parameter_list|,
+name|SearchSlowLog
+name|searchSlowLog
 parameter_list|)
 throws|throws
 name|IOException
@@ -299,6 +318,8 @@ argument_list|,
 name|wrapper
 argument_list|,
 name|provider
+argument_list|,
+name|searchSlowLog
 argument_list|)
 expr_stmt|;
 block|}

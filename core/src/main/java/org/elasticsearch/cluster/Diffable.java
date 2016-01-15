@@ -26,7 +26,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|Writeable
+name|StreamInput
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamInput
+name|Writeable
 import|;
 end_import
 

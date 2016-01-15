@@ -90,18 +90,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportResponse
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io

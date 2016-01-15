@@ -260,6 +260,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"cluster.routing.allocation.concurrent_source_recoveries"
+argument_list|,
+literal|10
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"cluster.routing.allocation.node_initial_primaries_recoveries"
 argument_list|,
 literal|10

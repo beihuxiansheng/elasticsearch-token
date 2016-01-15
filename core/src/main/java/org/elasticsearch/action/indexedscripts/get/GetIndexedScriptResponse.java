@@ -150,16 +150,6 @@ name|Iterator
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * The response of a get script action.  *  * @see GetIndexedScriptRequest  */
 end_comment

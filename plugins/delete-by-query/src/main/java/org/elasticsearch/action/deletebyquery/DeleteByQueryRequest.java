@@ -375,7 +375,7 @@ name|DeleteByQueryRequest
 name|indices
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|indices
 parameter_list|)
 block|{
@@ -982,9 +982,6 @@ operator|+
 literal|", query:"
 operator|+
 name|query
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 block|}

@@ -46,16 +46,6 @@ name|MappedFieldType
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
 begin_class
 DECL|class|BinaryFieldTypeTests
 specifier|public

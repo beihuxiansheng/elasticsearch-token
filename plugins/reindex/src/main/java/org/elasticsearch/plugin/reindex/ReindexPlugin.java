@@ -34,9 +34,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|common
 operator|.
-name|Plugin
+name|network
+operator|.
+name|NetworkModule
 import|;
 end_import
 
@@ -46,9 +48,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|plugins
 operator|.
-name|RestModule
+name|Plugin
 import|;
 end_import
 
@@ -134,13 +136,13 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|RestModule
+name|NetworkModule
 name|restModule
 parameter_list|)
 block|{
 name|restModule
 operator|.
-name|addRestAction
+name|registerRestHandler
 argument_list|(
 name|RestReindexAction
 operator|.
@@ -149,7 +151,7 @@ argument_list|)
 expr_stmt|;
 name|restModule
 operator|.
-name|addRestAction
+name|registerRestHandler
 argument_list|(
 name|RestUpdateByQueryAction
 operator|.

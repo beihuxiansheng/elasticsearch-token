@@ -263,7 +263,10 @@ name|put
 argument_list|(
 name|DestructiveOperations
 operator|.
-name|REQUIRES_NAME
+name|REQUIRES_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -623,7 +626,10 @@ name|put
 argument_list|(
 name|TransportCloseIndexAction
 operator|.
-name|SETTING_CLUSTER_INDICES_CLOSE_ENABLE
+name|CLUSTER_INDICES_CLOSE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

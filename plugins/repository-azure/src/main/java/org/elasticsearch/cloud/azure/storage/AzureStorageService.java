@@ -28,7 +28,7 @@ name|azure
 operator|.
 name|storage
 operator|.
-name|StorageException
+name|LocationMode
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|azure
 operator|.
 name|storage
 operator|.
-name|LocationMode
+name|StorageException
 import|;
 end_import
 
@@ -124,8 +124,15 @@ name|PREFIX
 init|=
 literal|"cloud.azure.storage."
 decl_stmt|;
-annotation|@
-name|Deprecated
+DECL|field|TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TIMEOUT
+init|=
+literal|"cloud.azure.storage.timeout"
+decl_stmt|;
 DECL|field|ACCOUNT
 specifier|public
 specifier|static
@@ -133,18 +140,16 @@ specifier|final
 name|String
 name|ACCOUNT
 init|=
-literal|"cloud.azure.storage.account"
+literal|"repositories.azure.account"
 decl_stmt|;
-annotation|@
-name|Deprecated
-DECL|field|KEY
+DECL|field|LOCATION_MODE
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|KEY
+name|LOCATION_MODE
 init|=
-literal|"cloud.azure.storage.key"
+literal|"repositories.azure.location_mode"
 decl_stmt|;
 DECL|field|CONTAINER
 specifier|public

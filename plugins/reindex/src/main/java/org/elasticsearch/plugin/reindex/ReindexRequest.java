@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -111,6 +101,16 @@ operator|.
 name|uid
 operator|.
 name|Versions
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -344,8 +344,7 @@ operator|.
 name|ttl
 argument_list|()
 operator|!=
-operator|-
-literal|1
+literal|null
 condition|)
 block|{
 name|e

@@ -40,7 +40,7 @@ name|node
 operator|.
 name|info
 operator|.
-name|PluginsInfo
+name|PluginsAndModules
 import|;
 end_import
 
@@ -53,26 +53,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
 import|;
 end_import
 
@@ -107,16 +87,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
 import|;
 end_import
 
@@ -1434,18 +1404,16 @@ name|void
 name|testPluginListSorted
 parameter_list|()
 block|{
-name|PluginsInfo
+name|PluginsAndModules
 name|pluginsInfo
 init|=
 operator|new
-name|PluginsInfo
-argument_list|(
-literal|5
-argument_list|)
+name|PluginsAndModules
+argument_list|()
 decl_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1468,7 +1436,7 @@ argument_list|)
 expr_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1491,7 +1459,7 @@ argument_list|)
 expr_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1514,7 +1482,7 @@ argument_list|)
 expr_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1537,7 +1505,7 @@ argument_list|)
 expr_stmt|;
 name|pluginsInfo
 operator|.
-name|add
+name|addPlugin
 argument_list|(
 operator|new
 name|PluginInfo
@@ -1567,7 +1535,7 @@ name|infos
 init|=
 name|pluginsInfo
 operator|.
-name|getInfos
+name|getPluginInfos
 argument_list|()
 decl_stmt|;
 name|List

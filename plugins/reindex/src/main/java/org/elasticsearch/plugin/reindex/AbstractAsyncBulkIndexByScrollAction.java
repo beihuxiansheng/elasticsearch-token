@@ -368,6 +368,18 @@ name|AtomicLong
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * Abstract base for scrolling across a search and executing bulk indexes on all  * results.  */
 end_comment
@@ -507,6 +519,9 @@ operator|.
 name|UPDATE
 argument_list|,
 name|mainRequest
+argument_list|,
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -732,10 +747,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|index
-operator|.
+name|Long
 name|ttl
-argument_list|(
+init|=
 name|fieldValue
 argument_list|(
 name|doc
@@ -744,8 +758,22 @@ name|TTLFieldMapper
 operator|.
 name|NAME
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ttl
+operator|!=
+literal|null
+condition|)
+block|{
+name|index
+operator|.
+name|ttl
+argument_list|(
+name|ttl
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Part of copyMetadata but called out individual for easy overwriting.      */
 DECL|method|copyRouting

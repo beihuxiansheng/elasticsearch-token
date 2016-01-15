@@ -772,6 +772,11 @@ name|resolveIndexRouting
 argument_list|(
 name|request
 operator|.
+name|parent
+argument_list|()
+argument_list|,
+name|request
+operator|.
 name|routing
 argument_list|()
 argument_list|,
@@ -1341,7 +1346,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getIndex
+name|getShardId
 argument_list|()
 argument_list|,
 name|response
@@ -1645,7 +1650,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getIndex
+name|getShardId
 argument_list|()
 argument_list|,
 name|response
@@ -1856,7 +1861,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|getIndex
+name|getShardId
 argument_list|()
 argument_list|,
 name|response
@@ -2063,9 +2068,6 @@ literal|null
 condition|)
 block|{
 name|shard
-operator|.
-name|indexingService
-argument_list|()
 operator|.
 name|noopUpdate
 argument_list|(

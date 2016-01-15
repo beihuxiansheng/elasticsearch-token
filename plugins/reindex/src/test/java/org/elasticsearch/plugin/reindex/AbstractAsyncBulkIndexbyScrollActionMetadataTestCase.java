@@ -40,7 +40,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -140,6 +140,22 @@ name|singletonMap
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+operator|.
+name|timeValueMillis
+import|;
+end_import
+
 begin_class
 DECL|class|AbstractAsyncBulkIndexbyScrollActionMetadataTestCase
 specifier|public
@@ -166,7 +182,7 @@ argument_list|,
 name|Response
 argument_list|>
 block|{
-comment|/**      * Create a doc with some metadata.      * @param field      * @param value      * @return      */
+comment|/**      * Create a doc with some metadata.      */
 DECL|method|doc
 specifier|protected
 name|InternalSearchHit
@@ -190,7 +206,7 @@ argument_list|,
 literal|"id"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
@@ -227,7 +243,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        doc.sourceRef(new BytesArray("{\"foo\": \"bar\"}"));
 return|return
 name|doc
 return|;
@@ -307,7 +322,10 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|timeValueMillis
+argument_list|(
 literal|10
+argument_list|)
 argument_list|,
 name|index
 operator|.

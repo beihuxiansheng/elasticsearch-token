@@ -76,6 +76,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|BytesRefs
@@ -360,7 +372,7 @@ operator|.
 name|getMapperService
 argument_list|()
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|DATE_FIELD_NAME
 argument_list|)
@@ -2153,6 +2165,119 @@ name|to
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testNamedQueryParsing
+specifier|public
+name|void
+name|testNamedQueryParsing
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"range\" : {\n"
+operator|+
+literal|"    \"timestamp\" : {\n"
+operator|+
+literal|"      \"from\" : \"2015-01-01 00:00:00\",\n"
+operator|+
+literal|"      \"to\" : \"now\",\n"
+operator|+
+literal|"      \"boost\" : 1.0,\n"
+operator|+
+literal|"      \"_name\" : \"my_range\"\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|json
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"range\" : {\n"
+operator|+
+literal|"    \"timestamp\" : {\n"
+operator|+
+literal|"      \"from\" : \"2015-01-01 00:00:00\",\n"
+operator|+
+literal|"      \"to\" : \"now\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"_name\" : \"my_range\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+comment|// non strict parsing should accept "_name" on top level
+name|assertNotNull
+argument_list|(
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// with strict parsing, ParseField will throw exception
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Strict parsing should trigger exception for '_name' on top level"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"Deprecated field [_name] used, replaced by [query name is not supported in short version of range query]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

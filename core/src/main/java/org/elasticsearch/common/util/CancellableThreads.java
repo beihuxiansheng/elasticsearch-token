@@ -20,9 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|ElasticsearchException
+name|lucene
+operator|.
+name|util
+operator|.
+name|ThreadInterruptedException
 import|;
 end_import
 
@@ -32,7 +36,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
+name|ElasticsearchException
 import|;
 end_import
 
@@ -272,6 +276,8 @@ block|}
 catch|catch
 parameter_list|(
 name|InterruptedException
+decl||
+name|ThreadInterruptedException
 name|e
 parameter_list|)
 block|{

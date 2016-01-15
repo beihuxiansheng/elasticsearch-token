@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|queries
 operator|.
-name|Query
+name|BoostingQuery
 import|;
 end_import
 
@@ -38,9 +38,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|BoostingQuery
+name|Query
 import|;
 end_import
 

@@ -870,7 +870,7 @@ operator|.
 name|routing
 return|;
 block|}
-comment|/**      * The parent id is used for the upsert request and also implicitely sets the routing if not already set.      */
+comment|/**      * The parent id is used for the upsert request.      */
 DECL|method|parent
 specifier|public
 name|UpdateRequest
@@ -886,18 +886,6 @@ name|parent
 operator|=
 name|parent
 expr_stmt|;
-if|if
-condition|(
-name|routing
-operator|==
-literal|null
-condition|)
-block|{
-name|routing
-operator|=
-name|parent
-expr_stmt|;
-block|}
 return|return
 name|this
 return|;
@@ -2380,16 +2368,6 @@ name|script
 init|=
 literal|null
 decl_stmt|;
-name|XContentType
-name|xContentType
-init|=
-name|XContentFactory
-operator|.
-name|xContentType
-argument_list|(
-name|source
-argument_list|)
-decl_stmt|;
 try|try
 init|(
 name|XContentParser
@@ -2399,7 +2377,7 @@ name|XContentFactory
 operator|.
 name|xContent
 argument_list|(
-name|xContentType
+name|source
 argument_list|)
 operator|.
 name|createParser
@@ -2554,6 +2532,16 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+name|XContentType
+name|xContentType
+init|=
+name|XContentFactory
+operator|.
+name|xContentType
+argument_list|(
+name|source
+argument_list|)
+decl_stmt|;
 name|XContentBuilder
 name|builder
 init|=
@@ -2591,6 +2579,16 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+name|XContentType
+name|xContentType
+init|=
+name|XContentFactory
+operator|.
+name|xContentType
+argument_list|(
+name|source
+argument_list|)
+decl_stmt|;
 name|XContentBuilder
 name|docBuilder
 init|=

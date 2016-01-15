@@ -70,28 +70,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Closeable
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -107,16 +85,6 @@ operator|.
 name|util
 operator|.
 name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -201,17 +169,7 @@ operator|.
 name|EMPTY_SETTINGS
 return|;
 block|}
-comment|/**      * Called once the given {@link IndexService} is fully constructed but not yet published.      * This is used to initialize plugin services that require acess to index level resources      */
-DECL|method|onIndexService
-specifier|public
-name|void
-name|onIndexService
-parameter_list|(
-name|IndexService
-name|indexService
-parameter_list|)
-block|{}
-comment|/**      * Called before a new index is created on a node. The given module can be used to regsiter index-leve      * extensions.      */
+comment|/**      * Called before a new index is created on a node. The given module can be used to register index-level      * extensions.      */
 DECL|method|onIndexModule
 specifier|public
 name|void

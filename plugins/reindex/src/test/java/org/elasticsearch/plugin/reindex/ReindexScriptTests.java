@@ -60,6 +60,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+operator|.
+name|timeValueMillis
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -803,8 +819,7 @@ condition|)
 block|{
 name|assertEquals
 argument_list|(
-operator|-
-literal|1
+literal|null
 argument_list|,
 name|index
 operator|.
@@ -817,10 +832,13 @@ else|else
 block|{
 name|assertEquals
 argument_list|(
+name|timeValueMillis
+argument_list|(
 name|ttl
 operator|.
 name|longValue
 argument_list|()
+argument_list|)
 argument_list|,
 name|index
 operator|.

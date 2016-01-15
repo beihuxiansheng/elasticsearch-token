@@ -248,7 +248,67 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -1792,7 +1852,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Set the precision use o make suggestions          *           * @param precision          *            precision as distance with {@link DistanceUnit}. Default:          *            meters          * @return this          */
+comment|/**          * Set the precision use o make suggestions          *          * @param precision          *            precision as distance with {@link DistanceUnit}. Default:          *            meters          * @return this          */
 DECL|method|precision
 specifier|public
 name|Builder
@@ -1822,7 +1882,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Set the precision use o make suggestions          *           * @param precision          *            precision value          * @param unit          *            {@link DistanceUnit} to use          * @return this          */
+comment|/**          * Set the precision use o make suggestions          *          * @param precision          *            precision value          * @param unit          *            {@link DistanceUnit} to use          * @return this          */
 DECL|method|precision
 specifier|public
 name|Builder
@@ -1847,7 +1907,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Set the precision use o make suggestions          *           * @param meters          *            precision as distance in meters          * @return this          */
+comment|/**          * Set the precision use o make suggestions          *          * @param meters          *            precision as distance in meters          * @return this          */
 DECL|method|precision
 specifier|public
 name|Builder
@@ -1901,7 +1961,7 @@ name|level
 argument_list|)
 return|;
 block|}
-comment|/**          * Set the precision use o make suggestions          *           * @param level          *            maximum length of geohashes          * @return this          */
+comment|/**          * Set the precision use o make suggestions          *          * @param level          *            maximum length of geohashes          * @return this          */
 DECL|method|precision
 specifier|public
 name|Builder

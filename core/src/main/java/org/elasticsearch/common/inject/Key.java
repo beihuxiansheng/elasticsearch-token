@@ -1184,7 +1184,7 @@ block|{
 return|return
 name|annotationType
 operator|.
-name|getDeclaredMethods
+name|getMethods
 argument_list|()
 operator|.
 name|length
@@ -1238,7 +1238,7 @@ if|if
 condition|(
 name|annotationType
 operator|.
-name|getDeclaredMethods
+name|getMethods
 argument_list|()
 operator|.
 name|length

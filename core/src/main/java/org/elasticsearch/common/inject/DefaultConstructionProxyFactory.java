@@ -56,18 +56,6 @@ name|InvocationTargetException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
-import|;
-end_import
-
 begin_comment
 comment|/**  * Produces construction proxies that invoke the class constructor.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment

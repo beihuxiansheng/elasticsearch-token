@@ -669,7 +669,7 @@ name|Version
 operator|.
 name|class
 operator|.
-name|getDeclaredFields
+name|getFields
 argument_list|()
 control|)
 block|{
@@ -1449,7 +1449,10 @@ name|get
 argument_list|(
 name|FilterAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_EXCLUDE_GROUP
+name|CLUSTER_ROUTING_EXCLUDE_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"version_attr"
 argument_list|)

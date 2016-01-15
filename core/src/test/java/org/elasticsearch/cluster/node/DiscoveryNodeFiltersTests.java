@@ -1948,7 +1948,7 @@ name|shuffle
 argument_list|(
 name|keys
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;

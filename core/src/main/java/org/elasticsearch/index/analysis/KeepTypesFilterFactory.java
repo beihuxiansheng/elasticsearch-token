@@ -52,9 +52,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
+name|common
 operator|.
-name|Environment
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -64,11 +66,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Environment
 import|;
 end_import
 
@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TokenFilterFactory} for {@link TypeTokenFilter}. This filter only  * keep tokens that are contained in the set configured via  * {@value #KEEP_TYPES_KEY} setting.   *<p>  * Configuration options:  *<ul>  *<li>{@value #KEEP_TYPES_KEY} the array of words / tokens to keep.</li>  *</ul>  */
+comment|/**  * A {@link TokenFilterFactory} for {@link TypeTokenFilter}. This filter only  * keep tokens that are contained in the set configured via  * {@value #KEEP_TYPES_KEY} setting.  *<p>  * Configuration options:  *<ul>  *<li>{@value #KEEP_TYPES_KEY} the array of words / tokens to keep.</li>  *</ul>  */
 end_comment
 
 begin_class

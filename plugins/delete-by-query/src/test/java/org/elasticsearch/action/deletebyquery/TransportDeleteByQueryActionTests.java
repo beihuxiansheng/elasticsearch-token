@@ -160,7 +160,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -205,6 +205,20 @@ operator|.
 name|concurrent
 operator|.
 name|CountDown
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
 import|;
 end_import
 
@@ -1769,7 +1783,13 @@ argument_list|,
 operator|new
 name|DeleteResponse
 argument_list|(
+operator|new
+name|ShardId
+argument_list|(
 literal|"test"
+argument_list|,
+literal|0
+argument_list|)
 argument_list|,
 literal|"type"
 argument_list|,
@@ -2214,9 +2234,15 @@ argument_list|,
 operator|new
 name|DeleteResponse
 argument_list|(
+operator|new
+name|ShardId
+argument_list|(
 literal|"test-"
 operator|+
 name|index
+argument_list|,
+literal|0
+argument_list|)
 argument_list|,
 literal|"type"
 argument_list|,
@@ -2707,7 +2733,7 @@ name|i
 argument_list|)
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)

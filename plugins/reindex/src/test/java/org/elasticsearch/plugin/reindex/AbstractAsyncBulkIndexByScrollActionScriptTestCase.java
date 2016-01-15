@@ -40,7 +40,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -240,7 +240,7 @@ argument_list|,
 literal|"id"
 argument_list|,
 operator|new
-name|StringText
+name|Text
 argument_list|(
 literal|"type"
 argument_list|)
