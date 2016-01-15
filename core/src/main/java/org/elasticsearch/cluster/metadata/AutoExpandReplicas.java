@@ -42,6 +42,10 @@ name|Setting
 import|;
 end_import
 
+begin_comment
+comment|/**  * This class acts as a functional wrapper around the<tt>index.auto_expand_replicas</tt> setting.  * This setting or rather it's value is expanded into a min and max value which requires special handling  * based on the number of datanodes in the cluster. This class handels all the parsing and streamlines the access to these values.  */
+end_comment
+
 begin_class
 DECL|class|AutoExpandReplicas
 specifier|final
@@ -140,7 +144,17 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can't parse auto expand clause from "
+literal|"failed to parse ["
+operator|+
+name|IndexMetaData
+operator|.
+name|SETTING_AUTO_EXPAND_REPLICAS
+operator|+
+literal|"] form ["
+operator|+
+name|value
+operator|+
+literal|"] at index "
 operator|+
 name|dash
 argument_list|)
@@ -181,7 +195,17 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can't parse auto expand clause from "
+literal|"failed to parse ["
+operator|+
+name|IndexMetaData
+operator|.
+name|SETTING_AUTO_EXPAND_REPLICAS
+operator|+
+literal|"] form ["
+operator|+
+name|value
+operator|+
+literal|"] at index "
 operator|+
 name|dash
 argument_list|,
@@ -242,7 +266,17 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can't parse auto expand clause from "
+literal|"failed to parse ["
+operator|+
+name|IndexMetaData
+operator|.
+name|SETTING_AUTO_EXPAND_REPLICAS
+operator|+
+literal|"] form ["
+operator|+
+name|value
+operator|+
+literal|"] at index "
 operator|+
 name|dash
 argument_list|,
@@ -292,7 +326,6 @@ name|boolean
 name|enabled
 decl_stmt|;
 DECL|method|AutoExpandReplicas
-specifier|public
 name|AutoExpandReplicas
 parameter_list|(
 name|int
@@ -316,7 +349,19 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"min must be>= max"
+literal|"["
+operator|+
+name|IndexMetaData
+operator|.
+name|SETTING_AUTO_EXPAND_REPLICAS
+operator|+
+literal|"] minReplicas must be =< maxReplicas but wasn't "
+operator|+
+name|minReplicas
+operator|+
+literal|"> "
+operator|+
+name|maxReplicas
 argument_list|)
 throw|;
 block|}
@@ -340,7 +385,6 @@ name|enabled
 expr_stmt|;
 block|}
 DECL|method|getMinReplicas
-specifier|public
 name|int
 name|getMinReplicas
 parameter_list|()
@@ -350,7 +394,6 @@ name|minReplicas
 return|;
 block|}
 DECL|method|getMaxReplicas
-specifier|public
 name|int
 name|getMaxReplicas
 parameter_list|(
@@ -399,7 +442,6 @@ name|maxReplicas
 return|;
 block|}
 DECL|method|isEnabled
-specifier|public
 name|boolean
 name|isEnabled
 parameter_list|()
