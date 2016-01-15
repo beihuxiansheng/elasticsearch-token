@@ -150,7 +150,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_AUTO_EXPAND_REPLICAS
 operator|+
-literal|"] form ["
+literal|"] from value: ["
 operator|+
 name|value
 operator|+
@@ -201,7 +201,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_AUTO_EXPAND_REPLICAS
 operator|+
-literal|"] form ["
+literal|"] from value: ["
 operator|+
 name|value
 operator|+
@@ -272,7 +272,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_AUTO_EXPAND_REPLICAS
 operator|+
-literal|"] form ["
+literal|"] from value: ["
 operator|+
 name|value
 operator|+

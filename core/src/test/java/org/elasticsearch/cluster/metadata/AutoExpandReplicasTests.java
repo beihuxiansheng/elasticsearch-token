@@ -274,7 +274,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"failed to parse [index.auto_expand_replicas] form [boom] at index -1"
+literal|"failed to parse [index.auto_expand_replicas] from value: [boom] at index -1"
 argument_list|,
 name|ex
 operator|.
@@ -319,7 +319,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"failed to parse [index.auto_expand_replicas] form [1-boom] at index 1"
+literal|"failed to parse [index.auto_expand_replicas] from value: [1-boom] at index 1"
 argument_list|,
 name|ex
 operator|.
@@ -377,7 +377,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"failed to parse [index.auto_expand_replicas] form [boom-1] at index 4"
+literal|"failed to parse [index.auto_expand_replicas] from value: [boom-1] at index 4"
 argument_list|,
 name|ex
 operator|.
