@@ -1195,17 +1195,6 @@ name|registerIndexDynamicSetting
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_FLOOR_SEGMENT
-argument_list|,
-name|Validator
-operator|.
-name|BYTES_SIZE
-argument_list|)
-expr_stmt|;
-name|registerIndexDynamicSetting
-argument_list|(
-name|MergePolicyConfig
-operator|.
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
 argument_list|,
 name|Validator

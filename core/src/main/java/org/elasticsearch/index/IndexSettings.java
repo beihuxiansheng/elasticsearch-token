@@ -1048,6 +1048,10 @@ name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_EXPUNGE_DELETES_ALLOWED_SETTING
 argument_list|,
+name|MergePolicyConfig
+operator|.
+name|INDEX_MERGE_POLICY_FLOOR_SEGMENT_SETTING
+argument_list|,
 name|IndexSettings
 operator|.
 name|INDEX_TRANSLOG_DURABILITY_SETTING
