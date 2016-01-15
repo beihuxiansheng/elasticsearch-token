@@ -355,20 +355,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicLong
-import|;
-end_import
-
-begin_import
 import|import static
 name|java
 operator|.
@@ -410,18 +396,6 @@ argument_list|,
 name|Response
 argument_list|>
 block|{
-DECL|field|noops
-specifier|private
-specifier|final
-name|AtomicLong
-name|noops
-init|=
-operator|new
-name|AtomicLong
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
 DECL|field|scriptService
 specifier|private
 specifier|final
@@ -438,6 +412,9 @@ DECL|method|AbstractAsyncBulkIndexByScrollAction
 specifier|public
 name|AbstractAsyncBulkIndexByScrollAction
 parameter_list|(
+name|BulkByScrollTask
+name|task
+parameter_list|,
 name|ESLogger
 name|logger
 parameter_list|,
@@ -465,6 +442,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|task
+argument_list|,
 name|logger
 argument_list|,
 name|client
@@ -535,20 +514,6 @@ name|SearchHit
 name|doc
 parameter_list|)
 function_decl|;
-comment|/**      * The number of noops (skipped bulk items) as part of this request.      */
-DECL|method|noops
-specifier|public
-name|long
-name|noops
-parameter_list|()
-block|{
-return|return
-name|noops
-operator|.
-name|get
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|buildBulk
@@ -1129,9 +1094,9 @@ name|newOp
 argument_list|)
 condition|)
 block|{
-name|noops
+name|task
 operator|.
-name|incrementAndGet
+name|countNoop
 argument_list|()
 expr_stmt|;
 return|return

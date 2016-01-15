@@ -132,6 +132,8 @@ name|TransportUpdateByQueryAction
 operator|.
 name|AsyncIndexBySearchAction
 argument_list|(
+name|task
+argument_list|,
 name|logger
 argument_list|,
 literal|null
