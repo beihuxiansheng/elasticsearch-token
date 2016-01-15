@@ -3778,7 +3778,10 @@ name|put
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
+name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"2"
 argument_list|)
@@ -4050,7 +4053,10 @@ name|put
 argument_list|(
 name|MergePolicyConfig
 operator|.
-name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
+name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"2"
 argument_list|)
