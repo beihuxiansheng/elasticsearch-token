@@ -1502,10 +1502,11 @@ name|lastSettingsApplied
 argument_list|)
 return|;
 block|}
-DECL|method|applyDynamicSettings
+comment|/**      * Updates a target settings builder with new, updated or deleted settings from a given settings builder.      * @param toApply the new settings to apply      * @param target the target settings builder that the updates are applied to. All keys that have explicit null value in toApply will be removed from this builder      * @param updates a settings builder that holds all updates applied to target      * @param type a free text string to allow better exceptions messages      * @param all if<code>true</code> all settings are updated otherwise only dynamic settings are updated. if set to<code>false</code> and a non-dynamic setting is updated an exception is thrown      * @return<code>true</code> if the target has changed otherwise<code>false</code>      */
+DECL|method|updateSettings
 specifier|public
 name|boolean
-name|applyDynamicSettings
+name|updateSettings
 parameter_list|(
 name|Settings
 name|toApply
@@ -1522,6 +1523,9 @@ name|updates
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|boolean
+name|all
 parameter_list|)
 block|{
 name|boolean
@@ -1596,6 +1600,20 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|(
+name|all
+operator|&&
+name|get
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+operator|!=
+literal|null
+operator|)
+operator|||
 name|hasDynamicSetting
 argument_list|(
 name|entry
