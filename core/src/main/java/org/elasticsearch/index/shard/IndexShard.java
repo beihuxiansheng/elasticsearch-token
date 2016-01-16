@@ -2295,15 +2295,13 @@ comment|// the query cache is a node-level thing, however we want the most popul
 comment|// to be computed on a per-shard basis
 if|if
 condition|(
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_EVERYTHING
-argument_list|,
-literal|false
+name|INDEX_QUERY_CACHE_EVERYTHING_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
 argument_list|)
 condition|)
 block|{

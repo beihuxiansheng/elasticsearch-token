@@ -1424,7 +1424,10 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|STORE_TYPE
+name|INDEX_STORE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"foo_store"
 argument_list|)
@@ -2575,7 +2578,10 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_TYPE
+name|INDEX_QUERY_CACHE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"custom"
 argument_list|)
