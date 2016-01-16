@@ -1138,6 +1138,7 @@ return|;
 block|}
 DECL|class|Updater
 specifier|private
+specifier|final
 class|class
 name|Updater
 implements|implements
@@ -1376,6 +1377,7 @@ annotation|@
 name|Override
 DECL|method|apply
 specifier|public
+specifier|final
 name|void
 name|apply
 parameter_list|(
@@ -1393,7 +1395,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"update [{}] from [{}] to [{}]"
+literal|"updating [{}] from [{}] to [{}]"
 argument_list|,
 name|key
 argument_list|,
@@ -2896,6 +2898,25 @@ name|Settings
 name|previous
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|key
+argument_list|,
+name|getRaw
+argument_list|(
+name|previous
+argument_list|)
+argument_list|,
+name|getRaw
+argument_list|(
+name|current
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|consumer
 operator|.
 name|accept

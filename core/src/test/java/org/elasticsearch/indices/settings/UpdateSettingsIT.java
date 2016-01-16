@@ -2171,7 +2171,7 @@ name|message
 operator|.
 name|contains
 argument_list|(
-literal|"update [index.merge.scheduler.max_thread_count] from [10000] to [1]"
+literal|"updating [index.merge.scheduler.max_thread_count] from [10000] to [1]"
 argument_list|)
 condition|)
 block|{
@@ -2195,7 +2195,7 @@ name|message
 operator|.
 name|contains
 argument_list|(
-literal|"update [index.merge.scheduler.auto_throttle] from [true] to [false]"
+literal|"updating [index.merge.scheduler.auto_throttle] from [true] to [false]"
 argument_list|)
 condition|)
 block|{
@@ -2399,7 +2399,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|"no"
+literal|"false"
 argument_list|)
 argument_list|)
 operator|.
@@ -2453,7 +2453,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"no"
+literal|"false"
 argument_list|)
 argument_list|)
 expr_stmt|;
