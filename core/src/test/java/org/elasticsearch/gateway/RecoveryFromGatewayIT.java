@@ -3191,7 +3191,10 @@ name|put
 argument_list|(
 name|MockFSDirectoryService
 operator|.
-name|CRASH_INDEX
+name|CRASH_INDEX_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
