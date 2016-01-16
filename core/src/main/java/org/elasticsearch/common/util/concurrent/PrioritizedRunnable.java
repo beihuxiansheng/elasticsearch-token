@@ -174,6 +174,7 @@ return|return
 name|creationDate
 return|;
 block|}
+comment|/**      * The elapsed time in milliseconds since this instance was created,      * as calculated by the difference between {@link System#nanoTime()}      * at the time of creation, and {@link System#nanoTime()} at the      * time of invocation of this method      *      * @return the age in milliseconds calculated      */
 DECL|method|getAgeInMillis
 specifier|public
 name|long
