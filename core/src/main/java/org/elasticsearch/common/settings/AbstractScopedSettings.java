@@ -1499,6 +1499,8 @@ argument_list|(
 name|this
 operator|.
 name|lastSettingsApplied
+argument_list|,
+name|settings
 argument_list|)
 return|;
 block|}
