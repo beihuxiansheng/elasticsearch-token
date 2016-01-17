@@ -364,6 +364,9 @@ parameter_list|<
 name|NodesRequest
 extends|extends
 name|BaseNodesRequest
+parameter_list|<
+name|NodesRequest
+parameter_list|>
 parameter_list|,
 name|NodesResponse
 extends|extends

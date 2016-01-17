@@ -72,6 +72,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ShardOperationFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|UnavailableShardsException
 import|;
 end_import
@@ -848,7 +860,7 @@ operator|.
 name|execute
 argument_list|(
 operator|new
-name|BroadcastRequest
+name|DummyBroadcastRequest
 argument_list|()
 operator|.
 name|indices
@@ -1023,7 +1035,7 @@ operator|.
 name|execute
 argument_list|(
 operator|new
-name|BroadcastRequest
+name|DummyBroadcastRequest
 argument_list|()
 operator|.
 name|indices
@@ -1191,7 +1203,7 @@ operator|.
 name|execute
 argument_list|(
 operator|new
-name|BroadcastRequest
+name|DummyBroadcastRequest
 argument_list|()
 operator|.
 name|indices
@@ -1454,7 +1466,7 @@ argument_list|(
 name|broadcastReplicationAction
 argument_list|,
 operator|new
-name|BroadcastRequest
+name|DummyBroadcastRequest
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1552,7 +1564,7 @@ operator|.
 name|shards
 argument_list|(
 operator|new
-name|BroadcastRequest
+name|DummyBroadcastRequest
 argument_list|()
 operator|.
 name|indices
@@ -1605,11 +1617,11 @@ name|TestBroadcastReplicationAction
 extends|extends
 name|TransportBroadcastReplicationAction
 argument_list|<
-name|BroadcastRequest
+name|DummyBroadcastRequest
 argument_list|,
 name|BroadcastResponse
 argument_list|,
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|,
 name|ReplicationResponse
 argument_list|>
@@ -1666,7 +1678,7 @@ name|super
 argument_list|(
 literal|"test-broadcast-replication-action"
 argument_list|,
-name|BroadcastRequest
+name|DummyBroadcastRequest
 operator|::
 operator|new
 argument_list|,
@@ -1704,10 +1716,10 @@ annotation|@
 name|Override
 DECL|method|newShardRequest
 specifier|protected
-name|ReplicationRequest
+name|BasicReplicationRequest
 name|newShardRequest
 parameter_list|(
-name|BroadcastRequest
+name|DummyBroadcastRequest
 name|request
 parameter_list|,
 name|ShardId
@@ -1716,7 +1728,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|()
 operator|.
 name|setShardId
@@ -1742,6 +1754,9 @@ name|int
 name|totalNumCopies
 parameter_list|,
 name|List
+argument_list|<
+name|ShardOperationFailedException
+argument_list|>
 name|shardFailures
 parameter_list|)
 block|{
@@ -1766,7 +1781,7 @@ specifier|protected
 name|void
 name|shardExecute
 parameter_list|(
-name|BroadcastRequest
+name|DummyBroadcastRequest
 name|request
 parameter_list|,
 name|ShardId
@@ -1883,7 +1898,7 @@ parameter_list|(
 name|TransportBroadcastReplicationAction
 name|broadcastAction
 parameter_list|,
-name|BroadcastRequest
+name|DummyBroadcastRequest
 name|request
 parameter_list|)
 throws|throws
@@ -2007,6 +2022,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|class|DummyBroadcastRequest
+specifier|public
+specifier|static
+class|class
+name|DummyBroadcastRequest
+extends|extends
+name|BroadcastRequest
+argument_list|<
+name|DummyBroadcastRequest
+argument_list|>
+block|{      }
 block|}
 end_class
 
