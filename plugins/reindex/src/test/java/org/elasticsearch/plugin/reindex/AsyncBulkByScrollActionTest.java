@@ -1043,19 +1043,17 @@ name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
-block|{
-literal|"rawtypes"
-block|,
 literal|"unchecked"
-block|}
 argument_list|)
-comment|// Declaration is raw
 DECL|method|doExecute
 specifier|protected
 parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
+argument_list|<
+name|Request
+argument_list|>
 parameter_list|,
 name|Response
 extends|extends
