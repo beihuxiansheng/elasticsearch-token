@@ -464,7 +464,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"unknow setting [index.creation_date]"
+literal|"unknown setting [index.creation_date]"
 argument_list|,
 name|ex
 operator|.
