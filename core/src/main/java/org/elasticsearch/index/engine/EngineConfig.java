@@ -292,6 +292,16 @@ name|ThreadPool
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/*  * Holds all the configuration that is used to create an {@link Engine}.  * Once {@link Engine} has been created with this object, changes to this  * object will affect the {@link Engine} instance.  */
 end_comment
@@ -423,6 +433,8 @@ specifier|final
 name|QueryCachingPolicy
 name|queryCachingPolicy
 decl_stmt|;
+static|static
+block|{      }
 comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      */
 DECL|field|INDEX_CODEC_SETTING
 specifier|public
@@ -456,24 +468,41 @@ case|case
 literal|"default"
 case|:
 case|case
-literal|"lucene_default"
-case|:
-case|case
 literal|"best_compression"
 case|:
 return|return
 name|s
 return|;
 default|default:
+if|if
+condition|(
+name|Codec
+operator|.
+name|availableCodecs
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|s
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// we don't error message the not officially supported ones
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"unknown value for [index.codec] must be one of [default, best_compression, lucene_default] but was: "
+literal|"unknown value for [index.codec] must be one of [default, best_compression] but was: "
 operator|+
 name|s
 argument_list|)
 throw|;
+block|}
+return|return
+name|s
+return|;
 block|}
 block|}
 argument_list|,
