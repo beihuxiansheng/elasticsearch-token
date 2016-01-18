@@ -534,6 +534,20 @@ name|index
 operator|.
 name|store
 operator|.
+name|FsDirectoryService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|store
+operator|.
 name|IndexStore
 import|;
 end_import
@@ -1081,6 +1095,10 @@ argument_list|,
 name|PrimaryShardAllocator
 operator|.
 name|INDEX_RECOVERY_INITIAL_SHARDS_SETTING
+argument_list|,
+name|FsDirectoryService
+operator|.
+name|INDEX_LOCK_FACTOR_SETTING
 argument_list|,
 comment|// this sucks but we can't really validate all the analyzers/similarity in here
 name|Setting
