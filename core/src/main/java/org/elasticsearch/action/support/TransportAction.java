@@ -380,7 +380,7 @@ block|}
 DECL|method|execute
 specifier|public
 specifier|final
-name|void
+name|Task
 name|execute
 parameter_list|(
 name|Request
@@ -493,6 +493,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|task
+return|;
 block|}
 DECL|method|execute
 specifier|private
