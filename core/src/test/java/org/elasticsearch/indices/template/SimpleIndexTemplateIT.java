@@ -3170,6 +3170,8 @@ name|empty
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -3207,6 +3209,27 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|ex
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"unknown setting [does_not_exist]"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|response
 operator|=
 name|client
@@ -3264,7 +3287,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNull
 argument_list|(
 name|response
 operator|.
@@ -3283,11 +3306,6 @@ name|get
 argument_list|(
 literal|"index.does_not_exist"
 argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"test"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|createIndex
@@ -3295,7 +3313,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-comment|//the wrong setting has no effect but does get stored among the index settings
 name|GetSettingsResponse
 name|getSettingsResponse
 init|=
@@ -3316,7 +3333,7 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|assertThat
+name|assertNull
 argument_list|(
 name|getSettingsResponse
 operator|.
@@ -3334,11 +3351,6 @@ operator|.
 name|get
 argument_list|(
 literal|"index.does_not_exist"
-argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"test"
 argument_list|)
 argument_list|)
 expr_stmt|;
