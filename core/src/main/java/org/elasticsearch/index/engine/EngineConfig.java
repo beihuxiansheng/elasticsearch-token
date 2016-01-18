@@ -470,6 +470,9 @@ case|:
 case|case
 literal|"best_compression"
 case|:
+case|case
+literal|"lucene_default"
+case|:
 return|return
 name|s
 return|;
