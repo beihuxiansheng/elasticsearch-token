@@ -508,6 +508,13 @@ name|double
 index|[]
 block|{
 name|oneMinuteLoadAverage
+operator|>=
+literal|0
+condition|?
+name|oneMinuteLoadAverage
+else|:
+operator|-
+literal|1
 block|,
 operator|-
 literal|1

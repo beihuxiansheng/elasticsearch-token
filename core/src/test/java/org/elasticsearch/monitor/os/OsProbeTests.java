@@ -134,18 +134,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|lessThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|lessThanOrEqualTo
 import|;
 end_import
@@ -535,12 +523,13 @@ index|]
 argument_list|,
 name|anyOf
 argument_list|(
-name|lessThan
+name|equalTo
 argument_list|(
 operator|(
 name|double
 operator|)
-literal|0
+operator|-
+literal|1
 argument_list|)
 argument_list|,
 name|greaterThanOrEqualTo
