@@ -456,6 +456,9 @@ case|case
 literal|"default"
 case|:
 case|case
+literal|"lucene_default"
+case|:
+case|case
 literal|"best_compression"
 case|:
 return|return
@@ -466,7 +469,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"unknown value for [index.codec] must be one of [default, best_compression]"
+literal|"unknown value for [index.codec] must be one of [default, best_compression, lucene_default] but was: "
+operator|+
+name|s
 argument_list|)
 throw|;
 block|}
