@@ -1452,9 +1452,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|long
-index|[]
-name|fromTo
+name|String
+name|term
 decl_stmt|;
 if|if
 condition|(
@@ -1463,12 +1462,8 @@ operator|instanceof
 name|BytesRef
 condition|)
 block|{
-name|fromTo
+name|term
 operator|=
-name|Cidrs
-operator|.
-name|cidrMaskToMinMax
-argument_list|(
 operator|(
 operator|(
 name|BytesRef
@@ -1478,21 +1473,60 @@ operator|)
 operator|.
 name|utf8ToString
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
+name|term
+operator|=
+name|value
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+name|long
+index|[]
+name|fromTo
+decl_stmt|;
+comment|// assume that the term is either a CIDR range or the
+comment|// term is a single IPv4 address; if either of these
+comment|// assumptions is wrong, the CIDR parsing will fail
+comment|// anyway, and that is okay
+if|if
+condition|(
+name|term
+operator|.
+name|contains
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+comment|// treat the term as if it is in CIDR notation
 name|fromTo
 operator|=
 name|Cidrs
 operator|.
 name|cidrMaskToMinMax
 argument_list|(
-name|value
+name|term
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// treat the term as if it is a single IPv4, and
+comment|// apply a CIDR mask equivalent to the host route
+name|fromTo
+operator|=
+name|Cidrs
 operator|.
-name|toString
-argument_list|()
+name|cidrMaskToMinMax
+argument_list|(
+name|term
+operator|+
+literal|"/32"
 argument_list|)
 expr_stmt|;
 block|}
