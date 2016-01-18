@@ -214,16 +214,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -526,16 +516,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|IdentityHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -674,6 +654,20 @@ name|AbstractIndexComponent
 implements|implements
 name|Closeable
 block|{
+comment|/**      * The reason why a mapping is being merged.      */
+DECL|enum|MergeReason
+specifier|public
+enum|enum
+name|MergeReason
+block|{
+comment|/**          * Create or update a mapping.          */
+DECL|enum constant|MAPPING_UPDATE
+name|MAPPING_UPDATE
+block|,
+comment|/**          * Recovery of an existing mapping, for instance because of a restart,          * if a shard was moved to a different node or for administrative          * purposes.          */
+DECL|enum constant|MAPPING_RECOVERY
+name|MAPPING_RECOVERY
+block|;     }
 DECL|field|DEFAULT_MAPPING
 specifier|public
 specifier|static
@@ -1319,8 +1313,8 @@ parameter_list|,
 name|CompressedXContent
 name|mappingSource
 parameter_list|,
-name|boolean
-name|applyDefault
+name|MergeReason
+name|reason
 parameter_list|,
 name|boolean
 name|updateAllTypes
@@ -1412,9 +1406,18 @@ init|(
 name|this
 init|)
 block|{
-comment|// only apply the default mapping if we don't have the type yet
+specifier|final
+name|boolean
 name|applyDefault
-operator|&=
+init|=
+comment|// the default was already applied if we are recovering
+name|reason
+operator|!=
+name|MergeReason
+operator|.
+name|MAPPING_RECOVERY
+comment|// only apply the default mapping if we don't have the type yet
+operator|&&
 name|mappers
 operator|.
 name|containsKey
@@ -1423,10 +1426,10 @@ name|type
 argument_list|)
 operator|==
 literal|false
-expr_stmt|;
-return|return
-name|merge
-argument_list|(
+decl_stmt|;
+name|DocumentMapper
+name|mergeWith
+init|=
 name|parse
 argument_list|(
 name|type
@@ -1435,6 +1438,11 @@ name|mappingSource
 argument_list|,
 name|applyDefault
 argument_list|)
+decl_stmt|;
+return|return
+name|merge
+argument_list|(
+name|mergeWith
 argument_list|,
 name|updateAllTypes
 argument_list|)
