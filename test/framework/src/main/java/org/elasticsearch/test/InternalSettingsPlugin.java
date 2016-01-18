@@ -102,7 +102,7 @@ literal|"a plugin that allows to set values for internal settings which are can'
 return|;
 block|}
 DECL|field|VERSION_CREATED
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|Setting
@@ -129,7 +129,7 @@ name|INDEX
 argument_list|)
 decl_stmt|;
 DECL|field|MERGE_ENABLED
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|Setting
@@ -156,7 +156,7 @@ name|INDEX
 argument_list|)
 decl_stmt|;
 DECL|field|INDEX_CREATION_DATE_SETTING
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|Setting
