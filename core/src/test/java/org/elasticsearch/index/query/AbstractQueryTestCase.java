@@ -3590,6 +3590,9 @@ name|matcher
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|parseInnerQueryBuilder
 init|=
 name|context
@@ -4393,6 +4396,9 @@ name|getBuilderPrototype
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|deserializedQuery
 init|=
 name|prototype
@@ -5692,6 +5698,9 @@ name|InvocationHandler
 block|{
 DECL|field|delegate
 name|AbstractQueryTestCase
+argument_list|<
+name|?
+argument_list|>
 name|delegate
 decl_stmt|;
 annotation|@
