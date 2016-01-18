@@ -408,6 +408,7 @@ name|int
 name|nodeOrdinal
 parameter_list|)
 block|{
+comment|// TODO: Remove this method once gets in: https://github.com/elastic/elasticsearch/issues/16019
 if|if
 condition|(
 name|nodeOrdinal
