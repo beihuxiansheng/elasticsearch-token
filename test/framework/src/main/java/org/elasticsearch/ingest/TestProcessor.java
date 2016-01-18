@@ -275,7 +275,7 @@ name|TestProcessor
 name|doCreate
 parameter_list|(
 name|String
-name|processorId
+name|processorTag
 parameter_list|,
 name|Map
 argument_list|<
@@ -292,7 +292,7 @@ return|return
 operator|new
 name|TestProcessor
 argument_list|(
-name|processorId
+name|processorTag
 argument_list|,
 literal|"test-processor"
 argument_list|,

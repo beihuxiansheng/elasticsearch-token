@@ -51,7 +51,7 @@ DECL|method|LowercaseProcessor
 name|LowercaseProcessor
 parameter_list|(
 name|String
-name|processorId
+name|processorTag
 parameter_list|,
 name|String
 name|field
@@ -59,7 +59,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|processorId
+name|processorTag
 argument_list|,
 name|field
 argument_list|)
