@@ -134,6 +134,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|MasterNodeReadRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends

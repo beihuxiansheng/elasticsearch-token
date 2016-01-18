@@ -390,6 +390,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|SingleShardRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends
