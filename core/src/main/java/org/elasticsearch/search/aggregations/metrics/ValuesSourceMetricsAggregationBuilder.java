@@ -200,6 +200,11 @@ name|this
 return|;
 block|}
 comment|/**      * Configure the value to use when documents miss a value.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|missing
 specifier|public
 name|B

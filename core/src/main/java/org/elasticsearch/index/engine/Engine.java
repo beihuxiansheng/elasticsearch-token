@@ -5134,6 +5134,9 @@ class|class
 name|CommitId
 implements|implements
 name|Writeable
+argument_list|<
+name|CommitId
+argument_list|>
 block|{
 DECL|field|id
 specifier|private

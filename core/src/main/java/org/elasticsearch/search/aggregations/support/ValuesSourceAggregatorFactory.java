@@ -465,6 +465,11 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|resolveValuesSourceConfigFromAncestors
 specifier|private
 name|void
@@ -484,6 +489,9 @@ name|requiredValuesSourceType
 parameter_list|)
 block|{
 name|ValuesSourceConfig
+argument_list|<
+name|VS
+argument_list|>
 name|config
 decl_stmt|;
 while|while
@@ -505,6 +513,9 @@ operator|=
 operator|(
 operator|(
 name|ValuesSourceAggregatorFactory
+argument_list|<
+name|VS
+argument_list|>
 operator|)
 name|parent
 operator|)
@@ -586,6 +597,9 @@ operator|(
 name|ValueFormat
 operator|.
 name|Patternable
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|format
 operator|)
