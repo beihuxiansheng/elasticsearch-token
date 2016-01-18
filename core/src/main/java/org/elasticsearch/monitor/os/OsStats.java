@@ -130,6 +130,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -508,6 +518,26 @@ name|getLoadAverage
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|Arrays
+operator|.
+name|stream
+argument_list|(
+name|cpu
+operator|.
+name|getLoadAverage
+argument_list|()
+argument_list|)
+operator|.
+name|anyMatch
+argument_list|(
+name|load
+lambda|->
+name|load
+operator|!=
+operator|-
+literal|1
+argument_list|)
 condition|)
 block|{
 name|builder
@@ -518,7 +548,7 @@ name|Fields
 operator|.
 name|LOAD_AVERAGE
 argument_list|)
-expr_stmt|;
+block|;
 if|if
 condition|(
 name|cpu
@@ -810,12 +840,15 @@ block|}
 name|builder
 operator|.
 name|endObject
-argument_list|()
-expr_stmt|;
+parameter_list|()
+constructor_decl|;
 return|return
 name|builder
 return|;
 block|}
+end_class
+
+begin_function
 DECL|method|readOsStats
 specifier|public
 specifier|static
@@ -846,6 +879,9 @@ return|return
 name|stats
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -914,6 +950,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -1006,6 +1045,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_class
 DECL|class|Cpu
 specifier|public
 specifier|static
@@ -1181,6 +1223,9 @@ name|loadAverage
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|Swap
 specifier|public
 specifier|static
@@ -1334,6 +1379,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|Mem
 specifier|public
 specifier|static
@@ -1533,6 +1581,9 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|calculatePercentage
 specifier|private
 specifier|static
@@ -1572,8 +1623,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
