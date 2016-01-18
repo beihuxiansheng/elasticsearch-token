@@ -470,6 +470,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+comment|// Safe because we check the types with isAssignableFrom
 DECL|method|resolveValuesSourceConfigFromAncestors
 specifier|private
 name|void
@@ -490,7 +491,7 @@ parameter_list|)
 block|{
 name|ValuesSourceConfig
 argument_list|<
-name|VS
+name|?
 argument_list|>
 name|config
 decl_stmt|;
@@ -514,7 +515,7 @@ operator|(
 operator|(
 name|ValuesSourceAggregatorFactory
 argument_list|<
-name|VS
+name|?
 argument_list|>
 operator|)
 name|parent
@@ -561,6 +562,12 @@ name|this
 operator|.
 name|config
 operator|=
+operator|(
+name|ValuesSourceConfig
+argument_list|<
+name|VS
+argument_list|>
+operator|)
 name|config
 expr_stmt|;
 comment|// if the user explicitly defined a format pattern, we'll do our best to keep it even when we inherit the
