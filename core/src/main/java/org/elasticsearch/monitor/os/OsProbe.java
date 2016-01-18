@@ -478,6 +478,17 @@ comment|// fallback
 block|}
 if|if
 condition|(
+name|Constants
+operator|.
+name|WINDOWS
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
 name|getSystemLoadAverage
 operator|==
 literal|null
