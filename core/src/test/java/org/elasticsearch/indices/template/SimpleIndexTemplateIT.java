@@ -3221,7 +3221,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"unknown setting [does_not_exist]"
+literal|"unknown setting [index.does_not_exist]"
 argument_list|,
 name|ex
 operator|.

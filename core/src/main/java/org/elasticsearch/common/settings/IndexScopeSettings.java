@@ -516,10 +516,6 @@ name|IndexMetaData
 operator|.
 name|INDEX_DATA_PATH_SETTING
 argument_list|,
-name|IndexMetaData
-operator|.
-name|INDEX_CREATION_DATE_SETTING
-argument_list|,
 name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_FETCH_DEBUG_SETTING
