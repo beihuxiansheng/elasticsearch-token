@@ -1664,6 +1664,9 @@ argument_list|(
 name|EngineConfig
 operator|.
 name|INDEX_CODEC_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|codecName
 argument_list|)

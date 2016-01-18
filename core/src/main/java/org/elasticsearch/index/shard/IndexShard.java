@@ -2255,13 +2255,13 @@ name|this
 operator|.
 name|checkIndexOnStartup
 operator|=
-name|settings
+name|indexSettings
 operator|.
-name|get
+name|getValue
 argument_list|(
-literal|"index.shard.check_on_startup"
-argument_list|,
-literal|"false"
+name|IndexSettings
+operator|.
+name|INDEX_CHECK_ON_STARTUP
 argument_list|)
 expr_stmt|;
 name|this
@@ -7093,7 +7093,7 @@ if|if
 condition|(
 literal|"checksum"
 operator|.
-name|equalsIgnoreCase
+name|equals
 argument_list|(
 name|checkIndexOnStartup
 argument_list|)
@@ -7322,7 +7322,7 @@ if|if
 condition|(
 literal|"fix"
 operator|.
-name|equalsIgnoreCase
+name|equals
 argument_list|(
 name|checkIndexOnStartup
 argument_list|)
