@@ -4742,7 +4742,7 @@ argument_list|)
 expr_stmt|;
 name|transport
 operator|.
-name|handleResponse
+name|handleRemoteError
 argument_list|(
 name|capturedRequest
 operator|.
@@ -4908,7 +4908,7 @@ argument_list|)
 expr_stmt|;
 name|transport
 operator|.
-name|handleResponse
+name|handleRemoteError
 argument_list|(
 name|currentRequest
 operator|.
@@ -5620,7 +5620,7 @@ expr_stmt|;
 comment|// try with failure response
 name|transport
 operator|.
-name|handleResponse
+name|handleRemoteError
 argument_list|(
 name|replicationRequests
 index|[
