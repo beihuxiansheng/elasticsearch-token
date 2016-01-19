@@ -4846,10 +4846,10 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|onShardFailedFailure
+name|onFailure
 parameter_list|(
-name|Exception
-name|e
+name|Throwable
+name|t
 parameter_list|)
 block|{
 comment|// TODO: handle catastrophic non-channel failures
