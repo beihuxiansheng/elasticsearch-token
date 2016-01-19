@@ -1672,8 +1672,12 @@ block|{
 return|return
 name|Collections
 operator|.
-name|emptyList
-argument_list|()
+name|singletonList
+argument_list|(
+name|TestSeedPlugin
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 DECL|class|IngestPlugin

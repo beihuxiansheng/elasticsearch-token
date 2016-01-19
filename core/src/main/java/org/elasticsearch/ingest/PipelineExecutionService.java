@@ -259,6 +259,9 @@ parameter_list|(
 name|Iterable
 argument_list|<
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|actionRequests
 parameter_list|,

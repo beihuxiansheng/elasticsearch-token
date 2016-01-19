@@ -368,9 +368,15 @@ name|String
 name|action
 parameter_list|,
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|,
 name|ActionListener
+argument_list|<
+name|?
+argument_list|>
 name|listener
 parameter_list|,
 name|ActionFilterChain
@@ -579,6 +585,9 @@ name|ActionResponse
 name|response
 parameter_list|,
 name|ActionListener
+argument_list|<
+name|?
+argument_list|>
 name|listener
 parameter_list|,
 name|ActionFilterChain
@@ -870,6 +879,9 @@ implements|implements
 name|Iterator
 argument_list|<
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 block|{
 DECL|field|bulkRequest
