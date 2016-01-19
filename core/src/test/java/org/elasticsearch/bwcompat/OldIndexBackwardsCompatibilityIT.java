@@ -420,9 +420,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|EngineConfig
+name|IndexSettings
 import|;
 end_import
 
@@ -478,9 +476,19 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
 name|MergePolicyConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plugins
+operator|.
+name|Plugin
 import|;
 end_import
 
@@ -569,6 +577,18 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|InternalSettingsPlugin
 import|;
 end_import
 
@@ -750,6 +770,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -886,6 +916,31 @@ name|ESIntegTestCase
 block|{
 comment|// TODO: test for proper exception on unsupported indexes (maybe via separate test?)
 comment|// We have a 0.20.6.zip etc for this.
+annotation|@
+name|Override
+DECL|method|nodePlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|nodePlugins
+parameter_list|()
+block|{
+return|return
+name|pluginList
+argument_list|(
+name|InternalSettingsPlugin
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 DECL|field|indexes
 name|List
 argument_list|<
@@ -3163,7 +3218,7 @@ name|put
 argument_list|(
 literal|"refresh_interval"
 argument_list|,
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|DEFAULT_REFRESH_INTERVAL
 argument_list|)

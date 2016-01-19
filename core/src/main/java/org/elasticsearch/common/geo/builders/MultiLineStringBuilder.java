@@ -180,6 +180,7 @@ operator|.
 name|MULTILINESTRING
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|MultiLineStringBuilder

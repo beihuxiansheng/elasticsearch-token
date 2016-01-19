@@ -397,7 +397,10 @@ name|put
 argument_list|(
 name|ShardsLimitAllocationDecider
 operator|.
-name|INDEX_TOTAL_SHARDS_PER_NODE
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|2
 argument_list|)
@@ -2030,7 +2033,10 @@ literal|"update "
 operator|+
 name|ShardsLimitAllocationDecider
 operator|.
-name|INDEX_TOTAL_SHARDS_PER_NODE
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|" for test, see that things move"
 argument_list|)
@@ -2084,7 +2090,10 @@ name|put
 argument_list|(
 name|ShardsLimitAllocationDecider
 operator|.
-name|INDEX_TOTAL_SHARDS_PER_NODE
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|3
 argument_list|)

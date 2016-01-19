@@ -2881,10 +2881,7 @@ name|Plugin
 argument_list|>
 argument_list|>
 name|getPlugins
-parameter_list|(
-name|long
-name|seed
-parameter_list|)
+parameter_list|()
 block|{
 name|Set
 argument_list|<
@@ -3389,7 +3386,10 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_TYPE
+name|INDEX_QUERY_CACHE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|random
 operator|.
@@ -3420,7 +3420,10 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_EVERYTHING
+name|INDEX_QUERY_CACHE_EVERYTHING_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|random
 operator|.
@@ -3743,6 +3746,9 @@ argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -4545,9 +4551,7 @@ argument_list|>
 name|plugins
 init|=
 name|getPlugins
-argument_list|(
-name|seed
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|String
 name|name

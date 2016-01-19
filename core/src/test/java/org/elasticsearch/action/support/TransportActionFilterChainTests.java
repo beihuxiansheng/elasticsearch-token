@@ -2927,6 +2927,9 @@ class|class
 name|TestRequest
 extends|extends
 name|ActionRequest
+argument_list|<
+name|TestRequest
+argument_list|>
 block|{
 annotation|@
 name|Override

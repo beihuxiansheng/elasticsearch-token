@@ -621,7 +621,10 @@ name|put
 argument_list|(
 name|MockFSDirectoryService
 operator|.
-name|RANDOM_PREVENT_DOUBLE_WRITE
+name|RANDOM_PREVENT_DOUBLE_WRITE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -630,7 +633,10 @@ name|put
 argument_list|(
 name|MockFSDirectoryService
 operator|.
-name|RANDOM_NO_DELETE_OPEN_FILE
+name|RANDOM_NO_DELETE_OPEN_FILE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

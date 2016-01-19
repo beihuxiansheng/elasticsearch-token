@@ -172,6 +172,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|SearchSlowLog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|similarity
 operator|.
 name|SimilarityService
@@ -270,6 +282,9 @@ name|wrapper
 parameter_list|,
 name|NodeServicesProvider
 name|provider
+parameter_list|,
+name|SearchSlowLog
+name|searchSlowLog
 parameter_list|)
 throws|throws
 name|IOException
@@ -299,6 +314,8 @@ argument_list|,
 name|wrapper
 argument_list|,
 name|provider
+argument_list|,
+name|searchSlowLog
 argument_list|)
 expr_stmt|;
 block|}

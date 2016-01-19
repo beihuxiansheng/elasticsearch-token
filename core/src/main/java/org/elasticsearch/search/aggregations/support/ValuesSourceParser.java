@@ -363,7 +363,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parses a description of where to load the value sent by a user into a  * ValuesSourceConfig which can be used to work with the values in various ways,  * one of which is to create an actual ValueSource (done with the help of  * AggregationContext).  */
 end_comment
 
 begin_class
@@ -393,6 +393,9 @@ DECL|method|any
 specifier|public
 specifier|static
 name|Builder
+argument_list|<
+name|ValuesSource
+argument_list|>
 name|any
 parameter_list|(
 name|String

@@ -1747,7 +1747,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"SETTING_NUMBER_OF_SHARDS"
+literal|"index.number_of_shards"
 argument_list|,
 literal|1
 argument_list|)

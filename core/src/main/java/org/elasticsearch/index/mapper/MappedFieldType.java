@@ -2156,7 +2156,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** Creates a term associated with the field of this mapper for the given value */
+comment|/**      * Creates a term associated with the field of this mapper for the given      * value. Its important to use termQuery when building term queries because      * things like ParentFieldMapper override it to make more interesting      * queries.      */
 DECL|method|createTerm
 specifier|protected
 name|Term

@@ -813,11 +813,6 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Note, closed indices will not have any routing information, so won't be deleted

@@ -2343,7 +2343,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"index.referesh_interval"
+literal|"index.refresh_interval"
 argument_list|,
 operator|-
 literal|1
@@ -3666,7 +3666,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"index.referesh_interval"
+literal|"index.refresh_interval"
 argument_list|,
 operator|-
 literal|1

@@ -131,6 +131,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+comment|// We know its Map<String, Object> because we put them there in the test
 DECL|method|testMapAccess
 specifier|public
 name|void
@@ -306,6 +312,12 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+comment|// We know its Map<String, Object> because we put them there ourselves
 DECL|method|testAccessListInScript
 specifier|public
 name|void

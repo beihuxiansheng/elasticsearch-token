@@ -340,16 +340,6 @@ name|TESTS_CLUSTER
 init|=
 literal|"tests.cluster"
 decl_stmt|;
-comment|/**      * Defaults to localhost:9300      */
-DECL|field|TESTS_CLUSTER_DEFAULT
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TESTS_CLUSTER_DEFAULT
-init|=
-literal|"localhost:9300"
-decl_stmt|;
 DECL|field|logger
 specifier|protected
 specifier|static
@@ -727,8 +717,6 @@ specifier|static
 name|void
 name|initializeSettings
 parameter_list|()
-throws|throws
-name|UnknownHostException
 block|{
 name|clusterAddresses
 operator|=
@@ -751,19 +739,13 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|clusterAddresses
-operator|=
-name|TESTS_CLUSTER_DEFAULT
-expr_stmt|;
-name|logger
-operator|.
-name|info
+name|fail
 argument_list|(
-literal|"[{}] not set. Falling back to [{}]"
-argument_list|,
+literal|"Must specify "
+operator|+
 name|TESTS_CLUSTER
-argument_list|,
-name|TESTS_CLUSTER_DEFAULT
+operator|+
+literal|" for smoke client test"
 argument_list|)
 expr_stmt|;
 block|}

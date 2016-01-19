@@ -4315,6 +4315,8 @@ name|newClusterState
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|executor
 operator|.
 name|clusterStatePublished
@@ -4322,6 +4324,25 @@ argument_list|(
 name|newClusterState
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"exception thrown while notifying executor of new cluster state publication [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+block|}
 name|TimeValue
 name|executionTime
 init|=

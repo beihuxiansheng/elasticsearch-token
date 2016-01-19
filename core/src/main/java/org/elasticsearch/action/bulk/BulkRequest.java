@@ -349,6 +349,9 @@ specifier|final
 name|List
 argument_list|<
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|requests
 init|=
@@ -410,6 +413,9 @@ name|BulkRequest
 name|add
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 modifier|...
 name|requests
 parameter_list|)
@@ -417,6 +423,9 @@ block|{
 for|for
 control|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 range|:
 name|requests
@@ -440,6 +449,9 @@ name|BulkRequest
 name|add
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|)
 block|{
@@ -459,6 +471,9 @@ name|BulkRequest
 name|add
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 parameter_list|,
 annotation|@
@@ -550,6 +565,9 @@ parameter_list|(
 name|Iterable
 argument_list|<
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|requests
 parameter_list|)
@@ -557,6 +575,9 @@ block|{
 for|for
 control|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 range|:
 name|requests
@@ -946,6 +967,9 @@ specifier|public
 name|List
 argument_list|<
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|requests
 parameter_list|()
@@ -958,11 +982,6 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|subRequests
 specifier|public
 name|List
@@ -988,6 +1007,9 @@ decl_stmt|;
 for|for
 control|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 range|:
 name|requests
@@ -2797,6 +2819,9 @@ block|}
 for|for
 control|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 range|:
 name|requests
@@ -3122,6 +3147,9 @@ expr_stmt|;
 for|for
 control|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|request
 range|:
 name|requests

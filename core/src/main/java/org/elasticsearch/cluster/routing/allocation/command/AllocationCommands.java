@@ -365,12 +365,38 @@ static|static
 block|{
 name|registerFactory
 argument_list|(
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 operator|.
 name|NAME
 argument_list|,
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
+operator|.
+name|Factory
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|registerFactory
+argument_list|(
+name|AllocateStalePrimaryAllocationCommand
+operator|.
+name|NAME
+argument_list|,
+operator|new
+name|AllocateStalePrimaryAllocationCommand
+operator|.
+name|Factory
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|registerFactory
+argument_list|(
+name|AllocateReplicaAllocationCommand
+operator|.
+name|NAME
+argument_list|,
+operator|new
+name|AllocateReplicaAllocationCommand
 operator|.
 name|Factory
 argument_list|()
@@ -417,7 +443,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Creates a new set of {@link AllocationCommands}      *         * @param commands {@link AllocationCommand}s that are wrapped by this instance      */
+comment|/**      * Creates a new set of {@link AllocationCommands}      *      * @param commands {@link AllocationCommand}s that are wrapped by this instance      */
 DECL|method|AllocationCommands
 specifier|public
 name|AllocationCommands
@@ -550,7 +576,7 @@ return|return
 name|explanations
 return|;
 block|}
-comment|/**      * Reads a {@link AllocationCommands} from a {@link StreamInput}      * @param in {@link StreamInput} to read from      * @return {@link AllocationCommands} read      *       * @throws IOException if something happens during read      */
+comment|/**      * Reads a {@link AllocationCommands} from a {@link StreamInput}      * @param in {@link StreamInput} to read from      * @return {@link AllocationCommands} read      *      * @throws IOException if something happens during read      */
 DECL|method|readFrom
 specifier|public
 specifier|static
@@ -621,7 +647,7 @@ return|return
 name|commands
 return|;
 block|}
-comment|/**      * Writes {@link AllocationCommands} to a {@link StreamOutput}      *       * @param commands Commands to write      * @param out {@link StreamOutput} to write the commands to      * @throws IOException if something happens during write      */
+comment|/**      * Writes {@link AllocationCommands} to a {@link StreamOutput}      *      * @param commands Commands to write      * @param out {@link StreamOutput} to write the commands to      * @throws IOException if something happens during write      */
 DECL|method|writeTo
 specifier|public
 specifier|static
@@ -686,7 +712,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Reads {@link AllocationCommands} from a {@link XContentParser}      *<pre>      *     {      *         "commands" : [      *              {"allocate" : {"index" : "test", "shard" : 0, "node" : "test"}}      *         ]      *     }      *</pre>      * @param parser {@link XContentParser} to read the commands from      * @return {@link AllocationCommands} read      * @throws IOException if something bad happens while reading the stream       */
+comment|/**      * Reads {@link AllocationCommands} from a {@link XContentParser}      *<pre>      *     {      *         "commands" : [      *              {"allocate" : {"index" : "test", "shard" : 0, "node" : "test"}}      *         ]      *     }      *</pre>      * @param parser {@link XContentParser} to read the commands from      * @return {@link AllocationCommands} read      * @throws IOException if something bad happens while reading the stream      */
 DECL|method|fromXContent
 specifier|public
 specifier|static
@@ -961,7 +987,7 @@ return|return
 name|commands
 return|;
 block|}
-comment|/**      * Writes {@link AllocationCommands} to a {@link XContentBuilder}      *       * @param commands {@link AllocationCommands} to write      * @param builder {@link XContentBuilder} to use      * @param params Parameters to use for building      * @throws IOException if something bad happens while building the content      */
+comment|/**      * Writes {@link AllocationCommands} to a {@link XContentBuilder}      *      * @param commands {@link AllocationCommands} to write      * @param builder {@link XContentBuilder} to use      * @param params Parameters to use for building      * @throws IOException if something bad happens while building the content      */
 DECL|method|toXContent
 specifier|public
 specifier|static

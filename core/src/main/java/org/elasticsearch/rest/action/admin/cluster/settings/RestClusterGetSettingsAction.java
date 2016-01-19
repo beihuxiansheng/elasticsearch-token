@@ -386,7 +386,7 @@ name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"defaults"
+literal|"include_defaults"
 argument_list|,
 literal|false
 argument_list|)

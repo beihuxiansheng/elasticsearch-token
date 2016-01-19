@@ -166,6 +166,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends

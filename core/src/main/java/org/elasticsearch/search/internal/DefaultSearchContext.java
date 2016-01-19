@@ -296,6 +296,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|analysis
 operator|.
 name|AnalysisService
@@ -758,33 +770,6 @@ name|DefaultSearchContext
 extends|extends
 name|SearchContext
 block|{
-comment|/**      * Index setting describing the maximum value of from + size on a query.      */
-DECL|field|MAX_RESULT_WINDOW
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|MAX_RESULT_WINDOW
-init|=
-literal|"index.max_result_window"
-decl_stmt|;
-DECL|class|Defaults
-specifier|public
-specifier|static
-class|class
-name|Defaults
-block|{
-comment|/**          * Default maximum value of from + size on a query. 10,000 was chosen as          * a conservative default as it is sure to not cause trouble. Users can          * certainly profile their cluster and decide to set it to 100,000          * safely. 1,000,000 is probably way to high for any cluster to set          * safely.          */
-DECL|field|MAX_RESULT_WINDOW
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|MAX_RESULT_WINDOW
-init|=
-literal|10000
-decl_stmt|;
-block|}
 DECL|field|id
 specifier|private
 specifier|final
@@ -1388,17 +1373,8 @@ operator|.
 name|getIndexSettings
 argument_list|()
 operator|.
-name|getSettings
+name|getMaxResultWindow
 argument_list|()
-operator|.
-name|getAsInt
-argument_list|(
-name|MAX_RESULT_WINDOW
-argument_list|,
-name|Defaults
-operator|.
-name|MAX_RESULT_WINDOW
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -1425,9 +1401,12 @@ literal|"]. See the scroll api for a more efficient way to request large data se
 operator|+
 literal|"This limit can be set by changing the ["
 operator|+
-name|DefaultSearchContext
+name|IndexSettings
 operator|.
-name|MAX_RESULT_WINDOW
+name|MAX_RESULT_WINDOW_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"] index level parameter."
 argument_list|)

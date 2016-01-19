@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -196,9 +206,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|plugins
 operator|.
-name|IndicesModule
+name|Plugin
 import|;
 end_import
 
@@ -208,19 +218,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|search
 operator|.
-name|Plugin
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
+name|SearchModule
 import|;
 end_import
 
@@ -261,7 +261,7 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|IndicesModule
+name|SearchModule
 name|module
 parameter_list|)
 block|{
@@ -270,8 +270,8 @@ operator|.
 name|registerQueryParser
 argument_list|(
 name|DummyQueryParser
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}

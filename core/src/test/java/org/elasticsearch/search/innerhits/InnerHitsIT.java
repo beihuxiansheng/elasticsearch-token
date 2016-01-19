@@ -298,6 +298,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|InternalSettingsPlugin
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -663,13 +675,15 @@ name|nodePlugins
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
-name|singleton
+name|pluginList
 argument_list|(
 name|MockScriptEngine
 operator|.
 name|TestPlugin
+operator|.
+name|class
+argument_list|,
+name|InternalSettingsPlugin
 operator|.
 name|class
 argument_list|)

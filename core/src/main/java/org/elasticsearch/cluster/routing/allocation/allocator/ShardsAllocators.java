@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link ShardsAllocator} class offers methods for allocating shard within a cluster.  * These methods include moving shards and re-balancing the cluster. It also allows management  * of shards by their state.   */
+comment|/**  * The {@link ShardsAllocator} class offers methods for allocating shard within a cluster.  * These methods include moving shards and re-balancing the cluster. It also allows management  * of shards by their state.  */
 end_comment
 
 begin_class

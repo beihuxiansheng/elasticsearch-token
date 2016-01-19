@@ -1132,6 +1132,8 @@ operator|=
 name|failures
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|failures
 specifier|public
 name|FailedNodeException

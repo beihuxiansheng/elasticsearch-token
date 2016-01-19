@@ -97,14 +97,17 @@ specifier|abstract
 class|class
 name|MasterNodeRequest
 parameter_list|<
-name|T
+name|Request
 extends|extends
 name|MasterNodeRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ActionRequest
 argument_list|<
-name|T
+name|Request
 argument_list|>
 block|{
 DECL|field|DEFAULT_MASTER_NODE_TIMEOUT
@@ -142,7 +145,7 @@ argument_list|)
 DECL|method|masterNodeTimeout
 specifier|public
 specifier|final
-name|T
+name|Request
 name|masterNodeTimeout
 parameter_list|(
 name|TimeValue
@@ -157,7 +160,7 @@ name|timeout
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -166,7 +169,7 @@ comment|/**      * A timeout value in case the master has not been discovered ye
 DECL|method|masterNodeTimeout
 specifier|public
 specifier|final
-name|T
+name|Request
 name|masterNodeTimeout
 parameter_list|(
 name|String

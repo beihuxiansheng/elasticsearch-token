@@ -79,6 +79,9 @@ parameter_list|<
 name|QB
 extends|extends
 name|QueryBuilder
+parameter_list|<
+name|QB
+parameter_list|>
 parameter_list|>
 extends|extends
 name|NamedWriteable

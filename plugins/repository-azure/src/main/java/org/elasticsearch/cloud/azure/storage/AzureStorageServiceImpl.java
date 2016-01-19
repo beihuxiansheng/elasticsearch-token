@@ -564,20 +564,13 @@ operator|.
 name|primaryStorageSettings
 operator|==
 literal|null
-operator|||
-name|this
-operator|.
-name|secondariesStorageSettings
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No azure storage can be found. Check your elasticsearch.yml."
+literal|"No primary azure storage can be found. Check your elasticsearch.yml."
 argument_list|)
 throw|;
 block|}
@@ -726,7 +719,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|setTimeoutIntervalInMs
+name|setMaximumExecutionTimeInMs
 argument_list|(
 name|timeout
 argument_list|)
@@ -742,14 +735,14 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can not cast ["
+literal|"Can not convert ["
 operator|+
 name|azureStorageSettings
 operator|.
 name|getTimeout
 argument_list|()
 operator|+
-literal|"] to int."
+literal|"]. It can not be longer than 2,147,483,647ms."
 argument_list|)
 throw|;
 block|}
