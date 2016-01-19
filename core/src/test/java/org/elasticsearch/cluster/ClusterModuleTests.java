@@ -246,7 +246,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|IndexScopeSettings
+name|IndexScopedSettings
 import|;
 end_import
 
@@ -707,7 +707,7 @@ name|assertInstanceBinding
 argument_list|(
 name|module
 argument_list|,
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|class
 argument_list|,

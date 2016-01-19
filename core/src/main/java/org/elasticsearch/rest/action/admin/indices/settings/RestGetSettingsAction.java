@@ -138,7 +138,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|IndexScopeSettings
+name|IndexScopedSettings
 import|;
 end_import
 
@@ -167,20 +167,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilderString
 import|;
 end_import
 
@@ -310,11 +296,11 @@ name|RestGetSettingsAction
 extends|extends
 name|BaseRestHandler
 block|{
-DECL|field|indexScopeSettings
+DECL|field|indexScopedSettings
 specifier|private
 specifier|final
-name|IndexScopeSettings
-name|indexScopeSettings
+name|IndexScopedSettings
+name|indexScopedSettings
 decl_stmt|;
 annotation|@
 name|Inject
@@ -331,8 +317,8 @@ parameter_list|,
 name|Client
 name|client
 parameter_list|,
-name|IndexScopeSettings
-name|indexScopeSettings
+name|IndexScopedSettings
+name|indexScopedSettings
 parameter_list|)
 block|{
 name|super
@@ -346,9 +332,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|indexScopeSettings
+name|indexScopedSettings
 operator|=
-name|indexScopeSettings
+name|indexScopedSettings
 expr_stmt|;
 name|controller
 operator|.
@@ -621,7 +607,7 @@ argument_list|(
 literal|"defaults"
 argument_list|)
 expr_stmt|;
-name|indexScopeSettings
+name|indexScopedSettings
 operator|.
 name|diff
 argument_list|(

@@ -470,7 +470,7 @@ name|INDEX_ROUTING_REQUIRE_GROUP_SETTING
 argument_list|,
 name|IndexMetaData
 operator|.
-name|SETTING_AUTO_EXPAND_REPLICAS_SETTING
+name|INDEX_AUTO_EXPAND_REPLICAS_SETTING
 argument_list|,
 name|IndexMetaData
 operator|.

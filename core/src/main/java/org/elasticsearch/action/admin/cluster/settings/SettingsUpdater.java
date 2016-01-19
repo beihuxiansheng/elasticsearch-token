@@ -230,7 +230,7 @@ name|changed
 operator||=
 name|clusterSettings
 operator|.
-name|updateSettings
+name|updateDynamicSettings
 argument_list|(
 name|transientToApply
 argument_list|,
@@ -239,8 +239,6 @@ argument_list|,
 name|transientUpdates
 argument_list|,
 literal|"transient"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|Settings
@@ -270,7 +268,7 @@ name|changed
 operator||=
 name|clusterSettings
 operator|.
-name|updateSettings
+name|updateDynamicSettings
 argument_list|(
 name|persistentToApply
 argument_list|,
@@ -279,8 +277,6 @@ argument_list|,
 name|persistentUpdates
 argument_list|,
 literal|"persistent"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 if|if

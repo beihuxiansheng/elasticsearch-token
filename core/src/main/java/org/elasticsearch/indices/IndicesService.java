@@ -288,7 +288,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|IndexScopeSettings
+name|IndexScopedSettings
 import|;
 end_import
 
@@ -718,16 +718,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -976,7 +966,7 @@ decl_stmt|;
 DECL|field|indexScopeSetting
 specifier|private
 specifier|final
-name|IndexScopeSettings
+name|IndexScopedSettings
 name|indexScopeSetting
 decl_stmt|;
 DECL|field|indices
@@ -1084,8 +1074,8 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|IndexScopeSettings
-name|indexScopeSettings
+name|IndexScopedSettings
+name|indexScopedSettings
 parameter_list|)
 block|{
 name|super
@@ -1208,7 +1198,7 @@ name|this
 operator|.
 name|indexScopeSetting
 operator|=
-name|indexScopeSettings
+name|indexScopedSettings
 expr_stmt|;
 block|}
 annotation|@

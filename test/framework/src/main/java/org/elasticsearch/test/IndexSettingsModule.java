@@ -76,7 +76,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|IndexScopeSettings
+name|IndexScopedSettings
 import|;
 end_import
 
@@ -139,16 +139,6 @@ operator|.
 name|util
 operator|.
 name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -376,7 +366,7 @@ operator|new
 name|HashSet
 argument_list|<>
 argument_list|(
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|BUILT_IN_INDEX_SETTINGS
 argument_list|)
@@ -430,7 +420,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 operator|new
-name|IndexScopeSettings
+name|IndexScopedSettings
 argument_list|(
 name|Settings
 operator|.

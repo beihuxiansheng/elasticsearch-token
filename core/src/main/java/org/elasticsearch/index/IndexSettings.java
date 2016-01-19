@@ -116,7 +116,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|IndexScopeSettings
+name|IndexScopedSettings
 import|;
 end_import
 
@@ -958,7 +958,7 @@ decl_stmt|;
 DECL|field|scopedSettings
 specifier|private
 specifier|final
-name|IndexScopeSettings
+name|IndexScopedSettings
 name|scopedSettings
 decl_stmt|;
 DECL|field|gcDeletesInMillis
@@ -1080,7 +1080,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 argument_list|,
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|DEFAULT_SCOPED_SETTINGS
 argument_list|)
@@ -1097,7 +1097,7 @@ specifier|final
 name|Settings
 name|nodeSettings
 parameter_list|,
-name|IndexScopeSettings
+name|IndexScopedSettings
 name|indexScopedSettings
 parameter_list|)
 block|{
@@ -1147,7 +1147,7 @@ name|String
 argument_list|>
 name|indexNameMatcher
 parameter_list|,
-name|IndexScopeSettings
+name|IndexScopedSettings
 name|indexScopedSettings
 parameter_list|)
 block|{
@@ -1920,7 +1920,7 @@ name|existingSettings
 operator|.
 name|filter
 argument_list|(
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|INDEX_SETTINGS_KEY_PREDICATE
 argument_list|)
@@ -1934,7 +1934,7 @@ name|newSettings
 operator|.
 name|filter
 argument_list|(
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|INDEX_SETTINGS_KEY_PREDICATE
 argument_list|)
@@ -2191,7 +2191,7 @@ return|;
 block|}
 DECL|method|getScopedSettings
 specifier|public
-name|IndexScopeSettings
+name|IndexScopedSettings
 name|getScopedSettings
 parameter_list|()
 block|{

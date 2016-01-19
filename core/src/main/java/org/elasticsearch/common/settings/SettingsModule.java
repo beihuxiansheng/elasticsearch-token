@@ -32,18 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -184,7 +172,7 @@ name|?
 argument_list|>
 name|setting
 range|:
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|BUILT_IN_INDEX_SETTINGS
 control|)
@@ -205,11 +193,11 @@ name|configure
 parameter_list|()
 block|{
 specifier|final
-name|IndexScopeSettings
-name|indexScopeSettings
+name|IndexScopedSettings
+name|indexScopedSettings
 init|=
 operator|new
-name|IndexScopeSettings
+name|IndexScopedSettings
 argument_list|(
 name|settings
 argument_list|,
@@ -227,7 +215,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// by now we are fully configured, lets check node level settings for unregistered index settings
-name|indexScopeSettings
+name|indexScopedSettings
 operator|.
 name|validate
 argument_list|(
@@ -235,7 +223,7 @@ name|settings
 operator|.
 name|filter
 argument_list|(
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|INDEX_SETTINGS_KEY_PREDICATE
 argument_list|)
@@ -301,14 +289,14 @@ argument_list|)
 expr_stmt|;
 name|bind
 argument_list|(
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|class
 argument_list|)
 operator|.
 name|toInstance
 argument_list|(
-name|indexScopeSettings
+name|indexScopedSettings
 argument_list|)
 expr_stmt|;
 block|}

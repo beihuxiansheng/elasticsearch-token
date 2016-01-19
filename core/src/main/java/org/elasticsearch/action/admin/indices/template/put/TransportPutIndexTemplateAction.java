@@ -182,7 +182,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|IndexScopeSettings
+name|IndexScopedSettings
 import|;
 end_import
 
@@ -247,11 +247,11 @@ specifier|final
 name|MetaDataIndexTemplateService
 name|indexTemplateService
 decl_stmt|;
-DECL|field|indexScopeSettings
+DECL|field|indexScopedSettings
 specifier|private
 specifier|final
-name|IndexScopeSettings
-name|indexScopeSettings
+name|IndexScopedSettings
+name|indexScopedSettings
 decl_stmt|;
 annotation|@
 name|Inject
@@ -280,8 +280,8 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|IndexScopeSettings
-name|indexScopeSettings
+name|IndexScopedSettings
+name|indexScopedSettings
 parameter_list|)
 block|{
 name|super
@@ -315,9 +315,9 @@ name|indexTemplateService
 expr_stmt|;
 name|this
 operator|.
-name|indexScopeSettings
+name|indexScopedSettings
 operator|=
-name|indexScopeSettings
+name|indexScopedSettings
 expr_stmt|;
 block|}
 annotation|@
@@ -455,7 +455,7 @@ operator|.
 name|INDEX_SETTING_PREFIX
 argument_list|)
 expr_stmt|;
-name|indexScopeSettings
+name|indexScopedSettings
 operator|.
 name|validate
 argument_list|(

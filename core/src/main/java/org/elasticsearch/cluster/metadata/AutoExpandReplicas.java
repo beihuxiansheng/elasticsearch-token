@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class acts as a functional wrapper around the<tt>index.auto_expand_replicas</tt> setting.  * This setting or rather it's value is expanded into a min and max value which requires special handling  * based on the number of datanodes in the cluster. This class handels all the parsing and streamlines the access to these values.  */
+comment|/**  * This class acts as a functional wrapper around the<tt>index.auto_expand_replicas</tt> setting.  * This setting or rather it's value is expanded into a min and max value which requires special handling  * based on the number of datanodes in the cluster. This class handles all the parsing and streamlines the access to these values.  */
 end_comment
 
 begin_class
@@ -326,6 +326,7 @@ name|boolean
 name|enabled
 decl_stmt|;
 DECL|method|AutoExpandReplicas
+specifier|private
 name|AutoExpandReplicas
 parameter_list|(
 name|int
@@ -424,21 +425,14 @@ parameter_list|()
 block|{
 return|return
 name|enabled
-operator|==
-literal|false
 condition|?
-name|Boolean
-operator|.
-name|toString
-argument_list|(
-name|enabled
-argument_list|)
-else|:
 name|minReplicas
 operator|+
 literal|"-"
 operator|+
 name|maxReplicas
+else|:
+literal|"false"
 return|;
 block|}
 DECL|method|isEnabled

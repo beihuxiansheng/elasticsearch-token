@@ -1285,7 +1285,7 @@ name|SETTING_AUTO_EXPAND_REPLICAS
 init|=
 literal|"index.auto_expand_replicas"
 decl_stmt|;
-DECL|field|SETTING_AUTO_EXPAND_REPLICAS_SETTING
+DECL|field|INDEX_AUTO_EXPAND_REPLICAS_SETTING
 specifier|public
 specifier|static
 specifier|final
@@ -1293,7 +1293,7 @@ name|Setting
 argument_list|<
 name|AutoExpandReplicas
 argument_list|>
-name|SETTING_AUTO_EXPAND_REPLICAS_SETTING
+name|INDEX_AUTO_EXPAND_REPLICAS_SETTING
 init|=
 name|AutoExpandReplicas
 operator|.
