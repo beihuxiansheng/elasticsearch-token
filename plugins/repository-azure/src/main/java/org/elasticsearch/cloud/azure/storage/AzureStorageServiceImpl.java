@@ -719,7 +719,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|setTimeoutIntervalInMs
+name|setMaximumExecutionTimeInMs
 argument_list|(
 name|timeout
 argument_list|)
@@ -735,14 +735,14 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can not cast ["
+literal|"Can not convert ["
 operator|+
 name|azureStorageSettings
 operator|.
 name|getTimeout
 argument_list|()
 operator|+
-literal|"] to int."
+literal|"]. It can not be longer than 2,147,483,647ms."
 argument_list|)
 throw|;
 block|}

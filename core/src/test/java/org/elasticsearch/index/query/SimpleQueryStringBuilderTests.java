@@ -1848,6 +1848,12 @@ name|minimumShouldMatch
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|boolQuery
+operator|.
+name|isCoordDisabled
+argument_list|()
 condition|)
 block|{
 name|assertThat

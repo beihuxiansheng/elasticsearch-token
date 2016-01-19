@@ -360,6 +360,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|MasterNodeRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends

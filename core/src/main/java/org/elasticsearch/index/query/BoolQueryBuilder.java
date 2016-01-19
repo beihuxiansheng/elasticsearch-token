@@ -266,6 +266,9 @@ specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|mustClauses
 init|=
@@ -280,6 +283,9 @@ specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|mustNotClauses
 init|=
@@ -294,6 +300,9 @@ specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|filterClauses
 init|=
@@ -308,6 +317,9 @@ specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|shouldClauses
 init|=
@@ -342,6 +354,9 @@ name|BoolQueryBuilder
 name|must
 parameter_list|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -377,6 +392,9 @@ specifier|public
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|must
 parameter_list|()
@@ -394,6 +412,9 @@ name|BoolQueryBuilder
 name|filter
 parameter_list|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -423,12 +444,15 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Gets the queries that<b>must</b> appear in the matching documents but don't conntribute to scoring      */
+comment|/**      * Gets the queries that<b>must</b> appear in the matching documents but don't contribute to scoring      */
 DECL|method|filter
 specifier|public
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|filter
 parameter_list|()
@@ -446,6 +470,9 @@ name|BoolQueryBuilder
 name|mustNot
 parameter_list|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -481,6 +508,9 @@ specifier|public
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|mustNot
 parameter_list|()
@@ -498,6 +528,9 @@ name|BoolQueryBuilder
 name|should
 parameter_list|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -533,6 +566,9 @@ specifier|public
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|should
 parameter_list|()
@@ -867,6 +903,9 @@ parameter_list|,
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|clauses
 parameter_list|,
@@ -899,6 +938,9 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|clause
 range|:
 name|clauses
@@ -1127,6 +1169,9 @@ parameter_list|,
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|clauses
 parameter_list|,
@@ -1139,6 +1184,9 @@ block|{
 for|for
 control|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|query
 range|:
 name|clauses
@@ -1352,6 +1400,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|queryBuilders
 init|=

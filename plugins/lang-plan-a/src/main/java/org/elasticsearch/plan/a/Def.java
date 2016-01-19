@@ -744,7 +744,7 @@ operator|)
 name|owner
 operator|)
 operator|.
-name|add
+name|set
 argument_list|(
 name|index
 argument_list|,
@@ -1373,7 +1373,7 @@ operator|)
 name|array
 operator|)
 operator|.
-name|add
+name|set
 argument_list|(
 operator|(
 name|int

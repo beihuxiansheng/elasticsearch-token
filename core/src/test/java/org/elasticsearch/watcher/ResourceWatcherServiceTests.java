@@ -495,6 +495,9 @@ block|}
 decl_stmt|;
 comment|// checking default freq
 name|WatcherHandle
+argument_list|<
+name|?
+argument_list|>
 name|handle
 init|=
 name|service

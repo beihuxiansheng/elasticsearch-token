@@ -68,6 +68,18 @@ name|AtomicLong
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
 begin_class
 DECL|class|PrioritizedRunnableTests
 specifier|public
@@ -76,6 +88,7 @@ name|PrioritizedRunnableTests
 extends|extends
 name|ESTestCase
 block|{
+comment|// test unit conversion with a controlled clock
 DECL|method|testGetAgeInMillis
 specifier|public
 name|void
@@ -112,7 +125,7 @@ specifier|public
 name|void
 name|run
 parameter_list|()
-block|{              }
+block|{             }
 block|}
 decl_stmt|;
 name|assertEquals
@@ -161,6 +174,111 @@ name|runnable
 operator|.
 name|getAgeInMillis
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// test age advances with System#nanoTime
+DECL|method|testGetAgeInMillisWithRealClock
+specifier|public
+name|void
+name|testGetAgeInMillisWithRealClock
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|long
+name|nanosecondsInMillisecond
+init|=
+name|TimeUnit
+operator|.
+name|NANOSECONDS
+operator|.
+name|convert
+argument_list|(
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
+decl_stmt|;
+name|PrioritizedRunnable
+name|runnable
+init|=
+operator|new
+name|PrioritizedRunnable
+argument_list|(
+name|Priority
+operator|.
+name|NORMAL
+argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{             }
+block|}
+decl_stmt|;
+comment|// force at least one millisecond to elapse, but ensure the
+comment|// clock has enough resolution to observe the passage of time
+name|long
+name|start
+init|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+decl_stmt|;
+name|long
+name|elapsed
+decl_stmt|;
+while|while
+condition|(
+operator|(
+name|elapsed
+operator|=
+operator|(
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+operator|-
+name|start
+operator|)
+operator|)
+operator|<
+name|nanosecondsInMillisecond
+condition|)
+block|{
+comment|// busy spin
+block|}
+comment|// creation happened before start, so age will be at least as
+comment|// large as elapsed
+name|assertThat
+argument_list|(
+name|runnable
+operator|.
+name|getAgeInMillis
+argument_list|()
+argument_list|,
+name|greaterThanOrEqualTo
+argument_list|(
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+operator|.
+name|convert
+argument_list|(
+name|elapsed
+argument_list|,
+name|TimeUnit
+operator|.
+name|NANOSECONDS
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

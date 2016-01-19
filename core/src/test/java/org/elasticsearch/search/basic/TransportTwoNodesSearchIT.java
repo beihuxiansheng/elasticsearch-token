@@ -703,13 +703,6 @@ argument_list|(
 name|indexSettings
 argument_list|()
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"routing.hash.type"
-argument_list|,
-literal|"simple"
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -994,13 +987,6 @@ name|put
 argument_list|(
 name|indexSettings
 argument_list|()
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"routing.hash.type"
-argument_list|,
-literal|"simple"
 argument_list|)
 decl_stmt|;
 name|client

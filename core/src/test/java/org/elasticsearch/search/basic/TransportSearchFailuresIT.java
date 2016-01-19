@@ -384,16 +384,6 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|1
-argument_list|,
-name|settingsBuilder
-argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"routing.hash.type"
-argument_list|,
-literal|"simple"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

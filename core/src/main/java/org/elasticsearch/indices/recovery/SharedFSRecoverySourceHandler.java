@@ -237,11 +237,7 @@ block|}
 block|}
 name|prepareTargetForTranslog
 argument_list|(
-name|Translog
-operator|.
-name|View
-operator|.
-name|EMPTY_VIEW
+literal|0
 argument_list|)
 expr_stmt|;
 name|finalizeRecovery

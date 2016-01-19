@@ -343,6 +343,9 @@ name|void
 name|copyHeadersAndContext
 parameter_list|(
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 name|actionRequest
 parameter_list|,
 name|RestRequest
@@ -407,6 +410,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
+argument_list|<
+name|Request
+argument_list|>
 parameter_list|,
 name|Response
 extends|extends

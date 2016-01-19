@@ -2988,6 +2988,11 @@ name|config
 operator|.
 name|selectedFields
 argument_list|)
+operator|.
+name|setRealtime
+argument_list|(
+literal|false
+argument_list|)
 return|;
 block|}
 DECL|method|getTermVectorsFromLucene

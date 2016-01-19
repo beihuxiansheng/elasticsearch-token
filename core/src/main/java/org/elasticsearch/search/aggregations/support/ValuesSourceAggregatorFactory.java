@@ -465,6 +465,12 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+comment|// Safe because we check the types with isAssignableFrom
 DECL|method|resolveValuesSourceConfigFromAncestors
 specifier|private
 name|void
@@ -484,6 +490,9 @@ name|requiredValuesSourceType
 parameter_list|)
 block|{
 name|ValuesSourceConfig
+argument_list|<
+name|?
+argument_list|>
 name|config
 decl_stmt|;
 while|while
@@ -505,6 +514,9 @@ operator|=
 operator|(
 operator|(
 name|ValuesSourceAggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|parent
 operator|)
@@ -550,6 +562,12 @@ name|this
 operator|.
 name|config
 operator|=
+operator|(
+name|ValuesSourceConfig
+argument_list|<
+name|VS
+argument_list|>
+operator|)
 name|config
 expr_stmt|;
 comment|// if the user explicitly defined a format pattern, we'll do our best to keep it even when we inherit the
@@ -586,6 +604,9 @@ operator|(
 name|ValueFormat
 operator|.
 name|Patternable
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|format
 operator|)

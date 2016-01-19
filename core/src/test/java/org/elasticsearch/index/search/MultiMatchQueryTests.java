@@ -340,7 +340,11 @@ argument_list|(
 name|mapping
 argument_list|)
 argument_list|,
-literal|true
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)

@@ -236,6 +236,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Implementation of a ScriptEngine for the Plan A language.  */
+end_comment
+
 begin_class
 DECL|class|PlanAScriptEngineService
 specifier|public
@@ -246,6 +250,7 @@ name|AbstractComponent
 implements|implements
 name|ScriptEngineService
 block|{
+comment|/**      * Standard name of the Plan A language.      */
 DECL|field|NAME
 specifier|public
 specifier|static
@@ -255,7 +260,7 @@ name|NAME
 init|=
 literal|"plan-a"
 decl_stmt|;
-comment|// default settings, used unless otherwise specified
+comment|/**      * Default compiler settings to be used.      */
 DECL|field|DEFAULT_COMPILER_SETTINGS
 specifier|private
 specifier|static
@@ -267,109 +272,7 @@ operator|new
 name|CompilerSettings
 argument_list|()
 decl_stmt|;
-DECL|field|NUMERIC_OVERFLOW
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NUMERIC_OVERFLOW
-init|=
-literal|"numeric_overflow"
-decl_stmt|;
-comment|// TODO: how should custom definitions be specified?
-DECL|field|definition
-specifier|private
-name|Definition
-name|definition
-init|=
-literal|null
-decl_stmt|;
-annotation|@
-name|Inject
-DECL|method|PlanAScriptEngineService
-specifier|public
-name|PlanAScriptEngineService
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setDefinition
-specifier|public
-name|void
-name|setDefinition
-parameter_list|(
-specifier|final
-name|Definition
-name|definition
-parameter_list|)
-block|{
-name|this
-operator|.
-name|definition
-operator|=
-operator|new
-name|Definition
-argument_list|(
-name|definition
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|types
-specifier|public
-name|String
-index|[]
-name|types
-parameter_list|()
-block|{
-return|return
-operator|new
-name|String
-index|[]
-block|{
-name|NAME
-block|}
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|extensions
-specifier|public
-name|String
-index|[]
-name|extensions
-parameter_list|()
-block|{
-return|return
-operator|new
-name|String
-index|[]
-block|{
-name|NAME
-block|}
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|sandboxed
-specifier|public
-name|boolean
-name|sandboxed
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-comment|// context used during compilation
+comment|/**      * Permissions context used during compilation.      */
 DECL|field|COMPILATION_CONTEXT
 specifier|private
 specifier|static
@@ -377,8 +280,10 @@ specifier|final
 name|AccessControlContext
 name|COMPILATION_CONTEXT
 decl_stmt|;
+comment|/**      * Setup the allowed permissions.      */
 static|static
 block|{
+specifier|final
 name|Permissions
 name|none
 init|=
@@ -411,6 +316,101 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Used only for testing.      */
+DECL|field|definition
+specifier|private
+name|Definition
+name|definition
+init|=
+literal|null
+decl_stmt|;
+comment|/**      * Used only for testing.      */
+DECL|method|setDefinition
+name|void
+name|setDefinition
+parameter_list|(
+specifier|final
+name|Definition
+name|definition
+parameter_list|)
+block|{
+name|this
+operator|.
+name|definition
+operator|=
+name|definition
+expr_stmt|;
+block|}
+comment|/**      * Constructor.      * @param settings The settings to initialize the engine with.      */
+annotation|@
+name|Inject
+DECL|method|PlanAScriptEngineService
+specifier|public
+name|PlanAScriptEngineService
+parameter_list|(
+specifier|final
+name|Settings
+name|settings
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the type name(s) for the language.      * @return Always contains only the single name of the language.      */
+annotation|@
+name|Override
+DECL|method|types
+specifier|public
+name|String
+index|[]
+name|types
+parameter_list|()
+block|{
+return|return
+operator|new
+name|String
+index|[]
+block|{
+name|NAME
+block|}
+return|;
+block|}
+comment|/**      * Get the extension(s) for the language.      * @return Always contains only the single extension of the language.      */
+annotation|@
+name|Override
+DECL|method|extensions
+specifier|public
+name|String
+index|[]
+name|extensions
+parameter_list|()
+block|{
+return|return
+operator|new
+name|String
+index|[]
+block|{
+name|NAME
+block|}
+return|;
+block|}
+comment|/**      * Whether or not the engine is secure.      * @return Always true as the engine should be secure at runtime.      */
+annotation|@
+name|Override
+DECL|method|sandboxed
+specifier|public
+name|boolean
+name|sandboxed
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|/**      * Compiles a Plan A script with the specified parameters.      * @param script The code to be compiled.      * @param params The params used to modify the compiler settings on a per script basis.      * @return Compiled script object represented by an {@link Executable}.      */
 annotation|@
 name|Override
 DECL|method|compile
@@ -418,9 +418,11 @@ specifier|public
 name|Object
 name|compile
 parameter_list|(
+specifier|final
 name|String
 name|script
 parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -442,6 +444,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// Use the default settings.
 name|compilerSettings
 operator|=
 name|DEFAULT_COMPILER_SETTINGS
@@ -449,7 +452,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// custom settings
+comment|// Use custom settings specified by params.
 name|compilerSettings
 operator|=
 operator|new
@@ -462,7 +465,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|clone
+name|copy
 init|=
 operator|new
 name|HashMap
@@ -474,10 +477,12 @@ decl_stmt|;
 name|String
 name|value
 init|=
-name|clone
+name|copy
 operator|.
 name|remove
 argument_list|(
+name|CompilerSettings
+operator|.
 name|NUMERIC_OVERFLOW
 argument_list|)
 decl_stmt|;
@@ -488,7 +493,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: can we get a real boolean parser in here?
 name|compilerSettings
 operator|.
 name|setNumericOverflow
@@ -502,10 +506,41 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|value
+operator|=
+name|copy
+operator|.
+name|remove
+argument_list|(
+name|CompilerSettings
+operator|.
+name|MAX_LOOP_COUNTER
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+name|compilerSettings
+operator|.
+name|setMaxLoopCounter
+argument_list|(
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|value
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
-name|clone
+name|copy
 operator|.
 name|isEmpty
 argument_list|()
@@ -517,12 +552,13 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Unrecognized compile-time parameter(s): "
 operator|+
-name|clone
+name|copy
 argument_list|)
 throw|;
 block|}
 block|}
-comment|// check we ourselves are not being called by unprivileged code
+comment|// Check we ourselves are not being called by unprivileged code.
+specifier|final
 name|SecurityManager
 name|sm
 init|=
@@ -548,7 +584,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// create our loader (which loads compiled code with no permissions)
+comment|// Create our loader (which loads compiled code with no permissions).
+specifier|final
 name|Compiler
 operator|.
 name|Loader
@@ -593,7 +630,7 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|// drop all permissions to actually compile the code itself
+comment|// Drop all permissions to actually compile the code itself.
 return|return
 name|AccessController
 operator|.
@@ -620,7 +657,7 @@ name|compile
 argument_list|(
 name|loader
 argument_list|,
-literal|"something"
+literal|"unknown"
 argument_list|,
 name|script
 argument_list|,
@@ -636,6 +673,7 @@ name|COMPILATION_CONTEXT
 argument_list|)
 return|;
 block|}
+comment|/**      * Retrieve an {@link ExecutableScript} for later use.      * @param compiledScript A previously compiled script.      * @param vars The variables to be used in the script.      * @return An {@link ExecutableScript} with the currently specified variables.      */
 annotation|@
 name|Override
 DECL|method|executable
@@ -643,9 +681,11 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
+specifier|final
 name|CompiledScript
 name|compiledScript
 parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -673,6 +713,7 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Retrieve a {@link SearchScript} for later use.      * @param compiledScript A previously compiled script.      * @param lookup The object that ultimately allows access to search fields.      * @param vars The variables to be used in the script.      * @return An {@link SearchScript} with the currently specified variables.      */
 annotation|@
 name|Override
 DECL|method|search
@@ -680,12 +721,15 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
+specifier|final
 name|CompiledScript
 name|compiledScript
 parameter_list|,
+specifier|final
 name|SearchLookup
 name|lookup
 parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -700,12 +744,14 @@ operator|new
 name|SearchScript
 argument_list|()
 block|{
+comment|/**              * Get the search script that will have access to search field values.              * @param context The LeafReaderContext to be used.              * @return A script that will have the search fields from the current context available for use.              */
 annotation|@
 name|Override
 specifier|public
 name|LeafSearchScript
 name|getLeafSearchScript
 parameter_list|(
+specifier|final
 name|LeafReaderContext
 name|context
 parameter_list|)
@@ -735,6 +781,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**              * Whether or not the score is needed.              * @return Always true as it's assumed score is needed.              */
 annotation|@
 name|Override
 specifier|public
@@ -745,11 +792,11 @@ block|{
 return|return
 literal|true
 return|;
-comment|// TODO: maybe even do these different and more like expressions.
 block|}
 block|}
 return|;
 block|}
+comment|/**      * Action taken when a script is removed from the cache.      * @param script The removed script.      */
 annotation|@
 name|Override
 DECL|method|scriptRemoved
@@ -757,12 +804,14 @@ specifier|public
 name|void
 name|scriptRemoved
 parameter_list|(
+specifier|final
 name|CompiledScript
 name|script
 parameter_list|)
 block|{
-comment|// nothing to do
+comment|// Nothing to do.
 block|}
+comment|/**      * Action taken when the engine is closed.      */
 annotation|@
 name|Override
 DECL|method|close
@@ -773,7 +822,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// nothing to do
+comment|// Nothing to do.
 block|}
 block|}
 end_class

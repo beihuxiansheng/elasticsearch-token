@@ -214,6 +214,17 @@ name|EmptyContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PlanAParser#emptyscope}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitEmptyscope
+name|T
+name|visitEmptyscope
+parameter_list|(
+name|PlanAParser
+operator|.
+name|EmptyscopeContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by {@link PlanAParser#initializer}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitInitializer
 name|T
@@ -266,6 +277,17 @@ parameter_list|(
 name|PlanAParser
 operator|.
 name|DeclvarContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PlanAParser#trap}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitTrap
+name|T
+name|visitTrap
+parameter_list|(
+name|PlanAParser
+operator|.
+name|TrapContext
 name|ctx
 parameter_list|)
 function_decl|;
