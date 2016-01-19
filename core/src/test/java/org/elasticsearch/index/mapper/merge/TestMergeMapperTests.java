@@ -2034,7 +2034,11 @@ literal|"type"
 argument_list|,
 name|mapping
 argument_list|,
-literal|true
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)
@@ -2102,7 +2106,11 @@ literal|"type"
 argument_list|,
 name|update
 argument_list|,
-literal|false
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)
