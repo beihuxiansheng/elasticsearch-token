@@ -87,11 +87,10 @@ name|value
 parameter_list|)
 lambda|->
 block|{
-specifier|final
+comment|// TODO change the following back to be final, https://github.com/elastic/elasticsearch/issues/16097
 name|int
 name|min
 decl_stmt|;
-specifier|final
 name|int
 name|max
 decl_stmt|;
