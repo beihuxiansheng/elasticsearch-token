@@ -453,6 +453,12 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+comment|// Supertype uses raw type
 DECL|method|nodeServices
 specifier|public
 name|Collection
