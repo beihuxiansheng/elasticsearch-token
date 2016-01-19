@@ -4789,6 +4789,9 @@ argument_list|(
 name|MapperService
 operator|.
 name|INDEX_MAPPING_NESTED_FIELDS_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -4865,6 +4868,9 @@ argument_list|(
 name|MapperService
 operator|.
 name|INDEX_MAPPING_NESTED_FIELDS_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -4941,6 +4947,9 @@ argument_list|(
 name|MapperService
 operator|.
 name|INDEX_MAPPING_NESTED_FIELDS_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|2
 argument_list|)
@@ -5117,6 +5126,9 @@ argument_list|(
 name|MapperService
 operator|.
 name|INDEX_MAPPING_NESTED_FIELDS_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)

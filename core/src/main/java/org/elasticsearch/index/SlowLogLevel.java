@@ -4,69 +4,70 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.recovery
+DECL|package|org.elasticsearch.index
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|recovery
+name|index
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
+name|Locale
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
-begin_class
-DECL|class|SmallTranslogOpsRecoveryIT
+begin_enum
+DECL|enum|SlowLogLevel
 specifier|public
-class|class
-name|SmallTranslogOpsRecoveryIT
-extends|extends
-name|SimpleRecoveryIT
+enum|enum
+name|SlowLogLevel
 block|{
-annotation|@
-name|Override
-DECL|method|recoverySettings
-specifier|protected
-name|Settings
-name|recoverySettings
-parameter_list|()
+DECL|enum constant|WARN
+DECL|enum constant|TRACE
+DECL|enum constant|INFO
+DECL|enum constant|DEBUG
+name|WARN
+block|,
+name|TRACE
+block|,
+name|INFO
+block|,
+name|DEBUG
+block|;
+DECL|method|parse
+specifier|public
+specifier|static
+name|SlowLogLevel
+name|parse
+parameter_list|(
+name|String
+name|level
+parameter_list|)
 block|{
 return|return
-name|Settings
-operator|.
-name|settingsBuilder
-argument_list|()
-operator|.
-name|put
+name|valueOf
 argument_list|(
-literal|"index.shard.recovery.translog_ops"
-argument_list|,
-literal|1
-argument_list|)
+name|level
 operator|.
-name|build
-argument_list|()
+name|toUpperCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+argument_list|)
 return|;
 block|}
 block|}
-end_class
+end_enum
 
 end_unit
 

@@ -316,7 +316,10 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_TYPE
+name|INDEX_QUERY_CACHE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|IndexModule
 operator|.
@@ -327,7 +330,10 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_EVERYTHING
+name|INDEX_QUERY_CACHE_EVERYTHING_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

@@ -9680,9 +9680,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|FilterAllocationDecider
+name|IndexMetaData
 operator|.
-name|INDEX_ROUTING_EXCLUDE_GROUP
+name|INDEX_ROUTING_EXCLUDE_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"_id"
 argument_list|,
