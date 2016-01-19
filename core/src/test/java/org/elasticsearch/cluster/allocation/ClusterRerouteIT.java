@@ -180,7 +180,7 @@ name|allocation
 operator|.
 name|command
 operator|.
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 import|;
 end_import
 
@@ -914,7 +914,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
 operator|new
 name|ShardId
@@ -1081,7 +1081,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
 operator|new
 name|ShardId
@@ -2105,7 +2105,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
 operator|new
 name|ShardId
@@ -2553,7 +2553,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
 operator|new
 name|ShardId

@@ -224,6 +224,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends
@@ -377,7 +380,7 @@ block|}
 DECL|method|execute
 specifier|public
 specifier|final
-name|void
+name|Task
 name|execute
 parameter_list|(
 name|Request
@@ -490,6 +493,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|task
+return|;
 block|}
 DECL|method|execute
 specifier|private
@@ -659,6 +665,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends

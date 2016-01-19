@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -2162,26 +2182,6 @@ name|NettyTransport
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  * A module to handle registering and binding all network related classes.  */
 end_comment
@@ -2894,7 +2894,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * Creates a network module that custom networking classes can be plugged into.      *      * @param networkService A constructed network service object to bind.      * @param settings The settings for the node      * @param transportClient True if only transport classes should be allowed to be registered, false otherwise.      */
+DECL|field|namedWriteableRegistry
+specifier|private
+specifier|final
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
+decl_stmt|;
+comment|/**      * Creates a network module that custom networking classes can be plugged into.      *      * @param networkService A constructed network service object to bind.      * @param settings The settings for the node      * @param transportClient True if only transport classes should be allowed to be registered, false otherwise.      * @param namedWriteableRegistry registry for named writeables for use during streaming      */
 DECL|method|NetworkModule
 specifier|public
 name|NetworkModule
@@ -2907,6 +2913,9 @@ name|settings
 parameter_list|,
 name|boolean
 name|transportClient
+parameter_list|,
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|this
@@ -2926,6 +2935,12 @@ operator|.
 name|transportClient
 operator|=
 name|transportClient
+expr_stmt|;
+name|this
+operator|.
+name|namedWriteableRegistry
+operator|=
+name|namedWriteableRegistry
 expr_stmt|;
 name|registerTransportService
 argument_list|(
@@ -3220,8 +3235,10 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|asEagerSingleton
-argument_list|()
+name|toInstance
+argument_list|(
+name|namedWriteableRegistry
+argument_list|)
 expr_stmt|;
 name|transportServiceTypes
 operator|.

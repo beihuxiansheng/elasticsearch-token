@@ -79,7 +79,7 @@ name|Collections
 operator|.
 name|singletonMap
 argument_list|(
-name|PlanAScriptEngineService
+name|CompilerSettings
 operator|.
 name|NUMERIC_OVERFLOW
 argument_list|,

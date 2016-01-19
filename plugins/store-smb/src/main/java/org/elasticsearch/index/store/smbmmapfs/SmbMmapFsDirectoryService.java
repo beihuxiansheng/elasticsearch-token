@@ -214,9 +214,11 @@ name|MMapDirectory
 argument_list|(
 name|location
 argument_list|,
-name|buildLockFactory
-argument_list|(
 name|indexSettings
+operator|.
+name|getValue
+argument_list|(
+name|INDEX_LOCK_FACTOR_SETTING
 argument_list|)
 argument_list|)
 argument_list|)

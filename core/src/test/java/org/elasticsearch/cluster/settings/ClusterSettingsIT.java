@@ -2332,7 +2332,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Failed to parse setting [discovery.zen.commit_timeout] with value [whatever] as a time value: unit is missing or unrecognized"
+literal|"Failed to parse setting [discovery.zen.publish_timeout] with value [whatever] as a time value: unit is missing or unrecognized"
 argument_list|)
 expr_stmt|;
 block|}

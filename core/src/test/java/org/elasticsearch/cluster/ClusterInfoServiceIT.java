@@ -944,7 +944,10 @@ name|put
 argument_list|(
 name|Store
 operator|.
-name|INDEX_STORE_STATS_REFRESH_INTERVAL
+name|INDEX_STORE_STATS_REFRESH_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -953,7 +956,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
+name|INDEX_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.

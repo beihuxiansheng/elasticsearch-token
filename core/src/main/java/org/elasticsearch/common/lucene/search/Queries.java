@@ -655,6 +655,21 @@ return|return
 name|query
 return|;
 block|}
+comment|// Queries with a single word expanded with synonyms
+comment|// have their coordination factor disabled (@see org.apache.lucene.util.QueryBuilder#analyzeBoolean()).
+comment|// minimumShouldMatch should not be applicable in such case.
+if|if
+condition|(
+name|query
+operator|.
+name|isCoordDisabled
+argument_list|()
+condition|)
+block|{
+return|return
+name|query
+return|;
+block|}
 name|int
 name|optionalClauses
 init|=

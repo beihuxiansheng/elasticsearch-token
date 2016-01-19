@@ -1319,7 +1319,7 @@ expr_stmt|;
 comment|// this should not trigger retry or anything and the listener should report exception immediately
 name|transport
 operator|.
-name|handleResponse
+name|handleRemoteError
 argument_list|(
 name|requestId
 argument_list|,
@@ -1669,7 +1669,7 @@ argument_list|()
 decl_stmt|;
 name|transport
 operator|.
-name|handleResponse
+name|handleLocalError
 argument_list|(
 name|requestId
 argument_list|,
@@ -1872,7 +1872,7 @@ argument_list|()
 decl_stmt|;
 name|transport
 operator|.
-name|handleResponse
+name|handleLocalError
 argument_list|(
 name|requestId
 argument_list|,
@@ -1933,7 +1933,7 @@ name|requestId
 expr_stmt|;
 name|transport
 operator|.
-name|handleResponse
+name|handleLocalError
 argument_list|(
 name|requestId
 argument_list|,

@@ -1242,10 +1242,20 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|SettingsException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
+name|assertEquals
+argument_list|(
+literal|"Failed to parse value [bad] for setting [index.number_of_shards]"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Expected
 block|}
 name|logger

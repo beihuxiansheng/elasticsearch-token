@@ -195,6 +195,7 @@ end_comment
 begin_class
 DECL|class|ReplicationRequest
 specifier|public
+specifier|abstract
 class|class
 name|ReplicationRequest
 parameter_list|<

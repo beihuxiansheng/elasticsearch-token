@@ -1652,7 +1652,7 @@ name|getTranslogRecoveryPerformer
 argument_list|()
 decl_stmt|;
 try|try
-init|(
+block|{
 name|Translog
 operator|.
 name|Snapshot
@@ -1662,8 +1662,7 @@ name|translog
 operator|.
 name|newSnapshot
 argument_list|()
-init|)
-block|{
+decl_stmt|;
 name|Translog
 operator|.
 name|Operation
