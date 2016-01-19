@@ -783,7 +783,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"{} sending [{}] for shard [{}]"
+literal|"{} sending [{}] to [{}] for shard [{}]"
 argument_list|,
 name|shardRoutingEntry
 operator|.
@@ -794,6 +794,11 @@ name|getId
 argument_list|()
 argument_list|,
 name|actionName
+argument_list|,
+name|masterNode
+operator|.
+name|getId
+argument_list|()
 argument_list|,
 name|shardRoutingEntry
 argument_list|)
