@@ -1188,18 +1188,18 @@ argument_list|)
 expr_stmt|;
 name|Map
 argument_list|<
-name|String
+name|?
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|map
 init|=
 operator|(
 name|Map
 argument_list|<
-name|String
+name|?
 argument_list|,
-name|Object
+name|?
 argument_list|>
 operator|)
 name|object
@@ -6229,6 +6229,12 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+comment|// We'll just get a ClassCastException a couple lines down if we're wrong, its ok.
 name|List
 argument_list|<
 name|Integer
