@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -77,26 +97,6 @@ operator|.
 name|lookup
 operator|.
 name|LeafSearchLookup
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -326,23 +326,6 @@ operator|)
 operator|.
 name|longValue
 argument_list|()
-return|;
-block|}
-comment|/**      * This method has no effect in Plan A.      * @param value The value to unwrap.      * @return The value passed in.      */
-annotation|@
-name|Override
-DECL|method|unwrap
-specifier|public
-name|Object
-name|unwrap
-parameter_list|(
-specifier|final
-name|Object
-name|value
-parameter_list|)
-block|{
-return|return
-name|value
 return|;
 block|}
 comment|/**      * Sets the scorer to be accessible within a script.      * @param scorer The scorer used for a search.      */
