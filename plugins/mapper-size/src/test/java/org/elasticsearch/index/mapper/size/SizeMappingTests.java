@@ -1168,7 +1168,11 @@ argument_list|(
 name|enabledMapping
 argument_list|)
 argument_list|,
-literal|true
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)
@@ -1228,7 +1232,11 @@ argument_list|(
 name|disabledMapping
 argument_list|)
 argument_list|,
-literal|false
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)

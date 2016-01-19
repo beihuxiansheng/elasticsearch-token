@@ -2506,7 +2506,11 @@ name|string
 argument_list|()
 argument_list|)
 argument_list|,
-literal|false
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)
@@ -2538,7 +2542,11 @@ operator|+
 literal|"\":{\"type\":\"integer\"}}}}}"
 argument_list|)
 argument_list|,
-literal|false
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)

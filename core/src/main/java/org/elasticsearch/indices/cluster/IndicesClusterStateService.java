@@ -2679,7 +2679,6 @@ name|mappingType
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we don't apply default, since it has been applied when the mappings were parsed initially
 name|mapperService
 operator|.
 name|merge
@@ -2688,7 +2687,11 @@ name|mappingType
 argument_list|,
 name|mappingSource
 argument_list|,
-literal|false
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_RECOVERY
 argument_list|,
 literal|true
 argument_list|)
