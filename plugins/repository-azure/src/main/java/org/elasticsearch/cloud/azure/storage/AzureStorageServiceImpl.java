@@ -719,7 +719,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|setTimeoutIntervalInMs
+name|setMaximumExecutionTimeInMs
 argument_list|(
 name|timeout
 argument_list|)
