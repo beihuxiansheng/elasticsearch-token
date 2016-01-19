@@ -373,15 +373,15 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Encapsulates all valid cluster level settings.  */
+comment|/**  * Encapsulates all valid index level settings.  * @see org.elasticsearch.common.settings.Setting.Scope#INDEX  */
 end_comment
 
 begin_class
-DECL|class|IndexScopeSettings
+DECL|class|IndexScopedSettings
 specifier|public
 specifier|final
 class|class
-name|IndexScopeSettings
+name|IndexScopedSettings
 extends|extends
 name|AbstractScopedSettings
 block|{
@@ -776,24 +776,24 @@ DECL|field|DEFAULT_SCOPED_SETTINGS
 specifier|public
 specifier|static
 specifier|final
-name|IndexScopeSettings
+name|IndexScopedSettings
 name|DEFAULT_SCOPED_SETTINGS
 init|=
 operator|new
-name|IndexScopeSettings
+name|IndexScopedSettings
 argument_list|(
 name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-name|IndexScopeSettings
+name|IndexScopedSettings
 operator|.
 name|BUILT_IN_INDEX_SETTINGS
 argument_list|)
 decl_stmt|;
-DECL|method|IndexScopeSettings
+DECL|method|IndexScopedSettings
 specifier|public
-name|IndexScopeSettings
+name|IndexScopedSettings
 parameter_list|(
 name|Settings
 name|settings
@@ -822,14 +822,14 @@ name|INDEX
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|IndexScopeSettings
+DECL|method|IndexScopedSettings
 specifier|private
-name|IndexScopeSettings
+name|IndexScopedSettings
 parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|IndexScopeSettings
+name|IndexScopedSettings
 name|other
 parameter_list|,
 name|IndexMetaData
@@ -851,7 +851,7 @@ expr_stmt|;
 block|}
 DECL|method|copy
 specifier|public
-name|IndexScopeSettings
+name|IndexScopedSettings
 name|copy
 parameter_list|(
 name|Settings
@@ -863,7 +863,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|IndexScopeSettings
+name|IndexScopedSettings
 argument_list|(
 name|settings
 argument_list|,
