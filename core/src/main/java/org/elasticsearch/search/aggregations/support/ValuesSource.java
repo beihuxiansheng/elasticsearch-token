@@ -492,6 +492,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * How to load values for an aggregation.  */
+end_comment
+
 begin_class
 DECL|class|ValuesSource
 specifier|public
@@ -2878,6 +2882,8 @@ name|getBytesValues
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|geoPointValues
 specifier|public
 name|org

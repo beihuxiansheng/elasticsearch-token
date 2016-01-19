@@ -818,10 +818,16 @@ parameter_list|<
 name|Request
 extends|extends
 name|ReplicationRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|ReplicaRequest
 extends|extends
 name|ReplicationRequest
+parameter_list|<
+name|ReplicaRequest
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends

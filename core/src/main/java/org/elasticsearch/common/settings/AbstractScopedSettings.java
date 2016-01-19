@@ -192,6 +192,9 @@ specifier|final
 name|List
 argument_list|<
 name|SettingUpdater
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|settingUpdaters
 init|=
@@ -532,6 +535,9 @@ decl_stmt|;
 for|for
 control|(
 name|SettingUpdater
+argument_list|<
+name|?
+argument_list|>
 name|settingUpdater
 range|:
 name|settingUpdaters
@@ -696,6 +702,9 @@ decl_stmt|;
 for|for
 control|(
 name|SettingUpdater
+argument_list|<
+name|?
+argument_list|>
 name|settingUpdater
 range|:
 name|settingUpdaters
@@ -1120,7 +1129,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Transactional interface to update settings.      * @see Setting      */
+comment|/**      * Transactional interface to update settings.      * @see Setting      * @param<T> the type of the value of the setting      */
 DECL|interface|SettingUpdater
 specifier|public
 interface|interface
@@ -1278,6 +1287,9 @@ comment|/**      * Returns the {@link Setting} for the given key or<code>null</c
 DECL|method|get
 specifier|public
 name|Setting
+argument_list|<
+name|?
+argument_list|>
 name|get
 parameter_list|(
 name|String
@@ -1300,10 +1312,14 @@ decl_stmt|;
 if|if
 condition|(
 name|setting
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
+return|return
+name|setting
+return|;
+block|}
 for|for
 control|(
 name|Map
@@ -1346,13 +1362,6 @@ argument_list|()
 return|;
 block|}
 block|}
-block|}
-else|else
-block|{
-return|return
-name|setting
-return|;
-block|}
 return|return
 literal|null
 return|;
@@ -1369,6 +1378,9 @@ parameter_list|)
 block|{
 specifier|final
 name|Setting
+argument_list|<
+name|?
+argument_list|>
 name|setting
 init|=
 name|get

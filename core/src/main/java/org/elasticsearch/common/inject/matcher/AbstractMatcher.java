@@ -206,6 +206,9 @@ operator|&&
 operator|(
 operator|(
 name|AndMatcher
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|other
 operator|)
@@ -220,6 +223,9 @@ operator|&&
 operator|(
 operator|(
 name|AndMatcher
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|other
 operator|)
@@ -385,6 +391,9 @@ operator|&&
 operator|(
 operator|(
 name|OrMatcher
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|other
 operator|)
@@ -399,6 +408,9 @@ operator|&&
 operator|(
 operator|(
 name|OrMatcher
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|other
 operator|)

@@ -289,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A setting. Encapsulates typical stuff like default value, parsing, and scope.  * Some (dynamic=true) can by modified at run time using the API.  */
 end_comment
 
 begin_class
@@ -816,11 +816,15 @@ block|,
 DECL|enum constant|INDEX
 name|INDEX
 block|;     }
+comment|/**      * Build a new updater with a noop validator.      */
 DECL|method|newUpdater
 specifier|final
 name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
+argument_list|<
+name|T
+argument_list|>
 name|newUpdater
 parameter_list|(
 name|Consumer
@@ -848,10 +852,14 @@ block|{}
 argument_list|)
 return|;
 block|}
+comment|/**      * Build the updater responsible for validating new values, logging the new      * value, and eventually setting the value where it belongs.      */
 DECL|method|newUpdater
 name|AbstractScopedSettings
 operator|.
 name|SettingUpdater
+argument_list|<
+name|T
+argument_list|>
 name|newUpdater
 parameter_list|(
 name|Consumer
@@ -2466,6 +2474,8 @@ name|array
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|match

@@ -180,6 +180,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -654,9 +664,9 @@ specifier|public
 name|void
 name|initClient
 parameter_list|(
-name|InetSocketAddress
+name|URL
 index|[]
-name|addresses
+name|urls
 parameter_list|,
 name|Settings
 name|settings
@@ -682,7 +692,7 @@ name|restSpec
 argument_list|,
 name|settings
 argument_list|,
-name|addresses
+name|urls
 argument_list|)
 expr_stmt|;
 block|}

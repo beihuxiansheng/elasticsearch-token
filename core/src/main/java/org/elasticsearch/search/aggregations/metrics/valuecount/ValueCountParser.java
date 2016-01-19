@@ -165,6 +165,9 @@ throws|throws
 name|IOException
 block|{
 name|ValuesSourceParser
+argument_list|<
+name|?
+argument_list|>
 name|vsParser
 init|=
 name|ValuesSourceParser
@@ -275,6 +278,7 @@ operator|new
 name|ValueCountAggregator
 operator|.
 name|Factory
+argument_list|<>
 argument_list|(
 name|aggregationName
 argument_list|,

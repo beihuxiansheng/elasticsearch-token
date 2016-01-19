@@ -585,7 +585,11 @@ operator|.
 name|source
 argument_list|()
 argument_list|,
-literal|false
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_RECOVERY
 argument_list|,
 literal|false
 argument_list|)

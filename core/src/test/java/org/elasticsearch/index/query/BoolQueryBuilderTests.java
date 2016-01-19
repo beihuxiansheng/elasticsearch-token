@@ -813,7 +813,7 @@ name|booleanClause
 range|:
 name|booleanQuery
 operator|.
-name|getClauses
+name|clauses
 argument_list|()
 control|)
 block|{
@@ -849,6 +849,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|queryBuilders
 parameter_list|,
@@ -877,6 +880,9 @@ decl_stmt|;
 for|for
 control|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|query
 range|:
 name|queryBuilders
@@ -978,6 +984,9 @@ literal|0
 condition|)
 block|{
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|must
 init|=
 name|tempQueryBuilder
@@ -1023,6 +1032,9 @@ literal|0
 condition|)
 block|{
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|mustNot
 init|=
 name|tempQueryBuilder
@@ -1075,6 +1087,9 @@ literal|0
 condition|)
 block|{
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|should
 init|=
 name|tempQueryBuilder
@@ -1120,6 +1135,9 @@ literal|0
 condition|)
 block|{
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|filter
 init|=
 name|tempQueryBuilder

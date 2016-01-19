@@ -238,6 +238,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -479,6 +489,8 @@ specifier|final
 name|StartRecoveryRequest
 name|request
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|IndexService

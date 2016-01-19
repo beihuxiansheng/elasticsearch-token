@@ -2530,7 +2530,11 @@ name|string
 argument_list|()
 argument_list|)
 argument_list|,
-literal|false
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 name|request
 operator|.
@@ -2641,7 +2645,11 @@ name|string
 argument_list|()
 argument_list|)
 argument_list|,
-literal|true
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 name|request
 operator|.

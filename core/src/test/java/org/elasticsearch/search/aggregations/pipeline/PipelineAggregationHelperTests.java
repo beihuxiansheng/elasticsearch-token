@@ -496,6 +496,9 @@ index|[]
 name|values
 parameter_list|,
 name|ValuesSourceMetricsAggregationBuilder
+argument_list|<
+name|?
+argument_list|>
 name|metric
 parameter_list|)
 block|{
