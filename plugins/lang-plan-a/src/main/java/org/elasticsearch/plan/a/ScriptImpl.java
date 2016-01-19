@@ -100,6 +100,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * ScriptImpl can be used as either an {@link ExecutableScript} or a {@link LeafSearchScript}  * to run a previously compiled Plan A script.  */
+end_comment
+
 begin_class
 DECL|class|ScriptImpl
 specifier|final
@@ -110,12 +114,16 @@ name|ExecutableScript
 implements|,
 name|LeafSearchScript
 block|{
+comment|/**      * The Plan A Executable script that can be run.      */
 DECL|field|executable
+specifier|private
 specifier|final
 name|Executable
 name|executable
 decl_stmt|;
+comment|/**      * A map that can be used to access input parameters at run-time.      */
 DECL|field|variables
+specifier|private
 specifier|final
 name|Map
 argument_list|<
@@ -125,17 +133,22 @@ name|Object
 argument_list|>
 name|variables
 decl_stmt|;
+comment|/**      * The lookup is used to access search field values at run-time.      */
 DECL|field|lookup
+specifier|private
 specifier|final
 name|LeafSearchLookup
 name|lookup
 decl_stmt|;
+comment|/**      * Creates a ScriptImpl for the a previously compiled Plan A script.      * @param executable The previously compiled Plan A script.      * @param vars The initial variables to run the script with.      * @param lookup The lookup to allow search fields to be available if this is run as a search script.      */
 DECL|method|ScriptImpl
 name|ScriptImpl
 parameter_list|(
+specifier|final
 name|Executable
 name|executable
 parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -144,6 +157,7 @@ name|Object
 argument_list|>
 name|vars
 parameter_list|,
+specifier|final
 name|LeafSearchLookup
 name|lookup
 parameter_list|)
@@ -203,6 +217,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Set a variable for the script to be run against.      * @param name The variable name.      * @param value The variable value.      */
 annotation|@
 name|Override
 DECL|method|setNextVar
@@ -210,9 +225,11 @@ specifier|public
 name|void
 name|setNextVar
 parameter_list|(
+specifier|final
 name|String
 name|name
 parameter_list|,
+specifier|final
 name|Object
 name|value
 parameter_list|)
@@ -227,6 +244,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Run the script.      * @return The script result.      */
 annotation|@
 name|Override
 DECL|method|run
@@ -244,48 +262,7 @@ name|variables
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|runAsFloat
-specifier|public
-name|float
-name|runAsFloat
-parameter_list|()
-block|{
-return|return
-operator|(
-operator|(
-name|Number
-operator|)
-name|run
-argument_list|()
-operator|)
-operator|.
-name|floatValue
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|runAsLong
-specifier|public
-name|long
-name|runAsLong
-parameter_list|()
-block|{
-return|return
-operator|(
-operator|(
-name|Number
-operator|)
-name|run
-argument_list|()
-operator|)
-operator|.
-name|longValue
-argument_list|()
-return|;
-block|}
+comment|/**      * Run the script.      * @return The script result as a double.      */
 annotation|@
 name|Override
 DECL|method|runAsDouble
@@ -307,6 +284,51 @@ name|doubleValue
 argument_list|()
 return|;
 block|}
+comment|/**      * Run the script.      * @return The script result as a float.      */
+annotation|@
+name|Override
+DECL|method|runAsFloat
+specifier|public
+name|float
+name|runAsFloat
+parameter_list|()
+block|{
+return|return
+operator|(
+operator|(
+name|Number
+operator|)
+name|run
+argument_list|()
+operator|)
+operator|.
+name|floatValue
+argument_list|()
+return|;
+block|}
+comment|/**      * Run the script.      * @return The script result as a long.      */
+annotation|@
+name|Override
+DECL|method|runAsLong
+specifier|public
+name|long
+name|runAsLong
+parameter_list|()
+block|{
+return|return
+operator|(
+operator|(
+name|Number
+operator|)
+name|run
+argument_list|()
+operator|)
+operator|.
+name|longValue
+argument_list|()
+return|;
+block|}
+comment|/**      * This method has no effect in Plan A.      * @param value The value to unwrap.      * @return The value passed in.      */
 annotation|@
 name|Override
 DECL|method|unwrap
@@ -314,6 +336,7 @@ specifier|public
 name|Object
 name|unwrap
 parameter_list|(
+specifier|final
 name|Object
 name|value
 parameter_list|)
@@ -322,6 +345,7 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * Sets the scorer to be accessible within a script.      * @param scorer The scorer used for a search.      */
 annotation|@
 name|Override
 DECL|method|setScorer
@@ -329,6 +353,7 @@ specifier|public
 name|void
 name|setScorer
 parameter_list|(
+specifier|final
 name|Scorer
 name|scorer
 parameter_list|)
@@ -337,7 +362,7 @@ name|variables
 operator|.
 name|put
 argument_list|(
-literal|"_score"
+literal|"#score"
 argument_list|,
 operator|new
 name|ScoreAccessor
@@ -347,6 +372,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the current document.      * @param doc The current document.      */
 annotation|@
 name|Override
 DECL|method|setDocument
@@ -354,6 +380,7 @@ specifier|public
 name|void
 name|setDocument
 parameter_list|(
+specifier|final
 name|int
 name|doc
 parameter_list|)
@@ -374,6 +401,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Sets the current source.      * @param source The current source.      */
 annotation|@
 name|Override
 DECL|method|setSource
@@ -381,6 +409,7 @@ specifier|public
 name|void
 name|setSource
 parameter_list|(
+specifier|final
 name|Map
 argument_list|<
 name|String
