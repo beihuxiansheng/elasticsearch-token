@@ -66,6 +66,18 @@ name|TimeUnit
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
+import|;
+end_import
+
 begin_comment
 comment|/**  * An extension to thread pool executor, allowing (in the future) to add specific additional stats to it.  */
 end_comment
@@ -430,6 +442,33 @@ name|ex
 throw|;
 block|}
 block|}
+block|}
+comment|/**      * Returns a stream of all pending tasks. This is similar to {@link #getQueue()} but will expose the originally submitted      * {@link Runnable} instances rather than potentially wrapped ones.      */
+DECL|method|getTasks
+specifier|public
+name|Stream
+argument_list|<
+name|Runnable
+argument_list|>
+name|getTasks
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|getQueue
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|this
+operator|::
+name|unwrap
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
