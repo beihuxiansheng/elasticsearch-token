@@ -1202,7 +1202,7 @@ name|boolean
 name|detailedErrorsEnabled
 decl_stmt|;
 DECL|field|threadPool
-specifier|private
+specifier|protected
 specifier|final
 name|ThreadPool
 name|threadPool
