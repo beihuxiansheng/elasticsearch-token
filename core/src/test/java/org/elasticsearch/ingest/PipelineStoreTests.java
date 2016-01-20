@@ -72,18 +72,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -920,7 +908,7 @@ argument_list|()
 decl_stmt|;
 name|deleteRequest
 operator|.
-name|id
+name|setId
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1453,7 +1441,7 @@ argument_list|()
 decl_stmt|;
 name|deleteRequest
 operator|.
-name|id
+name|setId
 argument_list|(
 name|id
 argument_list|)

@@ -87,6 +87,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -116,10 +126,10 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
-DECL|method|id
+DECL|method|setId
 specifier|public
 name|void
-name|id
+name|setId
 parameter_list|(
 name|String
 name|id
@@ -129,13 +139,18 @@ name|this
 operator|.
 name|id
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|id
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|id
+DECL|method|getId
 specifier|public
 name|String
-name|id
+name|getId
 parameter_list|()
 block|{
 return|return

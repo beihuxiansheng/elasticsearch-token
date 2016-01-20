@@ -755,7 +755,7 @@ literal|"delete-pipeline-"
 operator|+
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 operator|new
@@ -870,7 +870,7 @@ name|containsKey
 argument_list|(
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|==
@@ -885,7 +885,7 @@ literal|"pipeline [{}] is missing"
 argument_list|,
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 throw|;
@@ -907,7 +907,7 @@ name|remove
 argument_list|(
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

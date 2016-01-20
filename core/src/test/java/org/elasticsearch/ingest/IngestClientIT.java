@@ -1575,7 +1575,7 @@ argument_list|()
 decl_stmt|;
 name|deletePipelineRequest
 operator|.
-name|id
+name|setId
 argument_list|(
 literal|"_id"
 argument_list|)
