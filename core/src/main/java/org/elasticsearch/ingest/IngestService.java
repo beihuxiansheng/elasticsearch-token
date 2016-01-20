@@ -124,9 +124,6 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|ClusterService
-name|clusterService
-parameter_list|,
 name|ProcessorsRegistry
 name|processorsRegistry
 parameter_list|)
@@ -145,8 +142,6 @@ operator|new
 name|PipelineStore
 argument_list|(
 name|settings
-argument_list|,
-name|clusterService
 argument_list|)
 expr_stmt|;
 name|this

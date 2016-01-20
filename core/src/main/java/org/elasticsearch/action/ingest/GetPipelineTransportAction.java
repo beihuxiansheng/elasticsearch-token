@@ -348,6 +348,8 @@ name|pipelineStore
 operator|.
 name|getPipelines
 argument_list|(
+name|state
+argument_list|,
 name|request
 operator|.
 name|getIds

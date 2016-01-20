@@ -303,16 +303,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ClusterService
-name|clusterService
-init|=
-name|mock
-argument_list|(
-name|ClusterService
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|store
 operator|=
 operator|new
@@ -321,8 +311,6 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
-argument_list|,
-name|clusterService
 argument_list|)
 expr_stmt|;
 name|ProcessorsRegistry

@@ -221,6 +221,12 @@ specifier|final
 name|PipelineStore
 name|pipelineStore
 decl_stmt|;
+DECL|field|clusterService
+specifier|private
+specifier|final
+name|ClusterService
+name|clusterService
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|DeletePipelineTransportAction
@@ -271,6 +277,12 @@ name|DeletePipelineRequest
 operator|::
 operator|new
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|clusterService
+operator|=
+name|clusterService
 expr_stmt|;
 name|this
 operator|.
@@ -341,6 +353,8 @@ name|pipelineStore
 operator|.
 name|delete
 argument_list|(
+name|clusterService
+argument_list|,
 name|request
 argument_list|,
 name|listener
