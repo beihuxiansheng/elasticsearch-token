@@ -272,7 +272,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"^([\\w\\d_-]+[.])*[\\w\\d_-]+$"
+literal|"^(?:[-\\w]+[.])*[-\\w]+$"
 argument_list|)
 decl_stmt|;
 DECL|field|GROUP_KEY_PATTERN
@@ -286,7 +286,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"^([\\w\\d_-]+[.])+"
+literal|"^(?:[-\\w]+[.])+$"
 argument_list|)
 decl_stmt|;
 DECL|method|AbstractScopedSettings
