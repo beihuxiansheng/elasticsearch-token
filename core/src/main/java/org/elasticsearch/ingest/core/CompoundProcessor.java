@@ -309,7 +309,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+break|break;
 block|}
 block|}
 block|}

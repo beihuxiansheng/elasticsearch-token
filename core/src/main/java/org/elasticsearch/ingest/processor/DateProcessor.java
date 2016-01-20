@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ingest
 operator|.
 name|core
@@ -473,10 +483,17 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|//try the next parser and keep track of the last exception
+comment|//try the next parser and keep track of the exceptions
 name|lastException
 operator|=
+name|ExceptionsHelper
+operator|.
+name|useOrSuppress
+argument_list|(
+name|lastException
+argument_list|,
 name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}
