@@ -1070,6 +1070,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesReference
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lease
 operator|.
 name|Releasable
@@ -2016,7 +2030,13 @@ comment|/**      * Stores an ingest pipeline      */
 DECL|method|preparePutPipeline
 name|PutPipelineRequestBuilder
 name|preparePutPipeline
-parameter_list|()
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|BytesReference
+name|source
+parameter_list|)
 function_decl|;
 comment|/**      * Deletes a stored ingest pipeline      */
 DECL|method|deletePipeline
@@ -2082,7 +2102,11 @@ comment|/**      * Returns a stored ingest pipeline      */
 DECL|method|prepareGetPipeline
 name|GetPipelineRequestBuilder
 name|prepareGetPipeline
-parameter_list|()
+parameter_list|(
+name|String
+modifier|...
+name|ids
+parameter_list|)
 function_decl|;
 comment|/**      * Simulates an ingest pipeline      */
 DECL|method|simulatePipeline
@@ -2115,7 +2139,10 @@ comment|/**      * Simulates an ingest pipeline      */
 DECL|method|prepareSimulatePipeline
 name|SimulatePipelineRequestBuilder
 name|prepareSimulatePipeline
-parameter_list|()
+parameter_list|(
+name|BytesReference
+name|source
+parameter_list|)
 function_decl|;
 comment|/**      * Returns this clients settings      */
 DECL|method|settings

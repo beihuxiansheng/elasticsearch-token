@@ -209,11 +209,6 @@ name|request
 init|=
 operator|new
 name|DeletePipelineRequest
-argument_list|()
-decl_stmt|;
-name|request
-operator|.
-name|setId
 argument_list|(
 name|restRequest
 operator|.
@@ -222,7 +217,7 @@ argument_list|(
 literal|"id"
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|request
 operator|.
 name|masterNodeTimeout

@@ -221,11 +221,6 @@ name|request
 init|=
 operator|new
 name|GetPipelineRequest
-argument_list|()
-decl_stmt|;
-name|request
-operator|.
-name|setIds
 argument_list|(
 name|Strings
 operator|.
@@ -239,7 +234,7 @@ literal|"id"
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|request
 operator|.
 name|masterNodeTimeout
