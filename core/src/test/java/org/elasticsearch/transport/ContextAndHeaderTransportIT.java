@@ -784,10 +784,10 @@ name|scope
 operator|=
 name|SUITE
 argument_list|)
-DECL|class|ContextAndHeaderTransportTests
+DECL|class|ContextAndHeaderTransportIT
 specifier|public
 class|class
-name|ContextAndHeaderTransportTests
+name|ContextAndHeaderTransportIT
 extends|extends
 name|ESIntegTestCase
 block|{
