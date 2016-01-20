@@ -213,7 +213,7 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|id
+name|setId
 argument_list|(
 name|restRequest
 operator|.
@@ -233,7 +233,7 @@ condition|)
 block|{
 name|request
 operator|.
-name|source
+name|setSource
 argument_list|(
 name|restRequest
 operator|.

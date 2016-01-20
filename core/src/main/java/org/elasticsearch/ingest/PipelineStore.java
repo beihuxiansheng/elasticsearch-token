@@ -1016,7 +1016,7 @@ name|convertToMap
 argument_list|(
 name|request
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|,
 literal|false
@@ -1029,7 +1029,7 @@ name|constructPipeline
 argument_list|(
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|pipelineConfig
@@ -1060,7 +1060,7 @@ literal|"put-pipeline-"
 operator|+
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 operator|new
@@ -1187,7 +1187,7 @@ name|put
 argument_list|(
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 operator|new
@@ -1195,12 +1195,12 @@ name|PipelineConfiguration
 argument_list|(
 name|request
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|request
 operator|.
-name|source
+name|getSource
 argument_list|()
 argument_list|)
 argument_list|)
