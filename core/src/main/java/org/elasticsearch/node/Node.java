@@ -2829,7 +2829,7 @@ argument_list|()
 operator|.
 name|start
 argument_list|(
-literal|"ingest_service"
+literal|"node_service"
 argument_list|)
 expr_stmt|;
 try|try
@@ -2842,9 +2842,6 @@ name|NodeService
 operator|.
 name|class
 argument_list|)
-operator|.
-name|getIngestService
-argument_list|()
 operator|.
 name|close
 argument_list|()
@@ -2860,7 +2857,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"IngestService close failed"
+literal|"NodeService close failed"
 argument_list|,
 name|e
 argument_list|)
