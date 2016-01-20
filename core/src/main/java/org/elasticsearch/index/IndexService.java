@@ -3965,6 +3965,14 @@ name|RELOCATED
 case|:
 try|try
 block|{
+if|if
+condition|(
+name|shard
+operator|.
+name|isRefreshNeeded
+argument_list|()
+condition|)
+block|{
 name|shard
 operator|.
 name|refresh
@@ -3972,6 +3980,7 @@ argument_list|(
 literal|"schedule"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
