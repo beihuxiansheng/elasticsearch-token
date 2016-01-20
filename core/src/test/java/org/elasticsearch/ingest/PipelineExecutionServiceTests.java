@@ -791,7 +791,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Boolean
+name|Throwable
 argument_list|>
 name|completionHandler
 init|=
@@ -907,8 +907,7 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-name|anyBoolean
-argument_list|()
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -3102,7 +3101,7 @@ argument_list|)
 decl_stmt|;
 name|Consumer
 argument_list|<
-name|Boolean
+name|Throwable
 argument_list|>
 name|completionHandler
 init|=
@@ -3164,7 +3163,7 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-literal|true
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -3300,7 +3299,7 @@ literal|"unchecked"
 argument_list|)
 name|Consumer
 argument_list|<
-name|Boolean
+name|Throwable
 argument_list|>
 name|completionHandler
 init|=
@@ -3354,7 +3353,7 @@ argument_list|)
 operator|.
 name|accept
 argument_list|(
-literal|true
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
