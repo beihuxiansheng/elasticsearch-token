@@ -64,20 +64,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilderString
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -116,9 +102,14 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Holds the result of what a pipeline did to a sample document via the simulate api, but instead of {@link SimulateDocumentBaseResult}  * this result class holds the intermediate result each processor did to the sample document.  */
+end_comment
+
 begin_class
 DECL|class|SimulateDocumentVerboseResult
 specifier|public
+specifier|final
 class|class
 name|SimulateDocumentVerboseResult
 implements|implements

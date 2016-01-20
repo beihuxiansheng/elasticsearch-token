@@ -389,7 +389,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SimulateDocumentSimpleResult
+name|SimulateDocumentBaseResult
 argument_list|(
 name|e
 argument_list|)
@@ -416,7 +416,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|SimulateDocumentSimpleResult
+name|SimulateDocumentBaseResult
 argument_list|(
 name|ingestDocument
 argument_list|)
@@ -430,7 +430,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SimulateDocumentSimpleResult
+name|SimulateDocumentBaseResult
 argument_list|(
 name|e
 argument_list|)

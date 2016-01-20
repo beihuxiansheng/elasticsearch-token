@@ -402,7 +402,7 @@ else|else
 block|{
 name|simulateDocumentResult
 operator|=
-name|SimulateDocumentSimpleResult
+name|SimulateDocumentBaseResult
 operator|.
 name|readSimulateDocumentSimpleResult
 argument_list|(

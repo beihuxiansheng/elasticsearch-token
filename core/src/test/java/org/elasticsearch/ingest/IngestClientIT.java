@@ -150,7 +150,7 @@ name|action
 operator|.
 name|ingest
 operator|.
-name|SimulateDocumentSimpleResult
+name|SimulateDocumentBaseResult
 import|;
 end_import
 
@@ -808,17 +808,17 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|SimulateDocumentSimpleResult
+name|SimulateDocumentBaseResult
 operator|.
 name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|SimulateDocumentSimpleResult
-name|simulateDocumentSimpleResult
+name|SimulateDocumentBaseResult
+name|simulateDocumentBaseResult
 init|=
 operator|(
-name|SimulateDocumentSimpleResult
+name|SimulateDocumentBaseResult
 operator|)
 name|response
 operator|.
@@ -895,7 +895,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|simulateDocumentSimpleResult
+name|simulateDocumentBaseResult
 operator|.
 name|getIngestDocument
 argument_list|()
@@ -914,7 +914,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|simulateDocumentSimpleResult
+name|simulateDocumentBaseResult
 operator|.
 name|getFailure
 argument_list|()
