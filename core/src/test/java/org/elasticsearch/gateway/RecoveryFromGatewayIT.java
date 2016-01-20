@@ -3158,6 +3158,9 @@ argument_list|(
 name|MockFSIndexStore
 operator|.
 name|INDEX_CHECK_INDEX_ON_CLOSE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -3174,6 +3177,9 @@ argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_INCOMING_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|4
 argument_list|)
@@ -3183,6 +3189,9 @@ argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_OUTGOING_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|4
 argument_list|)
