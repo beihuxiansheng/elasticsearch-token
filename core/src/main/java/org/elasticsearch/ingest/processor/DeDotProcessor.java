@@ -154,7 +154,6 @@ name|String
 name|separator
 decl_stmt|;
 DECL|method|DeDotProcessor
-specifier|public
 name|DeDotProcessor
 parameter_list|(
 name|String
