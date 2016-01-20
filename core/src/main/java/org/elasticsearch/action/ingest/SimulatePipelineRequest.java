@@ -191,6 +191,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -303,7 +313,12 @@ name|this
 operator|.
 name|id
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|id
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isVerbose
@@ -355,7 +370,12 @@ name|this
 operator|.
 name|source
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|source
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
