@@ -34,6 +34,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ResourceNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionListener
@@ -888,8 +898,10 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|PipelineMissingException
+name|ResourceNotFoundException
 argument_list|(
+literal|"pipeline [{}] is missing"
+argument_list|,
 name|request
 operator|.
 name|id
