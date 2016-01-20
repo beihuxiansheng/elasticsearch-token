@@ -10945,7 +10945,29 @@ argument_list|,
 name|nodePrefix
 argument_list|,
 name|mockPlugins
+argument_list|,
+name|getClientWrapper
+argument_list|()
 argument_list|)
+return|;
+block|}
+comment|/**      * Returns a function that allows to wrap / filter all clients that are exposed by the test cluster. This is useful      * for debugging or request / response pre and post processing. It also allows to intercept all calls done by the test      * framework. By default this method returns an identity function {@link Function#identity()}.      */
+DECL|method|getClientWrapper
+specifier|protected
+name|Function
+argument_list|<
+name|Client
+argument_list|,
+name|Client
+argument_list|>
+name|getClientWrapper
+parameter_list|()
+block|{
+return|return
+name|Function
+operator|.
+name|identity
+argument_list|()
 return|;
 block|}
 comment|/** Return the mock plugins the cluster should use */
