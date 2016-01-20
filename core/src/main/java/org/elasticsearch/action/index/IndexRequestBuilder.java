@@ -902,7 +902,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 name|pipeline
 argument_list|)

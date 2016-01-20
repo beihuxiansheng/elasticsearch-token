@@ -551,7 +551,7 @@ expr_stmt|;
 block|}
 name|indexRequest
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 name|request
 operator|.

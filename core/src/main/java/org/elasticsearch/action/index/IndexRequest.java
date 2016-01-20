@@ -1404,10 +1404,10 @@ name|ttl
 return|;
 block|}
 comment|/**      * Sets the ingest pipeline to be executed before indexing the document      */
-DECL|method|pipeline
+DECL|method|setPipeline
 specifier|public
 name|IndexRequest
-name|pipeline
+name|setPipeline
 parameter_list|(
 name|String
 name|pipeline
@@ -1424,10 +1424,10 @@ name|this
 return|;
 block|}
 comment|/**      * Returns the ingest pipeline to be executed before indexing the document      */
-DECL|method|pipeline
+DECL|method|getPipeline
 specifier|public
 name|String
-name|pipeline
+name|getPipeline
 parameter_list|()
 block|{
 return|return

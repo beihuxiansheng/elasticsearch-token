@@ -1058,7 +1058,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1320,7 +1320,7 @@ argument_list|()
 decl_stmt|;
 name|getPipelineRequest
 operator|.
-name|ids
+name|setIds
 argument_list|(
 literal|"_id"
 argument_list|)

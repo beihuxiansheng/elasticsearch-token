@@ -467,7 +467,7 @@ name|hasText
 argument_list|(
 name|indexRequest
 operator|.
-name|pipeline
+name|getPipeline
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -538,7 +538,7 @@ name|hasText
 argument_list|(
 name|indexRequest
 operator|.
-name|pipeline
+name|getPipeline
 argument_list|()
 argument_list|)
 condition|)

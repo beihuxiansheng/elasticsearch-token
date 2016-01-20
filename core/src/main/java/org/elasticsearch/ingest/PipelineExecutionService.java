@@ -196,7 +196,7 @@ name|getPipeline
 argument_list|(
 name|request
 operator|.
-name|pipeline
+name|getPipeline
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -329,7 +329,7 @@ name|hasText
 argument_list|(
 name|indexRequest
 operator|.
-name|pipeline
+name|getPipeline
 argument_list|()
 argument_list|)
 condition|)
@@ -344,7 +344,7 @@ name|getPipeline
 argument_list|(
 name|indexRequest
 operator|.
-name|pipeline
+name|getPipeline
 argument_list|()
 argument_list|)
 argument_list|)
@@ -352,7 +352,7 @@ expr_stmt|;
 comment|//this shouldn't be needed here but we do it for consistency with index api which requires it to prevent double execution
 name|indexRequest
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|null
 argument_list|)

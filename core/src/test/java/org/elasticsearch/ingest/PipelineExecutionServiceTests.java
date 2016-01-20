@@ -539,7 +539,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -719,7 +719,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -752,7 +752,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"does_not_exist"
 argument_list|)
@@ -974,7 +974,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1221,7 +1221,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1471,7 +1471,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1706,7 +1706,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1918,7 +1918,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -2204,7 +2204,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -2474,7 +2474,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -2652,7 +2652,7 @@ name|emptyMap
 argument_list|()
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -2788,7 +2788,7 @@ argument_list|,
 literal|"_id"
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -2999,7 +2999,7 @@ argument_list|,
 literal|"_id"
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 name|pipelineId
 argument_list|)
@@ -3226,7 +3226,7 @@ argument_list|,
 literal|"_id"
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 name|pipelineId
 argument_list|)

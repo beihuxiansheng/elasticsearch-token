@@ -3315,8 +3315,8 @@ DECL|method|ActionModule
 specifier|public
 name|ActionModule
 parameter_list|(
-name|Settings
-name|settings
+name|boolean
+name|ingestEnabled
 parameter_list|,
 name|boolean
 name|proxy
@@ -3326,12 +3326,7 @@ name|this
 operator|.
 name|ingestEnabled
 operator|=
-name|NodeModule
-operator|.
-name|isNodeIngestEnabled
-argument_list|(
-name|settings
-argument_list|)
+name|ingestEnabled
 expr_stmt|;
 name|this
 operator|.

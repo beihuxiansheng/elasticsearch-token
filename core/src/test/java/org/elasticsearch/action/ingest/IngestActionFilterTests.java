@@ -763,7 +763,7 @@ argument_list|,
 literal|"_id"
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -883,7 +883,7 @@ argument_list|,
 literal|"_id"
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1095,7 +1095,7 @@ argument_list|,
 literal|"_id"
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1563,7 +1563,7 @@ argument_list|,
 literal|"_id"
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1881,7 +1881,7 @@ argument_list|,
 literal|"_id"
 argument_list|)
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1914,7 +1914,7 @@ name|assertThat
 argument_list|(
 name|indexRequest
 operator|.
-name|pipeline
+name|getPipeline
 argument_list|()
 argument_list|,
 name|nullValue

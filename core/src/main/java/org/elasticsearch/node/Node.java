@@ -1780,6 +1780,16 @@ name|namedWriteableRegistry
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|boolean
+name|ingestEnabled
+init|=
+name|NodeModule
+operator|.
+name|isNodeIngestEnabled
+argument_list|(
+name|settings
+argument_list|)
+decl_stmt|;
 name|modules
 operator|.
 name|add
@@ -1787,7 +1797,7 @@ argument_list|(
 operator|new
 name|ActionModule
 argument_list|(
-name|settings
+name|ingestEnabled
 argument_list|,
 literal|false
 argument_list|)

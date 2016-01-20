@@ -94,7 +94,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|ids
+name|setIds
 argument_list|(
 name|ids
 argument_list|)

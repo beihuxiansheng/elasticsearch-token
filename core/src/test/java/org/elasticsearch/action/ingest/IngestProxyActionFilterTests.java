@@ -809,7 +809,7 @@ operator|new
 name|IndexRequest
 argument_list|()
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -835,7 +835,7 @@ operator|new
 name|IndexRequest
 argument_list|()
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1359,7 +1359,7 @@ operator|new
 name|IndexRequest
 argument_list|()
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1620,7 +1620,7 @@ operator|new
 name|IndexRequest
 argument_list|()
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1925,7 +1925,7 @@ operator|new
 name|IndexRequest
 argument_list|()
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)
@@ -1951,7 +1951,7 @@ operator|new
 name|IndexRequest
 argument_list|()
 operator|.
-name|pipeline
+name|setPipeline
 argument_list|(
 literal|"_id"
 argument_list|)

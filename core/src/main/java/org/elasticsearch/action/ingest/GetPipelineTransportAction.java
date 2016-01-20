@@ -350,7 +350,7 @@ name|getPipelines
 argument_list|(
 name|request
 operator|.
-name|ids
+name|getIds
 argument_list|()
 argument_list|)
 argument_list|)

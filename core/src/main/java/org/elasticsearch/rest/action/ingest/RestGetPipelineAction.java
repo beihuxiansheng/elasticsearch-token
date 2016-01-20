@@ -225,7 +225,7 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|ids
+name|setIds
 argument_list|(
 name|Strings
 operator|.
