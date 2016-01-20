@@ -281,7 +281,7 @@ name|put
 argument_list|(
 literal|"similarity.custom.b"
 argument_list|,
-literal|1.5f
+literal|0.5f
 argument_list|)
 argument_list|)
 operator|.
