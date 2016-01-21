@@ -3900,15 +3900,6 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|getEngine
-argument_list|()
-operator|.
-name|refreshNeeded
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
 name|canIndex
 argument_list|()
 condition|)
@@ -4042,7 +4033,6 @@ operator|-
 name|time
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/** Returns how many bytes we are currently moving from heap to disk */
@@ -8655,6 +8645,21 @@ parameter_list|()
 block|{
 return|return
 name|engineFactory
+return|;
+block|}
+comment|/**      * Returns<code>true</code> iff one or more changes to the engine are not visible to via the current searcher.      * Otherwise<code>false</code>.      *      * @throws EngineClosedException if the engine is already closed      * @throws AlreadyClosedException if the internal indexwriter in the engine is already closed      */
+DECL|method|isRefreshNeeded
+specifier|public
+name|boolean
+name|isRefreshNeeded
+parameter_list|()
+block|{
+return|return
+name|getEngine
+argument_list|()
+operator|.
+name|refreshNeeded
+argument_list|()
 return|;
 block|}
 block|}

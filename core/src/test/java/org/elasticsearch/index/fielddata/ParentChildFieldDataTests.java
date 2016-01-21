@@ -1580,7 +1580,7 @@ name|indexFieldData
 init|=
 name|getForField
 argument_list|(
-name|childType
+name|parentType
 argument_list|)
 decl_stmt|;
 name|IndexSearcher
@@ -1638,7 +1638,10 @@ name|SortField
 argument_list|(
 name|ParentFieldMapper
 operator|.
-name|NAME
+name|joinField
+argument_list|(
+name|parentType
+argument_list|)
 argument_list|,
 name|comparator
 argument_list|,
@@ -2090,7 +2093,10 @@ name|SortField
 argument_list|(
 name|ParentFieldMapper
 operator|.
-name|NAME
+name|joinField
+argument_list|(
+name|parentType
+argument_list|)
 argument_list|,
 name|comparator
 argument_list|,

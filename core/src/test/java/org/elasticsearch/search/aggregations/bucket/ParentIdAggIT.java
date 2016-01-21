@@ -366,7 +366,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"_parent"
+literal|"_parent#parenttype"
 argument_list|)
 argument_list|)
 operator|.

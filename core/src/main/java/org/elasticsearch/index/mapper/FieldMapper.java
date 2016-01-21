@@ -554,6 +554,15 @@ name|indexOptions
 argument_list|()
 expr_stmt|;
 comment|// we have to store it the fieldType is mutable
+name|this
+operator|.
+name|docValuesSet
+operator|=
+name|fieldType
+operator|.
+name|hasDocValues
+argument_list|()
+expr_stmt|;
 name|multiFieldsBuilder
 operator|=
 operator|new
