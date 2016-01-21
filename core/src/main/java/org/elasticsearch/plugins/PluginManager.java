@@ -1712,14 +1712,6 @@ argument_list|)
 throw|;
 block|}
 comment|// check for jar hell before any copying
-if|if
-condition|(
-name|info
-operator|.
-name|isJvm
-argument_list|()
-condition|)
-block|{
 name|jarHellCheck
 argument_list|(
 name|root
@@ -1730,7 +1722,6 @@ name|isIsolated
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// read optional security policy (extra permissions)
 comment|// if it exists, confirm or warn the user
 name|Path
