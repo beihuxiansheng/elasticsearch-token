@@ -12680,7 +12680,7 @@ name|ctx
 init|=
 name|threadContext
 operator|.
-name|stashContext
+name|stashAndMergeHeaders
 argument_list|(
 name|headers
 argument_list|)
