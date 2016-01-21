@@ -1383,11 +1383,11 @@ name|addSettingsUpdateConsumer
 argument_list|(
 name|IndexStore
 operator|.
-name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC_SETTING
+name|INDEX_STORE_THROTTLE_TYPE_SETTING
 argument_list|,
 name|store
 operator|::
-name|setMaxRate
+name|setType
 argument_list|)
 expr_stmt|;
 name|indexSettings
@@ -1399,11 +1399,11 @@ name|addSettingsUpdateConsumer
 argument_list|(
 name|IndexStore
 operator|.
-name|INDEX_STORE_THROTTLE_TYPE_SETTING
+name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC_SETTING
 argument_list|,
 name|store
 operator|::
-name|setType
+name|setMaxRate
 argument_list|)
 expr_stmt|;
 specifier|final
