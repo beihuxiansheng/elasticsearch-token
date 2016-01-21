@@ -120,7 +120,7 @@ name|UppercaseProcessor
 name|newProcessor
 parameter_list|(
 name|String
-name|processorTag
+name|tag
 parameter_list|,
 name|String
 name|field
@@ -130,7 +130,7 @@ return|return
 operator|new
 name|UppercaseProcessor
 argument_list|(
-name|processorTag
+name|tag
 argument_list|,
 name|field
 argument_list|)
