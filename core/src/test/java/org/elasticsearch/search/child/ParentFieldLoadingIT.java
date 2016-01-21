@@ -1296,7 +1296,7 @@ operator|.
 name|parentFieldMapper
 argument_list|()
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|fieldDataType
