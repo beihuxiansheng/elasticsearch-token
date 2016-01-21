@@ -1412,8 +1412,6 @@ operator|.
 name|setHasDocValues
 argument_list|(
 name|defaultDocValues
-operator|||
-name|fieldDataDocValues
 argument_list|)
 expr_stmt|;
 block|}
