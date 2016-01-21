@@ -49,13 +49,14 @@ argument_list|<
 name|P
 argument_list|>
 block|{
-DECL|field|PROCESSOR_TAG_KEY
+DECL|field|TAG_KEY
+specifier|public
 specifier|static
 specifier|final
 name|String
-name|PROCESSOR_TAG_KEY
+name|TAG_KEY
 init|=
-literal|"processor_tag"
+literal|"tag"
 decl_stmt|;
 annotation|@
 name|Override
@@ -84,7 +85,7 @@ name|readOptionalStringProperty
 argument_list|(
 name|config
 argument_list|,
-name|PROCESSOR_TAG_KEY
+name|TAG_KEY
 argument_list|)
 decl_stmt|;
 return|return
