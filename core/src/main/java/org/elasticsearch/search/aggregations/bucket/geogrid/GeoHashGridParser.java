@@ -445,11 +445,6 @@ throws|throws
 name|IOException
 block|{
 name|ValuesSourceParser
-argument_list|<
-name|ValuesSource
-operator|.
-name|GeoPoint
-argument_list|>
 name|vsParser
 init|=
 name|ValuesSourceParser
@@ -933,8 +928,6 @@ argument_list|,
 name|metaData
 argument_list|)
 block|{
-annotation|@
-name|Override
 specifier|public
 name|InternalAggregation
 name|buildEmptyAggregation
