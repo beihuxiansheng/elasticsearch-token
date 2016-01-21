@@ -36,9 +36,9 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
+name|core
 operator|.
-name|FailProcessor
+name|AbstractProcessorFactory
 import|;
 end_import
 
@@ -185,7 +185,9 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"processor_tag"
+name|AbstractProcessorFactory
+operator|.
+name|TAG_KEY
 argument_list|,
 name|processorTag
 argument_list|)
