@@ -2017,7 +2017,7 @@ name|addMapping
 argument_list|(
 literal|"$type"
 argument_list|,
-literal|"{\"$type\": {\"properties\": {\"grantee\": {\"index\": \"not_analyzed\", \"term_vector\": \"with_positions_offsets\", \"type\": \"string\", \"analyzer\": \"snowball\", \"boost\": 1.0, \"store\": \"yes\"}}}}"
+literal|"{\"$type\": {\"properties\": {\"grantee\": {\"index\": \"not_analyzed\", \"term_vector\": \"with_positions_offsets\", \"type\": \"string\", \"analyzer\": \"snowball\", \"boost\": 1.0, \"store\": true}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;

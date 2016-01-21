@@ -1220,7 +1220,7 @@ argument_list|,
 comment|// no tvs
 literal|"field2"
 argument_list|,
-literal|"type=string,index=no,store=yes"
+literal|"type=string,index=no,store=true"
 argument_list|,
 comment|// no tvs
 literal|"field3"

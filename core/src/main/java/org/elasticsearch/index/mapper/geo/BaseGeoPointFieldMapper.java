@@ -1476,7 +1476,7 @@ name|enableLatLon
 argument_list|(
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|propNode
 argument_list|)
@@ -1534,7 +1534,7 @@ name|enableGeoHash
 argument_list|(
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|propNode
 argument_list|)
@@ -1563,7 +1563,7 @@ name|geoHashPrefix
 argument_list|(
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|propNode
 argument_list|)
@@ -1573,7 +1573,7 @@ if|if
 condition|(
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|propNode
 argument_list|)
@@ -1667,7 +1667,7 @@ name|ignoreMalformed
 argument_list|(
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|propNode
 argument_list|)

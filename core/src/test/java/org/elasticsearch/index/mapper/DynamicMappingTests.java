@@ -3226,7 +3226,7 @@ literal|"type"
 argument_list|,
 literal|"my_field1"
 argument_list|,
-literal|"type=string,store=yes"
+literal|"type=string,store=true"
 argument_list|,
 literal|"my_field2"
 argument_list|,

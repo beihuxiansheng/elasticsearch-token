@@ -862,7 +862,7 @@ name|coerce
 operator|=
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|propNode
 argument_list|)

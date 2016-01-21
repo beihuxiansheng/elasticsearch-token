@@ -380,7 +380,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -1199,7 +1199,7 @@ name|builder
 operator|.
 name|dynamic
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1233,7 +1233,7 @@ name|builder
 operator|.
 name|enabled
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1331,7 +1331,7 @@ name|builder
 operator|.
 name|includeInAll
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1480,7 +1480,7 @@ condition|)
 block|{
 name|nestedIncludeInParent
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1511,7 +1511,7 @@ condition|)
 block|{
 name|nestedIncludeInRoot
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)

@@ -94,7 +94,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -964,7 +964,7 @@ comment|//note that allowAliasesToMultipleIndices is not exposed, always true (o
 return|return
 name|fromOptions
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|ignoreUnavailableString
 argument_list|,
@@ -974,7 +974,7 @@ name|ignoreUnavailable
 argument_list|()
 argument_list|)
 argument_list|,
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|allowNoIndicesString
 argument_list|,
