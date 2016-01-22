@@ -343,7 +343,10 @@ name|put
 argument_list|(
 name|DiscoveryService
 operator|.
-name|SETTING_DISCOVERY_SEED
+name|DISCOVERY_SEED_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|random
 argument_list|()
@@ -392,7 +395,10 @@ name|put
 argument_list|(
 name|DiscoveryService
 operator|.
-name|SETTING_DISCOVERY_SEED
+name|DISCOVERY_SEED_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|random
 argument_list|()

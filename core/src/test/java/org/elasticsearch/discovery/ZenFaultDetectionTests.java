@@ -880,7 +880,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_CONNECT_ON_NETWORK_DISCONNECT
+name|CONNECT_ON_NETWORK_DISCONNECT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|shouldRetry
 argument_list|)
@@ -889,7 +892,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_PING_INTERVAL
+name|PING_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"5m"
 argument_list|)
@@ -1212,7 +1218,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_CONNECT_ON_NETWORK_DISCONNECT
+name|CONNECT_ON_NETWORK_DISCONNECT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|shouldRetry
 argument_list|)
@@ -1221,7 +1230,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_PING_INTERVAL
+name|PING_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"5m"
 argument_list|)

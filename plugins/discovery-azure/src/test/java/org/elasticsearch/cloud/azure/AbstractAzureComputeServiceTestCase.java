@@ -238,7 +238,10 @@ name|put
 argument_list|(
 name|Discovery
 operator|.
-name|REFRESH
+name|REFRESH_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"5s"
 argument_list|)

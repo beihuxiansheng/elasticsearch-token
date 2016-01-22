@@ -494,7 +494,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"200ms"
 argument_list|)
@@ -1596,7 +1599,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"200ms"
 argument_list|)
