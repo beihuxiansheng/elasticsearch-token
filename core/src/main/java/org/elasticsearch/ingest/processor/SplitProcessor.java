@@ -54,7 +54,7 @@ name|ingest
 operator|.
 name|core
 operator|.
-name|IngestDocument
+name|ConfigurationUtils
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|ingest
 operator|.
 name|core
 operator|.
-name|ConfigurationUtils
+name|IngestDocument
 import|;
 end_import
 
@@ -79,16 +79,6 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -248,6 +238,17 @@ literal|"] is null, cannot split."
 argument_list|)
 throw|;
 block|}
+name|String
+index|[]
+name|strings
+init|=
+name|oldVal
+operator|.
+name|split
+argument_list|(
+name|separator
+argument_list|)
+decl_stmt|;
 name|List
 argument_list|<
 name|String
@@ -257,7 +258,11 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
+argument_list|(
+name|strings
+operator|.
+name|length
+argument_list|)
 decl_stmt|;
 name|Collections
 operator|.
@@ -265,12 +270,7 @@ name|addAll
 argument_list|(
 name|splitList
 argument_list|,
-name|oldVal
-operator|.
-name|split
-argument_list|(
-name|separator
-argument_list|)
+name|strings
 argument_list|)
 expr_stmt|;
 name|document
