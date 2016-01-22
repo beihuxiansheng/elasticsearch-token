@@ -611,7 +611,12 @@ name|output
 operator|.
 name|put
 argument_list|(
-literal|"path.logs"
+name|Environment
+operator|.
+name|PATH_LOGS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|cleanPath
 argument_list|(
