@@ -2945,6 +2945,9 @@ argument_list|(
 name|ScriptService
 operator|.
 name|SCRIPT_CACHE_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -3204,6 +3207,9 @@ argument_list|(
 name|ScriptService
 operator|.
 name|SCRIPT_CACHE_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
