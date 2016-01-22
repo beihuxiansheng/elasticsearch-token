@@ -794,6 +794,9 @@ argument_list|(
 name|IndicesStore
 operator|.
 name|INDICES_STORE_DELETE_SHARD_TIMEOUT
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|new
 name|TimeValue
