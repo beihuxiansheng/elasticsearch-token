@@ -624,19 +624,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"using size [{}]"
-argument_list|,
-operator|new
-name|ByteSizeValue
-argument_list|(
-name|sizeInBytes
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|cache
 operator|=
 name|cacheBuilder
