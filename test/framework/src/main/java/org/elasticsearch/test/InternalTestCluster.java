@@ -3702,8 +3702,7 @@ name|randomIntBetween
 argument_list|(
 name|random
 argument_list|,
-operator|-
-literal|100
+literal|0
 argument_list|,
 literal|2000
 argument_list|)
