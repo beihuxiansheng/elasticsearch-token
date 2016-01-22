@@ -434,7 +434,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO(talevy): handle custom timestamp fields
 name|DateTime
 name|dateTime
 init|=
