@@ -363,10 +363,10 @@ name|src
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testUpgrad
+DECL|method|testUpgrade
 specifier|public
 name|void
-name|testUpgrad
+name|testUpgrade
 parameter_list|()
 block|{
 name|MetaDataIndexUpgradeService
