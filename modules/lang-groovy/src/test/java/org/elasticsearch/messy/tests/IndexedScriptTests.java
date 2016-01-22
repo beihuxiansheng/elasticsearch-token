@@ -490,15 +490,6 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.engine.expression.indexed.aggs"
-argument_list|,
-literal|"off"
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|put
-argument_list|(
 literal|"script.engine.expression.indexed.mapping"
 argument_list|,
 literal|"off"
