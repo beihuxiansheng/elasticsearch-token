@@ -989,6 +989,8 @@ literal|true
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 return|return
 operator|new
 name|TranslogReader
@@ -1007,6 +1009,25 @@ argument_list|,
 name|operationCounter
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// close the channel, as we are closed and failed to create a new reader
+name|IOUtils
+operator|.
+name|closeWhileHandlingException
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
+throw|throw
+name|t
+throw|;
+block|}
 block|}
 else|else
 block|{
