@@ -12378,7 +12378,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.data"
+name|Environment
+operator|.
+name|PATH_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|dataDir
 operator|.
@@ -12410,7 +12415,12 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"path.conf"
+name|Environment
+operator|.
+name|PATH_CONF_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|configDir
 operator|.
