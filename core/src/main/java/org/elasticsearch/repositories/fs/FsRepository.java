@@ -471,7 +471,10 @@ name|REPOSITORIES_LOCATION_SETTING
 operator|.
 name|get
 argument_list|(
+name|repositorySettings
+operator|.
 name|settings
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
