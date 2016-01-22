@@ -177,6 +177,9 @@ argument_list|(
 name|ScriptService
 operator|.
 name|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
