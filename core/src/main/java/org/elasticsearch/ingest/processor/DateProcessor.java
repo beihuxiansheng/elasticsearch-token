@@ -64,7 +64,7 @@ name|ingest
 operator|.
 name|core
 operator|.
-name|IngestDocument
+name|ConfigurationUtils
 import|;
 end_import
 
@@ -78,7 +78,7 @@ name|ingest
 operator|.
 name|core
 operator|.
-name|ConfigurationUtils
+name|IngestDocument
 import|;
 end_import
 
@@ -167,16 +167,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
 import|;
 end_import
 
@@ -342,10 +332,7 @@ range|:
 name|matchFormats
 control|)
 block|{
-name|Optional
-argument_list|<
 name|DateFormat
-argument_list|>
 name|dateFormat
 init|=
 name|DateFormat
@@ -355,42 +342,13 @@ argument_list|(
 name|matchFormat
 argument_list|)
 decl_stmt|;
-name|Function
-argument_list|<
-name|String
-argument_list|,
-name|DateTime
-argument_list|>
-name|stringToDateFunction
-decl_stmt|;
-if|if
-condition|(
-name|dateFormat
+name|dateParsers
 operator|.
-name|isPresent
-argument_list|()
-condition|)
-block|{
-name|stringToDateFunction
-operator|=
+name|add
+argument_list|(
 name|dateFormat
-operator|.
-name|get
-argument_list|()
 operator|.
 name|getFunction
-argument_list|(
-name|timezone
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|stringToDateFunction
-operator|=
-name|DateFormat
-operator|.
-name|getJodaFunction
 argument_list|(
 name|matchFormat
 argument_list|,
@@ -398,13 +356,6 @@ name|timezone
 argument_list|,
 name|locale
 argument_list|)
-expr_stmt|;
-block|}
-name|dateParsers
-operator|.
-name|add
-argument_list|(
-name|stringToDateFunction
 argument_list|)
 expr_stmt|;
 block|}
@@ -434,7 +385,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO(talevy): handle custom timestamp fields
 name|DateTime
 name|dateTime
 init|=
