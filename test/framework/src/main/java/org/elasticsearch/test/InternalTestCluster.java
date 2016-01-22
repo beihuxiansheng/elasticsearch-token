@@ -1451,16 +1451,6 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/**      * A node level setting that holds a per node random seed that is consistent across node restarts      */
-DECL|field|SETTING_CLUSTER_NODE_SEED
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SETTING_CLUSTER_NODE_SEED
-init|=
-literal|"test.cluster.node.seed"
-decl_stmt|;
 comment|/**      * The number of ports in the range used for this JVM      */
 DECL|field|PORTS_PER_JVM
 specifier|public
@@ -2996,13 +2986,6 @@ name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
-operator|.
-name|put
-argument_list|(
-name|SETTING_CLUSTER_NODE_SEED
-argument_list|,
-name|seed
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -3079,7 +3062,10 @@ name|put
 argument_list|(
 name|SearchService
 operator|.
-name|KEEPALIVE_INTERVAL_KEY
+name|KEEPALIVE_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
@@ -3117,7 +3103,10 @@ name|put
 argument_list|(
 name|SearchService
 operator|.
-name|KEEPALIVE_INTERVAL_KEY
+name|KEEPALIVE_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
@@ -3152,7 +3141,10 @@ name|put
 argument_list|(
 name|SearchService
 operator|.
-name|DEFAULT_KEEPALIVE_KEY
+name|DEFAULT_KEEPALIVE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
