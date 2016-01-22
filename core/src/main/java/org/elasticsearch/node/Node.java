@@ -1183,15 +1183,6 @@ name|CLIENT_TYPE
 init|=
 literal|"node"
 decl_stmt|;
-DECL|field|HTTP_ENABLED
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HTTP_ENABLED
-init|=
-literal|"http.enabled"
-decl_stmt|;
 DECL|field|WRITE_PORTS_FIELD_SETTING
 specifier|public
 specifier|static
