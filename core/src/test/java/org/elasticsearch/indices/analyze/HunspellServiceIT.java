@@ -228,6 +228,9 @@ operator|.
 name|put
 argument_list|(
 name|HUNSPELL_LAZY_LOAD
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
@@ -236,6 +239,9 @@ operator|.
 name|put
 argument_list|(
 name|HUNSPELL_IGNORE_CASE
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -314,6 +320,9 @@ operator|.
 name|put
 argument_list|(
 name|HUNSPELL_LAZY_LOAD
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
@@ -322,6 +331,9 @@ operator|.
 name|put
 argument_list|(
 name|HUNSPELL_IGNORE_CASE
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -447,6 +459,9 @@ operator|.
 name|put
 argument_list|(
 name|HUNSPELL_LAZY_LOAD
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
@@ -559,6 +574,9 @@ operator|.
 name|put
 argument_list|(
 name|HUNSPELL_LAZY_LOAD
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
