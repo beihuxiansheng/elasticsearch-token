@@ -69,6 +69,16 @@ operator|=
 name|portRange
 expr_stmt|;
 block|}
+DECL|method|getPortRangeString
+specifier|public
+name|String
+name|getPortRangeString
+parameter_list|()
+block|{
+return|return
+name|portRange
+return|;
+block|}
 DECL|method|ports
 specifier|public
 name|int

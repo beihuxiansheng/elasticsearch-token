@@ -80,21 +80,7 @@ name|elasticsearch
 operator|.
 name|http
 operator|.
-name|netty
-operator|.
-name|NettyHttpServerTransport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|Node
+name|HttpTransportSettings
 import|;
 end_import
 
@@ -271,7 +257,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|NettyHttpServerTransport
+name|HttpTransportSettings
 operator|.
 name|SETTING_HTTP_DETAILED_ERRORS_ENABLED
 operator|.
