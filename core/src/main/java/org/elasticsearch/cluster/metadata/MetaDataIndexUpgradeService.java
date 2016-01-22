@@ -369,11 +369,18 @@ name|indexMetaData
 argument_list|)
 condition|)
 block|{
-return|return
+assert|assert
+name|indexMetaData
+operator|==
 name|archiveBrokenIndexSettings
 argument_list|(
 name|indexMetaData
 argument_list|)
+operator|:
+literal|"all settings must have been upgraded before"
+assert|;
+return|return
+name|indexMetaData
 return|;
 block|}
 name|checkSupportedVersion
@@ -386,20 +393,23 @@ name|newMetaData
 init|=
 name|indexMetaData
 decl_stmt|;
+comment|// we have to run this first otherwise in we try to create IndexSettings
+comment|// with broken settings and fail in checkMappingsCompatibility
+name|newMetaData
+operator|=
+name|archiveBrokenIndexSettings
+argument_list|(
+name|newMetaData
+argument_list|)
+expr_stmt|;
+comment|// only run the check with the upgraded settings!!
 name|checkMappingsCompatibility
 argument_list|(
 name|newMetaData
 argument_list|)
 expr_stmt|;
-name|newMetaData
-operator|=
-name|markAsUpgraded
-argument_list|(
-name|newMetaData
-argument_list|)
-expr_stmt|;
 return|return
-name|archiveBrokenIndexSettings
+name|markAsUpgraded
 argument_list|(
 name|newMetaData
 argument_list|)
@@ -407,7 +417,6 @@ return|;
 block|}
 comment|/**      * Checks if the index was already opened by this version of Elasticsearch and doesn't require any additional checks.      */
 DECL|method|isUpgraded
-specifier|private
 name|boolean
 name|isUpgraded
 parameter_list|(
@@ -425,10 +434,9 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_3_0_0
+name|CURRENT
 argument_list|)
 return|;
-comment|// TODO should this be Version.CURRENT?
 block|}
 comment|/**      * Elasticsearch 3.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be upgraded using upgrade API before they can      * be open by this version of elasticsearch.      */
 DECL|method|checkSupportedVersion
