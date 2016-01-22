@@ -24,6 +24,20 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -83,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides factory methods for producing reproducible sources of  * randomness. Reproducible sources of randomness contribute to  * reproducible tests. When running the Elasticsearch test suite, the  * test runner will establish a global random seed accessible via the  * system property "tests.seed". By seeding a random number generator  * with this global seed, we ensure that instances of Random produced  * with this class produce reproducible sources of randomness under  * when running under the Elasticsearch test suite. Alternatively,  * a reproducible source of randomness can be produced by providing a  * setting a reproducible seed. When running the Elasticsearch server  * process, non-reproducible sources of randomness are provided (unless  * a setting is provided for a module that exposes a seed setting (e.g.,  * DiscoveryService#SETTING_DISCOVERY_SEED)).  */
+comment|/**  * Provides factory methods for producing reproducible sources of  * randomness. Reproducible sources of randomness contribute to  * reproducible tests. When running the Elasticsearch test suite, the  * test runner will establish a global random seed accessible via the  * system property "tests.seed". By seeding a random number generator  * with this global seed, we ensure that instances of Random produced  * with this class produce reproducible sources of randomness under  * when running under the Elasticsearch test suite. Alternatively,  * a reproducible source of randomness can be produced by providing a  * setting a reproducible seed. When running the Elasticsearch server  * process, non-reproducible sources of randomness are provided (unless  * a setting is provided for a module that exposes a seed setting (e.g.,  * DiscoveryService#DISCOVERY_SEED_SETTING)).  */
 end_comment
 
 begin_class
@@ -178,7 +192,7 @@ specifier|private
 name|Randomness
 parameter_list|()
 block|{}
-comment|/**      * Provides a reproducible source of randomness seeded by a long      * seed in the settings with the key setting.      *      * @param settings the settings containing the seed      * @param setting  the key to access the seed      * @return a reproducible source of randomness      */
+comment|/**      * Provides a reproducible source of randomness seeded by a long      * seed in the settings with the key setting.      *      * @param settings the settings containing the seed      * @param setting  the setting to access the seed      * @return a reproducible source of randomness      */
 DECL|method|get
 specifier|public
 specifier|static
@@ -188,34 +202,33 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|String
+name|Setting
+argument_list|<
+name|Long
+argument_list|>
 name|setting
 parameter_list|)
 block|{
-name|Long
-name|maybeSeed
-init|=
-name|settings
-operator|.
-name|getAsLong
-argument_list|(
-name|setting
-argument_list|,
-literal|null
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
-name|maybeSeed
-operator|!=
-literal|null
+name|setting
+operator|.
+name|exists
+argument_list|(
+name|settings
+argument_list|)
 condition|)
 block|{
 return|return
 operator|new
 name|Random
 argument_list|(
-name|maybeSeed
+name|setting
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 return|;
 block|}

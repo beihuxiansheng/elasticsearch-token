@@ -894,7 +894,10 @@ literal|"tribe.t1."
 operator|+
 name|UnicastZenPing
 operator|.
-name|DISCOVERY_ZEN_PING_UNICAST_HOSTS
+name|DISCOVERY_ZEN_PING_UNICAST_HOSTS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|getUnicastHosts
 argument_list|(
@@ -914,7 +917,10 @@ literal|"tribe.t2."
 operator|+
 name|UnicastZenPing
 operator|.
-name|DISCOVERY_ZEN_PING_UNICAST_HOSTS
+name|DISCOVERY_ZEN_PING_UNICAST_HOSTS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|getUnicastHosts
 argument_list|(

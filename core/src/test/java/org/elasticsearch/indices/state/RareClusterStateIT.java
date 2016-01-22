@@ -1385,7 +1385,10 @@ name|put
 argument_list|(
 name|DiscoveryModule
 operator|.
-name|DISCOVERY_TYPE_KEY
+name|DISCOVERY_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"zen"
 argument_list|)
