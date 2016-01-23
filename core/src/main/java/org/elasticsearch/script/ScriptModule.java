@@ -517,6 +517,16 @@ operator|::
 name|registerSetting
 argument_list|)
 expr_stmt|;
+name|settingsModule
+operator|.
+name|registerSetting
+argument_list|(
+name|scriptSettings
+operator|.
+name|getDefaultScriptLanguageSetting
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|bind
 argument_list|(
 name|ScriptContextRegistry
