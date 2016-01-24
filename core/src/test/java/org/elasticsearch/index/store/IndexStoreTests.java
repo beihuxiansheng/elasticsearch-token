@@ -418,11 +418,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"foo"
-argument_list|)
 argument_list|,
 name|settings
 argument_list|)
@@ -452,6 +448,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -689,11 +687,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"foo"
-argument_list|)
 argument_list|,
 name|Settings
 operator|.
@@ -732,6 +726,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -867,11 +863,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"foo"
-argument_list|)
 argument_list|,
 name|settings
 argument_list|)

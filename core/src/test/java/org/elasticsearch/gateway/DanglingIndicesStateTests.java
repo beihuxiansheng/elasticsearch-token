@@ -737,11 +737,7 @@ name|env
 operator|.
 name|indexPaths
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"test1"
-argument_list|)
 argument_list|)
 control|)
 block|{

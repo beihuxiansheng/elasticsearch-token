@@ -144,6 +144,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|ShardId
@@ -1077,6 +1089,9 @@ name|routing
 operator|.
 name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|.
 name|shard
@@ -1859,6 +1874,9 @@ argument_list|(
 name|shardRouting
 operator|.
 name|index
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 operator|.
@@ -3564,7 +3582,7 @@ literal|0
 decl_stmt|;
 name|Map
 argument_list|<
-name|String
+name|Index
 argument_list|,
 name|Integer
 argument_list|>
@@ -3704,7 +3722,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|String
+name|Index
 argument_list|,
 name|Integer
 argument_list|>
@@ -3734,7 +3752,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|String
+name|Index
 argument_list|,
 name|Integer
 argument_list|>
@@ -3743,7 +3761,7 @@ range|:
 name|entries
 control|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 name|e

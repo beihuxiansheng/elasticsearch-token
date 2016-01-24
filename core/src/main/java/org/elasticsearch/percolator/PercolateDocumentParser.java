@@ -454,7 +454,7 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|request
@@ -1293,7 +1293,7 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|request

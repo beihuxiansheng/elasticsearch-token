@@ -1869,6 +1869,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|MetaDataIndexStateService
 operator|.
@@ -1896,6 +1899,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1925,6 +1931,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|IndexMetaData
 operator|.
@@ -1952,6 +1961,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -1981,6 +1993,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|IndexMetaData
 operator|.
@@ -2007,6 +2022,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|MetaDataIndexStateService
 operator|.
@@ -2018,6 +2036,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -2031,6 +2052,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|IndexMetaData
 operator|.
@@ -2043,6 +2067,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|IndexMetaData
 operator|.
@@ -2054,6 +2081,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|IndexMetaData

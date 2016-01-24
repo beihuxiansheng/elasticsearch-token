@@ -917,7 +917,7 @@ name|index
 init|=
 name|Index
 operator|.
-name|readIndexName
+name|readIndex
 argument_list|(
 name|in
 argument_list|)
@@ -1233,7 +1233,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1309,7 +1309,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

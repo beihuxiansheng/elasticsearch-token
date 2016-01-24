@@ -683,10 +683,7 @@ name|MultiTermVectorsShardRequest
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shardId

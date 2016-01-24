@@ -1528,7 +1528,7 @@ name|Request
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shardId

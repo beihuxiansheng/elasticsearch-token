@@ -603,6 +603,9 @@ argument_list|()
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

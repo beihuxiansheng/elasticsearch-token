@@ -257,7 +257,7 @@ name|settings
 argument_list|,
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|asArrayList
@@ -318,10 +318,7 @@ name|asArrayList
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndexName
 argument_list|()
 argument_list|,
 name|Integer
@@ -381,7 +378,7 @@ name|SPACE
 argument_list|,
 name|index
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|prefixes

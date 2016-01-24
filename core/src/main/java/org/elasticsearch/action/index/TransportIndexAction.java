@@ -1019,6 +1019,9 @@ argument_list|()
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|request
 operator|.
@@ -1245,7 +1248,7 @@ name|index
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.
@@ -1538,7 +1541,7 @@ name|indexName
 init|=
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 decl_stmt|;
 name|mappingUpdatedAction

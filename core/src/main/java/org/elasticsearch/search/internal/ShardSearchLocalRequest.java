@@ -456,7 +456,7 @@ name|index
 operator|=
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 expr_stmt|;
 name|this

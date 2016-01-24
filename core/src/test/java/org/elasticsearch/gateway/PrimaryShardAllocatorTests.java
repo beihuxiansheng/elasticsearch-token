@@ -391,6 +391,8 @@ name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -2507,7 +2509,7 @@ name|builder
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.
@@ -2591,7 +2593,7 @@ name|version
 argument_list|,
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3093,7 +3095,7 @@ name|builder
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.
@@ -3197,7 +3199,7 @@ name|CURRENT
 argument_list|,
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3310,7 +3312,7 @@ name|builder
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.
@@ -3871,7 +3873,7 @@ name|builder
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.
@@ -4433,7 +4435,7 @@ name|builder
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.

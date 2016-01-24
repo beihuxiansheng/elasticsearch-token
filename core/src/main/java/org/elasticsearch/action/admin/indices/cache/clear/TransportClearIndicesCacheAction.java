@@ -534,7 +534,7 @@ name|indexService
 argument_list|(
 name|shardRouting
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;

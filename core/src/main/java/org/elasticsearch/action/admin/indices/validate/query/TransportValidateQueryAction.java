@@ -764,7 +764,7 @@ argument_list|()
 argument_list|,
 name|shard
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|request

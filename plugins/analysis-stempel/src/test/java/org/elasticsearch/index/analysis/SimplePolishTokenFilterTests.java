@@ -393,6 +393,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"test"
+argument_list|,
+literal|"_na_"
 argument_list|)
 decl_stmt|;
 name|Settings
@@ -551,6 +553,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"test"
+argument_list|,
+literal|"_na_"
 argument_list|)
 decl_stmt|;
 name|Settings

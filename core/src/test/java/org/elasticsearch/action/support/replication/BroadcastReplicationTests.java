@@ -1321,14 +1321,9 @@ name|ShardInfo
 operator|.
 name|Failure
 argument_list|(
-name|index
-argument_list|,
 name|shardRequests
 operator|.
 name|v1
-argument_list|()
-operator|.
-name|id
 argument_list|()
 argument_list|,
 literal|null
@@ -1509,6 +1504,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -1571,10 +1568,7 @@ name|indices
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndexName
 argument_list|()
 argument_list|)
 argument_list|,

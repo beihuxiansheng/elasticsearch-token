@@ -680,11 +680,10 @@ name|indicesService
 operator|.
 name|processPendingDeletes
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
+name|indexSettings
+operator|.
+name|getIndex
+argument_list|()
 argument_list|,
 name|indexSettings
 argument_list|,

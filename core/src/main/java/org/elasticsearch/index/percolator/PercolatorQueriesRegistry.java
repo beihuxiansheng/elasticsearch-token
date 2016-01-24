@@ -871,7 +871,7 @@ argument_list|(
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 literal|"failed to parse query ["
@@ -1138,7 +1138,7 @@ name|PercolatorException
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 literal|"failed to load queries from percolator index"

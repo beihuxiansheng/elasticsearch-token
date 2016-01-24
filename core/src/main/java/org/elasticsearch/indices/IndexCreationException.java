@@ -90,7 +90,7 @@ DECL|method|IndexCreationException
 specifier|public
 name|IndexCreationException
 parameter_list|(
-name|Index
+name|String
 name|index
 parameter_list|,
 name|Throwable
@@ -99,9 +99,11 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"failed to create index"
+literal|"failed to create index [{}]"
 argument_list|,
 name|cause
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 name|setIndex

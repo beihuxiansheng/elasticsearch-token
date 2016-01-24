@@ -677,11 +677,7 @@ argument_list|,
 operator|new
 name|TypeMissingException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"_all"
-argument_list|)
 argument_list|,
 name|types
 index|[

@@ -1985,7 +1985,7 @@ name|assertThat
 argument_list|(
 name|shardRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2015,7 +2015,7 @@ name|assertThat
 argument_list|(
 name|shardRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|equalTo

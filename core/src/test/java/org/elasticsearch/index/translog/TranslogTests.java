@@ -832,11 +832,9 @@ init|=
 operator|new
 name|ShardId
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"index"
-argument_list|)
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)
@@ -1100,7 +1098,7 @@ name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|build

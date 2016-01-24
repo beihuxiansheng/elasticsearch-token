@@ -3975,9 +3975,12 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|request
+name|indexShard
 operator|.
-name|index
+name|shardId
+argument_list|()
+operator|.
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
@@ -4371,7 +4374,7 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 condition|)

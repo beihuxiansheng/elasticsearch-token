@@ -890,7 +890,7 @@ name|index
 argument_list|(
 name|indexRoutingTable
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2176,10 +2176,7 @@ name|indexService
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|getName
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;

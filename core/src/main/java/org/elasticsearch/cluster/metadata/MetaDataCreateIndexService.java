@@ -1167,11 +1167,18 @@ throw|throw
 operator|new
 name|IndexAlreadyExistsException
 argument_list|(
-operator|new
-name|Index
+name|state
+operator|.
+name|routingTable
+argument_list|()
+operator|.
+name|index
 argument_list|(
 name|index
 argument_list|)
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1192,11 +1199,18 @@ throw|throw
 operator|new
 name|IndexAlreadyExistsException
 argument_list|(
-operator|new
-name|Index
+name|state
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|index
 argument_list|(
 name|index
 argument_list|)
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1215,12 +1229,6 @@ throw|throw
 operator|new
 name|InvalidIndexNameException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
 name|index
 argument_list|,
 literal|"must not contain the following characters "
@@ -1245,12 +1253,6 @@ throw|throw
 operator|new
 name|InvalidIndexNameException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
 name|index
 argument_list|,
 literal|"must not contain '#'"
@@ -1273,12 +1275,6 @@ throw|throw
 operator|new
 name|InvalidIndexNameException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
 name|index
 argument_list|,
 literal|"must not start with '_'"
@@ -1307,12 +1303,6 @@ throw|throw
 operator|new
 name|InvalidIndexNameException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
 name|index
 argument_list|,
 literal|"must be lowercase"
@@ -1366,12 +1356,6 @@ throw|throw
 operator|new
 name|InvalidIndexNameException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
 name|index
 argument_list|,
 literal|"index name is too long, ("
@@ -1403,12 +1387,6 @@ throw|throw
 operator|new
 name|InvalidIndexNameException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
 name|index
 argument_list|,
 literal|"already exists as alias"
@@ -1436,12 +1414,6 @@ throw|throw
 operator|new
 name|InvalidIndexNameException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
 name|index
 argument_list|,
 literal|"must not be '.' or '..'"
@@ -3029,14 +3001,10 @@ argument_list|()
 operator|.
 name|beforeIndexAddedToCluster
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|request
+name|indexMetaData
 operator|.
-name|index
+name|getIndex
 argument_list|()
-argument_list|)
 argument_list|,
 name|indexMetaData
 operator|.
@@ -3599,11 +3567,7 @@ throw|throw
 operator|new
 name|IndexCreationException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 name|indexName
-argument_list|)
 argument_list|,
 name|validationException
 argument_list|)

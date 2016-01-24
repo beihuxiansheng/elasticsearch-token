@@ -78,20 +78,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|json
 operator|.
 name|JsonXContent
@@ -229,7 +215,7 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"expection should have been thrown"
+literal|"exception should have been thrown"
 argument_list|)
 expr_stmt|;
 block|}

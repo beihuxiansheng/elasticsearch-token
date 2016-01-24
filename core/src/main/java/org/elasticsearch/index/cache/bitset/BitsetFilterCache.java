@@ -84,20 +84,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DocIdSetIterator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|IndexSearcher
 import|;
 end_import
@@ -893,9 +879,6 @@ operator|.
 name|getIndex
 argument_list|()
 operator|.
-name|getName
-argument_list|()
-operator|.
 name|equals
 argument_list|(
 name|shardId
@@ -912,24 +895,19 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Trying to load bit set for index ["
+literal|"Trying to load bit set for index "
 operator|+
 name|shardId
 operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"] with cache of index ["
+literal|" with cache of index "
 operator|+
 name|indexSettings
 operator|.
 name|getIndex
 argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

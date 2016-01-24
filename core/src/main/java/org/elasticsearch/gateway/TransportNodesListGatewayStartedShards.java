@@ -410,16 +410,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -921,10 +911,7 @@ name|index
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -994,6 +981,8 @@ name|shardPath
 operator|.
 name|resolveIndex
 argument_list|()
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 block|}
