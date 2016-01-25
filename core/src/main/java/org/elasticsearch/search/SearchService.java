@@ -584,22 +584,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
-name|ParentFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|query
 operator|.
 name|QueryParseContext
@@ -1156,7 +1140,7 @@ name|search
 operator|.
 name|rescore
 operator|.
-name|RescoreBaseBuilder
+name|RescoreBuilder
 import|;
 end_import
 
@@ -5372,7 +5356,10 @@ try|try
 block|{
 for|for
 control|(
-name|RescoreBaseBuilder
+name|RescoreBuilder
+argument_list|<
+name|?
+argument_list|>
 name|rescore
 range|:
 name|source

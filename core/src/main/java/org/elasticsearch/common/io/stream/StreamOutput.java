@@ -3774,6 +3774,9 @@ name|void
 name|writeRescorer
 parameter_list|(
 name|RescoreBuilder
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|)
 throws|throws

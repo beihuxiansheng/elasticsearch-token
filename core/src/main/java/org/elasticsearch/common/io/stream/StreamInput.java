@@ -3655,6 +3655,9 @@ comment|/**      * Reads a {@link RescoreBuilder} from the current stream      *
 DECL|method|readRescorer
 specifier|public
 name|RescoreBuilder
+argument_list|<
+name|?
+argument_list|>
 name|readRescorer
 parameter_list|()
 throws|throws
