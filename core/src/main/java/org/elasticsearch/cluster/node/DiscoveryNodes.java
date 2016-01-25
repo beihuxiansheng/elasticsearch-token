@@ -178,18 +178,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|NodeModule
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -3104,17 +3092,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|NodeModule
-operator|.
-name|isNodeIngestEnabled
-argument_list|(
 name|nodeEntry
 operator|.
 name|value
 operator|.
-name|getAttributes
+name|isIngestNode
 argument_list|()
-argument_list|)
 condition|)
 block|{
 name|ingestNodesBuilder
