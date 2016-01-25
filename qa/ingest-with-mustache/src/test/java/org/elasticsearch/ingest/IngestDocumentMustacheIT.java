@@ -554,7 +554,6 @@ argument_list|,
 name|document
 argument_list|)
 decl_stmt|;
-comment|// TODO: fix index based lookups in lists:
 name|ingestDocument
 operator|.
 name|setFieldValue
@@ -570,7 +569,7 @@ name|ValueSource
 operator|.
 name|wrap
 argument_list|(
-literal|"1 {{list1}} {{list2}}"
+literal|"1 {{list1.0}} {{list2.0}}"
 argument_list|,
 name|templateService
 argument_list|)
@@ -591,47 +590,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"1 [foo, bar, null] [{field=value}, null]"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|ingestDocument
-operator|.
-name|setFieldValue
-argument_list|(
-name|templateService
-operator|.
-name|compile
-argument_list|(
-literal|"field1"
-argument_list|)
-argument_list|,
-name|ValueSource
-operator|.
-name|wrap
-argument_list|(
-literal|"2 {{_source.list1}} {{_source.list2}}"
-argument_list|,
-name|templateService
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|ingestDocument
-operator|.
-name|getFieldValue
-argument_list|(
-literal|"field1"
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"2 [foo, bar, null] [{field=value}, null]"
+literal|"1 foo {field=value}"
 argument_list|)
 argument_list|)
 expr_stmt|;
