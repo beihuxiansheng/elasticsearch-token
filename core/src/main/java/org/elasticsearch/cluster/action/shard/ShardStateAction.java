@@ -790,7 +790,7 @@ operator|.
 name|getShardRouting
 argument_list|()
 operator|.
-name|getId
+name|shardId
 argument_list|()
 argument_list|,
 name|actionName
@@ -1194,7 +1194,7 @@ operator|.
 name|getShardRouting
 argument_list|()
 operator|.
-name|getId
+name|shardId
 argument_list|()
 argument_list|,
 name|actionName
