@@ -157,9 +157,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|CollectorResult
-argument_list|>
 block|{
 DECL|field|REASON_SEARCH_COUNT
 specifier|public
@@ -577,10 +574,15 @@ name|US
 argument_list|,
 literal|"%.10gms"
 argument_list|,
+call|(
+name|double
+call|)
+argument_list|(
 name|getTime
 argument_list|()
 operator|/
 literal|1000000.0
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -709,7 +711,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
-name|CollectorResult
+name|Object
 name|readFrom
 parameter_list|(
 name|StreamInput

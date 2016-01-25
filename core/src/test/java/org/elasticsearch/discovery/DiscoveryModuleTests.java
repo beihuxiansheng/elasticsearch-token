@@ -255,7 +255,10 @@ name|put
 argument_list|(
 name|DiscoveryModule
 operator|.
-name|ZEN_MASTER_SERVICE_TYPE_KEY
+name|ZEN_MASTER_SERVICE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"custom"
 argument_list|)
@@ -335,7 +338,10 @@ name|put
 argument_list|(
 name|DiscoveryModule
 operator|.
-name|ZEN_MASTER_SERVICE_TYPE_KEY
+name|ZEN_MASTER_SERVICE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"foobar"
 argument_list|)
@@ -461,7 +467,10 @@ name|put
 argument_list|(
 name|DiscoveryModule
 operator|.
-name|DISCOVERY_TYPE_KEY
+name|DISCOVERY_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"custom"
 argument_list|)

@@ -3887,7 +3887,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"400ms"
 argument_list|)

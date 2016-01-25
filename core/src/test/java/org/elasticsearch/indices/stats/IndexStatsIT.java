@@ -792,6 +792,9 @@ argument_list|(
 name|IndicesRequestCache
 operator|.
 name|INDICES_CACHE_REQUEST_CLEAN_INTERVAL
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1ms"
 argument_list|)

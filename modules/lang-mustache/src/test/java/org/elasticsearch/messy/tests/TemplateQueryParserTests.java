@@ -786,7 +786,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()
@@ -797,7 +802,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.conf"
+name|Environment
+operator|.
+name|PATH_CONF_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|this
 operator|.
