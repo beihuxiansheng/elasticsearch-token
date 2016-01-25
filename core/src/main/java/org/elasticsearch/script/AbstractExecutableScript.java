@@ -37,21 +37,6 @@ name|Object
 name|value
 parameter_list|)
 block|{     }
-annotation|@
-name|Override
-DECL|method|unwrap
-specifier|public
-name|Object
-name|unwrap
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-return|return
-name|value
-return|;
-block|}
 block|}
 end_class
 

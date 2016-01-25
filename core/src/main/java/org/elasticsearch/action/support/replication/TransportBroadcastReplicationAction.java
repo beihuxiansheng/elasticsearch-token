@@ -384,6 +384,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|BroadcastRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends
@@ -392,6 +395,9 @@ parameter_list|,
 name|ShardRequest
 extends|extends
 name|ReplicationRequest
+parameter_list|<
+name|ShardRequest
+parameter_list|>
 parameter_list|,
 name|ShardResponse
 extends|extends

@@ -78,6 +78,7 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
+specifier|final
 name|ScriptModule
 name|module
 parameter_list|)

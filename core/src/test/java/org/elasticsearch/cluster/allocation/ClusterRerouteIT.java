@@ -180,7 +180,7 @@ name|allocation
 operator|.
 name|command
 operator|.
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 import|;
 end_import
 
@@ -914,7 +914,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
 operator|new
 name|ShardId
@@ -1081,7 +1081,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
 operator|new
 name|ShardId
@@ -1670,6 +1670,9 @@ argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_INCOMING_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -1679,6 +1682,9 @@ argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_OUTGOING_RECOVERIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -2105,7 +2111,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
 operator|new
 name|ShardId
@@ -2553,7 +2559,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|AllocateAllocationCommand
+name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
 operator|new
 name|ShardId

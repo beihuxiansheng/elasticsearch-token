@@ -997,7 +997,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"200ms"
 argument_list|)
@@ -7316,7 +7319,10 @@ name|put
 argument_list|(
 name|IndexStore
 operator|.
-name|INDEX_STORE_THROTTLE_TYPE
+name|INDEX_STORE_THROTTLE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"node"
 argument_list|)
@@ -8201,7 +8207,10 @@ name|put
 argument_list|(
 name|IndexStore
 operator|.
-name|INDEX_STORE_THROTTLE_TYPE
+name|INDEX_STORE_THROTTLE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"all"
 argument_list|)
@@ -8210,7 +8219,10 @@ name|put
 argument_list|(
 name|IndexStore
 operator|.
-name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC
+name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|between
 argument_list|(

@@ -364,7 +364,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_JOIN_TIMEOUT
+name|JOIN_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"30s"
 argument_list|)
@@ -1073,6 +1076,9 @@ argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.

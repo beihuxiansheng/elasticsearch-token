@@ -1042,10 +1042,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|search
-operator|.
-name|stats
-operator|.
 name|SearchSlowLog
 import|;
 end_import
@@ -2259,13 +2255,13 @@ name|this
 operator|.
 name|checkIndexOnStartup
 operator|=
-name|settings
+name|indexSettings
 operator|.
-name|get
+name|getValue
 argument_list|(
-literal|"index.shard.check_on_startup"
-argument_list|,
-literal|"false"
+name|IndexSettings
+operator|.
+name|INDEX_CHECK_ON_STARTUP
 argument_list|)
 expr_stmt|;
 name|this
@@ -2299,15 +2295,13 @@ comment|// the query cache is a node-level thing, however we want the most popul
 comment|// to be computed on a per-shard basis
 if|if
 condition|(
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_EVERYTHING
-argument_list|,
-literal|false
+name|INDEX_QUERY_CACHE_EVERYTHING_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
 argument_list|)
 condition|)
 block|{
@@ -3906,15 +3900,6 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|getEngine
-argument_list|()
-operator|.
-name|refreshNeeded
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
 name|canIndex
 argument_list|()
 condition|)
@@ -4048,7 +4033,6 @@ operator|-
 name|time
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/** Returns how many bytes we are currently moving from heap to disk */
@@ -7099,7 +7083,7 @@ if|if
 condition|(
 literal|"checksum"
 operator|.
-name|equalsIgnoreCase
+name|equals
 argument_list|(
 name|checkIndexOnStartup
 argument_list|)
@@ -7328,7 +7312,7 @@ if|if
 condition|(
 literal|"fix"
 operator|.
-name|equalsIgnoreCase
+name|equals
 argument_list|(
 name|checkIndexOnStartup
 argument_list|)
@@ -8661,6 +8645,21 @@ parameter_list|()
 block|{
 return|return
 name|engineFactory
+return|;
+block|}
+comment|/**      * Returns<code>true</code> iff one or more changes to the engine are not visible to via the current searcher.      * Otherwise<code>false</code>.      *      * @throws EngineClosedException if the engine is already closed      * @throws AlreadyClosedException if the internal indexwriter in the engine is already closed      */
+DECL|method|isRefreshNeeded
+specifier|public
+name|boolean
+name|isRefreshNeeded
+parameter_list|()
+block|{
+return|return
+name|getEngine
+argument_list|()
+operator|.
+name|refreshNeeded
+argument_list|()
 return|;
 block|}
 block|}

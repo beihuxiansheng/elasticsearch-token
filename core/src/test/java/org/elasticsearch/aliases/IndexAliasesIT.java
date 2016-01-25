@@ -5487,14 +5487,14 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"index.numberOfReplicas"
+literal|"index.number_of_replicas"
 argument_list|,
 literal|0
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"index.numberOfShards"
+literal|"index.number_of_shards"
 argument_list|,
 literal|1
 argument_list|)

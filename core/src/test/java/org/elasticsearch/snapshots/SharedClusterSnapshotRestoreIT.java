@@ -882,11 +882,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
+name|IndexSettings
 operator|.
-name|QueryBuilders
-operator|.
-name|matchQuery
+name|INDEX_REFRESH_INTERVAL_SETTING
 import|;
 end_import
 
@@ -898,9 +896,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexSettings
+name|query
 operator|.
-name|INDEX_REFRESH_INTERVAL
+name|QueryBuilders
+operator|.
+name|matchQuery
 import|;
 end_import
 
@@ -7840,9 +7840,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|FilterAllocationDecider
+name|IndexMetaData
 operator|.
-name|INDEX_ROUTING_INCLUDE_GROUP
+name|INDEX_ROUTING_INCLUDE_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|".tag"
 argument_list|,
@@ -15181,7 +15184,10 @@ name|put
 argument_list|(
 name|IndexStore
 operator|.
-name|INDEX_STORE_THROTTLE_TYPE
+name|INDEX_STORE_THROTTLE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"all"
 argument_list|)
@@ -15190,7 +15196,10 @@ name|put
 argument_list|(
 name|IndexStore
 operator|.
-name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC
+name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|100
 argument_list|,
@@ -15300,7 +15309,10 @@ name|put
 argument_list|(
 name|IndexStore
 operator|.
-name|INDEX_STORE_THROTTLE_TYPE
+name|INDEX_STORE_THROTTLE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"node"
 argument_list|)
@@ -16279,7 +16291,10 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|INDEX_REFRESH_INTERVAL
+name|INDEX_REFRESH_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10s"
 argument_list|)
@@ -16880,7 +16895,10 @@ name|getSetting
 argument_list|(
 literal|"test-idx"
 argument_list|,
-name|INDEX_REFRESH_INTERVAL
+name|INDEX_REFRESH_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 argument_list|,
 name|equalTo
@@ -17114,7 +17132,10 @@ name|getSetting
 argument_list|(
 literal|"test-idx"
 argument_list|,
-name|INDEX_REFRESH_INTERVAL
+name|INDEX_REFRESH_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 argument_list|,
 name|equalTo
@@ -17316,7 +17337,10 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|INDEX_REFRESH_INTERVAL
+name|INDEX_REFRESH_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10s"
 argument_list|)

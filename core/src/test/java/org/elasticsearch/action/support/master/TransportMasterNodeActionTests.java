@@ -2155,7 +2155,7 @@ condition|)
 block|{
 name|transport
 operator|.
-name|handleResponse
+name|handleRemoteError
 argument_list|(
 name|capturedRequest
 operator|.
@@ -2219,7 +2219,7 @@ argument_list|()
 decl_stmt|;
 name|transport
 operator|.
-name|handleResponse
+name|handleRemoteError
 argument_list|(
 name|capturedRequest
 operator|.

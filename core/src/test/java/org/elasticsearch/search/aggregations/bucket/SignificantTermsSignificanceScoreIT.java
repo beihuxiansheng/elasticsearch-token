@@ -1523,11 +1523,11 @@ name|significanceModule
 operator|.
 name|registerHeuristicParser
 argument_list|(
+operator|new
 name|SimpleHeuristic
 operator|.
 name|SimpleHeuristicParser
-operator|.
-name|class
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

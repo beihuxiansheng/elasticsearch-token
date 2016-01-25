@@ -3039,7 +3039,7 @@ argument_list|()
 expr_stmt|;
 name|transport
 operator|.
-name|handleResponse
+name|handleRemoteError
 argument_list|(
 name|requestId
 argument_list|,

@@ -370,6 +370,27 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
+DECL|method|visitEmptyscope
+annotation|@
+name|Override
+specifier|public
+name|T
+name|visitEmptyscope
+parameter_list|(
+name|PlanAParser
+operator|.
+name|EmptyscopeContext
+name|ctx
+parameter_list|)
+block|{
+return|return
+name|visitChildren
+argument_list|(
+name|ctx
+argument_list|)
+return|;
+block|}
+comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
 DECL|method|visitInitializer
 annotation|@
 name|Override
@@ -464,6 +485,27 @@ parameter_list|(
 name|PlanAParser
 operator|.
 name|DeclvarContext
+name|ctx
+parameter_list|)
+block|{
+return|return
+name|visitChildren
+argument_list|(
+name|ctx
+argument_list|)
+return|;
+block|}
+comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
+DECL|method|visitTrap
+annotation|@
+name|Override
+specifier|public
+name|T
+name|visitTrap
+parameter_list|(
+name|PlanAParser
+operator|.
+name|TrapContext
 name|ctx
 parameter_list|)
 block|{

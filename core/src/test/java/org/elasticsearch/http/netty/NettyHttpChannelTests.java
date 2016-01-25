@@ -593,6 +593,9 @@ argument_list|(
 name|NettyHttpServerTransport
 operator|.
 name|SETTING_CORS_ENABLED
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -774,6 +777,9 @@ argument_list|(
 name|NettyHttpServerTransport
 operator|.
 name|SETTING_CORS_ENABLED
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
