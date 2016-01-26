@@ -474,21 +474,6 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 operator|.
-name|put
-argument_list|(
-literal|"cluster.routing.operation.use_type"
-argument_list|,
-literal|false
-argument_list|)
-comment|// make sure we control the shard computation
-operator|.
-name|put
-argument_list|(
-literal|"cluster.routing.operation.hash.type"
-argument_list|,
-literal|"djb"
-argument_list|)
-operator|.
 name|build
 argument_list|()
 return|;
