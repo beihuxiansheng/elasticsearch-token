@@ -1596,6 +1596,10 @@ name|Node
 operator|.
 name|NODE_MODE_SETTING
 argument_list|,
+name|Node
+operator|.
+name|NODE_INGEST_SETTING
+argument_list|,
 name|URLRepository
 operator|.
 name|ALLOWED_URLS_SETTING
@@ -1611,10 +1615,6 @@ argument_list|,
 name|URLRepository
 operator|.
 name|SUPPORTED_PROTOCOLS_SETTING
-argument_list|,
-name|Node
-operator|.
-name|NODE_INGEST_SETTING
 argument_list|)
 argument_list|)
 argument_list|)
