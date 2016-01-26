@@ -70,18 +70,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Collectors
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Processor that executes a list of other "processors". It executes a separate list of  * "onFailureProcessors" when any of the processors throw an {@link Exception}.  */
 end_comment
