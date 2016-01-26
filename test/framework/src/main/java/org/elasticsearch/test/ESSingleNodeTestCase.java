@@ -1035,7 +1035,10 @@ name|put
 argument_list|(
 name|EsExecutors
 operator|.
-name|PROCESSORS
+name|PROCESSORS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
