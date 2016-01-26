@@ -1588,6 +1588,14 @@ name|Node
 operator|.
 name|NODE_MASTER_SETTING
 argument_list|,
+name|Node
+operator|.
+name|NODE_LOCAL_SETTING
+argument_list|,
+name|Node
+operator|.
+name|NODE_MODE_SETTING
+argument_list|,
 name|URLRepository
 operator|.
 name|ALLOWED_URLS_SETTING
