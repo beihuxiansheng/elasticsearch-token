@@ -713,7 +713,12 @@ name|sb
 operator|.
 name|put
 argument_list|(
-literal|"node.client"
+name|Node
+operator|.
+name|NODE_CLIENT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -1066,7 +1071,12 @@ name|sb
 operator|.
 name|put
 argument_list|(
-literal|"node.client"
+name|Node
+operator|.
+name|NODE_CLIENT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
