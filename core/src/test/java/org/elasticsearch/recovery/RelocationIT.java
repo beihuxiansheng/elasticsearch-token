@@ -825,7 +825,7 @@ argument_list|)
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"indices.recovery:TRACE,index.shard.service:TRACE"
+literal|"_root:DEBUG,indices.recovery:TRACE,index.shard.service:TRACE"
 argument_list|)
 DECL|class|RelocationIT
 specifier|public

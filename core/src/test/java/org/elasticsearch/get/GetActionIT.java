@@ -344,22 +344,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -8351,11 +8335,6 @@ block|{
 comment|//all well
 block|}
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.shard.service:TRACE,cluster.service:TRACE,action.admin.indices.flush:TRACE"
-argument_list|)
 DECL|method|testGetFieldsComplexField
 specifier|public
 name|void

@@ -732,6 +732,11 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuppressLocalMode
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG"
+argument_list|)
 DECL|class|ZenDiscoveryIT
 specifier|public
 class|class
@@ -1197,13 +1202,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-name|value
-operator|=
-literal|"action.admin.cluster.health:TRACE"
-argument_list|)
 DECL|method|testNodeFailuresAreProcessedOnce
 specifier|public
 name|void

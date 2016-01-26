@@ -101,6 +101,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -133,6 +149,11 @@ comment|/**  * This test basically verifies that search with a single shard acti
 end_comment
 
 begin_class
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG"
+argument_list|)
 DECL|class|SearchWhileCreatingIndexIT
 specifier|public
 class|class
