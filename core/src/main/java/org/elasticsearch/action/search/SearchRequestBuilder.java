@@ -1184,15 +1184,16 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      *      * @param rescorer rescorer configuration      * @return this for chaining      */
+comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder, int)}.      *      * @param rescorer rescorer configuration      * @return this for chaining      */
 DECL|method|setRescorer
 specifier|public
 name|SearchRequestBuilder
 name|setRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|)
 block|{
@@ -1209,15 +1210,13 @@ name|rescorer
 argument_list|)
 return|;
 block|}
-comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      *      * @param rescorer rescorer configuration      * @param window   rescore window      * @return this for chaining      */
+comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder, int)}.      *      * @param rescorer rescorer configuration      * @param window   rescore window      * @return this for chaining      */
 DECL|method|setRescorer
 specifier|public
 name|SearchRequestBuilder
 name|setRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
 name|rescorer
 parameter_list|,
 name|int
@@ -1234,8 +1233,11 @@ return|return
 name|addRescorer
 argument_list|(
 name|rescorer
-argument_list|,
+operator|.
+name|windowSize
+argument_list|(
 name|window
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1246,8 +1248,9 @@ name|SearchRequestBuilder
 name|addRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|)
 block|{
@@ -1256,11 +1259,7 @@ argument_list|()
 operator|.
 name|addRescorer
 argument_list|(
-operator|new
-name|RescoreBuilder
-argument_list|(
 name|rescorer
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1274,8 +1273,9 @@ name|SearchRequestBuilder
 name|addRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|,
 name|int
@@ -1287,11 +1287,7 @@ argument_list|()
 operator|.
 name|addRescorer
 argument_list|(
-operator|new
-name|RescoreBuilder
-argument_list|(
 name|rescorer
-argument_list|)
 operator|.
 name|windowSize
 argument_list|(

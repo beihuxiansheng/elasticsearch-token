@@ -261,8 +261,6 @@ operator|.
 name|rescore
 operator|.
 name|RescoreBuilder
-operator|.
-name|Rescorer
 import|;
 end_import
 
@@ -3769,13 +3767,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Writes a {@link Rescorer} to the current stream      */
+comment|/**      * Writes a {@link RescoreBuilder} to the current stream      */
 DECL|method|writeRescorer
 specifier|public
 name|void
 name|writeRescorer
 parameter_list|(
-name|Rescorer
+name|RescoreBuilder
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|)
 throws|throws
