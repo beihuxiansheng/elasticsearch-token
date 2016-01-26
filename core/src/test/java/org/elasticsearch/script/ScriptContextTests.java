@@ -192,7 +192,7 @@ name|PLUGIN_NAME
 operator|+
 literal|"_custom_globally_disabled_op"
 argument_list|,
-literal|"off"
+literal|"false"
 argument_list|)
 operator|.
 name|put
@@ -209,7 +209,7 @@ name|PLUGIN_NAME
 operator|+
 literal|"_custom_exp_disabled_op"
 argument_list|,
-literal|"off"
+literal|"false"
 argument_list|)
 operator|.
 name|build

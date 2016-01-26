@@ -785,7 +785,7 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|// the next fallback is global operation-based settings (e.g., "script.aggs: off")
+comment|// the next fallback is global operation-based settings (e.g., "script.aggs: false")
 name|Setting
 argument_list|<
 name|ScriptMode
@@ -821,7 +821,7 @@ name|getMode
 argument_list|()
 return|;
 block|}
-comment|// the next fallback is global source-based settings (e.g., "script.inline: off")
+comment|// the next fallback is global source-based settings (e.g., "script.inline: false")
 name|Setting
 argument_list|<
 name|ScriptMode

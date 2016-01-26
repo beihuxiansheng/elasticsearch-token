@@ -291,7 +291,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"on"
+literal|"true"
 block|}
 decl_stmt|;
 DECL|field|DISABLE_VALUES
@@ -305,7 +305,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"off"
+literal|"false"
 block|}
 decl_stmt|;
 DECL|field|scriptSettings
@@ -1451,9 +1451,7 @@ name|put
 argument_list|(
 literal|"script.inline"
 argument_list|,
-name|ScriptMode
-operator|.
-name|SANDBOX
+literal|"sandbox"
 argument_list|)
 decl_stmt|;
 comment|//operations generic settings have precedence over script type generic settings

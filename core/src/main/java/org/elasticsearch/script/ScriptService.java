@@ -1126,7 +1126,7 @@ name|DISABLE_DYNAMIC_SCRIPTING_SETTING
 operator|+
 literal|" is not a supported setting, replace with fine-grained script settings. \n"
 operator|+
-literal|"Dynamic scripts can be enabled for all languages and all operations by replacing `script.disable_dynamic: false` with `script.inline: on` and `script.indexed: on` in elasticsearch.yml"
+literal|"Dynamic scripts can be enabled for all languages and all operations by replacing `script.disable_dynamic: false` with `script.inline: true` and `script.indexed: true` in elasticsearch.yml"
 argument_list|)
 throw|;
 block|}

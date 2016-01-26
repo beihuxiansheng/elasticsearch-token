@@ -211,7 +211,7 @@ name|put
 argument_list|(
 literal|"script.engine.expression.indexed.update"
 argument_list|,
-literal|"off"
+literal|"false"
 argument_list|)
 expr_stmt|;
 name|builder
@@ -220,7 +220,7 @@ name|put
 argument_list|(
 literal|"script.engine.expression.indexed.search"
 argument_list|,
-literal|"off"
+literal|"false"
 argument_list|)
 expr_stmt|;
 name|builder
@@ -229,7 +229,7 @@ name|put
 argument_list|(
 literal|"script.engine.expression.indexed.mapping"
 argument_list|,
-literal|"off"
+literal|"false"
 argument_list|)
 expr_stmt|;
 return|return

@@ -1517,9 +1517,7 @@ name|put
 argument_list|(
 literal|"script.indexed"
 argument_list|,
-name|ScriptMode
-operator|.
-name|SANDBOX
+literal|"sandbox"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1535,9 +1533,7 @@ name|put
 argument_list|(
 literal|"script.inline"
 argument_list|,
-name|ScriptMode
-operator|.
-name|SANDBOX
+literal|"sandbox"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1981,7 +1977,7 @@ operator|.
 name|getScriptType
 argument_list|()
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2004,7 +2000,7 @@ operator|.
 name|getScriptType
 argument_list|()
 argument_list|,
-literal|"off"
+literal|"false"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2078,7 +2074,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2101,7 +2097,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-literal|"off"
+literal|"false"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2232,7 +2228,7 @@ literal|"."
 operator|+
 name|part2
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2253,7 +2249,7 @@ literal|"."
 operator|+
 name|part2
 argument_list|,
-literal|"off"
+literal|"false"
 argument_list|)
 expr_stmt|;
 break|break;

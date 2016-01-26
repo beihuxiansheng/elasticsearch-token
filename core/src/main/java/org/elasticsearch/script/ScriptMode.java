@@ -46,13 +46,13 @@ block|{
 DECL|enum constant|ON
 name|ON
 argument_list|(
-literal|"on"
+literal|"true"
 argument_list|)
 block|,
 DECL|enum constant|OFF
 name|OFF
 argument_list|(
-literal|"off"
+literal|"false"
 argument_list|)
 block|,
 DECL|enum constant|SANDBOX
