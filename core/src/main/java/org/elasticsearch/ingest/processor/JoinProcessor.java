@@ -319,6 +319,10 @@ name|ConfigurationUtils
 operator|.
 name|readStringProperty
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
 name|config
 argument_list|,
 literal|"field"
@@ -331,6 +335,10 @@ name|ConfigurationUtils
 operator|.
 name|readStringProperty
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
 name|config
 argument_list|,
 literal|"separator"

@@ -48,6 +48,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ingest
+operator|.
+name|core
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|processor
+operator|.
+name|ConfigurationPropertyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -790,7 +818,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -803,7 +831,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"database file [does-not-exist.mmdb] doesn't exist"
+literal|"[database_file] database file [does-not-exist.mmdb] doesn't exist"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1074,7 +1102,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -1087,7 +1115,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"illegal field option [invalid]. valid values are [[IP, COUNTRY_ISO_CODE, COUNTRY_NAME, CONTINENT_NAME, REGION_NAME, CITY_NAME, TIMEZONE, LATITUDE, LONGITUDE, LOCATION]]"
+literal|"[fields] illegal field option [invalid]. valid values are [[IP, COUNTRY_ISO_CODE, COUNTRY_NAME, CONTINENT_NAME, REGION_NAME, CITY_NAME, TIMEZONE, LATITUDE, LONGITUDE, LOCATION]]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1134,7 +1162,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -1147,7 +1175,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"property [fields] isn't a list, but of type [java.lang.String]"
+literal|"[fields] property isn't a list, but of type [java.lang.String]"
 argument_list|)
 argument_list|)
 expr_stmt|;
