@@ -254,7 +254,7 @@ name|search
 operator|.
 name|rescore
 operator|.
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 import|;
 end_import
 
@@ -697,7 +697,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -1039,7 +1039,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -1188,7 +1188,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -1282,7 +1282,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -1919,7 +1919,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -2058,7 +2058,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -2198,7 +2198,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -2702,7 +2702,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -2839,7 +2839,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -3388,7 +3388,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -4175,7 +4175,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -4351,7 +4351,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -4456,7 +4456,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -4702,7 +4702,7 @@ argument_list|)
 operator|.
 name|setRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -5102,7 +5102,7 @@ block|{
 name|QueryRescorerBuilder
 name|innerRescoreQuery
 init|=
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -5314,7 +5314,7 @@ block|{
 name|QueryRescorerBuilder
 name|outerRescoreQuery
 init|=
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -5666,7 +5666,7 @@ decl_stmt|;
 name|QueryRescorerBuilder
 name|rescoreQuery
 init|=
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -6872,7 +6872,7 @@ decl_stmt|;
 name|QueryRescorerBuilder
 name|eightIsGreat
 init|=
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -6920,7 +6920,7 @@ decl_stmt|;
 name|QueryRescorerBuilder
 name|sevenIsBetter
 init|=
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -7064,7 +7064,7 @@ comment|// Now use one rescore to drag the number we're looking for into the win
 name|QueryRescorerBuilder
 name|ninetyIsGood
 init|=
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -7105,7 +7105,7 @@ decl_stmt|;
 name|QueryRescorerBuilder
 name|oneToo
 init|=
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(
@@ -7560,7 +7560,7 @@ name|request
 operator|.
 name|addRescorer
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|queryRescorer
 argument_list|(

@@ -384,7 +384,7 @@ name|search
 operator|.
 name|rescore
 operator|.
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 import|;
 end_import
 
@@ -4351,7 +4351,7 @@ name|rescoreBuilders
 operator|.
 name|add
 argument_list|(
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(

@@ -208,7 +208,7 @@ specifier|public
 class|class
 name|QueryRescorerBuilder
 extends|extends
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 argument_list|<
 name|QueryRescorerBuilder
 argument_list|>
@@ -686,8 +686,6 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|fromXContent
 specifier|public
 name|QueryRescorerBuilder

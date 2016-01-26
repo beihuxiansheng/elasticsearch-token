@@ -1035,7 +1035,7 @@ name|?
 argument_list|>
 name|secondRescoreBuilder
 init|=
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(
@@ -1466,7 +1466,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(
@@ -1513,7 +1513,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(
@@ -1562,7 +1562,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(
@@ -1605,7 +1605,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(
@@ -1654,7 +1654,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(
@@ -1703,7 +1703,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(
@@ -1750,7 +1750,7 @@ argument_list|,
 name|rescoreElement
 argument_list|)
 expr_stmt|;
-name|AbstractRescoreBuilder
+name|RescoreBuilder
 operator|.
 name|parseFromXContent
 argument_list|(
