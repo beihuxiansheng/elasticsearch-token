@@ -256,28 +256,38 @@ name|shardsNo
 argument_list|)
 argument_list|)
 expr_stmt|;
-for|for
-control|(
+name|String
+name|id
+init|=
+name|randomAsciiOfLength
+argument_list|(
+literal|5
+argument_list|)
+decl_stmt|;
+comment|// we will go the primary or the replica, but in a
+comment|// randomized re-creatable manner
 name|int
-name|i
+name|counter
 init|=
 literal|0
-init|;
-name|i
-operator|<
-literal|20
-condition|;
-name|i
-operator|++
-control|)
-block|{
+decl_stmt|;
+name|String
+name|preference
+init|=
+name|randomAsciiOfLength
+argument_list|(
+literal|5
+argument_list|)
+decl_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"running iteration {}"
+literal|"running iteration for id {}, preference {}"
 argument_list|,
-name|i
+name|id
+argument_list|,
+name|preference
 argument_list|)
 expr_stmt|;
 if|if
@@ -300,10 +310,7 @@ literal|"test"
 argument_list|,
 literal|"type1"
 argument_list|,
-name|randomAsciiOfLength
-argument_list|(
-literal|5
-argument_list|)
+name|id
 argument_list|)
 operator|.
 name|setSource
@@ -356,6 +363,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// at least one shard should be successful when refreshing
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"using preference {}"
+argument_list|,
+name|preference
+argument_list|)
+expr_stmt|;
 comment|// we want to make sure that while recovery happens, and a replica gets recovered, its properly refreshed
 name|ClusterHealthStatus
 name|status
@@ -415,15 +431,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// now, let it go to primary or replica, though in a randomized re-creatable manner
-name|String
-name|preference
-init|=
-name|randomAsciiOfLength
-argument_list|(
-literal|5
-argument_list|)
-decl_stmt|;
 name|Client
 name|client
 init|=
@@ -442,6 +449,14 @@ operator|.
 name|setPreference
 argument_list|(
 name|preference
+operator|+
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|counter
+operator|++
+argument_list|)
 argument_list|)
 operator|.
 name|setQuery
@@ -633,7 +648,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

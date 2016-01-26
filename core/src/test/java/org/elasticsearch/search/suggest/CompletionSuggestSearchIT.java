@@ -2089,7 +2089,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"ParsingException[[completion] failed to parse field [payload]]; nested: IllegalStateException[expected value but got [START_OBJECT]]"
+literal|"ParsingException[[completion] failed to parse field [payload]]; nested: IllegalStateException[Can't get text on a START_OBJECT"
 argument_list|)
 argument_list|)
 expr_stmt|;

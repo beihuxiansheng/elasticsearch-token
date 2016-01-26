@@ -95,32 +95,6 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Constructs a new script based sort.      *      * @param script      *            The script to use.      * @param type      *            The type, can either be "string" or "number".      * @deprecated Use {@link #scriptSort(Script, String)} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|scriptSort
-specifier|public
-specifier|static
-name|ScriptSortBuilder
-name|scriptSort
-parameter_list|(
-name|String
-name|script
-parameter_list|,
-name|String
-name|type
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptSortBuilder
-argument_list|(
-name|script
-argument_list|,
-name|type
-argument_list|)
-return|;
-block|}
 comment|/**      * A geo distance based sort.      *      * @param fieldName The geo point like field name.      */
 DECL|method|geoDistanceSort
 specifier|public
