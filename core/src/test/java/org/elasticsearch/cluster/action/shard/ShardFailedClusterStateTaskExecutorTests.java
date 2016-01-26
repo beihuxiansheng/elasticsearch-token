@@ -1889,11 +1889,6 @@ name|sr
 operator|.
 name|state
 argument_list|()
-argument_list|,
-name|sr
-operator|.
-name|version
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|shardsWithMismatchedAllocationIds
@@ -2023,13 +2018,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|)
-argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|8
 argument_list|)
 argument_list|)
 return|;
@@ -2698,11 +2686,6 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
-argument_list|,
-name|shardRouting
-operator|.
-name|version
-argument_list|()
 argument_list|)
 return|;
 block|}

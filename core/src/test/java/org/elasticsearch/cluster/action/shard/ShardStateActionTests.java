@@ -2147,11 +2147,6 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
-argument_list|,
-name|failedShard
-operator|.
-name|version
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|shardStateAction

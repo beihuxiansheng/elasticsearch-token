@@ -1047,7 +1047,7 @@ argument_list|()
 argument_list|,
 name|shardStateMetaData
 operator|.
-name|version
+name|legacyVersion
 argument_list|,
 name|allocationId
 argument_list|,
@@ -1147,7 +1147,7 @@ argument_list|()
 argument_list|,
 name|shardStateMetaData
 operator|.
-name|version
+name|legacyVersion
 argument_list|,
 name|allocationId
 argument_list|,
@@ -1176,8 +1176,9 @@ operator|.
 name|localNode
 argument_list|()
 argument_list|,
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 argument_list|,
 literal|null
 argument_list|,
@@ -1704,14 +1705,16 @@ name|NodeGatewayStartedShards
 extends|extends
 name|BaseNodeResponse
 block|{
-DECL|field|version
+DECL|field|legacyVersion
 specifier|private
 name|long
-name|version
+name|legacyVersion
 init|=
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 decl_stmt|;
+comment|// for pre-3.0 shards that have not yet been active
 DECL|field|allocationId
 specifier|private
 name|String
@@ -1746,7 +1749,7 @@ name|DiscoveryNode
 name|node
 parameter_list|,
 name|long
-name|version
+name|legacyVersion
 parameter_list|,
 name|String
 name|allocationId
@@ -1759,7 +1762,7 @@ name|this
 argument_list|(
 name|node
 argument_list|,
-name|version
+name|legacyVersion
 argument_list|,
 name|allocationId
 argument_list|,
@@ -1777,7 +1780,7 @@ name|DiscoveryNode
 name|node
 parameter_list|,
 name|long
-name|version
+name|legacyVersion
 parameter_list|,
 name|String
 name|allocationId
@@ -1796,9 +1799,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|version
+name|legacyVersion
 operator|=
-name|version
+name|legacyVersion
 expr_stmt|;
 name|this
 operator|.
@@ -1819,16 +1822,16 @@ operator|=
 name|storeException
 expr_stmt|;
 block|}
-DECL|method|version
+DECL|method|legacyVersion
 specifier|public
 name|long
-name|version
+name|legacyVersion
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|version
+name|legacyVersion
 return|;
 block|}
 DECL|method|allocationId
@@ -1887,7 +1890,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|version
+name|legacyVersion
 operator|=
 name|in
 operator|.
@@ -1949,7 +1952,7 @@ name|out
 operator|.
 name|writeLong
 argument_list|(
-name|version
+name|legacyVersion
 argument_list|)
 expr_stmt|;
 name|out

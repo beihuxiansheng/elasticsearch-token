@@ -3349,9 +3349,6 @@ name|String
 name|nodeId
 parameter_list|,
 name|long
-name|version
-parameter_list|,
-name|long
 name|expectedShardSize
 parameter_list|)
 block|{
@@ -3366,8 +3363,6 @@ operator|new
 name|ShardRouting
 argument_list|(
 name|current
-argument_list|,
-name|version
 argument_list|)
 argument_list|,
 name|nodeId
@@ -3392,7 +3387,7 @@ name|current
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String, long, long)}.              */
+comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String, long)}.              */
 annotation|@
 name|Override
 DECL|method|remove

@@ -746,8 +746,6 @@ literal|true
 argument_list|,
 name|primaryState
 argument_list|,
-literal|0
-argument_list|,
 name|unassignedInfo
 argument_list|)
 argument_list|)
@@ -855,8 +853,6 @@ argument_list|,
 literal|false
 argument_list|,
 name|replicaState
-argument_list|,
-literal|0
 argument_list|,
 name|unassignedInfo
 argument_list|)
@@ -1242,8 +1238,6 @@ name|ShardRoutingState
 operator|.
 name|STARTED
 argument_list|,
-literal|0
-argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -1277,8 +1271,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|,
 literal|null
 argument_list|)

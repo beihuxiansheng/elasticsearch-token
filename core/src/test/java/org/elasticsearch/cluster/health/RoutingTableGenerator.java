@@ -257,8 +257,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 return|;
 case|case
@@ -292,8 +290,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
-argument_list|,
-literal|1
 argument_list|)
 return|;
 case|case
@@ -335,8 +331,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|RELOCATING
-argument_list|,
-literal|1
 argument_list|)
 return|;
 default|default:

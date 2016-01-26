@@ -792,8 +792,6 @@ literal|0
 argument_list|,
 name|state
 argument_list|,
-literal|0
-argument_list|,
 name|unassignedInfo
 argument_list|)
 argument_list|)
@@ -1047,8 +1045,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1088,8 +1084,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1287,8 +1281,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1328,8 +1320,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1550,8 +1540,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1591,8 +1579,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1832,8 +1818,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1873,8 +1857,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

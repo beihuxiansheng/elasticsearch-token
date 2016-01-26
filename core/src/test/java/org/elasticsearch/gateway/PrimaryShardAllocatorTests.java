@@ -298,6 +298,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardStateMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESAllocationTestCase
@@ -686,7 +700,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests when the node returns that no data was found for it (-1 for version and null for allocation id),      * it will be moved to ignore unassigned.      */
+comment|/**      * Tests when the node returns that no data was found for it ({@link ShardStateMetaData#NO_VERSION} for version and null for allocation id),      * it will be moved to ignore unassigned.      */
 DECL|method|testNoAllocationFound
 specifier|public
 name|void
@@ -743,8 +757,9 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 argument_list|,
 literal|null
 argument_list|,
@@ -2400,8 +2415,9 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 argument_list|,
 literal|null
 argument_list|,
@@ -2985,8 +3001,9 @@ name|addData
 argument_list|(
 name|node1
 argument_list|,
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 argument_list|,
 literal|null
 argument_list|,

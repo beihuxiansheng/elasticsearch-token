@@ -200,6 +200,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardStateMetaData
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -682,8 +696,8 @@ name|indexMetaData
 argument_list|)
 decl_stmt|;
 specifier|final
-name|NodesAndVersions
-name|nodesAndVersions
+name|NodesResult
+name|nodesResult
 decl_stmt|;
 specifier|final
 name|boolean
@@ -720,9 +734,9 @@ assert|;
 comment|// when we load an old index (after upgrading cluster) or restore a snapshot of an old index
 comment|// fall back to old version-based allocation mode
 comment|// Note that once the shard has been active, lastActiveAllocationIds will be non-empty
-name|nodesAndVersions
+name|nodesResult
 operator|=
-name|buildNodesAndVersions
+name|buildVersionBasedNodes
 argument_list|(
 name|shard
 argument_list|,
@@ -752,7 +766,7 @@ condition|)
 block|{
 name|enoughAllocationsFound
 operator|=
-name|nodesAndVersions
+name|nodesResult
 operator|.
 name|allocationsFound
 operator|>
@@ -769,7 +783,7 @@ name|shard
 argument_list|,
 name|indexMetaData
 argument_list|,
-name|nodesAndVersions
+name|nodesResult
 argument_list|)
 expr_stmt|;
 block|}
@@ -777,7 +791,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}]: version-based allocation for pre-{} index found {} allocations of {}, highest version: [{}]"
+literal|"[{}][{}]: version-based allocation for pre-{} index found {} allocations of {}"
 argument_list|,
 name|shard
 operator|.
@@ -793,15 +807,11 @@ name|Version
 operator|.
 name|V_3_0_0
 argument_list|,
-name|nodesAndVersions
+name|nodesResult
 operator|.
 name|allocationsFound
 argument_list|,
 name|shard
-argument_list|,
-name|nodesAndVersions
-operator|.
-name|highestVersion
 argument_list|)
 expr_stmt|;
 block|}
@@ -816,7 +826,7 @@ operator|==
 literal|false
 assert|;
 comment|// use allocation ids to select nodes
-name|nodesAndVersions
+name|nodesResult
 operator|=
 name|buildAllocationIdBasedNodes
 argument_list|(
@@ -843,7 +853,7 @@ argument_list|)
 expr_stmt|;
 name|enoughAllocationsFound
 operator|=
-name|nodesAndVersions
+name|nodesResult
 operator|.
 name|allocationsFound
 operator|>
@@ -865,7 +875,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|nodesAndVersions
+name|nodesResult
 operator|.
 name|allocationsFound
 argument_list|,
@@ -960,7 +970,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|nodesAndVersions
+name|nodesResult
 operator|.
 name|allocationsFound
 argument_list|)
@@ -978,7 +988,7 @@ name|shard
 argument_list|,
 name|allocation
 argument_list|,
-name|nodesAndVersions
+name|nodesResult
 operator|.
 name|nodes
 argument_list|)
@@ -1040,10 +1050,6 @@ name|node
 operator|.
 name|id
 argument_list|()
-argument_list|,
-name|nodesAndVersions
-operator|.
-name|highestVersion
 argument_list|,
 name|ShardRouting
 operator|.
@@ -1119,10 +1125,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|nodesAndVersions
-operator|.
-name|highestVersion
-argument_list|,
 name|ShardRouting
 operator|.
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
@@ -1169,7 +1171,7 @@ block|}
 comment|/**      * Builds a list of nodes. If matchAnyShard is set to false, only nodes that have an allocation id matching      * lastActiveAllocationIds are added to the list. Otherwise, any node that has a shard is added to the list, but      * entries with matching allocation id are always at the front of the list.      */
 DECL|method|buildAllocationIdBasedNodes
 specifier|protected
-name|NodesAndVersions
+name|NodesResult
 name|buildAllocationIdBasedNodes
 parameter_list|(
 name|ShardRouting
@@ -1222,12 +1224,6 @@ operator|new
 name|LinkedList
 argument_list|<>
 argument_list|()
-decl_stmt|;
-name|long
-name|highestVersion
-init|=
-operator|-
-literal|1
 decl_stmt|;
 for|for
 control|(
@@ -1294,11 +1290,12 @@ literal|null
 operator|&&
 name|nodeShardState
 operator|.
-name|version
+name|legacyVersion
 argument_list|()
 operator|!=
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 condition|)
 block|{
 comment|// old shard with no allocation id, assign dummy value so that it gets added below in case of matchAnyShard
@@ -1395,20 +1392,6 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
-name|highestVersion
-operator|=
-name|Math
-operator|.
-name|max
-argument_list|(
-name|highestVersion
-argument_list|,
-name|nodeShardState
-operator|.
-name|version
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -1442,20 +1425,6 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
-name|highestVersion
-operator|=
-name|Math
-operator|.
-name|max
-argument_list|(
-name|highestVersion
-argument_list|,
-name|nodeShardState
-operator|.
-name|version
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -1526,7 +1495,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|NodesAndVersions
+name|NodesResult
 argument_list|(
 name|nodes
 argument_list|,
@@ -1534,8 +1503,6 @@ name|nodes
 operator|.
 name|size
 argument_list|()
-argument_list|,
-name|highestVersion
 argument_list|)
 return|;
 block|}
@@ -1551,7 +1518,7 @@ parameter_list|,
 name|IndexMetaData
 name|indexMetaData
 parameter_list|,
-name|NodesAndVersions
+name|NodesResult
 name|nodesAndVersions
 parameter_list|)
 block|{
@@ -1948,9 +1915,9 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Builds a list of nodes. If matchAnyShard is set to false, only nodes that have the highest shard version      * are added to the list. Otherwise, any node that has a shard is added to the list, but entries with highest      * version are always at the front of the list.      */
-DECL|method|buildNodesAndVersions
-name|NodesAndVersions
-name|buildNodesAndVersions
+DECL|method|buildVersionBasedNodes
+name|NodesResult
+name|buildVersionBasedNodes
 parameter_list|(
 name|ShardRouting
 name|shard
@@ -1997,8 +1964,9 @@ decl_stmt|;
 name|long
 name|highestVersion
 init|=
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 decl_stmt|;
 for|for
 control|(
@@ -2021,7 +1989,7 @@ name|version
 init|=
 name|nodeShardState
 operator|.
-name|version
+name|legacyVersion
 argument_list|()
 decl_stmt|;
 name|DiscoveryNode
@@ -2047,7 +2015,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-comment|// -1 version means it does not exists, which is what the API returns, and what we expect to
+comment|// no version means it does not exists, which is what the API returns, and what we expect to
 if|if
 condition|(
 name|nodeShardState
@@ -2077,12 +2045,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// when there is an store exception, we disregard the reported version and assign it as -1 (same as shard does not exist)
+comment|// when there is an store exception, we disregard the reported version and assign it as no version (same as shard does not exist)
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] on node [{}] has version [{}] but the store can not be opened, treating as version -1"
+literal|"[{}] on node [{}] has version [{}] but the store can not be opened, treating no version"
 argument_list|,
 name|nodeShardState
 operator|.
@@ -2101,16 +2069,18 @@ argument_list|)
 expr_stmt|;
 name|version
 operator|=
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 expr_stmt|;
 block|}
 if|if
 condition|(
 name|version
 operator|!=
-operator|-
-literal|1
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
 condition|)
 block|{
 name|numberOfAllocationsFound
@@ -2341,7 +2311,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|NodesAndVersions
+name|NodesResult
 argument_list|(
 name|Collections
 operator|.
@@ -2351,8 +2321,6 @@ name|nodesWithHighestVersion
 argument_list|)
 argument_list|,
 name|numberOfAllocationsFound
-argument_list|,
-name|highestVersion
 argument_list|)
 return|;
 block|}
@@ -2425,10 +2393,10 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 function_decl|;
-DECL|class|NodesAndVersions
+DECL|class|NodesResult
 specifier|static
 class|class
-name|NodesAndVersions
+name|NodesResult
 block|{
 DECL|field|nodes
 specifier|public
@@ -2445,15 +2413,9 @@ specifier|final
 name|int
 name|allocationsFound
 decl_stmt|;
-DECL|field|highestVersion
+DECL|method|NodesResult
 specifier|public
-specifier|final
-name|long
-name|highestVersion
-decl_stmt|;
-DECL|method|NodesAndVersions
-specifier|public
-name|NodesAndVersions
+name|NodesResult
 parameter_list|(
 name|List
 argument_list|<
@@ -2463,9 +2425,6 @@ name|nodes
 parameter_list|,
 name|int
 name|allocationsFound
-parameter_list|,
-name|long
-name|highestVersion
 parameter_list|)
 block|{
 name|this
@@ -2479,12 +2438,6 @@ operator|.
 name|allocationsFound
 operator|=
 name|allocationsFound
-expr_stmt|;
-name|this
-operator|.
-name|highestVersion
-operator|=
-name|highestVersion
 expr_stmt|;
 block|}
 block|}
