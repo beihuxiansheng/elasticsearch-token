@@ -289,7 +289,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.mode"
+name|Node
+operator|.
+name|NODE_MODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|NODE_MODE
 argument_list|)

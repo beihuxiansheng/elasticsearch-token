@@ -280,7 +280,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.data"
+name|Node
+operator|.
+name|NODE_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -397,7 +402,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.data"
+name|Node
+operator|.
+name|NODE_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
