@@ -399,13 +399,13 @@ block|}
 comment|/**      * Get the type name(s) for the language.      * @return Always contains only the single name of the language.      */
 annotation|@
 name|Override
-DECL|method|types
+DECL|method|getTypes
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|types
+name|getTypes
 parameter_list|()
 block|{
 return|return
@@ -415,13 +415,13 @@ block|}
 comment|/**      * Get the extension(s) for the language.      * @return Always contains only the single extension of the language.      */
 annotation|@
 name|Override
-DECL|method|extensions
+DECL|method|getExtensions
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|extensions
+name|getExtensions
 parameter_list|()
 block|{
 return|return
@@ -431,10 +431,10 @@ block|}
 comment|/**      * Whether or not the engine is secure.      * @return Always true as the engine should be secure at runtime.      */
 annotation|@
 name|Override
-DECL|method|sandboxed
+DECL|method|isSandboxed
 specifier|public
 name|boolean
-name|sandboxed
+name|isSandboxed
 parameter_list|()
 block|{
 return|return

@@ -1319,7 +1319,7 @@ name|ext
 range|:
 name|scriptEngine
 operator|.
-name|extensions
+name|getExtensions
 argument_list|()
 control|)
 block|{
@@ -3243,7 +3243,7 @@ case|:
 return|return
 name|scriptEngineService
 operator|.
-name|sandboxed
+name|isSandboxed
 argument_list|()
 return|;
 default|default:
@@ -3554,7 +3554,7 @@ name|isAnyScriptContextEnabled
 argument_list|(
 name|engineService
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|get
@@ -3654,7 +3654,7 @@ argument_list|()
 argument_list|,
 name|engineService
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|get
@@ -4193,7 +4193,7 @@ name|lang
 operator|=
 name|service
 operator|.
-name|types
+name|getTypes
 argument_list|()
 operator|.
 name|get
