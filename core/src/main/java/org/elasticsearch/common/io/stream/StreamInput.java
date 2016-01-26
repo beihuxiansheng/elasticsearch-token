@@ -277,8 +277,6 @@ operator|.
 name|rescore
 operator|.
 name|RescoreBuilder
-operator|.
-name|Rescorer
 import|;
 end_import
 
@@ -549,18 +547,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Function
 import|;
 end_import
 
@@ -3731,10 +3717,13 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link QueryBuilder} from the current stream      */
+comment|/**      * Reads a {@link RescoreBuilder} from the current stream      */
 DECL|method|readRescorer
 specifier|public
-name|Rescorer
+name|RescoreBuilder
+argument_list|<
+name|?
+argument_list|>
 name|readRescorer
 parameter_list|()
 throws|throws
@@ -3743,7 +3732,7 @@ block|{
 return|return
 name|readNamedWriteable
 argument_list|(
-name|Rescorer
+name|RescoreBuilder
 operator|.
 name|class
 argument_list|)

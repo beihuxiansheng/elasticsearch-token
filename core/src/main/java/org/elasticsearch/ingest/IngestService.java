@@ -20,18 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -85,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Instantiates and wires all the services that the ingest plugin will be needing.  * Also the bootstrapper is in charge of starting and stopping the ingest plugin based on the cluster state.  */
+comment|/**  * Holder class for several ingest related services.  */
 end_comment
 
 begin_class
