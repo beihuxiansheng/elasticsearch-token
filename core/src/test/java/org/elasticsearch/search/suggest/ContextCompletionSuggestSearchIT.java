@@ -5581,8 +5581,6 @@ parameter_list|(
 name|String
 name|suggestionName
 parameter_list|,
-name|SuggestBuilder
-operator|.
 name|SuggestionBuilder
 name|suggestBuilder
 parameter_list|,

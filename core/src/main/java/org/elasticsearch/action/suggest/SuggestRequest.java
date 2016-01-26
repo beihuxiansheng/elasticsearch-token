@@ -170,6 +170,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|SuggestionBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -319,14 +333,12 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * set a new source using a {@link org.elasticsearch.search.suggest.SuggestBuilder.SuggestionBuilder}      * for completion suggestion lookup      */
+comment|/**      * set a new source using a {@link org.elasticsearch.search.suggest.SuggestionBuilder}      * for completion suggestion lookup      */
 DECL|method|suggest
 specifier|public
 name|SuggestRequest
 name|suggest
 parameter_list|(
-name|SuggestBuilder
-operator|.
 name|SuggestionBuilder
 name|suggestionBuilder
 parameter_list|)

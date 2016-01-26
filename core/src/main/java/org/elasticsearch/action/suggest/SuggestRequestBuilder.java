@@ -132,8 +132,6 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestBuilder
-operator|.
 name|SuggestionBuilder
 import|;
 end_import
@@ -202,15 +200,12 @@ block|}
 comment|/**      * Add a definition for suggestions to the request      */
 DECL|method|addSuggestion
 specifier|public
-parameter_list|<
-name|T
-parameter_list|>
 name|SuggestRequestBuilder
 name|addSuggestion
 parameter_list|(
 name|SuggestionBuilder
 argument_list|<
-name|T
+name|?
 argument_list|>
 name|suggestion
 parameter_list|)
