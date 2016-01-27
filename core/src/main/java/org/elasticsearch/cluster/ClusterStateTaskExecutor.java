@@ -457,9 +457,9 @@ name|isSuccess
 parameter_list|()
 block|{
 return|return
-name|failure
-operator|!=
-literal|null
+name|this
+operator|==
+name|SUCCESS
 return|;
 block|}
 comment|/**          * Handle the execution result with the provided consumers          * @param onSuccess handler to invoke on success          * @param onFailure handler to invoke on failure; the throwable passed through will not be null          */

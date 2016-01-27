@@ -530,6 +530,11 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuppressLocalMode
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,cluster.service:TRACE,discovery.zen:TRACE"
+argument_list|)
 DECL|class|MinimumMasterNodesIT
 specifier|public
 class|class
@@ -590,11 +595,6 @@ return|return
 name|classes
 return|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"cluster.service:TRACE,discovery.zen:TRACE,gateway:TRACE,transport.tracer:TRACE"
-argument_list|)
 DECL|method|testSimpleMinimumMasterNodes
 specifier|public
 name|void

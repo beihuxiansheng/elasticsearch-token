@@ -678,7 +678,7 @@ name|put
 argument_list|(
 literal|"script.inline"
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 operator|.
 name|build

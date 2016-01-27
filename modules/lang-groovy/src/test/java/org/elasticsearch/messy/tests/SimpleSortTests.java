@@ -498,22 +498,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -1085,11 +1069,6 @@ name|class
 argument_list|)
 return|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.search.type:TRACE"
-argument_list|)
 annotation|@
 name|LuceneTestCase
 operator|.
@@ -2038,7 +2017,7 @@ name|addMapping
 argument_list|(
 literal|"$type"
 argument_list|,
-literal|"{\"$type\": {\"properties\": {\"grantee\": {\"index\": \"not_analyzed\", \"term_vector\": \"with_positions_offsets\", \"type\": \"string\", \"analyzer\": \"snowball\", \"boost\": 1.0, \"store\": \"yes\"}}}}"
+literal|"{\"$type\": {\"properties\": {\"grantee\": {\"index\": \"not_analyzed\", \"term_vector\": \"with_positions_offsets\", \"type\": \"string\", \"analyzer\": \"snowball\", \"boost\": 1.0, \"store\": true}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;

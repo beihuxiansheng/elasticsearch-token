@@ -278,7 +278,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -728,7 +728,7 @@ name|builder
 operator|.
 name|nullValue
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|propNode
 argument_list|)
@@ -1309,6 +1309,25 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|fieldType
+argument_list|()
+operator|.
+name|indexOptions
+argument_list|()
+operator|!=
+name|IndexOptions
+operator|.
+name|NONE
+operator|||
+name|fieldType
+argument_list|()
+operator|.
+name|stored
+argument_list|()
+condition|)
+block|{
 name|fields
 operator|.
 name|add
@@ -1333,6 +1352,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|fieldType
