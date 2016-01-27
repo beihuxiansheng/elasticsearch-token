@@ -63,44 +63,18 @@ DECL|method|BasicReplicationRequest
 specifier|public
 name|BasicReplicationRequest
 parameter_list|()
-block|{      }
-comment|/**      * Creates a new request that inherits headers and context from the request      * provided as argument.      */
-DECL|method|BasicReplicationRequest
-specifier|public
-name|BasicReplicationRequest
-parameter_list|(
-name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Creates a new request with resolved shard id      */
 DECL|method|BasicReplicationRequest
 specifier|public
 name|BasicReplicationRequest
 parameter_list|(
-name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
-name|request
-parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|request
-argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;

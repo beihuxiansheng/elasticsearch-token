@@ -613,6 +613,8 @@ argument_list|,
 name|networkService
 argument_list|,
 name|bigArrays
+argument_list|,
+name|threadPool
 argument_list|)
 expr_stmt|;
 name|HttpRequest
@@ -806,6 +808,8 @@ argument_list|,
 name|networkService
 argument_list|,
 name|bigArrays
+argument_list|,
+name|threadPool
 argument_list|)
 expr_stmt|;
 name|HttpRequest

@@ -927,7 +927,7 @@ condition|)
 block|{
 name|assertHeaders
 argument_list|(
-name|request
+name|threadPool
 argument_list|)
 expr_stmt|;
 operator|(
@@ -969,7 +969,7 @@ condition|)
 block|{
 name|assertHeaders
 argument_list|(
-name|request
+name|threadPool
 argument_list|)
 expr_stmt|;
 name|ClusterName
@@ -1025,8 +1025,6 @@ operator|new
 name|InternalException
 argument_list|(
 name|action
-argument_list|,
-name|request
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1045,9 +1043,6 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-operator|(
-name|LocalTransportAddress
-operator|)
 name|node
 operator|.
 name|getAddress
@@ -1078,9 +1073,6 @@ name|ConnectTransportException
 block|{
 name|assertThat
 argument_list|(
-operator|(
-name|LocalTransportAddress
-operator|)
 name|node
 operator|.
 name|getAddress

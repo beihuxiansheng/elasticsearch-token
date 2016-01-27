@@ -561,9 +561,7 @@ name|execute
 argument_list|(
 operator|new
 name|CreateIndexRequest
-argument_list|(
-name|request
-argument_list|)
+argument_list|()
 operator|.
 name|index
 argument_list|(

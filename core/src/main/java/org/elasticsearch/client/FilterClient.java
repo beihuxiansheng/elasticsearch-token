@@ -127,11 +127,6 @@ name|in
 operator|.
 name|threadPool
 argument_list|()
-argument_list|,
-name|in
-operator|.
-name|headers
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

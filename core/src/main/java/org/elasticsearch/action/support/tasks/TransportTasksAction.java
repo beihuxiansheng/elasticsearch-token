@@ -1927,9 +1927,7 @@ name|tasksRequest
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|tasksRequest
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

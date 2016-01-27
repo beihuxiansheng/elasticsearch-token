@@ -5151,13 +5151,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|request
-operator|.
-name|copyContextAndHeadersFrom
-argument_list|(
-name|searchContext
-argument_list|)
-expr_stmt|;
 return|return
 name|client
 operator|.
