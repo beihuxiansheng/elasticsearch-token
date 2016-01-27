@@ -10302,14 +10302,14 @@ name|put
 argument_list|(
 literal|"script.indexed"
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 operator|.
 name|put
 argument_list|(
 literal|"script.inline"
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 comment|// wait short time for other active shards before actually deleting, default 30s not needed in tests
 operator|.

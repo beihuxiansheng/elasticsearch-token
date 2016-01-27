@@ -1853,10 +1853,9 @@ name|pluginsService
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|modules
-operator|.
-name|add
-argument_list|(
+name|SettingsModule
+name|settingsModule
+init|=
 operator|new
 name|SettingsModule
 argument_list|(
@@ -1866,6 +1865,12 @@ name|settings
 argument_list|,
 name|settingsFilter
 argument_list|)
+decl_stmt|;
+name|modules
+operator|.
+name|add
+argument_list|(
+name|settingsModule
 argument_list|)
 expr_stmt|;
 name|modules
@@ -1916,9 +1921,7 @@ argument_list|(
 operator|new
 name|ScriptModule
 argument_list|(
-name|this
-operator|.
-name|settings
+name|settingsModule
 argument_list|)
 argument_list|)
 expr_stmt|;
