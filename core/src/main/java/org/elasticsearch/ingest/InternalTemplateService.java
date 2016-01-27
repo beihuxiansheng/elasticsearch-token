@@ -235,9 +235,6 @@ name|Standard
 operator|.
 name|INGEST
 argument_list|,
-literal|null
-comment|/* we can supply null here, because ingest doesn't use indexed scripts */
-argument_list|,
 name|Collections
 operator|.
 name|emptyMap

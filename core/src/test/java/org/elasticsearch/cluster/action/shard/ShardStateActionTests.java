@@ -577,6 +577,8 @@ argument_list|,
 name|allocationService
 argument_list|,
 name|routingService
+argument_list|,
+name|THREAD_POOL
 argument_list|)
 expr_stmt|;
 block|}

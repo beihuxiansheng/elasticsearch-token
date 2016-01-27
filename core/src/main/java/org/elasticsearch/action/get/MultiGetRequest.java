@@ -1435,26 +1435,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|MultiGetRequest
-specifier|public
-name|MultiGetRequest
-parameter_list|()
-block|{      }
-comment|/**      * Creates a multi get request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
-DECL|method|MultiGetRequest
-specifier|public
-name|MultiGetRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getItems
 specifier|public
 name|List

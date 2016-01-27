@@ -2038,9 +2038,6 @@ name|executeQueryTemplate
 parameter_list|(
 name|Template
 name|template
-parameter_list|,
-name|SearchContext
-name|searchContext
 parameter_list|)
 block|{
 name|ExecutableScript
@@ -2058,8 +2055,6 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-name|searchContext
 argument_list|,
 name|Collections
 operator|.

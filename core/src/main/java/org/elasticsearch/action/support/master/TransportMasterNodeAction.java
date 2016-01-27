@@ -795,6 +795,11 @@ name|masterNodeTimeout
 argument_list|()
 argument_list|,
 name|logger
+argument_list|,
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doStart

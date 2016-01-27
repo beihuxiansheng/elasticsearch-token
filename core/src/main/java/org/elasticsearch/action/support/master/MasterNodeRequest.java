@@ -135,24 +135,7 @@ DECL|method|MasterNodeRequest
 specifier|protected
 name|MasterNodeRequest
 parameter_list|()
-block|{      }
-DECL|method|MasterNodeRequest
-specifier|protected
-name|MasterNodeRequest
-parameter_list|(
-name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * A timeout value in case the master has not been discovered yet or disconnected.      */
 annotation|@
 name|SuppressWarnings

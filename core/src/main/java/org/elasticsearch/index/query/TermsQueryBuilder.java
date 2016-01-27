@@ -1350,16 +1350,6 @@ name|routing
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|getRequest
-operator|.
-name|copyContextAndHeadersFrom
-argument_list|(
-name|SearchContext
-operator|.
-name|current
-argument_list|()
-argument_list|)
-expr_stmt|;
 specifier|final
 name|GetResponse
 name|getResponse

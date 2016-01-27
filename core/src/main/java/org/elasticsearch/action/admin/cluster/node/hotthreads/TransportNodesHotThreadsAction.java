@@ -617,8 +617,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|request
-argument_list|,
 name|nodeId
 argument_list|)
 expr_stmt|;

@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|HasContextAndHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -253,8 +241,6 @@ argument_list|()
 operator|.
 name|shardId
 argument_list|()
-argument_list|,
-name|context
 argument_list|)
 decl_stmt|;
 name|context
@@ -284,9 +270,6 @@ name|index
 parameter_list|,
 name|int
 name|shardId
-parameter_list|,
-name|HasContextAndHeaders
-name|headersContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -635,8 +618,6 @@ argument_list|,
 name|mapperService
 argument_list|,
 name|fieldDataService
-argument_list|,
-name|headersContext
 argument_list|)
 expr_stmt|;
 block|}
