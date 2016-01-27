@@ -10836,16 +10836,6 @@ argument_list|(
 name|tempDir
 argument_list|)
 decl_stmt|;
-name|assumeFalse
-argument_list|(
-literal|"this won't work if we sync on any op"
-argument_list|,
-name|config
-operator|.
-name|isSyncOnEachOperation
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|Translog
 name|translog
 init|=
