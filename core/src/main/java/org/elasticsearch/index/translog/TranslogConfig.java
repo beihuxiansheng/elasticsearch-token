@@ -296,25 +296,6 @@ operator|=
 name|bigArrays
 expr_stmt|;
 block|}
-comment|/**      * Returns<code>true</code> iff each low level operation shoudl be fsynced      */
-DECL|method|isSyncOnEachOperation
-specifier|public
-name|boolean
-name|isSyncOnEachOperation
-parameter_list|()
-block|{
-return|return
-name|indexSettings
-operator|.
-name|getTranslogSyncInterval
-argument_list|()
-operator|.
-name|millis
-argument_list|()
-operator|==
-literal|0
-return|;
-block|}
 comment|/**      * Returns the index indexSettings      */
 DECL|method|getIndexSettings
 specifier|public
