@@ -530,6 +530,8 @@ operator|.
 name|getGroups
 argument_list|(
 literal|"tribe."
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 for|for
