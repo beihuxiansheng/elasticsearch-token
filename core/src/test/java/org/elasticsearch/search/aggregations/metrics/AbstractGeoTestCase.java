@@ -555,7 +555,7 @@ literal|"type=long"
 argument_list|,
 literal|"tag"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1194,7 +1194,7 @@ literal|"type=long"
 argument_list|,
 literal|"tag"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1397,7 +1397,7 @@ literal|"type=long,store=true"
 argument_list|,
 literal|"tag"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;

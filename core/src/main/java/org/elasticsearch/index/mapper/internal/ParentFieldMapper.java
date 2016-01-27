@@ -364,7 +364,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|KeywordFieldMapper
 import|;
 end_import
 
@@ -977,7 +977,7 @@ name|String
 name|typeName
 parameter_list|)
 block|{
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|parentJoinField
 init|=
 name|createParentJoinFieldMapper
@@ -1034,7 +1034,7 @@ block|}
 block|}
 DECL|method|createParentJoinFieldMapper
 specifier|static
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|createParentJoinFieldMapper
 parameter_list|(
 name|String
@@ -1044,13 +1044,13 @@ name|BuilderContext
 name|context
 parameter_list|)
 block|{
-name|StringFieldMapper
+name|KeywordFieldMapper
 operator|.
 name|Builder
 name|parentJoinField
 init|=
 operator|new
-name|StringFieldMapper
+name|KeywordFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1407,14 +1407,14 @@ comment|// the parent field mapper in the child type pointing to this type deter
 DECL|field|parentJoinField
 specifier|private
 specifier|final
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|parentJoinField
 decl_stmt|;
 DECL|method|ParentFieldMapper
 specifier|private
 name|ParentFieldMapper
 parameter_list|(
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|parentJoinField
 parameter_list|,
 name|MappedFieldType
