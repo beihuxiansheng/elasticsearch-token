@@ -724,7 +724,10 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|CLIENT_TYPE_SETTING
+name|CLIENT_TYPE_SETTING_S
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|CLIENT_TYPE
 argument_list|)

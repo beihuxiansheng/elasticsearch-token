@@ -225,13 +225,13 @@ name|CLIENT_TYPE
 operator|.
 name|equals
 argument_list|(
-name|settings
+name|Client
+operator|.
+name|CLIENT_TYPE_SETTING_S
 operator|.
 name|get
 argument_list|(
-name|Client
-operator|.
-name|CLIENT_TYPE_SETTING
+name|settings
 argument_list|)
 argument_list|)
 expr_stmt|;
