@@ -4357,7 +4357,7 @@ name|PluginManager
 operator|.
 name|checkForOfficialPlugins
 argument_list|(
-literal|"lang-plan-a"
+literal|"lang-painless"
 argument_list|)
 expr_stmt|;
 name|PluginManager

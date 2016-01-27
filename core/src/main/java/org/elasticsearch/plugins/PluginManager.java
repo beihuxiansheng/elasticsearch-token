@@ -687,7 +687,7 @@ literal|"ingest-geoip"
 argument_list|,
 literal|"lang-javascript"
 argument_list|,
-literal|"lang-plan-a"
+literal|"lang-painless"
 argument_list|,
 literal|"lang-python"
 argument_list|,
