@@ -2831,7 +2831,10 @@ name|get
 argument_list|(
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 operator|!=
 literal|null
@@ -2845,13 +2848,19 @@ literal|"Tests must not set a '"
 operator|+
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"' as a node setting set '"
 operator|+
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"': ["
 operator|+
@@ -2861,7 +2870,10 @@ name|get
 argument_list|(
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 operator|+
 literal|"]"
@@ -2897,7 +2909,10 @@ name|put
 argument_list|(
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|clusterName
 argument_list|)
@@ -6081,7 +6096,10 @@ name|put
 argument_list|(
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|clusterName
 argument_list|)
