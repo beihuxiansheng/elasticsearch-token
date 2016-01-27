@@ -254,6 +254,12 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
 name|deletePipeline
 argument_list|(
 name|request
