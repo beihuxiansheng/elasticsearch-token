@@ -1042,9 +1042,7 @@ name|modifiedBulkRequest
 init|=
 operator|new
 name|BulkRequest
-argument_list|(
-name|bulkRequest
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|modifiedBulkRequest
 operator|.
