@@ -682,7 +682,6 @@ return|;
 block|}
 DECL|class|FilterAbstractRunnable
 specifier|private
-specifier|static
 class|class
 name|FilterAbstractRunnable
 extends|extends
@@ -815,6 +814,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|boolean
+name|started
+init|=
+literal|false
+decl_stmt|;
 try|try
 init|(
 name|ThreadContext
@@ -833,11 +837,39 @@ operator|.
 name|restore
 argument_list|()
 expr_stmt|;
+name|started
+operator|=
+literal|true
+expr_stmt|;
 name|in
 operator|.
 name|doRun
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|ex
+parameter_list|)
+block|{
+if|if
+condition|(
+name|started
+operator|||
+name|isShutdown
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+comment|// if we hit an ISE here we have been shutting down
+comment|// this comes from the threadcontext and barfs if
+comment|// our threadpool has been shutting down
 block|}
 block|}
 annotation|@
@@ -858,7 +890,6 @@ block|}
 block|}
 DECL|class|FilterRunnable
 specifier|private
-specifier|static
 class|class
 name|FilterRunnable
 implements|implements
@@ -922,6 +953,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|boolean
+name|started
+init|=
+literal|false
+decl_stmt|;
 try|try
 init|(
 name|ThreadContext
@@ -940,11 +976,39 @@ operator|.
 name|restore
 argument_list|()
 expr_stmt|;
+name|started
+operator|=
+literal|true
+expr_stmt|;
 name|in
 operator|.
 name|run
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|ex
+parameter_list|)
+block|{
+if|if
+condition|(
+name|started
+operator|||
+name|isShutdown
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+comment|// if we hit an ISE here we have been shutting down
+comment|// this comes from the threadcontext and barfs if
+comment|// our threadpool has been shutting down
 block|}
 block|}
 annotation|@
