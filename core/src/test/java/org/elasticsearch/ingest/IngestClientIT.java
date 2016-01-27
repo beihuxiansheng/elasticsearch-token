@@ -706,6 +706,12 @@ operator|=
 name|client
 argument_list|()
 operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
 name|prepareSimulatePipeline
 argument_list|(
 name|bytes
@@ -741,6 +747,12 @@ expr_stmt|;
 name|response
 operator|=
 name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
 argument_list|()
 operator|.
 name|simulatePipeline
