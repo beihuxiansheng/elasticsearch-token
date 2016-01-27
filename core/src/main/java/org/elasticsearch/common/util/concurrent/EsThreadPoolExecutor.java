@@ -815,7 +815,7 @@ throws|throws
 name|Exception
 block|{
 name|boolean
-name|started
+name|whileRunning
 init|=
 literal|false
 decl_stmt|;
@@ -837,7 +837,7 @@ operator|.
 name|restore
 argument_list|()
 expr_stmt|;
-name|started
+name|whileRunning
 operator|=
 literal|true
 expr_stmt|;
@@ -845,6 +845,10 @@ name|in
 operator|.
 name|doRun
 argument_list|()
+expr_stmt|;
+name|whileRunning
+operator|=
+literal|false
 expr_stmt|;
 block|}
 catch|catch
@@ -855,7 +859,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|started
+name|whileRunning
 operator|||
 name|isShutdown
 argument_list|()
@@ -954,7 +958,7 @@ name|run
 parameter_list|()
 block|{
 name|boolean
-name|started
+name|whileRunning
 init|=
 literal|false
 decl_stmt|;
@@ -976,7 +980,7 @@ operator|.
 name|restore
 argument_list|()
 expr_stmt|;
-name|started
+name|whileRunning
 operator|=
 literal|true
 expr_stmt|;
@@ -984,6 +988,10 @@ name|in
 operator|.
 name|run
 argument_list|()
+expr_stmt|;
+name|whileRunning
+operator|=
+literal|false
 expr_stmt|;
 block|}
 catch|catch
@@ -994,7 +1002,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|started
+name|whileRunning
 operator|||
 name|isShutdown
 argument_list|()
