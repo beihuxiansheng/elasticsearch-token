@@ -138,6 +138,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|searchafter
+operator|.
+name|SearchAfterBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|aggregations
 operator|.
 name|AbstractAggregationBuilder
@@ -1048,6 +1062,29 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the sort values that indicates which docs this request should "search after".      *      */
+DECL|method|searchAfter
+specifier|public
+name|SearchRequestBuilder
+name|searchAfter
+parameter_list|(
+name|Object
+index|[]
+name|values
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|searchAfter
+argument_list|(
+name|values
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Applies when sorting, and controls if scores will be tracked as well. Defaults to      *<tt>false</tt>.      */
 DECL|method|setTrackScores
 specifier|public
@@ -1184,15 +1221,16 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      *      * @param rescorer rescorer configuration      * @return this for chaining      */
+comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder, int)}.      *      * @param rescorer rescorer configuration      * @return this for chaining      */
 DECL|method|setRescorer
 specifier|public
 name|SearchRequestBuilder
 name|setRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|)
 block|{
@@ -1209,15 +1247,13 @@ name|rescorer
 argument_list|)
 return|;
 block|}
-comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      *      * @param rescorer rescorer configuration      * @param window   rescore window      * @return this for chaining      */
+comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder, int)}.      *      * @param rescorer rescorer configuration      * @param window   rescore window      * @return this for chaining      */
 DECL|method|setRescorer
 specifier|public
 name|SearchRequestBuilder
 name|setRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
 name|rescorer
 parameter_list|,
 name|int
@@ -1234,8 +1270,11 @@ return|return
 name|addRescorer
 argument_list|(
 name|rescorer
-argument_list|,
+operator|.
+name|windowSize
+argument_list|(
 name|window
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1246,8 +1285,9 @@ name|SearchRequestBuilder
 name|addRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|)
 block|{
@@ -1256,11 +1296,7 @@ argument_list|()
 operator|.
 name|addRescorer
 argument_list|(
-operator|new
-name|RescoreBuilder
-argument_list|(
 name|rescorer
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1274,8 +1310,9 @@ name|SearchRequestBuilder
 name|addRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|,
 name|int
@@ -1287,11 +1324,7 @@ argument_list|()
 operator|.
 name|addRescorer
 argument_list|(
-operator|new
-name|RescoreBuilder
-argument_list|(
 name|rescorer
-argument_list|)
 operator|.
 name|windowSize
 argument_list|(

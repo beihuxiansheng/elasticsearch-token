@@ -364,7 +364,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_JOIN_TIMEOUT
+name|JOIN_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"30s"
 argument_list|)

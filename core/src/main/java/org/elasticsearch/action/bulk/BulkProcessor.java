@@ -1179,6 +1179,8 @@ argument_list|,
 name|defaultType
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1203,6 +1205,11 @@ name|defaultType
 parameter_list|,
 annotation|@
 name|Nullable
+name|String
+name|defaultPipeline
+parameter_list|,
+annotation|@
+name|Nullable
 name|Object
 name|payload
 parameter_list|)
@@ -1222,6 +1229,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|defaultPipeline
 argument_list|,
 name|payload
 argument_list|,

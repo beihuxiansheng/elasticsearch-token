@@ -393,6 +393,9 @@ argument_list|(
 name|AssertingLocalTransport
 operator|.
 name|ASSERTING_TRANSPORT_MIN_VERSION_KEY
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Version
 operator|.

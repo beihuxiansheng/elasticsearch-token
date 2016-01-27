@@ -504,6 +504,16 @@ literal|"fields"
 argument_list|)
 decl_stmt|;
 name|String
+name|defaultPipeline
+init|=
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"pipeline"
+argument_list|)
+decl_stmt|;
+name|String
 index|[]
 name|defaultFields
 init|=
@@ -599,6 +609,8 @@ argument_list|,
 name|defaultRouting
 argument_list|,
 name|defaultFields
+argument_list|,
+name|defaultPipeline
 argument_list|,
 literal|null
 argument_list|,

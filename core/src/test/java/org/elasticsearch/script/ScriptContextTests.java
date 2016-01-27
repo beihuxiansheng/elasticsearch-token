@@ -148,7 +148,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()

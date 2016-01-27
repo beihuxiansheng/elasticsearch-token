@@ -254,6 +254,20 @@ name|search
 operator|.
 name|rescore
 operator|.
+name|RescoreBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|rescore
+operator|.
 name|QueryRescoreMode
 import|;
 end_import
@@ -268,23 +282,7 @@ name|search
 operator|.
 name|rescore
 operator|.
-name|RescoreBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|rescore
-operator|.
-name|RescoreBuilder
-operator|.
-name|QueryRescorer
+name|QueryRescorerBuilder
 import|;
 end_import
 
@@ -5101,7 +5099,7 @@ name|innerMode
 operator|++
 control|)
 block|{
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|innerRescoreQuery
 init|=
 name|RescoreBuilder
@@ -5313,7 +5311,7 @@ name|outerMode
 operator|++
 control|)
 block|{
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|outerRescoreQuery
 init|=
 name|RescoreBuilder
@@ -5419,8 +5417,11 @@ operator|.
 name|addRescorer
 argument_list|(
 name|outerRescoreQuery
-argument_list|,
+operator|.
+name|windowSize
+argument_list|(
 literal|10
+argument_list|)
 argument_list|)
 operator|.
 name|setExplain
@@ -5662,7 +5663,7 @@ literal|3
 argument_list|)
 block|}
 decl_stmt|;
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|rescoreQuery
 init|=
 name|RescoreBuilder
@@ -6868,7 +6869,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|eightIsGreat
 init|=
 name|RescoreBuilder
@@ -6916,7 +6917,7 @@ operator|.
 name|Total
 argument_list|)
 decl_stmt|;
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|sevenIsBetter
 init|=
 name|RescoreBuilder
@@ -7060,7 +7061,7 @@ argument_list|)
 expr_stmt|;
 comment|// We have no idea what the second hit will be because we didn't get a chance to look for seven
 comment|// Now use one rescore to drag the number we're looking for into the window of another
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|ninetyIsGood
 init|=
 name|RescoreBuilder
@@ -7101,7 +7102,7 @@ operator|.
 name|Total
 argument_list|)
 decl_stmt|;
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|oneToo
 init|=
 name|RescoreBuilder

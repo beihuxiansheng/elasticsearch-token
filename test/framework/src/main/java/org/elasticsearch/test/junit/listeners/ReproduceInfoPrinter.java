@@ -771,7 +771,7 @@ operator|.
 name|getDefault
 argument_list|()
 operator|.
-name|toString
+name|toLanguageTag
 argument_list|()
 argument_list|)
 expr_stmt|;
