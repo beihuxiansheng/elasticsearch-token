@@ -462,6 +462,21 @@ operator|==
 name|SUCCESS
 return|;
 block|}
+DECL|method|getFailure
+specifier|public
+name|Throwable
+name|getFailure
+parameter_list|()
+block|{
+assert|assert
+operator|!
+name|isSuccess
+argument_list|()
+assert|;
+return|return
+name|failure
+return|;
+block|}
 comment|/**          * Handle the execution result with the provided consumers          * @param onSuccess handler to invoke on success          * @param onFailure handler to invoke on failure; the throwable passed through will not be null          */
 DECL|method|handle
 specifier|public

@@ -2070,11 +2070,6 @@ name|sendFailShard
 argument_list|(
 name|shard
 argument_list|,
-name|indexMetaData
-operator|.
-name|getIndexUUID
-argument_list|()
-argument_list|,
 literal|"failed to create index"
 argument_list|,
 name|e
@@ -2408,11 +2403,6 @@ decl_stmt|;
 name|failAndRemoveShard
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexService
-operator|.
-name|indexUUID
-argument_list|()
 argument_list|,
 name|indexService
 argument_list|,
@@ -2853,17 +2843,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|shardStateAction
-operator|.
-name|resendShardFailed
-argument_list|(
-name|shardRouting
-argument_list|,
-name|indexMetaData
-operator|.
-name|getIndexUUID
-argument_list|()
-argument_list|,
+name|String
+name|message
+init|=
 literal|"master "
 operator|+
 name|nodes
@@ -2871,7 +2853,33 @@ operator|.
 name|masterNode
 argument_list|()
 operator|+
-literal|" marked shard as started, but shard has previous failed. resending shard failure."
+literal|" marked shard as started, but shard has previous failed. resending shard failure"
+decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] re-sending failed shard [{}], reason [{}]"
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|shardRouting
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
+name|shardStateAction
+operator|.
+name|shardFailed
+argument_list|(
+name|shardRouting
+argument_list|,
+name|shardRouting
+argument_list|,
+name|message
 argument_list|,
 literal|null
 argument_list|,
@@ -2886,11 +2894,6 @@ comment|// the master thinks we are started, but we don't have this shard at all
 name|sendFailShard
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexMetaData
-operator|.
-name|getIndexUUID
-argument_list|()
 argument_list|,
 literal|"master ["
 operator|+
@@ -3152,11 +3155,6 @@ block|{
 name|failAndRemoveShard
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexService
-operator|.
-name|indexUUID
-argument_list|()
 argument_list|,
 name|indexService
 argument_list|,
@@ -3566,11 +3564,6 @@ name|shardStarted
 argument_list|(
 name|shardRouting
 argument_list|,
-name|indexMetaData
-operator|.
-name|getIndexUUID
-argument_list|()
-argument_list|,
 literal|"master "
 operator|+
 name|nodes
@@ -3706,17 +3699,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|shardStateAction
-operator|.
-name|resendShardFailed
-argument_list|(
-name|shardRouting
-argument_list|,
-name|indexMetaData
-operator|.
-name|getIndexUUID
-argument_list|()
-argument_list|,
+name|String
+name|message
+init|=
 literal|"master "
 operator|+
 name|nodes
@@ -3725,6 +3710,32 @@ name|masterNode
 argument_list|()
 operator|+
 literal|" marked shard as initializing, but shard is marked as failed, resend shard failure"
+decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] re-sending failed shard [{}], reason [{}]"
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|shardRouting
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
+name|shardStateAction
+operator|.
+name|shardFailed
+argument_list|(
+name|shardRouting
+argument_list|,
+name|shardRouting
+argument_list|,
+name|message
 argument_list|,
 literal|null
 argument_list|,
@@ -3794,11 +3805,6 @@ block|{
 name|failAndRemoveShard
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexService
-operator|.
-name|indexUUID
-argument_list|()
 argument_list|,
 name|indexService
 argument_list|,
@@ -4087,11 +4093,6 @@ name|shardStarted
 argument_list|(
 name|shardRouting
 argument_list|,
-name|indexMetaData
-operator|.
-name|getIndexUUID
-argument_list|()
-argument_list|,
 literal|"after recovery from store"
 argument_list|,
 name|SHARD_STATE_ACTION_LISTENER
@@ -4238,11 +4239,6 @@ operator|.
 name|shardStarted
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexMetaData
-operator|.
-name|getIndexUUID
-argument_list|()
 argument_list|,
 literal|"after recovery from repository"
 argument_list|,
@@ -4624,11 +4620,6 @@ name|shardStarted
 argument_list|(
 name|shardRouting
 argument_list|,
-name|indexMetaData
-operator|.
-name|getIndexUUID
-argument_list|()
-argument_list|,
 literal|"after recovery (replica) from node ["
 operator|+
 name|state
@@ -4701,11 +4692,6 @@ block|{
 name|failAndRemoveShard
 argument_list|(
 name|shardRouting
-argument_list|,
-name|indexService
-operator|.
-name|indexUUID
-argument_list|()
 argument_list|,
 name|indexService
 argument_list|,
@@ -4821,9 +4807,6 @@ parameter_list|(
 name|ShardRouting
 name|shardRouting
 parameter_list|,
-name|String
-name|indexUUID
-parameter_list|,
 annotation|@
 name|Nullable
 name|IndexService
@@ -4921,8 +4904,6 @@ name|sendFailShard
 argument_list|(
 name|shardRouting
 argument_list|,
-name|indexUUID
-argument_list|,
 name|message
 argument_list|,
 name|failure
@@ -4940,9 +4921,6 @@ name|sendFailShard
 parameter_list|(
 name|ShardRouting
 name|shardRouting
-parameter_list|,
-name|String
-name|indexUUID
 parameter_list|,
 name|String
 name|message
@@ -4989,7 +4967,7 @@ name|shardFailed
 argument_list|(
 name|shardRouting
 argument_list|,
-name|indexUUID
+name|shardRouting
 argument_list|,
 name|message
 argument_list|,
@@ -5105,10 +5083,6 @@ block|{
 name|failAndRemoveShard
 argument_list|(
 name|shardRouting
-argument_list|,
-name|shardFailure
-operator|.
-name|indexUUID
 argument_list|,
 name|indexService
 argument_list|,
