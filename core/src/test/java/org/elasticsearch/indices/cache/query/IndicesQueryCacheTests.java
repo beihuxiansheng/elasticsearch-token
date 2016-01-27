@@ -580,7 +580,10 @@ name|put
 argument_list|(
 name|IndicesQueryCache
 operator|.
-name|INDICES_CACHE_QUERY_COUNT
+name|INDICES_CACHE_QUERY_COUNT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|10
 argument_list|)
@@ -1179,7 +1182,10 @@ name|put
 argument_list|(
 name|IndicesQueryCache
 operator|.
-name|INDICES_CACHE_QUERY_COUNT
+name|INDICES_CACHE_QUERY_COUNT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|10
 argument_list|)
@@ -2107,7 +2113,10 @@ name|put
 argument_list|(
 name|IndicesQueryCache
 operator|.
-name|INDICES_CACHE_QUERY_COUNT
+name|INDICES_CACHE_QUERY_COUNT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|10
 argument_list|)
