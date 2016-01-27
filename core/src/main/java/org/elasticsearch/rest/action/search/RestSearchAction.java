@@ -482,6 +482,24 @@ name|termSuggestion
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|term
+operator|.
+name|TermSuggestionBuilder
+operator|.
+name|SuggestMode
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1880,7 +1898,12 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
+name|SuggestMode
+operator|.
+name|fromString
+argument_list|(
 name|suggestMode
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

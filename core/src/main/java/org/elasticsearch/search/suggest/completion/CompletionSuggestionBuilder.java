@@ -313,6 +313,20 @@ argument_list|<
 name|CompletionSuggestionBuilder
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|public
+specifier|static
+specifier|final
+name|CompletionSuggestionBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|CompletionSuggestionBuilder
+argument_list|(
+literal|"_na_"
+argument_list|)
+decl_stmt|;
+comment|// name doesn't matter
 DECL|field|SUGGESTION_NAME
 specifier|final
 specifier|static

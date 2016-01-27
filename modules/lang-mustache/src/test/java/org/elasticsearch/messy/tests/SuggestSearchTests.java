@@ -136,6 +136,38 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|SuggestionBuilder
+operator|.
+name|SortBy
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|SuggestionBuilder
+operator|.
+name|SuggestMode
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|hamcrest
@@ -857,7 +889,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 comment|// Always, otherwise the results can vary between requests.
 operator|.
@@ -955,7 +989,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 comment|// Always, otherwise the results can vary between requests.
 operator|.
@@ -1172,7 +1208,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 comment|// Always, otherwise the results can vary between requests.
 operator|.
@@ -1294,7 +1332,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 comment|// Always, otherwise the results can vary between requests.
 operator|.
@@ -1836,7 +1876,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 comment|// Always, otherwise the results can vary between requests.
 operator|.
@@ -2417,7 +2459,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 comment|// Always, otherwise the results can vary between requests.
 operator|.
@@ -2577,7 +2621,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 comment|// Always, otherwise the results can vary between requests.
 operator|.
@@ -2816,7 +2862,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|,
 name|termSuggestion
@@ -2846,7 +2894,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|,
 name|termSuggestion
@@ -2864,7 +2914,7 @@ argument_list|(
 literal|"prefix_efgh"
 argument_list|)
 operator|.
-name|setAccuracy
+name|accuracy
 argument_list|(
 literal|1f
 argument_list|)
@@ -2881,7 +2931,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3220,7 +3272,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|,
 name|termSuggestion
@@ -3245,7 +3299,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 operator|.
 name|shardSize
@@ -3280,7 +3336,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|,
 name|termSuggestion
@@ -3295,7 +3353,9 @@ argument_list|)
 operator|.
 name|sort
 argument_list|(
-literal|"frequency"
+name|SortBy
+operator|.
+name|FREQUENCY
 argument_list|)
 operator|.
 name|shardSize
@@ -3315,7 +3375,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -6172,7 +6234,9 @@ argument_list|)
 operator|.
 name|suggestMode
 argument_list|(
-literal|"always"
+name|SuggestMode
+operator|.
+name|ALWAYS
 argument_list|)
 argument_list|)
 decl_stmt|;
