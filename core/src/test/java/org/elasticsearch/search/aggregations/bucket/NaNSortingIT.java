@@ -230,7 +230,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 import|;
 end_import
 
@@ -384,13 +384,13 @@ name|Override
 specifier|public
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 name|builder
 parameter_list|()
 block|{
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 name|factory
 init|=
 name|avg
@@ -444,13 +444,13 @@ name|Override
 specifier|public
 name|ExtendedStatsAggregator
 operator|.
-name|Factory
+name|ExtendedStatsAggregatorBuilder
 name|builder
 parameter_list|()
 block|{
 name|ExtendedStatsAggregator
 operator|.
-name|Factory
+name|ExtendedStatsAggregatorBuilder
 name|factory
 init|=
 name|extendedStats
@@ -517,13 +517,13 @@ name|Override
 specifier|public
 name|ExtendedStatsAggregator
 operator|.
-name|Factory
+name|ExtendedStatsAggregatorBuilder
 name|builder
 parameter_list|()
 block|{
 name|ExtendedStatsAggregator
 operator|.
-name|Factory
+name|ExtendedStatsAggregatorBuilder
 name|factory
 init|=
 name|extendedStats
@@ -601,7 +601,7 @@ decl_stmt|;
 DECL|method|builder
 specifier|public
 specifier|abstract
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 operator|.
 name|LeafOnly
 argument_list|<
@@ -611,7 +611,7 @@ name|Numeric
 argument_list|,
 name|?
 extends|extends
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 operator|.
 name|LeafOnly
 argument_list|<

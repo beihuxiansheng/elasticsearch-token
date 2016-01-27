@@ -92,7 +92,7 @@ name|scripted
 operator|.
 name|ScriptedMetricAggregator
 operator|.
-name|Factory
+name|ScriptedMetricAggregatorBuilder
 import|;
 end_import
 
@@ -126,22 +126,22 @@ name|BaseAggregationTestCase
 argument_list|<
 name|ScriptedMetricAggregator
 operator|.
-name|Factory
+name|ScriptedMetricAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|Factory
-name|createTestAggregatorFactory
+name|ScriptedMetricAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|Factory
+name|ScriptedMetricAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|ScriptedMetricAggregatorBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

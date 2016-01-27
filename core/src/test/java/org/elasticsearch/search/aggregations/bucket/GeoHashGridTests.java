@@ -48,7 +48,7 @@ name|geogrid
 operator|.
 name|GeoHashGridParser
 operator|.
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 import|;
 end_import
 
@@ -60,15 +60,15 @@ name|GeoHashGridTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|GeoGridFactory
-name|createTestAggregatorFactory
+name|GeoGridAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 name|String
@@ -81,11 +81,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)

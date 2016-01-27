@@ -2388,7 +2388,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 name|stBuilder
 init|=
 name|significantTerms
@@ -2526,11 +2526,11 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 name|aggregatorFactory
 init|=
 operator|(
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 operator|)
 operator|new
 name|SignificantTermsParser
@@ -2591,7 +2591,7 @@ expr_stmt|;
 return|return
 name|aggregatorFactory
 operator|.
-name|getSignificanceHeuristic
+name|significanceHeuristic
 argument_list|()
 return|;
 block|}

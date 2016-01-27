@@ -50,7 +50,7 @@ name|nested
 operator|.
 name|NestedAggregator
 operator|.
-name|Factory
+name|NestedAggregatorBuilder
 import|;
 end_import
 
@@ -64,20 +64,20 @@ name|BaseAggregationTestCase
 argument_list|<
 name|NestedAggregator
 operator|.
-name|Factory
+name|NestedAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|Factory
-name|createTestAggregatorFactory
+name|NestedAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 return|return
 operator|new
-name|Factory
+name|NestedAggregatorBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

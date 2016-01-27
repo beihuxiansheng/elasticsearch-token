@@ -46,7 +46,7 @@ name|AbstractNumericMetricTestCase
 argument_list|<
 name|MaxAggregator
 operator|.
-name|Factory
+name|MaxAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
@@ -55,7 +55,7 @@ DECL|method|doCreateTestAggregatorFactory
 specifier|protected
 name|MaxAggregator
 operator|.
-name|Factory
+name|MaxAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|()
 block|{
@@ -63,7 +63,7 @@ return|return
 operator|new
 name|MaxAggregator
 operator|.
-name|Factory
+name|MaxAggregatorBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

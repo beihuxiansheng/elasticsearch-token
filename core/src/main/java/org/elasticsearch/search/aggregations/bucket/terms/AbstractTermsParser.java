@@ -192,7 +192,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 import|;
 end_import
 
@@ -337,7 +337,7 @@ name|Override
 DECL|method|createFactory
 specifier|protected
 specifier|final
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 argument_list|<
 name|ValuesSource
 argument_list|,
@@ -563,7 +563,7 @@ block|}
 DECL|method|doCreateFactory
 specifier|protected
 specifier|abstract
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 argument_list|<
 name|ValuesSource
 argument_list|,

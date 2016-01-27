@@ -58,7 +58,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|PercentileRanksAggregatorFactory
+name|PercentileRanksAggregatorBuilder
 import|;
 end_import
 
@@ -70,22 +70,22 @@ name|PercentileRanksTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|PercentileRanksAggregatorFactory
+name|PercentileRanksAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|PercentileRanksAggregatorFactory
-name|createTestAggregatorFactory
+name|PercentileRanksAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|PercentileRanksAggregatorFactory
+name|PercentileRanksAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|PercentileRanksAggregatorFactory
+name|PercentileRanksAggregatorBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

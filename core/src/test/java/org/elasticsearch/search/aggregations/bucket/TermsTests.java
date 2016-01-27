@@ -122,7 +122,7 @@ name|bucket
 operator|.
 name|terms
 operator|.
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 import|;
 end_import
 
@@ -214,7 +214,7 @@ name|TermsTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 argument_list|>
 block|{
 DECL|field|executionHints
@@ -280,10 +280,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|TermsAggregatorFactory
-name|createTestAggregatorFactory
+name|TermsAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 name|String
@@ -296,11 +296,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,

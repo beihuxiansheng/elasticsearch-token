@@ -78,7 +78,7 @@ name|range
 operator|.
 name|ipv4
 operator|.
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|range
 operator|.
 name|ipv4
 operator|.
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 operator|.
 name|Range
 import|;
@@ -112,15 +112,15 @@ name|IPv4RangeTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|IPv4RangeAggregatorFactory
-name|createTestAggregatorFactory
+name|IPv4RangeAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 name|int
@@ -133,11 +133,11 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

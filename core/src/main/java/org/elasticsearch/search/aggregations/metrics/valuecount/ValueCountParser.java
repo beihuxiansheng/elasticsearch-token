@@ -68,7 +68,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 import|;
 end_import
 
@@ -259,13 +259,13 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 argument_list|<
 name|ValuesSource
 argument_list|,
 name|ValueCountAggregator
 operator|.
-name|Factory
+name|ValueCountAggregatorBuilder
 argument_list|>
 name|createFactory
 parameter_list|(
@@ -291,7 +291,7 @@ return|return
 operator|new
 name|ValueCountAggregator
 operator|.
-name|Factory
+name|ValueCountAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -303,7 +303,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -314,7 +314,7 @@ return|return
 operator|new
 name|ValueCountAggregator
 operator|.
-name|Factory
+name|ValueCountAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|,

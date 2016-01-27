@@ -1715,7 +1715,9 @@ name|createTestAggregatorFactory
 argument_list|()
 decl_stmt|;
 name|AggregatorFactories
-name|factories
+operator|.
+name|Builder
+name|factoriesBuilder
 init|=
 name|AggregatorFactories
 operator|.
@@ -1729,14 +1731,11 @@ name|addPipelineAggregator
 argument_list|(
 name|testAgg
 argument_list|)
-operator|.
-name|build
-argument_list|()
 decl_stmt|;
 name|String
 name|contentString
 init|=
-name|factories
+name|factoriesBuilder
 operator|.
 name|toString
 argument_list|()

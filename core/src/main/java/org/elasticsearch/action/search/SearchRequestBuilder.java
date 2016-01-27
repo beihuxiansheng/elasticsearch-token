@@ -140,7 +140,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -1143,7 +1143,7 @@ specifier|public
 name|SearchRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>

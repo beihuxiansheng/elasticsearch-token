@@ -273,7 +273,7 @@ specifier|private
 specifier|final
 name|GeoHashGridParser
 operator|.
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 operator|.
 name|CellIdSource
 name|valuesSource
@@ -296,7 +296,7 @@ name|factories
 parameter_list|,
 name|GeoHashGridParser
 operator|.
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 operator|.
 name|CellIdSource
 name|valuesSource

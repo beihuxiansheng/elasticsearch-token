@@ -956,7 +956,7 @@ name|Exception
 block|{
 name|SamplerAggregator
 operator|.
-name|Factory
+name|SamplerAggregatorBuilder
 name|sampleAgg
 init|=
 name|sampler
@@ -1127,7 +1127,7 @@ name|Exception
 block|{
 name|SamplerAggregator
 operator|.
-name|Factory
+name|SamplerAggregatorBuilder
 name|sampleAgg
 init|=
 name|sampler
@@ -1276,7 +1276,7 @@ name|Exception
 block|{
 name|SamplerAggregator
 operator|.
-name|Factory
+name|SamplerAggregatorBuilder
 name|sampleAgg
 init|=
 name|sampler

@@ -154,7 +154,57 @@ name|range
 operator|.
 name|RangeAggregator
 operator|.
-name|AbstractFactory
+name|AbstractBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|support
+operator|.
+name|AggregationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|support
+operator|.
+name|ValuesSourceConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|support
+operator|.
+name|ValuesSource
+operator|.
+name|Numeric
 import|;
 end_import
 
@@ -179,23 +229,23 @@ import|;
 end_import
 
 begin_class
-DECL|class|IPv4RangeAggregatorFactory
+DECL|class|IPv4RangeAggregatorBuilder
 specifier|public
 class|class
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 extends|extends
-name|AbstractFactory
+name|AbstractBuilder
 argument_list|<
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 argument_list|,
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 operator|.
 name|Range
 argument_list|>
 block|{
-DECL|method|IPv4RangeAggregatorFactory
+DECL|method|IPv4RangeAggregatorBuilder
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -231,7 +281,7 @@ block|}
 comment|/**      * Add a new range to this aggregation.      *      * @param key      *            the key to use for this range in the response      * @param from      *            the lower bound on the distances, inclusive      * @param to      *            the upper bound on the distances, exclusive      */
 DECL|method|addRange
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|addRange
 parameter_list|(
 name|String
@@ -264,7 +314,7 @@ block|}
 comment|/**      * Same as {@link #addMaskRange(String, String)} but uses the mask itself as      * a key.      */
 DECL|method|addMaskRange
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|addMaskRange
 parameter_list|(
 name|String
@@ -290,7 +340,7 @@ block|}
 comment|/**      * Same as {@link #addMaskRange(String, String)} but uses the mask itself as      * a key.      */
 DECL|method|addMaskRange
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|addMaskRange
 parameter_list|(
 name|String
@@ -313,7 +363,7 @@ block|}
 comment|/**      * Same as {@link #addRange(String, String, String)} but the key will be      * automatically generated.      */
 DECL|method|addRange
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|addRange
 parameter_list|(
 name|String
@@ -337,7 +387,7 @@ block|}
 comment|/**      * Same as {@link #addRange(String, String, String)} but there will be no      * lower bound.      */
 DECL|method|addUnboundedTo
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|addUnboundedTo
 parameter_list|(
 name|String
@@ -367,7 +417,7 @@ block|}
 comment|/**      * Same as {@link #addUnboundedTo(String, String)} but the key will be      * generated automatically.      */
 DECL|method|addUnboundedTo
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|addUnboundedTo
 parameter_list|(
 name|String
@@ -386,7 +436,7 @@ block|}
 comment|/**      * Same as {@link #addRange(String, String, String)} but there will be no      * upper bound.      */
 DECL|method|addUnboundedFrom
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|addUnboundedFrom
 parameter_list|(
 name|String
@@ -416,7 +466,7 @@ block|}
 comment|/**      * Same as {@link #addUnboundedFrom(String, String)} but the key will be      * generated automatically.      */
 DECL|method|addUnboundedFrom
 specifier|public
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|addUnboundedFrom
 parameter_list|(
 name|String
@@ -434,9 +484,44 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|innerBuild
+specifier|protected
+name|Ipv4RangeAggregatorFactory
+name|innerBuild
+parameter_list|(
+name|AggregationContext
+name|context
+parameter_list|,
+name|ValuesSourceConfig
+argument_list|<
+name|Numeric
+argument_list|>
+name|config
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Ipv4RangeAggregatorFactory
+argument_list|(
+name|name
+argument_list|,
+name|type
+argument_list|,
+name|config
+argument_list|,
+name|ranges
+argument_list|,
+name|keyed
+argument_list|,
+name|rangeFactory
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createFactoryFromStream
 specifier|protected
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|createFactoryFromStream
 parameter_list|(
 name|String
@@ -456,11 +541,11 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)

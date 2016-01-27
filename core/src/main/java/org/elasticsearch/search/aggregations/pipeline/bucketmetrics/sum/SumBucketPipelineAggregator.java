@@ -605,9 +605,15 @@ name|void
 name|doValidate
 parameter_list|(
 name|AggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 name|parent
 parameter_list|,
 name|AggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|aggFactories
 parameter_list|,

@@ -104,7 +104,7 @@ name|histogram
 operator|.
 name|HistogramAggregator
 operator|.
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 import|;
 end_import
 
@@ -116,22 +116,22 @@ name|DateHistogramTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|DateHistogramFactory
-name|createTestAggregatorFactory
+name|DateHistogramAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

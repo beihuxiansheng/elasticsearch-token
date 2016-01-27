@@ -130,7 +130,7 @@ name|sampler
 operator|.
 name|SamplerAggregator
 operator|.
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|bucket
 operator|.
 name|terms
 operator|.
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 import|;
 end_import
 
@@ -965,11 +965,11 @@ name|MAX_DOCS_PER_AUTHOR
 init|=
 literal|1
 decl_stmt|;
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|sampleAgg
 init|=
 operator|new
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 literal|"sample"
 argument_list|)
@@ -1148,7 +1148,7 @@ name|MAX_DOCS_PER_AUTHOR
 init|=
 literal|1
 decl_stmt|;
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 name|rootTerms
 init|=
 name|terms
@@ -1161,11 +1161,11 @@ argument_list|(
 literal|"genre"
 argument_list|)
 decl_stmt|;
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|sampleAgg
 init|=
 operator|new
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 literal|"sample"
 argument_list|)
@@ -1370,11 +1370,11 @@ name|MAX_DOCS_PER_GENRE
 init|=
 literal|2
 decl_stmt|;
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|rootSample
 init|=
 operator|new
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 literal|"genreSample"
 argument_list|)
@@ -1394,11 +1394,11 @@ argument_list|(
 name|MAX_DOCS_PER_GENRE
 argument_list|)
 decl_stmt|;
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|sampleAgg
 init|=
 operator|new
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 literal|"sample"
 argument_list|)
@@ -1636,11 +1636,11 @@ name|Exception
 block|{
 comment|// One of the indexes is missing the "author" field used for
 comment|// diversifying results
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|sampleAgg
 init|=
 operator|new
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 literal|"sample"
 argument_list|)
@@ -1802,11 +1802,11 @@ name|MAX_DOCS_PER_AUTHOR
 init|=
 literal|1
 decl_stmt|;
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|sampleAgg
 init|=
 operator|new
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 literal|"sample"
 argument_list|)

@@ -68,7 +68,7 @@ name|range
 operator|.
 name|date
 operator|.
-name|DateRangeAggregatorFactory
+name|DateRangeAggregatorBuilder
 import|;
 end_import
 
@@ -80,15 +80,15 @@ name|DateRangeTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|DateRangeAggregatorFactory
+name|DateRangeAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|DateRangeAggregatorFactory
-name|createTestAggregatorFactory
+name|DateRangeAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 name|int
@@ -101,11 +101,11 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
-name|DateRangeAggregatorFactory
+name|DateRangeAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|DateRangeAggregatorFactory
+name|DateRangeAggregatorBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

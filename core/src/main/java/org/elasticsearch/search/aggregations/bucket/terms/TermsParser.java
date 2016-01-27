@@ -112,7 +112,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -291,7 +291,7 @@ annotation|@
 name|Override
 DECL|method|doCreateFactory
 specifier|protected
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 name|doCreateFactory
 parameter_list|(
 name|String
@@ -324,11 +324,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -351,7 +351,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|)
@@ -486,7 +486,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|SHOW_TERM_DOC_COUNT_ERROR
 argument_list|)
@@ -562,7 +562,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|)
@@ -572,7 +572,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|,
@@ -614,7 +614,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|)
@@ -706,7 +706,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|,
@@ -738,7 +738,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|SHOW_TERM_DOC_COUNT_ERROR
 argument_list|)
@@ -748,7 +748,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|SHOW_TERM_DOC_COUNT_ERROR
 argument_list|,
@@ -1056,7 +1056,7 @@ name|TermsAggregator
 operator|.
 name|BucketCountThresholds
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|DEFAULT_BUCKET_COUNT_THRESHOLDS
 argument_list|)
@@ -1129,7 +1129,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -1138,7 +1138,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|,

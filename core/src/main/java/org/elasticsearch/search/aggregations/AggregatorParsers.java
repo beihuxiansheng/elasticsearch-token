@@ -327,7 +327,7 @@ argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -342,7 +342,7 @@ name|namedWriteableRegistry
 operator|.
 name|registerPrototype
 argument_list|(
-name|AggregatorFactory
+name|AggregatorBuilder
 operator|.
 name|class
 argument_list|,
@@ -477,6 +477,8 @@ comment|/**      * Parses the aggregation request recursively generating aggrega
 DECL|method|parseAggregators
 specifier|public
 name|AggregatorFactories
+operator|.
+name|Builder
 name|parseAggregators
 parameter_list|(
 name|XContentParser
@@ -502,6 +504,8 @@ block|}
 DECL|method|parseAggregators
 specifier|private
 name|AggregatorFactories
+operator|.
+name|Builder
 name|parseAggregators
 parameter_list|(
 name|XContentParser
@@ -677,7 +681,10 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-name|AggregatorFactory
+name|AggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|aggFactory
 init|=
 literal|null
@@ -688,6 +695,8 @@ init|=
 literal|null
 decl_stmt|;
 name|AggregatorFactories
+operator|.
+name|Builder
 name|subFactories
 init|=
 literal|null
@@ -1322,7 +1331,7 @@ condition|)
 block|{
 name|aggFactory
 operator|.
-name|subFactories
+name|subAggregations
 argument_list|(
 name|subFactories
 argument_list|)
@@ -1421,9 +1430,6 @@ block|}
 block|}
 return|return
 name|factories
-operator|.
-name|build
-argument_list|()
 return|;
 block|}
 block|}

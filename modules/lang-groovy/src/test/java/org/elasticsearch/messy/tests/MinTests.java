@@ -390,6 +390,11 @@ name|min
 argument_list|(
 literal|"min"
 argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"value"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

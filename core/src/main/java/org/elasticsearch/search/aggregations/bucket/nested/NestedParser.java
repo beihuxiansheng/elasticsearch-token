@@ -84,7 +84,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -133,7 +133,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -318,7 +318,7 @@ return|return
 operator|new
 name|NestedAggregator
 operator|.
-name|Factory
+name|NestedAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -330,7 +330,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -341,7 +341,7 @@ return|return
 operator|new
 name|NestedAggregator
 operator|.
-name|Factory
+name|NestedAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|,

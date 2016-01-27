@@ -1154,13 +1154,13 @@ argument_list|()
 decl_stmt|;
 name|NestedAggregator
 operator|.
-name|Factory
+name|NestedAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|NestedAggregator
 operator|.
-name|Factory
+name|NestedAggregatorBuilder
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1180,7 +1180,9 @@ init|=
 name|builder
 operator|.
 name|build
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 decl_stmt|;
 name|searchContext
 operator|.

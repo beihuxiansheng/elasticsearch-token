@@ -84,7 +84,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -218,7 +218,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -239,11 +239,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -260,7 +260,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 operator|.
 name|PRECISION_THRESHOLD_FIELD
 argument_list|)
@@ -333,7 +333,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 operator|.
 name|PRECISION_THRESHOLD_FIELD
 argument_list|)
@@ -343,7 +343,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 operator|.
 name|PRECISION_THRESHOLD_FIELD
 argument_list|,
@@ -384,7 +384,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -393,7 +393,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|,

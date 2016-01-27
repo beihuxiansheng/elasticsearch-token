@@ -70,7 +70,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -253,7 +253,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 operator|.
 name|Range
 operator|.
@@ -271,7 +271,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -292,18 +292,18 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 operator|.
 name|Range
 argument_list|>
@@ -312,7 +312,7 @@ init|=
 operator|(
 name|List
 argument_list|<
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 operator|.
 name|Range
 argument_list|>
@@ -328,7 +328,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 operator|.
 name|Range
 name|range
@@ -382,7 +382,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -391,7 +391,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|)

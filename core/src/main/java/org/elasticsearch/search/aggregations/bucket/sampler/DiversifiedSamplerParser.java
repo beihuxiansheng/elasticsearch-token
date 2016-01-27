@@ -68,7 +68,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -178,7 +178,7 @@ block|{
 return|return
 name|SamplerAggregator
 operator|.
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 operator|.
 name|TYPE
 operator|.
@@ -192,7 +192,7 @@ DECL|method|createFactory
 specifier|protected
 name|SamplerAggregator
 operator|.
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -215,13 +215,13 @@ parameter_list|)
 block|{
 name|SamplerAggregator
 operator|.
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|SamplerAggregator
 operator|.
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
@@ -500,7 +500,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -511,7 +511,7 @@ return|return
 operator|new
 name|SamplerAggregator
 operator|.
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|)

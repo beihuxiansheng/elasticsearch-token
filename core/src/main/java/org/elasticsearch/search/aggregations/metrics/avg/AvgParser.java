@@ -68,7 +68,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -231,7 +231,7 @@ DECL|method|createFactory
 specifier|protected
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -256,7 +256,7 @@ return|return
 operator|new
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
@@ -266,7 +266,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -277,7 +277,7 @@ return|return
 operator|new
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|)

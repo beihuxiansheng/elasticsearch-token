@@ -50,7 +50,7 @@ name|nested
 operator|.
 name|ReverseNestedAggregator
 operator|.
-name|Factory
+name|ReverseNestedAggregatorBuilder
 import|;
 end_import
 
@@ -64,22 +64,22 @@ name|BaseAggregationTestCase
 argument_list|<
 name|ReverseNestedAggregator
 operator|.
-name|Factory
+name|ReverseNestedAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|Factory
-name|createTestAggregatorFactory
+name|ReverseNestedAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|Factory
+name|ReverseNestedAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|ReverseNestedAggregatorBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

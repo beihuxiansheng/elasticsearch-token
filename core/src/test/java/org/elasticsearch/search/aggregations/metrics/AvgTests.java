@@ -46,7 +46,7 @@ name|AbstractNumericMetricTestCase
 argument_list|<
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
@@ -55,7 +55,7 @@ DECL|method|doCreateTestAggregatorFactory
 specifier|protected
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|()
 block|{
@@ -63,7 +63,7 @@ return|return
 operator|new
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

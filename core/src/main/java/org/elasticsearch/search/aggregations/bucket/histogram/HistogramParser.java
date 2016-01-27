@@ -110,7 +110,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -252,7 +252,7 @@ DECL|method|createFactory
 specifier|protected
 name|HistogramAggregator
 operator|.
-name|Factory
+name|AbstractBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -278,13 +278,13 @@ parameter_list|)
 block|{
 name|HistogramAggregator
 operator|.
-name|Factory
+name|HistogramAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|HistogramAggregator
 operator|.
-name|Factory
+name|HistogramAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
@@ -1091,7 +1091,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -1101,7 +1101,7 @@ block|{
 return|return
 name|HistogramAggregator
 operator|.
-name|Factory
+name|HistogramAggregatorBuilder
 operator|.
 name|PROTOTYPE
 return|;

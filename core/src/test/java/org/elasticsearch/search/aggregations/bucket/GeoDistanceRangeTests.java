@@ -92,7 +92,7 @@ name|geodistance
 operator|.
 name|GeoDistanceParser
 operator|.
-name|GeoDistanceFactory
+name|GeoDistanceAggregatorBuilder
 import|;
 end_import
 
@@ -140,15 +140,15 @@ name|GeoDistanceRangeTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|GeoDistanceFactory
+name|GeoDistanceAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|GeoDistanceFactory
-name|createTestAggregatorFactory
+name|GeoDistanceAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 name|int
@@ -172,11 +172,11 @@ name|getRandom
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|GeoDistanceFactory
+name|GeoDistanceAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|GeoDistanceFactory
+name|GeoDistanceAggregatorBuilder
 argument_list|(
 literal|"foo"
 argument_list|,

@@ -72,7 +72,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 import|;
 end_import
 
@@ -85,7 +85,7 @@ name|AbstractNumericMetricTestCase
 parameter_list|<
 name|AF
 extends|extends
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 operator|.
 name|LeafOnly
 parameter_list|<
@@ -104,11 +104,11 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
 specifier|final
 name|AF
-name|createTestAggregatorFactory
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 name|AF

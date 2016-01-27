@@ -662,7 +662,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|REQUIRED_SIZE_FIELD_NAME
 operator|.
@@ -676,7 +676,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|SHARD_SIZE_FIELD_NAME
 operator|.
@@ -690,7 +690,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|MIN_DOC_COUNT_FIELD_NAME
 operator|.
@@ -704,7 +704,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 operator|.
 name|SHARD_MIN_DOC_COUNT_FIELD_NAME
 operator|.

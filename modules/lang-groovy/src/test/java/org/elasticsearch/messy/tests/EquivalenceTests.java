@@ -1074,7 +1074,7 @@ block|}
 block|}
 name|RangeAggregator
 operator|.
-name|Factory
+name|RangeAggregatorBuilder
 name|query
 init|=
 name|range

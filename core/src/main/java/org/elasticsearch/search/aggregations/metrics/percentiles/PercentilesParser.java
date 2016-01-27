@@ -42,7 +42,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 import|;
 end_import
 
@@ -196,7 +196,7 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 argument_list|<
 name|Numeric
 argument_list|,
@@ -224,11 +224,11 @@ name|Boolean
 name|keyed
 parameter_list|)
 block|{
-name|PercentilesAggregatorFactory
+name|PercentilesAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|PercentilesAggregatorFactory
+name|PercentilesAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
@@ -316,7 +316,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -325,7 +325,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|PercentilesAggregatorFactory
+name|PercentilesAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|)

@@ -66,7 +66,7 @@ name|global
 operator|.
 name|GlobalAggregator
 operator|.
-name|Factory
+name|GlobalAggregatorBuilder
 import|;
 end_import
 
@@ -80,22 +80,22 @@ name|BaseAggregationTestCase
 argument_list|<
 name|GlobalAggregator
 operator|.
-name|Factory
+name|GlobalAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|Factory
-name|createTestAggregatorFactory
+name|GlobalAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 return|return
 operator|new
 name|GlobalAggregator
 operator|.
-name|Factory
+name|GlobalAggregatorBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

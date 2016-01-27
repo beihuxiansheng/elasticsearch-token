@@ -84,7 +84,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -202,7 +202,7 @@ DECL|method|createFactory
 specifier|protected
 name|GeoBoundsAggregator
 operator|.
-name|Factory
+name|GeoBoundsAggregatorBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -225,13 +225,13 @@ parameter_list|)
 block|{
 name|GeoBoundsAggregator
 operator|.
-name|Factory
+name|GeoBoundsAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|GeoBoundsAggregator
 operator|.
-name|Factory
+name|GeoBoundsAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
@@ -355,7 +355,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -366,7 +366,7 @@ return|return
 operator|new
 name|GeoBoundsAggregator
 operator|.
-name|Factory
+name|GeoBoundsAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|)

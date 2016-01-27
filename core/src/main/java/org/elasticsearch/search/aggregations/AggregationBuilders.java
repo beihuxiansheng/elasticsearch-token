@@ -91,6 +91,8 @@ operator|.
 name|children
 operator|.
 name|ParentToChildrenAggregator
+operator|.
+name|ChildrenAggregatorBuilder
 import|;
 end_import
 
@@ -127,6 +129,8 @@ operator|.
 name|filter
 operator|.
 name|FilterAggregator
+operator|.
+name|FilterAggregatorBuilder
 import|;
 end_import
 
@@ -163,6 +167,8 @@ operator|.
 name|filters
 operator|.
 name|FiltersAggregator
+operator|.
+name|FiltersAggregatorBuilder
 import|;
 end_import
 
@@ -219,6 +225,8 @@ operator|.
 name|geogrid
 operator|.
 name|GeoHashGridParser
+operator|.
+name|GeoGridAggregatorBuilder
 import|;
 end_import
 
@@ -255,6 +263,8 @@ operator|.
 name|global
 operator|.
 name|GlobalAggregator
+operator|.
+name|GlobalAggregatorBuilder
 import|;
 end_import
 
@@ -291,6 +301,8 @@ operator|.
 name|histogram
 operator|.
 name|HistogramAggregator
+operator|.
+name|DateHistogramAggregatorBuilder
 import|;
 end_import
 
@@ -310,7 +322,7 @@ name|histogram
 operator|.
 name|HistogramAggregator
 operator|.
-name|DateHistogramFactory
+name|HistogramAggregatorBuilder
 import|;
 end_import
 
@@ -347,6 +359,8 @@ operator|.
 name|missing
 operator|.
 name|MissingAggregator
+operator|.
+name|MissingAggregatorBuilder
 import|;
 end_import
 
@@ -383,6 +397,8 @@ operator|.
 name|nested
 operator|.
 name|NestedAggregator
+operator|.
+name|NestedAggregatorBuilder
 import|;
 end_import
 
@@ -419,6 +435,8 @@ operator|.
 name|nested
 operator|.
 name|ReverseNestedAggregator
+operator|.
+name|ReverseNestedAggregatorBuilder
 import|;
 end_import
 
@@ -455,6 +473,8 @@ operator|.
 name|range
 operator|.
 name|RangeAggregator
+operator|.
+name|RangeAggregatorBuilder
 import|;
 end_import
 
@@ -474,7 +494,7 @@ name|range
 operator|.
 name|date
 operator|.
-name|DateRangeAggregatorFactory
+name|DateRangeAggregatorBuilder
 import|;
 end_import
 
@@ -496,7 +516,7 @@ name|geodistance
 operator|.
 name|GeoDistanceParser
 operator|.
-name|GeoDistanceFactory
+name|GeoDistanceAggregatorBuilder
 import|;
 end_import
 
@@ -516,7 +536,7 @@ name|range
 operator|.
 name|ipv4
 operator|.
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 import|;
 end_import
 
@@ -553,6 +573,28 @@ operator|.
 name|sampler
 operator|.
 name|SamplerAggregator
+operator|.
+name|DiversifiedAggregatorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|sampler
+operator|.
+name|SamplerAggregator
+operator|.
+name|SamplerAggregatorBuilder
 import|;
 end_import
 
@@ -588,7 +630,7 @@ name|bucket
 operator|.
 name|significant
 operator|.
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 import|;
 end_import
 
@@ -624,7 +666,7 @@ name|bucket
 operator|.
 name|terms
 operator|.
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 import|;
 end_import
 
@@ -661,6 +703,8 @@ operator|.
 name|avg
 operator|.
 name|AvgAggregator
+operator|.
+name|AvgAggregatorBuilder
 import|;
 end_import
 
@@ -696,7 +740,7 @@ name|metrics
 operator|.
 name|cardinality
 operator|.
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 import|;
 end_import
 
@@ -733,6 +777,8 @@ operator|.
 name|geobounds
 operator|.
 name|GeoBoundsAggregator
+operator|.
+name|GeoBoundsAggregatorBuilder
 import|;
 end_import
 
@@ -769,6 +815,8 @@ operator|.
 name|geocentroid
 operator|.
 name|GeoCentroidAggregator
+operator|.
+name|GeoCentroidAggregatorBuilder
 import|;
 end_import
 
@@ -805,6 +853,8 @@ operator|.
 name|max
 operator|.
 name|MaxAggregator
+operator|.
+name|MaxAggregatorBuilder
 import|;
 end_import
 
@@ -841,6 +891,8 @@ operator|.
 name|min
 operator|.
 name|MinAggregator
+operator|.
+name|MinAggregatorBuilder
 import|;
 end_import
 
@@ -876,7 +928,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|PercentileRanksAggregatorFactory
+name|PercentileRanksAggregatorBuilder
 import|;
 end_import
 
@@ -912,7 +964,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|PercentilesAggregatorFactory
+name|PercentilesAggregatorBuilder
 import|;
 end_import
 
@@ -949,6 +1001,8 @@ operator|.
 name|scripted
 operator|.
 name|ScriptedMetricAggregator
+operator|.
+name|ScriptedMetricAggregatorBuilder
 import|;
 end_import
 
@@ -985,6 +1039,8 @@ operator|.
 name|stats
 operator|.
 name|StatsAggregator
+operator|.
+name|StatsAggregatorBuilder
 import|;
 end_import
 
@@ -1025,6 +1081,8 @@ operator|.
 name|extended
 operator|.
 name|ExtendedStatsAggregator
+operator|.
+name|ExtendedStatsAggregatorBuilder
 import|;
 end_import
 
@@ -1061,6 +1119,8 @@ operator|.
 name|sum
 operator|.
 name|SumAggregator
+operator|.
+name|SumAggregatorBuilder
 import|;
 end_import
 
@@ -1097,6 +1157,8 @@ operator|.
 name|tophits
 operator|.
 name|TopHitsAggregator
+operator|.
+name|TopHitsAggregatorBuilder
 import|;
 end_import
 
@@ -1133,6 +1195,8 @@ operator|.
 name|valuecount
 operator|.
 name|ValueCountAggregator
+operator|.
+name|ValueCountAggregatorBuilder
 import|;
 end_import
 
@@ -1155,9 +1219,7 @@ comment|/**      * Create a new {@link ValueCount} aggregation with the given na
 DECL|method|count
 specifier|public
 specifier|static
-name|ValueCountAggregator
-operator|.
-name|Factory
+name|ValueCountAggregatorBuilder
 name|count
 parameter_list|(
 name|String
@@ -1166,9 +1228,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ValueCountAggregator
-operator|.
-name|Factory
+name|ValueCountAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1180,9 +1240,7 @@ comment|/**      * Create a new {@link Avg} aggregation with the given name.    
 DECL|method|avg
 specifier|public
 specifier|static
-name|AvgAggregator
-operator|.
-name|Factory
+name|AvgAggregatorBuilder
 name|avg
 parameter_list|(
 name|String
@@ -1191,9 +1249,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|AvgAggregator
-operator|.
-name|Factory
+name|AvgAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1203,9 +1259,7 @@ comment|/**      * Create a new {@link Max} aggregation with the given name.    
 DECL|method|max
 specifier|public
 specifier|static
-name|MaxAggregator
-operator|.
-name|Factory
+name|MaxAggregatorBuilder
 name|max
 parameter_list|(
 name|String
@@ -1214,9 +1268,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MaxAggregator
-operator|.
-name|Factory
+name|MaxAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1226,9 +1278,7 @@ comment|/**      * Create a new {@link Min} aggregation with the given name.    
 DECL|method|min
 specifier|public
 specifier|static
-name|MinAggregator
-operator|.
-name|Factory
+name|MinAggregatorBuilder
 name|min
 parameter_list|(
 name|String
@@ -1237,9 +1287,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MinAggregator
-operator|.
-name|Factory
+name|MinAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1249,9 +1297,7 @@ comment|/**      * Create a new {@link Sum} aggregation with the given name.    
 DECL|method|sum
 specifier|public
 specifier|static
-name|SumAggregator
-operator|.
-name|Factory
+name|SumAggregatorBuilder
 name|sum
 parameter_list|(
 name|String
@@ -1260,9 +1306,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SumAggregator
-operator|.
-name|Factory
+name|SumAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1272,9 +1316,7 @@ comment|/**      * Create a new {@link Stats} aggregation with the given name.  
 DECL|method|stats
 specifier|public
 specifier|static
-name|StatsAggregator
-operator|.
-name|Factory
+name|StatsAggregatorBuilder
 name|stats
 parameter_list|(
 name|String
@@ -1283,9 +1325,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|StatsAggregator
-operator|.
-name|Factory
+name|StatsAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1295,9 +1335,7 @@ comment|/**      * Create a new {@link ExtendedStats} aggregation with the given
 DECL|method|extendedStats
 specifier|public
 specifier|static
-name|ExtendedStatsAggregator
-operator|.
-name|Factory
+name|ExtendedStatsAggregatorBuilder
 name|extendedStats
 parameter_list|(
 name|String
@@ -1306,9 +1344,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ExtendedStatsAggregator
-operator|.
-name|Factory
+name|ExtendedStatsAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1318,9 +1354,7 @@ comment|/**      * Create a new {@link Filter} aggregation with the given name. 
 DECL|method|filter
 specifier|public
 specifier|static
-name|FilterAggregator
-operator|.
-name|Factory
+name|FilterAggregatorBuilder
 name|filter
 parameter_list|(
 name|String
@@ -1335,9 +1369,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FilterAggregator
-operator|.
-name|Factory
+name|FilterAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1349,9 +1381,7 @@ comment|/**      * Create a new {@link Filters} aggregation with the given name.
 DECL|method|filters
 specifier|public
 specifier|static
-name|FiltersAggregator
-operator|.
-name|Factory
+name|FiltersAggregatorBuilder
 name|filters
 parameter_list|(
 name|String
@@ -1364,9 +1394,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FiltersAggregator
-operator|.
-name|Factory
+name|FiltersAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1378,9 +1406,7 @@ comment|/**      * Create a new {@link Filters} aggregation with the given name.
 DECL|method|filters
 specifier|public
 specifier|static
-name|FiltersAggregator
-operator|.
-name|Factory
+name|FiltersAggregatorBuilder
 name|filters
 parameter_list|(
 name|String
@@ -1396,9 +1422,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FiltersAggregator
-operator|.
-name|Factory
+name|FiltersAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1410,9 +1434,7 @@ comment|/**      * Create a new {@link Sampler} aggregation with the given name.
 DECL|method|sampler
 specifier|public
 specifier|static
-name|SamplerAggregator
-operator|.
-name|Factory
+name|SamplerAggregatorBuilder
 name|sampler
 parameter_list|(
 name|String
@@ -1421,9 +1443,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SamplerAggregator
-operator|.
-name|Factory
+name|SamplerAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1433,9 +1453,7 @@ comment|/**      * Create a new {@link Sampler} aggregation with the given name.
 DECL|method|diversifiedSampler
 specifier|public
 specifier|static
-name|SamplerAggregator
-operator|.
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 name|diversifiedSampler
 parameter_list|(
 name|String
@@ -1444,9 +1462,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SamplerAggregator
-operator|.
-name|DiversifiedFactory
+name|DiversifiedAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1456,9 +1472,7 @@ comment|/**      * Create a new {@link Global} aggregation with the given name. 
 DECL|method|global
 specifier|public
 specifier|static
-name|GlobalAggregator
-operator|.
-name|Factory
+name|GlobalAggregatorBuilder
 name|global
 parameter_list|(
 name|String
@@ -1467,9 +1481,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|GlobalAggregator
-operator|.
-name|Factory
+name|GlobalAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1479,9 +1491,7 @@ comment|/**      * Create a new {@link Missing} aggregation with the given name.
 DECL|method|missing
 specifier|public
 specifier|static
-name|MissingAggregator
-operator|.
-name|Factory
+name|MissingAggregatorBuilder
 name|missing
 parameter_list|(
 name|String
@@ -1490,9 +1500,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MissingAggregator
-operator|.
-name|Factory
+name|MissingAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1504,9 +1512,7 @@ comment|/**      * Create a new {@link Nested} aggregation with the given name. 
 DECL|method|nested
 specifier|public
 specifier|static
-name|NestedAggregator
-operator|.
-name|Factory
+name|NestedAggregatorBuilder
 name|nested
 parameter_list|(
 name|String
@@ -1518,9 +1524,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|NestedAggregator
-operator|.
-name|Factory
+name|NestedAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1532,9 +1536,7 @@ comment|/**      * Create a new {@link ReverseNested} aggregation with the given
 DECL|method|reverseNested
 specifier|public
 specifier|static
-name|ReverseNestedAggregator
-operator|.
-name|Factory
+name|ReverseNestedAggregatorBuilder
 name|reverseNested
 parameter_list|(
 name|String
@@ -1543,9 +1545,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ReverseNestedAggregator
-operator|.
-name|Factory
+name|ReverseNestedAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1555,9 +1555,7 @@ comment|/**      * Create a new {@link Children} aggregation with the given name
 DECL|method|children
 specifier|public
 specifier|static
-name|ParentToChildrenAggregator
-operator|.
-name|Factory
+name|ChildrenAggregatorBuilder
 name|children
 parameter_list|(
 name|String
@@ -1569,9 +1567,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ParentToChildrenAggregator
-operator|.
-name|Factory
+name|ChildrenAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1583,7 +1579,7 @@ comment|/**      * Create a new {@link GeoDistance} aggregation with the given n
 DECL|method|geoDistance
 specifier|public
 specifier|static
-name|GeoDistanceFactory
+name|GeoDistanceAggregatorBuilder
 name|geoDistance
 parameter_list|(
 name|String
@@ -1595,7 +1591,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|GeoDistanceFactory
+name|GeoDistanceAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1607,12 +1603,7 @@ comment|/**      * Create a new {@link Histogram} aggregation with the given nam
 DECL|method|histogram
 specifier|public
 specifier|static
-name|HistogramAggregator
-operator|.
-name|Factory
-argument_list|<
-name|?
-argument_list|>
+name|HistogramAggregatorBuilder
 name|histogram
 parameter_list|(
 name|String
@@ -1621,10 +1612,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|HistogramAggregator
-operator|.
-name|Factory
-argument_list|<>
+name|HistogramAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1634,9 +1622,7 @@ comment|/**      * Create a new {@link GeoHashGrid} aggregation with the given n
 DECL|method|geohashGrid
 specifier|public
 specifier|static
-name|GeoHashGridParser
-operator|.
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 name|geohashGrid
 parameter_list|(
 name|String
@@ -1645,9 +1631,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|GeoHashGridParser
-operator|.
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1657,7 +1641,7 @@ comment|/**      * Create a new {@link SignificantTerms} aggregation with the gi
 DECL|method|significantTerms
 specifier|public
 specifier|static
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 name|significantTerms
 parameter_list|(
 name|String
@@ -1666,7 +1650,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1674,11 +1658,11 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link DateHistogramFactory} aggregation with the given      * name.      */
+comment|/**      * Create a new {@link DateHistogramAggregatorBuilder} aggregation with the given      * name.      */
 DECL|method|dateHistogram
 specifier|public
 specifier|static
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 name|dateHistogram
 parameter_list|(
 name|String
@@ -1687,7 +1671,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1697,9 +1681,7 @@ comment|/**      * Create a new {@link Range} aggregation with the given name.  
 DECL|method|range
 specifier|public
 specifier|static
-name|RangeAggregator
-operator|.
-name|Factory
+name|RangeAggregatorBuilder
 name|range
 parameter_list|(
 name|String
@@ -1708,19 +1690,17 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|RangeAggregator
-operator|.
-name|Factory
+name|RangeAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link DateRangeAggregatorFactory} aggregation with the      * given name.      */
+comment|/**      * Create a new {@link DateRangeAggregatorBuilder} aggregation with the      * given name.      */
 DECL|method|dateRange
 specifier|public
 specifier|static
-name|DateRangeAggregatorFactory
+name|DateRangeAggregatorBuilder
 name|dateRange
 parameter_list|(
 name|String
@@ -1729,17 +1709,17 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|DateRangeAggregatorFactory
+name|DateRangeAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link IPv4RangeAggregatorFactory} aggregation with the      * given name.      */
+comment|/**      * Create a new {@link IPv4RangeAggregatorBuilder} aggregation with the      * given name.      */
 DECL|method|ipRange
 specifier|public
 specifier|static
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 name|ipRange
 parameter_list|(
 name|String
@@ -1748,7 +1728,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|IPv4RangeAggregatorFactory
+name|IPv4RangeAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1758,7 +1738,7 @@ comment|/**      * Create a new {@link Terms} aggregation with the given name.  
 DECL|method|terms
 specifier|public
 specifier|static
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 name|terms
 parameter_list|(
 name|String
@@ -1767,7 +1747,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TermsAggregatorFactory
+name|TermsAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1779,7 +1759,7 @@ comment|/**      * Create a new {@link Percentiles} aggregation with the given n
 DECL|method|percentiles
 specifier|public
 specifier|static
-name|PercentilesAggregatorFactory
+name|PercentilesAggregatorBuilder
 name|percentiles
 parameter_list|(
 name|String
@@ -1788,7 +1768,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|PercentilesAggregatorFactory
+name|PercentilesAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1798,7 +1778,7 @@ comment|/**      * Create a new {@link PercentileRanks} aggregation with the giv
 DECL|method|percentileRanks
 specifier|public
 specifier|static
-name|PercentileRanksAggregatorFactory
+name|PercentileRanksAggregatorBuilder
 name|percentileRanks
 parameter_list|(
 name|String
@@ -1807,7 +1787,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|PercentileRanksAggregatorFactory
+name|PercentileRanksAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1817,7 +1797,7 @@ comment|/**      * Create a new {@link Cardinality} aggregation with the given n
 DECL|method|cardinality
 specifier|public
 specifier|static
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 name|cardinality
 parameter_list|(
 name|String
@@ -1826,7 +1806,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|CardinalityAggregatorFactory
+name|CardinalityAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1838,9 +1818,7 @@ comment|/**      * Create a new {@link TopHits} aggregation with the given name.
 DECL|method|topHits
 specifier|public
 specifier|static
-name|TopHitsAggregator
-operator|.
-name|Factory
+name|TopHitsAggregatorBuilder
 name|topHits
 parameter_list|(
 name|String
@@ -1849,9 +1827,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TopHitsAggregator
-operator|.
-name|Factory
+name|TopHitsAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1861,9 +1837,7 @@ comment|/**      * Create a new {@link GeoBounds} aggregation with the given nam
 DECL|method|geoBounds
 specifier|public
 specifier|static
-name|GeoBoundsAggregator
-operator|.
-name|Factory
+name|GeoBoundsAggregatorBuilder
 name|geoBounds
 parameter_list|(
 name|String
@@ -1872,9 +1846,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|GeoBoundsAggregator
-operator|.
-name|Factory
+name|GeoBoundsAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1884,9 +1856,7 @@ comment|/**      * Create a new {@link GeoCentroid} aggregation with the given n
 DECL|method|geoCentroid
 specifier|public
 specifier|static
-name|GeoCentroidAggregator
-operator|.
-name|Factory
+name|GeoCentroidAggregatorBuilder
 name|geoCentroid
 parameter_list|(
 name|String
@@ -1895,9 +1865,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|GeoCentroidAggregator
-operator|.
-name|Factory
+name|GeoCentroidAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -1907,9 +1875,7 @@ comment|/**      * Create a new {@link ScriptedMetric} aggregation with the give
 DECL|method|scriptedMetric
 specifier|public
 specifier|static
-name|ScriptedMetricAggregator
-operator|.
-name|Factory
+name|ScriptedMetricAggregatorBuilder
 name|scriptedMetric
 parameter_list|(
 name|String
@@ -1918,9 +1884,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ScriptedMetricAggregator
-operator|.
-name|Factory
+name|ScriptedMetricAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)

@@ -80,7 +80,7 @@ name|filter
 operator|.
 name|FilterAggregator
 operator|.
-name|Factory
+name|FilterAggregatorBuilder
 import|;
 end_import
 
@@ -94,22 +94,22 @@ name|BaseAggregationTestCase
 argument_list|<
 name|FilterAggregator
 operator|.
-name|Factory
+name|FilterAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|Factory
-name|createTestAggregatorFactory
+name|FilterAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|Factory
+name|FilterAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|FilterAggregatorBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

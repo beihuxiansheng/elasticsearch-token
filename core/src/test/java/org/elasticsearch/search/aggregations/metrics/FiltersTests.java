@@ -94,7 +94,7 @@ name|filters
 operator|.
 name|FiltersAggregator
 operator|.
-name|Factory
+name|FiltersAggregatorBuilder
 import|;
 end_import
 
@@ -128,15 +128,15 @@ name|BaseAggregationTestCase
 argument_list|<
 name|FiltersAggregator
 operator|.
-name|Factory
+name|FiltersAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|Factory
-name|createTestAggregatorFactory
+name|FiltersAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 name|int
@@ -149,7 +149,7 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|Factory
+name|FiltersAggregatorBuilder
 name|factory
 decl_stmt|;
 if|if
@@ -225,7 +225,7 @@ block|}
 name|factory
 operator|=
 operator|new
-name|Factory
+name|FiltersAggregatorBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -302,7 +302,7 @@ block|}
 name|factory
 operator|=
 operator|new
-name|Factory
+name|FiltersAggregatorBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

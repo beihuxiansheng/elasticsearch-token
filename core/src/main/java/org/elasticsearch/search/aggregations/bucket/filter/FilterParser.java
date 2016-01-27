@@ -112,7 +112,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -163,7 +163,7 @@ DECL|method|parse
 specifier|public
 name|FilterAggregator
 operator|.
-name|Factory
+name|FilterAggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -210,13 +210,13 @@ throw|;
 block|}
 name|FilterAggregator
 operator|.
-name|Factory
+name|FilterAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|FilterAggregator
 operator|.
-name|Factory
+name|FilterAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -239,7 +239,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -250,7 +250,7 @@ return|return
 operator|new
 name|FilterAggregator
 operator|.
-name|Factory
+name|FilterAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|,

@@ -52,7 +52,7 @@ name|min
 operator|.
 name|MinAggregator
 operator|.
-name|Factory
+name|MinAggregatorBuilder
 import|;
 end_import
 
@@ -66,14 +66,14 @@ name|AbstractNumericMetricTestCase
 argument_list|<
 name|MinAggregator
 operator|.
-name|Factory
+name|MinAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|Factory
+name|MinAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|()
 block|{
@@ -81,7 +81,7 @@ return|return
 operator|new
 name|MinAggregator
 operator|.
-name|Factory
+name|MinAggregatorBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

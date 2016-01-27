@@ -102,7 +102,7 @@ name|bucket
 operator|.
 name|significant
 operator|.
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 import|;
 end_import
 
@@ -314,7 +314,7 @@ name|SignificantTermsTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 argument_list|>
 block|{
 DECL|field|executionHints
@@ -380,10 +380,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createTestAggregatorFactory
+DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|SignificantTermsAggregatorFactory
-name|createTestAggregatorFactory
+name|SignificantTermsAggregatorBuilder
+name|createTestAggregatorBuilder
 parameter_list|()
 block|{
 name|String
@@ -396,11 +396,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|SignificantTermsAggregatorFactory
+name|SignificantTermsAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,

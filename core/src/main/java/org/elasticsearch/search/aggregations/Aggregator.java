@@ -205,7 +205,7 @@ name|BucketCollector
 implements|implements
 name|Releasable
 block|{
-comment|/**      * Parses the aggregation request and creates the appropriate aggregator factory for it.      *      * @see AggregatorFactory     */
+comment|/**      * Parses the aggregation request and creates the appropriate aggregator factory for it.      *      * @see AggregatorBuilder     */
 DECL|interface|Parser
 specifier|public
 interface|interface
@@ -219,7 +219,7 @@ parameter_list|()
 function_decl|;
 comment|/**          * Returns the aggregator factory with which this parser is associated, may return {@code null} indicating the          * aggregation should be skipped (e.g. when trying to aggregate on unmapped fields).          *          * @param aggregationName   The name of the aggregation          * @param parser            The xcontent parser          * @param context           The search context          * @return                  The resolved aggregator factory or {@code null} in case the aggregation should be skipped          * @throws java.io.IOException      When parsing fails          */
 DECL|method|parse
-name|AggregatorFactory
+name|AggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -234,9 +234,9 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          * @return an empty {@link AggregatorFactory} instance for this parser          *         that can be used for deserialization          */
+comment|/**          * @return an empty {@link AggregatorBuilder} instance for this parser          *         that can be used for deserialization          */
 DECL|method|getFactoryPrototypes
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>

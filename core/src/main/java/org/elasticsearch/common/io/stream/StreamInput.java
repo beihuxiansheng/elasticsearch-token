@@ -302,7 +302,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -3657,10 +3657,10 @@ literal|"can't read named writeable from StreamInput"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Reads a {@link AggregatorFactory} from the current stream      */
+comment|/**      * Reads a {@link AggregatorBuilder} from the current stream      */
 DECL|method|readAggregatorFactory
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 name|readAggregatorFactory
 parameter_list|()
 throws|throws
@@ -3669,7 +3669,7 @@ block|{
 return|return
 name|readNamedWriteable
 argument_list|(
-name|AggregatorFactory
+name|AggregatorBuilder
 operator|.
 name|class
 argument_list|)

@@ -68,7 +68,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|histogram
 operator|.
 name|HistogramAggregator
 operator|.
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 import|;
 end_import
 
@@ -207,7 +207,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -230,13 +230,13 @@ parameter_list|)
 block|{
 name|HistogramAggregator
 operator|.
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|HistogramAggregator
 operator|.
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
@@ -569,7 +569,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 operator|.
 name|parseStringOffset
 argument_list|(
@@ -581,7 +581,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorFactory
+name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -591,7 +591,7 @@ block|{
 return|return
 name|HistogramAggregator
 operator|.
-name|DateHistogramFactory
+name|DateHistogramAggregatorBuilder
 operator|.
 name|PROTOTYPE
 return|;

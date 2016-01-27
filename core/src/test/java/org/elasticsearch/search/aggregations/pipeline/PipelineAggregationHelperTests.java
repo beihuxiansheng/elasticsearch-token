@@ -102,7 +102,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 import|;
 end_import
 
@@ -495,7 +495,7 @@ name|double
 index|[]
 name|values
 parameter_list|,
-name|ValuesSourceAggregatorFactory
+name|ValuesSourceAggregatorBuilder
 argument_list|<
 name|?
 argument_list|,
@@ -510,7 +510,7 @@ name|metric
 operator|instanceof
 name|MinAggregator
 operator|.
-name|Factory
+name|MinAggregatorBuilder
 condition|)
 block|{
 name|double
@@ -551,7 +551,7 @@ name|metric
 operator|instanceof
 name|MaxAggregator
 operator|.
-name|Factory
+name|MaxAggregatorBuilder
 condition|)
 block|{
 name|double
@@ -592,7 +592,7 @@ name|metric
 operator|instanceof
 name|SumAggregator
 operator|.
-name|Factory
+name|SumAggregatorBuilder
 condition|)
 block|{
 name|double
@@ -624,7 +624,7 @@ name|metric
 operator|instanceof
 name|AvgAggregator
 operator|.
-name|Factory
+name|AvgAggregatorBuilder
 condition|)
 block|{
 name|double

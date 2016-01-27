@@ -360,6 +360,15 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+name|AggregationContext
+name|aggContext
+init|=
+operator|new
+name|AggregationContext
+argument_list|(
+name|searchContext
+argument_list|)
+decl_stmt|;
 specifier|final
 name|AggregatorFactories
 name|factories
@@ -371,6 +380,11 @@ argument_list|(
 name|aggParser
 argument_list|,
 name|parseContext
+argument_list|)
+operator|.
+name|build
+argument_list|(
+name|aggContext
 argument_list|)
 decl_stmt|;
 name|AggregationContext

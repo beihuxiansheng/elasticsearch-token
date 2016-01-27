@@ -286,7 +286,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorBuilder
 import|;
 end_import
 
@@ -3675,13 +3675,13 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link AggregatorFactory} to the current stream      */
+comment|/**      * Writes a {@link AggregatorBuilder} to the current stream      */
 DECL|method|writeAggregatorFactory
 specifier|public
 name|void
 name|writeAggregatorFactory
 parameter_list|(
-name|AggregatorFactory
+name|AggregatorBuilder
 name|factory
 parameter_list|)
 throws|throws
