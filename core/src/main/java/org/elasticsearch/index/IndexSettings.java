@@ -468,6 +468,13 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+literal|100
+argument_list|)
+argument_list|,
 literal|false
 argument_list|,
 name|Setting

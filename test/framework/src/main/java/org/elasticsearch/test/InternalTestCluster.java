@@ -3774,6 +3774,9 @@ argument_list|(
 name|ScriptService
 operator|.
 name|SCRIPT_CACHE_EXPIRE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.

@@ -3731,32 +3731,6 @@ name|nextBoolean
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|rarely
-argument_list|(
-name|random
-argument_list|)
-condition|)
-block|{
-name|builder
-operator|.
-name|put
-argument_list|(
-name|IndexSettings
-operator|.
-name|INDEX_TRANSLOG_SYNC_INTERVAL_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// 0 has special meaning to sync each op
-block|}
-else|else
-block|{
 name|builder
 operator|.
 name|put
@@ -3784,7 +3758,6 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|builder
@@ -10302,14 +10275,14 @@ name|put
 argument_list|(
 literal|"script.indexed"
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 operator|.
 name|put
 argument_list|(
 literal|"script.inline"
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 comment|// wait short time for other active shards before actually deleting, default 30s not needed in tests
 operator|.
