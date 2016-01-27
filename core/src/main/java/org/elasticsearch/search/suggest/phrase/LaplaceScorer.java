@@ -222,6 +222,17 @@ operator|=
 name|alpha
 expr_stmt|;
 block|}
+DECL|method|alpha
+name|double
+name|alpha
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|alpha
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|scoreBigram
