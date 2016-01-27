@@ -1192,6 +1192,11 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuppressLocalMode
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,cluster.service:TRACE"
+argument_list|)
 DECL|class|DiscoveryWithServiceDisruptionsIT
 specifier|public
 class|class
@@ -2732,7 +2737,7 @@ argument_list|)
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"action.index:TRACE,action.get:TRACE,discovery:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
+literal|"_root:DEBUG,action.index:TRACE,action.get:TRACE,discovery:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
 argument_list|)
 DECL|method|testAckedIndexing
 specifier|public
@@ -4715,13 +4720,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test that a document which is indexed on the majority side of a partition, is available from the minority side,      * once the partition is healed      */
-annotation|@
-name|TestLogging
-argument_list|(
-name|value
-operator|=
-literal|"cluster.service:TRACE"
-argument_list|)
 DECL|method|testRejoinDocumentExistsInAllShardCopies
 specifier|public
 name|void
@@ -5302,11 +5300,6 @@ name|nodes
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,cluster.service:TRACE"
-argument_list|)
 DECL|method|testIsolatedUnicastNodes
 specifier|public
 name|void
@@ -6379,11 +6372,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an asymetric break between a master and one of the nodes and makes      * sure that the node is removed form the cluster, that the node start pinging and that      * the cluster reforms when healed.      */
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE"
-argument_list|)
 DECL|method|testNodeNotReachableFromMaster
 specifier|public
 name|void

@@ -366,7 +366,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -764,7 +764,7 @@ name|docValues
 operator|!=
 literal|null
 operator|&&
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|docValues
 argument_list|)
@@ -941,7 +941,7 @@ name|builder
 operator|.
 name|enabled
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)

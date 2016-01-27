@@ -1692,10 +1692,9 @@ name|hasEntry
 argument_list|(
 literal|"index"
 argument_list|,
-operator|(
-name|Object
-operator|)
-literal|"not_analyzed"
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 argument_list|)
 expr_stmt|;

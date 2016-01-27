@@ -134,22 +134,6 @@ name|action
 operator|.
 name|shard
 operator|.
-name|NoOpShardStateActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|action
-operator|.
-name|shard
-operator|.
 name|ShardStateAction
 import|;
 end_import
@@ -851,8 +835,11 @@ name|Listener
 name|SHARD_STATE_ACTION_LISTENER
 init|=
 operator|new
-name|NoOpShardStateActionListener
+name|ShardStateAction
+operator|.
+name|Listener
 argument_list|()
+block|{}
 decl_stmt|;
 comment|// a map of mappings type we have seen per index due to cluster state
 comment|// we need this so we won't remove types automatically created as part of the indexing process

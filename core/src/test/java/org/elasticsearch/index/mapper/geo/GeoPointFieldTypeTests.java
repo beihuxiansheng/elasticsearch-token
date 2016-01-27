@@ -128,8 +128,6 @@ argument_list|(
 literal|"geohash"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -176,8 +174,6 @@ argument_list|(
 literal|"lat_lon"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
