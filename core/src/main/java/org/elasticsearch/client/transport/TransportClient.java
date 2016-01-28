@@ -674,6 +674,9 @@ argument_list|(
 name|NettyTransport
 operator|.
 name|PING_SCHEDULE
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"5s"
 argument_list|)
@@ -691,7 +694,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"network.server"
+name|NettyTransport
+operator|.
+name|NETWORK_SERVER
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

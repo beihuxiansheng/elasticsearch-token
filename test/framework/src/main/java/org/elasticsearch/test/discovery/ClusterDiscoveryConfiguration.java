@@ -130,6 +130,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportSettings
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -654,7 +666,12 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"transport.tcp.port"
+name|TransportSettings
+operator|.
+name|PORT
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|unicastHostPorts
 index|[

@@ -356,6 +356,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|netty
@@ -693,7 +705,7 @@ name|channelProfileName
 argument_list|,
 name|is
 argument_list|(
-name|NettyTransport
+name|TransportSettings
 operator|.
 name|DEFAULT_PROFILE
 argument_list|)
@@ -910,7 +922,7 @@ name|nettyTransport
 argument_list|,
 name|logger
 argument_list|,
-name|NettyTransport
+name|TransportSettings
 operator|.
 name|DEFAULT_PROFILE
 argument_list|)
