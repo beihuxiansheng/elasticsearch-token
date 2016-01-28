@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -216,16 +226,6 @@ name|Task
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_class
 DECL|class|AbstractBaseReindexRestHandler
 specifier|public
@@ -372,7 +372,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/*          * Lets try and validate before forking launching the task so we can          * return errors even if we aren't waiting.          */
+comment|/*          * Lets try and validate before forking so the user gets some error. The          * task can't totally validate until it starts but this is better than          * nothing.          */
 name|ActionRequestValidationException
 name|validationException
 init|=
