@@ -382,6 +382,20 @@ name|search
 operator|.
 name|suggest
 operator|.
+name|SuggestionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
 name|phrase
 operator|.
 name|NoisyChannelSpellChecker
@@ -499,7 +513,7 @@ operator|=
 name|indicesService
 expr_stmt|;
 block|}
-comment|/*      * More Ideas:      *   - add ability to find whitespace problems -> we can build a poor mans decompounder with our index based on a automaton?      *   - add ability to build different error models maybe based on a confusion matrix?         *   - try to combine a token with its subsequent token to find / detect word splits (optional)      *      - for this to work we need some way to defined the position length of a candidate      *   - phonetic filters could be interesting here too for candidate selection      */
+comment|/*      * More Ideas:      *   - add ability to find whitespace problems -> we can build a poor mans decompounder with our index based on a automaton?      *   - add ability to build different error models maybe based on a confusion matrix?      *   - try to combine a token with its subsequent token to find / detect word splits (optional)      *      - for this to work we need some way to defined the position length of a candidate      *   - phonetic filters could be interesting here too for candidate selection      */
 annotation|@
 name|Override
 DECL|method|innerExecute
@@ -1338,6 +1352,23 @@ name|PhraseSuggestParser
 argument_list|(
 name|this
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|SuggestionBuilder
+argument_list|<
+name|?
+argument_list|>
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|PhraseSuggestionBuilder
+operator|.
+name|PROTOTYPE
 return|;
 block|}
 block|}

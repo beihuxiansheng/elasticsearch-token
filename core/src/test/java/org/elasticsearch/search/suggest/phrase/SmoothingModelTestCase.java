@@ -828,7 +828,7 @@ name|parsedModel
 init|=
 name|prototype
 operator|.
-name|fromXContent
+name|innerFromXContent
 argument_list|(
 name|context
 argument_list|)
