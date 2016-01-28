@@ -1564,6 +1564,10 @@ name|IndicesRequestCache
 operator|.
 name|INDICES_CACHE_QUERY_EXPIRE
 argument_list|,
+name|IndicesRequestCache
+operator|.
+name|INDICES_CACHE_REQUEST_CLEAN_INTERVAL
+argument_list|,
 name|HunspellService
 operator|.
 name|HUNSPELL_LAZY_LOAD
