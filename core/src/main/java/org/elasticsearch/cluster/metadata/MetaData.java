@@ -450,6 +450,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|IndexNotFoundException
 import|;
 end_import
@@ -1605,10 +1617,7 @@ decl_stmt|;
 name|IndexMetaData
 name|thisIndex
 init|=
-name|indices
-argument_list|()
-operator|.
-name|get
+name|index
 argument_list|(
 name|otherIndex
 operator|.
@@ -2573,6 +2582,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 block|}
 throw|throw
@@ -2769,6 +2781,25 @@ operator|.
 name|get
 argument_list|(
 name|index
+argument_list|)
+return|;
+block|}
+DECL|method|index
+specifier|public
+name|IndexMetaData
+name|index
+parameter_list|(
+name|Index
+name|index
+parameter_list|)
+block|{
+return|return
+name|index
+argument_list|(
+name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -4884,6 +4915,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|indexMetaData
 argument_list|)
@@ -4913,6 +4947,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 operator|==
@@ -4959,6 +4996,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|indexMetaData
@@ -5618,6 +5658,9 @@ name|value
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5704,6 +5747,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5729,6 +5775,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5812,6 +5861,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 operator|new
@@ -5954,7 +6006,7 @@ operator|.
 name|getAlias
 argument_list|()
 operator|+
-literal|"] and index ["
+literal|"] and index "
 operator|+
 name|index
 operator|.
@@ -5964,7 +6016,7 @@ operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"] have the same name"
+literal|" have the same name"
 argument_list|)
 throw|;
 block|}

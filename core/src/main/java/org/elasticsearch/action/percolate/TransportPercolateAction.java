@@ -573,8 +573,6 @@ name|request
 operator|.
 name|getRequest
 argument_list|()
-argument_list|,
-name|request
 argument_list|)
 decl_stmt|;
 name|getAction
@@ -1050,8 +1048,6 @@ argument_list|(
 name|onlyCount
 argument_list|,
 name|shardResults
-argument_list|,
-name|request
 argument_list|)
 expr_stmt|;
 block|}

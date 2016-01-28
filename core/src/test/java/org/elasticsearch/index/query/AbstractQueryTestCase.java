@@ -1799,6 +1799,8 @@ literal|1
 argument_list|,
 literal|10
 argument_list|)
+argument_list|,
+literal|"_na_"
 argument_list|)
 expr_stmt|;
 name|IndexSettings
@@ -1853,7 +1855,7 @@ name|Builder
 argument_list|(
 name|index
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 operator|.

@@ -6846,13 +6846,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 literal|"test"
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|node_1
 argument_list|,

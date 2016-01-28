@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|HasContextAndHeaders
+name|ParseField
 import|;
 end_import
 
@@ -944,9 +944,6 @@ name|mapperService
 parameter_list|,
 name|IndexFieldDataService
 name|fieldDataService
-parameter_list|,
-name|HasContextAndHeaders
-name|headersContext
 parameter_list|)
 throws|throws
 name|IOException

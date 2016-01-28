@@ -149,26 +149,6 @@ name|String
 argument_list|>
 name|scrollIds
 decl_stmt|;
-DECL|method|ClearScrollRequest
-specifier|public
-name|ClearScrollRequest
-parameter_list|()
-block|{     }
-comment|/**      * Creates a clear scroll request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
-DECL|method|ClearScrollRequest
-specifier|public
-name|ClearScrollRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getScrollIds
 specifier|public
 name|List

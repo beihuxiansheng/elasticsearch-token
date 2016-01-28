@@ -90,6 +90,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -142,7 +154,7 @@ parameter_list|(
 name|String
 name|nodeId
 parameter_list|,
-name|String
+name|Index
 name|index
 parameter_list|,
 name|int
@@ -173,6 +185,9 @@ operator|new
 name|Text
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

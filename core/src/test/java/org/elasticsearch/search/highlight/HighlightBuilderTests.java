@@ -1736,6 +1736,8 @@ literal|1
 argument_list|,
 literal|10
 argument_list|)
+argument_list|,
+literal|"_na_"
 argument_list|)
 decl_stmt|;
 name|IndexSettings

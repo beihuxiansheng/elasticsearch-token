@@ -181,21 +181,6 @@ operator|=
 name|scrollId
 expr_stmt|;
 block|}
-comment|/**      * Creates a scroll request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
-DECL|method|SearchScrollRequest
-specifier|public
-name|SearchScrollRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|validate

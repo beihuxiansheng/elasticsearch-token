@@ -381,6 +381,9 @@ argument_list|(
 name|InternalSettingsPreparer
 operator|.
 name|IGNORE_SYSTEM_PROPERTIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -813,9 +816,7 @@ operator|.
 name|TRANSPORT_SERVICE_TYPE_KEY
 case|:
 case|case
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
+literal|"config.ignore_system_properties"
 case|:
 continue|continue;
 default|default:
@@ -1340,7 +1341,10 @@ name|put
 argument_list|(
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|clusterName
 argument_list|)

@@ -1500,6 +1500,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
@@ -1731,6 +1733,8 @@ name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|)
@@ -1814,6 +1818,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"test"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -2638,10 +2644,7 @@ name|shard
 operator|.
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|getName
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shard
@@ -2859,6 +2862,11 @@ argument_list|,
 name|shardPath
 operator|.
 name|resolveIndex
+argument_list|()
+argument_list|,
+name|shard
+operator|.
+name|shardId
 argument_list|()
 argument_list|)
 argument_list|,
@@ -4228,7 +4236,7 @@ name|shard
 operator|.
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.

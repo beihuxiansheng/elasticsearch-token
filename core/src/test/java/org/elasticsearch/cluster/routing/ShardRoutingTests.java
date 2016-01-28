@@ -1161,7 +1161,7 @@ name|newShardRouting
 argument_list|(
 name|otherRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 operator|+
 literal|"a"
@@ -1220,7 +1220,7 @@ name|newShardRouting
 argument_list|(
 name|otherRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|otherRouting
@@ -1279,7 +1279,7 @@ name|newShardRouting
 argument_list|(
 name|otherRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|otherRouting
@@ -1347,7 +1347,7 @@ name|newShardRouting
 argument_list|(
 name|otherRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|otherRouting
@@ -1415,7 +1415,7 @@ name|newShardRouting
 argument_list|(
 name|otherRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|otherRouting
@@ -1515,7 +1515,7 @@ name|newShardRouting
 argument_list|(
 name|otherRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|otherRouting
@@ -1644,7 +1644,7 @@ name|newShardRouting
 argument_list|(
 name|otherRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|otherRouting
@@ -1722,7 +1722,7 @@ name|newShardRouting
 argument_list|(
 name|otherRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|,
 name|otherRouting

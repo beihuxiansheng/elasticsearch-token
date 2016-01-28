@@ -559,6 +559,9 @@ name|shard
 operator|.
 name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|request
 operator|.

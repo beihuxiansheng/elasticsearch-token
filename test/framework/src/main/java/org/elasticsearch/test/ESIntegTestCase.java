@@ -1352,18 +1352,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
 name|NodeMocksPlugin
 import|;
 end_import
@@ -11672,7 +11660,7 @@ name|equals
 argument_list|(
 name|shardRouting
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 condition|)

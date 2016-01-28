@@ -299,8 +299,6 @@ return|return
 operator|new
 name|BasicReplicationRequest
 argument_list|(
-name|request
-argument_list|,
 name|shardId
 argument_list|)
 return|;

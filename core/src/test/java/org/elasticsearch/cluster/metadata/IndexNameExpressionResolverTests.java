@@ -522,6 +522,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -631,6 +634,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -667,6 +673,9 @@ argument_list|(
 name|e
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -738,6 +747,9 @@ argument_list|(
 name|e
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1872,6 +1884,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1906,6 +1921,9 @@ argument_list|(
 name|e
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1943,6 +1961,9 @@ argument_list|(
 name|e
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2933,6 +2954,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3091,6 +3115,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3192,6 +3219,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3228,6 +3258,9 @@ argument_list|(
 name|e
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3428,6 +3461,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3482,6 +3518,9 @@ argument_list|(
 name|e
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3659,6 +3698,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 literal|"foofoo-closed"
 argument_list|)
@@ -3826,6 +3868,9 @@ name|e
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3881,6 +3926,9 @@ argument_list|(
 name|e
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo

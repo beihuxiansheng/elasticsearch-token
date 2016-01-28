@@ -1106,13 +1106,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 literal|"index1"
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|node1
 argument_list|,

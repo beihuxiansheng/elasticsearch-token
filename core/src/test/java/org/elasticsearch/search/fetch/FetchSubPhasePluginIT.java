@@ -1154,7 +1154,7 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
 name|getName

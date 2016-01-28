@@ -613,6 +613,9 @@ name|value
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)

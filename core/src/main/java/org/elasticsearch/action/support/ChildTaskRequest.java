@@ -130,21 +130,7 @@ DECL|method|ChildTaskRequest
 specifier|protected
 name|ChildTaskRequest
 parameter_list|()
-block|{      }
-DECL|method|ChildTaskRequest
-specifier|protected
-name|ChildTaskRequest
-parameter_list|(
-name|TransportRequest
-name|parentTaskRequest
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|parentTaskRequest
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|setParentTask
 specifier|public
 name|void

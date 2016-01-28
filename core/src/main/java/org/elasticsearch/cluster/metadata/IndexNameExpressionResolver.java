@@ -893,6 +893,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 block|}
 throw|throw
@@ -947,14 +950,10 @@ throw|throw
 operator|new
 name|IndexClosedException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 name|index
 operator|.
 name|getIndex
 argument_list|()
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -977,6 +976,9 @@ argument_list|(
 name|index
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1005,6 +1007,9 @@ argument_list|(
 name|index
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3532,6 +3537,9 @@ argument_list|(
 name|meta
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

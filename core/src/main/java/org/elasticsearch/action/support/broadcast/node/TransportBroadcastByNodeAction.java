@@ -852,7 +852,7 @@ name|DefaultShardOperationFailedException
 argument_list|(
 name|shard
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shard
@@ -935,7 +935,10 @@ name|DefaultShardOperationFailedException
 argument_list|(
 name|throwable
 operator|.
-name|getIndex
+name|getShardId
+argument_list|()
+operator|.
+name|getIndexName
 argument_list|()
 argument_list|,
 name|throwable
@@ -2315,7 +2318,7 @@ name|setIndex
 argument_list|(
 name|shardRouting
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2452,11 +2455,6 @@ argument_list|>
 name|shards
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|indicesLevelRequest

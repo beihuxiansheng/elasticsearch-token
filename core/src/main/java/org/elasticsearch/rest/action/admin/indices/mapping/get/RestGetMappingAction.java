@@ -386,8 +386,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|controller
-argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
@@ -679,11 +677,7 @@ argument_list|,
 operator|new
 name|TypeMissingException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"_all"
-argument_list|)
 argument_list|,
 name|types
 index|[

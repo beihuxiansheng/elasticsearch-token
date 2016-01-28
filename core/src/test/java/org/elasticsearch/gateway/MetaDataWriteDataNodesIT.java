@@ -1444,11 +1444,7 @@ name|nodeEnv
 operator|.
 name|indexPaths
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 name|indexName
-argument_list|)
 argument_list|)
 control|)
 block|{

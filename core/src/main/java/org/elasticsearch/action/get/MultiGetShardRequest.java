@@ -188,8 +188,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|multiGetRequest
-argument_list|,
 name|index
 argument_list|)
 expr_stmt|;

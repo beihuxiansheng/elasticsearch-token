@@ -988,16 +988,6 @@ argument_list|,
 name|indexedShapeId
 argument_list|)
 decl_stmt|;
-name|getRequest
-operator|.
-name|copyContextAndHeadersFrom
-argument_list|(
-name|SearchContext
-operator|.
-name|current
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|shapeToQuery
 operator|=
 name|fetch

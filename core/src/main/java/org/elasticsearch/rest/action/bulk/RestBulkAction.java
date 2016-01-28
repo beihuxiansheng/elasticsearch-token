@@ -350,8 +350,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|controller
-argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
@@ -425,13 +423,11 @@ name|this
 operator|.
 name|allowExplicitIndex
 operator|=
-name|settings
+name|MULTI_ALLOW_EXPLICIT_INDEX
 operator|.
-name|getAsBoolean
+name|get
 argument_list|(
-literal|"rest.action.multi.allow_explicit_index"
-argument_list|,
-literal|true
+name|settings
 argument_list|)
 expr_stmt|;
 block|}
