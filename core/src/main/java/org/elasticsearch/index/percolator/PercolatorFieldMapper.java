@@ -796,16 +796,6 @@ name|parser
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|context
-operator|.
-name|flyweight
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
 name|ExtractQueryTermsService
 operator|.
 name|extractQueryTerms
@@ -833,7 +823,6 @@ name|fieldType
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|null
 return|;

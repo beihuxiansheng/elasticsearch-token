@@ -2127,9 +2127,9 @@ argument_list|(
 name|type
 argument_list|)
 operator|.
-name|flyweight
+name|id
 argument_list|(
-literal|true
+literal|"_id_for_tv_api"
 argument_list|)
 argument_list|)
 decl_stmt|;
