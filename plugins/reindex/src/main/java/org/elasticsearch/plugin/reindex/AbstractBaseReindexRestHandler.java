@@ -350,7 +350,7 @@ name|paramAsBoolean
 argument_list|(
 literal|"wait_for_completion"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 condition|)
 block|{
