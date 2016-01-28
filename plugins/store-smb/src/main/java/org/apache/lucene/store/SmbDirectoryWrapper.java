@@ -162,12 +162,6 @@ name|CHUNK_SIZE
 init|=
 literal|8192
 decl_stmt|;
-DECL|field|name
-specifier|private
-specifier|final
-name|String
-name|name
-decl_stmt|;
 DECL|method|SmbFSIndexOutput
 specifier|public
 name|SmbFSIndexOutput
@@ -299,12 +293,6 @@ block|}
 argument_list|,
 name|CHUNK_SIZE
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|name
-operator|=
-name|name
 expr_stmt|;
 block|}
 block|}
