@@ -137,10 +137,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|AzureStorageSettingsFilterTest
+DECL|class|AzureStorageSettingsFilterTests
 specifier|public
 class|class
-name|AzureStorageSettingsFilterTest
+name|AzureStorageSettingsFilterTests
 extends|extends
 name|ESTestCase
 block|{

@@ -97,10 +97,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|AzureStorageServiceTest
+DECL|class|AzureStorageServiceTests
 specifier|public
 class|class
-name|AzureStorageServiceTest
+name|AzureStorageServiceTests
 extends|extends
 name|ESTestCase
 block|{
@@ -728,7 +728,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"cloud.azure.storage.timeout"
+name|AzureStorageService
+operator|.
+name|Storage
+operator|.
+name|TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10s"
 argument_list|)
@@ -771,7 +778,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|getTimeoutIntervalInMs
+name|getMaximumExecutionTimeInMs
 argument_list|()
 argument_list|,
 name|is
@@ -803,7 +810,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|getTimeoutIntervalInMs
+name|getMaximumExecutionTimeInMs
 argument_list|()
 argument_list|,
 name|is
@@ -856,7 +863,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|getTimeoutIntervalInMs
+name|getMaximumExecutionTimeInMs
 argument_list|()
 argument_list|,
 name|is
@@ -890,7 +897,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|getTimeoutIntervalInMs
+name|getMaximumExecutionTimeInMs
 argument_list|()
 argument_list|,
 name|is

@@ -133,10 +133,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|AzureSettingsParserTest
+DECL|class|AzureSettingsParserTests
 specifier|public
 class|class
-name|AzureSettingsParserTest
+name|AzureSettingsParserTests
 extends|extends
 name|LuceneTestCase
 block|{
