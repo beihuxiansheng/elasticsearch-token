@@ -524,6 +524,7 @@ return|;
 block|}
 comment|/**      * Returns<code>true</code> iff this setting is a group setting. Group settings represent a set of settings      * rather than a single value. The key, see {@link #getKey()}, in contrast to non-group settings is a prefix like<tt>cluster.store.</tt>      * that matches all settings with this prefix.      */
 DECL|method|isGroupSetting
+specifier|protected
 name|boolean
 name|isGroupSetting
 parameter_list|()
@@ -882,6 +883,22 @@ name|get
 argument_list|(
 name|secondary
 argument_list|)
+return|;
+block|}
+DECL|method|getConcreteSetting
+specifier|public
+name|Setting
+argument_list|<
+name|T
+argument_list|>
+name|getConcreteSetting
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+return|return
+name|this
 return|;
 block|}
 comment|/**      * The settings scope - settings can either be cluster settings or per index settings.      */
