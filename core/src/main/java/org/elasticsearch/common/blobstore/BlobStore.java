@@ -22,6 +22,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -35,6 +45,8 @@ DECL|interface|BlobStore
 specifier|public
 interface|interface
 name|BlobStore
+extends|extends
+name|Closeable
 block|{
 DECL|method|blobContainer
 name|BlobContainer
@@ -53,11 +65,6 @@ name|path
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-DECL|method|close
-name|void
-name|close
-parameter_list|()
 function_decl|;
 block|}
 end_interface
