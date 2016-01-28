@@ -1026,6 +1026,9 @@ argument_list|(
 name|NodeEnvironment
 operator|.
 name|ADD_NODE_ID_TO_CUSTOM_PATH
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|includeNodeId
 argument_list|)
