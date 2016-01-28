@@ -1525,6 +1525,8 @@ block|{
 name|ThreadContext
 name|threadContext
 init|=
+name|targetTransport
+operator|.
 name|threadPool
 operator|.
 name|getThreadContext
