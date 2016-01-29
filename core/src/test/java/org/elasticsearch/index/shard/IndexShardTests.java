@@ -730,6 +730,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|IndexService
 import|;
 end_import
@@ -2644,7 +2656,7 @@ name|shard
 operator|.
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|,
 name|shard
