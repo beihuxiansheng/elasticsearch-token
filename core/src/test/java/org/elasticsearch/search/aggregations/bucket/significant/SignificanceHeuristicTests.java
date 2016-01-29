@@ -178,6 +178,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryParseContext
@@ -721,7 +733,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"no node, this is a unit test"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"no index, this is a unit test"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)

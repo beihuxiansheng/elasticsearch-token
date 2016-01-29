@@ -841,6 +841,8 @@ name|ShardId
 argument_list|(
 literal|"index"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|,

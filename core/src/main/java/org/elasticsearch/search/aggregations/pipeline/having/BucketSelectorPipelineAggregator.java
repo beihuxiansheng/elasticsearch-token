@@ -655,8 +655,6 @@ name|Standard
 operator|.
 name|AGGS
 argument_list|,
-name|reduceContext
-argument_list|,
 name|Collections
 operator|.
 name|emptyMap

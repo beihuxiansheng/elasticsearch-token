@@ -3478,7 +3478,7 @@ name|hasItem
 argument_list|(
 name|shardRoutingEntry
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3490,7 +3490,7 @@ name|add
 argument_list|(
 name|shardRoutingEntry
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;

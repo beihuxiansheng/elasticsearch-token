@@ -2441,6 +2441,9 @@ name|tribeIndex
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2613,6 +2616,9 @@ name|index
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|routingTable
@@ -2623,6 +2629,9 @@ name|index
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|blocks
@@ -2632,6 +2641,9 @@ argument_list|(
 name|index
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2736,6 +2748,9 @@ name|tribeIndex
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2746,6 +2761,9 @@ argument_list|(
 name|tribeIndex
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -2766,6 +2784,9 @@ name|tribeIndex
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2776,6 +2797,9 @@ argument_list|(
 name|tribeIndex
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|IndexMetaData
@@ -2796,6 +2820,9 @@ name|tribeIndex
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2806,6 +2833,9 @@ argument_list|(
 name|tribeIndex
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|IndexMetaData

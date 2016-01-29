@@ -982,11 +982,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"_na"
-argument_list|)
 argument_list|,
 name|nodeSettings
 argument_list|)

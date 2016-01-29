@@ -448,6 +448,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -919,7 +921,10 @@ name|IndexRoutingTable
 operator|.
 name|builder
 argument_list|(
-name|index
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 operator|.
 name|addIndexShard
@@ -1141,7 +1146,10 @@ name|IndexRoutingTable
 operator|.
 name|builder
 argument_list|(
-name|index
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 decl_stmt|;
 for|for
@@ -1185,6 +1193,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 name|i
 argument_list|)

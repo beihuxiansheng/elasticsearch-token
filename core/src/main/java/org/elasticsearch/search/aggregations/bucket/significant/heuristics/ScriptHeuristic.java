@@ -40,18 +40,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|HasContextAndHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParseField
 import|;
 end_import
@@ -447,8 +435,6 @@ name|context
 operator|.
 name|scriptService
 argument_list|()
-argument_list|,
-name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -469,8 +455,6 @@ name|context
 operator|.
 name|scriptService
 argument_list|()
-argument_list|,
-name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -481,9 +465,6 @@ name|initialize
 parameter_list|(
 name|ScriptService
 name|scriptService
-parameter_list|,
-name|HasContextAndHeaders
-name|hasContextAndHeaders
 parameter_list|)
 block|{
 name|searchScript
@@ -499,8 +480,6 @@ operator|.
 name|Standard
 operator|.
 name|AGGS
-argument_list|,
-name|hasContextAndHeaders
 argument_list|,
 name|Collections
 operator|.

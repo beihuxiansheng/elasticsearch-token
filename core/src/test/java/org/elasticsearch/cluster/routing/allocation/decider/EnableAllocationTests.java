@@ -2375,7 +2375,7 @@ literal|"only test index can rebalance"
 argument_list|,
 name|routing
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2413,7 +2413,7 @@ literal|"only test index can rebalance"
 argument_list|,
 name|routing
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2441,7 +2441,7 @@ literal|"only test index can rebalance"
 argument_list|,
 name|routing
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|equalTo

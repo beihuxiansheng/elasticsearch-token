@@ -930,8 +930,10 @@ if|if
 condition|(
 name|context
 operator|.
-name|flyweight
+name|source
 argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return;

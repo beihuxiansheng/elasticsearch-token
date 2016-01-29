@@ -415,7 +415,10 @@ name|put
 argument_list|(
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|internalCluster
 argument_list|()
@@ -429,6 +432,9 @@ argument_list|(
 name|InternalSettingsPreparer
 operator|.
 name|IGNORE_SYSTEM_PROPERTIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

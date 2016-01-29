@@ -239,6 +239,9 @@ name|name
 parameter_list|,
 name|ThreadFactory
 name|threadFactory
+parameter_list|,
+name|ThreadContext
+name|contextHolder
 parameter_list|)
 block|{
 return|return
@@ -258,6 +261,8 @@ operator|.
 name|MILLISECONDS
 argument_list|,
 name|threadFactory
+argument_list|,
+name|contextHolder
 argument_list|)
 return|;
 block|}
@@ -284,6 +289,9 @@ name|unit
 parameter_list|,
 name|ThreadFactory
 name|threadFactory
+parameter_list|,
+name|ThreadContext
+name|contextHolder
 parameter_list|)
 block|{
 name|ExecutorScalingQueue
@@ -321,6 +329,8 @@ argument_list|,
 operator|new
 name|ForceQueuePolicy
 argument_list|()
+argument_list|,
+name|contextHolder
 argument_list|)
 decl_stmt|;
 name|queue
@@ -350,6 +360,9 @@ name|unit
 parameter_list|,
 name|ThreadFactory
 name|threadFactory
+parameter_list|,
+name|ThreadContext
+name|contextHolder
 parameter_list|)
 block|{
 return|return
@@ -380,6 +393,8 @@ argument_list|,
 operator|new
 name|EsAbortPolicy
 argument_list|()
+argument_list|,
+name|contextHolder
 argument_list|)
 return|;
 block|}
@@ -400,6 +415,9 @@ name|queueCapacity
 parameter_list|,
 name|ThreadFactory
 name|threadFactory
+parameter_list|,
+name|ThreadContext
+name|contextHolder
 parameter_list|)
 block|{
 name|BlockingQueue
@@ -466,6 +484,8 @@ argument_list|,
 operator|new
 name|EsAbortPolicy
 argument_list|()
+argument_list|,
+name|contextHolder
 argument_list|)
 return|;
 block|}

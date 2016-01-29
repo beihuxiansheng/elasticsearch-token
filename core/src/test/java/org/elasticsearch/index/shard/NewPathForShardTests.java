@@ -339,11 +339,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"index"
-argument_list|)
 argument_list|,
 name|Settings
 operator|.
@@ -944,6 +940,8 @@ name|ShardId
 argument_list|(
 literal|"index"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -1008,6 +1006,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"index"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)

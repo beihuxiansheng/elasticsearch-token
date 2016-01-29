@@ -529,15 +529,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Index
-name|index
-init|=
-operator|new
-name|Index
-argument_list|(
-literal|"test"
-argument_list|)
-decl_stmt|;
 name|IndexSettings
 name|idxSettings
 init|=
@@ -545,7 +536,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-name|index
+literal|"test"
 argument_list|,
 name|settings
 argument_list|)

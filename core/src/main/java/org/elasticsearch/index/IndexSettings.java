@@ -468,6 +468,13 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+literal|100
+argument_list|)
+argument_list|,
 literal|false
 argument_list|,
 name|Setting
@@ -825,12 +832,6 @@ operator|.
 name|INDEX
 argument_list|)
 decl_stmt|;
-DECL|field|uuid
-specifier|private
-specifier|final
-name|String
-name|uuid
-decl_stmt|;
 DECL|field|index
 specifier|private
 specifier|final
@@ -1092,6 +1093,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 argument_list|,
 name|IndexScopedSettings
@@ -1170,14 +1174,10 @@ name|this
 operator|.
 name|index
 operator|=
-operator|new
-name|Index
-argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|version
 operator|=
@@ -1186,21 +1186,6 @@ operator|.
 name|indexCreated
 argument_list|(
 name|settings
-argument_list|)
-expr_stmt|;
-name|uuid
-operator|=
-name|settings
-operator|.
-name|get
-argument_list|(
-name|IndexMetaData
-operator|.
-name|SETTING_INDEX_UUID
-argument_list|,
-name|IndexMetaData
-operator|.
-name|INDEX_UUID_NA_VALUE
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1432,6 +1417,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 assert|;
@@ -1737,7 +1725,11 @@ name|getUUID
 parameter_list|()
 block|{
 return|return
-name|uuid
+name|getIndex
+argument_list|()
+operator|.
+name|getUUID
+argument_list|()
 return|;
 block|}
 comment|/**      * Returns<code>true</code> if the index has a custom data path      */
@@ -2008,7 +2000,8 @@ name|IllegalArgumentException
 argument_list|(
 literal|"uuid mismatch on settings update expected: "
 operator|+
-name|uuid
+name|getUUID
+argument_list|()
 operator|+
 literal|" but was: "
 operator|+

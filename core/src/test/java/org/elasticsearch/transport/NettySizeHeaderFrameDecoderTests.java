@@ -327,7 +327,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"transport.tcp.port"
+name|TransportSettings
+operator|.
+name|PORT
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"0"
 argument_list|)

@@ -383,6 +383,8 @@ name|ShardId
 argument_list|(
 literal|"index1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 argument_list|)
@@ -543,6 +545,8 @@ name|ShardId
 argument_list|(
 literal|"index1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
@@ -554,6 +558,8 @@ name|ShardId
 argument_list|(
 literal|"index1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|3
 argument_list|)
 decl_stmt|;
@@ -564,6 +570,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"index2"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|2
 argument_list|)

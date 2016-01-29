@@ -1046,7 +1046,7 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1339,7 +1339,7 @@ operator|.
 name|routingEntry
 argument_list|()
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.

@@ -1836,7 +1836,7 @@ if|if
 condition|(
 name|shr
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 operator|.
 name|equals

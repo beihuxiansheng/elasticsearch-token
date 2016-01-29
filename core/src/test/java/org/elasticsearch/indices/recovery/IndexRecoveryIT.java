@@ -2108,13 +2108,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 name|INDEX_NAME
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|nodeA
 argument_list|,
@@ -3335,13 +3331,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 name|INDEX_NAME
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|nodeA
 argument_list|,

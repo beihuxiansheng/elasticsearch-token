@@ -2640,7 +2640,7 @@ name|equals
 argument_list|(
 name|shardRouting
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 condition|)

@@ -735,7 +735,14 @@ operator|=
 operator|new
 name|Index
 argument_list|(
-literal|"test"
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+argument_list|,
+literal|"_na_"
 argument_list|)
 expr_stmt|;
 name|SettingsModule

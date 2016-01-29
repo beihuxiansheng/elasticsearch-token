@@ -216,7 +216,10 @@ DECL|method|BasePrimaryAllocationCommand
 specifier|protected
 name|BasePrimaryAllocationCommand
 parameter_list|(
-name|ShardId
+name|String
+name|index
+parameter_list|,
+name|int
 name|shardId
 parameter_list|,
 name|String
@@ -228,6 +231,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|index
+argument_list|,
 name|shardId
 argument_list|,
 name|node

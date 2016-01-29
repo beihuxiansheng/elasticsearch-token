@@ -1581,7 +1581,7 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1623,6 +1623,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 literal|"mismatch on index UUIDs between cluster state and local state, cleaning the index so it will be recreated"
@@ -1844,14 +1847,14 @@ name|indicesService
 control|)
 block|{
 name|String
-name|index
+name|indexName
 init|=
 name|indexService
 operator|.
 name|index
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 decl_stmt|;
 name|IndexMetaData
@@ -1867,7 +1870,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-name|index
+name|indexName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1900,9 +1903,12 @@ operator|.
 name|index
 argument_list|()
 operator|.
+name|getName
+argument_list|()
+operator|.
 name|equals
 argument_list|(
-name|index
+name|indexName
 argument_list|)
 condition|)
 block|{
@@ -1968,7 +1974,7 @@ name|debug
 argument_list|(
 literal|"[{}][{}] removing shard (index is closed)"
 argument_list|,
-name|index
+name|indexName
 argument_list|,
 name|existingShardId
 argument_list|)
@@ -2002,7 +2008,7 @@ name|debug
 argument_list|(
 literal|"[{}][{}] removing shard (not allocated)"
 argument_list|,
-name|index
+name|indexName
 argument_list|,
 name|existingShardId
 argument_list|)
@@ -2086,7 +2092,7 @@ name|hasIndex
 argument_list|(
 name|shard
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 condition|)
@@ -2215,6 +2221,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2241,6 +2250,9 @@ init|=
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 decl_stmt|;
 name|IndexService
@@ -2307,6 +2319,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2324,6 +2339,9 @@ init|=
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 decl_stmt|;
 name|IndexService
@@ -5020,7 +5038,7 @@ name|e1
 argument_list|,
 name|shardRouting
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shardRouting
@@ -5143,7 +5161,7 @@ name|e1
 argument_list|,
 name|shardRouting
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shardRouting
@@ -5200,10 +5218,10 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;

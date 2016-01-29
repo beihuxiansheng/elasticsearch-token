@@ -1180,6 +1180,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1265,6 +1267,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|Request
 argument_list|()
@@ -1307,6 +1311,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|Request
 argument_list|()
@@ -1436,6 +1442,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -1513,6 +1521,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1556,6 +1566,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1771,6 +1783,8 @@ name|ShardId
 argument_list|(
 literal|"unknown_index"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|)
@@ -1801,6 +1815,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1832,6 +1848,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|10
 argument_list|)
 argument_list|)
@@ -1855,6 +1873,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1897,6 +1917,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -1998,6 +2020,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -2155,6 +2179,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -2357,6 +2383,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -2698,6 +2726,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -3066,6 +3096,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -3345,6 +3377,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -3890,6 +3924,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -4025,6 +4061,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -4512,14 +4550,6 @@ operator|.
 name|shardRoutingTable
 argument_list|(
 name|shardId
-operator|.
-name|getIndex
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|)
 control|)
 block|{
@@ -5194,6 +5224,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -5416,6 +5448,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -5702,6 +5736,8 @@ name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -5713,10 +5749,7 @@ name|state
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|getName
+name|getIndexName
 argument_list|()
 argument_list|,
 literal|true
@@ -5962,6 +5995,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -6196,7 +6231,7 @@ name|index
 operator|=
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 expr_stmt|;
 comment|// keep things simple
@@ -6309,6 +6344,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|threadPool
 argument_list|)
 argument_list|,
 literal|null

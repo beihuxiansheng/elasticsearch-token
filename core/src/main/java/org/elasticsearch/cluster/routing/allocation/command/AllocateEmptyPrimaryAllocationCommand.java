@@ -263,7 +263,10 @@ DECL|method|AllocateEmptyPrimaryAllocationCommand
 specifier|public
 name|AllocateEmptyPrimaryAllocationCommand
 parameter_list|(
-name|ShardId
+name|String
+name|index
+parameter_list|,
+name|int
 name|shardId
 parameter_list|,
 name|String
@@ -275,6 +278,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|index
+argument_list|,
 name|shardId
 argument_list|,
 name|node
@@ -347,13 +352,9 @@ return|return
 operator|new
 name|AllocateEmptyPrimaryAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 name|index
 argument_list|,
 name|shard
-argument_list|)
 argument_list|,
 name|node
 argument_list|,
@@ -495,6 +496,8 @@ argument_list|()
 operator|.
 name|shardRoutingTable
 argument_list|(
+name|index
+argument_list|,
 name|shardId
 argument_list|)
 operator|.
@@ -538,11 +541,15 @@ name|explain
 argument_list|,
 name|allocation
 argument_list|,
-literal|"primary "
+literal|"primary ["
+operator|+
+name|index
+operator|+
+literal|"]["
 operator|+
 name|shardId
 operator|+
-literal|" is already assigned"
+literal|"] is already assigned"
 argument_list|)
 return|;
 block|}
@@ -574,11 +581,15 @@ name|explain
 argument_list|,
 name|allocation
 argument_list|,
-literal|"allocating an empty primary for "
+literal|"allocating an empty primary for ["
+operator|+
+name|index
+operator|+
+literal|"]["
 operator|+
 name|shardId
 operator|+
-literal|" can result in data loss. Please confirm by setting the accept_data_loss parameter to true"
+literal|"] can result in data loss. Please confirm by setting the accept_data_loss parameter to true"
 argument_list|)
 return|;
 block|}

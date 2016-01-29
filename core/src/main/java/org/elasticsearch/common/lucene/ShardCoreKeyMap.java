@@ -263,7 +263,7 @@ name|index
 init|=
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 decl_stmt|;
 synchronized|synchronized

@@ -5492,6 +5492,16 @@ name|state
 argument_list|)
 throw|;
 block|}
+comment|// We set active because we are now writing operations to the engine; this way, if we go idle after some time and become inactive,
+comment|// we still invoke any onShardInactive listeners ... we won't sync'd flush in this case because we only do that on primary and this
+comment|// is a replica
+name|active
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 name|engineConfig
 operator|.
@@ -5653,6 +5663,23 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|skipTranslogRecovery
+operator|==
+literal|false
+condition|)
+block|{
+comment|// We set active because we are now writing operations to the engine; this way, if we go idle after some time and become inactive,
+comment|// we still give sync'd flush a chance to run:
+name|active
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 name|createNewEngine
 argument_list|(
 name|skipTranslogRecovery
@@ -6389,6 +6416,19 @@ name|getDataPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isActive
+specifier|public
+name|boolean
+name|isActive
+parameter_list|()
+block|{
+return|return
+name|active
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
 DECL|method|shardPath
 specifier|public
@@ -7638,6 +7678,28 @@ argument_list|,
 name|config
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+comment|// time elapses after the engine is created above (pulling the config settings) until we set the engine reference, during which
+comment|// settings changes could possibly have happened, so here we forcefully push any config changes to the new engine:
+name|Engine
+name|engine
+init|=
+name|getEngineOrNull
+argument_list|()
+decl_stmt|;
+comment|// engine could perhaps be null if we were e.g. concurrently closed:
+if|if
+condition|(
+name|engine
+operator|!=
+literal|null
+condition|)
+block|{
+name|engine
+operator|.
+name|onSettingsChanged
+argument_list|()
 expr_stmt|;
 block|}
 block|}

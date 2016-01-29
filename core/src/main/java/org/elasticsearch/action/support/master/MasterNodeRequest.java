@@ -36,6 +36,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|ChildTaskActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|io
@@ -105,7 +119,7 @@ name|Request
 parameter_list|>
 parameter_list|>
 extends|extends
-name|ActionRequest
+name|ChildTaskActionRequest
 argument_list|<
 name|Request
 argument_list|>
@@ -135,24 +149,7 @@ DECL|method|MasterNodeRequest
 specifier|protected
 name|MasterNodeRequest
 parameter_list|()
-block|{      }
-DECL|method|MasterNodeRequest
-specifier|protected
-name|MasterNodeRequest
-parameter_list|(
-name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * A timeout value in case the master has not been discovered yet or disconnected.      */
 annotation|@
 name|SuppressWarnings

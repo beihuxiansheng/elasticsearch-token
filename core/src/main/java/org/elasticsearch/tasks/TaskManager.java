@@ -92,6 +92,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -113,6 +123,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CopyOnWriteArrayList
 import|;
 end_import
 
@@ -278,7 +300,7 @@ block|}
 comment|/**      * Unregister the task      */
 DECL|method|unregister
 specifier|public
-name|void
+name|Task
 name|unregister
 parameter_list|(
 name|Task
@@ -297,6 +319,7 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
 name|tasks
 operator|.
 name|remove
@@ -306,7 +329,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Returns the list of currently running tasks on the node      */
 DECL|method|getTasks

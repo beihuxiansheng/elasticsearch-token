@@ -768,6 +768,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -785,6 +788,9 @@ argument_list|(
 name|indexMetaDataOnDisk
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1674,6 +1680,9 @@ name|routing
 operator|.
 name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1716,10 +1725,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|getIndices
-argument_list|()
-operator|.
-name|get
+name|index
 argument_list|(
 name|indexMetaData
 operator|.
@@ -1763,6 +1769,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|&&
 name|isOrWasClosed
@@ -1775,6 +1784,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1829,6 +1841,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

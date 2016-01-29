@@ -22,6 +22,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|http
 operator|.
 name|netty
@@ -186,6 +202,12 @@ specifier|final
 name|boolean
 name|detailedErrorsEnabled
 decl_stmt|;
+DECL|field|threadContext
+specifier|private
+specifier|final
+name|ThreadContext
+name|threadContext
+decl_stmt|;
 DECL|method|HttpRequestHandler
 specifier|public
 name|HttpRequestHandler
@@ -195,6 +217,9 @@ name|serverTransport
 parameter_list|,
 name|boolean
 name|detailedErrorsEnabled
+parameter_list|,
+name|ThreadContext
+name|threadContext
 parameter_list|)
 block|{
 name|this
@@ -237,6 +262,12 @@ operator|.
 name|detailedErrorsEnabled
 operator|=
 name|detailedErrorsEnabled
+expr_stmt|;
+name|this
+operator|.
+name|threadContext
+operator|=
+name|threadContext
 expr_stmt|;
 block|}
 annotation|@
@@ -305,6 +336,16 @@ name|getMessage
 argument_list|()
 expr_stmt|;
 block|}
+name|threadContext
+operator|.
+name|copyHeaders
+argument_list|(
+name|request
+operator|.
+name|headers
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// the netty HTTP handling always copy over the buffer to its own buffer, either in NioWorker internally
 comment|// when reading, or using a cumalation buffer
 name|NettyHttpRequest

@@ -1511,14 +1511,6 @@ literal|false
 argument_list|)
 comment|// just to make test quicker
 operator|.
-name|put
-argument_list|(
-literal|"gateway.local.list_timeout"
-argument_list|,
-literal|"10s"
-argument_list|)
-comment|// still long to induce failures but to long so test won't time out
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -6846,13 +6838,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 literal|"test"
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|node_1
 argument_list|,

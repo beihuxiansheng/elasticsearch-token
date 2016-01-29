@@ -412,6 +412,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|ShardId
@@ -1384,7 +1396,13 @@ name|IndexRoutingTable
 operator|.
 name|builder
 argument_list|(
+operator|new
+name|Index
+argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|int
@@ -1459,6 +1477,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 operator|++
 name|shardIndex
@@ -1758,6 +1778,8 @@ operator|.
 expr|new
 name|AsyncAction
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1883,6 +1905,8 @@ operator|.
 expr|new
 name|AsyncAction
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1951,6 +1975,8 @@ operator|.
 expr|new
 name|AsyncAction
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -2197,6 +2223,8 @@ operator|.
 expr|new
 name|AsyncAction
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -2816,6 +2844,8 @@ operator|.
 expr|new
 name|AsyncAction
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener

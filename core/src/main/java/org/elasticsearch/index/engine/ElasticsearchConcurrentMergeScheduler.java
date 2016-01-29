@@ -987,10 +987,7 @@ literal|"["
 operator|+
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndexName
 argument_list|()
 operator|+
 literal|"]["
