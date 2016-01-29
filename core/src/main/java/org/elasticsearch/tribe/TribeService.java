@@ -2456,7 +2456,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] removing index [{}]"
+literal|"[{}] removing index {}"
 argument_list|,
 name|tribeName
 argument_list|,
@@ -2622,6 +2622,9 @@ name|tribeIndex
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2634,7 +2637,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] adding index [{}]"
+literal|"[{}] adding index {}"
 argument_list|,
 name|tribeName
 argument_list|,
@@ -2718,7 +2721,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] dropping index [{}] due to conflict with [{}]"
+literal|"[{}] dropping index {} due to conflict with [{}]"
 argument_list|,
 name|tribeName
 argument_list|,
@@ -2799,7 +2802,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] adding index [{}], preferred over [{}]"
+literal|"[{}] adding index {}, preferred over [{}]"
 argument_list|,
 name|tribeName
 argument_list|,
