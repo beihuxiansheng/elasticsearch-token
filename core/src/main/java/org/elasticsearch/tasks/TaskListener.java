@@ -4,43 +4,49 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action
+DECL|package|org.elasticsearch.tasks
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|tasks
 package|;
 end_package
 
 begin_comment
-comment|/**  * A listener for action responses or failures.  */
+comment|/**  * Listener for Task success or failure.  */
 end_comment
 
 begin_interface
-DECL|interface|ActionListener
+DECL|interface|TaskListener
 specifier|public
 interface|interface
-name|ActionListener
+name|TaskListener
 parameter_list|<
 name|Response
 parameter_list|>
 block|{
-comment|/**      * Handle action response. This response may constitute a failure or a      * success but it is up to the listener to make that decision.      */
+comment|/**      * Handle task response. This response may constitute a failure or a success      * but it is up to the listener to make that decision.      *      * @param task      *            the task being executed. May be null if the action doesn't      *            create a task      * @param response      *            the response from the action that executed the task      */
 DECL|method|onResponse
 name|void
 name|onResponse
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|Response
 name|response
 parameter_list|)
 function_decl|;
-comment|/**      * A failure caused by an exception at some phase of the task.      */
+comment|/**      * A failure caused by an exception at some phase of the task.      *      * @param task      *            the task being executed. May be null if the action doesn't      *            create a task      * @param e      *            the failure      */
 DECL|method|onFailure
 name|void
 name|onFailure
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|Throwable
 name|e
 parameter_list|)

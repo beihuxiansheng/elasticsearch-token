@@ -58,18 +58,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|NoopActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|TransportAction
@@ -211,6 +199,18 @@ operator|.
 name|rest
 operator|.
 name|RestStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|LoggingTaskListener
 import|;
 end_import
 
@@ -412,7 +412,7 @@ name|execute
 argument_list|(
 name|internalRequest
 argument_list|,
-name|NoopActionListener
+name|LoggingTaskListener
 operator|.
 name|instance
 argument_list|()

@@ -4,49 +4,93 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action
+DECL|package|org.elasticsearch.tasks
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|tasks
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
 begin_comment
-comment|/**  * An ActionListener that does nothing. Used when we need a listener but don't  * care to listen for the result.  */
+comment|/**  * An TaskListener that just logs the response. Used when we need a listener but  * don't care to listen for the result.  */
 end_comment
 
 begin_class
-DECL|class|NoopActionListener
+DECL|class|LoggingTaskListener
 specifier|public
 specifier|final
 class|class
-name|NoopActionListener
+name|LoggingTaskListener
 parameter_list|<
 name|Response
 parameter_list|>
 implements|implements
-name|ActionListener
+name|TaskListener
 argument_list|<
 name|Response
 argument_list|>
 block|{
+DECL|field|logger
+specifier|private
+specifier|final
+specifier|static
+name|ESLogger
+name|logger
+init|=
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|LoggingTaskListener
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|/**      * Get the instance of NoopActionListener cast appropriately.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-comment|// Safe because we do nothing with the type.
+comment|// Safe because we only toString the response
 DECL|method|instance
 specifier|public
 specifier|static
 parameter_list|<
 name|Response
 parameter_list|>
-name|ActionListener
+name|TaskListener
 argument_list|<
 name|Response
 argument_list|>
@@ -55,7 +99,7 @@ parameter_list|()
 block|{
 return|return
 operator|(
-name|ActionListener
+name|TaskListener
 argument_list|<
 name|Response
 argument_list|>
@@ -67,22 +111,22 @@ DECL|field|INSTANCE
 specifier|private
 specifier|static
 specifier|final
-name|NoopActionListener
+name|LoggingTaskListener
 argument_list|<
 name|Object
 argument_list|>
 name|INSTANCE
 init|=
 operator|new
-name|NoopActionListener
+name|LoggingTaskListener
 argument_list|<
 name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|NoopActionListener
+DECL|method|LoggingTaskListener
 specifier|private
-name|NoopActionListener
+name|LoggingTaskListener
 parameter_list|()
 block|{     }
 annotation|@
@@ -92,10 +136,28 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|Response
 name|response
 parameter_list|)
-block|{     }
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"{} finished with response {}"
+argument_list|,
+name|task
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|onFailure
@@ -103,10 +165,28 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|Throwable
 name|e
 parameter_list|)
-block|{     }
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"{} failed with exception"
+argument_list|,
+name|e
+argument_list|,
+name|task
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
