@@ -285,11 +285,14 @@ name|e
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
 name|latch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
