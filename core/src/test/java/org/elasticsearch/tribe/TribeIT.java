@@ -1523,13 +1523,6 @@ block|{
 comment|// all is well!
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/16299"
-argument_list|)
 DECL|method|testOnConflictDrop
 specifier|public
 name|void
