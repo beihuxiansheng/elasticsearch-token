@@ -129,6 +129,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.secret_key: AWS Secret key. Shared with discovery-ec2 plugin      */
@@ -152,6 +154,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.protocol: Protocol for AWS API: http or https. Defaults to https. Shared with discovery-ec2 plugin      */
@@ -293,6 +297,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.signer: If you are using an old AWS API version, you can define a Signer. Shared with discovery-ec2 plugin      */
@@ -389,6 +395,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.secret_key: AWS Secret key specific for S3 API calls. Defaults to cloud.aws.secret_key.          * @see AwsS3Service#SECRET_SETTING          */
@@ -421,6 +429,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.protocol: Protocol for AWS API specific for S3 API calls: http or https. Defaults to cloud.aws.protocol.          * @see AwsS3Service#PROTOCOL_SETTING          */
@@ -604,6 +614,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.signer: If you are using an old AWS API version, you can define a Signer. Specific for S3 API calls.          * Defaults to cloud.aws.signer.          * @see AwsS3Service#SIGNER_SETTING          */

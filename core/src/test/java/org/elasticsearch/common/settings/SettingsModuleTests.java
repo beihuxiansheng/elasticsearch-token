@@ -863,6 +863,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -893,13 +895,6 @@ operator|.
 name|registerSettingsFilter
 argument_list|(
 literal|"foo.*"
-argument_list|)
-expr_stmt|;
-name|module
-operator|.
-name|registerSettingsFilterIfMissing
-argument_list|(
-literal|"bar.foo"
 argument_list|)
 expr_stmt|;
 try|try

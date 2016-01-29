@@ -729,6 +729,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**          * secret_key          * @see  Repositories#SECRET_SETTING          */
@@ -752,6 +754,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**          * bucket          * @see  Repositories#BUCKET_SETTING          */

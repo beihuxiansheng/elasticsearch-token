@@ -188,6 +188,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.secret_key: AWS Secret key. Shared with repository-s3 plugin      */
@@ -211,6 +213,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.protocol: Protocol for AWS API: http or https. Defaults to https. Shared with repository-s3 plugin      */
@@ -352,6 +356,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.signer: If you are using an old AWS API version, you can define a Signer. Shared with repository-s3 plugin      */
@@ -448,6 +454,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.secret_key: AWS Secret key specific for EC2 API calls. Defaults to cloud.aws.secret_key.          * @see AwsEc2Service#SECRET_SETTING          */
@@ -480,6 +488,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.protocol: Protocol for AWS API specific for EC2 API calls: http or https.  Defaults to cloud.aws.protocol.          * @see AwsEc2Service#PROTOCOL_SETTING          */
@@ -663,6 +673,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.signer: If you are using an old AWS API version, you can define a Signer. Specific for EC2 API calls.          * Defaults to cloud.aws.signer.          * @see AwsEc2Service#SIGNER_SETTING          */

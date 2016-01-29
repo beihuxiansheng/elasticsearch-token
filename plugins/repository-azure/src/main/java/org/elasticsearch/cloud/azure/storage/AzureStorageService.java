@@ -233,6 +233,8 @@ operator|.
 name|Scope
 operator|.
 name|CLUSTER
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 DECL|field|CONTAINER_SETTING
