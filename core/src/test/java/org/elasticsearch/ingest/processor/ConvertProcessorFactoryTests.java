@@ -36,6 +36,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ingest
+operator|.
+name|core
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -403,7 +417,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -418,7 +432,7 @@ name|Matchers
 operator|.
 name|equalTo
 argument_list|(
-literal|"required property [field] is missing"
+literal|"[field] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -482,7 +496,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -497,7 +511,7 @@ name|Matchers
 operator|.
 name|equalTo
 argument_list|(
-literal|"required property [type] is missing"
+literal|"[type] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;

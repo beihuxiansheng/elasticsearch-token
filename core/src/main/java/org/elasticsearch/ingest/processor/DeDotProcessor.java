@@ -447,6 +447,10 @@ name|ConfigurationUtils
 operator|.
 name|readOptionalStringProperty
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
 name|config
 argument_list|,
 literal|"separator"
