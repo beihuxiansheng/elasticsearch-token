@@ -1180,6 +1180,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1265,6 +1267,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|Request
 argument_list|()
@@ -1307,6 +1311,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 operator|new
 name|Request
 argument_list|()
@@ -1515,6 +1521,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1558,6 +1566,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1805,6 +1815,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1861,6 +1873,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -2006,6 +2020,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener

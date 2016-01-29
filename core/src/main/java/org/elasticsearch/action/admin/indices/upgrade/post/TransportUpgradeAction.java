@@ -326,6 +326,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|tasks
+operator|.
+name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -1336,6 +1348,9 @@ specifier|protected
 name|void
 name|doExecute
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|UpgradeRequest
 name|request
 parameter_list|,
@@ -1441,6 +1456,8 @@ name|super
 operator|.
 name|doExecute
 argument_list|(
+name|task
+argument_list|,
 name|request
 argument_list|,
 name|settingsUpdateListener

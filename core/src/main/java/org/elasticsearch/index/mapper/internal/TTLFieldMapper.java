@@ -1290,15 +1290,6 @@ condition|(
 name|enabledState
 operator|.
 name|enabled
-operator|&&
-operator|!
-name|context
-operator|.
-name|sourceToParse
-argument_list|()
-operator|.
-name|flyweight
-argument_list|()
 condition|)
 block|{
 name|long

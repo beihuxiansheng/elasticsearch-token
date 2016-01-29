@@ -877,11 +877,8 @@ argument_list|()
 expr_stmt|;
 name|taskManager
 operator|=
-operator|new
-name|TaskManager
-argument_list|(
-name|settings
-argument_list|)
+name|createTaskManager
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * makes the transport service aware of the local node. this allows it to optimize requests sent      * from the local node to it self and by pass the network stack/ serialization      */
@@ -931,6 +928,20 @@ return|return
 operator|new
 name|Adapter
 argument_list|()
+return|;
+block|}
+DECL|method|createTaskManager
+specifier|protected
+name|TaskManager
+name|createTaskManager
+parameter_list|()
+block|{
+return|return
+operator|new
+name|TaskManager
+argument_list|(
+name|settings
+argument_list|)
 return|;
 block|}
 comment|// These need to be optional as they don't exist in the context of a transport client
