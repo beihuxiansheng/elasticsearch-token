@@ -1085,13 +1085,13 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|iterator
+DECL|method|getClients
 specifier|public
-name|Iterator
+name|Iterable
 argument_list|<
 name|Client
 argument_list|>
-name|iterator
+name|getClients
 parameter_list|()
 block|{
 return|return
@@ -1101,9 +1101,6 @@ name|singleton
 argument_list|(
 name|client
 argument_list|)
-operator|.
-name|iterator
-argument_list|()
 return|;
 block|}
 annotation|@
