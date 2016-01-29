@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An TaskListener that just logs the response. Used when we need a listener but  * don't care to listen for the result.  */
+comment|/**  * A TaskListener that just logs the response at the info level. Used when we  * need a listener but aren't returning the result to the user.  */
 end_comment
 
 begin_class
