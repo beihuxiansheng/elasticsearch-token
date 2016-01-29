@@ -3379,11 +3379,6 @@ name|Throwable
 function_decl|;
 block|}
 comment|/** Checks a specific exception class is thrown by the given runnable, and returns it. */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|expectThrows
 specifier|public
 specifier|static
@@ -3430,10 +3425,12 @@ argument_list|)
 condition|)
 block|{
 return|return
-operator|(
-name|T
-operator|)
+name|expectedType
+operator|.
+name|cast
+argument_list|(
 name|e
+argument_list|)
 return|;
 block|}
 name|AssertionFailedError
