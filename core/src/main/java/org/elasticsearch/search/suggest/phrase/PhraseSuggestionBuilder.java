@@ -801,6 +801,19 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the {@link SmoothingModel}      */
+DECL|method|smoothingModel
+specifier|public
+name|SmoothingModel
+name|smoothingModel
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|model
+return|;
+block|}
 DECL|method|tokenLimit
 specifier|public
 name|PhraseSuggestionBuilder
@@ -1437,13 +1450,6 @@ name|DEFAULT_BACKOFF_DISCOUNT
 init|=
 literal|0.4
 decl_stmt|;
-DECL|field|discount
-specifier|private
-name|double
-name|discount
-init|=
-name|DEFAULT_BACKOFF_DISCOUNT
-decl_stmt|;
 DECL|field|PROTOTYPE
 specifier|static
 specifier|final
@@ -1455,6 +1461,13 @@ name|StupidBackoff
 argument_list|(
 name|DEFAULT_BACKOFF_DISCOUNT
 argument_list|)
+decl_stmt|;
+DECL|field|discount
+specifier|private
+name|double
+name|discount
+init|=
+name|DEFAULT_BACKOFF_DISCOUNT
 decl_stmt|;
 DECL|field|NAME
 specifier|private
@@ -3109,7 +3122,33 @@ argument_list|(
 name|gramSize
 argument_list|)
 expr_stmt|;
-comment|// NORELEASE model.writeTo();
+name|boolean
+name|hasModel
+init|=
+name|model
+operator|!=
+literal|null
+decl_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|hasModel
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|hasModel
+condition|)
+block|{
+name|out
+operator|.
+name|writeSmoothingModel
+argument_list|(
+name|model
+argument_list|)
+expr_stmt|;
+block|}
 name|out
 operator|.
 name|writeOptionalBoolean
@@ -3254,7 +3293,24 @@ operator|.
 name|readOptionalVInt
 argument_list|()
 expr_stmt|;
-comment|// NORELEASE read model
+if|if
+condition|(
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|model
+operator|=
+name|in
+operator|.
+name|readSmoothingModel
+argument_list|()
+expr_stmt|;
+block|}
 name|builder
 operator|.
 name|forceUnigrams
@@ -3411,7 +3467,17 @@ operator|.
 name|gramSize
 argument_list|)
 operator|&&
-comment|// NORELEASE Objects.equals(model, other.model)&&
+name|Objects
+operator|.
+name|equals
+argument_list|(
+name|model
+argument_list|,
+name|other
+operator|.
+name|model
+argument_list|)
+operator|&&
 name|Objects
 operator|.
 name|equals
@@ -3511,10 +3577,11 @@ name|realWordErrorLikelihood
 argument_list|,
 name|confidence
 argument_list|,
-comment|/** NORELEASE generators, */
+comment|// NORELEASE generators,
 name|gramSize
 argument_list|,
-comment|/** NORELEASE model, */
+name|model
+argument_list|,
 name|forceUnigrams
 argument_list|,
 name|tokenLimit
