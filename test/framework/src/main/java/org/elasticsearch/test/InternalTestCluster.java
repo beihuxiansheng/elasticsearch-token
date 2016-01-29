@@ -5679,6 +5679,8 @@ DECL|method|closeNode
 name|void
 name|closeNode
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|registerDataPath
 argument_list|()

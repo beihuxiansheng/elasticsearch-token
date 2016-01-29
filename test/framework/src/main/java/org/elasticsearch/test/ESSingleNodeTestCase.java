@@ -432,6 +432,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -536,6 +546,8 @@ specifier|private
 name|void
 name|reset
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|NODE
@@ -603,6 +615,8 @@ specifier|static
 name|void
 name|stopNode
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Node
 name|node
@@ -613,12 +627,10 @@ name|NODE
 operator|=
 literal|null
 expr_stmt|;
-name|Releasables
+name|node
 operator|.
 name|close
-argument_list|(
-name|node
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|cleanup
@@ -629,6 +641,8 @@ parameter_list|(
 name|boolean
 name|resetNode
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|assertAcked
 argument_list|(
@@ -836,6 +850,8 @@ specifier|static
 name|void
 name|tearDownClass
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|stopNode
 argument_list|()
