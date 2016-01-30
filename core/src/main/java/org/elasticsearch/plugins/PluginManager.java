@@ -681,8 +681,6 @@ literal|"discovery-ec2"
 argument_list|,
 literal|"discovery-gce"
 argument_list|,
-literal|"discovery-multicast"
-argument_list|,
 literal|"ingest-geoip"
 argument_list|,
 literal|"lang-javascript"
