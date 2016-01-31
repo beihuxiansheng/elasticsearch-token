@@ -776,6 +776,7 @@ literal|"local"
 argument_list|)
 expr_stmt|;
 comment|// a tribe node should not use zen discovery
+comment|// nothing is going to be discovered, since no master will be elected
 name|sb
 operator|.
 name|put
@@ -790,7 +791,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// nothing is going to be discovered, since no master will be elected
 if|if
 condition|(
 name|sb
@@ -840,6 +840,7 @@ name|build
 argument_list|()
 return|;
 block|}
+comment|// internal settings only
 DECL|field|TRIBE_NAME_SETTING
 specifier|private
 specifier|static
@@ -865,7 +866,6 @@ operator|.
 name|CLUSTER
 argument_list|)
 decl_stmt|;
-comment|// internal settings only
 DECL|field|clusterService
 specifier|private
 specifier|final

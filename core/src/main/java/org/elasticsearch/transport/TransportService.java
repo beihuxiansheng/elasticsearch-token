@@ -196,6 +196,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -314,9 +330,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|tasks
+name|common
 operator|.
-name|TaskManager
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadContext
 import|;
 end_import
 
@@ -326,13 +346,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|tasks
 operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadContext
+name|TaskManager
 import|;
 end_import
 
@@ -481,6 +497,34 @@ operator|.
 name|function
 operator|.
 name|Supplier
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|listSetting
 import|;
 end_import
 
@@ -690,14 +734,10 @@ argument_list|>
 argument_list|>
 name|TRACE_LOG_INCLUDE_SETTING
 init|=
-name|Setting
-operator|.
 name|listSetting
 argument_list|(
 literal|"transport.tracer.include"
 argument_list|,
-name|Collections
-operator|.
 name|emptyList
 argument_list|()
 argument_list|,
@@ -708,8 +748,6 @@ argument_list|()
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -728,8 +766,6 @@ argument_list|>
 argument_list|>
 name|TRACE_LOG_EXCLUDE_SETTING
 init|=
-name|Setting
-operator|.
 name|listSetting
 argument_list|(
 literal|"transport.tracer.exclude"
@@ -752,8 +788,6 @@ argument_list|()
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
