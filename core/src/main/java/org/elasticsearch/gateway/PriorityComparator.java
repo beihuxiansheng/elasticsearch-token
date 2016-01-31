@@ -269,7 +269,7 @@ operator|.
 name|SETTING_CREATION_DATE
 argument_list|,
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 return|;
 block|}

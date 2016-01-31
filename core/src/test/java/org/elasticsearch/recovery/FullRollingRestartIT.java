@@ -700,7 +700,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2000l
+literal|2000L
 argument_list|)
 expr_stmt|;
 block|}
@@ -853,7 +853,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2000l
+literal|2000L
 argument_list|)
 expr_stmt|;
 block|}
@@ -1005,7 +1005,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2000l
+literal|2000L
 argument_list|)
 expr_stmt|;
 block|}

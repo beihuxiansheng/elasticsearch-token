@@ -2263,7 +2263,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 operator|.
 name|toArray
@@ -2276,7 +2276,7 @@ name|parse
 operator|.
 name|long_field
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|assertArrayEquals

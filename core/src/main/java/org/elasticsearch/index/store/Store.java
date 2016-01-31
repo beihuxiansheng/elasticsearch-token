@@ -5227,7 +5227,7 @@ argument_list|<>
 argument_list|()
 argument_list|,
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 return|;
 block|}

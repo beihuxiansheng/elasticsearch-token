@@ -478,7 +478,7 @@ name|totalOnOne
 argument_list|,
 name|is
 argument_list|(
-literal|15l
+literal|15L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -536,7 +536,7 @@ name|totalOnTwo
 argument_list|,
 name|is
 argument_list|(
-literal|12l
+literal|12L
 argument_list|)
 argument_list|)
 expr_stmt|;

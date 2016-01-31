@@ -3021,7 +3021,7 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 else|:
-literal|0l
+literal|0L
 decl_stmt|;
 name|shard
 operator|.
@@ -3090,7 +3090,7 @@ operator|.
 name|ramBytesUsed
 argument_list|()
 else|:
-literal|0l
+literal|0L
 decl_stmt|;
 name|shard
 operator|.

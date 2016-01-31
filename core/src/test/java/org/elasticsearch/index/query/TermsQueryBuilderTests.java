@@ -1571,11 +1571,11 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|1l
+literal|1L
 argument_list|,
-literal|3l
+literal|3L
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 argument_list|,
 name|values

@@ -346,7 +346,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -385,7 +385,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}

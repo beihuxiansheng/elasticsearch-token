@@ -259,7 +259,7 @@ name|Type
 operator|.
 name|RELOCATION
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 decl_stmt|;
 name|ByteArrayOutputStream

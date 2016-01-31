@@ -5564,7 +5564,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|response
@@ -5603,7 +5603,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 comment|//you should still be able to run empty searches without things blowing up
@@ -5639,7 +5639,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
