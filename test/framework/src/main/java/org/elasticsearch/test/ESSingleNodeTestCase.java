@@ -1139,7 +1139,6 @@ block|}
 comment|/**      * Returns a client to the single-node cluster.      */
 DECL|method|client
 specifier|public
-specifier|static
 name|Client
 name|client
 parameter_list|()
@@ -1154,7 +1153,6 @@ block|}
 comment|/**      * Returns the single test nodes name.      */
 DECL|method|nodeName
 specifier|public
-specifier|static
 name|String
 name|nodeName
 parameter_list|()
@@ -1166,7 +1164,6 @@ block|}
 comment|/**      * Return a reference to the singleton node.      */
 DECL|method|node
 specifier|protected
-specifier|static
 name|Node
 name|node
 parameter_list|()
@@ -1178,7 +1175,6 @@ block|}
 comment|/**      * Get an instance for a particular class using the injector of the singleton node.      */
 DECL|method|getInstanceFromNode
 specifier|protected
-specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -1207,7 +1203,6 @@ block|}
 comment|/**      * Create a new index on the singleton node with empty index settings.      */
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1229,7 +1224,6 @@ block|}
 comment|/**      * Create a new index on the singleton node with the provided index settings.      */
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1259,7 +1253,6 @@ block|}
 comment|/**      * Create a new index on the singleton node with the provided index settings.      */
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1331,7 +1324,6 @@ block|}
 comment|/**      * Create a new index on the singleton node with the provided index settings.      */
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1403,7 +1395,6 @@ return|;
 block|}
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1516,7 +1507,6 @@ block|}
 comment|/**      * Create a new search context.      */
 DECL|method|createSearchContext
 specifier|protected
-specifier|static
 name|SearchContext
 name|createSearchContext
 parameter_list|(
