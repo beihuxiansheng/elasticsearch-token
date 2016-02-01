@@ -2623,13 +2623,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|request
-operator|.
-name|markAsRelocated
+name|isPrimaryRelocation
 argument_list|()
 condition|)
 block|{
-comment|// TODO what happens if the recovery process fails afterwards, we need to mark this back to started
+comment|/**              * if the recovery process fails after setting the shard state to RELOCATED, both relocation source and              * target are failed (see {@link IndexShard#updateRoutingEntry}).              */
 try|try
 block|{
 name|shard
@@ -2682,6 +2680,25 @@ name|totalTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isPrimaryRelocation
+specifier|protected
+name|boolean
+name|isPrimaryRelocation
+parameter_list|()
+block|{
+return|return
+name|request
+operator|.
+name|recoveryType
+argument_list|()
+operator|==
+name|RecoveryState
+operator|.
+name|Type
+operator|.
+name|PRIMARY_RELOCATION
+return|;
 block|}
 comment|/**      * Send the given snapshot's operations to this handler's target node.      *<p>      * Operations are bulked into a single request depending on an operation      * count limit or size-in-bytes limit      *      * @return the total number of translog operations that were sent      */
 DECL|method|sendSnapshot
