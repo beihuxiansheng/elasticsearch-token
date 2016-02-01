@@ -3772,10 +3772,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Reads a {@link SmoothingModel} from the current stream      */
-DECL|method|readSmoothingModel
+DECL|method|readPhraseSuggestionSmoothingModel
 specifier|public
 name|SmoothingModel
-name|readSmoothingModel
+name|readPhraseSuggestionSmoothingModel
 parameter_list|()
 throws|throws
 name|IOException

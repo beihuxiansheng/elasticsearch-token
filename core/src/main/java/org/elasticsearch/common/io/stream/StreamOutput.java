@@ -3763,10 +3763,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Writes the given {@link SmoothingModel} to the stream      */
-DECL|method|writeSmoothingModel
+DECL|method|writePhraseSuggestionSmoothingModel
 specifier|public
 name|void
-name|writeSmoothingModel
+name|writePhraseSuggestionSmoothingModel
 parameter_list|(
 name|SmoothingModel
 name|smoothinModel

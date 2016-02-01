@@ -3159,7 +3159,7 @@ condition|)
 block|{
 name|out
 operator|.
-name|writeSmoothingModel
+name|writePhraseSuggestionSmoothingModel
 argument_list|(
 name|model
 argument_list|)
@@ -3403,7 +3403,7 @@ name|model
 operator|=
 name|in
 operator|.
-name|readSmoothingModel
+name|readPhraseSuggestionSmoothingModel
 argument_list|()
 expr_stmt|;
 block|}
