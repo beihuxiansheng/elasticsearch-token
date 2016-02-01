@@ -990,7 +990,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 operator|-
 name|TimeValue
 operator|.
@@ -1012,7 +1012,7 @@ name|tzRounding
 operator|.
 name|nextRoundingValue
 argument_list|(
-literal|0l
+literal|0L
 operator|-
 name|TimeValue
 operator|.
@@ -1029,7 +1029,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 operator|-
 name|TimeValue
 operator|.
@@ -1463,7 +1463,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1473,7 +1473,7 @@ name|tzRounding
 operator|.
 name|nextRoundingValue
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1482,7 +1482,7 @@ name|TimeValue
 operator|.
 name|timeValueHours
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 operator|.
 name|getMillis

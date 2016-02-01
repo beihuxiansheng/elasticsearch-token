@@ -36,6 +36,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ingest
+operator|.
+name|core
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -422,7 +436,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -435,7 +449,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"required property [match_field] is missing"
+literal|"[match_field] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -528,7 +542,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -541,7 +555,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"required property [match_formats] is missing"
+literal|"[match_formats] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1208,7 +1222,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -1221,7 +1235,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"property [match_formats] isn't a list, but of type [java.lang.String]"
+literal|"[match_formats] property isn't a list, but of type [java.lang.String]"
 argument_list|)
 argument_list|)
 expr_stmt|;

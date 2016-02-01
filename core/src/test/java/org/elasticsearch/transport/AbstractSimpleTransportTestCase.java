@@ -2666,7 +2666,7 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"bad message !!!"
+literal|"runtime_exception: bad message !!!"
 argument_list|,
 name|equalTo
 argument_list|(
@@ -2715,7 +2715,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"bad message !!!"
+literal|"runtime_exception: bad message !!!"
 argument_list|)
 argument_list|)
 expr_stmt|;

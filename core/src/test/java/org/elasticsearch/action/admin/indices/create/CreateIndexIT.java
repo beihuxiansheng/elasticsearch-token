@@ -445,7 +445,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_CREATION_DATE
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 operator|.

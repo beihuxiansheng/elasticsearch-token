@@ -586,7 +586,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12l
+literal|12L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -635,7 +635,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12l
+literal|12L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -684,7 +684,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|14l
+literal|14L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -733,7 +733,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|13l
+literal|13L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -802,7 +802,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|13l
+literal|13L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -934,7 +934,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12l
+literal|12L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -983,7 +983,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12l
+literal|12L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1032,7 +1032,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|14l
+literal|14L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1139,7 +1139,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|14l
+literal|14L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1336,7 +1336,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|18l
+literal|18L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1406,7 +1406,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12l
+literal|12L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1458,7 +1458,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|14l
+literal|14L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1553,7 +1553,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|14l
+literal|14L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1649,7 +1649,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|17l
+literal|17L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1743,7 +1743,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|18l
+literal|18L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1796,7 +1796,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|19l
+literal|19L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1854,7 +1854,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|20l
+literal|20L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1964,7 +1964,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|20l
+literal|20L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2147,7 +2147,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2205,7 +2205,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2250,7 +2250,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2468,7 +2468,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2532,7 +2532,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2646,7 +2646,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2726,7 +2726,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2784,7 +2784,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2847,7 +2847,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3083,7 +3083,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3146,7 +3146,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3254,7 +3254,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;

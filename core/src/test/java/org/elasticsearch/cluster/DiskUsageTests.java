@@ -1145,7 +1145,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|100l
+literal|100L
 argument_list|,
 name|shardSizes
 operator|.
@@ -1165,7 +1165,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1000l
+literal|1000L
 argument_list|,
 name|shardSizes
 operator|.

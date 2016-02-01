@@ -3310,7 +3310,7 @@ name|put
 argument_list|(
 literal|"1"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3319,7 +3319,7 @@ name|put
 argument_list|(
 literal|"2"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3328,7 +3328,7 @@ name|put
 argument_list|(
 literal|"3"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3337,7 +3337,7 @@ name|put
 argument_list|(
 literal|"4"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3346,7 +3346,7 @@ name|put
 argument_list|(
 literal|"5"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3355,7 +3355,7 @@ name|put
 argument_list|(
 literal|"6"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|checkValueInEachDoc
@@ -3387,7 +3387,7 @@ name|put
 argument_list|(
 literal|"1"
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3396,7 +3396,7 @@ name|put
 argument_list|(
 literal|"2"
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3405,7 +3405,7 @@ name|put
 argument_list|(
 literal|"3"
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3414,7 +3414,7 @@ name|put
 argument_list|(
 literal|"4"
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3423,7 +3423,7 @@ name|put
 argument_list|(
 literal|"5"
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3432,7 +3432,7 @@ name|put
 argument_list|(
 literal|"6"
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|checkValueInEachDoc
@@ -3541,7 +3541,7 @@ name|put
 argument_list|(
 literal|"1"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3550,7 +3550,7 @@ name|put
 argument_list|(
 literal|"2"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3559,7 +3559,7 @@ name|put
 argument_list|(
 literal|"3"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3568,7 +3568,7 @@ name|put
 argument_list|(
 literal|"4"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3577,7 +3577,7 @@ name|put
 argument_list|(
 literal|"5"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|expectedResults
@@ -3586,7 +3586,7 @@ name|put
 argument_list|(
 literal|"6"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|checkValueInEachDoc

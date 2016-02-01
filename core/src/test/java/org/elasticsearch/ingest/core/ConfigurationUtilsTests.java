@@ -22,6 +22,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ingest
+operator|.
+name|processor
+operator|.
+name|ConfigurationPropertyException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -55,6 +69,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -241,6 +265,10 @@ name|ConfigurationUtils
 operator|.
 name|readStringProperty
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|,
 literal|"foo"
@@ -269,6 +297,10 @@ name|ConfigurationUtils
 operator|.
 name|readStringProperty
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|,
 literal|"arr"
@@ -277,7 +309,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 name|e
 parameter_list|)
 block|{
@@ -290,7 +322,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"property [arr] isn't a string, but of type [java.util.Arrays$ArrayList]"
+literal|"[arr] property isn't a string, but of type [java.util.Arrays$ArrayList]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -313,6 +345,10 @@ name|ConfigurationUtils
 operator|.
 name|readList
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|,
 literal|"int"
@@ -324,9 +360,9 @@ name|val
 argument_list|,
 name|equalTo
 argument_list|(
-name|Arrays
+name|Collections
 operator|.
-name|asList
+name|singletonList
 argument_list|(
 literal|2
 argument_list|)

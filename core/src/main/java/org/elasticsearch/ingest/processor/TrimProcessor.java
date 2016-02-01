@@ -98,6 +98,17 @@ argument_list|<
 name|TrimProcessor
 argument_list|>
 block|{
+DECL|method|Factory
+specifier|public
+name|Factory
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|TYPE
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|newProcessor

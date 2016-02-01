@@ -674,7 +674,7 @@ name|suggest
 operator|.
 name|phrase
 operator|.
-name|PhraseSuggestionBuilder
+name|DirectCandidateGeneratorBuilder
 import|;
 end_import
 
@@ -691,8 +691,6 @@ operator|.
 name|phrase
 operator|.
 name|PhraseSuggestionBuilder
-operator|.
-name|DirectCandidateGenerator
 import|;
 end_import
 
@@ -1623,7 +1621,7 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|DirectCandidateGenerator
+name|DirectCandidateGeneratorBuilder
 name|generator
 init|=
 name|candidateGenerator

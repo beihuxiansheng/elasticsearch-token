@@ -527,7 +527,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|10l
+literal|10L
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,7 +943,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|10l
+literal|10L
 argument_list|)
 expr_stmt|;
 block|}

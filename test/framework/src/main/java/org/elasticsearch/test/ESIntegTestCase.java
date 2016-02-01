@@ -1572,6 +1572,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -4477,6 +4487,9 @@ block|{
 return|return
 name|cluster
 argument_list|()
+operator|.
+name|getClients
+argument_list|()
 return|;
 block|}
 DECL|method|minimumNumberOfShards
@@ -7101,6 +7114,9 @@ name|Client
 name|client
 range|:
 name|cluster
+argument_list|()
+operator|.
+name|getClients
 argument_list|()
 control|)
 block|{

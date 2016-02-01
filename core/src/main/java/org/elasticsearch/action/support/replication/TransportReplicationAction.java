@@ -4979,7 +4979,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"{} {}"
+literal|"[{}] {}"
 argument_list|,
 name|exp
 argument_list|,

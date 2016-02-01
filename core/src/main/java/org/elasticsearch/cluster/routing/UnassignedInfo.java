@@ -372,7 +372,7 @@ specifier|volatile
 name|long
 name|lastComputedLeftDelayNanos
 init|=
-literal|0l
+literal|0L
 decl_stmt|;
 comment|// how long to delay shard allocation, not serialized (always positive, 0 means no delay)
 DECL|field|message
@@ -772,7 +772,7 @@ name|Math
 operator|.
 name|max
 argument_list|(
-literal|0l
+literal|0L
 argument_list|,
 name|delayTimeout
 operator|.
@@ -826,12 +826,12 @@ if|if
 condition|(
 name|delayTimeoutNanos
 operator|==
-literal|0l
+literal|0L
 condition|)
 block|{
 name|newComputedLeftDelayNanos
 operator|=
-literal|0l
+literal|0L
 expr_stmt|;
 block|}
 else|else
@@ -1062,7 +1062,7 @@ name|Long
 operator|.
 name|MAX_VALUE
 condition|?
-literal|0l
+literal|0L
 else|:
 name|minDelaySetting
 return|;
@@ -1149,7 +1149,7 @@ name|Long
 operator|.
 name|MAX_VALUE
 condition|?
-literal|0l
+literal|0L
 else|:
 name|nextDelay
 return|;

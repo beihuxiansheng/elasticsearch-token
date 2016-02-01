@@ -78,7 +78,7 @@ name|monitor
 operator|.
 name|jvm
 operator|.
-name|JvmMonitorService
+name|JvmGcMonitorService
 import|;
 end_import
 
@@ -161,11 +161,11 @@ argument_list|<
 name|MonitorService
 argument_list|>
 block|{
-DECL|field|jvmMonitorService
+DECL|field|jvmGcMonitorService
 specifier|private
 specifier|final
-name|JvmMonitorService
-name|jvmMonitorService
+name|JvmGcMonitorService
+name|jvmGcMonitorService
 decl_stmt|;
 DECL|field|osService
 specifier|private
@@ -214,10 +214,10 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|jvmMonitorService
+name|jvmGcMonitorService
 operator|=
 operator|new
-name|JvmMonitorService
+name|JvmGcMonitorService
 argument_list|(
 name|settings
 argument_list|,
@@ -323,7 +323,7 @@ name|void
 name|doStart
 parameter_list|()
 block|{
-name|jvmMonitorService
+name|jvmGcMonitorService
 operator|.
 name|start
 argument_list|()
@@ -337,7 +337,7 @@ name|void
 name|doStop
 parameter_list|()
 block|{
-name|jvmMonitorService
+name|jvmGcMonitorService
 operator|.
 name|stop
 argument_list|()
@@ -351,7 +351,7 @@ name|void
 name|doClose
 parameter_list|()
 block|{
-name|jvmMonitorService
+name|jvmGcMonitorService
 operator|.
 name|close
 argument_list|()

@@ -1118,7 +1118,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2651,6 +2651,9 @@ name|client
 range|:
 name|internalCluster
 argument_list|()
+operator|.
+name|getClients
+argument_list|()
 control|)
 block|{
 name|assertThat
@@ -2871,6 +2874,9 @@ name|Client
 name|client
 range|:
 name|internalCluster
+argument_list|()
+operator|.
+name|getClients
 argument_list|()
 control|)
 block|{
