@@ -147,10 +147,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|PluginManagerCliTests
+DECL|class|PluginCliTests
 specifier|public
 class|class
-name|PluginManagerCliTests
+name|PluginCliTests
 extends|extends
 name|CliToolTestCase
 block|{
@@ -176,7 +176,7 @@ decl_stmt|;
 name|assertThat
 argument_list|(
 operator|new
-name|PluginManagerCliParser
+name|PluginCli
 argument_list|(
 name|terminal
 argument_list|)
@@ -213,7 +213,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|new
-name|PluginManagerCliParser
+name|PluginCli
 argument_list|(
 name|terminal
 argument_list|)
@@ -244,7 +244,7 @@ control|(
 name|String
 name|plugin
 range|:
-name|PluginManager
+name|InstallPluginCommand
 operator|.
 name|OFFICIAL_PLUGINS
 control|)
@@ -277,7 +277,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|new
-name|PluginManagerCliParser
+name|PluginCli
 argument_list|(
 name|terminal
 argument_list|)
@@ -314,7 +314,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|new
-name|PluginManagerCliParser
+name|PluginCli
 argument_list|(
 name|terminal
 argument_list|)
@@ -388,32 +388,22 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|logger
-operator|.
-name|warn
-argument_list|(
-name|finalDir
-argument_list|)
-expr_stmt|;
 name|CliTool
 operator|.
 name|ExitStatus
 name|execute
 init|=
 operator|new
-name|PluginManagerCliParser
+name|PluginCli
 argument_list|(
 name|terminal
 argument_list|)
 operator|.
 name|execute
 argument_list|(
-name|args
-argument_list|(
-literal|"install "
-operator|+
+literal|"install"
+argument_list|,
 name|finalDir
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertThat
