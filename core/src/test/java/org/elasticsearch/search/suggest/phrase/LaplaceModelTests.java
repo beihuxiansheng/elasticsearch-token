@@ -83,6 +83,17 @@ name|createTestModel
 parameter_list|()
 block|{
 return|return
+name|createRandomModel
+argument_list|()
+return|;
+block|}
+DECL|method|createRandomModel
+specifier|static
+name|SmoothingModel
+name|createRandomModel
+parameter_list|()
+block|{
+return|return
 operator|new
 name|Laplace
 argument_list|(

@@ -213,7 +213,7 @@ init|=
 literal|20
 decl_stmt|;
 DECL|field|namedWriteableRegistry
-specifier|private
+specifier|protected
 specifier|static
 name|NamedWriteableRegistry
 name|namedWriteableRegistry

@@ -82,6 +82,17 @@ name|SmoothingModel
 name|createTestModel
 parameter_list|()
 block|{
+return|return
+name|createRandomModel
+argument_list|()
+return|;
+block|}
+DECL|method|createRandomModel
+specifier|static
+name|LinearInterpolation
+name|createRandomModel
+parameter_list|()
+block|{
 name|double
 name|trigramLambda
 init|=
