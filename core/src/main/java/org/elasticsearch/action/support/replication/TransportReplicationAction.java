@@ -1876,15 +1876,6 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|ThreadContext
-name|threadContext
-init|=
-name|threadPool
-operator|.
-name|getThreadContext
-argument_list|()
-decl_stmt|;
-specifier|final
-name|ThreadContext
 operator|.
 name|StoredContext
 name|context
@@ -3120,15 +3111,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-specifier|final
-name|ThreadContext
-name|threadContext
-init|=
-name|threadPool
-operator|.
-name|getThreadContext
-argument_list|()
-decl_stmt|;
 specifier|final
 name|ThreadContext
 operator|.
@@ -4979,7 +4961,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"{} {}"
+literal|"[{}] {}"
 argument_list|,
 name|exp
 argument_list|,

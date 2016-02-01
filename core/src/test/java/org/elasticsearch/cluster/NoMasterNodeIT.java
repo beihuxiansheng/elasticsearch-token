@@ -1895,7 +1895,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -1916,7 +1916,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|countResponse

@@ -1523,13 +1523,6 @@ block|{
 comment|// all is well!
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/16299"
-argument_list|)
 DECL|method|testOnConflictDrop
 specifier|public
 name|void
@@ -1698,9 +1691,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|TribeService
-operator|.
-name|TRIBE_NAME
+literal|"tribe.name"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1741,9 +1732,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|TribeService
-operator|.
-name|TRIBE_NAME
+literal|"tribe.name"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -1989,9 +1978,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|TribeService
-operator|.
-name|TRIBE_NAME
+literal|"tribe.name"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -2032,9 +2019,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|TribeService
-operator|.
-name|TRIBE_NAME
+literal|"tribe.name"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -2075,9 +2060,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|TribeService
-operator|.
-name|TRIBE_NAME
+literal|"tribe.name"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -2288,7 +2271,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -2301,7 +2284,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertBusy
@@ -2474,7 +2457,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -2487,7 +2470,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|assertBusy
@@ -3449,9 +3432,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|TribeService
-operator|.
-name|TRIBE_NAME
+literal|"tribe.name"
 argument_list|)
 argument_list|)
 condition|)

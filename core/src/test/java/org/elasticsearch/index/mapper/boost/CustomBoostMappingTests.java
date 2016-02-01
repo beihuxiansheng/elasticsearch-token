@@ -574,7 +574,7 @@ name|field
 argument_list|(
 literal|"value"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 operator|.
 name|field

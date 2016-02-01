@@ -581,6 +581,10 @@ name|ConfigurationUtils
 operator|.
 name|readStringProperty
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
 name|config
 argument_list|,
 literal|"match_field"
@@ -593,6 +597,10 @@ name|ConfigurationUtils
 operator|.
 name|readStringProperty
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
 name|config
 argument_list|,
 literal|"target_field"
@@ -607,6 +615,10 @@ name|ConfigurationUtils
 operator|.
 name|readOptionalStringProperty
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
 name|config
 argument_list|,
 literal|"timezone"
@@ -637,6 +649,10 @@ name|ConfigurationUtils
 operator|.
 name|readOptionalStringProperty
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
 name|config
 argument_list|,
 literal|"locale"
@@ -704,6 +720,10 @@ name|ConfigurationUtils
 operator|.
 name|readList
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
 name|config
 argument_list|,
 literal|"match_formats"

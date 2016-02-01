@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|processor
+operator|.
+name|ConfigurationPropertyException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -48,13 +62,19 @@ specifier|private
 name|ConfigurationUtils
 parameter_list|()
 block|{     }
-comment|/**      * Returns and removes the specified optional property from the specified configuration map.      *      * If the property value isn't of type string a {@link IllegalArgumentException} is thrown.      */
+comment|/**      * Returns and removes the specified optional property from the specified configuration map.      *      * If the property value isn't of type string a {@link ConfigurationPropertyException} is thrown.      */
 DECL|method|readOptionalStringProperty
 specifier|public
 specifier|static
 name|String
 name|readOptionalStringProperty
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -80,19 +100,29 @@ decl_stmt|;
 return|return
 name|readString
 argument_list|(
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
 argument_list|,
 name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns and removes the specified property from the specified configuration map.      *      * If the property value isn't of type string an {@link IllegalArgumentException} is thrown.      * If the property is missing an {@link IllegalArgumentException} is thrown      */
+comment|/**      * Returns and removes the specified property from the specified configuration map.      *      * If the property value isn't of type string an {@link ConfigurationPropertyException} is thrown.      * If the property is missing an {@link ConfigurationPropertyException} is thrown      */
 DECL|method|readStringProperty
 specifier|public
 specifier|static
 name|String
 name|readStringProperty
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -108,6 +138,10 @@ block|{
 return|return
 name|readStringProperty
 argument_list|(
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|configuration
 argument_list|,
 name|propertyName
@@ -116,13 +150,19 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns and removes the specified property from the specified configuration map.      *      * If the property value isn't of type string a {@link IllegalArgumentException} is thrown.      * If the property is missing and no default value has been specified a {@link IllegalArgumentException} is thrown      */
+comment|/**      * Returns and removes the specified property from the specified configuration map.      *      * If the property value isn't of type string a {@link ConfigurationPropertyException} is thrown.      * If the property is missing and no default value has been specified a {@link ConfigurationPropertyException} is thrown      */
 DECL|method|readStringProperty
 specifier|public
 specifier|static
 name|String
 name|readStringProperty
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -173,19 +213,25 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 argument_list|(
-literal|"required property ["
-operator|+
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
-operator|+
-literal|"] is missing"
+argument_list|,
+literal|"required property is missing"
 argument_list|)
 throw|;
 block|}
 return|return
 name|readString
 argument_list|(
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
 argument_list|,
 name|value
@@ -198,6 +244,12 @@ specifier|static
 name|String
 name|readString
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|String
 name|propertyName
 parameter_list|,
@@ -232,13 +284,15 @@ return|;
 block|}
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 argument_list|(
-literal|"property ["
-operator|+
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
-operator|+
-literal|"] isn't a string, but of type ["
+argument_list|,
+literal|"property isn't a string, but of type ["
 operator|+
 name|value
 operator|.
@@ -252,7 +306,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Returns and removes the specified property of type list from the specified configuration map.      *      * If the property value isn't of type list an {@link IllegalArgumentException} is thrown.      */
+comment|/**      * Returns and removes the specified property of type list from the specified configuration map.      *      * If the property value isn't of type list an {@link ConfigurationPropertyException} is thrown.      */
 DECL|method|readOptionalList
 specifier|public
 specifier|static
@@ -265,6 +319,12 @@ name|T
 argument_list|>
 name|readOptionalList
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -301,13 +361,17 @@ block|}
 return|return
 name|readList
 argument_list|(
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
 argument_list|,
 name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns and removes the specified property of type list from the specified configuration map.      *      * If the property value isn't of type list an {@link IllegalArgumentException} is thrown.      * If the property is missing an {@link IllegalArgumentException} is thrown      */
+comment|/**      * Returns and removes the specified property of type list from the specified configuration map.      *      * If the property value isn't of type list an {@link ConfigurationPropertyException} is thrown.      * If the property is missing an {@link ConfigurationPropertyException} is thrown      */
 DECL|method|readList
 specifier|public
 specifier|static
@@ -320,6 +384,12 @@ name|T
 argument_list|>
 name|readList
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -351,19 +421,25 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 argument_list|(
-literal|"required property ["
-operator|+
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
-operator|+
-literal|"] is missing"
+argument_list|,
+literal|"required property is missing"
 argument_list|)
 throw|;
 block|}
 return|return
 name|readList
 argument_list|(
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
 argument_list|,
 name|value
@@ -382,6 +458,12 @@ name|T
 argument_list|>
 name|readList
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|String
 name|propertyName
 parameter_list|,
@@ -423,13 +505,15 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 argument_list|(
-literal|"property ["
-operator|+
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
-operator|+
-literal|"] isn't a list, but of type ["
+argument_list|,
+literal|"property isn't a list, but of type ["
 operator|+
 name|value
 operator|.
@@ -444,7 +528,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns and removes the specified property of type map from the specified configuration map.      *      * If the property value isn't of type map an {@link IllegalArgumentException} is thrown.      * If the property is missing an {@link IllegalArgumentException} is thrown      */
+comment|/**      * Returns and removes the specified property of type map from the specified configuration map.      *      * If the property value isn't of type map an {@link ConfigurationPropertyException} is thrown.      * If the property is missing an {@link ConfigurationPropertyException} is thrown      */
 DECL|method|readMap
 specifier|public
 specifier|static
@@ -459,6 +543,12 @@ name|T
 argument_list|>
 name|readMap
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -490,26 +580,32 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 argument_list|(
-literal|"required property ["
-operator|+
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
-operator|+
-literal|"] is missing"
+argument_list|,
+literal|"required property is missing"
 argument_list|)
 throw|;
 block|}
 return|return
 name|readMap
 argument_list|(
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
 argument_list|,
 name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns and removes the specified property of type map from the specified configuration map.      *      * If the property value isn't of type map an {@link IllegalArgumentException} is thrown.      */
+comment|/**      * Returns and removes the specified property of type map from the specified configuration map.      *      * If the property value isn't of type map an {@link ConfigurationPropertyException} is thrown.      */
 DECL|method|readOptionalMap
 specifier|public
 specifier|static
@@ -524,6 +620,12 @@ name|T
 argument_list|>
 name|readOptionalMap
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -560,6 +662,10 @@ block|}
 return|return
 name|readMap
 argument_list|(
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
 argument_list|,
 name|value
@@ -580,6 +686,12 @@ name|T
 argument_list|>
 name|readMap
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|String
 name|propertyName
 parameter_list|,
@@ -625,13 +737,15 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 argument_list|(
-literal|"property ["
-operator|+
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
-operator|+
-literal|"] isn't a map, but of type ["
+argument_list|,
+literal|"property isn't a map, but of type ["
 operator|+
 name|value
 operator|.
@@ -653,6 +767,12 @@ specifier|static
 name|Object
 name|readObject
 parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -684,13 +804,15 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ConfigurationPropertyException
 argument_list|(
-literal|"required property ["
-operator|+
+name|processorType
+argument_list|,
+name|processorTag
+argument_list|,
 name|propertyName
-operator|+
-literal|"] is missing"
+argument_list|,
+literal|"required property is missing"
 argument_list|)
 throw|;
 block|}

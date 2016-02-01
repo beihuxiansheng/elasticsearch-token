@@ -320,7 +320,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"transport.host"
+name|TransportSettings
+operator|.
+name|BIND_HOST
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"127.0.0.1"
 argument_list|)

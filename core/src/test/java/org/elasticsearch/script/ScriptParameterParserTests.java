@@ -8539,7 +8539,7 @@ name|put
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|config
@@ -8764,7 +8764,7 @@ name|put
 argument_list|(
 literal|"bar_file"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|config
@@ -8989,7 +8989,7 @@ name|put
 argument_list|(
 literal|"baz_id"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|config
@@ -9214,7 +9214,7 @@ name|put
 argument_list|(
 literal|"lang"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|Set

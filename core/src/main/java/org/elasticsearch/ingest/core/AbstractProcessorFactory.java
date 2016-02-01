@@ -83,6 +83,10 @@ name|ConfigurationUtils
 operator|.
 name|readOptionalStringProperty
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|config
 argument_list|,
 name|TAG_KEY

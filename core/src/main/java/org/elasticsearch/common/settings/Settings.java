@@ -4671,6 +4671,7 @@ name|this
 return|;
 block|}
 comment|/**          * Sets the setting with the provided setting key and an array of values.          *          * @param setting The setting key          * @param values  The values          * @return The builder          */
+comment|/**          * Sets the setting with the provided setting key and an array of values.          *          * @param setting The setting key          * @param values  The values          * @return The builder          */
 DECL|method|putArray
 specifier|public
 name|Builder
@@ -4681,6 +4682,36 @@ name|setting
 parameter_list|,
 name|String
 modifier|...
+name|values
+parameter_list|)
+block|{
+return|return
+name|putArray
+argument_list|(
+name|setting
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|values
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**          * Sets the setting with the provided setting key and a list of values.          *          * @param setting The setting key          * @param values  The values          * @return The builder          */
+DECL|method|putArray
+specifier|public
+name|Builder
+name|putArray
+parameter_list|(
+name|String
+name|setting
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
 name|values
 parameter_list|)
 block|{
@@ -4737,7 +4768,8 @@ name|i
 operator|<
 name|values
 operator|.
-name|length
+name|size
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -4752,9 +4784,11 @@ operator|+
 name|i
 argument_list|,
 name|values
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -95,6 +95,15 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|ElasticsearchException
+operator|.
+name|getExceptionName
+argument_list|(
+name|other
+argument_list|)
+operator|+
+literal|": "
+operator|+
 name|other
 operator|.
 name|getMessage

@@ -96,9 +96,7 @@ name|elasticsearch
 operator|.
 name|http
 operator|.
-name|netty
-operator|.
-name|NettyHttpServerTransport
+name|HttpTransportSettings
 import|;
 end_import
 
@@ -1366,23 +1364,17 @@ comment|// http is simple
 name|String
 name|httpRange
 init|=
-name|settings
+name|HttpTransportSettings
+operator|.
+name|SETTING_HTTP_PORT
 operator|.
 name|get
 argument_list|(
-literal|"http.netty.port"
-argument_list|,
 name|settings
-operator|.
-name|get
-argument_list|(
-literal|"http.port"
-argument_list|,
-name|NettyHttpServerTransport
-operator|.
-name|DEFAULT_PORT_RANGE
 argument_list|)
-argument_list|)
+operator|.
+name|getPortRangeString
+argument_list|()
 decl_stmt|;
 comment|// listen is always called with 'localhost' but use wildcard to be sure, no name service is consulted.
 comment|// see SocketPermission implies() code

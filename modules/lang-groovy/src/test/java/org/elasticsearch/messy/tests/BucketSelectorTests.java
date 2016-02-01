@@ -3583,9 +3583,9 @@ argument_list|(
 operator|new
 name|ExtendedBounds
 argument_list|(
-literal|1l
+literal|1L
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 operator|.

@@ -509,7 +509,7 @@ name|longSetting
 argument_list|(
 literal|"index.mapping.nested_fields.limit"
 argument_list|,
-literal|50l
+literal|50L
 argument_list|,
 literal|0
 argument_list|,

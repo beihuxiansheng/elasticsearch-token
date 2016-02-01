@@ -1046,7 +1046,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 block|}
@@ -1565,9 +1565,9 @@ argument_list|()
 argument_list|,
 name|useStaleReplica
 condition|?
-literal|1l
+literal|1L
 else|:
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -1885,7 +1885,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
