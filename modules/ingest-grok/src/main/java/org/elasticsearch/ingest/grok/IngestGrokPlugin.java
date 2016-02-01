@@ -259,6 +259,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|loadBuiltinPatterns
+specifier|public
 specifier|static
 name|Map
 argument_list|<
