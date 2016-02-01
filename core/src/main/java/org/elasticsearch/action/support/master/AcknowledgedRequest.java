@@ -182,23 +182,6 @@ specifier|protected
 name|AcknowledgedRequest
 parameter_list|()
 block|{     }
-DECL|method|AcknowledgedRequest
-specifier|protected
-name|AcknowledgedRequest
-parameter_list|(
-name|ActionRequest
-argument_list|<
-name|?
-argument_list|>
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Allows to set the timeout      * @param timeout timeout as a string (e.g. 1s)      * @return the request itself      */
 annotation|@
 name|SuppressWarnings

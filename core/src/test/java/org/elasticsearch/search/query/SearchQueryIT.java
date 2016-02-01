@@ -1443,7 +1443,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -1629,7 +1629,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -1811,7 +1811,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -1833,7 +1833,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 comment|// return no docs
@@ -1989,7 +1989,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -2077,7 +2077,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -2113,7 +2113,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 block|}
@@ -2231,7 +2231,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFailures
@@ -2375,7 +2375,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2456,7 +2456,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -2519,7 +2519,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -2607,7 +2607,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3080,7 +3080,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -3121,7 +3121,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -3310,7 +3310,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3513,7 +3513,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3591,7 +3591,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3646,7 +3646,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3709,7 +3709,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3757,7 +3757,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3815,7 +3815,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3859,7 +3859,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3907,7 +3907,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 comment|// stop drops "the" since its a stopword
@@ -3979,7 +3979,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4039,7 +4039,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4114,7 +4114,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 comment|// stop drops "the" since its a stopword
@@ -4188,7 +4188,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4403,7 +4403,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4481,7 +4481,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4536,7 +4536,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4599,7 +4599,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4647,7 +4647,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4705,7 +4705,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4749,7 +4749,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4797,7 +4797,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 comment|// stop drops "the" since its a stopword
@@ -4869,7 +4869,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4929,7 +4929,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -5004,7 +5004,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 comment|// stop drops "the" since its a stopword
@@ -5073,7 +5073,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -5136,7 +5136,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -5242,7 +5242,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5273,7 +5273,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5304,7 +5304,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5335,7 +5335,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5366,7 +5366,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -5439,7 +5439,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5470,7 +5470,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5501,7 +5501,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5527,7 +5527,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5553,7 +5553,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5584,7 +5584,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -5719,7 +5719,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5750,7 +5750,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 try|try
@@ -5939,7 +5939,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -6041,7 +6041,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 comment|// Same timezone set with time_zone
@@ -6073,7 +6073,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 comment|// We set a timezone which will give no result
@@ -6100,7 +6100,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 comment|// Same timezone set with time_zone but another timezone is set directly within dates which has the precedence
@@ -6132,7 +6132,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -6271,7 +6271,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -6293,7 +6293,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -6318,7 +6318,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -6343,7 +6343,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -6370,7 +6370,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 block|}
@@ -6495,7 +6495,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -6539,7 +6539,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -6581,7 +6581,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -6622,7 +6622,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -6664,7 +6664,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 comment|// repeat..., with terms
@@ -6703,7 +6703,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -6831,7 +6831,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -6889,7 +6889,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -6947,7 +6947,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -7266,7 +7266,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -7304,7 +7304,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -7339,7 +7339,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -7374,7 +7374,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -7409,7 +7409,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -7446,7 +7446,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -7482,7 +7482,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -7564,7 +7564,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|BoolQueryBuilder
@@ -7605,7 +7605,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|WrapperQueryBuilder
@@ -7632,7 +7632,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -7705,7 +7705,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -7738,7 +7738,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -7771,7 +7771,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -7804,7 +7804,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -7857,7 +7857,7 @@ name|setSource
 argument_list|(
 literal|"long"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|,
 literal|"double"
 argument_list|,
@@ -7880,7 +7880,7 @@ name|setSource
 argument_list|(
 literal|"long"
 argument_list|,
-literal|2l
+literal|2L
 argument_list|,
 literal|"double"
 argument_list|,
@@ -7903,7 +7903,7 @@ name|setSource
 argument_list|(
 literal|"long"
 argument_list|,
-literal|3l
+literal|3L
 argument_list|,
 literal|"double"
 argument_list|,
@@ -7937,7 +7937,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -7975,7 +7975,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -8171,7 +8171,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 comment|// this uses dismax so scores are equal and the order can be arbitrary
@@ -8211,7 +8211,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -8279,7 +8279,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -8339,7 +8339,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -8415,7 +8415,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -8524,7 +8524,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -8677,7 +8677,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|boolQuery
@@ -8743,7 +8743,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|boolQuery
@@ -8790,7 +8790,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 block|}
@@ -8946,7 +8946,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|boolQuery
@@ -9016,7 +9016,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|boolQuery
@@ -9063,7 +9063,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 block|}
@@ -9181,7 +9181,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -9221,7 +9221,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -9278,7 +9278,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -9318,7 +9318,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -9377,7 +9377,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|multiMatchQuery
@@ -9407,7 +9407,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -9459,7 +9459,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -9600,7 +9600,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -9685,7 +9685,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|boolQuery
@@ -9759,7 +9759,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -9838,7 +9838,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -9945,7 +9945,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -9981,7 +9981,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -10017,7 +10017,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -10148,7 +10148,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -10250,7 +10250,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -10411,7 +10411,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -10447,7 +10447,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -10473,7 +10473,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -10509,7 +10509,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -10535,7 +10535,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -10561,7 +10561,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -10587,7 +10587,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -10732,7 +10732,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -10758,7 +10758,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -10819,7 +10819,7 @@ literal|"1"
 argument_list|,
 literal|"lng"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|,
 literal|"dbl"
 argument_list|,
@@ -10846,7 +10846,7 @@ literal|"2"
 argument_list|,
 literal|"lng"
 argument_list|,
-literal|2l
+literal|2L
 argument_list|,
 literal|"dbl"
 argument_list|,
@@ -10873,7 +10873,7 @@ literal|"3"
 argument_list|,
 literal|"lng"
 argument_list|,
-literal|3l
+literal|3L
 argument_list|,
 literal|"dbl"
 argument_list|,
@@ -10900,7 +10900,7 @@ literal|"4"
 argument_list|,
 literal|"lng"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|,
 literal|"dbl"
 argument_list|,
@@ -10941,7 +10941,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -10990,7 +10990,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -11039,7 +11039,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -11088,7 +11088,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -11137,7 +11137,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -11187,7 +11187,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -11242,7 +11242,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -11297,7 +11297,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -11343,7 +11343,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -11383,7 +11383,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -11423,7 +11423,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -11923,7 +11923,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -11973,7 +11973,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -12023,7 +12023,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -12072,7 +12072,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -12122,7 +12122,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -12171,7 +12171,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -12211,7 +12211,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -12260,7 +12260,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -12310,7 +12310,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -12359,7 +12359,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -12456,7 +12456,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -12503,7 +12503,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -12552,7 +12552,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -12603,7 +12603,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -12654,7 +12654,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -12713,7 +12713,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -12946,7 +12946,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -12986,7 +12986,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13026,7 +13026,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13066,7 +13066,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13106,7 +13106,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13146,7 +13146,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13198,7 +13198,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13243,7 +13243,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13288,7 +13288,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13333,7 +13333,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13378,7 +13378,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13423,7 +13423,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13473,7 +13473,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13516,7 +13516,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13559,7 +13559,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13602,7 +13602,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13645,7 +13645,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13688,7 +13688,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13743,7 +13743,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13791,7 +13791,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13839,7 +13839,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13887,7 +13887,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13935,7 +13935,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -13983,7 +13983,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -14209,7 +14209,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 comment|// This made 2826 fail! (only with bit based filters)
@@ -14272,7 +14272,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 comment|// This made #2979 fail!
@@ -14345,7 +14345,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 block|}
@@ -14495,7 +14495,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -14545,7 +14545,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 block|}
@@ -14679,7 +14679,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -14724,10 +14724,16 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// fuzzy queries will be removed in 4.0
 DECL|method|testSpanMultiTermQuery
 specifier|public
 name|void
@@ -15164,7 +15170,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -15228,7 +15234,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -15297,7 +15303,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -17173,7 +17179,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -17263,7 +17269,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -17310,7 +17316,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -17350,7 +17356,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -17690,7 +17696,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -17739,7 +17745,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -17797,7 +17803,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -17852,7 +17858,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -18141,7 +18147,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -18341,7 +18347,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -18482,7 +18488,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -18625,7 +18631,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 for|for
@@ -19502,7 +19508,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19563,7 +19569,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19624,7 +19630,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19691,7 +19697,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19757,7 +19763,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19823,7 +19829,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19890,7 +19896,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19956,7 +19962,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20022,7 +20028,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20141,7 +20147,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20202,7 +20208,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20339,7 +20345,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -20490,7 +20496,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -20520,7 +20526,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -20550,7 +20556,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -20580,7 +20586,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 comment|// it's upper case
@@ -20617,7 +20623,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -20653,7 +20659,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -20758,7 +20764,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -20800,7 +20806,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -20842,7 +20848,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertSearchHits
@@ -20940,7 +20946,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -21043,7 +21049,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;

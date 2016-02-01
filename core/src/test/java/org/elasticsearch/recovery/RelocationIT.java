@@ -825,7 +825,7 @@ argument_list|)
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"indices.recovery:TRACE,index.shard.service:TRACE"
+literal|"_root:DEBUG,indices.recovery:TRACE,index.shard.service:TRACE"
 argument_list|)
 DECL|class|RelocationIT
 specifier|public
@@ -1144,7 +1144,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|20l
+literal|20L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1235,13 +1235,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 literal|"test"
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|node_1
 argument_list|,
@@ -1409,7 +1405,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|20l
+literal|20L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1819,13 +1815,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 literal|"test"
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|nodes
 index|[
@@ -2857,13 +2849,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 literal|"test"
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|nodes
 index|[
@@ -3603,6 +3591,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|indexName
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)

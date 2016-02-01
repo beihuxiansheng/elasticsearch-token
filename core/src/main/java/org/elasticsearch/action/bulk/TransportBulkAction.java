@@ -947,9 +947,7 @@ name|createIndexRequest
 init|=
 operator|new
 name|CreateIndexRequest
-argument_list|(
-name|bulkRequest
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|createIndexRequest
 operator|.
@@ -3161,9 +3159,6 @@ operator|=
 operator|new
 name|IndexClosedException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 name|metaData
 operator|.
 name|index
@@ -3176,7 +3171,6 @@ argument_list|)
 operator|.
 name|getIndex
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

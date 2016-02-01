@@ -772,7 +772,10 @@ name|put
 argument_list|(
 name|EsExecutors
 operator|.
-name|PROCESSORS
+name|PROCESSORS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|3
 argument_list|)
@@ -789,7 +792,10 @@ name|put
 argument_list|(
 name|EsExecutors
 operator|.
-name|PROCESSORS
+name|PROCESSORS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|6
 argument_list|)

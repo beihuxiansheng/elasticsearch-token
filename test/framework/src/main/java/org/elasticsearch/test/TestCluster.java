@@ -245,11 +245,6 @@ specifier|abstract
 class|class
 name|TestCluster
 implements|implements
-name|Iterable
-argument_list|<
-name|Client
-argument_list|>
-implements|,
 name|Closeable
 block|{
 DECL|field|logger
@@ -607,6 +602,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -926,6 +924,17 @@ specifier|public
 specifier|abstract
 name|String
 name|getClusterName
+parameter_list|()
+function_decl|;
+comment|/**      * Returns an {@link Iterable} over all clients in this test cluster      */
+DECL|method|getClients
+specifier|public
+specifier|abstract
+name|Iterable
+argument_list|<
+name|Client
+argument_list|>
+name|getClients
 parameter_list|()
 function_decl|;
 block|}

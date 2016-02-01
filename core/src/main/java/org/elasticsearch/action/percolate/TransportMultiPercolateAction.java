@@ -754,9 +754,7 @@ name|multiGetRequest
 init|=
 operator|new
 name|MultiGetRequest
-argument_list|(
-name|request
-argument_list|)
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1528,11 +1526,9 @@ name|TransportShardMultiPercolateAction
 operator|.
 name|Request
 argument_list|(
-name|multiPercolateRequest
-argument_list|,
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shardId

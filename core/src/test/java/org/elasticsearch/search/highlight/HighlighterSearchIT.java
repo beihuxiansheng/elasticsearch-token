@@ -1637,7 +1637,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|endObject
@@ -1673,7 +1673,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -1920,14 +1920,8 @@ literal|"name"
 argument_list|,
 literal|"type=string,term_vector=with_positions_offsets,store="
 operator|+
-operator|(
 name|randomBoolean
 argument_list|()
-condition|?
-literal|"yes"
-else|:
-literal|"no"
-operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4139,7 +4133,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -4178,7 +4172,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -4537,7 +4531,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -4576,7 +4570,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -4936,7 +4930,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -4975,7 +4969,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -5412,11 +5406,11 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=no"
+literal|"type=string,store=false"
 argument_list|,
 literal|"titleTV"
 argument_list|,
-literal|"type=string,store=no,term_vector=with_positions_offsets"
+literal|"type=string,store=false,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6182,7 +6176,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -8207,7 +8201,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -8280,7 +8274,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -10075,7 +10069,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -10168,7 +10162,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=yes,term_vector=with_positions_offsets"
+literal|"type=string,store=true,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10332,7 +10326,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=yes,term_vector=with_positions_offsets"
+literal|"type=string,store=true,term_vector=with_positions_offsets"
 argument_list|)
 operator|.
 name|get
@@ -10501,7 +10495,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=yes"
+literal|"type=string,store=true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10675,7 +10669,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=yes,term_vector=with_positions_offsets"
+literal|"type=string,store=true,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10875,7 +10869,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -10913,7 +10907,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -11153,7 +11147,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -11191,7 +11185,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -11431,7 +11425,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -11469,7 +11463,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -11709,7 +11703,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -11747,7 +11741,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -11957,7 +11951,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=yes,term_vector=no"
+literal|"type=string,store=true,term_vector=no"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12190,7 +12184,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=yes,term_vector=with_positions_offsets,analyzer=classic"
+literal|"type=string,store=true,term_vector=with_positions_offsets,analyzer=classic"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13299,7 +13293,7 @@ literal|"type2"
 argument_list|,
 literal|"_all"
 argument_list|,
-literal|"store=yes,termVector=with_positions_offsets"
+literal|"store=true,termVector=with_positions_offsets"
 argument_list|,
 literal|"field4"
 argument_list|,
@@ -14659,7 +14653,7 @@ literal|"type1"
 argument_list|,
 literal|"highlight_field"
 argument_list|,
-literal|"type=string,store=yes"
+literal|"type=string,store=true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14985,7 +14979,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -15127,7 +15121,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -15592,7 +15586,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-literal|"store=yes,"
+literal|"store=true,"
 return|;
 block|}
 return|return
@@ -19004,7 +18998,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 for|for
@@ -19169,7 +19163,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -19536,7 +19530,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertHighlight
@@ -20062,7 +20056,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -20100,7 +20094,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -20205,7 +20199,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|SearchHit
@@ -20276,7 +20270,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 comment|//stopwords are now highlighted since we used only whitespace analyzer here
@@ -20350,7 +20344,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -20388,7 +20382,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -20610,7 +20604,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|field
@@ -21154,7 +21148,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertHighlight
@@ -21384,6 +21378,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// fuzzy queries will be removed in 4.0
 DECL|method|testPostingsHighlighterFuzzyQuery
 specifier|public
 name|void
@@ -21809,7 +21809,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertHighlight

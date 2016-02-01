@@ -330,7 +330,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -764,7 +764,7 @@ block|{
 name|EnabledAttributeMapper
 name|enabledState
 init|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1290,15 +1290,6 @@ condition|(
 name|enabledState
 operator|.
 name|enabled
-operator|&&
-operator|!
-name|context
-operator|.
-name|sourceToParse
-argument_list|()
-operator|.
-name|flyweight
-argument_list|()
 condition|)
 block|{
 name|long

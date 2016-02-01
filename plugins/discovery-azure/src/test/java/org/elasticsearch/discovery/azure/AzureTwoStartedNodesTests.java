@@ -193,7 +193,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|SERVICE_NAME
+name|SERVICE_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"dummy"
 argument_list|)
@@ -202,7 +205,10 @@ name|put
 argument_list|(
 name|Discovery
 operator|.
-name|HOST_TYPE
+name|HOST_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"private_ip"
 argument_list|)
@@ -347,7 +353,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|SERVICE_NAME
+name|SERVICE_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"dummy"
 argument_list|)
@@ -356,7 +365,10 @@ name|put
 argument_list|(
 name|Discovery
 operator|.
-name|HOST_TYPE
+name|HOST_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"public_ip"
 argument_list|)

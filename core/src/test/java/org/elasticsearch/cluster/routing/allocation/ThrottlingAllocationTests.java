@@ -3035,6 +3035,8 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
+literal|"test"
+argument_list|,
 name|clusterState
 operator|.
 name|getRoutingNodes
@@ -3051,6 +3053,9 @@ literal|0
 argument_list|)
 operator|.
 name|shardId
+argument_list|()
+operator|.
+name|id
 argument_list|()
 argument_list|,
 literal|"node1"
@@ -3233,6 +3238,8 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
+literal|"test"
+argument_list|,
 name|clusterState
 operator|.
 name|getRoutingNodes
@@ -3249,6 +3256,9 @@ literal|0
 argument_list|)
 operator|.
 name|shardId
+argument_list|()
+operator|.
+name|id
 argument_list|()
 argument_list|,
 literal|"node3"
@@ -3481,6 +3491,8 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
+literal|"test"
+argument_list|,
 name|clusterState
 operator|.
 name|getRoutingNodes
@@ -3497,6 +3509,9 @@ literal|0
 argument_list|)
 operator|.
 name|shardId
+argument_list|()
+operator|.
+name|id
 argument_list|()
 argument_list|,
 literal|"node3"

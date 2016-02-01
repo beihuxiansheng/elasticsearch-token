@@ -510,9 +510,7 @@ name|index
 init|=
 operator|new
 name|IndexRequest
-argument_list|(
-name|mainRequest
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|index
 operator|.

@@ -461,7 +461,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -641,7 +641,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -912,7 +912,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -1105,7 +1105,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -1401,7 +1401,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -1553,7 +1553,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -1836,7 +1836,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2130,7 +2130,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2273,7 +2273,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2344,6 +2344,12 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// fuzzy queries will be removed in 4.0
 DECL|method|testFuzzyQuerySupportsName
 specifier|public
 name|void
@@ -2416,7 +2422,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2559,7 +2565,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2709,7 +2715,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2928,7 +2934,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 for|for
@@ -3167,7 +3173,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat

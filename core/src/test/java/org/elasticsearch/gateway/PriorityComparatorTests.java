@@ -461,7 +461,7 @@ literal|"newest"
 argument_list|,
 name|next
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -478,7 +478,7 @@ literal|"oldest"
 argument_list|,
 name|next
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -760,7 +760,7 @@ literal|"oldest"
 argument_list|,
 name|next
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -777,7 +777,7 @@ literal|"newest"
 argument_list|,
 name|next
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1111,7 +1111,7 @@ name|get
 argument_list|(
 name|previous
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1124,7 +1124,7 @@ name|get
 argument_list|(
 name|routing
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;

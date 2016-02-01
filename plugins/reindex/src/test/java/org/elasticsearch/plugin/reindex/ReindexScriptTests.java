@@ -120,7 +120,7 @@ index|[]
 block|{
 literal|234
 block|,
-literal|234l
+literal|234L
 block|,
 literal|"pancake"
 block|}
@@ -238,7 +238,7 @@ index|[]
 block|{
 literal|234
 block|,
-literal|234l
+literal|234L
 block|,
 literal|"pancake"
 block|}
@@ -358,7 +358,7 @@ literal|null
 block|,
 literal|234
 block|,
-literal|234l
+literal|234L
 block|,
 literal|"pancake"
 block|}
@@ -443,7 +443,7 @@ literal|null
 block|,
 literal|234
 block|,
-literal|234l
+literal|234L
 block|}
 argument_list|)
 decl_stmt|;

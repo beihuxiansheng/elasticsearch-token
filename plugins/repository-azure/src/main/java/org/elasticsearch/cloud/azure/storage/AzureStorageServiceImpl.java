@@ -158,6 +158,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|blobstore
 operator|.
 name|BlobMetaData
@@ -308,7 +320,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|HashMap
 import|;
 end_import
 
@@ -418,7 +430,7 @@ operator|.
 name|clients
 operator|=
 operator|new
-name|Hashtable
+name|HashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -576,9 +588,12 @@ throw|;
 block|}
 if|if
 condition|(
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
 name|account
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|azureStorageSettings
@@ -603,9 +618,14 @@ condition|)
 block|{
 if|if
 condition|(
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
 name|account
+argument_list|)
 operator|==
-literal|null
+literal|false
 operator|||
 name|primaryStorageSettings
 operator|.

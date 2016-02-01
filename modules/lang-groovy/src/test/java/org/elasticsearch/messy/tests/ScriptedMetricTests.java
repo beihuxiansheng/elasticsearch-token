@@ -80,6 +80,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -956,7 +968,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.conf"
+name|Environment
+operator|.
+name|PATH_CONF_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|getDataPath
 argument_list|(
@@ -2343,7 +2360,7 @@ name|allOf
 argument_list|(
 name|greaterThanOrEqualTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|,
 name|lessThanOrEqualTo
@@ -2731,7 +2748,7 @@ name|allOf
 argument_list|(
 name|greaterThanOrEqualTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|,
 name|lessThanOrEqualTo
@@ -5757,7 +5774,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5944,7 +5961,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6045,7 +6062,7 @@ argument_list|)
 operator|.
 name|interval
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 operator|.
 name|minDocCount
@@ -6121,7 +6138,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;

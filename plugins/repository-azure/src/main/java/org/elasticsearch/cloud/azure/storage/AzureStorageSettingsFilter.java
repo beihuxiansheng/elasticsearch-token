@@ -147,7 +147,10 @@ name|addFilter
 argument_list|(
 name|Storage
 operator|.
-name|ACCOUNT
+name|ACCOUNT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

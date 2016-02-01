@@ -50,9 +50,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
+name|network
 operator|.
-name|Settings
+name|NetworkModule
 import|;
 end_import
 
@@ -62,9 +62,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|common
 operator|.
-name|Node
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -134,9 +136,7 @@ name|elasticsearch
 operator|.
 name|http
 operator|.
-name|netty
-operator|.
-name|NettyHttpServerTransport
+name|HttpTransportSettings
 operator|.
 name|SETTING_CORS_ALLOW_CREDENTIALS
 import|;
@@ -150,9 +150,7 @@ name|elasticsearch
 operator|.
 name|http
 operator|.
-name|netty
-operator|.
-name|NettyHttpServerTransport
+name|HttpTransportSettings
 operator|.
 name|SETTING_CORS_ALLOW_ORIGIN
 import|;
@@ -166,9 +164,7 @@ name|elasticsearch
 operator|.
 name|http
 operator|.
-name|netty
-operator|.
-name|NettyHttpServerTransport
+name|HttpTransportSettings
 operator|.
 name|SETTING_CORS_ENABLED
 import|;
@@ -281,6 +277,9 @@ operator|.
 name|put
 argument_list|(
 name|SETTING_CORS_ALLOW_ORIGIN
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"/https?:\\/\\/localhost(:[0-9]+)?/"
 argument_list|)
@@ -288,6 +287,9 @@ operator|.
 name|put
 argument_list|(
 name|SETTING_CORS_ALLOW_CREDENTIALS
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -295,15 +297,21 @@ operator|.
 name|put
 argument_list|(
 name|SETTING_CORS_ENABLED
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|Node
+name|NetworkModule
 operator|.
 name|HTTP_ENABLED
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

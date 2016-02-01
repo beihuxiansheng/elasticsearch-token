@@ -370,6 +370,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|math
+operator|.
+name|MathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -1178,6 +1192,11 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuppressLocalMode
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,cluster.service:TRACE"
+argument_list|)
 DECL|class|DiscoveryWithServiceDisruptionsIT
 specifier|public
 class|class
@@ -1441,7 +1460,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1s"
 argument_list|)
@@ -1451,7 +1473,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_PING_RETRIES
+name|PING_RETRIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1"
 argument_list|)
@@ -1485,14 +1510,6 @@ argument_list|,
 literal|false
 argument_list|)
 comment|// just to make test quicker
-operator|.
-name|put
-argument_list|(
-literal|"gateway.local.list_timeout"
-argument_list|,
-literal|"10s"
-argument_list|)
-comment|// still long to induce failures but to long so test won't time out
 operator|.
 name|build
 argument_list|()
@@ -2712,7 +2729,7 @@ argument_list|)
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"action.index:TRACE,action.get:TRACE,discovery:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
+literal|"_root:DEBUG,action.index:TRACE,action.get:TRACE,discovery:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
 argument_list|)
 DECL|method|testAckedIndexing
 specifier|public
@@ -3040,14 +3057,19 @@ expr_stmt|;
 name|int
 name|shard
 init|=
+name|MathUtils
+operator|.
+name|mod
+argument_list|(
 name|Murmur3HashFunction
 operator|.
 name|hash
 argument_list|(
 name|id
 argument_list|)
-operator|%
+argument_list|,
 name|numPrimaries
+argument_list|)
 decl_stmt|;
 name|logger
 operator|.
@@ -3100,7 +3122,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4690,13 +4712,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test that a document which is indexed on the majority side of a partition, is available from the minority side,      * once the partition is healed      */
-annotation|@
-name|TestLogging
-argument_list|(
-name|value
-operator|=
-literal|"cluster.service:TRACE"
-argument_list|)
 DECL|method|testRejoinDocumentExistsInAllShardCopies
 specifier|public
 name|void
@@ -4882,7 +4897,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4950,7 +4965,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5060,7 +5075,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5277,11 +5292,6 @@ name|nodes
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,cluster.service:TRACE"
-argument_list|)
 DECL|method|testIsolatedUnicastNodes
 specifier|public
 name|void
@@ -6300,7 +6310,10 @@ name|put
 argument_list|(
 name|DiscoveryService
 operator|.
-name|SETTING_INITIAL_STATE_TIMEOUT
+name|INITIAL_STATE_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1ms"
 argument_list|)
@@ -6351,11 +6364,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Adds an asymetric break between a master and one of the nodes and makes      * sure that the node is removed form the cluster, that the node start pinging and that      * the cluster reforms when healed.      */
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE"
-argument_list|)
 DECL|method|testNodeNotReachableFromMaster
 specifier|public
 name|void
@@ -6830,13 +6838,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 literal|"test"
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|node_1
 argument_list|,
@@ -6889,7 +6893,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;

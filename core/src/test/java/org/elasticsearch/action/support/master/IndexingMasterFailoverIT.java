@@ -353,7 +353,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1s"
 argument_list|)
@@ -363,7 +366,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_PING_RETRIES
+name|PING_RETRIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1"
 argument_list|)

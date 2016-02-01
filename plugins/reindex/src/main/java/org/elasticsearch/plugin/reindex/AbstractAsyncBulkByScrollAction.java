@@ -1658,9 +1658,7 @@ name|request
 init|=
 operator|new
 name|SearchScrollRequest
-argument_list|(
-name|mainRequest
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|request
 operator|.
@@ -1801,9 +1799,7 @@ name|refresh
 init|=
 operator|new
 name|RefreshRequest
-argument_list|(
-name|mainRequest
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|refresh
 operator|.
@@ -1912,9 +1908,7 @@ name|clearScrollRequest
 init|=
 operator|new
 name|ClearScrollRequest
-argument_list|(
-name|mainRequest
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|clearScrollRequest
 operator|.

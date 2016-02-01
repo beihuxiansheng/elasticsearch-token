@@ -94,7 +94,7 @@ name|updatedMatcher
 init|=
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 decl_stmt|;
 comment|/**      * Matches for number of batches. Optional.      */
@@ -116,7 +116,7 @@ name|versionConflictsMatcher
 init|=
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 decl_stmt|;
 DECL|field|failuresMatcher

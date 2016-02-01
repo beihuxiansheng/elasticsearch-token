@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -174,18 +164,6 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestController
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
 name|RestRequest
 import|;
 end_import
@@ -223,6 +201,16 @@ operator|.
 name|tasks
 operator|.
 name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -281,9 +269,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|RestController
-name|controller
-parameter_list|,
 name|Client
 name|client
 parameter_list|,
@@ -300,8 +285,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
 argument_list|,
 name|client
 argument_list|)

@@ -2207,6 +2207,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|)
 argument_list|,
 literal|"fobar"
@@ -2220,6 +2222,9 @@ argument_list|(
 name|ex
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 literal|"foo"
@@ -2286,7 +2291,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"foo"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"bar"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -2408,6 +2419,9 @@ argument_list|,
 name|alreadyExpiredException
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2716,6 +2730,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
@@ -2963,6 +2979,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)
@@ -3285,6 +3303,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
@@ -3557,6 +3577,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
@@ -3589,6 +3611,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)
@@ -3849,6 +3873,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)
@@ -4274,6 +4300,9 @@ name|ex
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -4469,6 +4498,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)
@@ -4771,7 +4802,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{\"type\":\"null_pointer_exception\",\"reason\":null}"
+literal|"{\"type\":\"null_pointer_exception\",\"reason\":\"null_pointer_exception: null\"}"
 argument_list|,
 name|toXContent
 argument_list|(
@@ -4796,7 +4827,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{\"type\":\"illegal_argument_exception\",\"reason\":\"nono!\"}"
+literal|"{\"type\":\"illegal_argument_exception\",\"reason\":\"illegal_argument_exception: nono!\"}"
 argument_list|,
 name|toXContent
 argument_list|(
@@ -5141,7 +5172,7 @@ name|serialize
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"msg"
+literal|"unknown_header_exception: msg"
 argument_list|,
 name|e
 operator|.

@@ -268,12 +268,15 @@ argument_list|(
 name|NAME
 argument_list|)
 decl_stmt|;
-comment|/**      * Creates a new {@link AllocateReplicaAllocationCommand}      *      * @param shardId        {@link ShardId} of the shard to assign      * @param node           node id of the node to assign the shard to      */
+comment|/**      * Creates a new {@link AllocateReplicaAllocationCommand}      *      * @param index          index of the shard to assign      * @param shardId        id of the shard to assign      * @param node           node id of the node to assign the shard to      */
 DECL|method|AllocateReplicaAllocationCommand
 specifier|public
 name|AllocateReplicaAllocationCommand
 parameter_list|(
-name|ShardId
+name|String
+name|index
+parameter_list|,
+name|int
 name|shardId
 parameter_list|,
 name|String
@@ -282,6 +285,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|index
+argument_list|,
 name|shardId
 argument_list|,
 name|node
@@ -352,13 +357,9 @@ return|return
 operator|new
 name|AllocateReplicaAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 name|index
 argument_list|,
 name|shard
-argument_list|)
 argument_list|,
 name|node
 argument_list|)
@@ -498,6 +499,8 @@ argument_list|()
 operator|.
 name|shardRoutingTable
 argument_list|(
+name|index
+argument_list|,
 name|shardId
 argument_list|)
 operator|.
@@ -539,11 +542,15 @@ name|explain
 argument_list|,
 name|allocation
 argument_list|,
-literal|"trying to allocate a replica shard "
+literal|"trying to allocate a replica shard ["
+operator|+
+name|index
+operator|+
+literal|"]["
 operator|+
 name|shardId
 operator|+
-literal|", while corresponding primary shard is still unassigned"
+literal|"], while corresponding primary shard is still unassigned"
 argument_list|)
 return|;
 block|}
@@ -560,6 +567,8 @@ argument_list|()
 operator|.
 name|shardRoutingTable
 argument_list|(
+name|index
+argument_list|,
 name|shardId
 argument_list|)
 operator|.
@@ -588,11 +597,15 @@ name|explain
 argument_list|,
 name|allocation
 argument_list|,
-literal|"all copies of "
+literal|"all copies of ["
+operator|+
+name|index
+operator|+
+literal|"]["
 operator|+
 name|shardId
 operator|+
-literal|" are already assigned. Use the move allocation command instead"
+literal|"] are already assigned. Use the move allocation command instead"
 argument_list|)
 return|;
 block|}
@@ -664,11 +677,15 @@ operator|+
 name|name
 argument_list|()
 operator|+
-literal|"] allocation of "
+literal|"] allocation of ["
+operator|+
+name|index
+operator|+
+literal|"]["
 operator|+
 name|shardId
 operator|+
-literal|" on node "
+literal|"] on node "
 operator|+
 name|discoNode
 operator|+

@@ -369,6 +369,17 @@ argument_list|(
 literal|"def n = [1,2,3]; GroovyCollections.max(n)"
 argument_list|)
 expr_stmt|;
+comment|// Groovy closures
+name|assertSuccess
+argument_list|(
+literal|"[1, 2, 3, 4].findAll { it % 2 == 0 }"
+argument_list|)
+expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"def buckets=[ [2, 4, 6, 8], [10, 12, 16, 14], [18, 22, 20, 24] ]; buckets[-3..-1].every { it.every { i -> i % 2 == 0 } }"
+argument_list|)
+expr_stmt|;
 comment|// Fail cases:
 name|assertFailure
 argument_list|(

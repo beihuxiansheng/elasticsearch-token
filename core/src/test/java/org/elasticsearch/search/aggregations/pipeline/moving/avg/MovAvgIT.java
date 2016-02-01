@@ -728,9 +728,6 @@ decl_stmt|;
 DECL|field|metric
 specifier|static
 name|ValuesSourceMetricsAggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|metric
 decl_stmt|;
 DECL|field|mockHisto
@@ -4858,7 +4855,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4994,7 +4991,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5996,6 +5993,9 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|SearchResponse
+name|response
+init|=
 name|client
 argument_list|()
 operator|.
@@ -6169,7 +6169,7 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -6447,7 +6447,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6591,7 +6591,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6777,7 +6777,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6975,7 +6975,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7095,6 +7095,9 @@ parameter_list|()
 block|{
 try|try
 block|{
+name|SearchResponse
+name|response
+init|=
 name|client
 argument_list|()
 operator|.
@@ -7185,7 +7188,7 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -8638,6 +8641,9 @@ control|)
 block|{
 try|try
 block|{
+name|SearchResponse
+name|response
+init|=
 name|client
 argument_list|()
 operator|.
@@ -8730,7 +8736,7 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -8748,21 +8754,12 @@ name|void
 name|assertValidIterators
 parameter_list|(
 name|Iterator
-argument_list|<
-name|?
-argument_list|>
 name|expectedBucketIter
 parameter_list|,
 name|Iterator
-argument_list|<
-name|?
-argument_list|>
 name|expectedCountsIter
 parameter_list|,
 name|Iterator
-argument_list|<
-name|?
-argument_list|>
 name|expectedValuesIter
 parameter_list|)
 block|{
@@ -9285,9 +9282,6 @@ block|}
 DECL|method|randomMetric
 specifier|private
 name|ValuesSourceMetricsAggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|randomMetric
 parameter_list|(
 name|String

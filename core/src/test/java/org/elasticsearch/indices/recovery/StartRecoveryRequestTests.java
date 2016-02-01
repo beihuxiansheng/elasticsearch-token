@@ -212,6 +212,8 @@ name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|,
@@ -257,7 +259,7 @@ name|Type
 operator|.
 name|RELOCATION
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 decl_stmt|;
 name|ByteArrayOutputStream

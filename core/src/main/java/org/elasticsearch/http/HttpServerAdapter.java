@@ -14,6 +14,22 @@ name|http
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadContext
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -33,6 +49,9 @@ name|request
 parameter_list|,
 name|HttpChannel
 name|channel
+parameter_list|,
+name|ThreadContext
+name|context
 parameter_list|)
 function_decl|;
 block|}

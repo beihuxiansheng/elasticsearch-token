@@ -717,8 +717,6 @@ name|mainRequest
 operator|.
 name|getDestination
 argument_list|()
-argument_list|,
-name|mainRequest
 argument_list|)
 decl_stmt|;
 comment|// We want the index from the copied request, not the doc.

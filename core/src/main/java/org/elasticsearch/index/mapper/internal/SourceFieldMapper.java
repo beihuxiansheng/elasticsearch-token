@@ -422,7 +422,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -823,7 +823,7 @@ name|builder
 operator|.
 name|enabled
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1483,16 +1483,6 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|context
-operator|.
-name|flyweight
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 name|BytesReference
 name|source
 init|=
@@ -1501,6 +1491,16 @@ operator|.
 name|source
 argument_list|()
 decl_stmt|;
+comment|// Percolate and tv APIs may not set the source and that is ok, because these APIs will not index any data
+if|if
+condition|(
+name|source
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|boolean
 name|filtered
 init|=

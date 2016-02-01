@@ -210,7 +210,7 @@ name|createdMatcher
 init|=
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 decl_stmt|;
 DECL|method|created

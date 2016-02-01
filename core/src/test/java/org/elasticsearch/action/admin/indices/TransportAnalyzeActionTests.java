@@ -298,7 +298,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()
@@ -383,11 +388,7 @@ name|IndexSettingsModule
 operator|.
 name|newIndexSettings
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"index"
-argument_list|)
 argument_list|,
 name|indexSettings
 argument_list|)

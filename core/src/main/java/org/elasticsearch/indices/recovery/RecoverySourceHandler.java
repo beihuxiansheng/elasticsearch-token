@@ -773,10 +773,10 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 expr_stmt|;
 name|this
@@ -1784,13 +1784,6 @@ argument_list|,
 name|outputStreamFactories
 argument_list|)
 expr_stmt|;
-name|cancellableThreads
-operator|.
-name|execute
-argument_list|(
-parameter_list|()
-lambda|->
-block|{
 comment|// Send the CLEAN_FILES request, which takes all of the files that
 comment|// were transferred and renames them from their temporary file
 comment|// names to the actual file names. It also writes checksums for
@@ -1800,6 +1793,13 @@ comment|// Once the files have been renamed, any other files that are not
 comment|// related to this recovery (out of date segments, for example)
 comment|// are deleted
 try|try
+block|{
+name|cancellableThreads
+operator|.
+name|execute
+argument_list|(
+parameter_list|()
+lambda|->
 block|{
 name|transportService
 operator|.
@@ -1860,6 +1860,9 @@ argument_list|)
 operator|.
 name|txGet
 argument_list|()
+expr_stmt|;
+block|}
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -1940,25 +1943,12 @@ name|timSort
 argument_list|(
 name|metadata
 argument_list|,
-operator|new
-name|Comparator
-argument_list|<
-name|StoreFileMetaData
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|int
-name|compare
 parameter_list|(
-name|StoreFileMetaData
 name|o1
 parameter_list|,
-name|StoreFileMetaData
 name|o2
 parameter_list|)
+lambda|->
 block|{
 return|return
 name|Long
@@ -1978,7 +1968,6 @@ argument_list|)
 return|;
 comment|// check small files first
 block|}
-block|}
 argument_list|)
 expr_stmt|;
 for|for
@@ -1989,6 +1978,11 @@ range|:
 name|metadata
 control|)
 block|{
+name|cancellableThreads
+operator|.
+name|checkForCancel
+argument_list|()
+expr_stmt|;
 name|logger
 operator|.
 name|debug
@@ -2111,9 +2105,6 @@ name|remoteException
 throw|;
 block|}
 block|}
-block|}
-argument_list|)
-expr_stmt|;
 block|}
 name|prepareTargetForTranslog
 argument_list|(

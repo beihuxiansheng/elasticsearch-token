@@ -1391,8 +1391,6 @@ init|=
 operator|new
 name|ShardFetchRequest
 argument_list|(
-name|request
-argument_list|,
 name|querySearchResult
 operator|.
 name|id
@@ -1589,8 +1587,6 @@ argument_list|,
 name|queryResults
 argument_list|,
 name|fetchResults
-argument_list|,
-name|request
 argument_list|)
 decl_stmt|;
 name|String

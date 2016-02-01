@@ -315,7 +315,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()
@@ -375,6 +380,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"test"
+argument_list|,
+literal|"_na_"
 argument_list|)
 decl_stmt|;
 name|AnalysisModule

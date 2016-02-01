@@ -1902,7 +1902,7 @@ name|add
 argument_list|(
 name|snapshotShardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.

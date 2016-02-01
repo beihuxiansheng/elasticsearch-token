@@ -884,14 +884,15 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"no metadata found for index ["
+literal|"no metadata found for index "
 operator|+
 name|indexRoutingTable
 operator|.
-name|index
+name|getIndex
 argument_list|()
-operator|+
-literal|"]"
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 throw|;
 block|}

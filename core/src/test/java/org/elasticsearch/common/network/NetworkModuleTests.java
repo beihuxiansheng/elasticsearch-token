@@ -444,8 +444,6 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -912,6 +910,9 @@ argument_list|(
 name|NetworkModule
 operator|.
 name|HTTP_ENABLED
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

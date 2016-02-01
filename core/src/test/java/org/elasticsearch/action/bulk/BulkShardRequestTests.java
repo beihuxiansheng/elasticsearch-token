@@ -106,6 +106,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"ignored"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|,
@@ -147,6 +149,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"ignored"
 argument_list|,
 literal|0
 argument_list|)

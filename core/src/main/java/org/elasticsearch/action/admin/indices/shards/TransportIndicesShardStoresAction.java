@@ -1222,7 +1222,7 @@ name|fetchResponse
 operator|.
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1341,7 +1341,7 @@ name|fetchResponse
 operator|.
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|fetchResponse
@@ -1421,7 +1421,7 @@ name|fetchResponse
 operator|.
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|indexShardsBuilder
@@ -1458,7 +1458,7 @@ name|fetchResponse
 operator|.
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|fetchResponse
@@ -1553,7 +1553,7 @@ name|shardID
 operator|&&
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 operator|.
 name|equals

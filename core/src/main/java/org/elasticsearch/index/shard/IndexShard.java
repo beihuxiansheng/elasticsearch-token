@@ -3900,15 +3900,6 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|getEngine
-argument_list|()
-operator|.
-name|refreshNeeded
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
 name|canIndex
 argument_list|()
 condition|)
@@ -4042,7 +4033,6 @@ operator|-
 name|time
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/** Returns how many bytes we are currently moving from heap to disk */
@@ -5502,6 +5492,16 @@ name|state
 argument_list|)
 throw|;
 block|}
+comment|// We set active because we are now writing operations to the engine; this way, if we go idle after some time and become inactive,
+comment|// we still invoke any onShardInactive listeners ... we won't sync'd flush in this case because we only do that on primary and this
+comment|// is a replica
+name|active
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 name|engineConfig
 operator|.
@@ -5663,6 +5663,23 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|skipTranslogRecovery
+operator|==
+literal|false
+condition|)
+block|{
+comment|// We set active because we are now writing operations to the engine; this way, if we go idle after some time and become inactive,
+comment|// we still give sync'd flush a chance to run:
+name|active
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 name|createNewEngine
 argument_list|(
 name|skipTranslogRecovery
@@ -6399,6 +6416,19 @@ name|getDataPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isActive
+specifier|public
+name|boolean
+name|isActive
+parameter_list|()
+block|{
+return|return
+name|active
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
 DECL|method|shardPath
 specifier|public
@@ -7650,6 +7680,28 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// time elapses after the engine is created above (pulling the config settings) until we set the engine reference, during which
+comment|// settings changes could possibly have happened, so here we forcefully push any config changes to the new engine:
+name|Engine
+name|engine
+init|=
+name|getEngineOrNull
+argument_list|()
+decl_stmt|;
+comment|// engine could perhaps be null if we were e.g. concurrently closed:
+if|if
+condition|(
+name|engine
+operator|!=
+literal|null
+condition|)
+block|{
+name|engine
+operator|.
+name|onSettingsChanged
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|newEngine
 specifier|protected
@@ -8655,6 +8707,21 @@ parameter_list|()
 block|{
 return|return
 name|engineFactory
+return|;
+block|}
+comment|/**      * Returns<code>true</code> iff one or more changes to the engine are not visible to via the current searcher.      * Otherwise<code>false</code>.      *      * @throws EngineClosedException if the engine is already closed      * @throws AlreadyClosedException if the internal indexwriter in the engine is already closed      */
+DECL|method|isRefreshNeeded
+specifier|public
+name|boolean
+name|isRefreshNeeded
+parameter_list|()
+block|{
+return|return
+name|getEngine
+argument_list|()
+operator|.
+name|refreshNeeded
+argument_list|()
 return|;
 block|}
 block|}

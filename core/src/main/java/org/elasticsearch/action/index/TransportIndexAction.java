@@ -428,6 +428,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|tasks
+operator|.
+name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -607,6 +619,9 @@ specifier|protected
 name|void
 name|doExecute
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 specifier|final
 name|IndexRequest
 name|request
@@ -648,9 +663,7 @@ name|createIndexRequest
 init|=
 operator|new
 name|CreateIndexRequest
-argument_list|(
-name|request
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|createIndexRequest
 operator|.
@@ -693,6 +706,8 @@ name|createIndexAction
 operator|.
 name|execute
 argument_list|(
+name|task
+argument_list|,
 name|createIndexRequest
 argument_list|,
 operator|new
@@ -714,6 +729,8 @@ parameter_list|)
 block|{
 name|innerExecute
 argument_list|(
+name|task
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -747,6 +764,8 @@ try|try
 block|{
 name|innerExecute
 argument_list|(
+name|task
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -787,6 +806,8 @@ else|else
 block|{
 name|innerExecute
 argument_list|(
+name|task
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -898,6 +919,9 @@ specifier|private
 name|void
 name|innerExecute
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 specifier|final
 name|IndexRequest
 name|request
@@ -914,6 +938,8 @@ name|super
 operator|.
 name|doExecute
 argument_list|(
+name|task
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -1020,6 +1046,9 @@ name|shardId
 argument_list|()
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|request
@@ -1247,7 +1276,7 @@ name|index
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.
@@ -1540,7 +1569,7 @@ name|indexName
 init|=
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 decl_stmt|;
 name|mappingUpdatedAction

@@ -518,8 +518,6 @@ name|Standard
 operator|.
 name|UPDATE
 argument_list|,
-name|mainRequest
-argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|)
@@ -570,9 +568,7 @@ name|bulkRequest
 init|=
 operator|new
 name|BulkRequest
-argument_list|(
-name|mainRequest
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|ExecutableScript
 name|executableScript

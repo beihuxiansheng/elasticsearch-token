@@ -248,6 +248,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportSettings
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -338,13 +350,21 @@ argument_list|(
 name|NettyTransport
 operator|.
 name|PING_SCHEDULE
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"5ms"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"transport.tcp.port"
+name|TransportSettings
+operator|.
+name|PORT
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -540,7 +560,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -557,7 +577,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -578,7 +598,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -595,7 +615,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -863,7 +883,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|200l
+literal|200L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -880,7 +900,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|200l
+literal|200L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -901,7 +921,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -918,7 +938,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

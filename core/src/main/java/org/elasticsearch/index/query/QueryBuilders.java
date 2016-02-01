@@ -620,7 +620,9 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      */
+comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      *      * @deprecated Fuzzy queries are not useful enough and will be removed with Elasticsearch 4.0. In most cases you may want to use      * a match query with the fuzziness parameter for strings or range queries for numeric and date fields.      *      * @see #matchQuery(String, Object)      * @see #rangeQuery(String)      */
+annotation|@
+name|Deprecated
 DECL|method|fuzzyQuery
 specifier|public
 specifier|static
@@ -644,7 +646,9 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      */
+comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      *      * @deprecated Fuzzy queries are not useful enough and will be removed with Elasticsearch 4.0. In most cases you may want to use      * a match query with the fuzziness parameter for strings or range queries for numeric and date fields.      *      * @see #matchQuery(String, Object)      * @see #rangeQuery(String)      */
+annotation|@
+name|Deprecated
 DECL|method|fuzzyQuery
 specifier|public
 specifier|static
@@ -1409,6 +1413,30 @@ argument_list|(
 name|type
 argument_list|,
 name|query
+argument_list|)
+return|;
+block|}
+comment|/**      * Constructs a new parent id query that returns all child documents of the specified type that      * point to the specified id.      */
+DECL|method|parentId
+specifier|public
+specifier|static
+name|ParentIdQueryBuilder
+name|parentId
+parameter_list|(
+name|String
+name|type
+parameter_list|,
+name|String
+name|id
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ParentIdQueryBuilder
+argument_list|(
+name|type
+argument_list|,
+name|id
 argument_list|)
 return|;
 block|}

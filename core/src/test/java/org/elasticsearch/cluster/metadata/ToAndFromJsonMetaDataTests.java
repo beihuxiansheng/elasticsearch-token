@@ -314,7 +314,7 @@ argument_list|)
 operator|.
 name|creationDate
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 operator|.
@@ -421,7 +421,7 @@ argument_list|)
 operator|.
 name|creationDate
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 operator|.
@@ -456,7 +456,7 @@ argument_list|)
 operator|.
 name|creationDate
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 operator|.
 name|putMapping
@@ -583,7 +583,7 @@ argument_list|)
 operator|.
 name|creationDate
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 operator|.
 name|numberOfShards
@@ -902,7 +902,7 @@ argument_list|)
 operator|.
 name|creationDate
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 operator|.
 name|numberOfShards
@@ -1124,7 +1124,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1208,7 +1208,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1328,7 +1328,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1409,7 +1409,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1519,7 +1519,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1686,7 +1686,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1805,7 +1805,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1937,7 +1937,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2162,7 +2162,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2388,7 +2388,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2614,7 +2614,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2927,7 +2927,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;

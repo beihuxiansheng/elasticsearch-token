@@ -494,7 +494,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"200ms"
 argument_list|)
@@ -1596,7 +1599,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"200ms"
 argument_list|)
@@ -1889,7 +1895,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -1910,7 +1916,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|countResponse
