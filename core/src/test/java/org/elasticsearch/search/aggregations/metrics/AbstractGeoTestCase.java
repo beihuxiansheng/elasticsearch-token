@@ -1873,7 +1873,7 @@ name|totalHits
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2000l
+literal|2000L
 argument_list|)
 argument_list|)
 expr_stmt|;

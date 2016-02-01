@@ -255,7 +255,7 @@ name|longSetting
 argument_list|(
 literal|"discovery.id.seed"
 argument_list|,
-literal|0l
+literal|0L
 argument_list|,
 name|Long
 operator|.

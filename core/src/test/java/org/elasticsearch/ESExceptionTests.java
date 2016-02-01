@@ -2487,7 +2487,7 @@ init|=
 operator|new
 name|Throwable
 argument_list|(
-literal|"wtf"
+literal|"eggplant"
 argument_list|,
 name|ParsingException
 argument_list|)
@@ -2522,7 +2522,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"wtf"
+literal|"throwable: eggplant"
 argument_list|,
 name|throwable
 operator|.
@@ -2845,8 +2845,20 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
+literal|"Expected: "
+operator|+
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|" to contain: "
+operator|+
 name|ex
 operator|.
 name|getCause
@@ -2857,6 +2869,8 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|" but it didn't"
 argument_list|,
 name|e
 operator|.
@@ -2865,7 +2879,9 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
+operator|.
+name|contains
+argument_list|(
 name|ex
 operator|.
 name|getCause
@@ -2873,6 +2889,7 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

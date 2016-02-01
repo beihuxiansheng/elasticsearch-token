@@ -840,7 +840,7 @@ name|Matchers
 operator|.
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

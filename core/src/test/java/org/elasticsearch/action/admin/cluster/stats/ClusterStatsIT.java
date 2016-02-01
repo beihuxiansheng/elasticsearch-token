@@ -889,7 +889,7 @@ name|Matchers
 operator|.
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1006,7 +1006,7 @@ name|Matchers
 operator|.
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1424,7 +1424,7 @@ name|Matchers
 operator|.
 name|greaterThan
 argument_list|(
-literal|946681200000l
+literal|946681200000L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1447,7 +1447,7 @@ name|Matchers
 operator|.
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1472,7 +1472,7 @@ name|Matchers
 operator|.
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

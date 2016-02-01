@@ -1734,7 +1734,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -1795,7 +1795,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -1878,7 +1878,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -1941,7 +1941,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2006,7 +2006,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 block|}
@@ -3141,7 +3141,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3207,7 +3207,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -3280,7 +3280,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4645,7 +4645,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4717,7 +4717,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4791,7 +4791,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -4865,7 +4865,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -5464,7 +5464,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -5535,7 +5535,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 comment|// counter example
@@ -5596,7 +5596,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 comment|// test if boosts work

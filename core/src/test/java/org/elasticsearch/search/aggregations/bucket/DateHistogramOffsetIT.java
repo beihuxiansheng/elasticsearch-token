@@ -654,7 +654,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5l
+literal|5L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -726,7 +726,7 @@ operator|.
 name|UTC
 argument_list|)
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|checkBucketFor
@@ -756,7 +756,7 @@ operator|.
 name|UTC
 argument_list|)
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 block|}
@@ -848,7 +848,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5l
+literal|5L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -920,7 +920,7 @@ operator|.
 name|UTC
 argument_list|)
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|checkBucketFor
@@ -950,7 +950,7 @@ operator|.
 name|UTC
 argument_list|)
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 block|}
@@ -1061,7 +1061,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|24l
+literal|24L
 argument_list|)
 argument_list|)
 expr_stmt|;

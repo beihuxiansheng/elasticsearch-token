@@ -453,13 +453,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-name|PluginManager
-operator|.
-name|checkForForbiddenName
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 name|String
 name|description
 init|=

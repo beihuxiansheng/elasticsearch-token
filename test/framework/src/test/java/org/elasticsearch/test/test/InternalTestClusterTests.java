@@ -924,6 +924,9 @@ name|iterator1
 init|=
 name|cluster1
 operator|.
+name|getClients
+argument_list|()
+operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
@@ -933,6 +936,9 @@ name|Client
 name|client
 range|:
 name|cluster0
+operator|.
+name|getClients
+argument_list|()
 control|)
 block|{
 name|assertTrue

@@ -572,7 +572,7 @@ specifier|final
 name|long
 name|MAX_IP
 init|=
-literal|4294967296l
+literal|4294967296L
 decl_stmt|;
 DECL|method|longToIp
 specifier|public

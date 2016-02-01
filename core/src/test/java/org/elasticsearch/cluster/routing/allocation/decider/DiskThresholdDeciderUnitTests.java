@@ -2356,7 +2356,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|1000l
+literal|1000L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2370,7 +2370,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|100l
+literal|100L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2384,7 +2384,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|10l
+literal|10L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2435,7 +2435,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|100l
+literal|100L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2453,7 +2453,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|90l
+literal|90L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2471,7 +2471,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0l
+literal|0L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2489,7 +2489,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0l
+literal|0L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2551,7 +2551,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0l
+literal|0L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2674,7 +2674,7 @@ condition|)
 block|{
 name|assertEquals
 argument_list|(
-literal|10100l
+literal|10100L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2692,7 +2692,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|10090l
+literal|10090L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2713,7 +2713,7 @@ else|else
 block|{
 name|assertEquals
 argument_list|(
-literal|100l
+literal|100L
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -2731,7 +2731,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|90l
+literal|90L
 argument_list|,
 name|DiskThresholdDecider
 operator|.

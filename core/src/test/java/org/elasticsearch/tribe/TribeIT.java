@@ -2271,7 +2271,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -2284,7 +2284,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|assertBusy
@@ -2457,7 +2457,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|assertHitCount
@@ -2470,7 +2470,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|assertBusy

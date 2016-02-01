@@ -14979,7 +14979,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -15121,7 +15121,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -18998,7 +18998,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 for|for
@@ -19530,7 +19530,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertHighlight
@@ -20199,7 +20199,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|SearchHit
@@ -20270,7 +20270,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 comment|//stopwords are now highlighted since we used only whitespace analyzer here
@@ -21148,7 +21148,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertHighlight
@@ -21809,7 +21809,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertHighlight

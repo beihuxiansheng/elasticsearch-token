@@ -86,7 +86,7 @@ specifier|public
 name|long
 name|j
 init|=
-literal|3l
+literal|3L
 decl_stmt|;
 DECL|field|f
 specifier|public

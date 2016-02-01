@@ -694,7 +694,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|NettyTransport
+name|NetworkService
 operator|.
 name|NETWORK_SERVER
 operator|.

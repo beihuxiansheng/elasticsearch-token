@@ -838,7 +838,7 @@ operator|(
 name|part
 operator|<=
 operator|(
-literal|1l
+literal|1L
 operator|<<
 name|level
 operator|)

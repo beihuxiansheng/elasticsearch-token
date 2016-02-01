@@ -26,6 +26,16 @@ name|ElasticsearchException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
 begin_comment
 comment|/**  * Specialization of {@link AutoCloseable} that may only throw an {@link ElasticsearchException}.  */
 end_comment
@@ -36,7 +46,7 @@ specifier|public
 interface|interface
 name|Releasable
 extends|extends
-name|AutoCloseable
+name|Closeable
 block|{
 annotation|@
 name|Override
