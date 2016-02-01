@@ -2651,6 +2651,9 @@ name|client
 range|:
 name|internalCluster
 argument_list|()
+operator|.
+name|getClients
+argument_list|()
 control|)
 block|{
 name|assertThat
@@ -2871,6 +2874,9 @@ name|Client
 name|client
 range|:
 name|internalCluster
+argument_list|()
+operator|.
+name|getClients
 argument_list|()
 control|)
 block|{
