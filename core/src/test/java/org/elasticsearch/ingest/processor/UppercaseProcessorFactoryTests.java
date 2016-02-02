@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ingest
 operator|.
 name|core
@@ -242,7 +252,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ConfigurationPropertyException
+name|ElasticsearchParseException
 name|e
 parameter_list|)
 block|{

@@ -160,6 +160,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|SpecialPermission
 import|;
 end_import
@@ -231,34 +241,6 @@ operator|.
 name|core
 operator|.
 name|IngestDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|processor
-operator|.
-name|ConfigurationPropertyException
 import|;
 end_import
 
@@ -389,6 +371,22 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|core
+operator|.
+name|ConfigurationUtils
+operator|.
+name|newConfigurationException
 import|;
 end_import
 
@@ -637,7 +635,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|IllegalStateException
+name|ElasticsearchParseException
 argument_list|(
 literal|"Unsupported database type ["
 operator|+
@@ -650,6 +648,10 @@ name|getDatabaseType
 argument_list|()
 operator|+
 literal|"]"
+argument_list|,
+operator|new
+name|IllegalStateException
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1476,8 +1478,7 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|TYPE
 argument_list|,
@@ -1532,8 +1533,7 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|TYPE
 argument_list|,

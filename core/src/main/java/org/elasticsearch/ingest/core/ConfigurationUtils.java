@@ -22,11 +22,17 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|processor
+name|elasticsearch
 operator|.
-name|ConfigurationPropertyException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -62,7 +68,7 @@ specifier|private
 name|ConfigurationUtils
 parameter_list|()
 block|{     }
-comment|/**      * Returns and removes the specified optional property from the specified configuration map.      *      * If the property value isn't of type string a {@link ConfigurationPropertyException} is thrown.      */
+comment|/**      * Returns and removes the specified optional property from the specified configuration map.      *      * If the property value isn't of type string a {@link ElasticsearchParseException} is thrown.      */
 DECL|method|readOptionalStringProperty
 specifier|public
 specifier|static
@@ -110,7 +116,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns and removes the specified property from the specified configuration map.      *      * If the property value isn't of type string an {@link ConfigurationPropertyException} is thrown.      * If the property is missing an {@link ConfigurationPropertyException} is thrown      */
+comment|/**      * Returns and removes the specified property from the specified configuration map.      *      * If the property value isn't of type string an {@link ElasticsearchParseException} is thrown.      * If the property is missing an {@link ElasticsearchParseException} is thrown      */
 DECL|method|readStringProperty
 specifier|public
 specifier|static
@@ -150,7 +156,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns and removes the specified property from the specified configuration map.      *      * If the property value isn't of type string a {@link ConfigurationPropertyException} is thrown.      * If the property is missing and no default value has been specified a {@link ConfigurationPropertyException} is thrown      */
+comment|/**      * Returns and removes the specified property from the specified configuration map.      *      * If the property value isn't of type string a {@link ElasticsearchParseException} is thrown.      * If the property is missing and no default value has been specified a {@link ElasticsearchParseException} is thrown      */
 DECL|method|readStringProperty
 specifier|public
 specifier|static
@@ -212,8 +218,7 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|processorType
 argument_list|,
@@ -283,8 +288,7 @@ name|value
 return|;
 block|}
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|processorType
 argument_list|,
@@ -306,7 +310,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Returns and removes the specified property of type list from the specified configuration map.      *      * If the property value isn't of type list an {@link ConfigurationPropertyException} is thrown.      */
+comment|/**      * Returns and removes the specified property of type list from the specified configuration map.      *      * If the property value isn't of type list an {@link ElasticsearchParseException} is thrown.      */
 DECL|method|readOptionalList
 specifier|public
 specifier|static
@@ -371,7 +375,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns and removes the specified property of type list from the specified configuration map.      *      * If the property value isn't of type list an {@link ConfigurationPropertyException} is thrown.      * If the property is missing an {@link ConfigurationPropertyException} is thrown      */
+comment|/**      * Returns and removes the specified property of type list from the specified configuration map.      *      * If the property value isn't of type list an {@link ElasticsearchParseException} is thrown.      * If the property is missing an {@link ElasticsearchParseException} is thrown      */
 DECL|method|readList
 specifier|public
 specifier|static
@@ -420,8 +424,7 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|processorType
 argument_list|,
@@ -504,8 +507,7 @@ block|}
 else|else
 block|{
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|processorType
 argument_list|,
@@ -528,7 +530,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns and removes the specified property of type map from the specified configuration map.      *      * If the property value isn't of type map an {@link ConfigurationPropertyException} is thrown.      * If the property is missing an {@link ConfigurationPropertyException} is thrown      */
+comment|/**      * Returns and removes the specified property of type map from the specified configuration map.      *      * If the property value isn't of type map an {@link ElasticsearchParseException} is thrown.      * If the property is missing an {@link ElasticsearchParseException} is thrown      */
 DECL|method|readMap
 specifier|public
 specifier|static
@@ -579,8 +581,7 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|processorType
 argument_list|,
@@ -605,7 +606,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns and removes the specified property of type map from the specified configuration map.      *      * If the property value isn't of type map an {@link ConfigurationPropertyException} is thrown.      */
+comment|/**      * Returns and removes the specified property of type map from the specified configuration map.      *      * If the property value isn't of type map an {@link ElasticsearchParseException} is thrown.      */
 DECL|method|readOptionalMap
 specifier|public
 specifier|static
@@ -736,8 +737,7 @@ block|}
 else|else
 block|{
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|processorType
 argument_list|,
@@ -803,8 +803,7 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|ConfigurationPropertyException
+name|newConfigurationException
 argument_list|(
 name|processorType
 argument_list|,
@@ -818,6 +817,95 @@ throw|;
 block|}
 return|return
 name|value
+return|;
+block|}
+DECL|method|newConfigurationException
+specifier|public
+specifier|static
+name|ElasticsearchParseException
+name|newConfigurationException
+parameter_list|(
+name|String
+name|processorType
+parameter_list|,
+name|String
+name|processorTag
+parameter_list|,
+name|String
+name|propertyName
+parameter_list|,
+name|String
+name|reason
+parameter_list|)
+block|{
+name|ElasticsearchParseException
+name|exception
+init|=
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"["
+operator|+
+name|propertyName
+operator|+
+literal|"] "
+operator|+
+name|reason
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|processorType
+operator|!=
+literal|null
+condition|)
+block|{
+name|exception
+operator|.
+name|addHeader
+argument_list|(
+literal|"processor_type"
+argument_list|,
+name|processorType
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|processorTag
+operator|!=
+literal|null
+condition|)
+block|{
+name|exception
+operator|.
+name|addHeader
+argument_list|(
+literal|"processor_tag"
+argument_list|,
+name|processorTag
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|propertyName
+operator|!=
+literal|null
+condition|)
+block|{
+name|exception
+operator|.
+name|addHeader
+argument_list|(
+literal|"property_name"
+argument_list|,
+name|propertyName
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|exception
 return|;
 block|}
 block|}
