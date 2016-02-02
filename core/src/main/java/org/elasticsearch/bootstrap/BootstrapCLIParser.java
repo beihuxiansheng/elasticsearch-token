@@ -478,8 +478,8 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"Version: %s, Build: %s/%s, JVM: %s"
-argument_list|,
+literal|"Version: "
+operator|+
 name|org
 operator|.
 name|elasticsearch
@@ -487,21 +487,27 @@ operator|.
 name|Version
 operator|.
 name|CURRENT
-argument_list|,
+operator|+
+literal|", Build: "
+operator|+
 name|Build
 operator|.
 name|CURRENT
 operator|.
 name|shortHash
 argument_list|()
-argument_list|,
+operator|+
+literal|"/"
+operator|+
 name|Build
 operator|.
 name|CURRENT
 operator|.
 name|date
 argument_list|()
-argument_list|,
+operator|+
+literal|", JVM: "
+operator|+
 name|JvmInfo
 operator|.
 name|jvmInfo

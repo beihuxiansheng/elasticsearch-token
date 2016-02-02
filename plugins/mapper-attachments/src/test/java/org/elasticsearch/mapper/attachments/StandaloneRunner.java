@@ -242,16 +242,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -798,8 +788,6 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"%s"
-argument_list|,
 name|doc
 operator|.
 name|get
@@ -934,10 +922,12 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"- %s: %s"
-argument_list|,
+literal|"- "
+operator|+
 name|field
-argument_list|,
+operator|+
+literal|":"
+operator|+
 name|doc
 operator|.
 name|get
