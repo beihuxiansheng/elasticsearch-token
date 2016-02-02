@@ -419,6 +419,16 @@ argument_list|<
 name|CompletionSuggestionContext
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|CompletionSuggester
+name|PROTOTYPE
+init|=
+operator|new
+name|CompletionSuggester
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getContextParser

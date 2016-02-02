@@ -276,6 +276,16 @@ argument_list|<
 name|TermSuggestionContext
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|TermSuggester
+name|PROTOTYPE
+init|=
+operator|new
+name|TermSuggester
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|innerExecute

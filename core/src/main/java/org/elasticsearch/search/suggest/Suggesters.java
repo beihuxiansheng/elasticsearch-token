@@ -355,8 +355,6 @@ operator|new
 name|PhraseSuggester
 argument_list|(
 name|scriptService
-argument_list|,
-name|indexServices
 argument_list|)
 argument_list|)
 expr_stmt|;
