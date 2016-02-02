@@ -1530,7 +1530,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 name|name
 argument_list|)
@@ -1558,7 +1558,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|)
 operator|!=
 literal|null

@@ -499,7 +499,10 @@ name|put
 argument_list|(
 name|MockTaskManager
 operator|.
-name|USE_MOCK_TASK_MANAGER
+name|USE_MOCK_TASK_MANAGER_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
