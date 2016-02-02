@@ -132,6 +132,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|cli
+operator|.
+name|UserError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -271,8 +285,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Plugin "
 operator|+
 name|pluginName
@@ -329,8 +349,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|IO_ERROR
+argument_list|,
 literal|"Bin dir for "
 operator|+
 name|pluginName
