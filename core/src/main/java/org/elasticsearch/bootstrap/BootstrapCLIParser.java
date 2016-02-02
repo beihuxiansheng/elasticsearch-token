@@ -126,6 +126,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|cli
+operator|.
+name|UserError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -464,8 +478,8 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"Version: %s, Build: %s/%s, JVM: %s"
-argument_list|,
+literal|"Version: "
+operator|+
 name|org
 operator|.
 name|elasticsearch
@@ -473,21 +487,27 @@ operator|.
 name|Version
 operator|.
 name|CURRENT
-argument_list|,
+operator|+
+literal|", Build: "
+operator|+
 name|Build
 operator|.
 name|CURRENT
 operator|.
 name|shortHash
 argument_list|()
-argument_list|,
+operator|+
+literal|"/"
+operator|+
 name|Build
 operator|.
 name|CURRENT
 operator|.
 name|date
 argument_list|()
-argument_list|,
+operator|+
+literal|", JVM: "
+operator|+
 name|JvmInfo
 operator|.
 name|jvmInfo
@@ -645,6 +665,8 @@ parameter_list|,
 name|CommandLine
 name|cli
 parameter_list|)
+throws|throws
+name|UserError
 block|{
 if|if
 condition|(
@@ -868,8 +890,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -882,8 +908,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -986,8 +1016,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -1012,8 +1046,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg

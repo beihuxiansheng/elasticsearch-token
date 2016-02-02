@@ -7269,7 +7269,7 @@ literal|" not 0"
 argument_list|,
 name|indexShard
 operator|.
-name|getOperationsCount
+name|getActiveOperationsCount
 argument_list|()
 argument_list|,
 name|equalTo
