@@ -807,7 +807,7 @@ name|tmpDir
 argument_list|)
 return|;
 block|}
-comment|// now try as maven coordinates, a valid URL would only have a single colon
+comment|// now try as maven coordinates, a valid URL would only have a colon and slash
 name|String
 index|[]
 name|coordinates
@@ -826,6 +826,15 @@ operator|.
 name|length
 operator|==
 literal|3
+operator|&&
+name|pluginId
+operator|.
+name|contains
+argument_list|(
+literal|"/"
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 name|String
