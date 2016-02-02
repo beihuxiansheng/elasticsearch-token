@@ -111,7 +111,7 @@ name|LOG_LEVEL_SETTING
 init|=
 name|Setting
 operator|.
-name|dynamicKeySetting
+name|prefixKeySetting
 argument_list|(
 literal|"logger."
 argument_list|,
