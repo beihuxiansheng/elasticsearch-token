@@ -7976,13 +7976,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/16364"
-argument_list|)
 DECL|method|testStressRelocated
 specifier|public
 name|void
@@ -8089,12 +8082,12 @@ name|numThreads
 index|]
 decl_stmt|;
 name|CountDownLatch
-name|somePrimaryOperationLockAcquired
+name|allPrimaryOperationLocksAcquired
 init|=
 operator|new
 name|CountDownLatch
 argument_list|(
-literal|1
+name|numThreads
 argument_list|)
 decl_stmt|;
 name|CyclicBarrier
@@ -8152,7 +8145,7 @@ name|acquirePrimaryOperationLock
 argument_list|()
 init|)
 block|{
-name|somePrimaryOperationLockAcquired
+name|allPrimaryOperationLocksAcquired
 operator|.
 name|countDown
 argument_list|()
@@ -8225,8 +8218,8 @@ expr_stmt|;
 block|}
 argument_list|)
 decl_stmt|;
-comment|// ensure we wait for at least one primary operation lock to be acquired
-name|somePrimaryOperationLockAcquired
+comment|// ensure we wait for all primary operation locks to be acquired
+name|allPrimaryOperationLocksAcquired
 operator|.
 name|await
 argument_list|()
