@@ -760,8 +760,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The geohash of the geo point to create the range distance facets from.      *       * Deprecated - please use points(GeoPoint... points) instead.      */
-annotation|@
-name|Deprecated
 DECL|method|geohashes
 specifier|public
 name|GeoDistanceSortBuilder
