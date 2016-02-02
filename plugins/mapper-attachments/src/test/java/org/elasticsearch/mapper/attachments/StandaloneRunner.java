@@ -987,32 +987,10 @@ name|newInputStream
 argument_list|(
 name|path
 argument_list|)
-init|)
-block|{
-if|if
-condition|(
-name|is
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|FileNotFoundException
-argument_list|(
-literal|"Resource ["
-operator|+
-name|path
-operator|+
-literal|"] not found in classpath"
-argument_list|)
-throw|;
-block|}
-try|try
-init|(
+init|;
 name|BytesStreamOutput
 name|out
-init|=
+operator|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
@@ -1034,7 +1012,6 @@ operator|.
 name|toBytes
 argument_list|()
 return|;
-block|}
 block|}
 block|}
 DECL|method|parse
@@ -1230,6 +1207,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|StandaloneRunner
 name|pluginManager

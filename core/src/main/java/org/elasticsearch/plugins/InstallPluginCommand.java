@@ -338,6 +338,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|cli
+operator|.
+name|UserError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|hash
 operator|.
 name|MessageDigests
@@ -628,34 +642,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|Environment
-operator|.
-name|isWritable
-argument_list|(
-name|env
-operator|.
-name|pluginsFile
-argument_list|()
-argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Plugins directory is read only: "
-operator|+
-name|env
-operator|.
-name|pluginsFile
-argument_list|()
-argument_list|)
-throw|;
-block|}
 name|Path
 name|pluginZip
 init|=
@@ -710,7 +696,7 @@ name|Path
 name|tmpDir
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 if|if
 condition|(
@@ -1006,7 +992,7 @@ name|Path
 name|tmpDir
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|Path
 name|zip
@@ -1080,14 +1066,17 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|IO_ERROR
+argument_list|,
 literal|"Invalid checksum file at "
 operator|+
-name|urlString
-operator|.
-name|toString
-argument_list|()
+name|checksumUrl
 argument_list|)
 throw|;
 block|}
@@ -1135,8 +1124,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|IO_ERROR
+argument_list|,
 literal|"SHA1 mismatch, expected "
 operator|+
 name|expectedChecksum
@@ -1377,8 +1372,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"plugin '"
 operator|+
 name|info
@@ -1667,8 +1668,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"plugin directory "
 operator|+
 name|destination
@@ -1869,7 +1876,7 @@ name|Path
 name|destBinDir
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 if|if
 condition|(
@@ -1885,8 +1892,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|IO_ERROR
+argument_list|,
 literal|"bin in plugin "
 operator|+
 name|info
@@ -2021,13 +2034,26 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|DATA_ERROR
+argument_list|,
 literal|"Directories not allowed in bin dir for plugin "
 operator|+
 name|info
 operator|.
 name|getName
+argument_list|()
+operator|+
+literal|", found "
+operator|+
+name|srcFile
+operator|.
+name|getFileName
 argument_list|()
 argument_list|)
 throw|;
@@ -2115,7 +2141,7 @@ name|Path
 name|destConfigDir
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 if|if
 condition|(
@@ -2131,8 +2157,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|IO_ERROR
+argument_list|,
 literal|"config in plugin "
 operator|+
 name|info
@@ -2188,8 +2220,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|UserError
 argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|DATA_ERROR
+argument_list|,
 literal|"Directories not allowed in config dir for plugin "
 operator|+
 name|info

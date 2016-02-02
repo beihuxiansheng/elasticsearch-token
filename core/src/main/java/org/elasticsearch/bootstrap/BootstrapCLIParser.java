@@ -126,6 +126,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|cli
+operator|.
+name|UserError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -645,6 +659,8 @@ parameter_list|,
 name|CommandLine
 name|cli
 parameter_list|)
+throws|throws
+name|UserError
 block|{
 if|if
 condition|(
@@ -868,8 +884,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -882,8 +902,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -986,8 +1010,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -1012,8 +1040,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
