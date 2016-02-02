@@ -1827,6 +1827,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -1963,6 +1965,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
@@ -2019,6 +2023,8 @@ operator|.
 expr|new
 name|ReroutePhase
 argument_list|(
+literal|null
+argument_list|,
 name|request
 argument_list|,
 name|listener
