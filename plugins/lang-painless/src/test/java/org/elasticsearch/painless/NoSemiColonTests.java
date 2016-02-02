@@ -35,10 +35,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NoSemiColonTest
+DECL|class|NoSemiColonTests
 specifier|public
 class|class
-name|NoSemiColonTest
+name|NoSemiColonTests
 extends|extends
 name|ScriptTestCase
 block|{
@@ -131,7 +131,7 @@ literal|"aaaaaa"
 argument_list|,
 name|exec
 argument_list|(
-literal|"String c = \"a\" int x while (x< 5) { c ..= \"a\" ++x } return c"
+literal|"String c = \"a\" int x while (x< 5) { ++x c += \"a\" } return c"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -243,7 +243,7 @@ literal|"aaaaaa"
 argument_list|,
 name|exec
 argument_list|(
-literal|"String c = \"a\" int x do { c ..= \"a\" ++x } while (x< 5) return c"
+literal|"String c = \"a\" int x do { c += \"a\"; ++x } while (x< 5) return c"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -252,35 +252,35 @@ name|value
 init|=
 name|exec
 argument_list|(
-literal|" long[][] l = new long[5][5]     \n"
+literal|" long[][] l = new long[5][5]      \n"
 operator|+
-literal|" long x = 0, y                   \n"
+literal|" long x = 0, y                    \n"
 operator|+
-literal|"                                 \n"
+literal|"                                  \n"
 operator|+
-literal|" do {                            \n"
+literal|" do {                             \n"
 operator|+
-literal|"     y = 0                       \n"
+literal|"     y = 0                        \n"
 operator|+
-literal|"                                 \n"
+literal|"                                  \n"
 operator|+
-literal|"     do {                        \n"
+literal|"     do {                         \n"
 operator|+
-literal|"         l[(int)x][(int)y] = x*y \n"
+literal|"         l[(int)x][(int)y] = x*y; \n"
 operator|+
-literal|"         ++y                     \n"
+literal|"         ++y                      \n"
 operator|+
-literal|"     } while (y< 5)             \n"
+literal|"     } while (y< 5)              \n"
 operator|+
-literal|"                                 \n"
+literal|"                                  \n"
 operator|+
-literal|"     ++x                         \n"
+literal|"     ++x                          \n"
 operator|+
-literal|" } while (x< 5)                 \n"
+literal|" } while (x< 5)                  \n"
 operator|+
-literal|"                                 \n"
+literal|"                                  \n"
 operator|+
-literal|" return l                        \n"
+literal|" return l                         \n"
 argument_list|)
 decl_stmt|;
 name|long
@@ -361,7 +361,7 @@ literal|"aaaaaa"
 argument_list|,
 name|exec
 argument_list|(
-literal|"String c = \"a\" for (int x = 0; x< 5; ++x) c ..= \"a\" return c"
+literal|"String c = \"a\" for (int x = 0; x< 5; ++x) c += \"a\" return c"
 argument_list|)
 argument_list|)
 expr_stmt|;
