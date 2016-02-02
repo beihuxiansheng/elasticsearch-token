@@ -35,10 +35,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NoSemiColonTest
+DECL|class|NoSemiColonTests
 specifier|public
 class|class
-name|NoSemiColonTest
+name|NoSemiColonTests
 extends|extends
 name|ScriptTestCase
 block|{
