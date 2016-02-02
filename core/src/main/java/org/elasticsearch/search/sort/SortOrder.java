@@ -133,6 +133,15 @@ return|;
 block|}
 block|}
 block|;
+DECL|field|DEFAULT
+specifier|public
+specifier|static
+specifier|final
+name|SortOrder
+name|DEFAULT
+init|=
+name|DESC
+decl_stmt|;
 DECL|field|PROTOTYPE
 specifier|private
 specifier|static
@@ -140,7 +149,7 @@ specifier|final
 name|SortOrder
 name|PROTOTYPE
 init|=
-name|ASC
+name|DEFAULT
 decl_stmt|;
 annotation|@
 name|Override
