@@ -1094,21 +1094,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testHiddenFileSkipped
+DECL|method|testHiddenScriptFileSkipped
 specifier|public
 name|void
-name|testHiddenFileSkipped
+name|testHiddenScriptFileSkipped
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|ContextAndHeaderHolder
-name|contextAndHeaders
-init|=
-operator|new
-name|ContextAndHeaderHolder
-argument_list|()
-decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -1116,15 +1109,8 @@ operator|.
 name|EMPTY
 argument_list|)
 expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> setup one hidden test file"
-argument_list|)
-expr_stmt|;
 name|Path
-name|testFileHidden
+name|testHiddenFile
 init|=
 name|scriptsFilePath
 operator|.
@@ -1134,7 +1120,7 @@ literal|".hidden_file"
 argument_list|)
 decl_stmt|;
 name|Path
-name|testRegularFile
+name|testFile
 init|=
 name|scriptsFilePath
 operator|.
@@ -1158,7 +1144,7 @@ name|Files
 operator|.
 name|newOutputStream
 argument_list|(
-name|testFileHidden
+name|testHiddenFile
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1177,7 +1163,7 @@ name|Files
 operator|.
 name|newOutputStream
 argument_list|(
-name|testRegularFile
+name|testFile
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1188,13 +1174,6 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> verify if hidden_file was skipped"
-argument_list|)
-expr_stmt|;
 name|scriptService
 operator|.
 name|compile
@@ -1218,8 +1197,6 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-name|contextAndHeaders
 argument_list|,
 name|Collections
 operator|.
@@ -1253,13 +1230,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> verify if test_file was correctly processed"
-argument_list|)
-expr_stmt|;
 name|CompiledScript
 name|compiledScript
 init|=
@@ -1287,8 +1257,6 @@ name|Standard
 operator|.
 name|SEARCH
 argument_list|,
-name|contextAndHeaders
-argument_list|,
 name|Collections
 operator|.
 name|emptyMap
@@ -1311,32 +1279,18 @@ literal|"compiled_test_file"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|logger
+name|Files
 operator|.
-name|info
+name|delete
 argument_list|(
-literal|"--> delete hidden file"
+name|testHiddenFile
 argument_list|)
 expr_stmt|;
 name|Files
 operator|.
 name|delete
 argument_list|(
-name|testFileHidden
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> delete test file"
-argument_list|)
-expr_stmt|;
-name|Files
-operator|.
-name|delete
-argument_list|(
-name|testRegularFile
+name|testFile
 argument_list|)
 expr_stmt|;
 name|resourceWatcherService
