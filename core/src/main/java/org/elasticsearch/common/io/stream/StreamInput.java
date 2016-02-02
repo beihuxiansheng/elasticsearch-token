@@ -306,8 +306,6 @@ name|suggest
 operator|.
 name|phrase
 operator|.
-name|PhraseSuggestionBuilder
-operator|.
 name|SmoothingModel
 import|;
 end_import
