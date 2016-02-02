@@ -1802,10 +1802,7 @@ literal|5
 argument_list|,
 literal|20
 argument_list|)
-argument_list|)
-operator|.
-name|geohashes
-argument_list|(
+argument_list|,
 name|AbstractQueryTestCase
 operator|.
 name|randomGeohash
