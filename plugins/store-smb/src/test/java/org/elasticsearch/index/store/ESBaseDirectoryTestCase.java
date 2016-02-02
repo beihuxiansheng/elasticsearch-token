@@ -1,12 +1,12 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.lucene.store
+DECL|package|org.elastiscearch.index.store
 package|package
 name|org
 operator|.
-name|apache
+name|elastiscearch
 operator|.
-name|lucene
+name|index
 operator|.
 name|store
 package|;
@@ -41,6 +41,20 @@ operator|.
 name|annotations
 operator|.
 name|TimeoutSuite
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|BaseDirectoryTestCase
 import|;
 end_import
 
