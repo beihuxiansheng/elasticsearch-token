@@ -1455,7 +1455,6 @@ block|}
 block|}
 block|}
 block|}
-empty_stmt|;
 DECL|field|BUILT_IN_CLUSTER_SETTINGS
 specifier|public
 specifier|static
