@@ -337,7 +337,7 @@ index|[]
 name|filters
 parameter_list|,
 name|boolean
-name|inclusiveFilters
+name|inclusive
 parameter_list|)
 throws|throws
 name|IOException
@@ -359,7 +359,7 @@ argument_list|)
 argument_list|,
 name|os
 argument_list|,
-name|inclusiveFilters
+name|inclusive
 argument_list|,
 name|filters
 argument_list|)

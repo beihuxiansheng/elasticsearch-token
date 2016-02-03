@@ -477,12 +477,12 @@ parameter_list|(
 name|XContent
 name|xContent
 parameter_list|,
-name|boolean
-name|inclusive
-parameter_list|,
 name|String
 index|[]
 name|filters
+parameter_list|,
+name|boolean
+name|inclusive
 parameter_list|)
 throws|throws
 name|IOException
