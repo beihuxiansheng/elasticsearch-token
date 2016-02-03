@@ -433,8 +433,6 @@ specifier|final
 name|QueryCachingPolicy
 name|queryCachingPolicy
 decl_stmt|;
-static|static
-block|{      }
 comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      */
 DECL|field|INDEX_CODEC_SETTING
 specifier|public
