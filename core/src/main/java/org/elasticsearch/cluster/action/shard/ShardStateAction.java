@@ -2875,7 +2875,7 @@ name|components
 operator|.
 name|add
 argument_list|(
-literal|"failed shard ["
+literal|"target shard ["
 operator|+
 name|shardRouting
 operator|+
