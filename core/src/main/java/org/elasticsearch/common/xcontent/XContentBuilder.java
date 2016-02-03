@@ -587,7 +587,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new builder using the provided xcontent, an OutputStream and      * some filters. If filters are specified and inclusiveFilters is true, only      * those values matching a filter will be written to the output stream. If      * inclusiveFilters is false, those matching will be excluded. Make sure to      * call {@link #close()} when the builder is done with.      */
+comment|/**      * Constructs a new builder using the provided xcontent, an OutputStream and      * some filters. If {@code filters} are specified and {@code inclusive} is      * true, only those values matching a filter will be written to the output      * stream. If {@code inclusive} is false, those matching will be excluded.      * Make sure to call {@link #close()} when the builder is done with.      */
 DECL|method|XContentBuilder
 specifier|public
 name|XContentBuilder
