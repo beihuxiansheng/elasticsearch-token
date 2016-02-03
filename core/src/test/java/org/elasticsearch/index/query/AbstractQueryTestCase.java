@@ -1884,12 +1884,6 @@ operator|new
 name|SettingsModule
 argument_list|(
 name|settings
-argument_list|,
-operator|new
-name|SettingsFilter
-argument_list|(
-name|settings
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|settingsModule

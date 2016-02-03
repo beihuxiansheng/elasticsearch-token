@@ -1843,16 +1843,6 @@ name|settings
 argument_list|)
 decl_stmt|;
 specifier|final
-name|SettingsFilter
-name|settingsFilter
-init|=
-operator|new
-name|SettingsFilter
-argument_list|(
-name|settings
-argument_list|)
-decl_stmt|;
-specifier|final
 name|ThreadPool
 name|threadPool
 init|=
@@ -1961,8 +1951,6 @@ argument_list|(
 name|this
 operator|.
 name|settings
-argument_list|,
-name|settingsFilter
 argument_list|)
 decl_stmt|;
 name|modules
