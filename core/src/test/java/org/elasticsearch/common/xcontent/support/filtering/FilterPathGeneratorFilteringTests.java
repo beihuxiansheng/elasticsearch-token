@@ -966,14 +966,14 @@ argument_list|,
 operator|new
 name|FilterPathBasedFilter
 argument_list|(
-name|inclusive
-argument_list|,
 operator|new
 name|String
 index|[]
 block|{
 name|filter
 block|}
+argument_list|,
+name|inclusive
 argument_list|)
 argument_list|,
 literal|true

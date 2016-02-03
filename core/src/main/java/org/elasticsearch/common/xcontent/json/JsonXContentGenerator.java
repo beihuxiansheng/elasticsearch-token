@@ -516,9 +516,9 @@ argument_list|,
 operator|new
 name|FilterPathBasedFilter
 argument_list|(
-name|inclusive
-argument_list|,
 name|filters
+argument_list|,
+name|inclusive
 argument_list|)
 argument_list|,
 literal|true
