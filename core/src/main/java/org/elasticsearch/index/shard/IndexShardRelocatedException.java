@@ -62,6 +62,25 @@ name|ShardId
 name|shardId
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|shardId
+argument_list|,
+literal|"Already relocated"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IndexShardRelocatedException
+specifier|public
+name|IndexShardRelocatedException
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+name|String
+name|reason
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|shardId
@@ -70,7 +89,7 @@ name|IndexShardState
 operator|.
 name|RELOCATED
 argument_list|,
-literal|"Already relocated"
+name|reason
 argument_list|)
 expr_stmt|;
 block|}

@@ -84,6 +84,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|cli
+operator|.
+name|UserError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -1094,6 +1108,8 @@ specifier|public
 name|void
 name|testParsingErrors
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|BootstrapCLIParser
 name|parser
@@ -1515,7 +1531,17 @@ argument_list|(
 name|terminal
 argument_list|)
 decl_stmt|;
-try|try
+name|UserError
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|UserError
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|parser
 operator|.
@@ -1528,23 +1554,17 @@ name|String
 index|[]
 block|{
 literal|"--foo=bar"
-block|,
+operator|,
 literal|"-Dbaz=qux"
 block|}
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected IllegalArgumentException for out-of-order parameters"
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
+block|)
+class|;
+end_class
+
+begin_expr_stmt
 name|assertThat
 argument_list|(
 name|e
@@ -1558,10 +1578,11 @@ literal|"must be before any parameters starting with --"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-block|}
+end_expr_stmt
+
+begin_function
+unit|}      private
 DECL|method|registerProperties
-specifier|private
 name|void
 name|registerProperties
 parameter_list|(
@@ -1583,6 +1604,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|assertSystemProperty
 specifier|private
 name|void
@@ -1636,6 +1660,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|assertStatus
 specifier|private
 name|void
@@ -1679,6 +1706,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|assertThatTerminalOutput
 specifier|private
 name|void
@@ -1705,8 +1735,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

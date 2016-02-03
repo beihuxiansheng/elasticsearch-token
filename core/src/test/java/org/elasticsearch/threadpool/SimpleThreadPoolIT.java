@@ -1015,15 +1015,9 @@ name|threadName
 operator|.
 name|contains
 argument_list|(
-literal|"["
-operator|+
-name|ESSingleNodeTestCase
-operator|.
-name|nodeName
-argument_list|()
-operator|+
-literal|"]"
+literal|"[node_s_0]"
 argument_list|)
+comment|// TODO: this can't possibly be right! single node and integ test are unrelated!
 operator|||
 name|threadName
 operator|.

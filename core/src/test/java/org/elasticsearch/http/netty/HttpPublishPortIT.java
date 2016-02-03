@@ -118,9 +118,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|http
 operator|.
-name|Node
+name|HttpTransportSettings
 import|;
 end_import
 
@@ -274,7 +274,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"http.publish_port"
+name|HttpTransportSettings
+operator|.
+name|SETTING_HTTP_PUBLISH_PORT
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|9080
 argument_list|)

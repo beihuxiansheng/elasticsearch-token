@@ -270,6 +270,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|loadDatabaseReaders
+specifier|public
 specifier|static
 name|Map
 argument_list|<

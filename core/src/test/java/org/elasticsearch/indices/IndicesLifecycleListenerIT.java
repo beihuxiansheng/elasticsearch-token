@@ -540,6 +540,22 @@ name|shard
 operator|.
 name|IndexShardState
 operator|.
+name|RELOCATED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShardState
+operator|.
 name|STARTED
 import|;
 end_import
@@ -1549,6 +1565,8 @@ argument_list|(
 name|stateChangeListenerNode1
 argument_list|,
 literal|3
+argument_list|,
+name|RELOCATED
 argument_list|,
 name|CLOSED
 argument_list|)

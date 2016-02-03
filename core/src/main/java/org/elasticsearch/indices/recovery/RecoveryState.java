@@ -502,8 +502,8 @@ operator|)
 literal|2
 argument_list|)
 block|,
-DECL|enum constant|RELOCATION
-name|RELOCATION
+DECL|enum constant|PRIMARY_RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|(
 operator|(
 name|byte
