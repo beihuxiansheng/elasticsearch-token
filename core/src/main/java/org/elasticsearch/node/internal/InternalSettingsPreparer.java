@@ -1423,7 +1423,11 @@ name|terminal
 operator|.
 name|readSecret
 argument_list|(
-literal|"Enter value for [%s]: "
+literal|"Enter value for ["
+operator|+
+name|key
+operator|+
+literal|"]: "
 argument_list|,
 name|key
 argument_list|)
@@ -1435,7 +1439,11 @@ name|terminal
 operator|.
 name|readText
 argument_list|(
-literal|"Enter value for [%s]: "
+literal|"Enter value for ["
+operator|+
+name|key
+operator|+
+literal|"]: "
 argument_list|,
 name|key
 argument_list|)

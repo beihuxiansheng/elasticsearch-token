@@ -332,7 +332,7 @@ argument_list|(
 name|request
 argument_list|,
 operator|new
-name|RestStatusToXContentListener
+name|RestToXContentListener
 argument_list|<>
 argument_list|(
 name|channel

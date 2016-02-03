@@ -536,26 +536,36 @@ name|terminal
 operator|.
 name|printWarn
 argument_list|(
-literal|"The file permissions of [%s] have changed from [%s] to [%s]"
-argument_list|,
+literal|"The file permissions of ["
+operator|+
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|,
+operator|+
+literal|"] have changed "
+operator|+
+literal|"from ["
+operator|+
 name|PosixFilePermissions
 operator|.
 name|toString
 argument_list|(
 name|permissionsBeforeWrite
 argument_list|)
-argument_list|,
+operator|+
+literal|"] "
+operator|+
+literal|"to ["
+operator|+
 name|PosixFilePermissions
 operator|.
 name|toString
 argument_list|(
 name|permissionsAfterWrite
 argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 name|terminal
@@ -641,16 +651,22 @@ name|terminal
 operator|.
 name|printWarn
 argument_list|(
-literal|"WARN: Owner of file [%s] used to be [%s], but now is [%s]"
-argument_list|,
+literal|"WARN: Owner of file ["
+operator|+
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|,
+operator|+
+literal|"] used to be ["
+operator|+
 name|ownerBeforeWrite
-argument_list|,
+operator|+
+literal|"], but now is ["
+operator|+
 name|ownerAfterWrite
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -736,16 +752,22 @@ name|terminal
 operator|.
 name|printWarn
 argument_list|(
-literal|"WARN: Group of file [%s] used to be [%s], but now is [%s]"
-argument_list|,
+literal|"WARN: Group of file ["
+operator|+
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|,
+operator|+
+literal|"] used to be ["
+operator|+
 name|groupBeforeWrite
-argument_list|,
+operator|+
+literal|"], but now is ["
+operator|+
 name|groupAfterWrite
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

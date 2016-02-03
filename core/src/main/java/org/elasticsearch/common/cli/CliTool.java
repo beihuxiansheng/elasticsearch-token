@@ -40,20 +40,6 @@ name|commons
 operator|.
 name|cli
 operator|.
-name|AmbiguousOptionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|cli
-operator|.
 name|CommandLine
 import|;
 end_import
@@ -165,16 +151,6 @@ operator|.
 name|internal
 operator|.
 name|InternalSettingsPreparer
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -607,9 +583,11 @@ name|terminal
 operator|.
 name|printError
 argument_list|(
-literal|"unknown command [%s]. Use [-h] option to list available commands"
-argument_list|,
+literal|"unknown command ["
+operator|+
 name|cmdName
+operator|+
+literal|"]. Use [-h] option to list available commands"
 argument_list|)
 expr_stmt|;
 return|return

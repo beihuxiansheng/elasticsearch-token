@@ -368,10 +368,6 @@ name|println
 parameter_list|(
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 block|{
 name|println
@@ -381,8 +377,6 @@ operator|.
 name|NORMAL
 argument_list|,
 name|msg
-argument_list|,
-name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -393,10 +387,6 @@ name|print
 parameter_list|(
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 block|{
 name|print
@@ -406,8 +396,6 @@ operator|.
 name|NORMAL
 argument_list|,
 name|msg
-argument_list|,
-name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -438,10 +426,6 @@ name|verbosity
 parameter_list|,
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 block|{
 name|print
@@ -454,8 +438,6 @@ name|System
 operator|.
 name|lineSeparator
 argument_list|()
-argument_list|,
-name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -469,10 +451,6 @@ name|verbosity
 parameter_list|,
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 block|{
 if|if
@@ -490,8 +468,6 @@ block|{
 name|doPrint
 argument_list|(
 name|msg
-argument_list|,
-name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -503,10 +479,6 @@ name|printError
 parameter_list|(
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 block|{
 name|println
@@ -518,8 +490,6 @@ argument_list|,
 literal|"ERROR: "
 operator|+
 name|msg
-argument_list|,
-name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -530,10 +500,6 @@ name|printWarn
 parameter_list|(
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 block|{
 name|println
@@ -545,8 +511,6 @@ argument_list|,
 literal|"WARN: "
 operator|+
 name|msg
-argument_list|,
-name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -558,10 +522,6 @@ name|doPrint
 parameter_list|(
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 function_decl|;
 DECL|class|ConsoleTerminal
@@ -606,19 +566,15 @@ name|doPrint
 parameter_list|(
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 block|{
 name|console
 operator|.
 name|printf
 argument_list|(
-name|msg
+literal|"%s"
 argument_list|,
-name|args
+name|msg
 argument_list|)
 expr_stmt|;
 name|console
@@ -741,10 +697,6 @@ name|doPrint
 parameter_list|(
 name|String
 name|msg
-parameter_list|,
-name|Object
-modifier|...
-name|args
 parameter_list|)
 block|{
 name|System
@@ -753,18 +705,7 @@ name|out
 operator|.
 name|print
 argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-name|Locale
-operator|.
-name|ROOT
-argument_list|,
 name|msg
-argument_list|,
-name|args
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -786,8 +727,6 @@ block|{
 name|print
 argument_list|(
 name|text
-argument_list|,
-name|args
 argument_list|)
 expr_stmt|;
 name|BufferedReader

@@ -502,8 +502,8 @@ name|Verbosity
 operator|.
 name|NORMAL
 argument_list|,
-literal|"* %s"
-argument_list|,
+literal|"* "
+operator|+
 name|formatPermission
 argument_list|(
 name|permission

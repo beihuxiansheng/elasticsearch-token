@@ -1533,10 +1533,6 @@ name|EnableAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING
 argument_list|,
-name|ZenDiscovery
-operator|.
-name|REJOIN_ON_MASTER_GONE_SETTING
-argument_list|,
 name|FilterAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_INCLUDE_GROUP_SETTING
