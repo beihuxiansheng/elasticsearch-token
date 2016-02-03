@@ -777,7 +777,10 @@ name|put
 argument_list|(
 name|NetworkModule
 operator|.
-name|HTTP_TYPE_KEY
+name|HTTP_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"custom"
 argument_list|)

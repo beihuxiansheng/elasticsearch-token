@@ -494,7 +494,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node. name"
+literal|"node.name"
 argument_list|,
 name|InternalTestCluster
 operator|.

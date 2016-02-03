@@ -1719,6 +1719,10 @@ name|HTTP_ENABLED
 argument_list|,
 name|NetworkModule
 operator|.
+name|HTTP_TYPE_SETTING
+argument_list|,
+name|NetworkModule
+operator|.
 name|TRANSPORT_SERVICE_TYPE_SETTING
 argument_list|,
 name|NetworkModule
