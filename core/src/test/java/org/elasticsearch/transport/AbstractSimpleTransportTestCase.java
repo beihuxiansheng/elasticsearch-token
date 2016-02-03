@@ -3354,7 +3354,7 @@ argument_list|,
 operator|new
 name|StringMessageRequest
 argument_list|(
-literal|"300ms"
+literal|"2m"
 argument_list|)
 argument_list|,
 name|TransportRequestOptions
