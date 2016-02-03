@@ -23,6 +23,7 @@ end_comment
 begin_class
 DECL|class|TrimProcessor
 specifier|public
+specifier|final
 class|class
 name|TrimProcessor
 extends|extends
@@ -88,6 +89,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends
