@@ -538,7 +538,7 @@ block|{
 comment|// Filter global settings
 name|settingsModule
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsEc2Service
 operator|.
@@ -549,7 +549,7 @@ argument_list|)
 expr_stmt|;
 name|settingsModule
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsEc2Service
 operator|.
@@ -560,7 +560,7 @@ argument_list|)
 expr_stmt|;
 name|settingsModule
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsEc2Service
 operator|.
@@ -571,7 +571,7 @@ argument_list|)
 expr_stmt|;
 name|settingsModule
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsEc2Service
 operator|.
@@ -582,7 +582,7 @@ argument_list|)
 expr_stmt|;
 name|settingsModule
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsEc2Service
 operator|.
@@ -593,7 +593,7 @@ argument_list|)
 expr_stmt|;
 name|settingsModule
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsEc2Service
 operator|.

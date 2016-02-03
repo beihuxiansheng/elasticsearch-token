@@ -432,7 +432,7 @@ parameter_list|)
 block|{
 name|module
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsS3Service
 operator|.
@@ -443,7 +443,7 @@ argument_list|)
 expr_stmt|;
 name|module
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsS3Service
 operator|.
@@ -454,7 +454,7 @@ argument_list|)
 expr_stmt|;
 name|module
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsS3Service
 operator|.
@@ -465,7 +465,7 @@ argument_list|)
 expr_stmt|;
 name|module
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsS3Service
 operator|.
@@ -476,7 +476,7 @@ argument_list|)
 expr_stmt|;
 name|module
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsS3Service
 operator|.
@@ -487,7 +487,7 @@ argument_list|)
 expr_stmt|;
 name|module
 operator|.
-name|registerSettingsFilter
+name|registerSettingsFilterIfMissing
 argument_list|(
 name|AwsS3Service
 operator|.
