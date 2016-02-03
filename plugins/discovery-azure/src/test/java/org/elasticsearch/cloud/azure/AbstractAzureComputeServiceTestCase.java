@@ -246,7 +246,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|SUBSCRIPTION_ID
+name|SUBSCRIPTION_ID_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"fake"
 argument_list|)
@@ -267,7 +270,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|KEYSTORE_PATH
+name|KEYSTORE_PATH_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"dummy"
 argument_list|)
@@ -276,7 +282,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|KEYSTORE_PASSWORD
+name|KEYSTORE_PASSWORD_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"dummy"
 argument_list|)
@@ -285,7 +294,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|SERVICE_NAME
+name|SERVICE_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"dummy"
 argument_list|)

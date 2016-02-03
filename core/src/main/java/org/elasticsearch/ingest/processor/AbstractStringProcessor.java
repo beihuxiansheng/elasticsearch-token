@@ -74,20 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -102,7 +88,6 @@ end_comment
 
 begin_class
 DECL|class|AbstractStringProcessor
-specifier|public
 specifier|abstract
 class|class
 name|AbstractStringProcessor
@@ -217,7 +202,6 @@ name|value
 parameter_list|)
 function_decl|;
 DECL|class|Factory
-specifier|public
 specifier|static
 specifier|abstract
 class|class

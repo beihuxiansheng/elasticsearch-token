@@ -542,6 +542,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends

@@ -2382,7 +2382,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|,
 name|nodeA
 argument_list|,
@@ -2848,7 +2848,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|,
 name|Stage
 operator|.
@@ -3506,7 +3506,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|,
 name|Stage
 operator|.
@@ -3694,7 +3694,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|,
 name|Stage
 operator|.
@@ -4388,7 +4388,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-name|INDEX_NAME
+name|name
 argument_list|,
 name|INDEX_TYPE
 argument_list|)
@@ -4431,7 +4431,7 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
-name|INDEX_NAME
+name|name
 argument_list|)
 operator|.
 name|setSize
@@ -4469,7 +4469,7 @@ argument_list|()
 operator|.
 name|prepareStats
 argument_list|(
-name|INDEX_NAME
+name|name
 argument_list|)
 operator|.
 name|execute

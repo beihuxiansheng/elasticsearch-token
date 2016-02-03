@@ -408,7 +408,10 @@ name|put
 argument_list|(
 name|Storage
 operator|.
-name|CONTAINER
+name|CONTAINER_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"snapshots"
 argument_list|)

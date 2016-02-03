@@ -198,7 +198,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|SERVICE_NAME
+name|SERVICE_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"dummy"
 argument_list|)
@@ -295,7 +298,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|SERVICE_NAME
+name|SERVICE_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"dummy"
 argument_list|)
@@ -392,7 +398,10 @@ name|put
 argument_list|(
 name|Management
 operator|.
-name|SERVICE_NAME
+name|SERVICE_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"dummy"
 argument_list|)

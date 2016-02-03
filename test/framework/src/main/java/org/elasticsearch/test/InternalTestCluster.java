@@ -4704,7 +4704,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 name|name
 argument_list|)
@@ -5484,7 +5484,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|)
 argument_list|,
 literal|false
@@ -6138,7 +6138,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 name|TRANSPORT_CLIENT_PREFIX
 operator|+
@@ -6149,7 +6149,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|)
 argument_list|)
 operator|.
@@ -7269,7 +7269,7 @@ literal|" not 0"
 argument_list|,
 name|indexShard
 operator|.
-name|getOperationsCount
+name|getActiveOperationsCount
 argument_list|()
 argument_list|,
 name|equalTo
@@ -11243,7 +11243,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|)
 argument_list|)
 return|;

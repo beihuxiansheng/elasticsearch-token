@@ -831,7 +831,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 name|getClass
 argument_list|()
@@ -943,10 +943,15 @@ name|scriptModule
 init|=
 operator|new
 name|ScriptModule
-argument_list|(
-name|settingsModule
-argument_list|)
+argument_list|()
 decl_stmt|;
+name|scriptModule
+operator|.
+name|prepareSettings
+parameter_list|(
+name|settingsModule
+parameter_list|)
+constructor_decl|;
 comment|// TODO: make this use a mock engine instead of mustache and it will no longer be messy!
 name|scriptModule
 operator|.

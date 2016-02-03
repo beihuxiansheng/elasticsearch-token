@@ -90,7 +90,7 @@ name|AzureComputeService
 operator|.
 name|Management
 operator|.
-name|KEYSTORE_PASSWORD
+name|KEYSTORE_PASSWORD_SETTING
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|AzureComputeService
 operator|.
 name|Management
 operator|.
-name|KEYSTORE_PATH
+name|KEYSTORE_PATH_SETTING
 import|;
 end_import
 
@@ -130,7 +130,7 @@ name|AzureComputeService
 operator|.
 name|Management
 operator|.
-name|KEYSTORE_TYPE
+name|KEYSTORE_TYPE_SETTING
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|AzureComputeService
 operator|.
 name|Management
 operator|.
-name|SUBSCRIPTION_ID
+name|SUBSCRIPTION_ID_SETTING
 import|;
 end_import
 
@@ -185,28 +185,40 @@ name|settingsFilter
 operator|.
 name|addFilter
 argument_list|(
-name|KEYSTORE_PATH
+name|KEYSTORE_PATH_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|settingsFilter
 operator|.
 name|addFilter
 argument_list|(
-name|KEYSTORE_PASSWORD
+name|KEYSTORE_PASSWORD_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|settingsFilter
 operator|.
 name|addFilter
 argument_list|(
-name|KEYSTORE_TYPE
+name|KEYSTORE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|settingsFilter
 operator|.
 name|addFilter
 argument_list|(
-name|SUBSCRIPTION_ID
+name|SUBSCRIPTION_ID_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

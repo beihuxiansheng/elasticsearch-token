@@ -880,47 +880,6 @@ operator|.
 name|replacePropertyPlaceholders
 argument_list|()
 expr_stmt|;
-comment|// check if name is set in settings, if not look for system property and set it
-if|if
-condition|(
-name|output
-operator|.
-name|get
-argument_list|(
-literal|"name"
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-name|String
-name|name
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"name"
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|name
-operator|!=
-literal|null
-condition|)
-block|{
-name|output
-operator|.
-name|put
-argument_list|(
-literal|"name"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// put the cluster name
 if|if
 condition|(
@@ -972,18 +931,6 @@ argument_list|)
 expr_stmt|;
 comment|// all settings placeholders have been resolved. resolve the value for the name setting by checking for name,
 comment|// then looking for node.name, and finally generate one if needed
-if|if
-condition|(
-name|output
-operator|.
-name|get
-argument_list|(
-literal|"name"
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
 name|String
 name|name
 init|=
@@ -1013,12 +960,11 @@ argument_list|(
 name|configDir
 argument_list|)
 expr_stmt|;
-block|}
 name|output
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 name|name
 argument_list|)
@@ -1477,7 +1423,11 @@ name|terminal
 operator|.
 name|readSecret
 argument_list|(
-literal|"Enter value for [%s]: "
+literal|"Enter value for ["
+operator|+
+name|key
+operator|+
+literal|"]: "
 argument_list|,
 name|key
 argument_list|)
@@ -1489,7 +1439,11 @@ name|terminal
 operator|.
 name|readText
 argument_list|(
-literal|"Enter value for [%s]: "
+literal|"Enter value for ["
+operator|+
+name|key
+operator|+
+literal|"]: "
 argument_list|,
 name|key
 argument_list|)

@@ -304,7 +304,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testNativeScript"
 argument_list|)
@@ -345,10 +345,15 @@ name|scriptModule
 init|=
 operator|new
 name|ScriptModule
+argument_list|()
+decl_stmt|;
+name|scriptModule
+operator|.
+name|prepareSettings
 argument_list|(
 name|settingsModule
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|scriptModule
 operator|.
 name|registerScript

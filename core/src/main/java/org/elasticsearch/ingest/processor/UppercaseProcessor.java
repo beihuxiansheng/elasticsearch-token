@@ -33,6 +33,7 @@ end_comment
 begin_class
 DECL|class|UppercaseProcessor
 specifier|public
+specifier|final
 class|class
 name|UppercaseProcessor
 extends|extends
@@ -102,6 +103,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends

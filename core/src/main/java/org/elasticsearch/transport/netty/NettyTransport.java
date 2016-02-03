@@ -344,6 +344,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -1314,6 +1330,70 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|boolSetting
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|byteSizeSetting
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|intSetting
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|timeSetting
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 operator|.
 name|settingsBuilder
@@ -1517,8 +1597,6 @@ name|Integer
 argument_list|>
 name|CONNECTIONS_PER_NODE_RECOVERY
 init|=
-name|Setting
-operator|.
 name|intSetting
 argument_list|(
 literal|"transport.connections_per_node.recovery"
@@ -1529,8 +1607,6 @@ literal|1
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -1546,8 +1622,6 @@ name|Integer
 argument_list|>
 name|CONNECTIONS_PER_NODE_BULK
 init|=
-name|Setting
-operator|.
 name|intSetting
 argument_list|(
 literal|"transport.connections_per_node.bulk"
@@ -1558,8 +1632,6 @@ literal|1
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -1575,8 +1647,6 @@ name|Integer
 argument_list|>
 name|CONNECTIONS_PER_NODE_REG
 init|=
-name|Setting
-operator|.
 name|intSetting
 argument_list|(
 literal|"transport.connections_per_node.reg"
@@ -1587,8 +1657,6 @@ literal|1
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -1604,8 +1672,6 @@ name|Integer
 argument_list|>
 name|CONNECTIONS_PER_NODE_STATE
 init|=
-name|Setting
-operator|.
 name|intSetting
 argument_list|(
 literal|"transport.connections_per_node.state"
@@ -1616,8 +1682,6 @@ literal|1
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -1633,8 +1697,6 @@ name|Integer
 argument_list|>
 name|CONNECTIONS_PER_NODE_PING
 init|=
-name|Setting
-operator|.
 name|intSetting
 argument_list|(
 literal|"transport.connections_per_node.ping"
@@ -1645,8 +1707,6 @@ literal|1
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -1663,8 +1723,6 @@ name|TimeValue
 argument_list|>
 name|PING_SCHEDULE
 init|=
-name|Setting
-operator|.
 name|timeSetting
 argument_list|(
 literal|"transport.ping_schedule"
@@ -1696,8 +1754,6 @@ name|Boolean
 argument_list|>
 name|TCP_BLOCKING_CLIENT
 init|=
-name|Setting
-operator|.
 name|boolSetting
 argument_list|(
 literal|"transport.tcp.blocking_client"
@@ -1725,8 +1781,6 @@ name|TimeValue
 argument_list|>
 name|TCP_CONNECT_TIMEOUT
 init|=
-name|Setting
-operator|.
 name|timeSetting
 argument_list|(
 literal|"transport.tcp.connect_timeout"
@@ -1754,8 +1808,6 @@ name|Boolean
 argument_list|>
 name|TCP_NO_DELAY
 init|=
-name|Setting
-operator|.
 name|boolSetting
 argument_list|(
 literal|"transport.tcp_no_delay"
@@ -1783,8 +1835,6 @@ name|Boolean
 argument_list|>
 name|TCP_KEEP_ALIVE
 init|=
-name|Setting
-operator|.
 name|boolSetting
 argument_list|(
 literal|"transport.tcp.keep_alive"
@@ -1812,8 +1862,6 @@ name|Boolean
 argument_list|>
 name|TCP_BLOCKING_SERVER
 init|=
-name|Setting
-operator|.
 name|boolSetting
 argument_list|(
 literal|"transport.tcp.blocking_server"
@@ -1841,8 +1889,6 @@ name|Boolean
 argument_list|>
 name|TCP_REUSE_ADDRESS
 init|=
-name|Setting
-operator|.
 name|boolSetting
 argument_list|(
 literal|"transport.tcp.reuse_address"
@@ -2113,8 +2159,6 @@ name|ByteSizeValue
 argument_list|>
 name|NETTY_RECEIVE_PREDICTOR_MIN
 init|=
-name|Setting
-operator|.
 name|byteSizeSetting
 argument_list|(
 literal|"transport.netty.receive_predictor_min"
@@ -2123,8 +2167,6 @@ name|NETTY_RECEIVE_PREDICTOR_SIZE
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -2140,8 +2182,6 @@ name|ByteSizeValue
 argument_list|>
 name|NETTY_RECEIVE_PREDICTOR_MAX
 init|=
-name|Setting
-operator|.
 name|byteSizeSetting
 argument_list|(
 literal|"transport.netty.receive_predictor_max"
@@ -2150,8 +2190,6 @@ name|NETTY_RECEIVE_PREDICTOR_SIZE
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -2167,8 +2205,6 @@ name|Integer
 argument_list|>
 name|NETTY_BOSS_COUNT
 init|=
-name|Setting
-operator|.
 name|intSetting
 argument_list|(
 literal|"transport.netty.boss_count"
@@ -2179,8 +2215,6 @@ literal|1
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
-operator|.
 name|Scope
 operator|.
 name|CLUSTER
@@ -3565,8 +3599,6 @@ name|getAsBytesSize
 argument_list|(
 literal|"transport.netty.tcp_send_buffer_size"
 argument_list|,
-name|TcpSettings
-operator|.
 name|TCP_SEND_BUFFER_SIZE
 operator|.
 name|get
@@ -3604,8 +3636,6 @@ name|getAsBytesSize
 argument_list|(
 literal|"transport.netty.tcp_receive_buffer_size"
 argument_list|,
-name|TcpSettings
-operator|.
 name|TCP_RECEIVE_BUFFER_SIZE
 operator|.
 name|get
@@ -4403,7 +4433,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Publish port not found by matching publish address [{}] to bound addresses [{}], falling back to port [{}] of first bound address"
+literal|"Publish port not found by matching publish address [{}] to bound addresses [{}], "
+operator|+
+literal|"falling back to port [{}] of first bound address"
 argument_list|,
 name|publishInetAddress
 argument_list|,
@@ -4546,11 +4578,21 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using profile[{}], worker_count[{}], port[{}], bind_host[{}], publish_host[{}], compress[{}], connect_timeout[{}], connections_per_node[{}/{}/{}/{}/{}], receive_predictor[{}->{}]"
+literal|"using profile[{}], worker_count[{}], port[{}], bind_host[{}], publish_host[{}], compress[{}], "
+operator|+
+literal|"connect_timeout[{}], connections_per_node[{}/{}/{}/{}/{}], receive_predictor[{}->{}]"
 argument_list|,
 name|name
 argument_list|,
@@ -4581,6 +4623,7 @@ argument_list|,
 name|receivePredictorMax
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|ThreadFactory
 name|bossFactory

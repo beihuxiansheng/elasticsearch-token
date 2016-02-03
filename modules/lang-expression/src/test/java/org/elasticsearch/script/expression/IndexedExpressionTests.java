@@ -223,15 +223,6 @@ argument_list|,
 literal|"false"
 argument_list|)
 expr_stmt|;
-name|builder
-operator|.
-name|put
-argument_list|(
-literal|"script.engine.expression.indexed.mapping"
-argument_list|,
-literal|"false"
-argument_list|)
-expr_stmt|;
 return|return
 name|builder
 operator|.

@@ -1248,7 +1248,7 @@ name|RecoveryState
 operator|.
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|)
 expr_stmt|;
 block|}
@@ -1356,7 +1356,7 @@ name|RecoveryState
 operator|.
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|)
 expr_stmt|;
 block|}

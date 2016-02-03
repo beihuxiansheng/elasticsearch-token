@@ -22,11 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|processor
-operator|.
-name|ConfigurationPropertyException
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -276,7 +272,7 @@ argument_list|>
 name|processorRegistry
 parameter_list|)
 throws|throws
-name|ConfigurationPropertyException
+name|Exception
 block|{
 name|String
 name|description
@@ -390,7 +386,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ConfigurationPropertyException
+name|ElasticsearchParseException
 argument_list|(
 literal|"pipeline ["
 operator|+
@@ -481,7 +477,7 @@ argument_list|>
 name|processorRegistry
 parameter_list|)
 throws|throws
-name|ConfigurationPropertyException
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -596,7 +592,7 @@ argument_list|>
 name|config
 parameter_list|)
 throws|throws
-name|ConfigurationPropertyException
+name|Exception
 block|{
 name|Processor
 operator|.
@@ -662,8 +658,6 @@ decl_stmt|;
 name|Processor
 name|processor
 decl_stmt|;
-try|try
-block|{
 name|processor
 operator|=
 name|factory
@@ -673,34 +667,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ConfigurationPropertyException
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|e
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ConfigurationPropertyException
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
 operator|!
@@ -712,7 +678,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ConfigurationPropertyException
+name|ElasticsearchParseException
 argument_list|(
 literal|"processor ["
 operator|+
@@ -764,7 +730,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ConfigurationPropertyException
+name|ElasticsearchParseException
 argument_list|(
 literal|"No processor type exists with name ["
 operator|+

@@ -300,13 +300,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"action.admin.cluster.node.shutdown.delay"
-argument_list|,
-literal|"10ms"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"gateway.recover_after_nodes"
 argument_list|,
 literal|2
