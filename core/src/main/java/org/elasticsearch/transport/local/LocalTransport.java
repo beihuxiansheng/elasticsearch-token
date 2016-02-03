@@ -2157,6 +2157,16 @@ name|TransportResponseHandler
 name|handler
 parameter_list|)
 block|{
+name|buffer
+operator|=
+operator|new
+name|NamedWriteableAwareStreamInput
+argument_list|(
+name|buffer
+argument_list|,
+name|namedWriteableRegistry
+argument_list|)
+expr_stmt|;
 specifier|final
 name|TransportResponse
 name|response
