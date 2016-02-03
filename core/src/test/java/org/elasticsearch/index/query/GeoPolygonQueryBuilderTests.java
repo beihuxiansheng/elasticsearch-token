@@ -832,6 +832,13 @@ block|}
 comment|/**      * Overridden here to ensure the test is only run if at least one type is      * present in the mappings. Geo queries do not execute if the field is not      * explicitly mapped      */
 annotation|@
 name|Override
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/16399"
+argument_list|)
 DECL|method|testToQuery
 specifier|public
 name|void
