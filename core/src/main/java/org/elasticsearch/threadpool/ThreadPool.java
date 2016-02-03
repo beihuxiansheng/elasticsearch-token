@@ -324,6 +324,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1530,7 +1542,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+name|Node
+operator|.
+name|NODE_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|name
 argument_list|)
@@ -1554,14 +1571,14 @@ name|settings
 argument_list|)
 expr_stmt|;
 assert|assert
-name|settings
+name|Node
 operator|.
-name|get
+name|NODE_NAME_SETTING
+operator|.
+name|exists
 argument_list|(
-literal|"name"
+name|settings
 argument_list|)
-operator|!=
-literal|null
 operator|:
 literal|"ThreadPool's settings should contain a name"
 assert|;

@@ -538,7 +538,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"test-"
 operator|+

@@ -3160,13 +3160,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"action.admin.cluster.node.shutdown.delay"
-argument_list|,
-literal|"10ms"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|MockFSIndexStore
 operator|.
 name|INDEX_CHECK_INDEX_ON_CLOSE_SETTING

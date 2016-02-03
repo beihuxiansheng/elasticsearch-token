@@ -357,7 +357,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testCorrectThreadPoolTypePermittedInSettings"
 argument_list|)
@@ -492,7 +492,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testThreadPoolCanNotOverrideThreadPoolType"
 argument_list|)
@@ -638,7 +638,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testIndexingThreadPoolsMaxSize"
 argument_list|)
@@ -859,7 +859,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testUpdateSettingsCanNotChangeThreadPoolType"
 argument_list|)
@@ -1027,7 +1027,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testCachedExecutorType"
 argument_list|)
@@ -1620,7 +1620,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testFixedExecutorType"
 argument_list|)
@@ -2259,7 +2259,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testScalingExecutorType"
 argument_list|)
@@ -2683,7 +2683,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testShutdownNowInterrupts"
 argument_list|)
@@ -2967,7 +2967,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testCustomThreadPool"
 argument_list|)
