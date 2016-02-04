@@ -361,11 +361,11 @@ decl_stmt|;
 DECL|field|ongoingRecoveries
 specifier|private
 specifier|final
-name|OngoingRecoveres
+name|OngoingRecoveries
 name|ongoingRecoveries
 init|=
 operator|new
-name|OngoingRecoveres
+name|OngoingRecoveries
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -710,7 +710,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] starting recovery to {}, mark_as_relocated {}"
+literal|"[{}][{}] starting recovery to {}"
 argument_list|,
 name|request
 operator|.
@@ -734,11 +734,6 @@ argument_list|,
 name|request
 operator|.
 name|targetNode
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|markAsRelocated
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -868,12 +863,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|OngoingRecoveres
+DECL|class|OngoingRecoveries
 specifier|private
 specifier|static
 specifier|final
 class|class
-name|OngoingRecoveres
+name|OngoingRecoveries
 block|{
 DECL|field|ongoingRecoveries
 specifier|private

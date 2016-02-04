@@ -103,6 +103,7 @@ end_comment
 begin_class
 DECL|class|RemoveProcessor
 specifier|public
+specifier|final
 class|class
 name|RemoveProcessor
 extends|extends
@@ -195,6 +196,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends

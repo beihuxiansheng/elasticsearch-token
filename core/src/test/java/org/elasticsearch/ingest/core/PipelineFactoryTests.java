@@ -22,9 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|TestProcessor
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -36,9 +34,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|processor
-operator|.
-name|ConfigurationPropertyException
+name|TestProcessor
 import|;
 end_import
 
@@ -467,7 +463,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ConfigurationPropertyException
+name|ElasticsearchParseException
 name|e
 parameter_list|)
 block|{
@@ -853,7 +849,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ConfigurationPropertyException
+name|ElasticsearchParseException
 name|e
 parameter_list|)
 block|{

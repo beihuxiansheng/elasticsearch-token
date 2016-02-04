@@ -2022,8 +2022,6 @@ parameter_list|,
 name|TokenStream
 name|reuse
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new

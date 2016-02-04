@@ -103,6 +103,7 @@ end_comment
 begin_class
 DECL|class|FailProcessor
 specifier|public
+specifier|final
 class|class
 name|FailProcessor
 extends|extends
@@ -200,6 +201,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends

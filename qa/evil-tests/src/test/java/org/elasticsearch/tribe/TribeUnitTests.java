@@ -363,7 +363,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"tribe1_node"
 argument_list|)
@@ -415,7 +415,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"tribe2_node"
 argument_list|)
@@ -714,6 +714,18 @@ argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|Node
+operator|.
+name|NODE_MODE_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|NODE_MODE
 argument_list|)
 operator|.
 name|put

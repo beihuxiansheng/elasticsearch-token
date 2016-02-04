@@ -113,6 +113,7 @@ end_comment
 begin_class
 DECL|class|GsubProcessor
 specifier|public
+specifier|final
 class|class
 name|GsubProcessor
 extends|extends
@@ -301,6 +302,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends

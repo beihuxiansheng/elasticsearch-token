@@ -86,6 +86,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|Discovery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|NodeEnvironment
@@ -217,6 +229,9 @@ name|listGatewayMetaState
 parameter_list|,
 name|ClusterName
 name|clusterName
+parameter_list|,
+name|Discovery
+name|discovery
 parameter_list|)
 block|{
 name|super
@@ -232,6 +247,8 @@ argument_list|,
 name|listGatewayMetaState
 argument_list|,
 name|clusterName
+argument_list|,
+name|discovery
 argument_list|)
 expr_stmt|;
 block|}

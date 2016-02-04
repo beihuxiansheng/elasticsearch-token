@@ -112,6 +112,22 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|core
+operator|.
+name|ConfigurationUtils
+operator|.
+name|newConfigurationException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Processor that converts fields content to a different type. Supported types are: integer, float, boolean and string.  * Throws exception if the field is not there or the conversion fails.  */
 end_comment
@@ -119,6 +135,7 @@ end_comment
 begin_class
 DECL|class|ConvertProcessor
 specifier|public
+specifier|final
 class|class
 name|ConvertProcessor
 extends|extends
@@ -353,6 +370,12 @@ name|Type
 name|fromString
 parameter_list|(
 name|String
+name|processorTag
+parameter_list|,
+name|String
+name|propertyName
+parameter_list|,
+name|String
 name|type
 parameter_list|)
 block|{
@@ -381,16 +404,19 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|IllegalArgumentException
+name|newConfigurationException
 argument_list|(
+name|TYPE
+argument_list|,
+name|processorTag
+argument_list|,
+name|propertyName
+argument_list|,
 literal|"type ["
 operator|+
 name|type
 operator|+
 literal|"] not supported, cannot convert field."
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}
@@ -612,6 +638,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends
@@ -657,13 +684,9 @@ argument_list|,
 literal|"field"
 argument_list|)
 decl_stmt|;
-name|Type
-name|convertType
+name|String
+name|typeProperty
 init|=
-name|Type
-operator|.
-name|fromString
-argument_list|(
 name|ConfigurationUtils
 operator|.
 name|readStringProperty
@@ -676,6 +699,19 @@ name|config
 argument_list|,
 literal|"type"
 argument_list|)
+decl_stmt|;
+name|Type
+name|convertType
+init|=
+name|Type
+operator|.
+name|fromString
+argument_list|(
+name|processorTag
+argument_list|,
+literal|"type"
+argument_list|,
+name|typeProperty
 argument_list|)
 decl_stmt|;
 return|return

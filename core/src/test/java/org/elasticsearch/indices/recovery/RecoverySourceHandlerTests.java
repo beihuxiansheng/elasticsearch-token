@@ -659,9 +659,6 @@ operator|.
 name|CURRENT
 argument_list|)
 argument_list|,
-name|randomBoolean
-argument_list|()
-argument_list|,
 literal|null
 argument_list|,
 name|RecoveryState
@@ -1136,9 +1133,6 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|)
-argument_list|,
-name|randomBoolean
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -1659,9 +1653,6 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|)
-argument_list|,
-name|randomBoolean
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,

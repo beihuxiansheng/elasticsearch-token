@@ -979,7 +979,7 @@ name|IndexRequest
 name|request
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 comment|// validate, if routing is required, that we got routing
 name|IndexMetaData
@@ -1522,7 +1522,7 @@ name|MappingUpdatedAction
 name|mappingUpdatedAction
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 name|Engine
 operator|.

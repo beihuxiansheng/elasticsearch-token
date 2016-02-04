@@ -477,7 +477,7 @@ name|collector
 operator|+
 literal|".warn"
 argument_list|,
-name|randomTimeValue
+name|randomPositiveTimeValue
 argument_list|()
 argument_list|)
 argument_list|)
@@ -498,7 +498,7 @@ name|collector
 operator|+
 literal|".info"
 argument_list|,
-name|randomTimeValue
+name|randomPositiveTimeValue
 argument_list|()
 argument_list|)
 argument_list|)
@@ -519,7 +519,7 @@ name|collector
 operator|+
 literal|".debug"
 argument_list|,
-name|randomTimeValue
+name|randomPositiveTimeValue
 argument_list|()
 argument_list|)
 argument_list|)

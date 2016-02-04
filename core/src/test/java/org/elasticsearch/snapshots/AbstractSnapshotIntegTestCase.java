@@ -672,7 +672,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|)
 operator|.
 name|equals

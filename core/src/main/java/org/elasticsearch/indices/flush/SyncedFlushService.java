@@ -2968,7 +2968,7 @@ name|opCount
 init|=
 name|indexShard
 operator|.
-name|getOperationsCount
+name|getActiveOperationsCount
 argument_list|()
 decl_stmt|;
 name|logger
