@@ -1651,11 +1651,6 @@ name|termStatistics
 argument_list|(
 literal|false
 argument_list|)
-operator|.
-name|dfs
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 comment|// for artificial docs to make sure that the id has changed in the item too
 if|if
