@@ -2629,8 +2629,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 decl_stmt|;
 name|MetaData
@@ -2893,8 +2891,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 decl_stmt|;
 name|MetaData
@@ -3024,8 +3020,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
-argument_list|,
-literal|10
 argument_list|,
 operator|new
 name|UnassignedInfo

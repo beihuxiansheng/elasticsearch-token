@@ -2715,24 +2715,17 @@ literal|"suspect illegal state: trying to move shard from primary mode to replic
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if its the same routing except for some metadata info, return
+comment|// if its the same routing, return
 if|if
 condition|(
 name|currentRouting
 operator|.
-name|equalsIgnoringMetaData
+name|equals
 argument_list|(
 name|newRouting
 argument_list|)
 condition|)
 block|{
-name|this
-operator|.
-name|shardRouting
-operator|=
-name|newRouting
-expr_stmt|;
-comment|// might have a new version
 return|return;
 block|}
 block|}
@@ -7929,44 +7922,11 @@ condition|)
 block|{
 name|writeReason
 operator|=
-literal|"freshly started, version ["
+literal|"freshly started, allocation id ["
 operator|+
 name|newRouting
 operator|.
-name|version
-argument_list|()
-operator|+
-literal|"]"
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|currentRouting
-operator|.
-name|version
-argument_list|()
-operator|<
-name|newRouting
-operator|.
-name|version
-argument_list|()
-condition|)
-block|{
-name|writeReason
-operator|=
-literal|"version changed from ["
-operator|+
-name|currentRouting
-operator|.
-name|version
-argument_list|()
-operator|+
-literal|"] to ["
-operator|+
-name|newRouting
-operator|.
-name|version
+name|allocationId
 argument_list|()
 operator|+
 literal|"]"
@@ -8002,54 +7962,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"skip writing shard state, has been written before; previous version:  ["
-operator|+
-name|currentRouting
-operator|.
-name|version
-argument_list|()
-operator|+
-literal|"] current version ["
-operator|+
-name|newRouting
-operator|.
-name|version
-argument_list|()
-operator|+
-literal|"]"
+literal|"{} skip writing shard state, has been written before"
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
-assert|assert
-name|currentRouting
-operator|.
-name|version
-argument_list|()
-operator|<=
-name|newRouting
-operator|.
-name|version
-argument_list|()
-operator|:
-literal|"version should not go backwards for shardID: "
-operator|+
-name|shardId
-operator|+
-literal|" previous version:  ["
-operator|+
-name|currentRouting
-operator|.
-name|version
-argument_list|()
-operator|+
-literal|"] current version ["
-operator|+
-name|newRouting
-operator|.
-name|version
-argument_list|()
-operator|+
-literal|"]"
-assert|;
 return|return;
 block|}
 specifier|final
@@ -8059,11 +7976,6 @@ init|=
 operator|new
 name|ShardStateMetaData
 argument_list|(
-name|newRouting
-operator|.
-name|version
-argument_list|()
-argument_list|,
 name|newRouting
 operator|.
 name|primary
@@ -8099,7 +8011,7 @@ name|newShardStateMetadata
 argument_list|,
 name|newShardStateMetadata
 operator|.
-name|version
+name|legacyVersion
 argument_list|,
 name|shardPath
 argument_list|()

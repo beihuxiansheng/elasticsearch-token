@@ -2192,8 +2192,6 @@ literal|4
 argument_list|)
 argument_list|)
 argument_list|,
-literal|1
-argument_list|,
 name|unassignedInfo
 argument_list|)
 argument_list|)

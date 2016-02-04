@@ -1098,11 +1098,6 @@ operator|.
 name|nodeId
 argument_list|()
 argument_list|,
-name|shard
-operator|.
-name|version
-argument_list|()
-argument_list|,
 name|allocation
 operator|.
 name|clusterInfo

@@ -245,8 +245,6 @@ name|ShardRoutingState
 operator|.
 name|UNASSIGNED
 argument_list|,
-literal|0
-argument_list|,
 operator|new
 name|UnassignedInfo
 argument_list|(
@@ -284,8 +282,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|UNASSIGNED
-argument_list|,
-literal|0
 argument_list|,
 operator|new
 name|UnassignedInfo
@@ -544,8 +540,6 @@ name|ShardRoutingState
 operator|.
 name|UNASSIGNED
 argument_list|,
-literal|0
-argument_list|,
 operator|new
 name|UnassignedInfo
 argument_list|(
@@ -583,8 +577,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|UNASSIGNED
-argument_list|,
-literal|0
 argument_list|,
 operator|new
 name|UnassignedInfo
@@ -1018,13 +1010,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|UNASSIGNED
-argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|0
-argument_list|,
-literal|100
-argument_list|)
 argument_list|,
 operator|new
 name|UnassignedInfo

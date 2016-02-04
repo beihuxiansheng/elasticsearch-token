@@ -1373,7 +1373,7 @@ argument_list|()
 argument_list|,
 name|response
 operator|.
-name|version
+name|legacyVersion
 argument_list|()
 argument_list|,
 name|response
@@ -1644,7 +1644,7 @@ literal|null
 operator|||
 name|response
 operator|.
-name|version
+name|legacyVersion
 argument_list|()
 operator|!=
 operator|-
