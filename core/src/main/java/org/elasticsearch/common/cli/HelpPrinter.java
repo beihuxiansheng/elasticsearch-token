@@ -174,6 +174,8 @@ operator|.
 name|Verbosity
 operator|.
 name|SILENT
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 try|try
@@ -249,7 +251,9 @@ block|}
 name|terminal
 operator|.
 name|println
-argument_list|()
+argument_list|(
+literal|""
+argument_list|)
 expr_stmt|;
 block|}
 block|}

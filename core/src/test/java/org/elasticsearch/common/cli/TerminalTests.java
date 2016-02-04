@@ -269,7 +269,7 @@ parameter_list|)
 block|{
 name|logTerminal
 operator|.
-name|print
+name|println
 argument_list|(
 name|verbosity
 argument_list|,
@@ -329,7 +329,7 @@ parameter_list|)
 block|{
 name|logTerminal
 operator|.
-name|print
+name|println
 argument_list|(
 name|verbosity
 argument_list|,

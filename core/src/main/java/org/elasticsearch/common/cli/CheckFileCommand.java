@@ -534,9 +534,15 @@ condition|)
 block|{
 name|terminal
 operator|.
-name|printWarn
+name|println
 argument_list|(
-literal|"The file permissions of ["
+name|Terminal
+operator|.
+name|Verbosity
+operator|.
+name|SILENT
+argument_list|,
+literal|"WARNING: The file permissions of ["
 operator|+
 name|entry
 operator|.
@@ -570,8 +576,14 @@ argument_list|)
 expr_stmt|;
 name|terminal
 operator|.
-name|printWarn
+name|println
 argument_list|(
+name|Terminal
+operator|.
+name|Verbosity
+operator|.
+name|SILENT
+argument_list|,
 literal|"Please ensure that the user account running Elasticsearch has read access to this file!"
 argument_list|)
 expr_stmt|;
@@ -649,9 +661,15 @@ condition|)
 block|{
 name|terminal
 operator|.
-name|printWarn
+name|println
 argument_list|(
-literal|"WARN: Owner of file ["
+name|Terminal
+operator|.
+name|Verbosity
+operator|.
+name|SILENT
+argument_list|,
+literal|"WARNING: Owner of file ["
 operator|+
 name|entry
 operator|.
@@ -750,9 +768,15 @@ condition|)
 block|{
 name|terminal
 operator|.
-name|printWarn
+name|println
 argument_list|(
-literal|"WARN: Group of file ["
+name|Terminal
+operator|.
+name|Verbosity
+operator|.
+name|SILENT
+argument_list|,
+literal|"WARNING: Group of file ["
 operator|+
 name|entry
 operator|.
