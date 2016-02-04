@@ -117,6 +117,7 @@ end_comment
 begin_class
 DECL|class|AppendProcessor
 specifier|public
+specifier|final
 class|class
 name|AppendProcessor
 extends|extends

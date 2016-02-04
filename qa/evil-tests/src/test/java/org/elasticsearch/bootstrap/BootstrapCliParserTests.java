@@ -341,6 +341,11 @@ name|property
 argument_list|)
 expr_stmt|;
 block|}
+name|propertiesToClear
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testThatVersionIsReturned
 specifier|public

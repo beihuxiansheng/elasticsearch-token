@@ -612,16 +612,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|BeforeClass
 import|;
 end_import
@@ -1024,6 +1014,10 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|threadPool
+argument_list|,
+operator|new
+name|NamedWriteableRegistry
+argument_list|()
 argument_list|)
 block|{
 annotation|@

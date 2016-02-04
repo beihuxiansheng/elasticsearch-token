@@ -33,6 +33,7 @@ end_comment
 begin_class
 DECL|class|LowercaseProcessor
 specifier|public
+specifier|final
 class|class
 name|LowercaseProcessor
 extends|extends
@@ -101,6 +102,7 @@ return|;
 block|}
 DECL|class|Factory
 specifier|public
+specifier|final
 specifier|static
 class|class
 name|Factory

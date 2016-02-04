@@ -89,6 +89,7 @@ end_comment
 begin_class
 DECL|class|RenameProcessor
 specifier|public
+specifier|final
 class|class
 name|RenameProcessor
 extends|extends
@@ -288,6 +289,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends
