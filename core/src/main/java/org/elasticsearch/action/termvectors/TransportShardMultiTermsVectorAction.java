@@ -274,12 +274,6 @@ name|NAME
 operator|+
 literal|"[shard]"
 decl_stmt|;
-DECL|field|termVectorsService
-specifier|private
-specifier|final
-name|TermVectorsService
-name|termVectorsService
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TransportShardMultiTermsVectorAction
@@ -306,9 +300,6 @@ name|actionFilters
 parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
-parameter_list|,
-name|TermVectorsService
-name|termVectorsService
 parameter_list|)
 block|{
 name|super
@@ -343,12 +334,6 @@ operator|.
 name|indicesService
 operator|=
 name|indicesService
-expr_stmt|;
-name|this
-operator|.
-name|termVectorsService
-operator|=
-name|termVectorsService
 expr_stmt|;
 block|}
 annotation|@
@@ -523,7 +508,7 @@ decl_stmt|;
 name|TermVectorsResponse
 name|termVectorsResponse
 init|=
-name|termVectorsService
+name|TermVectorsService
 operator|.
 name|getTermVectors
 argument_list|(
