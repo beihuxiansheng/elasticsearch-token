@@ -152,7 +152,7 @@ name|assertThat
 argument_list|(
 name|SuggestMode
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"missing"
 argument_list|)
@@ -169,7 +169,7 @@ name|assertThat
 argument_list|(
 name|SuggestMode
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"popular"
 argument_list|)
@@ -186,7 +186,7 @@ name|assertThat
 argument_list|(
 name|SuggestMode
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"always"
 argument_list|)
@@ -209,7 +209,7 @@ try|try
 block|{
 name|SuggestMode
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 name|doesntExist
 argument_list|)
@@ -232,14 +232,14 @@ try|try
 block|{
 name|SuggestMode
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"SuggestMode.fromString on a null value should throw an exception."
+literal|"SuggestMode.resolve on a null value should throw an exception."
 argument_list|)
 expr_stmt|;
 block|}

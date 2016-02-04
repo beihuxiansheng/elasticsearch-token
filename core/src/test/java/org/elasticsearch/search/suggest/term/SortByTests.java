@@ -137,7 +137,7 @@ name|assertThat
 argument_list|(
 name|SortBy
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"score"
 argument_list|)
@@ -154,7 +154,7 @@ name|assertThat
 argument_list|(
 name|SortBy
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"frequency"
 argument_list|)
@@ -177,7 +177,7 @@ try|try
 block|{
 name|SortBy
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 name|doesntExist
 argument_list|)
@@ -200,14 +200,14 @@ try|try
 block|{
 name|SortBy
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"SortBy.fromString on a null value should throw an exception."
+literal|"SortBy.resolve on a null value should throw an exception."
 argument_list|)
 expr_stmt|;
 block|}

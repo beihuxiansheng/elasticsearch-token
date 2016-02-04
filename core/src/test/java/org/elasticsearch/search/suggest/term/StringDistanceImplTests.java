@@ -182,7 +182,7 @@ name|assertThat
 argument_list|(
 name|StringDistanceImpl
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"internal"
 argument_list|)
@@ -199,7 +199,7 @@ name|assertThat
 argument_list|(
 name|StringDistanceImpl
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"damerau_levenshtein"
 argument_list|)
@@ -216,7 +216,7 @@ name|assertThat
 argument_list|(
 name|StringDistanceImpl
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"levenstein"
 argument_list|)
@@ -233,7 +233,7 @@ name|assertThat
 argument_list|(
 name|StringDistanceImpl
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"jarowinkler"
 argument_list|)
@@ -250,7 +250,7 @@ name|assertThat
 argument_list|(
 name|StringDistanceImpl
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|"ngram"
 argument_list|)
@@ -273,7 +273,7 @@ try|try
 block|{
 name|StringDistanceImpl
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 name|doesntExist
 argument_list|)
@@ -296,14 +296,14 @@ try|try
 block|{
 name|StringDistanceImpl
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"StringDistanceImpl.fromString on a null value should throw an exception."
+literal|"StringDistanceImpl.resolve on a null value should throw an exception."
 argument_list|)
 expr_stmt|;
 block|}
