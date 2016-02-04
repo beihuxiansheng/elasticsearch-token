@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A module that binds the provided settings to the {@link Settings} interface.  *  *  */
+comment|/**  * A module that binds the provided settings to the {@link Settings} interface.  */
 end_comment
 
 begin_class
@@ -625,7 +625,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|validateTribeSettings
-specifier|public
+specifier|private
 name|void
 name|validateTribeSettings
 parameter_list|(
