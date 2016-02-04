@@ -271,7 +271,7 @@ condition|)
 block|{
 name|terminal
 operator|.
-name|print
+name|println
 argument_list|(
 name|Verbosity
 operator|.
@@ -546,6 +546,8 @@ argument_list|(
 name|Verbosity
 operator|.
 name|NORMAL
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 name|String
