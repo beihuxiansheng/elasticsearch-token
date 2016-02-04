@@ -286,11 +286,7 @@ name|String
 name|readText
 parameter_list|(
 name|String
-name|text
-parameter_list|,
-name|Object
-modifier|...
-name|args
+name|prompt
 parameter_list|)
 block|{
 return|return
@@ -306,11 +302,7 @@ index|[]
 name|readSecret
 parameter_list|(
 name|String
-name|text
-parameter_list|,
-name|Object
-modifier|...
-name|args
+name|prompt
 parameter_list|)
 block|{
 return|return

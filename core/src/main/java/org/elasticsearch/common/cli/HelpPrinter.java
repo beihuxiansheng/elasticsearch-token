@@ -252,6 +252,12 @@ name|terminal
 operator|.
 name|println
 argument_list|(
+name|Terminal
+operator|.
+name|Verbosity
+operator|.
+name|SILENT
+argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
