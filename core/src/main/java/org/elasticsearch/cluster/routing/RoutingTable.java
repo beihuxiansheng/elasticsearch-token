@@ -3148,9 +3148,6 @@ argument_list|,
 name|indexRoutingTable
 operator|.
 name|value
-operator|.
-name|normalizeVersions
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -233,11 +233,6 @@ argument_list|()
 argument_list|,
 name|routing
 operator|.
-name|version
-argument_list|()
-argument_list|,
-name|routing
-operator|.
 name|unassignedInfo
 argument_list|()
 argument_list|,
