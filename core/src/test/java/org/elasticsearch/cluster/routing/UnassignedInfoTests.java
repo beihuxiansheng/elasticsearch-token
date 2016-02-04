@@ -1894,8 +1894,6 @@ name|ShardRoutingState
 operator|.
 name|UNASSIGNED
 argument_list|,
-literal|1
-argument_list|,
 operator|new
 name|UnassignedInfo
 argument_list|(

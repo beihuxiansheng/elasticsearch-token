@@ -300,13 +300,17 @@ name|EMPTY
 argument_list|)
 expr_stmt|;
 name|ProcessorsRegistry
-name|registry
+operator|.
+name|Builder
+name|registryBuilder
 init|=
 operator|new
 name|ProcessorsRegistry
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
-name|registry
+name|registryBuilder
 operator|.
 name|registerProcessor
 argument_list|(
@@ -314,6 +318,8 @@ literal|"set"
 argument_list|,
 parameter_list|(
 name|templateService
+parameter_list|,
+name|registry
 parameter_list|)
 lambda|->
 operator|new
@@ -332,7 +338,7 @@ name|store
 operator|.
 name|buildProcessorFactoryRegistry
 argument_list|(
-name|registry
+name|registryBuilder
 argument_list|,
 literal|null
 argument_list|)

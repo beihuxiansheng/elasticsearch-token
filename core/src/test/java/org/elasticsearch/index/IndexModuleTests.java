@@ -1109,8 +1109,6 @@ name|threadPool
 argument_list|,
 name|indicesQueryCache
 argument_list|,
-literal|null
-argument_list|,
 name|warmer
 argument_list|,
 name|bigArrays

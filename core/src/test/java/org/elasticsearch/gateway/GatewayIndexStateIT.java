@@ -3053,12 +3053,15 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|Gateway
+name|GatewayService
 operator|.
 name|class
 argument_list|,
 name|node_1
 argument_list|)
+operator|.
+name|getGateway
+argument_list|()
 decl_stmt|;
 name|internalCluster
 argument_list|()

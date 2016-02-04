@@ -392,8 +392,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -415,8 +413,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -440,8 +436,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|RELOCATING
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 name|stateBuilder
@@ -600,9 +594,6 @@ name|initShard
 operator|.
 name|allocationId
 argument_list|()
-argument_list|,
-name|randomInt
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -718,8 +709,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
-argument_list|,
-literal|1
 argument_list|)
 argument_list|)
 argument_list|,
@@ -804,8 +793,6 @@ name|allocationId
 argument_list|()
 argument_list|)
 argument_list|)
-argument_list|,
-literal|1
 argument_list|)
 argument_list|)
 argument_list|,
@@ -890,8 +877,6 @@ name|startedShard
 operator|.
 name|allocationId
 argument_list|()
-argument_list|,
-literal|1
 argument_list|)
 argument_list|)
 argument_list|,
@@ -983,9 +968,6 @@ operator|.
 name|INITIALIZING
 argument_list|,
 name|targetAllocationId
-argument_list|,
-name|randomInt
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1133,11 +1115,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
-argument_list|,
-name|relocatingShard
-operator|.
-name|version
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1212,9 +1189,6 @@ argument_list|,
 name|relocatingShard
 operator|.
 name|allocationId
-argument_list|()
-argument_list|,
-name|randomInt
 argument_list|()
 argument_list|)
 argument_list|)
