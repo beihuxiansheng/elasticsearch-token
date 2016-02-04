@@ -538,8 +538,14 @@ specifier|public
 class|class
 name|TermVectorsService
 block|{
+DECL|method|TermVectorsService
+specifier|private
+name|TermVectorsService
+parameter_list|()
+block|{}
 DECL|method|getTermVectors
 specifier|public
+specifier|static
 name|TermVectorsResponse
 name|getTermVectors
 parameter_list|(
@@ -1073,6 +1079,7 @@ return|;
 block|}
 DECL|method|handleFieldWildcards
 specifier|private
+specifier|static
 name|void
 name|handleFieldWildcards
 parameter_list|(
@@ -1138,6 +1145,7 @@ expr_stmt|;
 block|}
 DECL|method|isValidField
 specifier|private
+specifier|static
 name|boolean
 name|isValidField
 parameter_list|(
@@ -1185,6 +1193,7 @@ return|;
 block|}
 DECL|method|addGeneratedTermVectors
 specifier|private
+specifier|static
 name|Fields
 name|addGeneratedTermVectors
 parameter_list|(
@@ -1397,6 +1406,7 @@ block|}
 block|}
 DECL|method|getAnalyzerAtField
 specifier|private
+specifier|static
 name|Analyzer
 name|getAnalyzerAtField
 parameter_list|(
@@ -1502,6 +1512,7 @@ return|;
 block|}
 DECL|method|getFieldsToGenerate
 specifier|private
+specifier|static
 name|Set
 argument_list|<
 name|String
@@ -1564,6 +1575,7 @@ return|;
 block|}
 DECL|method|generateTermVectors
 specifier|private
+specifier|static
 name|Fields
 name|generateTermVectors
 parameter_list|(
@@ -1696,6 +1708,7 @@ return|;
 block|}
 DECL|method|generateTermVectorsFromDoc
 specifier|private
+specifier|static
 name|Fields
 name|generateTermVectorsFromDoc
 parameter_list|(
@@ -1947,6 +1960,7 @@ return|;
 block|}
 DECL|method|parseDocument
 specifier|private
+specifier|static
 name|ParsedDocument
 name|parseDocument
 parameter_list|(
@@ -2041,6 +2055,7 @@ return|;
 block|}
 DECL|method|mergeFields
 specifier|private
+specifier|static
 name|Fields
 name|mergeFields
 parameter_list|(
