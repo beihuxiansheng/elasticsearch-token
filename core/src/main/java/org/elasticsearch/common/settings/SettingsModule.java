@@ -423,6 +423,7 @@ name|indexScopedSettings
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Registers a new setting. This method should be used by plugins in order to expose any custom settings the plugin defines.      * Unless a setting is registered the setting is unusable. If a setting is never the less specified the node will reject      * the setting during startup.      */
 DECL|method|registerSetting
 specifier|public
 name|void
@@ -533,6 +534,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+comment|/**      * Registers a settings filter pattern that allows to filter out certain settings that for instance contain sensitive information      * or if a setting is for internal purposes only. The given patter must either be a valid settings key or a simple regesp pattern.      */
 DECL|method|registerSettingsFilter
 specifier|public
 name|void
