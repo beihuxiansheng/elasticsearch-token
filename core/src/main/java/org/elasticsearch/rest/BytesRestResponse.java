@@ -214,7 +214,7 @@ operator|.
 name|contentType
 argument_list|()
 operator|.
-name|restContentType
+name|mediaType
 argument_list|()
 argument_list|,
 name|builder
@@ -457,7 +457,7 @@ operator|.
 name|contentType
 argument_list|()
 operator|.
-name|restContentType
+name|mediaType
 argument_list|()
 expr_stmt|;
 block|}
