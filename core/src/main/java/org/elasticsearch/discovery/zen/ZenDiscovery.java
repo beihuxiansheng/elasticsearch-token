@@ -2473,6 +2473,21 @@ name|queueStats
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getMinimumMasterNodes
+specifier|public
+name|int
+name|getMinimumMasterNodes
+parameter_list|()
+block|{
+return|return
+name|electMaster
+operator|.
+name|minimumMasterNodes
+argument_list|()
+return|;
+block|}
 comment|/**      * returns true if zen discovery is started and there is a currently a background thread active for (re)joining      * the cluster used for testing.      */
 DECL|method|joiningCluster
 specifier|public
