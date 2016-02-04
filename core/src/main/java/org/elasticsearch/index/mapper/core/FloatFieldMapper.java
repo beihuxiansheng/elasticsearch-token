@@ -2176,8 +2176,6 @@ parameter_list|,
 name|TokenStream
 name|previous
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

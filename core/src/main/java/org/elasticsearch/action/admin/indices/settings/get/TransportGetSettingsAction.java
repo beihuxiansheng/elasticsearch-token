@@ -492,15 +492,10 @@ block|}
 name|Settings
 name|settings
 init|=
-name|SettingsFilter
-operator|.
-name|filterSettings
-argument_list|(
 name|settingsFilter
 operator|.
-name|getPatterns
-argument_list|()
-argument_list|,
+name|filter
+argument_list|(
 name|indexMetaData
 operator|.
 name|getSettings

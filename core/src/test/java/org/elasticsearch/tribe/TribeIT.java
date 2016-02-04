@@ -986,13 +986,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"tribe.blocks.read"
-argument_list|,
-literal|false
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|settings
 argument_list|)
 operator|.

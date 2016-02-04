@@ -795,16 +795,6 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-specifier|final
-name|SettingsFilter
-name|settingsFilter
-init|=
-operator|new
-name|SettingsFilter
-argument_list|(
-name|settings
-argument_list|)
-decl_stmt|;
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 init|=
@@ -878,8 +868,6 @@ operator|new
 name|SettingsModule
 argument_list|(
 name|settings
-argument_list|,
-name|settingsFilter
 argument_list|)
 argument_list|)
 expr_stmt|;

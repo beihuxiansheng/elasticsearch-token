@@ -1325,6 +1325,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|Files
+operator|.
+name|delete
+argument_list|(
+name|zip
+argument_list|)
+expr_stmt|;
 return|return
 name|target
 return|;

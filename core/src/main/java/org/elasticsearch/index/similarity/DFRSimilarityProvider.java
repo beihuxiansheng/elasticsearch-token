@@ -298,7 +298,7 @@ name|DFRSimilarityProvider
 extends|extends
 name|AbstractSimilarityProvider
 block|{
-DECL|field|MODEL_CACHE
+DECL|field|BASIC_MODELS
 specifier|private
 specifier|static
 specifier|final
@@ -308,9 +308,9 @@ name|String
 argument_list|,
 name|BasicModel
 argument_list|>
-name|MODEL_CACHE
+name|BASIC_MODELS
 decl_stmt|;
-DECL|field|EFFECT_CACHE
+DECL|field|AFTER_EFFECTS
 specifier|private
 specifier|static
 specifier|final
@@ -320,7 +320,7 @@ name|String
 argument_list|,
 name|AfterEffect
 argument_list|>
-name|EFFECT_CACHE
+name|AFTER_EFFECTS
 decl_stmt|;
 static|static
 block|{
@@ -414,7 +414,7 @@ name|BasicModelP
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|MODEL_CACHE
+name|BASIC_MODELS
 operator|=
 name|unmodifiableMap
 argument_list|(
@@ -469,7 +469,7 @@ name|AfterEffectL
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|EFFECT_CACHE
+name|AFTER_EFFECTS
 operator|=
 name|unmodifiableMap
 argument_list|(
@@ -561,7 +561,7 @@ decl_stmt|;
 name|BasicModel
 name|model
 init|=
-name|MODEL_CACHE
+name|BASIC_MODELS
 operator|.
 name|get
 argument_list|(
@@ -614,7 +614,7 @@ decl_stmt|;
 name|AfterEffect
 name|effect
 init|=
-name|EFFECT_CACHE
+name|AFTER_EFFECTS
 operator|.
 name|get
 argument_list|(

@@ -248,6 +248,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableMap
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -898,6 +910,11 @@ name|boolean
 name|contains
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
 name|exType
 parameter_list|)
 block|{
@@ -2438,17 +2455,15 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/**      * This is the list of Exceptions Elasticsearch can throw over the wire or save into a corruption marker. Each value in the enum is a      * single exception tying the Class to an id for use of the encode side and the id back to a constructor for use on the decode side. As      * such its ok if the exceptions to change names so long as their constructor can still read the exception. Each exception is listed      * in id order below. If you want to remove an exception leave a tombstone comment and mark the id as null in      * ExceptionSerializationTests.testIds.ids.      */
+end_comment
+
 begin_enum
 DECL|enum|ElasticsearchExceptionHandle
 enum|enum
 name|ElasticsearchExceptionHandle
 block|{
-comment|// each exception gets an assigned id that must never change. While the exception name can
-comment|// change due to refactorings etc. like renaming we have to keep the ordinal<--> class mapping
-comment|// to deserialize the exception coming from another node or from an corruption marker on
-comment|// a corrupted index.
-comment|// these exceptions can be ordered and removed, but (repeating) the ids must never change
-comment|// to remove an exception, remove the enum value below, and mark the id as null in ExceptionSerializationTests.testIds.ids
 DECL|enum constant|INDEX_SHARD_SNAPSHOT_FAILED_EXCEPTION
 name|INDEX_SHARD_SNAPSHOT_FAILED_EXCEPTION
 argument_list|(
@@ -6274,13 +6289,16 @@ name|int
 name|id
 decl_stmt|;
 DECL|method|ElasticsearchExceptionHandle
+parameter_list|<
+name|E
+extends|extends
+name|ElasticsearchException
+parameter_list|>
 name|ElasticsearchExceptionHandle
 parameter_list|(
 name|Class
 argument_list|<
-name|?
-extends|extends
-name|ElasticsearchException
+name|E
 argument_list|>
 name|exceptionClass
 parameter_list|,
@@ -6288,9 +6306,7 @@ name|FunctionThatThrowsIOException
 argument_list|<
 name|StreamInput
 argument_list|,
-name|?
-extends|extends
-name|ElasticsearchException
+name|E
 argument_list|>
 name|constructor
 parameter_list|,
@@ -6298,6 +6314,7 @@ name|int
 name|id
 parameter_list|)
 block|{
+comment|// We need the exceptionClass because you can't dig it out of the constructor reliably.
 name|this
 operator|.
 name|exceptionClass
@@ -6323,64 +6340,10 @@ end_enum
 begin_static
 static|static
 block|{
-specifier|final
-name|Map
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|ElasticsearchException
-argument_list|>
-argument_list|,
-name|ElasticsearchExceptionHandle
-argument_list|>
-name|exceptions
-init|=
-name|Arrays
-operator|.
-name|stream
+name|ID_TO_SUPPLIER
+operator|=
+name|unmodifiableMap
 argument_list|(
-name|ElasticsearchExceptionHandle
-operator|.
-name|values
-argument_list|()
-argument_list|)
-operator|.
-name|collect
-argument_list|(
-name|Collectors
-operator|.
-name|toMap
-argument_list|(
-name|e
-lambda|->
-name|e
-operator|.
-name|exceptionClass
-argument_list|,
-name|e
-lambda|->
-name|e
-argument_list|)
-argument_list|)
-decl_stmt|;
-specifier|final
-name|Map
-argument_list|<
-name|Integer
-argument_list|,
-name|FunctionThatThrowsIOException
-argument_list|<
-name|StreamInput
-argument_list|,
-name|?
-extends|extends
-name|ElasticsearchException
-argument_list|>
-argument_list|>
-name|idToSupplier
-init|=
 name|Arrays
 operator|.
 name|stream
@@ -6410,23 +6373,39 @@ operator|.
 name|constructor
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|ID_TO_SUPPLIER
-operator|=
-name|Collections
-operator|.
-name|unmodifiableMap
-argument_list|(
-name|idToSupplier
 argument_list|)
 expr_stmt|;
 name|CLASS_TO_ELASTICSEARCH_EXCEPTION_HANDLE
 operator|=
-name|Collections
-operator|.
 name|unmodifiableMap
 argument_list|(
-name|exceptions
+name|Arrays
+operator|.
+name|stream
+argument_list|(
+name|ElasticsearchExceptionHandle
+operator|.
+name|values
+argument_list|()
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toMap
+argument_list|(
+name|e
+lambda|->
+name|e
+operator|.
+name|exceptionClass
+argument_list|,
+name|e
+lambda|->
+name|e
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

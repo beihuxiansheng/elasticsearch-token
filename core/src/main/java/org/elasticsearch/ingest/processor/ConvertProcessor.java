@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ingest
 operator|.
 name|core
@@ -145,6 +135,7 @@ end_comment
 begin_class
 DECL|class|ConvertProcessor
 specifier|public
+specifier|final
 class|class
 name|ConvertProcessor
 extends|extends
@@ -647,6 +638,7 @@ block|}
 DECL|class|Factory
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|Factory
 extends|extends

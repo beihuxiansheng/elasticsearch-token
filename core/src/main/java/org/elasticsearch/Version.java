@@ -4093,7 +4093,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_5_4_0
+name|LUCENE_5_4_1
 argument_list|)
 decl_stmt|;
 DECL|field|V_2_2_1_ID
@@ -4129,7 +4129,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_5_4_0
+name|LUCENE_5_4_1
 argument_list|)
 decl_stmt|;
 DECL|field|V_2_3_0_ID
@@ -4165,7 +4165,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_5_4_0
+name|LUCENE_5_5_0
 argument_list|)
 decl_stmt|;
 DECL|field|V_3_0_0_ID
