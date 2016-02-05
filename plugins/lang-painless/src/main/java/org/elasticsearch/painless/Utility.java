@@ -2800,11 +2800,11 @@ name|value
 return|;
 block|}
 comment|/**      * Like {@link Math#toIntExact(long)} but for long range.      */
-DECL|method|toLongExactWithoutOverflow
+DECL|method|toLongWithoutOverflow
 specifier|public
 specifier|static
 name|long
-name|toLongExactWithoutOverflow
+name|toLongWithoutOverflow
 parameter_list|(
 name|float
 name|value
@@ -2841,11 +2841,11 @@ name|value
 return|;
 block|}
 comment|/**      * Like {@link Math#toIntExact(long)} but for long range.      */
-DECL|method|toLongExactWithoutOverflow
+DECL|method|toLongWithoutOverflow
 specifier|public
 specifier|static
 name|float
-name|toLongExactWithoutOverflow
+name|toLongWithoutOverflow
 parameter_list|(
 name|double
 name|value
