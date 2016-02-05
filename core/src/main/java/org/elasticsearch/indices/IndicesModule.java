@@ -1437,16 +1437,6 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|IndicesWarmer
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bind
-argument_list|(
 name|UpdateHelper
 operator|.
 name|class
