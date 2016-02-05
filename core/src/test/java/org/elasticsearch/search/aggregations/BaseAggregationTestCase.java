@@ -1131,7 +1131,8 @@ argument_list|,
 name|createTempDir
 argument_list|()
 argument_list|)
-comment|// no file watching, so we don't need a ResourceWatcherService
+comment|// no file watching, so we don't need a
+comment|// ResourceWatcherService
 operator|.
 name|put
 argument_list|(
