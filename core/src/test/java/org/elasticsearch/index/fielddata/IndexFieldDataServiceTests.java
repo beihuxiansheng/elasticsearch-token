@@ -1876,8 +1876,6 @@ operator|.
 name|EMPTY
 argument_list|,
 literal|null
-argument_list|,
-name|threadPool
 argument_list|)
 decl_stmt|;
 name|IndexFieldDataService
@@ -2063,8 +2061,6 @@ operator|.
 name|EMPTY
 argument_list|,
 literal|null
-argument_list|,
-name|threadPool
 argument_list|)
 decl_stmt|;
 name|IndexFieldDataService
