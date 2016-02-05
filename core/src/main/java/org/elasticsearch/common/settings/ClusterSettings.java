@@ -646,6 +646,18 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|analysis
 operator|.
 name|HunspellService
@@ -2066,7 +2078,7 @@ name|ScriptService
 operator|.
 name|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
 argument_list|,
-name|IndicesFieldDataCache
+name|IndicesService
 operator|.
 name|INDICES_FIELDDATA_CLEAN_INTERVAL_SETTING
 argument_list|,
