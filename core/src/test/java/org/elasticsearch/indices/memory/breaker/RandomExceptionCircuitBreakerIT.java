@@ -290,6 +290,18 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|fielddata
 operator|.
 name|cache
@@ -1339,12 +1351,15 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|IndicesFieldDataCache
+name|IndicesService
 operator|.
 name|class
 argument_list|,
 name|node
 argument_list|)
+operator|.
+name|getIndicesFieldDataCache
+argument_list|()
 decl_stmt|;
 comment|// Clean up the cache, ensuring that entries' listeners have been called
 name|fdCache
