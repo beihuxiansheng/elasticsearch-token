@@ -166,9 +166,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|common
 operator|.
-name|Discovery
+name|settings
+operator|.
+name|SettingsFilter
 import|;
 end_import
 
@@ -178,9 +180,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
+name|discovery
 operator|.
-name|Environment
+name|Discovery
 import|;
 end_import
 
@@ -426,6 +428,12 @@ specifier|final
 name|IngestService
 name|ingestService
 decl_stmt|;
+DECL|field|settingsFilter
+specifier|private
+specifier|final
+name|SettingsFilter
+name|settingsFilter
+decl_stmt|;
 DECL|field|scriptService
 specifier|private
 name|ScriptService
@@ -473,9 +481,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Environment
-name|environment
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -501,10 +506,15 @@ name|Version
 name|version
 parameter_list|,
 name|ProcessorsRegistry
-name|processorsRegistry
+operator|.
+name|Builder
+name|processorsRegistryBuilder
 parameter_list|,
 name|ClusterService
 name|clusterService
+parameter_list|,
+name|SettingsFilter
+name|settingsFilter
 parameter_list|)
 block|{
 name|super
@@ -578,8 +588,14 @@ name|settings
 argument_list|,
 name|threadPool
 argument_list|,
-name|processorsRegistry
+name|processorsRegistryBuilder
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|settingsFilter
+operator|=
+name|settingsFilter
 expr_stmt|;
 name|clusterService
 operator|.
@@ -878,9 +894,14 @@ name|serviceAttributes
 argument_list|,
 name|settings
 condition|?
+name|settingsFilter
+operator|.
+name|filter
+argument_list|(
 name|this
 operator|.
 name|settings
+argument_list|)
 else|:
 literal|null
 argument_list|,

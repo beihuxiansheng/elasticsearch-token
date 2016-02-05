@@ -48,9 +48,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
+name|test
 operator|.
-name|Node
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -63,6 +63,8 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
+operator|.
+name|ClusterScope
 import|;
 end_import
 
@@ -125,10 +127,25 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|CorsRegexDefaultIT
+annotation|@
+name|ClusterScope
+argument_list|(
+name|scope
+operator|=
+name|ESIntegTestCase
+operator|.
+name|Scope
+operator|.
+name|SUITE
+argument_list|,
+name|numDataNodes
+operator|=
+literal|1
+argument_list|)
+DECL|class|CorsNotSetIT
 specifier|public
 class|class
-name|CorsRegexDefaultIT
+name|CorsNotSetIT
 extends|extends
 name|ESIntegTestCase
 block|{

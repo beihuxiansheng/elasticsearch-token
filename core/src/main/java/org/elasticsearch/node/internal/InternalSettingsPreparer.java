@@ -1428,8 +1428,6 @@ operator|+
 name|key
 operator|+
 literal|"]: "
-argument_list|,
-name|key
 argument_list|)
 argument_list|)
 return|;
@@ -1444,8 +1442,6 @@ operator|+
 name|key
 operator|+
 literal|"]: "
-argument_list|,
-name|key
 argument_list|)
 return|;
 block|}

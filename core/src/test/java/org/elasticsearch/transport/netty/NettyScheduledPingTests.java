@@ -372,6 +372,13 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|NamedWriteableRegistry
+name|registryA
+init|=
+operator|new
+name|NamedWriteableRegistry
+argument_list|()
+decl_stmt|;
 specifier|final
 name|NettyTransport
 name|nettyA
@@ -397,9 +404,7 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|registryA
 argument_list|)
 decl_stmt|;
 name|MockTransportService
@@ -413,6 +418,8 @@ argument_list|,
 name|nettyA
 argument_list|,
 name|threadPool
+argument_list|,
+name|registryA
 argument_list|)
 decl_stmt|;
 name|serviceA
@@ -420,6 +427,13 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|NamedWriteableRegistry
+name|registryB
+init|=
+operator|new
+name|NamedWriteableRegistry
+argument_list|()
+decl_stmt|;
 specifier|final
 name|NettyTransport
 name|nettyB
@@ -445,9 +459,7 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|registryB
 argument_list|)
 decl_stmt|;
 name|MockTransportService
@@ -461,6 +473,8 @@ argument_list|,
 name|nettyB
 argument_list|,
 name|threadPool
+argument_list|,
+name|registryB
 argument_list|)
 decl_stmt|;
 name|serviceB

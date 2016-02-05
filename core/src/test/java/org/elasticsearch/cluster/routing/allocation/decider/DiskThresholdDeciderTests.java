@@ -7297,8 +7297,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 name|ShardRouting
@@ -7323,8 +7321,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 name|RoutingNode
@@ -7512,8 +7508,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|secondRouting
@@ -7537,8 +7531,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|RELOCATING
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|firstRoutingNode
@@ -8509,8 +8501,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 name|ShardRouting
@@ -8535,8 +8525,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 name|RoutingNode
@@ -9103,8 +9091,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|secondRouting
@@ -9128,8 +9114,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|RELOCATING
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|firstRoutingNode

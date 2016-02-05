@@ -82,22 +82,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
-operator|.
-name|azure
-operator|.
-name|management
-operator|.
-name|AzureComputeSettingsFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -296,16 +280,6 @@ name|debug
 argument_list|(
 literal|"starting azure services"
 argument_list|)
-expr_stmt|;
-name|bind
-argument_list|(
-name|AzureComputeSettingsFilter
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
 expr_stmt|;
 comment|// If we have set discovery to azure, let's start the azure compute service
 if|if

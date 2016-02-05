@@ -3740,8 +3740,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 argument_list|)
 operator|.
@@ -3771,8 +3769,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 argument_list|)
 operator|.
@@ -3829,8 +3825,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 argument_list|)
 operator|.
@@ -3860,8 +3854,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 argument_list|)
 operator|.

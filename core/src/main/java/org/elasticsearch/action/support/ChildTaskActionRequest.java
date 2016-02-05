@@ -146,6 +146,28 @@ operator|=
 name|parentTaskId
 expr_stmt|;
 block|}
+comment|/**      * The node that owns the parent task.      */
+DECL|method|getParentTaskNode
+specifier|public
+name|String
+name|getParentTaskNode
+parameter_list|()
+block|{
+return|return
+name|parentTaskNode
+return|;
+block|}
+comment|/**      * The task id of the parent task on the parent node.      */
+DECL|method|getParentTaskId
+specifier|public
+name|long
+name|getParentTaskId
+parameter_list|()
+block|{
+return|return
+name|parentTaskId
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|readFrom

@@ -1533,16 +1533,6 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|TermVectorsService
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|bind
-argument_list|(
 name|NodeServicesProvider
 operator|.
 name|class

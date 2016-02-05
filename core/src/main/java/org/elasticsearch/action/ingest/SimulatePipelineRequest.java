@@ -191,30 +191,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|ValidateActions
-operator|.
-name|addValidationError
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -732,7 +708,7 @@ name|pipelineConfig
 argument_list|,
 name|pipelineStore
 operator|.
-name|getProcessorFactoryRegistry
+name|getProcessorRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
