@@ -206,6 +206,7 @@ end_comment
 
 begin_class
 DECL|class|Retry
+specifier|public
 class|class
 name|Retry
 block|{
