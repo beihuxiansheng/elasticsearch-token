@@ -1966,10 +1966,15 @@ try|try
 block|{
 name|indexRequest
 operator|.
-name|process
+name|resolveRouting
 argument_list|(
 name|metaData
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|indexRequest
+operator|.
+name|process
+argument_list|(
 name|mappingMd
 argument_list|,
 name|allowIdGeneration

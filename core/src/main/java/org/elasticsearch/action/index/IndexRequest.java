@@ -2256,9 +2256,6 @@ specifier|public
 name|void
 name|process
 parameter_list|(
-name|MetaData
-name|metaData
-parameter_list|,
 annotation|@
 name|Nullable
 name|MappingMetaData
@@ -2271,21 +2268,6 @@ name|String
 name|concreteIndex
 parameter_list|)
 block|{
-comment|// resolve the routing if needed
-name|routing
-argument_list|(
-name|metaData
-operator|.
-name|resolveIndexRouting
-argument_list|(
-name|parent
-argument_list|,
-name|routing
-argument_list|,
-name|index
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// resolve timestamp if provided externally
 if|if
 condition|(
@@ -2556,6 +2538,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/* resolve the routing if needed */
+DECL|method|resolveRouting
+specifier|public
+name|void
+name|resolveRouting
+parameter_list|(
+name|MetaData
+name|metaData
+parameter_list|)
+block|{
+name|routing
+argument_list|(
+name|metaData
+operator|.
+name|resolveIndexRouting
+argument_list|(
+name|parent
+argument_list|,
+name|routing
+argument_list|,
+name|index
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
