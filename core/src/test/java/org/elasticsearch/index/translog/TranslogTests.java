@@ -11315,6 +11315,13 @@ range|:
 name|threadExceptions
 control|)
 block|{
+if|if
+condition|(
+name|ex
+operator|!=
+literal|null
+condition|)
+block|{
 name|assertTrue
 argument_list|(
 name|ex
@@ -11331,13 +11338,6 @@ operator|instanceof
 name|AlreadyClosedException
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ex
-operator|!=
-literal|null
-condition|)
-block|{
 name|atLeastOneFailed
 operator|=
 literal|true
