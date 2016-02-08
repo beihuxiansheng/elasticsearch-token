@@ -52,9 +52,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
+name|mapper
 operator|.
-name|IndexFieldDataService
+name|MapperService
 import|;
 end_import
 
@@ -66,9 +66,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|query
 operator|.
-name|MapperService
+name|QueryShardContext
 import|;
 end_import
 
@@ -179,15 +179,20 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|MapperService
-name|mapperService
-parameter_list|,
-name|IndexFieldDataService
-name|fieldDataService
+name|QueryShardContext
+name|shardContext
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|MapperService
+name|mapperService
+init|=
+name|shardContext
+operator|.
+name|getMapperService
+argument_list|()
+decl_stmt|;
 name|XContentParser
 operator|.
 name|Token

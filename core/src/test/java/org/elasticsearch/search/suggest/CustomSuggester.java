@@ -372,9 +372,7 @@ return|return
 parameter_list|(
 name|parser
 parameter_list|,
-name|mapperService
-parameter_list|,
-name|fieldData
+name|shardContext
 parameter_list|)
 lambda|->
 block|{

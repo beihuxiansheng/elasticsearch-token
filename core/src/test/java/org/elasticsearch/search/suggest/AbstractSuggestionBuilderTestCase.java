@@ -2047,13 +2047,7 @@ name|parseInternal
 argument_list|(
 name|parser
 argument_list|,
-name|mockMapperService
-argument_list|,
-literal|null
-argument_list|,
-literal|"test"
-argument_list|,
-literal|1
+name|mockShardContext
 argument_list|)
 decl_stmt|;
 name|SuggestionContext
