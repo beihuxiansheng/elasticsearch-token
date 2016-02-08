@@ -206,6 +206,7 @@ end_import
 
 begin_class
 DECL|class|AbstractHistogramAggregatorFactory
+specifier|public
 specifier|abstract
 class|class
 name|AbstractHistogramAggregatorFactory
@@ -368,6 +369,16 @@ name|histogramFactory
 operator|=
 name|histogramFactory
 expr_stmt|;
+block|}
+DECL|method|minDocCount
+specifier|public
+name|long
+name|minDocCount
+parameter_list|()
+block|{
+return|return
+name|minDocCount
+return|;
 block|}
 annotation|@
 name|Override

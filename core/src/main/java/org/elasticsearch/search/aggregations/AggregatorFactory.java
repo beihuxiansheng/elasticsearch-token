@@ -422,6 +422,12 @@ name|validate
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|doValidate
+specifier|public
+name|void
+name|doValidate
+parameter_list|()
+block|{     }
 comment|/**      * @return The parent factory if one exists (will always return {@code null}      *         for top level aggregator factories).      */
 DECL|method|parent
 specifier|public
@@ -436,9 +442,9 @@ return|return
 name|parent
 return|;
 block|}
-comment|// NORELEASE make this abstract when agg refactoring is complete
 DECL|method|createInternal
 specifier|protected
+specifier|abstract
 name|Aggregator
 name|createInternal
 parameter_list|(
@@ -467,15 +473,7 @@ name|metaData
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"THIS SHOULD NEVER BE CALLED"
-argument_list|)
-throw|;
-block|}
+function_decl|;
 comment|/**      * Creates the aggregator      *      * @param parent      *            The parent aggregator (if this is a top level factory, the      *            parent will be {@code null})      * @param collectsFromSingleBucket      *            If true then the created aggregator will only be collected      *            with<tt>0</tt> as a bucket ordinal. Some factories can take      *            advantage of this in order to return more optimized      *            implementations.      *      * @return The created aggregator      */
 DECL|method|create
 specifier|public
@@ -514,12 +512,6 @@ name|metaData
 argument_list|)
 return|;
 block|}
-DECL|method|doValidate
-specifier|public
-name|void
-name|doValidate
-parameter_list|()
-block|{     }
 DECL|method|setMetaData
 specifier|public
 name|AF

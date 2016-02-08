@@ -285,7 +285,7 @@ operator|new
 name|AggregatorFactories
 argument_list|(
 operator|new
-name|AggregatorBuilder
+name|AggregatorFactory
 argument_list|<
 name|?
 argument_list|>

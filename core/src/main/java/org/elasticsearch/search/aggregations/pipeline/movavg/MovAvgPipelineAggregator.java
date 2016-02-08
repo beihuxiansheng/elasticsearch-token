@@ -182,7 +182,7 @@ name|bucket
 operator|.
 name|histogram
 operator|.
-name|HistogramAggregator
+name|AbstractHistogramAggregatorFactory
 import|;
 end_import
 
@@ -2412,9 +2412,10 @@ operator|!
 operator|(
 name|parent
 operator|instanceof
-name|HistogramAggregator
-operator|.
-name|AbstractBuilder
+name|AbstractHistogramAggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 operator|)
 condition|)
 block|{
@@ -2432,15 +2433,17 @@ throw|;
 block|}
 else|else
 block|{
-name|HistogramAggregator
-operator|.
-name|AbstractBuilder
+name|AbstractHistogramAggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 name|histoParent
 init|=
 operator|(
-name|HistogramAggregator
-operator|.
-name|AbstractBuilder
+name|AbstractHistogramAggregatorFactory
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|parent
 decl_stmt|;
