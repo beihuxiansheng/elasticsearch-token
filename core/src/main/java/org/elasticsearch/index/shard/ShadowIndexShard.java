@@ -285,6 +285,11 @@ name|provider
 parameter_list|,
 name|SearchSlowLog
 name|searchSlowLog
+parameter_list|,
+name|Engine
+operator|.
+name|Warmer
+name|engineWarmer
 parameter_list|)
 throws|throws
 name|IOException
@@ -316,6 +321,8 @@ argument_list|,
 name|provider
 argument_list|,
 name|searchSlowLog
+argument_list|,
+name|engineWarmer
 argument_list|)
 expr_stmt|;
 block|}

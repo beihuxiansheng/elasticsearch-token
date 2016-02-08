@@ -5419,7 +5419,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"adding local node to the list of active nodes who has previously joined the cluster (joins counter is [{}})"
+literal|"adding local node to the list of active nodes that have previously joined the cluster (joins counter is [{}])"
 argument_list|,
 name|joinsCounter
 argument_list|)

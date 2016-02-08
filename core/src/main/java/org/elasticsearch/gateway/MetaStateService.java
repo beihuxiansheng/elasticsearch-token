@@ -329,7 +329,7 @@ name|format
 operator|=
 name|XContentType
 operator|.
-name|fromRestContentType
+name|fromMediaTypeOrFormat
 argument_list|(
 name|settings
 operator|.

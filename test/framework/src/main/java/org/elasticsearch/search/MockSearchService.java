@@ -116,18 +116,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndicesWarmer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
 name|cache
 operator|.
 name|request
@@ -415,9 +403,6 @@ parameter_list|,
 name|IndicesService
 name|indicesService
 parameter_list|,
-name|IndicesWarmer
-name|indicesWarmer
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -452,8 +437,6 @@ argument_list|,
 name|clusterService
 argument_list|,
 name|indicesService
-argument_list|,
-name|indicesWarmer
 argument_list|,
 name|threadPool
 argument_list|,
