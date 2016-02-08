@@ -1328,7 +1328,10 @@ if|if
 condition|(
 name|context
 operator|.
-name|types
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|getTypes
 argument_list|()
 operator|==
 literal|null
@@ -1357,7 +1360,10 @@ name|arrayToDelimitedString
 argument_list|(
 name|context
 operator|.
-name|types
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|getTypes
 argument_list|()
 argument_list|,
 literal|","

@@ -399,7 +399,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -1056,7 +1056,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 expr_stmt|;
 name|String
@@ -1228,7 +1228,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 expr_stmt|;
 name|String

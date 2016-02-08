@@ -1136,7 +1136,7 @@ name|IndexService
 operator|.
 name|this
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 expr_stmt|;
 name|this
@@ -2850,10 +2850,11 @@ return|return
 name|indexSettings
 return|;
 block|}
-DECL|method|getQueryShardContext
+comment|/**      * Creates a new QueryShardContext. The context has not types set yet, if types are required set them via {@link QueryShardContext#setTypes(String...)}      */
+DECL|method|newQueryShardContext
 specifier|public
 name|QueryShardContext
-name|getQueryShardContext
+name|newQueryShardContext
 parameter_list|()
 block|{
 return|return

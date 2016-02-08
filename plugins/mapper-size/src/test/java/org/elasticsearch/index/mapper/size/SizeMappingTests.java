@@ -479,7 +479,7 @@ argument_list|()
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 expr_stmt|;
 name|parser
@@ -798,7 +798,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 expr_stmt|;
 name|DocumentMapper
