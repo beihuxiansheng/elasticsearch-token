@@ -47,9 +47,15 @@ end_import
 begin_class
 DECL|class|BootstrapSettings
 specifier|public
+specifier|final
 class|class
 name|BootstrapSettings
 block|{
+DECL|method|BootstrapSettings
+specifier|private
+name|BootstrapSettings
+parameter_list|()
+block|{     }
 comment|// TODO: remove this: http://www.openbsd.org/papers/hackfest2015-pledge/mgp00005.jpg
 comment|/**      * option to turn off our security manager completely, for example      * if you want to have your own configuration or just disable      */
 DECL|field|SECURITY_MANAGER_ENABLED_SETTING
