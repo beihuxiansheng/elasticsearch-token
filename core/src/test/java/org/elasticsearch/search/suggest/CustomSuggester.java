@@ -474,6 +474,25 @@ name|options
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|SuggestionBuilder
+argument_list|<
+name|?
+argument_list|>
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|CustomSuggesterSearchIT
+operator|.
+name|CustomSuggestionBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

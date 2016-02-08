@@ -34,16 +34,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -61,7 +51,7 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -79,7 +69,7 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -93,6 +83,16 @@ operator|.
 name|TermSuggestionBuilder
 operator|.
 name|SuggestMode
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -123,6 +123,19 @@ argument_list|<
 name|TermSuggestionBuilder
 argument_list|>
 block|{
+comment|/**      *  creates random suggestion builder, renders it to xContent and back to new instance that should be equal to original      */
+annotation|@
+name|Override
+DECL|method|testFromXContent
+specifier|public
+name|void
+name|testFromXContent
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// skip for now
+block|}
 annotation|@
 name|Override
 DECL|method|randomSuggestionBuilder

@@ -1277,9 +1277,6 @@ decl_stmt|;
 name|QueryRescoreContext
 name|rescoreContext
 init|=
-operator|(
-name|QueryRescoreContext
-operator|)
 name|rescoreBuilder
 operator|.
 name|build

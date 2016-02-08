@@ -111,11 +111,23 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * link the suggester to its corresponding {@link SuggestContextParser}      * TODO: This method should eventually be removed by {@link #getBuilderPrototype()} once      * we don't directly parse from xContent to the SuggestionContext any more      */
 DECL|method|getContextParser
 specifier|public
 specifier|abstract
 name|SuggestContextParser
 name|getContextParser
+parameter_list|()
+function_decl|;
+comment|/**      * link the suggester to its corresponding {@link SuggestionBuilder}      */
+DECL|method|getBuilderPrototype
+specifier|public
+specifier|abstract
+name|SuggestionBuilder
+argument_list|<
+name|?
+argument_list|>
+name|getBuilderPrototype
 parameter_list|()
 function_decl|;
 specifier|public
