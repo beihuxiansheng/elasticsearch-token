@@ -2834,6 +2834,10 @@ literal|"Can't parse [index] value ["
 operator|+
 name|index
 operator|+
+literal|"] for field ["
+operator|+
+name|fieldName
+operator|+
 literal|"], expected [true] or [false]"
 argument_list|)
 throw|;
@@ -2886,6 +2890,10 @@ argument_list|(
 literal|"Can't parse [index] value ["
 operator|+
 name|index
+operator|+
+literal|"] for field ["
+operator|+
+name|fieldName
 operator|+
 literal|"], expected [true], [false], [no], [not_analyzed] or [analyzed]"
 argument_list|)
@@ -3153,7 +3161,7 @@ literal|"Unknown Similarity type ["
 operator|+
 name|value
 operator|+
-literal|"] for ["
+literal|"] for field ["
 operator|+
 name|name
 operator|+
