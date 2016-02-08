@@ -1776,7 +1776,7 @@ name|allocationId
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Moves the shard from started to initializing and bumps the version      */
+comment|/**      * Moves the shard from started to initializing      */
 DECL|method|reinitializeShard
 name|void
 name|reinitializeShard

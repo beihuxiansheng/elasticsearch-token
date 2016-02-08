@@ -157,6 +157,7 @@ name|Listener
 block|{
 comment|/**          * Called after the fielddata is loaded during the cache phase          */
 DECL|method|onCache
+specifier|default
 name|void
 name|onCache
 parameter_list|(
@@ -172,9 +173,10 @@ parameter_list|,
 name|Accountable
 name|ramUsage
 parameter_list|)
-function_decl|;
+block|{}
 comment|/**          * Called after the fielddata is unloaded          */
 DECL|method|onRemoval
+specifier|default
 name|void
 name|onRemoval
 parameter_list|(
@@ -193,7 +195,7 @@ parameter_list|,
 name|long
 name|sizeInBytes
 parameter_list|)
-function_decl|;
+block|{}
 block|}
 DECL|class|None
 class|class
