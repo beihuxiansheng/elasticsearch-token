@@ -1182,6 +1182,8 @@ operator|.
 name|build
 argument_list|(
 name|context
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|searchContext
@@ -1193,13 +1195,6 @@ name|SearchContextAggregations
 argument_list|(
 name|factories
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|factories
-operator|.
-name|init
-argument_list|(
-name|context
 argument_list|)
 expr_stmt|;
 name|Aggregator

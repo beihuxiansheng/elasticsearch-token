@@ -236,6 +236,8 @@ operator|.
 name|build
 argument_list|(
 name|aggContext
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|factories
