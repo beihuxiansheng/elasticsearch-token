@@ -1745,6 +1745,7 @@ init|=
 literal|0.4
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|StupidBackoff
@@ -2181,6 +2182,7 @@ init|=
 literal|0.5
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|Laplace
@@ -2904,6 +2906,7 @@ init|=
 literal|"linear"
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|LinearInterpolation
