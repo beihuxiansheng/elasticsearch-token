@@ -366,17 +366,17 @@ specifier|public
 name|ParsedDocument
 name|parse
 parameter_list|(
+specifier|final
 name|PercolateShardRequest
 name|request
 parameter_list|,
+specifier|final
 name|PercolateContext
 name|context
 parameter_list|,
+specifier|final
 name|MapperService
 name|mapperService
-parameter_list|,
-name|QueryShardContext
-name|queryShardContext
 parameter_list|)
 block|{
 name|BytesReference
@@ -486,6 +486,15 @@ operator|.
 name|parseElements
 argument_list|()
 decl_stmt|;
+specifier|final
+name|QueryShardContext
+name|queryShardContext
+init|=
+name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
+decl_stmt|;
 name|ParsedDocument
 name|doc
 init|=
@@ -494,22 +503,17 @@ decl_stmt|;
 comment|// Some queries (function_score query when for decay functions) rely on a SearchContext being set:
 comment|// We switch types because this context needs to be in the context of the percolate queries in the shard and
 comment|// not the in memory percolate doc
+specifier|final
 name|String
 index|[]
 name|previousTypes
 init|=
-name|context
-operator|.
-name|getQueryShardContext
-argument_list|()
+name|queryShardContext
 operator|.
 name|getTypes
 argument_list|()
 decl_stmt|;
-name|context
-operator|.
-name|getQueryShardContext
-argument_list|()
+name|queryShardContext
 operator|.
 name|setTypes
 argument_list|(
@@ -1217,10 +1221,7 @@ throw|;
 block|}
 finally|finally
 block|{
-name|context
-operator|.
-name|getQueryShardContext
-argument_list|()
+name|queryShardContext
 operator|.
 name|setTypes
 argument_list|(

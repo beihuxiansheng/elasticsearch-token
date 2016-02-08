@@ -998,8 +998,6 @@ argument_list|,
 name|context
 argument_list|,
 name|mapperService
-argument_list|,
-name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1168,8 +1166,6 @@ argument_list|,
 name|context
 argument_list|,
 name|mapperService
-argument_list|,
-name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1420,8 +1416,6 @@ argument_list|,
 name|context
 argument_list|,
 name|mapperService
-argument_list|,
-name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1686,8 +1680,6 @@ argument_list|,
 name|context
 argument_list|,
 name|mapperService
-argument_list|,
-name|queryShardContext
 argument_list|)
 expr_stmt|;
 block|}
