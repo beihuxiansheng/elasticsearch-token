@@ -1504,6 +1504,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|IndexService
 name|percolateIndexService
 init|=
@@ -1520,6 +1521,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
 name|IndexShard
 name|indexShard
 init|=
@@ -1602,9 +1604,9 @@ name|percolateIndexService
 operator|.
 name|aliasFilter
 argument_list|(
-name|indexShard
+name|percolateIndexService
 operator|.
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|()
 argument_list|,
 name|filteringAliases
@@ -1692,7 +1694,7 @@ operator|.
 name|mapperService
 argument_list|()
 argument_list|,
-name|percolateIndexService
+name|context
 operator|.
 name|getQueryShardContext
 argument_list|()

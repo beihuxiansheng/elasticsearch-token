@@ -669,16 +669,6 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-name|QueryShardContext
-operator|.
-name|setTypes
-argument_list|(
-name|value
-operator|.
-name|types
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|removeCurrent
 specifier|public
@@ -690,11 +680,6 @@ block|{
 name|current
 operator|.
 name|remove
-argument_list|()
-expr_stmt|;
-name|QueryShardContext
-operator|.
-name|removeTypes
 argument_list|()
 expr_stmt|;
 block|}
@@ -896,21 +881,6 @@ specifier|public
 specifier|abstract
 name|int
 name|numberOfShards
-parameter_list|()
-function_decl|;
-DECL|method|hasTypes
-specifier|public
-specifier|abstract
-name|boolean
-name|hasTypes
-parameter_list|()
-function_decl|;
-DECL|method|types
-specifier|public
-specifier|abstract
-name|String
-index|[]
-name|types
 parameter_list|()
 function_decl|;
 DECL|method|queryBoost
@@ -1830,6 +1800,13 @@ comment|/**          * This life time is for objects that need to live until the
 DECL|enum constant|CONTEXT
 name|CONTEXT
 block|}
+DECL|method|getQueryShardContext
+specifier|public
+specifier|abstract
+name|QueryShardContext
+name|getQueryShardContext
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

@@ -369,12 +369,7 @@ name|queryShardContext
 init|=
 name|indexService
 operator|.
-name|getShard
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|()
 decl_stmt|;
 name|queryShardContext
