@@ -140,7 +140,7 @@ specifier|final
 name|SortOrder
 name|PROTOTYPE
 init|=
-name|ASC
+name|DESC
 decl_stmt|;
 annotation|@
 name|Override

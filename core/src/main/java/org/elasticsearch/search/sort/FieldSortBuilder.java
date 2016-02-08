@@ -50,34 +50,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|NamedWriteable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -113,20 +85,6 @@ operator|.
 name|lucene
 operator|.
 name|BytesRefs
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|ToXContent
 import|;
 end_import
 
@@ -217,10 +175,21 @@ class|class
 name|FieldSortBuilder
 extends|extends
 name|SortBuilder
+implements|implements
+name|SortBuilderTemp
 argument_list|<
 name|FieldSortBuilder
 argument_list|>
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"field_sort"
+decl_stmt|;
 DECL|field|PROTOTYPE
 specifier|static
 specifier|final
@@ -428,7 +397,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new sort based on a document field.      *      * @param fieldName The field name.      */
+comment|/**      * Constructs a new sort based on a document field.      *      * @param fieldName      *            The field name.      */
 DECL|method|FieldSortBuilder
 specifier|public
 name|FieldSortBuilder
@@ -544,7 +513,7 @@ return|return
 name|missing
 return|;
 block|}
-comment|/**      * Set the type to use in case the current field is not mapped in an index.      * Specifying a type tells Elasticsearch what type the sort values should have, which is important      * for cross-index search, if there are sort fields that exist on some indices only.      * If the unmapped type is<tt>null</tt> then query execution will fail if one or more indices      * don't have a mapping for the current field.      */
+comment|/**      * Set the type to use in case the current field is not mapped in an index.      * Specifying a type tells Elasticsearch what type the sort values should      * have, which is important for cross-index search, if there are sort fields      * that exist on some indices only. If the unmapped type is<tt>null</tt>      * then query execution will fail if one or more indices don't have a      * mapping for the current field.      */
 DECL|method|unmappedType
 specifier|public
 name|FieldSortBuilder
@@ -564,7 +533,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** Returns the type to use in case the current field is not mapped in an index. */
+comment|/**      * Returns the type to use in case the current field is not mapped in an      * index.      */
 DECL|method|unmappedType
 specifier|public
 name|String
@@ -577,7 +546,7 @@ operator|.
 name|unmappedType
 return|;
 block|}
-comment|/**      * Defines what values to pick in the case a document contains multiple values for the targeted sort field.      * Possible values: min, max, sum and avg      *       * TODO would love to see an enum here      *<p>      * The last two values are only applicable for number based fields.      */
+comment|/**      * Defines what values to pick in the case a document contains multiple      * values for the targeted sort field. Possible values: min, max, sum and      * avg      *       * TODO would love to see an enum here      *<p>      * The last two values are only applicable for number based fields.      */
 DECL|method|sortMode
 specifier|public
 name|FieldSortBuilder
@@ -597,7 +566,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** Returns what values to pick in the case a document contains multiple values for the targeted sort field. */
+comment|/**      * Returns what values to pick in the case a document contains multiple      * values for the targeted sort field.      */
 DECL|method|sortMode
 specifier|public
 name|String
@@ -610,7 +579,7 @@ operator|.
 name|sortMode
 return|;
 block|}
-comment|/**      * Sets the nested filter that the nested objects should match with in order to be taken into account      * for sorting.      *       * TODO should the above getters and setters be deprecated/ changed in favour of real getters and setters?      */
+comment|/**      * Sets the nested filter that the nested objects should match with in order      * to be taken into account for sorting.      *       * TODO should the above getters and setters be deprecated/ changed in      * favour of real getters and setters?      */
 DECL|method|setNestedFilter
 specifier|public
 name|FieldSortBuilder
@@ -630,7 +599,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** Returns the nested filter that the nested objects should match with in order to be taken into account      * for sorting. */
+comment|/**      * Returns the nested filter that the nested objects should match with in      * order to be taken into account for sorting.      */
 DECL|method|getNestedFilter
 specifier|public
 name|QueryBuilder
@@ -643,7 +612,7 @@ operator|.
 name|nestedFilter
 return|;
 block|}
-comment|/**      * Sets the nested path if sorting occurs on a field that is inside a nested object. By default when sorting on a      * field inside a nested object, the nearest upper nested object is selected as nested path.      */
+comment|/**      * Sets the nested path if sorting occurs on a field that is inside a nested      * object. By default when sorting on a field inside a nested object, the      * nearest upper nested object is selected as nested path.      */
 DECL|method|setNestedPath
 specifier|public
 name|FieldSortBuilder
@@ -663,7 +632,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** Returns the nested path if sorting occurs in a field that is inside a nested object. */
+comment|/**      * Returns the nested path if sorting occurs in a field that is inside a      * nested object.      */
 DECL|method|getNestedPath
 specifier|public
 name|String
@@ -1767,6 +1736,33 @@ expr_stmt|;
 block|}
 return|return
 name|builder
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+literal|"field_sort_builder"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|SortBuilderTemp
+argument_list|<
+name|FieldSortBuilder
+argument_list|>
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|PROTOTYPE
 return|;
 block|}
 block|}
