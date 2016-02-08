@@ -982,6 +982,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|mapperService
+argument_list|,
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|ParsedDocument
@@ -1150,6 +1152,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|mapperService
+argument_list|,
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|ParsedDocument
@@ -1400,6 +1404,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|mapperService
+argument_list|,
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|ParsedDocument
@@ -1665,6 +1671,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|mapperService
+argument_list|,
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 try|try
