@@ -5199,38 +5199,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// public void testFailWithSubAgg() throws Exception {
-comment|// String source = "{\n" +
-comment|// "  \"aggs\": {\n" +
-comment|// "    \"top-tags\": {\n" +
-comment|// "      \"terms\": {\n" +
-comment|// "        \"field\": \"tags\"\n" +
-comment|// "      },\n" +
-comment|// "      \"aggs\": {\n" +
-comment|// "        \"top_tags_hits\": {\n" +
-comment|// "          \"top_hits\": {},\n" +
-comment|// "          \"aggs\": {\n" +
-comment|// "            \"max\": {\n" +
-comment|// "              \"max\": {\n" +
-comment|// "                \"field\": \"age\"\n" +
-comment|// "              }\n" +
-comment|// "            }\n" +
-comment|// "          }\n" +
-comment|// "        }\n" +
-comment|// "      }\n" +
-comment|// "    }\n" +
-comment|// "  }\n" +
-comment|// "}";
-comment|// try {
-comment|// client().prepareSearch("idx").setTypes("type")
-comment|// .setSource(new BytesArray(source))
-comment|// .get();
-comment|// fail();
-comment|// } catch (SearchPhaseExecutionException e) {
-comment|// assertThat(e.toString(),
-comment|// containsString("Aggregator [top_tags_hits] of type [top_hits] cannot accept sub-aggregations"));
-comment|// }
-comment|// } NORELEASE this needs to be tested in a top_hits aggregations unit test
 DECL|method|testEmptyIndex
 specifier|public
 name|void

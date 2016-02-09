@@ -134,10 +134,6 @@ name|Map
 import|;
 end_import
 
-begin_comment
-comment|// NORELEASE this needs to extend AggregatorFactory<AF> after refactoring is complete
-end_comment
-
 begin_class
 DECL|class|ValuesSourceAggregatorFactory
 specifier|public

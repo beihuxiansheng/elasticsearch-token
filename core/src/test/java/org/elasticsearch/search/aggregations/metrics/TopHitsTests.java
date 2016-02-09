@@ -24,6 +24,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -38,9 +66,37 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationInitializationException
 import|;
 end_import
 
@@ -154,9 +210,17 @@ name|List
 import|;
 end_import
 
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
 
 begin_class
 DECL|class|TopHitsTests
@@ -928,6 +992,143 @@ block|}
 return|return
 name|factory
 return|;
+block|}
+DECL|method|testFailWithSubAgg
+specifier|public
+name|void
+name|testFailWithSubAgg
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|source
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"top-tags\": {\n"
+operator|+
+literal|"      \"terms\": {\n"
+operator|+
+literal|"        \"field\": \"tags\"\n"
+operator|+
+literal|"      },\n"
+operator|+
+literal|"      \"aggs\": {\n"
+operator|+
+literal|"        \"top_tags_hits\": {\n"
+operator|+
+literal|"          \"top_hits\": {},\n"
+operator|+
+literal|"          \"aggs\": {\n"
+operator|+
+literal|"            \"max\": {\n"
+operator|+
+literal|"              \"max\": {\n"
+operator|+
+literal|"                \"field\": \"age\"\n"
+operator|+
+literal|"              }\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|XContentParser
+name|parser
+init|=
+name|XContentFactory
+operator|.
+name|xContent
+argument_list|(
+name|source
+argument_list|)
+operator|.
+name|createParser
+argument_list|(
+name|source
+argument_list|)
+decl_stmt|;
+name|QueryParseContext
+name|parseContext
+init|=
+operator|new
+name|QueryParseContext
+argument_list|(
+name|queriesRegistry
+argument_list|)
+decl_stmt|;
+name|parseContext
+operator|.
+name|reset
+argument_list|(
+name|parser
+argument_list|)
+expr_stmt|;
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|(
+name|parseFieldMatcher
+argument_list|)
+expr_stmt|;
+name|assertSame
+argument_list|(
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+argument_list|,
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|aggParsers
+operator|.
+name|parseAggregators
+argument_list|(
+name|parser
+argument_list|,
+name|parseContext
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AggregationInitializationException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Aggregator [top_tags_hits] of type [top_hits] cannot accept sub-aggregations"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

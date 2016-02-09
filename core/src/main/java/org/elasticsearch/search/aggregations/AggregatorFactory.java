@@ -50,20 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|ToXContentToBytes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|lease
@@ -97,20 +83,6 @@ operator|.
 name|util
 operator|.
 name|ObjectArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilder
 import|;
 end_import
 
@@ -208,10 +180,6 @@ name|Map
 import|;
 end_import
 
-begin_comment
-comment|// NORELEASE remove ToXContentToBytes here when agg refactoring complete
-end_comment
-
 begin_class
 DECL|class|AggregatorFactory
 specifier|public
@@ -226,34 +194,7 @@ parameter_list|<
 name|AF
 parameter_list|>
 parameter_list|>
-extends|extends
-name|ToXContentToBytes
 block|{
-comment|// NORELEASE remove this method when agg refactoring complete
-annotation|@
-name|Override
-DECL|method|toXContent
-specifier|public
-name|XContentBuilder
-name|toXContent
-parameter_list|(
-name|XContentBuilder
-name|builder
-parameter_list|,
-name|Params
-name|params
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"This should never be called"
-argument_list|)
-throw|;
-block|}
 DECL|field|name
 specifier|protected
 name|String

@@ -314,18 +314,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|aggregations
 operator|.
 name|Aggregator
@@ -1649,19 +1637,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|IllegalArgumentException
 argument_list|(
-name|aggregationContext
-operator|.
-name|searchContext
-argument_list|()
-argument_list|,
 literal|"[children] no [_parent] field not configured that points to a parent type"
-argument_list|,
-literal|null
 argument_list|)
 throw|;
-comment|// NOCOMMIT fix exception args
 block|}
 name|parentType
 operator|=
