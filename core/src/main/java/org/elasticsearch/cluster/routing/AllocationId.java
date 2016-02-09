@@ -439,6 +439,27 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a new allocation id for initializing allocation based on an existing id.      */
+DECL|method|newInitializing
+specifier|public
+specifier|static
+name|AllocationId
+name|newInitializing
+parameter_list|(
+name|String
+name|existingAllocationId
+parameter_list|)
+block|{
+return|return
+operator|new
+name|AllocationId
+argument_list|(
+name|existingAllocationId
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
 comment|/**      * Creates a new allocation id for the target initializing shard that is the result      * of a relocation.      */
 DECL|method|newTargetRelocation
 specifier|public
