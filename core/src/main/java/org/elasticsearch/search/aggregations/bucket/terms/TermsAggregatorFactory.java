@@ -516,9 +516,6 @@ specifier|protected
 name|Aggregator
 name|createUnmapped
 parameter_list|(
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -576,7 +573,7 @@ name|NonCollectingAggregator
 argument_list|(
 name|name
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -624,9 +621,6 @@ parameter_list|(
 name|ValuesSource
 name|valuesSource
 parameter_list|,
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -662,7 +656,7 @@ name|asMultiBucketAggregator
 argument_list|(
 name|this
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|)
@@ -725,7 +719,7 @@ operator|.
 name|getRequiredSize
 argument_list|()
 argument_list|,
-name|aggregationContext
+name|context
 operator|.
 name|searchContext
 argument_list|()
@@ -770,7 +764,7 @@ name|fromString
 argument_list|(
 name|executionHint
 argument_list|,
-name|aggregationContext
+name|context
 operator|.
 name|searchContext
 argument_list|()
@@ -841,7 +835,7 @@ decl_stmt|;
 name|IndexSearcher
 name|indexSearcher
 init|=
-name|aggregationContext
+name|context
 operator|.
 name|searchContext
 argument_list|()
@@ -991,7 +985,7 @@ name|bucketCountThresholds
 argument_list|,
 name|includeExclude
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -1105,7 +1099,7 @@ name|order
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -1160,7 +1154,7 @@ name|order
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,

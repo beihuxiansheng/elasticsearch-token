@@ -286,9 +286,6 @@ specifier|protected
 name|Aggregator
 name|createUnmapped
 parameter_list|(
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -315,7 +312,7 @@ name|GeoBoundsAggregator
 argument_list|(
 name|name
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -340,9 +337,6 @@ name|ValuesSource
 operator|.
 name|GeoPoint
 name|valuesSource
-parameter_list|,
-name|AggregationContext
-name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
@@ -373,7 +367,7 @@ name|GeoBoundsAggregator
 argument_list|(
 name|name
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,

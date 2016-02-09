@@ -649,9 +649,6 @@ specifier|public
 name|Aggregator
 name|createInternal
 parameter_list|(
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -681,7 +678,7 @@ init|=
 operator|new
 name|SubSearchContext
 argument_list|(
-name|aggregationContext
+name|context
 operator|.
 name|searchContext
 argument_list|()
@@ -1066,7 +1063,7 @@ name|highlightBuilder
 operator|.
 name|build
 argument_list|(
-name|aggregationContext
+name|context
 operator|.
 name|searchContext
 argument_list|()
@@ -1081,7 +1078,7 @@ return|return
 operator|new
 name|TopHitsAggregator
 argument_list|(
-name|aggregationContext
+name|context
 operator|.
 name|searchContext
 argument_list|()
@@ -1093,7 +1090,7 @@ name|subSearchContext
 argument_list|,
 name|name
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,

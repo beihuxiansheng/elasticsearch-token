@@ -406,9 +406,6 @@ specifier|protected
 name|Aggregator
 name|createUnmapped
 parameter_list|(
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -444,7 +441,7 @@ operator|.
 name|format
 argument_list|()
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -467,9 +464,6 @@ name|ValuesSource
 operator|.
 name|Numeric
 name|valuesSource
-parameter_list|,
-name|AggregationContext
-name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
@@ -515,7 +509,7 @@ name|ranges
 argument_list|,
 name|keyed
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,

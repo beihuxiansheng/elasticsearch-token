@@ -336,9 +336,6 @@ specifier|protected
 name|Aggregator
 name|createUnmapped
 parameter_list|(
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -367,7 +364,7 @@ name|name
 argument_list|,
 literal|null
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -397,9 +394,6 @@ name|doCreateInternal
 parameter_list|(
 name|Numeric
 name|valuesSource
-parameter_list|,
-name|AggregationContext
-name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
@@ -432,7 +426,7 @@ name|name
 argument_list|,
 name|valuesSource
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,

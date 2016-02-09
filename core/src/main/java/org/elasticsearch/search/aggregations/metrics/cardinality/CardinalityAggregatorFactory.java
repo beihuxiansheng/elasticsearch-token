@@ -298,9 +298,6 @@ specifier|protected
 name|Aggregator
 name|createUnmapped
 parameter_list|(
-name|AggregationContext
-name|context
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -359,9 +356,6 @@ parameter_list|(
 name|ValuesSource
 name|valuesSource
 parameter_list|,
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -403,7 +397,7 @@ operator|.
 name|formatter
 argument_list|()
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,

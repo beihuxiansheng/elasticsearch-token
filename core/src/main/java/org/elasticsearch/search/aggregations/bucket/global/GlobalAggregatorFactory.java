@@ -223,9 +223,6 @@ specifier|public
 name|Aggregator
 name|createInternal
 parameter_list|(
-name|AggregationContext
-name|context
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,

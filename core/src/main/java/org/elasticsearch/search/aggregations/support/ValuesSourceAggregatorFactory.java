@@ -250,9 +250,6 @@ specifier|public
 name|Aggregator
 name|createInternal
 parameter_list|(
-name|AggregationContext
-name|context
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -301,8 +298,6 @@ block|{
 return|return
 name|createUnmapped
 argument_list|(
-name|context
-argument_list|,
 name|parent
 argument_list|,
 name|pipelineAggregators
@@ -315,8 +310,6 @@ return|return
 name|doCreateInternal
 argument_list|(
 name|vs
-argument_list|,
-name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -334,9 +327,6 @@ specifier|abstract
 name|Aggregator
 name|createUnmapped
 parameter_list|(
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -365,9 +355,6 @@ name|doCreateInternal
 parameter_list|(
 name|VS
 name|valuesSource
-parameter_list|,
-name|AggregationContext
-name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent

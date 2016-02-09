@@ -380,9 +380,6 @@ specifier|protected
 name|Aggregator
 name|createUnmapped
 parameter_list|(
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -409,7 +406,7 @@ name|NonCollectingAggregator
 argument_list|(
 name|name
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
@@ -463,9 +460,6 @@ operator|.
 name|ParentChild
 name|valuesSource
 parameter_list|,
-name|AggregationContext
-name|aggregationContext
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -496,7 +490,7 @@ name|valuesSource
 operator|.
 name|globalMaxOrd
 argument_list|(
-name|aggregationContext
+name|context
 operator|.
 name|searchContext
 argument_list|()
@@ -515,7 +509,7 @@ name|name
 argument_list|,
 name|factories
 argument_list|,
-name|aggregationContext
+name|context
 argument_list|,
 name|parent
 argument_list|,
