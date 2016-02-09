@@ -4668,10 +4668,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|build
+DECL|method|innerBuild
 specifier|public
 name|SuggestionContext
-name|build
+name|innerBuild
 parameter_list|(
 name|QueryShardContext
 name|context
@@ -4703,18 +4703,6 @@ operator|.
 name|setShardContext
 argument_list|(
 name|context
-argument_list|)
-expr_stmt|;
-comment|// copy common fields
-name|SuggestUtils
-operator|.
-name|suggestionToSuggestionContext
-argument_list|(
-name|this
-argument_list|,
-name|mapperService
-argument_list|,
-name|suggestionContext
 argument_list|)
 expr_stmt|;
 name|suggestionContext
@@ -4967,25 +4955,6 @@ operator|.
 name|collatePrune
 argument_list|)
 expr_stmt|;
-block|}
-comment|// TODO make field mandatory in the builder, then remove this
-if|if
-condition|(
-name|suggestionContext
-operator|.
-name|getField
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The required field option is missing"
-argument_list|)
-throw|;
 block|}
 name|MappedFieldType
 name|fieldType

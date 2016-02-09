@@ -367,6 +367,19 @@ return|return
 name|suggestions
 return|;
 block|}
+comment|/**      * Returns the possibly null global suggest text that      * should be applied as the text for all suggesters.      */
+annotation|@
+name|Nullable
+DECL|method|getGlobalText
+specifier|public
+name|String
+name|getGlobalText
+parameter_list|()
+block|{
+return|return
+name|globalText
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toXContent

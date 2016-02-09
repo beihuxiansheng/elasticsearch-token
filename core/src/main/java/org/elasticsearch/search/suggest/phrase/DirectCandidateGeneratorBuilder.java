@@ -1961,7 +1961,7 @@ name|minWordLength
 argument_list|,
 name|generator
 operator|::
-name|minQueryLength
+name|minWordLength
 argument_list|)
 expr_stmt|;
 name|transferIfNotNull

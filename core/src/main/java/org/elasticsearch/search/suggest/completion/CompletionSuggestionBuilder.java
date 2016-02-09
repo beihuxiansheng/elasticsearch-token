@@ -1598,10 +1598,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|build
+DECL|method|innerBuild
 specifier|protected
 name|SuggestionContext
-name|build
+name|innerBuild
 parameter_list|(
 name|QueryShardContext
 name|context
