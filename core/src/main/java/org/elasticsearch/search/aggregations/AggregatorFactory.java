@@ -363,6 +363,12 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|metaData
+operator|=
+name|metaData
+expr_stmt|;
 block|}
 DECL|method|name
 specifier|public
