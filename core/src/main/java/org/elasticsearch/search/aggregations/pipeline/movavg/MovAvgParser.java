@@ -132,7 +132,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -345,7 +345,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -1060,13 +1060,13 @@ throw|;
 block|}
 name|MovAvgPipelineAggregator
 operator|.
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|MovAvgPipelineAggregator
 operator|.
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 argument_list|(
 name|pipelineAggregatorName
 argument_list|,
@@ -1267,7 +1267,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{
@@ -1275,7 +1275,7 @@ return|return
 operator|new
 name|MovAvgPipelineAggregator
 operator|.
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|,

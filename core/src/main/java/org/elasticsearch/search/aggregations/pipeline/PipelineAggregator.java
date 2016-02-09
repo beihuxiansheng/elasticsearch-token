@@ -181,7 +181,7 @@ name|PipelineAggregator
 implements|implements
 name|Streamable
 block|{
-comment|/**      * Parses the pipeline aggregation request and creates the appropriate      * pipeline aggregator factory for it.      *      * @see PipelineAggregatorFactory      */
+comment|/**      * Parses the pipeline aggregation request and creates the appropriate      * pipeline aggregator factory for it.      *      * @see PipelineAggregatorBuilder      */
 DECL|interface|Parser
 specifier|public
 specifier|static
@@ -235,7 +235,7 @@ parameter_list|()
 function_decl|;
 comment|/**          * Returns the pipeline aggregator factory with which this parser is          * associated.          *          * @param pipelineAggregatorName          *            The name of the pipeline aggregation          * @param parser          *            The xcontent parser          * @param context          *            The search context          * @return The resolved pipeline aggregator factory          * @throws java.io.IOException          *             When parsing fails          */
 DECL|method|parse
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -250,9 +250,9 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          * @return an empty {@link PipelineAggregatorFactory} instance for this          *         parser that can be used for deserialization          */
+comment|/**          * @return an empty {@link PipelineAggregatorBuilder} instance for this          *         parser that can be used for deserialization          */
 DECL|method|getFactoryPrototype
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 function_decl|;

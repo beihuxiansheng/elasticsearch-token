@@ -238,7 +238,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -828,22 +828,22 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|Factory
+DECL|class|CumulativeSumPipelineAggregatorBuilder
 specifier|public
 specifier|static
 class|class
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 extends|extends
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 block|{
 DECL|field|format
 specifier|private
 name|String
 name|format
 decl_stmt|;
-DECL|method|Factory
+DECL|method|CumulativeSumPipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -865,9 +865,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Factory
+DECL|method|CumulativeSumPipelineAggregatorBuilder
 specifier|private
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -893,7 +893,7 @@ block|}
 comment|/**          * Sets the format to use on the output of this aggregation.          */
 DECL|method|format
 specifier|public
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 name|format
 parameter_list|(
 name|String
@@ -1014,7 +1014,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -1162,7 +1162,7 @@ name|Override
 DECL|method|doReadFrom
 specifier|protected
 specifier|final
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String
@@ -1178,11 +1178,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1252,11 +1252,11 @@ name|Object
 name|obj
 parameter_list|)
 block|{
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;

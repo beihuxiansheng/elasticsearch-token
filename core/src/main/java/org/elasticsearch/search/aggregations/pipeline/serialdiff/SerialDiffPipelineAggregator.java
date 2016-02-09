@@ -232,7 +232,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -958,13 +958,13 @@ name|lag
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|Factory
+DECL|class|SerialDiffPipelineAggregatorBuilder
 specifier|public
 specifier|static
 class|class
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 extends|extends
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 block|{
 DECL|field|format
 specifier|private
@@ -987,9 +987,9 @@ name|lag
 init|=
 literal|1
 decl_stmt|;
-DECL|method|Factory
+DECL|method|SerialDiffPipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -1011,9 +1011,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Factory
+DECL|method|SerialDiffPipelineAggregatorBuilder
 specifier|private
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -1039,7 +1039,7 @@ block|}
 comment|/**          * Sets the lag to use when calculating the serial difference.          */
 DECL|method|lag
 specifier|public
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 name|lag
 parameter_list|(
 name|int
@@ -1089,7 +1089,7 @@ block|}
 comment|/**          * Sets the format to use on the output of this aggregation.          */
 DECL|method|format
 specifier|public
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 name|format
 parameter_list|(
 name|String
@@ -1120,7 +1120,7 @@ block|}
 comment|/**          * Sets the GapPolicy to use on the output of this aggregation.          */
 DECL|method|gapPolicy
 specifier|public
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -1300,7 +1300,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String
@@ -1316,11 +1316,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1427,11 +1427,11 @@ name|Object
 name|obj
 parameter_list|)
 block|{
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;

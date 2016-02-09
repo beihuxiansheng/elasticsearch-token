@@ -88,7 +88,7 @@ name|movavg
 operator|.
 name|MovAvgPipelineAggregator
 operator|.
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -228,14 +228,14 @@ name|BasePipelineAggregationTestCase
 argument_list|<
 name|MovAvgPipelineAggregator
 operator|.
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorFactory
 specifier|protected
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|createTestAggregatorFactory
 parameter_list|()
 block|{
@@ -259,11 +259,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,

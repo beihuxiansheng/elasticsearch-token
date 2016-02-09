@@ -177,17 +177,17 @@ comment|/**  * A factory that knows how to create an {@link PipelineAggregator} 
 end_comment
 
 begin_class
-DECL|class|PipelineAggregatorFactory
+DECL|class|PipelineAggregatorBuilder
 specifier|public
 specifier|abstract
 class|class
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 implements|,
 name|ToXContent
@@ -219,9 +219,9 @@ argument_list|>
 name|metaData
 decl_stmt|;
 comment|/**      * Constructs a new pipeline aggregator factory.      *      * @param name      *            The aggregation name      * @param type      *            The aggregation type      */
-DECL|method|PipelineAggregatorFactory
+DECL|method|PipelineAggregatorBuilder
 specifier|public
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -295,7 +295,7 @@ name|factories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -371,7 +371,7 @@ name|factories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -486,7 +486,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|readFrom
 parameter_list|(
 name|StreamInput
@@ -512,7 +512,7 @@ operator|.
 name|readStringArray
 argument_list|()
 decl_stmt|;
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|factory
 init|=
 name|doReadFrom
@@ -540,7 +540,7 @@ block|}
 DECL|method|doReadFrom
 specifier|protected
 specifier|abstract
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String
@@ -675,7 +675,7 @@ name|endObject
 argument_list|()
 return|;
 block|}
-comment|/**      * @return<code>true</code> if the {@link PipelineAggregatorFactory}      *         overrides the XContent rendering of the bucketPath option.      */
+comment|/**      * @return<code>true</code> if the {@link PipelineAggregatorBuilder}      *         overrides the XContent rendering of the bucketPath option.      */
 DECL|method|overrideBucketsPath
 specifier|protected
 name|boolean
@@ -772,11 +772,11 @@ condition|)
 return|return
 literal|false
 return|;
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;

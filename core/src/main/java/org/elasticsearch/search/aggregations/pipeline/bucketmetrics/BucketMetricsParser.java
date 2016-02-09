@@ -118,7 +118,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -224,7 +224,7 @@ name|Override
 DECL|method|parse
 specifier|public
 specifier|final
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -585,7 +585,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|factory
 init|=
 literal|null
@@ -710,7 +710,7 @@ block|}
 DECL|method|buildFactory
 specifier|protected
 specifier|abstract
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|buildFactory
 parameter_list|(
 name|String

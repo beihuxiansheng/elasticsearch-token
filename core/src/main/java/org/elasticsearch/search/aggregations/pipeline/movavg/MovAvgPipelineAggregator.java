@@ -266,7 +266,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -1884,13 +1884,13 @@ name|minimize
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|Factory
+DECL|class|MovAvgPipelineAggregatorBuilder
 specifier|public
 specifier|static
 class|class
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 extends|extends
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 block|{
 DECL|field|format
 specifier|private
@@ -1934,9 +1934,9 @@ specifier|private
 name|Boolean
 name|minimize
 decl_stmt|;
-DECL|method|Factory
+DECL|method|MovAvgPipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -1958,9 +1958,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Factory
+DECL|method|MovAvgPipelineAggregatorBuilder
 specifier|private
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -1986,7 +1986,7 @@ block|}
 comment|/**          * Sets the format to use on the output of this aggregation.          */
 DECL|method|format
 specifier|public
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|format
 parameter_list|(
 name|String
@@ -2017,7 +2017,7 @@ block|}
 comment|/**          * Sets the GapPolicy to use on the output of this aggregation.          */
 DECL|method|gapPolicy
 specifier|public
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -2086,7 +2086,7 @@ block|}
 comment|/**          * Sets the window size for the moving average. This window will "slide"          * across the series, and the values inside that window will be used to          * calculate the moving avg value          *          * @param window          *            Size of window          */
 DECL|method|window
 specifier|public
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|window
 parameter_list|(
 name|int
@@ -2136,7 +2136,7 @@ block|}
 comment|/**          * Sets a MovAvgModel for the Moving Average. The model is used to          * define what type of moving average you want to use on the series          *          * @param model          *            A MovAvgModel which has been prepopulated with settings          */
 DECL|method|modelBuilder
 specifier|public
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|modelBuilder
 parameter_list|(
 name|MovAvgModelBuilder
@@ -2159,7 +2159,7 @@ block|}
 comment|/**          * Sets a MovAvgModel for the Moving Average. The model is used to          * define what type of moving average you want to use on the series          *          * @param model          *            A MovAvgModel which has been prepopulated with settings          */
 DECL|method|model
 specifier|public
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|model
 parameter_list|(
 name|MovAvgModel
@@ -2190,7 +2190,7 @@ block|}
 comment|/**          * Sets the number of predictions that should be returned. Each          * prediction will be spaced at the intervals specified in the          * histogram. E.g "predict: 2" will return two new buckets at the end of          * the histogram with the predicted values.          *          * @param predict          *            Number of predictions to make          */
 DECL|method|predict
 specifier|public
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|predict
 parameter_list|(
 name|int
@@ -2244,7 +2244,7 @@ block|}
 comment|/**          * Sets whether the model should be fit to the data using a cost          * minimizing algorithm.          *          * @param minimize          *            If the model should be fit to the underlying data          */
 DECL|method|minimize
 specifier|public
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|minimize
 parameter_list|(
 name|boolean
@@ -2357,7 +2357,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatoractories
 parameter_list|)
@@ -2620,7 +2620,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String
@@ -2636,11 +2636,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -2803,11 +2803,11 @@ name|Object
 name|obj
 parameter_list|)
 block|{
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;

@@ -302,7 +302,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -3693,13 +3693,13 @@ name|factory
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link PipelineAggregatorFactory} to the current stream      */
+comment|/**      * Writes a {@link PipelineAggregatorBuilder} to the current stream      */
 DECL|method|writePipelineAggregatorFactory
 specifier|public
 name|void
 name|writePipelineAggregatorFactory
 parameter_list|(
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|factory
 parameter_list|)
 throws|throws

@@ -152,7 +152,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -554,13 +554,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Delegates to      * {@link PercolateSourceBuilder#addAggregation(PipelineAggregatorFactory)}      */
+comment|/**      * Delegates to      * {@link PercolateSourceBuilder#addAggregation(PipelineAggregatorBuilder)}      */
 DECL|method|addAggregation
 specifier|public
 name|PercolateRequestBuilder
 name|addAggregation
 parameter_list|(
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|aggregationBuilder
 parameter_list|)
 block|{

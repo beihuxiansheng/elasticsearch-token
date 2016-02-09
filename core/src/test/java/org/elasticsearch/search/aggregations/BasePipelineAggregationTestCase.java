@@ -522,7 +522,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -713,7 +713,7 @@ name|BasePipelineAggregationTestCase
 parameter_list|<
 name|AF
 extends|extends
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 parameter_list|>
 extends|extends
 name|ESTestCase
@@ -1785,7 +1785,7 @@ name|nextToken
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|newAgg
 init|=
 name|aggParsers
@@ -1947,7 +1947,7 @@ name|namedWriteableRegistry
 argument_list|)
 init|)
 block|{
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|prototype
 init|=
 name|aggParsers
@@ -1963,7 +1963,7 @@ operator|.
 name|getFactoryPrototype
 argument_list|()
 decl_stmt|;
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|deserializedQuery
 init|=
 name|prototype
@@ -2290,7 +2290,7 @@ name|namedWriteableRegistry
 argument_list|)
 init|)
 block|{
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|prototype
 init|=
 name|aggParsers

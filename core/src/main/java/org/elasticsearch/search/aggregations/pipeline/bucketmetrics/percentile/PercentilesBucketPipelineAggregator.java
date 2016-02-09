@@ -170,7 +170,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -204,7 +204,7 @@ name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -752,15 +752,15 @@ name|percents
 argument_list|)
 expr_stmt|;
 block|}
-DECL|class|Factory
+DECL|class|PercentilesBucketPipelineAggregatorBuilder
 specifier|public
 specifier|static
 class|class
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 extends|extends
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 argument_list|<
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 argument_list|>
 block|{
 DECL|field|percents
@@ -788,9 +788,9 @@ block|,
 literal|99.0
 block|}
 decl_stmt|;
-DECL|method|Factory
+DECL|method|PercentilesBucketPipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -812,9 +812,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Factory
+DECL|method|PercentilesBucketPipelineAggregatorBuilder
 specifier|private
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -852,7 +852,7 @@ block|}
 comment|/**          * Set the percentages to calculate percentiles for in this aggregation          */
 DECL|method|percents
 specifier|public
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 name|percents
 parameter_list|(
 name|double
@@ -969,7 +969,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -1090,7 +1090,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|innerReadFrom
 parameter_list|(
 name|String
@@ -1106,11 +1106,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1175,15 +1175,15 @@ specifier|protected
 name|boolean
 name|innerEquals
 parameter_list|(
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|obj
 parameter_list|)
 block|{
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;

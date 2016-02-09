@@ -110,7 +110,7 @@ name|bucketscript
 operator|.
 name|BucketScriptPipelineAggregator
 operator|.
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -144,14 +144,14 @@ name|BasePipelineAggregationTestCase
 argument_list|<
 name|BucketScriptPipelineAggregator
 operator|.
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorFactory
 specifier|protected
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 name|createTestAggregatorFactory
 parameter_list|()
 block|{
@@ -306,11 +306,11 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,

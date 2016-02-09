@@ -156,7 +156,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -1168,7 +1168,7 @@ specifier|public
 name|SearchRequestBuilder
 name|addAggregation
 parameter_list|(
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|aggregation
 parameter_list|)
 block|{

@@ -66,7 +66,7 @@ name|cumulativesum
 operator|.
 name|CumulativeSumPipelineAggregator
 operator|.
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -80,14 +80,14 @@ name|BasePipelineAggregationTestCase
 argument_list|<
 name|CumulativeSumPipelineAggregator
 operator|.
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorFactory
 specifier|protected
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 name|createTestAggregatorFactory
 parameter_list|()
 block|{
@@ -111,11 +111,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,

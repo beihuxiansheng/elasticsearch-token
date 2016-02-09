@@ -128,7 +128,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -401,7 +401,7 @@ argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|factoryPrototype
 init|=
 name|parser
@@ -413,7 +413,7 @@ name|namedWriteableRegistry
 operator|.
 name|registerPrototype
 argument_list|(
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 operator|.
 name|class
 argument_list|,
@@ -689,7 +689,7 @@ name|aggFactory
 init|=
 literal|null
 decl_stmt|;
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|pipelineAggregatorFactory
 init|=
 literal|null

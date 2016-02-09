@@ -296,7 +296,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -1207,13 +1207,13 @@ name|readGenericValue
 argument_list|()
 expr_stmt|;
 block|}
-DECL|class|Factory
+DECL|class|BucketScriptPipelineAggregatorBuilder
 specifier|public
 specifier|static
 class|class
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 extends|extends
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 block|{
 DECL|field|script
 specifier|private
@@ -1248,9 +1248,9 @@ name|GapPolicy
 operator|.
 name|SKIP
 decl_stmt|;
-DECL|method|Factory
+DECL|method|BucketScriptPipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -1307,9 +1307,9 @@ operator|=
 name|script
 expr_stmt|;
 block|}
-DECL|method|Factory
+DECL|method|BucketScriptPipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -1403,7 +1403,7 @@ block|}
 comment|/**          * Sets the format to use on the output of this aggregation.          */
 DECL|method|format
 specifier|public
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 name|format
 parameter_list|(
 name|String
@@ -1472,7 +1472,7 @@ block|}
 comment|/**          * Sets the gap policy to use for this aggregation.          */
 DECL|method|gapPolicy
 specifier|public
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -1640,7 +1640,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String
@@ -1722,11 +1722,11 @@ argument_list|(
 name|in
 argument_list|)
 decl_stmt|;
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1875,11 +1875,11 @@ name|Object
 name|obj
 parameter_list|)
 block|{
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;

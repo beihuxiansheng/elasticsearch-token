@@ -61,7 +61,7 @@ name|AbstractBucketMetricsTestCase
 parameter_list|<
 name|PAF
 extends|extends
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 parameter_list|>
 extends|extends
 name|BasePipelineAggregationTestCase

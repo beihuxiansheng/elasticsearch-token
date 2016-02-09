@@ -58,7 +58,7 @@ name|sum
 operator|.
 name|SumBucketPipelineAggregator
 operator|.
-name|Factory
+name|SumBucketPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -72,14 +72,14 @@ name|AbstractBucketMetricsTestCase
 argument_list|<
 name|SumBucketPipelineAggregator
 operator|.
-name|Factory
+name|SumBucketPipelineAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|Factory
+name|SumBucketPipelineAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|(
 name|String
@@ -91,7 +91,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|Factory
+name|SumBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,

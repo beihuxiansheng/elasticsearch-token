@@ -144,7 +144,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -278,7 +278,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -885,13 +885,13 @@ throw|;
 block|}
 name|BucketSelectorPipelineAggregator
 operator|.
-name|Factory
+name|BucketSelectorPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|BucketSelectorPipelineAggregator
 operator|.
-name|Factory
+name|BucketSelectorPipelineAggregatorBuilder
 argument_list|(
 name|reducerName
 argument_list|,
@@ -923,7 +923,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{
@@ -931,7 +931,7 @@ return|return
 operator|new
 name|BucketSelectorPipelineAggregator
 operator|.
-name|Factory
+name|BucketSelectorPipelineAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|,

@@ -300,7 +300,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -1146,13 +1146,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|Factory
+DECL|class|DerivativePipelineAggregatorBuilder
 specifier|public
 specifier|static
 class|class
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 extends|extends
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 block|{
 DECL|field|format
 specifier|private
@@ -1173,9 +1173,9 @@ specifier|private
 name|String
 name|units
 decl_stmt|;
-DECL|method|Factory
+DECL|method|DerivativePipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -1197,9 +1197,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Factory
+DECL|method|DerivativePipelineAggregatorBuilder
 specifier|private
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -1224,7 +1224,7 @@ expr_stmt|;
 block|}
 DECL|method|format
 specifier|public
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 name|format
 parameter_list|(
 name|String
@@ -1253,7 +1253,7 @@ return|;
 block|}
 DECL|method|gapPolicy
 specifier|public
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -1282,7 +1282,7 @@ return|;
 block|}
 DECL|method|unit
 specifier|public
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 name|unit
 parameter_list|(
 name|String
@@ -1301,7 +1301,7 @@ return|;
 block|}
 DECL|method|unit
 specifier|public
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 name|unit
 parameter_list|(
 name|DateHistogramInterval
@@ -1509,7 +1509,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatoractories
 parameter_list|)
@@ -1613,7 +1613,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String
@@ -1629,11 +1629,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1837,11 +1837,11 @@ name|Object
 name|obj
 parameter_list|)
 block|{
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;

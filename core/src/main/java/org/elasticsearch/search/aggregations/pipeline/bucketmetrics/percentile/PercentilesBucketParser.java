@@ -46,7 +46,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -158,7 +158,7 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|buildFactory
 parameter_list|(
 name|String
@@ -338,13 +338,13 @@ block|}
 block|}
 name|PercentilesBucketPipelineAggregator
 operator|.
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
 name|PercentilesBucketPipelineAggregator
 operator|.
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 argument_list|(
 name|pipelineAggregatorName
 argument_list|,
@@ -374,7 +374,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{
@@ -382,7 +382,7 @@ return|return
 operator|new
 name|PercentilesBucketPipelineAggregator
 operator|.
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 argument_list|(
 literal|null
 argument_list|,

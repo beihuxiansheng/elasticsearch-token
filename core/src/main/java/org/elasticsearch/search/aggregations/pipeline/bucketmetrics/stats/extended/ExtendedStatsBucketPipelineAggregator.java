@@ -160,7 +160,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -194,7 +194,7 @@ name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -611,15 +611,15 @@ name|metadata
 argument_list|)
 return|;
 block|}
-DECL|class|Factory
+DECL|class|ExtendedStatsBucketPipelineAggregatorBuilder
 specifier|public
 specifier|static
 class|class
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 extends|extends
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 argument_list|<
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 argument_list|>
 block|{
 DECL|field|sigma
@@ -629,9 +629,9 @@ name|sigma
 init|=
 literal|2.0
 decl_stmt|;
-DECL|method|Factory
+DECL|method|ExtendedStatsBucketPipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -653,9 +653,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Factory
+DECL|method|ExtendedStatsBucketPipelineAggregatorBuilder
 specifier|private
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -681,7 +681,7 @@ block|}
 comment|/**          * Set the value of sigma to use when calculating the standard deviation          * bounds          */
 DECL|method|sigma
 specifier|public
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 name|sigma
 parameter_list|(
 name|double
@@ -791,7 +791,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -885,7 +885,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|innerReadFrom
 parameter_list|(
 name|String
@@ -901,11 +901,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -970,15 +970,15 @@ specifier|protected
 name|boolean
 name|innerEquals
 parameter_list|(
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|obj
 parameter_list|)
 block|{
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;

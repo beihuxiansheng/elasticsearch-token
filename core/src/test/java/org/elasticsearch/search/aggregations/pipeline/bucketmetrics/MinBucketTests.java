@@ -58,7 +58,7 @@ name|min
 operator|.
 name|MinBucketPipelineAggregator
 operator|.
-name|Factory
+name|MinBucketPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -72,14 +72,14 @@ name|AbstractBucketMetricsTestCase
 argument_list|<
 name|MinBucketPipelineAggregator
 operator|.
-name|Factory
+name|MinBucketPipelineAggregatorBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|Factory
+name|MinBucketPipelineAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|(
 name|String
@@ -91,7 +91,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|Factory
+name|MinBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,

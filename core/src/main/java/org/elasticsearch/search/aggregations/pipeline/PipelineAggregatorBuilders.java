@@ -308,7 +308,7 @@ specifier|static
 specifier|final
 name|DerivativePipelineAggregator
 operator|.
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 name|derivative
 parameter_list|(
 name|String
@@ -322,7 +322,7 @@ return|return
 operator|new
 name|DerivativePipelineAggregator
 operator|.
-name|Factory
+name|DerivativePipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -336,7 +336,7 @@ specifier|static
 specifier|final
 name|MaxBucketPipelineAggregator
 operator|.
-name|Factory
+name|MaxBucketPipelineAggregatorBuilder
 name|maxBucket
 parameter_list|(
 name|String
@@ -350,7 +350,7 @@ return|return
 operator|new
 name|MaxBucketPipelineAggregator
 operator|.
-name|Factory
+name|MaxBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -364,7 +364,7 @@ specifier|static
 specifier|final
 name|MinBucketPipelineAggregator
 operator|.
-name|Factory
+name|MinBucketPipelineAggregatorBuilder
 name|minBucket
 parameter_list|(
 name|String
@@ -378,7 +378,7 @@ return|return
 operator|new
 name|MinBucketPipelineAggregator
 operator|.
-name|Factory
+name|MinBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -392,7 +392,7 @@ specifier|static
 specifier|final
 name|AvgBucketPipelineAggregator
 operator|.
-name|Factory
+name|AvgBucketPipelineAggregatorBuilder
 name|avgBucket
 parameter_list|(
 name|String
@@ -406,7 +406,7 @@ return|return
 operator|new
 name|AvgBucketPipelineAggregator
 operator|.
-name|Factory
+name|AvgBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -420,7 +420,7 @@ specifier|static
 specifier|final
 name|SumBucketPipelineAggregator
 operator|.
-name|Factory
+name|SumBucketPipelineAggregatorBuilder
 name|sumBucket
 parameter_list|(
 name|String
@@ -434,7 +434,7 @@ return|return
 operator|new
 name|SumBucketPipelineAggregator
 operator|.
-name|Factory
+name|SumBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -448,7 +448,7 @@ specifier|static
 specifier|final
 name|StatsBucketPipelineAggregator
 operator|.
-name|Factory
+name|StatsBucketPipelineAggregatorBuilder
 name|statsBucket
 parameter_list|(
 name|String
@@ -462,7 +462,7 @@ return|return
 operator|new
 name|StatsBucketPipelineAggregator
 operator|.
-name|Factory
+name|StatsBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -476,7 +476,7 @@ specifier|static
 specifier|final
 name|ExtendedStatsBucketPipelineAggregator
 operator|.
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 name|extendedStatsBucket
 parameter_list|(
 name|String
@@ -490,7 +490,7 @@ return|return
 operator|new
 name|ExtendedStatsBucketPipelineAggregator
 operator|.
-name|Factory
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -504,7 +504,7 @@ specifier|static
 specifier|final
 name|PercentilesBucketPipelineAggregator
 operator|.
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 name|percentilesBucket
 parameter_list|(
 name|String
@@ -518,7 +518,7 @@ return|return
 operator|new
 name|PercentilesBucketPipelineAggregator
 operator|.
-name|Factory
+name|PercentilesBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -532,7 +532,7 @@ specifier|static
 specifier|final
 name|MovAvgPipelineAggregator
 operator|.
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 name|movingAvg
 parameter_list|(
 name|String
@@ -546,7 +546,7 @@ return|return
 operator|new
 name|MovAvgPipelineAggregator
 operator|.
-name|Factory
+name|MovAvgPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -560,7 +560,7 @@ specifier|static
 specifier|final
 name|BucketScriptPipelineAggregator
 operator|.
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 name|bucketScript
 parameter_list|(
 name|String
@@ -582,7 +582,7 @@ return|return
 operator|new
 name|BucketScriptPipelineAggregator
 operator|.
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -598,7 +598,7 @@ specifier|static
 specifier|final
 name|BucketScriptPipelineAggregator
 operator|.
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 name|bucketScript
 parameter_list|(
 name|String
@@ -616,7 +616,7 @@ return|return
 operator|new
 name|BucketScriptPipelineAggregator
 operator|.
-name|Factory
+name|BucketScriptPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -632,7 +632,7 @@ specifier|static
 specifier|final
 name|BucketSelectorPipelineAggregator
 operator|.
-name|Factory
+name|BucketSelectorPipelineAggregatorBuilder
 name|bucketSelector
 parameter_list|(
 name|String
@@ -654,7 +654,7 @@ return|return
 operator|new
 name|BucketSelectorPipelineAggregator
 operator|.
-name|Factory
+name|BucketSelectorPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -670,7 +670,7 @@ specifier|static
 specifier|final
 name|BucketSelectorPipelineAggregator
 operator|.
-name|Factory
+name|BucketSelectorPipelineAggregatorBuilder
 name|bucketSelector
 parameter_list|(
 name|String
@@ -688,7 +688,7 @@ return|return
 operator|new
 name|BucketSelectorPipelineAggregator
 operator|.
-name|Factory
+name|BucketSelectorPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -704,7 +704,7 @@ specifier|static
 specifier|final
 name|CumulativeSumPipelineAggregator
 operator|.
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 name|cumulativeSum
 parameter_list|(
 name|String
@@ -718,7 +718,7 @@ return|return
 operator|new
 name|CumulativeSumPipelineAggregator
 operator|.
-name|Factory
+name|CumulativeSumPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -732,7 +732,7 @@ specifier|static
 specifier|final
 name|SerialDiffPipelineAggregator
 operator|.
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 name|diff
 parameter_list|(
 name|String
@@ -746,7 +746,7 @@ return|return
 operator|new
 name|SerialDiffPipelineAggregator
 operator|.
-name|Factory
+name|SerialDiffPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,

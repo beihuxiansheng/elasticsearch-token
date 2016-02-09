@@ -158,7 +158,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -192,7 +192,7 @@ name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -601,20 +601,20 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|class|Factory
+DECL|class|MaxBucketPipelineAggregatorBuilder
 specifier|public
 specifier|static
 class|class
-name|Factory
+name|MaxBucketPipelineAggregatorBuilder
 extends|extends
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 argument_list|<
-name|Factory
+name|MaxBucketPipelineAggregatorBuilder
 argument_list|>
 block|{
-DECL|method|Factory
+DECL|method|MaxBucketPipelineAggregatorBuilder
 specifier|public
-name|Factory
+name|MaxBucketPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -636,9 +636,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|Factory
+DECL|method|MaxBucketPipelineAggregatorBuilder
 specifier|private
-name|Factory
+name|MaxBucketPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -719,7 +719,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -779,7 +779,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|innerReadFrom
 parameter_list|(
 name|String
@@ -797,7 +797,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Factory
+name|MaxBucketPipelineAggregatorBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -839,7 +839,7 @@ specifier|protected
 name|boolean
 name|innerEquals
 parameter_list|(
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|other
 parameter_list|)
 block|{

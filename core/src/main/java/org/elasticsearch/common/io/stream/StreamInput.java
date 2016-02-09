@@ -318,7 +318,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -3675,10 +3675,10 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link PipelineAggregatorFactory} from the current stream      */
+comment|/**      * Reads a {@link PipelineAggregatorBuilder} from the current stream      */
 DECL|method|readPipelineAggregatorFactory
 specifier|public
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|readPipelineAggregatorFactory
 parameter_list|()
 throws|throws
@@ -3687,7 +3687,7 @@ block|{
 return|return
 name|readNamedWriteable
 argument_list|(
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 operator|.
 name|class
 argument_list|)

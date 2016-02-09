@@ -126,7 +126,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -207,21 +207,21 @@ import|;
 end_import
 
 begin_class
-DECL|class|BucketMetricsFactory
+DECL|class|BucketMetricsPipelineAggregatorBuilder
 specifier|public
 specifier|abstract
 class|class
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 parameter_list|<
 name|AF
 extends|extends
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 parameter_list|<
 name|AF
 parameter_list|>
 parameter_list|>
 extends|extends
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 block|{
 DECL|field|format
 specifier|private
@@ -239,9 +239,9 @@ name|GapPolicy
 operator|.
 name|SKIP
 decl_stmt|;
-DECL|method|BucketMetricsFactory
+DECL|method|BucketMetricsPipelineAggregatorBuilder
 specifier|public
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
@@ -411,7 +411,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -542,7 +542,7 @@ name|Override
 DECL|method|doReadFrom
 specifier|protected
 specifier|final
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String
@@ -558,7 +558,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|factory
 init|=
 name|innerReadFrom
@@ -597,7 +597,7 @@ block|}
 DECL|method|innerReadFrom
 specifier|protected
 specifier|abstract
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|innerReadFrom
 parameter_list|(
 name|String
@@ -701,11 +701,11 @@ name|Object
 name|obj
 parameter_list|)
 block|{
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|other
 init|=
 operator|(
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 operator|)
 name|obj
 decl_stmt|;
@@ -744,7 +744,7 @@ specifier|abstract
 name|boolean
 name|innerEquals
 parameter_list|(
-name|BucketMetricsFactory
+name|BucketMetricsPipelineAggregatorBuilder
 name|other
 parameter_list|)
 function_decl|;

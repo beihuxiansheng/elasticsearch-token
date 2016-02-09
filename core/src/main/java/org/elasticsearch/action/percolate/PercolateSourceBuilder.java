@@ -176,7 +176,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -332,7 +332,7 @@ DECL|field|pipelineAggregationFactorys
 specifier|private
 name|List
 argument_list|<
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 argument_list|>
 name|pipelineAggregationFactorys
 decl_stmt|;
@@ -553,7 +553,7 @@ specifier|public
 name|PercolateSourceBuilder
 name|addAggregation
 parameter_list|(
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|aggregationBuilder
 parameter_list|)
 block|{
@@ -805,7 +805,7 @@ condition|)
 block|{
 for|for
 control|(
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
 name|aggregation
 range|:
 name|pipelineAggregationFactorys
