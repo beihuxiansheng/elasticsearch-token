@@ -56,9 +56,14 @@ name|Objects
 import|;
 end_import
 
+begin_comment
+comment|/**  * This MessageDigests class provides convenience methods for obtaining  * thread local {@link MessageDigest} instances for MD5, SHA-1, and  * SHA-256 message digests.  */
+end_comment
+
 begin_class
 DECL|class|MessageDigests
 specifier|public
+specifier|final
 class|class
 name|MessageDigests
 block|{
@@ -102,7 +107,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchException
+name|IllegalStateException
 argument_list|(
 literal|"unexpected exception creating MessageDigest instance for ["
 operator|+
@@ -163,6 +168,7 @@ argument_list|(
 literal|"SHA-256"
 argument_list|)
 decl_stmt|;
+comment|/**      * Returns a {@link MessageDigest} instance for MD5 digests; note      * that the instance returned is thread local and must not be      * shared amongst threads.      *      * @return a thread local {@link MessageDigest} instance that      * provides MD5 message digest functionality.      */
 DECL|method|md5
 specifier|public
 specifier|static
@@ -177,6 +183,7 @@ name|MD5_DIGEST
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a {@link MessageDigest} instance for SHA-1 digests; note      * that the instance returned is thread local and must not be      * shared amongst threads.      *      * @return a thread local {@link MessageDigest} instance that      * provides SHA-1 message digest functionality.      */
 DECL|method|sha1
 specifier|public
 specifier|static
@@ -191,6 +198,7 @@ name|SHA_1_DIGEST
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a {@link MessageDigest} instance for SHA-256 digests;      * note that the instance returned is thread local and must not be      * shared amongst threads.      *      * @return a thread local {@link MessageDigest} instance that      * provides SHA-256 message digest functionality.      */
 DECL|method|sha256
 specifier|public
 specifier|static
@@ -248,6 +256,7 @@ operator|.
 name|toCharArray
 argument_list|()
 decl_stmt|;
+comment|/**      * Format a byte array as a hex string.      *      * @param bytes the input to be represented as hex.      * @return a hex representation of the input as a String.      */
 DECL|method|toHexString
 specifier|public
 specifier|static
