@@ -2840,6 +2840,12 @@ case|:
 return|return
 name|NGRAM
 return|;
+case|case
+literal|"jarowinkler"
+case|:
+return|return
+name|JAROWINKLER
+return|;
 default|default:
 throw|throw
 operator|new
