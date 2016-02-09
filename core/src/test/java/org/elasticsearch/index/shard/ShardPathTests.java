@@ -925,7 +925,7 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|Settings
-name|indexSetttings
+name|indexSettings
 decl_stmt|;
 specifier|final
 name|Settings
@@ -982,7 +982,7 @@ init|=
 name|randomBoolean
 argument_list|()
 decl_stmt|;
-name|indexSetttings
+name|indexSettings
 operator|=
 name|indexSettingsBuilder
 operator|.
@@ -1075,7 +1075,7 @@ name|customPath
 operator|=
 literal|null
 expr_stmt|;
-name|indexSetttings
+name|indexSettings
 operator|=
 name|indexSettingsBuilder
 operator|.
@@ -1181,7 +1181,7 @@ operator|.
 name|getIndex
 argument_list|()
 argument_list|,
-name|indexSetttings
+name|indexSettings
 argument_list|)
 argument_list|)
 decl_stmt|;
