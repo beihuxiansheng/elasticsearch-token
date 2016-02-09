@@ -1064,7 +1064,7 @@ name|Setting
 argument_list|<
 name|A
 argument_list|>
-name|aSettting
+name|aSetting
 parameter_list|,
 specifier|final
 name|Setting
@@ -1086,7 +1086,7 @@ name|A
 argument_list|>
 name|aSettingUpdater
 init|=
-name|aSettting
+name|aSetting
 operator|.
 name|newUpdater
 argument_list|(

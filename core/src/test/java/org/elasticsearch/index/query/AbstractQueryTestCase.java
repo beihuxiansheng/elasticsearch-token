@@ -2787,9 +2787,14 @@ name|testSearchContext
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+name|queryShardContext
+argument_list|)
 decl_stmt|;
 name|testSearchContext
+operator|.
+name|getQueryShardContext
+argument_list|()
 operator|.
 name|setTypes
 argument_list|(
@@ -2817,11 +2822,6 @@ operator|.
 name|delegate
 operator|=
 literal|null
-expr_stmt|;
-name|QueryShardContext
-operator|.
-name|removeTypes
-argument_list|()
 expr_stmt|;
 name|SearchContext
 operator|.

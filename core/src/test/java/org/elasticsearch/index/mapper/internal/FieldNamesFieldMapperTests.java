@@ -1724,7 +1724,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 decl_stmt|;
 name|DocumentMapperParser
@@ -1754,7 +1754,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 decl_stmt|;
 name|String

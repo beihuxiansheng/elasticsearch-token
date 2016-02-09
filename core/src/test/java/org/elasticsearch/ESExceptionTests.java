@@ -1890,7 +1890,9 @@ name|SearchParseException
 argument_list|(
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 argument_list|,
 literal|"foo"
 argument_list|,

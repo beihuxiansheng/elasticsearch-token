@@ -169,9 +169,6 @@ name|filter
 init|=
 name|context
 operator|.
-name|indexShard
-argument_list|()
-operator|.
 name|getQueryShardContext
 argument_list|()
 operator|.

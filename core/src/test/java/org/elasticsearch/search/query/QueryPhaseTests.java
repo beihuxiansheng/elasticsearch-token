@@ -416,7 +416,9 @@ name|context
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|context
 operator|.
@@ -916,7 +918,9 @@ name|context
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|context
 operator|.
@@ -1088,7 +1092,9 @@ name|context
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|context
 operator|.

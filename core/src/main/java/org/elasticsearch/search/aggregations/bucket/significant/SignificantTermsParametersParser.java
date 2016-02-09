@@ -391,9 +391,6 @@ name|filter
 operator|=
 name|context
 operator|.
-name|indexShard
-argument_list|()
-operator|.
 name|getQueryShardContext
 argument_list|()
 operator|.
