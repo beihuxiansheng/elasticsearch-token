@@ -3845,7 +3845,9 @@ name|ctx
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|SearchParseException
 name|ex

@@ -970,7 +970,7 @@ name|context
 operator|.
 name|parsedQuery
 argument_list|(
-name|indexShard
+name|context
 operator|.
 name|getQueryShardContext
 argument_list|()

@@ -678,7 +678,7 @@ name|INDEX_ROUTING_ALLOCATION_ENABLE_SETTING
 argument_list|,
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTTING
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
 argument_list|,
 name|IndexFieldDataService
 operator|.

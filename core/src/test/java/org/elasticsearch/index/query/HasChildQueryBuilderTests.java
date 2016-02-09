@@ -652,7 +652,10 @@ name|testSearchContext
 init|=
 operator|new
 name|TestSearchContext
+argument_list|(
+name|queryShardContext
 argument_list|()
+argument_list|)
 block|{
 annotation|@
 name|Override
@@ -681,6 +684,9 @@ block|}
 block|}
 decl_stmt|;
 name|testSearchContext
+operator|.
+name|getQueryShardContext
+argument_list|()
 operator|.
 name|setTypes
 argument_list|(
@@ -1509,6 +1515,12 @@ name|PARENT_TYPE
 block|}
 decl_stmt|;
 name|QueryShardContext
+name|shardContext
+init|=
+name|createShardContext
+argument_list|()
+decl_stmt|;
+name|shardContext
 operator|.
 name|setTypes
 argument_list|(
@@ -1540,14 +1552,13 @@ name|hasChildQueryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|createShardContext
-argument_list|()
+name|shardContext
 argument_list|)
 decl_stmt|;
 comment|//verify that the context types are still the same as the ones we previously set
 name|assertThat
 argument_list|(
-name|QueryShardContext
+name|shardContext
 operator|.
 name|getTypes
 argument_list|()
@@ -1779,6 +1790,14 @@ argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
+name|booleanTermsQuery
+operator|.
+name|clauses
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|,
 name|booleanTermsQuery
 operator|.
 name|clauses

@@ -372,9 +372,6 @@ name|context
 init|=
 name|searchContext
 operator|.
-name|indexShard
-argument_list|()
-operator|.
 name|getQueryShardContext
 argument_list|()
 decl_stmt|;

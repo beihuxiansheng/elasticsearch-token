@@ -416,9 +416,6 @@ operator|.
 name|searchContext
 argument_list|()
 operator|.
-name|indexShard
-argument_list|()
-operator|.
 name|getQueryShardContext
 argument_list|()
 argument_list|)

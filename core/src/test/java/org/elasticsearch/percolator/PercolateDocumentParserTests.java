@@ -1006,6 +1006,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|mapperService
+argument_list|,
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|ParsedDocument
@@ -1020,8 +1022,6 @@ argument_list|,
 name|context
 argument_list|,
 name|mapperService
-argument_list|,
-name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1174,6 +1174,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|mapperService
+argument_list|,
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|ParsedDocument
@@ -1188,8 +1190,6 @@ argument_list|,
 name|context
 argument_list|,
 name|mapperService
-argument_list|,
-name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1424,6 +1424,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|mapperService
+argument_list|,
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|ParsedDocument
@@ -1438,8 +1440,6 @@ argument_list|,
 name|context
 argument_list|,
 name|mapperService
-argument_list|,
-name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1689,6 +1689,8 @@ literal|0
 argument_list|)
 argument_list|,
 name|mapperService
+argument_list|,
+name|queryShardContext
 argument_list|)
 decl_stmt|;
 try|try
@@ -1702,8 +1704,6 @@ argument_list|,
 name|context
 argument_list|,
 name|mapperService
-argument_list|,
-name|queryShardContext
 argument_list|)
 expr_stmt|;
 block|}

@@ -707,6 +707,17 @@ name|SignificantTermsTestSearchContext
 extends|extends
 name|TestSearchContext
 block|{
+DECL|method|SignificantTermsTestSearchContext
+specifier|public
+name|SignificantTermsTestSearchContext
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|numberOfShards

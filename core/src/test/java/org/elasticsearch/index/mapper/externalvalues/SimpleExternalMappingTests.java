@@ -475,7 +475,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 decl_stmt|;
 name|DocumentMapper
@@ -936,7 +936,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 decl_stmt|;
 name|DocumentMapper
@@ -1489,7 +1489,7 @@ name|mapperRegistry
 argument_list|,
 name|indexService
 operator|::
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|)
 decl_stmt|;
 name|DocumentMapper
