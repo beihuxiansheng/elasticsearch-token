@@ -1900,7 +1900,7 @@ name|suggestMode
 argument_list|(
 name|SuggestMode
 operator|.
-name|fromString
+name|resolve
 argument_list|(
 name|suggestMode
 argument_list|)

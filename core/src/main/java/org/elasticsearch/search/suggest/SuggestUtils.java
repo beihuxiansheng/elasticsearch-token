@@ -478,6 +478,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|term
+operator|.
+name|TermSuggestionBuilder
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
