@@ -5201,7 +5201,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|SearchPhaseExecutionException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -5214,7 +5214,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"all shards failed"
+literal|"[window] must be a positive integer: [movavg_counts]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5281,7 +5281,7 @@ argument_list|)
 operator|.
 name|window
 argument_list|(
-literal|0
+name|windowSize
 argument_list|)
 operator|.
 name|modelBuilder
@@ -5436,13 +5436,23 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|SearchPhaseExecutionException
-name|exception
+name|IllegalArgumentException
+name|e
 parameter_list|)
 block|{
-comment|//Throwable rootCause = exception.unwrapCause();
-comment|//assertThat(rootCause, instanceOf(SearchParseException.class));
-comment|//assertThat("[window] value must be a positive, non-zero integer.  Value supplied was [0] in [movingAvg].", equalTo(exception.getMessage()));
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+literal|"[window] must be a positive integer: [movavg_counts]"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|testNoBucketsInHistogram

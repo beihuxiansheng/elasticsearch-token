@@ -1046,6 +1046,25 @@ name|int
 name|lag
 parameter_list|)
 block|{
+if|if
+condition|(
+name|lag
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"[lag] must be a positive integer: ["
+operator|+
+name|name
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|lag

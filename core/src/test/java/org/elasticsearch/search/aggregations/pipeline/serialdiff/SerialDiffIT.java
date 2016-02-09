@@ -44,20 +44,6 @@ name|action
 operator|.
 name|search
 operator|.
-name|SearchPhaseExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
 name|SearchResponse
 import|;
 end_import
@@ -1886,7 +1872,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|SearchPhaseExecutionException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -1899,7 +1885,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"all shards failed"
+literal|"[lag] must be a positive integer: [diff_counts]"
 argument_list|)
 argument_list|)
 expr_stmt|;

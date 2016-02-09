@@ -1480,6 +1480,25 @@ name|long
 name|interval
 parameter_list|)
 block|{
+if|if
+condition|(
+name|interval
+operator|<
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"[interval] must be 1 or greater for histogram aggregation ["
+operator|+
+name|name
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|interval
@@ -1877,7 +1896,7 @@ name|offset
 operator|=
 name|in
 operator|.
-name|readVLong
+name|readLong
 argument_list|()
 expr_stmt|;
 if|if
@@ -1989,7 +2008,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeVLong
+name|writeLong
 argument_list|(
 name|offset
 argument_list|)

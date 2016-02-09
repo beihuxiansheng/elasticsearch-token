@@ -594,6 +594,12 @@ name|to
 argument_list|)
 argument_list|,
 name|from
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|from
 argument_list|,
 name|to
 argument_list|)

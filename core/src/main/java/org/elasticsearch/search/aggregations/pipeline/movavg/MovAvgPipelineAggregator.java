@@ -2093,6 +2093,25 @@ name|int
 name|window
 parameter_list|)
 block|{
+if|if
+condition|(
+name|window
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"[window] must be a positive integer: ["
+operator|+
+name|name
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|window

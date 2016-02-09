@@ -70,20 +70,6 @@ name|action
 operator|.
 name|search
 operator|.
-name|SearchPhaseExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
 name|SearchResponse
 import|;
 end_import
@@ -353,24 +339,6 @@ operator|.
 name|Histogram
 operator|.
 name|Bucket
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|metrics
-operator|.
-name|max
-operator|.
-name|Max
 import|;
 end_import
 
@@ -10428,7 +10396,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|SearchPhaseExecutionException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -10441,7 +10409,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"IllegalArgumentException"
+literal|"[interval] must be 1 or greater for histogram aggregation [histo]"
 argument_list|)
 argument_list|)
 expr_stmt|;
