@@ -70,8 +70,6 @@ literal|"test_type"
 argument_list|,
 literal|"test_action"
 argument_list|,
-parameter_list|()
-lambda|->
 literal|"test"
 argument_list|)
 expr_stmt|;

@@ -133,8 +133,6 @@ literal|"test"
 argument_list|,
 literal|"test"
 argument_list|,
-parameter_list|()
-lambda|->
 literal|"test"
 argument_list|)
 expr_stmt|;

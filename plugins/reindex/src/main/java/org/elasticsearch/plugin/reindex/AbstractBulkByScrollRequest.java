@@ -805,9 +805,8 @@ name|type
 argument_list|,
 name|action
 argument_list|,
-name|this
-operator|::
 name|getDescription
+argument_list|()
 argument_list|)
 return|;
 block|}
