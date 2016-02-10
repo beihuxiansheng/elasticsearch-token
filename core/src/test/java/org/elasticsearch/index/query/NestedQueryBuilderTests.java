@@ -387,7 +387,10 @@ name|testSearchContext
 init|=
 operator|new
 name|TestSearchContext
+argument_list|(
+name|queryShardContext
 argument_list|()
+argument_list|)
 block|{
 annotation|@
 name|Override
@@ -416,6 +419,9 @@ block|}
 block|}
 decl_stmt|;
 name|testSearchContext
+operator|.
+name|getQueryShardContext
+argument_list|()
 operator|.
 name|setTypes
 argument_list|(

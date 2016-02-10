@@ -183,6 +183,17 @@ name|context
 argument_list|)
 return|;
 block|}
+DECL|method|getTypes
+specifier|public
+name|String
+index|[]
+name|getTypes
+parameter_list|()
+block|{
+return|return
+name|types
+return|;
+block|}
 block|}
 end_class
 

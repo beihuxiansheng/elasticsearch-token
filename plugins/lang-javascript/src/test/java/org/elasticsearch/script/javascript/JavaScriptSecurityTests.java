@@ -409,6 +409,11 @@ argument_list|(
 literal|"Math.cos(Math.PI)"
 argument_list|)
 expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"Array.apply(null, Array(100)).map(function (_, i) {return i;}).map(function (i) {return i+1;})"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/** Test some javascripts that should hit security exception */
 DECL|method|testNotOK

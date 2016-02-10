@@ -184,10 +184,10 @@ operator|=
 name|threadPool
 expr_stmt|;
 block|}
-DECL|method|execute
+DECL|method|executeIndexRequest
 specifier|public
 name|void
-name|execute
+name|executeIndexRequest
 parameter_list|(
 name|IndexRequest
 name|request
@@ -279,10 +279,10 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|execute
+DECL|method|executeBulkRequest
 specifier|public
 name|void
-name|execute
+name|executeBulkRequest
 parameter_list|(
 name|Iterable
 argument_list|<
@@ -316,7 +316,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|INDEX
+name|BULK
 argument_list|)
 operator|.
 name|execute

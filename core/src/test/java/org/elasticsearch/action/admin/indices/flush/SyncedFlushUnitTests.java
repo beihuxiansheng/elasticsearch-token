@@ -1677,8 +1677,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 if|if

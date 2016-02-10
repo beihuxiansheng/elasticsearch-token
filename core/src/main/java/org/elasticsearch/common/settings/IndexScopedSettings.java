@@ -298,13 +298,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|cache
-operator|.
-name|request
-operator|.
-name|IndicesRequestCache
+name|IndexWarmer
 import|;
 end_import
 
@@ -314,9 +310,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|indices
 operator|.
-name|SearchService
+name|cache
+operator|.
+name|request
+operator|.
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -678,7 +678,7 @@ name|INDEX_ROUTING_ALLOCATION_ENABLE_SETTING
 argument_list|,
 name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTTING
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
 argument_list|,
 name|IndexFieldDataService
 operator|.
@@ -736,7 +736,7 @@ name|EngineConfig
 operator|.
 name|INDEX_CODEC_SETTING
 argument_list|,
-name|SearchService
+name|IndexWarmer
 operator|.
 name|INDEX_NORMS_LOADING_SETTING
 argument_list|,

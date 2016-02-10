@@ -1541,12 +1541,12 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|/** a per-JVM unique offset to be used for calculating unique port ranges. */
-DECL|field|JVM_BASE_PORT_OFFEST
+DECL|field|JVM_BASE_PORT_OFFSET
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|JVM_BASE_PORT_OFFEST
+name|JVM_BASE_PORT_OFFSET
 init|=
 name|PORTS_PER_JVM
 operator|*
@@ -1573,7 +1573,7 @@ specifier|final
 name|int
 name|CLUSTER_BASE_PORT_OFFSET
 init|=
-name|JVM_BASE_PORT_OFFEST
+name|JVM_BASE_PORT_OFFSET
 operator|+
 operator|(
 name|clusterOrdinal
@@ -11364,7 +11364,7 @@ name|fdCache
 init|=
 name|getInstanceFromNode
 argument_list|(
-name|IndicesFieldDataCache
+name|IndicesService
 operator|.
 name|class
 argument_list|,
@@ -11372,6 +11372,9 @@ name|nodeAndClient
 operator|.
 name|node
 argument_list|)
+operator|.
+name|getIndicesFieldDataCache
+argument_list|()
 decl_stmt|;
 comment|// Clean up the cache, ensuring that entries' listeners have been called
 name|fdCache

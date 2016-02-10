@@ -744,7 +744,7 @@ operator|.
 name|INDEX
 argument_list|)
 decl_stmt|;
-DECL|field|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTTING
+DECL|field|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
 specifier|public
 specifier|static
 specifier|final
@@ -752,7 +752,7 @@ name|Setting
 argument_list|<
 name|ByteSizeValue
 argument_list|>
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTTING
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
 init|=
 name|Setting
 operator|.
@@ -1347,7 +1347,7 @@ name|scopedSettings
 operator|.
 name|get
 argument_list|(
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTTING
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
 argument_list|)
 expr_stmt|;
 name|mergeSchedulerConfig
@@ -1625,7 +1625,7 @@ name|scopedSettings
 operator|.
 name|addSettingsUpdateConsumer
 argument_list|(
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTTING
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
 argument_list|,
 name|this
 operator|::

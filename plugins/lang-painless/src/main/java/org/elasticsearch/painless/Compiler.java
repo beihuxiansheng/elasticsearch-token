@@ -130,6 +130,14 @@ specifier|final
 class|class
 name|Compiler
 block|{
+comment|/**      * The maximum number of characters allowed in the script source.      */
+DECL|field|MAXIMUM_SOURCE_LENGTH
+specifier|static
+name|int
+name|MAXIMUM_SOURCE_LENGTH
+init|=
+literal|16384
+decl_stmt|;
 comment|/**      * The default language API to be used with Painless.  The second construction is used      * to finalize all the variables, so there is no mistake of modification afterwards.      */
 DECL|field|DEFAULT_DEFINITION
 specifier|private
@@ -292,6 +300,37 @@ name|CompilerSettings
 name|settings
 parameter_list|)
 block|{
+if|if
+condition|(
+name|source
+operator|.
+name|length
+argument_list|()
+operator|>
+name|MAXIMUM_SOURCE_LENGTH
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Scripts may be no longer than "
+operator|+
+name|MAXIMUM_SOURCE_LENGTH
+operator|+
+literal|" characters.  The passed in script is "
+operator|+
+name|source
+operator|.
+name|length
+argument_list|()
+operator|+
+literal|" characters.  Consider using a"
+operator|+
+literal|" plugin if a script longer than this length is a requirement."
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|Definition
 name|definition

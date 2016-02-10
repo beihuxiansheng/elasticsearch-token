@@ -232,6 +232,9 @@ argument_list|)
 decl_stmt|;
 name|context
 operator|.
+name|getQueryShardContext
+argument_list|()
+operator|.
 name|setTypes
 argument_list|(
 literal|"type"

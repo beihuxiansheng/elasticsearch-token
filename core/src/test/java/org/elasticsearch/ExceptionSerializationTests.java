@@ -2001,8 +2001,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -3847,7 +3845,9 @@ name|ctx
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|SearchParseException
 name|ex

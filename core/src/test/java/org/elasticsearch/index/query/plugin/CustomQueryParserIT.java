@@ -417,7 +417,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|()
 return|;
 block|}

@@ -617,8 +617,6 @@ argument_list|,
 name|primary
 argument_list|,
 name|state
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 name|idx

@@ -617,7 +617,7 @@ parameter_list|)
 block|{
 name|executionService
 operator|.
-name|execute
+name|executeIndexRequest
 argument_list|(
 name|indexRequest
 argument_list|,
@@ -711,7 +711,7 @@ argument_list|)
 decl_stmt|;
 name|executionService
 operator|.
-name|execute
+name|executeBulkRequest
 argument_list|(
 parameter_list|()
 lambda|->
