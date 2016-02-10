@@ -1170,6 +1170,8 @@ name|pluginsDir
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|UserError
 block|{
 comment|// unzip plugin to a staging temp dir
 name|Path
@@ -1191,6 +1193,11 @@ argument_list|(
 name|target
 argument_list|)
 expr_stmt|;
+name|boolean
+name|hasEsDir
+init|=
+literal|false
+decl_stmt|;
 comment|// TODO: we should wrap this in a try/catch and try deleting the target dir on failure?
 try|try
 init|(
@@ -1236,6 +1243,28 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|entry
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"elasticsearch/"
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// only extract the elasticsearch directory
+continue|continue;
+block|}
+name|hasEsDir
+operator|=
+literal|true
+expr_stmt|;
 name|Path
 name|targetFile
 init|=
@@ -1247,6 +1276,14 @@ name|entry
 operator|.
 name|getName
 argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|"elasticsearch/"
+operator|.
+name|length
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// TODO: handle name being an absolute path
@@ -1332,6 +1369,34 @@ argument_list|(
 name|zip
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasEsDir
+operator|==
+literal|false
+condition|)
+block|{
+name|IOUtils
+operator|.
+name|rm
+argument_list|(
+name|target
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|UserError
+argument_list|(
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|DATA_ERROR
+argument_list|,
+literal|"`elasticsearch` directory is missing in the plugin zip"
+argument_list|)
+throw|;
+block|}
 return|return
 name|target
 return|;
