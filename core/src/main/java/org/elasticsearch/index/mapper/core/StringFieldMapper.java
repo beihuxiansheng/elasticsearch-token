@@ -838,7 +838,7 @@ name|Builder
 name|parse
 parameter_list|(
 name|String
-name|name
+name|fieldName
 parameter_list|,
 name|Map
 argument_list|<
@@ -861,7 +861,7 @@ name|builder
 init|=
 name|stringField
 argument_list|(
-name|name
+name|fieldName
 argument_list|)
 decl_stmt|;
 comment|// hack for the fact that string can't just accept true/false for
@@ -965,6 +965,10 @@ literal|"Can't parse [index] value ["
 operator|+
 name|index
 operator|+
+literal|"] for field ["
+operator|+
+name|fieldName
+operator|+
 literal|"], expected [true], [false], [no], [not_analyzed] or [analyzed]"
 argument_list|)
 throw|;
@@ -974,7 +978,7 @@ name|parseTextField
 argument_list|(
 name|builder
 argument_list|,
-name|name
+name|fieldName
 argument_list|,
 name|node
 argument_list|,
@@ -1135,7 +1139,7 @@ argument_list|()
 operator|+
 literal|"] not found for field ["
 operator|+
-name|name
+name|fieldName
 operator|+
 literal|"]"
 argument_list|)
@@ -1337,7 +1341,7 @@ name|parseMultiField
 argument_list|(
 name|builder
 argument_list|,
-name|name
+name|fieldName
 argument_list|,
 name|parserContext
 argument_list|,

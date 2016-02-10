@@ -1019,6 +1019,11 @@ name|indices
 argument_list|,
 name|aliases
 argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|filter
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

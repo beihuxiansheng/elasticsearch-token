@@ -145,10 +145,7 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|Provider
-argument_list|<
 name|String
-argument_list|>
 name|description
 parameter_list|,
 name|String
