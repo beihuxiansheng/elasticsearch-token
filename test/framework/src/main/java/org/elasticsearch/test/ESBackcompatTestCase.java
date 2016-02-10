@@ -441,12 +441,12 @@ name|TESTS_COMPATIBILITY
 init|=
 literal|"tests.compatibility"
 decl_stmt|;
-DECL|field|GLOABL_COMPATIBILITY_VERSION
+DECL|field|GLOBAL_COMPATIBILITY_VERSION
 specifier|private
 specifier|static
 specifier|final
 name|Version
-name|GLOABL_COMPATIBILITY_VERSION
+name|GLOBAL_COMPATIBILITY_VERSION
 init|=
 name|Version
 operator|.
@@ -744,7 +744,7 @@ name|globalCompatibilityVersion
 parameter_list|()
 block|{
 return|return
-name|GLOABL_COMPATIBILITY_VERSION
+name|GLOBAL_COMPATIBILITY_VERSION
 return|;
 block|}
 DECL|method|compatibilityVersionProperty

@@ -628,6 +628,27 @@ name|modifier
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|doHashCode
+specifier|protected
+name|int
+name|doHashCode
+parameter_list|()
+block|{
+return|return
+name|Objects
+operator|.
+name|hash
+argument_list|(
+name|boostFactor
+argument_list|,
+name|field
+argument_list|,
+name|modifier
+argument_list|)
+return|;
+block|}
 comment|/**      * The Type class encapsulates the modification types that can be applied      * to the score/value product.      */
 DECL|enum|Modifier
 specifier|public

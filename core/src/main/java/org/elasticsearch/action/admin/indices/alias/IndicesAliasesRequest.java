@@ -1343,13 +1343,14 @@ control|)
 block|{
 if|if
 condition|(
+name|CollectionUtils
+operator|.
+name|isEmpty
+argument_list|(
 name|aliasAction
 operator|.
 name|aliases
-operator|.
-name|length
-operator|==
-literal|0
+argument_list|)
 condition|)
 block|{
 name|validationException
@@ -1373,12 +1374,14 @@ operator|.
 name|ENGLISH
 argument_list|)
 operator|+
-literal|"]: aliases may not be empty"
+literal|"]: Property [alias/aliases] is either missing or null"
 argument_list|,
 name|validationException
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
 for|for
 control|(
 name|String
@@ -1421,11 +1424,12 @@ operator|.
 name|ENGLISH
 argument_list|)
 operator|+
-literal|"]: [alias] may not be empty string"
+literal|"]: [alias/aliases] may not be empty string"
 argument_list|,
 name|validationException
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -1461,7 +1465,7 @@ operator|.
 name|ENGLISH
 argument_list|)
 operator|+
-literal|"]: Property [index] was either missing or null"
+literal|"]: Property [index/indices] is either missing or null"
 argument_list|,
 name|validationException
 argument_list|)
@@ -1511,7 +1515,7 @@ operator|.
 name|ENGLISH
 argument_list|)
 operator|+
-literal|"]: [index] may not be empty string"
+literal|"]: [index/indices] may not be empty string"
 argument_list|,
 name|validationException
 argument_list|)
