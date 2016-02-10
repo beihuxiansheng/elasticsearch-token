@@ -596,7 +596,7 @@ literal|30000
 operator|+
 name|InternalTestCluster
 operator|.
-name|JVM_BASE_PORT_OFFEST
+name|JVM_BASE_PORT_OFFSET
 return|;
 block|}
 annotation|@
