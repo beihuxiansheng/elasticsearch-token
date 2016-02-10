@@ -1072,6 +1072,11 @@ operator|.
 name|None
 argument_list|,
 name|parentChildIndexFieldData
+argument_list|,
+name|context
+operator|.
+name|getSearchSimilarity
+argument_list|()
 argument_list|)
 return|;
 block|}
