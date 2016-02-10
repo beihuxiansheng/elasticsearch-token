@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A list of {@link TypeLiteral}s to match an injectable Constructor's assited  * parameter types to the corresponding factory method.  *  * @author jmourits@google.com (Jerome Mourits)  * @author jessewilson@google.com (Jesse Wilson)  */
+comment|/**  * A list of {@link TypeLiteral}s to match an injectable Constructor's assisted  * parameter types to the corresponding factory method.  *  * @author jmourits@google.com (Jerome Mourits)  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
 begin_class

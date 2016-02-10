@@ -293,7 +293,7 @@ return|return
 name|injectionPoint
 return|;
 block|}
-comment|/**      * Returns the index of this dependency in the injection point's parameter list, or {@code -1} if      * this dependency does not belong to a parameter list. Only method and constuctor dependencies      * are elements in a parameter list.      */
+comment|/**      * Returns the index of this dependency in the injection point's parameter list, or {@code -1} if      * this dependency does not belong to a parameter list. Only method and constructor dependencies      * are elements in a parameter list.      */
 DECL|method|getParameterIndex
 specifier|public
 name|int
