@@ -1182,9 +1182,6 @@ block|,
 DECL|enum constant|TITLE
 name|TITLE
 block|,
-DECL|enum constant|NAME
-name|NAME
-block|,
 DECL|enum constant|AUTHOR
 name|AUTHOR
 block|,
