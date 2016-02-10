@@ -195,6 +195,35 @@ name|ScoreFunction
 name|other
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
+DECL|method|hashCode
+specifier|public
+specifier|final
+name|int
+name|hashCode
+parameter_list|()
+block|{
+comment|/*          * Override hashCode here and forward to an abstract method to force extensions of this class to override hashCode in the same          * way that we force them to override equals. This also prevents false positives in CheckStyle's EqualsHashCode check.          */
+return|return
+name|Objects
+operator|.
+name|hash
+argument_list|(
+name|scoreCombiner
+argument_list|,
+name|doHashCode
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|doHashCode
+specifier|protected
+specifier|abstract
+name|int
+name|doHashCode
+parameter_list|()
+function_decl|;
 block|}
 end_class
 
