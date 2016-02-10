@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|GeoPointInPolygonQuery
+name|Query
 import|;
 end_import
 
@@ -68,9 +68,13 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
+name|geopoint
+operator|.
 name|search
 operator|.
-name|Query
+name|GeoPointInPolygonQuery
 import|;
 end_import
 
