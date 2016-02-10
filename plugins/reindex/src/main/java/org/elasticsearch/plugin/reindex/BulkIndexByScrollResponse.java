@@ -390,6 +390,20 @@ name|getNoops
 argument_list|()
 return|;
 block|}
+comment|/**      * The reason that the request was canceled or null if it hasn't been.      */
+DECL|method|getReasonCancelled
+specifier|public
+name|String
+name|getReasonCancelled
+parameter_list|()
+block|{
+return|return
+name|status
+operator|.
+name|getReasonCancelled
+argument_list|()
+return|;
+block|}
 comment|/**      * All of the indexing failures. Version conflicts are only included if the request sets abortOnVersionConflict to true (the      * default).      */
 DECL|method|getIndexingFailures
 specifier|public
