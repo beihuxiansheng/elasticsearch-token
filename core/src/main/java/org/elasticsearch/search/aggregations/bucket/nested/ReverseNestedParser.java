@@ -326,13 +326,11 @@ name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-operator|new
 name|ReverseNestedAggregator
 operator|.
 name|ReverseNestedAggregatorBuilder
-argument_list|(
-literal|null
-argument_list|)
+operator|.
+name|PROTOTYPE
 return|;
 block|}
 block|}

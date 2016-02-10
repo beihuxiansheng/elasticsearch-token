@@ -152,15 +152,11 @@ name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-operator|new
 name|MinBucketPipelineAggregator
 operator|.
 name|MinBucketPipelineAggregatorBuilder
-argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+operator|.
+name|PROTOTYPE
 return|;
 block|}
 block|}

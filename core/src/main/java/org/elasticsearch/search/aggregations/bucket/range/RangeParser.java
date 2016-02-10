@@ -600,13 +600,11 @@ name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-operator|new
 name|RangeAggregator
 operator|.
 name|RangeAggregatorBuilder
-argument_list|(
-literal|null
-argument_list|)
+operator|.
+name|PROTOTYPE
 return|;
 block|}
 block|}

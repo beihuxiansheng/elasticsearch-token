@@ -1272,15 +1272,11 @@ name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-operator|new
 name|MovAvgPipelineAggregator
 operator|.
 name|MovAvgPipelineAggregatorBuilder
-argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+operator|.
+name|PROTOTYPE
 return|;
 block|}
 block|}

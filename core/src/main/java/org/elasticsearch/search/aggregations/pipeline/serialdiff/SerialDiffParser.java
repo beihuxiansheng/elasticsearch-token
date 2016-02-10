@@ -783,15 +783,11 @@ name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-operator|new
 name|SerialDiffPipelineAggregator
 operator|.
 name|SerialDiffPipelineAggregatorBuilder
-argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+operator|.
+name|PROTOTYPE
 return|;
 block|}
 block|}

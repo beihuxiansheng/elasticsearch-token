@@ -379,15 +379,11 @@ name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-operator|new
 name|PercentilesBucketPipelineAggregator
 operator|.
 name|PercentilesBucketPipelineAggregatorBuilder
-argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|)
+operator|.
+name|PROTOTYPE
 return|;
 block|}
 block|}
