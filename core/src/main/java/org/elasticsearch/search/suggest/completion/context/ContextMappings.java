@@ -326,26 +326,6 @@ name|context
 operator|.
 name|ContextMapping
 operator|.
-name|QueryContext
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|completion
-operator|.
-name|context
-operator|.
-name|ContextMapping
-operator|.
 name|Type
 import|;
 end_import
@@ -845,6 +825,8 @@ name|String
 argument_list|,
 name|List
 argument_list|<
+name|ContextMapping
+operator|.
 name|QueryContext
 argument_list|>
 argument_list|>
@@ -933,6 +915,8 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
+name|ContextMapping
+operator|.
 name|QueryContext
 argument_list|>
 name|queryContext
@@ -956,6 +940,8 @@ condition|)
 block|{
 for|for
 control|(
+name|ContextMapping
+operator|.
 name|QueryContext
 name|context
 range|:

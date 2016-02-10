@@ -692,7 +692,9 @@ name|parse
 init|=
 name|CategoryQueryContext
 operator|.
-name|parse
+name|PROTOTYPE
+operator|.
+name|fromXContext
 argument_list|(
 name|parser
 argument_list|)
@@ -707,9 +709,6 @@ argument_list|(
 name|parse
 operator|.
 name|getCategory
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|,
 name|parse
@@ -752,7 +751,9 @@ name|parse
 init|=
 name|CategoryQueryContext
 operator|.
-name|parse
+name|PROTOTYPE
+operator|.
+name|fromXContext
 argument_list|(
 name|parser
 argument_list|)
@@ -767,9 +768,6 @@ argument_list|(
 name|parse
 operator|.
 name|getCategory
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|,
 name|parse
