@@ -170,7 +170,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doExecute
 specifier|protected
 parameter_list|<
 name|Request
@@ -195,6 +194,7 @@ argument_list|,
 name|RequestBuilder
 argument_list|>
 parameter_list|>
+DECL|method|doExecute
 name|void
 name|doExecute
 parameter_list|(
