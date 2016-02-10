@@ -1103,7 +1103,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// we don't log jars in lib/ we really shouldnt log modules,
+comment|// we don't log jars in lib/ we really shouldn't log modules,
 comment|// but for now: just be transparent so we can debug any potential issues
 name|Set
 argument_list|<

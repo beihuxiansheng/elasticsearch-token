@@ -1255,7 +1255,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-comment|// LineString that needs to be wrappped
+comment|// LineString that needs to be wrapped
 name|ShapeBuilders
 operator|.
 name|newMultiLinestring

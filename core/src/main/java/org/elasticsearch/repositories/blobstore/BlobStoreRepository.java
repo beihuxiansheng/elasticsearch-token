@@ -2863,7 +2863,7 @@ name|snapshotFormat
 return|;
 block|}
 block|}
-comment|/**      * In v2.0.0 we changed the matadata file format      * @return true if legacy version should be used false otherwise      */
+comment|/**      * In v2.0.0 we changed the metadata file format      * @return true if legacy version should be used false otherwise      */
 DECL|method|legacyMetaData
 specifier|public
 specifier|static

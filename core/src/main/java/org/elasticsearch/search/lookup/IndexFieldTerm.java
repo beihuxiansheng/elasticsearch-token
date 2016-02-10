@@ -1123,7 +1123,7 @@ name|reset
 argument_list|()
 return|;
 block|}
-comment|/*      * A user might decide inside a script to call get with _POSITIONS and then      * a second time with _PAYLOADS. If the positions were recorded but the      * payloads were not, the user will not have access to them. Therfore, throw      * exception here explaining how to call get().      */
+comment|/*      * A user might decide inside a script to call get with _POSITIONS and then      * a second time with _PAYLOADS. If the positions were recorded but the      * payloads were not, the user will not have access to them. Therefore, throw      * exception here explaining how to call get().      */
 DECL|method|validateFlags
 specifier|public
 name|void

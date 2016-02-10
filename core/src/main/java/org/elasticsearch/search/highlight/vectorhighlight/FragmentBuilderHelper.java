@@ -291,7 +291,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple helper class for {@link FastVectorHighlighter} {@link FragmentsBuilder} implemenations.  */
+comment|/**  * Simple helper class for {@link FastVectorHighlighter} {@link FragmentsBuilder} implementations.  */
 end_comment
 
 begin_class

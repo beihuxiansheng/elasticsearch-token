@@ -884,7 +884,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an {@link IndexStore} type to this index module. Typically stores are registered with a refrence to      * it's constructor:      *<pre>      *     indexModule.addIndexStore("my_store_type", MyStore::new);      *</pre>      *      * @param type the type to register      * @param provider the instance provider / factory method      */
+comment|/**      * Adds an {@link IndexStore} type to this index module. Typically stores are registered with a reference to      * it's constructor:      *<pre>      *     indexModule.addIndexStore("my_store_type", MyStore::new);      *</pre>      *      * @param type the type to register      * @param provider the instance provider / factory method      */
 DECL|method|addIndexStore
 specifier|public
 name|void

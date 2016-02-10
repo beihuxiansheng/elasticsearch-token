@@ -232,7 +232,7 @@ name|METADATA_WRITE
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|/**      * sets the timeout for a complete publishing cycle, including both sending and committing. the master      * will continute to process the next cluster state update after this time has elapsed      **/
+comment|/**      * sets the timeout for a complete publishing cycle, including both sending and committing. the master      * will continue to process the next cluster state update after this time has elapsed      **/
 DECL|field|PUBLISH_TIMEOUT_SETTING
 specifier|public
 specifier|static

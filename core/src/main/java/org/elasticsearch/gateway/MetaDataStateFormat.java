@@ -1596,7 +1596,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// select all eligable files first
+comment|// select all eligible files first
 for|for
 control|(
 name|Path

@@ -500,7 +500,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum percentage of the terms that at most considered to be      * misspellings in order to form a correction. This method accepts a float      * value in the range [0..1) as a fraction of the actual query terms a      * number<tt>&gt;=1</tt> as an absolut number of query terms.      *      * The default is set to<tt>1.0</tt> which corresponds to that only      * corrections with at most 1 missspelled term are returned.      */
+comment|/**      * Sets the maximum percentage of the terms that at most considered to be      * misspellings in order to form a correction. This method accepts a float      * value in the range [0..1) as a fraction of the actual query terms a      * number<tt>&gt;=1</tt> as an absolute number of query terms.      *      * The default is set to<tt>1.0</tt> which corresponds to that only      * corrections with at most 1 misspelled term are returned.      */
 DECL|method|maxErrors
 specifier|public
 name|PhraseSuggestionBuilder
@@ -1239,7 +1239,7 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/**      * A "stupid-backoff" smoothing model simialr to<a      * href="http://en.wikipedia.org/wiki/Katz's_back-off_model"> Katz's      * Backoff</a>. This model is used as the default if no model is configured.      *<p>      * See<a      * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram      * Smoothing</a> for details.      *</p>      */
+comment|/**      * A "stupid-backoff" smoothing model similar to<a      * href="http://en.wikipedia.org/wiki/Katz's_back-off_model"> Katz's      * Backoff</a>. This model is used as the default if no model is configured.      *<p>      * See<a      * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram      * Smoothing</a> for details.      *</p>      */
 DECL|class|StupidBackoff
 specifier|public
 specifier|static

@@ -1129,7 +1129,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Special case: if the difference between the left and right is 360 and the right is greater than the left, we are asking for
-comment|// the complete longitude range so need to set longitude to the complete longditude range
+comment|// the complete longitude range so need to set longitude to the complete longitude range
 name|double
 name|right
 init|=

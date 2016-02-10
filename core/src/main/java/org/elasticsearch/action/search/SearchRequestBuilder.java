@@ -745,7 +745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the boost a specific index will receive when the query is executeed against it.      *      * @param index      The index to apply the boost against      * @param indexBoost The boost to apply to the index      */
+comment|/**      * Sets the boost a specific index will receive when the query is executed against it.      *      * @param index      The index to apply the boost against      * @param indexBoost The boost to apply to the index      */
 DECL|method|addIndexBoost
 specifier|public
 name|SearchRequestBuilder

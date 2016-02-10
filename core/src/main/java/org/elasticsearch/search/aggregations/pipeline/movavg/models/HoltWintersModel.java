@@ -623,7 +623,7 @@ operator|=
 name|pad
 expr_stmt|;
 comment|// Only pad if we are multiplicative and padding is enabled
-comment|// The padding amount is not currently user-configurable...i dont see a reason to expose it?
+comment|// The padding amount is not currently user-configurable...i don't see a reason to expose it?
 name|this
 operator|.
 name|padding

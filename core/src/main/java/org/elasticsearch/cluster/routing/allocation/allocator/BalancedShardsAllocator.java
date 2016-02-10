@@ -2834,7 +2834,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**          * Allocates all given shards on the minimal eligable node for the shards index          * with respect to the weight function. All given shards must be unassigned.          */
+comment|/**          * Allocates all given shards on the minimal eligible node for the shards index          * with respect to the weight function. All given shards must be unassigned.          */
 DECL|method|allocateUnassigned
 specifier|private
 name|boolean
@@ -3019,7 +3019,7 @@ name|secondary
 return|;
 block|}
 decl_stmt|;
-comment|/*              * we use 2 arrays and move replicas to the second array once we allocated an identical              * replica in the current iteration to make sure all indices get allocated in the same manner.              * The arrays are sorted by primaries first and then by index and shard ID so a 2 indices with 2 replica and 1 shard would look like:              * [(0,P,IDX1), (0,P,IDX2), (0,R,IDX1), (0,R,IDX1), (0,R,IDX2), (0,R,IDX2)]              * if we allocate for instance (0, R, IDX1) we move the second replica to the secondary array and proceed with              * the next replica. If we could not find a node to allocate (0,R,IDX1) we move all it's replicas to ingoreUnassigned.              */
+comment|/*              * we use 2 arrays and move replicas to the second array once we allocated an identical              * replica in the current iteration to make sure all indices get allocated in the same manner.              * The arrays are sorted by primaries first and then by index and shard ID so a 2 indices with 2 replica and 1 shard would look like:              * [(0,P,IDX1), (0,P,IDX2), (0,R,IDX1), (0,R,IDX1), (0,R,IDX2), (0,R,IDX2)]              * if we allocate for instance (0, R, IDX1) we move the second replica to the secondary array and proceed with              * the next replica. If we could not find a node to allocate (0,R,IDX1) we move all it's replicas to ignoreUnassigned.              */
 name|ShardRouting
 index|[]
 name|primary
@@ -3833,7 +3833,7 @@ operator|>
 literal|0
 condition|)
 do|;
-comment|// clear everything we have either added it or moved to ingoreUnassigned
+comment|// clear everything we have either added it or moved to ignoreUnassigned
 return|return
 name|changed
 return|;
