@@ -2148,7 +2148,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Unknown Similarity type [unknown_similarity] for [field1]"
+literal|"Unknown Similarity type [unknown_similarity] for field [field1]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2382,7 +2382,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Unknown Similarity type [default] for [field1]"
+literal|"Unknown Similarity type [default] for field [field1]"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -255,7 +255,7 @@ name|this
 operator|.
 name|suggest
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 name|globalText
 argument_list|)

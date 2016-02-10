@@ -60,6 +60,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -395,9 +409,7 @@ init|=
 operator|new
 name|CustomSuggestionsContext
 argument_list|(
-name|CustomSuggester
-operator|.
-name|this
+name|shardContext
 argument_list|,
 name|options
 argument_list|)
@@ -447,8 +459,8 @@ DECL|method|CustomSuggestionsContext
 specifier|public
 name|CustomSuggestionsContext
 parameter_list|(
-name|Suggester
-name|suggester
+name|QueryShardContext
+name|context
 parameter_list|,
 name|Map
 argument_list|<
@@ -461,7 +473,11 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|suggester
+operator|new
+name|CustomSuggester
+argument_list|()
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|this

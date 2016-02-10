@@ -277,6 +277,7 @@ name|TermSuggestionContext
 argument_list|>
 block|{
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|TermSuggester

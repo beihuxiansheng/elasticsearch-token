@@ -58,20 +58,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Provider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -134,10 +120,7 @@ decl_stmt|;
 DECL|field|description
 specifier|private
 specifier|final
-name|Provider
-argument_list|<
 name|String
-argument_list|>
 name|description
 decl_stmt|;
 DECL|field|parentNode
@@ -165,10 +148,7 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|Provider
-argument_list|<
 name|String
-argument_list|>
 name|description
 parameter_list|)
 block|{
@@ -201,10 +181,7 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|Provider
-argument_list|<
 name|String
-argument_list|>
 name|description
 parameter_list|,
 name|String
@@ -359,9 +336,6 @@ parameter_list|()
 block|{
 return|return
 name|description
-operator|.
-name|get
-argument_list|()
 return|;
 block|}
 comment|/**      * Returns the parent node of the task or null if the task doesn't have any parent tasks      */

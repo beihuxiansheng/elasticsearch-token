@@ -2605,6 +2605,10 @@ literal|100
 decl_stmt|;
 if|if
 condition|(
+name|numberOfTerms
+operator|==
+literal|1
+operator|||
 name|simpleQueryStringBuilder
 operator|.
 name|defaultOperator
@@ -2616,10 +2620,6 @@ name|Operator
 operator|.
 name|AND
 argument_list|)
-operator|&&
-name|numberOfTerms
-operator|>
-literal|1
 condition|)
 block|{
 name|expectedMinimumShouldMatch

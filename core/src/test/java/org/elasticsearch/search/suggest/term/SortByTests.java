@@ -36,16 +36,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -54,11 +44,17 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|term
-operator|.
-name|TermSuggestionBuilder
-operator|.
 name|SortBy
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 

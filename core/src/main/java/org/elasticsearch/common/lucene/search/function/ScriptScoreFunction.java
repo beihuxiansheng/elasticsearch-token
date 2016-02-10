@@ -616,6 +616,23 @@ name|sScript
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|doHashCode
+specifier|protected
+name|int
+name|doHashCode
+parameter_list|()
+block|{
+return|return
+name|Objects
+operator|.
+name|hash
+argument_list|(
+name|sScript
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

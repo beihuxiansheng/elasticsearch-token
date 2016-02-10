@@ -67,6 +67,7 @@ specifier|public
 name|TransportRequest
 parameter_list|()
 block|{     }
+comment|/**      * Returns the task object that should be used to keep track of the processing of the request.      *      * A request can override this method and return null to avoid being tracked by the task manager.      */
 DECL|method|createTask
 specifier|public
 name|Task
@@ -92,9 +93,8 @@ name|type
 argument_list|,
 name|action
 argument_list|,
-name|this
-operator|::
 name|getDescription
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -106,10 +106,7 @@ name|getDescription
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
-name|toString
-argument_list|()
+literal|""
 return|;
 block|}
 block|}

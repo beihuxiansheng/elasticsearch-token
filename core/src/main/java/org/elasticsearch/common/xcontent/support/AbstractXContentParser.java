@@ -152,18 +152,18 @@ name|ParseFieldMatcher
 operator|.
 name|STRICT
 decl_stmt|;
-comment|//Currently this is not a setting that can be changed and is a policy
+comment|// Currently this is not a setting that can be changed and is a policy
 comment|// that relates to how parsing of things like "boost" are done across
 comment|// the whole of Elasticsearch (eg if String "1.0" is a valid float).
 comment|// The idea behind keeping it as a constant is that we can track
 comment|// references to this policy decision throughout the codebase and find
 comment|// and change any code that needs to apply an alternative policy.
-DECL|field|DEFAULT_NUMBER_COEERCE_POLICY
+DECL|field|DEFAULT_NUMBER_COERCE_POLICY
 specifier|public
 specifier|static
 specifier|final
 name|boolean
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 init|=
 literal|true
 decl_stmt|;
@@ -174,7 +174,7 @@ name|void
 name|checkCoerceString
 parameter_list|(
 name|boolean
-name|coeerce
+name|coerce
 parameter_list|,
 name|Class
 argument_list|<
@@ -188,7 +188,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|coeerce
+name|coerce
 condition|)
 block|{
 comment|//Need to throw type IllegalArgumentException as current catch logic in
@@ -429,7 +429,7 @@ block|{
 return|return
 name|shortValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -523,7 +523,7 @@ block|{
 return|return
 name|intValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -617,7 +617,7 @@ block|{
 return|return
 name|longValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -711,7 +711,7 @@ block|{
 return|return
 name|floatValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -789,7 +789,7 @@ block|{
 return|return
 name|doubleValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}

@@ -1609,12 +1609,31 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// NORELEASE
-throw|throw
+name|CompletionSuggestionContext
+name|suggestionContext
+init|=
 operator|new
-name|UnsupportedOperationException
+name|CompletionSuggestionContext
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
+comment|// copy over common settings to each suggestion builder
+name|populateCommonFields
+argument_list|(
+name|context
+operator|.
+name|getMapperService
 argument_list|()
-throw|;
+argument_list|,
+name|suggestionContext
+argument_list|)
+expr_stmt|;
+comment|// NORELEASE
+comment|// still need to populate CompletionSuggestionContext's specific settings
+return|return
+name|suggestionContext
+return|;
 block|}
 annotation|@
 name|Override

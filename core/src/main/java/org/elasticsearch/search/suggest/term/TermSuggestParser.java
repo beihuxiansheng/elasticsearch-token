@@ -209,7 +209,7 @@ init|=
 operator|new
 name|TermSuggestionContext
 argument_list|(
-name|suggester
+name|shardContext
 argument_list|)
 decl_stmt|;
 name|DirectSpellcheckerSettings

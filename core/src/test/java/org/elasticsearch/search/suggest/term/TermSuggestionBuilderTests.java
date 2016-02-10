@@ -56,9 +56,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestionSearchContext
-operator|.
-name|SuggestionContext
+name|SortBy
 import|;
 end_import
 
@@ -72,11 +70,9 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|term
+name|SuggestionSearchContext
 operator|.
-name|TermSuggestionBuilder
-operator|.
-name|SortBy
+name|SuggestionContext
 import|;
 end_import
 
@@ -153,16 +149,7 @@ argument_list|<
 name|TermSuggestionBuilder
 argument_list|>
 block|{
-annotation|@
-name|Override
-DECL|method|testFromXContent
-specifier|public
-name|void
-name|testFromXContent
-parameter_list|()
-block|{
-comment|// NORELEASE : remove this when TermSuggestionBuilder's fromXContent is in
-block|}
+comment|/**      *  creates random suggestion builder, renders it to xContent and back to new instance that should be equal to original      */
 annotation|@
 name|Override
 DECL|method|randomSuggestionBuilder

@@ -1427,6 +1427,11 @@ argument_list|(
 name|localNodeMasterListeners
 argument_list|)
 expr_stmt|;
+name|add
+argument_list|(
+name|taskManager
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|clusterState

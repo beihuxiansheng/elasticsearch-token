@@ -80,22 +80,6 @@ name|LevenshteinAutomata
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|term
-operator|.
-name|TermSuggestionBuilder
-import|;
-end_import
-
 begin_class
 DECL|class|DirectSpellcheckerSettings
 specifier|public
@@ -124,13 +108,9 @@ decl_stmt|;
 DECL|field|DEFAULT_SORT
 specifier|public
 specifier|static
-name|TermSuggestionBuilder
-operator|.
 name|SortBy
 name|DEFAULT_SORT
 init|=
-name|TermSuggestionBuilder
-operator|.
 name|SortBy
 operator|.
 name|SCORE
@@ -212,8 +192,6 @@ name|DEFAULT_ACCURACY
 decl_stmt|;
 DECL|field|sort
 specifier|private
-name|TermSuggestionBuilder
-operator|.
 name|SortBy
 name|sort
 init|=
@@ -322,8 +300,6 @@ expr_stmt|;
 block|}
 DECL|method|sort
 specifier|public
-name|TermSuggestionBuilder
-operator|.
 name|SortBy
 name|sort
 parameter_list|()
@@ -337,8 +313,6 @@ specifier|public
 name|void
 name|sort
 parameter_list|(
-name|TermSuggestionBuilder
-operator|.
 name|SortBy
 name|sort
 parameter_list|)

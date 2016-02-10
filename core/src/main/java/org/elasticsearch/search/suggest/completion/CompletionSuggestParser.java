@@ -948,9 +948,7 @@ init|=
 operator|new
 name|CompletionSuggestionContext
 argument_list|(
-name|completionSuggester
-argument_list|,
-name|mapperService
+name|shardContext
 argument_list|)
 decl_stmt|;
 specifier|final

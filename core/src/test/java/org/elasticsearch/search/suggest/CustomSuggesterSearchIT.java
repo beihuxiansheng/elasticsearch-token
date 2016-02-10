@@ -967,9 +967,7 @@ name|CustomSuggester
 operator|.
 name|CustomSuggestionsContext
 argument_list|(
-operator|new
-name|CustomSuggester
-argument_list|()
+name|context
 argument_list|,
 name|options
 argument_list|)
