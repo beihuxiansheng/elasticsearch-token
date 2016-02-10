@@ -2619,7 +2619,7 @@ return|return
 name|defaultValue
 return|;
 block|}
-comment|/**      * Returns the setting value (as size) associated with the setting key. Provided values can either be      * absolute values (intepreted as a number of bytes), byte sizes (eg. 1mb) or percentage of the heap size      * (eg. 12%). If it does not exists, parses the default value provided.      */
+comment|/**      * Returns the setting value (as size) associated with the setting key. Provided values can either be      * absolute values (interpreted as a number of bytes), byte sizes (eg. 1mb) or percentage of the heap size      * (eg. 12%). If it does not exists, parses the default value provided.      */
 DECL|method|getAsMemory
 specifier|public
 name|ByteSizeValue
@@ -2650,7 +2650,7 @@ name|setting
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the setting value (as size) associated with the setting key. Provided values can either be      * absolute values (intepreted as a number of bytes), byte sizes (eg. 1mb) or percentage of the heap size      * (eg. 12%). If it does not exists, parses the default value provided.      */
+comment|/**      * Returns the setting value (as size) associated with the setting key. Provided values can either be      * absolute values (interpreted as a number of bytes), byte sizes (eg. 1mb) or percentage of the heap size      * (eg. 12%). If it does not exists, parses the default value provided.      */
 DECL|method|getAsMemory
 specifier|public
 name|ByteSizeValue
