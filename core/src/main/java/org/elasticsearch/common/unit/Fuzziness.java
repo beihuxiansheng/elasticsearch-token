@@ -363,7 +363,7 @@ name|ROOT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a {@link Fuzziness} instance from an edit distance. The value must be one of<tt>[0, 1, 2]</tt>      * Note: Using this method only makes sense if the field you are applying Fuzziness to is some sort of string.      */
+comment|/**      * Creates a {@link Fuzziness} instance from an edit distance. The value must be one of<tt>[0, 1, 2]</tt>      *      * Note: Using this method only makes sense if the field you are applying Fuzziness to is some sort of string.      */
 DECL|method|fromEdits
 specifier|public
 specifier|static

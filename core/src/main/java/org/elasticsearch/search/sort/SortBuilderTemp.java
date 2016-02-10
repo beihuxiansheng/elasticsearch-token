@@ -83,14 +83,14 @@ parameter_list|>
 extends|extends
 name|NamedWriteable
 argument_list|<
-name|FieldSortBuilder
+name|T
 argument_list|>
 extends|,
 name|ToXContent
 block|{
 comment|/**      * Creates a new item from the json held by the {@link SortBuilderTemp}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param context      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new item      */
 DECL|method|fromXContent
-name|NamedWriteable
+name|SortBuilderTemp
 argument_list|<
 name|T
 argument_list|>
@@ -104,19 +104,6 @@ name|elementName
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-DECL|method|getName
-name|String
-name|getName
-parameter_list|()
-function_decl|;
-DECL|method|getBuilderPrototype
-name|SortBuilderTemp
-argument_list|<
-name|T
-argument_list|>
-name|getBuilderPrototype
-parameter_list|()
 function_decl|;
 block|}
 end_interface
