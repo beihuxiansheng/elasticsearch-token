@@ -42,6 +42,22 @@ name|search
 operator|.
 name|suggest
 operator|.
+name|SuggestionSearchContext
+operator|.
+name|SuggestionContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
 name|term
 operator|.
 name|TermSuggestionBuilder
@@ -123,6 +139,19 @@ argument_list|<
 name|TermSuggestionBuilder
 argument_list|>
 block|{
+comment|/**      *  creates random suggestion builder, renders it to xContent and back to new instance that should be equal to original      */
+annotation|@
+name|Override
+DECL|method|testBuild
+specifier|public
+name|void
+name|testBuild
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// skip for now
+block|}
 annotation|@
 name|Override
 DECL|method|randomSuggestionBuilder
@@ -1297,6 +1326,22 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|assertSuggestionContext
+specifier|protected
+name|void
+name|assertSuggestionContext
+parameter_list|(
+name|SuggestionContext
+name|oldSuggestion
+parameter_list|,
+name|SuggestionContext
+name|newSuggestion
+parameter_list|)
+block|{
+comment|// put assertions on TermSuggestionContext here
 block|}
 block|}
 end_class

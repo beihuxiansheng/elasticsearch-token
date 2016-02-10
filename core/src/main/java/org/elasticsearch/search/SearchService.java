@@ -5096,10 +5096,7 @@ name|rescore
 operator|.
 name|build
 argument_list|(
-name|context
-operator|.
-name|getQueryShardContext
-argument_list|()
+name|queryShardContext
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5271,10 +5268,7 @@ name|highlightBuilder
 operator|.
 name|build
 argument_list|(
-name|context
-operator|.
-name|getQueryShardContext
-argument_list|()
+name|queryShardContext
 argument_list|)
 argument_list|)
 expr_stmt|;
