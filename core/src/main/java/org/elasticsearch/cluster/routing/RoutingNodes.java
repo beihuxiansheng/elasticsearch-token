@@ -118,6 +118,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Randomness
 import|;
 end_import
@@ -2251,7 +2263,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Moves a shard from unassigned to initialize state      */
+comment|/**      * Moves a shard from unassigned to initialize state      *      * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.      */
 DECL|method|initialize
 specifier|public
 name|void
@@ -2262,6 +2274,11 @@ name|shard
 parameter_list|,
 name|String
 name|nodeId
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|existingAllocationId
 parameter_list|,
 name|long
 name|expectedSize
@@ -2283,6 +2300,8 @@ operator|.
 name|initialize
 argument_list|(
 name|nodeId
+argument_list|,
+name|existingAllocationId
 argument_list|,
 name|expectedSize
 argument_list|)
@@ -3339,7 +3358,7 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|/**              * Initializes the current unassigned shard and moves it from the unassigned list.              */
+comment|/**              * Initializes the current unassigned shard and moves it from the unassigned list.              *              * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.              */
 DECL|method|initialize
 specifier|public
 name|void
@@ -3347,6 +3366,11 @@ name|initialize
 parameter_list|(
 name|String
 name|nodeId
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|existingAllocationId
 parameter_list|,
 name|long
 name|expectedShardSize
@@ -3366,6 +3390,8 @@ name|current
 argument_list|)
 argument_list|,
 name|nodeId
+argument_list|,
+name|existingAllocationId
 argument_list|,
 name|expectedShardSize
 argument_list|)
@@ -3387,7 +3413,7 @@ name|current
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String, long)}.              */
+comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String, String, long)}.              */
 annotation|@
 name|Override
 DECL|method|remove

@@ -3620,6 +3620,8 @@ operator|.
 name|getNodeId
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
 name|allocation
 operator|.
 name|clusterInfo
@@ -4233,6 +4235,8 @@ name|minNode
 operator|.
 name|getNodeId
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 name|allocation
 operator|.
