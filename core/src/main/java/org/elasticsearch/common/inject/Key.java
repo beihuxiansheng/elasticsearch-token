@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Binding key consisting of an injection type and an optional annotation.  * Matches the type and annotation at a point of injection.  *<p>  * For example, {@code Key.get(Service.class, Transactional.class)} will  * match:  *<pre>  *   {@literal @}Inject  *   public void setService({@literal @}Transactional Service service) {  *     ...  *   }  *</pre>  *<p>  * {@code Key} supports generic types via subclassing just like {@link  * TypeLiteral}.  *<p>  * Keys do not differentiate between primitive types (int, char, etc.) and  * their correpsonding wrapper types (Integer, Character, etc.). Primitive  * types will be replaced with their wrapper types when keys are created.  *  * @author crazybob@google.com (Bob Lee)  */
+comment|/**  * Binding key consisting of an injection type and an optional annotation.  * Matches the type and annotation at a point of injection.  *<p>  * For example, {@code Key.get(Service.class, Transactional.class)} will  * match:  *<pre>  *   {@literal @}Inject  *   public void setService({@literal @}Transactional Service service) {  *     ...  *   }  *</pre>  *<p>  * {@code Key} supports generic types via subclassing just like {@link  * TypeLiteral}.  *<p>  * Keys do not differentiate between primitive types (int, char, etc.) and  * their corresponding wrapper types (Integer, Character, etc.). Primitive  * types will be replaced with their wrapper types when keys are created.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
 
 begin_class

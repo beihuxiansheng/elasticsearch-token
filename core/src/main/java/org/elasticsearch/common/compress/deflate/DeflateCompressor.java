@@ -307,7 +307,7 @@ name|LEVEL
 init|=
 literal|3
 decl_stmt|;
-comment|// We use buffering on the input and ouput of in/def-laters in order to
+comment|// We use buffering on the input and output of in/def-laters in order to
 comment|// limit the number of JNI calls
 DECL|field|BUFFER_SIZE
 specifier|private

@@ -620,7 +620,7 @@ name|bytes
 argument_list|()
 argument_list|)
 argument_list|,
-name|provideNamedWritbaleRegistry
+name|provideNamedWritableRegistry
 argument_list|()
 argument_list|)
 init|)
@@ -634,10 +634,10 @@ return|;
 block|}
 block|}
 block|}
-DECL|method|provideNamedWritbaleRegistry
+DECL|method|provideNamedWritableRegistry
 specifier|protected
 name|NamedWriteableRegistry
-name|provideNamedWritbaleRegistry
+name|provideNamedWritableRegistry
 parameter_list|()
 block|{
 return|return

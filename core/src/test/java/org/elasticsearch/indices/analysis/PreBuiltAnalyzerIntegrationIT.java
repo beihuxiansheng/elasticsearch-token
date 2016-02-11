@@ -746,7 +746,7 @@ argument_list|(
 name|loadedAnalyzers
 argument_list|)
 expr_stmt|;
-comment|// check that all of the prebuiltanalyzers are still open
+comment|// check that all of the prebuilt analyzers are still open
 name|assertLuceneAnalyzersAreNotClosed
 argument_list|(
 name|loadedAnalyzers

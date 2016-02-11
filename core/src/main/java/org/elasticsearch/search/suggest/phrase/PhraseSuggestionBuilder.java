@@ -848,7 +848,7 @@ operator|.
 name|gramSize
 return|;
 block|}
-comment|/**      * Sets the maximum percentage of the terms that at most considered to be      * misspellings in order to form a correction. This method accepts a float      * value in the range [0..1) as a fraction of the actual query terms a      * number<tt>&gt;=1</tt> as an absolut number of query terms.      *      * The default is set to<tt>1.0</tt> which corresponds to that only      * corrections with at most 1 missspelled term are returned.      */
+comment|/**      * Sets the maximum percentage of the terms that at most considered to be      * misspellings in order to form a correction. This method accepts a float      * value in the range [0..1) as a fraction of the actual query terms a      * number<tt>&gt;=1</tt> as an absolute number of query terms.      *      * The default is set to<tt>1.0</tt> which corresponds to that only      * corrections with at most 1 misspelled term are returned.      */
 DECL|method|maxErrors
 specifier|public
 name|PhraseSuggestionBuilder

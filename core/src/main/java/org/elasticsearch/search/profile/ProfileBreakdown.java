@@ -120,7 +120,7 @@ name|long
 index|[]
 name|timings
 decl_stmt|;
-comment|/** Scrach to store the current timing type. */
+comment|/** Scratch to store the current timing type. */
 DECL|field|currentTimingType
 specifier|private
 name|TimingType

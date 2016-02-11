@@ -349,10 +349,10 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|provideNamedWritbaleRegistry
+DECL|method|provideNamedWritableRegistry
 specifier|protected
 name|NamedWriteableRegistry
-name|provideNamedWritbaleRegistry
+name|provideNamedWritableRegistry
 parameter_list|()
 block|{
 name|NamedWriteableRegistry

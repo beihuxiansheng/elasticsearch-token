@@ -545,7 +545,7 @@ specifier|private
 name|FuzzyQueryBuilder
 parameter_list|()
 block|{
-comment|// for protoype
+comment|// for prototype
 name|this
 operator|.
 name|fieldName

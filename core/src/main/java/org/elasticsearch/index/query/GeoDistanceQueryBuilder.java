@@ -852,7 +852,7 @@ operator|.
 name|optimizeBbox
 return|;
 block|}
-comment|/** Set validaton method for geo coordinates. */
+comment|/** Set validation method for geo coordinates. */
 DECL|method|setValidationMethod
 specifier|public
 name|void

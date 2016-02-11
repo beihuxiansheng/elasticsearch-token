@@ -1032,7 +1032,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Inner hits can be defined in two ways: 1) with the query 2) as seperate inner_hit definition
+comment|// Inner hits can be defined in two ways: 1) with the query 2) as separate inner_hit definition
 name|SearchRequest
 index|[]
 name|searchRequests
@@ -1388,7 +1388,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Inner hits can be defined in two ways: 1) with the query 2) as
-comment|// seperate inner_hit definition
+comment|// separate inner_hit definition
 name|searchRequests
 operator|=
 operator|new

@@ -1200,7 +1200,7 @@ name|input
 argument_list|)
 return|;
 block|}
-comment|/**      * Retruns<code>true</code> iff the given class is a registered for an exception to be read.      */
+comment|/**      * Returns<code>true</code> iff the given class is a registered for an exception to be read.      */
 DECL|method|isRegistered
 specifier|public
 specifier|static
@@ -1867,7 +1867,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns the root cause of this exception or mupltiple if different shards caused different exceptions      */
+comment|/**      * Returns the root cause of this exception or multiple if different shards caused different exceptions      */
 DECL|method|guessRootCauses
 specifier|public
 name|ElasticsearchException
@@ -1914,7 +1914,7 @@ name|this
 block|}
 return|;
 block|}
-comment|/**      * Returns the root cause of this exception or mupltiple if different shards caused different exceptions.      * If the given exception is not an instance of {@link org.elasticsearch.ElasticsearchException} an empty array      * is returned.      */
+comment|/**      * Returns the root cause of this exception or multiple if different shards caused different exceptions.      * If the given exception is not an instance of {@link org.elasticsearch.ElasticsearchException} an empty array      * is returned.      */
 DECL|method|guessRootCauses
 specifier|public
 specifier|static

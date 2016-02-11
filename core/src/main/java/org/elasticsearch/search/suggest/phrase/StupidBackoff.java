@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A "stupid-backoff" smoothing model simialr to<a  * href="http://en.wikipedia.org/wiki/Katz's_back-off_model"> Katz's  * Backoff</a>. This model is used as the default if no model is configured.  *<p>  * See<a  * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram  * Smoothing</a> for details.  *</p>  */
+comment|/**  * A "stupid-backoff" smoothing model similar to<a  * href="http://en.wikipedia.org/wiki/Katz's_back-off_model"> Katz's  * Backoff</a>. This model is used as the default if no model is configured.  *<p>  * See<a  * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram  * Smoothing</a> for details.  *</p>  */
 end_comment
 
 begin_class

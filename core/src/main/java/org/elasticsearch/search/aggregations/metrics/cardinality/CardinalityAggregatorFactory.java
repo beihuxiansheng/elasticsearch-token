@@ -396,7 +396,7 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// if the parent creates buckets, we substract 5 to the precision,
+comment|// if the parent creates buckets, we subtract 5 to the precision,
 comment|// which will effectively divide the memory usage of each counter by 32
 name|precision
 operator|-=

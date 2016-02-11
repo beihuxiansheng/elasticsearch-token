@@ -2186,7 +2186,7 @@ argument_list|(
 name|nodesToPingSet
 argument_list|)
 decl_stmt|;
-comment|// new add the the unicast targets first
+comment|// new add the unicast targets first
 name|List
 argument_list|<
 name|DiscoveryNode

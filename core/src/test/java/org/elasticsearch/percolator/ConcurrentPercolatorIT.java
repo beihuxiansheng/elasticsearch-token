@@ -408,7 +408,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// We need to index a document / define mapping, otherwise field1 doesn't get reconized as number field.
+comment|// We need to index a document / define mapping, otherwise field1 doesn't get recognized as number field.
 comment|// If we don't do this, then 'test2' percolate query gets parsed as a TermQuery and not a RangeQuery.
 comment|// The percolate api doesn't parse the doc if no queries have registered, so it can't lazily create a mapping
 name|assertAcked
