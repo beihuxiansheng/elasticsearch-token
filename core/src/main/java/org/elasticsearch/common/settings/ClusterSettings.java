@@ -2507,10 +2507,6 @@ name|MANDATORY_SETTING
 argument_list|,
 name|BootstrapSettings
 operator|.
-name|SECURITY_MANAGER_ENABLED_SETTING
-argument_list|,
-name|BootstrapSettings
-operator|.
 name|SECURITY_FILTER_BAD_DEFAULTS_SETTING
 argument_list|,
 name|BootstrapSettings
