@@ -559,7 +559,7 @@ name|sub
 argument_list|)
 return|;
 block|}
-comment|/**      * Can be overriden by aggregator implementation to be called back when the collection phase starts.      */
+comment|/**      * Can be overridden by aggregator implementation to be called back when the collection phase starts.      */
 DECL|method|doPreCollection
 specifier|protected
 name|void
@@ -947,7 +947,7 @@ name|void
 name|doClose
 parameter_list|()
 block|{}
-comment|/**      * Can be overriden by aggregator implementation to be called back when the collection phase ends.      */
+comment|/**      * Can be overridden by aggregator implementation to be called back when the collection phase ends.      */
 DECL|method|doPostCollection
 specifier|protected
 name|void

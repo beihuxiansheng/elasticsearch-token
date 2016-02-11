@@ -24,6 +24,28 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
+name|geopoint
+operator|.
+name|document
+operator|.
+name|GeoPointField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|geopoint
+operator|.
 name|search
 operator|.
 name|GeoPointInBBoxQuery
@@ -1129,7 +1151,7 @@ argument_list|)
 condition|)
 block|{
 comment|// Special case: if the difference between the left and right is 360 and the right is greater than the left, we are asking for
-comment|// the complete longitude range so need to set longitude to the complete longditude range
+comment|// the complete longitude range so need to set longitude to the complete longitude range
 name|double
 name|right
 init|=
@@ -1211,12 +1233,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
+specifier|final
+name|Version
+name|indexVersionCreated
+init|=
 name|context
 operator|.
 name|indexVersionCreated
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|indexVersionCreated
 operator|.
 name|onOrAfter
 argument_list|(
@@ -1226,6 +1254,37 @@ name|V_2_2_0
 argument_list|)
 condition|)
 block|{
+comment|// if index created V_2_2 use (soon to be legacy) numeric encoding postings format
+comment|// if index created V_2_3> use prefix encoded postings format
+specifier|final
+name|GeoPointField
+operator|.
+name|TermEncoding
+name|encoding
+init|=
+operator|(
+name|indexVersionCreated
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_3_0
+argument_list|)
+operator|)
+condition|?
+name|GeoPointField
+operator|.
+name|TermEncoding
+operator|.
+name|NUMERIC
+else|:
+name|GeoPointField
+operator|.
+name|TermEncoding
+operator|.
+name|PREFIX
+decl_stmt|;
 return|return
 operator|new
 name|GeoPointInBBoxQuery
@@ -1234,6 +1293,8 @@ name|fieldType
 operator|.
 name|name
 argument_list|()
+argument_list|,
+name|encoding
 argument_list|,
 name|luceneTopLeft
 operator|.

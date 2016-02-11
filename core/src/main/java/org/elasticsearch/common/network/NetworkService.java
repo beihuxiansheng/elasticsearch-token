@@ -707,6 +707,12 @@ condition|(
 name|bindHosts
 operator|==
 literal|null
+operator|||
+name|bindHosts
+operator|.
+name|length
+operator|==
+literal|0
 condition|)
 block|{
 if|if

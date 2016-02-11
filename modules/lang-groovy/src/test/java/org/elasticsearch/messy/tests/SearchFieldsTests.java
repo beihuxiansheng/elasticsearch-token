@@ -8139,7 +8139,7 @@ literal|"type"
 argument_list|,
 literal|"s"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"l"
 argument_list|,
@@ -8151,7 +8151,7 @@ literal|"type=double"
 argument_list|,
 literal|"ms"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"ml"
 argument_list|,

@@ -8240,7 +8240,7 @@ name|TYPE_NAME
 argument_list|,
 literal|"a"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|addAlias

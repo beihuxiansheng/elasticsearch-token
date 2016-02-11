@@ -318,6 +318,16 @@ name|Settings
 name|indexSettings
 parameter_list|)
 block|{     }
+comment|/**      * Called when the given shards store is closed. The store is closed once all resource have been released on the store.      * This implies that all index readers are closed and no recoveries are running.      *      * @param shardId the shard ID the store belongs to      */
+DECL|method|onStoreClosed
+specifier|default
+name|void
+name|onStoreClosed
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|)
+block|{}
 block|}
 end_interface
 

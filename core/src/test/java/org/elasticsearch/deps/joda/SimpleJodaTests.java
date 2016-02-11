@@ -2533,7 +2533,7 @@ literal|10
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// only check the last digit, as seconds go from 0-99 in the unix timestamp and dont stop at 60
+comment|// only check the last digit, as seconds go from 0-99 in the unix timestamp and don't stop at 60
 name|assertThat
 argument_list|(
 name|buffer

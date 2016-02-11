@@ -50,7 +50,7 @@ name|QueryRescoreModeTests
 extends|extends
 name|ESTestCase
 block|{
-comment|/**      * Test @link {@link QueryRescoreMode} enum ordinals and names, since serilaization relies on it      */
+comment|/**      * Test @link {@link QueryRescoreMode} enum ordinals and names, since serialization relies on it      */
 DECL|method|testQueryRescoreMode
 specifier|public
 name|void

@@ -498,6 +498,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|MergePolicyConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|IndexEventListener
@@ -540,18 +552,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|MergePolicyConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|ShardId
@@ -582,7 +582,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTarget
+name|RecoveryTargetService
 import|;
 end_import
 
@@ -3062,7 +3062,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -3731,7 +3731,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|Actions
 operator|.

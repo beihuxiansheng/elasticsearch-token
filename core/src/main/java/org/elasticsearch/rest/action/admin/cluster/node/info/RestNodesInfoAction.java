@@ -596,7 +596,7 @@ literal|"timeout"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// shortcut, dont do checks if only all is specified
+comment|// shortcut, don't do checks if only all is specified
 if|if
 condition|(
 name|metrics

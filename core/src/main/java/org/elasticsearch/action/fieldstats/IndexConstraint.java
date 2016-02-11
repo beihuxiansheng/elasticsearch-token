@@ -322,7 +322,7 @@ return|return
 name|comparison
 return|;
 block|}
-comment|/**      * @return On what property of a field the contraint is going to be applied on (min or max value)      */
+comment|/**      * @return On what property of a field the constraint is going to be applied on (min or max value)      */
 DECL|method|getProperty
 specifier|public
 name|Property

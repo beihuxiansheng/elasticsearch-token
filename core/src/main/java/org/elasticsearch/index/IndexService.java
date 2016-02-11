@@ -2216,12 +2216,9 @@ name|canDeleteShardContent
 argument_list|,
 parameter_list|()
 lambda|->
-name|nodeServicesProvider
+name|eventListener
 operator|.
-name|getIndicesQueryCache
-argument_list|()
-operator|.
-name|onClose
+name|onStoreClosed
 argument_list|(
 name|shardId
 argument_list|)
@@ -4276,7 +4273,7 @@ name|boolean
 name|mustReschedule
 parameter_list|()
 block|{
-comment|// don't re-schedule if its closed or if we dont' have a single shard here..., we are done
+comment|// don't re-schedule if its closed or if we don't have a single shard here..., we are done
 return|return
 name|indexService
 operator|.

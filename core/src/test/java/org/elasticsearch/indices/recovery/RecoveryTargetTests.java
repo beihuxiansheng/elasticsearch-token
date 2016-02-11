@@ -431,10 +431,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RecoveryStateTests
+DECL|class|RecoveryTargetTests
 specifier|public
 class|class
-name|RecoveryStateTests
+name|RecoveryTargetTests
 extends|extends
 name|ESTestCase
 block|{

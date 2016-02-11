@@ -1596,7 +1596,7 @@ name|pluginsDir
 argument_list|)
 decl_stmt|;
 comment|// if we aren't isolated, we need to jarhellcheck against any other non-isolated plugins
-comment|// thats always the first bundle
+comment|// that's always the first bundle
 if|if
 condition|(
 name|isolated

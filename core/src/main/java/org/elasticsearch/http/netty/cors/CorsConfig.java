@@ -442,7 +442,7 @@ return|return
 name|allowNullOrigin
 return|;
 block|}
-comment|/**      * Determines if cookies are supported for CORS requests.      *      * By default cookies are not included in CORS requests but if isCredentialsAllowed returns      * true cookies will be added to CORS requests. Setting this value to true will set the      * CORS 'Access-Control-Allow-Credentials' response header to true.      *      * Please note that cookie support needs to be enabled on the client side as well.      * The client needs to opt-in to send cookies by calling:      *<pre>      * xhr.withCredentials = true;      *</pre>      * The default value for 'withCredentials' is false in which case no cookies are sent.      * Settning this to true will included cookies in cross origin requests.      *      * @return {@code true} if cookies are supported.      */
+comment|/**      * Determines if cookies are supported for CORS requests.      *      * By default cookies are not included in CORS requests but if isCredentialsAllowed returns      * true cookies will be added to CORS requests. Setting this value to true will set the      * CORS 'Access-Control-Allow-Credentials' response header to true.      *      * Please note that cookie support needs to be enabled on the client side as well.      * The client needs to opt-in to send cookies by calling:      *<pre>      * xhr.withCredentials = true;      *</pre>      * The default value for 'withCredentials' is false in which case no cookies are sent.      * Setting this to true will included cookies in cross origin requests.      *      * @return {@code true} if cookies are supported.      */
 DECL|method|isCredentialsAllowed
 specifier|public
 name|boolean
@@ -618,7 +618,7 @@ return|return
 name|preflightHeaders
 return|;
 block|}
-comment|/**      * Determines whether a CORS request should be rejected if it's invalid before being      * further processing.      *      * CORS headers are set after a request is processed. This may not always be desired      * and this setting will check that the Origin is valid and if it is not valid no      * further processing will take place, and a error will be returned to the calling client.      *      * @return {@code true} if a CORS request should short-curcuit upon receiving an invalid Origin header.      */
+comment|/**      * Determines whether a CORS request should be rejected if it's invalid before being      * further processing.      *      * CORS headers are set after a request is processed. This may not always be desired      * and this setting will check that the Origin is valid and if it is not valid no      * further processing will take place, and a error will be returned to the calling client.      *      * @return {@code true} if a CORS request should short-circuit upon receiving an invalid Origin header.      */
 DECL|method|isShortCircuit
 specifier|public
 name|boolean

@@ -1364,9 +1364,6 @@ name|queryPhase
 parameter_list|,
 name|FetchPhase
 name|fetchPhase
-parameter_list|,
-name|IndicesRequestCache
-name|indicesQueryCache
 parameter_list|)
 block|{
 name|super
@@ -1442,7 +1439,10 @@ name|this
 operator|.
 name|indicesQueryCache
 operator|=
-name|indicesQueryCache
+name|indicesService
+operator|.
+name|getIndicesRequestCache
+argument_list|()
 expr_stmt|;
 name|TimeValue
 name|keepAliveInterval

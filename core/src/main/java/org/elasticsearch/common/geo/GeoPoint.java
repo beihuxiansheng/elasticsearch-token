@@ -31,30 +31,74 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|util
 operator|.
 name|GeoHashUtils
+operator|.
+name|mortonEncode
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
-name|GeoUtils
+name|GeoHashUtils
+operator|.
+name|stringEncode
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoEncodingUtils
+operator|.
+name|mortonUnhashLat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoEncodingUtils
+operator|.
+name|mortonUnhashLon
 import|;
 end_import
 
@@ -302,8 +346,6 @@ parameter_list|)
 block|{
 name|lon
 operator|=
-name|GeoUtils
-operator|.
 name|mortonUnhashLon
 argument_list|(
 name|hash
@@ -311,8 +353,6 @@ argument_list|)
 expr_stmt|;
 name|lat
 operator|=
-name|GeoUtils
-operator|.
 name|mortonUnhashLat
 argument_list|(
 name|hash
@@ -335,8 +375,6 @@ specifier|final
 name|long
 name|hash
 init|=
-name|GeoHashUtils
-operator|.
 name|mortonEncode
 argument_list|(
 name|geohash
@@ -347,15 +385,11 @@ name|this
 operator|.
 name|reset
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonUnhashLat
 argument_list|(
 name|hash
 argument_list|)
 argument_list|,
-name|GeoUtils
-operator|.
 name|mortonUnhashLon
 argument_list|(
 name|hash
@@ -477,8 +511,6 @@ name|geohash
 parameter_list|()
 block|{
 return|return
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|lon
@@ -495,8 +527,6 @@ name|getGeohash
 parameter_list|()
 block|{
 return|return
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|lon
