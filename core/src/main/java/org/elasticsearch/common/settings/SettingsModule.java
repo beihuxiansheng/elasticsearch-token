@@ -36,20 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|regex
-operator|.
-name|Regex
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|tribe
 operator|.
 name|TribeService
@@ -534,7 +520,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|/**      * Registers a settings filter pattern that allows to filter out certain settings that for instance contain sensitive information      * or if a setting is for internal purposes only. The given patter must either be a valid settings key or a simple regesp pattern.      */
+comment|/**      * Registers a settings filter pattern that allows to filter out certain settings that for instance contain sensitive information      * or if a setting is for internal purposes only. The given pattern must either be a valid settings key or a simple regexp pattern.      */
 DECL|method|registerSettingsFilter
 specifier|public
 name|void
