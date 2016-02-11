@@ -168,7 +168,23 @@ name|aggregations
 operator|.
 name|AggregationBuilders
 operator|.
-name|*
+name|sum
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|terms
 import|;
 end_import
 
