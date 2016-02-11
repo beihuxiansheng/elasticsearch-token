@@ -555,7 +555,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// dont' use assertAllSuccesssful it uses a randomized context that belongs to a different thread
+comment|// don't use assertAllSuccessful it uses a randomized context that belongs to a different thread
 name|assertThat
 argument_list|(
 literal|"Unexpected ShardFailures: "

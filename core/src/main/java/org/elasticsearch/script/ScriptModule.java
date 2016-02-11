@@ -297,7 +297,7 @@ name|scriptContext
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method is called after all modules have been processed but before we actually validate all settings. This allwos the      * script extensions to add all their settings.      */
+comment|/**      * This method is called after all modules have been processed but before we actually validate all settings. This allows the      * script extensions to add all their settings.      */
 DECL|method|prepareSettings
 specifier|public
 name|void

@@ -3587,7 +3587,7 @@ return|return
 name|routingNodes
 return|;
 block|}
-comment|/** ovrride this to control time based decisions during allocation */
+comment|/** override this to control time based decisions during allocation */
 DECL|method|currentNanoTime
 specifier|protected
 name|long

@@ -838,7 +838,7 @@ name|dependencies
 argument_list|)
 return|;
 block|}
-comment|// This metohd is necessary to create a Dependency<T> with proper generic type information
+comment|// This method is necessary to create a Dependency<T> with proper generic type information
 DECL|method|newDependency
 specifier|private
 parameter_list|<

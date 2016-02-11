@@ -1873,7 +1873,7 @@ return|return
 name|isShadowReplicaIndex
 return|;
 block|}
-comment|/**      * Returns the node settings. The settings retured from {@link #getSettings()} are a merged version of the      * index settings and the node settings where node settings are overwritten by index settings.      */
+comment|/**      * Returns the node settings. The settings returned from {@link #getSettings()} are a merged version of the      * index settings and the node settings where node settings are overwritten by index settings.      */
 DECL|method|getNodeSettings
 specifier|public
 name|Settings

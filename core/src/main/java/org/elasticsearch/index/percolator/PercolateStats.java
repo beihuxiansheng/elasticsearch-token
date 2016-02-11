@@ -186,7 +186,7 @@ specifier|private
 name|long
 name|numQueries
 decl_stmt|;
-comment|/**      * Noop constructor for serialazation purposes.      */
+comment|/**      * Noop constructor for serialization purposes.      */
 DECL|method|PercolateStats
 specifier|public
 name|PercolateStats

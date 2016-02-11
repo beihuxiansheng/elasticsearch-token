@@ -1091,6 +1091,11 @@ argument_list|,
 operator|new
 name|CommonStats
 argument_list|(
+name|indicesService
+operator|.
+name|getIndicesQueryCache
+argument_list|()
+argument_list|,
 name|indexShard
 argument_list|,
 name|flags

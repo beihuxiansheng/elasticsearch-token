@@ -1865,7 +1865,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// add a transport delegate that will prevent the shard active request to succeed the first time after relocation has finished.
-comment|// node_1 will then wait for the next cluster state change before it tries a next attempt to delet the shard.
+comment|// node_1 will then wait for the next cluster state change before it tries a next attempt to delete the shard.
 name|MockTransportService
 name|transportServiceNode_1
 init|=

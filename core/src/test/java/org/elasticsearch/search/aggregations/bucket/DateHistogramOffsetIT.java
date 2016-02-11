@@ -1318,7 +1318,7 @@ literal|6L
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param bucket the bucket to check asssertions for      * @param key the expected key      * @param expectedSize the expected size of the bucket      */
+comment|/**      * @param bucket the bucket to check assertions for      * @param key the expected key      * @param expectedSize the expected size of the bucket      */
 DECL|method|checkBucketFor
 specifier|private
 specifier|static

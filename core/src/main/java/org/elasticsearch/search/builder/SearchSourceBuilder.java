@@ -1849,7 +1849,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Gets the hightlighter builder for this request.      */
+comment|/**      * Gets the highlighter builder for this request.      */
 DECL|method|highlighter
 specifier|public
 name|HighlightBuilder
@@ -2501,7 +2501,7 @@ return|return
 name|scriptFields
 return|;
 block|}
-comment|/**      * Sets the boost a specific index will receive when the query is executeed      * against it.      *      * @param index      *            The index to apply the boost against      * @param indexBoost      *            The boost to apply to the index      */
+comment|/**      * Sets the boost a specific index will receive when the query is executed      * against it.      *      * @param index      *            The index to apply the boost against      * @param indexBoost      *            The boost to apply to the index      */
 DECL|method|indexBoost
 specifier|public
 name|SearchSourceBuilder
@@ -2548,7 +2548,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Gets the boost a specific indices will receive when the query is      * executeed against them.      */
+comment|/**      * Gets the boost a specific indices will receive when the query is      * executed against them.      */
 DECL|method|indexBoost
 specifier|public
 name|ObjectFloatHashMap

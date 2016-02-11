@@ -1755,7 +1755,7 @@ operator|/
 name|totalWeight
 return|;
 block|}
-comment|/**      * Exponentionally weighted (EWMA, Single exponential) moving avg      *      * @param window Window of values to compute movavg for      */
+comment|/**      * Exponentially weighted (EWMA, Single exponential) moving avg      *      * @param window Window of values to compute movavg for      */
 DECL|method|ewma
 specifier|private
 name|double

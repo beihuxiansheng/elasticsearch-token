@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Internal respresentation of a constructor annotated with  * {@link AssistedInject}  *  * @author jmourits@google.com (Jerome Mourits)  * @author jessewilson@google.com (Jesse Wilson)  */
+comment|/**  * Internal representation of a constructor annotated with  * {@link AssistedInject}  *  * @author jmourits@google.com (Jerome Mourits)  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
 begin_class

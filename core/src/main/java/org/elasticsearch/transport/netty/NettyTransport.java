@@ -5349,7 +5349,7 @@ argument_list|)
 return|;
 block|}
 comment|// this code is a take on guava's HostAndPort, like a HostAndPortRange
-comment|// pattern for validating ipv6 bracked addresses.
+comment|// pattern for validating ipv6 bracket addresses.
 comment|// not perfect, but PortsRange should take care of any port range validation, not a regex
 DECL|field|BRACKET_PATTERN
 specifier|private

@@ -883,7 +883,7 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// exptected
+comment|// expected
 block|}
 block|}
 block|}

@@ -140,6 +140,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|equalTo
 import|;
 end_import
@@ -738,14 +750,45 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|"[fields] illegal field option [invalid]. valid values are "
-operator|+
-literal|"[CONTENT, TITLE, NAME, AUTHOR, KEYWORDS, DATE, CONTENT_TYPE, CONTENT_LENGTH, LANGUAGE]"
+literal|"[fields] illegal field option [invalid]"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// ensure allowed fields are mentioned
+for|for
+control|(
+name|AttachmentProcessor
+operator|.
+name|Field
+name|field
+range|:
+name|AttachmentProcessor
+operator|.
+name|Field
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+name|field
+operator|.
+name|name
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|config
 operator|=

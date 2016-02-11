@@ -3519,7 +3519,7 @@ return|return
 name|stopWords
 return|;
 block|}
-comment|/**      * The analyzer that will be used to analyze the text. Defaults to the analyzer associated with the fied.      */
+comment|/**      * The analyzer that will be used to analyze the text. Defaults to the analyzer associated with the field.      */
 DECL|method|analyzer
 specifier|public
 name|MoreLikeThisQueryBuilder
@@ -3688,7 +3688,7 @@ return|return
 name|failOnUnsupportedField
 return|;
 block|}
-comment|/**      * Converts an array of String ids to and Item[].      * @param ids the ids to convert      * @return the new items array      * @deprecated construct the items array externaly and use it in the constructor / setter      */
+comment|/**      * Converts an array of String ids to and Item[].      * @param ids the ids to convert      * @return the new items array      * @deprecated construct the items array externally and use it in the constructor / setter      */
 annotation|@
 name|Deprecated
 DECL|method|ids

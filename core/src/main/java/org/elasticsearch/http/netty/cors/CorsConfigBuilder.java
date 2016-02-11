@@ -449,7 +449,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/**      * Web browsers may set the 'Origin' request header to 'null' if a resource is loaded      * from the local file system. Calling this method will enable a successful CORS response      * with a wildcard for the the CORS response header 'Access-Control-Allow-Origin'.      *      * @return {@link CorsConfigBuilder} to support method chaining.      */
+comment|/**      * Web browsers may set the 'Origin' request header to 'null' if a resource is loaded      * from the local file system. Calling this method will enable a successful CORS response      * with a wildcard for the CORS response header 'Access-Control-Allow-Origin'.      *      * @return {@link CorsConfigBuilder} to support method chaining.      */
 DECL|method|allowNullOrigin
 name|CorsConfigBuilder
 name|allowNullOrigin

@@ -1442,9 +1442,6 @@ parameter_list|,
 name|FetchPhase
 name|fetchPhase
 parameter_list|,
-name|IndicesRequestCache
-name|indicesQueryCache
-parameter_list|,
 name|AggregatorParsers
 name|aggParsers
 parameter_list|)
@@ -1528,7 +1525,10 @@ name|this
 operator|.
 name|indicesQueryCache
 operator|=
-name|indicesQueryCache
+name|indicesService
+operator|.
+name|getIndicesRequestCache
+argument_list|()
 expr_stmt|;
 name|TimeValue
 name|keepAliveInterval

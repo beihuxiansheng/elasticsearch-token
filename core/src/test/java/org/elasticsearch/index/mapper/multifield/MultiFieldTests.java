@@ -2326,7 +2326,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// The fielddata settings need to be the same after deserializing/re-serialsing, else unneccesary mapping sync's can be triggered
+comment|// The fielddata settings need to be the same after deserializing/re-serialsing, else unnecessary mapping sync's can be triggered
 DECL|method|testMultiFieldsFieldDataSettingsInConsistentOrder
 specifier|public
 name|void

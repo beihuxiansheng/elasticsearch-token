@@ -289,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Checking simple filtering capabilites of the cluster state  *  */
+comment|/**  * Checking simple filtering capabilities of the cluster state  *  */
 end_comment
 
 begin_class
