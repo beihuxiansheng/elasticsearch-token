@@ -5573,7 +5573,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|get
@@ -6335,7 +6335,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|get

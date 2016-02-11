@@ -168,7 +168,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|KeywordFieldMapper
 import|;
 end_import
 
@@ -383,7 +383,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|extractedTermsField
 init|=
 name|createStringFieldBuilder
@@ -396,7 +396,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|unknownQueryField
 init|=
 name|createStringFieldBuilder
@@ -454,7 +454,7 @@ return|;
 block|}
 DECL|method|createStringFieldBuilder
 specifier|static
-name|StringFieldMapper
+name|KeywordFieldMapper
 operator|.
 name|Builder
 name|createStringFieldBuilder
@@ -463,13 +463,13 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|StringFieldMapper
+name|KeywordFieldMapper
 operator|.
 name|Builder
 name|queryMetaDataFieldBuilder
 init|=
 operator|new
-name|StringFieldMapper
+name|KeywordFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -486,13 +486,6 @@ expr_stmt|;
 name|queryMetaDataFieldBuilder
 operator|.
 name|store
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|queryMetaDataFieldBuilder
-operator|.
-name|tokenized
 argument_list|(
 literal|false
 argument_list|)
@@ -654,13 +647,13 @@ decl_stmt|;
 DECL|field|queryTermsField
 specifier|private
 specifier|final
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|queryTermsField
 decl_stmt|;
 DECL|field|unknownQueryField
 specifier|private
 specifier|final
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|unknownQueryField
 decl_stmt|;
 DECL|method|PercolatorFieldMapper
@@ -688,10 +681,10 @@ parameter_list|,
 name|QueryShardContext
 name|queryShardContext
 parameter_list|,
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|queryTermsField
 parameter_list|,
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|unknownQueryField
 parameter_list|)
 block|{

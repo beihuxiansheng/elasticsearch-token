@@ -721,7 +721,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"city"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -959,7 +959,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"city"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
