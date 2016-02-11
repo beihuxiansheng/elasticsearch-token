@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.indices.cache.query.terms
+DECL|package|org.elasticsearch.indices
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|terms
 package|;
 end_package
 
@@ -49,6 +43,18 @@ operator|.
 name|stream
 operator|.
 name|StreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|TermsLookup
 import|;
 end_import
 
