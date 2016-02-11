@@ -2523,7 +2523,7 @@ comment|/*          * This is the total number of milliseconds that a reindex ma
 name|int
 name|defaultBackoffBeforeFailing
 init|=
-literal|24670
+literal|59460
 decl_stmt|;
 name|assertEquals
 argument_list|(

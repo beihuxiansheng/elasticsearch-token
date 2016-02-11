@@ -321,7 +321,7 @@ name|WriteConsistencyLevel
 operator|.
 name|DEFAULT
 decl_stmt|;
-comment|/**      * Initial delay after a rejection before retrying a bulk request. With the default maxRetries the total backoff for retrying rejections      * is about 25 seconds per bulk request. Once the entire bulk request is successful the retry counter resets.      */
+comment|/**      * Initial delay after a rejection before retrying a bulk request. With the default maxRetries the total backoff for retrying rejections      * is about one minute per bulk request. Once the entire bulk request is successful the retry counter resets.      */
 DECL|field|retryBackoffInitialTime
 specifier|private
 name|TimeValue
@@ -329,7 +329,7 @@ name|retryBackoffInitialTime
 init|=
 name|timeValueMillis
 argument_list|(
-literal|50
+literal|500
 argument_list|)
 decl_stmt|;
 comment|/**      * Total number of retries attempted for rejections. There is no way to ask for unlimited retries.      */
@@ -338,7 +338,7 @@ specifier|private
 name|int
 name|maxRetries
 init|=
-literal|10
+literal|11
 decl_stmt|;
 DECL|method|AbstractBulkByScrollRequest
 specifier|public
