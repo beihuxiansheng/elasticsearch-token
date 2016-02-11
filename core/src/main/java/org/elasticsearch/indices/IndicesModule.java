@@ -668,7 +668,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTarget
+name|RecoveryTargetService
 import|;
 end_import
 
@@ -1344,7 +1344,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|class
 argument_list|)
