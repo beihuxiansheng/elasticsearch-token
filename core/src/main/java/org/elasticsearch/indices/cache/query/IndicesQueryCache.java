@@ -481,8 +481,6 @@ name|IdentityHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|IndicesQueryCache
 specifier|public
 name|IndicesQueryCache
