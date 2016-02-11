@@ -259,7 +259,14 @@ name|IOException
 block|{
 name|assertEquals
 argument_list|(
+name|QueryBuilder
+operator|.
+name|rewriteQuery
+argument_list|(
 name|templateBase
+argument_list|,
+name|context
+argument_list|)
 operator|.
 name|toQuery
 argument_list|(

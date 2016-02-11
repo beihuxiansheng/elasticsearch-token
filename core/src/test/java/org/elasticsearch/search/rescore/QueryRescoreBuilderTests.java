@@ -1194,8 +1194,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|indicesQueriesRegistry
 argument_list|)
 block|{
@@ -1277,9 +1275,6 @@ decl_stmt|;
 name|QueryRescoreContext
 name|rescoreContext
 init|=
-operator|(
-name|QueryRescoreContext
-operator|)
 name|rescoreBuilder
 operator|.
 name|build
