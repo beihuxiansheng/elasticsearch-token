@@ -384,22 +384,6 @@ name|lenientNodeBooleanValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|object
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1936,7 +1920,8 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|object
+operator|new
+name|Builder
 argument_list|(
 name|name
 argument_list|)
