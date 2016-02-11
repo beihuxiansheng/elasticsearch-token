@@ -3480,7 +3480,7 @@ name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
-comment|// this is a pure protection to make sure this index doesn't get re-imported as a dangeling index.
+comment|// this is a pure protection to make sure this index doesn't get re-imported as a dangling index.
 comment|// we should in the future rather write a tombstone rather than wiping the metadata.
 name|MetaDataStateFormat
 operator|.

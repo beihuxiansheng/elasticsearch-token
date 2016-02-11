@@ -1848,7 +1848,7 @@ name|this
 init|)
 block|{
 comment|// we do the marshaling intentionally, to check it works well...
-comment|// check if we publsihed cluster state at least once and node was in the cluster when we published cluster state the last time
+comment|// check if we published cluster state at least once and node was in the cluster when we published cluster state the last time
 if|if
 condition|(
 name|discovery

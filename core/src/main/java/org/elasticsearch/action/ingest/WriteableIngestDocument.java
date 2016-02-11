@@ -381,6 +381,16 @@ name|entrySet
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|metadata
+operator|.
+name|getValue
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -399,6 +409,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|builder
 operator|.

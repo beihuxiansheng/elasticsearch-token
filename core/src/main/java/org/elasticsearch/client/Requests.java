@@ -879,7 +879,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Creats a new bulk request.      */
+comment|/**      * Creates a new bulk request.      */
 DECL|method|bulkRequest
 specifier|public
 specifier|static

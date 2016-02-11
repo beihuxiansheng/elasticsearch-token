@@ -86,7 +86,7 @@ parameter_list|>
 implements|implements
 name|Element
 block|{
-comment|// NOTE: this class is not part of guice and was added so the provder lookup's key can be acessible for tests
+comment|// NOTE: this class is not part of guice and was added so the provider lookup's key can be accessible for tests
 DECL|class|ProviderImpl
 specifier|public
 specifier|static

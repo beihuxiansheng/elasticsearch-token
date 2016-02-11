@@ -9692,7 +9692,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-comment|// we use a second index here (test1) that never gets assigned otherwise allocateUnassinged is never called if we don't have unassigned shards.
+comment|// we use a second index here (test1) that never gets assigned otherwise allocateUnassigned is never called if we don't have unassigned shards.
 name|RoutingTable
 name|routingTable
 init|=

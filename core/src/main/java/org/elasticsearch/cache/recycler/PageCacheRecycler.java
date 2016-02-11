@@ -672,7 +672,7 @@ comment|// is no space left in the stack/queue. LRU/LFU policies are not an opti
 comment|// because they would make obtain/release too costly: we really need constant-time
 comment|// operations.
 comment|// Ultimately a better solution would be to only store one kind of data and have the
-comment|// ability to intepret it either as a source of bytes, doubles, longs, etc. eg. thanks
+comment|// ability to interpret it either as a source of bytes, doubles, longs, etc. eg. thanks
 comment|// to direct ByteBuffers or sun.misc.Unsafe on a byte[] but this would have other issues
 comment|// that would need to be addressed such as garbage collection of native memory or safety
 comment|// of Unsafe writes.

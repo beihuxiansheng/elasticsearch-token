@@ -1675,7 +1675,7 @@ literal|"] are disabled"
 argument_list|)
 throw|;
 block|}
-comment|// TODO: fix this through some API or something, thats wrong
+comment|// TODO: fix this through some API or something, that's wrong
 comment|// special exception to prevent expressions from compiling as update or mapping scripts
 name|boolean
 name|expression

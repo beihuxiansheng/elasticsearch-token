@@ -320,7 +320,7 @@ name|NativeLong
 name|arg5
 parameter_list|)
 function_decl|;
-comment|/**          * used to call seccomp(2), its too new...          * this is the only way, DONT use it on some other architecture unless you know wtf you are doing          */
+comment|/**          * used to call seccomp(2), its too new...          * this is the only way, DON'T use it on some other architecture unless you know wtf you are doing          */
 DECL|method|syscall
 name|NativeLong
 name|syscall

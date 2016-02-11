@@ -5616,7 +5616,7 @@ name|build
 parameter_list|()
 block|{
 comment|// TODO: We should move these datastructures to IndexNameExpressionResolver, this will give the following benefits:
-comment|// 1) The datastructures will only be rebuilded when needed. Now during serailizing we rebuild these datastructures
+comment|// 1) The datastructures will only be rebuilded when needed. Now during serializing we rebuild these datastructures
 comment|//    while these datastructures aren't even used.
 comment|// 2) The aliasAndIndexLookup can be updated instead of rebuilding it all the time.
 comment|// build all concrete indices arrays:

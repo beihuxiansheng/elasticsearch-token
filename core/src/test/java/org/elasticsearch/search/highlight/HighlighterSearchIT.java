@@ -15472,7 +15472,7 @@ argument_list|,
 name|hlQueryMatcher
 argument_list|)
 expr_stmt|;
-comment|// Make sure the the highlightQuery is taken into account when it is set on the highlight context instead of the field
+comment|// Make sure the highlightQuery is taken into account when it is set on the highlight context instead of the field
 name|highlightBuilder
 operator|.
 name|highlightQuery

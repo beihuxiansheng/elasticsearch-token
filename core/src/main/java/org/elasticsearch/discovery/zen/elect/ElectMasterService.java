@@ -381,7 +381,7 @@ operator|>=
 name|minimumMasterNodes
 return|;
 block|}
-comment|/**      * Returns the given nodes sorted by likelyhood of being elected as master, most likely first.      * Non-master nodes are not removed but are rather put in the end      */
+comment|/**      * Returns the given nodes sorted by likelihood of being elected as master, most likely first.      * Non-master nodes are not removed but are rather put in the end      */
 DECL|method|sortByMasterLikelihood
 specifier|public
 name|List

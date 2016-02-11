@@ -564,7 +564,7 @@ name|ClusterStateListener
 implements|,
 name|Closeable
 block|{
-comment|// TODO this class can be foled into either IndicesService and partially into IndicesClusterStateService there is no need for a seperate public service
+comment|// TODO this class can be foled into either IndicesService and partially into IndicesClusterStateService there is no need for a separate public service
 DECL|field|INDICES_STORE_DELETE_SHARD_TIMEOUT
 specifier|public
 specifier|static

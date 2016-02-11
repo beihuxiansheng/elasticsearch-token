@@ -2651,7 +2651,7 @@ parameter_list|)
 block|{
 comment|// we can ignore this exception since, on the other node, when it moved to phase3
 comment|// it will also send shard started, which might cause the index shard we work against
-comment|// to move be closed by the time we get to the the relocated method
+comment|// to move be closed by the time we get to the relocated method
 block|}
 block|}
 name|stopWatch

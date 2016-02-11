@@ -30,7 +30,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/** Get the delegate instance to foward calls to. */
+comment|/** Get the delegate instance to forward calls to. */
 DECL|method|getDelegate
 specifier|protected
 specifier|abstract

@@ -644,7 +644,7 @@ name|Closeable
 implements|,
 name|TwoPhaseCommit
 block|{
-comment|/*      * TODO      *  - we might need something like a deletion policy to hold on to more than one translog eventually (I think sequence IDs needs this) but we can refactor as we go      *  - use a simple BufferedOuputStream to write stuff and fold BufferedTranslogWriter into it's super class... the tricky bit is we need to be able to do random access reads even from the buffer      *  - we need random exception on the FileSystem API tests for all this.      *  - we need to page align the last write before we sync, we can take advantage of ensureSynced for this since we might have already fsynced far enough      */
+comment|/*      * TODO      *  - we might need something like a deletion policy to hold on to more than one translog eventually (I think sequence IDs needs this) but we can refactor as we go      *  - use a simple BufferedOutputStream to write stuff and fold BufferedTranslogWriter into it's super class... the tricky bit is we need to be able to do random access reads even from the buffer      *  - we need random exception on the FileSystem API tests for all this.      *  - we need to page align the last write before we sync, we can take advantage of ensureSynced for this since we might have already fsynced far enough      */
 DECL|field|TRANSLOG_GENERATION_KEY
 specifier|public
 specifier|static
