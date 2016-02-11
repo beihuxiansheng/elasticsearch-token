@@ -350,7 +350,9 @@ name|getText
 parameter_list|()
 block|{
 return|return
-literal|null
+name|this
+operator|.
+name|globalText
 return|;
 block|}
 comment|/**      * Adds an {@link org.elasticsearch.search.suggest.SuggestionBuilder} instance under a user defined name.      * The order in which the<code>Suggestions</code> are added, is the same as in the response.      */
