@@ -1311,23 +1311,52 @@ name|nodeShardState
 operator|.
 name|legacyVersion
 argument_list|()
-operator|!=
+operator|==
 name|ShardStateMetaData
 operator|.
 name|NO_VERSION
 condition|)
 block|{
-comment|// old shard with no allocation id, assign dummy value so that it gets added below in case of matchAnyShard
-name|allocationId
-operator|=
-literal|"_n/a_"
-expr_stmt|;
-block|}
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] on node [{}] has allocation id [{}] of shard"
+literal|"[{}] on node [{}] has no shard state information"
+argument_list|,
+name|shard
+argument_list|,
+name|nodeShardState
+operator|.
+name|getNode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|allocationId
+operator|!=
+literal|null
+condition|)
+block|{
+assert|assert
+name|nodeShardState
+operator|.
+name|legacyVersion
+argument_list|()
+operator|==
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
+operator|:
+literal|"Allocation id and legacy version cannot be both present"
+assert|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] on node [{}] has allocation id [{}]"
 argument_list|,
 name|shard
 argument_list|,
@@ -1339,6 +1368,29 @@ argument_list|,
 name|allocationId
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] on node [{}] has no allocation id, out-dated shard (shard state version: [{}])"
+argument_list|,
+name|shard
+argument_list|,
+name|nodeShardState
+operator|.
+name|getNode
+argument_list|()
+argument_list|,
+name|nodeShardState
+operator|.
+name|legacyVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -2034,7 +2086,6 @@ condition|)
 block|{
 continue|continue;
 block|}
-comment|// no version means it does not exists, which is what the API returns, and what we expect to
 if|if
 condition|(
 name|nodeShardState
@@ -2045,6 +2096,57 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|version
+operator|==
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
+operator|&&
+name|nodeShardState
+operator|.
+name|allocationId
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] on node [{}] has no shard state information"
+argument_list|,
+name|shard
+argument_list|,
+name|nodeShardState
+operator|.
+name|getNode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|version
+operator|!=
+name|ShardStateMetaData
+operator|.
+name|NO_VERSION
+condition|)
+block|{
+assert|assert
+name|nodeShardState
+operator|.
+name|allocationId
+argument_list|()
+operator|==
+literal|null
+operator|:
+literal|"Allocation id and legacy version cannot be both present"
+assert|;
 name|logger
 operator|.
 name|trace
@@ -2061,6 +2163,39 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// shard was already selected in a 5.x cluster as primary for recovery, was initialized (and wrote a new state file) but
+comment|// did not make it to STARTED state before the cluster crashed (otherwise list of active allocation ids would be
+comment|// non-empty and allocation id - based allocation mode would be chosen).
+comment|// Prefer this shard copy again.
+name|version
+operator|=
+name|Long
+operator|.
+name|MAX_VALUE
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] on node [{}] has allocation id [{}]"
+argument_list|,
+name|shard
+argument_list|,
+name|nodeShardState
+operator|.
+name|getNode
+argument_list|()
+argument_list|,
+name|nodeShardState
+operator|.
+name|allocationId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
