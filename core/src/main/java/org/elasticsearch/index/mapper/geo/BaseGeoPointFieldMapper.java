@@ -350,6 +350,22 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|core
+operator|.
+name|TokenCountFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|object
 operator|.
 name|ArrayValueMapperParser
@@ -403,38 +419,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|doubleField
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|stringField
 import|;
 end_import
 
@@ -1041,7 +1025,10 @@ name|?
 argument_list|>
 name|latMapperBuilder
 init|=
-name|doubleField
+operator|new
+name|DoubleFieldMapper
+operator|.
+name|Builder
 argument_list|(
 name|Names
 operator|.
@@ -1063,7 +1050,10 @@ name|?
 argument_list|>
 name|lonMapperBuilder
 init|=
-name|doubleField
+operator|new
+name|DoubleFieldMapper
+operator|.
+name|Builder
 argument_list|(
 name|Names
 operator|.
@@ -1188,7 +1178,10 @@ block|{
 comment|// TODO: possible also implicitly enable geohash if geohash precision is set
 name|geoHashMapper
 operator|=
-name|stringField
+operator|new
+name|StringFieldMapper
+operator|.
+name|Builder
 argument_list|(
 name|Names
 operator|.
