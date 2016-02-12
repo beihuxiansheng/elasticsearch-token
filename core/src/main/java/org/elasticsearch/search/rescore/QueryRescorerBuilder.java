@@ -772,9 +772,16 @@ name|queryRescoreContext
 operator|.
 name|setQuery
 argument_list|(
+name|QueryBuilder
+operator|.
+name|rewriteQuery
+argument_list|(
 name|this
 operator|.
 name|queryBuilder
+argument_list|,
+name|context
+argument_list|)
 operator|.
 name|toQuery
 argument_list|(

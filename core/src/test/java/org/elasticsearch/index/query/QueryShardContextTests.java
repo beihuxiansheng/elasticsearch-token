@@ -62,18 +62,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|IndexSettings
 import|;
 end_import
@@ -131,16 +119,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -334,8 +312,6 @@ operator|new
 name|QueryShardContext
 argument_list|(
 name|indexSettings
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,
