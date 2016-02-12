@@ -38,9 +38,6 @@ class|class
 name|TransportRequest
 extends|extends
 name|TransportMessage
-argument_list|<
-name|TransportRequest
-argument_list|>
 block|{
 DECL|class|Empty
 specifier|public
