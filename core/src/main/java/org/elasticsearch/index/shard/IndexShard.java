@@ -2132,11 +2132,7 @@ name|shardQueryCache
 operator|=
 operator|new
 name|ShardRequestCache
-argument_list|(
-name|shardId
-argument_list|,
-name|indexSettings
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
