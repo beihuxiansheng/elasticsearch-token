@@ -1207,25 +1207,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|combineNamedQueries
-specifier|public
-name|void
-name|combineNamedQueries
-parameter_list|(
-name|QueryShardContext
-name|context
-parameter_list|)
-block|{
-name|namedQueries
-operator|.
-name|putAll
-argument_list|(
-name|context
-operator|.
-name|namedQueries
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Return whether we are currently parsing a filter or a query.      */
 DECL|method|isFilter
 specifier|public

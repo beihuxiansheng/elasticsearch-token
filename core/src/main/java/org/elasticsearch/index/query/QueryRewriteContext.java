@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Context object used to rewrite {@link QueryBuilder} instances into simplified version.  */
 end_comment
 
 begin_class
@@ -143,6 +143,7 @@ name|indicesQueriesRegistry
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns a clients to fetch resources from local or remove nodes.      */
 DECL|method|getClient
 specifier|public
 specifier|final
@@ -157,6 +158,7 @@ name|getClient
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the index settings for this context. This might return null if the      * context has not index scope.      */
 DECL|method|getIndexSettings
 specifier|public
 specifier|final
@@ -168,6 +170,7 @@ return|return
 name|indexSettings
 return|;
 block|}
+comment|/**      * Returns a script service to fetch scripts.      */
 DECL|method|getScriptService
 specifier|public
 specifier|final
@@ -179,6 +182,7 @@ return|return
 name|scriptService
 return|;
 block|}
+comment|/**      * Returns a new {@link QueryParseContext} to parse template or wrapped queries.      */
 DECL|method|newParseContext
 specifier|public
 name|QueryParseContext
@@ -206,18 +210,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|queryParseContext
-return|;
-block|}
-DECL|method|hasIndex
-specifier|public
-name|boolean
-name|hasIndex
-parameter_list|()
-block|{
-return|return
-name|indexSettings
-operator|!=
-literal|null
 return|;
 block|}
 block|}

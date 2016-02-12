@@ -4050,6 +4050,7 @@ argument_list|,
 name|rewriteContext
 argument_list|)
 decl_stmt|;
+comment|// extra safety to fail fast - serialize the rewritten version to ensure it's serializable.
 name|assertSerialization
 argument_list|(
 name|rewritten
@@ -6584,6 +6585,48 @@ block|}
 return|return
 literal|""
 return|;
+block|}
+comment|/**      * This test ensures that queries that need to be rewritten have dedicated tests.      * These queries must override this method accordingly.      */
+DECL|method|testMustRewrite
+specifier|public
+name|void
+name|testMustRewrite
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|QueryShardContext
+name|context
+init|=
+name|createShardContext
+argument_list|()
+decl_stmt|;
+name|context
+operator|.
+name|setAllowUnmappedFields
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|QB
+name|queryBuilder
+init|=
+name|createTestQueryBuilder
+argument_list|()
+decl_stmt|;
+name|setSearchContext
+argument_list|(
+name|randomTypes
+argument_list|)
+expr_stmt|;
+comment|// only set search context for toQuery to be more realistic
+name|queryBuilder
+operator|.
+name|toQuery
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

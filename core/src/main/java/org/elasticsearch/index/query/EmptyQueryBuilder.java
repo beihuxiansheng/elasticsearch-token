@@ -36,20 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|ToXContentToBytes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -86,35 +72,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentType
 import|;
 end_import
 
@@ -128,18 +86,8 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-import|;
-end_import
-
 begin_comment
-comment|/**  * A {@link QueryBuilder} that is a stand in replacement for an empty query clause in the DSL.  * The current DSL allows parsing inner queries / filters like "{ }", in order to have a  * valid non-null representation of these clauses that actually do nothing we can use this class.  *  * This builder has no corresponding parser and it is not registered under the query name. It is  * intended to be used internally as a stand-in for nested queries that are left empty and should  * be ignored upstream.  */
+comment|/**  * A {@link QueryBuilder} that is a stand in replacement for an empty query clause in the DSL.  * The current DSL allows parsing inner queries / filters like "{ }", in order to have a  * valid non-null representation of these clauses that actually do nothing we can use this class.  */
 end_comment
 
 begin_class
