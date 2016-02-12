@@ -5554,7 +5554,15 @@ block|}
 else|else
 block|{
 assert|assert
-literal|false
+name|shardFailedError
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"TransportService is closed "
+argument_list|)
 operator|:
 name|shardFailedError
 assert|;
