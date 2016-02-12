@@ -1651,11 +1651,6 @@ name|termStatistics
 argument_list|(
 literal|false
 argument_list|)
-operator|.
-name|dfs
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 comment|// for artificial docs to make sure that the id has changed in the item too
 if|if
@@ -3524,7 +3519,7 @@ return|return
 name|stopWords
 return|;
 block|}
-comment|/**      * The analyzer that will be used to analyze the text. Defaults to the analyzer associated with the fied.      */
+comment|/**      * The analyzer that will be used to analyze the text. Defaults to the analyzer associated with the field.      */
 DECL|method|analyzer
 specifier|public
 name|MoreLikeThisQueryBuilder
@@ -3693,7 +3688,7 @@ return|return
 name|failOnUnsupportedField
 return|;
 block|}
-comment|/**      * Converts an array of String ids to and Item[].      * @param ids the ids to convert      * @return the new items array      * @deprecated construct the items array externaly and use it in the constructor / setter      */
+comment|/**      * Converts an array of String ids to and Item[].      * @param ids the ids to convert      * @return the new items array      * @deprecated construct the items array externally and use it in the constructor / setter      */
 annotation|@
 name|Deprecated
 DECL|method|ids
@@ -4860,10 +4855,14 @@ expr_stmt|;
 block|}
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|boolQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|boolQuery
@@ -4896,6 +4895,9 @@ expr_stmt|;
 block|}
 return|return
 name|boolQuery
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 DECL|method|setDefaultIndexTypeFields
@@ -4939,7 +4941,7 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5144,13 +5146,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|request
-operator|.
-name|copyContextAndHeadersFrom
-argument_list|(
-name|searchContext
-argument_list|)
-expr_stmt|;
 return|return
 name|client
 operator|.
@@ -5356,6 +5351,8 @@ name|void
 name|handleExclude
 parameter_list|(
 name|BooleanQuery
+operator|.
+name|Builder
 name|boolQuery
 parameter_list|,
 name|Item

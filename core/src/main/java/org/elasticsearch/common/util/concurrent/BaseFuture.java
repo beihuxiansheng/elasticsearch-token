@@ -408,15 +408,6 @@ parameter_list|>
 extends|extends
 name|AbstractQueuedSynchronizer
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0L
-decl_stmt|;
 comment|/* Valid states. */
 DECL|field|RUNNING
 specifier|static

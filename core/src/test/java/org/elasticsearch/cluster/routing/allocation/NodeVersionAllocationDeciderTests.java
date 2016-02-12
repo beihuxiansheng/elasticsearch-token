@@ -3519,6 +3519,8 @@ name|ShardId
 argument_list|(
 literal|"test1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -3529,6 +3531,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"test2"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -3605,7 +3609,7 @@ name|builder
 argument_list|(
 name|shard1
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.
@@ -3645,7 +3649,7 @@ name|builder
 argument_list|(
 name|shard2
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.
@@ -3718,7 +3722,7 @@ name|newShardRouting
 argument_list|(
 name|shard1
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shard1
@@ -3738,8 +3742,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 argument_list|)
 operator|.
@@ -3751,7 +3753,7 @@ name|newShardRouting
 argument_list|(
 name|shard1
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shard1
@@ -3771,8 +3773,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 argument_list|)
 operator|.
@@ -3811,7 +3811,7 @@ name|newShardRouting
 argument_list|(
 name|shard2
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shard2
@@ -3831,8 +3831,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 argument_list|)
 operator|.
@@ -3844,7 +3842,7 @@ name|newShardRouting
 argument_list|(
 name|shard2
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|shard2
@@ -3864,8 +3862,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|10
 argument_list|)
 argument_list|)
 operator|.

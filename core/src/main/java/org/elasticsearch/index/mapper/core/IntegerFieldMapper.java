@@ -426,22 +426,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperBuilders
-operator|.
-name|integerField
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|core
 operator|.
 name|TypeParsers
@@ -705,7 +689,10 @@ operator|.
 name|Builder
 name|builder
 init|=
-name|integerField
+operator|new
+name|IntegerFieldMapper
+operator|.
+name|Builder
 argument_list|(
 name|name
 argument_list|)
@@ -2193,8 +2180,6 @@ parameter_list|,
 name|TokenStream
 name|previous
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

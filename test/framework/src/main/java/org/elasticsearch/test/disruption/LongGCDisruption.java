@@ -275,6 +275,12 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// stops/resumes threads intentionally
+annotation|@
 name|SuppressForbidden
 argument_list|(
 name|reason
@@ -499,6 +505,12 @@ return|return
 name|stopped
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// stops/resumes threads intentionally
 annotation|@
 name|SuppressForbidden
 argument_list|(

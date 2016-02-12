@@ -1571,6 +1571,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 name|shard
 argument_list|)
 decl_stmt|;
@@ -1677,8 +1679,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 if|if

@@ -740,8 +740,6 @@ name|TransportNodesSnapshotsStatus
 operator|.
 name|Request
 argument_list|(
-name|request
-argument_list|,
 name|nodesIds
 operator|.
 name|toArray

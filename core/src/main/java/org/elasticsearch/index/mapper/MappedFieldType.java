@@ -1243,17 +1243,13 @@ if|if
 condition|(
 name|hasDocValues
 argument_list|()
-operator|==
-literal|false
-operator|&&
+operator|!=
 name|other
 operator|.
 name|hasDocValues
 argument_list|()
 condition|)
 block|{
-comment|// don't add conflict if this mapper has doc values while the mapper to merge doesn't since doc values are implicitly set
-comment|// when the doc_values field data format is configured
 name|conflicts
 operator|.
 name|add
@@ -1263,7 +1259,7 @@ operator|+
 name|name
 argument_list|()
 operator|+
-literal|"] has different [doc_values] values, cannot change from disabled to enabled"
+literal|"] has different [doc_values] values"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2156,7 +2152,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** Creates a term associated with the field of this mapper for the given value */
+comment|/**      * Creates a term associated with the field of this mapper for the given      * value. Its important to use termQuery when building term queries because      * things like ParentFieldMapper override it to make more interesting      * queries.      */
 DECL|method|createTerm
 specifier|protected
 name|Term

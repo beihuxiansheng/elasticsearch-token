@@ -724,7 +724,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -753,7 +759,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -932,7 +944,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -951,6 +969,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"foo1"
+argument_list|,
+literal|"_na_"
 argument_list|)
 argument_list|,
 literal|"foobar"
@@ -963,7 +983,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo1"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -982,6 +1008,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"foo1"
+argument_list|,
+literal|"_na_"
 argument_list|)
 argument_list|,
 literal|"foobar"
@@ -994,7 +1022,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo1"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -1131,6 +1165,9 @@ operator|)
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 literal|"foo1"
 argument_list|)
@@ -1263,7 +1300,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -1292,7 +1335,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -1398,7 +1447,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -1417,6 +1472,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"foo1"
+argument_list|,
+literal|"_na_"
 argument_list|)
 argument_list|,
 literal|"foobar"
@@ -1429,7 +1486,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo1"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -1448,6 +1511,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"foo1"
+argument_list|,
+literal|"_na_"
 argument_list|)
 argument_list|,
 literal|"foobar"
@@ -1460,7 +1525,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo1"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -1518,7 +1589,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"parsing_exception\",\"reason\":\"foobar\",\"line\":1,\"col\":2}},{\"shard\":1,\"index\":\"foo1\",\"node\":\"node_1\",\"reason\":{\"type\":\"query_shard_exception\",\"reason\":\"foobar\",\"index\":\"foo1\"}}]}"
+literal|"{\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"parsing_exception\",\"reason\":\"foobar\",\"line\":1,\"col\":2}},{\"shard\":1,\"index\":\"foo1\",\"node\":\"node_1\",\"reason\":{\"type\":\"query_shard_exception\",\"reason\":\"foobar\",\"index_uuid\":\"_na_\",\"index\":\"foo1\"}}]}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1555,7 +1626,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)
@@ -1584,7 +1661,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"node_1"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|2
 argument_list|)
@@ -1807,7 +1890,9 @@ name|SearchParseException
 argument_list|(
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 argument_list|,
 literal|"foo"
 argument_list|,
@@ -2404,7 +2489,7 @@ init|=
 operator|new
 name|Throwable
 argument_list|(
-literal|"wtf"
+literal|"eggplant"
 argument_list|,
 name|ParsingException
 argument_list|)
@@ -2439,7 +2524,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"wtf"
+literal|"throwable: eggplant"
 argument_list|,
 name|throwable
 operator|.
@@ -2682,6 +2767,8 @@ operator|new
 name|Index
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|)
 argument_list|,
 literal|"foobar"
@@ -2760,8 +2847,20 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
+literal|"Expected: "
+operator|+
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|" to contain: "
+operator|+
 name|ex
 operator|.
 name|getCause
@@ -2772,6 +2871,8 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|" but it didn't"
 argument_list|,
 name|e
 operator|.
@@ -2780,7 +2881,9 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
+operator|.
+name|contains
+argument_list|(
 name|ex
 operator|.
 name|getCause
@@ -2788,6 +2891,7 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

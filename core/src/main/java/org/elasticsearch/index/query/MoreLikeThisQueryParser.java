@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parser for the The More Like This Query (MLT Query) which finds documents that are "like" a given set of documents.  *  * The documents are provided as a set of strings and/or a list of {@link Item}.  */
+comment|/**  * Parser for the More Like This Query (MLT Query) which finds documents that are "like" a given set of documents.  *  * The documents are provided as a set of strings and/or a list of {@link Item}.  */
 end_comment
 
 begin_class

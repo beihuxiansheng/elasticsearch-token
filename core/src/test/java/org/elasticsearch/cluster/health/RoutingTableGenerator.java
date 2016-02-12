@@ -265,8 +265,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|1
 argument_list|)
 return|;
 case|case
@@ -302,8 +300,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
-argument_list|,
-literal|1
 argument_list|)
 return|;
 case|case
@@ -347,8 +343,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|RELOCATING
-argument_list|,
-literal|1
 argument_list|)
 return|;
 default|default:
@@ -398,6 +392,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 name|shardId
 argument_list|)
@@ -527,6 +523,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|shard

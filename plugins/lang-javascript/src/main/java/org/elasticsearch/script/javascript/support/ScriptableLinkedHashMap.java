@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|mozilla
+operator|.
+name|javascript
+operator|.
+name|Scriptable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -45,18 +57,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mozilla
-operator|.
-name|javascript
-operator|.
-name|Scriptable
 import|;
 end_import
 
@@ -89,15 +89,6 @@ argument_list|,
 name|V
 argument_list|>
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|3774167893214964123L
-decl_stmt|;
 DECL|field|parentScope
 specifier|private
 name|Scriptable

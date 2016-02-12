@@ -453,7 +453,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 block|}
@@ -696,7 +696,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 block|}
@@ -759,7 +759,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 block|}

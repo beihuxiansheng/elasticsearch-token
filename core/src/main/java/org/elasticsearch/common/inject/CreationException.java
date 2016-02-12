@@ -159,15 +159,6 @@ name|messages
 argument_list|)
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 end_class
 

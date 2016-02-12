@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -257,7 +271,7 @@ condition|)
 block|{
 name|terminal
 operator|.
-name|print
+name|println
 argument_list|(
 name|Verbosity
 operator|.
@@ -488,8 +502,8 @@ name|Verbosity
 operator|.
 name|NORMAL
 argument_list|,
-literal|"* %s"
-argument_list|,
+literal|"* "
+operator|+
 name|formatPermission
 argument_list|(
 name|permission
@@ -532,6 +546,8 @@ argument_list|(
 name|Verbosity
 operator|.
 name|NORMAL
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 name|String
@@ -837,12 +853,10 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|PluginManager
+name|IOUtils
 operator|.
-name|tryToDeletePath
+name|rm
 argument_list|(
-name|terminal
-argument_list|,
 name|emptyPolicyFile
 argument_list|)
 expr_stmt|;

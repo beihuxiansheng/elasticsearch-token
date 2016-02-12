@@ -466,7 +466,7 @@ name|index
 argument_list|(
 name|shard
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -796,7 +796,7 @@ name|index
 argument_list|(
 name|shard
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1098,10 +1098,7 @@ operator|.
 name|nodeId
 argument_list|()
 argument_list|,
-name|shard
-operator|.
-name|version
-argument_list|()
+literal|null
 argument_list|,
 name|allocation
 operator|.

@@ -292,7 +292,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -1223,7 +1223,7 @@ operator|)
 operator|.
 name|dateDetection
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1252,7 +1252,7 @@ operator|)
 operator|.
 name|numericDetection
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)

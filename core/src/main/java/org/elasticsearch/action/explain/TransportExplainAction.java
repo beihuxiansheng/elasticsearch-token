@@ -849,7 +849,7 @@ name|ExplainResponse
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|request
@@ -939,7 +939,7 @@ name|context
 operator|.
 name|parsedQuery
 argument_list|(
-name|indexShard
+name|context
 operator|.
 name|getQueryShardContext
 argument_list|()
@@ -1101,7 +1101,7 @@ name|ExplainResponse
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|request
@@ -1130,7 +1130,7 @@ name|ExplainResponse
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|request

@@ -1550,7 +1550,7 @@ operator|++
 name|currentOrd
 return|;
 block|}
-comment|/**      * Retruns the current ordinal or<tt>0</tt> if this build has not been advanced via      * {@link #nextOrdinal()}.      */
+comment|/**      * Returns the current ordinal or<tt>0</tt> if this build has not been advanced via      * {@link #nextOrdinal()}.      */
 DECL|method|currentOrdinal
 specifier|public
 name|long
@@ -1962,7 +1962,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * This method iterates all terms in the given {@link TermsEnum} and      * associates each terms ordinal with the terms documents. The caller must      * exhaust the returned {@link BytesRefIterator} which returns all values      * where the first returned value is associted with the ordinal<tt>1</tt>      * etc.      *<p>      * If the {@link TermsEnum} contains prefix coded numerical values the terms      * enum should be wrapped with either {@link #wrapNumeric32Bit(TermsEnum)}      * or {@link #wrapNumeric64Bit(TermsEnum)} depending on its precision. If      * the {@link TermsEnum} is not wrapped the returned      * {@link BytesRefIterator} will contain partial precision terms rather than      * only full-precision terms.      *</p>      */
+comment|/**      * This method iterates all terms in the given {@link TermsEnum} and      * associates each terms ordinal with the terms documents. The caller must      * exhaust the returned {@link BytesRefIterator} which returns all values      * where the first returned value is associated with the ordinal<tt>1</tt>      * etc.      *<p>      * If the {@link TermsEnum} contains prefix coded numerical values the terms      * enum should be wrapped with either {@link #wrapNumeric32Bit(TermsEnum)}      * or {@link #wrapNumeric64Bit(TermsEnum)} depending on its precision. If      * the {@link TermsEnum} is not wrapped the returned      * {@link BytesRefIterator} will contain partial precision terms rather than      * only full-precision terms.      *</p>      */
 DECL|method|buildFromTerms
 specifier|public
 name|BytesRefIterator

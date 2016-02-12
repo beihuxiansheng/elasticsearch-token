@@ -577,7 +577,7 @@ name|Mapping
 name|mappingUpdate
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 name|updateMappingOnMaster
 argument_list|(
@@ -609,7 +609,7 @@ name|Mapping
 name|mappingUpdate
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 name|updateMappingOnMasterSynchronously
 argument_list|(
@@ -642,7 +642,7 @@ name|TimeValue
 name|timeout
 parameter_list|)
 throws|throws
-name|Throwable
+name|Exception
 block|{
 if|if
 condition|(

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -231,16 +241,6 @@ operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
 import|;
 end_import
 
@@ -813,11 +813,11 @@ name|scoreModule
 operator|.
 name|registerFunctionScoreParser
 argument_list|(
+operator|new
 name|FunctionScorePluginIT
 operator|.
 name|CustomDistanceScoreParser
-operator|.
-name|class
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

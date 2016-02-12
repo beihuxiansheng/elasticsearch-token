@@ -606,7 +606,7 @@ name|InternalValueCount
 argument_list|(
 name|name
 argument_list|,
-literal|0l
+literal|0L
 argument_list|,
 name|formatter
 argument_list|,

@@ -1427,6 +1427,11 @@ argument_list|(
 name|localNodeMasterListeners
 argument_list|)
 expr_stmt|;
+name|add
+argument_list|(
+name|taskManager
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|clusterState
@@ -1462,6 +1467,11 @@ name|settings
 argument_list|,
 name|UPDATE_THREAD_NAME
 argument_list|)
+argument_list|,
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -1532,7 +1542,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|)
 argument_list|,
 name|nodeId
@@ -4338,6 +4348,8 @@ name|newClusterState
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|executor
 operator|.
 name|clusterStatePublished
@@ -4345,6 +4357,25 @@ argument_list|(
 name|newClusterState
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"exception thrown while notifying executor of new cluster state publication [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+block|}
 name|TimeValue
 name|executionTime
 init|=

@@ -300,13 +300,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"action.admin.cluster.node.shutdown.delay"
-argument_list|,
-literal|"10ms"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"gateway.recover_after_nodes"
 argument_list|,
 literal|2
@@ -381,7 +374,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
+name|INDEX_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.
@@ -807,7 +803,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -822,7 +818,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -121,7 +121,9 @@ name|searchContext
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|int
 name|precision
@@ -185,7 +187,9 @@ name|searchContext
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|int
 name|precision
@@ -249,7 +253,9 @@ name|searchContext
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|XContentParser
 name|stParser
@@ -318,7 +324,9 @@ name|searchContext
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|XContentParser
 name|stParser
@@ -387,7 +395,9 @@ name|searchContext
 init|=
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|XContentParser
 name|stParser

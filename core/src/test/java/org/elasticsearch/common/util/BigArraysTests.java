@@ -207,8 +207,7 @@ extends|extends
 name|ESSingleNodeTestCase
 block|{
 DECL|method|randombigArrays
-specifier|public
-specifier|static
+specifier|private
 name|BigArrays
 name|randombigArrays
 parameter_list|()
@@ -222,8 +221,6 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|ESSingleNodeTestCase
-operator|.
 name|getInstanceFromNode
 argument_list|(
 name|PageCacheRecycler

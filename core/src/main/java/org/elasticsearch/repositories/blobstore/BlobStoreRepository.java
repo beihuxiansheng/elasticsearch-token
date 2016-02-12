@@ -1859,32 +1859,21 @@ block|{
 for|for
 control|(
 name|int
-name|i
+name|shardId
 init|=
 literal|0
 init|;
-name|i
+name|shardId
 operator|<
 name|indexMetaData
 operator|.
 name|getNumberOfShards
 argument_list|()
 condition|;
-name|i
+name|shardId
 operator|++
 control|)
 block|{
-name|ShardId
-name|shardId
-init|=
-operator|new
-name|ShardId
-argument_list|(
-name|index
-argument_list|,
-name|i
-argument_list|)
-decl_stmt|;
 try|try
 block|{
 name|indexShardRepository
@@ -1898,7 +1887,16 @@ operator|.
 name|version
 argument_list|()
 argument_list|,
+operator|new
+name|ShardId
+argument_list|(
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+argument_list|,
 name|shardId
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1912,11 +1910,13 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] failed to delete shard data for shard [{}]"
+literal|"[{}] failed to delete shard data for shard [{}][{}]"
 argument_list|,
 name|ex
 argument_list|,
 name|snapshotId
+argument_list|,
+name|index
 argument_list|,
 name|shardId
 argument_list|)
@@ -2863,7 +2863,7 @@ name|snapshotFormat
 return|;
 block|}
 block|}
-comment|/**      * In v2.0.0 we changed the matadata file format      * @return true if legacy version should be used false otherwise      */
+comment|/**      * In v2.0.0 we changed the metadata file format      * @return true if legacy version should be used false otherwise      */
 DECL|method|legacyMetaData
 specifier|public
 specifier|static

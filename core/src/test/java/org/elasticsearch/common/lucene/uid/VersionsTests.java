@@ -661,6 +661,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 argument_list|)
@@ -879,7 +881,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -906,7 +908,7 @@ name|version
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1007,7 +1009,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1034,7 +1036,7 @@ name|version
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1111,7 +1113,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1138,7 +1140,7 @@ name|version
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1418,6 +1420,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 argument_list|)
@@ -1443,7 +1447,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5l
+literal|5L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1470,7 +1474,7 @@ name|version
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5l
+literal|5L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1550,7 +1554,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|7l
+literal|7L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1577,7 +1581,7 @@ name|version
 argument_list|,
 name|equalTo
 argument_list|(
-literal|7l
+literal|7L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1721,6 +1725,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|1
 argument_list|)
 argument_list|)
@@ -1838,7 +1844,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1863,7 +1869,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2016,8 +2022,6 @@ parameter_list|,
 name|TokenStream
 name|reuse
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -2483,6 +2487,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)
@@ -2950,6 +2956,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"bogus"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|5
 argument_list|)

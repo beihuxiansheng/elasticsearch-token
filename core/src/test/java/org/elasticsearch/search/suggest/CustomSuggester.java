@@ -375,8 +375,6 @@ parameter_list|,
 name|mapperService
 parameter_list|,
 name|fieldData
-parameter_list|,
-name|headersContext
 parameter_list|)
 lambda|->
 block|{

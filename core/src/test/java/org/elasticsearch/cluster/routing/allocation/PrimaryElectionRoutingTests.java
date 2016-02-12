@@ -836,7 +836,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1362,7 +1362,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;

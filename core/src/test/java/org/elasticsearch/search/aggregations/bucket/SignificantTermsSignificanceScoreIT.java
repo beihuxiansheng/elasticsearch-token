@@ -2114,7 +2114,7 @@ decl_stmt|;
 name|String
 name|mappings
 init|=
-literal|"{\"doc\": {\"properties\":{\"text\": {\"type\":\"string\",\"index\":\"not_analyzed\"}}}}"
+literal|"{\"doc\": {\"properties\":{\"text\": {\"type\":\"keyword\"}}}}"
 decl_stmt|;
 name|assertAcked
 argument_list|(

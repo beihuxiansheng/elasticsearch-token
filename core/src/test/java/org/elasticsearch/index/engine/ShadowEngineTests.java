@@ -490,8 +490,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
-operator|.
 name|MergeSchedulerConfig
 import|;
 end_import
@@ -833,11 +831,9 @@ init|=
 operator|new
 name|ShardId
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"index"
-argument_list|)
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)
@@ -968,7 +964,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|EngineConfig
+name|IndexSettings
 operator|.
 name|INDEX_GC_DELETES_SETTING
 argument_list|,
@@ -981,6 +977,9 @@ argument_list|(
 name|EngineConfig
 operator|.
 name|INDEX_CODEC_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|codecName
 argument_list|)
@@ -1449,7 +1448,7 @@ name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|Settings
@@ -1594,12 +1593,6 @@ name|store
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|MergeSchedulerConfig
-argument_list|(
-name|indexSettings
-argument_list|)
-argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -1664,12 +1657,6 @@ name|store
 argument_list|,
 name|translogPath
 argument_list|,
-operator|new
-name|MergeSchedulerConfig
-argument_list|(
-name|indexSettings
-argument_list|)
-argument_list|,
 name|mergePolicy
 argument_list|)
 argument_list|,
@@ -1690,9 +1677,6 @@ name|store
 parameter_list|,
 name|Path
 name|translogPath
-parameter_list|,
-name|MergeSchedulerConfig
-name|mergeSchedulerConfig
 parameter_list|,
 name|MergePolicy
 name|mergePolicy
@@ -1741,8 +1725,6 @@ name|createSnapshotDeletionPolicy
 argument_list|()
 argument_list|,
 name|mergePolicy
-argument_list|,
-name|mergeSchedulerConfig
 argument_list|,
 name|iwc
 operator|.
@@ -1991,7 +1973,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2249,7 +2231,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2265,7 +2247,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2406,7 +2388,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2419,7 +2401,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2432,7 +2414,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2445,7 +2427,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2458,7 +2440,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2471,7 +2453,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2614,7 +2596,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2627,7 +2609,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2640,7 +2622,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2653,7 +2635,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2666,7 +2648,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2679,7 +2661,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2745,7 +2727,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2873,7 +2855,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3053,7 +3035,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3107,7 +3089,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3404,7 +3386,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3458,7 +3440,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3769,7 +3751,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4080,7 +4062,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;

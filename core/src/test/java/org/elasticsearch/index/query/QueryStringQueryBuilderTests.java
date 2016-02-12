@@ -2666,7 +2666,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12l
+literal|12L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2682,7 +2682,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|12l
+literal|12L
 argument_list|)
 argument_list|)
 expr_stmt|;

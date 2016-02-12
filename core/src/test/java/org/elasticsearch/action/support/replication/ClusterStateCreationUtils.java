@@ -370,7 +370,7 @@ specifier|public
 class|class
 name|ClusterStateCreationUtils
 block|{
-comment|/**      * Creates cluster state with and index that has one shard and #(replicaStates) replicas      *      * @param index         name of the index      * @param primaryLocal  if primary should coincide with the local node in the cluster state      * @param primaryState  state of primary      * @param replicaStates states of the replicas. length of this array determines also the number of replicas      */
+comment|/**      * Creates cluster state with and index that has one shard and #(replicaStates) replicas      *      * @param index              name of the index      * @param activePrimaryLocal if active primary should coincide with the local node in the cluster state      * @param primaryState       state of primary      * @param replicaStates      states of the replicas. length of this array determines also the number of replicas      */
 DECL|method|state
 specifier|public
 specifier|static
@@ -381,7 +381,7 @@ name|String
 name|index
 parameter_list|,
 name|boolean
-name|primaryLocal
+name|activePrimaryLocal
 parameter_list|,
 name|ShardRoutingState
 name|primaryState
@@ -461,6 +461,8 @@ operator|new
 name|ShardId
 argument_list|(
 name|index
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -686,7 +688,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|primaryLocal
+name|activePrimaryLocal
 condition|)
 block|{
 name|primaryNode
@@ -709,11 +711,37 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|unassignedNodesExecludingPrimary
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|(
+name|unassignedNodes
+argument_list|)
+decl_stmt|;
+name|unassignedNodesExecludingPrimary
+operator|.
+name|remove
+argument_list|(
+name|newNode
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|id
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|primaryNode
 operator|=
 name|selectAndRemove
 argument_list|(
-name|unassignedNodes
+name|unassignedNodesExecludingPrimary
 argument_list|)
 expr_stmt|;
 block|}
@@ -775,8 +803,6 @@ argument_list|,
 literal|true
 argument_list|,
 name|primaryState
-argument_list|,
-literal|0
 argument_list|,
 name|unassignedInfo
 argument_list|)
@@ -888,8 +914,6 @@ literal|false
 argument_list|,
 name|replicaState
 argument_list|,
-literal|0
-argument_list|,
 name|unassignedInfo
 argument_list|)
 argument_list|)
@@ -953,7 +977,10 @@ name|IndexRoutingTable
 operator|.
 name|builder
 argument_list|(
-name|index
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 operator|.
 name|addIndexShard
@@ -1175,7 +1202,10 @@ name|IndexRoutingTable
 operator|.
 name|builder
 argument_list|(
-name|index
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1229,6 +1259,8 @@ name|ShardId
 argument_list|(
 name|index
 argument_list|,
+literal|"_na_"
+argument_list|,
 name|i
 argument_list|)
 decl_stmt|;
@@ -1277,8 +1309,6 @@ name|ShardRoutingState
 operator|.
 name|STARTED
 argument_list|,
-literal|0
-argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -1314,8 +1344,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|STARTED
-argument_list|,
-literal|0
 argument_list|,
 literal|null
 argument_list|)
@@ -1360,18 +1388,18 @@ name|build
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates cluster state with and index that has one shard and as many replicas as numberOfReplicas.      * Primary will be STARTED in cluster state but replicas will be one of UNASSIGNED, INITIALIZING, STARTED or RELOCATING.      *      * @param index            name of the index      * @param primaryLocal     if primary should coincide with the local node in the cluster state      * @param numberOfReplicas number of replicas      */
-DECL|method|stateWithStartedPrimary
+comment|/**      * Creates cluster state with and index that has one shard and as many replicas as numberOfReplicas.      * Primary will be STARTED in cluster state but replicas will be one of UNASSIGNED, INITIALIZING, STARTED or RELOCATING.      *      * @param index              name of the index      * @param activePrimaryLocal if active primary should coincide with the local node in the cluster state      * @param numberOfReplicas   number of replicas      */
+DECL|method|stateWithActivePrimary
 specifier|public
 specifier|static
 name|ClusterState
-name|stateWithStartedPrimary
+name|stateWithActivePrimary
 parameter_list|(
 name|String
 name|index
 parameter_list|,
 name|boolean
-name|primaryLocal
+name|activePrimaryLocal
 parameter_list|,
 name|int
 name|numberOfReplicas
@@ -1388,11 +1416,11 @@ name|numberOfReplicas
 argument_list|)
 decl_stmt|;
 return|return
-name|stateWithStartedPrimary
+name|stateWithActivePrimary
 argument_list|(
 name|index
 argument_list|,
-name|primaryLocal
+name|activePrimaryLocal
 argument_list|,
 name|assignedReplicas
 argument_list|,
@@ -1402,18 +1430,18 @@ name|assignedReplicas
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates cluster state with and index that has one shard and as many replicas as numberOfReplicas.      * Primary will be STARTED in cluster state. Some (unassignedReplicas) will be UNASSIGNED and      * some (assignedReplicas) will be one of INITIALIZING, STARTED or RELOCATING.      *      * @param index              name of the index      * @param primaryLocal       if primary should coincide with the local node in the cluster state      * @param assignedReplicas   number of replicas that should have INITIALIZING, STARTED or RELOCATING state      * @param unassignedReplicas number of replicas that should be unassigned      */
-DECL|method|stateWithStartedPrimary
+comment|/**      * Creates cluster state with and index that has one shard and as many replicas as numberOfReplicas.      * Primary will be STARTED in cluster state. Some (unassignedReplicas) will be UNASSIGNED and      * some (assignedReplicas) will be one of INITIALIZING, STARTED or RELOCATING.      *      * @param index              name of the index      * @param activePrimaryLocal if active primary should coincide with the local node in the cluster state      * @param assignedReplicas   number of replicas that should have INITIALIZING, STARTED or RELOCATING state      * @param unassignedReplicas number of replicas that should be unassigned      */
+DECL|method|stateWithActivePrimary
 specifier|public
 specifier|static
 name|ClusterState
-name|stateWithStartedPrimary
+name|stateWithActivePrimary
 parameter_list|(
 name|String
 name|index
 parameter_list|,
 name|boolean
-name|primaryLocal
+name|activePrimaryLocal
 parameter_list|,
 name|int
 name|assignedReplicas
@@ -1503,7 +1531,7 @@ name|state
 argument_list|(
 name|index
 argument_list|,
-name|primaryLocal
+name|activePrimaryLocal
 argument_list|,
 name|randomFrom
 argument_list|(

@@ -468,7 +468,7 @@ if|if
 condition|(
 name|shardRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 operator|.
 name|equals

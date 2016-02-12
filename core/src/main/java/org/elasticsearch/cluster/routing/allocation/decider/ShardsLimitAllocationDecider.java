@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This {@link AllocationDecider} limits the number of shards per node on a per  * index or node-wide basis. The allocator prevents a single node to hold more  * than {@value #INDEX_TOTAL_SHARDS_PER_NODE} per index and  *<tt>cluster.routing.allocation.total_shards_per_node</tt> globally during the allocation  * process. The limits of this decider can be changed in real-time via a the  * index settings API.  *<p>  * If {@value #INDEX_TOTAL_SHARDS_PER_NODE} is reset to a negative value shards  * per index are unlimited per node. Shards currently in the  * {@link ShardRoutingState#RELOCATING relocating} state are ignored by this  * {@link AllocationDecider} until the shard changed its state to either  * {@link ShardRoutingState#STARTED started},  * {@link ShardRoutingState#INITIALIZING inializing} or  * {@link ShardRoutingState#UNASSIGNED unassigned}  *<p>  * Note: Reducing the number of shards per node via the index update API can  * trigger relocation and significant additional load on the clusters nodes.  *</p>  */
+comment|/**  * This {@link AllocationDecider} limits the number of shards per node on a per  * index or node-wide basis. The allocator prevents a single node to hold more  * than<tt>index.routing.allocation.total_shards_per_node</tt> per index and  *<tt>cluster.routing.allocation.total_shards_per_node</tt> globally during the allocation  * process. The limits of this decider can be changed in real-time via a the  * index settings API.  *<p>  * If<tt>index.routing.allocation.total_shards_per_node</tt> is reset to a negative value shards  * per index are unlimited per node. Shards currently in the  * {@link ShardRoutingState#RELOCATING relocating} state are ignored by this  * {@link AllocationDecider} until the shard changed its state to either  * {@link ShardRoutingState#STARTED started},  * {@link ShardRoutingState#INITIALIZING inializing} or  * {@link ShardRoutingState#UNASSIGNED unassigned}  *<p>  * Note: Reducing the number of shards per node via the index update API can  * trigger relocation and significant additional load on the clusters nodes.  *</p>  */
 end_comment
 
 begin_class
@@ -176,14 +176,36 @@ name|int
 name|clusterShardLimit
 decl_stmt|;
 comment|/**      * Controls the maximum number of shards per index on a single Elasticsearch      * node. Negative values are interpreted as unlimited.      */
-DECL|field|INDEX_TOTAL_SHARDS_PER_NODE
+DECL|field|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
 specifier|public
 specifier|static
 specifier|final
-name|String
-name|INDEX_TOTAL_SHARDS_PER_NODE
+name|Setting
+argument_list|<
+name|Integer
+argument_list|>
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
 init|=
+name|Setting
+operator|.
+name|intSetting
+argument_list|(
 literal|"index.routing.allocation.total_shards_per_node"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|true
+argument_list|,
+name|Setting
+operator|.
+name|Scope
+operator|.
+name|INDEX
+argument_list|)
 decl_stmt|;
 comment|/**      * Controls the maximum number of shards per node on a global level.      * Negative values are interpreted as unlimited.      */
 DECL|field|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
@@ -201,6 +223,9 @@ operator|.
 name|intSetting
 argument_list|(
 literal|"cluster.routing.allocation.total_shards_per_node"
+argument_list|,
+operator|-
+literal|1
 argument_list|,
 operator|-
 literal|1
@@ -307,20 +332,20 @@ name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
 name|int
 name|indexShardLimit
 init|=
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|get
+argument_list|(
 name|indexMd
 operator|.
 name|getSettings
 argument_list|()
-operator|.
-name|getAsInt
-argument_list|(
-name|INDEX_TOTAL_SHARDS_PER_NODE
 argument_list|,
-operator|-
-literal|1
+name|settings
 argument_list|)
 decl_stmt|;
 comment|// Capture the limit here in case it changes during this method's
@@ -536,20 +561,20 @@ name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
 name|int
 name|indexShardLimit
 init|=
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|get
+argument_list|(
 name|indexMd
 operator|.
 name|getSettings
 argument_list|()
-operator|.
-name|getAsInt
-argument_list|(
-name|INDEX_TOTAL_SHARDS_PER_NODE
 argument_list|,
-operator|-
-literal|1
+name|settings
 argument_list|)
 decl_stmt|;
 comment|// Capture the limit here in case it changes during this method's

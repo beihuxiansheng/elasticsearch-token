@@ -302,8 +302,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|controller
-argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
@@ -1020,6 +1018,11 @@ argument_list|,
 name|indices
 argument_list|,
 name|aliases
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|filter
 argument_list|)
 decl_stmt|;
 if|if

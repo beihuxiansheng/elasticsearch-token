@@ -218,6 +218,17 @@ operator|=
 name|discount
 expr_stmt|;
 block|}
+DECL|method|discount
+name|double
+name|discount
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|discount
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|scoreBigram

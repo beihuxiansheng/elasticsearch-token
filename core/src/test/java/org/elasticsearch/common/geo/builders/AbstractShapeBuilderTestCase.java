@@ -525,16 +525,6 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|XContentHelper
-operator|.
-name|createParser
-argument_list|(
-name|builder
-operator|.
-name|bytes
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|shapeParser
 operator|.
 name|nextToken

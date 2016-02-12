@@ -313,7 +313,11 @@ argument_list|(
 name|stage1Mapping
 argument_list|)
 argument_list|,
-literal|true
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)
@@ -388,7 +392,11 @@ argument_list|(
 name|stage2Mapping
 argument_list|)
 argument_list|,
-literal|false
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)

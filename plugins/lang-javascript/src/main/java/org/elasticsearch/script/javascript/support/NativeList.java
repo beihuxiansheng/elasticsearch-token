@@ -102,15 +102,6 @@ name|Scriptable
 implements|,
 name|Wrapper
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|3664761893203964569L
-decl_stmt|;
 DECL|field|LENGTH_PROPERTY
 specifier|private
 specifier|static

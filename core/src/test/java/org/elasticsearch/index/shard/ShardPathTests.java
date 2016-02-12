@@ -76,6 +76,18 @@ name|elasticsearch
 operator|.
 name|env
 operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
 name|NodeEnvironment
 import|;
 end_import
@@ -246,6 +258,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -313,7 +327,7 @@ name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|settings
@@ -349,7 +363,7 @@ operator|.
 name|getShardId
 argument_list|()
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -453,6 +467,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -530,7 +546,7 @@ name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|settings
@@ -632,6 +648,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
@@ -706,7 +724,7 @@ name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|settings
@@ -781,6 +799,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|)
@@ -854,6 +874,8 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|)
@@ -903,7 +925,7 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|Settings
-name|indexSetttings
+name|indexSettings
 decl_stmt|;
 specifier|final
 name|Settings
@@ -960,7 +982,7 @@ init|=
 name|randomBoolean
 argument_list|()
 decl_stmt|;
-name|indexSetttings
+name|indexSettings
 operator|=
 name|indexSettingsBuilder
 operator|.
@@ -983,7 +1005,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"path.shared_data"
+name|Environment
+operator|.
+name|PATH_SHARED_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|path
 operator|.
@@ -999,6 +1026,9 @@ argument_list|(
 name|NodeEnvironment
 operator|.
 name|ADD_NODE_ID_TO_CUSTOM_PATH
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|includeNodeId
 argument_list|)
@@ -1045,7 +1075,7 @@ name|customPath
 operator|=
 literal|null
 expr_stmt|;
-name|indexSetttings
+name|indexSettings
 operator|=
 name|indexSettingsBuilder
 operator|.
@@ -1078,6 +1108,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"foo"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -1146,10 +1178,10 @@ name|newIndexSettings
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
-name|indexSetttings
+name|indexSettings
 argument_list|)
 argument_list|)
 decl_stmt|;

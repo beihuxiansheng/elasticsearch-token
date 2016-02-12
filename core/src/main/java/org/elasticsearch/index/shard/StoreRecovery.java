@@ -90,6 +90,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -331,7 +345,7 @@ operator|=
 name|shardId
 expr_stmt|;
 block|}
-comment|/**      * Recovers a shard from it's local file system store. This method required pre-knowledge about if the shard should      * exist on disk ie. has been previously allocated or if the shard is a brand new allocation without pre-existing index      * files / transaction logs. This      * @param indexShard the index shard instance to recovery the shard into      * @param indexShouldExists<code>true</code> iff the index should exist on disk ie. has the shard been allocated previously on the shards store.      * @param localNode the reference to the local node      * @return<code>true</code> if the the shard has been recovered successfully,<code>false</code> if the recovery      * has been ignored due to a concurrent modification of if the clusters state has changed due to async updates.      * @see Store      */
+comment|/**      * Recovers a shard from it's local file system store. This method required pre-knowledge about if the shard should      * exist on disk ie. has been previously allocated or if the shard is a brand new allocation without pre-existing index      * files / transaction logs. This      * @param indexShard the index shard instance to recovery the shard into      * @param indexShouldExists<code>true</code> iff the index should exist on disk ie. has the shard been allocated previously on the shards store.      * @param localNode the reference to the local node      * @return<code>true</code> if the shard has been recovered successfully,<code>false</code> if the recovery      * has been ignored due to a concurrent modification of if the clusters state has changed due to async updates.      * @see Store      */
 DECL|method|recoverFromStore
 name|boolean
 name|recoverFromStore
@@ -407,7 +421,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Recovers an index from a given {@link IndexShardRepository}. This method restores a      * previously created index snapshot into an existing initializing shard.      * @param indexShard the index shard instance to recovery the snapshot from      * @param repository the repository holding the physical files the shard should be recovered from      * @return<code>true</code> if the the shard has been recovered successfully,<code>false</code> if the recovery      * has been ignored due to a concurrent modification of if the clusters state has changed due to async updates.      */
+comment|/**      * Recovers an index from a given {@link IndexShardRepository}. This method restores a      * previously created index snapshot into an existing initializing shard.      * @param indexShard the index shard instance to recovery the snapshot from      * @param repository the repository holding the physical files the shard should be recovered from      * @return<code>true</code> if the shard has been recovered successfully,<code>false</code> if the recovery      * has been ignored due to a concurrent modification of if the clusters state has changed due to async updates.      */
 DECL|method|recoverFromRepository
 name|boolean
 name|recoverFromRepository
@@ -1244,16 +1258,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|recoveryState
-operator|.
-name|getTranslog
-argument_list|()
-operator|.
-name|totalOperations
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -1365,34 +1369,6 @@ argument_list|(
 literal|"failed to list file details"
 argument_list|,
 name|e
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|indexShouldExists
-operator|==
-literal|false
-condition|)
-block|{
-name|recoveryState
-operator|.
-name|getTranslog
-argument_list|()
-operator|.
-name|totalOperations
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|recoveryState
-operator|.
-name|getTranslog
-argument_list|()
-operator|.
-name|totalOperationsOnStart
-argument_list|(
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1554,7 +1530,7 @@ condition|(
 operator|!
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 operator|.
 name|equals
@@ -1575,6 +1551,10 @@ name|restoreSource
 operator|.
 name|index
 argument_list|()
+argument_list|,
+name|IndexMetaData
+operator|.
+name|INDEX_UUID_NA_VALUE
 argument_list|,
 name|shardId
 operator|.

@@ -118,6 +118,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugins
+operator|.
+name|Plugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -222,6 +234,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|InternalSettingsPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|VersionUtils
 import|;
 end_import
@@ -253,6 +277,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -462,6 +496,32 @@ name|GeoDistanceIT
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|Override
+DECL|method|nodePlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|nodePlugins
+parameter_list|()
+block|{
+return|return
+name|pluginList
+argument_list|(
+name|InternalSettingsPlugin
+operator|.
+name|class
+argument_list|)
+return|;
+comment|// uses index.version.created
+block|}
 DECL|field|version
 specifier|private
 name|Version
@@ -631,7 +691,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"city"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|execute
@@ -655,7 +715,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"city"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|execute
@@ -1250,7 +1310,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1364,7 +1424,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1478,7 +1538,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1735,7 +1795,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1849,7 +1909,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1963,7 +2023,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2240,7 +2300,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2354,7 +2414,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2468,7 +2528,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2724,7 +2784,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2838,7 +2898,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2952,7 +3012,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3275,7 +3335,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3406,7 +3466,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3536,7 +3596,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3662,7 +3722,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3792,7 +3852,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3911,7 +3971,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3971,7 +4031,7 @@ argument_list|)
 operator|.
 name|interval
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 operator|.
 name|minDocCount
@@ -4025,7 +4085,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4272,7 +4332,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4541,7 +4601,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4655,7 +4715,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4769,7 +4829,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -376,6 +376,17 @@ operator|::
 operator|new
 argument_list|)
 expr_stmt|;
+name|buildIn
+operator|.
+name|put
+argument_list|(
+literal|"DFI"
+argument_list|,
+name|DFISimilarityProvider
+operator|::
+operator|new
+argument_list|)
+expr_stmt|;
 name|DEFAULTS
 operator|=
 name|Collections

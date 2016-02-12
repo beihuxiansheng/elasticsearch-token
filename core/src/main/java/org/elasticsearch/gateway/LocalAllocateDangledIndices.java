@@ -759,6 +759,9 @@ index|]
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 block|}
 name|clusterService
@@ -886,6 +889,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -903,6 +909,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 condition|)

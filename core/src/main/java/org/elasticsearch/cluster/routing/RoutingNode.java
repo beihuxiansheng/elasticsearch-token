@@ -294,10 +294,10 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|+
 literal|"]["
@@ -485,7 +485,7 @@ condition|(
 operator|!
 name|shardEntry
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 operator|.
 name|equals

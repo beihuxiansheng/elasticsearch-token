@@ -247,8 +247,6 @@ name|ShardRoutingState
 operator|.
 name|UNASSIGNED
 argument_list|,
-literal|0
-argument_list|,
 operator|new
 name|UnassignedInfo
 argument_list|(
@@ -288,8 +286,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|UNASSIGNED
-argument_list|,
-literal|0
 argument_list|,
 operator|new
 name|UnassignedInfo
@@ -465,7 +461,7 @@ literal|"newest"
 argument_list|,
 name|next
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -482,7 +478,7 @@ literal|"oldest"
 argument_list|,
 name|next
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -550,8 +546,6 @@ name|ShardRoutingState
 operator|.
 name|UNASSIGNED
 argument_list|,
-literal|0
-argument_list|,
 operator|new
 name|UnassignedInfo
 argument_list|(
@@ -591,8 +585,6 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|UNASSIGNED
-argument_list|,
-literal|0
 argument_list|,
 operator|new
 name|UnassignedInfo
@@ -768,7 +760,7 @@ literal|"oldest"
 argument_list|,
 name|next
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -785,7 +777,7 @@ literal|"newest"
 argument_list|,
 name|next
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1029,13 +1021,6 @@ name|ShardRoutingState
 operator|.
 name|UNASSIGNED
 argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|0
-argument_list|,
-literal|100
-argument_list|)
-argument_list|,
 operator|new
 name|UnassignedInfo
 argument_list|(
@@ -1121,7 +1106,7 @@ name|get
 argument_list|(
 name|previous
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1134,7 +1119,7 @@ name|get
 argument_list|(
 name|routing
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;

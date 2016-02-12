@@ -205,8 +205,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|request
-argument_list|,
 name|id
 argument_list|,
 name|list

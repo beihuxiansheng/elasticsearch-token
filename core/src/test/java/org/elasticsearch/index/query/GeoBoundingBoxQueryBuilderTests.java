@@ -96,20 +96,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|GeoPointInBBoxQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|NumericRangeQuery
 import|;
 end_import
@@ -125,6 +111,24 @@ operator|.
 name|search
 operator|.
 name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|geopoint
+operator|.
+name|search
+operator|.
+name|GeoPointInBBoxQuery
 import|;
 end_import
 
@@ -883,7 +887,7 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-comment|// exptected
+comment|// expected
 block|}
 block|}
 block|}

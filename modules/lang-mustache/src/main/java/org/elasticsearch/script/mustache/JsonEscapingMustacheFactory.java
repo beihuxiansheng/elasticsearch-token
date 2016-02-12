@@ -82,7 +82,6 @@ end_comment
 
 begin_class
 DECL|class|JsonEscapingMustacheFactory
-specifier|public
 specifier|final
 class|class
 name|JsonEscapingMustacheFactory
@@ -105,18 +104,14 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|JsonStringEncoder
-name|utils
-init|=
-operator|new
-name|JsonStringEncoder
-argument_list|()
-decl_stmt|;
 name|writer
 operator|.
 name|write
 argument_list|(
-name|utils
+name|JsonStringEncoder
+operator|.
+name|getInstance
+argument_list|()
 operator|.
 name|quoteAsString
 argument_list|(
@@ -124,7 +119,6 @@ name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 block|}
 catch|catch
 parameter_list|(

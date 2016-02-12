@@ -376,8 +376,6 @@ parameter_list|,
 name|ShardFlushRequest
 name|shardRequest
 parameter_list|)
-throws|throws
-name|Throwable
 block|{
 name|IndexShard
 name|indexShard

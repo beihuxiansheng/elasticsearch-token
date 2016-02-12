@@ -1704,7 +1704,7 @@ name|index
 argument_list|(
 name|shard
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;

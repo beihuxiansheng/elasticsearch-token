@@ -78,7 +78,13 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * @deprecated Fuzzy queries are not useful enough. This class will be removed with Elasticsearch 4.0. In most cases you may want to use  * a match query with the fuzziness parameter for strings or range queries for numeric and date fields.  */
+end_comment
+
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|FuzzyQueryParser
 specifier|public
 class|class

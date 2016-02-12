@@ -96,8 +96,6 @@ argument_list|(
 literal|"enabled"
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@

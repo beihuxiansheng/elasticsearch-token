@@ -358,8 +358,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|controller
-argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
@@ -598,7 +596,7 @@ literal|"timeout"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// shortcut, dont do checks if only all is specified
+comment|// shortcut, don't do checks if only all is specified
 if|if
 condition|(
 name|metrics

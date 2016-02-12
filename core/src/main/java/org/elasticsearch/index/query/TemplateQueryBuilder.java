@@ -426,11 +426,6 @@ operator|.
 name|executeQueryTemplate
 argument_list|(
 name|template
-argument_list|,
-name|SearchContext
-operator|.
-name|current
-argument_list|()
 argument_list|)
 decl_stmt|;
 try|try

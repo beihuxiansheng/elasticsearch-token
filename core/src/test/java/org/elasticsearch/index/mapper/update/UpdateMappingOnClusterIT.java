@@ -1526,6 +1526,9 @@ name|client
 range|:
 name|cluster
 argument_list|()
+operator|.
+name|getClients
+argument_list|()
 control|)
 block|{
 name|GetMappingsResponse

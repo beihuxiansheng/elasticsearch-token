@@ -564,7 +564,7 @@ argument_list|,
 name|len
 argument_list|,
 literal|true
-comment|/* we want to have full reads, thats the contract... */
+comment|/* we want to have full reads, that's the contract... */
 argument_list|)
 decl_stmt|;
 if|if

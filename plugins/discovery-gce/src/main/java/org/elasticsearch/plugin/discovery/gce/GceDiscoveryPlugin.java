@@ -453,6 +453,12 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+comment|// Supertype uses raw type
 DECL|method|nodeServices
 specifier|public
 name|Collection
@@ -572,11 +578,13 @@ name|GCE
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-name|settings
+name|DiscoveryModule
+operator|.
+name|DISCOVERY_TYPE_SETTING
 operator|.
 name|get
 argument_list|(
-literal|"discovery.type"
+name|settings
 argument_list|)
 argument_list|)
 operator|==

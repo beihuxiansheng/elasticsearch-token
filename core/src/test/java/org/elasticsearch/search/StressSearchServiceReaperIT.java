@@ -233,7 +233,10 @@ name|put
 argument_list|(
 name|SearchService
 operator|.
-name|KEEPALIVE_INTERVAL_KEY
+name|KEEPALIVE_INTERVAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.

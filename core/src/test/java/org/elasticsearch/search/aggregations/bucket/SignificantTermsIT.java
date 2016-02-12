@@ -609,11 +609,11 @@ literal|"required=true"
 argument_list|,
 literal|"routing_id"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"fact_category"
 argument_list|,
-literal|"type=integer,index=not_analyzed"
+literal|"type=integer,index=true"
 argument_list|,
 literal|"description"
 argument_list|,

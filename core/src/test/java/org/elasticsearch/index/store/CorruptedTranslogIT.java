@@ -222,9 +222,19 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|IndexShard
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|MockEngineFactoryPlugin
 import|;
 end_import
 
@@ -541,14 +551,16 @@ argument_list|>
 name|nodePlugins
 parameter_list|()
 block|{
-comment|// we really need local GW here since this also checks for corruption etc.
-comment|// and we need to make sure primaries are not just trashed if we don't have replicas
 return|return
 name|pluginList
 argument_list|(
 name|MockTransportService
 operator|.
 name|TestPlugin
+operator|.
+name|class
+argument_list|,
+name|MockEngineFactoryPlugin
 operator|.
 name|class
 argument_list|)
@@ -616,19 +628,12 @@ name|put
 argument_list|(
 name|MockEngineSupport
 operator|.
-name|FLUSH_ON_CLOSE_RATIO
-argument_list|,
-literal|0.0d
-argument_list|)
-comment|// never flush - always recover from translog
+name|DISABLE_FLUSH_ON_CLOSE
 operator|.
-name|put
-argument_list|(
-name|IndexShard
-operator|.
-name|INDEX_FLUSH_ON_CLOSE
+name|getKey
+argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 comment|// never flush - always recover from translog
 argument_list|)
@@ -800,11 +805,6 @@ name|SearchPhaseExecutionException
 name|e
 parameter_list|)
 block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 comment|// Good, all shards should be failed because there is only a
 comment|// single shard and its translog is corrupt
 block|}
@@ -1351,9 +1351,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -1413,9 +1416,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|new
 name|ByteSizeValue

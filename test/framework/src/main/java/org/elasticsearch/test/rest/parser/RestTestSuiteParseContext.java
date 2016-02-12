@@ -735,6 +735,13 @@ argument_list|(
 literal|"malformed test section: field name expected but found "
 operator|+
 name|token
+operator|+
+literal|" at "
+operator|+
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

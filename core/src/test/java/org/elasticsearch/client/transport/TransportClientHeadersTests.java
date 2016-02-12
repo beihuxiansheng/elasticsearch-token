@@ -212,6 +212,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|NamedWriteableRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|network
 operator|.
 name|NetworkModule
@@ -266,9 +282,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|env
 operator|.
-name|Plugin
+name|Environment
 import|;
 end_import
 
@@ -278,9 +294,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|tasks
+name|plugins
 operator|.
-name|TaskManager
+name|Plugin
 import|;
 end_import
 
@@ -611,7 +627,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()
@@ -848,6 +869,9 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|super
@@ -857,6 +881,8 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
+argument_list|,
+name|namedWriteableRegistry
 argument_list|)
 expr_stmt|;
 block|}
@@ -910,7 +936,7 @@ condition|)
 block|{
 name|assertHeaders
 argument_list|(
-name|request
+name|threadPool
 argument_list|)
 expr_stmt|;
 operator|(
@@ -952,7 +978,7 @@ condition|)
 block|{
 name|assertHeaders
 argument_list|(
-name|request
+name|threadPool
 argument_list|)
 expr_stmt|;
 name|ClusterName
@@ -1008,8 +1034,6 @@ operator|new
 name|InternalException
 argument_list|(
 name|action
-argument_list|,
-name|request
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1028,9 +1052,6 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-operator|(
-name|LocalTransportAddress
-operator|)
 name|node
 operator|.
 name|getAddress
@@ -1061,9 +1082,6 @@ name|ConnectTransportException
 block|{
 name|assertThat
 argument_list|(
-operator|(
-name|LocalTransportAddress
-operator|)
 name|node
 operator|.
 name|getAddress

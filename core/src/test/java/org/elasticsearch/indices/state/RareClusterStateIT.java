@@ -688,6 +688,11 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuppressLocalMode
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG"
+argument_list|)
 DECL|class|RareClusterStateIT
 specifier|public
 class|class
@@ -875,11 +880,6 @@ name|routingAllocation
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"gateway:TRACE"
-argument_list|)
 DECL|method|testAssignmentWithJustAddedNodes
 specifier|public
 name|void
@@ -1350,11 +1350,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|TestLogging
-argument_list|(
-literal|"cluster.service:TRACE"
-argument_list|)
-annotation|@
 name|AwaitsFix
 argument_list|(
 name|bugUrl
@@ -1385,7 +1380,10 @@ name|put
 argument_list|(
 name|DiscoveryModule
 operator|.
-name|DISCOVERY_TYPE_KEY
+name|DISCOVERY_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"zen"
 argument_list|)

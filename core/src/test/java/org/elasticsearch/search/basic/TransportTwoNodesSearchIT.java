@@ -703,13 +703,6 @@ argument_list|(
 name|indexSettings
 argument_list|()
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"routing.hash.type"
-argument_list|,
-literal|"simple"
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -995,13 +988,6 @@ argument_list|(
 name|indexSettings
 argument_list|()
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"routing.hash.type"
-argument_list|,
-literal|"simple"
-argument_list|)
 decl_stmt|;
 name|client
 argument_list|()
@@ -1146,7 +1132,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1397,7 +1383,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1636,7 +1622,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1882,7 +1868,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1997,7 +1983,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2161,7 +2147,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2443,7 +2429,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2563,7 +2549,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2816,7 +2802,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2935,7 +2921,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3189,7 +3175,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3241,7 +3227,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3254,7 +3240,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -1455,15 +1455,6 @@ name|id
 argument_list|()
 operator|==
 literal|null
-operator|&&
-operator|!
-name|context
-operator|.
-name|sourceToParse
-argument_list|()
-operator|.
-name|flyweight
-argument_list|()
 condition|)
 block|{
 throw|throw

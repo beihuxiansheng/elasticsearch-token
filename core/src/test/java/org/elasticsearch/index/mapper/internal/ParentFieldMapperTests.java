@@ -329,7 +329,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|name
@@ -345,7 +345,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|fieldDataType
@@ -366,7 +366,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|hasDocValues
@@ -382,7 +382,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|docValuesType
@@ -526,7 +526,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|name
@@ -542,7 +542,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|fieldDataType
@@ -563,7 +563,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|hasDocValues
@@ -579,7 +579,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|docValuesType
@@ -723,7 +723,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|name
@@ -739,7 +739,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|fieldDataType
@@ -760,7 +760,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|hasDocValues
@@ -776,7 +776,7 @@ name|assertThat
 argument_list|(
 name|parentFieldMapper
 operator|.
-name|getChildJoinFieldType
+name|fieldType
 argument_list|()
 operator|.
 name|docValuesType

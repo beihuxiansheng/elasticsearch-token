@@ -66,26 +66,6 @@ block|{
 DECL|method|RefreshRequest
 specifier|public
 name|RefreshRequest
-parameter_list|()
-block|{     }
-comment|/**      * Copy constructor that creates a new refresh request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
-DECL|method|RefreshRequest
-specifier|public
-name|RefreshRequest
-parameter_list|(
-name|ActionRequest
-name|originalRequest
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|originalRequest
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|RefreshRequest
-specifier|public
-name|RefreshRequest
 parameter_list|(
 name|String
 modifier|...

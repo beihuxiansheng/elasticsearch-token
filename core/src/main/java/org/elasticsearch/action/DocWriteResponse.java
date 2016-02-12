@@ -247,7 +247,7 @@ name|this
 operator|.
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 return|;
 block|}
@@ -303,7 +303,7 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * Returns the sequence number assigned for this change. Returns {@link SequenceNumbersService#UNASSIGNED_SEQ_NO} if the operation wasn't      * performed (i.e., an update operation that resulted in a NOOP).      */
+comment|/**      * Returns the sequence number assigned for this change. Returns {@link SequenceNumbersService#UNASSIGNED_SEQ_NO} if the operation      * wasn't performed (i.e., an update operation that resulted in a NOOP).      */
 DECL|method|getSeqNo
 specifier|public
 name|long
@@ -556,7 +556,7 @@ name|_INDEX
 argument_list|,
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|.

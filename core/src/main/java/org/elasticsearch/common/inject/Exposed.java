@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Acccompanies a {@literal @}{@link org.elasticsearch.common.inject.Provides Provides} method annotation in a  * private module to indicate that the provided binding is exposed.  *  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
+comment|/**  * Accompanies a {@literal @}{@link org.elasticsearch.common.inject.Provides Provides} method annotation in a  * private module to indicate that the provided binding is exposed.  *  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
 end_comment
 
 begin_annotation_defn

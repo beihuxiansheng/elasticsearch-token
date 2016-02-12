@@ -44,18 +44,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ActionRequestValidationException
 import|;
 end_import
@@ -737,26 +725,16 @@ name|Requests
 operator|.
 name|INDEX_CONTENT_TYPE
 decl_stmt|;
+DECL|field|pipeline
+specifier|private
+name|String
+name|pipeline
+decl_stmt|;
 DECL|method|IndexRequest
 specifier|public
 name|IndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Creates an index request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
-DECL|method|IndexRequest
-specifier|public
-name|IndexRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Copy constructor that creates a new index request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
 DECL|method|IndexRequest
 specifier|public
@@ -764,16 +742,11 @@ name|IndexRequest
 parameter_list|(
 name|IndexRequest
 name|indexRequest
-parameter_list|,
-name|ActionRequest
-name|originalRequest
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|indexRequest
-argument_list|,
-name|originalRequest
 argument_list|)
 expr_stmt|;
 name|this
@@ -1398,7 +1371,40 @@ operator|.
 name|ttl
 return|;
 block|}
-comment|/**      * The source of the document to index, recopied to a new array if it is unsage.      */
+comment|/**      * Sets the ingest pipeline to be executed before indexing the document      */
+DECL|method|setPipeline
+specifier|public
+name|IndexRequest
+name|setPipeline
+parameter_list|(
+name|String
+name|pipeline
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pipeline
+operator|=
+name|pipeline
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Returns the ingest pipeline to be executed before indexing the document      */
+DECL|method|getPipeline
+specifier|public
+name|String
+name|getPipeline
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|pipeline
+return|;
+block|}
+comment|/**      * The source of the document to index, recopied to a new array if it is unsafe.      */
 DECL|method|source
 specifier|public
 name|BytesReference
@@ -2818,6 +2824,13 @@ name|readByte
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|pipeline
+operator|=
+name|in
+operator|.
+name|readOptionalString
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -2945,6 +2958,13 @@ name|versionType
 operator|.
 name|getValue
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeOptionalString
+argument_list|(
+name|pipeline
 argument_list|)
 expr_stmt|;
 block|}

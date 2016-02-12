@@ -316,7 +316,7 @@ name|xContentType
 init|=
 name|XContentType
 operator|.
-name|fromRestContentType
+name|fromMediaTypeOrFormat
 argument_list|(
 name|request
 operator|.
@@ -328,7 +328,7 @@ name|request
 operator|.
 name|header
 argument_list|(
-literal|"Content-Type"
+literal|"Accept"
 argument_list|)
 argument_list|)
 argument_list|)

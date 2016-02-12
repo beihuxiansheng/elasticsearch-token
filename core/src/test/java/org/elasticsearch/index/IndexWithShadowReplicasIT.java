@@ -270,6 +270,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|shard
@@ -328,7 +340,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTarget
+name|RecoveryTargetService
 import|;
 end_import
 
@@ -772,7 +784,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.shared_data"
+name|Environment
+operator|.
+name|PATH_SHARED_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|dataPath
 argument_list|)
@@ -1555,9 +1572,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -4063,7 +4083,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.shared_data"
+name|Environment
+operator|.
+name|PATH_SHARED_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|dataPath
 argument_list|)
@@ -4387,7 +4412,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -5548,7 +5573,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|get
@@ -6310,7 +6335,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|get

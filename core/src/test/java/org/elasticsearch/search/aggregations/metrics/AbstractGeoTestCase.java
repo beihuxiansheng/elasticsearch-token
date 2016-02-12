@@ -74,6 +74,8 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
 name|GeoHashUtils
@@ -555,7 +557,7 @@ literal|"type=long"
 argument_list|,
 literal|"tag"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1194,7 +1196,7 @@ literal|"type=long"
 argument_list|,
 literal|"tag"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1397,7 +1399,7 @@ literal|"type=long,store=true"
 argument_list|,
 literal|"tag"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1873,7 +1875,7 @@ name|totalHits
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2000l
+literal|2000L
 argument_list|)
 argument_list|)
 expr_stmt|;

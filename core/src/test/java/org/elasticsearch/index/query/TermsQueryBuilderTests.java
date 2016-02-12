@@ -214,12 +214,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|terms
-operator|.
 name|TermsLookup
 import|;
 end_import
@@ -1571,11 +1565,11 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|1l
+literal|1L
 argument_list|,
-literal|3l
+literal|3L
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 argument_list|,
 name|values

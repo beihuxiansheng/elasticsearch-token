@@ -394,8 +394,6 @@ name|get
 argument_list|(
 name|i
 argument_list|)
-argument_list|,
-name|request
 argument_list|)
 decl_stmt|;
 name|searchAction

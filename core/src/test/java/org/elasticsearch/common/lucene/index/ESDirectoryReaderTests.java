@@ -326,11 +326,9 @@ init|=
 operator|new
 name|ShardId
 argument_list|(
-operator|new
-name|Index
-argument_list|(
 literal|"fake"
-argument_list|)
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)

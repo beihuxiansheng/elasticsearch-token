@@ -158,6 +158,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|blobstore
 operator|.
 name|BlobMetaData
@@ -308,7 +320,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|HashMap
 import|;
 end_import
 
@@ -418,7 +430,7 @@ operator|.
 name|clients
 operator|=
 operator|new
-name|Hashtable
+name|HashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -564,28 +576,24 @@ operator|.
 name|primaryStorageSettings
 operator|==
 literal|null
-operator|||
-name|this
-operator|.
-name|secondariesStorageSettings
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No azure storage can be found. Check your elasticsearch.yml."
+literal|"No primary azure storage can be found. Check your elasticsearch.yml."
 argument_list|)
 throw|;
 block|}
 if|if
 condition|(
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
 name|account
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|azureStorageSettings
@@ -610,9 +618,14 @@ condition|)
 block|{
 if|if
 condition|(
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
 name|account
+argument_list|)
 operator|==
-literal|null
+literal|false
 operator|||
 name|primaryStorageSettings
 operator|.
@@ -726,7 +739,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|setTimeoutIntervalInMs
+name|setMaximumExecutionTimeInMs
 argument_list|(
 name|timeout
 argument_list|)
@@ -742,14 +755,14 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Can not cast ["
+literal|"Can not convert ["
 operator|+
 name|azureStorageSettings
 operator|.
 name|getTimeout
 argument_list|()
 operator|+
-literal|"] to int."
+literal|"]. It can not be longer than 2,147,483,647ms."
 argument_list|)
 throw|;
 block|}

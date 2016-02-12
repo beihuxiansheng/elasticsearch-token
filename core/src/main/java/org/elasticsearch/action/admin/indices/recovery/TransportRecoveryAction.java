@@ -515,7 +515,7 @@ operator|.
 name|getShardId
 argument_list|()
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 decl_stmt|;
 if|if

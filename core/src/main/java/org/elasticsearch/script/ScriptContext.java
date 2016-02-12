@@ -52,6 +52,7 @@ block|{
 DECL|enum constant|AGGS
 DECL|enum constant|SEARCH
 DECL|enum constant|UPDATE
+DECL|enum constant|INGEST
 name|AGGS
 argument_list|(
 literal|"aggs"
@@ -65,6 +66,11 @@ block|,
 name|UPDATE
 argument_list|(
 literal|"update"
+argument_list|)
+block|,
+name|INGEST
+argument_list|(
+literal|"ingest"
 argument_list|)
 block|;
 DECL|field|key

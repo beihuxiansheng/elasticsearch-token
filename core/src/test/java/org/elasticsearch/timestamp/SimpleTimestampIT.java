@@ -736,7 +736,7 @@ name|timestamp
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -895,7 +895,7 @@ name|timestamp
 argument_list|,
 name|equalTo
 argument_list|(
-literal|20l
+literal|20L
 argument_list|)
 argument_list|)
 expr_stmt|;

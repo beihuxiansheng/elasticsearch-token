@@ -1554,7 +1554,7 @@ return|return
 name|rerouteInterval
 return|;
 block|}
-comment|/**      * Returns the size of all shards that are currently being relocated to      * the node, but may not be finished transfering yet.      *      * If subtractShardsMovingAway is set then the size of shards moving away is subtracted from the total size      * of all shards      */
+comment|/**      * Returns the size of all shards that are currently being relocated to      * the node, but may not be finished transferring yet.      *      * If subtractShardsMovingAway is set then the size of shards moving away is subtracted from the total size      * of all shards      */
 DECL|method|sizeOfRelocatingShards
 specifier|public
 specifier|static
@@ -1860,7 +1860,7 @@ name|index
 argument_list|(
 name|shardRouting
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;

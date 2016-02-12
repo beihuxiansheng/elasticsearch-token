@@ -777,7 +777,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -799,7 +799,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
 operator|.
 name|endObject
@@ -821,7 +821,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -974,7 +974,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1090,7 +1090,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1197,7 +1197,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1312,7 +1312,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1437,7 +1437,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1584,7 +1584,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1731,7 +1731,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1846,7 +1846,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2017,7 +2017,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2225,7 +2225,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -2565,7 +2565,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2772,7 +2772,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2954,7 +2954,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|25000l
+literal|25000L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3136,7 +3136,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|120000l
+literal|120000L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3235,7 +3235,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4926,10 +4926,16 @@ name|value
 argument_list|()
 decl_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|sObj2Arr2
 init|=
 operator|(
 name|List
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|sObj2
 operator|.
@@ -5057,6 +5063,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|sObj2Arr3
 init|=
 name|response
@@ -5082,6 +5091,11 @@ argument_list|(
 operator|(
 operator|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 operator|)
 name|sObj2Arr3
 operator|.
@@ -5356,7 +5370,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5378,7 +5392,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5400,7 +5414,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5422,7 +5436,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5444,7 +5458,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5466,7 +5480,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5488,7 +5502,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5510,7 +5524,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5532,7 +5546,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5629,7 +5643,7 @@ name|field
 argument_list|(
 literal|"long_field"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 operator|.
 name|field
@@ -5812,7 +5826,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6024,7 +6038,7 @@ argument_list|(
 operator|(
 name|Object
 operator|)
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6335,7 +6349,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6627,7 +6641,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -6840,7 +6854,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7002,7 +7016,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7588,7 +7602,7 @@ name|field
 argument_list|(
 literal|"long_field"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 operator|.
 name|field
@@ -7759,7 +7773,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7939,7 +7953,7 @@ argument_list|(
 operator|(
 name|Object
 operator|)
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7971,7 +7985,7 @@ argument_list|(
 operator|(
 name|Object
 operator|)
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8125,7 +8139,7 @@ literal|"type"
 argument_list|,
 literal|"s"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"l"
 argument_list|,
@@ -8137,7 +8151,7 @@ literal|"type=double"
 argument_list|,
 literal|"ms"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"ml"
 argument_list|,

@@ -22,13 +22,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|http
+name|common
 operator|.
-name|netty
+name|util
 operator|.
-name|pipelining
+name|concurrent
 operator|.
-name|OrderedUpstreamMessageEvent
+name|ThreadContext
 import|;
 end_import
 
@@ -38,11 +38,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|http
 operator|.
-name|support
+name|netty
 operator|.
-name|RestUtils
+name|pipelining
+operator|.
+name|OrderedUpstreamMessageEvent
 import|;
 end_import
 
@@ -134,18 +136,6 @@ name|HttpRequest
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -168,12 +158,6 @@ specifier|final
 name|NettyHttpServerTransport
 name|serverTransport
 decl_stmt|;
-DECL|field|corsPattern
-specifier|private
-specifier|final
-name|Pattern
-name|corsPattern
-decl_stmt|;
 DECL|field|httpPipeliningEnabled
 specifier|private
 specifier|final
@@ -186,6 +170,12 @@ specifier|final
 name|boolean
 name|detailedErrorsEnabled
 decl_stmt|;
+DECL|field|threadContext
+specifier|private
+specifier|final
+name|ThreadContext
+name|threadContext
+decl_stmt|;
 DECL|method|HttpRequestHandler
 specifier|public
 name|HttpRequestHandler
@@ -195,6 +185,9 @@ name|serverTransport
 parameter_list|,
 name|boolean
 name|detailedErrorsEnabled
+parameter_list|,
+name|ThreadContext
+name|threadContext
 parameter_list|)
 block|{
 name|this
@@ -202,27 +195,6 @@ operator|.
 name|serverTransport
 operator|=
 name|serverTransport
-expr_stmt|;
-name|this
-operator|.
-name|corsPattern
-operator|=
-name|RestUtils
-operator|.
-name|checkCorsSettingForRegex
-argument_list|(
-name|serverTransport
-operator|.
-name|settings
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|NettyHttpServerTransport
-operator|.
-name|SETTING_CORS_ALLOW_ORIGIN
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -237,6 +209,12 @@ operator|.
 name|detailedErrorsEnabled
 operator|=
 name|detailedErrorsEnabled
+expr_stmt|;
+name|this
+operator|.
+name|threadContext
+operator|=
+name|threadContext
 expr_stmt|;
 block|}
 annotation|@
@@ -305,6 +283,16 @@ name|getMessage
 argument_list|()
 expr_stmt|;
 block|}
+name|threadContext
+operator|.
+name|copyHeaders
+argument_list|(
+name|request
+operator|.
+name|headers
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// the netty HTTP handling always copy over the buffer to its own buffer, either in NioWorker internally
 comment|// when reading, or using a cumalation buffer
 name|NettyHttpRequest
@@ -341,8 +329,6 @@ name|serverTransport
 argument_list|,
 name|httpRequest
 argument_list|,
-name|corsPattern
-argument_list|,
 name|oue
 argument_list|,
 name|detailedErrorsEnabled
@@ -364,8 +350,6 @@ argument_list|(
 name|serverTransport
 argument_list|,
 name|httpRequest
-argument_list|,
-name|corsPattern
 argument_list|,
 name|detailedErrorsEnabled
 argument_list|)

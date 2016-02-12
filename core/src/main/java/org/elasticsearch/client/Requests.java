@@ -88,6 +88,28 @@ name|node
 operator|.
 name|tasks
 operator|.
+name|cancel
+operator|.
+name|CancelTasksRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|tasks
+operator|.
 name|list
 operator|.
 name|ListTasksRequest
@@ -857,7 +879,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Creats a new bulk request.      */
+comment|/**      * Creates a new bulk request.      */
 DECL|method|bulkRequest
 specifier|public
 specifier|static
@@ -1434,7 +1456,7 @@ name|ListTasksRequest
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a nodes tasks request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the tasks for      * @return The nodes tasks request      * @see org.elasticsearch.client.ClusterAdminClient#nodesStats(org.elasticsearch.action.admin.cluster.node.stats.NodesStatsRequest)      */
+comment|/**      * Creates a nodes tasks request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the tasks for      * @return The nodes tasks request      * @see org.elasticsearch.client.ClusterAdminClient#listTasks(ListTasksRequest)      */
 DECL|method|listTasksRequest
 specifier|public
 specifier|static
@@ -1449,6 +1471,26 @@ block|{
 return|return
 operator|new
 name|ListTasksRequest
+argument_list|(
+name|nodesIds
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a nodes tasks request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to cancel the tasks on      * @return The nodes tasks request      * @see org.elasticsearch.client.ClusterAdminClient#cancelTasks(CancelTasksRequest)      */
+DECL|method|cancelTasksRequest
+specifier|public
+specifier|static
+name|CancelTasksRequest
+name|cancelTasksRequest
+parameter_list|(
+name|String
+modifier|...
+name|nodesIds
+parameter_list|)
+block|{
+return|return
+operator|new
+name|CancelTasksRequest
 argument_list|(
 name|nodesIds
 argument_list|)

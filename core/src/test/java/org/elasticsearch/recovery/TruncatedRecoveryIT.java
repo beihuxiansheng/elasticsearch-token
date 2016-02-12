@@ -220,7 +220,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTarget
+name|RecoveryTargetService
 import|;
 end_import
 
@@ -1037,7 +1037,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|Actions
 operator|.

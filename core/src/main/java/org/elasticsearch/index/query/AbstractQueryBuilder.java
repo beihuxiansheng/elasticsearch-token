@@ -254,6 +254,9 @@ parameter_list|<
 name|QB
 extends|extends
 name|AbstractQueryBuilder
+parameter_list|<
+name|QB
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ToXContentToBytes
@@ -1008,6 +1011,9 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|queryBuilders
 parameter_list|,
@@ -1038,6 +1044,9 @@ decl_stmt|;
 for|for
 control|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|queryBuilder
 range|:
 name|queryBuilders
@@ -1101,6 +1110,9 @@ argument_list|<
 name|?
 extends|extends
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|queries
 parameter_list|)
@@ -1120,6 +1132,9 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|query
 range|:
 name|queries
@@ -1140,6 +1155,9 @@ specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|readQueries
 parameter_list|(
@@ -1152,6 +1170,9 @@ block|{
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|queries
 init|=

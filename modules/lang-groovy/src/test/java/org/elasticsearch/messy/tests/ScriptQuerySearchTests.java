@@ -316,7 +316,10 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_TYPE
+name|INDEX_QUERY_CACHE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|IndexModule
 operator|.
@@ -327,7 +330,10 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|QUERY_CACHE_EVERYTHING
+name|INDEX_QUERY_CACHE_EVERYTHING_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -556,7 +562,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -771,7 +777,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -923,7 +929,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;

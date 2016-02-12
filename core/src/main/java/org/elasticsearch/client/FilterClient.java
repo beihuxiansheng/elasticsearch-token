@@ -127,11 +127,6 @@ name|in
 operator|.
 name|threadPool
 argument_list|()
-argument_list|,
-name|in
-operator|.
-name|headers
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -164,6 +159,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|ActionRequest
+argument_list|<
+name|Request
+argument_list|>
 parameter_list|,
 name|Response
 extends|extends

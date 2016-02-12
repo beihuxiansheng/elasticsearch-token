@@ -40,18 +40,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|FailedNodeException
 import|;
 end_import
@@ -1017,9 +1005,6 @@ DECL|method|Request
 specifier|public
 name|Request
 parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|,
 name|String
 index|[]
 name|nodesIds
@@ -1027,8 +1012,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|request
-argument_list|,
 name|nodesIds
 argument_list|)
 expr_stmt|;
@@ -1149,6 +1132,8 @@ operator|=
 name|failures
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|failures
 specifier|public
 name|FailedNodeException
@@ -1309,8 +1294,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|request
-argument_list|,
 name|nodeId
 argument_list|)
 expr_stmt|;

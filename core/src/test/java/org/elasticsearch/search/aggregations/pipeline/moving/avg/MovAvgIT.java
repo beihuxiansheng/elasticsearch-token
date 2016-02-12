@@ -1707,7 +1707,7 @@ operator|/
 name|totalWeight
 return|;
 block|}
-comment|/**      * Exponentionally weighted (EWMA, Single exponential) moving avg      *      * @param window Window of values to compute movavg for      */
+comment|/**      * Exponentially weighted (EWMA, Single exponential) moving avg      *      * @param window Window of values to compute movavg for      */
 DECL|method|ewma
 specifier|private
 name|double
@@ -4855,7 +4855,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4991,7 +4991,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6447,7 +6447,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6591,7 +6591,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6777,7 +6777,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6975,7 +6975,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

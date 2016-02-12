@@ -14,6 +14,16 @@ name|bootstrap
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class starts elasticsearch.  */
 end_comment
@@ -82,6 +92,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|Bootstrap
 operator|.

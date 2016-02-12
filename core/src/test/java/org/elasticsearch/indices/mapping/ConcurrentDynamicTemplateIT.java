@@ -231,7 +231,7 @@ literal|"\"mapping\": {"
 operator|+
 literal|"\"type\": \"string\","
 operator|+
-literal|"\"store\": \"yes\","
+literal|"\"store\": true,"
 operator|+
 literal|"\"index\": \"analyzed\", \"analyzer\": \"whitespace\" } } } ] } }"
 decl_stmt|;

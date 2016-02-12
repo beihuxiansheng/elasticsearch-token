@@ -312,6 +312,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugins
+operator|.
+name|Plugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -326,11 +338,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
+name|InternalSettingsPlugin
 import|;
 end_import
 
@@ -341,6 +349,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -532,6 +550,32 @@ name|GetActionIT
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|Override
+DECL|method|nodePlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|nodePlugins
+parameter_list|()
+block|{
+return|return
+name|pluginList
+argument_list|(
+name|InternalSettingsPlugin
+operator|.
+name|class
+argument_list|)
+return|;
+comment|// uses index.version.created
+block|}
 DECL|method|testSimpleGet
 specifier|public
 name|void
@@ -2884,7 +2928,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -2939,7 +2983,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -5050,7 +5094,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5112,7 +5156,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5233,7 +5277,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5313,7 +5357,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5464,7 +5508,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5574,7 +5618,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5660,7 +5704,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5780,7 +5824,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8291,11 +8335,6 @@ block|{
 comment|//all well
 block|}
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.shard.service:TRACE,cluster.service:TRACE,action.admin.indices.flush:TRACE"
-argument_list|)
 DECL|method|testGetFieldsComplexField
 specifier|public
 name|void
@@ -8414,7 +8453,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject

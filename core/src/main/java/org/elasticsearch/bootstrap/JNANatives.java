@@ -496,7 +496,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// TODO, on java 8 use Long.toUnsignedString, since thats what it is.
+comment|// TODO, on java 8 use Long.toUnsignedString, since that's what it is.
 return|return
 name|Long
 operator|.

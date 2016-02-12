@@ -2354,6 +2354,9 @@ argument_list|(
 operator|(
 operator|(
 name|AbstractQueryBuilder
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|queryBuilder
 operator|)
@@ -2701,6 +2704,9 @@ argument_list|(
 operator|(
 operator|(
 name|AbstractQueryBuilder
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|queryBuilder
 operator|)

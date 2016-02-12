@@ -118,6 +118,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Randomness
 import|;
 end_import
@@ -133,6 +145,18 @@ operator|.
 name|collect
 operator|.
 name|ImmutableOpenMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -1077,6 +1101,9 @@ name|routing
 operator|.
 name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|.
 name|shard
@@ -1860,6 +1887,9 @@ name|shardRouting
 operator|.
 name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|.
 name|shard
@@ -2233,7 +2263,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Moves a shard from unassigned to initialize state      */
+comment|/**      * Moves a shard from unassigned to initialize state      *      * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.      */
 DECL|method|initialize
 specifier|public
 name|void
@@ -2244,6 +2274,11 @@ name|shard
 parameter_list|,
 name|String
 name|nodeId
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|existingAllocationId
 parameter_list|,
 name|long
 name|expectedSize
@@ -2265,6 +2300,8 @@ operator|.
 name|initialize
 argument_list|(
 name|nodeId
+argument_list|,
+name|existingAllocationId
 argument_list|,
 name|expectedSize
 argument_list|)
@@ -3321,7 +3358,7 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|/**              * Initializes the current unassigned shard and moves it from the unassigned list.              *              * If a primary is initalized, it's term is incremented.              */
+comment|/**              * Initializes the current unassigned shard and moves it from the unassigned list.              * If a primary is initalized, it's term is incremented.              *              * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.              */
 DECL|method|initialize
 specifier|public
 name|void
@@ -3330,8 +3367,10 @@ parameter_list|(
 name|String
 name|nodeId
 parameter_list|,
-name|long
-name|version
+annotation|@
+name|Nullable
+name|String
+name|existingAllocationId
 parameter_list|,
 name|long
 name|expectedShardSize
@@ -3348,11 +3387,11 @@ operator|new
 name|ShardRouting
 argument_list|(
 name|current
-argument_list|,
-name|version
 argument_list|)
 argument_list|,
 name|nodeId
+argument_list|,
+name|existingAllocationId
 argument_list|,
 name|expectedShardSize
 argument_list|)
@@ -3374,7 +3413,7 @@ name|current
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String, long, long)}.              */
+comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String, String, long)}.              */
 annotation|@
 name|Override
 DECL|method|remove
@@ -3564,7 +3603,7 @@ literal|0
 decl_stmt|;
 name|Map
 argument_list|<
-name|String
+name|Index
 argument_list|,
 name|Integer
 argument_list|>
@@ -3704,7 +3743,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|String
+name|Index
 argument_list|,
 name|Integer
 argument_list|>
@@ -3734,7 +3773,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|String
+name|Index
 argument_list|,
 name|Integer
 argument_list|>
@@ -3743,7 +3782,7 @@ range|:
 name|entries
 control|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 name|e

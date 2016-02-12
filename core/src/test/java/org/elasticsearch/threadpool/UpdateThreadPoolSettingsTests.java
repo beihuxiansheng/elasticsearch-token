@@ -138,6 +138,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -347,7 +357,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testCorrectThreadPoolTypePermittedInSettings"
 argument_list|)
@@ -482,7 +492,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testThreadPoolCanNotOverrideThreadPoolType"
 argument_list|)
@@ -628,7 +638,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testIndexingThreadPoolsMaxSize"
 argument_list|)
@@ -849,7 +859,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testUpdateSettingsCanNotChangeThreadPoolType"
 argument_list|)
@@ -1017,7 +1027,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testCachedExecutorType"
 argument_list|)
@@ -1610,7 +1620,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testFixedExecutorType"
 argument_list|)
@@ -2249,7 +2259,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testScalingExecutorType"
 argument_list|)
@@ -2673,9 +2683,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
-literal|"testCachedExecutorType"
+literal|"testShutdownNowInterrupts"
 argument_list|)
 operator|.
 name|build
@@ -2957,7 +2967,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"testCustomThreadPool"
 argument_list|)
@@ -3125,7 +3135,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3340,7 +3350,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3605,11 +3615,7 @@ name|threadPoolName
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ThreadPool
-operator|.
-name|ThreadPoolType
-name|invalidThreadPoolType
-init|=
+return|return
 name|randomFrom
 argument_list|(
 name|set
@@ -3628,9 +3634,6 @@ argument_list|()
 index|]
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|invalidThreadPoolType
 return|;
 block|}
 DECL|method|randomThreadPool
@@ -3674,12 +3677,11 @@ argument_list|)
 operator|.
 name|map
 argument_list|(
-name|t
-lambda|->
-name|t
+name|Map
 operator|.
+name|Entry
+operator|::
 name|getKey
-argument_list|()
 argument_list|)
 operator|.
 name|collect

@@ -738,7 +738,7 @@ name|name
 argument_list|,
 literal|0.0
 argument_list|,
-literal|0l
+literal|0L
 argument_list|,
 name|formatter
 argument_list|,

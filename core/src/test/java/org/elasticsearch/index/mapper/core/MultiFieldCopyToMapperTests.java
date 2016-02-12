@@ -361,7 +361,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// now test that with an older version the pasring just works
+comment|// now test that with an older version the parsing just works
 name|indexVersion
 operator|=
 name|randomFrom
@@ -540,8 +540,8 @@ return|return
 name|mapping
 return|;
 block|}
-comment|// returs a tuple where
-comment|// v1 is a list of versions for which we expect an excpetion when a copy_to in multi fields is found and
+comment|// returns a tuple where
+comment|// v1 is a list of versions for which we expect an exception when a copy_to in multi fields is found and
 comment|// v2 is older versions where we throw no exception and we just log a warning
 DECL|method|versionsWithAndWithoutExpectedExceptions
 specifier|private

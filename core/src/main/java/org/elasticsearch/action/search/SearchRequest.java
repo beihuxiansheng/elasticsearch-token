@@ -319,16 +319,8 @@ name|SearchRequest
 parameter_list|(
 name|SearchRequest
 name|searchRequest
-parameter_list|,
-name|ActionRequest
-name|originalRequest
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|originalRequest
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|searchType
@@ -408,29 +400,6 @@ operator|=
 name|searchRequest
 operator|.
 name|indicesOptions
-expr_stmt|;
-block|}
-comment|/**      * Constructs a new search request starting from the provided request, meaning that it will      * inherit its headers and context      */
-DECL|method|SearchRequest
-specifier|public
-name|SearchRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|source
-operator|=
-operator|new
-name|SearchSourceBuilder
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Constructs a new search request against the indices. No indices provided here means that search      * will run against all indices.      */

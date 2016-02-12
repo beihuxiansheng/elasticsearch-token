@@ -70,7 +70,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ReplicationRequest
+name|BasicReplicationRequest
 import|;
 end_import
 
@@ -208,7 +208,7 @@ name|RefreshRequest
 argument_list|,
 name|RefreshResponse
 argument_list|,
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|,
 name|ReplicationResponse
 argument_list|>
@@ -285,7 +285,7 @@ annotation|@
 name|Override
 DECL|method|newShardRequest
 specifier|protected
-name|ReplicationRequest
+name|BasicReplicationRequest
 name|newShardRequest
 parameter_list|(
 name|RefreshRequest
@@ -297,10 +297,8 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|(
-name|request
-argument_list|,
 name|shardId
 argument_list|)
 return|;

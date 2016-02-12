@@ -863,6 +863,11 @@ argument_list|,
 operator|new
 name|CommonStats
 argument_list|(
+name|indicesService
+operator|.
+name|getIndicesQueryCache
+argument_list|()
+argument_list|,
 name|indexShard
 argument_list|,
 name|SHARD_STATS_FLAGS
@@ -989,8 +994,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|request
-argument_list|,
 name|nodeId
 argument_list|)
 expr_stmt|;

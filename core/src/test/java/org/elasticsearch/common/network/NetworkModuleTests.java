@@ -444,8 +444,6 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -576,6 +574,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|module
@@ -617,6 +617,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|module
@@ -685,6 +687,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|module
@@ -726,6 +730,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|module
@@ -771,7 +777,10 @@ name|put
 argument_list|(
 name|NetworkModule
 operator|.
-name|HTTP_TYPE_KEY
+name|HTTP_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"custom"
 argument_list|)
@@ -794,6 +803,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|module
@@ -835,6 +846,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 try|try
@@ -900,6 +913,9 @@ argument_list|(
 name|NetworkModule
 operator|.
 name|HTTP_ENABLED
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -921,6 +937,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertNotBound
@@ -961,6 +979,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|module
@@ -1005,6 +1025,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|true
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 try|try
@@ -1084,6 +1106,8 @@ argument_list|,
 name|settings
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|module

@@ -374,7 +374,7 @@ name|decider
 operator|.
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_ALLOCATION_ENABLE
+name|INDEX_ROUTING_ALLOCATION_ENABLE_SETTING
 import|;
 end_import
 
@@ -1004,7 +1004,10 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|INDEX_ROUTING_ALLOCATION_ENABLE
+name|INDEX_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Allocation
 operator|.
@@ -1507,7 +1510,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
+name|INDEX_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Rebalance
 operator|.
@@ -1589,7 +1595,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
+name|INDEX_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Rebalance
 operator|.
@@ -2206,7 +2215,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
+name|INDEX_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|allowedOnes
 argument_list|)
@@ -2363,7 +2375,7 @@ literal|"only test index can rebalance"
 argument_list|,
 name|routing
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2401,7 +2413,7 @@ literal|"only test index can rebalance"
 argument_list|,
 name|routing
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2429,7 +2441,7 @@ literal|"only test index can rebalance"
 argument_list|,
 name|routing
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2633,7 +2645,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
+name|INDEX_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|Rebalance
 operator|.
@@ -3186,7 +3201,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
+name|INDEX_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()

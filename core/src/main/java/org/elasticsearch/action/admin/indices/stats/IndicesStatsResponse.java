@@ -498,7 +498,7 @@ operator|.
 name|getShardRouting
 argument_list|()
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -506,7 +506,7 @@ block|}
 for|for
 control|(
 name|String
-name|index
+name|indexName
 range|:
 name|indices
 control|)
@@ -539,12 +539,12 @@ operator|.
 name|getShardRouting
 argument_list|()
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|index
+name|indexName
 argument_list|)
 condition|)
 block|{
@@ -561,12 +561,12 @@ name|indicesStats
 operator|.
 name|put
 argument_list|(
-name|index
+name|indexName
 argument_list|,
 operator|new
 name|IndexStats
 argument_list|(
-name|index
+name|indexName
 argument_list|,
 name|shards
 operator|.

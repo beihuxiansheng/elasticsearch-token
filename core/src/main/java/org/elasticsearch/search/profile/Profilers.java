@@ -86,7 +86,7 @@ name|Profiler
 argument_list|>
 name|profilers
 decl_stmt|;
-comment|/** Sole constructor. This {@link Profilers} instance will initiall wrap one {@link Profiler}. */
+comment|/** Sole constructor. This {@link Profilers} instance will initially wrap one {@link Profiler}. */
 DECL|method|Profilers
 specifier|public
 name|Profilers

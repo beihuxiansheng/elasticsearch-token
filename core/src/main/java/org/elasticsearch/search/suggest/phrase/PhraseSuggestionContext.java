@@ -233,11 +233,6 @@ specifier|private
 name|CompiledScript
 name|collateQueryScript
 decl_stmt|;
-DECL|field|collateFilterScript
-specifier|private
-name|CompiledScript
-name|collateFilterScript
-decl_stmt|;
 DECL|field|collateScriptParams
 specifier|private
 name|Map

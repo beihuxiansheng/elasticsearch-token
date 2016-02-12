@@ -158,8 +158,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|bulkRequest
-argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;

@@ -254,7 +254,10 @@ name|put
 argument_list|(
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|cluster
 argument_list|()

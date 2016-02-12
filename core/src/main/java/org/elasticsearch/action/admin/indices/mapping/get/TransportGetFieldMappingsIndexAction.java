@@ -763,7 +763,7 @@ name|TypeMissingException
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|request
@@ -856,7 +856,7 @@ name|singletonMap
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|typeMappings

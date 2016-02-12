@@ -360,7 +360,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -1174,7 +1174,7 @@ condition|)
 block|{
 name|partial
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|entry
 operator|.
@@ -1246,7 +1246,7 @@ condition|)
 block|{
 name|includeGlobalState
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|entry
 operator|.

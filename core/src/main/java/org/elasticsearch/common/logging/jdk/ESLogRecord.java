@@ -70,15 +70,6 @@ name|ESLogRecord
 extends|extends
 name|LogRecord
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1107741560233585726L
-decl_stmt|;
 DECL|field|FQCN
 specifier|private
 specifier|static

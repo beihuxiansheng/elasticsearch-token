@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -270,6 +284,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|IndexService
@@ -420,6 +446,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -524,6 +560,8 @@ specifier|private
 name|void
 name|reset
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|NODE
@@ -591,6 +629,8 @@ specifier|static
 name|void
 name|stopNode
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Node
 name|node
@@ -601,7 +641,7 @@ name|NODE
 operator|=
 literal|null
 expr_stmt|;
-name|Releasables
+name|IOUtils
 operator|.
 name|close
 argument_list|(
@@ -617,6 +657,8 @@ parameter_list|(
 name|boolean
 name|resetNode
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|assertAcked
 argument_list|(
@@ -824,6 +866,8 @@ specifier|static
 name|void
 name|tearDownClass
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|stopNode
 argument_list|()
@@ -935,7 +979,10 @@ name|put
 argument_list|(
 name|ClusterName
 operator|.
-name|SETTING
+name|CLUSTER_NAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|InternalTestCluster
 operator|.
@@ -950,7 +997,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()
@@ -960,7 +1012,12 @@ comment|// This needs to tie into the ESIntegTestCase#indexSettings() method
 operator|.
 name|put
 argument_list|(
-literal|"path.shared_data"
+name|Environment
+operator|.
+name|PATH_SHARED_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|createTempDir
 argument_list|()
@@ -999,21 +1056,24 @@ name|put
 argument_list|(
 literal|"script.inline"
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 operator|.
 name|put
 argument_list|(
 literal|"script.indexed"
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 operator|.
 name|put
 argument_list|(
 name|EsExecutors
 operator|.
-name|PROCESSORS
+name|PROCESSORS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -1028,14 +1088,24 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.local"
+name|Node
+operator|.
+name|NODE_LOCAL_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.data"
+name|Node
+operator|.
+name|NODE_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -1045,6 +1115,9 @@ argument_list|(
 name|InternalSettingsPreparer
 operator|.
 name|IGNORE_SYSTEM_PROPERTIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -1098,7 +1171,6 @@ block|}
 comment|/**      * Returns a client to the single-node cluster.      */
 DECL|method|client
 specifier|public
-specifier|static
 name|Client
 name|client
 parameter_list|()
@@ -1113,7 +1185,6 @@ block|}
 comment|/**      * Returns the single test nodes name.      */
 DECL|method|nodeName
 specifier|public
-specifier|static
 name|String
 name|nodeName
 parameter_list|()
@@ -1125,7 +1196,6 @@ block|}
 comment|/**      * Return a reference to the singleton node.      */
 DECL|method|node
 specifier|protected
-specifier|static
 name|Node
 name|node
 parameter_list|()
@@ -1137,7 +1207,6 @@ block|}
 comment|/**      * Get an instance for a particular class using the injector of the singleton node.      */
 DECL|method|getInstanceFromNode
 specifier|protected
-specifier|static
 parameter_list|<
 name|T
 parameter_list|>
@@ -1166,7 +1235,6 @@ block|}
 comment|/**      * Create a new index on the singleton node with empty index settings.      */
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1188,7 +1256,6 @@ block|}
 comment|/**      * Create a new index on the singleton node with the provided index settings.      */
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1218,7 +1285,6 @@ block|}
 comment|/**      * Create a new index on the singleton node with the provided index settings.      */
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1290,7 +1356,6 @@ block|}
 comment|/**      * Create a new index on the singleton node with the provided index settings.      */
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1362,7 +1427,6 @@ return|;
 block|}
 DECL|method|createIndex
 specifier|protected
-specifier|static
 name|IndexService
 name|createIndex
 parameter_list|(
@@ -1475,7 +1539,6 @@ block|}
 comment|/**      * Create a new search context.      */
 DECL|method|createSearchContext
 specifier|protected
-specifier|static
 name|SearchContext
 name|createSearchContext
 parameter_list|(

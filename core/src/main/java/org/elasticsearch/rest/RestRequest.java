@@ -34,18 +34,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ContextAndHeaderHolder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Nullable
 import|;
 end_import
@@ -194,8 +182,6 @@ specifier|public
 specifier|abstract
 class|class
 name|RestRequest
-extends|extends
-name|ContextAndHeaderHolder
 implements|implements
 name|ToXContent
 operator|.

@@ -651,7 +651,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The source of the document to index, recopied to a new array if it is unsage.      */
+comment|/**      * The source of the document to index, recopied to a new array if it is unsafe.      */
 DECL|method|source
 specifier|public
 name|BytesReference

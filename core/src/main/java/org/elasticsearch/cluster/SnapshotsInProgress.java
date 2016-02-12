@@ -1039,7 +1039,7 @@ name|entry
 operator|.
 name|key
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|,
 name|waitingShards

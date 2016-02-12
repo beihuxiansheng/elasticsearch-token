@@ -553,7 +553,7 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|hashCode

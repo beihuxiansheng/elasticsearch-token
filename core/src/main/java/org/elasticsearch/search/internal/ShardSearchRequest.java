@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|HasContextAndHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -113,8 +101,6 @@ DECL|interface|ShardSearchRequest
 specifier|public
 interface|interface
 name|ShardSearchRequest
-extends|extends
-name|HasContextAndHeaders
 block|{
 DECL|method|index
 name|String

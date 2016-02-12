@@ -450,6 +450,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|IndexNotFoundException
 import|;
 end_import
@@ -493,6 +505,18 @@ operator|.
 name|ttl
 operator|.
 name|IndicesTTLService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|IngestMetadata
 import|;
 end_import
 
@@ -902,6 +926,17 @@ operator|.
 name|TYPE
 argument_list|,
 name|RepositoriesMetaData
+operator|.
+name|PROTO
+argument_list|)
+expr_stmt|;
+name|registerPrototype
+argument_list|(
+name|IngestMetadata
+operator|.
+name|TYPE
+argument_list|,
+name|IngestMetadata
 operator|.
 name|PROTO
 argument_list|)
@@ -1582,10 +1617,7 @@ decl_stmt|;
 name|IndexMetaData
 name|thisIndex
 init|=
-name|indices
-argument_list|()
-operator|.
-name|get
+name|index
 argument_list|(
 name|otherIndex
 operator|.
@@ -2550,6 +2582,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 block|}
 throw|throw
@@ -2746,6 +2781,25 @@ operator|.
 name|get
 argument_list|(
 name|index
+argument_list|)
+return|;
+block|}
+DECL|method|index
+specifier|public
+name|IndexMetaData
+name|index
+parameter_list|(
+name|Index
+name|index
+parameter_list|)
+block|{
+return|return
+name|index
+argument_list|(
+name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -4861,6 +4915,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|indexMetaData
 argument_list|)
@@ -4890,6 +4947,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 operator|==
@@ -4936,6 +4996,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|indexMetaData
@@ -5553,7 +5616,7 @@ name|build
 parameter_list|()
 block|{
 comment|// TODO: We should move these datastructures to IndexNameExpressionResolver, this will give the following benefits:
-comment|// 1) The datastructures will only be rebuilded when needed. Now during serailizing we rebuild these datastructures
+comment|// 1) The datastructures will only be rebuilded when needed. Now during serializing we rebuild these datastructures
 comment|//    while these datastructures aren't even used.
 comment|// 2) The aliasAndIndexLookup can be updated instead of rebuilding it all the time.
 comment|// build all concrete indices arrays:
@@ -5594,6 +5657,9 @@ operator|.
 name|value
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5681,6 +5747,9 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5706,6 +5775,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5789,6 +5861,9 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 operator|new
@@ -5931,7 +6006,7 @@ operator|.
 name|getAlias
 argument_list|()
 operator|+
-literal|"] and index ["
+literal|"] and index "
 operator|+
 name|index
 operator|.
@@ -5941,7 +6016,7 @@ operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"] have the same name"
+literal|" have the same name"
 argument_list|)
 throw|;
 block|}

@@ -364,7 +364,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -482,8 +482,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
 argument_list|,
 name|client
 argument_list|)
@@ -624,13 +622,11 @@ name|this
 operator|.
 name|allowExplicitIndex
 operator|=
-name|settings
+name|MULTI_ALLOW_EXPLICIT_INDEX
 operator|.
-name|getAsBoolean
+name|get
 argument_list|(
-literal|"rest.action.multi.allow_explicit_index"
-argument_list|,
-literal|true
+name|settings
 argument_list|)
 expr_stmt|;
 name|this
@@ -1256,7 +1252,7 @@ name|searchRequest
 operator|.
 name|requestCache
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|value
 argument_list|)

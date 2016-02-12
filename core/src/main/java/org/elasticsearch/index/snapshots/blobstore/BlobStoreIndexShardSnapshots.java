@@ -223,7 +223,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Contains information about all snapshot for the given shard in repository  *<p>  * This class is used to find files that were already snapshoted and clear out files that no longer referenced by any  * snapshots  */
+comment|/**  * Contains information about all snapshot for the given shard in repository  *<p>  * This class is used to find files that were already snapshotted and clear out files that no longer referenced by any  * snapshots  */
 end_comment
 
 begin_class

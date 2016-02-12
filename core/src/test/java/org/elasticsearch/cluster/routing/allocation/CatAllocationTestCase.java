@@ -365,7 +365,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base testscase that allows to run tests based on the output of the CAT API  * The input is a line based cat/shards output like:  *   kibana-int           0 p STARTED       2  24.8kb 10.202.245.2 r5-9-35  *  * the test builds up a clusterstate from the cat input and optionally runs a full balance on it.  * This can be used to debug cluster allocation decisions.  */
+comment|/**  * A base testcase that allows to run tests based on the output of the CAT API  * The input is a line based cat/shards output like:  *   kibana-int           0 p STARTED       2  24.8kb 10.202.245.2 r5-9-35  *  * the test builds up a clusterstate from the cat input and optionally runs a full balance on it.  * This can be used to debug cluster allocation decisions.  */
 end_comment
 
 begin_class
@@ -619,8 +619,6 @@ argument_list|,
 name|primary
 argument_list|,
 name|state
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 name|idx
@@ -750,9 +748,10 @@ name|IndexRoutingTable
 operator|.
 name|Builder
 argument_list|(
-name|idx
+name|idxMeta
 operator|.
-name|name
+name|getIndex
+argument_list|()
 argument_list|)
 operator|.
 name|initializeAsRecovery
@@ -791,18 +790,10 @@ name|IndexShardRoutingTable
 operator|.
 name|Builder
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
-name|idx
-operator|.
-name|name
-argument_list|,
 name|r
 operator|.
-name|id
+name|shardId
 argument_list|()
-argument_list|)
 argument_list|)
 operator|.
 name|addShard

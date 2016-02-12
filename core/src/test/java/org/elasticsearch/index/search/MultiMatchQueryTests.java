@@ -340,7 +340,11 @@ argument_list|(
 name|mapping
 argument_list|)
 argument_list|,
-literal|true
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)
@@ -365,12 +369,7 @@ name|queryShardContext
 init|=
 name|indexService
 operator|.
-name|getShard
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getQueryShardContext
+name|newQueryShardContext
 argument_list|()
 decl_stmt|;
 name|queryShardContext

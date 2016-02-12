@@ -300,6 +300,12 @@ name|DiscoveryStats
 name|stats
 parameter_list|()
 function_decl|;
+comment|/***      * @return the current value of minimum master nodes, or -1 for not set      */
+DECL|method|getMinimumMasterNodes
+name|int
+name|getMinimumMasterNodes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

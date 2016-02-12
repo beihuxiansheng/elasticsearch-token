@@ -137,8 +137,6 @@ argument_list|(
 literal|"format"
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -186,8 +184,6 @@ argument_list|(
 literal|"locale"
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -233,8 +229,6 @@ operator|new
 name|Modifier
 argument_list|(
 literal|"numeric_resolution"
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)

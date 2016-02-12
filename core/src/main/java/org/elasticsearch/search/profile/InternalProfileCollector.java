@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class wraps a Lucene Collector and times the execution of:  * - setScorer()  * - collect()  * - doSetNextReader()  * - needsScores()  *  * InternalProfiler facilitates the linking of the the Collector graph  */
+comment|/**  * This class wraps a Lucene Collector and times the execution of:  * - setScorer()  * - collect()  * - doSetNextReader()  * - needsScores()  *  * InternalProfiler facilitates the linking of the Collector graph  */
 end_comment
 
 begin_class

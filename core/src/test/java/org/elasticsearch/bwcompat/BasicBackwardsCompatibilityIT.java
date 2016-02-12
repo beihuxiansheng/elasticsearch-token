@@ -1350,7 +1350,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1444,7 +1444,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2640,7 +2640,7 @@ name|equals
 argument_list|(
 name|shardRouting
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 condition|)
@@ -4067,7 +4067,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|countResponse
@@ -4101,7 +4101,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|countResponse
@@ -4132,7 +4132,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|countResponse
@@ -4163,7 +4163,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|countResponse
@@ -4194,7 +4194,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 comment|// wildcard check
@@ -4226,7 +4226,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 comment|// object check
@@ -4258,7 +4258,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|countResponse
@@ -4289,7 +4289,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 if|if
@@ -5871,7 +5871,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|8l
+literal|8L
 argument_list|)
 argument_list|)
 expr_stmt|;

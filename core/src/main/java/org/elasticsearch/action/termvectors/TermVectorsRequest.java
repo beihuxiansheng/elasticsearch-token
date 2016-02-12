@@ -1508,47 +1508,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @return<code>true</code> if distributed frequencies should be returned. Otherwise      *<code>false</code>      */
-DECL|method|dfs
-specifier|public
-name|boolean
-name|dfs
-parameter_list|()
-block|{
-return|return
-name|flagsEnum
-operator|.
-name|contains
-argument_list|(
-name|Flag
-operator|.
-name|Dfs
-argument_list|)
-return|;
-block|}
-comment|/**      * Use distributed frequencies instead of shard statistics.      */
-DECL|method|dfs
-specifier|public
-name|TermVectorsRequest
-name|dfs
-parameter_list|(
-name|boolean
-name|dfs
-parameter_list|)
-block|{
-name|setFlag
-argument_list|(
-name|Flag
-operator|.
-name|Dfs
-argument_list|,
-name|dfs
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Return only term vectors for special selected fields. Returns for term      * vectors for all fields if selectedFields == null      */
 DECL|method|selectedFields
 specifier|public
@@ -2443,7 +2402,6 @@ DECL|enum constant|Offsets
 DECL|enum constant|Payloads
 DECL|enum constant|FieldStatistics
 DECL|enum constant|TermStatistics
-DECL|enum constant|Dfs
 name|Positions
 block|,
 name|Offsets
@@ -2453,8 +2411,6 @@ block|,
 name|FieldStatistics
 block|,
 name|TermStatistics
-block|,
-name|Dfs
 block|}
 comment|/**      * populates a request object (pre-populated with defaults) based on a parser.      */
 DECL|method|parseRequest
@@ -2731,16 +2687,13 @@ literal|"dfs"
 argument_list|)
 condition|)
 block|{
-name|termVectorsRequest
-operator|.
-name|dfs
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-name|parser
-operator|.
-name|booleanValue
-argument_list|()
+literal|"distributed frequencies is not supported anymore for term vectors"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 elseif|else
 if|if

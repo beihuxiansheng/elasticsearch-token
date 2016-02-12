@@ -396,11 +396,10 @@ name|indicesService
 operator|.
 name|canDeleteIndexContents
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-literal|"test"
-argument_list|)
+name|idxSettings
+operator|.
+name|getIndex
+argument_list|()
 argument_list|,
 name|idxSettings
 argument_list|,
@@ -416,11 +415,10 @@ name|indicesService
 operator|.
 name|canDeleteIndexContents
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-literal|"test"
-argument_list|)
+name|idxSettings
+operator|.
+name|getIndex
+argument_list|()
 argument_list|,
 name|idxSettings
 argument_list|,
@@ -502,6 +500,8 @@ name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|,
@@ -540,6 +540,8 @@ name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|,
@@ -568,6 +570,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"test"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|0
 argument_list|)
@@ -1337,6 +1341,8 @@ operator|new
 name|ShardId
 argument_list|(
 literal|"bogus"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|1
 argument_list|)

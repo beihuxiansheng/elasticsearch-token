@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Holds a deleted version, which just adds a timestmap to {@link VersionValue} so we know when we can expire the deletion. */
+comment|/** Holds a deleted version, which just adds a timestamp to {@link VersionValue} so we know when we can expire the deletion. */
 end_comment
 
 begin_class

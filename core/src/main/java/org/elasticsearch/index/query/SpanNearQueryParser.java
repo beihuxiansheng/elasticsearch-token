@@ -136,6 +136,11 @@ name|ParseField
 argument_list|(
 literal|"collect_payloads"
 argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"no longer supported"
+argument_list|)
 decl_stmt|;
 DECL|field|CLAUSES_FIELD
 specifier|public
@@ -231,13 +236,6 @@ init|=
 name|SpanNearQueryBuilder
 operator|.
 name|DEFAULT_IN_ORDER
-decl_stmt|;
-name|boolean
-name|collectPayloads
-init|=
-name|SpanNearQueryBuilder
-operator|.
-name|DEFAULT_COLLECT_PAYLOADS
 decl_stmt|;
 name|String
 name|queryName
@@ -458,13 +456,7 @@ name|COLLECT_PAYLOADS_FIELD
 argument_list|)
 condition|)
 block|{
-name|collectPayloads
-operator|=
-name|parser
-operator|.
-name|booleanValue
-argument_list|()
-expr_stmt|;
+comment|// Deprecated in 3.0.0
 block|}
 elseif|else
 if|if
@@ -675,13 +667,6 @@ operator|.
 name|inOrder
 argument_list|(
 name|inOrder
-argument_list|)
-expr_stmt|;
-name|queryBuilder
-operator|.
-name|collectPayloads
-argument_list|(
-name|collectPayloads
 argument_list|)
 expr_stmt|;
 name|queryBuilder

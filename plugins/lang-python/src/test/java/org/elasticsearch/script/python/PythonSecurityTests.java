@@ -374,6 +374,11 @@ argument_list|(
 literal|"from java.lang import Math\nMath.cos(0)"
 argument_list|)
 expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"map(lambda x: x + 1, range(100))"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/** Test some py scripts that should hit security exception */
 DECL|method|testNotOK

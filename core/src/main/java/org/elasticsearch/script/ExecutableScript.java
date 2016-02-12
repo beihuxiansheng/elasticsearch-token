@@ -41,15 +41,20 @@ name|Object
 name|run
 parameter_list|()
 function_decl|;
-comment|/**      * Unwraps a possible script value. For example, when passing vars and expecting the returned value to      * be part of the vars.      */
+comment|/**      * Unwraps a possible script value. For example, when passing vars and      * expecting the returned value to be part of the vars. Javascript and      * Python need this but other scripting engines just return the values      * passed in.      */
 DECL|method|unwrap
+specifier|default
 name|Object
 name|unwrap
 parameter_list|(
 name|Object
 name|value
 parameter_list|)
-function_decl|;
+block|{
+return|return
+name|value
+return|;
+block|}
 block|}
 end_interface
 

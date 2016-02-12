@@ -784,7 +784,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
@@ -879,7 +879,7 @@ name|field
 argument_list|(
 literal|"some_long"
 argument_list|,
-literal|1367484649580l
+literal|1367484649580L
 argument_list|)
 operator|.
 name|endObject
@@ -1052,7 +1052,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -1469,7 +1469,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1530,7 +1530,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1612,7 +1612,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1697,7 +1697,7 @@ name|assertHitCount
 argument_list|(
 name|response
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2612,7 +2612,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 comment|// Explicit list of fields including numeric fields -> fail
@@ -2714,7 +2714,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 comment|// mlt query with string fields
@@ -2768,7 +2768,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 comment|// mlt query with at least a numeric field -> fail by default
@@ -2907,7 +2907,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 expr_stmt|;
 comment|// mlt field query on a numeric field -> failure by default
@@ -3063,7 +3063,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
@@ -3734,7 +3734,7 @@ name|assertHitCount
 argument_list|(
 name|mltResponse
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 block|}

@@ -548,6 +548,8 @@ name|ShardId
 argument_list|(
 literal|"_index"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|)
@@ -836,11 +838,6 @@ argument_list|(
 name|indexMetaData
 argument_list|,
 name|settings
-argument_list|,
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
 argument_list|)
 return|;
 block|}

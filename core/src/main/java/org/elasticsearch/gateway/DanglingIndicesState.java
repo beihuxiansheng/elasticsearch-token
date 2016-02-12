@@ -533,6 +533,9 @@ operator|.
 name|getIndex
 argument_list|()
 operator|.
+name|getName
+argument_list|()
+operator|.
 name|equals
 argument_list|(
 name|indexName

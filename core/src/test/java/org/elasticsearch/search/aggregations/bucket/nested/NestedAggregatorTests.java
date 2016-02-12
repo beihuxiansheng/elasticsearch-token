@@ -278,7 +278,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexService
 import|;
 end_import
 
@@ -290,7 +290,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|mapper
+operator|.
+name|MapperService
 import|;
 end_import
 
@@ -1040,6 +1042,14 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|IndexService
+name|indexService
+init|=
+name|createIndex
+argument_list|(
+literal|"test"
+argument_list|)
+decl_stmt|;
 name|DirectoryReader
 name|directoryReader
 init|=
@@ -1061,11 +1071,10 @@ argument_list|,
 operator|new
 name|ShardId
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-literal|"test"
-argument_list|)
+name|indexService
+operator|.
+name|index
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -1078,14 +1087,6 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directoryReader
-argument_list|)
-decl_stmt|;
-name|IndexService
-name|indexService
-init|=
-name|createIndex
-argument_list|(
-literal|"test"
 argument_list|)
 decl_stmt|;
 name|indexService
@@ -1115,7 +1116,11 @@ name|string
 argument_list|()
 argument_list|)
 argument_list|,
-literal|true
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
 argument_list|,
 literal|false
 argument_list|)
@@ -1310,7 +1315,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;

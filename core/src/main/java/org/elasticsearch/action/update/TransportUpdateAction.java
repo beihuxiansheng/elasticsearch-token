@@ -886,9 +886,7 @@ name|execute
 argument_list|(
 operator|new
 name|CreateIndexRequest
-argument_list|(
-name|request
-argument_list|)
+argument_list|()
 operator|.
 name|index
 argument_list|(
@@ -1234,6 +1232,7 @@ name|int
 name|retryCount
 parameter_list|)
 block|{
+specifier|final
 name|IndexService
 name|indexService
 init|=
@@ -1247,6 +1246,7 @@ name|concreteIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
 name|IndexShard
 name|indexShard
 init|=
@@ -1292,12 +1292,13 @@ init|=
 operator|new
 name|IndexRequest
 argument_list|(
+operator|(
+name|IndexRequest
+operator|)
 name|result
 operator|.
 name|action
 argument_list|()
-argument_list|,
-name|request
 argument_list|)
 decl_stmt|;
 comment|// we fetch it from the index request so we don't generate the bytes twice, its already done in the index request
@@ -1601,12 +1602,13 @@ init|=
 operator|new
 name|IndexRequest
 argument_list|(
+operator|(
+name|IndexRequest
+operator|)
 name|result
 operator|.
 name|action
 argument_list|()
-argument_list|,
-name|request
 argument_list|)
 decl_stmt|;
 comment|// we fetch it from the index request so we don't generate the bytes twice, its already done in the index request

@@ -92,6 +92,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|internal
@@ -137,7 +151,7 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-comment|/**      * Modifies the result of the previously executed search ({@link TopDocs})      * in place based on the given {@link RescoreSearchContext}.      *      * @param topDocs        the result of the previously exectued search      * @param context        the current {@link SearchContext}. This will never be<code>null</code>.      * @param rescoreContext the {@link RescoreSearchContext}. This will never be<code>null</code>      * @throws IOException if an {@link IOException} occurs during rescoring      */
+comment|/**      * Modifies the result of the previously executed search ({@link TopDocs})      * in place based on the given {@link RescoreSearchContext}.      *      * @param topDocs        the result of the previously executed search      * @param context        the current {@link SearchContext}. This will never be<code>null</code>.      * @param rescoreContext the {@link RescoreSearchContext}. This will never be<code>null</code>      * @throws IOException if an {@link IOException} occurs during rescoring      */
 DECL|method|rescore
 specifier|public
 name|TopDocs
@@ -176,7 +190,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Parses the {@link RescoreSearchContext} for this impelementation      *      * @param parser  the parser to read the context from      * @param context the current search context      * @return the parsed {@link RescoreSearchContext}      * @throws IOException if an {@link IOException} occurs while parsing the context      */
+comment|/**      * Parses the {@link RescoreSearchContext} for this implementation      *      * @param parser  the parser to read the context from      * @param context the current shard context      * @return the parsed {@link RescoreSearchContext}      * @throws IOException if an {@link IOException} occurs while parsing the context      */
 DECL|method|parse
 specifier|public
 name|RescoreSearchContext
@@ -185,13 +199,13 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Extracts all terms needed to exectue this {@link Rescorer}. This method      * is executed in a distributed frequency collection roundtrip for      * {@link SearchType#DFS_QUERY_AND_FETCH} and      * {@link SearchType#DFS_QUERY_THEN_FETCH}      */
+comment|/**      * Extracts all terms needed to execute this {@link Rescorer}. This method      * is executed in a distributed frequency collection roundtrip for      * {@link SearchType#DFS_QUERY_AND_FETCH} and      * {@link SearchType#DFS_QUERY_THEN_FETCH}      */
 DECL|method|extractTerms
 specifier|public
 name|void
@@ -210,7 +224,7 @@ argument_list|>
 name|termsSet
 parameter_list|)
 function_decl|;
-comment|/*      * TODO: At this point we only have one implemenation which modifies the      * TopDocs given. Future implemenations might return actual resutls that      * contain information about the rescore context. For example a pair wise      * reranker might return the feature vector for the top N window in order to      * merge results on the callers side. For now we don't have a return type at      * all since something like this requires a more general refactoring how      * documents are merged since in such a case we don't really have a score      * per document rather a "X is more relevant than Y" relation      */
+comment|/*      * TODO: At this point we only have one implementation which modifies the      * TopDocs given. Future implementations might return actual results that      * contain information about the rescore context. For example a pair wise      * reranker might return the feature vector for the top N window in order to      * merge results on the callers side. For now we don't have a return type at      * all since something like this requires a more general refactoring how      * documents are merged since in such a case we don't really have a score      * per document rather a "X is more relevant than Y" relation      */
 block|}
 end_interface
 

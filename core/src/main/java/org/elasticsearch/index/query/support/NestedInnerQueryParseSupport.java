@@ -307,9 +307,6 @@ name|shardContext
 operator|=
 name|searchContext
 operator|.
-name|indexShard
-argument_list|()
-operator|.
 name|getQueryShardContext
 argument_list|()
 expr_stmt|;

@@ -2306,7 +2306,9 @@ name|setCurrent
 argument_list|(
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|rangeQuery
@@ -2603,7 +2605,9 @@ name|setCurrent
 argument_list|(
 operator|new
 name|TestSearchContext
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|rangeQuery

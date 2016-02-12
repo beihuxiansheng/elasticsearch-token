@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/*  * Can iterate over the positions of a term an arbotrary number of times.   * */
+comment|/*  * Can iterate over the positions of a term an arbitrary number of times.  * */
 end_comment
 
 begin_class

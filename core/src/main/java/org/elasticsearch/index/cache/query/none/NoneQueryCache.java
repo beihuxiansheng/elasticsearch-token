@@ -116,8 +116,6 @@ name|AbstractIndexComponent
 implements|implements
 name|QueryCache
 block|{
-annotation|@
-name|Inject
 DECL|method|NoneQueryCache
 specifier|public
 name|NoneQueryCache

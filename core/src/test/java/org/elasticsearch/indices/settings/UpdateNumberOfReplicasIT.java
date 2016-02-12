@@ -527,7 +527,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|10l
+literal|10L
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,7 +943,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|10l
+literal|10L
 argument_list|)
 expr_stmt|;
 block|}
@@ -3083,6 +3083,19 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
+specifier|final
+name|int
+name|value
+init|=
+name|randomIntBetween
+argument_list|(
+operator|-
+literal|10
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|client
@@ -3112,14 +3125,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
-name|randomIntBetween
-argument_list|(
-operator|-
-literal|10
-argument_list|,
-operator|-
-literal|1
-argument_list|)
+name|value
 argument_list|)
 argument_list|)
 operator|.
@@ -3141,29 +3147,18 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-name|assertThat
+name|assertEquals
 argument_list|(
-literal|"message contains error about shard count: "
+literal|"Failed to parse value ["
 operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
+name|value
+operator|+
+literal|"] for setting [index.number_of_replicas] must be>= 0"
 argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"the value of the setting index.number_of_replicas must be a non negative integer"
-argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

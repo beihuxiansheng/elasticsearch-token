@@ -422,6 +422,9 @@ parameter_list|<
 name|Request
 extends|extends
 name|InstanceShardOperationRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|,
 name|Response
 extends|extends
@@ -803,6 +806,11 @@ name|timeout
 argument_list|()
 argument_list|,
 name|logger
+argument_list|,
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doStart
@@ -912,11 +920,8 @@ name|LoggerMessageFormat
 operator|.
 name|format
 argument_list|(
-literal|"{} request {} could not be resolved"
+literal|"[{}][{}] request {} could not be resolved"
 argument_list|,
-operator|new
-name|ShardId
-argument_list|(
 name|request
 operator|.
 name|index
@@ -924,7 +929,6 @@ argument_list|,
 name|request
 operator|.
 name|shardId
-argument_list|)
 argument_list|,
 name|actionName
 argument_list|)
@@ -1248,9 +1252,6 @@ operator|=
 operator|new
 name|UnavailableShardsException
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 name|request
 operator|.
 name|concreteIndex
@@ -1258,7 +1259,6 @@ argument_list|()
 argument_list|,
 operator|-
 literal|1
-argument_list|)
 argument_list|,
 literal|"Timeout waiting for [{}], request: {}"
 argument_list|,

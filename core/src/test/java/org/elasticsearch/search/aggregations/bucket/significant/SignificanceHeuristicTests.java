@@ -150,6 +150,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|SearchShardTarget
@@ -631,6 +643,17 @@ name|SignificantTermsTestSearchContext
 extends|extends
 name|TestSearchContext
 block|{
+DECL|method|SignificantTermsTestSearchContext
+specifier|public
+name|SignificantTermsTestSearchContext
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|numberOfShards
@@ -657,7 +680,13 @@ name|SearchShardTarget
 argument_list|(
 literal|"no node, this is a unit test"
 argument_list|,
+operator|new
+name|Index
+argument_list|(
 literal|"no index, this is a unit test"
+argument_list|,
+literal|"_na_"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -886,7 +915,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -899,7 +928,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|20l
+literal|20L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1238,7 +1267,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|8l
+literal|8L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1259,7 +1288,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|16l
+literal|16L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1280,7 +1309,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1301,7 +1330,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|30l
+literal|30L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1322,7 +1351,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|8l
+literal|8L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1343,7 +1372,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|16l
+literal|16L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1364,7 +1393,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1385,7 +1414,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|30l
+literal|30L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2395,7 +2424,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|200l
+literal|200L
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -309,7 +309,7 @@ name|equals
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|:
@@ -336,7 +336,7 @@ name|equals
 argument_list|(
 name|shardId
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|:
@@ -996,7 +996,7 @@ name|getUsableSpace
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Very rough heurisic of how much disk space we expect the shard will use over its lifetime, the max of current average
+comment|// Very rough heuristic of how much disk space we expect the shard will use over its lifetime, the max of current average
 comment|// shard size across the cluster and 5% of the total available free space on this node:
 name|long
 name|estShardSizeInBytes
@@ -1198,7 +1198,7 @@ expr_stmt|;
 block|}
 comment|// TODO: this is a hack!!  We should instead keep track of incoming (relocated) shards since we know
 comment|// how large they will be once they're done copying, instead of a silly guess for such cases:
-comment|// Very rough heurisic of how much disk space we expect the shard will use over its lifetime, the max of current average
+comment|// Very rough heuristic of how much disk space we expect the shard will use over its lifetime, the max of current average
 comment|// shard size across the cluster and 5% of the total available free space on this node:
 name|long
 name|estShardSizeInBytes

@@ -217,7 +217,10 @@ name|put
 argument_list|(
 name|ClusterModule
 operator|.
-name|SHARDS_ALLOCATOR_TYPE_KEY
+name|SHARDS_ALLOCATOR_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"even_shard"
 argument_list|)
@@ -244,7 +247,10 @@ name|put
 argument_list|(
 name|ClusterModule
 operator|.
-name|SHARDS_ALLOCATOR_TYPE_KEY
+name|SHARDS_ALLOCATOR_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|ClusterModule
 operator|.

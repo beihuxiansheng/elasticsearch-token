@@ -119,7 +119,7 @@ name|o1Index
 init|=
 name|o1
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -128,7 +128,7 @@ name|o2Index
 init|=
 name|o2
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 decl_stmt|;
 name|int
@@ -240,15 +240,13 @@ name|settings
 parameter_list|)
 block|{
 return|return
-name|settings
-operator|.
-name|getAsInt
-argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_PRIORITY
-argument_list|,
-literal|1
+name|INDEX_PRIORITY_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
 argument_list|)
 return|;
 block|}
@@ -271,7 +269,7 @@ operator|.
 name|SETTING_CREATION_DATE
 argument_list|,
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 return|;
 block|}

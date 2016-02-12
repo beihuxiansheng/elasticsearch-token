@@ -433,7 +433,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|10000l
+literal|10000L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -713,7 +713,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|,
 literal|"index"
 argument_list|)

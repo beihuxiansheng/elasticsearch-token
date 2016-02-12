@@ -3995,7 +3995,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Parses the version string lenient and returns the the default value if the given string is null or emtpy      */
+comment|/**      * Parses the version string lenient and returns the default value if the given string is null or emtpy      */
 DECL|method|parseVersionLenient
 specifier|public
 specifier|static

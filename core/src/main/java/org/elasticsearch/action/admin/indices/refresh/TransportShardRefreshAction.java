@@ -58,7 +58,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ReplicationRequest
+name|BasicReplicationRequest
 import|;
 end_import
 
@@ -282,9 +282,9 @@ name|TransportShardRefreshAction
 extends|extends
 name|TransportReplicationAction
 argument_list|<
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|,
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|,
 name|ReplicationResponse
 argument_list|>
@@ -358,11 +358,11 @@ name|actionFilters
 argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
-name|ReplicationRequest
+name|BasicReplicationRequest
 operator|::
 operator|new
 argument_list|,
-name|ReplicationRequest
+name|BasicReplicationRequest
 operator|::
 operator|new
 argument_list|,
@@ -396,18 +396,16 @@ name|Tuple
 argument_list|<
 name|ReplicationResponse
 argument_list|,
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|>
 name|shardOperationOnPrimary
 parameter_list|(
 name|MetaData
 name|metaData
 parameter_list|,
-name|ReplicationRequest
+name|BasicReplicationRequest
 name|shardRequest
 parameter_list|)
-throws|throws
-name|Throwable
 block|{
 name|IndexShard
 name|indexShard
@@ -475,7 +473,7 @@ specifier|protected
 name|void
 name|shardOperationOnReplica
 parameter_list|(
-name|ReplicationRequest
+name|BasicReplicationRequest
 name|request
 parameter_list|)
 block|{

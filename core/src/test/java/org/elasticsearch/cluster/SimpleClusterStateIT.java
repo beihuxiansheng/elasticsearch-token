@@ -289,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Checking simple filtering capabilites of the cluster state  *  */
+comment|/**  * Checking simple filtering capabilities of the cluster state  *  */
 end_comment
 
 begin_class
@@ -893,7 +893,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -908,21 +908,14 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|true
 argument_list|)
 operator|.
 name|endObject

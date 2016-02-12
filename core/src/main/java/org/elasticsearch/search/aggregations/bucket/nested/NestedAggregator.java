@@ -624,7 +624,7 @@ comment|// The aggs are instantiated in reverse, first the most inner nested agg
 comment|// So at the time a nested 'nested' aggs is parsed its closest parent nested aggs hasn't been constructed.
 comment|// So the trick is to set at the last moment just before needed and we can use its child filter as the
 comment|// parent filter.
-comment|// Additional NOTE: Before this logic was performed in the setNextReader(...) method, but the the assumption
+comment|// Additional NOTE: Before this logic was performed in the setNextReader(...) method, but the assumption
 comment|// that aggs instances are constructed in reverse doesn't hold when buckets are constructed lazily during
 comment|// aggs execution
 name|Query

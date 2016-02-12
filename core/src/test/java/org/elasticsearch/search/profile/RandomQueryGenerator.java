@@ -463,6 +463,12 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// fuzzy queries will be removed in 4.0
 DECL|method|randomTerminalQuery
 specifier|private
 specifier|static
@@ -1332,6 +1338,14 @@ return|return
 name|q
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// fuzzy queries will be removed in 4.0
+annotation|@
+name|Deprecated
 DECL|method|randomFuzzyQuery
 specifier|private
 specifier|static

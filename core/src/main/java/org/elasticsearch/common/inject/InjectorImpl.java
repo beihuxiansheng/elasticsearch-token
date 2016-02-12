@@ -2795,7 +2795,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-comment|// this is unforunate. We don't support building TypeLiterals for type variable like 'T'. If
+comment|// this is unfortunate. We don't support building TypeLiterals for type variable like 'T'. If
 comment|// this proves problematic, we can probably fix TypeLiteral to support type variables
 if|if
 condition|(

@@ -108,7 +108,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets to reutrn all the data.      */
+comment|/**      * Sets to return all the data.      */
 DECL|method|all
 specifier|public
 name|NodesInfoRequestBuilder

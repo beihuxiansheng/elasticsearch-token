@@ -352,16 +352,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -2536,7 +2526,7 @@ name|reset
 argument_list|(
 name|shard
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2844,7 +2834,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**          * Allocates all given shards on the minimal eligable node for the shards index          * with respect to the weight function. All given shards must be unassigned.          */
+comment|/**          * Allocates all given shards on the minimal eligible node for the shards index          * with respect to the weight function. All given shards must be unassigned.          */
 DECL|method|allocateUnassigned
 specifier|private
 name|boolean
@@ -2924,25 +2914,12 @@ name|ShardRouting
 argument_list|>
 name|comparator
 init|=
-operator|new
-name|Comparator
-argument_list|<
-name|ShardRouting
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|int
-name|compare
 parameter_list|(
-name|ShardRouting
 name|o1
 parameter_list|,
-name|ShardRouting
 name|o2
 parameter_list|)
+lambda|->
 block|{
 if|if
 condition|(
@@ -2987,14 +2964,14 @@ name|indexCmp
 operator|=
 name|o1
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 operator|.
 name|compareTo
 argument_list|(
 name|o2
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 operator|)
@@ -3041,9 +3018,8 @@ else|:
 name|secondary
 return|;
 block|}
-block|}
 decl_stmt|;
-comment|/*              * we use 2 arrays and move replicas to the second array once we allocated an identical              * replica in the current iteration to make sure all indices get allocated in the same manner.              * The arrays are sorted by primaries first and then by index and shard ID so a 2 indices with 2 replica and 1 shard would look like:              * [(0,P,IDX1), (0,P,IDX2), (0,R,IDX1), (0,R,IDX1), (0,R,IDX2), (0,R,IDX2)]              * if we allocate for instance (0, R, IDX1) we move the second replica to the secondary array and proceed with              * the next replica. If we could not find a node to allocate (0,R,IDX1) we move all it's replicas to ingoreUnassigned.              */
+comment|/*              * we use 2 arrays and move replicas to the second array once we allocated an identical              * replica in the current iteration to make sure all indices get allocated in the same manner.              * The arrays are sorted by primaries first and then by index and shard ID so a 2 indices with 2 replica and 1 shard would look like:              * [(0,P,IDX1), (0,P,IDX2), (0,R,IDX1), (0,R,IDX1), (0,R,IDX2), (0,R,IDX2)]              * if we allocate for instance (0, R, IDX1) we move the second replica to the secondary array and proceed with              * the next replica. If we could not find a node to allocate (0,R,IDX1) we move all it's replicas to ignoreUnassigned.              */
 name|ShardRouting
 index|[]
 name|primary
@@ -3348,7 +3324,7 @@ name|node
 argument_list|,
 name|shard
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3444,6 +3420,9 @@ name|shard
 operator|.
 name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -3456,7 +3435,7 @@ name|highestPrimary
 argument_list|(
 name|shard
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3640,6 +3619,8 @@ name|minNode
 operator|.
 name|getNodeId
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 name|allocation
 operator|.
@@ -3854,7 +3835,7 @@ operator|>
 literal|0
 condition|)
 do|;
-comment|// clear everything we have either added it or moved to ingoreUnassigned
+comment|// clear everything we have either added it or moved to ignoreUnassigned
 return|return
 name|changed
 return|;
@@ -4255,6 +4236,8 @@ operator|.
 name|getNodeId
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
 name|allocation
 operator|.
 name|clusterInfo
@@ -4541,7 +4524,7 @@ name|get
 argument_list|(
 name|shard
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4559,7 +4542,7 @@ name|ModelIndex
 argument_list|(
 name|shard
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4607,7 +4590,7 @@ name|get
 argument_list|(
 name|shard
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4652,7 +4635,7 @@ name|remove
 argument_list|(
 name|shard
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4741,7 +4724,7 @@ name|getIndex
 argument_list|(
 name|shard
 operator|.
-name|getIndex
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;

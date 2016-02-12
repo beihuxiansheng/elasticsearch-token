@@ -94,18 +94,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|InternalTestCluster
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -379,27 +367,15 @@ argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;
-specifier|final
-name|long
-name|seed
-init|=
-name|settings
-operator|.
-name|getAsLong
-argument_list|(
-name|InternalTestCluster
-operator|.
-name|SETTING_CLUSTER_NODE_SEED
-argument_list|,
-literal|0L
-argument_list|)
-decl_stmt|;
+comment|// we always initialize with 0 here since we really only wanna have some random bytes / ints / longs
+comment|// and given the fact that it's called concurrently it won't reproduces anyway the same order other than in a unittest
+comment|// for the latter 0 is just fine
 name|random
 operator|=
 operator|new
 name|Random
 argument_list|(
-name|seed
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

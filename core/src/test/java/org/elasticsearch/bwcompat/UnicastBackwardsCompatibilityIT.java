@@ -59,6 +59,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportSettings
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -107,7 +119,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"transport.tcp.port"
+name|TransportSettings
+operator|.
+name|PORT
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|9380
 operator|+
@@ -154,7 +171,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"transport.tcp.port"
+name|TransportSettings
+operator|.
+name|PORT
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|9390
 operator|+

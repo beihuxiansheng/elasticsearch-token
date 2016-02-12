@@ -1237,6 +1237,16 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// for tee-sinks
+name|put
+argument_list|(
+literal|"daterecognizer"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 decl_stmt|;

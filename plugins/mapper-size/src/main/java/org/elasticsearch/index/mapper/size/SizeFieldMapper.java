@@ -252,7 +252,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -649,7 +649,7 @@ name|builder
 operator|.
 name|enabled
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -704,6 +704,8 @@ name|fieldNode
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|parserContext
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -928,8 +930,10 @@ if|if
 condition|(
 name|context
 operator|.
-name|flyweight
+name|source
 argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return;

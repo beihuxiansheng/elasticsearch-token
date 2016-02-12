@@ -292,7 +292,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -1514,7 +1514,7 @@ condition|)
 block|{
 name|required
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1653,7 +1653,7 @@ condition|)
 block|{
 name|enabled
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
@@ -1714,7 +1714,7 @@ condition|)
 block|{
 name|ignoreMissing
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)

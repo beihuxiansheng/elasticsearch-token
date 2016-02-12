@@ -119,26 +119,6 @@ name|waitIfOngoing
 init|=
 literal|false
 decl_stmt|;
-DECL|method|FlushRequest
-specifier|public
-name|FlushRequest
-parameter_list|()
-block|{     }
-comment|/**      * Copy constructor that creates a new flush request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
-DECL|method|FlushRequest
-specifier|public
-name|FlushRequest
-parameter_list|(
-name|ActionRequest
-name|originalRequest
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|originalRequest
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Constructs a new flush request against one or more indices. If nothing is provided, all indices will      * be flushed.      */
 DECL|method|FlushRequest
 specifier|public

@@ -148,24 +148,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|decider
-operator|.
-name|FilterAllocationDecider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|logging
@@ -1497,10 +1479,10 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2922,10 +2904,10 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5791,10 +5773,10 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|anyOf
@@ -8469,6 +8451,9 @@ name|next
 operator|.
 name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -9680,9 +9665,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|FilterAllocationDecider
+name|IndexMetaData
 operator|.
-name|INDEX_ROUTING_EXCLUDE_GROUP
+name|INDEX_ROUTING_EXCLUDE_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"_id"
 argument_list|,
@@ -9704,7 +9692,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-comment|// we use a second index here (test1) that never gets assigned otherwise allocateUnassinged is never called if we don't have unassigned shards.
+comment|// we use a second index here (test1) that never gets assigned otherwise allocateUnassigned is never called if we don't have unassigned shards.
 name|RoutingTable
 name|routingTable
 init|=

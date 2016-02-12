@@ -36,20 +36,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|GeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -265,6 +251,24 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoHashUtils
+operator|.
+name|addNeighbors
 import|;
 end_import
 
@@ -1449,8 +1453,6 @@ argument_list|(
 literal|"ezs42e"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"ezs42e"
@@ -1625,8 +1627,6 @@ argument_list|(
 literal|"wh0n94"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"wh0n94"
@@ -1844,8 +1844,6 @@ argument_list|(
 literal|"w"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"w"
@@ -1862,8 +1860,6 @@ argument_list|(
 literal|"wh"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"wh"
@@ -1880,8 +1876,6 @@ argument_list|(
 literal|"wh0"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"wh0"
@@ -2160,8 +2154,6 @@ argument_list|(
 literal|"w"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"w"
@@ -2178,8 +2170,6 @@ argument_list|(
 literal|"wh"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"wh"
@@ -2196,8 +2186,6 @@ argument_list|(
 literal|"wh0"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"wh0"
@@ -2232,8 +2220,6 @@ argument_list|(
 literal|"w5cx0"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"w5cx0"
@@ -2521,8 +2507,6 @@ argument_list|(
 literal|"w"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"w"
@@ -2539,8 +2523,6 @@ argument_list|(
 literal|"wh"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"wh"
@@ -2568,8 +2550,6 @@ argument_list|(
 literal|"w5cx04"
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 literal|"w5cx04"

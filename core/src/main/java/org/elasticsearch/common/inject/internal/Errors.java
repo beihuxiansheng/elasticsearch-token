@@ -240,16 +240,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|StringWriter
 import|;
 end_import
@@ -428,8 +418,6 @@ specifier|public
 specifier|final
 class|class
 name|Errors
-implements|implements
-name|Serializable
 block|{
 comment|/**      * The root errors object. Used to access the list of error messages.      */
 DECL|field|root

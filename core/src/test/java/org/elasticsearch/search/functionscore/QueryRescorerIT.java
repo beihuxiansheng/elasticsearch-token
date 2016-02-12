@@ -268,9 +268,21 @@ name|search
 operator|.
 name|rescore
 operator|.
-name|RescoreBuilder
+name|QueryRescoreMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|QueryRescorer
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|rescore
+operator|.
+name|QueryRescorerBuilder
 import|;
 end_import
 
@@ -1077,7 +1089,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5087,7 +5099,7 @@ name|innerMode
 operator|++
 control|)
 block|{
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|innerRescoreQuery
 init|=
 name|RescoreBuilder
@@ -5137,10 +5149,15 @@ name|innerRescoreQuery
 operator|.
 name|setScoreMode
 argument_list|(
+name|QueryRescoreMode
+operator|.
+name|fromString
+argument_list|(
 name|scoreModes
 index|[
 name|innerMode
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5294,7 +5311,7 @@ name|outerMode
 operator|++
 control|)
 block|{
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|outerRescoreQuery
 init|=
 name|RescoreBuilder
@@ -5344,10 +5361,15 @@ name|outerRescoreQuery
 operator|.
 name|setScoreMode
 argument_list|(
+name|QueryRescoreMode
+operator|.
+name|fromString
+argument_list|(
 name|scoreModes
 index|[
 name|outerMode
 index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5395,8 +5417,11 @@ operator|.
 name|addRescorer
 argument_list|(
 name|outerRescoreQuery
-argument_list|,
+operator|.
+name|windowSize
+argument_list|(
 literal|10
+argument_list|)
 argument_list|)
 operator|.
 name|setExplain
@@ -5638,7 +5663,7 @@ literal|3
 argument_list|)
 block|}
 decl_stmt|;
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|rescoreQuery
 init|=
 name|RescoreBuilder
@@ -5783,7 +5808,12 @@ name|rescoreQuery
 operator|.
 name|setScoreMode
 argument_list|(
+name|QueryRescoreMode
+operator|.
+name|fromString
+argument_list|(
 name|scoreMode
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -6839,7 +6869,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|eightIsGreat
 init|=
 name|RescoreBuilder
@@ -6882,10 +6912,12 @@ argument_list|)
 operator|.
 name|setScoreMode
 argument_list|(
-literal|"total"
+name|QueryRescoreMode
+operator|.
+name|Total
 argument_list|)
 decl_stmt|;
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|sevenIsBetter
 init|=
 name|RescoreBuilder
@@ -6928,7 +6960,9 @@ argument_list|)
 operator|.
 name|setScoreMode
 argument_list|(
-literal|"total"
+name|QueryRescoreMode
+operator|.
+name|Total
 argument_list|)
 decl_stmt|;
 comment|// First set the rescore window large enough that both rescores take effect
@@ -7027,7 +7061,7 @@ argument_list|)
 expr_stmt|;
 comment|// We have no idea what the second hit will be because we didn't get a chance to look for seven
 comment|// Now use one rescore to drag the number we're looking for into the window of another
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|ninetyIsGood
 init|=
 name|RescoreBuilder
@@ -7063,10 +7097,12 @@ argument_list|)
 operator|.
 name|setScoreMode
 argument_list|(
-literal|"total"
+name|QueryRescoreMode
+operator|.
+name|Total
 argument_list|)
 decl_stmt|;
-name|QueryRescorer
+name|QueryRescorerBuilder
 name|oneToo
 init|=
 name|RescoreBuilder
@@ -7102,7 +7138,9 @@ argument_list|)
 operator|.
 name|setScoreMode
 argument_list|(
-literal|"total"
+name|QueryRescoreMode
+operator|.
+name|Total
 argument_list|)
 decl_stmt|;
 name|request

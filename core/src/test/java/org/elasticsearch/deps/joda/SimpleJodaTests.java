@@ -450,7 +450,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -584,7 +584,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -603,7 +603,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -622,7 +622,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -641,7 +641,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -660,7 +660,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -679,7 +679,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -698,7 +698,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -791,7 +791,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -826,7 +826,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -858,7 +858,7 @@ name|millis
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2533,7 +2533,7 @@ literal|10
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// only check the last digit, as seconds go from 0-99 in the unix timestamp and dont stop at 60
+comment|// only check the last digit, as seconds go from 0-99 in the unix timestamp and don't stop at 60
 name|assertThat
 argument_list|(
 name|buffer
@@ -2662,7 +2662,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|1234567890123l
+literal|1234567890123L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2687,7 +2687,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|1234567890456l
+literal|1234567890456L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2712,7 +2712,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|1234567890789l
+literal|1234567890789L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2748,7 +2748,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|1234567890000l
+literal|1234567890000L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2773,7 +2773,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|1234567890000l
+literal|1234567890000L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2798,7 +2798,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|1234567890000l
+literal|1234567890000L
 argument_list|)
 argument_list|)
 expr_stmt|;

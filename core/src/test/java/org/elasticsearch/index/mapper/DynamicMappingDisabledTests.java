@@ -428,6 +428,9 @@ argument_list|(
 name|MapperService
 operator|.
 name|INDEX_MAPPER_DYNAMIC_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -494,6 +497,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|THREAD_POOL
 argument_list|)
 expr_stmt|;
 name|actionFilters

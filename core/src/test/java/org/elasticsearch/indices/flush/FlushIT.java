@@ -208,9 +208,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|Engine
+name|Index
 import|;
 end_import
 
@@ -222,9 +220,21 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|IndexShard
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|Engine
 import|;
 end_import
 
@@ -251,22 +261,6 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
 import|;
 end_import
 
@@ -561,7 +555,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// dont' use assertAllSuccesssful it uses a randomized context that belongs to a different thread
+comment|// don't use assertAllSuccessful it uses a randomized context that belongs to a different thread
 name|assertThat
 argument_list|(
 literal|"Unexpected ShardFailures: "
@@ -648,11 +642,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"indices:TRACE"
-argument_list|)
 DECL|method|testSyncedFlush
 specifier|public
 name|void
@@ -693,6 +682,39 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
+specifier|final
+name|Index
+name|index
+init|=
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareState
+argument_list|()
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getState
+argument_list|()
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|index
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|getIndex
+argument_list|()
+decl_stmt|;
 name|IndexStats
 name|indexStats
 init|=
@@ -776,7 +798,7 @@ argument_list|,
 operator|new
 name|ShardId
 argument_list|(
-literal|"test"
+name|index
 argument_list|,
 literal|0
 argument_list|)
@@ -1051,13 +1073,9 @@ argument_list|(
 operator|new
 name|MoveAllocationCommand
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
 literal|"test"
 argument_list|,
 literal|0
-argument_list|)
 argument_list|,
 name|currentNodeName
 argument_list|,
@@ -1385,9 +1403,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndexShard
+name|IndexSettings
 operator|.
-name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE
+name|INDEX_TRANSLOG_FLUSH_THRESHOLD_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 operator|new
 name|ByteSizeValue

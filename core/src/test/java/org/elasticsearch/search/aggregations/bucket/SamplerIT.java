@@ -473,7 +473,7 @@ literal|"book"
 argument_list|,
 literal|"author"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"name"
 argument_list|,
@@ -481,7 +481,7 @@ literal|"type=string,index=analyzed"
 argument_list|,
 literal|"genre"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"price"
 argument_list|,
@@ -523,7 +523,7 @@ literal|"type=string,index=analyzed"
 argument_list|,
 literal|"genre"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"price"
 argument_list|,
@@ -1116,7 +1116,7 @@ name|maxBooksPerAuthor
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1915,7 +1915,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2071,7 +2071,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2234,7 +2234,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2409,7 +2409,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

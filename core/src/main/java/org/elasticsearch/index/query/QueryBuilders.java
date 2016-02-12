@@ -144,12 +144,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|terms
-operator|.
 name|TermsLookup
 import|;
 end_import
@@ -620,7 +614,9 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      */
+comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      *      * @deprecated Fuzzy queries are not useful enough and will be removed with Elasticsearch 4.0. In most cases you may want to use      * a match query with the fuzziness parameter for strings or range queries for numeric and date fields.      *      * @see #matchQuery(String, Object)      * @see #rangeQuery(String)      */
+annotation|@
+name|Deprecated
 DECL|method|fuzzyQuery
 specifier|public
 specifier|static
@@ -644,7 +640,9 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      */
+comment|/**      * A Query that matches documents using fuzzy query.      *      * @param name  The name of the field      * @param value The value of the term      *      * @deprecated Fuzzy queries are not useful enough and will be removed with Elasticsearch 4.0. In most cases you may want to use      * a match query with the fuzziness parameter for strings or range queries for numeric and date fields.      *      * @see #matchQuery(String, Object)      * @see #rangeQuery(String)      */
+annotation|@
+name|Deprecated
 DECL|method|fuzzyQuery
 specifier|public
 specifier|static
@@ -1412,6 +1410,30 @@ name|query
 argument_list|)
 return|;
 block|}
+comment|/**      * Constructs a new parent id query that returns all child documents of the specified type that      * point to the specified id.      */
+DECL|method|parentId
+specifier|public
+specifier|static
+name|ParentIdQueryBuilder
+name|parentId
+parameter_list|(
+name|String
+name|type
+parameter_list|,
+name|String
+name|id
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ParentIdQueryBuilder
+argument_list|(
+name|type
+argument_list|,
+name|id
+argument_list|)
+return|;
+block|}
 DECL|method|nestedQuery
 specifier|public
 specifier|static
@@ -1737,9 +1759,23 @@ return|return
 operator|new
 name|TemplateQueryBuilder
 argument_list|(
+operator|new
+name|Template
+argument_list|(
 name|template
 argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|vars
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1771,11 +1807,19 @@ return|return
 operator|new
 name|TemplateQueryBuilder
 argument_list|(
+operator|new
+name|Template
+argument_list|(
 name|template
 argument_list|,
 name|templateType
 argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|vars
+argument_list|)
 argument_list|)
 return|;
 block|}

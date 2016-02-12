@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TerminalAppender logs event to Terminal.DEFAULT. It is used for example by the PluginManagerCliParser.  * */
+comment|/**  * TerminalAppender logs event to Terminal.DEFAULT. It is used for example by the PluginCli.  * */
 end_comment
 
 begin_class

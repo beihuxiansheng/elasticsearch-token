@@ -167,9 +167,12 @@ decl_stmt|;
 DECL|field|queries
 specifier|private
 specifier|final
-name|ArrayList
+name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|queries
 init|=
@@ -211,6 +214,9 @@ name|DisMaxQueryBuilder
 name|add
 parameter_list|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -246,6 +252,9 @@ specifier|public
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|innerQueries
 parameter_list|()
@@ -341,6 +350,9 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|queryBuilder
 range|:
 name|queries
@@ -444,6 +456,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|queryBuilders
 init|=

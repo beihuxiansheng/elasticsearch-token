@@ -126,6 +126,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|cli
+operator|.
+name|UserError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -155,6 +169,16 @@ operator|.
 name|jvm
 operator|.
 name|JvmInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
 import|;
 end_import
 
@@ -195,6 +219,16 @@ operator|.
 name|util
 operator|.
 name|Properties
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -464,8 +498,8 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-literal|"Version: %s, Build: %s/%s, JVM: %s"
-argument_list|,
+literal|"Version: "
+operator|+
 name|org
 operator|.
 name|elasticsearch
@@ -473,21 +507,27 @@ operator|.
 name|Version
 operator|.
 name|CURRENT
-argument_list|,
+operator|+
+literal|", Build: "
+operator|+
 name|Build
 operator|.
 name|CURRENT
 operator|.
 name|shortHash
 argument_list|()
-argument_list|,
+operator|+
+literal|"/"
+operator|+
 name|Build
 operator|.
 name|CURRENT
 operator|.
 name|date
 argument_list|()
-argument_list|,
+operator|+
+literal|", JVM: "
+operator|+
 name|JvmInfo
 operator|.
 name|jvmInfo
@@ -645,6 +685,8 @@ parameter_list|,
 name|CommandLine
 name|cli
 parameter_list|)
+throws|throws
+name|UserError
 block|{
 if|if
 condition|(
@@ -815,6 +857,20 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|properties
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
 while|while
 condition|(
 name|iterator
@@ -868,8 +924,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -882,8 +942,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -944,9 +1008,9 @@ index|[
 literal|1
 index|]
 decl_stmt|;
-name|System
+name|properties
 operator|.
-name|setProperty
+name|put
 argument_list|(
 literal|"es."
 operator|+
@@ -986,8 +1050,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -996,9 +1064,9 @@ literal|"] needs value"
 argument_list|)
 throw|;
 block|}
-name|System
+name|properties
 operator|.
-name|setProperty
+name|put
 argument_list|(
 literal|"es."
 operator|+
@@ -1012,8 +1080,12 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UserError
 argument_list|(
+name|ExitStatus
+operator|.
+name|USAGE
+argument_list|,
 literal|"Parameter ["
 operator|+
 name|arg
@@ -1023,6 +1095,40 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|entry
+range|:
+name|properties
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 operator|new

@@ -822,7 +822,10 @@ name|searchFilter
 argument_list|(
 name|context
 operator|.
-name|types
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|getTypes
 argument_list|()
 argument_list|)
 decl_stmt|;

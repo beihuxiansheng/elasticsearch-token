@@ -360,6 +360,9 @@ argument_list|(
 literal|"using [{}] with [{}]"
 argument_list|,
 name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|type
 operator|.

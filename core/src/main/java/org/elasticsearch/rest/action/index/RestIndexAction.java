@@ -290,8 +290,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|controller
-argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
@@ -389,8 +387,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
 argument_list|,
 name|client
 argument_list|)
@@ -549,6 +545,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|indexRequest
+operator|.
+name|setPipeline
+argument_list|(
+name|request
+operator|.
+name|param
+argument_list|(
+literal|"pipeline"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|indexRequest
 operator|.
 name|source

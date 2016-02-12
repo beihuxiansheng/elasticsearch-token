@@ -98,6 +98,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|ESRestTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|internal
@@ -267,22 +281,6 @@ operator|.
 name|ESRestTestCase
 operator|.
 name|REST_TESTS_SUITE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|ESRestTestCase
-operator|.
-name|Rest
 import|;
 end_import
 
@@ -462,6 +460,12 @@ expr_stmt|;
 comment|//Rest tests are a special case as they allow for additional parameters
 if|if
 condition|(
+name|ESRestTestCase
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
 name|failure
 operator|.
 name|getDescription
@@ -469,12 +473,6 @@ argument_list|()
 operator|.
 name|getTestClass
 argument_list|()
-operator|.
-name|isAnnotationPresent
-argument_list|(
-name|Rest
-operator|.
-name|class
 argument_list|)
 condition|)
 block|{
@@ -773,7 +771,7 @@ operator|.
 name|getDefault
 argument_list|()
 operator|.
-name|toString
+name|toLanguageTag
 argument_list|()
 argument_list|)
 expr_stmt|;

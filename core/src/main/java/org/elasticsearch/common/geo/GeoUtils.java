@@ -62,20 +62,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|GeoDistanceUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|SloppyMath
 import|;
 end_import
@@ -147,6 +133,24 @@ operator|.
 name|geo
 operator|.
 name|GeoPointFieldMapper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoDistanceUtils
+operator|.
+name|maxRadialDistanceMeters
 import|;
 end_import
 
@@ -344,8 +348,6 @@ specifier|final
 name|double
 name|maxRadius
 init|=
-name|GeoDistanceUtils
-operator|.
 name|maxRadialDistanceMeters
 argument_list|(
 name|center
@@ -838,7 +840,7 @@ operator|(
 name|part
 operator|<=
 operator|(
-literal|1l
+literal|1L
 operator|<<
 name|level
 operator|)

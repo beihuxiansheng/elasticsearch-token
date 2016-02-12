@@ -18,43 +18,35 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|ibm
+name|io
 operator|.
-name|icu
-operator|.
-name|text
-operator|.
-name|Collator
+name|IOException
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|ibm
+name|nio
 operator|.
-name|icu
+name|charset
 operator|.
-name|text
-operator|.
-name|RuleBasedCollator
+name|Charset
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|ibm
+name|nio
 operator|.
-name|icu
+name|file
 operator|.
-name|util
-operator|.
-name|ULocale
+name|Files
 import|;
 end_import
 
@@ -126,35 +118,43 @@ end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|ibm
 operator|.
-name|IOException
+name|icu
+operator|.
+name|text
+operator|.
+name|Collator
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|nio
+name|ibm
 operator|.
-name|charset
+name|icu
 operator|.
-name|Charset
+name|text
+operator|.
+name|RuleBasedCollator
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|nio
+name|ibm
 operator|.
-name|file
+name|icu
 operator|.
-name|Files
+name|util
+operator|.
+name|ULocale
 import|;
 end_import
 
@@ -176,6 +176,12 @@ specifier|final
 name|Collator
 name|collator
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// Intentionally sets deprecated options for backwards compatibility
 DECL|method|IcuCollationTokenFilterFactory
 specifier|public
 name|IcuCollationTokenFilterFactory
@@ -900,6 +906,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// Constructs a deprecated filter for backwards compatibility
 DECL|method|create
 specifier|public
 name|TokenStream

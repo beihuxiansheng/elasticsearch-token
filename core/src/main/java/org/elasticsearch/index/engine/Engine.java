@@ -250,6 +250,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Accountable
@@ -2406,12 +2420,12 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** How much heap Lucene's IndexWriter is using */
-DECL|method|indexWriterRAMBytesUsed
+comment|/** How much heap is used that would be freed by a refresh.  Note that this may throw {@link AlreadyClosedException}. */
+DECL|method|getIndexBufferRAMBytesUsed
 specifier|abstract
 specifier|public
 name|long
-name|indexWriterRAMBytesUsed
+name|getIndexBufferRAMBytesUsed
 parameter_list|()
 function_decl|;
 DECL|method|getSegmentInfo
@@ -2987,7 +3001,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Refreshes the engine for new search operations to reflect the latest      * changes.      */
+comment|/**      * Synchronously refreshes the engine for new search operations to reflect the latest      * changes.      */
 DECL|method|refresh
 specifier|public
 specifier|abstract
@@ -2997,6 +3011,17 @@ parameter_list|(
 name|String
 name|source
 parameter_list|)
+throws|throws
+name|EngineException
+function_decl|;
+comment|/**      * Called when our engine is using too much heap and should move buffered indexed/deleted documents to disk.      */
+comment|// NOTE: do NOT rename this to something containing flush or refresh!
+DECL|method|writeIndexingBuffer
+specifier|public
+specifier|abstract
+name|void
+name|writeIndexingBuffer
+parameter_list|()
 throws|throws
 name|EngineException
 function_decl|;
@@ -5485,6 +5510,22 @@ name|isTopLevelReader
 parameter_list|)
 function_decl|;
 block|}
+comment|/**      * Request that this engine throttle incoming indexing requests to one thread.  Must be matched by a later call to {@link deactivateThrottling}.      */
+DECL|method|activateThrottling
+specifier|public
+specifier|abstract
+name|void
+name|activateThrottling
+parameter_list|()
+function_decl|;
+comment|/**      * Reverses a previous {@link #activateThrottling} call.      */
+DECL|method|deactivateThrottling
+specifier|public
+specifier|abstract
+name|void
+name|deactivateThrottling
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

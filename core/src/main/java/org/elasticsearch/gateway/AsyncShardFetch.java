@@ -1011,7 +1011,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Called by the response handler of the async action to fetch data. Verifies that its still working      * on the same cache generation, otherwise the results are discarded. It then goes and fills the relevant data for      * the shard (response + failures), issueing a reroute at the end of it to make sure there will be another round      * of allocations taking this new data into account.      */
+comment|/**      * Called by the response handler of the async action to fetch data. Verifies that its still working      * on the same cache generation, otherwise the results are discarded. It then goes and fills the relevant data for      * the shard (response + failures), issuing a reroute at the end of it to make sure there will be another round      * of allocations taking this new data into account.      */
 DECL|method|processAsyncFetch
 specifier|protected
 specifier|synchronized

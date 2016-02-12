@@ -298,22 +298,6 @@ name|unmodifiableMap
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|doc
-import|;
-end_import
-
 begin_class
 DECL|class|DocumentMapperParser
 specifier|public
@@ -329,22 +313,6 @@ DECL|field|analysisService
 specifier|final
 name|AnalysisService
 name|analysisService
-decl_stmt|;
-DECL|field|logger
-specifier|private
-specifier|static
-specifier|final
-name|ESLogger
-name|logger
-init|=
-name|Loggers
-operator|.
-name|getLogger
-argument_list|(
-name|DocumentMapperParser
-operator|.
-name|class
-argument_list|)
 decl_stmt|;
 DECL|field|similarityService
 specifier|private
@@ -810,7 +778,10 @@ operator|.
 name|Builder
 name|docBuilder
 init|=
-name|doc
+operator|new
+name|DocumentMapper
+operator|.
+name|Builder
 argument_list|(
 operator|(
 name|RootObjectMapper

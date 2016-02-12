@@ -107,15 +107,6 @@ name|ClassPermission
 extends|extends
 name|BasicPermission
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|3530711429252193884L
-decl_stmt|;
 DECL|field|STANDARD
 specifier|public
 specifier|static
@@ -437,7 +428,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|/**      * Creates a new ClassPermission object.      *       * @param name class to grant permission to      */
+comment|/**      * Creates a new ClassPermission object.      *      * @param name class to grant permission to      */
 DECL|method|ClassPermission
 specifier|public
 name|ClassPermission
@@ -452,7 +443,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new ClassPermission object.      * This constructor exists for use by the {@code Policy} object to instantiate new Permission objects.      *       * @param name class to grant permission to      * @param actions ignored      */
+comment|/**      * Creates a new ClassPermission object.      * This constructor exists for use by the {@code Policy} object to instantiate new Permission objects.      *      * @param name class to grant permission to      * @param actions ignored      */
 DECL|method|ClassPermission
 specifier|public
 name|ClassPermission
@@ -562,14 +553,6 @@ operator|new
 name|PermissionCollection
 argument_list|()
 block|{
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|6792220143549780002L
-decl_stmt|;
 annotation|@
 name|Override
 specifier|public

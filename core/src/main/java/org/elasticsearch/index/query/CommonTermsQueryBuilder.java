@@ -615,7 +615,7 @@ operator|.
 name|cutoffFrequency
 return|;
 block|}
-comment|/**      * Sets the minimum number of high frequent query terms that need to match in order to      * produce a hit when there are no low frequen terms.      */
+comment|/**      * Sets the minimum number of high frequent query terms that need to match in order to      * produce a hit when there are no low frequent terms.      */
 DECL|method|highFreqMinimumShouldMatch
 specifier|public
 name|CommonTermsQueryBuilder

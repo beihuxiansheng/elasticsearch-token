@@ -32,14 +32,8 @@ parameter_list|,
 name|String
 name|description
 parameter_list|,
-name|boolean
-name|site
-parameter_list|,
 name|String
 name|version
-parameter_list|,
-name|boolean
-name|jvm
 parameter_list|,
 name|String
 name|classname
@@ -54,11 +48,7 @@ name|name
 argument_list|,
 name|description
 argument_list|,
-name|site
-argument_list|,
 name|version
-argument_list|,
-name|jvm
 argument_list|,
 name|classname
 argument_list|,
@@ -80,11 +70,7 @@ literal|"dummy_plugin_name"
 argument_list|,
 literal|"dummy plugin description"
 argument_list|,
-literal|true
-argument_list|,
 literal|"dummy_plugin_version"
-argument_list|,
-literal|true
 argument_list|,
 literal|"DummyPluginName"
 argument_list|,

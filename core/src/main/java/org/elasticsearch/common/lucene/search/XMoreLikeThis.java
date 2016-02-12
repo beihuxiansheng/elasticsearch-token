@@ -1382,10 +1382,14 @@ block|}
 block|}
 comment|// term selection is per field, then appended to a single boolean query
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -1460,6 +1464,9 @@ expr_stmt|;
 block|}
 return|return
 name|bq
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 comment|/**      * Create the More like query from a PriorityQueue      */
@@ -1476,10 +1483,14 @@ name|q
 parameter_list|)
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|addToQuery
@@ -1491,6 +1502,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|query
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 comment|/**      * Add to an existing boolean query the More Like This query from this PriorityQueue      */
@@ -1506,6 +1520,8 @@ argument_list|>
 name|q
 parameter_list|,
 name|BooleanQuery
+operator|.
+name|Builder
 name|query
 parameter_list|)
 block|{
