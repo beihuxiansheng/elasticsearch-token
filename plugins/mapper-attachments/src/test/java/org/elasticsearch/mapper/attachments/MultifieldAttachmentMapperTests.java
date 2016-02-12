@@ -176,6 +176,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|TextFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -391,7 +407,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -411,7 +427,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -451,7 +467,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -471,7 +487,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -491,7 +507,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -511,7 +527,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -531,7 +547,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -551,7 +567,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -571,7 +587,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -591,7 +607,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -611,7 +627,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -631,7 +647,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -651,7 +667,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)

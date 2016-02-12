@@ -5496,7 +5496,7 @@ name|setSource
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"type=string,analyzer=keyword"
+literal|"type=text,analyzer=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5753,7 +5753,7 @@ name|setSource
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets_payloads"
+literal|"type=text,term_vector=with_positions_offsets_payloads"
 argument_list|)
 operator|.
 name|get

@@ -196,7 +196,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -899,12 +899,12 @@ name|mapperParsers
 operator|.
 name|put
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|CONTENT_TYPE
 argument_list|,
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|TypeParser
 argument_list|()
@@ -1030,7 +1030,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -1460,12 +1460,12 @@ name|mapperParsers
 operator|.
 name|put
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|CONTENT_TYPE
 argument_list|,
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|TypeParser
 argument_list|()
@@ -1576,7 +1576,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject
@@ -1610,7 +1610,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1631,7 +1631,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject

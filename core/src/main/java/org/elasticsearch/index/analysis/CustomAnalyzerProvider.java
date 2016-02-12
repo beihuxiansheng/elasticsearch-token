@@ -64,7 +64,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -364,7 +364,7 @@ block|}
 name|int
 name|positionIncrementGap
 init|=
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Defaults
 operator|.
