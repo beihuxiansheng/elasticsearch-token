@@ -1398,7 +1398,7 @@ argument_list|(
 name|boolQuery
 argument_list|()
 operator|.
-name|filter
+name|must
 argument_list|(
 name|termQuery
 argument_list|(
@@ -1482,7 +1482,7 @@ argument_list|(
 name|boolQuery
 argument_list|()
 operator|.
-name|filter
+name|must
 argument_list|(
 name|termQuery
 argument_list|(
@@ -1600,7 +1600,7 @@ operator|new
 name|BoolQueryBuilder
 argument_list|()
 operator|.
-name|filter
+name|must
 argument_list|(
 operator|new
 name|MatchAllQueryBuilder
@@ -1780,7 +1780,7 @@ name|BooleanClause
 operator|.
 name|Occur
 operator|.
-name|FILTER
+name|MUST
 argument_list|)
 argument_list|)
 expr_stmt|;
