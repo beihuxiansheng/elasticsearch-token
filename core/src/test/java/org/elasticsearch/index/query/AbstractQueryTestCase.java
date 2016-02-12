@@ -3697,14 +3697,12 @@ operator|.
 name|parseInnerQueryBuilder
 argument_list|()
 decl_stmt|;
-name|assertTrue
+name|assertNull
 argument_list|(
 name|parser
 operator|.
 name|nextToken
 argument_list|()
-operator|==
-literal|null
 argument_list|)
 expr_stmt|;
 return|return
