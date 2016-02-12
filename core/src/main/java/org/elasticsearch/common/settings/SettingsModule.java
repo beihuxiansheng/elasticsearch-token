@@ -601,6 +601,8 @@ name|contains
 argument_list|(
 name|filter
 argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 name|registerSettingsFilter
