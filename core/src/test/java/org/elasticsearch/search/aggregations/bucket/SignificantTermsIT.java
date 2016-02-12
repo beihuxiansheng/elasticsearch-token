@@ -625,7 +625,7 @@ literal|"required=true"
 argument_list|,
 literal|"routing_id"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"fact_category"
 argument_list|,

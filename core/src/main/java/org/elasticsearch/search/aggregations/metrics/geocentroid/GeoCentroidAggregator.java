@@ -42,9 +42,11 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
-name|GeoUtils
+name|GeoEncodingUtils
 import|;
 end_import
 
@@ -811,7 +813,7 @@ name|set
 argument_list|(
 name|bucket
 argument_list|,
-name|GeoUtils
+name|GeoEncodingUtils
 operator|.
 name|mortonHash
 argument_list|(

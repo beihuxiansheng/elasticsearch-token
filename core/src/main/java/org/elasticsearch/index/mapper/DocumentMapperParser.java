@@ -298,22 +298,6 @@ name|unmodifiableMap
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|doc
-import|;
-end_import
-
 begin_class
 DECL|class|DocumentMapperParser
 specifier|public
@@ -794,7 +778,10 @@ operator|.
 name|Builder
 name|docBuilder
 init|=
-name|doc
+operator|new
+name|DocumentMapper
+operator|.
+name|Builder
 argument_list|(
 operator|(
 name|RootObjectMapper

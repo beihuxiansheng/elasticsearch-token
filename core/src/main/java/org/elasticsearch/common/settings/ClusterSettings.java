@@ -712,10 +712,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
 name|IndicesQueryCache
 import|;
 end_import
@@ -727,10 +723,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|cache
-operator|.
-name|request
 operator|.
 name|IndicesRequestCache
 import|;
@@ -2155,7 +2147,7 @@ name|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
 argument_list|,
 name|IndicesService
 operator|.
-name|INDICES_FIELDDATA_CLEAN_INTERVAL_SETTING
+name|INDICES_CACHE_CLEAN_INTERVAL_SETTING
 argument_list|,
 name|IndicesFieldDataCache
 operator|.
@@ -2168,10 +2160,6 @@ argument_list|,
 name|IndicesRequestCache
 operator|.
 name|INDICES_CACHE_QUERY_EXPIRE
-argument_list|,
-name|IndicesRequestCache
-operator|.
-name|INDICES_CACHE_REQUEST_CLEAN_INTERVAL
 argument_list|,
 name|HunspellService
 operator|.
@@ -2504,10 +2492,6 @@ argument_list|,
 name|PluginsService
 operator|.
 name|MANDATORY_SETTING
-argument_list|,
-name|BootstrapSettings
-operator|.
-name|SECURITY_MANAGER_ENABLED_SETTING
 argument_list|,
 name|BootstrapSettings
 operator|.

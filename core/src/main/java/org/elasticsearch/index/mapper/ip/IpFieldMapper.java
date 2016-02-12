@@ -520,22 +520,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperBuilders
-operator|.
-name|ipField
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|core
 operator|.
 name|TypeParsers
@@ -1084,7 +1068,8 @@ operator|.
 name|Builder
 name|builder
 init|=
-name|ipField
+operator|new
+name|Builder
 argument_list|(
 name|name
 argument_list|)

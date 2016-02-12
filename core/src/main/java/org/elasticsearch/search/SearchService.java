@@ -504,10 +504,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|request
-operator|.
 name|IndicesRequestCache
 import|;
 end_import
@@ -1330,12 +1326,6 @@ specifier|final
 name|FetchPhase
 name|fetchPhase
 decl_stmt|;
-DECL|field|indicesQueryCache
-specifier|private
-specifier|final
-name|IndicesRequestCache
-name|indicesQueryCache
-decl_stmt|;
 DECL|field|defaultKeepAlive
 specifier|private
 specifier|final
@@ -1520,15 +1510,6 @@ operator|.
 name|fetchPhase
 operator|=
 name|fetchPhase
-expr_stmt|;
-name|this
-operator|.
-name|indicesQueryCache
-operator|=
-name|indicesService
-operator|.
-name|getIndicesRequestCache
-argument_list|()
 expr_stmt|;
 name|TimeValue
 name|keepAliveInterval
@@ -1975,7 +1956,7 @@ specifier|final
 name|boolean
 name|canCache
 init|=
-name|indicesQueryCache
+name|indicesService
 operator|.
 name|canCache
 argument_list|(
@@ -1989,7 +1970,7 @@ condition|(
 name|canCache
 condition|)
 block|{
-name|indicesQueryCache
+name|indicesService
 operator|.
 name|loadIntoContext
 argument_list|(

@@ -469,7 +469,7 @@ literal|"book"
 argument_list|,
 literal|"author"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"name"
 argument_list|,
@@ -477,7 +477,7 @@ literal|"type=string,index=analyzed"
 argument_list|,
 literal|"genre"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"price"
 argument_list|,
@@ -519,7 +519,7 @@ literal|"type=string,index=analyzed"
 argument_list|,
 literal|"genre"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"price"
 argument_list|,

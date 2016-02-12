@@ -394,22 +394,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperBuilders
-operator|.
-name|stringField
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|core
 operator|.
 name|TypeParsers
@@ -645,7 +629,10 @@ name|this
 operator|.
 name|stringBuilder
 operator|=
-name|stringField
+operator|new
+name|StringFieldMapper
+operator|.
+name|Builder
 argument_list|(
 name|name
 argument_list|)

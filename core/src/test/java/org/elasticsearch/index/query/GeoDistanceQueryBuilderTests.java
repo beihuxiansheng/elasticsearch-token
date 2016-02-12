@@ -38,6 +38,10 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
+name|geopoint
+operator|.
 name|search
 operator|.
 name|GeoPointDistanceQuery
@@ -66,9 +70,11 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
-name|GeoUtils
+name|GeoEncodingUtils
 import|;
 end_import
 
@@ -1267,7 +1273,7 @@ name|closeTo
 argument_list|(
 name|distance
 argument_list|,
-name|GeoUtils
+name|GeoEncodingUtils
 operator|.
 name|TOLERANCE
 argument_list|)

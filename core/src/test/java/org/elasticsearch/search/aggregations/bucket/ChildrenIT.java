@@ -4147,11 +4147,11 @@ literal|"parentType"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"town"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|addMapping
@@ -4164,7 +4164,7 @@ literal|"type=parentType"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 literal|"age"
 argument_list|,

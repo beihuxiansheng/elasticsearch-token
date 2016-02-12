@@ -426,6 +426,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|DoubleFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -489,22 +505,6 @@ operator|.
 name|XContentMapValues
 operator|.
 name|lenientNodeBooleanValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|geoShapeField
 import|;
 end_import
 
@@ -1062,7 +1062,8 @@ block|{
 name|Builder
 name|builder
 init|=
-name|geoShapeField
+operator|new
+name|Builder
 argument_list|(
 name|name
 argument_list|)

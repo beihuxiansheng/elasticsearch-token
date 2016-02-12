@@ -628,7 +628,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTarget
+name|RecoveryTargetService
 import|;
 end_import
 
@@ -767,11 +767,11 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|field|recoveryTarget
+DECL|field|recoveryTargetService
 specifier|private
 specifier|final
-name|RecoveryTarget
-name|recoveryTarget
+name|RecoveryTargetService
+name|recoveryTargetService
 decl_stmt|;
 DECL|field|shardStateAction
 specifier|private
@@ -896,8 +896,8 @@ parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
-name|RecoveryTarget
-name|recoveryTarget
+name|RecoveryTargetService
+name|recoveryTargetService
 parameter_list|,
 name|ShardStateAction
 name|shardStateAction
@@ -942,7 +942,7 @@ name|asList
 argument_list|(
 name|recoverySource
 argument_list|,
-name|recoveryTarget
+name|recoveryTargetService
 argument_list|,
 name|searchService
 argument_list|,
@@ -969,9 +969,9 @@ name|threadPool
 expr_stmt|;
 name|this
 operator|.
-name|recoveryTarget
+name|recoveryTargetService
 operator|=
-name|recoveryTarget
+name|recoveryTargetService
 expr_stmt|;
 name|this
 operator|.
@@ -3033,7 +3033,7 @@ decl_stmt|;
 comment|// check if there is an existing recovery going, and if so, and the source node is not the same, cancel the recovery to restart it
 if|if
 condition|(
-name|recoveryTarget
+name|recoveryTargetService
 operator|.
 name|cancelRecoveriesForShard
 argument_list|(
@@ -3961,7 +3961,7 @@ argument_list|,
 name|recoveryState
 argument_list|)
 expr_stmt|;
-name|recoveryTarget
+name|recoveryTargetService
 operator|.
 name|startRecovery
 argument_list|(
@@ -4562,7 +4562,7 @@ specifier|private
 class|class
 name|PeerRecoveryListener
 implements|implements
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|RecoveryListener
 block|{
