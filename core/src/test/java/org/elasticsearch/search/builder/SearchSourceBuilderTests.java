@@ -2604,11 +2604,12 @@ argument_list|,
 name|parseContext
 argument_list|)
 decl_stmt|;
-name|assertNotSame
+name|assertNull
 argument_list|(
-name|testBuilder
-argument_list|,
-name|newBuilder
+name|parser
+operator|.
+name|nextToken
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals

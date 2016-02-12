@@ -586,20 +586,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|StreamsUtils
-operator|.
-name|copyToStringFromClasspath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -3444,14 +3430,42 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"function_score\":{\n"
+operator|+
+literal|"        \"query\":{\n"
+operator|+
+literal|"            \"term\":{\n"
+operator|+
+literal|"                \"name.last\":\"banon\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        },\n"
+operator|+
+literal|"        \"functions\": [\n"
+operator|+
+literal|"            {\n"
+operator|+
+literal|"                {\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        ]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
 try|try
 block|{
 name|parseQuery
 argument_list|(
-name|copyToStringFromClasspath
-argument_list|(
-literal|"/org/elasticsearch/index/query/faulty-function-score-query.json"
-argument_list|)
+name|json
 argument_list|)
 expr_stmt|;
 name|fail
@@ -4160,6 +4174,247 @@ argument_list|,
 name|secondFunction
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testQueryMalformedArrayNotSupported
+specifier|public
+name|void
+name|testQueryMalformedArrayNotSupported
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"function_score\" : {\n"
+operator|+
+literal|"    \"not_supported\" : []\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parse should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"array [not_supported] is not supported"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testQueryMalformedFieldNotSupported
+specifier|public
+name|void
+name|testQueryMalformedFieldNotSupported
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"function_score\" : {\n"
+operator|+
+literal|"    \"not_supported\" : \"value\"\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parse should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"field [not_supported] is not supported"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testMalformedQueryFunctionFieldNotSupported
+specifier|public
+name|void
+name|testMalformedQueryFunctionFieldNotSupported
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"function_score\" : {\n"
+operator|+
+literal|"    \"functions\" : [ {\n"
+operator|+
+literal|"      \"not_supported\" : 23.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parse should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"field [not_supported] is not supported"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testMalformedQuery
+specifier|public
+name|void
+name|testMalformedQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|//verify that an error is thrown rather than setting the query twice (https://github.com/elastic/elasticsearch/issues/16583)
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"function_score\":{\n"
+operator|+
+literal|"        \"query\":{\n"
+operator|+
+literal|"            \"bool\":{\n"
+operator|+
+literal|"                \"must\":{\"match\":{\"field\":\"value\"}}"
+operator|+
+literal|"             },\n"
+operator|+
+literal|"            \"ignored_field_name\": {\n"
+operator|+
+literal|"                {\"match\":{\"field\":\"value\"}}\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parse should have failed"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"[query] is already defined."
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
