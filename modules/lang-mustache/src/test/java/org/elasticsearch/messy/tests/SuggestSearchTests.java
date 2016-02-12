@@ -234,6 +234,20 @@ name|search
 operator|.
 name|suggest
 operator|.
+name|SortBy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
 name|Suggest
 import|;
 end_import
@@ -359,24 +373,6 @@ operator|.
 name|term
 operator|.
 name|TermSuggestionBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|term
-operator|.
-name|TermSuggestionBuilder
-operator|.
-name|SortBy
 import|;
 end_import
 
@@ -2329,7 +2325,7 @@ operator|new
 name|SuggestBuilder
 argument_list|()
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
@@ -2373,7 +2369,7 @@ operator|new
 name|SuggestBuilder
 argument_list|()
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
@@ -6544,7 +6540,7 @@ operator|new
 name|SuggestBuilder
 argument_list|()
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
@@ -6598,7 +6594,7 @@ operator|new
 name|SuggestBuilder
 argument_list|()
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
@@ -6865,7 +6861,7 @@ operator|new
 name|SuggestBuilder
 argument_list|()
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 literal|"tetsting sugestion"
 argument_list|)
@@ -9130,7 +9126,7 @@ condition|)
 block|{
 name|suggestBuilder
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 name|suggestText
 argument_list|)

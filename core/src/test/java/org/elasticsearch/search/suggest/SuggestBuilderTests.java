@@ -636,7 +636,7 @@ condition|)
 block|{
 name|suggestBuilder
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
@@ -707,11 +707,11 @@ operator|new
 name|SuggestBuilder
 argument_list|()
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 name|original
 operator|.
-name|getText
+name|getGlobalText
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -745,7 +745,7 @@ condition|)
 block|{
 name|mutation
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

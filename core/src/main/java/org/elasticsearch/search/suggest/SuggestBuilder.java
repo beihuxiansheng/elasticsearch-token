@@ -321,10 +321,10 @@ name|SuggestBuilder
 parameter_list|()
 block|{     }
 comment|/**      * Sets the text to provide suggestions for. The suggest text is a required option that needs      * to be set either via this setter or via the {@link org.elasticsearch.search.suggest.SuggestionBuilder#text(String)} method.      *<p>      * The suggest text gets analyzed by the suggest analyzer or the suggest field search analyzer.      * For each analyzed token, suggested terms are suggested if possible.      */
-DECL|method|setText
+DECL|method|setGlobalText
 specifier|public
 name|SuggestBuilder
-name|setText
+name|setGlobalText
 parameter_list|(
 annotation|@
 name|Nullable
@@ -343,15 +343,15 @@ name|this
 return|;
 block|}
 comment|/**      * Gets the global suggest text      */
-DECL|method|getText
+annotation|@
+name|Nullable
+DECL|method|getGlobalText
 specifier|public
 name|String
-name|getText
+name|getGlobalText
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|globalText
 return|;
 block|}
@@ -591,7 +591,7 @@ condition|)
 block|{
 name|suggestBuilder
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 name|parser
 operator|.

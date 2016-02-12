@@ -108,6 +108,27 @@ return|return
 name|settings
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SpellcheckerSettings"
+operator|+
+name|settings
+operator|+
+literal|", BaseSettings"
+operator|+
+name|super
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

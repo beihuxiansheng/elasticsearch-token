@@ -2194,7 +2194,7 @@ operator|new
 name|SuggestBuilder
 argument_list|()
 operator|.
-name|setText
+name|setGlobalText
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
