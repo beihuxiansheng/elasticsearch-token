@@ -24,6 +24,8 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
 name|GeoHashUtils
@@ -43,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for {@link org.apache.lucene.util.GeoHashUtils}  */
+comment|/**  * Tests for {@link org.apache.lucene.spatial.util.GeoHashUtils}  */
 end_comment
 
 begin_class

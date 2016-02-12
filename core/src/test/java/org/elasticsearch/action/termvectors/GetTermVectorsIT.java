@@ -1225,7 +1225,7 @@ argument_list|,
 comment|// no tvs
 literal|"field4"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|,
 comment|// yes tvs
 literal|"field5"

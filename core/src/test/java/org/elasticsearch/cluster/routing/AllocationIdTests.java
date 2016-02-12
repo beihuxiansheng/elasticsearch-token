@@ -237,6 +237,8 @@ name|initialize
 argument_list|(
 literal|"node1"
 argument_list|,
+literal|null
+argument_list|,
 operator|-
 literal|1
 argument_list|)
@@ -392,6 +394,8 @@ operator|.
 name|initialize
 argument_list|(
 literal|"node1"
+argument_list|,
+literal|null
 argument_list|,
 operator|-
 literal|1
@@ -630,6 +634,8 @@ name|initialize
 argument_list|(
 literal|"node1"
 argument_list|,
+literal|null
+argument_list|,
 operator|-
 literal|1
 argument_list|)
@@ -819,6 +825,8 @@ name|initialize
 argument_list|(
 literal|"node1"
 argument_list|,
+literal|null
+argument_list|,
 operator|-
 literal|1
 argument_list|)
@@ -916,6 +924,8 @@ operator|.
 name|initialize
 argument_list|(
 literal|"node1"
+argument_list|,
+literal|null
 argument_list|,
 operator|-
 literal|1

@@ -45,8 +45,9 @@ name|routing
 argument_list|,
 name|nodeId
 argument_list|,
-operator|-
-literal|1
+name|ShardRouting
+operator|.
+name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
 expr_stmt|;
 block|}
@@ -111,8 +112,9 @@ name|routing
 argument_list|,
 name|nodeId
 argument_list|,
-operator|-
-literal|1
+name|ShardRouting
+operator|.
+name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
 expr_stmt|;
 block|}
@@ -137,6 +139,8 @@ operator|.
 name|initialize
 argument_list|(
 name|nodeId
+argument_list|,
+literal|null
 argument_list|,
 name|expectedSize
 argument_list|)

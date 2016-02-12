@@ -26,9 +26,6 @@ class|class
 name|TransportResponse
 extends|extends
 name|TransportMessage
-argument_list|<
-name|TransportResponse
-argument_list|>
 block|{
 DECL|class|Empty
 specifier|public

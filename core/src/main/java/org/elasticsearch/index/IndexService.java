@@ -2216,12 +2216,9 @@ name|canDeleteShardContent
 argument_list|,
 parameter_list|()
 lambda|->
-name|nodeServicesProvider
+name|eventListener
 operator|.
-name|getIndicesQueryCache
-argument_list|()
-operator|.
-name|onClose
+name|onStoreClosed
 argument_list|(
 name|shardId
 argument_list|)

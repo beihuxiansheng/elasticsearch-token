@@ -158,7 +158,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -355,7 +355,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -557,7 +557,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -761,7 +761,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -970,7 +970,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData

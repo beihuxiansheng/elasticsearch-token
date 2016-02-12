@@ -1610,13 +1610,18 @@ operator|=
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 expr_stmt|;
 block|}
-comment|/**      * Initializes an unassigned shard on a node.      */
+comment|/**      * Initializes an unassigned shard on a node.      *      * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.      */
 DECL|method|initialize
 name|void
 name|initialize
 parameter_list|(
 name|String
 name|nodeId
+parameter_list|,
+annotation|@
+name|Nullable
+name|String
+name|existingAllocationId
 parameter_list|,
 name|long
 name|expectedShardSize
@@ -1651,6 +1656,13 @@ name|currentNodeId
 operator|=
 name|nodeId
 expr_stmt|;
+if|if
+condition|(
+name|existingAllocationId
+operator|==
+literal|null
+condition|)
+block|{
 name|allocationId
 operator|=
 name|AllocationId
@@ -1658,6 +1670,19 @@ operator|.
 name|newInitializing
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|allocationId
+operator|=
+name|AllocationId
+operator|.
+name|newInitializing
+argument_list|(
+name|existingAllocationId
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|expectedShardSize

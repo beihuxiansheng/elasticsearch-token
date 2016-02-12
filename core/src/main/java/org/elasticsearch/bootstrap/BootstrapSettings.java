@@ -56,33 +56,6 @@ specifier|private
 name|BootstrapSettings
 parameter_list|()
 block|{     }
-comment|// TODO: remove this: http://www.openbsd.org/papers/hackfest2015-pledge/mgp00005.jpg
-comment|/**      * option to turn off our security manager completely, for example      * if you want to have your own configuration or just disable      */
-DECL|field|SECURITY_MANAGER_ENABLED_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|Setting
-argument_list|<
-name|Boolean
-argument_list|>
-name|SECURITY_MANAGER_ENABLED_SETTING
-init|=
-name|Setting
-operator|.
-name|boolSetting
-argument_list|(
-literal|"security.manager.enabled"
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|,
-name|Scope
-operator|.
-name|CLUSTER
-argument_list|)
-decl_stmt|;
 comment|// TODO: remove this hack when insecure defaults are removed from java
 DECL|field|SECURITY_FILTER_BAD_DEFAULTS_SETTING
 specifier|public

@@ -340,7 +340,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTarget
+name|RecoveryTargetService
 import|;
 end_import
 
@@ -4412,7 +4412,7 @@ name|action
 operator|.
 name|equals
 argument_list|(
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|Actions
 operator|.
@@ -5573,7 +5573,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|get
@@ -6335,7 +6335,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|get

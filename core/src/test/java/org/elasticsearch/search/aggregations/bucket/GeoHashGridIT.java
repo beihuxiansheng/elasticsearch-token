@@ -60,20 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|GeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -363,6 +349,42 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoHashUtils
+operator|.
+name|PRECISION
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoHashUtils
+operator|.
+name|stringEncode
 import|;
 end_import
 
@@ -721,7 +743,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"city"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -800,16 +822,12 @@ decl_stmt|;
 name|String
 name|randomGeoHash
 init|=
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|lng
 argument_list|,
 name|lat
 argument_list|,
-name|GeoHashUtils
-operator|.
 name|PRECISION
 argument_list|)
 decl_stmt|;
@@ -856,8 +874,6 @@ control|(
 name|int
 name|precision
 init|=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 operator|-
 literal|1
@@ -873,8 +889,6 @@ block|{
 name|String
 name|hash
 init|=
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|lng
@@ -959,7 +973,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"city"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1089,8 +1103,6 @@ control|(
 name|int
 name|precision
 init|=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 init|;
 name|precision
@@ -1105,8 +1117,6 @@ specifier|final
 name|String
 name|geoHash
 init|=
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|lng
@@ -1200,8 +1210,6 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 condition|;
 name|precision
@@ -1391,8 +1399,6 @@ index|]
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|geoPoint
@@ -1450,8 +1456,6 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 condition|;
 name|precision
@@ -1613,8 +1617,6 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 condition|;
 name|precision
@@ -1793,8 +1795,6 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 condition|;
 name|precision
@@ -1889,8 +1889,6 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 condition|;
 name|precision
@@ -2031,8 +2029,6 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 condition|;
 name|precision
@@ -2230,8 +2226,6 @@ literal|1
 init|;
 name|precision
 operator|<=
-name|GeoHashUtils
-operator|.
 name|PRECISION
 condition|;
 name|precision
