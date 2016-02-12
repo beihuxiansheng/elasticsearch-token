@@ -3805,6 +3805,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/16634"
+argument_list|)
 DECL|method|testDuelGeoPoints
 specifier|public
 name|void
