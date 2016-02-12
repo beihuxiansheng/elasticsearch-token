@@ -279,6 +279,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1790,9 +1802,30 @@ argument_list|(
 name|STRING_FIELD_NAME
 argument_list|,
 name|randomTerms
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|x
+lambda|->
+name|x
+operator|!=
+literal|null
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// terms lookup removes null values
 block|}
 block|}
 end_class
