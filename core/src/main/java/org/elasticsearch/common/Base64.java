@@ -5543,6 +5543,84 @@ comment|// Upper limit on size of output
 name|int
 name|outBuffPosn
 init|=
+name|decode
+argument_list|(
+name|source
+argument_list|,
+name|off
+argument_list|,
+name|len
+argument_list|,
+name|options
+argument_list|,
+name|DECODABET
+argument_list|,
+name|outBuff
+argument_list|)
+decl_stmt|;
+name|byte
+index|[]
+name|out
+init|=
+operator|new
+name|byte
+index|[
+name|outBuffPosn
+index|]
+decl_stmt|;
+name|System
+operator|.
+name|arraycopy
+argument_list|(
+name|outBuff
+argument_list|,
+literal|0
+argument_list|,
+name|out
+argument_list|,
+literal|0
+argument_list|,
+name|outBuffPosn
+argument_list|)
+expr_stmt|;
+return|return
+name|out
+return|;
+block|}
+comment|// end decode
+DECL|method|decode
+specifier|private
+specifier|static
+name|int
+name|decode
+parameter_list|(
+name|byte
+index|[]
+name|source
+parameter_list|,
+name|int
+name|off
+parameter_list|,
+name|int
+name|len
+parameter_list|,
+name|int
+name|options
+parameter_list|,
+name|byte
+index|[]
+name|DECODABET
+parameter_list|,
+name|byte
+index|[]
+name|outBuff
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|int
+name|outBuffPosn
+init|=
 literal|0
 decl_stmt|;
 comment|// Keep track of where we're writing
@@ -5563,22 +5641,11 @@ init|=
 literal|0
 decl_stmt|;
 comment|// Keep track of four byte input buffer
+for|for
+control|(
 name|int
 name|i
 init|=
-literal|0
-decl_stmt|;
-comment|// Source array counter
-name|byte
-name|sbiDecode
-init|=
-literal|0
-decl_stmt|;
-comment|// Special value from DECODABET
-for|for
-control|(
-name|i
-operator|=
 name|off
 init|;
 name|i
@@ -5592,8 +5659,9 @@ operator|++
 control|)
 block|{
 comment|// Loop through source
+name|byte
 name|sbiDecode
-operator|=
+init|=
 name|DECODABET
 index|[
 name|source
@@ -5603,7 +5671,7 @@ index|]
 operator|&
 literal|0xFF
 index|]
-expr_stmt|;
+decl_stmt|;
 comment|// White space, Equals sign, or legit Base64 character
 comment|// Note the values such as -5 and -9 in the
 comment|// DECODABETs at the top of the file.
@@ -5685,10 +5753,6 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 argument_list|(
 name|String
@@ -5740,10 +5804,6 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 argument_list|(
 name|String
@@ -5773,10 +5833,6 @@ block|{
 comment|// There's a bad input character in the Base64 stream.
 throw|throw
 operator|new
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 argument_list|(
 name|String
@@ -5809,36 +5865,10 @@ block|}
 comment|// end else:
 block|}
 comment|// each input character
-name|byte
-index|[]
-name|out
-init|=
-operator|new
-name|byte
-index|[
-name|outBuffPosn
-index|]
-decl_stmt|;
-name|System
-operator|.
-name|arraycopy
-argument_list|(
-name|outBuff
-argument_list|,
-literal|0
-argument_list|,
-name|out
-argument_list|,
-literal|0
-argument_list|,
-name|outBuffPosn
-argument_list|)
-expr_stmt|;
 return|return
-name|out
+name|outBuffPosn
 return|;
 block|}
-comment|// end decode
 comment|/**      * Decodes data from Base64 notation, automatically      * detecting gzip-compressed data and decompressing it.      *      * @param s the string to decode      * @return the decoded data      * @throws java.io.IOException If there is a problem      * @since 1.4      */
 DECL|method|decode
 specifier|public
