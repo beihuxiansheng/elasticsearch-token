@@ -952,6 +952,9 @@ class|class
 name|BucketSelectorPipelineAggregatorBuilder
 extends|extends
 name|PipelineAggregatorBuilder
+argument_list|<
+name|BucketSelectorPipelineAggregatorBuilder
+argument_list|>
 block|{
 DECL|field|PROTOTYPE
 specifier|static
@@ -1317,7 +1320,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
-name|PipelineAggregatorBuilder
+name|BucketSelectorPipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String

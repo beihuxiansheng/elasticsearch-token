@@ -1153,6 +1153,9 @@ class|class
 name|DerivativePipelineAggregatorBuilder
 extends|extends
 name|PipelineAggregatorBuilder
+argument_list|<
+name|DerivativePipelineAggregatorBuilder
+argument_list|>
 block|{
 DECL|field|PROTOTYPE
 specifier|static
@@ -1600,6 +1603,9 @@ parameter_list|,
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|pipelineAggregatoractories
 parameter_list|)
@@ -1703,7 +1709,7 @@ annotation|@
 name|Override
 DECL|method|doReadFrom
 specifier|protected
-name|PipelineAggregatorBuilder
+name|DerivativePipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String

@@ -835,6 +835,9 @@ class|class
 name|CumulativeSumPipelineAggregatorBuilder
 extends|extends
 name|PipelineAggregatorBuilder
+argument_list|<
+name|CumulativeSumPipelineAggregatorBuilder
+argument_list|>
 block|{
 DECL|field|PROTOTYPE
 specifier|static
@@ -1048,6 +1051,9 @@ parameter_list|,
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -1195,7 +1201,7 @@ name|Override
 DECL|method|doReadFrom
 specifier|protected
 specifier|final
-name|PipelineAggregatorBuilder
+name|CumulativeSumPipelineAggregatorBuilder
 name|doReadFrom
 parameter_list|(
 name|String

@@ -222,6 +222,9 @@ parameter_list|>
 parameter_list|>
 extends|extends
 name|PipelineAggregatorBuilder
+argument_list|<
+name|AF
+argument_list|>
 block|{
 DECL|field|format
 specifier|private
@@ -265,6 +268,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Sets the format to use on the output of this aggregation.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|format
 specifier|public
 name|AF
@@ -337,6 +345,11 @@ return|;
 block|}
 block|}
 comment|/**      * Sets the gap policy to use for this aggregation.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|gapPolicy
 specifier|public
 name|AF
@@ -412,6 +425,9 @@ parameter_list|,
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -543,6 +559,9 @@ DECL|method|doReadFrom
 specifier|protected
 specifier|final
 name|PipelineAggregatorBuilder
+argument_list|<
+name|AF
+argument_list|>
 name|doReadFrom
 parameter_list|(
 name|String
@@ -559,6 +578,9 @@ throws|throws
 name|IOException
 block|{
 name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|AF
+argument_list|>
 name|factory
 init|=
 name|innerReadFrom
@@ -598,6 +620,9 @@ DECL|method|innerReadFrom
 specifier|protected
 specifier|abstract
 name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|AF
+argument_list|>
 name|innerReadFrom
 parameter_list|(
 name|String
@@ -701,11 +726,22 @@ name|Object
 name|obj
 parameter_list|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|AF
+argument_list|>
 name|other
 init|=
 operator|(
 name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|AF
+argument_list|>
 operator|)
 name|obj
 decl_stmt|;
@@ -745,6 +781,9 @@ name|boolean
 name|innerEquals
 parameter_list|(
 name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|AF
+argument_list|>
 name|other
 parameter_list|)
 function_decl|;

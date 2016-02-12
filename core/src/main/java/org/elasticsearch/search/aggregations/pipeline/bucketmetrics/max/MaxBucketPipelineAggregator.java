@@ -734,6 +734,9 @@ parameter_list|,
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -793,7 +796,7 @@ annotation|@
 name|Override
 DECL|method|innerReadFrom
 specifier|protected
-name|BucketMetricsPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregatorBuilder
 name|innerReadFrom
 parameter_list|(
 name|String
@@ -854,6 +857,9 @@ name|boolean
 name|innerEquals
 parameter_list|(
 name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|MaxBucketPipelineAggregatorBuilder
+argument_list|>
 name|other
 parameter_list|)
 block|{
