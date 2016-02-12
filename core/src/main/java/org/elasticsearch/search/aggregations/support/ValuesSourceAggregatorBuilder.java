@@ -626,6 +626,11 @@ name|targetValueType
 expr_stmt|;
 block|}
 comment|/**      * Sets the field to use for this aggregation.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|field
 specifier|public
 name|AB
@@ -679,6 +684,11 @@ name|field
 return|;
 block|}
 comment|/**      * Sets the script to use for this aggregation.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|script
 specifier|public
 name|AB
@@ -732,6 +742,11 @@ name|script
 return|;
 block|}
 comment|/**      * Sets the {@link ValueType} for the value produced by this aggregation      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|valueType
 specifier|public
 name|AB
@@ -785,6 +800,11 @@ name|valueType
 return|;
 block|}
 comment|/**      * Sets the format to use for the output of the aggregation.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|format
 specifier|public
 name|AB
@@ -838,6 +858,11 @@ name|format
 return|;
 block|}
 comment|/**      * Sets the value to use when the aggregation finds a missing value in a      * document      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|missing
 specifier|public
 name|AB
@@ -891,6 +916,11 @@ name|missing
 return|;
 block|}
 comment|/**      * Sets the time zone to use for this aggregation      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|timeZone
 specifier|public
 name|AB
@@ -1109,6 +1139,11 @@ operator|==
 literal|null
 condition|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|ValuesSourceConfig
 argument_list|<
 name|VS
@@ -1357,6 +1392,9 @@ name|fieldType
 argument_list|)
 decl_stmt|;
 name|ValuesSourceConfig
+argument_list|<
+name|VS
+argument_list|>
 name|config
 decl_stmt|;
 if|if
@@ -1910,6 +1948,11 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|doReadFrom

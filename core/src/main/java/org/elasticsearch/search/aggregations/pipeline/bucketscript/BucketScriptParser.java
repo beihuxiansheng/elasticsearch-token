@@ -134,22 +134,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
-name|PipelineAggregatorBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -268,7 +252,9 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|PipelineAggregatorBuilder
+name|BucketScriptPipelineAggregator
+operator|.
+name|BucketScriptPipelineAggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -957,7 +943,9 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|PipelineAggregatorBuilder
+name|BucketScriptPipelineAggregator
+operator|.
+name|BucketScriptPipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{

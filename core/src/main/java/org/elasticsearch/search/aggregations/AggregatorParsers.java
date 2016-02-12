@@ -402,6 +402,9 @@ name|parser
 argument_list|)
 expr_stmt|;
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|factoryPrototype
 init|=
 name|parser
@@ -690,6 +693,9 @@ init|=
 literal|null
 decl_stmt|;
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|pipelineAggregatorFactory
 init|=
 literal|null

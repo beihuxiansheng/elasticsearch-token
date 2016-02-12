@@ -108,22 +108,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
-name|PipelineAggregatorBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -224,7 +208,10 @@ name|Override
 DECL|method|parse
 specifier|public
 specifier|final
-name|PipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|parse
 parameter_list|(
 name|String
@@ -586,6 +573,9 @@ argument_list|)
 throw|;
 block|}
 name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|factory
 init|=
 literal|null
@@ -711,6 +701,9 @@ DECL|method|buildFactory
 specifier|protected
 specifier|abstract
 name|BucketMetricsPipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|buildFactory
 parameter_list|(
 name|String

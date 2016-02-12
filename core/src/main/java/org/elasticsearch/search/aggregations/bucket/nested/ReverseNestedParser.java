@@ -76,20 +76,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -133,7 +119,9 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|AggregatorBuilder
+name|ReverseNestedAggregator
+operator|.
+name|ReverseNestedAggregatorBuilder
 name|parse
 parameter_list|(
 name|String
@@ -318,10 +306,9 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
+name|ReverseNestedAggregator
+operator|.
+name|ReverseNestedAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{

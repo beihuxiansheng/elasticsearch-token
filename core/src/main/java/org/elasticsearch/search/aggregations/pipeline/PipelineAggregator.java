@@ -236,6 +236,9 @@ function_decl|;
 comment|/**          * Returns the pipeline aggregator factory with which this parser is          * associated.          *          * @param pipelineAggregatorName          *            The name of the pipeline aggregation          * @param parser          *            The xcontent parser          * @param context          *            The search context          * @return The resolved pipeline aggregator factory          * @throws java.io.IOException          *             When parsing fails          */
 DECL|method|parse
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|parse
 parameter_list|(
 name|String
@@ -253,6 +256,9 @@ function_decl|;
 comment|/**          * @return an empty {@link PipelineAggregatorBuilder} instance for this          *         parser that can be used for deserialization          */
 DECL|method|getFactoryPrototype
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|getFactoryPrototype
 parameter_list|()
 function_decl|;

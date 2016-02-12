@@ -370,6 +370,9 @@ name|AB
 name|subAggregation
 parameter_list|(
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|aggregation
 parameter_list|)
 block|{
@@ -455,6 +458,11 @@ operator|)
 name|this
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setMetaData
 specifier|public
 name|AB
@@ -909,6 +917,11 @@ condition|)
 return|return
 literal|false
 return|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|AggregatorBuilder
 argument_list|<
 name|AB

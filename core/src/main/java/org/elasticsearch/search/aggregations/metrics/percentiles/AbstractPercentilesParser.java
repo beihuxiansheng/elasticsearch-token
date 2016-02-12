@@ -251,11 +251,6 @@ argument_list|(
 literal|"number_of_significant_value_digits"
 argument_list|)
 decl_stmt|;
-DECL|field|formattable
-specifier|private
-name|boolean
-name|formattable
-decl_stmt|;
 DECL|method|AbstractPercentilesParser
 specifier|public
 name|AbstractPercentilesParser
