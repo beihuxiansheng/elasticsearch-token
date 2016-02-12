@@ -312,10 +312,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|request
-operator|.
 name|IndicesRequestCache
 import|;
 end_import

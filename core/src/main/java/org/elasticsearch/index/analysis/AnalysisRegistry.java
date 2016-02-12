@@ -433,11 +433,11 @@ specifier|final
 name|HunspellService
 name|hunspellService
 decl_stmt|;
-DECL|field|environemnt
+DECL|field|environment
 specifier|private
 specifier|final
 name|Environment
-name|environemnt
+name|environment
 decl_stmt|;
 DECL|method|AnalysisRegistry
 specifier|public
@@ -555,7 +555,7 @@ name|hunspellService
 expr_stmt|;
 name|this
 operator|.
-name|environemnt
+name|environment
 operator|=
 name|environment
 expr_stmt|;
@@ -883,7 +883,7 @@ name|provider
 operator|.
 name|get
 argument_list|(
-name|environemnt
+name|environment
 argument_list|,
 name|key
 argument_list|)
@@ -919,7 +919,7 @@ name|analyzerProvider
 operator|.
 name|get
 argument_list|(
-name|environemnt
+name|environment
 argument_list|,
 name|analyzer
 argument_list|)
@@ -3001,7 +3001,7 @@ name|get
 argument_list|(
 name|settings
 argument_list|,
-name|environemnt
+name|environment
 argument_list|,
 name|name
 argument_list|,
@@ -3094,7 +3094,7 @@ name|get
 argument_list|(
 name|settings
 argument_list|,
-name|environemnt
+name|environment
 argument_list|,
 name|name
 argument_list|,
@@ -3215,7 +3215,7 @@ name|get
 argument_list|(
 name|settings
 argument_list|,
-name|environemnt
+name|environment
 argument_list|,
 name|name
 argument_list|,
@@ -3233,7 +3233,7 @@ name|get
 argument_list|(
 name|settings
 argument_list|,
-name|environemnt
+name|environment
 argument_list|,
 name|name
 argument_list|,
@@ -3391,7 +3391,7 @@ name|get
 argument_list|(
 name|settings
 argument_list|,
-name|environemnt
+name|environment
 argument_list|,
 name|name
 argument_list|,

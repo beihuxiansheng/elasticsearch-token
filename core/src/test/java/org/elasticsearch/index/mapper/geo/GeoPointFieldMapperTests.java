@@ -22,34 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|GeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|GeoUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -355,6 +327,42 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoEncodingUtils
+operator|.
+name|mortonHash
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoHashUtils
+operator|.
+name|stringEncode
 import|;
 end_import
 
@@ -823,8 +831,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -1068,8 +1074,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 literal|1.3
@@ -1297,8 +1301,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 literal|1.3
@@ -1470,8 +1472,6 @@ name|field
 argument_list|(
 literal|"point"
 argument_list|,
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 literal|1.3
@@ -1533,8 +1533,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 literal|1.3
@@ -1699,8 +1697,6 @@ name|field
 argument_list|(
 literal|"point"
 argument_list|,
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 literal|1.3
@@ -2021,8 +2017,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.0
@@ -2136,8 +2130,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 operator|-
@@ -2251,8 +2243,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 operator|-
@@ -3450,8 +3440,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -3833,8 +3821,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -3963,8 +3949,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.5
@@ -4230,8 +4214,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -4552,8 +4534,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -4905,8 +4885,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -5035,8 +5013,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.5
@@ -5313,8 +5289,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -5612,8 +5586,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -5945,8 +5917,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -6314,8 +6284,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.3
@@ -6438,8 +6406,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|GeoUtils
-operator|.
 name|mortonHash
 argument_list|(
 literal|1.5

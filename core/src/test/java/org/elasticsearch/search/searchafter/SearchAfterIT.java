@@ -2457,7 +2457,7 @@ name|mappings
 operator|.
 name|add
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 block|}

@@ -66,20 +66,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|GeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchParseException
@@ -309,6 +295,42 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoHashUtils
+operator|.
+name|addNeighbors
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoHashUtils
+operator|.
+name|stringEncode
 import|;
 end_import
 
@@ -848,8 +870,6 @@ name|contexts
 operator|.
 name|add
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|lon
@@ -908,8 +928,6 @@ name|contexts
 operator|.
 name|add
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|point
@@ -1003,8 +1021,6 @@ name|contexts
 operator|.
 name|add
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|point
@@ -1218,8 +1234,6 @@ name|geohashes
 operator|.
 name|add
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|spare
@@ -1536,8 +1550,6 @@ decl_stmt|;
 name|String
 name|geoHash
 init|=
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|point
@@ -1580,8 +1592,6 @@ operator|.
 name|precision
 condition|)
 block|{
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 name|geoHash
@@ -1644,8 +1654,6 @@ argument_list|(
 name|truncatedGeoHash
 argument_list|)
 expr_stmt|;
-name|GeoHashUtils
-operator|.
 name|addNeighbors
 argument_list|(
 name|truncatedGeoHash

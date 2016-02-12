@@ -162,6 +162,8 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|spatial
+operator|.
 name|util
 operator|.
 name|GeoHashUtils
@@ -175,6 +177,8 @@ operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|spatial
 operator|.
 name|util
 operator|.

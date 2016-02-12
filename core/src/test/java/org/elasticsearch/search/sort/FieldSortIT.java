@@ -1763,9 +1763,7 @@ literal|" {\"properties\": "
 operator|+
 literal|"     {\"grantee\": "
 operator|+
-literal|"         {\"index\": "
-operator|+
-literal|"             \"not_analyzed\", "
+literal|"         {   \"index\": \"not_analyzed\", "
 operator|+
 literal|"             \"term_vector\": \"with_positions_offsets\", "
 operator|+
@@ -2224,14 +2222,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -2246,14 +2237,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -5351,14 +5335,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|startObject
@@ -8904,14 +8881,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -10155,14 +10125,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|startObject
@@ -14289,14 +14252,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|startObject
@@ -15940,14 +15896,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject

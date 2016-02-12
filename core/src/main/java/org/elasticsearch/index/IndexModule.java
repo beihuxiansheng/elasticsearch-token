@@ -280,10 +280,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
 name|IndicesQueryCache
 import|;
 end_import
@@ -1247,6 +1243,9 @@ parameter_list|,
 name|NodeServicesProvider
 name|servicesProvider
 parameter_list|,
+name|IndicesQueryCache
+name|indicesQueryCache
+parameter_list|,
 name|MapperRegistry
 name|mapperRegistry
 parameter_list|,
@@ -1464,10 +1463,7 @@ name|apply
 argument_list|(
 name|indexSettings
 argument_list|,
-name|servicesProvider
-operator|.
-name|getIndicesQueryCache
-argument_list|()
+name|indicesQueryCache
 argument_list|)
 decl_stmt|;
 return|return

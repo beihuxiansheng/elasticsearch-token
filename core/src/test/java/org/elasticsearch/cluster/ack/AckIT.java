@@ -2069,7 +2069,7 @@ name|setSource
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2151,7 +2151,7 @@ name|setSource
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|setTimeout

@@ -106,10 +106,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
 name|IndicesQueryCache
 import|;
 end_import
