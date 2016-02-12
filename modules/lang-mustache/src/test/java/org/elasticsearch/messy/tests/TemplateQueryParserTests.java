@@ -1809,6 +1809,9 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
