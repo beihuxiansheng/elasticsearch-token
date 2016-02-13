@@ -5768,6 +5768,8 @@ argument_list|,
 name|exp
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 comment|// we are no longer the primary, fail ourselves and start over
 name|indexShardReference
 operator|.
@@ -5778,6 +5780,21 @@ argument_list|,
 name|shardFailedError
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|shardFailedError
+operator|.
+name|addSuppressed
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 name|forceFinishAsFailed
 argument_list|(
 operator|new
