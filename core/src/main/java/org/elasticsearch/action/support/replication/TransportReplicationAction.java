@@ -3928,6 +3928,25 @@ operator|==
 literal|false
 condition|)
 block|{
+name|executeLocally
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|executeRemotely
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|executeLocally
+specifier|private
+name|void
+name|executeLocally
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 comment|// execute locally
 name|Tuple
 argument_list|<
@@ -4005,7 +4024,11 @@ name|replicationPhase
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+DECL|method|executeRemotely
+specifier|private
+name|void
+name|executeRemotely
+parameter_list|()
 block|{
 comment|// delegate primary phase to relocation target
 comment|// it is safe to execute primary phase on relocation target as there are no more in-flight operations where primary
@@ -4082,7 +4105,6 @@ name|primary
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**          * checks whether we can perform a write based on the write consistency setting          * returns **null* if OK to proceed, or a string describing the reason to stop          */
 DECL|method|checkWriteConsistency
