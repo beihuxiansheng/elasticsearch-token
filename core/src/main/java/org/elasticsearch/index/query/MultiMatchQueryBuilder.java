@@ -937,7 +937,7 @@ literal|"["
 operator|+
 name|NAME
 operator|+
-literal|"] requires fields at initalization time"
+literal|"] requires fields at initialization time"
 argument_list|)
 throw|;
 block|}

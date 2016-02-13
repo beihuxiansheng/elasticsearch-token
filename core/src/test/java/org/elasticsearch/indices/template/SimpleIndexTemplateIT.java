@@ -4779,7 +4779,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"index creation should have failed due to alias with existing index name in mathching index template"
+literal|"index creation should have failed due to alias with existing index name in matching index template"
 argument_list|)
 expr_stmt|;
 block|}
