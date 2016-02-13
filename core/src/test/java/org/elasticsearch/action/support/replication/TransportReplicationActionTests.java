@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -8779,6 +8765,9 @@ name|getIndexShardReferenceOnPrimary
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+name|Request
+name|request
 parameter_list|)
 block|{
 return|return
@@ -8793,6 +8782,9 @@ name|getIndexShardReferenceOnReplica
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+name|Request
+name|request
 parameter_list|)
 block|{
 return|return

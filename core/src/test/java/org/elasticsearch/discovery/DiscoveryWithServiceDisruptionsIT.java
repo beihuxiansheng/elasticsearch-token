@@ -86,6 +86,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|replication
+operator|.
+name|TransportReplicationAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Client
@@ -1263,7 +1279,17 @@ parameter_list|()
 block|{
 try|try
 block|{
-comment|// some test may leave opeations in flight. Wait for them to be finnished
+comment|// some test may leave operations in flight. Wait for them to be finished
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
+name|TransportReplicationAction
+operator|.
+name|assertAllShardReferencesAreCleaned
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertBusy
 argument_list|(
 parameter_list|()
