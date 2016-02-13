@@ -4736,6 +4736,13 @@ name|request
 operator|.
 name|toString
 argument_list|()
+operator|+
+literal|" "
+operator|+
+name|ref
+operator|.
+name|routingEntry
+argument_list|()
 argument_list|)
 assert|;
 return|return
@@ -4802,6 +4809,13 @@ operator|+
 name|request
 operator|.
 name|toString
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|ref
+operator|.
+name|routingEntry
 argument_list|()
 argument_list|)
 assert|;
@@ -5740,6 +5754,13 @@ operator|.
 name|NoLongerPrimaryShardException
 condition|)
 block|{
+name|String
+name|message
+init|=
+literal|"unknown"
+decl_stmt|;
+try|try
+block|{
 name|ShardRouting
 name|primaryShard
 init|=
@@ -5748,9 +5769,8 @@ operator|.
 name|routingEntry
 argument_list|()
 decl_stmt|;
-name|String
 name|message
-init|=
+operator|=
 name|String
 operator|.
 name|format
@@ -5767,9 +5787,7 @@ name|shard
 argument_list|,
 name|exp
 argument_list|)
-decl_stmt|;
-try|try
-block|{
+expr_stmt|;
 comment|// we are no longer the primary, fail ourselves and start over
 name|indexShardReference
 operator|.
