@@ -1288,6 +1288,12 @@ name|TransportReplicationAction
 operator|.
 name|assertAllShardReferencesAreCleaned
 argument_list|()
+argument_list|,
+literal|40
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 expr_stmt|;
 name|assertBusy
