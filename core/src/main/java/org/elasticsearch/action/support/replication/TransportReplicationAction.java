@@ -668,18 +668,6 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|SendRequestTransportException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
 name|TransportChannel
 import|;
 end_import
@@ -5844,7 +5832,7 @@ block|{
 assert|assert
 name|shardFailedError
 operator|instanceof
-name|SendRequestTransportException
+name|TransportException
 operator|||
 name|shardFailedError
 operator|instanceof
