@@ -478,6 +478,22 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|EsRejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ThreadContext
 import|;
 end_import
@@ -5830,6 +5846,13 @@ block|}
 else|else
 block|{
 assert|assert
+operator|(
+name|shardFailedError
+operator|instanceof
+name|EsRejectedExecutionException
+operator|)
+operator|||
+operator|(
 name|shardFailedError
 operator|.
 name|getMessage
@@ -5846,6 +5869,7 @@ name|contains
 argument_list|(
 literal|"TransportService is closed"
 argument_list|)
+operator|)
 operator|:
 name|shardFailedError
 assert|;
