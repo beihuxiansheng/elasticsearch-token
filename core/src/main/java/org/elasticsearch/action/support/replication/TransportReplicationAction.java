@@ -5834,6 +5834,13 @@ name|shardFailedError
 operator|.
 name|getMessage
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|shardFailedError
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
