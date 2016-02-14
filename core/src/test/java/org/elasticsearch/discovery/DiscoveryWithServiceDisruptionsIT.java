@@ -86,22 +86,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|replication
-operator|.
-name|TransportReplicationAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|client
 operator|.
 name|Client
@@ -1277,50 +1261,13 @@ name|void
 name|beforeIndexDeletion
 parameter_list|()
 block|{
-try|try
-block|{
-comment|// some test may leave operations in flight. Wait for them to be finished
-name|assertBusy
-argument_list|(
-parameter_list|()
-lambda|->
-name|TransportReplicationAction
-operator|.
-name|assertAllShardReferencesAreCleaned
-argument_list|()
-argument_list|,
-literal|40
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-expr_stmt|;
-name|assertBusy
-argument_list|(
-parameter_list|()
-lambda|->
-name|super
-operator|.
-name|beforeIndexDeletion
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|AssertionError
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
+comment|// some test may leave operations in flight
+comment|//        try {
+comment|////            assertBusy(() -> TransportReplicationAction.assertAllShardReferencesAreCleaned());
+comment|////            assertBusy(() -> super.beforeIndexDeletion());
+comment|//        } catch (Exception e) {
+comment|//            throw new AssertionError(e);
+comment|//        }
 block|}
 DECL|method|startCluster
 specifier|private
