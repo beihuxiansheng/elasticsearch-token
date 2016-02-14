@@ -2102,30 +2102,6 @@ argument_list|,
 name|e
 argument_list|)
 decl_stmt|;
-name|threadPool
-operator|.
-name|executor
-argument_list|(
-name|ThreadPool
-operator|.
-name|Names
-operator|.
-name|GENERIC
-argument_list|)
-operator|.
-name|execute
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
 name|holderToNotify
 operator|.
 name|handler
@@ -2134,10 +2110,6 @@ operator|.
 name|handleException
 argument_list|(
 name|sendRequestException
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2498,7 +2470,7 @@ name|perAddressLimit
 argument_list|)
 return|;
 block|}
-comment|/**      * Registers a new request handler      * @param action The action the request handler is associated with      * @param requestFactory a callable to be used construct new instances for streaming      * @param executor The executor the request handling will be executed on      * @param handler The handler itself that implements the request handling      */
+comment|/**      * Registers a new request handler      *      * @param action         The action the request handler is associated with      * @param requestFactory a callable to be used construct new instances for streaming      * @param executor       The executor the request handling will be executed on      * @param handler        The handler itself that implements the request handling      */
 DECL|method|registerRequestHandler
 specifier|public
 parameter_list|<
@@ -2557,7 +2529,7 @@ name|reg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Registers a new request handler      * @param action The action the request handler is associated with      * @param request The request class that will be used to constrcut new instances for streaming      * @param executor The executor the request handling will be executed on      * @param forceExecution Force execution on the executor queue and never reject it      * @param handler The handler itself that implements the request handling      */
+comment|/**      * Registers a new request handler      *      * @param action         The action the request handler is associated with      * @param request        The request class that will be used to constrcut new instances for streaming      * @param executor       The executor the request handling will be executed on      * @param forceExecution Force execution on the executor queue and never reject it      * @param handler        The handler itself that implements the request handling      */
 DECL|method|registerRequestHandler
 specifier|public
 parameter_list|<
