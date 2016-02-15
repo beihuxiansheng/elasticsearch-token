@@ -1865,9 +1865,16 @@ name|targetOptionsBuilder
 operator|.
 name|highlightQuery
 argument_list|(
+name|QueryBuilder
+operator|.
+name|rewriteQuery
+argument_list|(
 name|highlighterBuilder
 operator|.
 name|highlightQuery
+argument_list|,
+name|context
+argument_list|)
 operator|.
 name|toQuery
 argument_list|(

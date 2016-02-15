@@ -730,6 +730,8 @@ name|debug
 argument_list|(
 literal|"failed to execute pipeline [{}] for document [{}/{}/{}]"
 argument_list|,
+name|throwable
+argument_list|,
 name|indexRequest
 operator|.
 name|getPipeline
@@ -749,8 +751,6 @@ name|indexRequest
 operator|.
 name|id
 argument_list|()
-argument_list|,
-name|throwable
 argument_list|)
 argument_list|;
 name|bulkRequestModifier

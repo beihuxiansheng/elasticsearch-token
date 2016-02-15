@@ -1641,10 +1641,7 @@ operator|.
 name|filter
 argument_list|(
 literal|"filtered"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|bbox
 argument_list|)
 operator|.

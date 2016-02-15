@@ -302,7 +302,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -1180,8 +1180,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|indicesQueriesRegistry
 argument_list|)
 block|{
@@ -1195,13 +1193,13 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(

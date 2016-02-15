@@ -238,7 +238,7 @@ name|PARENT_TYPE
 argument_list|,
 name|STRING_FIELD_NAME
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 name|INT_FIELD_NAME
 argument_list|,
@@ -297,7 +297,7 @@ name|PARENT_TYPE
 argument_list|,
 name|STRING_FIELD_NAME
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 name|INT_FIELD_NAME
 argument_list|,

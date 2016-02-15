@@ -319,7 +319,7 @@ literal|"test"
 argument_list|,
 literal|"string"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"date"
 argument_list|,
@@ -1785,7 +1785,7 @@ literal|"test"
 argument_list|,
 literal|"value"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;

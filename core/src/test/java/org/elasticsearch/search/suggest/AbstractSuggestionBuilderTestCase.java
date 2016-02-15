@@ -1818,8 +1818,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|mockMapperService
 argument_list|,
 literal|null

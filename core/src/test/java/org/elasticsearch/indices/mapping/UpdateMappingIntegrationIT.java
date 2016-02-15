@@ -1895,14 +1895,14 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"analyzed"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -2502,7 +2502,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2866,7 +2866,7 @@ literal|"type1"
 argument_list|,
 literal|"f"
 argument_list|,
-literal|"type=string"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|addMapping
@@ -2875,7 +2875,7 @@ literal|"type2"
 argument_list|,
 literal|"f"
 argument_list|,
-literal|"type=string"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2909,7 +2909,7 @@ name|setSource
 argument_list|(
 literal|"f"
 argument_list|,
-literal|"type=string,analyzer=default,null_value=n/a"
+literal|"type=keyword,null_value=n/a"
 argument_list|)
 operator|.
 name|get

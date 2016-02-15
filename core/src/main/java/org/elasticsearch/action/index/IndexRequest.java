@@ -2568,6 +2568,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// if we are here, the defaultTimestamp is not
+comment|// TimestampFieldMapper.Defaults.DEFAULT_TIMESTAMP but
+comment|// this can only happen if defaultTimestamp was
+comment|// assigned again because mappingMd and
+comment|// mappingMd#timestamp() are not null
+assert|assert
+name|mappingMd
+operator|!=
+literal|null
+assert|;
 name|timestamp
 operator|=
 name|MappingMetaData

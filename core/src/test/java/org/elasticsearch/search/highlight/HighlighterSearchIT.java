@@ -955,7 +955,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -1206,7 +1206,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -1630,7 +1630,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -1666,7 +1666,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -1918,7 +1918,7 @@ literal|"test"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets,store="
+literal|"type=text,term_vector=with_positions_offsets,store="
 operator|+
 name|randomBoolean
 argument_list|()
@@ -2099,7 +2099,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -2133,7 +2133,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2435,7 +2435,7 @@ literal|"test"
 argument_list|,
 literal|"body"
 argument_list|,
-literal|"type=string,analyzer=custom_analyzer,search_analyzer=custom_analyzer,term_vector=with_positions_offsets"
+literal|"type=text,analyzer=custom_analyzer,search_analyzer=custom_analyzer,term_vector=with_positions_offsets"
 argument_list|)
 operator|.
 name|setSettings
@@ -2685,7 +2685,7 @@ literal|"test"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,"
+literal|"type=text,analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -2694,7 +2694,7 @@ literal|"term_vector=with_positions_offsets"
 argument_list|,
 literal|"name2"
 argument_list|,
-literal|"type=string,analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,"
+literal|"type=text,analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -3393,11 +3393,11 @@ literal|"test"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
+literal|"type=text,analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
 argument_list|,
 literal|"name2"
 argument_list|,
-literal|"type=string,analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
+literal|"type=text,analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
 argument_list|)
 operator|.
 name|setSettings
@@ -3839,11 +3839,11 @@ literal|"type1"
 argument_list|,
 literal|"no_long_term"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets"
+literal|"type=text,term_vector=with_positions_offsets"
 argument_list|,
 literal|"long_term"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets"
+literal|"type=text,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4126,7 +4126,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -4165,7 +4165,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -4524,7 +4524,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -4563,7 +4563,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -4923,7 +4923,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -4962,7 +4962,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -5406,11 +5406,11 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=false"
+literal|"type=text,store=false"
 argument_list|,
 literal|"titleTV"
 argument_list|,
-literal|"type=string,store=false,term_vector=with_positions_offsets"
+literal|"type=text,store=false,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5937,15 +5937,15 @@ literal|"type1"
 argument_list|,
 literal|"field-postings"
 argument_list|,
-literal|"type=string,index_options=offsets"
+literal|"type=text,index_options=offsets"
 argument_list|,
 literal|"field-fvh"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets"
+literal|"type=text,term_vector=with_positions_offsets"
 argument_list|,
 literal|"field-plain"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6169,7 +6169,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -8187,7 +8187,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -8225,7 +8225,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -8260,7 +8260,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -8298,7 +8298,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -10096,7 +10096,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -10118,7 +10118,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -10162,7 +10162,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=true,term_vector=with_positions_offsets"
+literal|"type=text,store=true,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10326,7 +10326,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=true,term_vector=with_positions_offsets"
+literal|"type=text,store=true,term_vector=with_positions_offsets"
 argument_list|)
 operator|.
 name|get
@@ -10495,7 +10495,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=true"
+literal|"type=text,store=true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10669,7 +10669,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=true,term_vector=with_positions_offsets"
+literal|"type=text,store=true,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10862,7 +10862,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -10900,7 +10900,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -11140,7 +11140,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -11178,7 +11178,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -11418,7 +11418,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -11456,7 +11456,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -11696,7 +11696,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -11734,7 +11734,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -11951,7 +11951,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=true,term_vector=no"
+literal|"type=text,store=true,term_vector=no"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12184,7 +12184,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,store=true,term_vector=with_positions_offsets,analyzer=classic"
+literal|"type=text,store=true,term_vector=with_positions_offsets,analyzer=classic"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12512,7 +12512,7 @@ literal|"type1"
 argument_list|,
 literal|"tags"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets"
+literal|"type=text,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13297,11 +13297,11 @@ literal|"store=true,termVector=with_positions_offsets"
 argument_list|,
 literal|"field4"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets,analyzer=synonym"
+literal|"type=text,term_vector=with_positions_offsets,analyzer=synonym"
 argument_list|,
 literal|"field3"
 argument_list|,
-literal|"type=string,analyzer=synonym"
+literal|"type=text,analyzer=synonym"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13977,7 +13977,7 @@ literal|"type1"
 argument_list|,
 literal|"tags"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14479,11 +14479,11 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets"
+literal|"type=text,term_vector=with_positions_offsets"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets"
+literal|"type=text,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14653,7 +14653,7 @@ literal|"type1"
 argument_list|,
 literal|"highlight_field"
 argument_list|,
-literal|"type=string,store=true"
+literal|"type=text,store=true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -14815,7 +14815,7 @@ literal|"test"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,index=analyzed"
+literal|"type=text"
 argument_list|,
 literal|"byte"
 argument_list|,
@@ -15034,7 +15034,7 @@ literal|"type"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,analyzer=my_analyzer"
+literal|"type=text,analyzer=my_analyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15146,7 +15146,7 @@ literal|"type1"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,"
+literal|"type=text,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -15614,7 +15614,7 @@ literal|"type1"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,"
+literal|"type=text,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -16732,7 +16732,7 @@ literal|"type1"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,"
+literal|"type=text,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -17629,7 +17629,7 @@ literal|"type1"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,"
+literal|"type=text,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -19190,7 +19190,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -19219,7 +19219,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -19855,7 +19855,7 @@ literal|"type1"
 argument_list|,
 literal|"title"
 argument_list|,
-literal|"type=string,"
+literal|"type=text,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -20049,7 +20049,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -20087,7 +20087,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -20337,7 +20337,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -20375,7 +20375,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -20597,7 +20597,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -21207,7 +21207,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -21229,7 +21229,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -22962,7 +22962,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -23157,7 +23157,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field

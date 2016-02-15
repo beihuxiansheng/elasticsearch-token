@@ -271,9 +271,7 @@ decl_stmt|;
 DECL|field|valuesSource
 specifier|private
 specifier|final
-name|GeoHashGridParser
-operator|.
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 operator|.
 name|CellIdSource
 name|valuesSource
@@ -294,9 +292,7 @@ parameter_list|,
 name|AggregatorFactories
 name|factories
 parameter_list|,
-name|GeoHashGridParser
-operator|.
-name|GeoGridFactory
+name|GeoGridAggregatorBuilder
 operator|.
 name|CellIdSource
 name|valuesSource
