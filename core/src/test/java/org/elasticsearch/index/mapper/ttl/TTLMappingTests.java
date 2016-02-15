@@ -819,7 +819,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -885,7 +885,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1051,7 +1051,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1117,7 +1117,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1951,7 +1951,7 @@ argument_list|(
 operator|new
 name|CompressedXContent
 argument_list|(
-literal|"{\"type\":{\"_ttl\":{\"enabled\":true,\"default\":360000},\"properties\":{\"field\":{\"type\":\"string\"}}}}"
+literal|"{\"type\":{\"_ttl\":{\"enabled\":true,\"default\":360000},\"properties\":{\"field\":{\"type\":\"text\"}}}}"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2018,7 +2018,7 @@ argument_list|(
 operator|new
 name|CompressedXContent
 argument_list|(
-literal|"{\"type\":{\"_ttl\":{\"enabled\":false},\"properties\":{\"field\":{\"type\":\"string\"}}}}"
+literal|"{\"type\":{\"_ttl\":{\"enabled\":false},\"properties\":{\"field\":{\"type\":\"text\"}}}}"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2083,7 +2083,7 @@ argument_list|(
 operator|new
 name|CompressedXContent
 argument_list|(
-literal|"{\"type\":{\"_ttl\":{\"enabled\":false},\"properties\":{\"field\":{\"type\":\"string\"}}}}"
+literal|"{\"type\":{\"_ttl\":{\"enabled\":false},\"properties\":{\"field\":{\"type\":\"text\"}}}}"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2361,7 +2361,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2464,7 +2464,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2545,7 +2545,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject

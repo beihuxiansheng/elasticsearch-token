@@ -622,7 +622,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addMapping
@@ -633,7 +633,7 @@ name|TYPE_NAME
 argument_list|,
 literal|"color"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -871,7 +871,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addMapping
@@ -882,7 +882,7 @@ name|TYPE_NAME
 argument_list|,
 literal|"color"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1206,7 +1206,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addMapping
@@ -1217,7 +1217,7 @@ name|TYPE_NAME
 argument_list|,
 literal|"color"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;

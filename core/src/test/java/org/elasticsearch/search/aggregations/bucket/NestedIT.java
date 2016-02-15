@@ -3929,11 +3929,11 @@ literal|"product"
 argument_list|,
 literal|"categories"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"property"
 argument_list|,

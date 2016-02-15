@@ -568,7 +568,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -781,7 +781,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -988,7 +988,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -1210,17 +1210,17 @@ argument_list|,
 comment|// no tvs
 literal|"field1"
 argument_list|,
-literal|"type=string,index=no"
+literal|"type=text,index=false"
 argument_list|,
 comment|// no tvs
 literal|"field2"
 argument_list|,
-literal|"type=string,index=no,store=true"
+literal|"type=text,index=false,store=true"
 argument_list|,
 comment|// no tvs
 literal|"field3"
 argument_list|,
-literal|"type=string,index=no,term_vector=yes"
+literal|"type=text,index=false,term_vector=yes"
 argument_list|,
 comment|// no tvs
 literal|"field4"
@@ -1230,7 +1230,7 @@ argument_list|,
 comment|// yes tvs
 literal|"field5"
 argument_list|,
-literal|"type=string,index=analyzed"
+literal|"type=text,index=true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1538,7 +1538,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -2032,7 +2032,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -3319,7 +3319,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -4535,7 +4535,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -5367,7 +5367,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets,analyzer=keyword"
+literal|"type=text,term_vector=with_positions_offsets,analyzer=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5387,7 +5387,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,term_vector=no,analyzer=keyword"
+literal|"type=text,term_vector=no,analyzer=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6091,7 +6091,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -6310,7 +6310,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,term_vector=with_positions_offsets"
+literal|"type=text,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6652,7 +6652,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6852,7 +6852,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -8497,7 +8497,7 @@ literal|"type1"
 argument_list|,
 literal|"tags"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8779,7 +8779,7 @@ literal|"type1"
 argument_list|,
 literal|"tags"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9088,7 +9088,7 @@ literal|"type1"
 argument_list|,
 literal|"tags"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;

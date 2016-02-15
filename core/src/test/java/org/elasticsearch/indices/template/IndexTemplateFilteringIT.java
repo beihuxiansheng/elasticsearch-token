@@ -301,7 +301,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -332,7 +332,7 @@ literal|"type2"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -363,7 +363,7 @@ literal|"type3"
 argument_list|,
 literal|"field3"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get

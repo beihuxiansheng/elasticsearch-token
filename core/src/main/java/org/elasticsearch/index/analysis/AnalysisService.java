@@ -102,7 +102,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -443,7 +443,7 @@ comment|/*              * Lucene defaults positionIncrementGap to 0 in all analy
 name|int
 name|overridePositionIncrementGap
 init|=
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Defaults
 operator|.
