@@ -317,7 +317,7 @@ specifier|private
 name|HighlightBuilder
 name|highlightBuilder
 decl_stmt|;
-DECL|field|aggregationFactorys
+DECL|field|aggregationBuilders
 specifier|private
 name|List
 argument_list|<
@@ -326,15 +326,15 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|aggregationFactorys
+name|aggregationBuilders
 decl_stmt|;
-DECL|field|pipelineAggregationFactorys
+DECL|field|pipelineAggregationBuilders
 specifier|private
 name|List
 argument_list|<
 name|PipelineAggregatorBuilder
 argument_list|>
-name|pipelineAggregationFactorys
+name|pipelineAggregationBuilders
 decl_stmt|;
 comment|/**      * Sets the document to run the percolate queries against.      */
 DECL|method|setDoc
@@ -523,12 +523,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|aggregationFactorys
+name|aggregationBuilders
 operator|==
 literal|null
 condition|)
 block|{
-name|aggregationFactorys
+name|aggregationBuilders
 operator|=
 operator|new
 name|ArrayList
@@ -536,7 +536,7 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-name|aggregationFactorys
+name|aggregationBuilders
 operator|.
 name|add
 argument_list|(
@@ -559,12 +559,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|pipelineAggregationFactorys
+name|pipelineAggregationBuilders
 operator|==
 literal|null
 condition|)
 block|{
-name|pipelineAggregationFactorys
+name|pipelineAggregationBuilders
 operator|=
 operator|new
 name|ArrayList
@@ -572,7 +572,7 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-name|pipelineAggregationFactorys
+name|pipelineAggregationBuilders
 operator|.
 name|add
 argument_list|(
@@ -746,11 +746,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|aggregationFactorys
+name|aggregationBuilders
 operator|!=
 literal|null
 operator|||
-name|pipelineAggregationFactorys
+name|pipelineAggregationBuilders
 operator|!=
 literal|null
 condition|)
@@ -769,7 +769,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|aggregationFactorys
+name|aggregationBuilders
 operator|!=
 literal|null
 condition|)
@@ -782,7 +782,7 @@ name|?
 argument_list|>
 name|aggregation
 range|:
-name|aggregationFactorys
+name|aggregationBuilders
 control|)
 block|{
 name|aggregation
@@ -798,7 +798,7 @@ block|}
 block|}
 if|if
 condition|(
-name|pipelineAggregationFactorys
+name|pipelineAggregationBuilders
 operator|!=
 literal|null
 condition|)
@@ -808,7 +808,7 @@ control|(
 name|PipelineAggregatorBuilder
 name|aggregation
 range|:
-name|pipelineAggregationFactorys
+name|pipelineAggregationBuilders
 control|)
 block|{
 name|aggregation

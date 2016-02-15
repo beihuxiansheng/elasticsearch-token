@@ -2342,7 +2342,8 @@ name|maxDoc
 argument_list|()
 condition|)
 block|{
-comment|// prevent easy OOM if more than the total number of docs that exist is requested...
+comment|// prevent easy OOM if more than the total number of docs that
+comment|// exist is requested...
 name|size
 operator|=
 name|context
@@ -2477,7 +2478,8 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// No sort or tracking scores was provided, so use special value to indicate to not show the scores:
+comment|// No sort or tracking scores was provided, so use special
+comment|// value to indicate to not show the scores:
 name|scoreDoc
 operator|.
 name|score
