@@ -1541,10 +1541,10 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSuccessAfterRetryWithExcpetionFromTransport
+DECL|method|testSuccessAfterRetryWithExceptionFromTransport
 specifier|public
 name|void
-name|testSuccessAfterRetryWithExcpetionFromTransport
+name|testSuccessAfterRetryWithExceptionFromTransport
 parameter_list|()
 throws|throws
 name|Exception
