@@ -429,6 +429,9 @@ block|{
 return|return
 operator|new
 name|Unmapped
+argument_list|<
+name|R
+argument_list|>
 argument_list|(
 name|name
 argument_list|,
