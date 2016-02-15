@@ -512,7 +512,7 @@ literal|"test"
 argument_list|,
 literal|"field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 expr_stmt|;
 for|for
@@ -2055,7 +2055,7 @@ literal|"test"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 expr_stmt|;
 name|client
@@ -2110,7 +2110,7 @@ literal|"test"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 expr_stmt|;
 name|client

@@ -3398,11 +3398,11 @@ literal|"doc"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"class"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;

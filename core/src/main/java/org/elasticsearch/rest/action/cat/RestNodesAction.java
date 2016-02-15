@@ -1068,15 +1068,6 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"host"
-argument_list|,
-literal|"alias:h;desc:host name"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"ip"
 argument_list|,
 literal|"alias:i;desc:ip address"
@@ -2057,16 +2048,6 @@ name|getProcess
 argument_list|()
 operator|.
 name|getId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|node
-operator|.
-name|getHostName
 argument_list|()
 argument_list|)
 expr_stmt|;

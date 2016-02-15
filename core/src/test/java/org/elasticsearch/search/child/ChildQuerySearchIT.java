@@ -9520,7 +9520,7 @@ literal|"parent"
 argument_list|,
 literal|"p_field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addMapping
@@ -9533,7 +9533,7 @@ literal|"type=parent"
 argument_list|,
 literal|"c_field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -2839,7 +2839,7 @@ literal|"type"
 argument_list|,
 literal|"str_field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"long_field"
 argument_list|,

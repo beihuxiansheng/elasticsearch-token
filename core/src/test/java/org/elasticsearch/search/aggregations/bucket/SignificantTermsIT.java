@@ -633,7 +633,7 @@ literal|"type=integer,index=true"
 argument_list|,
 literal|"description"
 argument_list|,
-literal|"type=string,index=analyzed"
+literal|"type=text,index=true"
 argument_list|)
 argument_list|)
 expr_stmt|;

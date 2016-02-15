@@ -473,7 +473,7 @@ literal|"type=keyword"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,index=analyzed"
+literal|"type=text"
 argument_list|,
 literal|"genre"
 argument_list|,
@@ -515,7 +515,7 @@ literal|"book"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,index=analyzed"
+literal|"type=text"
 argument_list|,
 literal|"genre"
 argument_list|,

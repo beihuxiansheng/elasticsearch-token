@@ -3601,7 +3601,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[type : string]"
+literal|"[type : text]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3682,7 +3682,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3763,7 +3763,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4281,7 +4281,7 @@ literal|"type"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 operator|+
 operator|(
 name|boost

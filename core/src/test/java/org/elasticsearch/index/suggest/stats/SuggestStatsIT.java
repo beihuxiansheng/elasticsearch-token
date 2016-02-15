@@ -516,7 +516,7 @@ literal|"type"
 argument_list|,
 literal|"f"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -555,7 +555,7 @@ literal|"type"
 argument_list|,
 literal|"f"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
