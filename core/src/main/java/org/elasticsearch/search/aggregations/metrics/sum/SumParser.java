@@ -229,8 +229,6 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|SumAggregator
-operator|.
 name|SumAggregatorBuilder
 name|createFactory
 parameter_list|(
@@ -254,8 +252,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SumAggregator
-operator|.
 name|SumAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -274,8 +270,6 @@ name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|SumAggregator
-operator|.
 name|SumAggregatorBuilder
 operator|.
 name|PROTOTYPE

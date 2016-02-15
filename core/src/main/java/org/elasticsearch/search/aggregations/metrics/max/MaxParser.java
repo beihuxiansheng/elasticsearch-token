@@ -215,8 +215,6 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|MaxAggregator
-operator|.
 name|MaxAggregatorBuilder
 name|createFactory
 parameter_list|(
@@ -240,8 +238,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MaxAggregator
-operator|.
 name|MaxAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -252,15 +248,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|MaxAggregator
-operator|.
 name|MaxAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|MaxAggregator
-operator|.
 name|MaxAggregatorBuilder
 operator|.
 name|PROTOTYPE

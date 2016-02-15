@@ -107,8 +107,6 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|GlobalAggregator
-operator|.
 name|GlobalAggregatorBuilder
 name|parse
 parameter_list|(
@@ -131,8 +129,6 @@ argument_list|()
 expr_stmt|;
 return|return
 operator|new
-name|GlobalAggregator
-operator|.
 name|GlobalAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -143,15 +139,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|GlobalAggregator
-operator|.
 name|GlobalAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|GlobalAggregator
-operator|.
 name|GlobalAggregatorBuilder
 operator|.
 name|PROTOTYPE

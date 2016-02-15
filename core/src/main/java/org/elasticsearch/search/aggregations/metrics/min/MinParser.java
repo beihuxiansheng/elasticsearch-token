@@ -229,8 +229,6 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|MinAggregator
-operator|.
 name|MinAggregatorBuilder
 name|createFactory
 parameter_list|(
@@ -254,8 +252,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MinAggregator
-operator|.
 name|MinAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -266,15 +262,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|MinAggregator
-operator|.
 name|MinAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|MinAggregator
-operator|.
 name|MinAggregatorBuilder
 operator|.
 name|PROTOTYPE

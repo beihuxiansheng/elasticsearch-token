@@ -36,7 +36,7 @@ name|bucketmetrics
 operator|.
 name|percentile
 operator|.
-name|PercentilesBucketPipelineAggregator
+name|PercentilesBucketPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -48,8 +48,6 @@ name|PercentilesBucketTests
 extends|extends
 name|AbstractBucketMetricsTestCase
 argument_list|<
-name|PercentilesBucketPipelineAggregator
-operator|.
 name|PercentilesBucketPipelineAggregatorBuilder
 argument_list|>
 block|{
@@ -57,8 +55,6 @@ annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|PercentilesBucketPipelineAggregator
-operator|.
 name|PercentilesBucketPipelineAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|(
@@ -69,14 +65,10 @@ name|String
 name|bucketsPath
 parameter_list|)
 block|{
-name|PercentilesBucketPipelineAggregator
-operator|.
 name|PercentilesBucketPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|PercentilesBucketPipelineAggregator
-operator|.
 name|PercentilesBucketPipelineAggregatorBuilder
 argument_list|(
 name|name

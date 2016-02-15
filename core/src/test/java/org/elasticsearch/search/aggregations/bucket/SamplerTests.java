@@ -46,7 +46,7 @@ name|bucket
 operator|.
 name|sampler
 operator|.
-name|SamplerAggregator
+name|SamplerAggregatorBuilder
 import|;
 end_import
 
@@ -58,8 +58,6 @@ name|SamplerTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|SamplerAggregator
-operator|.
 name|SamplerAggregatorBuilder
 argument_list|>
 block|{
@@ -68,20 +66,14 @@ name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
 specifier|final
-name|SamplerAggregator
-operator|.
 name|SamplerAggregatorBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|SamplerAggregator
-operator|.
 name|SamplerAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|SamplerAggregator
-operator|.
 name|SamplerAggregatorBuilder
 argument_list|(
 literal|"foo"

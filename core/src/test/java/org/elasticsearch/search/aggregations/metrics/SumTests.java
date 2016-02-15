@@ -32,7 +32,7 @@ name|metrics
 operator|.
 name|sum
 operator|.
-name|SumAggregator
+name|SumAggregatorBuilder
 import|;
 end_import
 
@@ -44,8 +44,6 @@ name|SumTests
 extends|extends
 name|AbstractNumericMetricTestCase
 argument_list|<
-name|SumAggregator
-operator|.
 name|SumAggregatorBuilder
 argument_list|>
 block|{
@@ -53,16 +51,12 @@ annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|SumAggregator
-operator|.
 name|SumAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SumAggregator
-operator|.
 name|SumAggregatorBuilder
 argument_list|(
 literal|"foo"

@@ -215,8 +215,6 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|AvgAggregator
-operator|.
 name|AvgAggregatorBuilder
 name|createFactory
 parameter_list|(
@@ -240,8 +238,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|AvgAggregator
-operator|.
 name|AvgAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -252,15 +248,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|AvgAggregator
-operator|.
 name|AvgAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|AvgAggregator
-operator|.
 name|AvgAggregatorBuilder
 operator|.
 name|PROTOTYPE

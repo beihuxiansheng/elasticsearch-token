@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.pipeline.having
+DECL|package|org.elasticsearch.search.aggregations.pipeline.bucketselector
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|having
+name|bucketselector
 package|;
 end_package
 
@@ -252,8 +252,6 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|BucketSelectorPipelineAggregator
-operator|.
 name|BucketSelectorPipelineAggregatorBuilder
 name|parse
 parameter_list|(
@@ -859,14 +857,10 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-name|BucketSelectorPipelineAggregator
-operator|.
 name|BucketSelectorPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|BucketSelectorPipelineAggregator
-operator|.
 name|BucketSelectorPipelineAggregatorBuilder
 argument_list|(
 name|reducerName
@@ -899,15 +893,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|BucketSelectorPipelineAggregator
-operator|.
 name|BucketSelectorPipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-name|BucketSelectorPipelineAggregator
-operator|.
 name|BucketSelectorPipelineAggregatorBuilder
 operator|.
 name|PROTOTYPE

@@ -79,8 +79,6 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|AvgBucketPipelineAggregator
-operator|.
 name|AvgBucketPipelineAggregatorBuilder
 name|buildFactory
 parameter_list|(
@@ -101,8 +99,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|AvgBucketPipelineAggregator
-operator|.
 name|AvgBucketPipelineAggregatorBuilder
 argument_list|(
 name|pipelineAggregatorName
@@ -115,15 +111,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|AvgBucketPipelineAggregator
-operator|.
 name|AvgBucketPipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-name|AvgBucketPipelineAggregator
-operator|.
 name|AvgBucketPipelineAggregatorBuilder
 operator|.
 name|PROTOTYPE

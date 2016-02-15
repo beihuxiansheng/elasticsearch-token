@@ -46,8 +46,6 @@ name|bucket
 operator|.
 name|geogrid
 operator|.
-name|GeoHashGridParser
-operator|.
 name|GeoGridAggregatorBuilder
 import|;
 end_import

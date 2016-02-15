@@ -158,7 +158,7 @@ name|metrics
 operator|.
 name|avg
 operator|.
-name|AvgAggregator
+name|AvgAggregatorBuilder
 import|;
 end_import
 
@@ -198,7 +198,7 @@ name|stats
 operator|.
 name|extended
 operator|.
-name|ExtendedStatsAggregator
+name|ExtendedStatsAggregatorBuilder
 import|;
 end_import
 
@@ -382,14 +382,10 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|AvgAggregator
-operator|.
 name|AvgAggregatorBuilder
 name|builder
 parameter_list|()
 block|{
-name|AvgAggregator
-operator|.
 name|AvgAggregatorBuilder
 name|factory
 init|=
@@ -442,14 +438,10 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|ExtendedStatsAggregator
-operator|.
 name|ExtendedStatsAggregatorBuilder
 name|builder
 parameter_list|()
 block|{
-name|ExtendedStatsAggregator
-operator|.
 name|ExtendedStatsAggregatorBuilder
 name|factory
 init|=
@@ -515,14 +507,10 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|ExtendedStatsAggregator
-operator|.
 name|ExtendedStatsAggregatorBuilder
 name|builder
 parameter_list|()
 block|{
-name|ExtendedStatsAggregator
-operator|.
 name|ExtendedStatsAggregatorBuilder
 name|factory
 init|=

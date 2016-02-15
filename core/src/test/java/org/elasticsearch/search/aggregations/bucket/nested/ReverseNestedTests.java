@@ -34,26 +34,6 @@ name|BaseAggregationTestCase
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|bucket
-operator|.
-name|nested
-operator|.
-name|ReverseNestedAggregator
-operator|.
-name|ReverseNestedAggregatorBuilder
-import|;
-end_import
-
 begin_class
 DECL|class|ReverseNestedTests
 specifier|public
@@ -62,8 +42,6 @@ name|ReverseNestedTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|ReverseNestedAggregator
-operator|.
 name|ReverseNestedAggregatorBuilder
 argument_list|>
 block|{

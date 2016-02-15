@@ -32,7 +32,7 @@ name|metrics
 operator|.
 name|avg
 operator|.
-name|AvgAggregator
+name|AvgAggregatorBuilder
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|metrics
 operator|.
 name|max
 operator|.
-name|MaxAggregator
+name|MaxAggregatorBuilder
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|metrics
 operator|.
 name|min
 operator|.
-name|MinAggregator
+name|MinAggregatorBuilder
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|metrics
 operator|.
 name|sum
 operator|.
-name|SumAggregator
+name|SumAggregatorBuilder
 import|;
 end_import
 
@@ -508,8 +508,6 @@ if|if
 condition|(
 name|metric
 operator|instanceof
-name|MinAggregator
-operator|.
 name|MinAggregatorBuilder
 condition|)
 block|{
@@ -549,8 +547,6 @@ if|if
 condition|(
 name|metric
 operator|instanceof
-name|MaxAggregator
-operator|.
 name|MaxAggregatorBuilder
 condition|)
 block|{
@@ -590,8 +586,6 @@ if|if
 condition|(
 name|metric
 operator|instanceof
-name|SumAggregator
-operator|.
 name|SumAggregatorBuilder
 condition|)
 block|{
@@ -622,8 +616,6 @@ if|if
 condition|(
 name|metric
 operator|instanceof
-name|AvgAggregator
-operator|.
 name|AvgAggregatorBuilder
 condition|)
 block|{

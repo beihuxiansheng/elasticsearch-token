@@ -119,8 +119,6 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|NestedAggregator
-operator|.
 name|NestedAggregatorBuilder
 name|parse
 parameter_list|(
@@ -304,8 +302,6 @@ throw|;
 block|}
 return|return
 operator|new
-name|NestedAggregator
-operator|.
 name|NestedAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -318,15 +314,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|NestedAggregator
-operator|.
 name|NestedAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|NestedAggregator
-operator|.
 name|NestedAggregatorBuilder
 operator|.
 name|PROTOTYPE

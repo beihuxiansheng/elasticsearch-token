@@ -256,9 +256,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|RangeAggregator
-operator|.
-name|AbstractBuilder
+name|AbstractRangeBuilder
 argument_list|<
 name|?
 argument_list|,
@@ -284,14 +282,10 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|RangeAggregator
-operator|.
 name|RangeAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|RangeAggregator
-operator|.
 name|RangeAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -583,9 +577,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|RangeAggregator
-operator|.
-name|AbstractBuilder
+name|AbstractRangeBuilder
 argument_list|<
 name|?
 argument_list|,
@@ -595,8 +587,6 @@ name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|RangeAggregator
-operator|.
 name|RangeAggregatorBuilder
 operator|.
 name|PROTOTYPE

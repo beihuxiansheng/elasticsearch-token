@@ -119,8 +119,6 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|ParentToChildrenAggregator
-operator|.
 name|ChildrenAggregatorBuilder
 name|parse
 parameter_list|(
@@ -296,8 +294,6 @@ throw|;
 block|}
 return|return
 operator|new
-name|ParentToChildrenAggregator
-operator|.
 name|ChildrenAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -310,15 +306,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|ParentToChildrenAggregator
-operator|.
 name|ChildrenAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|ParentToChildrenAggregator
-operator|.
 name|ChildrenAggregatorBuilder
 operator|.
 name|PROTOTYPE

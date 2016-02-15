@@ -58,7 +58,7 @@ name|metrics
 operator|.
 name|valuecount
 operator|.
-name|ValueCountAggregator
+name|ValueCountAggregatorBuilder
 import|;
 end_import
 
@@ -70,8 +70,6 @@ name|ValueCountTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|ValueCountAggregator
-operator|.
 name|ValueCountAggregatorBuilder
 argument_list|>
 block|{
@@ -80,20 +78,14 @@ name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
 specifier|final
-name|ValueCountAggregator
-operator|.
 name|ValueCountAggregatorBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|ValueCountAggregator
-operator|.
 name|ValueCountAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|ValueCountAggregator
-operator|.
 name|ValueCountAggregatorBuilder
 argument_list|(
 literal|"foo"

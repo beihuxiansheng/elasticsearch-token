@@ -38,7 +38,7 @@ name|stats
 operator|.
 name|extended
 operator|.
-name|ExtendedStatsBucketPipelineAggregator
+name|ExtendedStatsBucketPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -50,8 +50,6 @@ name|ExtendedStatsBucketTests
 extends|extends
 name|AbstractBucketMetricsTestCase
 argument_list|<
-name|ExtendedStatsBucketPipelineAggregator
-operator|.
 name|ExtendedStatsBucketPipelineAggregatorBuilder
 argument_list|>
 block|{
@@ -59,8 +57,6 @@ annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|ExtendedStatsBucketPipelineAggregator
-operator|.
 name|ExtendedStatsBucketPipelineAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|(
@@ -71,14 +67,10 @@ name|String
 name|bucketsPath
 parameter_list|)
 block|{
-name|ExtendedStatsBucketPipelineAggregator
-operator|.
 name|ExtendedStatsBucketPipelineAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|ExtendedStatsBucketPipelineAggregator
-operator|.
 name|ExtendedStatsBucketPipelineAggregatorBuilder
 argument_list|(
 name|name

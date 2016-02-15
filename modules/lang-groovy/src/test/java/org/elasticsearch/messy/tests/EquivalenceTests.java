@@ -262,7 +262,9 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeAggregator
+name|Range
+operator|.
+name|Bucket
 import|;
 end_import
 
@@ -280,9 +282,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|Range
-operator|.
-name|Bucket
+name|RangeAggregatorBuilder
 import|;
 end_import
 
@@ -1072,8 +1072,6 @@ argument_list|()
 throw|;
 block|}
 block|}
-name|RangeAggregator
-operator|.
 name|RangeAggregatorBuilder
 name|query
 init|=

@@ -236,9 +236,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|HistogramAggregator
-operator|.
-name|AbstractBuilder
+name|AbstractHistogramBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -262,14 +260,10 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|HistogramAggregator
-operator|.
 name|HistogramAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|HistogramAggregator
-operator|.
 name|HistogramAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -1077,9 +1071,7 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|HistogramAggregator
-operator|.
-name|AbstractBuilder
+name|AbstractHistogramBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -1087,8 +1079,6 @@ name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|HistogramAggregator
-operator|.
 name|HistogramAggregatorBuilder
 operator|.
 name|PROTOTYPE

@@ -249,8 +249,6 @@ name|ValuesSourceAggregatorBuilder
 argument_list|<
 name|ValuesSource
 argument_list|,
-name|ValueCountAggregator
-operator|.
 name|ValueCountAggregatorBuilder
 argument_list|>
 name|createFactory
@@ -275,8 +273,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ValueCountAggregator
-operator|.
 name|ValueCountAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -289,15 +285,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|ValueCountAggregator
-operator|.
 name|ValueCountAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|ValueCountAggregator
-operator|.
 name|ValueCountAggregatorBuilder
 operator|.
 name|PROTOTYPE

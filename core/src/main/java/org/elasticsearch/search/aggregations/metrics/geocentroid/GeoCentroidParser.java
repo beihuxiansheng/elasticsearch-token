@@ -227,8 +227,6 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|GeoCentroidAggregator
-operator|.
 name|GeoCentroidAggregatorBuilder
 name|createFactory
 parameter_list|(
@@ -252,8 +250,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|GeoCentroidAggregator
-operator|.
 name|GeoCentroidAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -264,15 +260,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|GeoCentroidAggregator
-operator|.
 name|GeoCentroidAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|GeoCentroidAggregator
-operator|.
 name|GeoCentroidAggregatorBuilder
 operator|.
 name|PROTOTYPE

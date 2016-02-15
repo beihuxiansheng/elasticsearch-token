@@ -272,8 +272,6 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|ExtendedStatsAggregator
-operator|.
 name|ExtendedStatsAggregatorBuilder
 name|createFactory
 parameter_list|(
@@ -295,14 +293,10 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|ExtendedStatsAggregator
-operator|.
 name|ExtendedStatsAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|ExtendedStatsAggregator
-operator|.
 name|ExtendedStatsAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -354,8 +348,6 @@ name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|ExtendedStatsAggregator
-operator|.
 name|ExtendedStatsAggregatorBuilder
 operator|.
 name|PROTOTYPE

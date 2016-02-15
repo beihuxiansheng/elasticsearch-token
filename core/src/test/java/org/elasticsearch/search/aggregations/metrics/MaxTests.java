@@ -32,7 +32,7 @@ name|metrics
 operator|.
 name|max
 operator|.
-name|MaxAggregator
+name|MaxAggregatorBuilder
 import|;
 end_import
 
@@ -44,8 +44,6 @@ name|MaxTests
 extends|extends
 name|AbstractNumericMetricTestCase
 argument_list|<
-name|MaxAggregator
-operator|.
 name|MaxAggregatorBuilder
 argument_list|>
 block|{
@@ -53,16 +51,12 @@ annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|MaxAggregator
-operator|.
 name|MaxAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|()
 block|{
 return|return
 operator|new
-name|MaxAggregator
-operator|.
 name|MaxAggregatorBuilder
 argument_list|(
 literal|"foo"

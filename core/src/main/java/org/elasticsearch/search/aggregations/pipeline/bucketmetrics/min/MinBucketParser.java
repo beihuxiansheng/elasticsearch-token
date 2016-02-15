@@ -79,8 +79,6 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|MinBucketPipelineAggregator
-operator|.
 name|MinBucketPipelineAggregatorBuilder
 name|buildFactory
 parameter_list|(
@@ -101,8 +99,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MinBucketPipelineAggregator
-operator|.
 name|MinBucketPipelineAggregatorBuilder
 argument_list|(
 name|pipelineAggregatorName
@@ -115,15 +111,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|MinBucketPipelineAggregator
-operator|.
 name|MinBucketPipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-name|MinBucketPipelineAggregator
-operator|.
 name|MinBucketPipelineAggregatorBuilder
 operator|.
 name|PROTOTYPE

@@ -79,8 +79,6 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|MaxBucketPipelineAggregator
-operator|.
 name|MaxBucketPipelineAggregatorBuilder
 name|buildFactory
 parameter_list|(
@@ -101,8 +99,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MaxBucketPipelineAggregator
-operator|.
 name|MaxBucketPipelineAggregatorBuilder
 argument_list|(
 name|pipelineAggregatorName
@@ -115,15 +111,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|MaxBucketPipelineAggregator
-operator|.
 name|MaxBucketPipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-name|MaxBucketPipelineAggregator
-operator|.
 name|MaxBucketPipelineAggregatorBuilder
 operator|.
 name|PROTOTYPE

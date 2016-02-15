@@ -90,8 +90,6 @@ name|range
 operator|.
 name|geodistance
 operator|.
-name|GeoDistanceParser
-operator|.
 name|GeoDistanceAggregatorBuilder
 import|;
 end_import

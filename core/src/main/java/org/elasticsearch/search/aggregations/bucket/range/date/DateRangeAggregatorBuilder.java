@@ -82,7 +82,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeAggregator
+name|AbstractRangeBuilder
 import|;
 end_import
 
@@ -101,8 +101,6 @@ operator|.
 name|range
 operator|.
 name|RangeAggregator
-operator|.
-name|AbstractBuilder
 import|;
 end_import
 
@@ -204,7 +202,7 @@ specifier|public
 class|class
 name|DateRangeAggregatorBuilder
 extends|extends
-name|AbstractBuilder
+name|AbstractRangeBuilder
 argument_list|<
 name|DateRangeAggregatorBuilder
 argument_list|,

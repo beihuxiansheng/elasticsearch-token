@@ -79,8 +79,6 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|SumBucketPipelineAggregator
-operator|.
 name|SumBucketPipelineAggregatorBuilder
 name|buildFactory
 parameter_list|(
@@ -101,8 +99,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SumBucketPipelineAggregator
-operator|.
 name|SumBucketPipelineAggregatorBuilder
 argument_list|(
 name|pipelineAggregatorName
@@ -115,15 +111,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototype
 specifier|public
-name|SumBucketPipelineAggregator
-operator|.
 name|SumBucketPipelineAggregatorBuilder
 name|getFactoryPrototype
 parameter_list|()
 block|{
 return|return
-name|SumBucketPipelineAggregator
-operator|.
 name|SumBucketPipelineAggregatorBuilder
 operator|.
 name|PROTOTYPE

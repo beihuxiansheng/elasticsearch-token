@@ -269,8 +269,6 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|FiltersAggregator
-operator|.
 name|FiltersAggregatorBuilder
 name|parse
 parameter_list|(
@@ -839,8 +837,6 @@ operator|=
 literal|"_other_"
 expr_stmt|;
 block|}
-name|FiltersAggregator
-operator|.
 name|FiltersAggregatorBuilder
 name|factory
 decl_stmt|;
@@ -854,8 +850,6 @@ block|{
 name|factory
 operator|=
 operator|new
-name|FiltersAggregator
-operator|.
 name|FiltersAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -883,8 +877,6 @@ block|{
 name|factory
 operator|=
 operator|new
-name|FiltersAggregator
-operator|.
 name|FiltersAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -946,15 +938,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|FiltersAggregator
-operator|.
 name|FiltersAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|FiltersAggregator
-operator|.
 name|FiltersAggregatorBuilder
 operator|.
 name|PROTOTYPE

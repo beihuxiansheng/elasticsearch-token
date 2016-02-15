@@ -209,8 +209,6 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|MissingAggregator
-operator|.
 name|MissingAggregatorBuilder
 name|createFactory
 parameter_list|(
@@ -234,8 +232,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MissingAggregator
-operator|.
 name|MissingAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -248,15 +244,11 @@ annotation|@
 name|Override
 DECL|method|getFactoryPrototypes
 specifier|public
-name|MissingAggregator
-operator|.
 name|MissingAggregatorBuilder
 name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|MissingAggregator
-operator|.
 name|MissingAggregatorBuilder
 operator|.
 name|PROTOTYPE

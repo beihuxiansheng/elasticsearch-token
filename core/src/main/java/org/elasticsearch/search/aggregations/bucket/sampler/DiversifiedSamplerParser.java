@@ -176,8 +176,6 @@ name|type
 parameter_list|()
 block|{
 return|return
-name|SamplerAggregator
-operator|.
 name|DiversifiedAggregatorBuilder
 operator|.
 name|TYPE
@@ -190,8 +188,6 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|SamplerAggregator
-operator|.
 name|DiversifiedAggregatorBuilder
 name|createFactory
 parameter_list|(
@@ -213,14 +209,10 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|SamplerAggregator
-operator|.
 name|DiversifiedAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|SamplerAggregator
-operator|.
 name|DiversifiedAggregatorBuilder
 argument_list|(
 name|aggregationName
@@ -508,8 +500,6 @@ name|getFactoryPrototypes
 parameter_list|()
 block|{
 return|return
-name|SamplerAggregator
-operator|.
 name|DiversifiedAggregatorBuilder
 operator|.
 name|PROTOTYPE

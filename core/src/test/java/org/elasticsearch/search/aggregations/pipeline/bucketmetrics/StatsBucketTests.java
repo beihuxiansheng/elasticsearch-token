@@ -36,7 +36,7 @@ name|bucketmetrics
 operator|.
 name|stats
 operator|.
-name|StatsBucketPipelineAggregator
+name|StatsBucketPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -48,8 +48,6 @@ name|StatsBucketTests
 extends|extends
 name|AbstractBucketMetricsTestCase
 argument_list|<
-name|StatsBucketPipelineAggregator
-operator|.
 name|StatsBucketPipelineAggregatorBuilder
 argument_list|>
 block|{
@@ -57,8 +55,6 @@ annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|StatsBucketPipelineAggregator
-operator|.
 name|StatsBucketPipelineAggregatorBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|(
@@ -71,8 +67,6 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|StatsBucketPipelineAggregator
-operator|.
 name|StatsBucketPipelineAggregatorBuilder
 argument_list|(
 name|name

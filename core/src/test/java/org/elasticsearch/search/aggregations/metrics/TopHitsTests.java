@@ -128,7 +128,7 @@ name|metrics
 operator|.
 name|tophits
 operator|.
-name|TopHitsAggregator
+name|TopHitsAggregatorBuilder
 import|;
 end_import
 
@@ -230,8 +230,6 @@ name|TopHitsTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|TopHitsAggregator
-operator|.
 name|TopHitsAggregatorBuilder
 argument_list|>
 block|{
@@ -240,20 +238,14 @@ name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
 specifier|final
-name|TopHitsAggregator
-operator|.
 name|TopHitsAggregatorBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|TopHitsAggregator
-operator|.
 name|TopHitsAggregatorBuilder
 name|factory
 init|=
 operator|new
-name|TopHitsAggregator
-operator|.
 name|TopHitsAggregatorBuilder
 argument_list|(
 literal|"foo"
