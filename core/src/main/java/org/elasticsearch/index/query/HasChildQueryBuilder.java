@@ -1873,6 +1873,16 @@ return|return
 name|innerQuery
 return|;
 block|}
+DECL|method|getSimilarity
+specifier|public
+name|Similarity
+name|getSimilarity
+parameter_list|()
+block|{
+return|return
+name|similarity
+return|;
+block|}
 block|}
 annotation|@
 name|Override
