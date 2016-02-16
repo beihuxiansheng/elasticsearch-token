@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.logging.log4j
+DECL|package|org.elasticsearch.common.logging
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|common
 operator|.
 name|logging
-operator|.
-name|log4j
 package|;
 end_package
 
@@ -65,20 +63,6 @@ operator|.
 name|common
 operator|.
 name|SuppressForbidden
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|Loggers
 import|;
 end_import
 
