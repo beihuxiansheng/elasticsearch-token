@@ -2076,9 +2076,9 @@ name|warn
 argument_list|(
 literal|"failed to close node {} on failed start"
 argument_list|,
-name|otherNode
-argument_list|,
 name|t
+argument_list|,
+name|otherNode
 argument_list|)
 expr_stmt|;
 block|}

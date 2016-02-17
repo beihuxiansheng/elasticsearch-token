@@ -14402,8 +14402,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking snapshot status for all currently running and snapshot with empty repository"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|response
@@ -14533,8 +14531,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking that _current returns the currently running snapshot"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|GetSnapshotsResponse
@@ -14661,8 +14657,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking snapshot status again after snapshot is done"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|response
@@ -14818,8 +14812,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking snapshot status after it is done with empty repository"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|response
@@ -14862,8 +14854,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking that _current no longer returns the snapshot"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|assertThat

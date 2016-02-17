@@ -9831,7 +9831,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] failed to send ping transport message"
+literal|"failed to send ping transport message"
 argument_list|,
 name|t
 argument_list|)
@@ -9843,7 +9843,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] failed to send ping transport message"
+literal|"failed to send ping transport message"
 argument_list|,
 name|t
 argument_list|)

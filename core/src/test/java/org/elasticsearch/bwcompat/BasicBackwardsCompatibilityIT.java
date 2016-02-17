@@ -1976,7 +1976,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|" --> waiting for relocation to complete"
+literal|" --> waiting for relocation of [{}] docs to complete"
 argument_list|,
 name|numDocs
 argument_list|)

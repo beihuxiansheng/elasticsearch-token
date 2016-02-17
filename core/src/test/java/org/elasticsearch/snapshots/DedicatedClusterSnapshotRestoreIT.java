@@ -3276,7 +3276,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node"
+literal|"--> stopping node [{}]"
 argument_list|,
 name|blockedNode
 argument_list|)
@@ -3716,7 +3716,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node"
+literal|"--> stopping node [{}]"
 argument_list|,
 name|blockedNode
 argument_list|)

@@ -1693,7 +1693,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"shift: {[]}"
+literal|"shift: [{}]"
 argument_list|,
 name|shiftOffset
 argument_list|)
@@ -2151,7 +2151,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Component {[]}:"
+literal|"Component [{}]:"
 argument_list|,
 name|i
 argument_list|)
