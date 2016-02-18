@@ -473,6 +473,11 @@ operator|.
 name|start
 argument_list|()
 decl_stmt|;
+name|transportServiceA
+operator|.
+name|acceptIncomingRequests
+argument_list|()
+expr_stmt|;
 specifier|final
 name|DiscoveryNode
 name|nodeA
@@ -549,6 +554,11 @@ operator|.
 name|start
 argument_list|()
 decl_stmt|;
+name|transportServiceB
+operator|.
+name|acceptIncomingRequests
+argument_list|()
+expr_stmt|;
 specifier|final
 name|DiscoveryNode
 name|nodeB
