@@ -532,9 +532,12 @@ name|field
 argument_list|(
 literal|"build_snapshot"
 argument_list|,
-name|version
+name|Build
 operator|.
-name|snapshot
+name|CURRENT
+operator|.
+name|isSnapshot
+argument_list|()
 argument_list|)
 operator|.
 name|field

@@ -266,6 +266,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -748,10 +760,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|v
+name|VersionUtils
 operator|.
-name|snapshot
-argument_list|()
+name|isSnapshot
+argument_list|(
+name|v
+argument_list|)
 condition|)
 continue|continue;
 if|if
