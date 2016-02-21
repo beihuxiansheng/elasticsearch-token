@@ -3789,6 +3789,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Deletes the shard with an already acquired shard lock.      * @param reason the reason for the shard deletion      * @param lock the lock of the shard to delete      * @param indexSettings the shards index settings.      * @throws IOException if an IOException occurs      */
+annotation|@
+name|Override
 DECL|method|deleteShardStore
 specifier|public
 name|void
@@ -4266,6 +4268,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds a pending delete for the given index shard.      */
+annotation|@
+name|Override
 DECL|method|addPendingDelete
 specifier|public
 name|void
