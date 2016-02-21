@@ -500,7 +500,7 @@ literal|"number"
 argument_list|,
 name|version
 operator|.
-name|number
+name|toString
 argument_list|()
 argument_list|)
 operator|.

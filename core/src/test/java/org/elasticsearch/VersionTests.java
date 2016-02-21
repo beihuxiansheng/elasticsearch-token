@@ -670,7 +670,7 @@ name|fromString
 argument_list|(
 name|version
 operator|.
-name|number
+name|toString
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1026,7 +1026,7 @@ name|Version
 operator|.
 name|V_2_0_0_beta1
 operator|.
-name|number
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1038,7 +1038,7 @@ name|Version
 operator|.
 name|V_1_4_0_Beta1
 operator|.
-name|number
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1050,7 +1050,7 @@ name|Version
 operator|.
 name|V_1_4_0
 operator|.
-name|number
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1514,7 +1514,7 @@ name|number
 init|=
 name|v
 operator|.
-name|number
+name|toString
 argument_list|()
 decl_stmt|;
 if|if
@@ -1583,7 +1583,7 @@ literal|"V_"
 operator|+
 name|v
 operator|.
-name|number
+name|toString
 argument_list|()
 operator|.
 name|replace

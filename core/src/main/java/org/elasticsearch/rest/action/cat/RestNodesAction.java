@@ -2112,7 +2112,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|number
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
