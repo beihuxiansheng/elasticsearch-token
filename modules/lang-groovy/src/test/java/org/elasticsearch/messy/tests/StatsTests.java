@@ -4177,6 +4177,11 @@ argument_list|(
 literal|"Shard Failure: {}"
 argument_list|,
 name|failure
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 block|}

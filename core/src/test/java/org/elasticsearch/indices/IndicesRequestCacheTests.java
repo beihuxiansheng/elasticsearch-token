@@ -2570,15 +2570,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Memory size: {}"
+argument_list|,
 name|requestCacheStats
 operator|.
 name|stats
 argument_list|()
 operator|.
 name|getMemorySize
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2953,15 +2952,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Memory size: {}"
+argument_list|,
 name|requestCacheStats
 operator|.
 name|stats
 argument_list|()
 operator|.
 name|getMemorySize
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -1839,8 +1839,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Action on node "
-operator|+
+literal|"Action on node {}"
+argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
@@ -1876,11 +1876,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Action on node "
-operator|+
+literal|"Action on node {} finished"
+argument_list|,
 name|node
-operator|+
-literal|" finished"
 argument_list|)
 expr_stmt|;
 return|return
@@ -4011,8 +4009,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Action on node "
-operator|+
+literal|"Action on node {}"
+argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
@@ -4347,8 +4345,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Task action on node "
-operator|+
+literal|"Task action on node {}"
+argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
@@ -4373,8 +4371,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Failing on node "
-operator|+
+literal|"Failing on node {}"
+argument_list|,
 name|node
 argument_list|)
 expr_stmt|;

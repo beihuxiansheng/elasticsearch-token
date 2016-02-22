@@ -756,8 +756,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"AGG COLLECTION MODE: "
-operator|+
+literal|"AGG COLLECTION MODE: {}"
+argument_list|,
 name|aggCollectionMode
 argument_list|)
 expr_stmt|;

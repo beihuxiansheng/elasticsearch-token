@@ -1653,11 +1653,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send response for "
-operator|+
-name|actionName
+literal|"Failed to send response for {}"
 argument_list|,
 name|e1
+argument_list|,
+name|actionName
 argument_list|)
 expr_stmt|;
 block|}
@@ -2331,13 +2331,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to send error message back to client for action ["
-operator|+
-name|transportReplicaAction
-operator|+
-literal|"]"
+literal|"failed to send error message back to client for action [{}]"
 argument_list|,
 name|responseException
+argument_list|,
+name|transportReplicaAction
 argument_list|)
 expr_stmt|;
 name|logger
@@ -6153,13 +6151,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to send error message back to client for action ["
-operator|+
-name|transportReplicaAction
-operator|+
-literal|"]"
+literal|"failed to send error message back to client for action [{}]"
 argument_list|,
 name|responseException
+argument_list|,
+name|transportReplicaAction
 argument_list|)
 expr_stmt|;
 block|}

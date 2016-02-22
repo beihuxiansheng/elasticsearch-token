@@ -667,15 +667,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Adding segment "
-operator|+
+literal|"Adding segment {} to be upgraded"
+argument_list|,
 name|info
 operator|.
 name|info
 operator|.
 name|name
-operator|+
-literal|" to be upgraded"
 argument_list|)
 expr_stmt|;
 name|spec
@@ -713,16 +711,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Returning "
-operator|+
+literal|"Returning {} merges for upgrade"
+argument_list|,
 name|spec
 operator|.
 name|merges
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" merges for upgrade"
 argument_list|)
 expr_stmt|;
 return|return
@@ -747,16 +743,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Returning "
-operator|+
+literal|"Returning {} merges for end of upgrade"
+argument_list|,
 name|spec
 operator|.
 name|merges
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" merges for end of upgrade"
 argument_list|)
 expr_stmt|;
 return|return

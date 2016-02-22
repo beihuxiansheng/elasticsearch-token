@@ -2307,8 +2307,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"---> repo exists: "
-operator|+
+literal|"---> repo exists: {} files: {}"
+argument_list|,
 name|Files
 operator|.
 name|exists
@@ -2320,9 +2320,7 @@ argument_list|(
 literal|"indices/test/0"
 argument_list|)
 argument_list|)
-operator|+
-literal|" files: "
-operator|+
+argument_list|,
 name|Arrays
 operator|.
 name|toString

@@ -1837,14 +1837,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"bulk deletion took "
-operator|+
+literal|"bulk deletion took {}ms"
+argument_list|,
 name|bulkResponse
 operator|.
 name|getTookInMillis
 argument_list|()
-operator|+
-literal|"ms"
 argument_list|)
 expr_stmt|;
 block|}

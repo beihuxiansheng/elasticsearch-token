@@ -2847,14 +2847,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Created Random GeometryCollection containing "
-operator|+
+literal|"Created Random GeometryCollection containing {} shapes"
+argument_list|,
 name|gcb
 operator|.
 name|numShapes
 argument_list|()
-operator|+
-literal|" shapes"
 argument_list|)
 expr_stmt|;
 name|client

@@ -2216,9 +2216,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+literal|"{}, scheduling a reroute"
+argument_list|,
 name|reason
-operator|+
-literal|", scheduling a reroute"
 argument_list|)
 expr_stmt|;
 block|}

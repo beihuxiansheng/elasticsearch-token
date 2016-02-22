@@ -1849,13 +1849,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to remove index on stop "
-operator|+
-name|index
-operator|+
-literal|""
+literal|"failed to remove index on stop [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}
