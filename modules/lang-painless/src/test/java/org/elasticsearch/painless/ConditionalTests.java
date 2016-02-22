@@ -388,7 +388,9 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"boolean x = false; boolean y = true; return (x ? new HashMap() : new ArrayList()) == (y ? new Long(2) : new Float(4.0F));"
+literal|"boolean x = false; boolean y = true; "
+operator|+
+literal|"return (x ? new HashMap() : new ArrayList()) == (y ? new Long(2) : new Float(4.0F));"
 argument_list|)
 argument_list|)
 expr_stmt|;
