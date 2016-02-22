@@ -414,6 +414,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|term
+operator|.
+name|TermSuggestionBuilder
+operator|.
+name|SuggestMode
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -493,24 +511,6 @@ operator|.
 name|SuggestBuilders
 operator|.
 name|termSuggestion
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|term
-operator|.
-name|TermSuggestionBuilder
-operator|.
-name|SuggestMode
 import|;
 end_import
 
@@ -1829,10 +1829,10 @@ argument_list|()
 operator|.
 name|addSuggestion
 argument_list|(
-name|termSuggestion
-argument_list|(
 name|suggestField
-argument_list|)
+argument_list|,
+name|termSuggestion
+argument_list|()
 operator|.
 name|field
 argument_list|(

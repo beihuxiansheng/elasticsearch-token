@@ -197,12 +197,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a definition for suggestions to the request      */
+comment|/**      * Add a definition for suggestions to the request      * @param name the name for the suggestion that will also be used in the response      * @param suggestion the suggestion configuration      */
 DECL|method|addSuggestion
 specifier|public
 name|SuggestRequestBuilder
 name|addSuggestion
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|SuggestionBuilder
 argument_list|<
 name|?
@@ -214,6 +217,8 @@ name|suggest
 operator|.
 name|addSuggestion
 argument_list|(
+name|name
+argument_list|,
 name|suggestion
 argument_list|)
 expr_stmt|;

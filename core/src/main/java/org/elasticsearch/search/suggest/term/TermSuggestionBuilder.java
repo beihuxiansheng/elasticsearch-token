@@ -634,11 +634,8 @@ name|PROTOTYPE
 init|=
 operator|new
 name|TermSuggestionBuilder
-argument_list|(
-literal|"_na_"
-argument_list|)
+argument_list|()
 decl_stmt|;
-comment|// name doesn't matter
 DECL|field|SUGGESTION_NAME
 specifier|private
 specifier|static
@@ -724,21 +721,6 @@ name|minDocFreq
 init|=
 name|DEFAULT_MIN_DOC_FREQ
 decl_stmt|;
-comment|/**      * @param name      *            The name of this suggestion. This is a required parameter.      */
-DECL|method|TermSuggestionBuilder
-specifier|public
-name|TermSuggestionBuilder
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * The global suggest mode controls what suggested terms are included or      * controls for what suggest text tokens, terms should be suggested for.      * Three possible values can be specified:      *<ol>      *<li><code>missing</code> - Only suggest terms in the suggest text that      * aren't in the index. This is the default.      *<li><code>popular</code> - Only suggest terms that occur in more docs      * then the original suggest text term.      *<li><code>always</code> - Suggest any matching suggest terms based on      * tokens in the suggest text.      *</ol>      */
 DECL|method|suggestMode
 specifier|public
@@ -1386,9 +1368,6 @@ name|innerFromXContent
 parameter_list|(
 name|QueryParseContext
 name|parseContext
-parameter_list|,
-name|String
-name|name
 parameter_list|)
 throws|throws
 name|IOException
@@ -1406,9 +1385,7 @@ name|suggestion
 init|=
 operator|new
 name|TermSuggestionBuilder
-argument_list|(
-name|name
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|ParseFieldMatcher
 name|parseFieldMatcher
@@ -2079,9 +2056,6 @@ name|doReadFrom
 parameter_list|(
 name|StreamInput
 name|in
-parameter_list|,
-name|String
-name|name
 parameter_list|)
 throws|throws
 name|IOException
@@ -2091,9 +2065,7 @@ name|builder
 init|=
 operator|new
 name|TermSuggestionBuilder
-argument_list|(
-name|name
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|builder
 operator|.
@@ -2374,6 +2346,8 @@ comment|/** Only suggest terms in the suggest text that aren't in the index. Thi
 DECL|enum constant|MISSING
 name|MISSING
 block|{
+annotation|@
+name|Override
 specifier|public
 name|org
 operator|.
@@ -2411,6 +2385,8 @@ comment|/** Only suggest terms that occur in more docs then the original suggest
 DECL|enum constant|POPULAR
 name|POPULAR
 block|{
+annotation|@
+name|Override
 specifier|public
 name|org
 operator|.
@@ -2448,6 +2424,8 @@ comment|/** Suggest any matching suggest terms based on tokens in the suggest te
 DECL|enum constant|ALWAYS
 name|ALWAYS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|org
 operator|.
@@ -2635,6 +2613,8 @@ comment|/** This is the default and is based on<code>damerau_levenshtein</code>,
 DECL|enum constant|INTERNAL
 name|INTERNAL
 block|{
+annotation|@
+name|Override
 specifier|public
 name|StringDistance
 name|toLucene
@@ -2652,6 +2632,8 @@ comment|/** String distance algorithm based on Damerau-Levenshtein algorithm. */
 DECL|enum constant|DAMERAU_LEVENSHTEIN
 name|DAMERAU_LEVENSHTEIN
 block|{
+annotation|@
+name|Override
 specifier|public
 name|StringDistance
 name|toLucene
@@ -2669,6 +2651,8 @@ comment|/** String distance algorithm based on Levenstein edit distance algorith
 DECL|enum constant|LEVENSTEIN
 name|LEVENSTEIN
 block|{
+annotation|@
+name|Override
 specifier|public
 name|StringDistance
 name|toLucene
@@ -2686,6 +2670,8 @@ comment|/** String distance algorithm based on Jaro-Winkler algorithm. */
 DECL|enum constant|JAROWINKLER
 name|JAROWINKLER
 block|{
+annotation|@
+name|Override
 specifier|public
 name|StringDistance
 name|toLucene
@@ -2703,6 +2689,8 @@ comment|/** String distance algorithm based on character n-grams. */
 DECL|enum constant|NGRAM
 name|NGRAM
 block|{
+annotation|@
+name|Override
 specifier|public
 name|StringDistance
 name|toLucene

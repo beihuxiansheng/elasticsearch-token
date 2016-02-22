@@ -276,12 +276,6 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-DECL|field|name
-specifier|protected
-specifier|final
-name|String
-name|name
-decl_stmt|;
 comment|// TODO this seems mandatory and should be constructor arg
 DECL|field|fieldname
 specifier|protected
@@ -409,43 +403,6 @@ argument_list|(
 literal|"shard_size"
 argument_list|)
 decl_stmt|;
-DECL|method|SuggestionBuilder
-specifier|public
-name|SuggestionBuilder
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
-name|name
-argument_list|,
-literal|"Suggester 'name' cannot be null"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
-block|}
-comment|/**      * get the name for this suggestion      */
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|name
-return|;
-block|}
 comment|/**      * Same as in {@link SuggestBuilder#setGlobalText(String)}, but in the suggestion scope.      */
 annotation|@
 name|SuppressWarnings
@@ -583,13 +540,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|builder
-operator|.
-name|startObject
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|text
@@ -752,11 +702,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
 return|return
 name|builder
 return|;
@@ -787,9 +732,6 @@ name|fromXContent
 parameter_list|(
 name|QueryParseContext
 name|parseContext
-parameter_list|,
-name|String
-name|suggestionName
 parameter_list|,
 name|Suggesters
 name|suggesters
@@ -981,21 +923,6 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
-if|if
-condition|(
-name|suggestionName
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Suggestion must have name"
-argument_list|)
-throw|;
-block|}
 name|SuggestionBuilder
 argument_list|<
 name|?
@@ -1035,8 +962,6 @@ operator|.
 name|innerFromXContent
 argument_list|(
 name|parseContext
-argument_list|,
-name|suggestionName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1101,9 +1026,6 @@ name|innerFromXContent
 parameter_list|(
 name|QueryParseContext
 name|parseContext
-parameter_list|,
-name|String
-name|name
 parameter_list|)
 throws|throws
 name|IOException
@@ -1710,22 +1632,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|String
-name|name
-init|=
-name|in
-operator|.
-name|readString
-argument_list|()
-decl_stmt|;
 name|T
 name|suggestionBuilder
 init|=
 name|doReadFrom
 argument_list|(
 name|in
-argument_list|,
-name|name
 argument_list|)
 decl_stmt|;
 name|suggestionBuilder
@@ -1795,7 +1707,7 @@ return|return
 name|suggestionBuilder
 return|;
 block|}
-comment|/**      * Subclass should return a new instance, reading itself from the input string      * @param in the input string to read from      * @param name the name of the suggestion (read from stream by {@link SuggestionBuilder}      */
+comment|/**      * Subclass should return a new instance, reading itself from the input string      * @param in the input string to read from      */
 DECL|method|doReadFrom
 specifier|protected
 specifier|abstract
@@ -1804,9 +1716,6 @@ name|doReadFrom
 parameter_list|(
 name|StreamInput
 name|in
-parameter_list|,
-name|String
-name|name
 parameter_list|)
 throws|throws
 name|IOException
@@ -1825,13 +1734,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|out
-operator|.
-name|writeString
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 name|doWriteTo
 argument_list|(
 name|out
@@ -1959,18 +1861,6 @@ name|Objects
 operator|.
 name|equals
 argument_list|(
-name|name
-argument_list|,
-name|other
-operator|.
-name|name
-argument_list|()
-argument_list|)
-operator|&&
-name|Objects
-operator|.
-name|equals
-argument_list|(
 name|text
 argument_list|,
 name|other
@@ -2082,8 +1972,6 @@ name|Objects
 operator|.
 name|hash
 argument_list|(
-name|name
-argument_list|,
 name|text
 argument_list|,
 name|prefix

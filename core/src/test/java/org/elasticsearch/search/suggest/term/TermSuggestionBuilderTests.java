@@ -163,12 +163,7 @@ name|testBuilder
 init|=
 operator|new
 name|TermSuggestionBuilder
-argument_list|(
-name|randomAsciiOfLength
-argument_list|(
-literal|10
-argument_list|)
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|maybeSet
 argument_list|(
@@ -747,12 +742,7 @@ name|builder
 init|=
 operator|new
 name|TermSuggestionBuilder
-argument_list|(
-name|randomAsciiOfLength
-argument_list|(
-literal|10
-argument_list|)
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// test invalid accuracy values
 try|try
@@ -1207,12 +1197,7 @@ name|builder
 init|=
 operator|new
 name|TermSuggestionBuilder
-argument_list|(
-name|randomAsciiOfLength
-argument_list|(
-literal|10
-argument_list|)
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(

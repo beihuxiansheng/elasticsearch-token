@@ -8730,12 +8730,12 @@ argument_list|)
 operator|.
 name|addSuggestion
 argument_list|(
+literal|"name"
+argument_list|,
 name|SuggestBuilders
 operator|.
 name|termSuggestion
-argument_list|(
-literal|"name"
-argument_list|)
+argument_list|()
 operator|.
 name|field
 argument_list|(

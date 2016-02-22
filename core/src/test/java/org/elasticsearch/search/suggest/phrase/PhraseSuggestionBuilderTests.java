@@ -225,12 +225,7 @@ name|testBuilder
 init|=
 operator|new
 name|PhraseSuggestionBuilder
-argument_list|(
-name|randomAsciiOfLength
-argument_list|(
-literal|10
-argument_list|)
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|maybeSet
 argument_list|(
