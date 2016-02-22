@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.search.type
+DECL|package|org.elasticsearch.action.search
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|action
 operator|.
 name|search
-operator|.
-name|type
 package|;
 end_package
 
@@ -34,7 +32,6 @@ end_comment
 
 begin_class
 DECL|class|ParsedScrollId
-specifier|public
 class|class
 name|ParsedScrollId
 block|{
