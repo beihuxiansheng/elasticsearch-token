@@ -230,7 +230,7 @@ name|maxFileDescriptorCount
 operator|!=
 operator|-
 literal|1
-operator|||
+operator|&&
 name|maxFileDescriptorCount
 operator|<
 operator|(
