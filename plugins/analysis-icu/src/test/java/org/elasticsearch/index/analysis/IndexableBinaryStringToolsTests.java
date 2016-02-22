@@ -207,10 +207,10 @@ name|bugUrl
 operator|=
 literal|"we log a lot on purpose"
 argument_list|)
-DECL|class|TestIndexableBinaryStringTools
+DECL|class|IndexableBinaryStringToolsTests
 specifier|public
 class|class
-name|TestIndexableBinaryStringTools
+name|IndexableBinaryStringToolsTests
 extends|extends
 name|LuceneTestCase
 block|{

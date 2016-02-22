@@ -149,11 +149,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractMustacheTests
+DECL|class|AbstractMustacheTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractMustacheTests
+name|AbstractMustacheTestCase
 extends|extends
 name|ESTestCase
 block|{
