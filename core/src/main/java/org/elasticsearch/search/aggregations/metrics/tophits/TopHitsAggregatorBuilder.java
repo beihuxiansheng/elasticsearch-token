@@ -196,7 +196,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorFactories
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -210,9 +212,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactories
-operator|.
-name|Builder
+name|AggregatorFactory
 import|;
 end_import
 
@@ -2174,15 +2174,18 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|this
-operator|.
-name|highlightBuilder
-operator|.
-name|toXContent
-argument_list|(
 name|builder
+operator|.
+name|field
+argument_list|(
+name|SearchSourceBuilder
+operator|.
+name|HIGHLIGHT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
 argument_list|,
-name|params
+name|highlightBuilder
 argument_list|)
 expr_stmt|;
 block|}
