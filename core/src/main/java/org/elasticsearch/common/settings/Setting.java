@@ -361,7 +361,7 @@ specifier|final
 name|boolean
 name|filtered
 decl_stmt|;
-comment|/**      * Creates a new Setting instance, unfiltered      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param dynamic true if this setting can be dynamically updateable      * @param scope the scope of this setting      */
+comment|/**      * Creates a new Setting instance, unfiltered      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param dynamic true iff this setting can be dynamically updateable      * @param scope the scope of this setting      */
 DECL|method|Setting
 specifier|public
 name|Setting
@@ -408,7 +408,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param dynamic true if this setting can be dynamically updateable      * @param scope the scope of this setting      * @param filtered true if this setting should be filtered      */
+comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param dynamic true iff this setting can be dynamically updateable      * @param scope the scope of this setting      * @param filtered true if this setting should be filtered      */
 DECL|method|Setting
 specifier|public
 name|Setting
