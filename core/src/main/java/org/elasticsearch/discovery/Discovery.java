@@ -150,22 +150,6 @@ name|DiscoveryNode
 name|localNode
 parameter_list|()
 function_decl|;
-DECL|method|addListener
-name|void
-name|addListener
-parameter_list|(
-name|InitialStateDiscoveryListener
-name|listener
-parameter_list|)
-function_decl|;
-DECL|method|removeListener
-name|void
-name|removeListener
-parameter_list|(
-name|InitialStateDiscoveryListener
-name|listener
-parameter_list|)
-function_decl|;
 DECL|method|nodeDescription
 name|String
 name|nodeDescription
@@ -298,6 +282,11 @@ comment|/**      * @return stats about the discovery      */
 DECL|method|stats
 name|DiscoveryStats
 name|stats
+parameter_list|()
+function_decl|;
+DECL|method|getDiscoverySettings
+name|DiscoverySettings
+name|getDiscoverySettings
 parameter_list|()
 function_decl|;
 comment|/**      * Triggers the first join cycle      */

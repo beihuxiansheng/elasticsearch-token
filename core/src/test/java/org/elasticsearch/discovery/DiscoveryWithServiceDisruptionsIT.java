@@ -6274,7 +6274,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiscoveryService
+name|DiscoverySettings
 operator|.
 name|INITIAL_STATE_TIMEOUT_SETTING
 operator|.

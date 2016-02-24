@@ -114,7 +114,7 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|DiscoveryStats
+name|DiscoverySettings
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|InitialStateDiscoveryListener
+name|DiscoveryStats
 import|;
 end_import
 
@@ -164,28 +164,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|addListener
-specifier|public
-name|void
-name|addListener
-parameter_list|(
-name|InitialStateDiscoveryListener
-name|listener
-parameter_list|)
-block|{      }
-annotation|@
-name|Override
-DECL|method|removeListener
-specifier|public
-name|void
-name|removeListener
-parameter_list|(
-name|InitialStateDiscoveryListener
-name|listener
-parameter_list|)
-block|{      }
 annotation|@
 name|Override
 DECL|method|nodeDescription
@@ -242,6 +220,18 @@ DECL|method|stats
 specifier|public
 name|DiscoveryStats
 name|stats
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDiscoverySettings
+specifier|public
+name|DiscoverySettings
+name|getDiscoverySettings
 parameter_list|()
 block|{
 return|return
