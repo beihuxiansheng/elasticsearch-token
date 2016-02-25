@@ -685,7 +685,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"tests.maven"
+literal|"tests.gradle"
 argument_list|)
 operator|==
 literal|null
