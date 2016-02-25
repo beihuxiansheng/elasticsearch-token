@@ -897,6 +897,17 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 block|{
+if|if
+condition|(
+name|request
+operator|.
+name|taskId
+argument_list|()
+operator|.
+name|isSet
+argument_list|()
+condition|)
+block|{
 return|return
 name|clusterState
 operator|.
@@ -911,6 +922,24 @@ name|nodesIds
 argument_list|()
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|String
+index|[]
+block|{
+name|request
+operator|.
+name|taskId
+argument_list|()
+operator|.
+name|getNodeId
+argument_list|()
+block|}
+return|;
+block|}
 block|}
 DECL|method|processTasks
 specifier|protected
@@ -933,10 +962,11 @@ name|request
 operator|.
 name|taskId
 argument_list|()
-operator|!=
-name|BaseTasksRequest
 operator|.
-name|ALL_TASKS
+name|isSet
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 comment|// we are only checking one task, we can optimize it
@@ -950,6 +980,9 @@ argument_list|(
 name|request
 operator|.
 name|taskId
+argument_list|()
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1675,7 +1708,8 @@ argument_list|)
 condition|)
 block|{
 comment|// the check "!clusterService.localNode().equals(node)" is to maintain backward comp. where before
-comment|// we allowed to connect from "local" client node to itself, certain tests rely on it, if we remove it, we need to fix
+comment|// we allowed to connect from "local" client node to itself, certain tests rely on it, if we remove it, we
+comment|// need to fix
 comment|// those (and they randomize the client node usage, so tricky to find when)
 name|onFailure
 argument_list|(

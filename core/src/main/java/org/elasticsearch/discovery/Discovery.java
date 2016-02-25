@@ -300,6 +300,12 @@ name|DiscoveryStats
 name|stats
 parameter_list|()
 function_decl|;
+comment|/**      * Triggers the first join cycle      */
+DECL|method|startInitialJoin
+name|void
+name|startInitialJoin
+parameter_list|()
+function_decl|;
 comment|/***      * @return the current value of minimum master nodes, or -1 for not set      */
 DECL|method|getMinimumMasterNodes
 name|int

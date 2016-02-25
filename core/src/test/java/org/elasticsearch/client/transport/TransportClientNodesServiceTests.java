@@ -474,6 +474,11 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|transportService
+operator|.
+name|acceptIncomingRequests
+argument_list|()
+expr_stmt|;
 name|transportClientNodesService
 operator|=
 operator|new

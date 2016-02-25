@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Rest integration test. runs against external cluster in 'mvn verify' */
+comment|/** Rest integration test. Runs against a cluster started by {@code gradle integTest} */
 end_comment
 
 begin_class
@@ -82,7 +82,6 @@ name|testCandidate
 argument_list|)
 expr_stmt|;
 block|}
-comment|// we run them all sequentially: start simple!
 annotation|@
 name|ParametersFactory
 DECL|method|parameters

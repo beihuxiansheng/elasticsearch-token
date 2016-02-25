@@ -226,6 +226,18 @@ specifier|static
 name|int
 name|MAX_RANDOM_BINARY_LENGTH
 decl_stmt|;
+DECL|field|LINE_SEPARATOR
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|LINE_SEPARATOR
+init|=
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+decl_stmt|;
 annotation|@
 name|BeforeClass
 DECL|method|beforeClass
@@ -425,12 +437,7 @@ name|assertEquals
 argument_list|(
 literal|"Round trip decode/decode returned different results:"
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|"original: "
 operator|+
@@ -443,12 +450,7 @@ operator|.
 name|length
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|" encoded: "
 operator|+
@@ -461,12 +463,7 @@ operator|.
 name|length
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|" decoded: "
 operator|+
@@ -920,12 +917,7 @@ operator|)
 operator|+
 literal|": Original bytes and encoded chars compare differently:"
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|" binary 1: "
 operator|+
@@ -936,12 +928,7 @@ argument_list|,
 name|numBytes1
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|" binary 2: "
 operator|+
@@ -952,12 +939,7 @@ argument_list|,
 name|numBytes2
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|"encoded 1: "
 operator|+
@@ -968,12 +950,7 @@ argument_list|,
 name|encodedLen1
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|"encoded 2: "
 operator|+
@@ -984,12 +961,7 @@ argument_list|,
 name|encodedLen2
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 argument_list|,
 name|originalComparison
 argument_list|,
@@ -1251,12 +1223,7 @@ name|assertEquals
 argument_list|(
 literal|"Round trip decode/decode returned different results:"
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|"  original: "
 operator|+
@@ -1269,12 +1236,7 @@ operator|.
 name|length
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|"decodedBuf: "
 operator|+
@@ -1507,12 +1469,7 @@ operator|)
 operator|+
 literal|": Round trip decode/decode returned different results:"
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|"  original: "
 operator|+
@@ -1523,12 +1480,7 @@ argument_list|,
 name|numBytes
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|"encodedBuf: "
 operator|+
@@ -1539,12 +1491,7 @@ argument_list|,
 name|encodedLen
 argument_list|)
 operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|)
+name|LINE_SEPARATOR
 operator|+
 literal|"decodedBuf: "
 operator|+

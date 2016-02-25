@@ -168,6 +168,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskId
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -759,10 +771,7 @@ parameter_list|,
 name|String
 name|action
 parameter_list|,
-name|String
-name|parentTaskNode
-parameter_list|,
-name|long
+name|TaskId
 name|parentTaskId
 parameter_list|)
 block|{
@@ -778,8 +787,6 @@ name|action
 argument_list|,
 name|getDescription
 argument_list|()
-argument_list|,
-name|parentTaskNode
 argument_list|,
 name|parentTaskId
 argument_list|)
