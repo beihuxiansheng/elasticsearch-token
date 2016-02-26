@@ -2428,7 +2428,7 @@ operator|.
 name|active
 argument_list|()
 operator|:
-literal|"expected an intializing shard "
+literal|"expected an initializing shard "
 operator|+
 name|shard
 assert|;

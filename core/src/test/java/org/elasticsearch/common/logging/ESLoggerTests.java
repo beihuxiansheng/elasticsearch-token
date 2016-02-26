@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.logging.log4j
+DECL|package|org.elasticsearch.common.logging
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|common
 operator|.
 name|logging
-operator|.
-name|log4j
 package|;
 end_package
 
@@ -79,34 +77,6 @@ operator|.
 name|spi
 operator|.
 name|LoggingEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|DeprecationLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -215,10 +185,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|Log4jESLoggerTests
+DECL|class|ESLoggerTests
 specifier|public
 class|class
-name|Log4jESLoggerTests
+name|ESLoggerTests
 extends|extends
 name|ESTestCase
 block|{
@@ -266,7 +236,7 @@ name|this
 operator|.
 name|testLevel
 operator|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -343,7 +313,7 @@ argument_list|)
 expr_stmt|;
 name|esTestLogger
 operator|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -353,14 +323,9 @@ expr_stmt|;
 name|Logger
 name|testLogger
 init|=
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
 name|esTestLogger
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -394,7 +359,7 @@ expr_stmt|;
 comment|// deprecation setup, needs to be set to debug to log
 name|deprecationLogger
 operator|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getDeprecationLogger
 argument_list|(
@@ -410,7 +375,7 @@ expr_stmt|;
 name|ESLogger
 name|logger
 init|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -424,17 +389,10 @@ argument_list|(
 literal|"DEBUG"
 argument_list|)
 expr_stmt|;
-operator|(
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
 name|logger
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
-operator|)
 operator|.
 name|addAppender
 argument_list|(
@@ -469,14 +427,9 @@ expr_stmt|;
 name|Logger
 name|testLogger
 init|=
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
 name|esTestLogger
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
 decl_stmt|;
 name|testLogger
@@ -489,19 +442,14 @@ expr_stmt|;
 name|Logger
 name|deprecationLogger
 init|=
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
 literal|"deprecation.test"
 argument_list|)
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
 decl_stmt|;
 name|deprecationLogger
@@ -656,7 +604,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|Log4jESLoggerTests
+name|ESLoggerTests
 operator|.
 name|class
 operator|.
@@ -747,7 +695,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|Log4jESLoggerTests
+name|ESLoggerTests
 operator|.
 name|class
 operator|.
@@ -838,7 +786,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|Log4jESLoggerTests
+name|ESLoggerTests
 operator|.
 name|class
 operator|.
@@ -929,7 +877,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|Log4jESLoggerTests
+name|ESLoggerTests
 operator|.
 name|class
 operator|.
@@ -1020,7 +968,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|Log4jESLoggerTests
+name|ESLoggerTests
 operator|.
 name|class
 operator|.
