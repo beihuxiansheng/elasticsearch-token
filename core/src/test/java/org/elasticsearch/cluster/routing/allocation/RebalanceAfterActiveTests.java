@@ -1847,7 +1847,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"complete relocation, thats it!"
+literal|"complete relocation, that's it!"
 argument_list|)
 expr_stmt|;
 name|routingNodes

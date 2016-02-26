@@ -1466,7 +1466,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"sigfnificant_terms aggregation cannot be applied to field ["
+literal|"significant_terms aggregation cannot be applied to field ["
 operator|+
 name|config
 operator|.

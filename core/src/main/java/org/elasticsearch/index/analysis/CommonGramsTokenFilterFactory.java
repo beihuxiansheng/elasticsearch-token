@@ -228,7 +228,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"mising or empty [common_words] or [common_words_path] configuration for common_grams token filter"
+literal|"missing or empty [common_words] or [common_words_path] configuration for common_grams token filter"
 argument_list|)
 throw|;
 block|}
