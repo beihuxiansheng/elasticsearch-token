@@ -4916,7 +4916,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"different [omit_norms]"
+literal|"different [norms]"
 argument_list|)
 argument_list|)
 expr_stmt|;

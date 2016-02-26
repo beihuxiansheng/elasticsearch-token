@@ -2427,7 +2427,7 @@ throws|throws
 name|Exception
 block|{
 name|boolean
-name|omitNorms
+name|norms
 init|=
 literal|false
 decl_stmt|;
@@ -2534,9 +2534,9 @@ operator|new
 name|Tuple
 argument_list|<>
 argument_list|(
-literal|"omit_norms"
+literal|"norms"
 argument_list|,
-name|omitNorms
+name|norms
 operator|=
 name|randomBoolean
 argument_list|()
@@ -2932,7 +2932,8 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|omitNorms
+operator|!
+name|norms
 argument_list|)
 argument_list|)
 expr_stmt|;
