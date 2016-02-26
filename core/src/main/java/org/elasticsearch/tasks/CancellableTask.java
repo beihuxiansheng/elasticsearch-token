@@ -99,11 +99,8 @@ parameter_list|,
 name|String
 name|description
 parameter_list|,
-name|String
-name|parentNode
-parameter_list|,
-name|long
-name|parentId
+name|TaskId
+name|parentTaskId
 parameter_list|)
 block|{
 name|super
@@ -116,9 +113,7 @@ name|action
 argument_list|,
 name|description
 argument_list|,
-name|parentNode
-argument_list|,
-name|parentId
+name|parentTaskId
 argument_list|)
 expr_stmt|;
 block|}

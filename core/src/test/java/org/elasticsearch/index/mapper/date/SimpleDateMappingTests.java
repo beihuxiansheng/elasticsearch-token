@@ -1399,7 +1399,7 @@ literal|"date_field_default"
 argument_list|,
 literal|"Wed, 06 Dec 2000 02:55:00 -0800"
 argument_list|)
-comment|// check default - no exception is a successs!
+comment|// check default - no exception is a success!
 operator|.
 name|endObject
 argument_list|()

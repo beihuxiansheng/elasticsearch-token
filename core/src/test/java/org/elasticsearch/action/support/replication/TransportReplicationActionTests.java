@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1115,6 +1101,11 @@ expr_stmt|;
 name|transportService
 operator|.
 name|start
+argument_list|()
+expr_stmt|;
+name|transportService
+operator|.
+name|acceptIncomingRequests
 argument_list|()
 expr_stmt|;
 name|action
@@ -8381,8 +8372,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|0
 argument_list|)
 else|:
 literal|null

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.logging.log4j
+DECL|package|org.elasticsearch.common.logging
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|common
 operator|.
 name|logging
-operator|.
-name|log4j
 package|;
 end_package
 
@@ -53,20 +51,6 @@ operator|.
 name|cli
 operator|.
 name|CliToolTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
 import|;
 end_import
 
@@ -265,7 +249,7 @@ block|{
 name|String
 name|level
 init|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -339,7 +323,7 @@ expr_stmt|;
 name|ESLogger
 name|esLogger
 init|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -349,14 +333,9 @@ decl_stmt|;
 name|Logger
 name|logger
 init|=
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
 name|esLogger
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
 decl_stmt|;
 name|Appender
@@ -379,7 +358,7 @@ argument_list|)
 expr_stmt|;
 name|esLogger
 operator|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -388,14 +367,9 @@ argument_list|)
 expr_stmt|;
 name|logger
 operator|=
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
 name|esLogger
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
 expr_stmt|;
 name|appender
@@ -417,7 +391,7 @@ argument_list|)
 expr_stmt|;
 name|esLogger
 operator|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -426,14 +400,9 @@ argument_list|)
 expr_stmt|;
 name|logger
 operator|=
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
 name|esLogger
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
 expr_stmt|;
 name|appender
@@ -456,7 +425,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -1209,7 +1178,7 @@ comment|// args should overwrite whatever is in the config
 name|ESLogger
 name|esLogger
 init|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -1219,14 +1188,9 @@ decl_stmt|;
 name|Logger
 name|logger
 init|=
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
 name|esLogger
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
 decl_stmt|;
 name|Appender
@@ -1389,7 +1353,7 @@ expr_stmt|;
 name|ESLogger
 name|esLogger
 init|=
-name|Log4jESLoggerFactory
+name|ESLoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -1404,14 +1368,9 @@ expr_stmt|;
 name|Logger
 name|logger
 init|=
-operator|(
-operator|(
-name|Log4jESLogger
-operator|)
 name|esLogger
-operator|)
 operator|.
-name|logger
+name|getLogger
 argument_list|()
 decl_stmt|;
 name|Appender

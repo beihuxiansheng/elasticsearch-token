@@ -150,20 +150,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lease
-operator|.
-name|Releasables
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|ESLogger
@@ -180,7 +166,7 @@ name|common
 operator|.
 name|logging
 operator|.
-name|Loggers
+name|LogConfigurator
 import|;
 end_import
 
@@ -194,9 +180,7 @@ name|common
 operator|.
 name|logging
 operator|.
-name|log4j
-operator|.
-name|LogConfigurator
+name|Loggers
 import|;
 end_import
 

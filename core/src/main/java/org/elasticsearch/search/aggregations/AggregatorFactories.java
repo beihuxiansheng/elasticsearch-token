@@ -1268,7 +1268,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cyclical dependancy found with pipeline aggregator ["
+literal|"Cyclical dependency found with pipeline aggregator ["
 operator|+
 name|builder
 operator|.

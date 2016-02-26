@@ -1448,7 +1448,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"should have thrown an exception about the unknown paramater _foo"
+literal|"should have thrown an exception about the unknown parameter _foo"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1460,7 +1460,7 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"message contains error about the unknown paramater _foo: "
+literal|"message contains error about the unknown parameter _foo: "
 operator|+
 name|e
 operator|.

@@ -646,6 +646,10 @@ name|readStackTrace
 import|;
 end_import
 
+begin_comment
+comment|/**  * A stream from this node to another node. Technically, it can also be streamed to a byte array but that is mostly for testing.  */
+end_comment
+
 begin_class
 DECL|class|StreamInput
 specifier|public
@@ -664,11 +668,7 @@ name|Version
 operator|.
 name|CURRENT
 decl_stmt|;
-DECL|method|StreamInput
-specifier|protected
-name|StreamInput
-parameter_list|()
-block|{ }
+comment|/**      * The version of the node on the other side of this stream.      */
 DECL|method|getVersion
 specifier|public
 name|Version
@@ -681,6 +681,7 @@ operator|.
 name|version
 return|;
 block|}
+comment|/**      * Set the version of the node on the other side of this stream.      */
 DECL|method|setVersion
 specifier|public
 name|void

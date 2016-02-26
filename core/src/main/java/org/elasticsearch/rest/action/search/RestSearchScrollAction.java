@@ -618,7 +618,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Malforrmed content, must start with an object"
+literal|"Malformed content, must start with an object"
 argument_list|)
 throw|;
 block|}

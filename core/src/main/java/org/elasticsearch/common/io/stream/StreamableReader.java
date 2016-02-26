@@ -28,6 +28,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Implementers can be read from {@linkplain StreamInput} by calling their {@link #readFrom(StreamInput)} method.  *  * It is common for implementers of this interface to declare a<code>public static final</code> instance of themselves named PROTOTYPE so  * users can call {@linkplain #readFrom(StreamInput)} on it. It is also fairly typical for readFrom to be implemented as a method that just  * calls a constructor that takes {@linkplain StreamInput} as a parameter. This allows the fields in the implementer to be  *<code>final</code>.  */
+end_comment
+
 begin_interface
 DECL|interface|StreamableReader
 specifier|public
@@ -37,7 +41,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Reads a copy of an object with the same type form the stream input      *      * The caller object remains unchanged.      */
+comment|/**      * Reads an object of this type from the provided {@linkplain StreamInput}. The receiving instance remains unchanged.      */
 DECL|method|readFrom
 name|T
 name|readFrom

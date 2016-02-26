@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.logging.log4j
+DECL|package|org.elasticsearch.common.logging
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|common
 operator|.
 name|logging
-operator|.
-name|log4j
 package|;
 end_package
 
@@ -237,6 +235,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -279,7 +287,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Configures log4j with a special set of replacements.  */
 end_comment
 
 begin_class
@@ -337,15 +345,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|replacements
-operator|.
-name|put
-argument_list|(
-literal|"console"
-argument_list|,
-literal|"org.elasticsearch.common.logging.log4j.ConsoleAppender"
-argument_list|)
-expr_stmt|;
+comment|// Appenders
 name|replacements
 operator|.
 name|put
@@ -353,6 +353,20 @@ argument_list|(
 literal|"async"
 argument_list|,
 literal|"org.apache.log4j.AsyncAppender"
+argument_list|)
+expr_stmt|;
+name|replacements
+operator|.
+name|put
+argument_list|(
+literal|"console"
+argument_list|,
+name|ConsoleAppender
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|replacements
@@ -371,6 +385,15 @@ argument_list|(
 literal|"externallyRolledFile"
 argument_list|,
 literal|"org.apache.log4j.ExternallyRolledFileAppender"
+argument_list|)
+expr_stmt|;
+name|replacements
+operator|.
+name|put
+argument_list|(
+literal|"extrasRollingFile"
+argument_list|,
+literal|"org.apache.log4j.rolling.RollingFileAppender"
 argument_list|)
 expr_stmt|;
 name|replacements
@@ -440,15 +463,6 @@ name|replacements
 operator|.
 name|put
 argument_list|(
-literal|"extrasRollingFile"
-argument_list|,
-literal|"org.apache.log4j.rolling.RollingFileAppender"
-argument_list|)
-expr_stmt|;
-name|replacements
-operator|.
-name|put
-argument_list|(
 literal|"smtp"
 argument_list|,
 literal|"org.apache.log4j.net.SMTPAppender"
@@ -496,10 +510,15 @@ name|put
 argument_list|(
 literal|"terminal"
 argument_list|,
-literal|"org.elasticsearch.common.logging.log4j.TerminalAppender"
+name|TerminalAppender
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// policies
+comment|// Policies
 name|replacements
 operator|.
 name|put
@@ -518,7 +537,7 @@ argument_list|,
 literal|"org.apache.log4j.rolling.SizeBasedTriggeringPolicy"
 argument_list|)
 expr_stmt|;
-comment|// layouts
+comment|// Layouts
 name|replacements
 operator|.
 name|put
@@ -890,6 +909,21 @@ parameter_list|)
 block|{
 try|try
 block|{
+name|Set
+argument_list|<
+name|FileVisitOption
+argument_list|>
+name|options
+init|=
+name|EnumSet
+operator|.
+name|of
+argument_list|(
+name|FileVisitOption
+operator|.
+name|FOLLOW_LINKS
+argument_list|)
+decl_stmt|;
 name|Files
 operator|.
 name|walkFileTree
@@ -899,14 +933,7 @@ operator|.
 name|configFile
 argument_list|()
 argument_list|,
-name|EnumSet
-operator|.
-name|of
-argument_list|(
-name|FileVisitOption
-operator|.
-name|FOLLOW_LINKS
-argument_list|)
+name|options
 argument_list|,
 name|Integer
 operator|.

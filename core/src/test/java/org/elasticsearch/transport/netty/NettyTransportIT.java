@@ -676,7 +676,7 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Expected exception, but didnt happen"
+literal|"Expected exception, but didn't happen"
 argument_list|)
 expr_stmt|;
 block|}

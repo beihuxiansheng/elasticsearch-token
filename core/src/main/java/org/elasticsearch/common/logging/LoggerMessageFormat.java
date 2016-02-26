@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.logging.support
+DECL|package|org.elasticsearch.common.logging
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|common
 operator|.
 name|logging
-operator|.
-name|support
 package|;
 end_package
 
@@ -24,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|HashSet
 import|;
 end_import
 
@@ -34,12 +32,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|Set
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Format string for Elasticsearch log messages.  */
 end_comment
 
 begin_class
@@ -370,7 +368,11 @@ name|L
 index|]
 argument_list|,
 operator|new
-name|HashMap
+name|HashSet
+argument_list|<
+name|Object
+index|[]
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -409,7 +411,11 @@ name|L
 index|]
 argument_list|,
 operator|new
-name|HashMap
+name|HashSet
+argument_list|<
+name|Object
+index|[]
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -553,8 +559,12 @@ parameter_list|,
 name|Object
 name|o
 parameter_list|,
-name|Map
-name|seenMap
+name|Set
+argument_list|<
+name|Object
+index|[]
+argument_list|>
+name|seen
 parameter_list|)
 block|{
 if|if
@@ -776,7 +786,7 @@ index|[]
 operator|)
 name|o
 argument_list|,
-name|seenMap
+name|seen
 argument_list|)
 expr_stmt|;
 block|}
@@ -841,8 +851,12 @@ name|Object
 index|[]
 name|a
 parameter_list|,
-name|Map
-name|seenMap
+name|Set
+argument_list|<
+name|Object
+index|[]
+argument_list|>
+name|seen
 parameter_list|)
 block|{
 name|sbuf
@@ -855,21 +869,19 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|seenMap
+name|seen
 operator|.
-name|containsKey
+name|contains
 argument_list|(
 name|a
 argument_list|)
 condition|)
 block|{
-name|seenMap
+name|seen
 operator|.
-name|put
+name|add
 argument_list|(
 name|a
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -904,7 +916,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|seenMap
+name|seen
 argument_list|)
 expr_stmt|;
 if|if
@@ -924,7 +936,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// allow repeats in siblings
-name|seenMap
+name|seen
 operator|.
 name|remove
 argument_list|(
