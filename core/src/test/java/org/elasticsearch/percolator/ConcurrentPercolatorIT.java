@@ -428,7 +428,7 @@ literal|"type=long"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1169,11 +1169,11 @@ literal|"type"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2256,7 +2256,7 @@ literal|"type"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;

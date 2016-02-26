@@ -6161,6 +6161,27 @@ name|failOnUnsupportedField
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|doRewrite
+specifier|protected
+name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
+name|doRewrite
+parameter_list|(
+name|QueryRewriteContext
+name|queryRewriteContext
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// TODO this needs heavy cleanups before we can rewrite it
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

@@ -326,7 +326,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -467,7 +467,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -627,7 +627,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -785,7 +785,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -983,7 +983,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1165,7 +1165,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1712,7 +1712,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1971,7 +1971,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -3226,7 +3226,7 @@ literal|"type"
 argument_list|,
 literal|"my_field1"
 argument_list|,
-literal|"type=string,store=true"
+literal|"type=text,store=true"
 argument_list|,
 literal|"my_field2"
 argument_list|,
@@ -3442,7 +3442,7 @@ name|assertTrue
 argument_list|(
 name|myField1Mapper
 operator|instanceof
-name|StringFieldMapper
+name|TextFieldMapper
 argument_list|)
 expr_stmt|;
 comment|// and same option
@@ -3450,7 +3450,7 @@ name|assertTrue
 argument_list|(
 operator|(
 operator|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|)
 name|myField1Mapper
 operator|)
@@ -3732,7 +3732,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject
@@ -3831,7 +3831,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject

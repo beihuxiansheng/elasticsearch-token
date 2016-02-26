@@ -250,6 +250,14 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|startInitialJoin
+specifier|public
+name|void
+name|startInitialJoin
+parameter_list|()
+block|{      }
+annotation|@
+name|Override
 DECL|method|getMinimumMasterNodes
 specifier|public
 name|int

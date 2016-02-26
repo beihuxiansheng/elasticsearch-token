@@ -333,12 +333,6 @@ specifier|final
 name|TransportSearchQueryAndFetchAction
 name|queryAndFetchAction
 decl_stmt|;
-DECL|field|optimizeSingleShard
-specifier|private
-specifier|final
-name|boolean
-name|optimizeSingleShard
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TransportSearchAction
@@ -427,21 +421,6 @@ name|queryAndFetchAction
 operator|=
 name|queryAndFetchAction
 expr_stmt|;
-name|this
-operator|.
-name|optimizeSingleShard
-operator|=
-name|this
-operator|.
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-literal|"action.search.optimize_single_shard"
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -461,11 +440,6 @@ name|listener
 parameter_list|)
 block|{
 comment|// optimize search type for cases where there is only one shard group to search on
-if|if
-condition|(
-name|optimizeSingleShard
-condition|)
-block|{
 try|try
 block|{
 name|ClusterState
@@ -576,7 +550,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

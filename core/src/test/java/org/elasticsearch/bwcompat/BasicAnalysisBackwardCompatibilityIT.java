@@ -354,7 +354,7 @@ index|[
 name|i
 index|]
 operator|=
-literal|"type=string,analyzer="
+literal|"type=text,analyzer="
 operator|+
 name|analyzer
 expr_stmt|;

@@ -2860,11 +2860,6 @@ name|QueryShardContext
 argument_list|(
 name|indexSettings
 argument_list|,
-name|nodeServicesProvider
-operator|.
-name|getClient
-argument_list|()
-argument_list|,
 name|indexCache
 operator|.
 name|bitsetFilterCache

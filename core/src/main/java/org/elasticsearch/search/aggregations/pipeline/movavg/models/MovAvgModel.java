@@ -64,6 +64,36 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|Writeable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -118,6 +148,13 @@ specifier|public
 specifier|abstract
 class|class
 name|MovAvgModel
+implements|implements
+name|Writeable
+argument_list|<
+name|MovAvgModel
+argument_list|>
+implements|,
+name|ToXContent
 block|{
 comment|/**      * Should this model be fit to the data via a cost minimizing algorithm by default?      */
 DECL|method|minimizeByDefault
@@ -296,6 +333,8 @@ name|predictions
 return|;
 block|}
 comment|/**      * Write the model to the output stream      *      * @param out   Output stream      */
+annotation|@
+name|Override
 DECL|method|writeTo
 specifier|public
 specifier|abstract
@@ -309,12 +348,35 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Clone the model, returning an exact copy      */
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 specifier|abstract
 name|MovAvgModel
 name|clone
 parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+DECL|method|hashCode
+specifier|public
+specifier|abstract
+name|int
+name|hashCode
+parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+DECL|method|equals
+specifier|public
+specifier|abstract
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|obj
+parameter_list|)
 function_decl|;
 comment|/**      * Abstract class which also provides some concrete parsing functionality.      */
 DECL|class|AbstractModelParser

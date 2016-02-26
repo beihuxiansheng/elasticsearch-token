@@ -1839,6 +1839,15 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|startInitialJoin
+specifier|public
+name|void
+name|startInitialJoin
+parameter_list|()
+block|{
 comment|// start the join thread from a cluster state update. See {@link JoinThreadControl} for details.
 name|clusterService
 operator|.

@@ -1528,7 +1528,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1669,7 +1669,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.

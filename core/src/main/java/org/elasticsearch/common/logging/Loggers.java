@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A set of utilities around Logging.  *  *  */
+comment|/**  * A set of utilities around Logging.  */
 end_comment
 
 begin_class
@@ -235,6 +235,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Settings
@@ -286,7 +289,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** Just like {@link #getLogger(Class, org.elasticsearch.common.settings.Settings,ShardId,String...)} but String loggerName instead of Class. */
+comment|/**      * Just like {@link #getLogger(Class, org.elasticsearch.common.settings.Settings,ShardId,String...)} but String loggerName instead of      * Class.      */
 DECL|method|getLogger
 specifier|public
 specifier|static
@@ -352,6 +355,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Settings
@@ -402,6 +408,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Settings
@@ -708,6 +717,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{
@@ -733,6 +745,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|String
@@ -893,6 +908,9 @@ name|String
 name|buildClassLoggerName
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{

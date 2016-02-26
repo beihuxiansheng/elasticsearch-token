@@ -673,6 +673,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1068,15 +1078,6 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"host"
-argument_list|,
-literal|"alias:h;desc:host name"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"ip"
 argument_list|,
 literal|"alias:i;desc:ip address"
@@ -1089,6 +1090,15 @@ argument_list|(
 literal|"port"
 argument_list|,
 literal|"default:false;alias:po;desc:bound transport port"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+literal|"http_address"
+argument_list|,
+literal|"default:false;alias:http;desc:bound http adress"
 argument_list|)
 expr_stmt|;
 name|table
@@ -2066,16 +2076,6 @@ name|addCell
 argument_list|(
 name|node
 operator|.
-name|getHostName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|node
-operator|.
 name|getHostAddress
 argument_list|()
 argument_list|)
@@ -2122,6 +2122,52 @@ literal|"-"
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|serviceAttributes
+init|=
+name|info
+operator|.
+name|getServiceAttributes
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|serviceAttributes
+operator|!=
+literal|null
+condition|)
+block|{
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|serviceAttributes
+operator|.
+name|getOrDefault
+argument_list|(
+literal|"http_address"
+argument_list|,
+literal|"-"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|table
+operator|.
+name|addCell
+argument_list|(
+literal|"-"
+argument_list|)
+expr_stmt|;
+block|}
 name|table
 operator|.
 name|addCell
@@ -2131,7 +2177,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|number
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

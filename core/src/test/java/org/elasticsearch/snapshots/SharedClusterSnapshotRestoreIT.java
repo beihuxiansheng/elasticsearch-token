@@ -3221,7 +3221,7 @@ name|setSource
 argument_list|(
 literal|"baz"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3391,7 +3391,7 @@ name|setSource
 argument_list|(
 literal|"baz"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16349,7 +16349,7 @@ name|setSource
 argument_list|(
 literal|"field1"
 argument_list|,
-literal|"type=string,analyzer=standard,search_analyzer=my_analyzer"
+literal|"type=text,analyzer=standard,search_analyzer=my_analyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -746,6 +746,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|fetch
+operator|.
+name|FetchPhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|highlight
 operator|.
 name|HighlightField
@@ -972,12 +986,6 @@ specifier|final
 name|PageCacheRecycler
 name|pageCacheRecycler
 decl_stmt|;
-DECL|field|parseFieldMatcher
-specifier|private
-specifier|final
-name|ParseFieldMatcher
-name|parseFieldMatcher
-decl_stmt|;
 DECL|field|cache
 specifier|private
 specifier|final
@@ -1010,6 +1018,18 @@ specifier|private
 specifier|final
 name|PercolatorIndex
 name|multi
+decl_stmt|;
+DECL|field|parseFieldMatcher
+specifier|private
+specifier|final
+name|ParseFieldMatcher
+name|parseFieldMatcher
+decl_stmt|;
+DECL|field|fetchPhase
+specifier|private
+specifier|final
+name|FetchPhase
+name|fetchPhase
 decl_stmt|;
 annotation|@
 name|Inject
@@ -1046,6 +1066,9 @@ name|scriptService
 parameter_list|,
 name|PercolateDocumentParser
 name|percolateDocumentParser
+parameter_list|,
+name|FetchPhase
+name|fetchPhase
 parameter_list|)
 block|{
 name|super
@@ -1064,6 +1087,12 @@ operator|.
 name|percolateDocumentParser
 operator|=
 name|percolateDocumentParser
+expr_stmt|;
+name|this
+operator|.
+name|fetchPhase
+operator|=
+name|fetchPhase
 expr_stmt|;
 name|this
 operator|.
@@ -1667,6 +1696,8 @@ argument_list|,
 name|aliasFilter
 argument_list|,
 name|parseFieldMatcher
+argument_list|,
+name|fetchPhase
 argument_list|)
 decl_stmt|;
 name|SearchContext
@@ -1867,9 +1898,7 @@ name|factories
 argument_list|()
 operator|.
 name|createTopLevelAggregators
-argument_list|(
-name|aggregationContext
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
@@ -2313,7 +2342,8 @@ name|maxDoc
 argument_list|()
 condition|)
 block|{
-comment|// prevent easy OOM if more than the total number of docs that exist is requested...
+comment|// prevent easy OOM if more than the total number of docs that
+comment|// exist is requested...
 name|size
 operator|=
 name|context
@@ -2448,7 +2478,8 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// No sort or tracking scores was provided, so use special value to indicate to not show the scores:
+comment|// No sort or tracking scores was provided, so use special
+comment|// value to indicate to not show the scores:
 name|scoreDoc
 operator|.
 name|score

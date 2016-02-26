@@ -280,6 +280,36 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregatorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|PipelineAggregatorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|joda
 operator|.
 name|time
@@ -465,7 +495,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A stream from another node to this node. Technically, it can also be streamed from a byte array but that is mostly for testing.  */
 end_comment
 
 begin_class
@@ -486,6 +516,7 @@ name|Version
 operator|.
 name|CURRENT
 decl_stmt|;
+comment|/**      * The version of the node on the other side of this stream.      */
 DECL|method|getVersion
 specifier|public
 name|Version
@@ -498,9 +529,10 @@ operator|.
 name|version
 return|;
 block|}
+comment|/**      * Set the version of the node on the other side of this stream.      */
 DECL|method|setVersion
 specifier|public
-name|StreamOutput
+name|void
 name|setVersion
 parameter_list|(
 name|Version
@@ -513,9 +545,6 @@ name|version
 operator|=
 name|version
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 DECL|method|position
 specifier|public
@@ -3642,6 +3671,48 @@ operator|.
 name|writeTo
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Writes a {@link AggregatorBuilder} to the current stream      */
+DECL|method|writeAggregatorBuilder
+specifier|public
+name|void
+name|writeAggregatorBuilder
+parameter_list|(
+name|AggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
+name|builder
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|writeNamedWriteable
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Writes a {@link PipelineAggregatorBuilder} to the current stream      */
+DECL|method|writePipelineAggregatorBuilder
+specifier|public
+name|void
+name|writePipelineAggregatorBuilder
+parameter_list|(
+name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
+name|builder
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|writeNamedWriteable
+argument_list|(
+name|builder
 argument_list|)
 expr_stmt|;
 block|}

@@ -98,6 +98,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -140,20 +154,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -181,7 +181,7 @@ name|PipelineAggregator
 implements|implements
 name|Streamable
 block|{
-comment|/**      * Parses the pipeline aggregation request and creates the appropriate      * pipeline aggregator factory for it.      *       * @see PipelineAggregatorFactory      */
+comment|/**      * Parses the pipeline aggregation request and creates the appropriate      * pipeline aggregator factory for it.      *      * @see PipelineAggregatorBuilder      */
 DECL|interface|Parser
 specifier|public
 specifier|static
@@ -233,9 +233,12 @@ name|String
 name|type
 parameter_list|()
 function_decl|;
-comment|/**          * Returns the pipeline aggregator factory with which this parser is          * associated.          *           * @param pipelineAggregatorName          *            The name of the pipeline aggregation          * @param parser          *            The xcontent parser          * @param context          *            The search context          * @return The resolved pipeline aggregator factory          * @throws java.io.IOException          *             When parsing fails          */
+comment|/**          * Returns the pipeline aggregator factory with which this parser is          * associated.          *          * @param pipelineAggregatorName          *            The name of the pipeline aggregation          * @param parser          *            The xcontent parser          * @param context          *            The search context          * @return The resolved pipeline aggregator factory          * @throws java.io.IOException          *             When parsing fails          */
 DECL|method|parse
-name|PipelineAggregatorFactory
+name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|parse
 parameter_list|(
 name|String
@@ -244,11 +247,20 @@ parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
+name|QueryParseContext
 name|context
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+comment|/**          * @return an empty {@link PipelineAggregatorBuilder} instance for this          *         parser that can be used for deserialization          */
+DECL|method|getFactoryPrototype
+name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
+name|getFactoryPrototype
+parameter_list|()
 function_decl|;
 block|}
 DECL|field|name

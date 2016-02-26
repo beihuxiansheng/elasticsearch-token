@@ -136,7 +136,23 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AbstractAggregationBuilder
+name|AggregatorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -513,13 +529,16 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Delegates to {@link PercolateSourceBuilder#addAggregation(AbstractAggregationBuilder)}      */
+comment|/**      * Delegates to      * {@link PercolateSourceBuilder#addAggregation(AggregatorBuilder)}      */
 DECL|method|addAggregation
 specifier|public
 name|PercolateRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AbstractAggregationBuilder
+name|AggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|aggregationBuilder
 parameter_list|)
 block|{
@@ -535,7 +554,29 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the percolate request definition directly on the request.      * This will overwrite any definitions set by any of the delegate methods.      */
+comment|/**      * Delegates to      * {@link PercolateSourceBuilder#addAggregation(PipelineAggregatorBuilder)}      */
+DECL|method|addAggregation
+specifier|public
+name|PercolateRequestBuilder
+name|addAggregation
+parameter_list|(
+name|PipelineAggregatorBuilder
+name|aggregationBuilder
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|addAggregation
+argument_list|(
+name|aggregationBuilder
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the percolate request definition directly on the request. This will      * overwrite any definitions set by any of the delegate methods.      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder

@@ -488,6 +488,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -4697,10 +4707,7 @@ operator|.
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|boolQuery
 argument_list|()
 operator|.
@@ -9523,7 +9530,7 @@ literal|"parent"
 argument_list|,
 literal|"p_field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addMapping
@@ -9536,7 +9543,7 @@ literal|"type=parent"
 argument_list|,
 literal|"c_field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -28,6 +28,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Implementers can be written to a {@linkplain StreamOutput} and read from a {@linkplain StreamInput}. This allows them to be "thrown  * across the wire" using Elasticsearch's internal protocol. If the implementer also implements equals and hashCode then a copy made by  * serializing and deserializing must be equal and have the same hashCode. It isn't required that such a copy be entirely unchanged. For  * example, {@link org.elasticsearch.common.unit.TimeValue} converts the time to nanoseconds for serialization.  * {@linkplain org.elasticsearch.common.unit.TimeValue} actually implements {@linkplain Streamable} not {@linkplain Writeable} but it has  * the same contract.  *  * Prefer implementing this interface over implementing {@link Streamable} where possible. Lots of code depends on {@linkplain Streamable}  * so this isn't always possible.  */
+end_comment
+
 begin_interface
 DECL|interface|Writeable
 specifier|public
@@ -42,7 +46,7 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|/**      * Writes the current object into the output stream out      */
+comment|/**      * Write this into the {@linkplain StreamOutput}.      */
 DECL|method|writeTo
 name|void
 name|writeTo
