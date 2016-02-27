@@ -164,6 +164,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -285,11 +301,9 @@ name|DEFAULT_DELAYED_NODE_LEFT_TIMEOUT
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 argument_list|)
 decl_stmt|;
 comment|/**      * Reason why the shard is in unassigned state.      *<p>      * Note, ordering of the enum is important, make sure to add new values      * at the end and handle version serialization properly.      */

@@ -222,6 +222,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -401,6 +417,7 @@ name|AllFieldMapper
 operator|.
 name|IncludeInAll
 block|{
+comment|// this is private since it has a different default
 DECL|field|COERCE_SETTING
 specifier|private
 specifier|static
@@ -421,14 +438,11 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 argument_list|)
 decl_stmt|;
-comment|// this is private since it has a different default
 DECL|class|Defaults
 specifier|public
 specifier|static

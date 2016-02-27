@@ -86,6 +86,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|gateway
 operator|.
 name|PrimaryShardAllocator
@@ -369,7 +385,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Encapsulates all valid index level settings.  * @see org.elasticsearch.common.settings.Setting.Scope#INDEX  */
+comment|/**  * Encapsulates all valid index level settings.  * @see org.elasticsearch.common.settings.Setting.SettingsProperty#IndexScope  */
 end_comment
 
 begin_class
@@ -745,11 +761,9 @@ literal|"index.similarity."
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 argument_list|)
 argument_list|,
 comment|// this allows similarity settings to be passed
@@ -761,11 +775,9 @@ literal|"index.analysis."
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 argument_list|)
 comment|// this allows analysis settings to be passed
 argument_list|)
@@ -814,11 +826,9 @@ name|settings
 argument_list|,
 name|settingsSet
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 argument_list|)
 expr_stmt|;
 block|}

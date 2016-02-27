@@ -258,7 +258,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 import|;
 end_import
 
@@ -941,9 +941,9 @@ literal|1
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * If true automatically append node id to custom data paths.      */
@@ -967,9 +967,9 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * If true the [verbose] SegmentInfos.infoStream logging is sent to System.out.      */
@@ -993,9 +993,9 @@ literal|false
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODES_FOLDER

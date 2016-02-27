@@ -56,7 +56,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 import|;
 end_import
 
@@ -262,9 +262,9 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|REFRESH_INTERVAL_SETTING
@@ -299,9 +299,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|GC_COLLECTOR_PREFIX
@@ -330,9 +330,9 @@ name|GC_COLLECTOR_PREFIX
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|class|GcThreshold

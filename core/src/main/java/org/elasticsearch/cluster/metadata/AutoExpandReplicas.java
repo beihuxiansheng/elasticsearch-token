@@ -42,6 +42,22 @@ name|Setting
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class acts as a functional wrapper around the<tt>index.auto_expand_replicas</tt> setting.  * This setting or rather it's value is expanded into a min and max value which requires special handling  * based on the number of datanodes in the cluster. This class handles all the parsing and streamlines the access to these values.  */
 end_comment
@@ -300,11 +316,9 @@ block|}
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 argument_list|)
 decl_stmt|;
 DECL|field|minReplicas

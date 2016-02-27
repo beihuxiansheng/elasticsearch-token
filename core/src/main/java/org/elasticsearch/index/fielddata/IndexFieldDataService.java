@@ -88,6 +88,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
@@ -526,11 +542,9 @@ begin_expr_stmt
 unit|},
 literal|false
 operator|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 end_expr_stmt
 
 begin_empty_stmt

@@ -102,6 +102,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -173,11 +189,9 @@ name|parseString
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * An enum representation for the configured re-balance type.      */

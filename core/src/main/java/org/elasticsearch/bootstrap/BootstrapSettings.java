@@ -40,7 +40,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 import|;
 end_import
 
@@ -77,9 +77,9 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|MLOCKALL_SETTING
@@ -102,9 +102,9 @@ literal|false
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|SECCOMP_SETTING
@@ -127,9 +127,9 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|CTRLHANDLER_SETTING
@@ -152,9 +152,9 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 block|}

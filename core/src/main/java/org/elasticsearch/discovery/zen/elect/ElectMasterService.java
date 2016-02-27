@@ -120,6 +120,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -221,11 +237,9 @@ literal|1
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|// This is the minimum version a master needs to be on, otherwise it gets ignored

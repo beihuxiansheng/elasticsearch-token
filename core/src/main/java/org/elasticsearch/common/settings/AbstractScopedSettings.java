@@ -56,22 +56,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|set
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -260,7 +244,7 @@ specifier|private
 specifier|final
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 name|scope
 decl_stmt|;
 DECL|field|KEY_PATTERN
@@ -309,7 +293,7 @@ name|settingsSet
 parameter_list|,
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 name|scope
 parameter_list|)
 block|{
@@ -379,10 +363,15 @@ if|if
 condition|(
 name|setting
 operator|.
-name|getScope
+name|getProperties
 argument_list|()
-operator|!=
+operator|.
+name|contains
+argument_list|(
 name|scope
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -393,11 +382,11 @@ literal|"Setting must be a "
 operator|+
 name|scope
 operator|+
-literal|" setting but was: "
+literal|" setting but has: "
 operator|+
 name|setting
 operator|.
-name|getScope
+name|getProperties
 argument_list|()
 argument_list|)
 throw|;
@@ -611,7 +600,7 @@ DECL|method|getScope
 specifier|public
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 name|getScope
 parameter_list|()
 block|{
@@ -1674,10 +1663,15 @@ if|if
 condition|(
 name|setting
 operator|.
-name|getScope
+name|getProperties
 argument_list|()
-operator|!=
+operator|.
+name|contains
+argument_list|(
 name|scope
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -1690,11 +1684,11 @@ name|this
 operator|.
 name|scope
 operator|+
-literal|"] != ["
+literal|"] not in ["
 operator|+
 name|setting
 operator|.
-name|getScope
+name|getProperties
 argument_list|()
 operator|+
 literal|"]"

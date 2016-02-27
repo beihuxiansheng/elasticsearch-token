@@ -40,7 +40,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 import|;
 end_import
 
@@ -165,9 +165,9 @@ name|s
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|PUBLISH_HOST
@@ -195,9 +195,9 @@ name|s
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|BIND_HOST
@@ -225,9 +225,9 @@ name|s
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|PORT
@@ -254,9 +254,9 @@ name|s
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|PUBLISH_PORT
@@ -281,9 +281,9 @@ literal|1
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_PROFILE
@@ -311,9 +311,9 @@ literal|"transport.profiles."
 argument_list|,
 literal|true
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|method|TransportSettings

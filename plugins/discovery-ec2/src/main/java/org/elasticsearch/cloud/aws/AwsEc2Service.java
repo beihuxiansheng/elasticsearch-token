@@ -64,6 +64,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -157,11 +173,9 @@ literal|false
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|// Global AWS settings (shared between discovery-ec2 and repository-s3)
@@ -183,13 +197,13 @@ literal|"cloud.aws.access_key"
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.secret_key: AWS Secret key. Shared with repository-s3 plugin      */
@@ -208,13 +222,13 @@ literal|"cloud.aws.secret_key"
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.protocol: Protocol for AWS API: http or https. Defaults to https. Shared with repository-s3 plugin      */
@@ -251,11 +265,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.host: In case of proxy, define its hostname/IP. Shared with repository-s3 plugin      */
@@ -274,11 +286,9 @@ literal|"cloud.aws.proxy.host"
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.port: In case of proxy, define its port. Defaults to 80. Shared with repository-s3 plugin      */
@@ -305,11 +315,9 @@ literal|16
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.username: In case of proxy with auth, define the username. Shared with repository-s3 plugin      */
@@ -328,11 +336,9 @@ literal|"cloud.aws.proxy.username"
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.password: In case of proxy with auth, define the password. Shared with repository-s3 plugin      */
@@ -351,13 +357,13 @@ literal|"cloud.aws.proxy.password"
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.signer: If you are using an old AWS API version, you can define a Signer. Shared with repository-s3 plugin      */
@@ -376,11 +382,9 @@ literal|"cloud.aws.signer"
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.region: Region. Shared with repository-s3 plugin      */
@@ -412,11 +416,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * Defines specific ec2 settings starting with cloud.aws.ec2.      */
@@ -449,13 +451,13 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.secret_key: AWS Secret key specific for EC2 API calls. Defaults to cloud.aws.secret_key.          * @see AwsEc2Service#SECRET_SETTING          */
@@ -483,13 +485,13 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.protocol: Protocol for AWS API specific for EC2 API calls: http or https.  Defaults to cloud.aws.protocol.          * @see AwsEc2Service#PROTOCOL_SETTING          */
@@ -528,11 +530,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.proxy.host: In case of proxy, define its hostname/IP specific for EC2 API calls. Defaults to cloud.aws.proxy.host.          * @see AwsEc2Service#PROXY_HOST_SETTING          */
@@ -560,11 +560,9 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.proxy.port: In case of proxy, define its port specific for EC2 API calls.  Defaults to cloud.aws.proxy.port.          * @see AwsEc2Service#PROXY_PORT_SETTING          */
@@ -604,11 +602,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.proxy.username: In case of proxy with auth, define the username specific for EC2 API calls.          * Defaults to cloud.aws.proxy.username.          * @see AwsEc2Service#PROXY_USERNAME_SETTING          */
@@ -636,11 +632,9 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.proxy.password: In case of proxy with auth, define the password specific for EC2 API calls.          * Defaults to cloud.aws.proxy.password.          * @see AwsEc2Service#PROXY_PASSWORD_SETTING          */
@@ -668,13 +662,13 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.signer: If you are using an old AWS API version, you can define a Signer. Specific for EC2 API calls.          * Defaults to cloud.aws.signer.          * @see AwsEc2Service#SIGNER_SETTING          */
@@ -702,11 +696,9 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.region: Region specific for EC2 API calls. Defaults to cloud.aws.region.          * @see AwsEc2Service#REGION_SETTING          */
@@ -740,11 +732,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.ec2.endpoint: Endpoint. If not set, endpoint will be guessed based on region setting.          */
@@ -763,11 +753,9 @@ literal|"cloud.aws.ec2.endpoint"
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 block|}
@@ -831,11 +819,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * discovery.ec2.any_group: If set to false, will require all security groups to be present for the instance to be used for the          * discovery. Defaults to true.          */
@@ -856,11 +842,9 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * discovery.ec2.groups: Either a comma separated list or array based list of (security) groups. Only instances with the provided          * security groups will be used in the cluster discovery. (NOTE: You could provide either group NAME or group ID.)          */
@@ -894,11 +878,9 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * discovery.ec2.availability_zones: Either a comma separated list or array based list of availability zones. Only instances within          * the provided availability zones will be used in the cluster discovery.          */
@@ -932,11 +914,9 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * discovery.ec2.node_cache_time: How long the list of hosts is cached to prevent further requests to the AWS API. Defaults to 10s.          */
@@ -962,11 +942,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**          * discovery.ec2.tag.*: The ec2 discovery can filter machines to include in the cluster based on tags (and not just groups).          * The settings to use include the discovery.ec2.tag. prefix. For example, setting discovery.ec2.tag.stage to dev will only filter          * instances with a tag key set to stage, and a value of dev. Several tags set will require all of those tags to be set for the          * instance to be included.          */
@@ -985,11 +963,9 @@ literal|"discovery.ec2.tag."
 argument_list|,
 literal|false
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 block|}

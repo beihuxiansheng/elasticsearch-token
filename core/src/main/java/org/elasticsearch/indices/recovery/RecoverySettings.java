@@ -112,6 +112,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|SettingsProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -194,11 +210,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * how long to wait before retrying after issues cause by cluster state syncing between nodes      * i.e., local node is not yet known on remote node, remote shard not yet started etc.      */
@@ -227,11 +241,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/** how long to wait before retrying after network related issues */
@@ -260,11 +272,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/** timeout value to use for requests made as part of the recovery process */
@@ -293,11 +303,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * timeout value to use for requests made as part of the recovery process that are expected to take long time.      * defaults to twice `indices.recovery.internal_action_timeout`.      */
@@ -350,11 +358,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 comment|/**      * recoveries that don't show any activity for more then this interval will be failed.      * defaults to `indices.recovery.internal_action_long_timeout`      */
@@ -394,11 +400,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_CHUNK_SIZE

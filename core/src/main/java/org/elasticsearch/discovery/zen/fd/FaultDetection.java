@@ -84,7 +84,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 import|;
 end_import
 
@@ -201,9 +201,9 @@ literal|false
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|PING_INTERVAL_SETTING
@@ -229,9 +229,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|PING_TIMEOUT_SETTING
@@ -257,9 +257,9 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|PING_RETRIES_SETTING
@@ -282,9 +282,9 @@ literal|3
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|REGISTER_CONNECTION_LISTENER_SETTING
@@ -307,9 +307,9 @@ literal|true
 argument_list|,
 literal|false
 argument_list|,
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|threadPool
