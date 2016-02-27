@@ -74,9 +74,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|service
+name|node
 operator|.
-name|InternalClusterService
+name|DiscoveryNodeService
 import|;
 end_import
 
@@ -372,7 +372,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|InternalClusterService
+name|DiscoveryNodeService
 operator|.
 name|NODE_ID_SEED_SETTING
 operator|.
@@ -424,7 +424,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|InternalClusterService
+name|DiscoveryNodeService
 operator|.
 name|NODE_ID_SEED_SETTING
 operator|.
