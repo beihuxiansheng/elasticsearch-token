@@ -50,20 +50,6 @@ name|elasticsearch
 operator|.
 name|monitor
 operator|.
-name|os
-operator|.
-name|OsProbe
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|monitor
-operator|.
 name|process
 operator|.
 name|ProcessProbe
@@ -153,6 +139,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"this feature is disabled for snapshot builds, for now - see #16835"
+argument_list|)
 DECL|method|testEnforceMaxFileDescriptorLimits
 specifier|public
 name|void
