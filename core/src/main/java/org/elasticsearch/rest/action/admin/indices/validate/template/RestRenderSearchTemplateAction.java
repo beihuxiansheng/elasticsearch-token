@@ -701,7 +701,7 @@ name|templateId
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
 name|Template
 operator|.

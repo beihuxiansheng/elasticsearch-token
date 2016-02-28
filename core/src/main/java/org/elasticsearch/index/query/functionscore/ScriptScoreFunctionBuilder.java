@@ -578,6 +578,11 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+name|context
+operator|.
+name|getClusterState
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

@@ -2172,9 +2172,13 @@ name|rest
 operator|.
 name|action
 operator|.
-name|script
+name|admin
 operator|.
-name|RestDeleteIndexedScriptAction
+name|cluster
+operator|.
+name|storedscripts
+operator|.
+name|RestDeleteStoredScriptAction
 import|;
 end_import
 
@@ -2188,9 +2192,13 @@ name|rest
 operator|.
 name|action
 operator|.
-name|script
+name|admin
 operator|.
-name|RestGetIndexedScriptAction
+name|cluster
+operator|.
+name|storedscripts
+operator|.
+name|RestGetStoredScriptAction
 import|;
 end_import
 
@@ -2204,9 +2212,13 @@ name|rest
 operator|.
 name|action
 operator|.
-name|script
+name|admin
 operator|.
-name|RestPutIndexedScriptAction
+name|cluster
+operator|.
+name|storedscripts
+operator|.
+name|RestPutStoredScriptAction
 import|;
 end_import
 
@@ -2300,7 +2312,11 @@ name|rest
 operator|.
 name|action
 operator|.
-name|template
+name|admin
+operator|.
+name|cluster
+operator|.
+name|storedscripts
 operator|.
 name|RestDeleteSearchTemplateAction
 import|;
@@ -2316,7 +2332,11 @@ name|rest
 operator|.
 name|action
 operator|.
-name|template
+name|admin
+operator|.
+name|cluster
+operator|.
+name|storedscripts
 operator|.
 name|RestGetSearchTemplateAction
 import|;
@@ -2332,7 +2352,11 @@ name|rest
 operator|.
 name|action
 operator|.
-name|template
+name|admin
+operator|.
+name|cluster
+operator|.
+name|storedscripts
 operator|.
 name|RestPutSearchTemplateAction
 import|;
@@ -2936,15 +2960,15 @@ operator|.
 name|class
 argument_list|,
 comment|// Scripts API
-name|RestGetIndexedScriptAction
+name|RestGetStoredScriptAction
 operator|.
 name|class
 argument_list|,
-name|RestPutIndexedScriptAction
+name|RestPutStoredScriptAction
 operator|.
 name|class
 argument_list|,
-name|RestDeleteIndexedScriptAction
+name|RestDeleteStoredScriptAction
 operator|.
 name|class
 argument_list|,

@@ -1125,7 +1125,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"script.indexed"
+literal|"script.stored"
 argument_list|,
 literal|"true"
 argument_list|)

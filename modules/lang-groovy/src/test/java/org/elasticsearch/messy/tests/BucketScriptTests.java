@@ -52,6 +52,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -629,7 +643,13 @@ block|}
 name|client
 argument_list|()
 operator|.
-name|preparePutIndexedScript
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|preparePutStoredScript
 argument_list|()
 operator|.
 name|setId
@@ -646,7 +666,11 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 literal|"{ \"script\": \"_value0 + _value1 + _value2\" }"
+argument_list|)
 argument_list|)
 operator|.
 name|get
@@ -2988,7 +3012,7 @@ literal|"my_script"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
 literal|null
 argument_list|,

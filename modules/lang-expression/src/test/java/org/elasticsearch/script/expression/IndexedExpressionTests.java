@@ -24,6 +24,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -209,7 +223,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.engine.expression.indexed.update"
+literal|"script.engine.expression.stored.update"
 argument_list|,
 literal|"false"
 argument_list|)
@@ -218,7 +232,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"script.engine.expression.indexed.search"
+literal|"script.engine.expression.stored.search"
 argument_list|,
 literal|"false"
 argument_list|)
@@ -265,57 +279,42 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
 name|client
 argument_list|()
 operator|.
-name|preparePutIndexedScript
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|preparePutStoredScript
+argument_list|()
+operator|.
+name|setScriptLang
 argument_list|(
 name|ExpressionScriptEngineService
 operator|.
 name|NAME
-argument_list|,
-literal|"script1"
-argument_list|,
-literal|"{\"script\":\"2\"}"
 argument_list|)
 operator|.
-name|get
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|client
-argument_list|()
-operator|.
-name|prepareIndex
+name|setId
 argument_list|(
-name|ScriptService
-operator|.
-name|SCRIPT_INDEX
-argument_list|,
-name|ExpressionScriptEngineService
-operator|.
-name|NAME
-argument_list|,
 literal|"script1"
 argument_list|)
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 literal|"{\"script\":\"2\"}"
+argument_list|)
 argument_list|)
 operator|.
 name|get
 argument_list|()
 expr_stmt|;
-block|}
 name|client
 argument_list|()
 operator|.
@@ -361,7 +360,7 @@ name|ScriptService
 operator|.
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
 name|ExpressionScriptEngineService
 operator|.
@@ -411,7 +410,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"scripts of type [indexed], operation [update] and lang [expression] are disabled"
+literal|"scripts of type [stored], operation [update] and lang [expression] are disabled"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -441,7 +440,7 @@ literal|"script1"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
 literal|"expression"
 argument_list|,
@@ -484,7 +483,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"scripts of type [indexed], operation [search] and lang [expression] are disabled"
+literal|"scripts of type [stored], operation [search] and lang [expression] are disabled"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -523,7 +522,7 @@ literal|"script1"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
 literal|"expression"
 argument_list|,
@@ -552,7 +551,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"scripts of type [indexed], operation [aggs] and lang [expression] are disabled"
+literal|"scripts of type [stored], operation [aggs] and lang [expression] are disabled"
 argument_list|)
 argument_list|)
 expr_stmt|;

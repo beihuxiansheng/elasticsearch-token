@@ -2219,7 +2219,7 @@ literal|"gender_template"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
 operator|new
 name|HashMap

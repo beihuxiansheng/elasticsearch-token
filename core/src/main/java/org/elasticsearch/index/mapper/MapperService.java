@@ -945,48 +945,10 @@ argument_list|(
 name|INDEX_MAPPER_DYNAMIC_SETTING
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|index
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|ScriptService
-operator|.
-name|SCRIPT_INDEX
-argument_list|)
-condition|)
-block|{
-name|defaultMappingSource
-operator|=
-literal|"{"
-operator|+
-literal|"\"_default_\": {"
-operator|+
-literal|"\"properties\": {"
-operator|+
-literal|"\"script\": { \"enabled\": false },"
-operator|+
-literal|"\"template\": { \"enabled\": false }"
-operator|+
-literal|"}"
-operator|+
-literal|"}"
-operator|+
-literal|"}"
-expr_stmt|;
-block|}
-else|else
-block|{
 name|defaultMappingSource
 operator|=
 literal|"{\"_default_\":{}}"
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|logger

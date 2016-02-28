@@ -335,7 +335,7 @@ name|ScriptService
 operator|.
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 block|}
@@ -913,6 +913,11 @@ argument_list|,
 name|Collections
 operator|.
 name|emptyMap
+argument_list|()
+argument_list|,
+name|queryRewriteContext
+operator|.
+name|getClusterState
 argument_list|()
 argument_list|)
 decl_stmt|;

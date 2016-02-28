@@ -228,11 +228,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|indexedscripts
+name|admin
 operator|.
-name|delete
+name|cluster
 operator|.
-name|DeleteIndexedScriptAction
+name|storedscripts
+operator|.
+name|DeleteStoredScriptAction
 import|;
 end_import
 
@@ -455,7 +457,7 @@ name|DeleteAction
 operator|.
 name|INSTANCE
 block|,
-name|DeleteIndexedScriptAction
+name|DeleteStoredScriptAction
 operator|.
 name|INSTANCE
 block|,
@@ -718,7 +720,13 @@ argument_list|)
 expr_stmt|;
 name|client
 operator|.
-name|prepareDeleteIndexedScript
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareDeleteStoredScript
 argument_list|(
 literal|"lang"
 argument_list|,
@@ -734,7 +742,7 @@ operator|new
 name|AssertingActionListener
 argument_list|<>
 argument_list|(
-name|DeleteIndexedScriptAction
+name|DeleteStoredScriptAction
 operator|.
 name|NAME
 argument_list|,

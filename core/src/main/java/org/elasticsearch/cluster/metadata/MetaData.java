@@ -562,6 +562,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptMetaData
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -949,6 +961,17 @@ operator|.
 name|TYPE
 argument_list|,
 name|IngestMetadata
+operator|.
+name|PROTO
+argument_list|)
+expr_stmt|;
+name|registerPrototype
+argument_list|(
+name|ScriptMetaData
+operator|.
+name|TYPE
+argument_list|,
+name|ScriptMetaData
 operator|.
 name|PROTO
 argument_list|)

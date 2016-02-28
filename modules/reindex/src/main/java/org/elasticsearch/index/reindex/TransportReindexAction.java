@@ -539,6 +539,14 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
+name|ClusterState
+name|state
+init|=
+name|clusterService
+operator|.
+name|state
+argument_list|()
+decl_stmt|;
 name|validateAgainstAliases
 argument_list|(
 name|request
@@ -555,10 +563,7 @@ name|indexNameExpressionResolver
 argument_list|,
 name|autoCreateIndex
 argument_list|,
-name|clusterService
-operator|.
 name|state
-argument_list|()
 argument_list|)
 expr_stmt|;
 operator|new
@@ -574,6 +579,8 @@ argument_list|,
 name|scriptService
 argument_list|,
 name|client
+argument_list|,
+name|state
 argument_list|,
 name|threadPool
 argument_list|,
@@ -752,6 +759,9 @@ parameter_list|,
 name|Client
 name|client
 parameter_list|,
+name|ClusterState
+name|state
+parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -772,6 +782,8 @@ argument_list|,
 name|logger
 argument_list|,
 name|scriptService
+argument_list|,
+name|state
 argument_list|,
 name|client
 argument_list|,

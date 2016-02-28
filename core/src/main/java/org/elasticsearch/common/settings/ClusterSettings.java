@@ -2223,6 +2223,10 @@ name|ScriptService
 operator|.
 name|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
 argument_list|,
+name|ScriptService
+operator|.
+name|SCRIPT_MAX_SIZE_IN_BYTES
+argument_list|,
 name|IndicesService
 operator|.
 name|INDICES_CACHE_CLEAN_INTERVAL_SETTING

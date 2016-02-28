@@ -812,7 +812,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -906,7 +906,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1433,7 +1433,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2405,7 +2405,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2614,7 +2614,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -3189,7 +3189,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -3848,7 +3848,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -4739,7 +4739,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -5544,7 +5544,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -5614,7 +5614,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -5700,7 +5700,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -5788,7 +5788,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -6271,7 +6271,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -7209,7 +7209,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -7486,7 +7486,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -7765,7 +7765,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -8414,7 +8414,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -9668,7 +9668,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -10075,7 +10075,7 @@ literal|"scriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -11021,7 +11021,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -11288,7 +11288,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -11557,7 +11557,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -12096,7 +12096,7 @@ literal|"bazScriptValue"
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 name|assertThat
