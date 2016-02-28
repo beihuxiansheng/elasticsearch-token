@@ -272,8 +272,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -302,8 +300,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -326,8 +322,6 @@ argument_list|(
 literal|"chunk_size"
 argument_list|,
 literal|"-1"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -352,8 +346,6 @@ literal|"repositories.fs.chunk_size"
 argument_list|,
 literal|"-1"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -377,8 +369,6 @@ literal|"compress"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -399,8 +389,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"repositories.fs.compress"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

@@ -446,8 +446,6 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope

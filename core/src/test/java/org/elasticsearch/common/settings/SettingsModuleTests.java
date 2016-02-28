@@ -222,8 +222,6 @@ literal|"some.custom.setting"
 argument_list|,
 literal|1.0f
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -287,8 +285,6 @@ argument_list|(
 literal|"some.custom.setting"
 argument_list|,
 literal|1.0f
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -846,8 +842,6 @@ literal|"foo.bar"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -865,8 +859,6 @@ argument_list|(
 literal|"bar.foo"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -889,8 +881,6 @@ argument_list|(
 literal|"bar.baz"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

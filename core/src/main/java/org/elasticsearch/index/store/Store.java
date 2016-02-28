@@ -1160,8 +1160,6 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope

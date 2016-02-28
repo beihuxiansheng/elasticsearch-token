@@ -330,8 +330,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -352,8 +350,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"index.query_string.lenient"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -380,8 +376,6 @@ literal|"indices.query.query_string.analyze_wildcard"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -405,8 +399,6 @@ literal|"indices.query.query_string.allowLeadingWildcard"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -429,8 +421,6 @@ argument_list|(
 literal|"index.query.parse.allow_unmapped_fields"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -466,8 +456,6 @@ name|timeValueMillis
 argument_list|(
 literal|100
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -521,7 +509,9 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -546,7 +536,9 @@ literal|"index.warmer.enabled"
 argument_list|,
 literal|true
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -571,7 +563,9 @@ literal|"index.ttl.disable_purge"
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -634,8 +628,6 @@ throw|;
 block|}
 block|}
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -662,7 +654,9 @@ literal|10000
 argument_list|,
 literal|1
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -715,7 +709,9 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -748,7 +744,9 @@ operator|.
 name|MB
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -799,7 +797,9 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

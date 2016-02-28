@@ -302,8 +302,6 @@ name|Boolean
 operator|.
 name|FALSE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -329,8 +327,6 @@ name|Boolean
 operator|.
 name|FALSE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -351,8 +347,6 @@ operator|.
 name|groupSetting
 argument_list|(
 literal|"indices.analysis.hunspell.dictionary."
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

@@ -939,8 +939,6 @@ literal|50
 argument_list|,
 literal|1
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -965,8 +963,6 @@ literal|"node.add_id_to_custom_path"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -988,8 +984,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"node.enable_lucene_segment_infos_trace"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

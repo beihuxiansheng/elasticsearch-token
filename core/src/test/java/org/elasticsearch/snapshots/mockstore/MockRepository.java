@@ -488,8 +488,6 @@ name|simpleString
 argument_list|(
 literal|"secret.mock.username"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -510,8 +508,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"secret.mock.password"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

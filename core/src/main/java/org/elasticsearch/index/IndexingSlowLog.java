@@ -292,7 +292,9 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -333,7 +335,9 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -374,7 +378,9 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -415,7 +421,9 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -442,7 +450,9 @@ literal|".reformat"
 argument_list|,
 literal|true
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -478,7 +488,9 @@ name|SlowLogLevel
 operator|::
 name|parse
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -549,7 +561,9 @@ return|;
 block|}
 block|}
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

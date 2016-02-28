@@ -138,8 +138,6 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.access_key"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -162,8 +160,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.secret_key"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -206,8 +202,6 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -226,8 +220,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.host"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -256,8 +248,6 @@ literal|1
 operator|<<
 literal|16
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -277,8 +267,6 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.username"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -297,8 +285,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.password"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -322,8 +308,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.signer"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -356,8 +340,6 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -392,8 +374,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -425,8 +405,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -471,8 +449,6 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -500,8 +476,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -543,8 +517,6 @@ argument_list|,
 literal|"cloud.aws.s3.proxy.port"
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -573,8 +545,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -602,8 +572,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -636,8 +604,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -673,8 +639,6 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -693,8 +657,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.s3.endpoint"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

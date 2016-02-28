@@ -2293,8 +2293,6 @@ name|simpleString
 argument_list|(
 literal|"http.type"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -2318,8 +2316,6 @@ literal|"http.enabled"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -2341,8 +2337,6 @@ name|simpleString
 argument_list|(
 literal|"transport.service.type"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -2363,8 +2357,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"transport.type"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

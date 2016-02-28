@@ -149,8 +149,6 @@ literal|"http.cors.enabled"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -182,8 +180,6 @@ parameter_list|)
 lambda|->
 name|value
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -206,8 +202,6 @@ argument_list|(
 literal|"http.cors.max-age"
 argument_list|,
 literal|1728000
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -240,8 +234,6 @@ parameter_list|)
 lambda|->
 name|value
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -273,8 +265,6 @@ parameter_list|)
 lambda|->
 name|value
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -295,8 +285,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"http.cors.allow-credentials"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -323,8 +311,6 @@ literal|"http.pipelining"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -348,8 +334,6 @@ literal|"http.pipelining.max_events"
 argument_list|,
 literal|10000
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -370,8 +354,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"http.compression"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -397,8 +379,6 @@ argument_list|(
 literal|"http.compression_level"
 argument_list|,
 literal|6
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -429,8 +409,6 @@ name|s
 lambda|->
 name|s
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -459,8 +437,6 @@ name|s
 lambda|->
 name|s
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -488,8 +464,6 @@ argument_list|,
 name|s
 lambda|->
 name|s
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -520,8 +494,6 @@ name|PortsRange
 operator|::
 operator|new
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -547,8 +519,6 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -571,8 +541,6 @@ argument_list|(
 literal|"http.detailed_errors.enabled"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -605,8 +573,6 @@ operator|.
 name|MB
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -637,8 +603,6 @@ name|ByteSizeUnit
 operator|.
 name|KB
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -671,8 +635,6 @@ operator|.
 name|KB
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -704,8 +666,6 @@ operator|.
 name|KB
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -728,8 +688,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"http.reset_cookies"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

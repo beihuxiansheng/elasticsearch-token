@@ -1159,8 +1159,6 @@ literal|5
 argument_list|,
 literal|1
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -1195,7 +1193,9 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1229,8 +1229,6 @@ name|SETTING_SHADOW_REPLICAS
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -1260,8 +1258,6 @@ operator|.
 name|boolSetting
 argument_list|(
 name|SETTING_SHARED_FILESYSTEM
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -1320,7 +1316,9 @@ name|SETTING_READ_ONLY
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1354,7 +1352,9 @@ name|SETTING_BLOCKS_READ
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1388,7 +1388,9 @@ name|SETTING_BLOCKS_WRITE
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1422,7 +1424,9 @@ name|SETTING_BLOCKS_METADATA
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1512,7 +1516,9 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1569,8 +1575,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -1603,7 +1607,9 @@ name|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1635,7 +1641,9 @@ name|groupSetting
 argument_list|(
 literal|"index.routing.allocation.require."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1658,7 +1666,9 @@ name|groupSetting
 argument_list|(
 literal|"index.routing.allocation.include."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1681,7 +1691,9 @@ name|groupSetting
 argument_list|(
 literal|"index.routing.allocation.exclude."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

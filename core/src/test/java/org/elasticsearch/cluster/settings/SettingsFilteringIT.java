@@ -308,8 +308,6 @@ literal|"some.node.setting"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -334,8 +332,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"some.other.node.setting"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -434,8 +430,6 @@ operator|.
 name|groupSetting
 argument_list|(
 literal|"index.filter_test."
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

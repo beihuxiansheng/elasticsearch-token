@@ -308,8 +308,6 @@ literal|"index.fail"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope

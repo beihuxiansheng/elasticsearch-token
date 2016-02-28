@@ -146,7 +146,9 @@ name|IndexRateLimitingType
 operator|::
 name|fromString
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -175,7 +177,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

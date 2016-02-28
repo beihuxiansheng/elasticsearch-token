@@ -529,7 +529,9 @@ literal|50L
 argument_list|,
 literal|0
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -562,8 +564,6 @@ argument_list|(
 literal|"index.mapper.dynamic"
 argument_list|,
 name|INDEX_MAPPER_DYNAMIC_DEFAULT
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

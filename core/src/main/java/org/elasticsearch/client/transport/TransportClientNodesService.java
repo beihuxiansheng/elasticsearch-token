@@ -724,8 +724,6 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -752,8 +750,6 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -777,8 +773,6 @@ literal|"client.transport.ignore_cluster_name"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -799,8 +793,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"client.transport.sniff"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

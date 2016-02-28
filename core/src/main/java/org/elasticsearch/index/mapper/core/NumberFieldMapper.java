@@ -436,8 +436,6 @@ literal|"index.mapping.coerce"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope

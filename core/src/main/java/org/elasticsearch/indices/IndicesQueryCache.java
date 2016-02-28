@@ -372,8 +372,6 @@ literal|"indices.queries.cache.size"
 argument_list|,
 literal|"10%"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -398,8 +396,6 @@ argument_list|,
 literal|10000
 argument_list|,
 literal|1
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

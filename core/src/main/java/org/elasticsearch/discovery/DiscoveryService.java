@@ -246,8 +246,6 @@ argument_list|(
 literal|30
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -274,8 +272,6 @@ argument_list|,
 name|Long
 operator|.
 name|MIN_VALUE
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

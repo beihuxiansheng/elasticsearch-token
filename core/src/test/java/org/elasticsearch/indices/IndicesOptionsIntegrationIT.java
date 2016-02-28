@@ -7680,7 +7680,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -7710,7 +7712,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -7739,8 +7743,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

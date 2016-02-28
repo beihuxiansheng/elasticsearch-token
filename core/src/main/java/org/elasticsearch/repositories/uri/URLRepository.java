@@ -350,8 +350,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -385,8 +383,6 @@ name|URIPattern
 operator|::
 operator|new
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -413,8 +409,6 @@ argument_list|,
 name|URLRepository
 operator|::
 name|parseURL
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -454,8 +448,6 @@ name|URLRepository
 operator|::
 name|parseURL
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -479,8 +471,6 @@ literal|"list_directories"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -503,8 +493,6 @@ argument_list|(
 literal|"repositories.uri.list_directories"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

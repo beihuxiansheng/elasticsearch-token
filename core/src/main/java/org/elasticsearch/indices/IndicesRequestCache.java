@@ -425,7 +425,9 @@ literal|"index.requests.cache.enable"
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -449,8 +451,6 @@ argument_list|(
 literal|"indices.requests.cache.size"
 argument_list|,
 literal|"1%"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -478,8 +478,6 @@ name|TimeValue
 argument_list|(
 literal|0
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

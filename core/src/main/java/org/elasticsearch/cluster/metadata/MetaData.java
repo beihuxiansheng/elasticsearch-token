@@ -1082,7 +1082,9 @@ literal|"cluster.blocks.read_only"
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

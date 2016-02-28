@@ -250,8 +250,6 @@ name|s
 lambda|->
 name|s
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -281,8 +279,6 @@ argument_list|,
 name|s
 lambda|->
 name|s
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -314,8 +310,6 @@ name|s
 lambda|->
 name|s
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -338,8 +332,6 @@ argument_list|(
 literal|"network.server"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -371,8 +363,6 @@ literal|"network.tcp.no_delay"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -395,8 +385,6 @@ argument_list|(
 literal|"network.tcp.keep_alive"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -423,8 +411,6 @@ name|NetworkUtils
 operator|.
 name|defaultReuseAddress
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -454,8 +440,6 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -484,8 +468,6 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -506,8 +488,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"network.tcp.blocking"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -534,8 +514,6 @@ literal|"network.tcp.blocking_server"
 argument_list|,
 name|TCP_BLOCKING
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -558,8 +536,6 @@ argument_list|(
 literal|"network.tcp.blocking_client"
 argument_list|,
 name|TCP_BLOCKING
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -591,8 +567,6 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

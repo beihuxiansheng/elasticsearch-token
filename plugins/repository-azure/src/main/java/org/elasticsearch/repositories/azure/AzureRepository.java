@@ -457,8 +457,6 @@ name|simpleString
 argument_list|(
 literal|"account"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -487,8 +485,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -510,8 +506,6 @@ name|simpleString
 argument_list|(
 literal|"base_path"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -532,8 +526,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"location_mode"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -558,8 +550,6 @@ literal|"chunk_size"
 argument_list|,
 name|MAX_CHUNK_SIZE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -580,8 +570,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"compress"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

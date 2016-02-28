@@ -238,7 +238,9 @@ name|Strings
 operator|::
 name|splitStringByCommaToArray
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -261,7 +263,9 @@ name|groupSetting
 argument_list|(
 literal|"cluster.routing.allocation.awareness.force."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

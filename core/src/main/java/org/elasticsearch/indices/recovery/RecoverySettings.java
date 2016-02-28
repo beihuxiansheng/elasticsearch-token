@@ -208,7 +208,9 @@ operator|.
 name|MB
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -239,7 +241,9 @@ argument_list|(
 literal|500
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -270,7 +274,9 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -301,7 +307,9 @@ argument_list|(
 literal|15
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -356,7 +364,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -398,7 +408,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

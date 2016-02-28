@@ -148,7 +148,9 @@ argument_list|,
 literal|"index.merge.scheduler.max_thread_count"
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -204,7 +206,9 @@ argument_list|,
 literal|"index.merge.scheduler.max_merge_count"
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -229,7 +233,9 @@ literal|"index.merge.scheduler.auto_throttle"
 argument_list|,
 literal|true
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

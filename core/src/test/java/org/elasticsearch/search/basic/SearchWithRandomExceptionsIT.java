@@ -1177,8 +1177,6 @@ literal|0.1d
 argument_list|,
 literal|0.0d
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -1203,8 +1201,6 @@ argument_list|,
 literal|0.1d
 argument_list|,
 literal|0.0d
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

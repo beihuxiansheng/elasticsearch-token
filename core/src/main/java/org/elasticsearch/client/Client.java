@@ -1069,8 +1069,6 @@ throw|;
 block|}
 block|}
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope

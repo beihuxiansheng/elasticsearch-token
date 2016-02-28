@@ -75,8 +75,6 @@ literal|"security.manager.filter_bad_defaults"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -97,8 +95,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"bootstrap.mlockall"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -125,8 +121,6 @@ literal|"bootstrap.seccomp"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -149,8 +143,6 @@ argument_list|(
 literal|"bootstrap.ctrlhandler"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

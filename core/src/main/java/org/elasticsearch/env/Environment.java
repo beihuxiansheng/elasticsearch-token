@@ -263,8 +263,6 @@ name|simpleString
 argument_list|(
 literal|"path.home"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -286,8 +284,6 @@ name|simpleString
 argument_list|(
 literal|"path.conf"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -308,8 +304,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"path.scripts"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -345,8 +339,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -368,8 +360,6 @@ name|simpleString
 argument_list|(
 literal|"path.logs"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -390,8 +380,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"path.plugins"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -427,8 +415,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -450,8 +436,6 @@ name|simpleString
 argument_list|(
 literal|"path.shared_data"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -472,8 +456,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"pidfile"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

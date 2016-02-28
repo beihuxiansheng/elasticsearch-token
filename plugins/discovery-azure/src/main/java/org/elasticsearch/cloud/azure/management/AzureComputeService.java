@@ -137,8 +137,6 @@ name|simpleString
 argument_list|(
 literal|"cloud.azure.management.subscription.id"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -164,8 +162,6 @@ name|simpleString
 argument_list|(
 literal|"cloud.azure.management.cloud.service.name"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -187,8 +183,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.azure.management.keystore.path"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -214,8 +208,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.azure.management.keystore.password"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -252,8 +244,6 @@ argument_list|,
 name|KeyStoreType
 operator|::
 name|fromString
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -293,8 +283,6 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -332,8 +320,6 @@ operator|.
 name|HostType
 operator|::
 name|fromString
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

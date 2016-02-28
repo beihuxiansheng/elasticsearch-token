@@ -613,8 +613,6 @@ literal|"index.load_fixed_bitset_filters_eagerly"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope

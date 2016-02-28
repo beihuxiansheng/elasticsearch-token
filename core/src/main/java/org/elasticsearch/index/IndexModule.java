@@ -460,8 +460,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -517,8 +515,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -540,8 +536,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"index.queries.cache.everything"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

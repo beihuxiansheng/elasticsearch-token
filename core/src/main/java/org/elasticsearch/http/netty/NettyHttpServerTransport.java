@@ -1257,8 +1257,6 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1281,8 +1279,6 @@ literal|"http.netty.max_composite_buffer_components"
 argument_list|,
 operator|-
 literal|1
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1338,8 +1334,6 @@ argument_list|,
 literal|"http.netty.worker_count"
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1364,8 +1358,6 @@ operator|.
 name|TcpSettings
 operator|.
 name|TCP_NO_DELAY
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1392,8 +1384,6 @@ name|TcpSettings
 operator|.
 name|TCP_KEEP_ALIVE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1419,8 +1409,6 @@ name|TcpSettings
 operator|.
 name|TCP_BLOCKING_SERVER
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1445,8 +1433,6 @@ operator|.
 name|TcpSettings
 operator|.
 name|TCP_REUSE_ADDRESS
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1475,8 +1461,6 @@ name|TcpSettings
 operator|.
 name|TCP_SEND_BUFFER_SIZE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1503,8 +1487,6 @@ operator|.
 name|TcpSettings
 operator|.
 name|TCP_RECEIVE_BUFFER_SIZE
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1623,8 +1605,6 @@ argument_list|()
 return|;
 block|}
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1646,8 +1626,6 @@ literal|"http.netty.receive_predictor_min"
 argument_list|,
 name|SETTING_HTTP_NETTY_RECEIVE_PREDICTOR_SIZE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1668,8 +1646,6 @@ argument_list|(
 literal|"http.netty.receive_predictor_max"
 argument_list|,
 name|SETTING_HTTP_NETTY_RECEIVE_PREDICTOR_SIZE
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

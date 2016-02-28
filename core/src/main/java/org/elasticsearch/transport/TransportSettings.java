@@ -163,8 +163,6 @@ name|s
 lambda|->
 name|s
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -192,8 +190,6 @@ argument_list|,
 name|s
 lambda|->
 name|s
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -223,8 +219,6 @@ name|s
 lambda|->
 name|s
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -252,8 +246,6 @@ name|s
 lambda|->
 name|s
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -278,8 +270,6 @@ literal|1
 argument_list|,
 operator|-
 literal|1
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -309,7 +299,9 @@ name|groupSetting
 argument_list|(
 literal|"transport.profiles."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

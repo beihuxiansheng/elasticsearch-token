@@ -248,7 +248,9 @@ literal|"foo.bar"
 argument_list|,
 literal|1
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -269,7 +271,9 @@ literal|"foo.bar.baz"
 argument_list|,
 literal|1
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -500,7 +504,9 @@ literal|"foo.bar"
 argument_list|,
 literal|1
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -521,7 +527,9 @@ literal|"foo.bar.baz"
 argument_list|,
 literal|1
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1149,7 +1157,9 @@ literal|"foo.bar"
 argument_list|,
 literal|1
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1163,8 +1173,6 @@ argument_list|(
 literal|"foo.bar.baz"
 argument_list|,
 literal|1
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1278,8 +1286,6 @@ literal|"foo.bar.baz"
 argument_list|,
 literal|1
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1299,7 +1305,9 @@ literal|"foo.bar"
 argument_list|,
 literal|1
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -2114,8 +2122,6 @@ name|groupSetting
 argument_list|(
 literal|"boo ."
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -2161,8 +2167,6 @@ name|groupSetting
 argument_list|(
 literal|"boo."
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -2190,8 +2194,6 @@ argument_list|(
 literal|"boo."
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -2239,8 +2241,6 @@ argument_list|(
 literal|"boo"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

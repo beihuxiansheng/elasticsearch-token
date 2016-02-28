@@ -331,7 +331,9 @@ literal|"cluster.indices.close.enable"
 argument_list|,
 literal|true
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

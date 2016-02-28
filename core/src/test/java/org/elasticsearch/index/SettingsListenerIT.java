@@ -274,7 +274,9 @@ literal|"index.test.new.setting"
 argument_list|,
 literal|0
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -498,7 +500,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

@@ -272,7 +272,9 @@ argument_list|(
 literal|30
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -327,7 +329,9 @@ argument_list|,
 literal|"discovery.zen.commit_timeout"
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -356,7 +360,9 @@ name|DiscoverySettings
 operator|::
 name|parseNoMasterBlock
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -381,7 +387,9 @@ literal|"discovery.zen.publish_diff.enable"
 argument_list|,
 literal|true
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

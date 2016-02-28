@@ -542,8 +542,6 @@ literal|0.0d
 argument_list|,
 literal|0.0d
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -569,8 +567,6 @@ literal|0.0d
 argument_list|,
 literal|0.0d
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -593,8 +589,6 @@ argument_list|(
 literal|"index.store.mock.random.prevent_double_write"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -620,8 +614,6 @@ literal|"index.store.mock.random.no_delete_open_file"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -645,8 +637,6 @@ argument_list|(
 literal|"index.store.mock.random.crash_index"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

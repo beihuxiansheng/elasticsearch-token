@@ -434,7 +434,9 @@ argument_list|)
 argument_list|,
 name|INITIAL_SHARDS_PARSER
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -472,7 +474,9 @@ argument_list|)
 argument_list|,
 name|INITIAL_SHARDS_PARSER
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

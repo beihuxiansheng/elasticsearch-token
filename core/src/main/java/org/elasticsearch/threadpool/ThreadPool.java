@@ -1453,7 +1453,9 @@ name|groupSetting
 argument_list|(
 literal|"threadpool."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

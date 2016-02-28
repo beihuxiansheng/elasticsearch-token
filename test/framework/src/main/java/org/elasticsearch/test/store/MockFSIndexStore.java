@@ -328,8 +328,6 @@ literal|"index.store.mock.check_index_on_close"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope

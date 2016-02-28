@@ -1137,8 +1137,6 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1164,8 +1162,6 @@ name|timeValueMinutes
 argument_list|(
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1203,7 +1199,9 @@ literal|"search.default_search_timeout"
 argument_list|,
 name|NO_TIMEOUT
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

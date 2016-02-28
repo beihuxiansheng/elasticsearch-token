@@ -284,7 +284,9 @@ literal|"indices.breaker.total.limit"
 argument_list|,
 literal|"70%"
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -309,7 +311,9 @@ literal|"indices.breaker.fielddata.limit"
 argument_list|,
 literal|"60%"
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -336,7 +340,9 @@ literal|1.03d
 argument_list|,
 literal|0.0d
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -369,8 +375,6 @@ name|Type
 operator|::
 name|parseValue
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -394,7 +398,9 @@ literal|"indices.breaker.request.limit"
 argument_list|,
 literal|"40%"
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -421,7 +427,9 @@ literal|1.0d
 argument_list|,
 literal|0.0d
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -453,8 +461,6 @@ operator|.
 name|Type
 operator|::
 name|parseValue
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

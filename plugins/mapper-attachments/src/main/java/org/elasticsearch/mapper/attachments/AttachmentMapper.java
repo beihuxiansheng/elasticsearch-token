@@ -439,8 +439,6 @@ literal|"index.mapping.attachment.ignore_errors"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -461,8 +459,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"index.mapping.attachment.detect_language"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -488,8 +484,6 @@ argument_list|(
 literal|"index.mapping.attachment.indexed_chars"
 argument_list|,
 literal|100000
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

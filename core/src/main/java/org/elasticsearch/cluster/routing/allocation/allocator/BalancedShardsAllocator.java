@@ -512,7 +512,9 @@ literal|"cluster.routing.allocation.balance.index"
 argument_list|,
 literal|0.55f
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -537,7 +539,9 @@ literal|"cluster.routing.allocation.balance.shard"
 argument_list|,
 literal|0.45f
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -564,7 +568,9 @@ literal|1.0f
 argument_list|,
 literal|0.0f
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

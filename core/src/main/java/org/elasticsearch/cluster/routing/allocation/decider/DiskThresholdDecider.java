@@ -449,7 +449,9 @@ literal|"cluster.routing.allocation.disk.threshold_enabled"
 argument_list|,
 literal|true
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -485,7 +487,9 @@ argument_list|,
 literal|"cluster.routing.allocation.disk.watermark.low"
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -521,7 +525,9 @@ argument_list|,
 literal|"cluster.routing.allocation.disk.watermark.high"
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -546,7 +552,9 @@ literal|"cluster.routing.allocation.disk.include_relocations"
 argument_list|,
 literal|true
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -577,7 +585,9 @@ argument_list|(
 literal|60
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

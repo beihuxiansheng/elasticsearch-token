@@ -242,8 +242,6 @@ name|ScriptMode
 operator|::
 name|parse
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -419,8 +417,6 @@ name|setting
 return|;
 block|}
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -499,8 +495,6 @@ argument_list|,
 name|ScriptMode
 operator|::
 name|parse
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -905,8 +899,6 @@ argument_list|,
 name|ScriptMode
 operator|::
 name|parse
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

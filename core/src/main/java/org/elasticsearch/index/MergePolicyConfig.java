@@ -283,7 +283,9 @@ name|MergePolicyConfig
 operator|::
 name|parseNoCFSRatio
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -310,7 +312,9 @@ name|DEFAULT_EXPUNGE_DELETES_ALLOWED
 argument_list|,
 literal|0.0d
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -335,7 +339,9 @@ literal|"index.merge.policy.floor_segment"
 argument_list|,
 name|DEFAULT_FLOOR_SEGMENT
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -362,7 +368,9 @@ name|DEFAULT_MAX_MERGE_AT_ONCE
 argument_list|,
 literal|2
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -389,7 +397,9 @@ name|DEFAULT_MAX_MERGE_AT_ONCE_EXPLICIT
 argument_list|,
 literal|2
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -414,7 +424,9 @@ literal|"index.merge.policy.max_merged_segment"
 argument_list|,
 name|DEFAULT_MAX_MERGED_SEGMENT
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -441,7 +453,9 @@ name|DEFAULT_SEGMENTS_PER_TIER
 argument_list|,
 literal|2.0d
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -468,7 +482,9 @@ name|DEFAULT_RECLAIM_DELETES_WEIGHT
 argument_list|,
 literal|0.0d
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

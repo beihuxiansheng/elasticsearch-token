@@ -2304,8 +2304,6 @@ name|Long
 operator|.
 name|MIN_VALUE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope

@@ -896,8 +896,6 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -948,8 +946,6 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -974,8 +970,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|1
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1005,8 +999,6 @@ argument_list|(
 literal|100
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1032,8 +1024,6 @@ literal|3
 argument_list|,
 literal|1
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1057,8 +1047,6 @@ literal|"discovery.zen.send_leave_request"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1081,8 +1069,6 @@ argument_list|(
 literal|"discovery.zen.master_election.filter_client"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1134,8 +1120,6 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1156,8 +1140,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"discovery.zen.master_election.filter_data"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

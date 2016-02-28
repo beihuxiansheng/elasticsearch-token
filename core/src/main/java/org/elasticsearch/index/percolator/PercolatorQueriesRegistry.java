@@ -479,8 +479,6 @@ literal|"index.percolator.map_unmapped_fields_as_string"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope

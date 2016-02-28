@@ -205,8 +205,6 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -227,8 +225,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"repositories.azure.account"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -255,8 +251,6 @@ name|simpleString
 argument_list|(
 literal|"repositories.azure.container"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -278,8 +272,6 @@ name|simpleString
 argument_list|(
 literal|"repositories.azure.base_path"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -300,8 +292,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"repositories.azure.location_mode"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -331,8 +321,6 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -353,8 +341,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"repositories.azure.compress"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

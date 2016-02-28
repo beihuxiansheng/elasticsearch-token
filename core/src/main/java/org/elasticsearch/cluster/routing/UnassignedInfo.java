@@ -299,7 +299,9 @@ literal|"index.unassigned.node_left.delayed_timeout"
 argument_list|,
 name|DEFAULT_DELAYED_NODE_LEFT_TIMEOUT
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

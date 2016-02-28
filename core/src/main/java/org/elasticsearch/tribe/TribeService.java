@@ -901,8 +901,6 @@ name|simpleString
 argument_list|(
 literal|"tribe.name"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1030,8 +1028,6 @@ throw|;
 block|}
 block|}
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1055,8 +1051,6 @@ literal|"tribe.blocks.metadata"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1077,8 +1071,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"tribe.blocks.write"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -1116,8 +1108,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1152,8 +1142,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1187,8 +1175,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

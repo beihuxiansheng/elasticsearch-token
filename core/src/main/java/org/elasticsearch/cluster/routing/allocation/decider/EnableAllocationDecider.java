@@ -208,7 +208,9 @@ name|Allocation
 operator|::
 name|parse
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -242,7 +244,9 @@ name|Allocation
 operator|::
 name|parse
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -276,7 +280,9 @@ name|Rebalance
 operator|::
 name|parse
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -310,7 +316,9 @@ name|Rebalance
 operator|::
 name|parse
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

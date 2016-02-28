@@ -540,8 +540,6 @@ end_class
 
 begin_expr_stmt
 unit|},
-literal|false
-operator|,
 name|SettingsProperty
 operator|.
 name|IndexScope

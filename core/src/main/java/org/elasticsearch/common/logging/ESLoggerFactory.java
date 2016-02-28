@@ -204,8 +204,6 @@ name|LogLevel
 operator|::
 name|parse
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -238,7 +236,9 @@ name|LogLevel
 operator|::
 name|parse
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

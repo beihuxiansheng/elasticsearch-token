@@ -390,8 +390,6 @@ literal|0.0d
 argument_list|,
 literal|0.0d
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -413,8 +411,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"index.mock.disable_flush_on_close"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

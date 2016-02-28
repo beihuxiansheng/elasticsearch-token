@@ -408,8 +408,6 @@ literal|"config.ignore_system_properties"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope

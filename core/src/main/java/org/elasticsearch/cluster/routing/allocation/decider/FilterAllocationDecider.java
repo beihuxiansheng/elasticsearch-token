@@ -237,7 +237,9 @@ name|groupSetting
 argument_list|(
 literal|"cluster.routing.allocation.require."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -260,7 +262,9 @@ name|groupSetting
 argument_list|(
 literal|"cluster.routing.allocation.include."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -283,7 +287,9 @@ name|groupSetting
 argument_list|(
 literal|"cluster.routing.allocation.exclude."
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

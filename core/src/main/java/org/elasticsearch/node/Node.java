@@ -1260,8 +1260,6 @@ literal|"node.portsfile"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1282,8 +1280,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"node.client"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -1310,8 +1306,6 @@ literal|"node.data"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1335,8 +1329,6 @@ literal|"node.master"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1357,8 +1349,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"node.local"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -1390,8 +1380,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1415,8 +1403,6 @@ literal|"node.ingest"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1437,8 +1423,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"node.name"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1462,8 +1446,6 @@ operator|.
 name|groupSetting
 argument_list|(
 literal|"node."
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

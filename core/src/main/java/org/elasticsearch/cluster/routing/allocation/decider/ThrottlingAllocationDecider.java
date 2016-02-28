@@ -213,7 +213,9 @@ argument_list|,
 literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -240,7 +242,9 @@ name|DEFAULT_CLUSTER_ROUTING_ALLOCATION_NODE_INITIAL_PRIMARIES_RECOVERIES
 argument_list|,
 literal|0
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -289,7 +293,9 @@ argument_list|,
 literal|"cluster.routing.allocation.node_concurrent_incoming_recoveries"
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -338,7 +344,9 @@ argument_list|,
 literal|"cluster.routing.allocation.node_concurrent_outgoing_recoveries"
 argument_list|)
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

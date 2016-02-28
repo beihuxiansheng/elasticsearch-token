@@ -323,8 +323,6 @@ name|Type
 operator|::
 name|parse
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -347,8 +345,6 @@ argument_list|(
 literal|"cache.recycler.page.limit.heap"
 argument_list|,
 literal|"10%"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -375,8 +371,6 @@ literal|1d
 argument_list|,
 literal|0d
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -401,8 +395,6 @@ argument_list|,
 literal|1d
 argument_list|,
 literal|0d
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -429,8 +421,6 @@ literal|1d
 argument_list|,
 literal|0d
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -456,8 +446,6 @@ argument_list|,
 literal|0.1d
 argument_list|,
 literal|0d
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

@@ -187,7 +187,9 @@ name|ClusterRebalanceType
 operator|::
 name|parseString
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

@@ -330,8 +330,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -359,8 +357,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -396,8 +392,6 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -431,8 +425,6 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -473,8 +465,6 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -494,8 +484,6 @@ name|simpleString
 argument_list|(
 literal|"repositories.s3.bucket"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -514,8 +502,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"repositories.s3.server_side_encryption"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -542,8 +528,6 @@ name|S3BlobStore
 operator|.
 name|MIN_BUFFER_SIZE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -564,8 +548,6 @@ argument_list|(
 literal|"repositories.s3.max_retries"
 argument_list|,
 literal|3
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -596,8 +578,6 @@ operator|.
 name|MB
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -616,8 +596,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"repositories.s3.compress"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -640,8 +618,6 @@ name|simpleString
 argument_list|(
 literal|"repositories.s3.storage_class"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -661,8 +637,6 @@ name|simpleString
 argument_list|(
 literal|"repositories.s3.canned_acl"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -681,8 +655,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"repositories.s3.base_path"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -710,8 +682,6 @@ name|simpleString
 argument_list|(
 literal|"access_key"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -734,8 +704,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"secret_key"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -760,8 +728,6 @@ name|simpleString
 argument_list|(
 literal|"bucket"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -780,8 +746,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"endpoint"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -820,8 +784,6 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -854,8 +816,6 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -874,8 +834,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"server_side_encryption"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -902,8 +860,6 @@ name|S3BlobStore
 operator|.
 name|MIN_BUFFER_SIZE
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -924,8 +880,6 @@ argument_list|(
 literal|"max_retries"
 argument_list|,
 literal|3
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -948,8 +902,6 @@ literal|"chunk_size"
 argument_list|,
 literal|"-1"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -968,8 +920,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"compress"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -992,8 +942,6 @@ name|simpleString
 argument_list|(
 literal|"storage_class"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1013,8 +961,6 @@ name|simpleString
 argument_list|(
 literal|"canned_acl"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -1033,8 +979,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"base_path"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

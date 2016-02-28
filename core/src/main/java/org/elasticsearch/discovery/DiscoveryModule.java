@@ -326,8 +326,6 @@ operator|.
 name|identity
 argument_list|()
 condition|,
-literal|false
-condition|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -355,8 +353,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

@@ -171,8 +171,6 @@ literal|"cloud.node.auto_attributes"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -194,8 +192,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.access_key"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -219,8 +215,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.secret_key"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -263,8 +257,6 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -283,8 +275,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.host"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -313,8 +303,6 @@ literal|1
 operator|<<
 literal|16
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -334,8 +322,6 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.username"
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -354,8 +340,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.password"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -379,8 +363,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.signer"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -413,8 +395,6 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -449,8 +429,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -482,8 +460,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -528,8 +504,6 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -557,8 +531,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -600,8 +572,6 @@ argument_list|,
 literal|"cloud.aws.ec2.proxy.port"
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -630,8 +600,6 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -659,8 +627,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -693,8 +659,6 @@ name|Function
 operator|.
 name|identity
 argument_list|()
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -730,8 +694,6 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -750,8 +712,6 @@ operator|.
 name|simpleString
 argument_list|(
 literal|"cloud.aws.ec2.endpoint"
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -817,8 +777,6 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -839,8 +797,6 @@ argument_list|(
 literal|"discovery.ec2.any_group"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -876,8 +832,6 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -912,8 +866,6 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -940,8 +892,6 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -960,8 +910,6 @@ operator|.
 name|groupSetting
 argument_list|(
 literal|"discovery.ec2.tag."
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

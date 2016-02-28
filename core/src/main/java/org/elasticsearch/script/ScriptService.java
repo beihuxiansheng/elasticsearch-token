@@ -790,8 +790,6 @@ literal|100
 argument_list|,
 literal|0
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -819,8 +817,6 @@ name|timeValueMillis
 argument_list|(
 literal|0
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -853,8 +849,6 @@ argument_list|(
 literal|"script.auto_reload_enabled"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

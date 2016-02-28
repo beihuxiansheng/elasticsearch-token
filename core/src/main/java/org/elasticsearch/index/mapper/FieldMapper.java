@@ -403,8 +403,6 @@ literal|"index.mapping.ignore_malformed"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -425,8 +423,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"index.mapping.coerce"
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

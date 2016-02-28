@@ -135,8 +135,6 @@ literal|"index.version.created"
 argument_list|,
 literal|0
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -159,8 +157,6 @@ argument_list|(
 literal|"index.merge.enabled"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -190,8 +186,6 @@ literal|1
 argument_list|,
 operator|-
 literal|1
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

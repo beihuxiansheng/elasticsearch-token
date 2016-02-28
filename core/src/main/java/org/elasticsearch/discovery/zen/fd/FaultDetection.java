@@ -199,8 +199,6 @@ literal|"discovery.zen.fd.connect_on_network_disconnect"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -226,8 +224,6 @@ name|timeValueSeconds
 argument_list|(
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -255,8 +251,6 @@ argument_list|(
 literal|30
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -280,8 +274,6 @@ literal|"discovery.zen.fd.ping_retries"
 argument_list|,
 literal|3
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -304,8 +296,6 @@ argument_list|(
 literal|"discovery.zen.fd.register_connection_listener"
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

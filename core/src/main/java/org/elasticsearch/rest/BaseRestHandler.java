@@ -129,8 +129,6 @@ literal|"rest.action.multi.allow_explicit_index"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope

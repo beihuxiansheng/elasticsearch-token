@@ -759,8 +759,6 @@ name|groupSetting
 argument_list|(
 literal|"index.similarity."
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|IndexScope
@@ -772,8 +770,6 @@ operator|.
 name|groupSetting
 argument_list|(
 literal|"index.analysis."
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.

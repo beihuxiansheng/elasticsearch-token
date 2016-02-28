@@ -188,7 +188,9 @@ literal|"cluster.routing.allocation.snapshot.relocation_enabled"
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+name|SettingsProperty
+operator|.
+name|Dynamic
 argument_list|,
 name|SettingsProperty
 operator|.

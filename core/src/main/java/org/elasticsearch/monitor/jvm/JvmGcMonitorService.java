@@ -260,8 +260,6 @@ literal|"monitor.jvm.gc.enabled"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -297,8 +295,6 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
 name|SettingsProperty
 operator|.
 name|ClusterScope
@@ -327,8 +323,6 @@ operator|.
 name|groupSetting
 argument_list|(
 name|GC_COLLECTOR_PREFIX
-argument_list|,
-literal|false
 argument_list|,
 name|SettingsProperty
 operator|.
