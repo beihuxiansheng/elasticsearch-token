@@ -262,6 +262,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregatorParsers
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -351,6 +365,9 @@ parameter_list|,
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 parameter_list|,
+name|AggregatorParsers
+name|aggParsers
+parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
@@ -365,6 +382,8 @@ argument_list|,
 name|client
 argument_list|,
 name|indicesQueriesRegistry
+argument_list|,
+name|aggParsers
 argument_list|,
 name|clusterService
 argument_list|,
@@ -649,6 +668,8 @@ argument_list|,
 name|request
 argument_list|,
 name|parseFieldMatcher
+argument_list|,
+name|aggParsers
 argument_list|,
 name|bodyContent
 argument_list|)
