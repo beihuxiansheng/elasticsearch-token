@@ -2685,7 +2685,7 @@ return|return
 name|builder
 return|;
 block|}
-comment|/**      * Parse some xContent into this SearchSourceBuilder, overwriting any values specified in the xContent.      */
+comment|/**      * Parse some xContent into this SearchSourceBuilder, overwriting any values specified in the xContent. Use this if you need to set up      * different defaults than a regular SearchSourceBuilder would have and use      * {@link #fromXContent(XContentParser, QueryParseContext, AggregatorParsers)} if you have normal defaults.      */
 DECL|method|parseXContent
 specifier|public
 name|void
