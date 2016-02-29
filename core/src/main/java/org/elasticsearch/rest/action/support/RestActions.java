@@ -866,12 +866,15 @@ return|return
 name|queryBuilder
 return|;
 block|}
-DECL|method|getRestSearchSource
+DECL|method|parseRestSearchSource
 specifier|public
 specifier|static
-name|SearchSourceBuilder
-name|getRestSearchSource
+name|void
+name|parseRestSearchSource
 parameter_list|(
+name|SearchSourceBuilder
+name|source
+parameter_list|,
 name|BytesReference
 name|sourceBytes
 parameter_list|,
@@ -925,10 +928,9 @@ argument_list|(
 name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
-return|return
-name|SearchSourceBuilder
+name|source
 operator|.
-name|parseSearchSource
+name|parseXContent
 argument_list|(
 name|parser
 argument_list|,
@@ -936,7 +938,7 @@ name|queryParseContext
 argument_list|,
 name|aggParsers
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 comment|/**      * Get Rest content from either payload or source parameter      * @param request Rest request      * @return rest content      */
 DECL|method|getRestContent
