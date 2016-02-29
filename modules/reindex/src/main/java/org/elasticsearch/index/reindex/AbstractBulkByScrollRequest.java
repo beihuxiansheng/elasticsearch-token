@@ -272,10 +272,10 @@ init|=
 literal|100
 decl_stmt|;
 comment|/**      * The search to be executed.      */
-DECL|field|source
+DECL|field|searchRequest
 specifier|private
 name|SearchRequest
-name|source
+name|searchRequest
 decl_stmt|;
 comment|/**      * Maximum number of processed documents. Defaults to -1 meaning process all      * documents.      */
 DECL|field|size
@@ -355,7 +355,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|source
+name|searchRequest
 operator|=
 name|source
 expr_stmt|;
@@ -416,14 +416,14 @@ block|{
 name|ActionRequestValidationException
 name|e
 init|=
-name|source
+name|searchRequest
 operator|.
 name|validate
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|source
+name|searchRequest
 operator|.
 name|source
 argument_list|()
@@ -608,14 +608,14 @@ throw|;
 block|}
 block|}
 comment|/**      * The search request that matches the documents to process.      */
-DECL|method|getSource
+DECL|method|getSearchRequest
 specifier|public
 name|SearchRequest
-name|getSource
+name|getSearchRequest
 parameter_list|()
 block|{
 return|return
-name|source
+name|searchRequest
 return|;
 block|}
 comment|/**      * Call refresh on the indexes we've written to after the request ends?      */
@@ -830,13 +830,13 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|source
+name|searchRequest
 operator|=
 operator|new
 name|SearchRequest
 argument_list|()
 expr_stmt|;
-name|source
+name|searchRequest
 operator|.
 name|readFrom
 argument_list|(
@@ -922,7 +922,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|source
+name|searchRequest
 operator|.
 name|writeTo
 argument_list|(
@@ -994,14 +994,14 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|source
+name|searchRequest
 operator|.
 name|indices
 argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|source
+name|searchRequest
 operator|.
 name|indices
 argument_list|()
@@ -1019,7 +1019,7 @@ name|Arrays
 operator|.
 name|toString
 argument_list|(
-name|source
+name|searchRequest
 operator|.
 name|indices
 argument_list|()
@@ -1039,14 +1039,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|source
+name|searchRequest
 operator|.
 name|types
 argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|source
+name|searchRequest
 operator|.
 name|types
 argument_list|()
@@ -1064,7 +1064,7 @@ name|Arrays
 operator|.
 name|toString
 argument_list|(
-name|source
+name|searchRequest
 operator|.
 name|types
 argument_list|()

@@ -449,7 +449,7 @@ name|scrollSize
 init|=
 name|internalRequest
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|source
@@ -460,7 +460,7 @@ argument_list|()
 decl_stmt|;
 name|internalRequest
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|source
@@ -660,7 +660,7 @@ name|parseSearchRequest
 argument_list|(
 name|internalRequest
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 argument_list|,
 name|indicesQueriesRegistry
@@ -712,7 +712,7 @@ name|setSize
 argument_list|(
 name|internalRequest
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|source
@@ -724,7 +724,7 @@ argument_list|)
 expr_stmt|;
 name|internalRequest
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|source

@@ -541,7 +541,7 @@ name|validateAgainstAliases
 argument_list|(
 name|request
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 argument_list|,
 name|request
@@ -779,7 +779,7 @@ name|request
 argument_list|,
 name|request
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 argument_list|,
 name|listener

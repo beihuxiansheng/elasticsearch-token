@@ -217,7 +217,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|indices
@@ -225,7 +225,7 @@ argument_list|()
 operator|==
 literal|null
 operator|||
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|indices

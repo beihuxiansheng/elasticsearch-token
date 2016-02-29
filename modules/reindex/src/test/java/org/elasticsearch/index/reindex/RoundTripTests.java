@@ -507,7 +507,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|indices
@@ -517,7 +517,7 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|source
@@ -644,7 +644,7 @@ name|assertArrayEquals
 argument_list|(
 name|request
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|indices
@@ -652,7 +652,7 @@ argument_list|()
 argument_list|,
 name|tripped
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|indices
@@ -663,7 +663,7 @@ name|assertEquals
 argument_list|(
 name|request
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|source
@@ -674,7 +674,7 @@ argument_list|()
 argument_list|,
 name|tripped
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 operator|.
 name|source

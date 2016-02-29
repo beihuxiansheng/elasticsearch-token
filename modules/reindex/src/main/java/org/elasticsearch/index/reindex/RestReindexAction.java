@@ -780,7 +780,7 @@ name|p
 argument_list|,
 name|v
 operator|.
-name|getSource
+name|getSearchRequest
 argument_list|()
 argument_list|,
 name|c
