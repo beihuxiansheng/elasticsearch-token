@@ -806,7 +806,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestBuilder
+name|SuggestBuilderTests
 import|;
 end_import
 
@@ -820,7 +820,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestBuilders
+name|Suggesters
 import|;
 end_import
 
@@ -1051,6 +1051,12 @@ specifier|private
 specifier|static
 name|AggregatorParsers
 name|aggParsers
+decl_stmt|;
+DECL|field|suggesters
+specifier|private
+specifier|static
+name|Suggesters
+name|suggesters
 decl_stmt|;
 DECL|field|currentTypes
 specifier|private
@@ -1605,15 +1611,6 @@ parameter_list|()
 block|{
 comment|// Skip me
 block|}
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configureSuggesters
-parameter_list|()
-block|{
-comment|// Skip me
-block|}
 block|}
 argument_list|,
 operator|new
@@ -1692,6 +1689,17 @@ operator|.
 name|getInstance
 argument_list|(
 name|AggregatorParsers
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|suggesters
+operator|=
+name|injector
+operator|.
+name|getInstance
+argument_list|(
+name|Suggesters
 operator|.
 name|class
 argument_list|)
@@ -3065,46 +3073,14 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-comment|// NORELEASE need a random suggest builder method
 name|builder
 operator|.
 name|suggest
 argument_list|(
-operator|new
-name|SuggestBuilder
+name|SuggestBuilderTests
+operator|.
+name|randomSuggestBuilder
 argument_list|()
-operator|.
-name|setGlobalText
-argument_list|(
-name|randomAsciiOfLengthBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
-argument_list|)
-operator|.
-name|addSuggestion
-argument_list|(
-name|randomAsciiOfLengthBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
-argument_list|,
-name|SuggestBuilders
-operator|.
-name|termSuggestion
-argument_list|(
-name|randomAsciiOfLengthBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|5
-argument_list|)
-argument_list|)
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3422,6 +3398,8 @@ argument_list|,
 name|parseContext
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -3927,6 +3905,8 @@ name|parser
 argument_list|)
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 decl_stmt|;
 name|assertArrayEquals
@@ -4006,6 +3986,8 @@ name|parser
 argument_list|)
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 decl_stmt|;
 name|assertArrayEquals
@@ -4101,6 +4083,8 @@ name|parser
 argument_list|)
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -4187,6 +4171,8 @@ name|parser
 argument_list|)
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 decl_stmt|;
 name|assertEquals

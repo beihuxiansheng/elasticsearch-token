@@ -119,6 +119,16 @@ operator|.
 name|CustomSuggestionsContext
 argument_list|>
 block|{
+DECL|field|PROTOTYPE
+specifier|public
+specifier|static
+name|CustomSuggester
+name|PROTOTYPE
+init|=
+operator|new
+name|CustomSuggester
+argument_list|()
+decl_stmt|;
 comment|// This is a pretty dumb implementation which returns the original text + fieldName + custom config option + 12 or 123
 annotation|@
 name|Override

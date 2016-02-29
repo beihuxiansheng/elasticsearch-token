@@ -126,6 +126,8 @@ specifier|abstract
 name|SuggestionBuilder
 argument_list|<
 name|?
+extends|extends
+name|SuggestionBuilder
 argument_list|>
 name|getBuilderPrototype
 parameter_list|()

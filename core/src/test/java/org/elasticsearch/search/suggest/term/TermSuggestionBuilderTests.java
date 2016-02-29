@@ -258,6 +258,19 @@ name|TermSuggestionBuilder
 name|randomSuggestionBuilder
 parameter_list|()
 block|{
+return|return
+name|randomTermSuggestionBuilder
+argument_list|()
+return|;
+block|}
+comment|/**      * Creates a random TermSuggestionBuilder      */
+DECL|method|randomTermSuggestionBuilder
+specifier|public
+specifier|static
+name|TermSuggestionBuilder
+name|randomTermSuggestionBuilder
+parameter_list|()
+block|{
 name|TermSuggestionBuilder
 name|testBuilder
 init|=
@@ -272,6 +285,11 @@ literal|20
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|setCommonPropertiesOnRandomBuilder
+argument_list|(
+name|testBuilder
+argument_list|)
+expr_stmt|;
 name|maybeSet
 argument_list|(
 name|testBuilder
@@ -394,6 +412,7 @@ return|;
 block|}
 DECL|method|randomSuggestMode
 specifier|private
+specifier|static
 name|SuggestMode
 name|randomSuggestMode
 parameter_list|()
@@ -452,6 +471,7 @@ block|}
 block|}
 DECL|method|randomSort
 specifier|private
+specifier|static
 name|SortBy
 name|randomSort
 parameter_list|()
@@ -501,6 +521,7 @@ block|}
 block|}
 DECL|method|randomStringDistance
 specifier|private
+specifier|static
 name|StringDistanceImpl
 name|randomStringDistance
 parameter_list|()

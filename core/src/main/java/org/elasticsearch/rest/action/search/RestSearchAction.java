@@ -432,6 +432,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|Suggesters
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -538,6 +552,12 @@ specifier|final
 name|AggregatorParsers
 name|aggParsers
 decl_stmt|;
+DECL|field|suggesters
+specifier|private
+specifier|final
+name|Suggesters
+name|suggesters
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|RestSearchAction
@@ -558,6 +578,9 @@ name|queryRegistry
 parameter_list|,
 name|AggregatorParsers
 name|aggParsers
+parameter_list|,
+name|Suggesters
+name|suggesters
 parameter_list|)
 block|{
 name|super
@@ -578,6 +601,12 @@ operator|.
 name|aggParsers
 operator|=
 name|aggParsers
+expr_stmt|;
+name|this
+operator|.
+name|suggesters
+operator|=
+name|suggesters
 expr_stmt|;
 name|controller
 operator|.
@@ -755,6 +784,8 @@ name|parseFieldMatcher
 argument_list|,
 name|aggParsers
 argument_list|,
+name|suggesters
+argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
@@ -794,6 +825,9 @@ name|parseFieldMatcher
 parameter_list|,
 name|AggregatorParsers
 name|aggParsers
+parameter_list|,
+name|Suggesters
+name|suggesters
 parameter_list|,
 name|BytesReference
 name|restContent
@@ -980,6 +1014,8 @@ argument_list|,
 name|parseFieldMatcher
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 expr_stmt|;
 block|}

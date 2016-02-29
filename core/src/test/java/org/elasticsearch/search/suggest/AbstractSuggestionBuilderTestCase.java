@@ -1108,12 +1108,27 @@ init|=
 name|randomSuggestionBuilder
 argument_list|()
 decl_stmt|;
-name|maybeSet
-argument_list|(
+return|return
 name|randomSuggestion
-operator|::
+return|;
+block|}
+DECL|method|setCommonPropertiesOnRandomBuilder
+specifier|public
+specifier|static
+name|void
+name|setCommonPropertiesOnRandomBuilder
+parameter_list|(
+name|SuggestionBuilder
+argument_list|<
+name|?
+argument_list|>
+name|randomSuggestion
+parameter_list|)
+block|{
+name|randomSuggestion
+operator|.
 name|text
-argument_list|,
+argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|2
@@ -1122,6 +1137,7 @@ literal|20
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// have to set the text because we don't know if the global text was set
 name|maybeSet
 argument_list|(
 name|randomSuggestion
@@ -1192,9 +1208,6 @@ literal|20
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-name|randomSuggestion
-return|;
 block|}
 comment|/**      * create a randomized {@link SuggestBuilder} that is used in further tests      */
 DECL|method|randomSuggestionBuilder
