@@ -728,7 +728,7 @@ annotation|@
 name|Override
 DECL|method|resolveRequest
 specifier|protected
-name|boolean
+name|void
 name|resolveRequest
 parameter_list|(
 name|ClusterState
@@ -736,18 +736,8 @@ name|state
 parameter_list|,
 name|Request
 name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|Response
-argument_list|>
-name|listener
 parameter_list|)
-block|{
-return|return
-literal|true
-return|;
-block|}
+block|{         }
 annotation|@
 name|Override
 DECL|method|shards
@@ -1551,10 +1541,10 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSuccessAfterRetryWithExcpetionFromTransport
+DECL|method|testSuccessAfterRetryWithExceptionFromTransport
 specifier|public
 name|void
-name|testSuccessAfterRetryWithExcpetionFromTransport
+name|testSuccessAfterRetryWithExceptionFromTransport
 parameter_list|()
 throws|throws
 name|Exception
@@ -2042,9 +2032,7 @@ name|ActionFilters
 argument_list|(
 operator|new
 name|HashSet
-argument_list|<
-name|ActionFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2060,7 +2048,7 @@ block|{
 annotation|@
 name|Override
 specifier|protected
-name|boolean
+name|void
 name|resolveRequest
 parameter_list|(
 name|ClusterState
@@ -2068,17 +2056,15 @@ name|state
 parameter_list|,
 name|Request
 name|request
-parameter_list|,
-name|ActionListener
-argument_list|<
-name|Response
-argument_list|>
-name|listener
 parameter_list|)
 block|{
-return|return
-literal|false
-return|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"request cannot be resolved"
+argument_list|)
+throw|;
 block|}
 block|}
 expr_stmt|;
