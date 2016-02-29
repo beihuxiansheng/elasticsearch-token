@@ -251,9 +251,7 @@ name|put
 argument_list|(
 literal|"foo.bar"
 argument_list|,
-name|SettingsProperty
-operator|.
-name|Dynamic
+literal|true
 argument_list|)
 operator|.
 name|build
