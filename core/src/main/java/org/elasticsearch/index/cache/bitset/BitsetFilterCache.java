@@ -1415,7 +1415,7 @@ name|equals
 argument_list|(
 name|indexShard
 operator|.
-name|getIndexSettings
+name|indexSettings
 argument_list|()
 operator|.
 name|getIndex
