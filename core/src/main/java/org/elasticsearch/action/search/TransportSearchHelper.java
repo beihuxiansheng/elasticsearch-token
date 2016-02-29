@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.search.type
+DECL|package|org.elasticsearch.action.search
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|action
 operator|.
 name|search
-operator|.
-name|type
 package|;
 end_package
 
@@ -43,48 +41,6 @@ operator|.
 name|util
 operator|.
 name|CharsRefBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchScrollRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchType
 import|;
 end_import
 
@@ -242,13 +198,11 @@ end_comment
 
 begin_class
 DECL|class|TransportSearchHelper
-specifier|public
-specifier|abstract
+specifier|final
 class|class
 name|TransportSearchHelper
 block|{
 DECL|method|internalSearchRequest
-specifier|public
 specifier|static
 name|ShardSearchTransportRequest
 name|internalSearchRequest
@@ -287,7 +241,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|internalScrollSearchRequest
-specifier|public
 specifier|static
 name|InternalScrollSearchRequest
 name|internalScrollSearchRequest
@@ -310,7 +263,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|buildScrollId
-specifier|public
 specifier|static
 name|String
 name|buildScrollId
@@ -412,7 +364,6 @@ throw|;
 block|}
 block|}
 DECL|method|buildScrollId
-specifier|public
 specifier|static
 name|String
 name|buildScrollId
@@ -646,7 +597,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|parseScrollId
-specifier|public
 specifier|static
 name|ParsedScrollId
 name|parseScrollId
