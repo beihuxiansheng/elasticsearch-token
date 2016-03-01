@@ -2132,6 +2132,12 @@ argument_list|>
 name|serviceAttributes
 init|=
 name|info
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|info
 operator|.
 name|getServiceAttributes
 argument_list|()
