@@ -317,6 +317,15 @@ operator|.
 name|mockHttpTransport
 return|;
 block|}
+DECL|field|GCE_METADATA_URL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GCE_METADATA_URL
+init|=
+literal|"http://metadata.google.internal/computeMetadata/v1/instance"
+decl_stmt|;
 DECL|method|configureMock
 specifier|protected
 name|HttpTransport
@@ -444,7 +453,8 @@ block|}
 return|;
 block|}
 DECL|method|readGoogleInternalJsonResponse
-specifier|private
+specifier|public
+specifier|static
 name|String
 name|readGoogleInternalJsonResponse
 parameter_list|(
@@ -464,7 +474,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|readGoogleApiJsonResponse
-specifier|private
+specifier|public
+specifier|static
 name|String
 name|readGoogleApiJsonResponse
 parameter_list|(
@@ -485,6 +496,7 @@ return|;
 block|}
 DECL|method|readJsonResponse
 specifier|private
+specifier|static
 name|String
 name|readJsonResponse
 parameter_list|(
@@ -512,15 +524,6 @@ argument_list|,
 literal|""
 argument_list|)
 decl_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"--> read mock file from [{}]"
-argument_list|,
-name|mockFileName
-argument_list|)
-expr_stmt|;
 name|URL
 name|resource
 init|=
@@ -613,15 +616,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"{}"
-argument_list|,
-name|response
-argument_list|)
-expr_stmt|;
 return|return
 name|response
 return|;
