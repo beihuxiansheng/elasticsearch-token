@@ -122,7 +122,7 @@ name|search
 operator|.
 name|action
 operator|.
-name|SearchServiceTransportAction
+name|SearchTransportService
 import|;
 end_import
 
@@ -255,11 +255,11 @@ specifier|final
 name|SearchPhaseController
 name|searchPhaseController
 decl_stmt|;
-DECL|field|searchService
+DECL|field|searchTransportService
 specifier|private
 specifier|final
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 decl_stmt|;
 DECL|field|request
 specifier|private
@@ -327,8 +327,8 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 parameter_list|,
 name|SearchPhaseController
 name|searchPhaseController
@@ -360,9 +360,9 @@ name|searchPhaseController
 expr_stmt|;
 name|this
 operator|.
-name|searchService
+name|searchTransportService
 operator|=
-name|searchService
+name|searchTransportService
 expr_stmt|;
 name|this
 operator|.
@@ -841,7 +841,7 @@ argument_list|,
 name|request
 argument_list|)
 decl_stmt|;
-name|searchService
+name|searchTransportService
 operator|.
 name|sendExecuteFetch
 argument_list|(
