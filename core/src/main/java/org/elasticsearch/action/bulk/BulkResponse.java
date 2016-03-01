@@ -121,6 +121,16 @@ argument_list|<
 name|BulkItemResponse
 argument_list|>
 block|{
+DECL|field|NO_INGEST_TOOK
+specifier|public
+specifier|final
+specifier|static
+name|long
+name|NO_INGEST_TOOK
+init|=
+operator|-
+literal|1L
+decl_stmt|;
 DECL|field|responses
 specifier|private
 name|BulkItemResponse
@@ -131,6 +141,11 @@ DECL|field|tookInMillis
 specifier|private
 name|long
 name|tookInMillis
+decl_stmt|;
+DECL|field|ingestTookInMillis
+specifier|private
+name|long
+name|ingestTookInMillis
 decl_stmt|;
 DECL|method|BulkResponse
 name|BulkResponse
@@ -149,6 +164,31 @@ name|tookInMillis
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|responses
+argument_list|,
+name|tookInMillis
+argument_list|,
+name|NO_INGEST_TOOK
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|BulkResponse
+specifier|public
+name|BulkResponse
+parameter_list|(
+name|BulkItemResponse
+index|[]
+name|responses
+parameter_list|,
+name|long
+name|tookInMillis
+parameter_list|,
+name|long
+name|ingestTookInMillis
+parameter_list|)
+block|{
+name|this
 operator|.
 name|responses
 operator|=
@@ -160,8 +200,14 @@ name|tookInMillis
 operator|=
 name|tookInMillis
 expr_stmt|;
+name|this
+operator|.
+name|ingestTookInMillis
+operator|=
+name|ingestTookInMillis
+expr_stmt|;
 block|}
-comment|/**      * How long the bulk execution took.      */
+comment|/**      * How long the bulk execution took. Excluding ingest preprocessing.      */
 DECL|method|getTook
 specifier|public
 name|TimeValue
@@ -176,7 +222,7 @@ name|tookInMillis
 argument_list|)
 return|;
 block|}
-comment|/**      * How long the bulk execution took in milliseconds.      */
+comment|/**      * How long the bulk execution took in milliseconds. Excluding ingest preprocessing.      */
 DECL|method|getTookInMillis
 specifier|public
 name|long
@@ -185,6 +231,32 @@ parameter_list|()
 block|{
 return|return
 name|tookInMillis
+return|;
+block|}
+comment|/**      * If ingest is enabled returns the bulk ingest preprocessing time, otherwise 0 is returned.      */
+DECL|method|getIngestTook
+specifier|public
+name|TimeValue
+name|getIngestTook
+parameter_list|()
+block|{
+return|return
+operator|new
+name|TimeValue
+argument_list|(
+name|ingestTookInMillis
+argument_list|)
+return|;
+block|}
+comment|/**      * If ingest is enabled returns the bulk ingest preprocessing time. in milliseconds, otherwise -1 is returned.      */
+DECL|method|getIngestTookInMillis
+specifier|public
+name|long
+name|getIngestTookInMillis
+parameter_list|()
+block|{
+return|return
+name|ingestTookInMillis
 return|;
 block|}
 comment|/**      * Has anything failed with the execution.      */
@@ -453,6 +525,13 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
+name|ingestTookInMillis
+operator|=
+name|in
+operator|.
+name|readZLong
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -504,6 +583,13 @@ operator|.
 name|writeVLong
 argument_list|(
 name|tookInMillis
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeZLong
+argument_list|(
+name|ingestTookInMillis
 argument_list|)
 expr_stmt|;
 block|}
