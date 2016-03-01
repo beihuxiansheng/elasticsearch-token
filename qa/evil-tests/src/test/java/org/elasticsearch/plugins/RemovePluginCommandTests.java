@@ -82,21 +82,7 @@ name|elasticsearch
 operator|.
 name|cli
 operator|.
-name|ExitCodes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|cli
-operator|.
-name|CliTool
+name|UserError
 import|;
 end_import
 
@@ -125,18 +111,6 @@ operator|.
 name|cli
 operator|.
 name|Terminal
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cli
-operator|.
-name|UserError
 import|;
 end_import
 
