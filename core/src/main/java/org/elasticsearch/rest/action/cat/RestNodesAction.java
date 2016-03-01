@@ -1098,7 +1098,7 @@ name|addCell
 argument_list|(
 literal|"http_address"
 argument_list|,
-literal|"default:false;alias:http;desc:bound http adress"
+literal|"default:false;alias:http;desc:bound http address"
 argument_list|)
 expr_stmt|;
 name|table
