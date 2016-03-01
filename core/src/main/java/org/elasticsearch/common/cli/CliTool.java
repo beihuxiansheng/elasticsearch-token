@@ -120,6 +120,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cli
+operator|.
+name|UserError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|settings
@@ -709,10 +721,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|error
+name|ExitStatus
 operator|.
-name|exitStatus
+name|USAGE
 return|;
+comment|//return error.exitCode;
 block|}
 block|}
 DECL|method|parse
@@ -856,6 +869,9 @@ argument_list|(
 name|ExitStatus
 operator|.
 name|USAGE
+operator|.
+name|status
+argument_list|()
 argument_list|,
 name|e
 operator|.

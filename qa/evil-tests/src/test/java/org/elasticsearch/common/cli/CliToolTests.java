@@ -36,7 +36,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
+name|cli
+operator|.
+name|UserError
 import|;
 end_import
 
@@ -502,6 +504,9 @@ operator|.
 name|ExitStatus
 operator|.
 name|USAGE
+operator|.
+name|status
+argument_list|()
 argument_list|,
 literal|"bad usage"
 argument_list|)

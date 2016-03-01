@@ -60,6 +60,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|PrintWriter
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Writer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|charset
@@ -81,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Terminal wraps access to reading input and writing output for a {@link CliTool}.  *  * The available methods are similar to those of {@link Console}, with the ability  * to read either normal text or a password, and the ability to print a line  * of text. Printing is also gated by the {@link Verbosity} of the terminal,  * which allows {@link #println(Verbosity,String)} calls which act like a logger,  * only actually printing if the verbosity level of the terminal is above  * the verbosity of the message. */
+comment|/**  * A Terminal wraps access to reading input and writing output for a cli.  *  * The available methods are similar to those of {@link Console}, with the ability  * to read either normal text or a password, and the ability to print a line  * of text. Printing is also gated by the {@link Verbosity} of the terminal,  * which allows {@link #println(Verbosity,String)} calls which act like a logger,  * only actually printing if the verbosity level of the terminal is above  * the verbosity of the message. */
 end_comment
 
 begin_class
@@ -142,6 +162,7 @@ name|NORMAL
 decl_stmt|;
 comment|/** Sets the verbosity of the terminal. */
 DECL|method|setVerbosity
+specifier|public
 name|void
 name|setVerbosity
 parameter_list|(
@@ -178,6 +199,14 @@ parameter_list|(
 name|String
 name|prompt
 parameter_list|)
+function_decl|;
+comment|/** Returns a Writer which can be used to write to the terminal directly. */
+DECL|method|getWriter
+specifier|public
+specifier|abstract
+name|PrintWriter
+name|getWriter
+parameter_list|()
 function_decl|;
 comment|/** Print a message directly to the terminal. */
 DECL|method|doPrint
@@ -286,6 +315,21 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getWriter
+specifier|public
+name|PrintWriter
+name|getWriter
+parameter_list|()
+block|{
+return|return
+name|console
+operator|.
+name|writer
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doPrint
 specifier|public
 name|void
@@ -364,6 +408,21 @@ name|SystemTerminal
 extends|extends
 name|Terminal
 block|{
+DECL|field|writer
+specifier|private
+specifier|static
+specifier|final
+name|PrintWriter
+name|writer
+init|=
+operator|new
+name|PrintWriter
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Override
 annotation|@
@@ -398,6 +457,18 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getWriter
+specifier|public
+name|PrintWriter
+name|getWriter
+parameter_list|()
+block|{
+return|return
+name|writer
+return|;
 block|}
 annotation|@
 name|Override

@@ -4,20 +4,18 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.cli
+DECL|package|org.elasticsearch.cli
 package|package
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|common
 operator|.
 name|cli
 package|;
 end_package
 
 begin_comment
-comment|/**  * An exception representing a user fixable problem in {@link CliTool} usage.  */
+comment|/**  * An exception representing a user fixable problem in {@link Command} usage.  */
 end_comment
 
 begin_class
@@ -29,23 +27,19 @@ extends|extends
 name|Exception
 block|{
 comment|/** The exist status the cli should use when catching this user error. */
-DECL|field|exitStatus
+DECL|field|exitCode
 specifier|public
 specifier|final
-name|CliTool
-operator|.
-name|ExitStatus
-name|exitStatus
+name|int
+name|exitCode
 decl_stmt|;
 comment|/** Constructs a UserError with an exit status and message to show the user. */
 DECL|method|UserError
 specifier|public
 name|UserError
 parameter_list|(
-name|CliTool
-operator|.
-name|ExitStatus
-name|exitStatus
+name|int
+name|exitCode
 parameter_list|,
 name|String
 name|msg
@@ -58,9 +52,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|exitStatus
+name|exitCode
 operator|=
-name|exitStatus
+name|exitCode
 expr_stmt|;
 block|}
 block|}
