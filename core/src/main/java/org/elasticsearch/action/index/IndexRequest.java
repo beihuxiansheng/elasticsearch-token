@@ -1004,6 +1004,17 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * The content type that will be used when generating a document from user provided objects like Maps.      */
+DECL|method|getContentType
+specifier|public
+name|XContentType
+name|getContentType
+parameter_list|()
+block|{
+return|return
+name|contentType
+return|;
+block|}
 comment|/**      * Sets the content type that will be used when generating a document from user provided objects (like Map).      */
 DECL|method|contentType
 specifier|public
@@ -1171,6 +1182,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parent
 specifier|public
 name|String
@@ -2672,7 +2685,7 @@ name|type
 operator|=
 name|in
 operator|.
-name|readString
+name|readOptionalString
 argument_list|()
 expr_stmt|;
 name|id
@@ -2794,7 +2807,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeOptionalString
 argument_list|(
 name|type
 argument_list|)

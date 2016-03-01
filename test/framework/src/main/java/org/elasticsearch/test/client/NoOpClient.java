@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.rest
+DECL|package|org.elasticsearch.test.client
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|test
+operator|.
+name|client
 package|;
 end_package
 
@@ -168,7 +170,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doExecute
 specifier|protected
 parameter_list|<
 name|Request
@@ -193,6 +194,7 @@ argument_list|,
 name|RequestBuilder
 argument_list|>
 parameter_list|>
+DECL|method|doExecute
 name|void
 name|doExecute
 parameter_list|(
