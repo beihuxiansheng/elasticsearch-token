@@ -7018,14 +7018,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// tests if indices are really deleted even if a master transition inbetween
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/11665"
-argument_list|)
+comment|/**      * Tests that indices are properly deleted even if there is a master transition in between.      * Test for https://github.com/elastic/elasticsearch/issues/11665      */
 DECL|method|testIndicesDeleted
 specifier|public
 name|void

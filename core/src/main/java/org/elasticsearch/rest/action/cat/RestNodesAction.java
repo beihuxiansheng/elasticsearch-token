@@ -1098,7 +1098,7 @@ name|addCell
 argument_list|(
 literal|"http_address"
 argument_list|,
-literal|"default:false;alias:http;desc:bound http adress"
+literal|"default:false;alias:http;desc:bound http address"
 argument_list|)
 expr_stmt|;
 name|table
@@ -2131,6 +2131,12 @@ name|String
 argument_list|>
 name|serviceAttributes
 init|=
+name|info
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
 name|info
 operator|.
 name|getServiceAttributes

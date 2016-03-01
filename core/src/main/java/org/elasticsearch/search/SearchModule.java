@@ -1164,7 +1164,7 @@ name|search
 operator|.
 name|action
 operator|.
-name|SearchServiceTransportAction
+name|SearchTransportService
 import|;
 end_import
 
@@ -4972,7 +4972,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|SearchServiceTransportAction
+name|SearchTransportService
 operator|.
 name|class
 argument_list|)
