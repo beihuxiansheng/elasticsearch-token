@@ -156,7 +156,7 @@ name|search
 operator|.
 name|action
 operator|.
-name|SearchServiceTransportAction
+name|SearchTransportService
 import|;
 end_import
 
@@ -257,11 +257,11 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|searchService
+DECL|field|searchTransportService
 specifier|private
 specifier|final
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 decl_stmt|;
 DECL|field|searchPhaseController
 specifier|private
@@ -287,8 +287,8 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 parameter_list|,
 name|ClusterService
 name|clusterService
@@ -329,9 +329,9 @@ name|searchPhaseController
 expr_stmt|;
 name|this
 operator|.
-name|searchService
+name|searchTransportService
 operator|=
-name|searchService
+name|searchTransportService
 expr_stmt|;
 name|this
 operator|.
@@ -490,7 +490,7 @@ name|SearchDfsQueryThenFetchAsyncAction
 argument_list|(
 name|logger
 argument_list|,
-name|searchService
+name|searchTransportService
 argument_list|,
 name|clusterService
 argument_list|,
@@ -516,7 +516,7 @@ name|SearchQueryThenFetchAsyncAction
 argument_list|(
 name|logger
 argument_list|,
-name|searchService
+name|searchTransportService
 argument_list|,
 name|clusterService
 argument_list|,
@@ -542,7 +542,7 @@ name|SearchDfsQueryAndFetchAsyncAction
 argument_list|(
 name|logger
 argument_list|,
-name|searchService
+name|searchTransportService
 argument_list|,
 name|clusterService
 argument_list|,
@@ -568,7 +568,7 @@ name|SearchQueryAndFetchAsyncAction
 argument_list|(
 name|logger
 argument_list|,
-name|searchService
+name|searchTransportService
 argument_list|,
 name|clusterService
 argument_list|,

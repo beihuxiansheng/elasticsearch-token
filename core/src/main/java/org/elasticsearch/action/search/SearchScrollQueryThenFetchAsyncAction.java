@@ -134,7 +134,7 @@ name|search
 operator|.
 name|action
 operator|.
-name|SearchServiceTransportAction
+name|SearchTransportService
 import|;
 end_import
 
@@ -289,11 +289,11 @@ specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
-DECL|field|searchService
+DECL|field|searchTransportService
 specifier|private
 specifier|final
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 decl_stmt|;
 DECL|field|searchPhaseController
 specifier|private
@@ -375,8 +375,8 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 parameter_list|,
 name|SearchPhaseController
 name|searchPhaseController
@@ -402,9 +402,9 @@ name|logger
 expr_stmt|;
 name|this
 operator|.
-name|searchService
+name|searchTransportService
 operator|=
-name|searchService
+name|searchTransportService
 expr_stmt|;
 name|this
 operator|.
@@ -860,7 +860,7 @@ argument_list|,
 name|request
 argument_list|)
 decl_stmt|;
-name|searchService
+name|searchTransportService
 operator|.
 name|sendExecuteQuery
 argument_list|(
@@ -1257,7 +1257,7 @@ name|nodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|searchService
+name|searchTransportService
 operator|.
 name|sendExecuteFetchScroll
 argument_list|(

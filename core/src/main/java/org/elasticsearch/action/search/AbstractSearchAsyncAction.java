@@ -292,7 +292,7 @@ name|search
 operator|.
 name|action
 operator|.
-name|SearchServiceTransportAction
+name|SearchTransportService
 import|;
 end_import
 
@@ -471,11 +471,11 @@ specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
-DECL|field|searchService
+DECL|field|searchTransportService
 specifier|protected
 specifier|final
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 decl_stmt|;
 DECL|field|indexNameExpressionResolver
 specifier|private
@@ -602,8 +602,8 @@ parameter_list|(
 name|ESLogger
 name|logger
 parameter_list|,
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 parameter_list|,
 name|ClusterService
 name|clusterService
@@ -635,9 +635,9 @@ name|logger
 expr_stmt|;
 name|this
 operator|.
-name|searchService
+name|searchTransportService
 operator|=
-name|searchService
+name|searchTransportService
 expr_stmt|;
 name|this
 operator|.
@@ -2265,7 +2265,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|searchService
+name|searchTransportService
 operator|.
 name|sendFreeContext
 argument_list|(

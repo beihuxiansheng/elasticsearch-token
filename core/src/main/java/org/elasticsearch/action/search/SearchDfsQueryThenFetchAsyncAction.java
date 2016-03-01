@@ -158,7 +158,7 @@ name|search
 operator|.
 name|action
 operator|.
-name|SearchServiceTransportAction
+name|SearchTransportService
 import|;
 end_import
 
@@ -364,8 +364,8 @@ parameter_list|(
 name|ESLogger
 name|logger
 parameter_list|,
-name|SearchServiceTransportAction
-name|searchService
+name|SearchTransportService
+name|searchTransportService
 parameter_list|,
 name|ClusterService
 name|clusterService
@@ -393,7 +393,7 @@ name|super
 argument_list|(
 name|logger
 argument_list|,
-name|searchService
+name|searchTransportService
 argument_list|,
 name|clusterService
 argument_list|,
@@ -477,7 +477,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-name|searchService
+name|searchTransportService
 operator|.
 name|sendExecuteDfs
 argument_list|(
@@ -622,7 +622,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
-name|searchService
+name|searchTransportService
 operator|.
 name|sendExecuteQuery
 argument_list|(
@@ -1061,7 +1061,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
-name|searchService
+name|searchTransportService
 operator|.
 name|sendExecuteFetch
 argument_list|(
