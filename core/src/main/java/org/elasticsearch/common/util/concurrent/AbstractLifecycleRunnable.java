@@ -95,6 +95,10 @@ name|ESLogger
 name|logger
 parameter_list|)
 block|{
+name|this
+operator|.
+name|lifecycle
+operator|=
 name|Objects
 operator|.
 name|requireNonNull
@@ -104,6 +108,10 @@ argument_list|,
 literal|"lifecycle must not be null"
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|logger
+operator|=
 name|Objects
 operator|.
 name|requireNonNull
@@ -112,18 +120,6 @@ name|logger
 argument_list|,
 literal|"logger must not be null"
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|lifecycle
-operator|=
-name|lifecycle
-expr_stmt|;
-name|this
-operator|.
-name|logger
-operator|=
-name|logger
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      *<p>      * This invokes {@link #doRunInLifecycle()}<em>only</em> if the {@link #lifecycle} is not stopped or closed. Otherwise it exits      * immediately.      */
@@ -151,7 +147,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"service is stopping. exiting"
+literal|"lifecycle is stopping. exiting"
 argument_list|)
 expr_stmt|;
 return|return;
