@@ -4326,7 +4326,7 @@ name|source
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 decl_stmt|;
 name|internalCluster

@@ -308,13 +308,13 @@ literal|"                  \"properties\":{\n"
 operator|+
 literal|"                        \"first\": {\n"
 operator|+
-literal|"                            \"type\":\"string\"\n"
+literal|"                            \"type\":\"text\"\n"
 operator|+
 literal|"                        },"
 operator|+
 literal|"                        \"last\": {\n"
 operator|+
-literal|"                            \"type\":\"string\"\n"
+literal|"                            \"type\":\"text\"\n"
 operator|+
 literal|"                        }"
 operator|+

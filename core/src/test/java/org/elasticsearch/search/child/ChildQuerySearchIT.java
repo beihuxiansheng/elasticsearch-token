@@ -12262,7 +12262,7 @@ literal|"grandparent"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addMapping

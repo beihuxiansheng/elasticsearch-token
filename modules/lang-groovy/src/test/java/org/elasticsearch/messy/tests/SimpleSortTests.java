@@ -1438,7 +1438,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -3191,7 +3191,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject

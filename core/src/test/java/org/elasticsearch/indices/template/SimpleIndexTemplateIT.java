@@ -3289,7 +3289,7 @@ name|addMapping
 argument_list|(
 literal|"type1"
 argument_list|,
-literal|"{\"type1\" : {\"properties\" : {\"value\" : {\"type\" : \"string\"}}}}"
+literal|"{\"type1\" : {\"properties\" : {\"value\" : {\"type\" : \"text\"}}}}"
 argument_list|)
 operator|.
 name|addAlias

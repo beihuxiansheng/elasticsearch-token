@@ -1598,7 +1598,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(

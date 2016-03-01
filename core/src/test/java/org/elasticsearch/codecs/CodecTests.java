@@ -295,7 +295,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|field
@@ -514,7 +514,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|field

@@ -1787,7 +1787,7 @@ else|else
 block|{
 name|type
 operator|=
-literal|"string"
+literal|"text"
 expr_stmt|;
 block|}
 name|Mapper
