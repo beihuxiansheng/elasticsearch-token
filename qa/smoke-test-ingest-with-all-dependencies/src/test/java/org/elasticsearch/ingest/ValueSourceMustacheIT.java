@@ -134,7 +134,7 @@ specifier|public
 class|class
 name|ValueSourceMustacheIT
 extends|extends
-name|AbstractMustacheTests
+name|AbstractMustacheTestCase
 block|{
 DECL|method|testValueSourceWithTemplates
 specifier|public

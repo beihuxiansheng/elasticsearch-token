@@ -194,7 +194,7 @@ name|discovery
 operator|.
 name|gce
 operator|.
-name|GceDiscovery
+name|GceUnicastHostsProvider
 import|;
 end_import
 
@@ -206,9 +206,9 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|gce
+name|zen
 operator|.
-name|GceUnicastHostsProvider
+name|ZenDiscovery
 import|;
 end_import
 
@@ -272,6 +272,15 @@ name|GceDiscoveryPlugin
 extends|extends
 name|Plugin
 block|{
+DECL|field|GCE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GCE
+init|=
+literal|"gce"
+decl_stmt|;
 static|static
 block|{
 comment|/*          * GCE's http client changes access levels because its silly and we          * can't allow that on any old stack stack so we pull it here, up front,          * so we can cleanly check the permissions for it. Without this changing          * the permission can fail if any part of core is on the stack because          * our plugin permissions don't allow core to "reach through" plugins to          * change the permission. Because that'd be silly.          */
@@ -466,43 +475,25 @@ name|discoveryModule
 operator|.
 name|addDiscoveryType
 argument_list|(
-literal|"gce"
+name|GCE
 argument_list|,
-name|GceDiscovery
+name|ZenDiscovery
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
 comment|// If discovery.type: gce, we add Gce as a unicast provider
-if|if
-condition|(
-name|GceDiscovery
-operator|.
-name|GCE
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-name|DiscoveryModule
-operator|.
-name|DISCOVERY_TYPE_SETTING
-operator|.
-name|get
-argument_list|(
-name|settings
-argument_list|)
-argument_list|)
-condition|)
-block|{
 name|discoveryModule
 operator|.
 name|addUnicastHostProvider
 argument_list|(
+name|GCE
+argument_list|,
 name|GceUnicastHostsProvider
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|onModule
 specifier|public
@@ -536,7 +527,7 @@ name|settingsModule
 operator|.
 name|registerSetting
 argument_list|(
-name|GceDiscovery
+name|GceUnicastHostsProvider
 operator|.
 name|TAGS_SETTING
 argument_list|)

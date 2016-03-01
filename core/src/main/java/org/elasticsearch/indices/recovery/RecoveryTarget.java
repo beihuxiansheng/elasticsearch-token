@@ -1702,14 +1702,6 @@ expr_stmt|;
 comment|// first, we go and move files that were created with the recovery id suffix to
 comment|// the actual names, its ok if we have a corrupted index here, since we have replicas
 comment|// to recover from in case of a full cluster shutdown just when this code executes...
-name|indexShard
-argument_list|()
-operator|.
-name|deleteShardState
-argument_list|()
-expr_stmt|;
-comment|// we have to delete it first since even if we fail to rename the shard
-comment|// might be invalid
 name|renameAllTempFiles
 argument_list|()
 expr_stmt|;

@@ -717,7 +717,20 @@ argument_list|(
 name|mode
 argument_list|)
 expr_stmt|;
-comment|// Set timeout option. Defaults to 5mn. See cloud.azure.storage.timeout or cloud.azure.storage.xxx.timeout
+comment|// Set timeout option if the user sets cloud.azure.storage.timeout or cloud.azure.storage.xxx.timeout (it's negative by default)
+if|if
+condition|(
+name|azureStorageSettings
+operator|.
+name|getTimeout
+argument_list|()
+operator|.
+name|getSeconds
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 try|try
 block|{
 name|int
@@ -739,7 +752,7 @@ operator|.
 name|getDefaultRequestOptions
 argument_list|()
 operator|.
-name|setMaximumExecutionTimeInMs
+name|setTimeoutIntervalInMs
 argument_list|(
 name|timeout
 argument_list|)
@@ -765,6 +778,7 @@ operator|+
 literal|"]. It can not be longer than 2,147,483,647ms."
 argument_list|)
 throw|;
+block|}
 block|}
 return|return
 name|client
@@ -1727,7 +1741,7 @@ argument_list|)
 decl_stmt|;
 name|blobTarget
 operator|.
-name|startCopyFromBlob
+name|startCopy
 argument_list|(
 name|blobSource
 argument_list|)

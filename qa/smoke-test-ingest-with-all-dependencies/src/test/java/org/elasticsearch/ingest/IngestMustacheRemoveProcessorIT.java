@@ -74,7 +74,7 @@ specifier|public
 class|class
 name|IngestMustacheRemoveProcessorIT
 extends|extends
-name|AbstractMustacheTests
+name|AbstractMustacheTestCase
 block|{
 DECL|method|testRemoveProcessorMustacheExpression
 specifier|public
