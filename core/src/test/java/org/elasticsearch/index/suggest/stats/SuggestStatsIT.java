@@ -1247,9 +1247,6 @@ name|s
 argument_list|,
 operator|new
 name|PhraseSuggestionBuilder
-argument_list|()
-operator|.
-name|field
 argument_list|(
 literal|"f"
 argument_list|)
@@ -1283,9 +1280,6 @@ name|s
 argument_list|,
 operator|new
 name|TermSuggestionBuilder
-argument_list|()
-operator|.
-name|field
 argument_list|(
 literal|"f"
 argument_list|)

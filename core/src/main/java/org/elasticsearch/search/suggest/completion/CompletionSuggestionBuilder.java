@@ -330,7 +330,9 @@ name|PROTOTYPE
 init|=
 operator|new
 name|CompletionSuggestionBuilder
-argument_list|()
+argument_list|(
+literal|"_na_"
+argument_list|)
 decl_stmt|;
 DECL|field|SUGGESTION_NAME
 specifier|static
@@ -409,6 +411,20 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|method|CompletionSuggestionBuilder
+specifier|public
+name|CompletionSuggestionBuilder
+parameter_list|(
+name|String
+name|fieldname
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|fieldname
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Sets the prefix to provide completions for.      * The prefix gets analyzed by the suggest analyzer.      */
 annotation|@
 name|Override
@@ -1173,6 +1189,9 @@ name|doReadFrom
 parameter_list|(
 name|StreamInput
 name|in
+parameter_list|,
+name|String
+name|fieldname
 parameter_list|)
 throws|throws
 name|IOException
@@ -1182,7 +1201,9 @@ name|completionSuggestionBuilder
 init|=
 operator|new
 name|CompletionSuggestionBuilder
-argument_list|()
+argument_list|(
+name|fieldname
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

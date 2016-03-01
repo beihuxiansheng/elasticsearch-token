@@ -3096,7 +3096,14 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|termSuggestion
-argument_list|()
+argument_list|(
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|5
+argument_list|)
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

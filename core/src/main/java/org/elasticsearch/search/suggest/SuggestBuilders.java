@@ -75,46 +75,61 @@ specifier|abstract
 class|class
 name|SuggestBuilders
 block|{
-comment|/**      * Creates a term suggestion lookup query with the provided<code>name</code>      *      * @return a {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder}      * instance      */
+comment|/**      * Creates a term suggestion lookup query with the provided<code>fieldname</code>      *      * @return a {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder}      * instance      */
 DECL|method|termSuggestion
 specifier|public
 specifier|static
 name|TermSuggestionBuilder
 name|termSuggestion
-parameter_list|()
+parameter_list|(
+name|String
+name|fieldname
+parameter_list|)
 block|{
 return|return
 operator|new
 name|TermSuggestionBuilder
-argument_list|()
+argument_list|(
+name|fieldname
+argument_list|)
 return|;
 block|}
-comment|/**      * Creates a phrase suggestion lookup query with the provided<code>name</code>      *      * @return a {@link org.elasticsearch.search.suggest.phrase.PhraseSuggestionBuilder}      * instance      */
+comment|/**      * Creates a phrase suggestion lookup query with the provided<code>fieldname</code>      *      * @return a {@link org.elasticsearch.search.suggest.phrase.PhraseSuggestionBuilder}      * instance      */
 DECL|method|phraseSuggestion
 specifier|public
 specifier|static
 name|PhraseSuggestionBuilder
 name|phraseSuggestion
-parameter_list|()
+parameter_list|(
+name|String
+name|fieldname
+parameter_list|)
 block|{
 return|return
 operator|new
 name|PhraseSuggestionBuilder
-argument_list|()
+argument_list|(
+name|fieldname
+argument_list|)
 return|;
 block|}
-comment|/**      * Creates a completion suggestion lookup query with the provided<code>name</code>      *      * @return a {@link org.elasticsearch.search.suggest.completion.CompletionSuggestionBuilder}      * instance      */
+comment|/**      * Creates a completion suggestion lookup query with the provided<code>fieldname</code>      *      * @return a {@link org.elasticsearch.search.suggest.completion.CompletionSuggestionBuilder}      * instance      */
 DECL|method|completionSuggestion
 specifier|public
 specifier|static
 name|CompletionSuggestionBuilder
 name|completionSuggestion
-parameter_list|()
+parameter_list|(
+name|String
+name|fieldname
+parameter_list|)
 block|{
 return|return
 operator|new
 name|CompletionSuggestionBuilder
-argument_list|()
+argument_list|(
+name|fieldname
+argument_list|)
 return|;
 block|}
 block|}

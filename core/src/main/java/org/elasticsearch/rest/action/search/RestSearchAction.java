@@ -1832,9 +1832,6 @@ argument_list|(
 name|suggestField
 argument_list|,
 name|termSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|suggestField
 argument_list|)

@@ -226,7 +226,14 @@ name|testBuilder
 init|=
 operator|new
 name|CompletionSuggestionBuilder
-argument_list|()
+argument_list|(
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|2
+argument_list|,
+literal|20
+argument_list|)
+argument_list|)
 decl_stmt|;
 switch|switch
 condition|(

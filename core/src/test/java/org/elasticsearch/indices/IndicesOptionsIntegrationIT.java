@@ -8735,9 +8735,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|termSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 literal|"a"
 argument_list|)

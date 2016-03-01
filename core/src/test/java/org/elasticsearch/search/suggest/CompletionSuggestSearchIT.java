@@ -1064,9 +1064,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -1217,9 +1214,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -1368,9 +1362,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -1581,9 +1572,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -1613,9 +1601,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -1645,9 +1630,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -1794,9 +1776,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -2183,9 +2162,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -2495,9 +2471,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -3072,9 +3045,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -3876,9 +3846,6 @@ literal|"testSuggestions"
 argument_list|,
 operator|new
 name|CompletionSuggestionBuilder
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -5183,9 +5150,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 operator|+
@@ -5278,9 +5242,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 operator|+
@@ -5396,9 +5357,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -5448,9 +5406,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -5571,9 +5526,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -5626,9 +5578,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -5748,9 +5697,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -5811,9 +5757,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -5933,9 +5876,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -5996,9 +5936,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -6127,9 +6064,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -6190,9 +6124,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -6320,9 +6251,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -6391,9 +6319,6 @@ operator|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -6459,9 +6384,6 @@ operator|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -6804,9 +6726,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -6835,9 +6754,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|otherField
 argument_list|)
@@ -7731,9 +7647,6 @@ init|=
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
@@ -7802,9 +7715,6 @@ argument_list|,
 name|SuggestBuilders
 operator|.
 name|completionSuggestion
-argument_list|()
-operator|.
-name|field
 argument_list|(
 name|FIELD
 argument_list|)
