@@ -159,7 +159,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|nodesIds
+name|setNodesIds
 argument_list|(
 name|nodesIds
 argument_list|)
@@ -189,7 +189,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|actions
+name|setActions
 argument_list|(
 name|actions
 argument_list|)
@@ -218,7 +218,7 @@ parameter_list|)
 block|{
 name|request
 operator|.
-name|timeout
+name|setTimeout
 argument_list|(
 name|timeout
 argument_list|)

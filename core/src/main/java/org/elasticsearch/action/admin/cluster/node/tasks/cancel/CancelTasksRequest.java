@@ -217,10 +217,11 @@ operator|instanceof
 name|CancellableTask
 return|;
 block|}
-DECL|method|reason
+comment|/**      * Set the reason for canceling the task.      */
+DECL|method|setReason
 specifier|public
 name|CancelTasksRequest
-name|reason
+name|setReason
 parameter_list|(
 name|String
 name|reason
@@ -236,10 +237,11 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|reason
+comment|/**      * The reason for canceling the task.      */
+DECL|method|getReason
 specifier|public
 name|String
-name|reason
+name|getReason
 parameter_list|()
 block|{
 return|return

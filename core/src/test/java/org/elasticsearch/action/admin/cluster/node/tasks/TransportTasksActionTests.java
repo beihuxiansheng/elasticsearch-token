@@ -2295,7 +2295,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction*"
 argument_list|)
@@ -2438,7 +2438,7 @@ argument_list|()
 expr_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction[n]"
 argument_list|)
@@ -2530,7 +2530,7 @@ block|}
 comment|// Check task counts using transport with detailed description
 name|listTasksRequest
 operator|.
-name|detailed
+name|setDetailed
 argument_list|(
 literal|true
 argument_list|)
@@ -2624,7 +2624,7 @@ block|}
 comment|// Make sure that the main task on coordinating node is the task that was returned to us by execute()
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction"
 argument_list|)
@@ -2812,7 +2812,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction"
 argument_list|)
@@ -2889,7 +2889,7 @@ argument_list|()
 expr_stmt|;
 name|listTasksRequest
 operator|.
-name|parentTaskId
+name|setParentTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -3078,7 +3078,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction*"
 argument_list|)
@@ -3219,7 +3219,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction[n]"
 argument_list|)
@@ -3322,7 +3322,7 @@ name|maximumStartTimeNanos
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|detailed
+name|setDetailed
 argument_list|(
 literal|true
 argument_list|)
@@ -3583,7 +3583,7 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|nodesIds
+name|setNodesIds
 argument_list|(
 name|testNodes
 index|[
@@ -3598,14 +3598,14 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|reason
+name|setReason
 argument_list|(
 literal|"Testing Cancellation"
 argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|actions
+name|setActions
 argument_list|(
 name|actionName
 argument_list|)
@@ -3686,14 +3686,14 @@ argument_list|()
 expr_stmt|;
 name|request
 operator|.
-name|reason
+name|setReason
 argument_list|(
 literal|"Testing Cancellation"
 argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -3812,7 +3812,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 name|actionName
 argument_list|)
@@ -4410,7 +4410,7 @@ argument_list|()
 decl_stmt|;
 name|testTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction[n]"
 argument_list|)
