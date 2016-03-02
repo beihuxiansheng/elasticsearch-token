@@ -132,6 +132,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_interface
 DECL|interface|GceComputeService
 specifier|public
@@ -192,9 +204,10 @@ operator|.
 name|emptyList
 argument_list|()
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.

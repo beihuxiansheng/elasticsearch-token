@@ -97,6 +97,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -405,9 +417,10 @@ argument_list|,
 name|emptyList
 argument_list|()
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -433,9 +446,10 @@ literal|"http.publish_host"
 argument_list|,
 name|SETTING_HTTP_HOST
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -461,9 +475,10 @@ literal|"http.bind_host"
 argument_list|,
 name|SETTING_HTTP_HOST
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.

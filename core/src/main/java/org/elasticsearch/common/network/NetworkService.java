@@ -198,6 +198,18 @@ name|TimeUnit
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -246,9 +258,10 @@ argument_list|(
 name|DEFAULT_NETWORK_HOST
 argument_list|)
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -276,9 +289,10 @@ literal|"network.bind_host"
 argument_list|,
 name|GLOBAL_NETWORK_HOST_SETTING
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -306,9 +320,10 @@ literal|"network.publish_host"
 argument_list|,
 name|GLOBAL_NETWORK_HOST_SETTING
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.

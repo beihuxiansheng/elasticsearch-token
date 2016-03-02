@@ -69,6 +69,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -159,9 +171,10 @@ argument_list|,
 name|emptyList
 argument_list|()
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -187,9 +200,10 @@ literal|"transport.publish_host"
 argument_list|,
 name|HOST
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -215,9 +229,10 @@ literal|"transport.bind_host"
 argument_list|,
 name|HOST
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -242,9 +257,10 @@ literal|"transport.tcp.port"
 argument_list|,
 literal|"9300-9400"
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.

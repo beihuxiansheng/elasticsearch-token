@@ -141,6 +141,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1006,11 +1018,10 @@ argument_list|,
 literal|"some_default"
 argument_list|)
 argument_list|,
-parameter_list|(
-name|s
-parameter_list|)
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -1070,11 +1081,10 @@ literal|"foo.bar"
 argument_list|,
 name|secondaryDefault
 argument_list|,
-parameter_list|(
-name|s
-parameter_list|)
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
@@ -3166,9 +3176,10 @@ literal|"foo.baz"
 argument_list|,
 name|listSetting
 argument_list|,
-name|s
-lambda|->
-name|s
+name|Function
+operator|.
+name|identity
+argument_list|()
 argument_list|,
 name|SettingsProperty
 operator|.
