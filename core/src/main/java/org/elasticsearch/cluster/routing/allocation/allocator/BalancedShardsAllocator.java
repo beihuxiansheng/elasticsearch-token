@@ -3736,7 +3736,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"No eligable node found to assign shard [{}] decision [{}]"
+literal|"No eligible node found to assign shard [{}] decision [{}]"
 argument_list|,
 name|shard
 argument_list|,

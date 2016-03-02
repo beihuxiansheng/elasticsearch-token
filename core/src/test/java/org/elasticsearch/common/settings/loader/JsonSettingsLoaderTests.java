@@ -336,7 +336,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"duplicate settings key [foo] found at line number [1], column number [13], previous value [bar], current value [baz]"
+literal|"duplicate settings key [foo] found at line number [1], column number [20], previous value [bar], current value [baz]"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -282,7 +282,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeBuilder
+name|RangeAggregatorBuilder
 import|;
 end_import
 
@@ -1072,7 +1072,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-name|RangeBuilder
+name|RangeAggregatorBuilder
 name|query
 init|=
 name|range
@@ -1318,10 +1318,7 @@ argument_list|(
 literal|"filter"
 operator|+
 name|i
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|filter
 argument_list|)
 argument_list|)
@@ -3351,10 +3348,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|QueryBuilders
 operator|.
 name|matchAllQuery

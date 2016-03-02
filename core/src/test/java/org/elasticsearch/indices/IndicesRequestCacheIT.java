@@ -124,6 +124,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -335,7 +347,12 @@ argument_list|)
 operator|.
 name|timeZone
 argument_list|(
+name|DateTimeZone
+operator|.
+name|forID
+argument_list|(
 literal|"+01:00"
+argument_list|)
 argument_list|)
 operator|.
 name|minDocCount
@@ -343,7 +360,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -452,7 +469,12 @@ argument_list|)
 operator|.
 name|timeZone
 argument_list|(
+name|DateTimeZone
+operator|.
+name|forID
+argument_list|(
 literal|"+01:00"
+argument_list|)
 argument_list|)
 operator|.
 name|minDocCount
@@ -460,7 +482,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.

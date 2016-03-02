@@ -854,11 +854,11 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_3_0_0
+name|V_5_0_0
 argument_list|)
 condition|)
 block|{
-comment|// ignore on old indices, reject on and after 3.0
+comment|// ignore on old indices, reject on and after 5.0
 name|iterator
 operator|.
 name|remove

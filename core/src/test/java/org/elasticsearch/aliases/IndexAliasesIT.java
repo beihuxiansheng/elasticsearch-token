@@ -1284,7 +1284,7 @@ literal|"type"
 argument_list|,
 literal|"user"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1473,11 +1473,11 @@ literal|"type1"
 argument_list|,
 literal|"id"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2483,7 +2483,7 @@ literal|"type1"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2507,7 +2507,7 @@ literal|"type1"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3532,7 +3532,7 @@ name|setSource
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4582,7 +4582,7 @@ literal|"type1"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4599,7 +4599,7 @@ literal|"type1"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5189,7 +5189,7 @@ literal|"type"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5206,7 +5206,7 @@ literal|"type"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5861,7 +5861,7 @@ literal|"type"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6442,7 +6442,7 @@ name|setSource
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11180,7 +11180,7 @@ literal|"type"
 argument_list|,
 literal|"field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addAlias
@@ -11301,7 +11301,7 @@ literal|"type"
 argument_list|,
 literal|"field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|setAliases

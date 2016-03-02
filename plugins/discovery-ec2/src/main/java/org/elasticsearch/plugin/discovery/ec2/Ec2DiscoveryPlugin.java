@@ -202,9 +202,9 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|ec2
+name|zen
 operator|.
-name|Ec2Discovery
+name|ZenDiscovery
 import|;
 end_import
 
@@ -272,6 +272,15 @@ name|Ec2DiscoveryPlugin
 extends|extends
 name|Plugin
 block|{
+DECL|field|EC2
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|EC2
+init|=
+literal|"ec2"
+decl_stmt|;
 comment|// ClientConfiguration clinit has some classloader problems
 comment|// TODO: fix that
 static|static
@@ -506,25 +515,13 @@ name|DiscoveryModule
 name|discoveryModule
 parameter_list|)
 block|{
-if|if
-condition|(
-name|Ec2Module
-operator|.
-name|isEc2DiscoveryActive
-argument_list|(
-name|settings
-argument_list|,
-name|logger
-argument_list|)
-condition|)
-block|{
 name|discoveryModule
 operator|.
 name|addDiscoveryType
 argument_list|(
-literal|"ec2"
+name|EC2
 argument_list|,
-name|Ec2Discovery
+name|ZenDiscovery
 operator|.
 name|class
 argument_list|)
@@ -533,12 +530,13 @@ name|discoveryModule
 operator|.
 name|addUnicastHostProvider
 argument_list|(
+name|EC2
+argument_list|,
 name|AwsEc2UnicastHostsProvider
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|onModule
 specifier|public

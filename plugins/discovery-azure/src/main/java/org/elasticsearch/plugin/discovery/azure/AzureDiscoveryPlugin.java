@@ -140,7 +140,7 @@ name|discovery
 operator|.
 name|azure
 operator|.
-name|AzureDiscovery
+name|AzureUnicastHostsProvider
 import|;
 end_import
 
@@ -152,9 +152,9 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|azure
+name|zen
 operator|.
-name|AzureUnicastHostsProvider
+name|ZenDiscovery
 import|;
 end_import
 
@@ -198,6 +198,15 @@ name|AzureDiscoveryPlugin
 extends|extends
 name|Plugin
 block|{
+DECL|field|AZURE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|AZURE
+init|=
+literal|"azure"
+decl_stmt|;
 DECL|field|settings
 specifier|private
 specifier|final
@@ -317,9 +326,9 @@ name|discoveryModule
 operator|.
 name|addDiscoveryType
 argument_list|(
-literal|"azure"
+name|AZURE
 argument_list|,
-name|AzureDiscovery
+name|ZenDiscovery
 operator|.
 name|class
 argument_list|)
@@ -328,6 +337,8 @@ name|discoveryModule
 operator|.
 name|addUnicastHostProvider
 argument_list|(
+name|AZURE
+argument_list|,
 name|AzureUnicastHostsProvider
 operator|.
 name|class

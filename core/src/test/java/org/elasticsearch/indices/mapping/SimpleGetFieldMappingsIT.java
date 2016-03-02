@@ -462,7 +462,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1764,10 +1764,9 @@ name|hasEntry
 argument_list|(
 literal|"index"
 argument_list|,
-operator|(
-name|Object
-operator|)
-literal|"analyzed"
+name|Boolean
+operator|.
+name|TRUE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1807,7 +1806,7 @@ argument_list|,
 operator|(
 name|Object
 operator|)
-literal|"string"
+literal|"text"
 argument_list|)
 argument_list|)
 expr_stmt|;

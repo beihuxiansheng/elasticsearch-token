@@ -2959,6 +2959,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:debug,action.admin.cluster.tasks:trace"
+argument_list|)
 DECL|method|testPendingUpdateTask
 specifier|public
 name|void

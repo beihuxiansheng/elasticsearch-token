@@ -532,9 +532,9 @@ condition|)
 block|{
 comment|// empty query
 return|return
+operator|new
 name|EmptyQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|()
 return|;
 block|}
 if|if

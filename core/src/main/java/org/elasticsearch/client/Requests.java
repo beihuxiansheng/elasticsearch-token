@@ -1456,44 +1456,18 @@ name|ListTasksRequest
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a nodes tasks request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to get the tasks for      * @return The nodes tasks request      * @see org.elasticsearch.client.ClusterAdminClient#listTasks(ListTasksRequest)      */
-DECL|method|listTasksRequest
-specifier|public
-specifier|static
-name|ListTasksRequest
-name|listTasksRequest
-parameter_list|(
-name|String
-modifier|...
-name|nodesIds
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ListTasksRequest
-argument_list|(
-name|nodesIds
-argument_list|)
-return|;
-block|}
-comment|/**      * Creates a nodes tasks request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @param nodesIds The nodes ids to cancel the tasks on      * @return The nodes tasks request      * @see org.elasticsearch.client.ClusterAdminClient#cancelTasks(CancelTasksRequest)      */
+comment|/**      * Creates a nodes tasks request against one or more nodes. Pass<tt>null</tt> or an empty array for all nodes.      *      * @return The nodes tasks request      * @see org.elasticsearch.client.ClusterAdminClient#cancelTasks(CancelTasksRequest)      */
 DECL|method|cancelTasksRequest
 specifier|public
 specifier|static
 name|CancelTasksRequest
 name|cancelTasksRequest
-parameter_list|(
-name|String
-modifier|...
-name|nodesIds
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 operator|new
 name|CancelTasksRequest
-argument_list|(
-name|nodesIds
-argument_list|)
+argument_list|()
 return|;
 block|}
 comment|/**      * Registers snapshot repository      *      * @param name repository name      * @return repository registration request      */

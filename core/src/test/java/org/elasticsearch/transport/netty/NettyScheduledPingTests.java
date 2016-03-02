@@ -427,6 +427,11 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|serviceA
+operator|.
+name|acceptIncomingRequests
+argument_list|()
+expr_stmt|;
 name|NamedWriteableRegistry
 name|registryB
 init|=
@@ -480,6 +485,11 @@ decl_stmt|;
 name|serviceB
 operator|.
 name|start
+argument_list|()
+expr_stmt|;
+name|serviceB
+operator|.
+name|acceptIncomingRequests
 argument_list|()
 expr_stmt|;
 name|DiscoveryNode

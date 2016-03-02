@@ -62,18 +62,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|IndexSettings
 import|;
 end_import
@@ -118,7 +106,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -131,16 +119,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -339,8 +317,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|mapperService
 argument_list|,
 literal|null
@@ -361,9 +337,9 @@ name|MappedFieldType
 name|fieldType
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
-name|StringFieldType
+name|TextFieldType
 argument_list|()
 decl_stmt|;
 name|MappedFieldType
@@ -532,9 +508,9 @@ name|result
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
-name|StringFieldType
+name|TextFieldType
 operator|.
 name|class
 argument_list|)

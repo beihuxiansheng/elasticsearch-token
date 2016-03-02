@@ -426,6 +426,22 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|transport
 operator|.
 name|MockTransportService
@@ -1502,6 +1518,11 @@ name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"gateway:TRACE"
+argument_list|)
 DECL|method|testIndexWithFewDocuments
 specifier|public
 name|void
@@ -1642,7 +1663,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -2348,7 +2369,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -2985,7 +3006,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -3661,7 +3682,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -4191,7 +4212,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -4863,7 +4884,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -5187,7 +5208,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -6823,7 +6844,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -6845,7 +6866,7 @@ literal|"doc"
 argument_list|,
 literal|"foo"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get

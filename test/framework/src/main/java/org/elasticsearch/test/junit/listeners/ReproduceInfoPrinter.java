@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RunListener} that emits to {@link System#err} a string with command  * line parameters allowing quick test re-run under MVN command line.  */
+comment|/**  * A {@link RunListener} that emits a command you can use to re-run a failing test with the failing random seed to  * {@link System#err}.  */
 end_comment
 
 begin_class
@@ -363,7 +363,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * true if we are running maven integration tests (mvn verify)      */
+comment|/**      * Are we in the integ test phase?      */
 DECL|method|inVerifyPhase
 specifier|static
 name|boolean
@@ -430,7 +430,7 @@ argument_list|(
 literal|"tests.task"
 argument_list|)
 decl_stmt|;
-comment|// TODO: enforce (intellij still runs the runner?) or use default "test" but that wont' work for integ
+comment|// TODO: enforce (intellij still runs the runner?) or use default "test" but that won't work for integ
 name|b
 operator|.
 name|append

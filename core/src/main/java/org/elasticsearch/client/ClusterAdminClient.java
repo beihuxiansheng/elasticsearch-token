@@ -1787,7 +1787,7 @@ modifier|...
 name|nodesIds
 parameter_list|)
 function_decl|;
-comment|/**      * List tasks      *      * @param request The nodes tasks request      * @return The result future      * @see org.elasticsearch.client.Requests#listTasksRequest(String...)      */
+comment|/**      * List tasks      *      * @param request The nodes tasks request      * @return The result future      * @see org.elasticsearch.client.Requests#listTasksRequest()      */
 DECL|method|listTasks
 name|ActionFuture
 argument_list|<
@@ -1799,7 +1799,7 @@ name|ListTasksRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * List active tasks      *      * @param request  The nodes tasks request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#listTasksRequest(String...)      */
+comment|/**      * List active tasks      *      * @param request  The nodes tasks request      * @param listener A listener to be notified with a result      * @see org.elasticsearch.client.Requests#listTasksRequest()      */
 DECL|method|listTasks
 name|void
 name|listTasks
@@ -1824,7 +1824,7 @@ modifier|...
 name|nodesIds
 parameter_list|)
 function_decl|;
-comment|/**      * Cancel tasks      *      * @param request The nodes tasks request      * @return The result future      * @see org.elasticsearch.client.Requests#cancelTasksRequest(String...)      */
+comment|/**      * Cancel tasks      *      * @param request The nodes tasks request      * @return The result future      * @see org.elasticsearch.client.Requests#cancelTasksRequest()      */
 DECL|method|cancelTasks
 name|ActionFuture
 argument_list|<
@@ -1836,7 +1836,7 @@ name|CancelTasksRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Cancel active tasks      *      * @param request  The nodes tasks request      * @param listener A cancelener to be notified with a result      * @see org.elasticsearch.client.Requests#cancelTasksRequest(String...)      */
+comment|/**      * Cancel active tasks      *      * @param request  The nodes tasks request      * @param listener A cancelener to be notified with a result      * @see org.elasticsearch.client.Requests#cancelTasksRequest()      */
 DECL|method|cancelTasks
 name|void
 name|cancelTasks

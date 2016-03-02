@@ -6274,7 +6274,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DiscoveryService
+name|DiscoverySettings
 operator|.
 name|INITIAL_STATE_TIMEOUT_SETTING
 operator|.
@@ -7018,13 +7018,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// tests if indices are really deleted even if a master transition inbetween
+comment|/**      * Tests that indices are properly deleted even if there is a master transition in between.      * Test for https://github.com/elastic/elasticsearch/issues/11665      */
 annotation|@
 name|AwaitsFix
 argument_list|(
 name|bugUrl
 operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/11665"
+literal|"https://github.com/elastic/elasticsearch/issues/16890"
 argument_list|)
 DECL|method|testIndicesDeleted
 specifier|public

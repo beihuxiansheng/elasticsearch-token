@@ -5466,7 +5466,7 @@ operator|.
 name|indexShard
 argument_list|()
 operator|.
-name|getIndexSettings
+name|indexSettings
 argument_list|()
 decl_stmt|;
 comment|// if not explicitly set in the request, use the index setting, if not, use the request

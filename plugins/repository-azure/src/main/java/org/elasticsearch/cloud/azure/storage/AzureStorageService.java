@@ -202,7 +202,8 @@ name|TimeValue
 operator|.
 name|timeValueMinutes
 argument_list|(
-literal|5
+operator|-
+literal|1
 argument_list|)
 argument_list|,
 name|SettingsProperty

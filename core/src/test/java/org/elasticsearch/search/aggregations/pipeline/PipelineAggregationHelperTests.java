@@ -30,25 +30,9 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|ValuesSourceMetricsAggregationBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|metrics
-operator|.
 name|avg
 operator|.
-name|AvgBuilder
+name|AvgAggregatorBuilder
 import|;
 end_import
 
@@ -66,7 +50,7 @@ name|metrics
 operator|.
 name|max
 operator|.
-name|MaxBuilder
+name|MaxAggregatorBuilder
 import|;
 end_import
 
@@ -84,7 +68,7 @@ name|metrics
 operator|.
 name|min
 operator|.
-name|MinBuilder
+name|MinAggregatorBuilder
 import|;
 end_import
 
@@ -102,7 +86,23 @@ name|metrics
 operator|.
 name|sum
 operator|.
-name|SumBuilder
+name|SumAggregatorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|support
+operator|.
+name|ValuesSourceAggregatorBuilder
 import|;
 end_import
 
@@ -495,7 +495,12 @@ name|double
 index|[]
 name|values
 parameter_list|,
-name|ValuesSourceMetricsAggregationBuilder
+name|ValuesSourceAggregatorBuilder
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|metric
 parameter_list|)
 block|{
@@ -503,7 +508,7 @@ if|if
 condition|(
 name|metric
 operator|instanceof
-name|MinBuilder
+name|MinAggregatorBuilder
 condition|)
 block|{
 name|double
@@ -542,7 +547,7 @@ if|if
 condition|(
 name|metric
 operator|instanceof
-name|MaxBuilder
+name|MaxAggregatorBuilder
 condition|)
 block|{
 name|double
@@ -581,7 +586,7 @@ if|if
 condition|(
 name|metric
 operator|instanceof
-name|SumBuilder
+name|SumAggregatorBuilder
 condition|)
 block|{
 name|double
@@ -611,7 +616,7 @@ if|if
 condition|(
 name|metric
 operator|instanceof
-name|AvgBuilder
+name|AvgAggregatorBuilder
 condition|)
 block|{
 name|double

@@ -2137,10 +2137,12 @@ control|)
 block|{
 if|if
 condition|(
-name|v
+name|VersionUtils
 operator|.
-name|snapshot
-argument_list|()
+name|isSnapshot
+argument_list|(
+name|v
+argument_list|)
 condition|)
 continue|continue;
 comment|// snapshots are unreleased, so there is no backcompat yet

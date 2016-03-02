@@ -515,9 +515,11 @@ name|intSetting
 argument_list|(
 literal|"http.publish_port"
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|SettingsProperty
 operator|.

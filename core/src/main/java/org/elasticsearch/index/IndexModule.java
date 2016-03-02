@@ -922,7 +922,7 @@ literal|"key ["
 operator|+
 name|type
 operator|+
-literal|"] already registerd"
+literal|"] already registered"
 argument_list|)
 throw|;
 block|}

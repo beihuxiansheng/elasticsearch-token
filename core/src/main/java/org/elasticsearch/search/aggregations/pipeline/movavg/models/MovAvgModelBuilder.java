@@ -47,7 +47,14 @@ interface|interface
 name|MovAvgModelBuilder
 extends|extends
 name|ToXContent
-block|{ }
+block|{
+DECL|method|build
+specifier|public
+name|MovAvgModel
+name|build
+parameter_list|()
+function_decl|;
+block|}
 end_interface
 
 end_unit

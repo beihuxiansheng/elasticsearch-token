@@ -5543,7 +5543,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"expecting exeption when result empty and allowNoIndicec=false"
+literal|"expecting exception when result empty and allowNoIndicec=false"
 argument_list|)
 expr_stmt|;
 block|}

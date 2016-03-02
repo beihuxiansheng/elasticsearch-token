@@ -4966,7 +4966,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -5089,7 +5089,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject

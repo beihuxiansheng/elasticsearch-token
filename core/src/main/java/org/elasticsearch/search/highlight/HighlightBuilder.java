@@ -397,15 +397,6 @@ operator|new
 name|HighlightBuilder
 argument_list|()
 decl_stmt|;
-DECL|field|HIGHLIGHT_ELEMENT_NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|HIGHLIGHT_ELEMENT_NAME
-init|=
-literal|"highlight"
-decl_stmt|;
 comment|/** default for whether to highlight fields based on the source even if stored separately */
 DECL|field|DEFAULT_FORCE_SOURCE
 specifier|public
@@ -998,9 +989,7 @@ block|{
 name|builder
 operator|.
 name|startObject
-argument_list|(
-name|HIGHLIGHT_ELEMENT_NAME
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|innerXContent
 argument_list|(
@@ -1865,9 +1854,16 @@ name|targetOptionsBuilder
 operator|.
 name|highlightQuery
 argument_list|(
+name|QueryBuilder
+operator|.
+name|rewriteQuery
+argument_list|(
 name|highlighterBuilder
 operator|.
 name|highlightQuery
+argument_list|,
+name|context
+argument_list|)
 operator|.
 name|toQuery
 argument_list|(

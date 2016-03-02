@@ -100,7 +100,7 @@ name|type
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,analyzer=stop"
+literal|"type=text,analyzer=stop"
 argument_list|)
 operator|.
 name|execute
