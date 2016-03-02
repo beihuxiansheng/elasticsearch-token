@@ -242,9 +242,11 @@ specifier|static
 name|void
 name|check
 parameter_list|(
+specifier|final
 name|boolean
 name|enforceLimits
 parameter_list|,
+specifier|final
 name|List
 argument_list|<
 name|Check
@@ -413,6 +415,7 @@ name|Check
 argument_list|>
 name|checks
 parameter_list|(
+specifier|final
 name|Settings
 name|settings
 parameter_list|)
@@ -548,6 +551,7 @@ DECL|method|FileDescriptorCheck
 specifier|protected
 name|FileDescriptorCheck
 parameter_list|(
+specifier|final
 name|int
 name|limit
 parameter_list|)
@@ -665,6 +669,7 @@ DECL|method|MlockallCheck
 specifier|public
 name|MlockallCheck
 parameter_list|(
+specifier|final
 name|boolean
 name|mlockAllSet
 parameter_list|)

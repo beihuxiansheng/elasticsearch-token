@@ -283,6 +283,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|RuntimeException
 name|e
 parameter_list|)
@@ -432,12 +433,15 @@ decl_stmt|;
 specifier|public
 name|MlockallCheckTestCase
 parameter_list|(
+specifier|final
 name|boolean
 name|mlockallSet
 parameter_list|,
+specifier|final
 name|boolean
 name|isMemoryLocked
 parameter_list|,
+specifier|final
 name|boolean
 name|shouldFail
 parameter_list|)
@@ -604,6 +608,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|RuntimeException
 name|e
 parameter_list|)
