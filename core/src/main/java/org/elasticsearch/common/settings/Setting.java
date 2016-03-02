@@ -110,6 +110,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|regex
 operator|.
 name|Regex
@@ -348,6 +362,10 @@ comment|/**          * iff this setting can be dynamically updateable          *
 DECL|enum constant|Dynamic
 name|Dynamic
 block|,
+comment|/**          * mark this setting as deprecated          */
+DECL|enum constant|Deprecated
+name|Deprecated
+block|,
 comment|/**          * Cluster scope.          * @See IndexScope          * @See NodeScope          */
 DECL|enum constant|ClusterScope
 name|ClusterScope
@@ -360,6 +378,22 @@ comment|/**          * Index scope.          * @See ClusterScope          * @See
 DECL|enum constant|IndexScope
 name|IndexScope
 block|;     }
+DECL|field|logger
+specifier|private
+specifier|static
+specifier|final
+name|ESLogger
+name|logger
+init|=
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|Setting
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|key
 specifier|private
 specifier|final
@@ -766,6 +800,24 @@ name|NodeScope
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns<code>true</code> if this setting is deprecated, otherwise<code>false</code>      */
+DECL|method|isDeprecated
+specifier|public
+name|boolean
+name|isDeprecated
+parameter_list|()
+block|{
+return|return
+name|properties
+operator|.
+name|contains
+argument_list|(
+name|SettingsProperty
+operator|.
+name|Deprecated
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns<code>true</code> iff this setting is a group setting. Group settings represent a set of settings      * rather than a single value. The key, see {@link #getKey()}, in contrast to non-group settings is a prefix like<tt>cluster.store.</tt>      * that matches all settings with this prefix.      */
 DECL|method|isGroupSetting
 name|boolean
@@ -970,6 +1022,36 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
+comment|// They're using the setting, so we need to tell them to stop
+if|if
+condition|(
+name|this
+operator|.
+name|isDeprecated
+argument_list|()
+operator|&&
+name|this
+operator|.
+name|exists
+argument_list|(
+name|settings
+argument_list|)
+condition|)
+block|{
+comment|// It would be convenient to show its replacement key, but replacement is often not so simple
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] setting was deprecated in Elasticsearch and it will be removed in a future release! "
+operator|+
+literal|"See the breaking changes lists in the documentation for details"
+argument_list|,
+name|getKey
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|settings
 operator|.
@@ -4037,7 +4119,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * This setting type allows to validate settings that have the same type and a common prefix. For instance feature.${type}=[true|false]      * can easily be added with this setting. Yet, dynamic key settings don't support updaters our of the box unless {@link #getConcreteSetting(String)}      * is used to pull the updater.      */
+comment|/**      * This setting type allows to validate settings that have the same type and a common prefix. For instance feature.${type}=[true|false]      * can easily be added with this setting. Yet, dynamic key settings don't support updaters out of the box unless {@link #getConcreteSetting(String)}      * is used to pull the updater.      */
 end_comment
 
 begin_function
