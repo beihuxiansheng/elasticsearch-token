@@ -98,6 +98,20 @@ name|common
 operator|.
 name|logging
 operator|.
+name|DeprecationLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
 name|ESLogger
 import|;
 end_import
@@ -392,6 +406,19 @@ argument_list|(
 name|Setting
 operator|.
 name|class
+argument_list|)
+decl_stmt|;
+DECL|field|deprecationLogger
+specifier|private
+specifier|static
+specifier|final
+name|DeprecationLogger
+name|deprecationLogger
+init|=
+operator|new
+name|DeprecationLogger
+argument_list|(
+name|logger
 argument_list|)
 decl_stmt|;
 DECL|field|key
@@ -1039,9 +1066,9 @@ argument_list|)
 condition|)
 block|{
 comment|// It would be convenient to show its replacement key, but replacement is often not so simple
-name|logger
+name|deprecationLogger
 operator|.
-name|warn
+name|deprecated
 argument_list|(
 literal|"[{}] setting was deprecated in Elasticsearch and it will be removed in a future release! "
 operator|+
