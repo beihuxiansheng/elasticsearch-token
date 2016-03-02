@@ -1681,55 +1681,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|clusterService
-operator|.
-name|localNode
-argument_list|()
-operator|.
-name|shouldConnectTo
-argument_list|(
-name|node
-argument_list|)
-operator|&&
-operator|!
-name|clusterService
-operator|.
-name|localNode
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|node
-argument_list|)
-condition|)
-block|{
-comment|// the check "!clusterService.localNode().equals(node)" is to maintain backward comp. where before
-comment|// we allowed to connect from "local" client node to itself, certain tests rely on it, if we remove it, we
-comment|// need to fix
-comment|// those (and they randomize the client node usage, so tricky to find when)
-name|onFailure
-argument_list|(
-name|idx
-argument_list|,
-name|nodeId
-argument_list|,
-operator|new
-name|NodeShouldNotConnectException
-argument_list|(
-name|clusterService
-operator|.
-name|localNode
-argument_list|()
-argument_list|,
-name|node
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 else|else
 block|{
 name|NodeTaskRequest

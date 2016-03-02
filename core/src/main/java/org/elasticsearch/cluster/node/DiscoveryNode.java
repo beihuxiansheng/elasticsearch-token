@@ -1040,35 +1040,6 @@ operator|=
 name|version
 expr_stmt|;
 block|}
-comment|/**      * Should this node form a connection to the provided node.      */
-DECL|method|shouldConnectTo
-specifier|public
-name|boolean
-name|shouldConnectTo
-parameter_list|(
-name|DiscoveryNode
-name|otherNode
-parameter_list|)
-block|{
-if|if
-condition|(
-name|clientNode
-argument_list|()
-operator|&&
-name|otherNode
-operator|.
-name|clientNode
-argument_list|()
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * The address that the node can be communicated with.      */
 DECL|method|address
 specifier|public
