@@ -269,6 +269,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
+specifier|final
 name|Check
 name|check
 range|:
@@ -420,6 +421,7 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
+specifier|final
 name|List
 argument_list|<
 name|Check
@@ -431,6 +433,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+specifier|final
 name|FileDescriptorCheck
 name|fileDescriptorCheck
 init|=
