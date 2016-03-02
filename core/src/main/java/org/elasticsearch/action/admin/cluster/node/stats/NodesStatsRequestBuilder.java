@@ -392,6 +392,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should ingest statistics be returned.      */
+DECL|method|ingest
+specifier|public
+name|NodesStatsRequestBuilder
+name|ingest
+parameter_list|(
+name|boolean
+name|ingest
+parameter_list|)
+block|{
+name|request
+operator|.
+name|ingest
+argument_list|(
+name|ingest
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 
