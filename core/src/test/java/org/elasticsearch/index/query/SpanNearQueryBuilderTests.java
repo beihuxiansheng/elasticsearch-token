@@ -569,9 +569,9 @@ name|Exception
 block|{
 name|assertEquals
 argument_list|(
-literal|"We can remove support for ignoring collect_payloads in 4.0"
+literal|"We can remove support for ignoring collect_payloads in 6.0.0"
 argument_list|,
-literal|3
+literal|5
 argument_list|,
 name|Version
 operator|.
