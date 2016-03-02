@@ -1027,13 +1027,9 @@ name|Long
 operator|.
 name|MIN_VALUE
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|SettingsProperty
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 DECL|field|threadPool
