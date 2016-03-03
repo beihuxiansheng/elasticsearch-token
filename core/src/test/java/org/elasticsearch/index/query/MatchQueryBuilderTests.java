@@ -1425,7 +1425,8 @@ decl_stmt|;
 name|double
 name|width
 init|=
-literal|0
+operator|-
+literal|1
 decl_stmt|;
 try|try
 block|{
@@ -1488,7 +1489,8 @@ if|if
 condition|(
 name|width
 operator|==
-literal|0
+operator|-
+literal|1
 condition|)
 block|{
 if|if
