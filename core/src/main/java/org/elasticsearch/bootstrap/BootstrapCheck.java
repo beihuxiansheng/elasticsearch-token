@@ -709,7 +709,7 @@ name|errorMessage
 parameter_list|()
 block|{
 return|return
-literal|"Memory locking requested for elasticsearch process but memory is not locked"
+literal|"memory locking requested for elasticsearch process but memory is not locked"
 return|;
 block|}
 comment|// visible for testing
