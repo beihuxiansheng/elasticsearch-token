@@ -18,6 +18,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -733,6 +749,13 @@ comment|/**  * Tests for indices that use shadow replicas and a shared filesyste
 end_comment
 
 begin_class
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"breaks after https://github.com/elastic/elasticsearch/pull/16930 , Simon to fix"
+argument_list|)
 annotation|@
 name|ESIntegTestCase
 operator|.
