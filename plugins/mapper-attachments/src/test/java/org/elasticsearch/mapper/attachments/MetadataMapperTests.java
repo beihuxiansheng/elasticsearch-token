@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test for https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/38  */
+comment|/**  * Test for https://github.com/elastic/elasticsearch-mapper-attachments/issues/38  */
 end_comment
 
 begin_class

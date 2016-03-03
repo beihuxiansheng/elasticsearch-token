@@ -3523,7 +3523,7 @@ literal|"test-repo"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test case for issue #86: https://github.com/elasticsearch/elasticsearch-cloud-aws/issues/86      */
+comment|/**      * Test case for issue #86: https://github.com/elastic/elasticsearch-cloud-aws/issues/86      */
 DECL|method|testNonExistingRepo86
 specifier|public
 name|void
@@ -3669,7 +3669,7 @@ block|{
 comment|// Expected
 block|}
 block|}
-comment|/**      * For issue #86: https://github.com/elasticsearch/elasticsearch-cloud-aws/issues/86      */
+comment|/**      * For issue #86: https://github.com/elastic/elasticsearch-cloud-aws/issues/86      */
 DECL|method|testGetDeleteNonExistingSnapshot86
 specifier|public
 name|void

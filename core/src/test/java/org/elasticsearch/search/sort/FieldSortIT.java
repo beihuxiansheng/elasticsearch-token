@@ -816,7 +816,7 @@ name|AwaitsFix
 argument_list|(
 name|bugUrl
 operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/issues/9421"
+literal|"https://github.com/elastic/elasticsearch/issues/9421"
 argument_list|)
 DECL|method|testIssue8226
 specifier|public
@@ -15650,7 +15650,7 @@ name|timestamp
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test case for issue 6150: https://github.com/elasticsearch/elasticsearch/issues/6150      */
+comment|/**      * Test case for issue 6150: https://github.com/elastic/elasticsearch/issues/6150      */
 DECL|method|testNestedSort
 specifier|public
 name|void

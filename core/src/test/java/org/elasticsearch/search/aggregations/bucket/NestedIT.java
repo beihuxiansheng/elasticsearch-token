@@ -2930,7 +2930,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Test based on: https://github.com/elasticsearch/elasticsearch/issues/9280
+comment|// Test based on: https://github.com/elastic/elasticsearch/issues/9280
 DECL|method|testParentFilterResolvedCorrectly
 specifier|public
 name|void

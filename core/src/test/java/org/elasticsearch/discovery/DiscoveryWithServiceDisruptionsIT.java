@@ -1647,7 +1647,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Test that no split brain occurs under partial network partition. See https://github.com/elasticsearch/elasticsearch/issues/2488      */
+comment|/**      * Test that no split brain occurs under partial network partition. See https://github.com/elastic/elasticsearch/issues/2488      */
 DECL|method|testFailWithMinimumMasterNodesConfigured
 specifier|public
 name|void

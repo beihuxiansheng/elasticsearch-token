@@ -785,7 +785,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// See NullPointer issue when filters are empty:
-comment|// https://github.com/elasticsearch/elasticsearch/issues/8438
+comment|// https://github.com/elastic/elasticsearch/issues/8438
 DECL|method|testEmptyFilterDeclarations
 specifier|public
 name|void
