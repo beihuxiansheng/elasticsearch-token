@@ -695,6 +695,11 @@ parameter_list|)
 block|{
 comment|// we've already logged this.
 block|}
+name|JNANatives
+operator|.
+name|trySetMaxNumberOfThreads
+argument_list|()
+expr_stmt|;
 comment|// init lucene random seed. it will use /dev/urandom where available:
 name|StringHelper
 operator|.
