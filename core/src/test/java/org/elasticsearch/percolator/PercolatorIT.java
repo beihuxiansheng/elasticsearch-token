@@ -16527,13 +16527,13 @@ literal|"    \"doc\": {\n"
 operator|+
 literal|"      \"properties\": {\n"
 operator|+
-literal|"        \"name\": {\"type\":\"string\"},\n"
+literal|"        \"name\": {\"type\":\"text\"},\n"
 operator|+
 literal|"        \"persons\": {\n"
 operator|+
 literal|"          \"type\": \"nested\"\n,"
 operator|+
-literal|"          \"properties\" : {\"foo\" : {\"type\" : \"string\"}}"
+literal|"          \"properties\" : {\"foo\" : {\"type\" : \"text\"}}"
 operator|+
 literal|"        }\n"
 operator|+

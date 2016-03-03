@@ -3546,6 +3546,8 @@ argument_list|,
 name|currentFieldName
 argument_list|,
 literal|"string"
+argument_list|,
+literal|"string"
 argument_list|)
 expr_stmt|;
 if|if
@@ -3587,6 +3589,8 @@ argument_list|(
 name|context
 argument_list|,
 name|currentFieldName
+argument_list|,
+literal|"text"
 argument_list|,
 literal|"string"
 argument_list|)
@@ -3630,6 +3634,8 @@ argument_list|(
 name|context
 argument_list|,
 name|currentFieldName
+argument_list|,
+literal|"keyword"
 argument_list|,
 literal|"string"
 argument_list|)
@@ -3945,7 +3951,7 @@ name|context
 argument_list|,
 name|currentFieldName
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|,
 literal|null
 argument_list|)
@@ -4272,7 +4278,7 @@ block|{
 name|builder
 operator|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(

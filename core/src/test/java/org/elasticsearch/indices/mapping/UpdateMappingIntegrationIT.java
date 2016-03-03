@@ -877,7 +877,7 @@ name|addMapping
 argument_list|(
 literal|"doc"
 argument_list|,
-literal|"{\"doc\":{\"properties\":{\"body\":{\"type\":\"string\"}}}}"
+literal|"{\"doc\":{\"properties\":{\"body\":{\"type\":\"text\"}}}}"
 argument_list|)
 operator|.
 name|execute
@@ -1008,7 +1008,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"{\"doc\":{\"properties\":{\"body\":{\"type\":\"string\"},\"date\":{\"type\":\"integer\"}}}}"
+literal|"{\"doc\":{\"properties\":{\"body\":{\"type\":\"text\"},\"date\":{\"type\":\"integer\"}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1234,7 +1234,7 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"string\"}}}}"
+literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\"}}}}"
 argument_list|)
 operator|.
 name|execute
@@ -1324,7 +1324,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"mapper [body] of different type, current_type [string], merged_type [integer]"
+literal|"mapper [body] of different type, current_type [text], merged_type [integer]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1356,7 +1356,7 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"string\", \"norms\": { \"enabled\": false }}}}}"
+literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\", \"norms\": { \"enabled\": false }}}}}"
 argument_list|)
 operator|.
 name|execute
@@ -1388,7 +1388,7 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"string\", \"norms\": { \"enabled\": true }}}}}"
+literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\", \"norms\": { \"enabled\": true }}}}}"
 argument_list|)
 operator|.
 name|execute
@@ -1471,7 +1471,7 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"string\"}}}}"
+literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\"}}}}"
 argument_list|)
 operator|.
 name|execute
@@ -1532,7 +1532,7 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"string\"}}}}"
+literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\"}}}}"
 argument_list|)
 operator|.
 name|execute

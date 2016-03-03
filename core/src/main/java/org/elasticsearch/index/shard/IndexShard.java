@@ -4333,7 +4333,10 @@ DECL|method|segmentStats
 specifier|public
 name|SegmentsStats
 name|segmentStats
-parameter_list|()
+parameter_list|(
+name|boolean
+name|includeSegmentFileSizes
+parameter_list|)
 block|{
 name|SegmentsStats
 name|segmentsStats
@@ -4342,7 +4345,9 @@ name|getEngine
 argument_list|()
 operator|.
 name|segmentsStats
-argument_list|()
+argument_list|(
+name|includeSegmentFileSizes
+argument_list|)
 decl_stmt|;
 name|segmentsStats
 operator|.

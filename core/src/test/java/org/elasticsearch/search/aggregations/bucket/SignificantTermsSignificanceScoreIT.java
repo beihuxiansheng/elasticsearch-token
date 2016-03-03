@@ -908,7 +908,7 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-literal|"string"
+literal|"text"
 else|:
 literal|"long"
 decl_stmt|;
@@ -1806,7 +1806,7 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-literal|"string"
+literal|"text"
 else|:
 literal|"long"
 decl_stmt|;
@@ -2426,7 +2426,7 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-literal|"string"
+literal|"text"
 else|:
 literal|"long"
 decl_stmt|;
@@ -3558,7 +3558,7 @@ argument_list|(
 name|randomBoolean
 argument_list|()
 condition|?
-literal|"string"
+literal|"text"
 else|:
 literal|"long"
 argument_list|)

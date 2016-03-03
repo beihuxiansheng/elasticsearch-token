@@ -356,7 +356,7 @@ block|{
 name|String
 name|termtype
 init|=
-literal|"string"
+literal|"text"
 decl_stmt|;
 if|if
 condition|(
@@ -867,7 +867,7 @@ index|[]
 name|termTypes
 init|=
 block|{
-literal|"string"
+literal|"text"
 block|,
 literal|"long"
 block|,
