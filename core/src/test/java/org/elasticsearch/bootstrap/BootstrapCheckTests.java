@@ -622,7 +622,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Memory locking requested for elasticsearch process but memory is not locked"
+literal|"memory locking requested for elasticsearch process but memory is not locked"
 argument_list|)
 argument_list|)
 expr_stmt|;
