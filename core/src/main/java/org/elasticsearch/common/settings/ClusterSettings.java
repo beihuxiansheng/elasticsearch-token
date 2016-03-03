@@ -2311,10 +2311,6 @@ name|NODE_NAME_SETTING
 argument_list|,
 name|Node
 operator|.
-name|NODE_CLIENT_SETTING
-argument_list|,
-name|Node
-operator|.
 name|NODE_DATA_SETTING
 argument_list|,
 name|Node

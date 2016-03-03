@@ -5051,54 +5051,47 @@ operator|.
 name|node
 argument_list|()
 decl_stmt|;
+comment|//nocommit we should rename this and its setting, also we ignore node.ingest, but maybe it's ok here
 if|if
 condition|(
 name|masterElectionFilterClientNodes
 operator|&&
-operator|(
-name|node
-operator|.
-name|clientNode
-argument_list|()
-operator|||
-operator|(
-operator|!
 name|node
 operator|.
 name|masterNode
 argument_list|()
+operator|==
+literal|false
 operator|&&
-operator|!
 name|node
 operator|.
 name|dataNode
 argument_list|()
-operator|)
-operator|)
+operator|==
+literal|false
 condition|)
 block|{
-comment|// filter out the client node, which is a client node, or also one that is not data and not master (effectively, client)
+comment|// filter out nodes that don't hold data and are not master eligible
 block|}
 elseif|else
 if|if
 condition|(
 name|masterElectionFilterDataNodes
 operator|&&
-operator|(
-operator|!
 name|node
 operator|.
 name|masterNode
 argument_list|()
+operator|==
+literal|false
 operator|&&
 name|node
 operator|.
 name|dataNode
 argument_list|()
-operator|)
 condition|)
 block|{
-comment|// filter out data node that is not also master
+comment|// filter out dedicated data nodes
 block|}
 else|else
 block|{

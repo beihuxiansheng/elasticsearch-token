@@ -60,6 +60,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -185,11 +197,15 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|(
-name|settings
+name|Node
 operator|.
-name|getByPrefix
+name|NODE_ATTRIBUTES
+operator|.
+name|get
 argument_list|(
-literal|"node."
+name|this
+operator|.
+name|settings
 argument_list|)
 operator|.
 name|getAsMap
@@ -214,44 +230,42 @@ literal|"client"
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|attributes
-operator|.
-name|get
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-literal|"client"
-argument_list|)
+literal|"node.client setting is no longer supported, use "
+operator|+
+name|Node
 operator|.
-name|equals
-argument_list|(
-literal|"false"
-argument_list|)
-condition|)
-block|{
-name|attributes
+name|NODE_MASTER_SETTING
 operator|.
-name|remove
-argument_list|(
-literal|"client"
+name|getKey
+argument_list|()
+operator|+
+literal|", "
+operator|+
+name|Node
+operator|.
+name|NODE_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|" and "
+operator|+
+name|Node
+operator|.
+name|NODE_INGEST_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|" explicitly instead"
 argument_list|)
-expr_stmt|;
-comment|// this is the default
+throw|;
 block|}
-else|else
-block|{
-comment|// if we are client node, don't store data ...
-name|attributes
-operator|.
-name|put
-argument_list|(
-literal|"data"
-argument_list|,
-literal|"false"
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|//nocommit why don't we remove master as well if it's true? and ingest?
 if|if
 condition|(
 name|attributes
@@ -392,7 +406,6 @@ return|;
 block|}
 DECL|interface|CustomAttributesProvider
 specifier|public
-specifier|static
 interface|interface
 name|CustomAttributesProvider
 block|{

@@ -60,20 +60,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|logging
@@ -206,19 +192,12 @@ name|threadPool
 operator|=
 name|threadPool
 expr_stmt|;
-comment|// Should the action listener be threaded or not by default. Action listeners are automatically threaded for client
-comment|// nodes and transport client in order to make sure client side code is not executed on IO threads.
+comment|// Should the action listener be threaded or not by default. Action listeners are automatically threaded for
+comment|// the transport client in order to make sure client side code is not executed on IO threads.
 name|this
 operator|.
 name|threadedListener
 operator|=
-name|DiscoveryNode
-operator|.
-name|clientNode
-argument_list|(
-name|settings
-argument_list|)
-operator|||
 name|TransportClient
 operator|.
 name|CLIENT_TYPE

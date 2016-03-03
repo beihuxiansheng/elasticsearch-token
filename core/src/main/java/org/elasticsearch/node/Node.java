@@ -1311,33 +1311,6 @@ operator|.
 name|CLUSTER
 argument_list|)
 decl_stmt|;
-DECL|field|NODE_CLIENT_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|Setting
-argument_list|<
-name|Boolean
-argument_list|>
-name|NODE_CLIENT_SETTING
-init|=
-name|Setting
-operator|.
-name|boolSetting
-argument_list|(
-literal|"node.client"
-argument_list|,
-literal|false
-argument_list|,
-literal|false
-argument_list|,
-name|Setting
-operator|.
-name|Scope
-operator|.
-name|CLUSTER
-argument_list|)
-decl_stmt|;
 DECL|field|NODE_DATA_SETTING
 specifier|public
 specifier|static
@@ -1503,7 +1476,7 @@ operator|.
 name|CLUSTER
 argument_list|)
 decl_stmt|;
-comment|// this sucks that folks can mistype client etc and get away with it.
+comment|// this sucks that folks can mistype data, master or ingest and get away with it.
 comment|// TODO: we should move this to node.attribute.${name} = ${value} instead.
 DECL|field|NODE_ATTRIBUTES
 specifier|public
