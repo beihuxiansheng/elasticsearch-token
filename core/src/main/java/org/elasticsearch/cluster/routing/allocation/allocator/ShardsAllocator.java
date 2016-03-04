@@ -30,20 +30,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|ShardRouting
 import|;
 end_import
@@ -120,7 +106,7 @@ specifier|public
 interface|interface
 name|ShardsAllocator
 block|{
-comment|/**      * Applies changes on started nodes based on the implemented algorithm. For example if a       * shard has changed to {@link ShardRoutingState#STARTED} from {@link ShardRoutingState#RELOCATING}       * this allocator might apply some cleanups on the node that used to hold the shard.      * @param allocation all started {@link ShardRouting shards}      */
+comment|/**      * Applies changes on started nodes based on the implemented algorithm. For example if a      * shard has changed to {@link ShardRoutingState#STARTED} from {@link ShardRoutingState#RELOCATING}      * this allocator might apply some cleanups on the node that used to hold the shard.      * @param allocation all started {@link ShardRouting shards}      */
 DECL|method|applyStartedShards
 name|void
 name|applyStartedShards
@@ -129,7 +115,7 @@ name|StartedRerouteAllocation
 name|allocation
 parameter_list|)
 function_decl|;
-comment|/**      * Applies changes on failed nodes based on the implemented algorithm.       * @param allocation all failed {@link ShardRouting shards}      */
+comment|/**      * Applies changes on failed nodes based on the implemented algorithm.      * @param allocation all failed {@link ShardRouting shards}      */
 DECL|method|applyFailedShards
 name|void
 name|applyFailedShards
@@ -138,7 +124,7 @@ name|FailedRerouteAllocation
 name|allocation
 parameter_list|)
 function_decl|;
-comment|/**      * Assign all unassigned shards to nodes       *       * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
+comment|/**      * Assign all unassigned shards to nodes      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
 DECL|method|allocateUnassigned
 name|boolean
 name|allocateUnassigned
@@ -147,7 +133,7 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 function_decl|;
-comment|/**      * Rebalancing number of shards on all nodes      *         * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
+comment|/**      * Rebalancing number of shards on all nodes      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
 DECL|method|rebalance
 name|boolean
 name|rebalance
@@ -156,17 +142,11 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 function_decl|;
-comment|/**      * Moves a shard from the given node to other node.      *       * @param shardRouting the shard to move      * @param node A node containing the shard      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
-DECL|method|move
+comment|/**      * Move started shards that can not be allocated to a node anymore      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
+DECL|method|moveShards
 name|boolean
-name|move
+name|moveShards
 parameter_list|(
-name|ShardRouting
-name|shardRouting
-parameter_list|,
-name|RoutingNode
-name|node
-parameter_list|,
 name|RoutingAllocation
 name|allocation
 parameter_list|)
