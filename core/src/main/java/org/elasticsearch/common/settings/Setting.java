@@ -669,7 +669,7 @@ name|properties
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param dynamic true iff this setting can be dynamically updateable      * @param scope the scope of this setting      */
+comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
 DECL|method|Setting
 specifier|public
 name|Setting
@@ -693,11 +693,9 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|boolean
-name|dynamic
-parameter_list|,
-name|Scope
-name|scope
+name|SettingsProperty
+modifier|...
+name|properties
 parameter_list|)
 block|{
 name|this
@@ -712,9 +710,7 @@ name|defaultValue
 argument_list|,
 name|parser
 argument_list|,
-name|dynamic
-argument_list|,
-name|scope
+name|properties
 argument_list|)
 expr_stmt|;
 block|}
@@ -4280,11 +4276,9 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|boolean
-name|dynamic
-parameter_list|,
-name|Scope
-name|scope
+name|SettingsProperty
+modifier|...
+name|properties
 parameter_list|)
 block|{
 return|return
@@ -4305,9 +4299,7 @@ name|defaultValue
 argument_list|,
 name|parser
 argument_list|,
-name|dynamic
-argument_list|,
-name|scope
+name|properties
 argument_list|)
 return|;
 block|}
@@ -4352,11 +4344,9 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|boolean
-name|dynamic
-parameter_list|,
-name|Scope
-name|scope
+name|SettingsProperty
+modifier|...
+name|properties
 parameter_list|)
 block|{
 return|return
@@ -4375,9 +4365,7 @@ name|defaultValue
 argument_list|,
 name|parser
 argument_list|,
-name|dynamic
-argument_list|,
-name|scope
+name|properties
 argument_list|)
 return|;
 block|}
@@ -4413,11 +4401,9 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|boolean
-name|dynamic
-parameter_list|,
-name|Scope
-name|scope
+name|SettingsProperty
+modifier|...
+name|properties
 parameter_list|)
 block|{
 return|return
@@ -4435,9 +4421,7 @@ name|defaultValue
 argument_list|,
 name|parser
 argument_list|,
-name|dynamic
-argument_list|,
-name|scope
+name|properties
 argument_list|)
 return|;
 block|}

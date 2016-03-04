@@ -3796,13 +3796,11 @@ name|Boolean
 operator|::
 name|parseBoolean
 argument_list|,
-literal|false
-argument_list|,
 name|Setting
 operator|.
-name|Scope
+name|SettingsProperty
 operator|.
-name|CLUSTER
+name|ClusterScope
 argument_list|)
 decl_stmt|;
 name|assertTrue
