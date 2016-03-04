@@ -262,12 +262,6 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-name|Terminal
-operator|.
-name|Verbosity
-operator|.
-name|SILENT
-argument_list|,
 literal|"ERROR: "
 operator|+
 name|e
@@ -333,12 +327,6 @@ name|terminal
 operator|.
 name|println
 argument_list|(
-name|Terminal
-operator|.
-name|Verbosity
-operator|.
-name|SILENT
-argument_list|,
 literal|"ERROR: Cannot specify -s and -v together"
 argument_list|)
 expr_stmt|;
@@ -406,6 +394,41 @@ name|terminal
 argument_list|,
 name|options
 argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|OptionException
+name|e
+parameter_list|)
+block|{
+name|printHelp
+argument_list|(
+name|terminal
+argument_list|)
+expr_stmt|;
+name|terminal
+operator|.
+name|println
+argument_list|(
+name|Terminal
+operator|.
+name|Verbosity
+operator|.
+name|SILENT
+argument_list|,
+literal|"ERROR: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|ExitCodes
+operator|.
+name|USAGE
 return|;
 block|}
 catch|catch
