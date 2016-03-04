@@ -2024,7 +2024,12 @@ name|put
 argument_list|(
 name|DiscoveryNode
 operator|.
-name|MASTER_ATTR
+name|Role
+operator|.
+name|MASTER
+operator|.
+name|getRoleName
+argument_list|()
 argument_list|,
 name|isMasterEligible
 condition|?
@@ -2037,7 +2042,12 @@ name|put
 argument_list|(
 name|DiscoveryNode
 operator|.
-name|DATA_ATTR
+name|Role
+operator|.
+name|DATA
+operator|.
+name|getRoleName
+argument_list|()
 argument_list|,
 name|isData
 condition|?
