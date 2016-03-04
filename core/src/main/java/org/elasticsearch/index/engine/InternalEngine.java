@@ -5532,14 +5532,6 @@ name|getCodec
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|/* We set this timeout to a highish value to work around              * the default poll interval in the Lucene lock that is              * 1000ms by default. We might need to poll multiple times              * here but with 1s poll this is only executed twice at most              * in combination with the default writelock timeout*/
-name|iwc
-operator|.
-name|setWriteLockTimeout
-argument_list|(
-literal|5000
-argument_list|)
-expr_stmt|;
 name|iwc
 operator|.
 name|setUseCompoundFile

@@ -3607,7 +3607,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// related to https://github.com/elasticsearch/elasticsearch/issues/5864
+comment|// related to https://github.com/elastic/elasticsearch/issues/5864
 DECL|method|testMistypedTypeInRoot
 specifier|public
 name|void
@@ -3688,7 +3688,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// issue https://github.com/elasticsearch/elasticsearch/issues/5864
+comment|// issue https://github.com/elastic/elasticsearch/issues/5864
 DECL|method|testMisplacedMappingAsRoot
 specifier|public
 name|void
@@ -3769,7 +3769,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// issue https://github.com/elasticsearch/elasticsearch/issues/5864
+comment|// issue https://github.com/elastic/elasticsearch/issues/5864
 comment|// test that RootObjectMapping still works
 DECL|method|testRootObjectMapperPropertiesDoNotCauseException
 specifier|public
@@ -3875,7 +3875,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// issue https://github.com/elasticsearch/elasticsearch/issues/5864
+comment|// issue https://github.com/elastic/elasticsearch/issues/5864
 DECL|method|testMetadataMappersStillWorking
 specifier|public
 name|void

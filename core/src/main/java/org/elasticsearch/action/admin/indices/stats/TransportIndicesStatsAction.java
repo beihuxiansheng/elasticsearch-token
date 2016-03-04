@@ -963,6 +963,16 @@ operator|.
 name|Segments
 argument_list|)
 expr_stmt|;
+name|flags
+operator|.
+name|includeSegmentFileSizes
+argument_list|(
+name|request
+operator|.
+name|includeSegmentFileSizes
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(

@@ -90,7 +90,7 @@ name|SearchStatsUnitTests
 extends|extends
 name|ESTestCase
 block|{
-comment|// https://github.com/elasticsearch/elasticsearch/issues/7644
+comment|// https://github.com/elastic/elasticsearch/issues/7644
 DECL|method|testShardLevelSearchGroupStats
 specifier|public
 name|void

@@ -142,26 +142,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|mapping
-operator|.
-name|put
-operator|.
-name|PutMappingResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|index
 operator|.
 name|IndexResponse
@@ -452,7 +432,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -491,18 +471,6 @@ operator|.
 name|test
 operator|.
 name|TestSearchContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|VersionUtils
 import|;
 end_import
 
@@ -1035,7 +1003,7 @@ name|fieldMapper
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -1059,7 +1027,7 @@ name|fieldMapper
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -1083,7 +1051,7 @@ name|fieldMapper
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
