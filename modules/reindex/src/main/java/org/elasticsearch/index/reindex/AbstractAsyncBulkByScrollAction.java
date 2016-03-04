@@ -850,6 +850,9 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 function_decl|;
 DECL|method|start
@@ -1123,6 +1126,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+comment|// If any of the shards failed that should abort the request.
+operator|(
 name|searchResponse
 operator|.
 name|getShardFailures
@@ -1138,6 +1143,13 @@ operator|.
 name|length
 operator|>
 literal|0
+operator|)
+comment|// Timeouts aren't shard failures but we still need to pass them back to the user.
+operator|||
+name|searchResponse
+operator|.
+name|isTimedOut
+argument_list|()
 condition|)
 block|{
 name|startNormalTermination
@@ -1157,6 +1169,11 @@ name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|)
+argument_list|,
+name|searchResponse
+operator|.
+name|isTimedOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1266,6 +1283,8 @@ argument_list|()
 argument_list|,
 name|emptyList
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1703,6 +1722,8 @@ argument_list|)
 argument_list|,
 name|emptyList
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1735,6 +1756,8 @@ argument_list|()
 argument_list|,
 name|emptyList
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1916,6 +1939,9 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 block|{
 if|if
@@ -1935,6 +1961,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2001,6 +2029,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 expr_stmt|;
 block|}
@@ -2042,10 +2072,12 @@ argument_list|()
 argument_list|,
 name|emptyList
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Finish the request.      *      * @param failure if non null then the request failed catastrophically with this exception      * @param indexingFailures any indexing failures accumulated during the request      * @param searchFailures any search failures accumulated during the request      */
+comment|/**      * Finish the request.      *      * @param failure if non null then the request failed catastrophically with this exception      * @param indexingFailures any indexing failures accumulated during the request      * @param searchFailures any search failures accumulated during the request      * @param timedOut have any of the sub-requests timed out?      */
 DECL|method|finishHim
 name|void
 name|finishHim
@@ -2064,6 +2096,9 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 block|{
 name|String
@@ -2192,6 +2227,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 argument_list|)
 expr_stmt|;
