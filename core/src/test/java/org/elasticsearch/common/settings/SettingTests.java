@@ -4185,9 +4185,9 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// We test the default scope
-name|setting
-operator|=
+comment|// Those should fail
+try|try
+block|{
 name|Setting
 operator|.
 name|simpleString
@@ -4195,33 +4195,32 @@ argument_list|(
 literal|"foo.bar"
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"Zero scope should fail"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
 name|assertThat
 argument_list|(
-name|setting
+name|e
 operator|.
-name|hasNodeScope
+name|getMessage
 argument_list|()
 argument_list|,
-name|is
+name|containsString
 argument_list|(
-literal|true
+literal|"Zero or more than one scope has been added to the setting"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|setting
-operator|.
-name|hasIndexScope
-argument_list|()
-argument_list|,
-name|is
-argument_list|(
-literal|false
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Those should fail
+block|}
 try|try
 block|{
 name|Setting
@@ -4260,7 +4259,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"More than one scope has been added to the setting"
+literal|"Zero or more than one scope has been added to the setting"
 argument_list|)
 argument_list|)
 expr_stmt|;

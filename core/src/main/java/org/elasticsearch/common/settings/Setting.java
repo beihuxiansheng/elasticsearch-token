@@ -525,49 +525,7 @@ name|parser
 operator|=
 name|parser
 expr_stmt|;
-if|if
-condition|(
-name|properties
-operator|.
-name|length
-operator|==
-literal|0
-condition|)
-block|{
-name|this
-operator|.
-name|properties
-operator|=
-name|EnumSet
-operator|.
-name|of
-argument_list|(
-name|Property
-operator|.
-name|NodeScope
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|this
-operator|.
-name|properties
-operator|=
-name|EnumSet
-operator|.
-name|copyOf
-argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|properties
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-comment|// We validate scope settings. They are mutually exclusive
+comment|// We validate scope settings. We should have one and only one.
 name|int
 name|numScopes
 init|=
@@ -604,7 +562,7 @@ block|}
 if|if
 condition|(
 name|numScopes
-operator|>
+operator|!=
 literal|1
 condition|)
 block|{
@@ -612,7 +570,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"More than one scope has been added to the setting ["
+literal|"Zero or more than one scope has been added to the setting ["
 operator|+
 name|key
 operator|+
@@ -620,6 +578,22 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+name|this
+operator|.
+name|properties
+operator|=
+name|EnumSet
+operator|.
+name|copyOf
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|properties
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
 DECL|method|Setting
