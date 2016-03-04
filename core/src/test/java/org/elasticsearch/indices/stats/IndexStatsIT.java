@@ -8605,7 +8605,7 @@ name|addMapping
 argument_list|(
 literal|"bar"
 argument_list|,
-literal|"{ \"properties\": { \"bar\": { \"type\": \"string\", \"fields\": { \"completion\": { \"type\": \"completion\" }}},\"baz\": { \"type\": \"string\", \"fields\": { \"completion\": { \"type\": \"completion\" }}}}}"
+literal|"{ \"properties\": { \"bar\": { \"type\": \"text\", \"fields\": { \"completion\": { \"type\": \"completion\" }}},\"baz\": { \"type\": \"text\", \"fields\": { \"completion\": { \"type\": \"completion\" }}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;

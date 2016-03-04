@@ -602,7 +602,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test Case for #5132: Source filtering with wildcards broken when given multiple patterns      * https://github.com/elasticsearch/elasticsearch/issues/5132      */
+comment|/**      * Test Case for #5132: Source filtering with wildcards broken when given multiple patterns      * https://github.com/elastic/elasticsearch/issues/5132      */
 DECL|method|testSourceWithWildcardFiltering
 specifier|public
 name|void

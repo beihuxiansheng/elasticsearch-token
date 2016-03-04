@@ -3289,7 +3289,7 @@ name|addMapping
 argument_list|(
 literal|"type1"
 argument_list|,
-literal|"{\"type1\" : {\"properties\" : {\"value\" : {\"type\" : \"string\"}}}}"
+literal|"{\"type1\" : {\"properties\" : {\"value\" : {\"type\" : \"text\"}}}}"
 argument_list|)
 operator|.
 name|addAlias
@@ -4779,7 +4779,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"index creation should have failed due to alias with existing index name in mathching index template"
+literal|"index creation should have failed due to alias with existing index name in matching index template"
 argument_list|)
 expr_stmt|;
 block|}

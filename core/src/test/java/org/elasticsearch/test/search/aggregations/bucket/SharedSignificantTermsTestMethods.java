@@ -346,7 +346,7 @@ operator|.
 name|randomBoolean
 argument_list|()
 condition|?
-literal|"string"
+literal|"text"
 else|:
 literal|"long"
 decl_stmt|;

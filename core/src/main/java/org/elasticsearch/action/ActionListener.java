@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A listener for action responses or failures.  *  *  */
+comment|/**  * A listener for action responses or failures.  */
 end_comment
 
 begin_interface
@@ -27,7 +27,7 @@ parameter_list|<
 name|Response
 parameter_list|>
 block|{
-comment|/**      * A response handler.      */
+comment|/**      * Handle action response. This response may constitute a failure or a      * success but it is up to the listener to make that decision.      */
 DECL|method|onResponse
 name|void
 name|onResponse
@@ -36,7 +36,7 @@ name|Response
 name|response
 parameter_list|)
 function_decl|;
-comment|/**      * A failure handler.      */
+comment|/**      * A failure caused by an exception at some phase of the task.      */
 DECL|method|onFailure
 name|void
 name|onFailure

@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Reported issue in #15  * (https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/15)  */
+comment|/**  * Reported issue in #15  * (https://github.com/elastic/elasticsearch-cloud-azure/issues/15)  */
 end_comment
 
 begin_class

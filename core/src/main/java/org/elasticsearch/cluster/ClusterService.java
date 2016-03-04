@@ -181,6 +181,17 @@ parameter_list|)
 throws|throws
 name|IllegalStateException
 function_decl|;
+comment|/**      * Remove an initial block to be set on the first cluster state created.      */
+DECL|method|removeInitialStateBlock
+name|void
+name|removeInitialStateBlock
+parameter_list|(
+name|int
+name|blockId
+parameter_list|)
+throws|throws
+name|IllegalStateException
+function_decl|;
 comment|/**      * The operation routing.      */
 DECL|method|operationRouting
 name|OperationRouting

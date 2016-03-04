@@ -495,7 +495,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A stream from another node to this node. Technically, it can also be streamed from a byte array but that is mostly for testing.  */
 end_comment
 
 begin_class
@@ -516,6 +516,7 @@ name|Version
 operator|.
 name|CURRENT
 decl_stmt|;
+comment|/**      * The version of the node on the other side of this stream.      */
 DECL|method|getVersion
 specifier|public
 name|Version
@@ -528,9 +529,10 @@ operator|.
 name|version
 return|;
 block|}
+comment|/**      * Set the version of the node on the other side of this stream.      */
 DECL|method|setVersion
 specifier|public
-name|StreamOutput
+name|void
 name|setVersion
 parameter_list|(
 name|Version
@@ -543,9 +545,6 @@ name|version
 operator|=
 name|version
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 DECL|method|position
 specifier|public

@@ -1903,7 +1903,7 @@ expr_stmt|;
 comment|// but we have an update
 name|assertEquals
 argument_list|(
-literal|"{\"type\":{\"properties\":{\"foo\":{\"type\":\"string\"}}}}"
+literal|"{\"type\":{\"properties\":{\"foo\":{\"type\":\"text\"}}}}"
 argument_list|,
 name|serialize
 argument_list|(
@@ -2094,7 +2094,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2275,7 +2275,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2290,7 +2290,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2500,7 +2500,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2700,7 +2700,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2936,7 +2936,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -3155,7 +3155,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject

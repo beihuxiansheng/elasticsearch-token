@@ -493,7 +493,7 @@ block|{
 comment|// a write operation might still be in flight when the test has finished
 comment|// so we should not check the operation counter here
 block|}
-comment|/**      * Tests retry mechanism when indexing. If an exception occurs when indexing then the indexing request is tried again before finally failing.      * If auto generated ids are used this must not lead to duplicate ids      * see https://github.com/elasticsearch/elasticsearch/issues/8788      */
+comment|/**      * Tests retry mechanism when indexing. If an exception occurs when indexing then the indexing request is tried again before finally failing.      * If auto generated ids are used this must not lead to duplicate ids      * see https://github.com/elastic/elasticsearch/issues/8788      */
 DECL|method|testRetryDueToExceptionOnNetworkLayer
 specifier|public
 name|void

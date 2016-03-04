@@ -2786,7 +2786,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Test case for issue #4361: https://github.com/elasticsearch/elasticsearch/issues/4361      */
+comment|/**      * Test case for issue #4361: https://github.com/elastic/elasticsearch/issues/4361      */
 DECL|method|testMatchedWithShould
 specifier|public
 name|void

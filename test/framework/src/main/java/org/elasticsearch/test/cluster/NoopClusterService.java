@@ -470,6 +470,19 @@ name|IllegalStateException
 block|{      }
 annotation|@
 name|Override
+DECL|method|removeInitialStateBlock
+specifier|public
+name|void
+name|removeInitialStateBlock
+parameter_list|(
+name|int
+name|blockId
+parameter_list|)
+throws|throws
+name|IllegalStateException
+block|{      }
+annotation|@
+name|Override
 DECL|method|operationRouting
 specifier|public
 name|OperationRouting

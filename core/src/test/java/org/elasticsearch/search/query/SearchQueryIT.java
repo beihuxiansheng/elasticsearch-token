@@ -1780,7 +1780,7 @@ argument_list|)
 expr_stmt|;
 comment|// return no docs
 block|}
-comment|// see https://github.com/elasticsearch/elasticsearch/issues/3177
+comment|// see https://github.com/elastic/elasticsearch/issues/3177
 DECL|method|testIssue3177
 specifier|public
 name|void

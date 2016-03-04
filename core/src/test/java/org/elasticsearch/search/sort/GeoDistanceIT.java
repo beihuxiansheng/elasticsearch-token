@@ -4372,7 +4372,7 @@ comment|// expected
 block|}
 block|}
 comment|// Regression bug:
-comment|// https://github.com/elasticsearch/elasticsearch/issues/2851
+comment|// https://github.com/elastic/elasticsearch/issues/2851
 DECL|method|testDistanceSortingWithMissingGeoPoint
 specifier|public
 name|void

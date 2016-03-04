@@ -753,7 +753,7 @@ name|loadedAnalyzers
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test case for #5030: Upgrading analysis plugins fails      * See https://github.com/elasticsearch/elasticsearch/issues/5030      */
+comment|/**      * Test case for #5030: Upgrading analysis plugins fails      * See https://github.com/elastic/elasticsearch/issues/5030      */
 DECL|method|testThatPluginAnalyzersCanBeUpdated
 specifier|public
 name|void

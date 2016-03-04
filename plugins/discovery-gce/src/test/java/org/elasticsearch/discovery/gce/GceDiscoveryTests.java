@@ -595,7 +595,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceDiscovery
+name|GceUnicastHostsProvider
 operator|.
 name|TAGS_SETTING
 operator|.
@@ -700,7 +700,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceDiscovery
+name|GceUnicastHostsProvider
 operator|.
 name|TAGS_SETTING
 operator|.
@@ -882,7 +882,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceDiscovery
+name|GceUnicastHostsProvider
 operator|.
 name|TAGS_SETTING
 operator|.
@@ -969,7 +969,7 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-name|GceDiscovery
+name|GceUnicastHostsProvider
 operator|.
 name|TAGS_SETTING
 operator|.

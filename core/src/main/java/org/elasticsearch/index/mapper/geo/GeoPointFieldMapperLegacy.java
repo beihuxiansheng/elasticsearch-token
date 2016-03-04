@@ -92,16 +92,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Explicit
@@ -318,9 +308,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|NumberFieldMapper
-operator|.
-name|CustomNumericDocValuesField
+name|KeywordFieldMapper
 import|;
 end_import
 
@@ -336,7 +324,9 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|NumberFieldMapper
+operator|.
+name|CustomNumericDocValuesField
 import|;
 end_import
 
@@ -657,7 +647,7 @@ parameter_list|,
 name|DoubleFieldMapper
 name|lonMapper
 parameter_list|,
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|geoHashMapper
 parameter_list|,
 name|MultiFields
@@ -1599,7 +1589,7 @@ parameter_list|,
 name|DoubleFieldMapper
 name|lonMapper
 parameter_list|,
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|geoHashMapper
 parameter_list|,
 name|MultiFields
