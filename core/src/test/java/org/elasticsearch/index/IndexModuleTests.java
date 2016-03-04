@@ -248,7 +248,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -1760,11 +1760,11 @@ literal|"foo.bar"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -1811,11 +1811,11 @@ literal|"foo.bar.baz"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

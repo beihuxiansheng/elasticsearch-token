@@ -54,7 +54,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -135,7 +135,7 @@ literal|"index.version.created"
 argument_list|,
 literal|0
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -158,7 +158,7 @@ literal|"index.merge.enabled"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -187,7 +187,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

@@ -250,7 +250,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -724,9 +724,9 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CLIENT_TRANSPORT_PING_TIMEOUT
@@ -750,9 +750,9 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CLIENT_TRANSPORT_IGNORE_CLUSTER_NAME
@@ -773,9 +773,9 @@ literal|"client.transport.ignore_cluster_name"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CLIENT_TRANSPORT_SNIFF
@@ -796,9 +796,9 @@ literal|"client.transport.sniff"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 annotation|@

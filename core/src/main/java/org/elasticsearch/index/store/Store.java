@@ -434,20 +434,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|Tuple
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|Streams
@@ -618,7 +604,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -972,18 +958,6 @@ name|util
 operator|.
 name|zip
 operator|.
-name|Adler32
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
 name|CRC32
 import|;
 end_import
@@ -1113,7 +1087,7 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

@@ -388,7 +388,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -872,9 +872,9 @@ argument_list|(
 literal|3
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|JOIN_TIMEOUT_SETTING
@@ -922,9 +922,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|JOIN_RETRY_ATTEMPTS_SETTING
@@ -947,9 +947,9 @@ literal|3
 argument_list|,
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|JOIN_RETRY_DELAY_SETTING
@@ -975,9 +975,9 @@ argument_list|(
 literal|100
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|MAX_PINGS_FROM_ANOTHER_MASTER_SETTING
@@ -1000,9 +1000,9 @@ literal|3
 argument_list|,
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|SEND_LEAVE_REQUEST_SETTING
@@ -1023,9 +1023,9 @@ literal|"discovery.zen.send_leave_request"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|MASTER_ELECTION_FILTER_CLIENT_SETTING
@@ -1046,9 +1046,9 @@ literal|"discovery.zen.master_election.filter_client"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|MASTER_ELECTION_WAIT_FOR_JOINS_TIMEOUT_SETTING
@@ -1096,9 +1096,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|MASTER_ELECTION_FILTER_DATA_SETTING
@@ -1119,9 +1119,9 @@ literal|"discovery.zen.master_election.filter_data"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|DISCOVERY_REJOIN_ACTION_NAME

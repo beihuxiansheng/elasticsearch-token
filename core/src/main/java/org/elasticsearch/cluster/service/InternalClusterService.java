@@ -454,7 +454,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -958,13 +958,13 @@ argument_list|(
 literal|30
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CLUSTER_SERVICE_RECONNECT_INTERVAL_SETTING
@@ -990,9 +990,9 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|UPDATE_THREAD_NAME
@@ -1027,9 +1027,9 @@ name|Long
 operator|.
 name|MIN_VALUE
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|threadPool

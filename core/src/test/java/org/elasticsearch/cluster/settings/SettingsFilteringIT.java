@@ -102,7 +102,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -308,11 +308,11 @@ literal|"some.node.setting"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -335,9 +335,9 @@ literal|"some.other.node.setting"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * The name of the plugin.          */
@@ -431,7 +431,7 @@ name|groupSetting
 argument_list|(
 literal|"index.filter_test."
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

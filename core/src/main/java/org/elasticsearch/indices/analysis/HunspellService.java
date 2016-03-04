@@ -110,7 +110,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -302,9 +302,9 @@ name|Boolean
 operator|.
 name|FALSE
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|HUNSPELL_IGNORE_CASE
@@ -327,9 +327,9 @@ name|Boolean
 operator|.
 name|FALSE
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|HUNSPELL_DICTIONARY_OPTIONS
@@ -348,9 +348,9 @@ name|groupSetting
 argument_list|(
 literal|"indices.analysis.hunspell.dictionary."
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|dictionaries

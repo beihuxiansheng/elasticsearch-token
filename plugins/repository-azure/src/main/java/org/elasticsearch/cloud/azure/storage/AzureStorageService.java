@@ -86,7 +86,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -206,9 +206,9 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|ACCOUNT_SETTING
@@ -227,11 +227,11 @@ name|simpleString
 argument_list|(
 literal|"repositories.azure.account"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -252,9 +252,9 @@ name|simpleString
 argument_list|(
 literal|"repositories.azure.container"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|BASE_PATH_SETTING
@@ -273,9 +273,9 @@ name|simpleString
 argument_list|(
 literal|"repositories.azure.base_path"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|LOCATION_MODE_SETTING
@@ -294,9 +294,9 @@ name|simpleString
 argument_list|(
 literal|"repositories.azure.location_mode"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CHUNK_SIZE_SETTING
@@ -322,9 +322,9 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|COMPRESS_SETTING
@@ -345,9 +345,9 @@ literal|"repositories.azure.compress"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 block|}

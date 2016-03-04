@@ -472,7 +472,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -1318,9 +1318,9 @@ literal|"node.portsfile"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_CLIENT_SETTING
@@ -1341,9 +1341,9 @@ literal|"node.client"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_DATA_SETTING
@@ -1364,9 +1364,9 @@ literal|"node.data"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_MASTER_SETTING
@@ -1387,9 +1387,9 @@ literal|"node.master"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_LOCAL_SETTING
@@ -1410,9 +1410,9 @@ literal|"node.local"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_MODE_SETTING
@@ -1438,9 +1438,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_INGEST_SETTING
@@ -1461,9 +1461,9 @@ literal|"node.ingest"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODE_NAME_SETTING
@@ -1482,9 +1482,9 @@ name|simpleString
 argument_list|(
 literal|"node.name"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|// this sucks that folks can mistype client etc and get away with it.
@@ -1505,9 +1505,9 @@ name|groupSetting
 argument_list|(
 literal|"node."
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CLIENT_TYPE

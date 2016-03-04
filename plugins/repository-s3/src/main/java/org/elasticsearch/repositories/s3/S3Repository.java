@@ -152,7 +152,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -330,9 +330,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.secret_key: AWS Secret key specific for all S3 Repositories API calls. Defaults to cloud.aws.s3.secret_key.          * @see CLOUD_S3#SECRET_SETTING          */
@@ -358,9 +358,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.region: Region specific for all S3 Repositories API calls. Defaults to cloud.aws.s3.region.          * @see CLOUD_S3#REGION_SETTING          */
@@ -392,9 +392,9 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.endpoint: Endpoint specific for all S3 Repositories API calls. Defaults to cloud.aws.s3.endpoint.          * @see CLOUD_S3#ENDPOINT_SETTING          */
@@ -426,9 +426,9 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.protocol: Protocol specific for all S3 Repositories API calls. Defaults to cloud.aws.s3.protocol.          * @see CLOUD_S3#PROTOCOL_SETTING          */
@@ -465,9 +465,9 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.bucket: The name of the bucket to be used for snapshots.          */
@@ -484,9 +484,9 @@ name|simpleString
 argument_list|(
 literal|"repositories.s3.bucket"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.server_side_encryption: When set to true files are encrypted on server side using AES256 algorithm.          * Defaults to false.          */
@@ -505,9 +505,9 @@ literal|"repositories.s3.server_side_encryption"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.buffer_size: Minimum threshold below which the chunk is uploaded using a single request. Beyond this threshold,          * the S3 repository will use the AWS Multipart Upload API to split the chunk into several parts, each of buffer_size length, and          * to upload each part in its own request. Note that setting a buffer size lower than 5mb is not allowed since it will prevents the          * use of the Multipart API and may result in upload errors. Defaults to 5mb.          */
@@ -528,9 +528,9 @@ name|S3BlobStore
 operator|.
 name|MIN_BUFFER_SIZE
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.max_retries: Number of retries in case of S3 errors. Defaults to 3.          */
@@ -549,9 +549,9 @@ literal|"repositories.s3.max_retries"
 argument_list|,
 literal|3
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.chunk_size: Big files can be broken down into chunks during snapshotting if needed. Defaults to 100m.          */
@@ -578,9 +578,9 @@ operator|.
 name|MB
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.compress: When set to true metadata files are stored in compressed format. This setting doesnât affect index          * files that are already compressed by default. Defaults to false.          */
@@ -599,9 +599,9 @@ literal|"repositories.s3.compress"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.storage_class: Sets the S3 storage class type for the backup files. Values may be standard, reduced_redundancy,          * standard_ia. Defaults to standard.          */
@@ -618,9 +618,9 @@ name|simpleString
 argument_list|(
 literal|"repositories.s3.storage_class"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.canned_acl: The S3 repository supports all S3 canned ACLs : private, public-read, public-read-write,          * authenticated-read, log-delivery-write, bucket-owner-read, bucket-owner-full-control. Defaults to private.          */
@@ -637,9 +637,9 @@ name|simpleString
 argument_list|(
 literal|"repositories.s3.canned_acl"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.base_path: Specifies the path within bucket to repository data. Defaults to root directory.          */
@@ -656,9 +656,9 @@ name|simpleString
 argument_list|(
 literal|"repositories.s3.base_path"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 block|}
@@ -682,11 +682,11 @@ name|simpleString
 argument_list|(
 literal|"access_key"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -705,11 +705,11 @@ name|simpleString
 argument_list|(
 literal|"secret_key"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -728,9 +728,9 @@ name|simpleString
 argument_list|(
 literal|"bucket"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * endpoint          * @see  Repositories#ENDPOINT_SETTING          */
@@ -747,9 +747,9 @@ name|simpleString
 argument_list|(
 literal|"endpoint"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * protocol          * @see  Repositories#PROTOCOL_SETTING          */
@@ -784,9 +784,9 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * region          * @see  Repositories#REGION_SETTING          */
@@ -816,9 +816,9 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * server_side_encryption          * @see  Repositories#SERVER_SIDE_ENCRYPTION_SETTING          */
@@ -837,9 +837,9 @@ literal|"server_side_encryption"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * buffer_size          * @see  Repositories#BUFFER_SIZE_SETTING          */
@@ -860,9 +860,9 @@ name|S3BlobStore
 operator|.
 name|MIN_BUFFER_SIZE
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * max_retries          * @see  Repositories#MAX_RETRIES_SETTING          */
@@ -881,9 +881,9 @@ literal|"max_retries"
 argument_list|,
 literal|3
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * chunk_size          * @see  Repositories#CHUNK_SIZE_SETTING          */
@@ -902,9 +902,9 @@ literal|"chunk_size"
 argument_list|,
 literal|"-1"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * compress          * @see  Repositories#COMPRESS_SETTING          */
@@ -923,9 +923,9 @@ literal|"compress"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * storage_class          * @see  Repositories#STORAGE_CLASS_SETTING          */
@@ -942,9 +942,9 @@ name|simpleString
 argument_list|(
 literal|"storage_class"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * canned_acl          * @see  Repositories#CANNED_ACL_SETTING          */
@@ -961,9 +961,9 @@ name|simpleString
 argument_list|(
 literal|"canned_acl"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * base_path          * @see  Repositories#BASE_PATH_SETTING          */
@@ -980,9 +980,9 @@ name|simpleString
 argument_list|(
 literal|"base_path"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 block|}

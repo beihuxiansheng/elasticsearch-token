@@ -162,7 +162,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -269,13 +269,13 @@ argument_list|(
 literal|30
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|client

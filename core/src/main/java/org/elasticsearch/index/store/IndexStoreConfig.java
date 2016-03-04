@@ -84,7 +84,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -160,13 +160,13 @@ name|Type
 operator|::
 name|fromString
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * Configures the node / cluster level throttle intensity. The default is<tt>10240 MB</tt>      */
@@ -192,13 +192,13 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|rateLimitingType

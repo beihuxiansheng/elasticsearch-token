@@ -244,7 +244,7 @@ specifier|private
 specifier|final
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 name|scope
 decl_stmt|;
 DECL|field|KEY_PATTERN
@@ -293,7 +293,7 @@ name|settingsSet
 parameter_list|,
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 name|scope
 parameter_list|)
 block|{
@@ -642,7 +642,7 @@ DECL|method|getScope
 specifier|public
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 name|getScope
 parameter_list|()
 block|{

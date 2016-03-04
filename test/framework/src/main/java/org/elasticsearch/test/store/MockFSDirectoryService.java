@@ -64,20 +64,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|BaseDirectoryWrapper
@@ -192,20 +178,6 @@ name|cluster
 operator|.
 name|metadata
 operator|.
-name|AliasOrIndex
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
 name|IndexMetaData
 import|;
 end_import
@@ -294,7 +266,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -542,7 +514,7 @@ literal|0.0d
 argument_list|,
 literal|0.0d
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -567,7 +539,7 @@ literal|0.0d
 argument_list|,
 literal|0.0d
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -590,7 +562,7 @@ literal|"index.store.mock.random.prevent_double_write"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -614,7 +586,7 @@ literal|"index.store.mock.random.no_delete_open_file"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -638,7 +610,7 @@ literal|"index.store.mock.random.crash_index"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

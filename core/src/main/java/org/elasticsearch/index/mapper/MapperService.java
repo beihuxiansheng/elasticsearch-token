@@ -120,7 +120,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -529,11 +529,11 @@ literal|50L
 argument_list|,
 literal|0
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -565,7 +565,7 @@ literal|"index.mapper.dynamic"
 argument_list|,
 name|INDEX_MAPPER_DYNAMIC_DEFAULT
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

@@ -349,7 +349,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A setting. Encapsulates typical stuff like default value, parsing, and scope.  * Some (SettingsProperty.Dynamic) can by modified at run time using the API.  * All settings inside elasticsearch or in any of the plugins should use this type-safe and generic settings infrastructure  * together with {@link AbstractScopedSettings}. This class contains several utility methods that makes it straight forward  * to add settings for the majority of the cases. For instance a simple boolean settings can be defined like this:  *<pre>{@code  * public static final Setting<Boolean>; MY_BOOLEAN = Setting.boolSetting("my.bool.setting", true, SettingsProperty.ClusterScope);}  *</pre>  * To retrieve the value of the setting a {@link Settings} object can be passed directly to the {@link Setting#get(Settings)} method.  *<pre>  * final boolean myBooleanValue = MY_BOOLEAN.get(settings);  *</pre>  * It's recommended to use typed settings rather than string based settings. For example adding a setting for an enum type:  *<pre>{@code  * public enum Color {  *     RED, GREEN, BLUE;  * }  * public static final Setting<Color> MY_BOOLEAN =  *     new Setting<>("my.color.setting", Color.RED.toString(), Color::valueOf, SettingsProperty.ClusterScope);  * }  *</pre>  */
+comment|/**  * A setting. Encapsulates typical stuff like default value, parsing, and scope.  * Some (SettingsProperty.Dynamic) can by modified at run time using the API.  * All settings inside elasticsearch or in any of the plugins should use this type-safe and generic settings infrastructure  * together with {@link AbstractScopedSettings}. This class contains several utility methods that makes it straight forward  * to add settings for the majority of the cases. For instance a simple boolean settings can be defined like this:  *<pre>{@code  * public static final Setting<Boolean>; MY_BOOLEAN = Setting.boolSetting("my.bool.setting", true, SettingsProperty.NodeScope);}  *</pre>  * To retrieve the value of the setting a {@link Settings} object can be passed directly to the {@link Setting#get(Settings)} method.  *<pre>  * final boolean myBooleanValue = MY_BOOLEAN.get(settings);  *</pre>  * It's recommended to use typed settings rather than string based settings. For example adding a setting for an enum type:  *<pre>{@code  * public enum Color {  *     RED, GREEN, BLUE;  * }  * public static final Setting<Color> MY_BOOLEAN =  *     new Setting<>("my.color.setting", Color.RED.toString(), Color::valueOf, SettingsProperty.NodeScope);  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -363,10 +363,10 @@ parameter_list|>
 extends|extends
 name|ToXContentToBytes
 block|{
-DECL|enum|SettingsProperty
+DECL|enum|Property
 specifier|public
 enum|enum
-name|SettingsProperty
+name|Property
 block|{
 comment|/**          * should be filtered in some api (mask password/credentials)          */
 DECL|enum constant|Filtered
@@ -380,18 +380,14 @@ comment|/**          * mark this setting as deprecated          */
 DECL|enum constant|Deprecated
 name|Deprecated
 block|,
-comment|/**          * Cluster scope.          * @See IndexScope          * @See NodeScope          */
-DECL|enum constant|ClusterScope
-name|ClusterScope
-block|,
-comment|/**          * Node scope.          * @See ClusterScope          * @See IndexScope          */
+comment|/**          * Node scope          */
 DECL|enum constant|NodeScope
 name|NodeScope
 block|,
-comment|/**          * Index scope.          * @See ClusterScope          * @See NodeScope          */
+comment|/**          * Index scope          */
 DECL|enum constant|IndexScope
 name|IndexScope
-block|;     }
+block|}
 DECL|field|logger
 specifier|private
 specifier|static
@@ -454,11 +450,11 @@ specifier|private
 specifier|final
 name|EnumSet
 argument_list|<
-name|SettingsProperty
+name|Property
 argument_list|>
 name|properties
 decl_stmt|;
-comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
+comment|/**      * Creates a new Setting instance. When no scope is provided, we default to {@link Property#NodeScope}.      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
 DECL|method|Setting
 specifier|public
 name|Setting
@@ -482,7 +478,7 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -546,7 +542,7 @@ name|EnumSet
 operator|.
 name|of
 argument_list|(
-name|SettingsProperty
+name|Property
 operator|.
 name|NodeScope
 argument_list|)
@@ -579,7 +575,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|SettingsProperty
+name|Property
 name|property
 range|:
 name|properties
@@ -589,21 +585,15 @@ if|if
 condition|(
 name|property
 operator|==
-name|SettingsProperty
-operator|.
-name|ClusterScope
-operator|||
-name|property
-operator|==
-name|SettingsProperty
-operator|.
-name|IndexScope
-operator|||
-name|property
-operator|==
-name|SettingsProperty
+name|Property
 operator|.
 name|NodeScope
+operator|||
+name|property
+operator|==
+name|Property
+operator|.
+name|IndexScope
 condition|)
 block|{
 name|numScopes
@@ -650,7 +640,7 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -693,7 +683,7 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -736,7 +726,7 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -795,18 +785,18 @@ name|properties
 operator|.
 name|contains
 argument_list|(
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the setting properties      * @see SettingsProperty      */
+comment|/**      * Returns the setting properties      * @see Property      */
 DECL|method|getProperties
 specifier|public
 name|EnumSet
 argument_list|<
-name|SettingsProperty
+name|Property
 argument_list|>
 name|getProperties
 parameter_list|()
@@ -827,17 +817,17 @@ name|properties
 operator|.
 name|contains
 argument_list|(
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns<code>true</code> if this setting has a cluster scope, otherwise<code>false</code>      */
-DECL|method|hasClusterScope
+comment|/**      * Returns<code>true</code> if this setting has a node scope, otherwise<code>false</code>      */
+DECL|method|hasNodeScope
 specifier|public
 name|boolean
-name|hasClusterScope
+name|hasNodeScope
 parameter_list|()
 block|{
 return|return
@@ -845,9 +835,9 @@ name|properties
 operator|.
 name|contains
 argument_list|(
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 return|;
 block|}
@@ -863,27 +853,9 @@ name|properties
 operator|.
 name|contains
 argument_list|(
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns<code>true</code> if this setting has an index scope, otherwise<code>false</code>      */
-DECL|method|hasNodeScope
-specifier|public
-name|boolean
-name|hasNodeScope
-parameter_list|()
-block|{
-return|return
-name|properties
-operator|.
-name|contains
-argument_list|(
-name|SettingsProperty
-operator|.
-name|NodeScope
 argument_list|)
 return|;
 block|}
@@ -899,7 +871,7 @@ name|properties
 operator|.
 name|contains
 argument_list|(
-name|SettingsProperty
+name|Property
 operator|.
 name|Deprecated
 argument_list|)
@@ -1954,7 +1926,7 @@ parameter_list|,
 name|float
 name|defaultValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2003,7 +1975,7 @@ parameter_list|,
 name|float
 name|minValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2096,7 +2068,7 @@ parameter_list|,
 name|int
 name|maxValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2159,7 +2131,7 @@ parameter_list|,
 name|int
 name|minValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2220,7 +2192,7 @@ parameter_list|,
 name|long
 name|minValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2275,7 +2247,7 @@ parameter_list|(
 name|String
 name|key
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2564,7 +2536,7 @@ parameter_list|,
 name|int
 name|defaultValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2602,7 +2574,7 @@ parameter_list|,
 name|boolean
 name|defaultValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2654,7 +2626,7 @@ name|Boolean
 argument_list|>
 name|fallbackSetting
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2694,7 +2666,7 @@ parameter_list|,
 name|String
 name|percentage
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2747,7 +2719,7 @@ parameter_list|,
 name|ByteSizeValue
 name|value
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2791,7 +2763,7 @@ name|ByteSizeValue
 argument_list|>
 name|fallbackSettings
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2832,7 +2804,7 @@ name|String
 argument_list|>
 name|defaultValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2881,7 +2853,7 @@ parameter_list|,
 name|TimeValue
 name|defaultValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2939,7 +2911,7 @@ name|T
 argument_list|>
 name|singleValueParser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -2999,7 +2971,7 @@ name|T
 argument_list|>
 name|singleValueParser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -3069,7 +3041,7 @@ name|T
 argument_list|>
 name|singleValueParser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -3468,7 +3440,7 @@ parameter_list|(
 name|String
 name|key
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -3827,7 +3799,7 @@ parameter_list|,
 name|TimeValue
 name|minValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -3921,7 +3893,7 @@ parameter_list|,
 name|TimeValue
 name|minValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -3964,7 +3936,7 @@ parameter_list|,
 name|TimeValue
 name|defaultValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -4023,7 +3995,7 @@ name|TimeValue
 argument_list|>
 name|fallbackSetting
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -4077,7 +4049,7 @@ parameter_list|,
 name|double
 name|minValue
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -4276,7 +4248,7 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -4344,7 +4316,7 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -4401,7 +4373,7 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)
@@ -4459,7 +4431,7 @@ name|T
 argument_list|>
 name|parser
 parameter_list|,
-name|SettingsProperty
+name|Property
 modifier|...
 name|properties
 parameter_list|)

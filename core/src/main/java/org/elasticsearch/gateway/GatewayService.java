@@ -272,7 +272,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -405,9 +405,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|EXPECTED_DATA_NODES_SETTING
@@ -432,9 +432,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|EXPECTED_MASTER_NODES_SETTING
@@ -459,9 +459,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVER_AFTER_TIME_SETTING
@@ -487,9 +487,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVER_AFTER_NODES_SETTING
@@ -514,9 +514,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVER_AFTER_DATA_NODES_SETTING
@@ -541,9 +541,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVER_AFTER_MASTER_NODES_SETTING
@@ -566,9 +566,9 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|STATE_NOT_RECOVERED_BLOCK

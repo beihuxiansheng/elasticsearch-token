@@ -404,7 +404,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -531,20 +531,6 @@ operator|.
 name|query
 operator|.
 name|TemplateQueryParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -790,9 +776,9 @@ literal|100
 argument_list|,
 literal|0
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|SCRIPT_CACHE_EXPIRE_SETTING
@@ -818,9 +804,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|SCRIPT_INDEX
@@ -850,9 +836,9 @@ literal|"script.auto_reload_enabled"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|defaultLang

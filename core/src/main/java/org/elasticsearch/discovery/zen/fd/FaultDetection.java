@@ -84,7 +84,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -199,9 +199,9 @@ literal|"discovery.zen.fd.connect_on_network_disconnect"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PING_INTERVAL_SETTING
@@ -225,9 +225,9 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PING_TIMEOUT_SETTING
@@ -251,9 +251,9 @@ argument_list|(
 literal|30
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PING_RETRIES_SETTING
@@ -274,9 +274,9 @@ literal|"discovery.zen.fd.ping_retries"
 argument_list|,
 literal|3
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|REGISTER_CONNECTION_LISTENER_SETTING
@@ -297,9 +297,9 @@ literal|"discovery.zen.fd.register_connection_listener"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|threadPool

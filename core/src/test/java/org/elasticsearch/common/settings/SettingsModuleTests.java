@@ -42,7 +42,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -222,9 +222,9 @@ literal|"some.custom.setting"
 argument_list|,
 literal|1.0f
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -286,9 +286,9 @@ literal|"some.custom.setting"
 argument_list|,
 literal|1.0f
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -842,9 +842,9 @@ literal|"foo.bar"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -860,11 +860,11 @@ literal|"bar.foo"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -882,9 +882,9 @@ literal|"bar.baz"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 argument_list|)
 expr_stmt|;

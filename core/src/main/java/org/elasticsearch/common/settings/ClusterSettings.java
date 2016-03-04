@@ -444,7 +444,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -1124,9 +1124,9 @@ name|nodeSettings
 argument_list|,
 name|settingsSet
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 expr_stmt|;
 name|addSettingsUpdater

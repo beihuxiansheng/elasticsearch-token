@@ -100,7 +100,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -272,9 +272,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|REPOSITORIES_LOCATION_SETTING
@@ -300,9 +300,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CHUNK_SIZE_SETTING
@@ -323,9 +323,9 @@ literal|"chunk_size"
 argument_list|,
 literal|"-1"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|REPOSITORIES_CHUNK_SIZE_SETTING
@@ -346,9 +346,9 @@ literal|"repositories.fs.chunk_size"
 argument_list|,
 literal|"-1"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|COMPRESS_SETTING
@@ -369,9 +369,9 @@ literal|"compress"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|REPOSITORIES_COMPRESS_SETTING
@@ -392,9 +392,9 @@ literal|"repositories.fs.compress"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|blobStore

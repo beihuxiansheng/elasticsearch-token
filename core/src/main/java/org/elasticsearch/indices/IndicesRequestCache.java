@@ -234,7 +234,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -425,11 +425,11 @@ literal|"index.requests.cache.enable"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -452,9 +452,9 @@ literal|"indices.requests.cache.size"
 argument_list|,
 literal|"1%"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_CACHE_QUERY_EXPIRE
@@ -479,9 +479,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|registeredClosedListeners

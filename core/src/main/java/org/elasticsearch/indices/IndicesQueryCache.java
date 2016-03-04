@@ -208,7 +208,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -372,9 +372,9 @@ literal|"indices.queries.cache.size"
 argument_list|,
 literal|"10%"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_CACHE_QUERY_COUNT_SETTING
@@ -397,9 +397,9 @@ literal|10000
 argument_list|,
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|cache

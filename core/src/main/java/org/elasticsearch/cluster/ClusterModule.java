@@ -650,7 +650,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -790,9 +790,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_ALLOCATION_DECIDERS

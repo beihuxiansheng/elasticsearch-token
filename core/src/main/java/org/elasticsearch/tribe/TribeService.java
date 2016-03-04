@@ -344,7 +344,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -889,9 +889,9 @@ name|simpleString
 argument_list|(
 literal|"tribe.name"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|clusterService
@@ -1016,9 +1016,9 @@ throw|;
 block|}
 block|}
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|BLOCKS_METADATA_SETTING
@@ -1039,9 +1039,9 @@ literal|"tribe.blocks.metadata"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|BLOCKS_WRITE_SETTING
@@ -1062,9 +1062,9 @@ literal|"tribe.blocks.write"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|BLOCKS_WRITE_INDICES_SETTING
@@ -1096,9 +1096,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|BLOCKS_READ_INDICES_SETTING
@@ -1130,9 +1130,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|BLOCKS_METADATA_INDICES_SETTING
@@ -1164,9 +1164,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|TRIBE_SETTING_KEYS

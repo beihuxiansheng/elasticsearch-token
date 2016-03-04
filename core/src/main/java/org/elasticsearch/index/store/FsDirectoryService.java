@@ -266,21 +266,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
+name|Property
 import|;
 end_import
 
@@ -477,7 +463,7 @@ throw|;
 block|}
 block|}
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

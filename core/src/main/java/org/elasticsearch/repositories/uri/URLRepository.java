@@ -114,7 +114,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -350,9 +350,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|ALLOWED_URLS_SETTING
@@ -383,9 +383,9 @@ name|URIPattern
 operator|::
 operator|new
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|URL_SETTING
@@ -410,9 +410,9 @@ name|URLRepository
 operator|::
 name|parseURL
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|REPOSITORIES_URL_SETTING
@@ -448,9 +448,9 @@ name|URLRepository
 operator|::
 name|parseURL
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|LIST_DIRECTORIES_SETTING
@@ -471,9 +471,9 @@ literal|"list_directories"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|REPOSITORIES_LIST_DIRECTORIES_SETTING
@@ -494,9 +494,9 @@ literal|"repositories.uri.list_directories"
 argument_list|,
 literal|true
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|supportedProtocols

@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -124,7 +112,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -323,9 +311,9 @@ name|Type
 operator|::
 name|parse
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|LIMIT_HEAP_SETTING
@@ -346,9 +334,9 @@ literal|"cache.recycler.page.limit.heap"
 argument_list|,
 literal|"10%"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|WEIGHT_BYTES_SETTING
@@ -371,9 +359,9 @@ literal|1d
 argument_list|,
 literal|0d
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|WEIGHT_LONG_SETTING
@@ -396,9 +384,9 @@ literal|1d
 argument_list|,
 literal|0d
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|WEIGHT_INT_SETTING
@@ -421,9 +409,9 @@ literal|1d
 argument_list|,
 literal|0d
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|// object pages are less useful to us so we give them a lower weight by default
@@ -447,9 +435,9 @@ literal|0.1d
 argument_list|,
 literal|0d
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|bytePage

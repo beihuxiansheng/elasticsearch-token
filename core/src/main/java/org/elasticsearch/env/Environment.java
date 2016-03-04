@@ -78,7 +78,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -263,9 +263,9 @@ name|simpleString
 argument_list|(
 literal|"path.home"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PATH_CONF_SETTING
@@ -284,9 +284,9 @@ name|simpleString
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PATH_SCRIPTS_SETTING
@@ -305,9 +305,9 @@ name|simpleString
 argument_list|(
 literal|"path.scripts"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PATH_DATA_SETTING
@@ -339,9 +339,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PATH_LOGS_SETTING
@@ -360,9 +360,9 @@ name|simpleString
 argument_list|(
 literal|"path.logs"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PATH_PLUGINS_SETTING
@@ -381,9 +381,9 @@ name|simpleString
 argument_list|(
 literal|"path.plugins"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PATH_REPO_SETTING
@@ -415,9 +415,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PATH_SHARED_DATA_SETTING
@@ -436,9 +436,9 @@ name|simpleString
 argument_list|(
 literal|"path.shared_data"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PIDFILE_SETTING
@@ -457,9 +457,9 @@ name|simpleString
 argument_list|(
 literal|"pidfile"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|settings

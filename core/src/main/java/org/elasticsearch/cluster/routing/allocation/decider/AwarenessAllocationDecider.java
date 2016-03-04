@@ -156,7 +156,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -238,13 +238,13 @@ name|Strings
 operator|::
 name|splitStringByCommaToArray
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CLUSTER_ROUTING_ALLOCATION_AWARENESS_FORCE_GROUP_SETTING
@@ -263,13 +263,13 @@ name|groupSetting
 argument_list|(
 literal|"cluster.routing.allocation.awareness.force."
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|awarenessAttributes

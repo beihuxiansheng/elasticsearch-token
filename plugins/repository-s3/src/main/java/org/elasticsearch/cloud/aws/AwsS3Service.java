@@ -80,7 +80,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -138,11 +138,11 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.access_key"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -161,11 +161,11 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.secret_key"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -202,9 +202,9 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.host: In case of proxy, define its hostname/IP. Shared with discovery-ec2 plugin      */
@@ -221,9 +221,9 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.host"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.port: In case of proxy, define its port. Defaults to 80. Shared with discovery-ec2 plugin      */
@@ -248,9 +248,9 @@ literal|1
 operator|<<
 literal|16
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.username: In case of proxy with auth, define the username. Shared with discovery-ec2 plugin      */
@@ -267,9 +267,9 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.username"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.proxy.password: In case of proxy with auth, define the password. Shared with discovery-ec2 plugin      */
@@ -286,11 +286,11 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.proxy.password"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -309,9 +309,9 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.signer"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.aws.region: Region. Shared with discovery-ec2 plugin      */
@@ -341,9 +341,9 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * Defines specific s3 settings starting with cloud.aws.s3.      */
@@ -374,11 +374,11 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -406,11 +406,11 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -449,9 +449,9 @@ name|ROOT
 argument_list|)
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.proxy.host: In case of proxy, define its hostname/IP specific for S3 API calls. Defaults to cloud.aws.proxy.host.          * @see AwsS3Service#PROXY_HOST_SETTING          */
@@ -477,9 +477,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.proxy.port: In case of proxy, define its port specific for S3 API calls.  Defaults to cloud.aws.proxy.port.          * @see AwsS3Service#PROXY_PORT_SETTING          */
@@ -517,9 +517,9 @@ argument_list|,
 literal|"cloud.aws.s3.proxy.port"
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.proxy.username: In case of proxy with auth, define the username specific for S3 API calls.          * Defaults to cloud.aws.proxy.username.          * @see AwsS3Service#PROXY_USERNAME_SETTING          */
@@ -545,9 +545,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.proxy.password: In case of proxy with auth, define the password specific for S3 API calls.          * Defaults to cloud.aws.proxy.password.          * @see AwsS3Service#PROXY_PASSWORD_SETTING          */
@@ -573,11 +573,11 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -605,9 +605,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.region: Region specific for S3 API calls. Defaults to cloud.aws.region.          * @see AwsS3Service#REGION_SETTING          */
@@ -639,9 +639,9 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**          * cloud.aws.s3.endpoint: Endpoint. If not set, endpoint will be guessed based on region setting.          */
@@ -658,9 +658,9 @@ name|simpleString
 argument_list|(
 literal|"cloud.aws.s3.endpoint"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 block|}

@@ -224,7 +224,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -509,18 +509,6 @@ operator|.
 name|indices
 operator|.
 name|IndicesService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndicesRequestCache
 import|;
 end_import
 
@@ -1209,9 +1197,9 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|KEEPALIVE_INTERVAL_SETTING
@@ -1235,9 +1223,9 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NO_TIMEOUT
@@ -1271,13 +1259,13 @@ literal|"search.default_search_timeout"
 argument_list|,
 name|NO_TIMEOUT
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Dynamic
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|threadPool

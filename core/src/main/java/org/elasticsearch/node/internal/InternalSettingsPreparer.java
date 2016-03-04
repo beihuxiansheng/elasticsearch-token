@@ -118,7 +118,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -408,9 +408,9 @@ literal|"config.ignore_system_properties"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * Prepares the settings by gathering all elasticsearch system properties and setting defaults.      */

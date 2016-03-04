@@ -94,7 +94,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -556,7 +556,7 @@ end_class
 
 begin_expr_stmt
 unit|},
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 end_expr_stmt

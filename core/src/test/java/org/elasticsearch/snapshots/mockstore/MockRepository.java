@@ -190,7 +190,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -488,9 +488,9 @@ name|simpleString
 argument_list|(
 literal|"secret.mock.username"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|PASSWORD_SETTING
@@ -509,11 +509,11 @@ name|simpleString
 argument_list|(
 literal|"secret.mock.password"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)

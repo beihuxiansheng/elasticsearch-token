@@ -186,7 +186,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -457,9 +457,9 @@ name|simpleString
 argument_list|(
 literal|"account"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CONTAINER_SETTING
@@ -485,9 +485,9 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|BASE_PATH_SETTING
@@ -506,9 +506,9 @@ name|simpleString
 argument_list|(
 literal|"base_path"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|LOCATION_MODE_SETTING
@@ -527,9 +527,9 @@ name|simpleString
 argument_list|(
 literal|"location_mode"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|CHUNK_SIZE_SETTING
@@ -550,9 +550,9 @@ literal|"chunk_size"
 argument_list|,
 name|MAX_CHUNK_SIZE
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|COMPRESS_SETTING
@@ -573,9 +573,9 @@ literal|"compress"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 block|}

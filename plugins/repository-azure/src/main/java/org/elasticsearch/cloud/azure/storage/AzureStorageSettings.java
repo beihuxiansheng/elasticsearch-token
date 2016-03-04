@@ -303,9 +303,9 @@ argument_list|)
 argument_list|,
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|ACCOUNT_SETTING
@@ -337,9 +337,9 @@ argument_list|()
 argument_list|,
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|KEY_SETTING
@@ -371,9 +371,9 @@ argument_list|()
 argument_list|,
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_SETTING
@@ -404,9 +404,9 @@ name|valueOf
 argument_list|,
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|name
@@ -730,9 +730,9 @@ name|PREFIX
 argument_list|,
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|// ignore global timeout which has the same prefix but does not belong to any group

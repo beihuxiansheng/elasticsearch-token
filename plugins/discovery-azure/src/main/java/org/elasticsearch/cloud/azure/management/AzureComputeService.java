@@ -78,7 +78,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -137,11 +137,11 @@ name|simpleString
 argument_list|(
 literal|"cloud.azure.management.subscription.id"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -162,9 +162,9 @@ name|simpleString
 argument_list|(
 literal|"cloud.azure.management.cloud.service.name"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|// Keystore settings
@@ -184,11 +184,11 @@ name|simpleString
 argument_list|(
 literal|"cloud.azure.management.keystore.path"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -209,11 +209,11 @@ name|simpleString
 argument_list|(
 literal|"cloud.azure.management.keystore.password"
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -245,11 +245,11 @@ name|KeyStoreType
 operator|::
 name|fromString
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|Filtered
 argument_list|)
@@ -283,9 +283,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|HOST_TYPE_SETTING
@@ -321,9 +321,9 @@ name|HostType
 operator|::
 name|fromString
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|ENDPOINT_NAME

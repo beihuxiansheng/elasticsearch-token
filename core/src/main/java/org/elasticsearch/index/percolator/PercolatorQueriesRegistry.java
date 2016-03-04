@@ -190,7 +190,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -261,34 +261,6 @@ operator|.
 name|engine
 operator|.
 name|Engine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|IndexFieldDataService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperService
 import|;
 end_import
 
@@ -479,7 +451,7 @@ literal|"index.percolator.map_unmapped_fields_as_string"
 argument_list|,
 literal|false
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

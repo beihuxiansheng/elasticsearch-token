@@ -92,7 +92,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -385,7 +385,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Encapsulates all valid index level settings.  * @see org.elasticsearch.common.settings.Setting.SettingsProperty#IndexScope  */
+comment|/**  * Encapsulates all valid index level settings.  * @see Property#IndexScope  */
 end_comment
 
 begin_class
@@ -759,7 +759,7 @@ name|groupSetting
 argument_list|(
 literal|"index.similarity."
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -771,7 +771,7 @@ name|groupSetting
 argument_list|(
 literal|"index.analysis."
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)
@@ -822,7 +822,7 @@ name|settings
 argument_list|,
 name|settingsSet
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
 name|IndexScope
 argument_list|)

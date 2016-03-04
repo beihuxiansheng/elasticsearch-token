@@ -126,7 +126,7 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|clusterSettings
+DECL|field|nodeSettings
 specifier|private
 specifier|final
 name|Map
@@ -138,7 +138,7 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|clusterSettings
+name|nodeSettings
 init|=
 operator|new
 name|HashMap
@@ -294,7 +294,7 @@ argument_list|<>
 argument_list|(
 name|this
 operator|.
-name|clusterSettings
+name|nodeSettings
 operator|.
 name|values
 argument_list|()
@@ -459,13 +459,13 @@ if|if
 condition|(
 name|setting
 operator|.
-name|hasClusterScope
+name|hasNodeScope
 argument_list|()
 condition|)
 block|{
 if|if
 condition|(
-name|clusterSettings
+name|nodeSettings
 operator|.
 name|containsKey
 argument_list|(
@@ -491,7 +491,7 @@ literal|"] twice"
 argument_list|)
 throw|;
 block|}
-name|clusterSettings
+name|nodeSettings
 operator|.
 name|put
 argument_list|(
@@ -504,6 +504,7 @@ name|setting
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
 if|if
 condition|(
 name|setting
@@ -552,6 +553,23 @@ argument_list|,
 name|setting
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No scope found for setting ["
+operator|+
+name|setting
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 block|}
 comment|/**      * Registers a settings filter pattern that allows to filter out certain settings that for instance contain sensitive information      * or if a setting is for internal purposes only. The given pattern must either be a valid settings key or a simple regexp pattern.      */
@@ -635,12 +653,12 @@ if|if
 condition|(
 name|setting
 operator|.
-name|hasClusterScope
+name|hasNodeScope
 argument_list|()
 condition|)
 block|{
 return|return
-name|clusterSettings
+name|nodeSettings
 operator|.
 name|containsKey
 argument_list|(

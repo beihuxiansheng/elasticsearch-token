@@ -44,7 +44,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|SettingsProperty
+name|Property
 import|;
 end_import
 
@@ -214,9 +214,9 @@ argument_list|)
 argument_list|,
 literal|1
 argument_list|,
-name|SettingsProperty
+name|Property
 operator|.
-name|ClusterScope
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * Returns the number of processors available but at most<tt>32</tt>.      */
