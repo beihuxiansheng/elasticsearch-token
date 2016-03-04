@@ -706,7 +706,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|prepareSuggest
@@ -747,7 +747,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|prepareSuggest
@@ -790,7 +790,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|prepareSuggest

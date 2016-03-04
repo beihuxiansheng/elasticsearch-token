@@ -3002,7 +3002,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|startNodeClient
+name|startCoordinatingOnlyNode
 argument_list|(
 name|settings
 argument_list|)
@@ -3386,7 +3386,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3771,7 +3771,7 @@ operator|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
