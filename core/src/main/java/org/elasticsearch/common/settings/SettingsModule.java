@@ -455,6 +455,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// We validate scope settings. We should have one and only one scope.
+if|if
+condition|(
+name|setting
+operator|.
+name|hasNodeScope
+argument_list|()
+operator|&&
+name|setting
+operator|.
+name|hasIndexScope
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"More than one scope has been added to the setting ["
+operator|+
+name|setting
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|setting
