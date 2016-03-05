@@ -792,35 +792,8 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-if|if
-condition|(
-name|parserContext
-operator|.
-name|indexVersionCreated
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_5_0_0
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The [string] type is removed in 5.0. You should now use either a [text] "
-operator|+
-literal|"or [keyword] field instead for field ["
-operator|+
-name|fieldName
-operator|+
-literal|"]"
-argument_list|)
-throw|;
-block|}
+comment|// TODO: temporarily disabled to give Kibana time to upgrade to text/keyword mappings
+comment|/*if (parserContext.indexVersionCreated().onOrAfter(Version.V_5_0_0)) {                 throw new IllegalArgumentException("The [string] type is removed in 5.0. You should now use either a [text] "                         + "or [keyword] field instead for field [" + fieldName + "]");             }*/
 name|StringFieldMapper
 operator|.
 name|Builder
@@ -1440,40 +1413,8 @@ argument_list|,
 name|copyTo
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|Version
-operator|.
-name|indexCreated
-argument_list|(
-name|indexSettings
-argument_list|)
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_5_0_0
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The [string] type is removed in 5.0. You should now use either a [text] "
-operator|+
-literal|"or [keyword] field instead for field ["
-operator|+
-name|fieldType
-operator|.
-name|name
-argument_list|()
-operator|+
-literal|"]"
-argument_list|)
-throw|;
-block|}
+comment|// TODO: temporarily disabled to give Kibana time to upgrade to text/keyword mappings
+comment|/*if (Version.indexCreated(indexSettings).onOrAfter(Version.V_5_0_0)) {             throw new IllegalArgumentException("The [string] type is removed in 5.0. You should now use either a [text] "                     + "or [keyword] field instead for field [" + fieldType.name() + "]");         }*/
 if|if
 condition|(
 name|fieldType
