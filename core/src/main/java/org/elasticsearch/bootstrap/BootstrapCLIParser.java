@@ -114,7 +114,7 @@ name|common
 operator|.
 name|cli
 operator|.
-name|Terminal
+name|UserError
 import|;
 end_import
 
@@ -128,7 +128,7 @@ name|common
 operator|.
 name|cli
 operator|.
-name|UserError
+name|Terminal
 import|;
 end_import
 
@@ -219,16 +219,6 @@ operator|.
 name|util
 operator|.
 name|Properties
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
