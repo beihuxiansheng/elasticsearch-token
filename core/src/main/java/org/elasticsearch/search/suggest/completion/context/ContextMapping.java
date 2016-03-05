@@ -382,6 +382,7 @@ name|Document
 name|document
 parameter_list|)
 function_decl|;
+comment|/**      * Prototype for the query context      */
 DECL|method|prototype
 specifier|protected
 specifier|abstract
@@ -392,6 +393,7 @@ function_decl|;
 comment|/**      * Parses query contexts for this mapper      */
 DECL|method|parseQueryContext
 specifier|public
+specifier|final
 name|List
 argument_list|<
 name|InternalQueryContext
@@ -504,6 +506,7 @@ name|queryContexts
 argument_list|)
 return|;
 block|}
+comment|/**      * Convert query contexts to common representation      */
 DECL|method|toInternalQueryContexts
 specifier|protected
 specifier|abstract

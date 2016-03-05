@@ -242,6 +242,7 @@ literal|"fuzzy"
 argument_list|)
 decl_stmt|;
 DECL|field|TRANSPOSITION_FIELD
+specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -254,6 +255,7 @@ literal|"transpositions"
 argument_list|)
 decl_stmt|;
 DECL|field|MIN_LENGTH_FIELD
+specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -266,6 +268,7 @@ literal|"min_length"
 argument_list|)
 decl_stmt|;
 DECL|field|PREFIX_LENGTH_FIELD
+specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -278,6 +281,7 @@ literal|"prefix_length"
 argument_list|)
 decl_stmt|;
 DECL|field|UNICODE_AWARE_FIELD
+specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -290,6 +294,7 @@ literal|"unicode_aware"
 argument_list|)
 decl_stmt|;
 DECL|field|MAX_DETERMINIZED_STATES_FIELD
+specifier|private
 specifier|static
 specifier|final
 name|ParseField
@@ -301,17 +306,16 @@ argument_list|(
 literal|"max_determinized_states"
 argument_list|)
 decl_stmt|;
-DECL|field|FUZZY_PARSER
+DECL|field|PARSER
+specifier|private
 specifier|static
 name|ObjectParser
 argument_list|<
-name|FuzzyOptions
-operator|.
 name|Builder
 argument_list|,
 name|Void
 argument_list|>
-name|FUZZY_PARSER
+name|PARSER
 init|=
 operator|new
 name|ObjectParser
@@ -329,12 +333,10 @@ argument_list|)
 decl_stmt|;
 static|static
 block|{
-name|FUZZY_PARSER
+name|PARSER
 operator|.
 name|declareInt
 argument_list|(
-name|FuzzyOptions
-operator|.
 name|Builder
 operator|::
 name|setFuzzyMinLength
@@ -342,12 +344,10 @@ argument_list|,
 name|MIN_LENGTH_FIELD
 argument_list|)
 expr_stmt|;
-name|FUZZY_PARSER
+name|PARSER
 operator|.
 name|declareInt
 argument_list|(
-name|FuzzyOptions
-operator|.
 name|Builder
 operator|::
 name|setMaxDeterminizedStates
@@ -355,12 +355,10 @@ argument_list|,
 name|MAX_DETERMINIZED_STATES_FIELD
 argument_list|)
 expr_stmt|;
-name|FUZZY_PARSER
+name|PARSER
 operator|.
 name|declareBoolean
 argument_list|(
-name|FuzzyOptions
-operator|.
 name|Builder
 operator|::
 name|setUnicodeAware
@@ -368,12 +366,10 @@ argument_list|,
 name|UNICODE_AWARE_FIELD
 argument_list|)
 expr_stmt|;
-name|FUZZY_PARSER
+name|PARSER
 operator|.
 name|declareInt
 argument_list|(
-name|FuzzyOptions
-operator|.
 name|Builder
 operator|::
 name|setFuzzyPrefixLength
@@ -381,12 +377,10 @@ argument_list|,
 name|PREFIX_LENGTH_FIELD
 argument_list|)
 expr_stmt|;
-name|FUZZY_PARSER
+name|PARSER
 operator|.
 name|declareBoolean
 argument_list|(
-name|FuzzyOptions
-operator|.
 name|Builder
 operator|::
 name|setTranspositions
@@ -394,7 +388,7 @@ argument_list|,
 name|TRANSPOSITION_FIELD
 argument_list|)
 expr_stmt|;
-name|FUZZY_PARSER
+name|PARSER
 operator|.
 name|declareValue
 argument_list|(
@@ -541,7 +535,6 @@ name|FuzzyOptions
 parameter_list|()
 block|{     }
 DECL|method|parse
-specifier|public
 specifier|static
 name|FuzzyOptions
 name|parse
@@ -553,7 +546,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|FUZZY_PARSER
+name|PARSER
 operator|.
 name|parse
 argument_list|(

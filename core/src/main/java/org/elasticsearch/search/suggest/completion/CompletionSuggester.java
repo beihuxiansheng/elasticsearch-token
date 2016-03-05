@@ -753,7 +753,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
