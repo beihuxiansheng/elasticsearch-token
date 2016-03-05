@@ -997,6 +997,19 @@ name|getContentType
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|index
+operator|.
+name|setPipeline
+argument_list|(
+name|mainRequest
+operator|.
+name|getDestination
+argument_list|()
+operator|.
+name|getPipeline
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// OpType is synthesized from version so it is handled when we copy version above.
 return|return
 name|index

@@ -2788,14 +2788,8 @@ annotation|@
 name|Override
 specifier|public
 name|boolean
-name|move
+name|moveShards
 parameter_list|(
-name|ShardRouting
-name|shardRouting
-parameter_list|,
-name|RoutingNode
-name|node
-parameter_list|,
 name|RoutingAllocation
 name|allocation
 parameter_list|)

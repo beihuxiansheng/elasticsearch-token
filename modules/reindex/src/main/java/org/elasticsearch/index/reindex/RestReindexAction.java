@@ -467,7 +467,7 @@ name|context
 parameter_list|)
 lambda|->
 block|{
-comment|/*              * Extract the parameters that we need from the parser. We could do              * away with this hack when search source has an ObjectParser.              */
+comment|/*              * Extract the parameters that we need from the source sent to the parser. We could do away with this hack when search source              * has an ObjectParser.              */
 name|Map
 argument_list|<
 name|String
@@ -672,6 +672,21 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"opType"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|destParser
+operator|.
+name|declareString
+argument_list|(
+name|IndexRequest
+operator|::
+name|setPipeline
+argument_list|,
+operator|new
+name|ParseField
+argument_list|(
+literal|"pipeline"
 argument_list|)
 argument_list|)
 expr_stmt|;
