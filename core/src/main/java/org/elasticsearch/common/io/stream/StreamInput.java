@@ -3815,24 +3815,6 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a completion {@link QueryContext} from the current stream      */
-DECL|method|readCompletionSuggestionQueryContext
-specifier|public
-name|QueryContext
-name|readCompletionSuggestionQueryContext
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|readNamedWriteable
-argument_list|(
-name|QueryContext
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
 comment|/**      * Reads a {@link org.elasticsearch.index.query.functionscore.ScoreFunctionBuilder} from the current stream      */
 DECL|method|readScoreFunction
 specifier|public

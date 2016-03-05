@@ -4015,24 +4015,6 @@ name|suggestion
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a completion {@link QueryContext} to the current stream      */
-DECL|method|writeCompletionSuggestionQueryContext
-specifier|public
-name|void
-name|writeCompletionSuggestionQueryContext
-parameter_list|(
-name|QueryContext
-name|queryContext
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeNamedWriteable
-argument_list|(
-name|queryContext
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 

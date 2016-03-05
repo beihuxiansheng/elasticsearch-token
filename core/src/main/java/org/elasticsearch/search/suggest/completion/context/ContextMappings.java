@@ -827,7 +827,7 @@ name|List
 argument_list|<
 name|ContextMapping
 operator|.
-name|QueryContext
+name|InternalQueryContext
 argument_list|>
 argument_list|>
 name|queryContexts
@@ -917,9 +917,9 @@ name|List
 argument_list|<
 name|ContextMapping
 operator|.
-name|QueryContext
+name|InternalQueryContext
 argument_list|>
-name|queryContext
+name|internalQueryContext
 init|=
 name|queryContexts
 operator|.
@@ -933,7 +933,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|queryContext
+name|internalQueryContext
 operator|!=
 literal|null
 condition|)
@@ -942,10 +942,10 @@ for|for
 control|(
 name|ContextMapping
 operator|.
-name|QueryContext
+name|InternalQueryContext
 name|context
 range|:
-name|queryContext
+name|internalQueryContext
 control|)
 block|{
 name|scratch

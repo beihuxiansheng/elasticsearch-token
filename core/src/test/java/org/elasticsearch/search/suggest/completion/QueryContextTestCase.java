@@ -124,11 +124,35 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|assertEquals
 import|;
 end_import
 
@@ -144,10 +168,7 @@ extends|extends
 name|QueryContext
 parameter_list|>
 extends|extends
-name|WritableTestCase
-argument_list|<
-name|QC
-argument_list|>
+name|ESTestCase
 block|{
 DECL|field|NUMBER_OF_RUNS
 specifier|private
@@ -158,6 +179,14 @@ name|NUMBER_OF_RUNS
 init|=
 literal|20
 decl_stmt|;
+comment|/**      * create random model that is put under test      */
+DECL|method|createTestModel
+specifier|protected
+specifier|abstract
+name|QC
+name|createTestModel
+parameter_list|()
+function_decl|;
 comment|/**      * query context prototype to read serialized format      */
 DECL|method|prototype
 specifier|protected
@@ -166,32 +195,6 @@ name|QC
 name|prototype
 parameter_list|()
 function_decl|;
-annotation|@
-name|Override
-DECL|method|readFrom
-specifier|protected
-name|QC
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|(
-name|QC
-operator|)
-name|prototype
-argument_list|()
-operator|.
-name|readFrom
-argument_list|(
-name|in
-argument_list|)
-return|;
-block|}
 DECL|method|testToXContext
 specifier|public
 name|void
