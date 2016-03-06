@@ -1664,7 +1664,6 @@ argument_list|,
 name|OK_AND_EXIT
 argument_list|)
 expr_stmt|;
-comment|// nocommit
 name|assertTerminalOutputContainsHelpFile
 argument_list|(
 name|terminal
