@@ -29,6 +29,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|cli
+operator|.
+name|MockTerminal
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -98,7 +112,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*         CliToolTestCase.CaptureOutputTerminal terminal = new CliToolTestCase.CaptureOutputTerminal();         assertThat(new PluginCli(terminal).execute(args("--help")), is(OK_AND_EXIT));         assertTerminalOutputContainsHelpFile(terminal, "/org/elasticsearch/plugins/plugin.help");          terminal.getTerminalOutput().clear();         assertThat(new PluginCli(terminal).execute(args("install -h")), is(OK_AND_EXIT));         assertTerminalOutputContainsHelpFile(terminal, "/org/elasticsearch/plugins/plugin-install.help");         for (String plugin : InstallPluginCommand.OFFICIAL_PLUGINS) {             assertThat(terminal.getTerminalOutput(), hasItem(containsString(plugin)));         }          terminal.getTerminalOutput().clear();         assertThat(new PluginCli(terminal).execute(args("remove --help")), is(OK_AND_EXIT));         assertTerminalOutputContainsHelpFile(terminal, "/org/elasticsearch/plugins/plugin-remove.help");          terminal.getTerminalOutput().clear();         assertThat(new PluginCli(terminal).execute(args("list -h")), is(OK_AND_EXIT));         assertTerminalOutputContainsHelpFile(terminal, "/org/elasticsearch/plugins/plugin-list.help");         */
+name|MockTerminal
+name|terminal
+init|=
+operator|new
+name|MockTerminal
+argument_list|()
+decl_stmt|;
+comment|/* nocommit         assertThat(new PluginCli(terminal).execute(args("--help")), is(OK_AND_EXIT));         assertTerminalOutputContainsHelpFile(terminal, "/org/elasticsearch/plugins/plugin.help");          terminal.resetOutput();         assertThat(new PluginCli(terminal).execute(args("install -h")), is(OK_AND_EXIT));         assertTerminalOutputContainsHelpFile(terminal, "/org/elasticsearch/plugins/plugin-install.help");         for (String plugin : InstallPluginCommand.OFFICIAL_PLUGINS) {             assertThat(terminal.getOutput(), containsString(plugin));         }          terminal.resetOutput();         assertThat(new PluginCli(terminal).execute(args("remove --help")), is(OK_AND_EXIT));         assertTerminalOutputContainsHelpFile(terminal, "/org/elasticsearch/plugins/plugin-remove.help");          terminal.resetOutput();         assertThat(new PluginCli(terminal).execute(args("list -h")), is(OK_AND_EXIT));         assertTerminalOutputContainsHelpFile(terminal, "/org/elasticsearch/plugins/plugin-list.help");         */
 block|}
 block|}
 end_class
