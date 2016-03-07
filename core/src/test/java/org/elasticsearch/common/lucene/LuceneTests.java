@@ -2928,6 +2928,12 @@ block|{
 comment|// add assume's here if needed for certain platforms, but we should know if it does not work.
 name|assertTrue
 argument_list|(
+literal|"MMapDirectory does not support unmapping: "
+operator|+
+name|MMapDirectory
+operator|.
+name|UNMAP_NOT_SUPPORTED_REASON
+argument_list|,
 name|MMapDirectory
 operator|.
 name|UNMAP_SUPPORTED
