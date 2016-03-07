@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>  * A {@link ShardsAllocator} is the main entry point for shard allocation on nodes in the cluster.  * The allocator makes basic decision where a shard instance will be allocated, if already allocated instances  * need relocate to other nodes due to node failures or due to rebalancing decisions.  *</p>  */
+comment|/**  *<p>  * A {@link ShardsAllocator} is the main entry point for shard allocation on nodes in the cluster.  * The allocator makes basic decision where a shard instance will be allocated, if already allocated instances  * need to relocate to other nodes due to node failures or due to rebalancing decisions.  *</p>  */
 end_comment
 
 begin_interface
@@ -46,7 +46,7 @@ specifier|public
 interface|interface
 name|ShardsAllocator
 block|{
-comment|/**      * Assign all unassigned shards to nodes      * Move started shards that can not be allocated to a node anymore      * Rebalancing number of shards on all nodes      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
+comment|/**      * Allocates shards to nodes in the cluster. An implementation of this method should:      * - assign unassigned shards      * - relocate shards that cannot stay on a node anymore      * - relocate shards to find a good shard balance in the cluster      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
 DECL|method|allocate
 name|boolean
 name|allocate
