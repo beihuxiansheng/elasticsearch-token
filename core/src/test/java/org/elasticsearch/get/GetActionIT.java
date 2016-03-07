@@ -9070,9 +9070,9 @@ name|storedString
 init|=
 name|stored
 condition|?
-literal|"yes"
+literal|"true"
 else|:
-literal|"no"
+literal|"false"
 decl_stmt|;
 name|String
 name|createIndexSource
@@ -9329,9 +9329,9 @@ name|storedString
 init|=
 name|stored
 condition|?
-literal|"yes"
+literal|"true"
 else|:
-literal|"no"
+literal|"false"
 decl_stmt|;
 name|String
 name|createIndexSource
