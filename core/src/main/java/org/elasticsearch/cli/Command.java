@@ -216,7 +216,7 @@ expr_stmt|;
 block|}
 comment|/** Parses options for this command from args and executes it. */
 DECL|method|main
-specifier|public
+specifier|protected
 specifier|final
 name|int
 name|main
@@ -262,6 +262,12 @@ name|terminal
 operator|.
 name|println
 argument_list|(
+name|Terminal
+operator|.
+name|Verbosity
+operator|.
+name|SILENT
+argument_list|,
 literal|"ERROR: "
 operator|+
 name|e
@@ -327,6 +333,12 @@ name|terminal
 operator|.
 name|println
 argument_list|(
+name|Terminal
+operator|.
+name|Verbosity
+operator|.
+name|SILENT
+argument_list|,
 literal|"ERROR: Cannot specify -s and -v together"
 argument_list|)
 expr_stmt|;

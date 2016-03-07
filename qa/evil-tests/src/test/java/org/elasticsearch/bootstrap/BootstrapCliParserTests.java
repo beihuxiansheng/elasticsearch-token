@@ -94,8 +94,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
 name|cli
 operator|.
 name|MockTerminal
@@ -648,7 +646,7 @@ argument_list|)
 expr_stmt|;
 name|terminal
 operator|.
-name|resetOutput
+name|reset
 argument_list|()
 expr_stmt|;
 name|parser
@@ -1233,7 +1231,7 @@ argument_list|)
 expr_stmt|;
 name|terminal
 operator|.
-name|resetOutput
+name|reset
 argument_list|()
 expr_stmt|;
 name|status
@@ -1336,7 +1334,7 @@ expr_stmt|;
 comment|// single dash in extra params
 name|terminal
 operator|.
-name|resetOutput
+name|reset
 argument_list|()
 expr_stmt|;
 name|parser
@@ -1615,7 +1613,7 @@ control|)
 block|{
 name|terminal
 operator|.
-name|resetOutput
+name|reset
 argument_list|()
 expr_stmt|;
 name|BootstrapCLIParser
