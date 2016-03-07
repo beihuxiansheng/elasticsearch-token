@@ -1647,7 +1647,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using bqucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}], max_retries [{}], cannedACL [{}], storageClass [{}]"
+literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}], max_retries [{}], cannedACL [{}], storageClass [{}]"
 argument_list|,
 name|bucket
 argument_list|,
@@ -1949,7 +1949,7 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-literal|"Client-side encryption: You can't specify an symmetric key AND a public/private key pair"
+literal|"Client-side encryption: You can't specify a symmetric key AND a public/private key pair"
 argument_list|)
 throw|;
 block|}
