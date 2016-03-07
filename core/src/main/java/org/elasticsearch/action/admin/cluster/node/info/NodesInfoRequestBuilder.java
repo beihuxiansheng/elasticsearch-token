@@ -293,6 +293,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should the node ingest info be returned.      */
+DECL|method|setIngest
+specifier|public
+name|NodesInfoRequestBuilder
+name|setIngest
+parameter_list|(
+name|boolean
+name|ingest
+parameter_list|)
+block|{
+name|request
+argument_list|()
+operator|.
+name|ingest
+argument_list|(
+name|ingest
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

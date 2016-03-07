@@ -539,13 +539,6 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -678,13 +671,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -942,8 +928,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 init|)
 block|{
@@ -1097,13 +1081,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -1369,8 +1346,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1651,13 +1626,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -2249,13 +2217,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -2967,6 +2928,12 @@ block|{
 comment|// add assume's here if needed for certain platforms, but we should know if it does not work.
 name|assertTrue
 argument_list|(
+literal|"MMapDirectory does not support unmapping: "
+operator|+
+name|MMapDirectory
+operator|.
+name|UNMAP_NOT_SUPPORTED_REASON
+argument_list|,
 name|MMapDirectory
 operator|.
 name|UNMAP_SUPPORTED

@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -837,7 +837,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|INT
 argument_list|)
@@ -994,7 +994,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCoded
 argument_list|(
@@ -1037,7 +1037,7 @@ name|includeUpper
 parameter_list|)
 block|{
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newIntRange
 argument_list|(
@@ -1115,7 +1115,7 @@ name|asInt
 argument_list|()
 decl_stmt|;
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newIntRange
 argument_list|(
@@ -1158,7 +1158,7 @@ block|{
 name|long
 name|minValue
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMinInt
 argument_list|(
@@ -1168,7 +1168,7 @@ decl_stmt|;
 name|long
 name|maxValue
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMaxInt
 argument_list|(
@@ -1683,7 +1683,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_3_0_0
+name|V_5_0_0
 argument_list|)
 condition|)
 block|{
@@ -1961,6 +1961,30 @@ name|fieldType
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|boost
+operator|!=
+literal|1f
+operator|&&
+name|Version
+operator|.
+name|indexCreated
+argument_list|(
+name|context
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|)
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0
+argument_list|)
+condition|)
+block|{
 name|field
 operator|.
 name|setBoost
@@ -1968,6 +1992,7 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
+block|}
 name|fields
 operator|.
 name|add

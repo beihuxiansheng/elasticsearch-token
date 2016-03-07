@@ -792,6 +792,8 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
+comment|// TODO: temporarily disabled to give Kibana time to upgrade to text/keyword mappings
+comment|/*if (parserContext.indexVersionCreated().onOrAfter(Version.V_5_0_0)) {                 throw new IllegalArgumentException("The [string] type is removed in 5.0. You should now use either a [text] "                         + "or [keyword] field instead for field [" + fieldName + "]");             }*/
 name|StringFieldMapper
 operator|.
 name|Builder
@@ -1411,6 +1413,8 @@ argument_list|,
 name|copyTo
 argument_list|)
 expr_stmt|;
+comment|// TODO: temporarily disabled to give Kibana time to upgrade to text/keyword mappings
+comment|/*if (Version.indexCreated(indexSettings).onOrAfter(Version.V_5_0_0)) {             throw new IllegalArgumentException("The [string] type is removed in 5.0. You should now use either a [text] "                     + "or [keyword] field instead for field [" + fieldType.name() + "]");         }*/
 if|if
 condition|(
 name|fieldType
@@ -1785,6 +1789,33 @@ name|fieldType
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|valueAndBoost
+operator|.
+name|boost
+argument_list|()
+operator|!=
+literal|1f
+operator|&&
+name|Version
+operator|.
+name|indexCreated
+argument_list|(
+name|context
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|)
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0
+argument_list|)
+condition|)
+block|{
 name|field
 operator|.
 name|setBoost
@@ -1795,6 +1826,7 @@ name|boost
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|fields
 operator|.
 name|add
@@ -1940,7 +1972,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_3_0_0
+name|V_5_0_0
 argument_list|)
 condition|)
 block|{

@@ -45,6 +45,12 @@ argument_list|<
 name|UpdateByQueryRequest
 argument_list|>
 block|{
+comment|/**      * Ingest pipeline to set on index requests made by this action.      */
+DECL|field|pipeline
+specifier|private
+name|String
+name|pipeline
+decl_stmt|;
 DECL|method|UpdateByQueryRequest
 specifier|public
 name|UpdateByQueryRequest
@@ -63,6 +69,34 @@ argument_list|(
 name|search
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Set the ingest pipeline to set on index requests made by this action.      */
+DECL|method|setPipeline
+specifier|public
+name|void
+name|setPipeline
+parameter_list|(
+name|String
+name|pipeline
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pipeline
+operator|=
+name|pipeline
+expr_stmt|;
+block|}
+comment|/**      * Ingest pipeline to set on index requests made by this action.      */
+DECL|method|getPipeline
+specifier|public
+name|String
+name|getPipeline
+parameter_list|()
+block|{
+return|return
+name|pipeline
+return|;
 block|}
 annotation|@
 name|Override

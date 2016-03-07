@@ -226,7 +226,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|KeywordFieldMapper
 import|;
 end_import
 
@@ -408,7 +408,7 @@ parameter_list|,
 name|DoubleFieldMapper
 name|lonMapper
 parameter_list|,
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|geoHashMapper
 parameter_list|,
 name|MultiFields
@@ -461,7 +461,7 @@ name|setNumericType
 argument_list|(
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|LONG
 argument_list|)
@@ -539,7 +539,7 @@ name|setNumericType
 argument_list|(
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|LONG
 argument_list|)
@@ -632,7 +632,7 @@ parameter_list|,
 name|DoubleFieldMapper
 name|lonMapper
 parameter_list|,
-name|StringFieldMapper
+name|KeywordFieldMapper
 name|geoHashMapper
 parameter_list|,
 name|MultiFields

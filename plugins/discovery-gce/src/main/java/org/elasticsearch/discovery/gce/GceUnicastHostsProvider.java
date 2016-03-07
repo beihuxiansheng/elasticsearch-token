@@ -854,7 +854,7 @@ name|status
 argument_list|)
 expr_stmt|;
 comment|// We don't want to connect to TERMINATED status instances
-comment|// See https://github.com/elasticsearch/elasticsearch-cloud-gce/issues/3
+comment|// See https://github.com/elastic/elasticsearch-cloud-gce/issues/3
 if|if
 condition|(
 name|Status

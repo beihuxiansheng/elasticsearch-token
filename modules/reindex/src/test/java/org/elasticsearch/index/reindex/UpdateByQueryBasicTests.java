@@ -956,7 +956,7 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"{\"test\": {\"properties\":{\"foo\": {\"type\": \"string\"}}}}"
+literal|"{\"test\": {\"properties\":{\"foo\": {\"type\": \"text\"}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;

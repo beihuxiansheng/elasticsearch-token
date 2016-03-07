@@ -567,6 +567,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|setIncludeSegmentFileSizes
+specifier|public
+name|IndicesStatsRequestBuilder
+name|setIncludeSegmentFileSizes
+parameter_list|(
+name|boolean
+name|includeSegmentFileSizes
+parameter_list|)
+block|{
+name|request
+operator|.
+name|includeSegmentFileSizes
+argument_list|(
+name|includeSegmentFileSizes
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

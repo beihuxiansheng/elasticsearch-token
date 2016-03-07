@@ -3279,7 +3279,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// https://github.com/elasticsearch/elasticsearch/issues/6435
+comment|// https://github.com/elastic/elasticsearch/issues/6435
 DECL|method|testReduce
 specifier|public
 name|void

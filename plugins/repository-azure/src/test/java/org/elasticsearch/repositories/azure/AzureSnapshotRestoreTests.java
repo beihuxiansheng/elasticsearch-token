@@ -1657,7 +1657,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * For issue #51: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/51      */
+comment|/**      * For issue #51: https://github.com/elastic/elasticsearch-cloud-azure/issues/51      */
 DECL|method|testMultipleSnapshots
 specifier|public
 name|void
@@ -3197,7 +3197,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * For issue #26: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/26      */
+comment|/**      * For issue #26: https://github.com/elastic/elasticsearch-cloud-azure/issues/26      */
 DECL|method|testListBlobs_26
 specifier|public
 name|void
@@ -3670,7 +3670,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * For issue #28: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/28      */
+comment|/**      * For issue #28: https://github.com/elastic/elasticsearch-cloud-azure/issues/28      */
 DECL|method|testGetDeleteNonExistingSnapshot_28
 specifier|public
 name|void
@@ -3812,7 +3812,7 @@ block|{
 comment|// Expected
 block|}
 block|}
-comment|/**      * For issue #21: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/21      */
+comment|/**      * For issue #21: https://github.com/elastic/elasticsearch-cloud-azure/issues/21      */
 DECL|method|testForbiddenContainerName
 specifier|public
 name|void
@@ -4103,7 +4103,7 @@ name|MINUTES
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test case for issue #23: https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/23      */
+comment|/**      * Test case for issue #23: https://github.com/elastic/elasticsearch-cloud-azure/issues/23      */
 DECL|method|testNonExistingRepo_23
 specifier|public
 name|void

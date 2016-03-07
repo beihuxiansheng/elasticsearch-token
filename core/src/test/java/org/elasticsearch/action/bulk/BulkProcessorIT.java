@@ -1229,7 +1229,7 @@ name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
-comment|//https://github.com/elasticsearch/elasticsearch/issues/5038
+comment|//https://github.com/elastic/elasticsearch/issues/5038
 DECL|method|testBulkProcessorConcurrentRequestsNoNodeAvailableException
 specifier|public
 name|void

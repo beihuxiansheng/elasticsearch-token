@@ -1661,8 +1661,6 @@ operator|.
 name|open
 argument_list|(
 name|w
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|searcher
@@ -5141,13 +5139,6 @@ else|:
 literal|1.0f
 argument_list|)
 decl_stmt|;
-name|q1
-operator|.
-name|setBoost
-argument_list|(
-literal|3.0f
-argument_list|)
-expr_stmt|;
 name|FunctionScoreQuery
 index|[]
 name|queries
@@ -5163,8 +5154,6 @@ block|,
 name|diffQuery
 block|,
 name|q
-block|,
-name|q1
 block|,
 name|diffMaxBoost
 block|}
@@ -5719,13 +5708,6 @@ argument_list|,
 name|combineFunction
 argument_list|)
 decl_stmt|;
-name|q1
-operator|.
-name|setBoost
-argument_list|(
-literal|3.0f
-argument_list|)
-expr_stmt|;
 name|FiltersFunctionScoreQuery
 index|[]
 name|queries
@@ -5745,8 +5727,6 @@ block|,
 name|diffFunc
 block|,
 name|q
-block|,
-name|q1
 block|,
 name|diffCombineFunc
 block|}

@@ -545,6 +545,11 @@ name|request
 operator|.
 name|plugins
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|ingest
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -578,6 +583,7 @@ name|NodeInfoRequest
 parameter_list|()
 block|{         }
 DECL|method|NodeInfoRequest
+specifier|public
 name|NodeInfoRequest
 parameter_list|(
 name|String

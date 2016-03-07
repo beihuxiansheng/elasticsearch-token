@@ -5803,7 +5803,7 @@ name|executor
 operator|.
 name|awaitTermination
 argument_list|(
-literal|10
+literal|20
 argument_list|,
 name|TimeUnit
 operator|.

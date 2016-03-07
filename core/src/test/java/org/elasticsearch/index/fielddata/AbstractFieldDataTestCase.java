@@ -1468,9 +1468,10 @@ name|V_2_0_0
 argument_list|,
 name|Version
 operator|.
-name|CURRENT
+name|V_2_3_0
 argument_list|)
 decl_stmt|;
+comment|// we need 2.x so that fielddata is allowed on string fields
 name|Settings
 name|settings
 init|=
@@ -1596,8 +1597,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
