@@ -461,7 +461,7 @@ name|setNumericType
 argument_list|(
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|LONG
 argument_list|)
@@ -539,7 +539,7 @@ name|setNumericType
 argument_list|(
 name|FieldType
 operator|.
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|LONG
 argument_list|)

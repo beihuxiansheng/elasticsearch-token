@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -3245,7 +3245,7 @@ operator|.
 name|numericPrecisionStep
 argument_list|()
 operator|!=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|PRECISION_STEP_DEFAULT
 operator|)

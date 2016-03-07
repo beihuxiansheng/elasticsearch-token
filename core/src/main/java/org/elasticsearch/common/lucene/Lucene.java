@@ -869,7 +869,7 @@ specifier|final
 name|String
 name|LATEST_CODEC
 init|=
-literal|"Lucene54"
+literal|"Lucene60"
 decl_stmt|;
 static|static
 block|{
@@ -1667,10 +1667,6 @@ operator|.
 name|readInt
 argument_list|()
 decl_stmt|;
-specifier|final
-name|int
-name|actualFormat
-decl_stmt|;
 if|if
 condition|(
 name|format
@@ -1680,35 +1676,6 @@ operator|.
 name|CODEC_MAGIC
 condition|)
 block|{
-comment|// 4.0+
-name|actualFormat
-operator|=
-name|CodecUtil
-operator|.
-name|checkHeaderNoMagic
-argument_list|(
-name|input
-argument_list|,
-literal|"segments"
-argument_list|,
-name|SegmentInfos
-operator|.
-name|VERSION_40
-argument_list|,
-name|Integer
-operator|.
-name|MAX_VALUE
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|actualFormat
-operator|>=
-name|SegmentInfos
-operator|.
-name|VERSION_48
-condition|)
-block|{
 name|CodecUtil
 operator|.
 name|checksumEntireFile
@@ -1716,7 +1683,6 @@ argument_list|(
 name|input
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// legacy....
 block|}
@@ -2686,7 +2652,8 @@ name|out
 argument_list|,
 name|sortField
 operator|.
-name|missingValue
+name|getMissingValue
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4263,8 +4230,6 @@ name|infos
 operator|.
 name|files
 argument_list|(
-name|dir
-argument_list|,
 literal|true
 argument_list|)
 argument_list|)

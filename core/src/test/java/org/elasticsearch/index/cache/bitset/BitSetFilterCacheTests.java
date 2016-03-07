@@ -674,8 +674,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|reader
@@ -836,8 +834,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|reader
@@ -1024,8 +1020,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1454,8 +1448,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|writer

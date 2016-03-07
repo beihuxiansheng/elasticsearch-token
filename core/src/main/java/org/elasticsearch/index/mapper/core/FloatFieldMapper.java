@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -141,6 +141,20 @@ operator|.
 name|util
 operator|.
 name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -395,22 +409,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|NumericUtils
-operator|.
-name|floatToSortableInt
 import|;
 end_import
 
@@ -830,7 +828,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|FLOAT
 argument_list|)
@@ -999,7 +997,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCoded
 argument_list|(
@@ -1039,7 +1037,7 @@ name|includeUpper
 parameter_list|)
 block|{
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newFloatRange
 argument_list|(
@@ -1118,7 +1116,7 @@ name|asFloat
 argument_list|()
 decl_stmt|;
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newFloatRange
 argument_list|(
@@ -1165,7 +1163,7 @@ name|NumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMinInt
 argument_list|(
@@ -1180,7 +1178,7 @@ name|NumericUtils
 operator|.
 name|sortableIntToFloat
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMaxInt
 argument_list|(
@@ -1996,6 +1994,8 @@ name|context
 argument_list|,
 name|fields
 argument_list|,
+name|NumericUtils
+operator|.
 name|floatToSortableInt
 argument_list|(
 name|value

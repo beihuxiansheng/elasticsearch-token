@@ -1981,8 +1981,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|directoryReader

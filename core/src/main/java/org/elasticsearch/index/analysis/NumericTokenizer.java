@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 import|;
 end_import
 
@@ -198,7 +198,7 @@ block|}
 DECL|field|numericTokenStream
 specifier|private
 specifier|final
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|numericTokenStream
 decl_stmt|;
 DECL|field|buffer
@@ -223,7 +223,7 @@ DECL|method|NumericTokenizer
 specifier|protected
 name|NumericTokenizer
 parameter_list|(
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|numericTokenStream
 parameter_list|,
 name|char
@@ -464,7 +464,7 @@ specifier|abstract
 name|void
 name|setValue
 parameter_list|(
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|tokenStream
 parameter_list|,
 name|String

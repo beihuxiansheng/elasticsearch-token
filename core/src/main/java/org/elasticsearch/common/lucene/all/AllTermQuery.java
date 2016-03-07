@@ -1363,14 +1363,6 @@ name|toString
 argument_list|(
 name|field
 argument_list|)
-operator|+
-name|ToStringUtils
-operator|.
-name|boost
-argument_list|(
-name|getBoost
-argument_list|()
-argument_list|)
 return|;
 block|}
 block|}

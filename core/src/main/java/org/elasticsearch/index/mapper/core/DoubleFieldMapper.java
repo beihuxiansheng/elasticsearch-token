@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -141,6 +141,20 @@ operator|.
 name|util
 operator|.
 name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -383,22 +397,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|NumericUtils
-operator|.
-name|doubleToSortableLong
 import|;
 end_import
 
@@ -821,7 +819,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|DOUBLE
 argument_list|)
@@ -990,7 +988,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCoded
 argument_list|(
@@ -1030,7 +1028,7 @@ name|includeUpper
 parameter_list|)
 block|{
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1108,7 +1106,7 @@ name|asDouble
 argument_list|()
 decl_stmt|;
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -1155,7 +1153,7 @@ name|NumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMinLong
 argument_list|(
@@ -1170,7 +1168,7 @@ name|NumericUtils
 operator|.
 name|sortableLongToDouble
 argument_list|(
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMaxLong
 argument_list|(
@@ -1921,6 +1919,8 @@ name|context
 argument_list|,
 name|fields
 argument_list|,
+name|NumericUtils
+operator|.
 name|doubleToSortableLong
 argument_list|(
 name|value

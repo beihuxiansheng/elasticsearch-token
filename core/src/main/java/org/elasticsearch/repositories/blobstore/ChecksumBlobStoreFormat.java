@@ -870,6 +870,8 @@ name|OutputStreamIndexOutput
 argument_list|(
 name|resourceDesc
 argument_list|,
+name|blobName
+argument_list|,
 name|byteArrayOutputStream
 argument_list|,
 name|BUFFER_SIZE

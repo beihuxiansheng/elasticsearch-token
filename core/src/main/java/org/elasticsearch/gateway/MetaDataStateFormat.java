@@ -754,6 +754,8 @@ name|OutputStreamIndexOutput
 argument_list|(
 name|resourceDesc
 argument_list|,
+name|fileName
+argument_list|,
 name|Files
 operator|.
 name|newOutputStream

@@ -287,16 +287,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// convert 0.90.x _uid payloads to _version docvalues if needed
-name|reader
-operator|=
-name|VersionFieldUpgrader
-operator|.
-name|wrap
-argument_list|(
-name|reader
-argument_list|)
-expr_stmt|;
 comment|// TODO: remove 0.90.x/1.x freqs/prox/payloads from _uid?
 comment|// the previous code never did this, so some indexes carry around trash.
 return|return
