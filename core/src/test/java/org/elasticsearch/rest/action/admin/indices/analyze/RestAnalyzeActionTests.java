@@ -140,10 +140,10 @@ name|RestAnalyzeActionTests
 extends|extends
 name|ESTestCase
 block|{
-DECL|method|testParseXContentForAnalyzeReuqest
+DECL|method|testParseXContentForAnalyzeRequest
 specifier|public
 name|void
-name|testParseXContentForAnalyzeReuqest
+name|testParseXContentForAnalyzeRequest
 parameter_list|()
 throws|throws
 name|Exception
