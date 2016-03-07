@@ -385,7 +385,7 @@ literal|"\n"
 operator|+
 literal|"  - skip:\n"
 operator|+
-literal|"      version:     \"0.90.9 - \"\n"
+literal|"      version:     \"2.0.0 - \"\n"
 operator|+
 literal|"      reason:      \"for newer versions the index name is always returned\"\n"
 operator|+
@@ -1035,7 +1035,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_0_90_9
+name|V_2_0_0
 argument_list|)
 argument_list|)
 expr_stmt|;
