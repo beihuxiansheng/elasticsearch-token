@@ -448,7 +448,7 @@ literal|null
 condition|)
 block|{
 comment|// Important - need to use the doc count that includes deleted docs
-comment|// or we have this issue: https://github.com/elasticsearch/elasticsearch/issues/7951
+comment|// or we have this issue: https://github.com/elastic/elasticsearch/issues/7951
 name|numDocs
 operator|=
 name|reader

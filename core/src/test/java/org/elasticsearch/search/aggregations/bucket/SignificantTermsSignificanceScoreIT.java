@@ -2281,7 +2281,7 @@ name|indexRequestBuilderList
 argument_list|)
 expr_stmt|;
 comment|// Now create some holes in the index with selective deletes caused by updates.
-comment|// This is the scenario that caused this issue https://github.com/elasticsearch/elasticsearch/issues/7951
+comment|// This is the scenario that caused this issue https://github.com/elastic/elasticsearch/issues/7951
 comment|// Scoring algorithms throw exceptions if term docFreqs exceed the reported size of the index
 comment|// from which they are taken so need to make sure this doesn't happen.
 name|String

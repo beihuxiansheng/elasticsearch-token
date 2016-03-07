@@ -675,6 +675,16 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|index
+operator|.
+name|setPipeline
+argument_list|(
+name|mainRequest
+operator|.
+name|getPipeline
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|index
 return|;

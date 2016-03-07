@@ -1302,7 +1302,7 @@ name|e
 parameter_list|)
 block|{         }
 block|}
-comment|// https://github.com/elasticsearch/elasticsearch/issues/7240
+comment|// https://github.com/elastic/elasticsearch/issues/7240
 DECL|method|testEmptyBooleanQuery
 specifier|public
 name|void

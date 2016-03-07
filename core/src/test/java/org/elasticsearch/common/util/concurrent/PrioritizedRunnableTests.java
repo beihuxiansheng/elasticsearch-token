@@ -186,22 +186,6 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-name|long
-name|nanosecondsInMillisecond
-init|=
-name|TimeUnit
-operator|.
-name|NANOSECONDS
-operator|.
-name|convert
-argument_list|(
-literal|1
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-decl_stmt|;
 name|PrioritizedRunnable
 name|runnable
 init|=
@@ -222,39 +206,12 @@ parameter_list|()
 block|{             }
 block|}
 decl_stmt|;
-comment|// force at least one millisecond to elapse, but ensure the
-comment|// clock has enough resolution to observe the passage of time
 name|long
-name|start
+name|elapsed
 init|=
-name|System
-operator|.
-name|nanoTime
+name|spinForAtLeastOneMillisecond
 argument_list|()
 decl_stmt|;
-name|long
-name|elapsed
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|elapsed
-operator|=
-operator|(
-name|System
-operator|.
-name|nanoTime
-argument_list|()
-operator|-
-name|start
-operator|)
-operator|)
-operator|<
-name|nanosecondsInMillisecond
-condition|)
-block|{
-comment|// busy spin
-block|}
 comment|// creation happened before start, so age will be at least as
 comment|// large as elapsed
 name|assertThat

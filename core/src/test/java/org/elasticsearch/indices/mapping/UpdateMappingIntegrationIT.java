@@ -1424,7 +1424,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*     Second regression test for https://github.com/elasticsearch/elasticsearch/issues/3381      */
+comment|/*     Second regression test for https://github.com/elastic/elasticsearch/issues/3381      */
 DECL|method|testUpdateMappingNoChanges
 specifier|public
 name|void

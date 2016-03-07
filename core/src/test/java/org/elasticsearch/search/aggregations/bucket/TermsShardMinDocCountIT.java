@@ -344,7 +344,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|// see https://github.com/elasticsearch/elasticsearch/issues/5998
+comment|// see https://github.com/elastic/elasticsearch/issues/5998
 DECL|method|testShardMinDocCountSignificantTermsTest
 specifier|public
 name|void
@@ -852,7 +852,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// see https://github.com/elasticsearch/elasticsearch/issues/5998
+comment|// see https://github.com/elastic/elasticsearch/issues/5998
 DECL|method|testShardMinDocCountTermsTest
 specifier|public
 name|void

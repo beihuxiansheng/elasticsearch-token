@@ -22291,7 +22291,7 @@ operator|++
 control|)
 block|{
 comment|//generating text with word to highlight in a different position
-comment|//(https://github.com/elasticsearch/elasticsearch/issues/4103)
+comment|//(https://github.com/elastic/elasticsearch/issues/4103)
 name|String
 name|prefix
 init|=
