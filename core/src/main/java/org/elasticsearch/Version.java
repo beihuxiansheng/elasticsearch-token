@@ -150,7 +150,7 @@ class|class
 name|Version
 block|{
 comment|// The logic for ID is: XXYYZZAA, where XX is major version, YY is minor version, ZZ is revision, and AA is alpha/beta/rc indicator
-comment|// AA values below 25 are fro alpha builder (since 5.0), and above 25 and below 50 are beta builds, and below 99 are RC builds, with 99 indicating a release
+comment|// AA values below 25 are for alpha builder (since 5.0), and above 25 and below 50 are beta builds, and below 99 are RC builds, with 99 indicating a release
 comment|// the (internal) format of the id is there so we can easily do after/before checks on the id
 DECL|field|V_2_0_0_beta1_ID
 specifier|public
