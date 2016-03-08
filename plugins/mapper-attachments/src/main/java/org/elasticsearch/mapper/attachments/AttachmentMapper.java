@@ -308,7 +308,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -756,7 +756,7 @@ argument_list|>
 name|titleBuilder
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -778,7 +778,7 @@ argument_list|>
 name|nameBuilder
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -800,7 +800,7 @@ argument_list|>
 name|authorBuilder
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -822,7 +822,7 @@ argument_list|>
 name|keywordsBuilder
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -866,7 +866,7 @@ argument_list|>
 name|contentTypeBuilder
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -910,7 +910,7 @@ argument_list|>
 name|languageBuilder
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -951,7 +951,7 @@ operator|.
 name|contentBuilder
 operator|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1787,7 +1787,7 @@ else|else
 block|{
 name|type
 operator|=
-literal|"string"
+literal|"text"
 expr_stmt|;
 block|}
 name|Mapper

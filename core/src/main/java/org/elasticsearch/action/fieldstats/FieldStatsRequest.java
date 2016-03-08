@@ -326,7 +326,7 @@ throw|throw
 operator|new
 name|NullPointerException
 argument_list|(
-literal|"specified index_contraints can't be null"
+literal|"specified index_constraints can't be null"
 argument_list|)
 throw|;
 block|}

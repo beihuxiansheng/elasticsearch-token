@@ -190,11 +190,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugin
+operator|.
 name|discovery
 operator|.
 name|azure
 operator|.
-name|AzureDiscovery
+name|AzureDiscoveryPlugin
 import|;
 end_import
 
@@ -334,7 +336,7 @@ comment|// User set discovery.type: azure
 if|if
 condition|(
 operator|!
-name|AzureDiscovery
+name|AzureDiscoveryPlugin
 operator|.
 name|AZURE
 operator|.
@@ -357,7 +359,7 @@ name|trace
 argument_list|(
 literal|"discovery.type not set to {}"
 argument_list|,
-name|AzureDiscovery
+name|AzureDiscoveryPlugin
 operator|.
 name|AZURE
 argument_list|)

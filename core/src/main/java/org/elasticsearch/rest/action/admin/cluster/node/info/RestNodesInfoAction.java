@@ -333,6 +333,8 @@ argument_list|,
 literal|"thread_pool"
 argument_list|,
 literal|"transport"
+argument_list|,
+literal|"ingest"
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -720,6 +722,18 @@ operator|.
 name|contains
 argument_list|(
 literal|"plugins"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|nodesInfoRequest
+operator|.
+name|ingest
+argument_list|(
+name|metrics
+operator|.
+name|contains
+argument_list|(
+literal|"ingest"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -3225,6 +3225,16 @@ name|stats
 argument_list|()
 return|;
 block|}
+DECL|method|getClient
+specifier|public
+name|Client
+name|getClient
+parameter_list|()
+block|{
+return|return
+name|client
+return|;
+block|}
 comment|/**      * A small listener for the script cache that calls each      * {@code ScriptEngineService}'s {@code scriptRemoved} method when the      * script has been removed from the cache      */
 DECL|class|ScriptCacheRemovalListener
 specifier|private

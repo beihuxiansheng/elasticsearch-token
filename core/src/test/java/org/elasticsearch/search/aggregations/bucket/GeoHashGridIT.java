@@ -528,7 +528,7 @@ argument_list|()
 argument_list|,
 name|Version
 operator|.
-name|V_1_0_0
+name|V_2_0_0
 argument_list|,
 name|Version
 operator|.
@@ -1641,10 +1641,7 @@ operator|.
 name|filter
 argument_list|(
 literal|"filtered"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|bbox
 argument_list|)
 operator|.

@@ -390,6 +390,11 @@ name|max
 argument_list|(
 literal|"max"
 argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"value"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

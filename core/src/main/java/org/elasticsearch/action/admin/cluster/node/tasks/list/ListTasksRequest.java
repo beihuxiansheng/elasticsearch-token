@@ -104,22 +104,6 @@ name|detailed
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Get information from nodes based on the nodes ids specified. If none are passed, information      * for all nodes will be returned.      */
-DECL|method|ListTasksRequest
-specifier|public
-name|ListTasksRequest
-parameter_list|(
-name|String
-modifier|...
-name|nodesIds
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|nodesIds
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Should the detailed task information be returned.      */
 DECL|method|detailed
 specifier|public
@@ -133,7 +117,7 @@ operator|.
 name|detailed
 return|;
 block|}
-comment|/**      * Should the node settings be returned.      */
+comment|/**      * Should the detailed task information be returned.      */
 DECL|method|detailed
 specifier|public
 name|ListTasksRequest

@@ -828,7 +828,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Malforrmed content, must start with an object"
+literal|"Malformed content, must start with an object"
 argument_list|)
 throw|;
 block|}
@@ -1339,14 +1339,14 @@ name|Fields
 operator|.
 name|EXPLAIN
 argument_list|)
-operator|&&
-name|token
-operator|==
-name|XContentParser
+condition|)
+block|{
+if|if
+condition|(
+name|parser
 operator|.
-name|Token
-operator|.
-name|VALUE_BOOLEAN
+name|isBooleanValue
+argument_list|()
 condition|)
 block|{
 name|analyzeRequest
@@ -1359,6 +1359,19 @@ name|booleanValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|currentFieldName
+operator|+
+literal|" must be either 'true' or 'false'"
+argument_list|)
+throw|;
+block|}
 block|}
 elseif|else
 if|if

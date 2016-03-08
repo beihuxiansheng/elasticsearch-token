@@ -579,7 +579,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1107,7 +1107,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2445,7 +2445,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -3118,7 +3118,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -3518,7 +3518,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -3821,7 +3821,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -4094,7 +4094,7 @@ literal|"type1"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,analyzer=keyword"
+literal|"type=text,analyzer=keyword"
 argument_list|)
 operator|.
 name|setSettings
@@ -4410,7 +4410,7 @@ literal|"type1"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,analyzer=whitespace"
+literal|"type=text,analyzer=whitespace"
 argument_list|)
 operator|.
 name|setSettings
@@ -4886,7 +4886,7 @@ literal|"type1"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,analyzer=whitespace"
+literal|"type=text,analyzer=whitespace"
 argument_list|,
 literal|"date"
 argument_list|,
@@ -5760,11 +5760,11 @@ literal|"type1"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,analyzer=whitespace"
+literal|"type=text,analyzer=whitespace"
 argument_list|,
 literal|"text1"
 argument_list|,
-literal|"type=string,analyzer=whitespace"
+literal|"type=text,analyzer=whitespace"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -343,7 +343,7 @@ name|query
 argument_list|,
 name|instanceOf
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|class
 argument_list|)
@@ -770,17 +770,17 @@ name|parsedQuery
 argument_list|,
 name|instanceOf
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 name|fuzzyQuery
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|parsedQuery
 decl_stmt|;

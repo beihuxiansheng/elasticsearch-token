@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|io
 operator|.
@@ -32,11 +32,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -1627,11 +1627,11 @@ name|clauses
 argument_list|()
 control|)
 block|{
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 name|boundary
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|)
 name|clause
 operator|.
@@ -2880,6 +2880,34 @@ operator|.
 name|type
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|testMustRewrite
+specifier|public
+name|void
+name|testMustRewrite
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|testMustRewrite
+argument_list|()
 expr_stmt|;
 block|}
 block|}

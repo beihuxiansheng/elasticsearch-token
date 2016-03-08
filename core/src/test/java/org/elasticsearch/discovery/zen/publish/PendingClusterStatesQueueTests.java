@@ -752,7 +752,7 @@ literal|"], after a state from ["
 operator|+
 name|processedMaster
 operator|+
-literal|"] was proccessed"
+literal|"] was processed"
 argument_list|,
 name|pendingMaster
 argument_list|,

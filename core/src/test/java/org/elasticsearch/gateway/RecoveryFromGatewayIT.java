@@ -598,7 +598,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1075,7 +1075,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2645,7 +2645,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 comment|// TODO: remove once refresh doesn't fail immediately if there a master block:
-comment|// https://github.com/elasticsearch/elasticsearch/issues/9997
+comment|// https://github.com/elastic/elasticsearch/issues/9997
 name|client
 operator|.
 name|admin
@@ -2830,7 +2830,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field

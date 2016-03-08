@@ -165,7 +165,7 @@ literal|"date"
 block|,
 literal|"ip"
 block|,
-literal|"string"
+literal|"keyword"
 block|,
 literal|"boolean"
 block|,

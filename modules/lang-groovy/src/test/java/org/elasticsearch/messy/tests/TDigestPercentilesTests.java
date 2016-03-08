@@ -232,7 +232,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|PercentilesBuilder
+name|PercentilesAggregatorBuilder
 import|;
 end_import
 
@@ -601,10 +601,10 @@ block|}
 DECL|method|randomCompression
 specifier|private
 specifier|static
-name|PercentilesBuilder
+name|PercentilesAggregatorBuilder
 name|randomCompression
 parameter_list|(
-name|PercentilesBuilder
+name|PercentilesAggregatorBuilder
 name|builder
 parameter_list|)
 block|{
@@ -910,6 +910,11 @@ argument_list|(
 name|percentiles
 argument_list|(
 literal|"percentiles"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"value"
 argument_list|)
 argument_list|)
 operator|.
@@ -2843,6 +2848,11 @@ argument_list|(
 name|percentiles
 argument_list|(
 literal|"percentiles"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"value"
 argument_list|)
 operator|.
 name|percentiles

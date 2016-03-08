@@ -76,20 +76,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|RamUsageEstimator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -183,19 +169,19 @@ specifier|final
 name|int
 name|BUFFER_SIZE
 init|=
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 comment|// ops
 operator|+
-name|RamUsageEstimator
+name|Long
 operator|.
-name|NUM_BYTES_LONG
+name|BYTES
 comment|// offset
 operator|+
-name|RamUsageEstimator
+name|Long
 operator|.
-name|NUM_BYTES_LONG
+name|BYTES
 decl_stmt|;
 comment|// generation
 DECL|field|offset

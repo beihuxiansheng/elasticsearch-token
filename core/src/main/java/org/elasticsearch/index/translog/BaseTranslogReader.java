@@ -153,7 +153,7 @@ argument_list|)
 operator|==
 name|generation
 operator|:
-literal|"generation missmatch. Path: "
+literal|"generation mismatch. Path: "
 operator|+
 name|Translog
 operator|.

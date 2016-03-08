@@ -1319,10 +1319,13 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
+comment|// don't use newSearcher, which randomizes similarity. if it gets classic sim, the test eats it,
+comment|// as the score becomes 1 due to querynorm.
 name|IndexSearcher
 name|shardSearcher
 init|=
-name|newSearcher
+operator|new
+name|IndexSearcher
 argument_list|(
 name|directoryReader
 argument_list|)

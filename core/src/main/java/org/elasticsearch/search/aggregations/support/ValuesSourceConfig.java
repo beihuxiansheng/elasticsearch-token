@@ -84,6 +84,18 @@ name|ValueParser
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -101,10 +113,7 @@ parameter_list|>
 block|{
 DECL|field|valueSourceType
 specifier|final
-name|Class
-argument_list|<
-name|VS
-argument_list|>
+name|ValuesSourceType
 name|valueSourceType
 decl_stmt|;
 DECL|field|fieldContext
@@ -141,14 +150,15 @@ DECL|field|missing
 name|Object
 name|missing
 decl_stmt|;
+DECL|field|timeZone
+name|DateTimeZone
+name|timeZone
+decl_stmt|;
 DECL|method|ValuesSourceConfig
 specifier|public
 name|ValuesSourceConfig
 parameter_list|(
-name|Class
-argument_list|<
-name|VS
-argument_list|>
+name|ValuesSourceType
 name|valueSourceType
 parameter_list|)
 block|{
@@ -161,10 +171,7 @@ expr_stmt|;
 block|}
 DECL|method|valueSourceType
 specifier|public
-name|Class
-argument_list|<
-name|VS
-argument_list|>
+name|ValuesSourceType
 name|valueSourceType
 parameter_list|()
 block|{

@@ -92,8 +92,6 @@ name|common
 operator|.
 name|logging
 operator|.
-name|log4j
-operator|.
 name|LogConfigurator
 import|;
 end_import

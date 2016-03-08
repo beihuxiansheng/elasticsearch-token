@@ -34,7 +34,21 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamOutput
+name|NamedWriteable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
 import|;
 end_import
 
@@ -54,11 +68,15 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -68,6 +86,13 @@ specifier|public
 specifier|abstract
 class|class
 name|SignificanceHeuristic
+implements|implements
+name|NamedWriteable
+argument_list|<
+name|SignificanceHeuristic
+argument_list|>
+implements|,
+name|ToXContent
 block|{
 comment|/**      * @param subsetFreq   The frequency of the term in the selected sample      * @param subsetSize   The size of the selected sample (typically number of docs)      * @param supersetFreq The frequency of the term in the superset from which the sample was taken      * @param supersetSize The size of the superset from which the sample was taken  (typically number of docs)      * @return a "significance" score      */
 DECL|method|getScore
@@ -88,18 +113,6 @@ parameter_list|,
 name|long
 name|supersetSize
 parameter_list|)
-function_decl|;
-DECL|method|writeTo
-specifier|abstract
-specifier|public
-name|void
-name|writeTo
-parameter_list|(
-name|StreamOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
 DECL|method|checkFrequencyValidity
 specifier|protected
@@ -197,6 +210,15 @@ name|InternalAggregation
 operator|.
 name|ReduceContext
 name|reduceContext
+parameter_list|)
+block|{      }
+DECL|method|initialize
+specifier|public
+name|void
+name|initialize
+parameter_list|(
+name|SearchContext
+name|context
 parameter_list|)
 block|{      }
 block|}

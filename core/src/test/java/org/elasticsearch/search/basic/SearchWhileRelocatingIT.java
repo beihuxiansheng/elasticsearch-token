@@ -403,7 +403,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|execute

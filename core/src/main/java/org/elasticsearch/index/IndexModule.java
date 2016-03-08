@@ -280,10 +280,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
 name|IndicesQueryCache
 import|;
 end_import
@@ -922,7 +918,7 @@ literal|"key ["
 operator|+
 name|type
 operator|+
-literal|"] already registerd"
+literal|"] already registered"
 argument_list|)
 throw|;
 block|}

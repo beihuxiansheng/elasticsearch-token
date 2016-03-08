@@ -297,7 +297,7 @@ name|createParser
 argument_list|(
 literal|"  - skip:\n"
 operator|+
-literal|"      version:  \"0.90.0 - 0.90.7\"\n"
+literal|"      version:  \"2.0.0 - 2.3.0\"\n"
 operator|+
 literal|"      reason:   \"Update doesn't return metadata fields, waiting for #3259\"\n"
 operator|+
@@ -400,7 +400,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_0_90_0
+name|V_2_0_0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -418,7 +418,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_0_90_7
+name|V_2_3_0
 argument_list|)
 argument_list|)
 expr_stmt|;

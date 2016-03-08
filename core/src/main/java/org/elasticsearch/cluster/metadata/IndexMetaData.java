@@ -6223,9 +6223,9 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-comment|// TODO: do this in 4.0:
+comment|// TODO: do this in 6.0:
 comment|// throw new IllegalArgumentException("Warmers are not supported anymore - are you upgrading from 1.x?");
-comment|// ignore: warmers have been removed in 3.0 and are
+comment|// ignore: warmers have been removed in 5.0 and are
 comment|// simply ignored when upgrading from 2.x
 assert|assert
 name|Version
@@ -6234,7 +6234,7 @@ name|CURRENT
 operator|.
 name|major
 operator|<=
-literal|3
+literal|5
 assert|;
 name|parser
 operator|.

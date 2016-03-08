@@ -754,6 +754,8 @@ name|OutputStreamIndexOutput
 argument_list|(
 name|resourceDesc
 argument_list|,
+name|fileName
+argument_list|,
 name|Files
 operator|.
 name|newOutputStream
@@ -1977,7 +1979,18 @@ name|exceptions
 operator|.
 name|add
 argument_list|(
+operator|new
+name|IOException
+argument_list|(
+literal|"failed to read "
+operator|+
+name|pathAndStateId
+operator|.
+name|toString
+argument_list|()
+argument_list|,
 name|e
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger

@@ -473,8 +473,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -923,8 +921,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -1328,8 +1324,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -1565,8 +1559,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new

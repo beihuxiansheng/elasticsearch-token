@@ -1789,9 +1789,9 @@ name|ramBytesUsed
 parameter_list|()
 block|{
 return|return
-name|RamUsageEstimator
+name|Long
 operator|.
-name|NUM_BYTES_LONG
+name|BYTES
 operator|*
 name|data
 operator|.

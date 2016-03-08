@@ -36,16 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -162,37 +152,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperParsingException
 import|;
 end_import
 
@@ -347,12 +309,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|terms
 operator|.
 name|TermsLookup
 import|;
@@ -967,20 +923,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|wrapperQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|VersionUtils
-operator|.
-name|randomVersion
 import|;
 end_import
 
@@ -1838,7 +1780,7 @@ argument_list|)
 expr_stmt|;
 comment|// return no docs
 block|}
-comment|// see https://github.com/elasticsearch/elasticsearch/issues/3177
+comment|// see https://github.com/elastic/elasticsearch/issues/3177
 DECL|method|testIssue3177
 specifier|public
 name|void
@@ -2138,7 +2080,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,index_options=docs"
+literal|"type=text,index_options=docs"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3216,11 +3158,11 @@ literal|"type1"
 argument_list|,
 literal|"message"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"comment"
 argument_list|,
-literal|"type=string,boost=5.0"
+literal|"type=text,boost=5.0"
 argument_list|)
 operator|.
 name|setSettings
@@ -3396,7 +3338,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,analyzer=whitespace"
+literal|"type=text,analyzer=whitespace"
 argument_list|)
 operator|.
 name|setSettings
@@ -4197,18 +4139,17 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"3"
+literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// better score due to different query stats
 name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"1"
+literal|"2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4218,7 +4159,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"2"
+literal|"3"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4291,11 +4232,11 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,analyzer=syns"
+literal|"type=text,analyzer=syns"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string,analyzer=syns"
+literal|"type=text,analyzer=syns"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5145,18 +5086,17 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"3"
+literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// better score due to different query stats
 name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"1"
+literal|"2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5166,7 +5106,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"2"
+literal|"3"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8557,11 +8497,11 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,analyzer=classic"
+literal|"type=text,analyzer=classic"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string,analyzer=classic"
+literal|"type=text,analyzer=classic"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8813,11 +8753,11 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,analyzer=classic"
+literal|"type=text,analyzer=classic"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string,analyzer=classic"
+literal|"type=text,analyzer=classic"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10612,7 +10552,7 @@ literal|"type"
 argument_list|,
 literal|"term"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10783,7 +10723,7 @@ literal|"type"
 argument_list|,
 literal|"str"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"lng"
 argument_list|,
@@ -11448,11 +11388,11 @@ literal|"type"
 argument_list|,
 literal|"terms"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"other"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11502,7 +11442,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -11538,7 +11478,7 @@ literal|"type"
 argument_list|,
 literal|"term"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16190,7 +16130,7 @@ literal|"test"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,analyzer=index,search_analyzer=search"
+literal|"type=text,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16531,7 +16471,7 @@ literal|"test"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,analyzer=index,search_analyzer=search"
+literal|"type=text,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16757,7 +16697,7 @@ literal|"test"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,analyzer=index,search_analyzer=search"
+literal|"type=text,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17087,11 +17027,11 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,analyzer=my_analyzer"
+literal|"type=text,analyzer=my_analyzer"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string,analyzer=my_analyzer"
+literal|"type=text,analyzer=my_analyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -20425,11 +20365,11 @@ literal|"test"
 argument_list|,
 literal|"origin"
 argument_list|,
-literal|"type=string,copy_to=meta"
+literal|"type=text,copy_to=meta"
 argument_list|,
 literal|"meta"
 argument_list|,
-literal|"type=string,analyzer=my_ngram_analyzer"
+literal|"type=text,analyzer=my_ngram_analyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;

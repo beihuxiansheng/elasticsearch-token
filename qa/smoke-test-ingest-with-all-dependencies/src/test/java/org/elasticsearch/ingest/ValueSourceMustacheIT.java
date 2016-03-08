@@ -134,7 +134,7 @@ specifier|public
 class|class
 name|ValueSourceMustacheIT
 extends|extends
-name|AbstractMustacheTests
+name|AbstractMustacheTestCase
 block|{
 DECL|method|testValueSourceWithTemplates
 specifier|public
@@ -253,6 +253,11 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|List
 argument_list|<
 name|String
@@ -387,6 +392,11 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Map
 argument_list|<
 name|String

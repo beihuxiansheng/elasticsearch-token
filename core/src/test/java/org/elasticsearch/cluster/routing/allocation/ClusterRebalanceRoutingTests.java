@@ -9278,7 +9278,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"now start initializing shards and expect exactly one rebalance from node1 to node 2 sicne index [test] is all on node1"
+literal|"now start initializing shards and expect exactly one rebalance from node1 to node 2 since index [test] is all on node1"
 argument_list|)
 expr_stmt|;
 name|routingNodes

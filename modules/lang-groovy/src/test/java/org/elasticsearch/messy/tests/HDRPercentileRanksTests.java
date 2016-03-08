@@ -600,7 +600,7 @@ argument_list|)
 operator|.
 name|info
 argument_list|(
-literal|"Using percentiles={}"
+literal|"Using values={}"
 argument_list|,
 name|Arrays
 operator|.
@@ -640,7 +640,7 @@ index|[]
 name|pcts
 parameter_list|,
 name|PercentileRanks
-name|percentiles
+name|values
 parameter_list|,
 name|long
 name|minValue
@@ -661,7 +661,7 @@ name|percentileList
 init|=
 name|iterableAsArrayList
 argument_list|(
-name|percentiles
+name|values
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -937,6 +937,11 @@ argument_list|(
 literal|"percentile_ranks"
 argument_list|)
 operator|.
+name|field
+argument_list|(
+literal|"value"
+argument_list|)
+operator|.
 name|method
 argument_list|(
 name|PercentilesMethod
@@ -949,7 +954,7 @@ argument_list|(
 name|sigDigits
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 literal|10
 argument_list|,
@@ -1150,7 +1155,7 @@ argument_list|(
 literal|"value"
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 literal|0
 argument_list|,
@@ -1356,7 +1361,7 @@ argument_list|(
 literal|"value"
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -1377,7 +1382,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -1393,7 +1398,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValue
 argument_list|,
@@ -1479,7 +1484,7 @@ argument_list|(
 literal|"value"
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -1577,7 +1582,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|global
 operator|.
@@ -1591,7 +1596,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|percentiles
+name|values
 argument_list|,
 name|notNullValue
 argument_list|()
@@ -1599,7 +1604,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|percentiles
+name|values
 operator|.
 name|getName
 argument_list|()
@@ -1624,7 +1629,7 @@ argument_list|)
 argument_list|,
 name|sameInstance
 argument_list|(
-name|percentiles
+name|values
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1702,7 +1707,7 @@ argument_list|(
 literal|"value"
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -1723,7 +1728,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -1739,7 +1744,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValue
 argument_list|,
@@ -1820,7 +1825,7 @@ argument_list|(
 literal|"value"
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -1841,7 +1846,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -1857,7 +1862,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValue
 argument_list|,
@@ -1949,7 +1954,7 @@ literal|"_value - 1"
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -1970,7 +1975,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -1986,7 +1991,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValue
 operator|-
@@ -2112,7 +2117,7 @@ name|params
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -2133,7 +2138,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -2149,7 +2154,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValue
 operator|-
@@ -2232,7 +2237,7 @@ argument_list|(
 literal|"values"
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -2253,7 +2258,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -2269,7 +2274,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValues
 argument_list|,
@@ -2361,7 +2366,7 @@ literal|"_value - 1"
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -2382,7 +2387,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -2398,7 +2403,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValues
 operator|-
@@ -2492,7 +2497,7 @@ literal|"20 - _value"
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -2513,7 +2518,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -2529,7 +2534,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 literal|20
 operator|-
@@ -2655,7 +2660,7 @@ name|params
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -2676,7 +2681,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -2692,7 +2697,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValues
 operator|-
@@ -2779,7 +2784,7 @@ literal|"doc['value'].value"
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -2800,7 +2805,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -2816,7 +2821,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValue
 argument_list|,
@@ -2933,7 +2938,7 @@ name|params
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -2954,7 +2959,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -2970,7 +2975,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValue
 operator|-
@@ -3057,7 +3062,7 @@ literal|"doc['values'].values"
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -3078,7 +3083,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -3094,7 +3099,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValues
 argument_list|,
@@ -3211,7 +3216,7 @@ name|params
 argument_list|)
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 name|pcts
 argument_list|)
@@ -3232,7 +3237,7 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|searchResponse
 operator|.
@@ -3248,7 +3253,7 @@ name|assertConsistent
 argument_list|(
 name|pcts
 argument_list|,
-name|percentiles
+name|values
 argument_list|,
 name|minValues
 operator|-
@@ -3321,6 +3326,11 @@ argument_list|(
 literal|"percentile_ranks"
 argument_list|)
 operator|.
+name|field
+argument_list|(
+literal|"value"
+argument_list|)
+operator|.
 name|method
 argument_list|(
 name|PercentilesMethod
@@ -3333,7 +3343,7 @@ argument_list|(
 name|sigDigits
 argument_list|)
 operator|.
-name|percentiles
+name|values
 argument_list|(
 literal|99
 argument_list|)
@@ -3407,7 +3417,7 @@ argument_list|()
 control|)
 block|{
 name|PercentileRanks
-name|percentiles
+name|values
 init|=
 name|bucket
 operator|.
@@ -3422,7 +3432,7 @@ decl_stmt|;
 name|double
 name|p99
 init|=
-name|percentiles
+name|values
 operator|.
 name|percent
 argument_list|(

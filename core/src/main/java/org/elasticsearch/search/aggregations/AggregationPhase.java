@@ -527,9 +527,7 @@ operator|=
 name|factories
 operator|.
 name|createTopLevelAggregators
-argument_list|(
-name|aggregationContext
-argument_list|)
+argument_list|()
 expr_stmt|;
 for|for
 control|(

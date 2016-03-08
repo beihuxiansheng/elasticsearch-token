@@ -70,9 +70,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene54
+name|lucene60
 operator|.
-name|Lucene54Codec
+name|Lucene60Codec
 import|;
 end_import
 
@@ -162,7 +162,7 @@ specifier|public
 class|class
 name|PerFieldMappingPostingFormatCodec
 extends|extends
-name|Lucene54Codec
+name|Lucene60Codec
 block|{
 DECL|field|logger
 specifier|private
