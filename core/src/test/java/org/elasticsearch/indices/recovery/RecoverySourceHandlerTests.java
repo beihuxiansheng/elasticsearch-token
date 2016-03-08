@@ -909,7 +909,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|store
+name|targetStore
 operator|.
 name|directory
 argument_list|()
