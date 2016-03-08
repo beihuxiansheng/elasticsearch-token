@@ -2602,9 +2602,15 @@ name|executor
 operator|=
 name|EsExecutors
 operator|.
-name|newCached
+name|newScaling
 argument_list|(
 literal|"test runner"
+argument_list|,
+literal|0
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|,
 literal|0
 argument_list|,

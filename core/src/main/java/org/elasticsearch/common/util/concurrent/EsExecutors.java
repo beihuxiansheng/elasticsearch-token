@@ -92,6 +92,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|LinkedBlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|LinkedTransferQueue
 import|;
 end_import
@@ -317,7 +329,6 @@ name|ExecutorScalingQueue
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// we force the execution, since we might run into concurrency issues in offer for ScalingBlockingQueue
 name|EsThreadPoolExecutor
 name|executor
 init|=
@@ -353,61 +364,6 @@ name|executor
 expr_stmt|;
 return|return
 name|executor
-return|;
-block|}
-DECL|method|newCached
-specifier|public
-specifier|static
-name|EsThreadPoolExecutor
-name|newCached
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|long
-name|keepAliveTime
-parameter_list|,
-name|TimeUnit
-name|unit
-parameter_list|,
-name|ThreadFactory
-name|threadFactory
-parameter_list|,
-name|ThreadContext
-name|contextHolder
-parameter_list|)
-block|{
-return|return
-operator|new
-name|EsThreadPoolExecutor
-argument_list|(
-name|name
-argument_list|,
-literal|0
-argument_list|,
-name|Integer
-operator|.
-name|MAX_VALUE
-argument_list|,
-name|keepAliveTime
-argument_list|,
-name|unit
-argument_list|,
-operator|new
-name|SynchronousQueue
-argument_list|<
-name|Runnable
-argument_list|>
-argument_list|()
-argument_list|,
-name|threadFactory
-argument_list|,
-operator|new
-name|EsAbortPolicy
-argument_list|()
-argument_list|,
-name|contextHolder
-argument_list|)
 return|;
 block|}
 DECL|method|newFixed
@@ -840,6 +796,7 @@ name|E
 name|e
 parameter_list|)
 block|{
+comment|// first try to transfer to a waiting worker thread
 if|if
 condition|(
 operator|!
@@ -849,6 +806,8 @@ name|e
 argument_list|)
 condition|)
 block|{
+comment|// check if there might be spare capacity in the thread
+comment|// pool executor
 name|int
 name|left
 init|=
@@ -869,6 +828,11 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|// reject queuing the task to force the thread pool
+comment|// executor to add a worker if it can; combined
+comment|// with ForceQueuePolicy, this causes the thread
+comment|// pool to always scale up to max pool size and we
+comment|// only queue when there is no spare capacity
 return|return
 literal|false
 return|;
