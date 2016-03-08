@@ -664,6 +664,17 @@ condition|)
 block|{
 comment|// we found a better match that has a full sync id match, the existing allocation is not fully synced
 comment|// so we found a better one, cancel this one
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"cancelling allocation of replica on [{}], sync id match found on node [{}]"
+argument_list|,
+name|currentNode
+argument_list|,
+name|nodeWithHighestMatch
+argument_list|)
+expr_stmt|;
 name|it
 operator|.
 name|moveToUnassigned
