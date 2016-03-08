@@ -1423,7 +1423,7 @@ operator|.
 name|getMetaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shard
 operator|.

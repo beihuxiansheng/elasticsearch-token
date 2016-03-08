@@ -708,11 +708,11 @@ operator|.
 name|getMetaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 operator|.
@@ -975,7 +975,7 @@ name|concreteIndices
 init|=
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|clusterState
 argument_list|,

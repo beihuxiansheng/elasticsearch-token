@@ -594,11 +594,11 @@ name|indexMetaData
 init|=
 name|metaData
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shard
 operator|.
-name|getIndexName
+name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
