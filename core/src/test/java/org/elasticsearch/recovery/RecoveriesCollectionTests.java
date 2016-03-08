@@ -1109,7 +1109,10 @@ name|indexServices
 operator|.
 name|indexServiceSafe
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 operator|.
 name|getShardOrNull

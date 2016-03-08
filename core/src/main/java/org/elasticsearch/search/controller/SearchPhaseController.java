@@ -728,6 +728,9 @@ argument_list|()
 operator|.
 name|shardId
 argument_list|()
+operator|.
+name|id
+argument_list|()
 operator|-
 name|o2
 operator|.
@@ -737,6 +740,9 @@ name|shardTarget
 argument_list|()
 operator|.
 name|shardId
+argument_list|()
+operator|.
+name|id
 argument_list|()
 expr_stmt|;
 block|}

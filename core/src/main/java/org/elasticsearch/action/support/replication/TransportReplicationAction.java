@@ -490,6 +490,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|IndexService
 import|;
 end_import
@@ -2168,7 +2180,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 name|request
@@ -2177,9 +2189,6 @@ name|shardId
 argument_list|()
 operator|.
 name|getIndex
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 name|int
@@ -2241,7 +2250,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"ignoring failed replica [{}][{}] because index was already removed."
+literal|"ignoring failed replica {}[{}] because index was already removed."
 argument_list|,
 name|index
 argument_list|,
@@ -2271,7 +2280,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"ignoring failed replica [{}][{}] because index was already removed."
+literal|"ignoring failed replica {}[{}] because index was already removed."
 argument_list|,
 name|index
 argument_list|,
