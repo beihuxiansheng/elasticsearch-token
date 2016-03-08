@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A list of per-document binary values, sorted  * according to {@link BytesRef#getUTF8SortedAsUnicodeComparator()}.  * There might be dups however.  */
+comment|/**  * A list of per-document binary values, sorted  * according to {@link BytesRef#compareTo(BytesRef)}.  * There might be dups however.  */
 end_comment
 
 begin_class

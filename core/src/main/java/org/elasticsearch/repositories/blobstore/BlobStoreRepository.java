@@ -2543,12 +2543,15 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|snapshotVersion
-operator|=
-name|Version
-operator|.
-name|V_1_0_0
-expr_stmt|;
+throw|throw
+operator|new
+name|SnapshotException
+argument_list|(
+name|snapshotId
+argument_list|,
+literal|"snapshot is too old"
+argument_list|)
+throw|;
 block|}
 else|else
 block|{

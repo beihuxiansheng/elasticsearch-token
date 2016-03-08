@@ -1062,8 +1062,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 specifier|final

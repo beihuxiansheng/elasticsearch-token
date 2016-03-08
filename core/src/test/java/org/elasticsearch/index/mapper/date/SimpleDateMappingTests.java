@@ -28,9 +28,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -1666,14 +1666,14 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 name|nta
 init|=
 name|tokenStream
 operator|.
 name|addAttribute
 argument_list|(
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -1744,7 +1744,7 @@ name|tokenStream
 operator|.
 name|addAttribute
 argument_list|(
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -2260,7 +2260,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
@@ -2282,7 +2282,7 @@ expr_stmt|;
 name|rangeQuery
 operator|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
@@ -2559,7 +2559,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>
@@ -2581,7 +2581,7 @@ expr_stmt|;
 name|rangeQuery
 operator|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Long
 argument_list|>

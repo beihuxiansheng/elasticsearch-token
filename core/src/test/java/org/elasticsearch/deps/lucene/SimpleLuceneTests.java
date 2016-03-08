@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 
@@ -474,7 +474,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -688,8 +688,6 @@ operator|.
 name|open
 argument_list|(
 name|indexWriter
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -712,8 +710,6 @@ argument_list|(
 operator|new
 name|MatchAllDocsQuery
 argument_list|()
-argument_list|,
-literal|null
 argument_list|,
 literal|10
 argument_list|,
@@ -874,13 +870,13 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"test"
 argument_list|,
 literal|2
 argument_list|,
-name|IntField
+name|LegacyIntField
 operator|.
 name|TYPE_STORED
 argument_list|)
@@ -901,8 +897,6 @@ operator|.
 name|open
 argument_list|(
 name|indexWriter
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|IndexSearcher
@@ -983,7 +977,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|intToPrefixCoded
 argument_list|(
@@ -1155,8 +1149,6 @@ operator|.
 name|open
 argument_list|(
 name|indexWriter
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|IndexSearcher
@@ -1478,8 +1470,6 @@ operator|.
 name|open
 argument_list|(
 name|indexWriter
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|IndexSearcher
@@ -1638,8 +1628,6 @@ operator|.
 name|open
 argument_list|(
 name|indexWriter
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 for|for
@@ -1787,15 +1775,15 @@ decl_stmt|;
 name|FieldType
 name|type
 init|=
-name|IntField
+name|LegacyIntField
 operator|.
 name|TYPE_NOT_STORED
 decl_stmt|;
-name|IntField
+name|LegacyIntField
 name|field
 init|=
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"int1"
 argument_list|,
@@ -1816,7 +1804,7 @@ operator|=
 operator|new
 name|FieldType
 argument_list|(
-name|IntField
+name|LegacyIntField
 operator|.
 name|TYPE_NOT_STORED
 argument_list|)
@@ -1838,7 +1826,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"int1"
 argument_list|,
@@ -1857,7 +1845,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"int2"
 argument_list|,
@@ -1876,7 +1864,7 @@ expr_stmt|;
 name|field
 operator|=
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"int2"
 argument_list|,
@@ -1907,8 +1895,6 @@ operator|.
 name|open
 argument_list|(
 name|indexWriter
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|LeafReader

@@ -268,18 +268,6 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|)
-annotation|@
-name|ESBackcompatTestCase
-operator|.
-name|CompatibilityVersion
-argument_list|(
-name|version
-operator|=
-name|Version
-operator|.
-name|V_1_2_0_ID
-argument_list|)
-comment|// we throw an exception if we create an index with _field_names that is 1.3
 DECL|class|PreBuiltAnalyzerIntegrationIT
 specifier|public
 class|class
