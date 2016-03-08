@@ -3797,8 +3797,6 @@ argument_list|(
 name|context
 argument_list|,
 name|suggesters
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

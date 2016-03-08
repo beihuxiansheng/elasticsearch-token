@@ -218,10 +218,10 @@ specifier|private
 name|String
 name|preference
 decl_stmt|;
-DECL|field|suggestSource
+DECL|field|suggest
 specifier|private
 name|SuggestBuilder
-name|suggestSource
+name|suggest
 decl_stmt|;
 DECL|method|SuggestRequest
 specifier|public
@@ -264,7 +264,7 @@ return|return
 name|validationException
 return|;
 block|}
-comment|/**      * The Phrase to get correction suggestions for      */
+comment|/**      * The suggestion query to get correction suggestions for      */
 DECL|method|suggest
 specifier|public
 name|SuggestBuilder
@@ -272,7 +272,7 @@ name|suggest
 parameter_list|()
 block|{
 return|return
-name|suggestSource
+name|suggest
 return|;
 block|}
 comment|/**      * set a new source for the suggest query      */
@@ -282,23 +282,23 @@ name|SuggestRequest
 name|suggest
 parameter_list|(
 name|SuggestBuilder
-name|suggestSource
+name|suggest
 parameter_list|)
 block|{
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|suggestSource
+name|suggest
 argument_list|,
-literal|"suggestSource must not be null"
+literal|"suggest must not be null"
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|suggestSource
+name|suggest
 operator|=
-name|suggestSource
+name|suggest
 expr_stmt|;
 return|return
 name|this
@@ -429,7 +429,7 @@ name|readOptionalString
 argument_list|()
 expr_stmt|;
 name|suggest
-argument_list|(
+operator|=
 name|SuggestBuilder
 operator|.
 name|PROTOTYPE
@@ -437,7 +437,6 @@ operator|.
 name|readFrom
 argument_list|(
 name|in
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -458,9 +457,9 @@ name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|suggestSource
+name|suggest
 argument_list|,
-literal|"suggestSource must not be null"
+literal|"suggest must not be null"
 argument_list|)
 expr_stmt|;
 name|super
@@ -484,7 +483,7 @@ argument_list|(
 name|preference
 argument_list|)
 expr_stmt|;
-name|suggestSource
+name|suggest
 operator|.
 name|writeTo
 argument_list|(
@@ -504,9 +503,9 @@ name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|suggestSource
+name|suggest
 argument_list|,
-literal|"suggestSource must not be null"
+literal|"suggest must not be null"
 argument_list|)
 expr_stmt|;
 name|String
@@ -526,7 +525,7 @@ argument_list|()
 decl_stmt|;
 name|builder
 operator|=
-name|suggestSource
+name|suggest
 operator|.
 name|toXContent
 argument_list|(
@@ -565,7 +564,7 @@ argument_list|)
 operator|+
 literal|"]"
 operator|+
-literal|", suggestSource["
+literal|", suggest["
 operator|+
 name|sSource
 operator|+

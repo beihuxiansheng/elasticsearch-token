@@ -85,20 +85,6 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
 operator|.
 name|SuppressCodecs
 import|;
@@ -838,20 +824,7 @@ name|notNullValue
 import|;
 end_import
 
-begin_comment
-comment|// nocommit
-end_comment
-
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"waiting on completion suggestion builder refactoring"
-argument_list|)
 annotation|@
 name|SuppressCodecs
 argument_list|(
