@@ -71,6 +71,7 @@ name|CommandTestCase
 extends|extends
 name|ESTestCase
 block|{
+comment|/** The terminal that execute uses. */
 DECL|field|terminal
 specifier|protected
 specifier|final
@@ -80,6 +81,12 @@ init|=
 operator|new
 name|MockTerminal
 argument_list|()
+decl_stmt|;
+comment|/** The last command that was executed. */
+DECL|field|command
+specifier|protected
+name|Command
+name|command
 decl_stmt|;
 annotation|@
 name|Before
@@ -106,6 +113,7 @@ name|NORMAL
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Creates a Command to test execution. */
 DECL|method|newCommand
 specifier|protected
 specifier|abstract
@@ -113,6 +121,7 @@ name|Command
 name|newCommand
 parameter_list|()
 function_decl|;
+comment|/**      * Runs the command with the given args.      *      * Output can be found in {@link #terminal}.      * The command created can be found in {@link #command}.      */
 DECL|method|execute
 specifier|public
 name|String
@@ -125,31 +134,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Command
 name|command
-init|=
+operator|=
 name|newCommand
 argument_list|()
-decl_stmt|;
-name|OptionSet
-name|options
-init|=
+expr_stmt|;
 name|command
 operator|.
-name|parser
-operator|.
-name|parse
+name|mainWithoutErrorHandling
 argument_list|(
 name|args
-argument_list|)
-decl_stmt|;
-name|command
-operator|.
-name|execute
-argument_list|(
-name|terminal
 argument_list|,
-name|options
+name|terminal
 argument_list|)
 expr_stmt|;
 return|return

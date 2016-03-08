@@ -201,9 +201,17 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No text input configured for prompt ["
+operator|+
+name|prompt
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 return|return
 name|textInput
@@ -232,9 +240,17 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No secret input configured for prompt ["
+operator|+
+name|prompt
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 return|return
 name|secretInput

@@ -240,7 +240,7 @@ annotation|@
 name|Override
 DECL|method|execute
 specifier|protected
-name|int
+name|void
 name|execute
 parameter_list|(
 name|Terminal
@@ -348,10 +348,9 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-return|return
 name|subcommand
 operator|.
-name|main
+name|mainWithoutErrorHandling
 argument_list|(
 name|Arrays
 operator|.
@@ -368,7 +367,7 @@ argument_list|)
 argument_list|,
 name|terminal
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 block|}
 end_class
