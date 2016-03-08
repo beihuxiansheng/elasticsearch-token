@@ -154,22 +154,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|cli
-operator|.
-name|CliTool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|cli
 operator|.
 name|Terminal
@@ -193,8 +177,6 @@ import|import static
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|common
 operator|.
 name|cli
 operator|.
@@ -386,14 +368,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|USAGE
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"Plugin "
 operator|+
@@ -453,14 +430,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|IO_ERROR
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"Bin dir for "
 operator|+

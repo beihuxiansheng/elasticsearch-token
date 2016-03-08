@@ -86,20 +86,6 @@ name|Deque
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|cli
-operator|.
-name|Terminal
-import|;
-end_import
-
 begin_comment
 comment|/**  * A terminal for tests which captures all output, and  * can be plugged with fake input.  */
 end_comment

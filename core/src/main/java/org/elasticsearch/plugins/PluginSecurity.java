@@ -34,8 +34,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
 name|cli
 operator|.
 name|Terminal
@@ -47,8 +45,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|common
 operator|.
 name|cli
 operator|.

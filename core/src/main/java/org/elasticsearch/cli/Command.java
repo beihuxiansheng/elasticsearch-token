@@ -36,16 +36,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
 name|joptsimple
 operator|.
 name|OptionException
@@ -85,20 +75,6 @@ operator|.
 name|common
 operator|.
 name|SuppressForbidden
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|cli
-operator|.
-name|Terminal
 import|;
 end_import
 
