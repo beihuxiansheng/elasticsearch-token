@@ -265,8 +265,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|execute
-specifier|public
-name|int
+specifier|protected
+name|void
 name|execute
 parameter_list|(
 name|Terminal
@@ -326,11 +326,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-name|ExitCodes
-operator|.
-name|OK
-return|;
 block|}
 comment|// pkg private for testing
 DECL|method|execute

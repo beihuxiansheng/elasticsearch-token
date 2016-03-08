@@ -703,7 +703,7 @@ annotation|@
 name|Override
 DECL|method|execute
 specifier|protected
-name|int
+name|void
 name|execute
 parameter_list|(
 name|Terminal
@@ -787,11 +787,6 @@ argument_list|,
 name|isBatch
 argument_list|)
 expr_stmt|;
-return|return
-name|ExitCodes
-operator|.
-name|OK
-return|;
 block|}
 comment|// pkg private for testing
 DECL|method|execute
@@ -1286,14 +1281,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|IO_ERROR
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"Invalid checksum file at "
 operator|+
@@ -1347,14 +1337,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|IO_ERROR
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"SHA1 mismatch, expected "
 operator|+
@@ -1600,14 +1585,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|DATA_ERROR
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"`elasticsearch` directory is missing in the plugin zip"
 argument_list|)
@@ -1677,14 +1657,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|USAGE
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"plugin '"
 operator|+
@@ -1981,14 +1956,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|USAGE
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"plugin directory "
 operator|+
@@ -2208,14 +2178,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|IO_ERROR
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"bin in plugin "
 operator|+
@@ -2353,14 +2318,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|DATA_ERROR
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"Directories not allowed in bin dir for plugin "
 operator|+
@@ -2479,14 +2439,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|IO_ERROR
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"config in plugin "
 operator|+
@@ -2545,14 +2500,9 @@ throw|throw
 operator|new
 name|UserError
 argument_list|(
-name|CliTool
-operator|.
-name|ExitStatus
+name|ExitCodes
 operator|.
 name|DATA_ERROR
-operator|.
-name|status
-argument_list|()
 argument_list|,
 literal|"Directories not allowed in config dir for plugin "
 operator|+

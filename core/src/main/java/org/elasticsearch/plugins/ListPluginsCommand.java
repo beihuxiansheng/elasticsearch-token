@@ -171,8 +171,8 @@ block|}
 annotation|@
 name|Override
 DECL|method|execute
-specifier|public
-name|int
+specifier|protected
+name|void
 name|execute
 parameter_list|(
 name|Terminal
@@ -272,11 +272,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|ExitCodes
-operator|.
-name|OK
-return|;
 block|}
 block|}
 end_class
