@@ -1513,7 +1513,7 @@ operator|.
 name|getScore
 argument_list|()
 argument_list|,
-name|equalTo
+name|greaterThan
 argument_list|(
 name|searchResponse
 operator|.

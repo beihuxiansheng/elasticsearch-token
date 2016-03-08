@@ -758,7 +758,7 @@ name|maxNumberOfThreadsThreshold
 init|=
 literal|1
 operator|<<
-literal|15
+literal|11
 decl_stmt|;
 annotation|@
 name|Override

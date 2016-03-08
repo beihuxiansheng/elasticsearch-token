@@ -250,6 +250,8 @@ argument_list|)
 operator|+
 literal|"\")"
 argument_list|,
+name|name
+argument_list|,
 operator|new
 name|FilterOutputStream
 argument_list|(

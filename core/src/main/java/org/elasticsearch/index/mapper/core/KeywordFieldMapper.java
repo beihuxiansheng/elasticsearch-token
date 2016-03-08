@@ -523,10 +523,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|fieldType
-operator|.
 name|indexOptions
-argument_list|()
 operator|.
 name|compareTo
 argument_list|(
@@ -546,10 +543,7 @@ literal|"The [keyword] field does not support positions, got [index_options]="
 operator|+
 name|indexOptionToString
 argument_list|(
-name|fieldType
-operator|.
 name|indexOptions
-argument_list|()
 argument_list|)
 argument_list|)
 throw|;

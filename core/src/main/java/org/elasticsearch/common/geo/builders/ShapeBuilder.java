@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|context
 operator|.
@@ -36,11 +36,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|exception
 operator|.
@@ -50,11 +50,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -64,11 +64,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -501,7 +501,7 @@ name|multiPolygonMayOverlap
 init|=
 literal|false
 decl_stmt|;
-comment|/** @see com.spatial4j.core.shape.jts.JtsGeometry#validate() */
+comment|/** @see org.locationtech.spatial4j.shape.jts.JtsGeometry#validate() */
 DECL|field|autoValidateJtsGeometry
 specifier|protected
 specifier|final
@@ -510,7 +510,7 @@ name|autoValidateJtsGeometry
 init|=
 literal|true
 decl_stmt|;
-comment|/** @see com.spatial4j.core.shape.jts.JtsGeometry#index() */
+comment|/** @see org.locationtech.spatial4j.shape.jts.JtsGeometry#index() */
 DECL|field|autoIndexJtsGeometry
 specifier|protected
 specifier|final

@@ -240,6 +240,23 @@ name|getOnFailureProcessors
 argument_list|()
 return|;
 block|}
+comment|/**      * Flattens the normal and on failure processors into a single list. The original order is lost.      * This can be useful for pipeline validation purposes.      */
+DECL|method|flattenAllProcessors
+specifier|public
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|flattenAllProcessors
+parameter_list|()
+block|{
+return|return
+name|compoundProcessor
+operator|.
+name|flattenProcessors
+argument_list|()
+return|;
+block|}
 DECL|class|Factory
 specifier|public
 specifier|final

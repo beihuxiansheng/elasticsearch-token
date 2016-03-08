@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 import|;
 end_import
 
@@ -86,7 +86,7 @@ block|{
 name|super
 argument_list|(
 operator|new
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 argument_list|(
 name|precisionStep
 argument_list|)
@@ -104,7 +104,7 @@ specifier|protected
 name|void
 name|setValue
 parameter_list|(
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|tokenStream
 parameter_list|,
 name|String

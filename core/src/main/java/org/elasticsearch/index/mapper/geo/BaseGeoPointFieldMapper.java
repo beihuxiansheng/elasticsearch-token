@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -135,6 +135,34 @@ operator|.
 name|geo
 operator|.
 name|GeoUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|DeprecationLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
 import|;
 end_import
 
@@ -439,6 +467,26 @@ name|String
 name|CONTENT_TYPE
 init|=
 literal|"geo_point"
+decl_stmt|;
+DECL|field|deprecationLogger
+specifier|protected
+specifier|static
+specifier|final
+name|DeprecationLogger
+name|deprecationLogger
+init|=
+operator|new
+name|DeprecationLogger
+argument_list|(
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|BaseGeoPointFieldMapper
+operator|.
+name|class
+argument_list|)
+argument_list|)
 decl_stmt|;
 DECL|class|Names
 specifier|public
@@ -1404,6 +1452,17 @@ literal|"lat_lon"
 argument_list|)
 condition|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+name|CONTENT_TYPE
+operator|+
+literal|" lat_lon parameter is deprecated and will be removed "
+operator|+
+literal|"in the next major release"
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|enableLatLon
@@ -1433,6 +1492,17 @@ literal|"precision_step"
 argument_list|)
 condition|)
 block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+name|CONTENT_TYPE
+operator|+
+literal|" precision_step parameter is deprecated and will be removed "
+operator|+
+literal|"in the next major release"
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|precisionStep
@@ -3245,7 +3315,7 @@ operator|.
 name|numericPrecisionStep
 argument_list|()
 operator|!=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|PRECISION_STEP_DEFAULT
 operator|)

@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -836,7 +836,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|NumericType
+name|LegacyNumericType
 operator|.
 name|LONG
 argument_list|)
@@ -992,7 +992,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCoded
 argument_list|(
@@ -1035,7 +1035,7 @@ name|includeUpper
 parameter_list|)
 block|{
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -1114,7 +1114,7 @@ name|asLong
 argument_list|()
 decl_stmt|;
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -1157,7 +1157,7 @@ block|{
 name|long
 name|minValue
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMinLong
 argument_list|(
@@ -1167,7 +1167,7 @@ decl_stmt|;
 name|long
 name|maxValue
 init|=
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getMaxLong
 argument_list|(

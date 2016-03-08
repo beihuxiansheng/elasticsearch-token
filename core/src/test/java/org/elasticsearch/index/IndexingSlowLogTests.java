@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 
@@ -273,7 +273,7 @@ name|YES
 argument_list|)
 argument_list|,
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"version"
 argument_list|,

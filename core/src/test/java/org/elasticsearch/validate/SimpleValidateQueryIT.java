@@ -2524,7 +2524,7 @@ argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"field:the field:tree^0.3333333"
+literal|"field:the (field:tree)^0.3333333"
 argument_list|)
 argument_list|,
 literal|true
@@ -2543,7 +2543,7 @@ argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"field:jumps^0.75"
+literal|"(field:jumps)^0.75"
 argument_list|)
 argument_list|,
 literal|true
