@@ -790,7 +790,7 @@ name|setUp
 argument_list|()
 expr_stmt|;
 comment|// Create the node lazily, on the first test. This is ok because we do not randomize any settings,
-comment|// only the cluster name. This allows us to have overriden properties for plugins and the version to use.
+comment|// only the cluster name. This allows us to have overridden properties for plugins and the version to use.
 if|if
 condition|(
 name|NODE
@@ -927,7 +927,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"varargs"
 argument_list|)
-comment|// due to type erasure, the varargs type is non-reifiable, which casues this warning
+comment|// due to type erasure, the varargs type is non-reifiable, which causes this warning
 DECL|method|pluginList
 specifier|protected
 specifier|final
