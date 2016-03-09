@@ -22,6 +22,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -35,6 +49,22 @@ operator|.
 name|junit
 operator|.
 name|Before
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+operator|.
+name|parseTimeValue
 import|;
 end_import
 
@@ -508,6 +538,17 @@ name|void
 name|testStatusHatesNegatives
 parameter_list|()
 block|{
+name|TimeValue
+name|throttle
+init|=
+name|parseTimeValue
+argument_list|(
+name|randomPositiveTimeValue
+argument_list|()
+argument_list|,
+literal|"test"
+argument_list|)
+decl_stmt|;
 name|expectThrows
 argument_list|(
 name|IllegalArgumentException
@@ -537,6 +578,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
+argument_list|,
+name|throttle
 argument_list|,
 literal|null
 argument_list|)
@@ -572,6 +615,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+name|throttle
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -606,6 +651,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+name|throttle
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -640,6 +687,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+name|throttle
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -674,6 +723,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+name|throttle
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -708,6 +759,8 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
+name|throttle
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -742,6 +795,8 @@ literal|1
 argument_list|,
 literal|0
 argument_list|,
+name|throttle
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -775,6 +830,8 @@ literal|0
 argument_list|,
 operator|-
 literal|1
+argument_list|,
+name|throttle
 argument_list|,
 literal|null
 argument_list|)
