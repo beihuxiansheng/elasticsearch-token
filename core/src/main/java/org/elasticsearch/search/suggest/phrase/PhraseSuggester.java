@@ -1040,6 +1040,9 @@ name|indexService
 argument_list|(
 name|suggestion
 operator|.
+name|getShard
+argument_list|()
+operator|.
 name|getIndex
 argument_list|()
 argument_list|)

@@ -1411,6 +1411,14 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
+name|Index
+name|index
+init|=
+name|resolveIndex
+argument_list|(
+literal|"foo-copy"
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|IndicesService
@@ -1433,7 +1441,7 @@ name|service
 operator|.
 name|hasIndex
 argument_list|(
-literal|"foo-copy"
+name|index
 argument_list|)
 condition|)
 block|{
@@ -1444,7 +1452,7 @@ name|service
 operator|.
 name|indexServiceSafe
 argument_list|(
-literal|"foo-copy"
+name|index
 argument_list|)
 operator|.
 name|getShardOrNull
@@ -1790,6 +1798,14 @@ name|estimatedNumberOfOperations
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Index
+name|index
+init|=
+name|resolveIndex
+argument_list|(
+name|IDX
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|IndicesService
@@ -1813,7 +1829,7 @@ name|service
 operator|.
 name|indexService
 argument_list|(
-name|IDX
+name|index
 argument_list|)
 decl_stmt|;
 if|if

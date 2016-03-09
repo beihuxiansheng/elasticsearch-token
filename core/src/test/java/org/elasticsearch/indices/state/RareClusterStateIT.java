@@ -414,6 +414,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|IndexService
 import|;
 end_import
@@ -2860,6 +2872,15 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+specifier|final
+name|Index
+name|index
+init|=
+name|resolveIndex
+argument_list|(
+literal|"index"
+argument_list|)
+decl_stmt|;
 comment|// Wait for mappings to be available on master
 name|assertBusy
 argument_list|(
@@ -2898,7 +2919,7 @@ name|indicesService
 operator|.
 name|indexServiceSafe
 argument_list|(
-literal|"index"
+name|index
 argument_list|)
 decl_stmt|;
 name|assertNotNull

@@ -414,7 +414,10 @@ name|indicesService
 operator|.
 name|indexServiceSafe
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"index"
+argument_list|)
 argument_list|)
 operator|.
 name|newQueryShardContext
