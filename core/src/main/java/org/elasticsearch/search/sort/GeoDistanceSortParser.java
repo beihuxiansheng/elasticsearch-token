@@ -528,7 +528,7 @@ operator|.
 name|indexShard
 argument_list|()
 operator|.
-name|getIndexSettings
+name|indexSettings
 argument_list|()
 operator|.
 name|getIndexVersionCreated

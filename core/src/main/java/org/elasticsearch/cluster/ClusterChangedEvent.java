@@ -86,16 +86,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -110,8 +100,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
-comment|/**  *  */
+comment|/**  * An event received by the local node, signaling that the cluster state has changed.  */
 end_comment
 
 begin_class
@@ -160,6 +160,33 @@ name|ClusterState
 name|previousState
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|source
+argument_list|,
+literal|"source must not be null"
+argument_list|)
+expr_stmt|;
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|state
+argument_list|,
+literal|"state must not be null"
+argument_list|)
+expr_stmt|;
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|previousState
+argument_list|,
+literal|"previousState must not be null"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|source
@@ -209,6 +236,7 @@ operator|.
 name|source
 return|;
 block|}
+comment|/**      * The new cluster state that caused this change event.      */
 DECL|method|state
 specifier|public
 name|ClusterState
@@ -221,6 +249,7 @@ operator|.
 name|state
 return|;
 block|}
+comment|/**      * The previous cluster state for this change event.      */
 DECL|method|previousState
 specifier|public
 name|ClusterState
@@ -233,6 +262,7 @@ operator|.
 name|previousState
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the routing tables (for all indices) have      * changed between the previous cluster state and the current cluster state.      * Note that this is an object reference equality test, not an equals test.      */
 DECL|method|routingTableChanged
 specifier|public
 name|boolean
@@ -251,6 +281,7 @@ name|routingTable
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the routing table has changed for the given index.      * Note that this is an object reference equality test, not an equals test.      */
 DECL|method|indexRoutingTableChanged
 specifier|public
 name|boolean
@@ -260,6 +291,15 @@ name|String
 name|index
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|index
+argument_list|,
+literal|"index must not be null"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -348,38 +388,6 @@ argument_list|>
 name|indicesCreated
 parameter_list|()
 block|{
-if|if
-condition|(
-name|previousState
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|state
-operator|.
-name|metaData
-argument_list|()
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|keys
-argument_list|()
-operator|.
-name|toArray
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-argument_list|)
-return|;
-block|}
 if|if
 condition|(
 operator|!
@@ -493,36 +501,21 @@ argument_list|>
 name|indicesDeleted
 parameter_list|()
 block|{
-comment|// if the new cluster state has a new master then we cannot know if an index which is not in the cluster state
-comment|// is actually supposed to be deleted or imported as dangling instead. for example a new master might not have
-comment|// the index in its cluster state because it was started with an empty data folder and in this case we want to
-comment|// import as dangling. we check here for new master too to be on the safe side in this case.
-comment|// This means that under certain conditions deleted indices might be reimported if a master fails while the deletion
-comment|// request is issued and a node receives the cluster state that would trigger the deletion from the new master.
-comment|// See test MetaDataWriteDataNodesTests.testIndicesDeleted()
+comment|// If the new cluster state has a new cluster UUID, the likely scenario is that a node was elected
+comment|// master that has had its data directory wiped out, in which case we don't want to delete the indices and lose data;
+comment|// rather we want to import them as dangling indices instead.  So we check here if the cluster UUID differs from the previous
+comment|// cluster UUID, in which case, we don't want to delete indices that the master erroneously believes shouldn't exist.
+comment|// See test DiscoveryWithServiceDisruptionsIT.testIndicesDeleted()
 comment|// See discussion on https://github.com/elastic/elasticsearch/pull/9952 and
 comment|// https://github.com/elastic/elasticsearch/issues/11665
 if|if
 condition|(
-name|hasNewMaster
-argument_list|()
-operator|||
-name|previousState
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-return|;
-block|}
-if|if
-condition|(
-operator|!
 name|metaDataChanged
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|isNewCluster
 argument_list|()
 condition|)
 block|{
@@ -622,6 +615,7 @@ else|:
 name|deleted
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the metadata for the cluster has changed between      * the previous cluster state and the new cluster state. Note that this is an object      * reference equality test, not an equals test.      */
 DECL|method|metaDataChanged
 specifier|public
 name|boolean
@@ -640,6 +634,7 @@ name|metaData
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the {@link IndexMetaData} for a given index      * has changed between the previous cluster state and the new cluster state.      * Note that this is an object reference equality test, not an equals test.      */
 DECL|method|indexMetaDataChanged
 specifier|public
 name|boolean
@@ -698,6 +693,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the cluster level blocks have changed between cluster states.      * Note that this is an object reference equality test, not an equals test.      */
 DECL|method|blocksChanged
 specifier|public
 name|boolean
@@ -716,6 +712,7 @@ name|blocks
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the local node is the mater node of the cluster.      */
 DECL|method|localNodeMaster
 specifier|public
 name|boolean
@@ -732,6 +729,7 @@ name|localNodeMaster
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns the {@link org.elasticsearch.cluster.node.DiscoveryNodes.Delta} between      * the previous cluster state and the new cluster state.      */
 DECL|method|nodesDelta
 specifier|public
 name|DiscoveryNodes
@@ -746,6 +744,7 @@ operator|.
 name|nodesDelta
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff nodes have been removed from the cluster since the last cluster state.      */
 DECL|method|nodesRemoved
 specifier|public
 name|boolean
@@ -759,6 +758,7 @@ name|removed
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff nodes have been added from the cluster since the last cluster state.      */
 DECL|method|nodesAdded
 specifier|public
 name|boolean
@@ -772,6 +772,7 @@ name|added
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff nodes have been changed (added or removed) from the cluster since the last cluster state.      */
 DECL|method|nodesChanged
 specifier|public
 name|boolean
@@ -786,73 +787,45 @@ name|nodesAdded
 argument_list|()
 return|;
 block|}
-comment|/**      * Checks if this cluster state comes from a different master than the previous one.      * This is a workaround for the scenario where a node misses a cluster state  that has either      * no master block or state not recovered flag set. In this case we must make sure that      * if an index is missing from the cluster state is not deleted immediately but instead imported      * as dangling. See discussion on https://github.com/elastic/elasticsearch/pull/9952      */
-DECL|method|hasNewMaster
+comment|// Determines whether or not the current cluster state represents an entirely
+comment|// different cluster from the previous cluster state, which will happen when a
+comment|// master node is elected that has never been part of the cluster before.
+DECL|method|isNewCluster
 specifier|private
 name|boolean
-name|hasNewMaster
+name|isNewCluster
 parameter_list|()
 block|{
+specifier|final
 name|String
-name|oldMaster
+name|prevClusterUUID
 init|=
 name|previousState
+operator|.
+name|metaData
 argument_list|()
 operator|.
-name|getNodes
-argument_list|()
-operator|.
-name|masterNodeId
+name|clusterUUID
 argument_list|()
 decl_stmt|;
+specifier|final
 name|String
-name|newMaster
+name|currClusterUUID
 init|=
 name|state
+operator|.
+name|metaData
 argument_list|()
 operator|.
-name|getNodes
-argument_list|()
-operator|.
-name|masterNodeId
+name|clusterUUID
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|oldMaster
-operator|==
-literal|null
-operator|&&
-name|newMaster
-operator|==
-literal|null
-condition|)
-block|{
 return|return
-literal|false
-return|;
-block|}
-if|if
-condition|(
-name|oldMaster
-operator|==
-literal|null
-operator|&&
-name|newMaster
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-name|oldMaster
+name|prevClusterUUID
 operator|.
 name|equals
 argument_list|(
-name|newMaster
+name|currClusterUUID
 argument_list|)
 operator|==
 literal|false

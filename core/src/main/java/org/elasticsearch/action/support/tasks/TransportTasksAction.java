@@ -901,7 +901,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|isSet
@@ -918,7 +918,7 @@ name|resolveNodesIds
 argument_list|(
 name|request
 operator|.
-name|nodesIds
+name|getNodesIds
 argument_list|()
 argument_list|)
 return|;
@@ -932,7 +932,7 @@ index|[]
 block|{
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|getNodeId
@@ -960,7 +960,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|isSet
@@ -979,7 +979,7 @@ name|getTask
 argument_list|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|getId
@@ -1024,7 +1024,7 @@ literal|"task [{}] doesn't support this operation"
 argument_list|,
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 argument_list|)
 throw|;
@@ -1040,7 +1040,7 @@ literal|"task [{}] is missing"
 argument_list|,
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 argument_list|)
 throw|;
@@ -1592,7 +1592,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 operator|!=
 literal|null
@@ -1604,7 +1604,7 @@ name|withTimeout
 argument_list|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1677,55 +1677,6 @@ operator|new
 name|NoSuchNodeException
 argument_list|(
 name|nodeId
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|clusterService
-operator|.
-name|localNode
-argument_list|()
-operator|.
-name|shouldConnectTo
-argument_list|(
-name|node
-argument_list|)
-operator|&&
-operator|!
-name|clusterService
-operator|.
-name|localNode
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|node
-argument_list|)
-condition|)
-block|{
-comment|// the check "!clusterService.localNode().equals(node)" is to maintain backward comp. where before
-comment|// we allowed to connect from "local" client node to itself, certain tests rely on it, if we remove it, we
-comment|// need to fix
-comment|// those (and they randomize the client node usage, so tricky to find when)
-name|onFailure
-argument_list|(
-name|idx
-argument_list|,
-name|nodeId
-argument_list|,
-operator|new
-name|NodeShouldNotConnectException
-argument_list|(
-name|clusterService
-operator|.
-name|localNode
-argument_list|()
-argument_list|,
-name|node
 argument_list|)
 argument_list|)
 expr_stmt|;

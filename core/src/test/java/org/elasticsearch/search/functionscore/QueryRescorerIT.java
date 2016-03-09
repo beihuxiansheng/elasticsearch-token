@@ -4026,7 +4026,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// forces QUERY_THEN_FETCH because of https://github.com/elasticsearch/elasticsearch/issues/4829
+comment|// forces QUERY_THEN_FETCH because of https://github.com/elastic/elasticsearch/issues/4829
 DECL|method|testEquivalence
 specifier|public
 name|void

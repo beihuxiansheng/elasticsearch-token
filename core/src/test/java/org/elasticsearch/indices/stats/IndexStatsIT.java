@@ -36,20 +36,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -6623,25 +6609,6 @@ name|totalNumShards
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assumeTrue
-argument_list|(
-literal|"test doesn't work with 4.6.0"
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|luceneVersion
-operator|!=
-name|Version
-operator|.
-name|LUCENE_4_6_0
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 name|stats
@@ -8605,7 +8572,7 @@ name|addMapping
 argument_list|(
 literal|"bar"
 argument_list|,
-literal|"{ \"properties\": { \"bar\": { \"type\": \"string\", \"fields\": { \"completion\": { \"type\": \"completion\" }}},\"baz\": { \"type\": \"string\", \"fields\": { \"completion\": { \"type\": \"completion\" }}}}}"
+literal|"{ \"properties\": { \"bar\": { \"type\": \"text\", \"fields\": { \"completion\": { \"type\": \"completion\" }}},\"baz\": { \"type\": \"text\", \"fields\": { \"completion\": { \"type\": \"completion\" }}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;

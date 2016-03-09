@@ -965,7 +965,7 @@ literal|"elasticsearch.version"
 argument_list|,
 name|Version
 operator|.
-name|V_1_7_0
+name|V_2_0_0
 operator|.
 name|toString
 argument_list|()
@@ -1001,7 +1001,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Was designed for version [1.7.0]"
+literal|"Was designed for version [2.0.0]"
 argument_list|)
 argument_list|)
 expr_stmt|;

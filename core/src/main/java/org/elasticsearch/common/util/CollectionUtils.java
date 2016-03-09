@@ -1840,9 +1840,9 @@ name|BytesRef
 argument_list|>
 name|comparator
 init|=
-name|BytesRef
+name|Comparator
 operator|.
-name|getUTF8SortedAsUnicodeComparator
+name|naturalOrder
 argument_list|()
 decl_stmt|;
 annotation|@

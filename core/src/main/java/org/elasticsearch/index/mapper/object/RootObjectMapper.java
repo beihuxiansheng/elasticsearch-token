@@ -1457,9 +1457,37 @@ name|String
 name|name
 parameter_list|,
 name|String
-name|dynamicType
+name|matchType
 parameter_list|)
 block|{
+specifier|final
+name|String
+name|dynamicType
+decl_stmt|;
+switch|switch
+condition|(
+name|matchType
+condition|)
+block|{
+case|case
+literal|"string"
+case|:
+comment|// string is a corner case since a json string can either map to a
+comment|// text or keyword field in elasticsearch. For now we use text when
+comment|// unspecified. For other types, the mapping type matches the json
+comment|// type so we are fine
+name|dynamicType
+operator|=
+literal|"text"
+expr_stmt|;
+break|break;
+default|default:
+name|dynamicType
+operator|=
+name|matchType
+expr_stmt|;
+break|break;
+block|}
 return|return
 name|findTemplateBuilder
 argument_list|(
@@ -1469,10 +1497,11 @@ name|name
 argument_list|,
 name|dynamicType
 argument_list|,
-name|dynamicType
+name|matchType
 argument_list|)
 return|;
 block|}
+comment|/**      * Find a template. Returns {@code null} if no template could be found.      * @param name        the field name      * @param dynamicType the field type to give the field if the template does not define one      * @param matchType   the type of the field in the json document or null if unknown      * @return a mapper builder, or null if there is no template for such a field      */
 DECL|method|findTemplateBuilder
 specifier|public
 name|Mapper

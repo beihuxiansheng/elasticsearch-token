@@ -188,7 +188,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LongsRef
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -202,7 +202,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LongsRef
 import|;
 end_import
 
@@ -2027,7 +2027,7 @@ name|IOException
 block|{
 comment|// we stop accepting terms once we moved across the prefix codec terms - redundant values!
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getPrefixCodedLongShift
 argument_list|(
@@ -2082,7 +2082,7 @@ name|IOException
 block|{
 comment|// we stop accepting terms once we moved across the prefix codec terms - redundant values!
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getPrefixCodedIntShift
 argument_list|(

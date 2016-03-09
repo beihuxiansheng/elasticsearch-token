@@ -1505,7 +1505,6 @@ name|createShardContext
 argument_list|()
 decl_stmt|;
 comment|// the remaining tests requires either a mapping that we register with types in base test setup
-comment|// no strict field resolution (version before V_1_4_0_Beta1)
 if|if
 condition|(
 name|getCurrentTypes
@@ -1514,18 +1513,6 @@ operator|.
 name|length
 operator|>
 literal|0
-operator|||
-name|shardContext
-operator|.
-name|indexVersionCreated
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_1_4_0_Beta1
-argument_list|)
 condition|)
 block|{
 name|Query

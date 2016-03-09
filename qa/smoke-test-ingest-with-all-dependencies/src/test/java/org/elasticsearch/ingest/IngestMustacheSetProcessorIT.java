@@ -140,7 +140,7 @@ specifier|public
 class|class
 name|IngestMustacheSetProcessorIT
 extends|extends
-name|AbstractMustacheTests
+name|AbstractMustacheTestCase
 block|{
 DECL|method|testExpression
 specifier|public

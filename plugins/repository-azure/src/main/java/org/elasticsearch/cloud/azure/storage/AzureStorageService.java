@@ -196,9 +196,10 @@ literal|"cloud.azure.storage.timeout"
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueMinutes
+name|timeValueSeconds
 argument_list|(
-literal|5
+operator|-
+literal|1
 argument_list|)
 argument_list|,
 literal|false

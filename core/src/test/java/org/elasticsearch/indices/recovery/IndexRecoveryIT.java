@@ -222,6 +222,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -299,18 +311,6 @@ operator|.
 name|unit
 operator|.
 name|ByteSizeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
-name|DiscoveryService
 import|;
 end_import
 
@@ -4894,7 +4894,7 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|DiscoveryService
+name|ClusterService
 operator|.
 name|class
 argument_list|,

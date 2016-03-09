@@ -707,10 +707,7 @@ name|reader
 argument_list|,
 name|flatQueries
 argument_list|,
-name|orig
-operator|.
-name|getBoost
-argument_list|()
+literal|1F
 argument_list|)
 expr_stmt|;
 block|}
@@ -809,10 +806,7 @@ name|reader
 argument_list|,
 name|flatQueries
 argument_list|,
-name|orig
-operator|.
-name|getBoost
-argument_list|()
+literal|1F
 argument_list|)
 expr_stmt|;
 block|}

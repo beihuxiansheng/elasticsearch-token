@@ -511,8 +511,6 @@ operator|.
 name|open
 argument_list|(
 name|w
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|w
@@ -1023,8 +1021,6 @@ operator|.
 name|open
 argument_list|(
 name|w1
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|w1
@@ -1109,8 +1105,6 @@ operator|.
 name|open
 argument_list|(
 name|w2
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|w2
@@ -1950,8 +1944,6 @@ operator|.
 name|open
 argument_list|(
 name|w1
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|w1
@@ -2036,8 +2028,6 @@ operator|.
 name|open
 argument_list|(
 name|w2
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|w2

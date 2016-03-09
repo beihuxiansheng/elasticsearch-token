@@ -136,7 +136,7 @@ name|ScriptScoreFunctionTests
 extends|extends
 name|ESTestCase
 block|{
-comment|/**      * Tests https://github.com/elasticsearch/elasticsearch/issues/2426      */
+comment|/**      * Tests https://github.com/elastic/elasticsearch/issues/2426      */
 DECL|method|testScriptScoresReturnsNaN
 specifier|public
 name|void

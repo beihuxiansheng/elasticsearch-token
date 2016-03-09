@@ -622,6 +622,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|not
 import|;
 end_import
@@ -2283,7 +2295,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction*"
 argument_list|)
@@ -2426,7 +2438,7 @@ argument_list|()
 expr_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction[n]"
 argument_list|)
@@ -2518,7 +2530,7 @@ block|}
 comment|// Check task counts using transport with detailed description
 name|listTasksRequest
 operator|.
-name|detailed
+name|setDetailed
 argument_list|(
 literal|true
 argument_list|)
@@ -2612,7 +2624,7 @@ block|}
 comment|// Make sure that the main task on coordinating node is the task that was returned to us by execute()
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction"
 argument_list|)
@@ -2800,7 +2812,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction"
 argument_list|)
@@ -2877,7 +2889,7 @@ argument_list|()
 expr_stmt|;
 name|listTasksRequest
 operator|.
-name|parentTaskId
+name|setParentTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -3066,7 +3078,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction*"
 argument_list|)
@@ -3132,6 +3144,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|long
+name|minimalStartTime
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 name|setupTestNodes
 argument_list|(
 name|Settings
@@ -3164,6 +3184,14 @@ argument_list|(
 name|checkLatch
 argument_list|)
 decl_stmt|;
+name|long
+name|maximumStartTimeNanos
+init|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+decl_stmt|;
 comment|// Check task counts using transport with filtering
 name|TestNode
 name|testNode
@@ -3191,7 +3219,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction[n]"
 argument_list|)
@@ -3282,9 +3310,19 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Check task counts using transport with detailed description
+name|long
+name|minimalDurationNanos
+init|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+operator|-
+name|maximumStartTimeNanos
+decl_stmt|;
 name|listTasksRequest
 operator|.
-name|detailed
+name|setDetailed
 argument_list|(
 literal|true
 argument_list|)
@@ -3372,6 +3410,48 @@ argument_list|)
 operator|.
 name|getDescription
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getStartTime
+argument_list|()
+argument_list|,
+name|greaterThanOrEqualTo
+argument_list|(
+name|minimalStartTime
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getRunningTimeNanos
+argument_list|()
+argument_list|,
+name|greaterThanOrEqualTo
+argument_list|(
+name|minimalDurationNanos
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3503,7 +3583,7 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|nodesIds
+name|setNodesIds
 argument_list|(
 name|testNodes
 index|[
@@ -3518,14 +3598,14 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|reason
+name|setReason
 argument_list|(
 literal|"Testing Cancellation"
 argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|actions
+name|setActions
 argument_list|(
 name|actionName
 argument_list|)
@@ -3606,14 +3686,14 @@ argument_list|()
 expr_stmt|;
 name|request
 operator|.
-name|reason
+name|setReason
 argument_list|(
 literal|"Testing Cancellation"
 argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -3732,7 +3812,7 @@ argument_list|()
 decl_stmt|;
 name|listTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 name|actionName
 argument_list|)
@@ -4330,7 +4410,7 @@ argument_list|()
 decl_stmt|;
 name|testTasksRequest
 operator|.
-name|actions
+name|setActions
 argument_list|(
 literal|"testAction[n]"
 argument_list|)

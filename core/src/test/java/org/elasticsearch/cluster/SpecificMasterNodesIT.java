@@ -1550,7 +1550,7 @@ name|addMapping
 argument_list|(
 literal|"type1"
 argument_list|,
-literal|"{\"type1\" : {\"properties\" : {\"table_a\" : { \"type\" : \"nested\", \"properties\" : {\"field_a\" : { \"type\" : \"string\" },\"field_b\" :{ \"type\" : \"string\" }}}}}}"
+literal|"{\"type1\" : {\"properties\" : {\"table_a\" : { \"type\" : \"nested\", \"properties\" : {\"field_a\" : { \"type\" : \"keyword\" },\"field_b\" :{ \"type\" : \"keyword\" }}}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;

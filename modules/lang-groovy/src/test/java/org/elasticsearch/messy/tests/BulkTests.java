@@ -5384,7 +5384,7 @@ name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*     Test for https://github.com/elasticsearch/elasticsearch/issues/3444      */
+comment|/*     Test for https://github.com/elastic/elasticsearch/issues/3444      */
 DECL|method|testBulkUpdateDocAsUpsertWithParent
 specifier|public
 name|void
@@ -5616,7 +5616,7 @@ literal|"child1"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*     Test for https://github.com/elasticsearch/elasticsearch/issues/3444      */
+comment|/*     Test for https://github.com/elastic/elasticsearch/issues/3444      */
 DECL|method|testBulkUpdateUpsertWithParent
 specifier|public
 name|void
@@ -5830,7 +5830,7 @@ literal|"child1"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Test for https://github.com/elasticsearch/elasticsearch/issues/8365      */
+comment|/*      * Test for https://github.com/elastic/elasticsearch/issues/8365      */
 DECL|method|testBulkUpdateChildMissingParentRouting
 specifier|public
 name|void

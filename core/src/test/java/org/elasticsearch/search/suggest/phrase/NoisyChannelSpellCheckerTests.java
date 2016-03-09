@@ -785,8 +785,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|WordScorer
@@ -2551,8 +2549,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|LaplaceScorer
@@ -3545,8 +3541,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|WordScorer

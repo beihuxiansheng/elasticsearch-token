@@ -879,7 +879,12 @@ operator|=
 name|indexShard
 operator|.
 name|segmentStats
+argument_list|(
+name|flags
+operator|.
+name|includeSegmentFileSizes
 argument_list|()
+argument_list|)
 expr_stmt|;
 break|break;
 case|case

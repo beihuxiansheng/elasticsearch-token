@@ -16,6 +16,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -168,6 +180,22 @@ name|get
 argument_list|()
 operator|!=
 literal|null
+return|;
+block|}
+comment|/**      * The reason the task was cancelled or null if it hasn't been cancelled.      */
+annotation|@
+name|Nullable
+DECL|method|getReasonCancelled
+specifier|public
+name|String
+name|getReasonCancelled
+parameter_list|()
+block|{
+return|return
+name|reason
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 block|}
