@@ -1081,14 +1081,6 @@ return|;
 block|}
 block|}
 decl_stmt|;
-specifier|final
-name|CompletionSuggestionBuilder
-name|builder
-init|=
-name|builderAndInfo
-operator|.
-name|builder
-decl_stmt|;
 return|return
 operator|new
 name|Tuple
@@ -1096,6 +1088,8 @@ argument_list|<>
 argument_list|(
 name|mapperService
 argument_list|,
+name|builderAndInfo
+operator|.
 name|builder
 argument_list|)
 return|;
