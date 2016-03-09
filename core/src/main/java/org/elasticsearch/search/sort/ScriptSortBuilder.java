@@ -156,22 +156,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Not really relevant.      */
-annotation|@
-name|Override
-DECL|method|missing
-specifier|public
-name|SortBuilder
-name|missing
-parameter_list|(
-name|Object
-name|missing
-parameter_list|)
-block|{
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Defines which distance to use for sorting in the case a document contains multiple geo points.      * Possible values: min and max      */
 DECL|method|sortMode
 specifier|public

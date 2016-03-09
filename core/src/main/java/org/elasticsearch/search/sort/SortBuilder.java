@@ -146,17 +146,6 @@ name|SortOrder
 name|order
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the value when a field is missing in a doc. Can also be set to<tt>_last</tt> or      *<tt>_first</tt> to sort missing last or first respectively.      */
-DECL|method|missing
-specifier|public
-specifier|abstract
-name|SortBuilder
-name|missing
-parameter_list|(
-name|Object
-name|missing
-parameter_list|)
-function_decl|;
 block|}
 end_class
 
