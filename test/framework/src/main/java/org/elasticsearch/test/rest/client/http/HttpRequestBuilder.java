@@ -632,6 +632,7 @@ argument_list|(
 literal|'/'
 argument_list|)
 expr_stmt|;
+comment|// We append "/" to the path part to handle parts that start with - or other invalid characters
 name|URI
 name|uri
 init|=
@@ -647,6 +648,8 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
+literal|"/"
+operator|+
 name|pathPart
 argument_list|,
 literal|null
@@ -663,6 +666,11 @@ name|uri
 operator|.
 name|getRawPath
 argument_list|()
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
 operator|.
 name|replaceAll
 argument_list|(
