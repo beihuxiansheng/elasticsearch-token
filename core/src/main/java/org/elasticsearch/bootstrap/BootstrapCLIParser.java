@@ -116,6 +116,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|monitor
 operator|.
 name|jvm
@@ -258,6 +270,14 @@ name|withRequiredArg
 argument_list|()
 expr_stmt|;
 block|}
+comment|// TODO: don't use system properties as a way to do this, its horrible...
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Sets system properties passed as CLI parameters"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|execute
