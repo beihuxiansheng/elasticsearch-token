@@ -3412,7 +3412,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// TODO: shouldn't this create a default object mapper builder?
 name|parseNonDynamicArray
 argument_list|(
 name|context
