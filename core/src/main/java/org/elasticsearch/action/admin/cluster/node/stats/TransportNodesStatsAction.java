@@ -560,6 +560,11 @@ name|request
 operator|.
 name|discovery
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|ingest
+argument_list|()
 argument_list|)
 return|;
 block|}

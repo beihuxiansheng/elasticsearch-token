@@ -543,17 +543,6 @@ name|GEOHASH
 init|=
 literal|"geohash"
 decl_stmt|;
-DECL|field|GEOHASH_SUFFIX
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|GEOHASH_SUFFIX
-init|=
-literal|"."
-operator|+
-name|GEOHASH
-decl_stmt|;
 DECL|field|IGNORE_MALFORMED
 specifier|public
 specifier|static

@@ -308,6 +308,20 @@ name|cluster
 operator|.
 name|node
 operator|.
+name|DiscoveryNodeService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
 name|DiscoveryNodes
 import|;
 end_import
@@ -387,20 +401,6 @@ operator|.
 name|decider
 operator|.
 name|ThrottlingAllocationDecider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|service
-operator|.
-name|InternalClusterService
 import|;
 end_import
 
@@ -675,6 +675,18 @@ operator|.
 name|http
 operator|.
 name|HttpServerTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -4725,7 +4737,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|InternalClusterService
+name|DiscoveryNodeService
 operator|.
 name|NODE_ID_SEED_SETTING
 operator|.
@@ -5806,7 +5818,7 @@ specifier|final
 name|long
 name|newIdSeed
 init|=
-name|InternalClusterService
+name|DiscoveryNodeService
 operator|.
 name|NODE_ID_SEED_SETTING
 operator|.
@@ -5844,7 +5856,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|InternalClusterService
+name|DiscoveryNodeService
 operator|.
 name|NODE_ID_SEED_SETTING
 operator|.
@@ -10869,7 +10881,7 @@ specifier|synchronized
 name|String
 name|routingKeyForShard
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -11030,6 +11042,9 @@ name|state
 argument_list|()
 argument_list|,
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|type
 argument_list|,
@@ -11546,6 +11561,8 @@ argument_list|(
 name|CommonStatsFlags
 operator|.
 name|ALL
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
