@@ -396,6 +396,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -1685,7 +1695,7 @@ argument_list|)
 throw|;
 block|}
 comment|// Track the indexes we've seen so we can refresh them if requested
-name|destinationIndices
+name|destinationIndicesThisBatch
 operator|.
 name|add
 argument_list|(
@@ -1696,9 +1706,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|destinationIndices
-operator|.
-name|addAll
+name|addDestinationIndices
 argument_list|(
 name|destinationIndicesThisBatch
 argument_list|)
@@ -1946,6 +1954,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|task
+operator|.
+name|isCancelled
+argument_list|()
+operator|||
 literal|false
 operator|==
 name|mainRequest
@@ -2264,6 +2277,26 @@ name|getMaxRetries
 argument_list|()
 argument_list|)
 return|;
+block|}
+comment|/**      * Add to the list of indices that were modified by this request. This is the list of indices refreshed at the end of the request if the      * request asks for a refresh.      */
+DECL|method|addDestinationIndices
+name|void
+name|addDestinationIndices
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|indices
+parameter_list|)
+block|{
+name|destinationIndices
+operator|.
+name|addAll
+argument_list|(
+name|indices
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Wraps a backoffPolicy in another policy that counts the number of backoffs acquired.      */
 DECL|method|wrapBackoffPolicy
