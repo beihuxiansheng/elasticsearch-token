@@ -978,7 +978,7 @@ argument_list|>
 name|errors
 parameter_list|)
 block|{     }
-comment|/** called after a test is finished, but only if succesfull */
+comment|/** called after a test is finished, but only if successful */
 DECL|method|afterIfSuccessful
 specifier|protected
 name|void

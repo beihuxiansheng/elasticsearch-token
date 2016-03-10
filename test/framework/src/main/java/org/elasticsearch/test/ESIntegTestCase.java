@@ -10363,7 +10363,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"varargs"
 argument_list|)
-comment|// due to type erasure, the varargs type is non-reifiable, which casues this warning
+comment|// due to type erasure, the varargs type is non-reifiable, which causes this warning
 DECL|method|pluginList
 specifier|protected
 specifier|final
@@ -10397,7 +10397,7 @@ name|plugins
 argument_list|)
 return|;
 block|}
-comment|/**      * This method is used to obtain additional settings for clients created by the internal cluster.      * These settings will be applied on the client in addition to some randomized settings defined in      * the cluster. These setttings will also override any other settings the internal cluster might      * add by default.      */
+comment|/**      * This method is used to obtain additional settings for clients created by the internal cluster.      * These settings will be applied on the client in addition to some randomized settings defined in      * the cluster. These settings will also override any other settings the internal cluster might      * add by default.      */
 DECL|method|transportClientSettings
 specifier|protected
 name|Settings
@@ -11139,7 +11139,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"a test plugin that registeres index.tests.seed as an index setting"
+literal|"a test plugin that registers index.tests.seed as an index setting"
 return|;
 block|}
 DECL|method|onModule
@@ -11862,7 +11862,7 @@ argument_list|(
 literal|"finished"
 argument_list|)
 expr_stmt|;
-comment|// Deleting indices is going to clear search contexts implicitely so we
+comment|// Deleting indices is going to clear search contexts implicitly so we
 comment|// need to check that there are no more in-flight search contexts before
 comment|// we remove indices
 name|super
