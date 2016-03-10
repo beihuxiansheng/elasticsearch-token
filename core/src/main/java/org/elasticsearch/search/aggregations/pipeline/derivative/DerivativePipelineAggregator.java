@@ -623,6 +623,10 @@ condition|(
 name|lastBucketValue
 operator|!=
 literal|null
+operator|&&
+name|thisBucketValue
+operator|!=
+literal|null
 condition|)
 block|{
 name|double
