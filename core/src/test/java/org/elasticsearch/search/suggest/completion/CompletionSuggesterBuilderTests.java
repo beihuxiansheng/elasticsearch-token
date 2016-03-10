@@ -40,6 +40,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -388,6 +400,18 @@ name|randomSuggestionBuilder
 parameter_list|()
 block|{
 return|return
+name|randomCompletionSuggestionBuilder
+argument_list|()
+return|;
+block|}
+DECL|method|randomCompletionSuggestionBuilder
+specifier|public
+specifier|static
+name|CompletionSuggestionBuilder
+name|randomCompletionSuggestionBuilder
+parameter_list|()
+block|{
+return|return
 name|randomSuggestionBuilderWithContextInfo
 argument_list|()
 operator|.
@@ -431,6 +455,7 @@ decl_stmt|;
 block|}
 DECL|method|randomSuggestionBuilderWithContextInfo
 specifier|private
+specifier|static
 name|BuilderAndInfo
 name|randomSuggestionBuilderWithContextInfo
 parameter_list|()
@@ -1403,7 +1428,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -1416,7 +1441,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"parsing failed"
+literal|"failed to parse field [payload]"
 argument_list|)
 argument_list|)
 expr_stmt|;
