@@ -1585,6 +1585,11 @@ operator|+
 name|i
 argument_list|,
 name|randomInt
+argument_list|(
+literal|20
+argument_list|)
+argument_list|,
+name|randomInt
 argument_list|()
 argument_list|,
 name|createdResponse
@@ -3365,6 +3370,11 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
+name|randomInt
+argument_list|(
+literal|20
+argument_list|)
+argument_list|,
 name|randomIntBetween
 argument_list|(
 literal|0
@@ -3464,6 +3474,11 @@ name|delete
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|randomInt
+argument_list|(
+literal|20
+argument_list|)
 argument_list|,
 name|randomIntBetween
 argument_list|(
