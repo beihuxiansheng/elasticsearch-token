@@ -218,20 +218,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lease
-operator|.
-name|Releasables
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -991,6 +977,19 @@ name|plugins
 argument_list|)
 return|;
 block|}
+comment|/** Additional settings to add when creating the node. Also allows overriding the default settings. */
+DECL|method|nodeSettings
+specifier|protected
+name|Settings
+name|nodeSettings
+parameter_list|()
+block|{
+return|return
+name|Settings
+operator|.
+name|EMPTY
+return|;
+block|}
 DECL|method|newNode
 specifier|private
 name|Node
@@ -1152,6 +1151,13 @@ argument_list|,
 literal|true
 argument_list|)
 comment|// make sure we get what we set :)
+operator|.
+name|put
+argument_list|(
+name|nodeSettings
+argument_list|()
+argument_list|)
+comment|// allow test cases to provide their own settings or override these
 operator|.
 name|build
 argument_list|()
