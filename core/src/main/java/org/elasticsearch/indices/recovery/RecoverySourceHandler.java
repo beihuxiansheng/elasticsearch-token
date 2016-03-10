@@ -2303,7 +2303,6 @@ block|{
 comment|/**              * if the recovery process fails after setting the shard state to RELOCATED, both relocation source and              * target are failed (see {@link IndexShard#updateRoutingEntry}).              */
 try|try
 block|{
-comment|// nocommit: awful hack to work around delay replications being rejected by the primary term check. proper fix coming.
 name|shard
 operator|.
 name|relocated
