@@ -469,7 +469,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 name|idxName
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|MappedFieldType
@@ -589,9 +592,14 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
+operator|(
 name|idxName
 operator|+
 literal|"2"
+operator|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fieldType

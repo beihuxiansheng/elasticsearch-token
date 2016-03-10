@@ -334,6 +334,10 @@ name|OBJECT_FIELD_NAME
 argument_list|,
 literal|"type=object"
 argument_list|,
+name|GEO_POINT_FIELD_NAME
+argument_list|,
+name|GEO_POINT_FIELD_MAPPING
+argument_list|,
 literal|"nested1"
 argument_list|,
 literal|"type=nested"

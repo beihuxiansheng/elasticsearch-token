@@ -552,13 +552,6 @@ name|discovery
 operator|=
 name|discovery
 expr_stmt|;
-name|discovery
-operator|.
-name|setNodeService
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|version

@@ -999,9 +999,6 @@ name|shardIt
 operator|.
 name|shardId
 argument_list|()
-operator|.
-name|id
-argument_list|()
 expr_stmt|;
 name|DiscoveryNode
 name|node

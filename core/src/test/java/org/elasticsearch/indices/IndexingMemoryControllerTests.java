@@ -920,7 +920,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|MockController
@@ -1122,7 +1125,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|MockController
@@ -1488,7 +1494,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|MockController
@@ -1886,7 +1895,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"index"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|IndexShard

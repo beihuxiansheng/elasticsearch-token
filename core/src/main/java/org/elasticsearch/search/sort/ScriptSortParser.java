@@ -138,6 +138,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|search
@@ -277,6 +289,20 @@ operator|.
 name|fieldcomparator
 operator|.
 name|DoubleValuesComparatorSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
 import|;
 end_import
 
@@ -520,7 +546,7 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -962,16 +988,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
-argument_list|,
-literal|"script params must be specified inside script object"
-argument_list|,
 name|parser
 operator|.
 name|getTokenLocation
 argument_list|()
+argument_list|,
+literal|"script params must be specified inside script object"
 argument_list|)
 throw|;
 block|}
@@ -984,16 +1008,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
-argument_list|,
-literal|"_script sorting requires setting the script to sort by"
-argument_list|,
 name|parser
 operator|.
 name|getTokenLocation
 argument_list|()
+argument_list|,
+literal|"_script sorting requires setting the script to sort by"
 argument_list|)
 throw|;
 block|}
@@ -1006,16 +1028,14 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
-argument_list|,
-literal|"_script sorting requires setting the type of the script"
-argument_list|,
 name|parser
 operator|.
 name|getTokenLocation
 argument_list|()
+argument_list|,
+literal|"_script sorting requires setting the type of the script"
 argument_list|)
 throw|;
 block|}
@@ -1025,7 +1045,7 @@ name|searchScript
 init|=
 name|context
 operator|.
-name|scriptService
+name|getScriptService
 argument_list|()
 operator|.
 name|search
@@ -1075,20 +1095,18 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"type [string] doesn't support mode ["
 operator|+
 name|sortMode
 operator|+
 literal|"]"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1136,10 +1154,7 @@ name|rootDocumentsFilter
 init|=
 name|context
 operator|.
-name|bitsetFilterCache
-argument_list|()
-operator|.
-name|getBitSetProducer
+name|bitsetFilter
 argument_list|(
 name|Queries
 operator|.
@@ -1187,17 +1202,7 @@ name|Nested
 argument_list|(
 name|rootDocumentsFilter
 argument_list|,
-name|context
-operator|.
-name|searcher
-argument_list|()
-operator|.
-name|createNormalizedWeight
-argument_list|(
 name|innerDocumentsFilter
-argument_list|,
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1460,20 +1465,18 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"custom script sort type ["
 operator|+
 name|type
 operator|+
 literal|"] not supported"
-argument_list|,
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
 argument_list|)
 throw|;
 block|}

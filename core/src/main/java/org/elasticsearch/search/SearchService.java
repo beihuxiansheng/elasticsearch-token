@@ -3679,7 +3679,10 @@ name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
-name|index
+name|shardId
+argument_list|()
+operator|.
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3693,6 +3696,9 @@ argument_list|(
 name|request
 operator|.
 name|shardId
+argument_list|()
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3711,14 +3717,6 @@ name|id
 argument_list|()
 argument_list|,
 name|indexShard
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|getIndex
-argument_list|()
-argument_list|,
-name|request
 operator|.
 name|shardId
 argument_list|()

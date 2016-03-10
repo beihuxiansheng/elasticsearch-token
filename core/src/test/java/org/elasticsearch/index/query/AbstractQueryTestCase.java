@@ -1500,6 +1500,15 @@ name|GEO_POINT_FIELD_NAME
 init|=
 literal|"mapped_geo_point"
 decl_stmt|;
+DECL|field|GEO_POINT_FIELD_MAPPING
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|GEO_POINT_FIELD_MAPPING
+init|=
+literal|"type=geo_point,lat_lon=true,geohash=true,geohash_prefix=true"
+decl_stmt|;
 DECL|field|GEO_SHAPE_FIELD_NAME
 specifier|protected
 specifier|static
@@ -2633,7 +2642,7 @@ literal|"type=object"
 argument_list|,
 name|GEO_POINT_FIELD_NAME
 argument_list|,
-literal|"type=geo_point,lat_lon=true,geohash=true,geohash_prefix=true"
+name|GEO_POINT_FIELD_MAPPING
 argument_list|,
 name|GEO_SHAPE_FIELD_NAME
 argument_list|,

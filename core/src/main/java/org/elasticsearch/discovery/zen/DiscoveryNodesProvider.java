@@ -30,32 +30,6 @@ name|DiscoveryNodes
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|service
-operator|.
-name|NodeService
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -69,13 +43,6 @@ block|{
 DECL|method|nodes
 name|DiscoveryNodes
 name|nodes
-parameter_list|()
-function_decl|;
-annotation|@
-name|Nullable
-DECL|method|nodeService
-name|NodeService
-name|nodeService
 parameter_list|()
 function_decl|;
 block|}
