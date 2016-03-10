@@ -253,8 +253,11 @@ class|class
 name|GeoDistanceSortBuilder
 extends|extends
 name|SortBuilder
+argument_list|<
+name|GeoDistanceSortBuilder
+argument_list|>
 implements|implements
-name|SortBuilderTemp
+name|SortBuilderParser
 argument_list|<
 name|GeoDistanceSortBuilder
 argument_list|>

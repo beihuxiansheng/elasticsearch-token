@@ -71,10 +71,10 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|SortBuilderTemp
+DECL|interface|SortBuilderParser
 specifier|public
 interface|interface
-name|SortBuilderTemp
+name|SortBuilderParser
 parameter_list|<
 name|T
 extends|extends
@@ -88,12 +88,9 @@ argument_list|>
 extends|,
 name|ToXContent
 block|{
-comment|/**      * Creates a new item from the json held by the {@link SortBuilderTemp}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param context      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new item      */
+comment|/**      * Creates a new item from the json held by the {@link SortBuilderParser}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param context      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new item      */
 DECL|method|fromXContent
-name|SortBuilderTemp
-argument_list|<
-name|T
-argument_list|>
+name|SortBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
