@@ -1215,6 +1215,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|indexCreatedBeforeV2_2
+operator|==
+literal|false
+operator|||
 name|GeoValidationMethod
 operator|.
 name|isCoerce

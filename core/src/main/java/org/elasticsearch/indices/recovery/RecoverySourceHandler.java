@@ -865,7 +865,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"snapshot translog for recovery. current size is [{}]"
+literal|"{} snapshot translog for recovery. current size is [{}]"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|translogView
 operator|.

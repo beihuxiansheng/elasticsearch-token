@@ -4102,7 +4102,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"{\"foo\":{}}"
+literal|"{\"foo\":{\"order\":\"asc\"}}"
 argument_list|,
 name|searchSourceBuilder
 operator|.
