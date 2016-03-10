@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -34,11 +34,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -48,11 +48,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -207,6 +207,16 @@ operator|.
 name|tree
 operator|.
 name|SpatialPrefixTree
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
 import|;
 end_import
 
@@ -509,7 +519,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FieldMapper for indexing {@link com.spatial4j.core.shape.Shape}s.  *<p>  * Currently Shapes can only be indexed and can only be queried using  * {@link org.elasticsearch.index.query.GeoShapeQueryParser}, consequently  * a lot of behavior in this Mapper is disabled.  *<p>  * Format supported:  *<p>  * "field" : {  * "type" : "polygon",  * "coordinates" : [  * [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]  * ]  * }  */
+comment|/**  * FieldMapper for indexing {@link org.locationtech.spatial4j.shape.Shape}s.  *<p>  * Currently Shapes can only be indexed and can only be queried using  * {@link org.elasticsearch.index.query.GeoShapeQueryParser}, consequently  * a lot of behavior in this Mapper is disabled.  *<p>  * Format supported:  *<p>  * "field" : {  * "type" : "polygon",  * "coordinates" : [  * [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]  * ]  * }  */
 end_comment
 
 begin_class
@@ -2878,6 +2888,30 @@ condition|(
 operator|!
 name|customBoost
 argument_list|()
+operator|&&
+name|fieldType
+operator|.
+name|boost
+argument_list|()
+operator|!=
+literal|1f
+operator|&&
+name|Version
+operator|.
+name|indexCreated
+argument_list|(
+name|context
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|)
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_5_0_0
+argument_list|)
 condition|)
 block|{
 name|field

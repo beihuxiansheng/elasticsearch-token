@@ -140,7 +140,23 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AbstractAggregationBuilder
+name|AggregatorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -1121,13 +1137,38 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an get to the search operation.      */
+comment|/**      * Adds an aggregation to the search operation.      */
 DECL|method|addAggregation
 specifier|public
 name|SearchRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AbstractAggregationBuilder
+name|AggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
+name|aggregation
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|aggregation
+argument_list|(
+name|aggregation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds an aggregation to the search operation.      */
+DECL|method|addAggregation
+specifier|public
+name|SearchRequestBuilder
+name|addAggregation
+parameter_list|(
+name|PipelineAggregatorBuilder
 name|aggregation
 parameter_list|)
 block|{

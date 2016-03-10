@@ -188,7 +188,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LongsRef
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -202,7 +202,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LongsRef
 import|;
 end_import
 
@@ -823,6 +823,41 @@ literal|0L
 condition|)
 block|{
 comment|// on the first level
+return|return
+name|firstLevel
+argument_list|(
+name|docID
+argument_list|,
+name|ordinal
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|nonFirstLevel
+argument_list|(
+name|docID
+argument_list|,
+name|ordinal
+argument_list|,
+name|position
+argument_list|)
+return|;
+block|}
+block|}
+DECL|method|firstLevel
+specifier|private
+name|int
+name|firstLevel
+parameter_list|(
+name|int
+name|docID
+parameter_list|,
+name|long
+name|ordinal
+parameter_list|)
+block|{
 comment|// 0 or 1 ordinal
 if|if
 condition|(
@@ -941,7 +976,20 @@ literal|2
 return|;
 block|}
 block|}
-else|else
+DECL|method|nonFirstLevel
+specifier|private
+name|int
+name|nonFirstLevel
+parameter_list|(
+name|int
+name|docID
+parameter_list|,
+name|long
+name|ordinal
+parameter_list|,
+name|long
+name|position
+parameter_list|)
 block|{
 name|int
 name|level
@@ -1118,7 +1166,6 @@ argument_list|,
 name|offset
 argument_list|)
 return|;
-block|}
 block|}
 DECL|method|appendOrdinals
 specifier|public
@@ -1980,7 +2027,7 @@ name|IOException
 block|{
 comment|// we stop accepting terms once we moved across the prefix codec terms - redundant values!
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getPrefixCodedLongShift
 argument_list|(
@@ -2035,7 +2082,7 @@ name|IOException
 block|{
 comment|// we stop accepting terms once we moved across the prefix codec terms - redundant values!
 return|return
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|getPrefixCodedIntShift
 argument_list|(

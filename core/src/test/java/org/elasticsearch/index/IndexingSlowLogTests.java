@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IntField
+name|LegacyIntField
 import|;
 end_import
 
@@ -214,6 +214,18 @@ name|not
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|startsWith
+import|;
+end_import
+
 begin_class
 DECL|class|IndexingSlowLogTests
 specifier|public
@@ -273,7 +285,7 @@ name|YES
 argument_list|)
 argument_list|,
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"version"
 argument_list|,
@@ -285,7 +297,7 @@ name|YES
 argument_list|)
 argument_list|,
 operator|new
-name|IntField
+name|LegacyIntField
 argument_list|(
 literal|"seqNo"
 argument_list|,
@@ -314,6 +326,17 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+name|Index
+name|index
+init|=
+operator|new
+name|Index
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"123"
+argument_list|)
+decl_stmt|;
 comment|// Turning off document logging doesn't log source[]
 name|SlowLogParsedDocumentPrinter
 name|p
@@ -321,6 +344,8 @@ init|=
 operator|new
 name|SlowLogParsedDocumentPrinter
 argument_list|(
+name|index
+argument_list|,
 name|pd
 argument_list|,
 literal|10
@@ -352,6 +377,8 @@ operator|=
 operator|new
 name|SlowLogParsedDocumentPrinter
 argument_list|(
+name|index
+argument_list|,
 name|pd
 argument_list|,
 literal|10
@@ -382,6 +409,8 @@ operator|=
 operator|new
 name|SlowLogParsedDocumentPrinter
 argument_list|(
+name|index
+argument_list|,
 name|pd
 argument_list|,
 literal|10
@@ -401,6 +430,49 @@ argument_list|,
 name|containsString
 argument_list|(
 literal|"source[{\"f]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// And you can truncate the source
+name|p
+operator|=
+operator|new
+name|SlowLogParsedDocumentPrinter
+argument_list|(
+name|index
+argument_list|,
+name|pd
+argument_list|,
+literal|10
+argument_list|,
+literal|true
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|p
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"source[{\"f]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|p
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|startsWith
+argument_list|(
+literal|"[foo/123] took"
 argument_list|)
 argument_list|)
 expr_stmt|;

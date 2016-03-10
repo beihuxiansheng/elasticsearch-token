@@ -428,6 +428,11 @@ name|stats
 argument_list|(
 literal|"stats"
 argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"value"
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

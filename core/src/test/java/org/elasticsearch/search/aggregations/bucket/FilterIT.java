@@ -712,10 +712,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"tag1"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|termQuery
 argument_list|(
 literal|"tag"
@@ -788,7 +785,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// See NullPointer issue when filters are empty:
-comment|// https://github.com/elasticsearch/elasticsearch/issues/8438
+comment|// https://github.com/elastic/elasticsearch/issues/8438
 DECL|method|testEmptyFilterDeclarations
 specifier|public
 name|void
@@ -820,10 +817,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"tag1"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|emptyFilter
 argument_list|)
 argument_list|)
@@ -901,10 +895,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"tag1"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|termQuery
 argument_list|(
 literal|"tag"
@@ -1170,10 +1161,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|matchAllQuery
 argument_list|()
 argument_list|)
@@ -1297,10 +1285,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"tag1"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|termQuery
 argument_list|(
 literal|"tag"
@@ -1405,10 +1390,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|matchAllQuery
 argument_list|()
 argument_list|)

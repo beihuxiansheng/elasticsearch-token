@@ -103,6 +103,7 @@ end_import
 begin_class
 DECL|class|AttachmentUnitTestCase
 specifier|public
+specifier|abstract
 class|class
 name|AttachmentUnitTestCase
 extends|extends

@@ -284,7 +284,7 @@ literal|"type"
 argument_list|,
 literal|"field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get

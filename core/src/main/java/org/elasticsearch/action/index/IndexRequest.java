@@ -959,8 +959,60 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|id
+operator|!=
+literal|null
+operator|&&
+name|id
+operator|.
+name|getBytes
+argument_list|(
+name|StandardCharsets
+operator|.
+name|UTF_8
+argument_list|)
+operator|.
+name|length
+operator|>
+literal|512
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"id is too long, must be no longer than 512 bytes but was: "
+operator|+
+name|id
+operator|.
+name|getBytes
+argument_list|(
+name|StandardCharsets
+operator|.
+name|UTF_8
+argument_list|)
+operator|.
+name|length
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|validationException
+return|;
+block|}
+comment|/**      * The content type that will be used when generating a document from user provided objects like Maps.      */
+DECL|method|getContentType
+specifier|public
+name|XContentType
+name|getContentType
+parameter_list|()
+block|{
+return|return
+name|contentType
 return|;
 block|}
 comment|/**      * Sets the content type that will be used when generating a document from user provided objects (like Map).      */
@@ -1130,6 +1182,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parent
 specifier|public
 name|String
@@ -2568,6 +2622,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// if we are here, the defaultTimestamp is not
+comment|// TimestampFieldMapper.Defaults.DEFAULT_TIMESTAMP but
+comment|// this can only happen if defaultTimestamp was
+comment|// assigned again because mappingMd and
+comment|// mappingMd#timestamp() are not null
+assert|assert
+name|mappingMd
+operator|!=
+literal|null
+assert|;
 name|timestamp
 operator|=
 name|MappingMetaData
@@ -2621,7 +2685,7 @@ name|type
 operator|=
 name|in
 operator|.
-name|readString
+name|readOptionalString
 argument_list|()
 expr_stmt|;
 name|id
@@ -2743,7 +2807,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeOptionalString
 argument_list|(
 name|type
 argument_list|)

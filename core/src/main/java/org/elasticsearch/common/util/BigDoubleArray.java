@@ -353,9 +353,9 @@ name|numBytesPerElement
 parameter_list|()
 block|{
 return|return
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 return|;
 block|}
 comment|/** Change the size of this array. Content between indexes<code>0</code> and<code>min(size(), newSize)</code> will be preserved. */

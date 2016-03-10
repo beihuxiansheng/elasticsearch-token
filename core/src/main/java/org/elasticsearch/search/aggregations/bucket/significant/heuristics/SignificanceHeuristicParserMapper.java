@@ -38,18 +38,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -116,9 +104,6 @@ argument_list|<
 name|SignificanceHeuristicParser
 argument_list|>
 name|parsers
-parameter_list|,
-name|ScriptService
-name|scriptService
 parameter_list|)
 block|{
 name|Map
@@ -197,9 +182,7 @@ operator|new
 name|ScriptHeuristic
 operator|.
 name|ScriptHeuristicParser
-argument_list|(
-name|scriptService
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

@@ -242,8 +242,6 @@ name|common
 operator|.
 name|logging
 operator|.
-name|support
-operator|.
 name|LoggerMessageFormat
 import|;
 end_import

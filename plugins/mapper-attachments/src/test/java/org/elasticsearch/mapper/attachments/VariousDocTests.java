@@ -454,7 +454,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test for https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/104      */
+comment|/**      * Test for https://github.com/elastic/elasticsearch-mapper-attachments/issues/104      */
 DECL|method|testWordDocxDocument104
 specifier|public
 name|void
@@ -588,7 +588,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test for ASCIIDOC      * Not yet supported by Tika: https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/29      */
+comment|/**      * Test for ASCIIDOC      * Not yet supported by Tika: https://github.com/elastic/elasticsearch-mapper-attachments/issues/29      */
 DECL|method|testAsciidocDocument
 specifier|public
 name|void

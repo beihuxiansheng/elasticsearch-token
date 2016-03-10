@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -255,6 +255,22 @@ operator|.
 name|core
 operator|.
 name|StringFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|TextFieldMapper
 import|;
 end_import
 
@@ -630,7 +646,7 @@ operator|.
 name|stringBuilder
 operator|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1492,11 +1508,11 @@ argument_list|(
 name|fullNameToFieldType
 argument_list|)
 decl_stmt|;
-name|StringFieldMapper
+name|TextFieldMapper
 name|stringMapperUpdate
 init|=
 operator|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|)
 name|stringMapper
 operator|.

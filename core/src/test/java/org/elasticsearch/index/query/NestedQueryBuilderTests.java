@@ -312,7 +312,7 @@ literal|"nested_doc"
 argument_list|,
 name|STRING_FIELD_NAME
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 name|INT_FIELD_NAME
 argument_list|,
@@ -333,6 +333,10 @@ argument_list|,
 name|OBJECT_FIELD_NAME
 argument_list|,
 literal|"type=object"
+argument_list|,
+name|GEO_POINT_FIELD_NAME
+argument_list|,
+name|GEO_POINT_FIELD_MAPPING
 argument_list|,
 literal|"nested1"
 argument_list|,

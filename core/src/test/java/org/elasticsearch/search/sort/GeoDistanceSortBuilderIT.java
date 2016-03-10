@@ -2839,7 +2839,7 @@ literal|"type"
 argument_list|,
 literal|"str_field1"
 argument_list|,
-literal|"type=string"
+literal|"type=keyword"
 argument_list|,
 literal|"long_field"
 argument_list|,
@@ -2944,7 +2944,7 @@ argument_list|)
 operator|.
 name|unmappedType
 argument_list|(
-literal|"string"
+literal|"keyword"
 argument_list|)
 argument_list|)
 operator|.
@@ -2964,7 +2964,7 @@ argument_list|)
 operator|.
 name|unmappedType
 argument_list|(
-literal|"string"
+literal|"keyword"
 argument_list|)
 argument_list|)
 operator|.

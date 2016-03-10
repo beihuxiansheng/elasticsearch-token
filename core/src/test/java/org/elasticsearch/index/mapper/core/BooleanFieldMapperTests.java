@@ -670,8 +670,6 @@ operator|.
 name|open
 argument_list|(
 name|w
-argument_list|,
-literal|true
 argument_list|)
 init|)
 block|{
@@ -1065,14 +1063,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject

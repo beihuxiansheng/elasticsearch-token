@@ -1890,7 +1890,7 @@ literal|"type=long,doc_values=true"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3005,7 +3005,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -3225,7 +3225,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|get
@@ -3620,7 +3620,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3954,7 +3954,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11993,7 +11993,7 @@ literal|"my-type"
 argument_list|,
 literal|"field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addMapping
@@ -12352,7 +12352,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|append
@@ -15053,7 +15053,7 @@ literal|"doc"
 argument_list|,
 literal|"message"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16227,7 +16227,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -16259,7 +16259,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -16527,13 +16527,13 @@ literal|"    \"doc\": {\n"
 operator|+
 literal|"      \"properties\": {\n"
 operator|+
-literal|"        \"name\": {\"type\":\"string\"},\n"
+literal|"        \"name\": {\"type\":\"text\"},\n"
 operator|+
 literal|"        \"persons\": {\n"
 operator|+
 literal|"          \"type\": \"nested\"\n,"
 operator|+
-literal|"          \"properties\" : {\"foo\" : {\"type\" : \"string\"}}"
+literal|"          \"properties\" : {\"foo\" : {\"type\" : \"text\"}}"
 operator|+
 literal|"        }\n"
 operator|+
@@ -17609,7 +17609,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject

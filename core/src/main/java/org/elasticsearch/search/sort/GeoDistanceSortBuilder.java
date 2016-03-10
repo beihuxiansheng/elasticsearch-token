@@ -900,22 +900,6 @@ operator|.
 name|order
 return|;
 block|}
-comment|/**      * Not relevant.      *      * TODO should this throw an exception rather than silently ignore a parameter that is not used?      */
-annotation|@
-name|Override
-DECL|method|missing
-specifier|public
-name|GeoDistanceSortBuilder
-name|missing
-parameter_list|(
-name|Object
-name|missing
-parameter_list|)
-block|{
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Defines which distance to use for sorting in the case a document contains multiple geo points.      * Possible values: min and max      */
 DECL|method|sortMode
 specifier|public

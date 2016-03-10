@@ -104,27 +104,18 @@ name|detailed
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Get information from nodes based on the nodes ids specified. If none are passed, information      * for all nodes will be returned.      */
-DECL|method|ListTasksRequest
-specifier|public
-name|ListTasksRequest
-parameter_list|(
-name|String
-modifier|...
-name|nodesIds
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|nodesIds
-argument_list|)
-expr_stmt|;
-block|}
+DECL|field|waitForCompletion
+specifier|private
+name|boolean
+name|waitForCompletion
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Should the detailed task information be returned.      */
-DECL|method|detailed
+DECL|method|getDetailed
 specifier|public
 name|boolean
-name|detailed
+name|getDetailed
 parameter_list|()
 block|{
 return|return
@@ -133,11 +124,11 @@ operator|.
 name|detailed
 return|;
 block|}
-comment|/**      * Should the node settings be returned.      */
-DECL|method|detailed
+comment|/**      * Should the detailed task information be returned.      */
+DECL|method|setDetailed
 specifier|public
 name|ListTasksRequest
-name|detailed
+name|setDetailed
 parameter_list|(
 name|boolean
 name|detailed
@@ -148,6 +139,37 @@ operator|.
 name|detailed
 operator|=
 name|detailed
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Should this request wait for all found tasks to complete?      */
+DECL|method|getWaitForCompletion
+specifier|public
+name|boolean
+name|getWaitForCompletion
+parameter_list|()
+block|{
+return|return
+name|waitForCompletion
+return|;
+block|}
+comment|/**      * Should this request wait for all found tasks to complete?      */
+DECL|method|setWaitForCompletion
+specifier|public
+name|ListTasksRequest
+name|setWaitForCompletion
+parameter_list|(
+name|boolean
+name|waitForCompletion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitForCompletion
+operator|=
+name|waitForCompletion
 expr_stmt|;
 return|return
 name|this
@@ -180,6 +202,13 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
+name|waitForCompletion
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -206,6 +235,13 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|detailed
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|waitForCompletion
 argument_list|)
 expr_stmt|;
 block|}

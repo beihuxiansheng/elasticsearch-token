@@ -1340,10 +1340,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 operator|.
@@ -1655,10 +1652,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"value"
 argument_list|)
 operator|.
@@ -1756,10 +1750,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 operator|.
@@ -2185,10 +2176,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 operator|.
@@ -2423,10 +2411,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"level1"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested1"
 argument_list|)
 operator|.
@@ -2452,10 +2437,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"level2"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested1.nested2"
 argument_list|)
 operator|.
@@ -2757,10 +2739,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 argument_list|)
@@ -2915,10 +2894,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"object_field"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"incorrect"
 argument_list|)
 argument_list|)
@@ -2954,7 +2930,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Test based on: https://github.com/elasticsearch/elasticsearch/issues/9280
+comment|// Test based on: https://github.com/elastic/elasticsearch/issues/9280
 DECL|method|testParentFilterResolvedCorrectly
 specifier|public
 name|void
@@ -3387,10 +3363,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"ctxt_idfier_nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments"
 argument_list|)
 operator|.
@@ -3399,10 +3372,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"comment_filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|termQuery
 argument_list|(
 literal|"comments.identifier"
@@ -3416,10 +3386,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested_tags"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments.tags"
 argument_list|)
 operator|.
@@ -3929,11 +3896,11 @@ literal|"product"
 argument_list|,
 literal|"categories"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"property"
 argument_list|,
@@ -4166,10 +4133,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"property"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"property"
 argument_list|)
 operator|.

@@ -137,22 +137,6 @@ name|reason
 init|=
 name|DEFAULT_REASON
 decl_stmt|;
-comment|/**      * Cancel tasks on the specified nodes. If none are passed, all cancellable tasks on      * all nodes will be cancelled.      */
-DECL|method|CancelTasksRequest
-specifier|public
-name|CancelTasksRequest
-parameter_list|(
-name|String
-modifier|...
-name|nodesIds
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|nodesIds
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -233,10 +217,11 @@ operator|instanceof
 name|CancellableTask
 return|;
 block|}
-DECL|method|reason
+comment|/**      * Set the reason for canceling the task.      */
+DECL|method|setReason
 specifier|public
 name|CancelTasksRequest
-name|reason
+name|setReason
 parameter_list|(
 name|String
 name|reason
@@ -252,10 +237,11 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|reason
+comment|/**      * The reason for canceling the task.      */
+DECL|method|getReason
 specifier|public
 name|String
-name|reason
+name|getReason
 parameter_list|()
 block|{
 return|return

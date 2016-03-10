@@ -267,7 +267,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 operator|.
 name|getShard

@@ -106,7 +106,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -337,9 +337,9 @@ name|MappedFieldType
 name|fieldType
 init|=
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
-name|StringFieldType
+name|TextFieldType
 argument_list|()
 decl_stmt|;
 name|MappedFieldType
@@ -508,9 +508,9 @@ name|result
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
-name|StringFieldType
+name|TextFieldType
 operator|.
 name|class
 argument_list|)

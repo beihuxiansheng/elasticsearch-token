@@ -318,11 +318,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cluster
 operator|.
-name|settings
+name|service
 operator|.
-name|Settings
+name|InternalClusterService
 import|;
 end_import
 
@@ -332,9 +332,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|common
 operator|.
-name|DiscoveryService
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -409,16 +411,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Optional
 import|;
 end_import
 
@@ -2677,7 +2669,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|DiscoveryService
+name|InternalClusterService
 operator|.
 name|generateNodeId
 argument_list|(

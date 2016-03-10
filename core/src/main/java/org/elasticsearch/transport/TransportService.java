@@ -488,7 +488,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ScheduledFuture
+name|CountDownLatch
 import|;
 end_import
 
@@ -500,9 +500,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|atomic
-operator|.
-name|AtomicBoolean
+name|ScheduledFuture
 import|;
 end_import
 
@@ -614,16 +612,16 @@ name|DIRECT_RESPONSE_PROFILE
 init|=
 literal|".direct"
 decl_stmt|;
-DECL|field|started
+DECL|field|blockIncomingRequestsLatch
 specifier|private
 specifier|final
-name|AtomicBoolean
-name|started
+name|CountDownLatch
+name|blockIncomingRequestsLatch
 init|=
 operator|new
-name|AtomicBoolean
+name|CountDownLatch
 argument_list|(
-literal|false
+literal|1
 argument_list|)
 decl_stmt|;
 DECL|field|transport
@@ -1237,23 +1235,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|boolean
-name|setStarted
-init|=
-name|started
-operator|.
-name|compareAndSet
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-assert|assert
-name|setStarted
-operator|:
-literal|"service was already started"
-assert|;
 block|}
 annotation|@
 name|Override
@@ -1263,24 +1244,6 @@ name|void
 name|doStop
 parameter_list|()
 block|{
-specifier|final
-name|boolean
-name|setStopped
-init|=
-name|started
-operator|.
-name|compareAndSet
-argument_list|(
-literal|true
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
-assert|assert
-name|setStopped
-operator|:
-literal|"service has already been stopped"
-assert|;
 try|try
 block|{
 name|transport
@@ -1390,6 +1353,19 @@ block|{
 name|transport
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * start accepting incoming requests.      * when the transport layer starts up it will block any incoming requests until      * this method is called      */
+DECL|method|acceptIncomingRequests
+specifier|public
+name|void
+name|acceptIncomingRequests
+parameter_list|()
+block|{
+name|blockIncomingRequestsLatch
+operator|.
+name|countDown
 argument_list|()
 expr_stmt|;
 block|}
@@ -1958,12 +1934,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|started
+name|lifecycle
 operator|.
-name|get
+name|stoppedOrClosed
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 comment|// if we are not started the exception handling will remove the RequestHolder again and calls the handler to notify the caller.
@@ -2116,15 +2090,58 @@ operator|.
 name|execute
 argument_list|(
 operator|new
-name|Runnable
+name|AbstractRunnable
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
 name|void
-name|run
+name|onRejection
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// if we get rejected during node shutdown we don't wanna bubble it up
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to notify response handler on rejection"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to notify response handler on exception"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|doRun
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|holderToNotify
 operator|.
@@ -2498,7 +2515,7 @@ name|perAddressLimit
 argument_list|)
 return|;
 block|}
-comment|/**      * Registers a new request handler      * @param action The action the request handler is associated with      * @param requestFactory a callable to be used construct new instances for streaming      * @param executor The executor the request handling will be executed on      * @param handler The handler itself that implements the request handling      */
+comment|/**      * Registers a new request handler      *      * @param action         The action the request handler is associated with      * @param requestFactory a callable to be used construct new instances for streaming      * @param executor       The executor the request handling will be executed on      * @param handler        The handler itself that implements the request handling      */
 DECL|method|registerRequestHandler
 specifier|public
 parameter_list|<
@@ -2557,7 +2574,7 @@ name|reg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Registers a new request handler      * @param action The action the request handler is associated with      * @param request The request class that will be used to constrcut new instances for streaming      * @param executor The executor the request handling will be executed on      * @param forceExecution Force execution on the executor queue and never reject it      * @param handler The handler itself that implements the request handling      */
+comment|/**      * Registers a new request handler      *      * @param action         The action the request handler is associated with      * @param request        The request class that will be used to constrcut new instances for streaming      * @param executor       The executor the request handling will be executed on      * @param forceExecution Force execution on the executor queue and never reject it      * @param handler        The handler itself that implements the request handling      */
 DECL|method|registerRequestHandler
 specifier|public
 parameter_list|<
@@ -2998,6 +3015,28 @@ name|String
 name|action
 parameter_list|)
 block|{
+try|try
+block|{
+name|blockIncomingRequestsLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"interrupted while waiting for incoming requests block to be removed"
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|traceEnabled

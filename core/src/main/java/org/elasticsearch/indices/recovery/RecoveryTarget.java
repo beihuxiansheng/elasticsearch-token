@@ -527,20 +527,6 @@ operator|.
 name|newConcurrentMap
 argument_list|()
 decl_stmt|;
-DECL|field|legacyChecksums
-specifier|private
-specifier|final
-name|Store
-operator|.
-name|LegacyChecksums
-name|legacyChecksums
-init|=
-operator|new
-name|Store
-operator|.
-name|LegacyChecksums
-argument_list|()
-decl_stmt|;
 DECL|field|cancellableThreads
 specifier|private
 specifier|final
@@ -825,18 +811,6 @@ argument_list|()
 operator|.
 name|getStage
 argument_list|()
-return|;
-block|}
-DECL|method|legacyChecksums
-specifier|public
-name|Store
-operator|.
-name|LegacyChecksums
-name|legacyChecksums
-parameter_list|()
-block|{
-return|return
-name|legacyChecksums
 return|;
 block|}
 comment|/** renames all temporary files to their true name, potentially overriding existing files */
@@ -1363,11 +1337,6 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-name|legacyChecksums
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1702,14 +1671,6 @@ expr_stmt|;
 comment|// first, we go and move files that were created with the recovery id suffix to
 comment|// the actual names, its ok if we have a corrupted index here, since we have replicas
 comment|// to recover from in case of a full cluster shutdown just when this code executes...
-name|indexShard
-argument_list|()
-operator|.
-name|deleteShardState
-argument_list|()
-expr_stmt|;
-comment|// we have to delete it first since even if we fail to rename the shard
-comment|// might be invalid
 name|renameAllTempFiles
 argument_list|()
 expr_stmt|;
@@ -1720,15 +1681,6 @@ init|=
 name|store
 argument_list|()
 decl_stmt|;
-comment|// now write checksums
-name|legacyChecksums
-argument_list|()
-operator|.
-name|write
-argument_list|(
-name|store
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|store
@@ -2041,15 +1993,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|// write the checksum
-name|legacyChecksums
-argument_list|()
-operator|.
-name|add
-argument_list|(
-name|fileMetaData
-argument_list|)
-expr_stmt|;
 specifier|final
 name|String
 name|temporaryFileName

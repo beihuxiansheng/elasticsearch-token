@@ -268,18 +268,6 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|)
-annotation|@
-name|ESBackcompatTestCase
-operator|.
-name|CompatibilityVersion
-argument_list|(
-name|version
-operator|=
-name|Version
-operator|.
-name|V_1_2_0_ID
-argument_list|)
-comment|// we throw an exception if we create an index with _field_names that is 1.3
 DECL|class|PreBuiltAnalyzerIntegrationIT
 specifier|public
 class|class
@@ -516,7 +504,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -753,7 +741,7 @@ name|loadedAnalyzers
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test case for #5030: Upgrading analysis plugins fails      * See https://github.com/elasticsearch/elasticsearch/issues/5030      */
+comment|/**      * Test case for #5030: Upgrading analysis plugins fails      * See https://github.com/elastic/elasticsearch/issues/5030      */
 DECL|method|testThatPluginAnalyzersCanBeUpdated
 specifier|public
 name|void
@@ -791,7 +779,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -813,7 +801,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field

@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|TokenStream
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|LegacyNumericTokenStream
 import|;
 end_import
 
@@ -2348,7 +2348,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Check whether the provided token stream is able to provide character      * terms.      *<p>Although most analyzers generate character terms (CharTermAttribute),      * some token only contain binary terms (BinaryTermAttribute,      * CharTermAttribute being a special type of BinaryTermAttribute), such as      * {@link NumericTokenStream} and unsuitable for highlighting and      * more-like-this queries which expect character terms.</p>      */
+comment|/**      * Check whether the provided token stream is able to provide character      * terms.      *<p>Although most analyzers generate character terms (CharTermAttribute),      * some token only contain binary terms (BinaryTermAttribute,      * CharTermAttribute being a special type of BinaryTermAttribute), such as      * {@link LegacyNumericTokenStream} and unsuitable for highlighting and      * more-like-this queries which expect character terms.</p>      */
 DECL|method|isCharacterTokenStream
 specifier|public
 specifier|static

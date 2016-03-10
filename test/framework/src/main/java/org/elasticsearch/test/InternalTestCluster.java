@@ -396,6 +396,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|InternalClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -624,7 +638,7 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|DiscoveryService
+name|DiscoverySettings
 import|;
 end_import
 
@@ -661,6 +675,18 @@ operator|.
 name|http
 operator|.
 name|HttpServerTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -4711,9 +4737,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiscoveryService
+name|InternalClusterService
 operator|.
-name|DISCOVERY_SEED_SETTING
+name|NODE_ID_SEED_SETTING
 operator|.
 name|getKey
 argument_list|()
@@ -5058,7 +5084,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|DiscoveryService
+name|DiscoverySettings
 operator|.
 name|INITIAL_STATE_TIMEOUT_SETTING
 operator|.
@@ -5792,9 +5818,9 @@ specifier|final
 name|long
 name|newIdSeed
 init|=
-name|DiscoveryService
+name|InternalClusterService
 operator|.
-name|DISCOVERY_SEED_SETTING
+name|NODE_ID_SEED_SETTING
 operator|.
 name|get
 argument_list|(
@@ -5830,9 +5856,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|DiscoveryService
+name|InternalClusterService
 operator|.
-name|DISCOVERY_SEED_SETTING
+name|NODE_ID_SEED_SETTING
 operator|.
 name|getKey
 argument_list|()
@@ -10855,7 +10881,7 @@ specifier|synchronized
 name|String
 name|routingKeyForShard
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -11016,6 +11042,9 @@ name|state
 argument_list|()
 argument_list|,
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|type
 argument_list|,

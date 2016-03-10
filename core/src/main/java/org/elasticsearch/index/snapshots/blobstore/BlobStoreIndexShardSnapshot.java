@@ -617,8 +617,6 @@ name|numberOfParts
 return|;
 block|}
 comment|/**          * Returns file md5 checksum provided by {@link org.elasticsearch.index.store.Store}          *          * @return file checksum          */
-annotation|@
-name|Nullable
 DECL|method|checksum
 specifier|public
 name|String

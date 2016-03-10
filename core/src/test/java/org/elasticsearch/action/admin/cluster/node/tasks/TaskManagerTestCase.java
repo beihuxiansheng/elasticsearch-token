@@ -1327,6 +1327,11 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|)
 expr_stmt|;
+name|transportService
+operator|.
+name|acceptIncomingRequests
+argument_list|()
+expr_stmt|;
 block|}
 DECL|field|clusterService
 specifier|public

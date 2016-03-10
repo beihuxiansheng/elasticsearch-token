@@ -222,6 +222,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -308,9 +320,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|index
 operator|.
-name|DiscoveryService
+name|Index
 import|;
 end_import
 
@@ -2120,6 +2132,15 @@ argument_list|(
 literal|"--> waiting for recovery to start both on source and target"
 argument_list|)
 expr_stmt|;
+specifier|final
+name|Index
+name|index
+init|=
+name|resolveIndex
+argument_list|(
+name|INDEX_NAME
+argument_list|)
+decl_stmt|;
 name|assertBusy
 argument_list|(
 operator|new
@@ -2154,7 +2175,7 @@ name|indicesService
 operator|.
 name|indexServiceSafe
 argument_list|(
-name|INDEX_NAME
+name|index
 argument_list|)
 operator|.
 name|getShard
@@ -2194,7 +2215,7 @@ name|indicesService
 operator|.
 name|indexServiceSafe
 argument_list|(
-name|INDEX_NAME
+name|index
 argument_list|)
 operator|.
 name|getShard
@@ -4894,7 +4915,7 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|DiscoveryService
+name|ClusterService
 operator|.
 name|class
 argument_list|,

@@ -106,22 +106,6 @@ name|support
 operator|.
 name|tasks
 operator|.
-name|BaseTasksRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|tasks
-operator|.
 name|TransportTasksAction
 import|;
 end_import
@@ -259,6 +243,18 @@ operator|.
 name|tasks
 operator|.
 name|CancellableTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskId
 import|;
 end_import
 
@@ -624,12 +620,13 @@ if|if
 condition|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
-operator|!=
-name|BaseTasksRequest
 operator|.
-name|ALL_TASKS
+name|isSet
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 comment|// we are only checking one task, we can optimize it
@@ -642,7 +639,10 @@ name|getCancellableTask
 argument_list|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
+argument_list|()
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -681,7 +681,7 @@ literal|"task ["
 operator|+
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|+
 literal|"] doesn't support this operation"
@@ -699,7 +699,10 @@ name|getTask
 argument_list|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
+argument_list|()
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 operator|!=
@@ -715,7 +718,7 @@ literal|"task ["
 operator|+
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|+
 literal|"] doesn't support cancellation"
@@ -732,7 +735,7 @@ literal|"task [{}] doesn't support cancellation"
 argument_list|,
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 argument_list|)
 throw|;
@@ -822,7 +825,7 @@ name|cancellableTask
 argument_list|,
 name|request
 operator|.
-name|reason
+name|getReason
 argument_list|()
 argument_list|,
 name|banLock
@@ -891,7 +894,7 @@ name|setBanOnNodes
 argument_list|(
 name|request
 operator|.
-name|reason
+name|getReason
 argument_list|()
 argument_list|,
 name|cancellableTask
@@ -983,8 +986,12 @@ name|sendSetBanRequest
 argument_list|(
 name|nodes
 argument_list|,
-operator|new
 name|BanParentTaskRequest
+operator|.
+name|createSetBanParentTaskRequest
+argument_list|(
+operator|new
+name|TaskId
 argument_list|(
 name|clusterService
 operator|.
@@ -998,6 +1005,7 @@ name|task
 operator|.
 name|getId
 argument_list|()
+argument_list|)
 argument_list|,
 name|reason
 argument_list|)
@@ -1025,8 +1033,12 @@ name|sendRemoveBanRequest
 argument_list|(
 name|nodes
 argument_list|,
-operator|new
 name|BanParentTaskRequest
+operator|.
+name|createRemoveBanParentTaskRequest
+argument_list|(
+operator|new
+name|TaskId
 argument_list|(
 name|clusterService
 operator|.
@@ -1040,6 +1052,7 @@ name|task
 operator|.
 name|getId
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1103,11 +1116,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Sending ban for tasks with the parent [{}:{}] to the node [{}], ban [{}]"
-argument_list|,
-name|request
-operator|.
-name|parentNodeId
+literal|"Sending ban for tasks with the parent [{}] to the node [{}], ban [{}]"
 argument_list|,
 name|request
 operator|.
@@ -1189,11 +1198,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot send ban for tasks with the parent [{}:{}] to the node [{}] - the node no longer in the cluster"
-argument_list|,
-name|request
-operator|.
-name|parentNodeId
+literal|"Cannot send ban for tasks with the parent [{}] to the node [{}] - the node no longer in the cluster"
 argument_list|,
 name|request
 operator|.
@@ -1261,11 +1266,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Sending remove ban for tasks with the parent [{}:{}] to the node [{}]"
-argument_list|,
-name|request
-operator|.
-name|parentNodeId
+literal|"Sending remove ban for tasks with the parent [{}] to the node [{}]"
 argument_list|,
 name|request
 operator|.
@@ -1296,13 +1297,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Cannot send remove ban request for tasks with the parent [{}:{}] to the node [{}] - the node no longer in "
+literal|"Cannot send remove ban request for tasks with the parent [{}] to the node [{}] - the node no longer in "
 operator|+
 literal|"the cluster"
-argument_list|,
-name|request
-operator|.
-name|parentNodeId
 argument_list|,
 name|request
 operator|.
@@ -1472,14 +1469,9 @@ name|BanParentTaskRequest
 extends|extends
 name|TransportRequest
 block|{
-DECL|field|parentNodeId
-specifier|private
-name|String
-name|parentNodeId
-decl_stmt|;
 DECL|field|parentTaskId
 specifier|private
-name|long
+name|TaskId
 name|parentTaskId
 decl_stmt|;
 DECL|field|ban
@@ -1492,25 +1484,56 @@ specifier|private
 name|String
 name|reason
 decl_stmt|;
-DECL|method|BanParentTaskRequest
+DECL|method|createSetBanParentTaskRequest
+specifier|static
 name|BanParentTaskRequest
+name|createSetBanParentTaskRequest
 parameter_list|(
-name|String
-name|parentNodeId
-parameter_list|,
-name|long
+name|TaskId
 name|parentTaskId
 parameter_list|,
 name|String
 name|reason
 parameter_list|)
 block|{
-name|this
-operator|.
-name|parentNodeId
-operator|=
-name|parentNodeId
-expr_stmt|;
+return|return
+operator|new
+name|BanParentTaskRequest
+argument_list|(
+name|parentTaskId
+argument_list|,
+name|reason
+argument_list|)
+return|;
+block|}
+DECL|method|createRemoveBanParentTaskRequest
+specifier|static
+name|BanParentTaskRequest
+name|createRemoveBanParentTaskRequest
+parameter_list|(
+name|TaskId
+name|parentTaskId
+parameter_list|)
+block|{
+return|return
+operator|new
+name|BanParentTaskRequest
+argument_list|(
+name|parentTaskId
+argument_list|)
+return|;
+block|}
+DECL|method|BanParentTaskRequest
+specifier|private
+name|BanParentTaskRequest
+parameter_list|(
+name|TaskId
+name|parentTaskId
+parameter_list|,
+name|String
+name|reason
+parameter_list|)
+block|{
 name|this
 operator|.
 name|parentTaskId
@@ -1531,21 +1554,13 @@ name|reason
 expr_stmt|;
 block|}
 DECL|method|BanParentTaskRequest
+specifier|private
 name|BanParentTaskRequest
 parameter_list|(
-name|String
-name|parentNodeId
-parameter_list|,
-name|long
+name|TaskId
 name|parentTaskId
 parameter_list|)
 block|{
-name|this
-operator|.
-name|parentNodeId
-operator|=
-name|parentNodeId
-expr_stmt|;
 name|this
 operator|.
 name|parentTaskId
@@ -1584,19 +1599,13 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|parentNodeId
-operator|=
-name|in
-operator|.
-name|readString
-argument_list|()
-expr_stmt|;
 name|parentTaskId
 operator|=
+operator|new
+name|TaskId
+argument_list|(
 name|in
-operator|.
-name|readLong
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|ban
 operator|=
@@ -1639,18 +1648,11 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|writeString
-argument_list|(
-name|parentNodeId
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeLong
-argument_list|(
 name|parentTaskId
+operator|.
+name|writeTo
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 name|out
@@ -1713,11 +1715,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Received ban for the parent [{}:{}] on the node [{}], reason: [{}]"
-argument_list|,
-name|request
-operator|.
-name|parentNodeId
+literal|"Received ban for the parent [{}] on the node [{}], reason: [{}]"
 argument_list|,
 name|request
 operator|.
@@ -1742,10 +1740,6 @@ name|setBan
 argument_list|(
 name|request
 operator|.
-name|parentNodeId
-argument_list|,
-name|request
-operator|.
 name|parentTaskId
 argument_list|,
 name|request
@@ -1760,11 +1754,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Removing ban for the parent [{}:{}] on the node [{}]"
-argument_list|,
-name|request
-operator|.
-name|parentNodeId
+literal|"Removing ban for the parent [{}] on the node [{}]"
 argument_list|,
 name|request
 operator|.
@@ -1783,10 +1773,6 @@ name|taskManager
 operator|.
 name|removeBan
 argument_list|(
-name|request
-operator|.
-name|parentNodeId
-argument_list|,
 name|request
 operator|.
 name|parentTaskId

@@ -1670,12 +1670,6 @@ specifier|final
 name|IndexEventListener
 name|indexEventListener
 decl_stmt|;
-DECL|field|idxSettings
-specifier|private
-specifier|final
-name|IndexSettings
-name|idxSettings
-decl_stmt|;
 comment|/** How many bytes we are currently moving to disk, via either IndexWriter.flush or refresh.  IndexingMemoryController polls this      *  across all shards to decide if throttling is necessary because moving bytes to disk is falling behind vs incoming documents      *  being indexed/deleted. */
 DECL|field|writingBytes
 specifier|private
@@ -1972,12 +1966,6 @@ operator|.
 name|getSettings
 argument_list|()
 decl_stmt|;
-name|this
-operator|.
-name|idxSettings
-operator|=
-name|indexSettings
-expr_stmt|;
 name|this
 operator|.
 name|codecService
@@ -2309,7 +2297,7 @@ init|=
 operator|new
 name|QueryShardContext
 argument_list|(
-name|idxSettings
+name|indexSettings
 argument_list|,
 name|indexCache
 operator|.
@@ -2358,16 +2346,6 @@ return|return
 name|this
 operator|.
 name|store
-return|;
-block|}
-DECL|method|getIndexSettings
-specifier|public
-name|IndexSettings
-name|getIndexSettings
-parameter_list|()
-block|{
-return|return
-name|idxSettings
 return|;
 block|}
 comment|/** returns true if this shard supports indexing (i.e., write) operations. */
@@ -2509,7 +2487,7 @@ name|getQueryCachingPolicy
 argument_list|()
 return|;
 block|}
-comment|/**      * Updates the shards routing entry. This mutate the shards internal state depending      * on the changes that get introduced by the new routing value. This method will persist shard level metadata      * unless explicitly disabled.      *      * @throws IndexShardRelocatedException if shard is marked as relocated and relocation aborted      */
+comment|/**      * Updates the shards routing entry. This mutate the shards internal state depending      * on the changes that get introduced by the new routing value. This method will persist shard level metadata      * unless explicitly disabled.      *      * @throws IndexShardRelocatedException if shard is marked as relocated and relocation aborted      * @throws IOException if shard state could not be persisted      */
 DECL|method|updateRoutingEntry
 specifier|public
 name|void
@@ -2523,6 +2501,8 @@ specifier|final
 name|boolean
 name|persistState
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|ShardRouting
@@ -2599,8 +2579,6 @@ name|newRouting
 argument_list|)
 throw|;
 block|}
-try|try
-block|{
 if|if
 condition|(
 name|currentRouting
@@ -2841,9 +2819,6 @@ argument_list|,
 name|newRouting
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
 if|if
 condition|(
 name|persistState
@@ -2856,7 +2831,6 @@ argument_list|,
 name|currentRouting
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Marks the shard as recovering based on a recovery state, fails with exception is recovering is not allowed to be set.      */
@@ -4519,7 +4493,10 @@ DECL|method|segmentStats
 specifier|public
 name|SegmentsStats
 name|segmentStats
-parameter_list|()
+parameter_list|(
+name|boolean
+name|includeSegmentFileSizes
+parameter_list|)
 block|{
 name|SegmentsStats
 name|segmentsStats
@@ -4528,7 +4505,9 @@ name|getEngine
 argument_list|()
 operator|.
 name|segmentsStats
-argument_list|()
+argument_list|(
+name|includeSegmentFileSizes
+argument_list|)
 decl_stmt|;
 name|segmentsStats
 operator|.
@@ -5050,7 +5029,7 @@ name|luceneVersion
 operator|==
 literal|null
 condition|?
-name|idxSettings
+name|indexSettings
 operator|.
 name|getIndexVersionCreated
 argument_list|()
@@ -6567,53 +6546,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Deletes the shards metadata state. This method can only be executed if the shard is not active.      *      * @throws IOException if the delete fails      */
-DECL|method|deleteShardState
-specifier|public
-name|void
-name|deleteShardState
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|this
-operator|.
-name|routingEntry
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|this
-operator|.
-name|routingEntry
-argument_list|()
-operator|.
-name|active
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Can't delete shard state on an active shard"
-argument_list|)
-throw|;
-block|}
-name|MetaDataStateFormat
-operator|.
-name|deleteMetaState
-argument_list|(
-name|shardPath
-argument_list|()
-operator|.
-name|getDataPath
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|isActive
 specifier|public
 name|boolean
@@ -6663,7 +6595,7 @@ name|shardRouting
 operator|.
 name|allocatedPostIndexCreate
 argument_list|(
-name|idxSettings
+name|indexSettings
 operator|.
 name|getIndexMetaData
 argument_list|()
@@ -7942,9 +7874,13 @@ parameter_list|(
 name|ShardRouting
 name|newRouting
 parameter_list|,
+annotation|@
+name|Nullable
 name|ShardRouting
 name|currentRouting
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|newRouting
@@ -7953,16 +7889,51 @@ literal|null
 operator|:
 literal|"newRouting must not be null"
 assert|;
+comment|// only persist metadata if routing information that is persisted in shard state metadata actually changed
 if|if
 condition|(
+name|currentRouting
+operator|==
+literal|null
+operator|||
+name|currentRouting
+operator|.
+name|primary
+argument_list|()
+operator|!=
 name|newRouting
 operator|.
-name|active
+name|primary
 argument_list|()
+operator|||
+name|currentRouting
+operator|.
+name|allocationId
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|newRouting
+operator|.
+name|allocationId
+argument_list|()
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
-try|try
-block|{
+assert|assert
+name|currentRouting
+operator|==
+literal|null
+operator|||
+name|currentRouting
+operator|.
+name|isSameAllocation
+argument_list|(
+name|newRouting
+argument_list|)
+assert|;
 specifier|final
 name|String
 name|writeReason
@@ -7976,7 +7947,7 @@ condition|)
 block|{
 name|writeReason
 operator|=
-literal|"freshly started, allocation id ["
+literal|"initial state with allocation id ["
 operator|+
 name|newRouting
 operator|.
@@ -7986,18 +7957,7 @@ operator|+
 literal|"]"
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|currentRouting
-operator|.
-name|equals
-argument_list|(
-name|newRouting
-argument_list|)
-operator|==
-literal|false
-condition|)
+else|else
 block|{
 name|writeReason
 operator|=
@@ -8010,19 +7970,17 @@ operator|+
 name|newRouting
 expr_stmt|;
 block|}
-else|else
-block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} skip writing shard state, has been written before"
+literal|"{} writing shard state, reason [{}]"
 argument_list|,
 name|shardId
+argument_list|,
+name|writeReason
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 specifier|final
 name|ShardStateMetaData
 name|newShardStateMetadata
@@ -8044,17 +8002,6 @@ name|allocationId
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"{} writing shard state, reason [{}]"
-argument_list|,
-name|shardId
-argument_list|,
-name|writeReason
-argument_list|)
-expr_stmt|;
 name|ShardStateMetaData
 operator|.
 name|FORMAT
@@ -8075,25 +8022,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
+else|else
 block|{
-comment|// this is how we used to handle it.... :(
 name|logger
 operator|.
-name|warn
+name|trace
 argument_list|(
-literal|"failed to write shard state"
+literal|"{} skip writing shard state, has been written before"
 argument_list|,
-name|e
+name|shardId
 argument_list|)
 expr_stmt|;
-comment|// we failed to write the shard state, we will try and write
-comment|// it next time...
-block|}
 block|}
 block|}
 DECL|method|getIndexUUID
@@ -8288,7 +8227,7 @@ name|cachingPolicy
 argument_list|,
 name|translogConfig
 argument_list|,
-name|idxSettings
+name|indexSettings
 operator|.
 name|getSettings
 argument_list|()

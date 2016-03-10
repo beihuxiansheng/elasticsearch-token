@@ -1017,7 +1017,7 @@ literal|"type"
 argument_list|,
 literal|"body"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"index"
 argument_list|,

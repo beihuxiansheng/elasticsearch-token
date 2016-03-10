@@ -1250,6 +1250,11 @@ name|geoCentroid
 argument_list|(
 name|aggName
 argument_list|)
+operator|.
+name|field
+argument_list|(
+name|SINGLE_VALUED_FIELD_NAME
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

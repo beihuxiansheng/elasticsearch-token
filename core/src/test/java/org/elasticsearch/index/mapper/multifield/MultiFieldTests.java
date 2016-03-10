@@ -258,7 +258,39 @@ name|mapper
 operator|.
 name|core
 operator|.
+name|KeywordFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
 name|StringFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|TextFieldMapper
 import|;
 end_import
 
@@ -823,7 +855,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -930,7 +962,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -1037,7 +1069,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -1144,7 +1176,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -1477,7 +1509,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|KeywordFieldMapper
 operator|.
 name|class
 argument_list|)
@@ -1566,7 +1598,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1581,7 +1613,7 @@ operator|.
 name|addMultiField
 argument_list|(
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1602,7 +1634,7 @@ operator|.
 name|addMultiField
 argument_list|(
 operator|new
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Builder
 argument_list|(
@@ -1998,7 +2030,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject
@@ -2027,7 +2059,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -2322,7 +2354,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject
@@ -2339,7 +2371,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject
@@ -2549,7 +2581,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject
@@ -2683,7 +2715,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject
@@ -2819,7 +2851,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|startObject
@@ -2836,7 +2868,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field

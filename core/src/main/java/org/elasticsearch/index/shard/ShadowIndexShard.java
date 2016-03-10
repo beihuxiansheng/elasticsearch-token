@@ -340,7 +340,7 @@ name|engineWarmer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * In addition to the regular accounting done in      * {@link IndexShard#updateRoutingEntry(org.elasticsearch.cluster.routing.ShardRouting, boolean)},      * if this shadow replica needs to be promoted to a primary, the shard is      * failed in order to allow a new primary to be re-allocated.      */
+comment|/**      * In addition to the regular accounting done in      * {@link IndexShard#updateRoutingEntry(ShardRouting, boolean)},      * if this shadow replica needs to be promoted to a primary, the shard is      * failed in order to allow a new primary to be re-allocated.      */
 annotation|@
 name|Override
 DECL|method|updateRoutingEntry
@@ -354,6 +354,8 @@ parameter_list|,
 name|boolean
 name|persistState
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(

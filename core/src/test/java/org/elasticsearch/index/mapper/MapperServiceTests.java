@@ -403,7 +403,7 @@ name|type
 argument_list|,
 name|field
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|execute
@@ -495,7 +495,7 @@ name|type
 argument_list|,
 name|field
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|execute

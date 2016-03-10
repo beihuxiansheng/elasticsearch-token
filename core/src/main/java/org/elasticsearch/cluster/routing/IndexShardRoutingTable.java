@@ -1905,7 +1905,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No data node with critera ["
+literal|"No data node with criteria ["
 operator|+
 name|nodeAttribute
 operator|+
