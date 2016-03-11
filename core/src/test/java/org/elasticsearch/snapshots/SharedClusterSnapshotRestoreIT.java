@@ -18380,7 +18380,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|waitForBlockOnAnyDataNode
+name|waitForBlockOnAllDataNodes
 argument_list|(
 literal|"test-repo"
 argument_list|,
@@ -19101,15 +19101,15 @@ argument_list|(
 literal|"--> waiting for block to kick in"
 argument_list|)
 expr_stmt|;
-name|waitForBlockOnAnyDataNode
+name|waitForBlockOnAllDataNodes
 argument_list|(
 literal|"test-repo"
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueSeconds
+name|timeValueMinutes
 argument_list|(
-literal|60
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
