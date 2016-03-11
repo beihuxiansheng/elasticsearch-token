@@ -218,20 +218,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lease
-operator|.
-name|Releasables
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -820,7 +806,7 @@ name|setUp
 argument_list|()
 expr_stmt|;
 comment|// Create the node lazily, on the first test. This is ok because we do not randomize any settings,
-comment|// only the cluster name. This allows us to have overriden properties for plugins and the version to use.
+comment|// only the cluster name. This allows us to have overridden properties for plugins and the version to use.
 if|if
 condition|(
 name|NODE
@@ -957,7 +943,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"varargs"
 argument_list|)
-comment|// due to type erasure, the varargs type is non-reifiable, which casues this warning
+comment|// due to type erasure, the varargs type is non-reifiable, which causes this warning
 DECL|method|pluginList
 specifier|protected
 specifier|final
@@ -989,6 +975,19 @@ name|asList
 argument_list|(
 name|plugins
 argument_list|)
+return|;
+block|}
+comment|/** Additional settings to add when creating the node. Also allows overriding the default settings. */
+DECL|method|nodeSettings
+specifier|protected
+name|Settings
+name|nodeSettings
+parameter_list|()
+block|{
+return|return
+name|Settings
+operator|.
+name|EMPTY
 return|;
 block|}
 DECL|method|newNode
@@ -1152,6 +1151,13 @@ argument_list|,
 literal|true
 argument_list|)
 comment|// make sure we get what we set :)
+operator|.
+name|put
+argument_list|(
+name|nodeSettings
+argument_list|()
+argument_list|)
+comment|// allow test cases to provide their own settings or override these
 operator|.
 name|build
 argument_list|()

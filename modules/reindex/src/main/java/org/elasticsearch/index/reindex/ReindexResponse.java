@@ -148,6 +148,9 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 block|{
 name|super
@@ -159,6 +162,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 expr_stmt|;
 block|}
@@ -199,6 +204,16 @@ argument_list|(
 literal|"took"
 argument_list|,
 name|getTook
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"timed_out"
+argument_list|,
+name|isTimedOut
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -30,74 +30,14 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRoutingState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|FailedRerouteAllocation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|allocation
 operator|.
 name|RoutingAllocation
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|StartedRerouteAllocation
-import|;
-end_import
-
 begin_comment
-comment|/**  *<p>  * A {@link ShardsAllocator} is the main entry point for shard allocation on nodes in the cluster.  * The allocator makes basic decision where a shard instance will be allocated, if already allocated instances  * need relocate to other nodes due to node failures or due to rebalancing decisions.  *</p>  */
+comment|/**  *<p>  * A {@link ShardsAllocator} is the main entry point for shard allocation on nodes in the cluster.  * The allocator makes basic decision where a shard instance will be allocated, if already allocated instances  * need to relocate to other nodes due to node failures or due to rebalancing decisions.  *</p>  */
 end_comment
 
 begin_interface
@@ -106,46 +46,10 @@ specifier|public
 interface|interface
 name|ShardsAllocator
 block|{
-comment|/**      * Applies changes on started nodes based on the implemented algorithm. For example if a      * shard has changed to {@link ShardRoutingState#STARTED} from {@link ShardRoutingState#RELOCATING}      * this allocator might apply some cleanups on the node that used to hold the shard.      * @param allocation all started {@link ShardRouting shards}      */
-DECL|method|applyStartedShards
-name|void
-name|applyStartedShards
-parameter_list|(
-name|StartedRerouteAllocation
-name|allocation
-parameter_list|)
-function_decl|;
-comment|/**      * Applies changes on failed nodes based on the implemented algorithm.      * @param allocation all failed {@link ShardRouting shards}      */
-DECL|method|applyFailedShards
-name|void
-name|applyFailedShards
-parameter_list|(
-name|FailedRerouteAllocation
-name|allocation
-parameter_list|)
-function_decl|;
-comment|/**      * Assign all unassigned shards to nodes      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
-DECL|method|allocateUnassigned
+comment|/**      * Allocates shards to nodes in the cluster. An implementation of this method should:      * - assign unassigned shards      * - relocate shards that cannot stay on a node anymore      * - relocate shards to find a good shard balance in the cluster      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
+DECL|method|allocate
 name|boolean
-name|allocateUnassigned
-parameter_list|(
-name|RoutingAllocation
-name|allocation
-parameter_list|)
-function_decl|;
-comment|/**      * Rebalancing number of shards on all nodes      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
-DECL|method|rebalance
-name|boolean
-name|rebalance
-parameter_list|(
-name|RoutingAllocation
-name|allocation
-parameter_list|)
-function_decl|;
-comment|/**      * Move started shards that can not be allocated to a node anymore      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
-DECL|method|moveShards
-name|boolean
-name|moveShards
+name|allocate
 parameter_list|(
 name|RoutingAllocation
 name|allocation
