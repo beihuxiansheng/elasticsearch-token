@@ -585,25 +585,17 @@ name|fieldName
 init|=
 literal|null
 decl_stmt|;
-name|XContentParser
-operator|.
-name|Token
-name|token
-decl_stmt|;
 if|if
 condition|(
 name|parser
 operator|.
 name|currentToken
 argument_list|()
-operator|!=
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|START_OBJECT
+operator|==
+literal|null
 condition|)
 block|{
+comment|// when we parse from RestSuggestAction the current token is null, advance the token
 name|parser
 operator|.
 name|nextToken
@@ -621,7 +613,14 @@ operator|.
 name|Token
 operator|.
 name|START_OBJECT
+operator|:
+literal|"current token must be a start object"
 assert|;
+name|XContentParser
+operator|.
+name|Token
+name|token
+decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -734,7 +733,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Suggestion must have name"
+literal|"suggestion must have name"
 argument_list|)
 throw|;
 block|}
