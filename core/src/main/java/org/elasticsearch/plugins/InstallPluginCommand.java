@@ -1466,7 +1466,40 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// TODO: handle name being an absolute path
+comment|// Using the entry name as a path can result in an entry outside of the plugin dir, either if the
+comment|// name starts with the root of the filesystem, or it is a relative entry like ../whatever.
+comment|// This check attempts to identify both cases by first normalizing the path (which removes foo/..)
+comment|// and ensuring the normalized entry is still rooted with the target plugin directory.
+if|if
+condition|(
+name|targetFile
+operator|.
+name|normalize
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|target
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Zip contains entry name '"
+operator|+
+name|entry
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' resolving outside of plugin directory"
+argument_list|)
+throw|;
+block|}
 comment|// be on the safe side: do not rely on that directories are always extracted
 comment|// before their children (although this makes sense, but is it guaranteed?)
 name|Files
