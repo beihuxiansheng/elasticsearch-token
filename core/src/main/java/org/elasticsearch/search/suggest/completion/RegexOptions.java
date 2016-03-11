@@ -257,6 +257,7 @@ argument_list|(
 literal|"max_determinized_states"
 argument_list|)
 decl_stmt|;
+comment|/**      * regex: {      *     "flags" : STRING | INT      *     "max_determinized_states" : INT      * }      */
 DECL|field|PARSER
 specifier|private
 specifier|static

@@ -306,6 +306,7 @@ argument_list|(
 literal|"max_determinized_states"
 argument_list|)
 decl_stmt|;
+comment|/**      * fuzzy : {      *     "edit_distance" : STRING | INT      *     "transpositions" : BOOLEAN      *     "min_length" : INT      *     "prefix_length" : INT      *     "unicode_aware" : BOOLEAN      *     "max_determinized_states" : INT      * }      */
 DECL|field|PARSER
 specifier|private
 specifier|static
