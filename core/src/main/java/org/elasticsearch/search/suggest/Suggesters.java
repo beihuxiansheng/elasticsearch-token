@@ -353,6 +353,8 @@ specifier|public
 name|SuggestionBuilder
 argument_list|<
 name|?
+extends|extends
+name|SuggestionBuilder
 argument_list|>
 name|getSuggestionPrototype
 parameter_list|(

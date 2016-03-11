@@ -1921,7 +1921,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 else|else
 block|{
 throw|throw
@@ -1934,6 +1933,26 @@ name|getTokenLocation
 argument_list|()
 argument_list|,
 literal|"suggester[term] doesn't support field ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"suggester[term] parsing failed on ["
 operator|+
 name|currentFieldName
 operator|+

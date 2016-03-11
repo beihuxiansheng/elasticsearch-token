@@ -20,6 +20,32 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|generators
+operator|.
+name|RandomStrings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -54,49 +80,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|analysis
-operator|.
-name|AnalysisService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|mapper
 operator|.
 name|MappedFieldType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperService
 import|;
 end_import
 
@@ -122,9 +108,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|search
 operator|.
-name|IndicesModule
+name|suggest
+operator|.
+name|AbstractSuggestionBuilderTestCase
 import|;
 end_import
 
@@ -138,7 +126,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|AbstractSuggestionBuilderTestCase
+name|SuggestBuilder
 import|;
 end_import
 
@@ -286,16 +274,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -350,6 +328,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -380,6 +368,18 @@ name|instanceOf
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_class
 DECL|class|CompletionSuggesterBuilderTests
 specifier|public
@@ -397,6 +397,18 @@ DECL|method|randomSuggestionBuilder
 specifier|protected
 name|CompletionSuggestionBuilder
 name|randomSuggestionBuilder
+parameter_list|()
+block|{
+return|return
+name|randomCompletionSuggestionBuilder
+argument_list|()
+return|;
+block|}
+DECL|method|randomCompletionSuggestionBuilder
+specifier|public
+specifier|static
+name|CompletionSuggestionBuilder
+name|randomCompletionSuggestionBuilder
 parameter_list|()
 block|{
 return|return
@@ -443,6 +455,7 @@ decl_stmt|;
 block|}
 DECL|method|randomSuggestionBuilderWithContextInfo
 specifier|private
+specifier|static
 name|BuilderAndInfo
 name|randomSuggestionBuilderWithContextInfo
 parameter_list|()
@@ -469,6 +482,11 @@ literal|20
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|setCommonPropertiesOnRandomBuilder
+argument_list|(
+name|testBuilder
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|randomIntBetween
@@ -1324,6 +1342,109 @@ argument_list|(
 literal|"should not through"
 argument_list|)
 throw|;
+block|}
+block|}
+comment|/**      * Test that a malformed JSON suggestion request fails.      */
+DECL|method|testMalformedJsonRequestPayload
+specifier|public
+name|void
+name|testMalformedJsonRequestPayload
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+specifier|final
+name|String
+name|field
+init|=
+name|RandomStrings
+operator|.
+name|randomAsciiOfLength
+argument_list|(
+name|getRandom
+argument_list|()
+argument_list|,
+literal|10
+argument_list|)
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+decl_stmt|;
+specifier|final
+name|String
+name|payload
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"bad-payload\" : { \n"
+operator|+
+literal|"    \"prefix\" : \"sug\",\n"
+operator|+
+literal|"    \"completion\" : { \n"
+operator|+
+literal|"      \"field\" : \""
+operator|+
+name|field
+operator|+
+literal|"\",\n "
+operator|+
+literal|"      \"payload\" : [ {\"payload\":\"field\"} ]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+try|try
+block|{
+specifier|final
+name|SuggestBuilder
+name|suggestBuilder
+init|=
+name|SuggestBuilder
+operator|.
+name|fromXContent
+argument_list|(
+name|newParseContext
+argument_list|(
+name|payload
+argument_list|)
+argument_list|,
+name|suggesters
+argument_list|)
+decl_stmt|;
+name|fail
+argument_list|(
+literal|"Should not have been able to create SuggestBuilder from malformed JSON: "
+operator|+
+name|suggestBuilder
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"failed to parse field [payload]"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

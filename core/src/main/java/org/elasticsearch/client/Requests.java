@@ -796,6 +796,20 @@ name|XContentType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|SuggestBuilder
+import|;
+end_import
+
 begin_comment
 comment|/**  * A handy one stop shop for creating requests (make sure to import static this class).  */
 end_comment
@@ -912,7 +926,7 @@ name|index
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a suggest request for getting suggestions from provided<code>indices</code>.      * The suggest query has to be set using the JSON source using {@link org.elasticsearch.action.suggest.SuggestRequest#suggest(org.elasticsearch.common.bytes.BytesReference)}.      * @param indices The indices to suggest from. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @see org.elasticsearch.client.Client#suggest(org.elasticsearch.action.suggest.SuggestRequest)      */
+comment|/**      * Creates a suggest request for getting suggestions from provided<code>indices</code>.      * The suggest query has to be set using {@link org.elasticsearch.action.suggest.SuggestRequest#suggest(SuggestBuilder)}.      * @param indices The indices to suggest from. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @see org.elasticsearch.client.Client#suggest(org.elasticsearch.action.suggest.SuggestRequest)      */
 DECL|method|suggestRequest
 specifier|public
 specifier|static
@@ -1320,7 +1334,7 @@ name|ClusterUpdateSettingsRequest
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a cluster health request.      *      * @param indices The indices to provide additional cluster health information for. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The cluster health request      * @see org.elasticsearch.client.ClusterAdminClient#health(org.elasticsearch.action.admin.cluster.health.ClusterHealthRequest)      */
+comment|/**      * Creates a cluster health request.      *      * @param indices The indices to provide additional cluster health information for.      *                Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The cluster health request      * @see org.elasticsearch.client.ClusterAdminClient#health(org.elasticsearch.action.admin.cluster.health.ClusterHealthRequest)      */
 DECL|method|clusterHealthRequest
 specifier|public
 specifier|static

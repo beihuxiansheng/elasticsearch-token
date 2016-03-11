@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|generators
+operator|.
+name|RandomStrings
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -57,6 +71,20 @@ operator|.
 name|suggest
 operator|.
 name|SortBy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|SuggestBuilder
 import|;
 end_import
 
@@ -119,6 +147,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
 import|;
 end_import
 
@@ -234,6 +272,18 @@ name|DEFAULT_PREFIX_LENGTH
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test the {@link TermSuggestionBuilder} class.  */
 end_comment
@@ -258,6 +308,19 @@ name|TermSuggestionBuilder
 name|randomSuggestionBuilder
 parameter_list|()
 block|{
+return|return
+name|randomTermSuggestionBuilder
+argument_list|()
+return|;
+block|}
+comment|/**      * Creates a random TermSuggestionBuilder      */
+DECL|method|randomTermSuggestionBuilder
+specifier|public
+specifier|static
+name|TermSuggestionBuilder
+name|randomTermSuggestionBuilder
+parameter_list|()
+block|{
 name|TermSuggestionBuilder
 name|testBuilder
 init|=
@@ -272,6 +335,11 @@ literal|20
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|setCommonPropertiesOnRandomBuilder
+argument_list|(
+name|testBuilder
+argument_list|)
+expr_stmt|;
 name|maybeSet
 argument_list|(
 name|testBuilder
@@ -394,6 +462,7 @@ return|;
 block|}
 DECL|method|randomSuggestMode
 specifier|private
+specifier|static
 name|SuggestMode
 name|randomSuggestMode
 parameter_list|()
@@ -452,6 +521,7 @@ block|}
 block|}
 DECL|method|randomSort
 specifier|private
+specifier|static
 name|SortBy
 name|randomSort
 parameter_list|()
@@ -501,6 +571,7 @@ block|}
 block|}
 DECL|method|randomStringDistance
 specifier|private
+specifier|static
 name|StringDistanceImpl
 name|randomStringDistance
 parameter_list|()
@@ -1502,6 +1573,103 @@ name|suggestMode
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testMalformedJson
+specifier|public
+name|void
+name|testMalformedJson
+parameter_list|()
+block|{
+specifier|final
+name|String
+name|field
+init|=
+name|RandomStrings
+operator|.
+name|randomAsciiOfLength
+argument_list|(
+name|getRandom
+argument_list|()
+argument_list|,
+literal|10
+argument_list|)
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+decl_stmt|;
+name|String
+name|suggest
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"bad-payload\" : {\n"
+operator|+
+literal|"    \"text\" : \"the amsterdma meetpu\",\n"
+operator|+
+literal|"    \"term\" : {\n"
+operator|+
+literal|"      \"field\" : { \""
+operator|+
+name|field
+operator|+
+literal|"\" : \"bad-object\" }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+try|try
+block|{
+specifier|final
+name|SuggestBuilder
+name|suggestBuilder
+init|=
+name|SuggestBuilder
+operator|.
+name|fromXContent
+argument_list|(
+name|newParseContext
+argument_list|(
+name|suggest
+argument_list|)
+argument_list|,
+name|suggesters
+argument_list|)
+decl_stmt|;
+name|fail
+argument_list|(
+literal|"Should not have been able to create SuggestBuilder from malformed JSON: "
+operator|+
+name|suggestBuilder
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"parsing failed"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

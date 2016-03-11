@@ -234,6 +234,11 @@ literal|20
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|setCommonPropertiesOnRandomBuilder
+argument_list|(
+name|testBuilder
+argument_list|)
+expr_stmt|;
 name|maybeSet
 argument_list|(
 name|testBuilder
