@@ -3044,6 +3044,20 @@ name|inactiveShardCount
 operator|++
 expr_stmt|;
 block|}
+comment|/**      * Returns the number of routing nodes      */
+DECL|method|size
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|nodesToShards
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 DECL|class|UnassignedShards
 specifier|public
 specifier|static

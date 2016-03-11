@@ -564,7 +564,10 @@ name|service
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -709,7 +712,10 @@ name|service
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

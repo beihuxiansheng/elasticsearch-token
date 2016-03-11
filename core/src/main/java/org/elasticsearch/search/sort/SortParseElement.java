@@ -1047,6 +1047,9 @@ argument_list|(
 name|parser
 argument_list|,
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1277,6 +1280,9 @@ argument_list|(
 name|parser
 argument_list|,
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1350,6 +1356,9 @@ argument_list|(
 name|parser
 argument_list|,
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1671,7 +1680,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|Query
-name|innerDocumentsFilter
+name|innerDocumentsQuery
 decl_stmt|;
 if|if
 condition|(
@@ -1681,8 +1690,7 @@ name|filterFound
 argument_list|()
 condition|)
 block|{
-comment|// TODO: use queries instead
-name|innerDocumentsFilter
+name|innerDocumentsQuery
 operator|=
 name|nestedHelper
 operator|.
@@ -1692,7 +1700,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|innerDocumentsFilter
+name|innerDocumentsQuery
 operator|=
 name|nestedHelper
 operator|.
@@ -1710,17 +1718,7 @@ name|Nested
 argument_list|(
 name|rootDocumentsFilter
 argument_list|,
-name|context
-operator|.
-name|searcher
-argument_list|()
-operator|.
-name|createNormalizedWeight
-argument_list|(
-name|innerDocumentsFilter
-argument_list|,
-literal|false
-argument_list|)
+name|innerDocumentsQuery
 argument_list|)
 expr_stmt|;
 block|}

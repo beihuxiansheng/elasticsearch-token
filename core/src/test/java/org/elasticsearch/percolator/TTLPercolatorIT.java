@@ -1386,9 +1386,9 @@ name|info
 argument_list|(
 literal|"failed indexing {}"
 argument_list|,
-name|i
-argument_list|,
 name|e
+argument_list|,
+name|i
 argument_list|)
 expr_stmt|;
 comment|// if we are unlucky the TTL is so small that we see the expiry date is already in the past when

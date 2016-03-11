@@ -3525,11 +3525,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"start "
-operator|+
+literal|"start {} nodes"
+argument_list|,
 name|numberOfNodes
-operator|+
-literal|" nodes"
 argument_list|)
 expr_stmt|;
 name|DiscoveryNodes

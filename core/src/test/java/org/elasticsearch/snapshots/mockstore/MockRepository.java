@@ -812,8 +812,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"starting mock repository with random prefix "
-operator|+
+literal|"starting mock repository with random prefix {}"
+argument_list|,
 name|randomPrefix
 argument_list|)
 expr_stmt|;

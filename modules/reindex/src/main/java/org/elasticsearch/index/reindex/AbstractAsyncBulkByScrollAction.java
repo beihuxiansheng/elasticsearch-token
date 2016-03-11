@@ -396,6 +396,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collections
 import|;
 end_import
@@ -850,6 +860,9 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 function_decl|;
 DECL|method|start
@@ -1123,6 +1136,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+comment|// If any of the shards failed that should abort the request.
+operator|(
 name|searchResponse
 operator|.
 name|getShardFailures
@@ -1138,6 +1153,13 @@ operator|.
 name|length
 operator|>
 literal|0
+operator|)
+comment|// Timeouts aren't shard failures but we still need to pass them back to the user.
+operator|||
+name|searchResponse
+operator|.
+name|isTimedOut
+argument_list|()
 condition|)
 block|{
 name|startNormalTermination
@@ -1157,6 +1179,11 @@ name|getShardFailures
 argument_list|()
 argument_list|)
 argument_list|)
+argument_list|,
+name|searchResponse
+operator|.
+name|isTimedOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1266,6 +1293,8 @@ argument_list|()
 argument_list|,
 name|emptyList
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1666,7 +1695,7 @@ argument_list|)
 throw|;
 block|}
 comment|// Track the indexes we've seen so we can refresh them if requested
-name|destinationIndices
+name|destinationIndicesThisBatch
 operator|.
 name|add
 argument_list|(
@@ -1677,9 +1706,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|destinationIndices
-operator|.
-name|addAll
+name|addDestinationIndices
 argument_list|(
 name|destinationIndicesThisBatch
 argument_list|)
@@ -1703,6 +1730,8 @@ argument_list|)
 argument_list|,
 name|emptyList
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1735,6 +1764,8 @@ argument_list|()
 argument_list|,
 name|emptyList
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1916,10 +1947,18 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 block|{
 if|if
 condition|(
+name|task
+operator|.
+name|isCancelled
+argument_list|()
+operator|||
 literal|false
 operator|==
 name|mainRequest
@@ -1935,6 +1974,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2001,6 +2042,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 expr_stmt|;
 block|}
@@ -2042,10 +2085,12 @@ argument_list|()
 argument_list|,
 name|emptyList
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Finish the request.      *      * @param failure if non null then the request failed catastrophically with this exception      * @param indexingFailures any indexing failures accumulated during the request      * @param searchFailures any search failures accumulated during the request      */
+comment|/**      * Finish the request.      *      * @param failure if non null then the request failed catastrophically with this exception      * @param indexingFailures any indexing failures accumulated during the request      * @param searchFailures any search failures accumulated during the request      * @param timedOut have any of the sub-requests timed out?      */
 DECL|method|finishHim
 name|void
 name|finishHim
@@ -2064,6 +2109,9 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 block|{
 name|String
@@ -2192,6 +2240,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2227,6 +2277,26 @@ name|getMaxRetries
 argument_list|()
 argument_list|)
 return|;
+block|}
+comment|/**      * Add to the list of indices that were modified by this request. This is the list of indices refreshed at the end of the request if the      * request asks for a refresh.      */
+DECL|method|addDestinationIndices
+name|void
+name|addDestinationIndices
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|indices
+parameter_list|)
+block|{
+name|destinationIndices
+operator|.
+name|addAll
+argument_list|(
+name|indices
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Wraps a backoffPolicy in another policy that counts the number of backoffs acquired.      */
 DECL|method|wrapBackoffPolicy

@@ -1057,15 +1057,10 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"file chunk ["
-operator|+
+literal|"file chunk [{}] lastChunk: {}"
+argument_list|,
 name|req
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|"] lastChunk: "
-operator|+
+argument_list|,
 name|req
 operator|.
 name|lastChunk

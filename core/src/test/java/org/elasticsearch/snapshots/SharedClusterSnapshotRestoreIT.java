@@ -7969,8 +7969,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"-->  creating repository at "
-operator|+
+literal|"-->  creating repository at {}"
+argument_list|,
 name|repo
 operator|.
 name|toAbsolutePath
@@ -8501,8 +8501,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"-->  creating repository at "
-operator|+
+literal|"-->  creating repository at {}"
+argument_list|,
 name|repo
 operator|.
 name|toAbsolutePath
@@ -8853,8 +8853,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"-->  creating repository at "
-operator|+
+literal|"-->  creating repository at {}"
+argument_list|,
 name|repo
 operator|.
 name|toAbsolutePath
@@ -9158,8 +9158,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"-->  creating repository at "
-operator|+
+literal|"-->  creating repository at {}"
+argument_list|,
 name|repo
 operator|.
 name|toAbsolutePath
@@ -14402,8 +14402,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking snapshot status for all currently running and snapshot with empty repository"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|response
@@ -14533,8 +14531,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking that _current returns the currently running snapshot"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|GetSnapshotsResponse
@@ -14661,8 +14657,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking snapshot status again after snapshot is done"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|response
@@ -14818,8 +14812,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking snapshot status after it is done with empty repository"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|response
@@ -14862,8 +14854,6 @@ operator|.
 name|info
 argument_list|(
 literal|"--> checking that _current no longer returns the snapshot"
-argument_list|,
-name|blockedNode
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17943,10 +17933,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testDeleteIndexDuringSnapshot
+DECL|method|testCloseOrDeleteIndexDuringSnapshot
 specifier|public
 name|void
-name|testDeleteIndexDuringSnapshot
+name|testCloseOrDeleteIndexDuringSnapshot
 parameter_list|()
 throws|throws
 name|Exception
@@ -17970,6 +17960,20 @@ argument_list|(
 literal|"-->  creating repository"
 argument_list|)
 expr_stmt|;
+comment|// only block on repo init if we have partial snapshot or we run into deadlock when acquiring shard locks for index deletion/closing
+name|boolean
+name|initBlocking
+init|=
+name|allowPartial
+operator|||
+name|randomBoolean
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|initBlocking
+condition|)
+block|{
 name|assertAcked
 argument_list|(
 name|client
@@ -18038,6 +18042,78 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertAcked
+argument_list|(
+name|client
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|preparePutRepository
+argument_list|(
+literal|"test-repo"
+argument_list|)
+operator|.
+name|setType
+argument_list|(
+literal|"mock"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+name|Settings
+operator|.
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"location"
+argument_list|,
+name|randomRepoPath
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"compress"
+argument_list|,
+name|randomBoolean
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"chunk_size"
+argument_list|,
+name|randomIntBetween
+argument_list|(
+literal|100
+argument_list|,
+literal|1000
+argument_list|)
+argument_list|,
+name|ByteSizeUnit
+operator|.
+name|BYTES
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"block_on_data"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|createIndex
 argument_list|(
 literal|"test-idx-1"
@@ -18278,6 +18354,11 @@ argument_list|(
 literal|"--> wait for block to kick in"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|initBlocking
+condition|)
+block|{
 name|waitForBlock
 argument_list|(
 name|internalCluster
@@ -18296,11 +18377,41 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|waitForBlockOnAnyDataNode
+argument_list|(
+literal|"test-repo"
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMinutes
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+if|if
+condition|(
+name|allowPartial
+condition|)
+block|{
+comment|// partial snapshots allow close / delete operations
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> delete some indices while snapshot is running"
+literal|"--> delete index while partial snapshot is running"
 argument_list|)
 expr_stmt|;
 name|client
@@ -18314,13 +18425,163 @@ operator|.
 name|prepareDelete
 argument_list|(
 literal|"test-idx-1"
-argument_list|,
-literal|"test-idx-2"
 argument_list|)
 operator|.
 name|get
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> close index while partial snapshot is running"
+argument_list|)
+expr_stmt|;
+name|client
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareClose
+argument_list|(
+literal|"test-idx-1"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// non-partial snapshots do not allow close / delete operations on indices where snapshot has not been completed
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> delete index while non-partial snapshot is running"
+argument_list|)
+expr_stmt|;
+name|client
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareDelete
+argument_list|(
+literal|"test-idx-1"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected deleting index to fail during snapshot"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Cannot delete indices that are being snapshotted: [test-idx-1]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+try|try
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> close index while non-partial snapshot is running"
+argument_list|)
+expr_stmt|;
+name|client
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareClose
+argument_list|(
+literal|"test-idx-1"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected closing index to fail during snapshot"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Cannot close indices that are being snapshotted: [test-idx-1]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|initBlocking
+condition|)
+block|{
 name|logger
 operator|.
 name|info
@@ -18337,6 +18598,23 @@ name|getMasterName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> unblock all data nodes"
+argument_list|)
+expr_stmt|;
+name|unblockAllDataNodes
+argument_list|(
+literal|"test-repo"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|logger
 operator|.
 name|info
@@ -18361,7 +18639,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Deleted index during snapshot, but allow partial"
+literal|"Deleted/Closed index during snapshot, but allow partial"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18445,7 +18723,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Deleted index during snapshot and doesn't allow partial"
+literal|"Snapshot successfully completed"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18463,7 +18741,7 @@ argument_list|(
 operator|(
 name|SnapshotState
 operator|.
-name|FAILED
+name|SUCCESS
 operator|)
 argument_list|)
 argument_list|)
@@ -18775,6 +19053,15 @@ argument_list|(
 literal|"--> execution will be blocked on all data nodes"
 argument_list|)
 expr_stmt|;
+specifier|final
+name|ListenableActionFuture
+argument_list|<
+name|RestoreSnapshotResponse
+argument_list|>
+name|restoreFut
+decl_stmt|;
+try|try
+block|{
 name|logger
 operator|.
 name|info
@@ -18782,12 +19069,8 @@ argument_list|(
 literal|"--> start restore"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
-argument_list|<
-name|RestoreSnapshotResponse
-argument_list|>
 name|restoreFut
-init|=
+operator|=
 name|client
 operator|.
 name|admin
@@ -18810,7 +19093,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -18881,6 +19164,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 name|logger
 operator|.
 name|info
@@ -18893,6 +19179,7 @@ argument_list|(
 literal|"test-repo"
 argument_list|)
 expr_stmt|;
+block|}
 name|logger
 operator|.
 name|info
@@ -19304,6 +19591,8 @@ literal|"test-snap"
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|State
 operator|.
@@ -20401,8 +20690,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"-->  creating repository at "
-operator|+
+literal|"-->  creating repository at {}"
+argument_list|,
 name|repo
 operator|.
 name|toAbsolutePath

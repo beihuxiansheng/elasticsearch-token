@@ -112,10 +112,6 @@ name|containsString
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|SimpleObjectMappingTests
 specifier|public
@@ -182,7 +178,17 @@ name|mapping
 argument_list|)
 argument_list|)
 decl_stmt|;
-try|try
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|defaultMapper
 operator|.
@@ -225,18 +231,27 @@ literal|"    }"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|MapperParsingException
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
 name|e
-parameter_list|)
-block|{
-comment|// all is well
-block|}
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"different type"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testEmptyArrayProperties
 specifier|public

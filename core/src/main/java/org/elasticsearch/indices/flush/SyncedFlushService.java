@@ -2053,7 +2053,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} can't resolve expected commit id for {}, skipping for sync id [{}]. shard routing {}"
+literal|"{} can't resolve expected commit id for current node, skipping for sync id [{}]. shard routing {}"
 argument_list|,
 name|shardId
 argument_list|,

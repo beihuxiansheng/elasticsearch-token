@@ -1060,11 +1060,11 @@ name|warn
 argument_list|(
 literal|"no version match {}, default to {}"
 argument_list|,
+name|e
+argument_list|,
 name|version
 argument_list|,
 name|defaultVersion
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 return|return
@@ -1658,24 +1658,6 @@ name|READ
 argument_list|)
 init|)
 block|{
-specifier|final
-name|int
-name|format
-init|=
-name|input
-operator|.
-name|readInt
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|format
-operator|==
-name|CodecUtil
-operator|.
-name|CODEC_MAGIC
-condition|)
-block|{
 name|CodecUtil
 operator|.
 name|checksumEntireFile
@@ -1683,8 +1665,6 @@ argument_list|(
 name|input
 argument_list|)
 expr_stmt|;
-block|}
-comment|// legacy....
 block|}
 return|return
 literal|null

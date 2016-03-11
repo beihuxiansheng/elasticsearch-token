@@ -185,6 +185,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+literal|"{}"
+argument_list|,
 name|e
 operator|.
 name|getMessage

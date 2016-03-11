@@ -2210,12 +2210,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Unexpected exception {}"
-argument_list|,
-name|t
-operator|.
-name|getMessage
-argument_list|()
+literal|"Unexpected exception while indexing"
 argument_list|,
 name|t
 argument_list|)

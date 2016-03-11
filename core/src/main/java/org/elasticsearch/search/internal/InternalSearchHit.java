@@ -468,20 +468,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchShardTarget
-operator|.
-name|readSearchShardTarget
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|highlight
 operator|.
 name|HighlightField
@@ -3457,7 +3443,8 @@ condition|)
 block|{
 name|shard
 operator|=
-name|readSearchShardTarget
+operator|new
+name|SearchShardTarget
 argument_list|(
 name|in
 argument_list|)

@@ -96,6 +96,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|compress
+operator|.
+name|CompressedXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|geo
 operator|.
 name|GeoDistance
@@ -141,6 +155,20 @@ operator|.
 name|unit
 operator|.
 name|DistanceUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperService
 import|;
 end_import
 
@@ -1987,6 +2015,111 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|testNestedRangeQuery
+specifier|public
+name|void
+name|testNestedRangeQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// create a nested geo_point type with a subfield named "geohash" (explicit testing for ISSUE #15179)
+name|MapperService
+name|mapperService
+init|=
+name|queryShardContext
+argument_list|()
+operator|.
+name|getMapperService
+argument_list|()
+decl_stmt|;
+name|String
+name|nestedMapping
+init|=
+literal|"{\"nested_doc\" : {\"properties\" : {"
+operator|+
+literal|"\"locations\": {\"properties\": {"
+operator|+
+literal|"\"geohash\": {\"type\": \"geo_point\"}},"
+operator|+
+literal|"\"type\": \"nested\"}"
+operator|+
+literal|"}}}"
+decl_stmt|;
+name|mapperService
+operator|.
+name|merge
+argument_list|(
+literal|"nested_doc"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
+name|nestedMapping
+argument_list|)
+argument_list|,
+name|MapperService
+operator|.
+name|MergeReason
+operator|.
+name|MAPPING_UPDATE
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// create a range query on the nested locations.geohash sub-field
+name|String
+name|queryJson
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"nested\": {\n"
+operator|+
+literal|"    \"path\": \"locations\",\n"
+operator|+
+literal|"    \"query\": {\n"
+operator|+
+literal|"      \"geo_distance_range\": {\n"
+operator|+
+literal|"        \"from\": \"0.0km\",\n"
+operator|+
+literal|"        \"to\" : \"200.0km\",\n"
+operator|+
+literal|"        \"locations.geohash\": \"s7ws01wyd7ws\"\n"
+operator|+
+literal|"      }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|NestedQueryBuilder
+name|builder
+init|=
+operator|(
+name|NestedQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|queryJson
+argument_list|)
+decl_stmt|;
+name|QueryShardContext
+name|context
+init|=
+name|createShardContext
+argument_list|()
+decl_stmt|;
+name|builder
+operator|.
+name|toQuery
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFromJson
 specifier|public

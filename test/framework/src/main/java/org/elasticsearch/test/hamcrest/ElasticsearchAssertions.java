@@ -1297,7 +1297,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Checks that all shard requests of a replicated brodcast request failed due to a cluster block      *      * @param replicatedBroadcastResponse the response that should only contain failed shard responses      *      * */
+comment|/**      * Checks that all shard requests of a replicated broadcast request failed due to a cluster block      *      * @param replicatedBroadcastResponse the response that should only contain failed shard responses      *      * */
 DECL|method|assertBlocked
 specifier|public
 specifier|static
@@ -5368,7 +5368,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Applies basic assertions on the SearchResponse. This method checks if all shards were successful, if      * any of the shards threw an exception and if the response is serializeable.      */
+comment|/**      * Applies basic assertions on the SearchResponse. This method checks if all shards were successful, if      * any of the shards threw an exception and if the response is serializable.      */
 DECL|method|assertSearchResponse
 specifier|public
 specifier|static
@@ -5389,7 +5389,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Applies basic assertions on the SearchResponse. This method checks if all shards were successful, if      * any of the shards threw an exception and if the response is serializeable.      */
+comment|/**      * Applies basic assertions on the SearchResponse. This method checks if all shards were successful, if      * any of the shards threw an exception and if the response is serializable.      */
 DECL|method|assertSearchResponse
 specifier|public
 specifier|static

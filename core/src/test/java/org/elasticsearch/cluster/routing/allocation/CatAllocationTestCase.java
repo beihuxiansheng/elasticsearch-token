@@ -1122,10 +1122,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"Initializing shards: {}"
+argument_list|,
 name|initializing
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|numRelocations
@@ -1171,8 +1170,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"--> num relocations to get balance: "
-operator|+
+literal|"--> num relocations to get balance: {}"
+argument_list|,
 name|numRelocations
 argument_list|)
 expr_stmt|;

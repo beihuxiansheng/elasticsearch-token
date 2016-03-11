@@ -22,20 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|ToXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -66,7 +52,7 @@ name|SortElementParserTemp
 parameter_list|<
 name|T
 extends|extends
-name|ToXContent
+name|SortBuilder
 parameter_list|>
 block|{
 comment|/**      * Creates a new SortBuilder from the json held by the {@link SortElementParserTemp}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param context      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new item      */

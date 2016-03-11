@@ -1709,14 +1709,7 @@ argument_list|(
 name|parentFilter
 argument_list|)
 argument_list|,
-name|searcher
-operator|.
-name|createNormalizedWeight
-argument_list|(
 name|childFilter
-argument_list|,
-literal|false
-argument_list|)
 argument_list|)
 return|;
 block|}

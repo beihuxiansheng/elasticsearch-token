@@ -256,8 +256,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -461,8 +461,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -674,8 +674,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus

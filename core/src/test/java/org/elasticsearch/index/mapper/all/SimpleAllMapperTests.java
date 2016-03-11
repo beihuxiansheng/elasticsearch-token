@@ -2797,6 +2797,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Mapping: {}"
+argument_list|,
 name|mapping
 argument_list|)
 expr_stmt|;

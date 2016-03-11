@@ -2075,16 +2075,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"seccomp(SECCOMP_SET_MODE_FILTER): "
-operator|+
+literal|"seccomp(SECCOMP_SET_MODE_FILTER): {}, falling back to prctl(PR_SET_SECCOMP)..."
+argument_list|,
 name|JNACLibrary
 operator|.
 name|strerror
 argument_list|(
 name|errno1
 argument_list|)
-operator|+
-literal|", falling back to prctl(PR_SET_SECCOMP)..."
 argument_list|)
 expr_stmt|;
 block|}

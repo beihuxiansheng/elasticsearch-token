@@ -1017,8 +1017,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Running upgrade on index "
-operator|+
+literal|"--> Running upgrade on index {}"
+argument_list|,
 name|indexToUpgrade
 argument_list|)
 expr_stmt|;
@@ -1714,22 +1714,18 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Index: "
-operator|+
+literal|"Index: {}, total: {}, toUpgrade: {}"
+argument_list|,
 name|status
 operator|.
 name|getIndex
 argument_list|()
-operator|+
-literal|", total: "
-operator|+
+argument_list|,
 name|status
 operator|.
 name|getTotalBytes
 argument_list|()
-operator|+
-literal|", toUpgrade: "
-operator|+
+argument_list|,
 name|status
 operator|.
 name|getToUpgradeBytes

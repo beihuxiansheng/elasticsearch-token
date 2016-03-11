@@ -212,6 +212,20 @@ name|common
 operator|.
 name|lease
 operator|.
+name|Releasable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lease
+operator|.
 name|Releasables
 import|;
 end_import
@@ -6849,6 +6863,11 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+try|try
+init|(
+name|Releasable
+name|ignored
+init|=
 name|connectionLock
 operator|.
 name|acquire
@@ -6858,8 +6877,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-expr_stmt|;
-try|try
+init|)
 block|{
 if|if
 condition|(
@@ -7056,19 +7074,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-finally|finally
-block|{
-name|connectionLock
-operator|.
-name|release
-argument_list|(
-name|node
-operator|.
-name|id
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 finally|finally
@@ -8211,6 +8216,11 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
+try|try
+init|(
+name|Releasable
+name|ignored
+init|=
 name|connectionLock
 operator|.
 name|acquire
@@ -8220,8 +8230,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-expr_stmt|;
-try|try
+init|)
 block|{
 name|NodeChannels
 name|nodeChannels
@@ -8278,19 +8287,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-finally|finally
-block|{
-name|connectionLock
-operator|.
-name|release
-argument_list|(
-name|node
-operator|.
-name|id
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**      * Disconnects from a node, only if the relevant channel is found to be part of the node channels.      */
 DECL|method|disconnectFromNode
@@ -8334,6 +8330,11 @@ name|channel
 argument_list|)
 condition|)
 block|{
+try|try
+init|(
+name|Releasable
+name|ignored
+init|=
 name|connectionLock
 operator|.
 name|acquire
@@ -8343,8 +8344,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-expr_stmt|;
-try|try
+init|)
 block|{
 name|nodeChannels
 operator|=
@@ -8421,19 +8421,6 @@ return|return
 literal|true
 return|;
 block|}
-block|}
-finally|finally
-block|{
-name|connectionLock
-operator|.
-name|release
-argument_list|(
-name|node
-operator|.
-name|id
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 return|return
@@ -9844,7 +9831,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}] failed to send ping transport message"
+literal|"failed to send ping transport message"
 argument_list|,
 name|t
 argument_list|)
@@ -9856,7 +9843,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] failed to send ping transport message"
+literal|"failed to send ping transport message"
 argument_list|,
 name|t
 argument_list|)

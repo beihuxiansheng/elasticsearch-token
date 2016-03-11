@@ -907,6 +907,8 @@ argument_list|)
 operator|.
 name|warn
 argument_list|(
+literal|"{}"
+argument_list|,
 name|bug
 operator|.
 name|getWarningMessage

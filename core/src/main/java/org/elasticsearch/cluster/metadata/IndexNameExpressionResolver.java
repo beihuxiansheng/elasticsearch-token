@@ -3791,7 +3791,6 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-operator|)
 operator|||
 name|Regex
 operator|.
@@ -3804,6 +3803,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
+operator|)
 operator|)
 return|;
 block|}

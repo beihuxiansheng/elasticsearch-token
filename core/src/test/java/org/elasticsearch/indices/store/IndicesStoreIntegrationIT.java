@@ -2501,8 +2501,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node "
-operator|+
+literal|"--> stopping node {}"
+argument_list|,
 name|node_2
 argument_list|)
 expr_stmt|;
@@ -2573,8 +2573,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster_health, status "
-operator|+
+literal|"--> done cluster_health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -3228,6 +3228,14 @@ expr_stmt|;
 comment|// we have to do this in two steps as we now do async shard fetching before assigning, so the change to the
 comment|// allocation filtering may not have immediate effect
 comment|// TODO: we should add an easier to do this. It's too much of a song and dance..
+name|Index
+name|index
+init|=
+name|resolveIndex
+argument_list|(
+literal|"test"
+argument_list|)
+decl_stmt|;
 name|assertBusy
 argument_list|(
 operator|new
@@ -3257,7 +3265,7 @@ argument_list|)
 operator|.
 name|hasIndex
 argument_list|(
-literal|"test"
+name|index
 argument_list|)
 argument_list|)
 expr_stmt|;
