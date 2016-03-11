@@ -294,12 +294,12 @@ name|ConsoleTerminal
 extends|extends
 name|Terminal
 block|{
-DECL|field|console
+DECL|field|CONSOLE
 specifier|private
 specifier|static
 specifier|final
 name|Console
-name|console
+name|CONSOLE
 init|=
 name|System
 operator|.
@@ -326,7 +326,7 @@ name|isSupported
 parameter_list|()
 block|{
 return|return
-name|console
+name|CONSOLE
 operator|!=
 literal|null
 return|;
@@ -340,7 +340,7 @@ name|getWriter
 parameter_list|()
 block|{
 return|return
-name|console
+name|CONSOLE
 operator|.
 name|writer
 argument_list|()
@@ -358,7 +358,7 @@ name|prompt
 parameter_list|)
 block|{
 return|return
-name|console
+name|CONSOLE
 operator|.
 name|readLine
 argument_list|(
@@ -381,7 +381,7 @@ name|prompt
 parameter_list|)
 block|{
 return|return
-name|console
+name|CONSOLE
 operator|.
 name|readPassword
 argument_list|(
@@ -400,12 +400,12 @@ name|SystemTerminal
 extends|extends
 name|Terminal
 block|{
-DECL|field|writer
+DECL|field|WRITER
 specifier|private
 specifier|static
 specifier|final
 name|PrintWriter
-name|writer
+name|WRITER
 init|=
 name|newWriter
 argument_list|()
@@ -456,7 +456,7 @@ name|getWriter
 parameter_list|()
 block|{
 return|return
-name|writer
+name|WRITER
 return|;
 block|}
 annotation|@
