@@ -839,7 +839,12 @@ name|this
 operator|.
 name|collateScriptParams
 operator|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|(
 name|collateScriptParams
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setCollatePrune

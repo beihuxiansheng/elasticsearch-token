@@ -1472,7 +1472,7 @@ operator|.
 name|collateQuery
 return|;
 block|}
-comment|/**      * Sets additional params for collate script      */
+comment|/**      * Adds additional parameters for collate scripts. Previously added parameters on the      * same builder will be overwritten.      */
 DECL|method|collateParams
 specifier|public
 name|PhraseSuggestionBuilder
@@ -1487,11 +1487,25 @@ argument_list|>
 name|collateParams
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|collateParams
+argument_list|,
+literal|"collate parameters cannot be null."
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|collateParams
 operator|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|(
 name|collateParams
+argument_list|)
 expr_stmt|;
 return|return
 name|this
