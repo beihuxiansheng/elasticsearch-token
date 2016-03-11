@@ -4,13 +4,11 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.cli
+DECL|package|org.elasticsearch.cli
 package|package
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|common
 operator|.
 name|cli
 package|;
@@ -91,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Terminal wraps access to reading input and writing output for a {@link CliTool}.  *  * The available methods are similar to those of {@link Console}, with the ability  * to read either normal text or a password, and the ability to print a line  * of text. Printing is also gated by the {@link Verbosity} of the terminal,  * which allows {@link #println(Verbosity,String)} calls which act like a logger,  * only actually printing if the verbosity level of the terminal is above  * the verbosity of the message. */
+comment|/**  * A Terminal wraps access to reading input and writing output for a cli.  *  * The available methods are similar to those of {@link Console}, with the ability  * to read either normal text or a password, and the ability to print a line  * of text. Printing is also gated by the {@link Verbosity} of the terminal,  * which allows {@link #println(Verbosity,String)} calls which act like a logger,  * only actually printing if the verbosity level of the terminal is above  * the verbosity of the message. */
 end_comment
 
 begin_class
@@ -174,6 +172,7 @@ expr_stmt|;
 block|}
 comment|/** Sets the verbosity of the terminal. */
 DECL|method|setVerbosity
+specifier|public
 name|void
 name|setVerbosity
 parameter_list|(
@@ -295,12 +294,12 @@ name|ConsoleTerminal
 extends|extends
 name|Terminal
 block|{
-DECL|field|console
+DECL|field|CONSOLE
 specifier|private
 specifier|static
 specifier|final
 name|Console
-name|console
+name|CONSOLE
 init|=
 name|System
 operator|.
@@ -327,7 +326,7 @@ name|isSupported
 parameter_list|()
 block|{
 return|return
-name|console
+name|CONSOLE
 operator|!=
 literal|null
 return|;
@@ -341,7 +340,7 @@ name|getWriter
 parameter_list|()
 block|{
 return|return
-name|console
+name|CONSOLE
 operator|.
 name|writer
 argument_list|()
@@ -359,7 +358,7 @@ name|prompt
 parameter_list|)
 block|{
 return|return
-name|console
+name|CONSOLE
 operator|.
 name|readLine
 argument_list|(
@@ -382,7 +381,7 @@ name|prompt
 parameter_list|)
 block|{
 return|return
-name|console
+name|CONSOLE
 operator|.
 name|readPassword
 argument_list|(
@@ -401,11 +400,12 @@ name|SystemTerminal
 extends|extends
 name|Terminal
 block|{
-DECL|field|writer
+DECL|field|WRITER
 specifier|private
+specifier|static
 specifier|final
 name|PrintWriter
-name|writer
+name|WRITER
 init|=
 name|newWriter
 argument_list|()
@@ -456,7 +456,7 @@ name|getWriter
 parameter_list|()
 block|{
 return|return
-name|writer
+name|WRITER
 return|;
 block|}
 annotation|@

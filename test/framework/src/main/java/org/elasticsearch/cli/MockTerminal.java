@@ -4,13 +4,11 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.cli
+DECL|package|org.elasticsearch.cli
 package|package
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|common
 operator|.
 name|cli
 package|;
@@ -189,9 +187,17 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No text input configured for prompt ["
+operator|+
+name|prompt
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 return|return
 name|textInput
@@ -220,9 +226,17 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No secret input configured for prompt ["
+operator|+
+name|prompt
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 return|return
 name|secretInput
@@ -300,16 +314,26 @@ literal|"UTF-8"
 argument_list|)
 return|;
 block|}
-comment|/** Wipes the output. */
-DECL|method|resetOutput
+comment|/** Wipes the input and output. */
+DECL|method|reset
 specifier|public
 name|void
-name|resetOutput
+name|reset
 parameter_list|()
 block|{
 name|buffer
 operator|.
 name|reset
+argument_list|()
+expr_stmt|;
+name|textInput
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|secretInput
+operator|.
+name|clear
 argument_list|()
 expr_stmt|;
 block|}

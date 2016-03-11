@@ -4,17 +4,27 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.cli
+DECL|package|org.elasticsearch.cli
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
 name|cli
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+import|;
+end_import
 
 begin_class
 DECL|class|TerminalTests
@@ -22,7 +32,7 @@ specifier|public
 class|class
 name|TerminalTests
 extends|extends
-name|CliToolTestCase
+name|ESTestCase
 block|{
 DECL|method|testVerbosity
 specifier|public
@@ -270,7 +280,7 @@ argument_list|)
 expr_stmt|;
 name|logTerminal
 operator|.
-name|resetOutput
+name|reset
 argument_list|()
 expr_stmt|;
 block|}
