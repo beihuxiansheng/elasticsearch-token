@@ -18393,6 +18393,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 if|if
 condition|(
 name|allowPartial
@@ -18572,6 +18574,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 name|initBlocking
@@ -18608,6 +18613,7 @@ argument_list|(
 literal|"test-repo"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|logger
 operator|.
@@ -19047,6 +19053,15 @@ argument_list|(
 literal|"--> execution will be blocked on all data nodes"
 argument_list|)
 expr_stmt|;
+specifier|final
+name|ListenableActionFuture
+argument_list|<
+name|RestoreSnapshotResponse
+argument_list|>
+name|restoreFut
+decl_stmt|;
+try|try
+block|{
 name|logger
 operator|.
 name|info
@@ -19054,12 +19069,8 @@ argument_list|(
 literal|"--> start restore"
 argument_list|)
 expr_stmt|;
-name|ListenableActionFuture
-argument_list|<
-name|RestoreSnapshotResponse
-argument_list|>
 name|restoreFut
-init|=
+operator|=
 name|client
 operator|.
 name|admin
@@ -19082,7 +19093,7 @@ argument_list|)
 operator|.
 name|execute
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -19153,6 +19164,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 name|logger
 operator|.
 name|info
@@ -19165,6 +19179,7 @@ argument_list|(
 literal|"test-repo"
 argument_list|)
 expr_stmt|;
+block|}
 name|logger
 operator|.
 name|info
