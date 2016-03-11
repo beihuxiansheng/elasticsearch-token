@@ -797,16 +797,16 @@ specifier|public
 name|CompletionSuggestionBuilder
 parameter_list|(
 name|String
-name|fieldname
+name|field
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|fieldname
+name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * internal copy constructor that copies over all class fields except for the fieldname which is      * set to the one provided in the first argument      */
+comment|/**      * internal copy constructor that copies over all class fields except for the field which is      * set to the one provided in the first argument      */
 DECL|method|CompletionSuggestionBuilder
 specifier|private
 name|CompletionSuggestionBuilder
@@ -1195,14 +1195,14 @@ name|InnerBuilder
 name|field
 parameter_list|(
 name|String
-name|fieldName
+name|field
 parameter_list|)
 block|{
 name|this
 operator|.
 name|field
 operator|=
-name|fieldName
+name|field
 expr_stmt|;
 return|return
 name|this
@@ -1402,7 +1402,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"required field ["
+literal|"the required field option ["
 operator|+
 name|SuggestUtils
 operator|.
@@ -1429,10 +1429,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|innerBuild
-specifier|protected
+DECL|method|build
+specifier|public
 name|SuggestionContext
-name|innerBuild
+name|build
 parameter_list|(
 name|QueryShardContext
 name|context
@@ -1775,7 +1775,7 @@ name|StreamInput
 name|in
 parameter_list|,
 name|String
-name|fieldname
+name|field
 parameter_list|)
 throws|throws
 name|IOException
@@ -1786,7 +1786,7 @@ init|=
 operator|new
 name|CompletionSuggestionBuilder
 argument_list|(
-name|fieldname
+name|field
 argument_list|)
 decl_stmt|;
 if|if

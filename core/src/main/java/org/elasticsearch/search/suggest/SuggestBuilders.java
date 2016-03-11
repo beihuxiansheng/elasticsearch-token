@@ -75,7 +75,7 @@ specifier|abstract
 class|class
 name|SuggestBuilders
 block|{
-comment|/**      * Creates a term suggestion lookup query with the provided<code>fieldname</code>      *      * @return a {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder}      * instance      */
+comment|/**      * Creates a term suggestion lookup query with the provided<code>field</code>      *      * @return a {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder}      * instance      */
 DECL|method|termSuggestion
 specifier|public
 specifier|static
@@ -94,7 +94,7 @@ name|fieldname
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a phrase suggestion lookup query with the provided<code>fieldname</code>      *      * @return a {@link org.elasticsearch.search.suggest.phrase.PhraseSuggestionBuilder}      * instance      */
+comment|/**      * Creates a phrase suggestion lookup query with the provided<code>field</code>      *      * @return a {@link org.elasticsearch.search.suggest.phrase.PhraseSuggestionBuilder}      * instance      */
 DECL|method|phraseSuggestion
 specifier|public
 specifier|static
@@ -113,7 +113,7 @@ name|fieldname
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a completion suggestion lookup query with the provided<code>fieldname</code>      *      * @return a {@link org.elasticsearch.search.suggest.completion.CompletionSuggestionBuilder}      * instance      */
+comment|/**      * Creates a completion suggestion lookup query with the provided<code>field</code>      *      * @return a {@link org.elasticsearch.search.suggest.completion.CompletionSuggestionBuilder}      * instance      */
 DECL|method|completionSuggestion
 specifier|public
 specifier|static

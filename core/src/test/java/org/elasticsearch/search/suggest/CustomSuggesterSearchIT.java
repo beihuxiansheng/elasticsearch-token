@@ -857,7 +857,7 @@ name|StreamInput
 name|in
 parameter_list|,
 name|String
-name|fieldname
+name|field
 parameter_list|)
 throws|throws
 name|IOException
@@ -866,7 +866,7 @@ return|return
 operator|new
 name|CustomSuggestionBuilder
 argument_list|(
-name|fieldname
+name|field
 argument_list|,
 name|in
 operator|.
@@ -1246,10 +1246,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|innerBuild
-specifier|protected
+DECL|method|build
+specifier|public
 name|SuggestionContext
-name|innerBuild
+name|build
 parameter_list|(
 name|QueryShardContext
 name|context

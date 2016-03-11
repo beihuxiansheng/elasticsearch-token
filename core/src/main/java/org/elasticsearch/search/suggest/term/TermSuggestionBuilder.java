@@ -120,6 +120,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|ParseFieldMatcher
@@ -267,6 +277,20 @@ operator|.
 name|suggest
 operator|.
 name|SortBy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|SuggestUtils
 import|;
 end_import
 
@@ -740,22 +764,22 @@ specifier|public
 name|TermSuggestionBuilder
 parameter_list|(
 name|String
-name|fieldname
+name|field
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|fieldname
+name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * internal copy constructor that copies over all class field except fieldname.      */
+comment|/**      * internal copy constructor that copies over all class field except field.      */
 DECL|method|TermSuggestionBuilder
 specifier|private
 name|TermSuggestionBuilder
 parameter_list|(
 name|String
-name|fieldname
+name|field
 parameter_list|,
 name|TermSuggestionBuilder
 name|in
@@ -763,7 +787,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|fieldname
+name|field
 argument_list|,
 name|in
 argument_list|)
@@ -1971,14 +1995,20 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParsingException
+name|ElasticsearchParseException
 argument_list|(
-name|parser
+literal|"the required field option ["
+operator|+
+name|SuggestUtils
 operator|.
-name|getTokenLocation
+name|Fields
+operator|.
+name|FIELD
+operator|.
+name|getPreferredName
 argument_list|()
-argument_list|,
-literal|"the required field option is missing"
+operator|+
+literal|"] is missing"
 argument_list|)
 throw|;
 block|}
@@ -1994,10 +2024,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|innerBuild
-specifier|protected
+DECL|method|build
+specifier|public
 name|SuggestionContext
-name|innerBuild
+name|build
 parameter_list|(
 name|QueryShardContext
 name|context
@@ -2221,7 +2251,7 @@ name|StreamInput
 name|in
 parameter_list|,
 name|String
-name|fieldname
+name|field
 parameter_list|)
 throws|throws
 name|IOException
@@ -2232,7 +2262,7 @@ init|=
 operator|new
 name|TermSuggestionBuilder
 argument_list|(
-name|fieldname
+name|field
 argument_list|)
 decl_stmt|;
 name|builder
