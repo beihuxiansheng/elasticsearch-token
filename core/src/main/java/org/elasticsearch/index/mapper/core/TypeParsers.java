@@ -2266,11 +2266,9 @@ argument_list|)
 operator|.
 name|warn
 argument_list|(
-literal|"Found a copy_to in field ["
-operator|+
+literal|"Found a copy_to in field [{}] which is within a multi field. This feature has been removed and the copy_to will be removed from the mapping."
+argument_list|,
 name|name
-operator|+
-literal|"] which is within a multi field. This feature has been removed and the copy_to will be removed from the mapping."
 argument_list|)
 expr_stmt|;
 block|}

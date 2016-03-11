@@ -1835,11 +1835,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"failed to run "
-operator|+
-name|compiledScript
+literal|"failed to run {}"
 argument_list|,
 name|e
+argument_list|,
+name|compiledScript
 argument_list|)
 expr_stmt|;
 block|}

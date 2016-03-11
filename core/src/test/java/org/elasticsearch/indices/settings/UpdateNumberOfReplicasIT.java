@@ -312,8 +312,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -624,8 +624,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -795,8 +795,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -1038,8 +1038,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -1281,8 +1281,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -1455,8 +1455,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -1637,8 +1637,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -1817,8 +1817,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -2023,8 +2023,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -2192,8 +2192,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -2374,8 +2374,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -2554,8 +2554,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -2750,8 +2750,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -2966,8 +2966,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster health, status "
-operator|+
+literal|"--> done cluster health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus

@@ -3549,7 +3549,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> disabling allocation while the cluster is shut down"
+literal|"--> disabling allocation while the cluster is shut down{}"
 argument_list|,
 name|useSyncIds
 condition|?

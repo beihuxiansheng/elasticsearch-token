@@ -3945,14 +3945,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"on master ["
-operator|+
+literal|"on master [{}]"
+argument_list|,
 name|clusterService
 operator|.
 name|localNode
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|master
@@ -3972,14 +3970,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"off master ["
-operator|+
+literal|"off master [{}]"
+argument_list|,
 name|clusterService
 operator|.
 name|localNode
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|master

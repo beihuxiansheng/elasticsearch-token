@@ -4906,9 +4906,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"full ping responses:"
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -4957,10 +4955,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+literal|"full ping responses:{}"
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5069,29 +5066,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"filtered ping responses: (filter_client["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|masterElectionFilterClientNodes
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"], filter_data["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|masterElectionFilterDataNodes
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"])"
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -5139,10 +5114,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"filtered ping responses: (filter_client[{}], filter_data[{}]){}"
+argument_list|,
+name|masterElectionFilterClientNodes
+argument_list|,
+name|masterElectionFilterDataNodes
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5452,9 +5430,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+literal|"{}, current nodes: {}"
+argument_list|,
 name|reason
-operator|+
-literal|", current nodes: {}"
 argument_list|,
 name|clusterState
 operator|.

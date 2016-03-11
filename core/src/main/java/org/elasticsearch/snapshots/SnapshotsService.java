@@ -5425,7 +5425,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}][{}] failed to remove snapshot metadata"
+literal|"[{}] failed to remove snapshot metadata"
 argument_list|,
 name|t
 argument_list|,

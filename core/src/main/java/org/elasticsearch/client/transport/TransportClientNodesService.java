@@ -909,11 +909,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"node_sampler_interval["
-operator|+
+literal|"node_sampler_interval[{}]"
+argument_list|,
 name|nodesSamplerInterval
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1989,13 +1987,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to connect to discovered node ["
-operator|+
-name|node
-operator|+
-literal|"]"
+literal|"failed to connect to discovered node [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|node
 argument_list|)
 expr_stmt|;
 block|}

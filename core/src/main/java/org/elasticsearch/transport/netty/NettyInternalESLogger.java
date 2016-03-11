@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressLoggerChecks
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|logging
 operator|.
 name|ESLogger
@@ -49,6 +61,13 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressLoggerChecks
+argument_list|(
+name|reason
+operator|=
+literal|"safely delegates to logger"
+argument_list|)
 DECL|class|NettyInternalESLogger
 specifier|public
 class|class

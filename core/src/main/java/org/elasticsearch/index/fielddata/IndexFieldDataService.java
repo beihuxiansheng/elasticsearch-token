@@ -2120,11 +2120,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"field ["
-operator|+
+literal|"field [{}] has no doc values, will use default field data format"
+argument_list|,
 name|fieldName
-operator|+
-literal|"] has no doc values, will use default field data format"
 argument_list|)
 expr_stmt|;
 name|format
@@ -2169,15 +2167,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to find format ["
-operator|+
+literal|"failed to find format [{}] for field [{}], will use default"
+argument_list|,
 name|format
-operator|+
-literal|"] for field ["
-operator|+
+argument_list|,
 name|fieldName
-operator|+
-literal|"], will use default"
 argument_list|)
 expr_stmt|;
 block|}

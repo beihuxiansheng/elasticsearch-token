@@ -1764,10 +1764,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+literal|"{}"
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

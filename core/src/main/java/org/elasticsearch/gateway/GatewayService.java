@@ -1129,8 +1129,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (data+master) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (data+master) [{}]< recover_after_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|masterAndDataNodes
@@ -1138,12 +1138,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1170,8 +1166,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (data) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (data) [{}]< recover_after_data_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|dataNodes
@@ -1179,12 +1175,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_data_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterDataNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1211,8 +1203,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (master) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (master) [{}]< recover_after_master_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|masterNodes
@@ -1220,12 +1212,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_master_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterMasterNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

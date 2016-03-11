@@ -2342,13 +2342,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to notify channel of error message for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"failed to notify channel of error message for action [{}]"
 argument_list|,
 name|e1
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2393,13 +2391,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to notify channel of error message for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"failed to notify channel of error message for action [{}]"
 argument_list|,
 name|e1
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger

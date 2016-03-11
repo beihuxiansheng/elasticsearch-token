@@ -567,8 +567,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster_health, status "
-operator|+
+literal|"--> done cluster_health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
