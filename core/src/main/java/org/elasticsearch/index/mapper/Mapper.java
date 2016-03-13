@@ -332,6 +332,7 @@ operator|.
 name|name
 return|;
 block|}
+comment|/** Returns a newly built mapper. */
 DECL|method|build
 specifier|public
 specifier|abstract

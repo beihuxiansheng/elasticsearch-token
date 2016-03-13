@@ -1252,6 +1252,16 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
+name|NodeConnectionsService
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
 name|OperationRouting
 operator|.
 name|class

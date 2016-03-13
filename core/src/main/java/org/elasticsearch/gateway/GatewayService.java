@@ -310,6 +310,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|AbstractRunnable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|discovery
 operator|.
 name|Discovery
@@ -1101,8 +1117,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (data+master) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (data+master) [{}]< recover_after_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|masterAndDataNodes
@@ -1110,12 +1126,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1142,8 +1154,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (data) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (data) [{}]< recover_after_data_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|dataNodes
@@ -1151,12 +1163,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_data_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterDataNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1183,8 +1191,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (master) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (master) [{}]< recover_after_master_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|masterNodes
@@ -1192,12 +1200,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_master_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterMasterNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1520,14 +1524,62 @@ argument_list|()
 operator|.
 name|execute
 argument_list|(
+operator|new
+name|AbstractRunnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Recovery failed"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+comment|// we reset `recovered` in the listener don't reset it here otherwise there might be a race
+comment|// that resets it to false while a new recover is already running?
+name|recoveryListener
+operator|.
+name|onFailure
+argument_list|(
+literal|"state recovery failed: "
+operator|+
+name|t
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|doRun
 parameter_list|()
-lambda|->
+throws|throws
+name|Exception
+block|{
 name|gateway
 operator|.
 name|performStateRecovery
 argument_list|(
 name|recoveryListener
 argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}

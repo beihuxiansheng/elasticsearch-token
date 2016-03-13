@@ -18,6 +18,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -25,6 +55,30 @@ operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|CompositeIndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|IndicesRequest
 import|;
 end_import
 
@@ -105,12 +159,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|Collections
+operator|.
+name|unmodifiableList
 import|;
 end_import
 
@@ -142,6 +198,10 @@ name|INTERNAL
 import|;
 end_import
 
+begin_comment
+comment|/**  * Request to reindex some documents from one index to another. This implements CompositeIndicesRequest but in a misleading way. Rather than  * returning all the subrequests that it will make it tries to return a representative set of subrequests. This is best-effort for a bunch  * of reasons, not least of which that scripts are allowed to change the destination request in drastic ways, including changing the index  * to which documents are written.  */
+end_comment
+
 begin_class
 DECL|class|ReindexRequest
 specifier|public
@@ -152,6 +212,8 @@ name|AbstractBulkIndexByScrollRequest
 argument_list|<
 name|ReindexRequest
 argument_list|>
+implements|implements
+name|CompositeIndicesRequest
 block|{
 comment|/**      * Prototype for index requests.      */
 DECL|field|destination
@@ -589,6 +651,49 @@ name|b
 operator|.
 name|toString
 argument_list|()
+return|;
+block|}
+comment|// CompositeIndicesRequest implementation so plugins can reason about the request. This is really just a best effort thing.
+comment|/**      * Accessor to get the underlying {@link IndicesRequest}s that this request wraps. Note that this method is<strong>not      * accurate</strong> since it returns a prototype {@link IndexRequest} and not the actual requests that will be issued as part of the      * execution of this request. Additionally, scripts can modify the underlying {@link IndexRequest} and change values such as the index,      * type, {@link org.elasticsearch.action.support.IndicesOptions}. In short - only use this for very course reasoning about the request.      *      * @return a list comprising of the {@link SearchRequest} and the prototype {@link IndexRequest}      */
+annotation|@
+name|Override
+DECL|method|subRequests
+specifier|public
+name|List
+argument_list|<
+name|?
+extends|extends
+name|IndicesRequest
+argument_list|>
+name|subRequests
+parameter_list|()
+block|{
+assert|assert
+name|getSearchRequest
+argument_list|()
+operator|!=
+literal|null
+assert|;
+assert|assert
+name|getDestination
+argument_list|()
+operator|!=
+literal|null
+assert|;
+return|return
+name|unmodifiableList
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|getSearchRequest
+argument_list|()
+argument_list|,
+name|getDestination
+argument_list|()
+argument_list|)
+argument_list|)
 return|;
 block|}
 block|}

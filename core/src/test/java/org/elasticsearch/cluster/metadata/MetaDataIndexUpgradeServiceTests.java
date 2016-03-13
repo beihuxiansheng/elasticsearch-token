@@ -728,7 +728,7 @@ name|SETTING_VERSION_UPGRADED
 argument_list|,
 name|Version
 operator|.
-name|V_0_18_1_ID
+name|V_2_0_0_beta1
 argument_list|)
 operator|.
 name|put

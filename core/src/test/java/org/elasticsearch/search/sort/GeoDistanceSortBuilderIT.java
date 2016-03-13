@@ -551,20 +551,18 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"d1: {}"
+argument_list|,
 name|d1Builder
-operator|.
-name|string
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
+literal|"d2: {}"
+argument_list|,
 name|d2Builder
-operator|.
-name|string
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|indexRandom

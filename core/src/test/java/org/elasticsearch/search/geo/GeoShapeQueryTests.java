@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -2847,14 +2847,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Created Random GeometryCollection containing "
-operator|+
+literal|"Created Random GeometryCollection containing {} shapes"
+argument_list|,
 name|gcb
 operator|.
 name|numShapes
 argument_list|()
-operator|+
-literal|" shapes"
 argument_list|)
 expr_stmt|;
 name|client

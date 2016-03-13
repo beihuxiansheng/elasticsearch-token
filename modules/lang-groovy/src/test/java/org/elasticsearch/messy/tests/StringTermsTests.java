@@ -2598,8 +2598,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Execution mode:"
-operator|+
+literal|"Execution mode: {}"
+argument_list|,
 name|executionMode
 argument_list|)
 expr_stmt|;

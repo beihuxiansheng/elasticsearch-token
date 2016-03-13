@@ -828,8 +828,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Old repositories tests contain extra repo: "
-operator|+
+literal|"Old repositories tests contain extra repo: {}"
+argument_list|,
 name|repoVersion
 argument_list|)
 expr_stmt|;
@@ -1626,24 +1626,6 @@ literal|"{\"type1\":{\"_source\":{\"enabled\":false}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|Version
-operator|.
-name|fromString
-argument_list|(
-name|version
-argument_list|)
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_1_1_0
-argument_list|)
-condition|)
-block|{
-comment|// Support for aliases in templates was added in v1.1.0
 name|assertThat
 argument_list|(
 name|template
@@ -1737,7 +1719,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|logger
 operator|.
 name|info

@@ -363,6 +363,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"{}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;

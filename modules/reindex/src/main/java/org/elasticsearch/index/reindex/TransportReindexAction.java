@@ -1149,6 +1149,9 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 block|{
 return|return
@@ -1165,6 +1168,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 return|;
 block|}

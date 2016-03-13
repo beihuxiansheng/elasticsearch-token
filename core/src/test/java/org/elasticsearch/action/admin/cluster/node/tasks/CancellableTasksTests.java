@@ -1437,14 +1437,14 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|reason
+name|setReason
 argument_list|(
 literal|"Testing Cancellation"
 argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -1682,7 +1682,7 @@ operator|new
 name|ListTasksRequest
 argument_list|()
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -1976,7 +1976,7 @@ operator|new
 name|ListTasksRequest
 argument_list|()
 operator|.
-name|parentTaskId
+name|setParentTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -2135,14 +2135,14 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|reason
+name|setReason
 argument_list|(
 literal|"Testing Cancellation"
 argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -2351,7 +2351,7 @@ operator|new
 name|ListTasksRequest
 argument_list|()
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId

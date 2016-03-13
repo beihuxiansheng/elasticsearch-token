@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 import|;
 end_import
 
@@ -4601,7 +4601,7 @@ name|ts
 argument_list|,
 name|instanceOf
 argument_list|(
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
 name|class
 argument_list|)
@@ -4613,7 +4613,7 @@ name|expected
 argument_list|,
 operator|(
 operator|(
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|)
 name|ts
 operator|)

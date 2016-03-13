@@ -1704,6 +1704,13 @@ operator|.
 name|GENERIC
 argument_list|)
 operator|.
+name|size
+argument_list|(
+literal|4
+operator|*
+name|availableProcessors
+argument_list|)
+operator|.
 name|keepAlive
 argument_list|(
 literal|"30s"

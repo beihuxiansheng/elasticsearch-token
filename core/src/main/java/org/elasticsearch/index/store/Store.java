@@ -2099,8 +2099,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"store reference count on close: "
-operator|+
+literal|"store reference count on close: {}"
+argument_list|,
 name|refCounter
 operator|.
 name|refCount

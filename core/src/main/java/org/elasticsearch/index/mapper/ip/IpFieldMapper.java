@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|NumericUtils
+name|LegacyNumericUtils
 import|;
 end_import
 
@@ -1402,7 +1402,7 @@ operator|new
 name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
-name|NumericUtils
+name|LegacyNumericUtils
 operator|.
 name|longToPrefixCoded
 argument_list|(
@@ -1604,7 +1604,7 @@ name|includeUpper
 parameter_list|)
 block|{
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -1704,7 +1704,7 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|newLongRange
 argument_list|(
@@ -2309,7 +2309,7 @@ block|{
 name|super
 argument_list|(
 operator|new
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 argument_list|(
 name|precisionStep
 argument_list|)
@@ -2327,7 +2327,7 @@ specifier|protected
 name|void
 name|setValue
 parameter_list|(
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|tokenStream
 parameter_list|,
 name|String

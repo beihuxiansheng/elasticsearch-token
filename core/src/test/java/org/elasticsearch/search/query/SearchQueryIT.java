@@ -4139,18 +4139,17 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"3"
+literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// better score due to different query stats
 name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"1"
+literal|"2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4160,7 +4159,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"2"
+literal|"3"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5087,18 +5086,17 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"3"
+literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// better score due to different query stats
 name|assertSecondHit
 argument_list|(
 name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"1"
+literal|"2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5108,7 +5106,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"2"
+literal|"3"
 argument_list|)
 argument_list|)
 expr_stmt|;

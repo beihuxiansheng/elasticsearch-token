@@ -833,8 +833,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"starting mock repository with random prefix "
-operator|+
+literal|"starting mock repository with random prefix {}"
+argument_list|,
 name|randomPrefix
 argument_list|)
 expr_stmt|;
@@ -1100,11 +1100,6 @@ name|void
 name|unblockExecution
 parameter_list|()
 block|{
-if|if
-condition|(
-name|blocked
-condition|)
-block|{
 name|blocked
 operator|=
 literal|false
@@ -1127,7 +1122,6 @@ operator|.
 name|notifyAll
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 DECL|method|blocked
 specifier|public

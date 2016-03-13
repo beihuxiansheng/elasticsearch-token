@@ -606,20 +606,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
-operator|.
-name|service
-operator|.
-name|NodeService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -1273,13 +1259,6 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Nullable
-DECL|field|nodeService
-specifier|private
-name|NodeService
-name|nodeService
-decl_stmt|;
 comment|// must initialized in doStart(), when we have the routingService set
 DECL|field|nodeJoinController
 specifier|private
@@ -1690,26 +1669,6 @@ operator|new
 name|RejoinClusterRequestHandler
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setNodeService
-specifier|public
-name|void
-name|setNodeService
-parameter_list|(
-annotation|@
-name|Nullable
-name|NodeService
-name|nodeService
-parameter_list|)
-block|{
-name|this
-operator|.
-name|nodeService
-operator|=
-name|nodeService
 expr_stmt|;
 block|}
 annotation|@
@@ -2150,20 +2109,6 @@ argument_list|()
 operator|.
 name|nodes
 argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|nodeService
-specifier|public
-name|NodeService
-name|nodeService
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|nodeService
 return|;
 block|}
 annotation|@
@@ -4941,9 +4886,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"full ping responses:"
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -4992,10 +4935,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+literal|"full ping responses:{}"
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5104,29 +5046,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"filtered ping responses: (filter_client["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|masterElectionFilterClientNodes
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"], filter_data["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|masterElectionFilterDataNodes
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"])"
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -5174,10 +5094,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"filtered ping responses: (filter_client[{}], filter_data[{}]){}"
+argument_list|,
+name|masterElectionFilterClientNodes
+argument_list|,
+name|masterElectionFilterDataNodes
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -5487,9 +5410,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+literal|"{}, current nodes: {}"
+argument_list|,
 name|reason
-operator|+
-literal|", current nodes: {}"
 argument_list|,
 name|clusterState
 operator|.

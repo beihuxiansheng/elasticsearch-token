@@ -468,10 +468,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -819,10 +818,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchRequestBuilder
@@ -2066,10 +2064,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -2395,10 +2392,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -2725,10 +2721,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -3060,10 +3055,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -3372,6 +3366,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
 operator|.
 name|toString
@@ -3687,10 +3683,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -3762,10 +3757,9 @@ name|logger
 operator|.
 name|error
 argument_list|(
+literal|"Shard search failure: {}"
+argument_list|,
 name|f
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4048,10 +4042,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse

@@ -4785,7 +4785,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"upgraded segment {} from version {} to version {}"
+literal|"upgraded segments for {} from version {} to version {}"
+argument_list|,
+name|shardId
 argument_list|,
 name|previousVersion
 argument_list|,

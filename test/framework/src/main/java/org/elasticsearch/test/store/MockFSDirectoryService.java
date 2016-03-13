@@ -1262,16 +1262,9 @@ expr_stmt|;
 comment|// TODO: make this test robust to virus scanner
 name|w
 operator|.
-name|setEnableVirusScanner
+name|setAssertNoDeleteOpenFile
 argument_list|(
 literal|false
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|setNoDeleteOpenFile
-argument_list|(
-name|noDeleteOpenFile
 argument_list|)
 expr_stmt|;
 name|w

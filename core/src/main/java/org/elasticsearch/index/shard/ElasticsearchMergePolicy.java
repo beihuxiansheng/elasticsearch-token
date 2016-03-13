@@ -287,16 +287,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// convert 0.90.x _uid payloads to _version docvalues if needed
-name|reader
-operator|=
-name|VersionFieldUpgrader
-operator|.
-name|wrap
-argument_list|(
-name|reader
-argument_list|)
-expr_stmt|;
 comment|// TODO: remove 0.90.x/1.x freqs/prox/payloads from _uid?
 comment|// the previous code never did this, so some indexes carry around trash.
 return|return
@@ -677,15 +667,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Adding segment "
-operator|+
+literal|"Adding segment {} to be upgraded"
+argument_list|,
 name|info
 operator|.
 name|info
 operator|.
 name|name
-operator|+
-literal|" to be upgraded"
 argument_list|)
 expr_stmt|;
 name|spec
@@ -723,16 +711,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Returning "
-operator|+
+literal|"Returning {} merges for upgrade"
+argument_list|,
 name|spec
 operator|.
 name|merges
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" merges for upgrade"
 argument_list|)
 expr_stmt|;
 return|return
@@ -757,16 +743,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Returning "
-operator|+
+literal|"Returning {} merges for end of upgrade"
+argument_list|,
 name|spec
 operator|.
 name|merges
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" merges for end of upgrade"
 argument_list|)
 expr_stmt|;
 return|return

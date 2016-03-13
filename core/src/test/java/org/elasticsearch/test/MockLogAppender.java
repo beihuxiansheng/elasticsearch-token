@@ -298,7 +298,7 @@ name|String
 name|message
 decl_stmt|;
 DECL|field|saw
-specifier|protected
+specifier|volatile
 name|boolean
 name|saw
 decl_stmt|;

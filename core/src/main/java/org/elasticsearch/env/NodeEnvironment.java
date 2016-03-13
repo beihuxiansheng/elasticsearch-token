@@ -1558,9 +1558,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"node data locations details:"
-argument_list|)
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1728,10 +1726,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"node data locations details:{}"
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1922,15 +1919,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-name|Locale
-operator|.
-name|ROOT
-argument_list|,
-literal|"using [%d] data paths, mounts [%s], net usable_space [%s], net total_space [%s], spins? [%s], types [%s]"
+literal|"using [{}] data paths, mounts [{}], net usable_space [{}], net total_space [{}], spins? [{}], types [{}]"
 argument_list|,
 name|nodePaths
 operator|.
@@ -1956,7 +1945,6 @@ argument_list|,
 name|toString
 argument_list|(
 name|allTypes
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -175,7 +175,7 @@ name|FIRST_LUCENE_CHECKSUM_VERSION
 init|=
 name|Version
 operator|.
-name|LUCENE_4_8_0
+name|LUCENE_5_0_0
 decl_stmt|;
 DECL|field|name
 specifier|private

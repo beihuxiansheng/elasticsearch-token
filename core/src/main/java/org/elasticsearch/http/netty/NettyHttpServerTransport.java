@@ -2282,11 +2282,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"maxContentLength["
-operator|+
+literal|"maxContentLength[{}] set to high value, resetting it to [100mb]"
+argument_list|,
 name|maxContentLength
-operator|+
-literal|"] set to high value, resetting it to [100mb]"
 argument_list|)
 expr_stmt|;
 name|maxContentLength

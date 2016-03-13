@@ -741,42 +741,6 @@ argument_list|(
 name|indexName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|globalCompatibilityVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_1_4_0_Beta1
-argument_list|)
-condition|)
-block|{
-comment|// before 1.4 and the wait_if_ongoing flag, flushes could fail randomly, so we
-comment|// need to continue to try flushing until all shards succeed
-name|assertTrue
-argument_list|(
-name|awaitBusy
-argument_list|(
-parameter_list|()
-lambda|->
-name|flush
-argument_list|(
-name|indexName
-argument_list|)
-operator|.
-name|getFailedShards
-argument_list|()
-operator|==
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertEquals
 argument_list|(
 literal|0
@@ -790,7 +754,6 @@ name|getFailedShards
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// index more docs that won't be flushed
 name|numDocs
 operator|=
@@ -1054,8 +1017,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Running upgrade on index "
-operator|+
+literal|"--> Running upgrade on index {}"
+argument_list|,
 name|indexToUpgrade
 argument_list|)
 expr_stmt|;
@@ -1751,22 +1714,18 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Index: "
-operator|+
+literal|"Index: {}, total: {}, toUpgrade: {}"
+argument_list|,
 name|status
 operator|.
 name|getIndex
 argument_list|()
-operator|+
-literal|", total: "
-operator|+
+argument_list|,
 name|status
 operator|.
 name|getTotalBytes
 argument_list|()
-operator|+
-literal|", toUpgrade: "
-operator|+
+argument_list|,
 name|status
 operator|.
 name|getToUpgradeBytes

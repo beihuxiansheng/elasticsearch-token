@@ -1145,6 +1145,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -1763,21 +1775,38 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Copy indices because we modify it asynchronously in the body of the loop
+specifier|final
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|indices
 init|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|(
 name|this
 operator|.
 name|indices
 operator|.
-name|keySet
+name|values
+argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|s
+lambda|->
+name|s
+operator|.
+name|index
+argument_list|()
+argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toSet
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1797,7 +1826,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|String
+name|Index
 name|index
 range|:
 name|indices
@@ -1832,13 +1861,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to remove index on stop ["
-operator|+
-name|index
-operator|+
-literal|"]"
+literal|"failed to remove index on stop [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}
@@ -2133,10 +2160,7 @@ control|(
 name|IndexService
 name|indexService
 range|:
-name|indices
-operator|.
-name|values
-argument_list|()
+name|this
 control|)
 block|{
 for|for
@@ -2331,7 +2355,7 @@ specifier|public
 name|boolean
 name|hasIndex
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 block|{
@@ -2341,27 +2365,9 @@ operator|.
 name|containsKey
 argument_list|(
 name|index
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns an IndexService for the specified index if exists otherwise returns<code>null</code>.      *      */
-annotation|@
-name|Nullable
-DECL|method|indexService
-specifier|public
-name|IndexService
-name|indexService
-parameter_list|(
-name|String
-name|index
-parameter_list|)
-block|{
-return|return
-name|indices
 operator|.
-name|get
-argument_list|(
-name|index
+name|getUUID
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2378,11 +2384,13 @@ name|index
 parameter_list|)
 block|{
 return|return
-name|indexService
+name|indices
+operator|.
+name|get
 argument_list|(
 name|index
 operator|.
-name|getName
+name|getUUID
 argument_list|()
 argument_list|)
 return|;
@@ -2393,16 +2401,21 @@ specifier|public
 name|IndexService
 name|indexServiceSafe
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 block|{
 name|IndexService
 name|indexService
 init|=
-name|indexService
+name|indices
+operator|.
+name|get
 argument_list|(
 name|index
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -2420,33 +2433,7 @@ name|index
 argument_list|)
 throw|;
 block|}
-return|return
-name|indexService
-return|;
-block|}
-comment|/**      * Returns an IndexService for the specified index if exists otherwise a {@link IndexNotFoundException} is thrown.      */
-DECL|method|indexServiceSafe
-specifier|public
-name|IndexService
-name|indexServiceSafe
-parameter_list|(
-name|Index
-name|index
-parameter_list|)
-block|{
-name|IndexService
-name|indexService
-init|=
-name|indexServiceSafe
-argument_list|(
-name|index
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
+assert|assert
 name|indexService
 operator|.
 name|indexUUID
@@ -2459,18 +2446,21 @@ operator|.
 name|getUUID
 argument_list|()
 argument_list|)
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IndexNotFoundException
-argument_list|(
+operator|:
+literal|"uuid mismatch local: "
+operator|+
+name|indexService
+operator|.
+name|indexUUID
+argument_list|()
+operator|+
+literal|" incoming: "
+operator|+
 name|index
-argument_list|)
-throw|;
-block|}
+operator|.
+name|getUUID
+argument_list|()
+assert|;
 return|return
 name|indexService
 return|;
@@ -2519,6 +2509,36 @@ name|getIndex
 argument_list|()
 operator|+
 literal|"], node is closed"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|indexMetaData
+operator|.
+name|getIndexUUID
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|IndexMetaData
+operator|.
+name|INDEX_UUID_NA_VALUE
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"index must have a real UUID found value: ["
+operator|+
+name|indexMetaData
+operator|.
+name|getIndexUUID
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -2579,14 +2599,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|indices
-operator|.
-name|containsKey
+name|hasIndex
 argument_list|(
 name|index
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2785,7 +2800,7 @@ name|put
 argument_list|(
 name|index
 operator|.
-name|getName
+name|getUUID
 argument_list|()
 argument_list|,
 name|indexService
@@ -2829,7 +2844,7 @@ specifier|public
 name|void
 name|removeIndex
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -2851,7 +2866,7 @@ specifier|private
 name|void
 name|removeIndex
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -2861,6 +2876,15 @@ name|boolean
 name|delete
 parameter_list|)
 block|{
+specifier|final
+name|String
+name|indexName
+init|=
+name|index
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 specifier|final
@@ -2878,9 +2902,7 @@ init|)
 block|{
 if|if
 condition|(
-name|indices
-operator|.
-name|containsKey
+name|hasIndex
 argument_list|(
 name|index
 argument_list|)
@@ -2896,7 +2918,7 @@ name|debug
 argument_list|(
 literal|"[{}] closing ... (reason [{}])"
 argument_list|,
-name|index
+name|indexName
 argument_list|,
 name|reason
 argument_list|)
@@ -2923,8 +2945,20 @@ operator|.
 name|remove
 argument_list|(
 name|index
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 expr_stmt|;
+assert|assert
+name|indexService
+operator|!=
+literal|null
+operator|:
+literal|"IndexService is null for index: "
+operator|+
+name|index
+assert|;
 name|indices
 operator|=
 name|unmodifiableMap
@@ -2964,7 +2998,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing index service (reason [{}])"
+literal|"{} closing index service (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2984,7 +3018,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closed... (reason [{}])"
+literal|"{} closed... (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -3274,13 +3308,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Deletes the given index. Persistent parts of the index      * like the shards files, state and transaction logs are removed once all resources are released.      *      * Equivalent to {@link #removeIndex(String, String)} but fires      * different lifecycle events to ensure pending resources of this index are immediately removed.      * @param index the index to delete      * @param reason the high level reason causing this delete      */
+comment|/**      * Deletes the given index. Persistent parts of the index      * like the shards files, state and transaction logs are removed once all resources are released.      *      * Equivalent to {@link #removeIndex(Index, String)} but fires      * different lifecycle events to ensure pending resources of this index are immediately removed.      * @param index the index to delete      * @param reason the high level reason causing this delete      */
 DECL|method|deleteIndex
 specifier|public
 name|void
 name|deleteIndex
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -3457,35 +3491,28 @@ init|(
 name|this
 init|)
 block|{
-name|String
-name|indexName
+name|Index
+name|index
 init|=
 name|metaData
 operator|.
 name|getIndex
 argument_list|()
-operator|.
-name|getName
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|indices
-operator|.
-name|containsKey
+name|hasIndex
 argument_list|(
-name|indexName
+name|index
 argument_list|)
 condition|)
 block|{
 name|String
 name|localUUid
 init|=
-name|indices
-operator|.
-name|get
+name|indexService
 argument_list|(
-name|indexName
+name|index
 argument_list|)
 operator|.
 name|indexUUID
@@ -3497,7 +3524,10 @@ name|IllegalStateException
 argument_list|(
 literal|"Can't delete index store for ["
 operator|+
-name|indexName
+name|index
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|"] - it's still part of the indices service ["
 operator|+
@@ -3523,7 +3553,10 @@ argument_list|()
 operator|.
 name|hasIndex
 argument_list|(
-name|indexName
+name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|&&
 operator|(
@@ -3546,7 +3579,7 @@ comment|// we do not delete the store if it is a master eligible node and the in
 comment|// because we want to keep the meta data for indices around even if no shards are left here
 specifier|final
 name|IndexMetaData
-name|index
+name|idxMeta
 init|=
 name|clusterState
 operator|.
@@ -3555,7 +3588,10 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-name|indexName
+name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 throw|throw
@@ -3564,11 +3600,14 @@ name|IllegalStateException
 argument_list|(
 literal|"Can't delete closed index store for ["
 operator|+
-name|indexName
+name|index
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|"] - it's still part of the cluster state ["
 operator|+
-name|index
+name|idxMeta
 operator|.
 name|getIndexUUID
 argument_list|()
@@ -4007,16 +4046,9 @@ specifier|final
 name|IndexService
 name|indexService
 init|=
-name|this
-operator|.
-name|indices
-operator|.
-name|get
+name|indexService
 argument_list|(
 name|index
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Closed indices may be deleted, even if they are on a shared
@@ -4097,15 +4129,11 @@ specifier|final
 name|IndexService
 name|indexService
 init|=
-name|this
-operator|.
-name|indices
-operator|.
-name|get
+name|indexService
 argument_list|(
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -114,7 +114,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"a plugin that allows to set values for internal settings which are can't be set via the ordinary API without this pluging installed"
+literal|"a plugin that allows to set values for internal settings which are can't be set via the ordinary API without this plugin installed"
 return|;
 block|}
 DECL|field|VERSION_CREATED

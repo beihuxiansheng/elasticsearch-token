@@ -380,6 +380,24 @@ name|admin
 operator|.
 name|indices
 operator|.
+name|get
+operator|.
+name|GetIndexResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
 name|mapping
 operator|.
 name|get
@@ -1153,6 +1171,18 @@ operator|.
 name|env
 operator|.
 name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -5326,7 +5356,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 name|index
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -5768,10 +5801,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+literal|"{}"
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -10342,7 +10374,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"varargs"
 argument_list|)
-comment|// due to type erasure, the varargs type is non-reifiable, which casues this warning
+comment|// due to type erasure, the varargs type is non-reifiable, which causes this warning
 DECL|method|pluginList
 specifier|protected
 specifier|final
@@ -10376,7 +10408,7 @@ name|plugins
 argument_list|)
 return|;
 block|}
-comment|/**      * This method is used to obtain additional settings for clients created by the internal cluster.      * These settings will be applied on the client in addition to some randomized settings defined in      * the cluster. These setttings will also override any other settings the internal cluster might      * add by default.      */
+comment|/**      * This method is used to obtain additional settings for clients created by the internal cluster.      * These settings will be applied on the client in addition to some randomized settings defined in      * the cluster. These settings will also override any other settings the internal cluster might      * add by default.      */
 DECL|method|transportClientSettings
 specifier|protected
 name|Settings
@@ -11118,7 +11150,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"a test plugin that registeres index.tests.seed as an index setting"
+literal|"a test plugin that registers index.tests.seed as an index setting"
 return|;
 block|}
 DECL|method|onModule
@@ -11841,7 +11873,7 @@ argument_list|(
 literal|"finished"
 argument_list|)
 expr_stmt|;
-comment|// Deleting indices is going to clear search contexts implicitely so we
+comment|// Deleting indices is going to clear search contexts implicitly so we
 comment|// need to check that there are no more in-flight search contexts before
 comment|// we remove indices
 name|super
@@ -12046,7 +12078,10 @@ argument_list|()
 operator|.
 name|routingKeyForShard
 argument_list|(
+name|resolveIndex
+argument_list|(
 name|index
+argument_list|)
 argument_list|,
 name|type
 argument_list|,
@@ -12609,6 +12644,88 @@ specifier|public
 annotation_defn|@interface
 name|SuppressNetworkMode
 block|{     }
+DECL|method|resolveIndex
+specifier|public
+specifier|static
+name|Index
+name|resolveIndex
+parameter_list|(
+name|String
+name|index
+parameter_list|)
+block|{
+name|GetIndexResponse
+name|getIndexResponse
+init|=
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareGetIndex
+argument_list|()
+operator|.
+name|setIndices
+argument_list|(
+name|index
+argument_list|)
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"index "
+operator|+
+name|index
+operator|+
+literal|" not found"
+argument_list|,
+name|getIndexResponse
+operator|.
+name|getSettings
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|index
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|String
+name|uuid
+init|=
+name|getIndexResponse
+operator|.
+name|getSettings
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|index
+argument_list|)
+operator|.
+name|get
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_INDEX_UUID
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|Index
+argument_list|(
+name|index
+argument_list|,
+name|uuid
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

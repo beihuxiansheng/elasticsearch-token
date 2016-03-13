@@ -10191,11 +10191,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> register "
-operator|+
+literal|"--> register {} queries"
+argument_list|,
 name|totalQueries
-operator|+
-literal|" queries"
 argument_list|)
 expr_stmt|;
 for|for
@@ -10919,11 +10917,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> register "
-operator|+
+literal|"--> register {} queries"
+argument_list|,
 name|numQueries
-operator|+
-literal|" queries"
 argument_list|)
 expr_stmt|;
 for|for

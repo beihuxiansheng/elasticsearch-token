@@ -908,16 +908,14 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"failed to send failure response for uri ["
-operator|+
+literal|"failed to send failure response for uri [{}]"
+argument_list|,
+name|e1
+argument_list|,
 name|request
 operator|.
 name|uri
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1522,16 +1520,14 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Failed to send failure response for uri ["
-operator|+
+literal|"Failed to send failure response for uri [{}]"
+argument_list|,
+name|e1
+argument_list|,
 name|request
 operator|.
 name|uri
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e1
 argument_list|)
 expr_stmt|;
 block|}

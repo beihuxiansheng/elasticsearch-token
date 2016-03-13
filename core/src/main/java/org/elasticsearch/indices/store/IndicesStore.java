@@ -2178,7 +2178,7 @@ name|indexService
 argument_list|(
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
