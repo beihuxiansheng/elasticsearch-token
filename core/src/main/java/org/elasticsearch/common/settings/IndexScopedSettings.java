@@ -783,10 +783,6 @@ name|groupSetting
 argument_list|(
 literal|"index.similarity."
 argument_list|,
-name|Property
-operator|.
-name|IndexScope
-argument_list|,
 parameter_list|(
 name|s
 parameter_list|)
@@ -842,6 +838,10 @@ throw|;
 block|}
 block|}
 block|}
+argument_list|,
+name|Property
+operator|.
+name|IndexScope
 argument_list|)
 argument_list|,
 comment|// this allows similarity settings to be passed

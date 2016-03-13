@@ -224,6 +224,38 @@ name|ScheduledFuture
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|Property
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|positiveTimeSetting
+import|;
+end_import
+
 begin_comment
 comment|/**  * This component is responsible for connecting to nodes once they are added to the cluster state, and disconnect when they are  * removed. Also, it periodically checks that all connections are still open and if needed restores them.  * Note that this component is *not* responsible for removing nodes from the cluster if they disconnect / do not respond  * to pings. This is done by {@link org.elasticsearch.discovery.zen.fd.NodesFaultDetection}. Master fault detection  * is done by {@link org.elasticsearch.discovery.zen.fd.MasterFaultDetection}.  */
 end_comment
@@ -249,8 +281,6 @@ name|TimeValue
 argument_list|>
 name|CLUSTER_NODE_RECONNECT_INTERVAL_SETTING
 init|=
-name|Setting
-operator|.
 name|positiveTimeSetting
 argument_list|(
 literal|"cluster.nodes.reconnect_interval"
@@ -262,13 +292,9 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|threadPool
