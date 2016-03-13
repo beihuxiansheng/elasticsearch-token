@@ -1079,11 +1079,6 @@ name|void
 name|unblockExecution
 parameter_list|()
 block|{
-if|if
-condition|(
-name|blocked
-condition|)
-block|{
 name|blocked
 operator|=
 literal|false
@@ -1106,7 +1101,6 @@ operator|.
 name|notifyAll
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 DECL|method|blocked
 specifier|public
