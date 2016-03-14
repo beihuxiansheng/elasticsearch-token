@@ -259,17 +259,16 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
 name|ex
 operator|.
 name|getMessage
 argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"either concreteIndices or unresolved indices can be set"
-argument_list|)
+argument_list|,
+literal|"Validation Failed: 1: either concrete index or unresolved indices can be set,"
+operator|+
+literal|" concrete index: [[foo/bar]] and indices: [myindex];"
 argument_list|)
 expr_stmt|;
 block|}
