@@ -2429,7 +2429,7 @@ block|{
 name|boolean
 name|norms
 init|=
-literal|false
+literal|true
 decl_stmt|;
 name|boolean
 name|stored
