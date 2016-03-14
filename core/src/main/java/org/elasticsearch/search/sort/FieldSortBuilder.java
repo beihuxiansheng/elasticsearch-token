@@ -50,6 +50,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -1418,8 +1430,13 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ParsingException
 argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
 literal|"Expected "
 operator|+
 name|NESTED_FILTER
