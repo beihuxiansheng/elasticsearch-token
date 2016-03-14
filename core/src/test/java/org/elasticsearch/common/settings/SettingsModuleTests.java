@@ -1153,9 +1153,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Those should fail
-try|try
-block|{
+comment|// Some settings have both scopes - that's fine too if they have per-node defaults
+name|SettingsModule
+name|module
+init|=
 operator|new
 name|SettingsModule
 argument_list|(
@@ -1163,6 +1164,8 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|)
+decl_stmt|;
+name|module
 operator|.
 name|registerSetting
 argument_list|(
@@ -1182,9 +1185,27 @@ name|NodeScope
 argument_list|)
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|module
+operator|.
+name|registerSetting
+argument_list|(
+name|Setting
+operator|.
+name|simpleString
+argument_list|(
+literal|"foo.bar"
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|fail
 argument_list|(
-literal|"Multiple scopes should fail"
+literal|"already registered"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1203,7 +1224,51 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"More than one scope has been added to the setting"
+literal|"Cannot register setting [foo.bar] twice"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|module
+operator|.
+name|registerSetting
+argument_list|(
+name|Setting
+operator|.
+name|simpleString
+argument_list|(
+literal|"foo.bar"
+argument_list|,
+name|Property
+operator|.
+name|IndexScope
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"already registered"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Cannot register setting [foo.bar] twice"
 argument_list|)
 argument_list|)
 expr_stmt|;

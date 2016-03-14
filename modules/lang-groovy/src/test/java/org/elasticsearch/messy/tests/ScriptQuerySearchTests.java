@@ -286,14 +286,11 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|nodeSettings
-specifier|protected
+DECL|method|indexSettings
+specifier|public
 name|Settings
-name|nodeSettings
-parameter_list|(
-name|int
-name|nodeOrdinal
-parameter_list|)
+name|indexSettings
+parameter_list|()
 block|{
 return|return
 name|Settings
@@ -305,10 +302,8 @@ name|put
 argument_list|(
 name|super
 operator|.
-name|nodeSettings
-argument_list|(
-name|nodeOrdinal
-argument_list|)
+name|indexSettings
+argument_list|()
 argument_list|)
 comment|// aggressive filter caching so that we can assert on the number of iterations of the script filters
 operator|.
@@ -589,9 +584,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Double
-operator|)
 name|response
 operator|.
 name|getHits
@@ -647,9 +639,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Double
-operator|)
 name|response
 operator|.
 name|getHits
@@ -804,9 +793,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Double
-operator|)
 name|response
 operator|.
 name|getHits
@@ -956,9 +942,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Double
-operator|)
 name|response
 operator|.
 name|getHits
@@ -1014,9 +997,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Double
-operator|)
 name|response
 operator|.
 name|getHits
@@ -1072,9 +1052,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-operator|(
-name|Double
-operator|)
 name|response
 operator|.
 name|getHits

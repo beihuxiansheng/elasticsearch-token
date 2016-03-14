@@ -3050,6 +3050,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+name|indexSettings
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_SHARDS

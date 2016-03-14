@@ -4095,6 +4095,22 @@ return|return
 name|builder
 return|;
 block|}
+comment|/**      * Returns<tt>true</tt> if this settings object contains no settings      * @return<tt>true</tt> if this settings object contains no settings      */
+DECL|method|isEmpty
+specifier|public
+name|boolean
+name|isEmpty
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|settings
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 comment|/**      * A builder allowing to put different settings and then {@link #build()} an immutable      * settings implementation. Use {@link Settings#settingsBuilder()} in order to      * construct it.      */
 DECL|class|Builder
 specifier|public

@@ -461,11 +461,16 @@ literal|"\": must be native or simple"
 argument_list|)
 throw|;
 block|}
+comment|// can we set on both - node and index level, some nodes might be running on NFS so they might need simple rather than native
 block|}
 argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|rateLimitingTimeInNanos

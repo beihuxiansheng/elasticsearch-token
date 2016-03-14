@@ -308,6 +308,18 @@ name|ThreadPool
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_comment
 comment|/*  * Holds all the configuration that is used to create an {@link Engine}.  * Once {@link Engine} has been created with this object, changes to this  * object will affect the {@link Engine} instance.  */
 end_comment
@@ -439,7 +451,7 @@ specifier|final
 name|QueryCachingPolicy
 name|queryCachingPolicy
 decl_stmt|;
-comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      */
+comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      * This setting is also settable on the node and the index level, it's commonly used in hot/cold node archs where index is likely      * allocated on both `kind` of nodes.      */
 DECL|field|INDEX_CODEC_SETTING
 specifier|public
 specifier|static
@@ -458,9 +470,7 @@ literal|"index.codec"
 argument_list|,
 literal|"default"
 argument_list|,
-parameter_list|(
 name|s
-parameter_list|)
 lambda|->
 block|{
 switch|switch
@@ -516,6 +526,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/** if set to true the engine will start even if the translog id in the commit point can not be found */
@@ -781,7 +795,7 @@ operator|=
 name|enableGcDeletes
 expr_stmt|;
 block|}
-comment|/**      * Returns the initial index buffer size. This setting is only read on startup and otherwise controlled by {@link IndexingMemoryController}      */
+comment|/**      * Returns the initial index buffer size. This setting is only read on startup and otherwise controlled      * by {@link IndexingMemoryController}      */
 DECL|method|getIndexingBufferSize
 specifier|public
 name|ByteSizeValue
@@ -792,7 +806,7 @@ return|return
 name|indexingBufferSize
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff delete garbage collection in the engine should be enabled. This setting is updateable      * in realtime and forces a volatile read. Consumers can safely read this value directly go fetch it's latest value. The default is<code>true</code>      *<p>      *     Engine GC deletion if enabled collects deleted documents from in-memory realtime data structures after a certain amount of      *     time ({@link IndexSettings#getGcDeletesInMillis()} if enabled. Before deletes are GCed they will cause re-adding the document that was deleted      *     to fail.      *</p>      */
+comment|/**      * Returns<code>true</code> iff delete garbage collection in the engine should be enabled. This setting is updateable      * in realtime and forces a volatile read. Consumers can safely read this value directly go fetch it's latest value.      * The default is<code>true</code>      *<p>      *     Engine GC deletion if enabled collects deleted documents from in-memory realtime data structures after a certain amount of      *     time ({@link IndexSettings#getGcDeletesInMillis()} if enabled. Before deletes are GCed they will cause re-adding the document      *     that was deleted to fail.      *</p>      */
 DECL|method|isEnableGcDeletes
 specifier|public
 name|boolean
@@ -819,7 +833,7 @@ name|codecName
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a thread-pool mainly used to get estimated time stamps from {@link org.elasticsearch.threadpool.ThreadPool#estimatedTimeInMillis()} and to schedule      * async force merge calls on the {@link org.elasticsearch.threadpool.ThreadPool.Names#FORCE_MERGE} thread-pool      */
+comment|/**      * Returns a thread-pool mainly used to get estimated time stamps from      * {@link org.elasticsearch.threadpool.ThreadPool#estimatedTimeInMillis()} and to schedule      * async force merge calls on the {@link org.elasticsearch.threadpool.ThreadPool.Names#FORCE_MERGE} thread-pool      */
 DECL|method|getThreadPool
 specifier|public
 name|ThreadPool
@@ -843,7 +857,7 @@ return|return
 name|warmer
 return|;
 block|}
-comment|/**      * Returns the {@link org.elasticsearch.index.store.Store} instance that provides access to the {@link org.apache.lucene.store.Directory}      * used for the engines {@link org.apache.lucene.index.IndexWriter} to write it's index files to.      *<p>      * Note: In order to use this instance the consumer needs to increment the stores reference before it's used the first time and hold      * it's reference until it's not needed anymore.      *</p>      */
+comment|/**      * Returns the {@link org.elasticsearch.index.store.Store} instance that provides access to the      * {@link org.apache.lucene.store.Directory} used for the engines {@link org.apache.lucene.index.IndexWriter} to write it's index files      * to.      *<p>      * Note: In order to use this instance the consumer needs to increment the stores reference before it's used the first time and hold      * it's reference until it's not needed anymore.      *</p>      */
 DECL|method|getStore
 specifier|public
 name|Store

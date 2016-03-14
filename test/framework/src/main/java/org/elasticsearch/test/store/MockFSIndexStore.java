@@ -331,6 +331,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|class|TestPlugin

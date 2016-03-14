@@ -302,20 +302,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// by now we are fully configured, lets check node level settings for unregistered index settings
-name|indexScopedSettings
-operator|.
-name|validate
-argument_list|(
-name|settings
-operator|.
-name|filter
-argument_list|(
-name|IndexScopedSettings
-operator|.
-name|INDEX_SETTINGS_KEY_PREDICATE
-argument_list|)
-argument_list|)
-expr_stmt|;
 specifier|final
 name|Predicate
 argument_list|<
@@ -324,13 +310,6 @@ argument_list|>
 name|acceptOnlyClusterSettings
 init|=
 name|TRIBE_CLIENT_NODE_SETTINGS_PREDICATE
-operator|.
-name|or
-argument_list|(
-name|IndexScopedSettings
-operator|.
-name|INDEX_SETTINGS_KEY_PREDICATE
-argument_list|)
 operator|.
 name|negate
 argument_list|()
@@ -455,35 +434,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// We validate scope settings. We should have one and only one scope.
 if|if
 condition|(
 name|setting
 operator|.
 name|hasNodeScope
 argument_list|()
-operator|&&
+operator|||
 name|setting
 operator|.
 name|hasIndexScope
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"More than one scope has been added to the setting ["
-operator|+
-name|setting
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|"]"
-argument_list|)
-throw|;
-block|}
 if|if
 condition|(
 name|setting
@@ -533,7 +496,6 @@ name|setting
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
 if|if
 condition|(
 name|setting
@@ -582,6 +544,7 @@ argument_list|,
 name|setting
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

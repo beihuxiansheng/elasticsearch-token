@@ -485,6 +485,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+name|indexSettings
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|11
@@ -495,18 +501,6 @@ argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|1
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|UnassignedInfo
-operator|.
-name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|"0s"
 argument_list|)
 operator|.
 name|build
@@ -528,9 +522,7 @@ name|internalCluster
 argument_list|()
 operator|.
 name|startNode
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 decl_stmt|;
 specifier|final
 name|String
@@ -565,6 +557,11 @@ argument_list|(
 name|createIndexRequest
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|settings
+argument_list|(
+name|settings
 argument_list|)
 argument_list|)
 operator|.
@@ -726,9 +723,7 @@ name|internalCluster
 argument_list|()
 operator|.
 name|startNode
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// first wait for 2 nodes in the cluster
 name|logger
@@ -1105,9 +1100,7 @@ name|internalCluster
 argument_list|()
 operator|.
 name|startNode
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// first wait for 3 nodes in the cluster
 name|clusterHealth
