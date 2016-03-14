@@ -473,7 +473,13 @@ name|validationException
 operator|=
 name|addValidationError
 argument_list|(
-literal|"either concreteIndices or unresolved indices can be set"
+literal|"either concreteIndices or unresolved indices can be set concrete: ["
+operator|+
+name|concreteIndex
+operator|+
+literal|"] and indices: "
+operator|+
+name|indices
 argument_list|,
 name|validationException
 argument_list|)
