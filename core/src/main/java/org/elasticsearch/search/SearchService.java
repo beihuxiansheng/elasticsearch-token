@@ -1710,9 +1710,6 @@ operator|.
 name|index
 argument_list|(
 name|index
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

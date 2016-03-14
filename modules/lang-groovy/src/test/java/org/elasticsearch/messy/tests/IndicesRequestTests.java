@@ -3195,7 +3195,7 @@ operator|.
 name|EMPTY
 argument_list|)
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|client
 argument_list|()
@@ -3373,7 +3373,7 @@ operator|.
 name|EMPTY
 argument_list|)
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|client
 argument_list|()

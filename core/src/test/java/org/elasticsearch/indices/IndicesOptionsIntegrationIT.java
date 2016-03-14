@@ -724,6 +724,18 @@ name|nullValue
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|startsWith
+import|;
+end_import
+
 begin_class
 DECL|class|IndicesOptionsIntegrationIT
 specifier|public
@@ -8240,9 +8252,9 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
-literal|"Can't update non dynamic settings[[index.e]] for open indices [[barbaz]]"
+literal|"Can't update non dynamic settings [[index.e]] for open indices [[barbaz"
 argument_list|)
 argument_list|)
 expr_stmt|;

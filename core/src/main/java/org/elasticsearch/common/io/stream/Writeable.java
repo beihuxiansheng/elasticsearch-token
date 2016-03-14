@@ -57,6 +57,29 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|FunctionalInterface
+DECL|interface|IOFunction
+interface|interface
+name|IOFunction
+parameter_list|<
+name|T
+parameter_list|,
+name|R
+parameter_list|>
+block|{
+comment|/**           * Applies this function to the given argument.           *           * @param t the function argument           * @return the function result           */
+DECL|method|apply
+name|R
+name|apply
+parameter_list|(
+name|T
+name|t
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+block|}
 block|}
 end_interface
 

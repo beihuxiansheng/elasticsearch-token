@@ -208,6 +208,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -466,7 +478,7 @@ block|}
 block|}
 name|ObjectFloatHashMap
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|indices
 init|=
@@ -580,9 +592,6 @@ name|value
 operator|.
 name|getIndex
 argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -674,11 +683,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 operator|(
-name|String
+name|Index
 operator|)
 name|keys
 index|[

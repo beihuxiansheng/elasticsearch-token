@@ -394,9 +394,8 @@ name|IOException
 block|{
 name|index
 operator|=
+operator|new
 name|Index
-operator|.
-name|readIndex
 argument_list|(
 name|in
 argument_list|)
