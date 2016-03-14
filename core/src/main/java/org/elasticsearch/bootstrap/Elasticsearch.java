@@ -53,7 +53,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|StartupError
+name|Exception
 block|{
 try|try
 block|{

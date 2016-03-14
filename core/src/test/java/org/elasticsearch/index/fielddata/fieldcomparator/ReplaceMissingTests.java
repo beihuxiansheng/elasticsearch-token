@@ -304,7 +304,7 @@ decl_stmt|;
 name|LeafReader
 name|ar
 init|=
-name|getOnlySegmentReader
+name|getOnlyLeafReader
 argument_list|(
 name|reader
 argument_list|)

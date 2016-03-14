@@ -264,7 +264,9 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Settings
+name|Setting
+operator|.
+name|Property
 import|;
 end_import
 
@@ -461,13 +463,9 @@ throw|;
 block|}
 block|}
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 argument_list|)
 decl_stmt|;
 DECL|field|rateLimitingTimeInNanos

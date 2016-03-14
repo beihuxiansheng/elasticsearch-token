@@ -134,7 +134,9 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Settings
+name|Setting
+operator|.
+name|Property
 import|;
 end_import
 
@@ -148,9 +150,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Setting
-operator|.
-name|Scope
+name|Settings
 import|;
 end_import
 
@@ -2293,11 +2293,9 @@ name|simpleString
 argument_list|(
 literal|"http.type"
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|HTTP_ENABLED
@@ -2318,11 +2316,9 @@ literal|"http.enabled"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|TRANSPORT_SERVICE_TYPE_SETTING
@@ -2341,11 +2337,9 @@ name|simpleString
 argument_list|(
 literal|"transport.service.type"
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|TRANSPORT_TYPE_SETTING
@@ -2364,11 +2358,9 @@ name|simpleString
 argument_list|(
 literal|"transport.type"
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|builtinRestHandlers
