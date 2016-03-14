@@ -74,6 +74,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -154,7 +166,10 @@ name|settingsO1
 init|=
 name|getIndexSettings
 argument_list|(
-name|o1Index
+name|o1
+operator|.
+name|index
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -163,7 +178,10 @@ name|settingsO2
 init|=
 name|getIndexSettings
 argument_list|(
-name|o2Index
+name|o2
+operator|.
+name|index
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|cmp
@@ -279,7 +297,7 @@ specifier|abstract
 name|Settings
 name|getIndexSettings
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 function_decl|;
@@ -306,7 +324,7 @@ specifier|protected
 name|Settings
 name|getIndexSettings
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 block|{
@@ -318,7 +336,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|index
 argument_list|)

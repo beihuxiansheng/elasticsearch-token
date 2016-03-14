@@ -68,7 +68,7 @@ parameter_list|,
 name|R
 parameter_list|>
 block|{
-comment|/**          * Applies this function to the given argument.          *          * @param t the function argument          * @return the function result          */
+comment|/**           * Applies this function to the given argument.           *           * @param t the function argument           * @return the function result           */
 DECL|method|apply
 name|R
 name|apply

@@ -2923,7 +2923,7 @@ name|StreamInput
 argument_list|,
 name|T
 argument_list|>
-name|supplier
+name|provider
 parameter_list|)
 throws|throws
 name|IOException
@@ -2935,7 +2935,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|supplier
+name|provider
 operator|.
 name|apply
 argument_list|(

@@ -370,16 +370,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_class
 DECL|class|MatchQuery
 specifier|public
@@ -1703,11 +1693,9 @@ name|MultiPhraseQuery
 operator|)
 name|query
 decl_stmt|;
-name|List
-argument_list|<
 name|Term
 index|[]
-argument_list|>
+index|[]
 name|terms
 init|=
 name|pq
@@ -1735,8 +1723,7 @@ name|i
 operator|<
 name|terms
 operator|.
-name|size
-argument_list|()
+name|length
 condition|;
 name|i
 operator|++
@@ -1747,11 +1734,9 @@ operator|.
 name|add
 argument_list|(
 name|terms
-operator|.
-name|get
-argument_list|(
+index|[
 name|i
-argument_list|)
+index|]
 argument_list|,
 name|positions
 index|[

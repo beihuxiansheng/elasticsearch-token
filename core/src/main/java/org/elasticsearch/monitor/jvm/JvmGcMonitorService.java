@@ -56,7 +56,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|Property
 import|;
 end_import
 
@@ -260,11 +260,9 @@ literal|"monitor.jvm.gc.enabled"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|REFRESH_INTERVAL_SETTING
@@ -297,11 +295,9 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|GC_COLLECTOR_PREFIX
@@ -328,11 +324,9 @@ name|groupSetting
 argument_list|(
 name|GC_COLLECTOR_PREFIX
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|class|GcThreshold

@@ -386,7 +386,7 @@ name|READ
 argument_list|,
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|state
 argument_list|,

@@ -226,6 +226,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -385,7 +397,7 @@ specifier|private
 specifier|volatile
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|previouslyWrittenIndices
 init|=
@@ -604,17 +616,6 @@ name|ClusterChangedEvent
 name|event
 parameter_list|)
 block|{
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|relevantIndices
-init|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-decl_stmt|;
 specifier|final
 name|ClusterState
 name|state
@@ -658,6 +659,17 @@ name|metaData
 argument_list|()
 decl_stmt|;
 comment|// we don't check if metaData changed, since we might be called several times and we need to check dangling...
+name|Set
+argument_list|<
+name|Index
+argument_list|>
+name|relevantIndices
+init|=
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
+decl_stmt|;
 name|boolean
 name|success
 init|=
@@ -714,7 +726,7 @@ condition|)
 block|{
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|newPreviouslyWrittenIndices
 init|=
@@ -788,9 +800,6 @@ argument_list|(
 name|indexMetaDataOnDisk
 operator|.
 name|getIndex
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -866,12 +875,6 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-name|Iterable
-argument_list|<
-name|IndexMetaWriteInfo
-argument_list|>
-name|writeInfo
-decl_stmt|;
 name|relevantIndices
 operator|=
 name|getRelevantIndices
@@ -889,8 +892,13 @@ argument_list|,
 name|previouslyWrittenIndices
 argument_list|)
 expr_stmt|;
+specifier|final
+name|Iterable
+argument_list|<
+name|IndexMetaWriteInfo
+argument_list|>
 name|writeInfo
-operator|=
+init|=
 name|resolveStatesToBeWritten
 argument_list|(
 name|previouslyWrittenIndices
@@ -907,7 +915,7 @@ operator|.
 name|metaData
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// check and write changes in indices
 for|for
 control|(
@@ -980,7 +988,7 @@ specifier|public
 specifier|static
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|getRelevantIndices
 parameter_list|(
@@ -992,14 +1000,14 @@ name|previousState
 parameter_list|,
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|previouslyWrittenIndices
 parameter_list|)
 block|{
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|relevantIndices
 decl_stmt|;
@@ -1442,13 +1450,13 @@ name|resolveStatesToBeWritten
 parameter_list|(
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|previouslyWrittenIndices
 parameter_list|,
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|potentiallyUnwrittenIndices
 parameter_list|,
@@ -1474,7 +1482,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|String
+name|Index
 name|index
 range|:
 name|potentiallyUnwrittenIndices
@@ -1485,7 +1493,7 @@ name|newIndexMetaData
 init|=
 name|newMetaData
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|index
 argument_list|)
@@ -1600,7 +1608,7 @@ specifier|public
 specifier|static
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|getRelevantIndicesOnDataOnlyNode
 parameter_list|(
@@ -1612,7 +1620,7 @@ name|previousState
 parameter_list|,
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|previouslyWrittenIndices
 parameter_list|)
@@ -1653,7 +1661,7 @@ throw|;
 block|}
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|indices
 init|=
@@ -1677,9 +1685,6 @@ argument_list|(
 name|routing
 operator|.
 name|index
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1767,9 +1772,6 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 operator|&&
 name|isOrWasClosed
@@ -1782,9 +1784,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1799,7 +1798,7 @@ specifier|public
 specifier|static
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|getRelevantIndicesForMasterEligibleNode
 parameter_list|(
@@ -1809,7 +1808,7 @@ parameter_list|)
 block|{
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|relevantIndices
 decl_stmt|;
@@ -1839,9 +1838,6 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|getIndex
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

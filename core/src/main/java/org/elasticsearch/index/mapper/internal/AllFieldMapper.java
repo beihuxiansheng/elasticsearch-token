@@ -1763,8 +1763,9 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"omit_norms"
+literal|"norms"
 argument_list|,
+operator|!
 name|fieldType
 argument_list|()
 operator|.

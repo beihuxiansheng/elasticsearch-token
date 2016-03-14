@@ -230,7 +230,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|Property
 import|;
 end_import
 
@@ -788,11 +788,13 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|TRACE_LOG_EXCLUDE_SETTING
@@ -828,11 +830,13 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|tracerLog

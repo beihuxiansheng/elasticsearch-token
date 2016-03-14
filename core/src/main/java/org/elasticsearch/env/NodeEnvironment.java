@@ -258,7 +258,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|Property
 import|;
 end_import
 
@@ -421,20 +421,6 @@ operator|.
 name|jvm
 operator|.
 name|JvmInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|monitor
-operator|.
-name|process
-operator|.
-name|ProcessProbe
 import|;
 end_import
 
@@ -966,11 +952,9 @@ literal|50
 argument_list|,
 literal|1
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * If true automatically append node id to custom data paths.      */
@@ -992,11 +976,9 @@ literal|"node.add_id_to_custom_path"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * If true the [verbose] SegmentInfos.infoStream logging is sent to System.out.      */
@@ -1018,11 +1000,9 @@ literal|"node.enable_lucene_segment_infos_trace"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|NODES_FOLDER

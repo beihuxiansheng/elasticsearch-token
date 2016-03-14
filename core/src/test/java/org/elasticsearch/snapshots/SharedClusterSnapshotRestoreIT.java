@@ -18380,7 +18380,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|waitForBlockOnAllDataNodes
+name|waitForBlockOnAnyDataNode
 argument_list|(
 literal|"test-repo"
 argument_list|,
@@ -18513,7 +18513,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Cannot delete indices that are being snapshotted: [test-idx-1]"
+literal|"Cannot delete indices that are being snapshotted: [[test-idx-1/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -18567,7 +18567,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Cannot close indices that are being snapshotted: [test-idx-1]"
+literal|"Cannot close indices that are being snapshotted: [[test-idx-1/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19101,7 +19101,7 @@ argument_list|(
 literal|"--> waiting for block to kick in"
 argument_list|)
 expr_stmt|;
-name|waitForBlockOnAllDataNodes
+name|waitForBlockOnAnyDataNode
 argument_list|(
 literal|"test-repo"
 argument_list|,
@@ -19159,7 +19159,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Cannot close indices that are being restored: [test-idx-1]"
+literal|"Cannot close indices that are being restored: [[test-idx-1/"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -19167,6 +19167,7 @@ block|}
 block|}
 finally|finally
 block|{
+comment|// unblock even if the try block fails otherwise we will get bogus failures when we delete all indices in test teardown.
 name|logger
 operator|.
 name|info

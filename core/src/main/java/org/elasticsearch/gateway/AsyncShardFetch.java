@@ -1604,7 +1604,7 @@ name|indexMetaData
 init|=
 name|metaData
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shardId
 operator|.

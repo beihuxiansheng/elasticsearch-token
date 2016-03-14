@@ -206,6 +206,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -421,7 +433,7 @@ name|METADATA_WRITE
 argument_list|,
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|state
 argument_list|,
@@ -468,7 +480,7 @@ name|listener
 parameter_list|)
 block|{
 specifier|final
-name|String
+name|Index
 index|[]
 name|concreteIndices
 init|=
