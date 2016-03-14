@@ -340,7 +340,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shardRouting
 operator|.
@@ -569,7 +569,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shardRouting
 operator|.

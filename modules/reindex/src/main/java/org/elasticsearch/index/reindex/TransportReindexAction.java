@@ -658,7 +658,7 @@ name|target
 operator|=
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|clusterState
 argument_list|,
@@ -676,7 +676,7 @@ name|sourceIndex
 range|:
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|clusterState
 argument_list|,

@@ -1378,9 +1378,8 @@ block|{
 name|Index
 name|index
 init|=
+operator|new
 name|Index
-operator|.
-name|readIndex
 argument_list|(
 name|in
 argument_list|)

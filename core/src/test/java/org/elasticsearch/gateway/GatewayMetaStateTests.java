@@ -144,6 +144,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESAllocationTestCase
@@ -1184,7 +1196,7 @@ literal|null
 decl_stmt|;
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|oldIndicesList
 init|=
@@ -1228,7 +1240,7 @@ expr_stmt|;
 block|}
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|newIndicesList
 init|=

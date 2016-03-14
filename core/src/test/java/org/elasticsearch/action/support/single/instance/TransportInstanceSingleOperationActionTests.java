@@ -802,11 +802,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|concreteIndices
+DECL|method|concreteIndexNames
 specifier|public
 name|String
 index|[]
-name|concreteIndices
+name|concreteIndexNames
 parameter_list|(
 name|ClusterState
 name|state
