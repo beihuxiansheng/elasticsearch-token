@@ -1472,8 +1472,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> adding allocation command for shard "
-operator|+
+literal|"--> adding allocation command for shard {}"
+argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;

@@ -18347,15 +18347,11 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Running multi-match type: ["
-operator|+
+literal|"Running multi-match type: [{}] highlight with type: [{}]"
+argument_list|,
 name|matchQueryType
-operator|+
-literal|"] highlight with type: ["
-operator|+
+argument_list|,
 name|highlighterType
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|SearchResponse

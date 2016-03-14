@@ -1060,11 +1060,11 @@ name|warn
 argument_list|(
 literal|"no version match {}, default to {}"
 argument_list|,
+name|e
+argument_list|,
 name|version
 argument_list|,
 name|defaultVersion
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 return|return

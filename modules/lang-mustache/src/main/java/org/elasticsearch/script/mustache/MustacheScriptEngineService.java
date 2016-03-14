@@ -900,11 +900,11 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Error running "
-operator|+
-name|template
+literal|"Error running {}"
 argument_list|,
 name|e
+argument_list|,
+name|template
 argument_list|)
 expr_stmt|;
 throw|throw

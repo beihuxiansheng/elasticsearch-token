@@ -2427,9 +2427,9 @@ throws|throws
 name|Exception
 block|{
 name|boolean
-name|omitNorms
+name|norms
 init|=
-literal|false
+literal|true
 decl_stmt|;
 name|boolean
 name|stored
@@ -2534,9 +2534,9 @@ operator|new
 name|Tuple
 argument_list|<>
 argument_list|(
-literal|"omit_norms"
+literal|"norms"
 argument_list|,
-name|omitNorms
+name|norms
 operator|=
 name|randomBoolean
 argument_list|()
@@ -2797,6 +2797,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Mapping: {}"
+argument_list|,
 name|mapping
 argument_list|)
 expr_stmt|;
@@ -2930,7 +2932,8 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|omitNorms
+operator|!
+name|norms
 argument_list|)
 argument_list|)
 expr_stmt|;

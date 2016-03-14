@@ -1935,8 +1935,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Checking "
-operator|+
+literal|"Checking {}"
+argument_list|,
 name|v
 argument_list|)
 expr_stmt|;

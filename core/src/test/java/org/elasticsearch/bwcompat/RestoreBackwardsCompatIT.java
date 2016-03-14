@@ -828,8 +828,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Old repositories tests contain extra repo: "
-operator|+
+literal|"Old repositories tests contain extra repo: {}"
+argument_list|,
 name|repoVersion
 argument_list|)
 expr_stmt|;

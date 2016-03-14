@@ -1184,14 +1184,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[upgrade]: processing ["
-operator|+
+literal|"[upgrade]: processing [{}]"
+argument_list|,
 name|stateFile
 operator|.
 name|getFileName
 argument_list|()
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

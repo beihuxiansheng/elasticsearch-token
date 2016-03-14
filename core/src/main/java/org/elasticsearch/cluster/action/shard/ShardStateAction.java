@@ -1186,14 +1186,6 @@ name|trace
 argument_list|(
 literal|"new cluster state [{}] after waiting for master election to fail shard [{}]"
 argument_list|,
-name|shardRoutingEntry
-operator|.
-name|getShardRouting
-argument_list|()
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
 name|state
 operator|.
 name|prettyPrint
@@ -2224,9 +2216,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+literal|"{}, scheduling a reroute"
+argument_list|,
 name|reason
-operator|+
-literal|", scheduling a reroute"
 argument_list|)
 expr_stmt|;
 block|}

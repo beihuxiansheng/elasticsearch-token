@@ -1796,8 +1796,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"bucket="
-operator|+
+literal|"bucket={}"
+argument_list|,
 name|bucket
 operator|.
 name|getKey

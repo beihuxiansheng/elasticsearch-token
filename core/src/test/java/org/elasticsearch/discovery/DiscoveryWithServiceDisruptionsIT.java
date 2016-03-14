@@ -1719,8 +1719,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"---> legit elected master node="
-operator|+
+literal|"---> legit elected master node={}"
+argument_list|,
 name|masterNode
 argument_list|)
 expr_stmt|;
@@ -3293,11 +3293,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"indexing "
-operator|+
+literal|"indexing {} docs per indexer before partition"
+argument_list|,
 name|docsPerIndexer
-operator|+
-literal|" docs per indexer before partition"
 argument_list|)
 expr_stmt|;
 name|countDownLatchRef
@@ -3396,11 +3394,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"indexing "
-operator|+
+literal|"indexing {} docs per indexer during partition"
+argument_list|,
 name|docsPerIndexer
-operator|+
-literal|" docs per indexer during partition"
 argument_list|)
 expr_stmt|;
 name|countDownLatchRef
@@ -3668,9 +3664,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"Indexing exceptions during disruption:"
-argument_list|)
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3700,10 +3694,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"Indexing exceptions during disruption: {}"
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4928,11 +4921,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Verifying if document exists via node["
-operator|+
+literal|"Verifying if document exists via node[{}]"
+argument_list|,
 name|notIsolatedNode
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|GetResponse
@@ -5035,15 +5026,11 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Verifying if document exists after isolating node["
-operator|+
+literal|"Verifying if document exists after isolating node[{}] via node[{}]"
+argument_list|,
 name|isolatedNode
-operator|+
-literal|"] via node["
-operator|+
+argument_list|,
 name|node
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|getResponse
@@ -5165,8 +5152,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"---> legit elected master node="
-operator|+
+literal|"---> legit elected master node={}"
+argument_list|,
 name|masterNode
 argument_list|)
 expr_stmt|;

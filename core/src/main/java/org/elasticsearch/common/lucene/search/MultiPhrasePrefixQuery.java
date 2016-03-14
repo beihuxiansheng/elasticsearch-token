@@ -597,10 +597,14 @@ argument_list|()
 return|;
 block|}
 name|MultiPhraseQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|MultiPhraseQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|query
@@ -751,10 +755,8 @@ expr_stmt|;
 return|return
 name|query
 operator|.
-name|rewrite
-argument_list|(
-name|reader
-argument_list|)
+name|build
+argument_list|()
 return|;
 block|}
 DECL|method|getPrefixTerms

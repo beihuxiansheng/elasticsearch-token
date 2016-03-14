@@ -70,8 +70,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
 name|cli
 operator|.
 name|Terminal
@@ -103,6 +101,22 @@ operator|.
 name|settings
 operator|.
 name|Setting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|Property
 import|;
 end_import
 
@@ -392,13 +406,9 @@ literal|"config.ignore_system_properties"
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * Prepares the settings by gathering all elasticsearch system properties and setting defaults.      */

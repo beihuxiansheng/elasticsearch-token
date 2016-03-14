@@ -3276,7 +3276,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node"
+literal|"--> stopping node [{}]"
 argument_list|,
 name|blockedNode
 argument_list|)
@@ -3716,7 +3716,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node"
+literal|"--> stopping node [{}]"
 argument_list|,
 name|blockedNode
 argument_list|)
@@ -6350,14 +6350,28 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"secret.mock.username"
+name|MockRepository
+operator|.
+name|Plugin
+operator|.
+name|USERNAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"notsecretusername"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"secret.mock.password"
+name|MockRepository
+operator|.
+name|Plugin
+operator|.
+name|PASSWORD_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"verysecretpassword"
 argument_list|)

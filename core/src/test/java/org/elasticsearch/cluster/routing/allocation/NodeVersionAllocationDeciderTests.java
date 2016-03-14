@@ -4753,12 +4753,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"From: "
-operator|+
+literal|"From: {} with Version: {} to: {} with Version: {}"
+argument_list|,
 name|fromId
-operator|+
-literal|" with Version: "
-operator|+
+argument_list|,
 name|routingNodes
 operator|.
 name|node
@@ -4771,13 +4769,9 @@ argument_list|()
 operator|.
 name|version
 argument_list|()
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|toId
-operator|+
-literal|" with Version: "
-operator|+
+argument_list|,
 name|routingNodes
 operator|.
 name|node
@@ -4865,12 +4859,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"From: "
-operator|+
+literal|"From: {} with Version: {} to: {} with Version: {}"
+argument_list|,
 name|fromId
-operator|+
-literal|" with Version: "
-operator|+
+argument_list|,
 name|routingNodes
 operator|.
 name|node
@@ -4883,13 +4875,9 @@ argument_list|()
 operator|.
 name|version
 argument_list|()
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|toId
-operator|+
-literal|" with Version: "
-operator|+
+argument_list|,
 name|routingNodes
 operator|.
 name|node
@@ -5004,12 +4992,10 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"From: "
-operator|+
+literal|"From: {} with Version: {} to: {} with Version: {}"
+argument_list|,
 name|fromId
-operator|+
-literal|" with Version: "
-operator|+
+argument_list|,
 name|routingNodes
 operator|.
 name|node
@@ -5022,13 +5008,9 @@ argument_list|()
 operator|.
 name|version
 argument_list|()
-operator|+
-literal|" to: "
-operator|+
+argument_list|,
 name|toId
-operator|+
-literal|" with Version: "
-operator|+
+argument_list|,
 name|routingNodes
 operator|.
 name|node

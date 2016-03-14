@@ -1418,12 +1418,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Single data path: "
-operator|+
+literal|"--> Single data path: {}"
+argument_list|,
 name|singleDataPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// find multi data path dirs
@@ -1537,25 +1534,17 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Multi data paths: "
-operator|+
+literal|"--> Multi data paths: {}, {}"
+argument_list|,
 name|multiDataPath
 index|[
 literal|0
 index|]
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|", "
-operator|+
+argument_list|,
 name|multiDataPath
 index|[
 literal|1
 index|]
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|replicas
@@ -2005,12 +1994,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Skipping lock file: "
-operator|+
+literal|"Skipping lock file: {}"
+argument_list|,
 name|file
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2048,19 +2034,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"--> Moving "
-operator|+
+literal|"--> Moving {} to {}"
+argument_list|,
 name|relativeFile
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|destFile
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|Files
@@ -2239,8 +2217,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Old indexes tests contain extra index: "
-operator|+
+literal|"Old indexes tests contain extra index: {}"
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -2334,8 +2312,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Testing old index "
-operator|+
+literal|"--> Testing old index {}"
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -2348,13 +2326,10 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Done testing "
-operator|+
+literal|"--> Done testing {}, took {} seconds"
+argument_list|,
 name|index
-operator|+
-literal|", took "
-operator|+
-operator|(
+argument_list|,
 operator|(
 name|System
 operator|.
@@ -2365,9 +2340,6 @@ name|startTime
 operator|)
 operator|/
 literal|1000.0
-operator|)
-operator|+
-literal|" seconds"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2794,11 +2766,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} in old index"
+argument_list|,
 name|numDocs
-operator|+
-literal|" in old index"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -4152,11 +4122,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Parsing cluster state files from index ["
-operator|+
+literal|"Parsing cluster state files from index [{}]"
+argument_list|,
 name|indexName
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|assertNotNull

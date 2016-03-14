@@ -3628,9 +3628,9 @@ name|debug
 argument_list|(
 literal|"tried to fail engine but engine is already failed. ignoring. [{}]"
 argument_list|,
-name|reason
-argument_list|,
 name|failure
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3764,9 +3764,9 @@ name|debug
 argument_list|(
 literal|"tried to fail engine but could not acquire lock - engine should be failed by now [{}]"
 argument_list|,
-name|reason
-argument_list|,
 name|failure
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}

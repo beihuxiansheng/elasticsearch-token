@@ -583,6 +583,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"[{}] not acking store deletion (not a data node)"
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 return|return;
@@ -612,7 +614,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}]failed to ack index store deleted for  index"
+literal|"[{}] failed to ack index store deleted for index"
 argument_list|,
 name|t
 argument_list|,

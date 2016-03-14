@@ -2501,8 +2501,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node "
-operator|+
+literal|"--> stopping node {}"
+argument_list|,
 name|node_2
 argument_list|)
 expr_stmt|;
@@ -2573,8 +2573,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster_health, status "
-operator|+
+literal|"--> done cluster_health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus

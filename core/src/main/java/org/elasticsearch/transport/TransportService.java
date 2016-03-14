@@ -230,7 +230,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|Property
 import|;
 end_import
 
@@ -788,11 +788,13 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|TRACE_LOG_EXCLUDE_SETTING
@@ -828,11 +830,13 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|tracerLog
@@ -2342,13 +2346,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to notify channel of error message for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"failed to notify channel of error message for action [{}]"
 argument_list|,
 name|e1
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2393,13 +2395,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to notify channel of error message for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"failed to notify channel of error message for action [{}]"
 argument_list|,
 name|e1
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger

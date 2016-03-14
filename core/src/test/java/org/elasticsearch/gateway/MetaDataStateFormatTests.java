@@ -2149,6 +2149,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"{}"
+argument_list|,
 name|msg
 operator|.
 name|toString

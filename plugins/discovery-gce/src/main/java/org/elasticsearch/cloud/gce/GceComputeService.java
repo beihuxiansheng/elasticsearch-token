@@ -70,6 +70,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|Property
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -116,6 +132,18 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
+import|;
+end_import
+
 begin_interface
 DECL|interface|GceComputeService
 specifier|public
@@ -149,13 +177,9 @@ name|simpleString
 argument_list|(
 literal|"cloud.gce.project_id"
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.gce.zone: Google Compute Engine zones      */
@@ -180,17 +204,14 @@ operator|.
 name|emptyList
 argument_list|()
 argument_list|,
-name|s
-lambda|->
-name|s
-argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Function
 operator|.
-name|Scope
+name|identity
+argument_list|()
+argument_list|,
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.gce.refresh_interval: How long the list of hosts is cached to prevent further requests to the AWS API. 0 disables caching.      * A negative value will cause infinite caching. Defaults to 0s.      */
@@ -214,13 +235,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.gce.retry: Should we retry calling GCE API in case of error? Defaults to true.      */
@@ -239,13 +256,9 @@ literal|"cloud.gce.retry"
 argument_list|,
 literal|true
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * cloud.gce.max_wait: How long exponential backoff should retry before definitely failing.      * It's a total time since the the initial call is made.      * A negative value will retry indefinitely. Defaults to `-1s` (retry indefinitely).      */
@@ -270,13 +283,9 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|/**      * Return a collection of running instances within the same GCE project      * @return a collection of running instances within the same GCE project      */
