@@ -667,7 +667,7 @@ name|indices
 init|=
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|currentState
 argument_list|,

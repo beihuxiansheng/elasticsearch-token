@@ -1003,6 +1003,8 @@ argument_list|(
 name|IngestStats
 operator|.
 name|PROTO
+operator|::
+name|readFrom
 argument_list|)
 expr_stmt|;
 block|}

@@ -943,12 +943,6 @@ specifier|final
 name|TransportRequestOptions
 name|transportOptions
 decl_stmt|;
-DECL|field|mappingUpdatedAction
-specifier|protected
-specifier|final
-name|MappingUpdatedAction
-name|mappingUpdatedAction
-decl_stmt|;
 DECL|field|transportReplicaAction
 specifier|final
 name|String
@@ -993,9 +987,6 @@ name|threadPool
 parameter_list|,
 name|ShardStateAction
 name|shardStateAction
-parameter_list|,
-name|MappingUpdatedAction
-name|mappingUpdatedAction
 parameter_list|,
 name|ActionFilters
 name|actionFilters
@@ -1060,12 +1051,6 @@ operator|.
 name|shardStateAction
 operator|=
 name|shardStateAction
-expr_stmt|;
-name|this
-operator|.
-name|mappingUpdatedAction
-operator|=
-name|mappingUpdatedAction
 expr_stmt|;
 name|this
 operator|.
@@ -3175,6 +3160,9 @@ name|state
 argument_list|,
 name|request
 argument_list|)
+operator|.
+name|getName
+argument_list|()
 else|:
 name|request
 operator|.

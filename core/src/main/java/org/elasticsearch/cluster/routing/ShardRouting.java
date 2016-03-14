@@ -1277,9 +1277,8 @@ name|readFrom
 argument_list|(
 name|in
 argument_list|,
+operator|new
 name|Index
-operator|.
-name|readIndex
 argument_list|(
 name|in
 argument_list|)

@@ -1133,7 +1133,7 @@ name|float
 operator|)
 name|metaData
 operator|.
-name|totalNumberOfShards
+name|getTotalNumberOfShards
 argument_list|()
 operator|)
 operator|/
