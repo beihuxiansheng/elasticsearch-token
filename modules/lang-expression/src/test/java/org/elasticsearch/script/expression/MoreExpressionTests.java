@@ -3931,6 +3931,7 @@ name|field
 argument_list|(
 literal|"x"
 argument_list|)
+comment|// specifically to test a script w/o _value
 operator|.
 name|script
 argument_list|(
