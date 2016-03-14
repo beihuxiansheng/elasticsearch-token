@@ -554,13 +554,6 @@ name|Object
 name|value
 parameter_list|)
 block|{
-assert|assert
-operator|(
-name|specialValue
-operator|!=
-literal|null
-operator|)
-assert|;
 comment|// this should only be used for the special "_value" variable used in aggregations
 assert|assert
 operator|(
@@ -572,6 +565,14 @@ literal|"_value"
 argument_list|)
 operator|)
 assert|;
+comment|// _value isn't used in script if specialValue == null
+if|if
+condition|(
+name|specialValue
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|value
@@ -606,6 +607,7 @@ operator|+
 name|compiledScript
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
