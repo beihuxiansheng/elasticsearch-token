@@ -212,6 +212,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -473,13 +483,18 @@ name|validationException
 operator|=
 name|addValidationError
 argument_list|(
-literal|"either concreteIndices or unresolved indices can be set concrete: ["
+literal|"either concrete index or unresolved indices can be set, concrete index: ["
 operator|+
 name|concreteIndex
 operator|+
 literal|"] and indices: "
 operator|+
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 name|indices
+argument_list|)
 argument_list|,
 name|validationException
 argument_list|)
