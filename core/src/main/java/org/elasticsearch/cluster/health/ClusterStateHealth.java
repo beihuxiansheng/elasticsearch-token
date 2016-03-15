@@ -454,7 +454,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteAllIndices
+name|getConcreteAllIndices
 argument_list|()
 argument_list|)
 expr_stmt|;
