@@ -60,6 +60,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -553,11 +565,19 @@ argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
+name|Index
+name|resolveIndex
+init|=
+name|resolveIndex
+argument_list|(
+name|index
+argument_list|)
+decl_stmt|;
 name|assertIndexDirectoryDeleted
 argument_list|(
 name|node2
 argument_list|,
-name|index
+name|resolveIndex
 argument_list|)
 expr_stmt|;
 name|assertIndexInMetaState
@@ -640,7 +660,7 @@ name|assertIndexDirectoryDeleted
 argument_list|(
 name|node1
 argument_list|,
-name|index
+name|resolveIndex
 argument_list|)
 expr_stmt|;
 name|assertIndexInMetaState
@@ -1286,8 +1306,8 @@ name|String
 name|nodeName
 parameter_list|,
 specifier|final
-name|String
-name|indexName
+name|Index
+name|index
 parameter_list|)
 throws|throws
 name|Exception
@@ -1308,7 +1328,7 @@ name|assertFalse
 argument_list|(
 literal|"Expecting index directory of "
 operator|+
-name|indexName
+name|index
 operator|+
 literal|" to be deleted from node "
 operator|+
@@ -1318,7 +1338,7 @@ name|indexDirectoryExists
 argument_list|(
 name|nodeName
 argument_list|,
-name|indexName
+name|index
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1411,8 +1431,8 @@ parameter_list|(
 name|String
 name|nodeName
 parameter_list|,
-name|String
-name|indexName
+name|Index
+name|index
 parameter_list|)
 block|{
 name|NodeEnvironment
@@ -1444,7 +1464,7 @@ name|nodeEnv
 operator|.
 name|indexPaths
 argument_list|(
-name|indexName
+name|index
 argument_list|)
 control|)
 block|{

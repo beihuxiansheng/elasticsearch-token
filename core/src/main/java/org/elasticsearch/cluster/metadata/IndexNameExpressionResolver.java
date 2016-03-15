@@ -2356,7 +2356,7 @@ name|concreteIndices
 init|=
 name|metaData
 operator|.
-name|concreteAllIndices
+name|getConcreteAllIndices
 argument_list|()
 decl_stmt|;
 for|for
@@ -2481,7 +2481,7 @@ name|length
 operator|==
 name|metaData
 operator|.
-name|concreteAllIndices
+name|getConcreteAllIndices
 argument_list|()
 operator|.
 name|length
@@ -4000,7 +4000,7 @@ name|asList
 argument_list|(
 name|metaData
 operator|.
-name|concreteAllIndices
+name|getConcreteAllIndices
 argument_list|()
 argument_list|)
 return|;
@@ -4021,7 +4021,7 @@ name|asList
 argument_list|(
 name|metaData
 operator|.
-name|concreteAllOpenIndices
+name|getConcreteAllOpenIndices
 argument_list|()
 argument_list|)
 return|;
@@ -4042,7 +4042,7 @@ name|asList
 argument_list|(
 name|metaData
 operator|.
-name|concreteAllClosedIndices
+name|getConcreteAllClosedIndices
 argument_list|()
 argument_list|)
 return|;

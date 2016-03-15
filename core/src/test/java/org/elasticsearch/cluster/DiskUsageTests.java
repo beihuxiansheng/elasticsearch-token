@@ -826,7 +826,7 @@ name|Index
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"_na_"
+literal|"0xdeadbeef"
 argument_list|)
 decl_stmt|;
 name|ShardRouting
@@ -886,7 +886,10 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-literal|"test"
+name|index
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 operator|.
 name|resolve
@@ -970,7 +973,10 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-literal|"test"
+name|index
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 operator|.
 name|resolve
@@ -1019,8 +1025,6 @@ name|test0Path
 argument_list|,
 name|test0Path
 argument_list|,
-literal|"0xdeadbeef"
-argument_list|,
 name|test_0
 operator|.
 name|shardId
@@ -1045,8 +1049,6 @@ argument_list|,
 name|test1Path
 argument_list|,
 name|test1Path
-argument_list|,
-literal|"0xdeadbeef"
 argument_list|,
 name|test_1
 operator|.
