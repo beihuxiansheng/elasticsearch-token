@@ -48,6 +48,13 @@ block|{
 name|String
 name|fieldName
 init|=
+name|rarely
+argument_list|()
+condition|?
+name|SortParseElement
+operator|.
+name|DOC_FIELD_NAME
+else|:
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1

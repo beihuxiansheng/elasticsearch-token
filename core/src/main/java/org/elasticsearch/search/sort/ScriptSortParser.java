@@ -522,7 +522,7 @@ name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|ScriptParameterParser
 name|scriptParameterParser
@@ -1109,7 +1109,6 @@ operator|.
 name|MIN
 expr_stmt|;
 block|}
-comment|// If nested_path is specified, then wrap the `fieldComparatorSource` in a `NestedFieldComparatorSource`
 specifier|final
 name|Nested
 name|nested
