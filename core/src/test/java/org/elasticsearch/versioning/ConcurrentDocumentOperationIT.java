@@ -301,10 +301,14 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|e
+name|logger
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+literal|"Unexpected exception while indexing"
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 name|failure
 operator|.

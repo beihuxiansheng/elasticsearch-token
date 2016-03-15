@@ -709,24 +709,21 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|e
+name|logger
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+literal|"Unexpected failure"
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
-name|assertThat
+name|fail
 argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-literal|false
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -851,12 +848,16 @@ name|TransportException
 name|exp
 parameter_list|)
 block|{
-name|exp
+name|logger
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+literal|"Unexpected failure"
+argument_list|,
+name|exp
+argument_list|)
 expr_stmt|;
-name|assertThat
+name|fail
 argument_list|(
 literal|"got exception instead of a response: "
 operator|+
@@ -864,13 +865,6 @@ name|exp
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
-literal|false
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
