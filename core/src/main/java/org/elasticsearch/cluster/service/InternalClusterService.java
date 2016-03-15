@@ -1529,6 +1529,8 @@ range|:
 name|onGoingTimeouts
 control|)
 block|{
+try|try
+block|{
 name|onGoingTimeout
 operator|.
 name|cancel
@@ -1541,6 +1543,23 @@ operator|.
 name|onClose
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to notify listeners on shutdown"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|ThreadPool
 operator|.
