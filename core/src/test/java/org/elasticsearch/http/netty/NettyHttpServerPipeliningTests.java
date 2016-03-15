@@ -1321,13 +1321,17 @@ name|ExceptionEvent
 name|e
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Caught exception"
+argument_list|,
 name|e
 operator|.
 name|getCause
 argument_list|()
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|e
 operator|.
