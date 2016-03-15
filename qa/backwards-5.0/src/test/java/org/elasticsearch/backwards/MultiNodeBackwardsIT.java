@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.smoketest
+DECL|package|org.elasticsearch.backwards
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|smoketest
+name|backwards
 package|;
 end_package
 
@@ -24,7 +24,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|Name
+name|ParametersFactory
 import|;
 end_import
 
@@ -38,7 +38,21 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ParametersFactory
+name|TimeoutSuite
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TimeUnits
 import|;
 end_import
 
@@ -97,6 +111,18 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|TimeoutSuite
+argument_list|(
+name|millis
+operator|=
+literal|40
+operator|*
+name|TimeUnits
+operator|.
+name|MINUTE
+argument_list|)
+comment|// some of the windows test VMs are slow as hell
 DECL|class|MultiNodeBackwardsIT
 specifier|public
 class|class
