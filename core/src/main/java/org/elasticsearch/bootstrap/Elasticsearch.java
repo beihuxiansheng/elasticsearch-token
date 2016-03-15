@@ -181,15 +181,6 @@ name|Void
 argument_list|>
 name|daemonizeOption
 decl_stmt|;
-DECL|field|pathHomeOption
-specifier|private
-specifier|final
-name|OptionSpec
-argument_list|<
-name|String
-argument_list|>
-name|pathHomeOption
-decl_stmt|;
 DECL|field|pidfileOption
 specifier|private
 specifier|final
@@ -254,28 +245,6 @@ argument_list|)
 argument_list|,
 literal|"Starts Elasticsearch in the background"
 argument_list|)
-expr_stmt|;
-comment|// TODO: in jopt-simple 5.0 this option type can be a Path
-name|pathHomeOption
-operator|=
-name|parser
-operator|.
-name|acceptsAll
-argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-literal|"H"
-argument_list|,
-literal|"path.home"
-argument_list|)
-argument_list|,
-literal|""
-argument_list|)
-operator|.
-name|withRequiredArg
-argument_list|()
 expr_stmt|;
 comment|// TODO: in jopt-simple 5.0 this option type can be a Path
 name|pidfileOption
@@ -445,13 +414,6 @@ name|options
 operator|.
 name|has
 argument_list|(
-name|pathHomeOption
-argument_list|)
-operator|||
-name|options
-operator|.
-name|has
-argument_list|(
 name|pidfileOption
 argument_list|)
 condition|)
@@ -522,17 +484,6 @@ operator|.
 name|has
 argument_list|(
 name|daemonizeOption
-argument_list|)
-decl_stmt|;
-specifier|final
-name|String
-name|pathHome
-init|=
-name|pathHomeOption
-operator|.
-name|value
-argument_list|(
-name|options
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -651,8 +602,6 @@ name|init
 argument_list|(
 name|daemonize
 argument_list|,
-name|pathHome
-argument_list|,
 name|pidFile
 argument_list|,
 name|esSettings
@@ -666,10 +615,6 @@ parameter_list|(
 specifier|final
 name|boolean
 name|daemonize
-parameter_list|,
-specifier|final
-name|String
-name|pathHome
 parameter_list|,
 specifier|final
 name|String
@@ -693,8 +638,6 @@ name|init
 argument_list|(
 operator|!
 name|daemonize
-argument_list|,
-name|pathHome
 argument_list|,
 name|pidFile
 argument_list|,
