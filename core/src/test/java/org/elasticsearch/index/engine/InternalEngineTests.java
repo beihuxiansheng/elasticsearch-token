@@ -4897,8 +4897,6 @@ comment|// we should have had just 1 merge, so last generation should be exact
 name|assertEquals
 argument_list|(
 name|gen2
-operator|+
-literal|1
 argument_list|,
 name|store
 operator|.
@@ -8315,7 +8313,7 @@ name|engine
 operator|.
 name|forceMerge
 argument_list|(
-literal|false
+name|forceMergeFlushes
 argument_list|,
 literal|1
 argument_list|,
