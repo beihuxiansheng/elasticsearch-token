@@ -50,11 +50,21 @@ name|ExpectedException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_class
-DECL|class|SortModeTest
+DECL|class|SortModeTests
 specifier|public
 class|class
-name|SortModeTest
+name|SortModeTests
 extends|extends
 name|ESTestCase
 block|{
@@ -237,7 +247,11 @@ name|toString
 argument_list|()
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

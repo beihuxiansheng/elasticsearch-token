@@ -64,22 +64,6 @@ name|io
 operator|.
 name|stream
 operator|.
-name|NamedWriteable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
 name|StreamInput
 import|;
 end_import
@@ -289,12 +273,7 @@ argument_list|<
 name|ScriptSortBuilder
 argument_list|>
 implements|implements
-name|NamedWriteable
-argument_list|<
-name|ScriptSortBuilder
-argument_list|>
-implements|,
-name|SortElementParserTemp
+name|SortBuilderParser
 argument_list|<
 name|ScriptSortBuilder
 argument_list|>
@@ -435,7 +414,7 @@ specifier|private
 name|String
 name|nestedPath
 decl_stmt|;
-comment|/**      * Constructs a script sort builder with the given script.      *      * @param script      *            The script to use.      * @param type      *            The type of the script, can be either {@link ScriptSortParser#STRING_SORT_TYPE} or      *            {@link ScriptSortParser#NUMBER_SORT_TYPE}      */
+comment|/**      * Constructs a script sort builder with the given script.      *      * @param script      *            The script to use.      * @param type      *            The type of the script, can be either {@link ScriptSortType#STRING} or      *            {@link ScriptSortType#NUMBER}      */
 DECL|method|ScriptSortBuilder
 specifier|public
 name|ScriptSortBuilder

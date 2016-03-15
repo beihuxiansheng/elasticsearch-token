@@ -706,7 +706,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"min"
+name|SortMode
+operator|.
+name|MIN
 argument_list|)
 operator|.
 name|order
@@ -864,7 +866,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"min"
+name|SortMode
+operator|.
+name|MIN
 argument_list|)
 operator|.
 name|order
@@ -1022,7 +1026,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"max"
+name|SortMode
+operator|.
+name|MAX
 argument_list|)
 operator|.
 name|order
@@ -1180,7 +1186,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"max"
+name|SortMode
+operator|.
+name|MAX
 argument_list|)
 operator|.
 name|order
@@ -1822,7 +1830,9 @@ name|geoDistanceSortBuilder
 operator|.
 name|sortMode
 argument_list|(
-literal|"min"
+name|SortMode
+operator|.
+name|MIN
 argument_list|)
 operator|.
 name|order
@@ -1974,7 +1984,9 @@ name|geoDistanceSortBuilder
 operator|.
 name|sortMode
 argument_list|(
-literal|"max"
+name|SortMode
+operator|.
+name|MAX
 argument_list|)
 operator|.
 name|order
@@ -2273,7 +2285,9 @@ name|geoDistanceSortBuilder
 operator|.
 name|sortMode
 argument_list|(
-literal|"min"
+name|SortMode
+operator|.
+name|MIN
 argument_list|)
 operator|.
 name|order
@@ -2345,7 +2359,9 @@ name|geoDistanceSortBuilder
 operator|.
 name|sortMode
 argument_list|(
-literal|"min"
+name|SortMode
+operator|.
+name|MIN
 argument_list|)
 operator|.
 name|order
@@ -2413,7 +2429,9 @@ name|geoDistanceSortBuilder
 operator|.
 name|sortMode
 argument_list|(
-literal|"min"
+name|SortMode
+operator|.
+name|MIN
 argument_list|)
 operator|.
 name|order
@@ -2612,6 +2630,7 @@ expr_stmt|;
 block|}
 DECL|method|checkCorrectSortOrderForGeoSort
 specifier|private
+specifier|static
 name|void
 name|checkCorrectSortOrderForGeoSort
 parameter_list|(
