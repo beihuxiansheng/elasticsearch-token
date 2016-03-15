@@ -219,10 +219,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ElasticsearchCommandLineParsingTests
+DECL|class|ElasticsearchCliTests
 specifier|public
 class|class
-name|ElasticsearchCommandLineParsingTests
+name|ElasticsearchCliTests
 extends|extends
 name|ESTestCase
 block|{
