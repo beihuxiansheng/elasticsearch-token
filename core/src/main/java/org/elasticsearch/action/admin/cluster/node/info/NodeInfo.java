@@ -990,11 +990,6 @@ name|ingest
 operator|=
 operator|new
 name|IngestInfo
-argument_list|()
-expr_stmt|;
-name|ingest
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
