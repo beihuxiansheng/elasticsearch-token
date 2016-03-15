@@ -632,7 +632,7 @@ name|metrics
 operator|.
 name|contains
 argument_list|(
-literal|"percolate"
+literal|"percolator_cache"
 argument_list|)
 argument_list|)
 expr_stmt|;

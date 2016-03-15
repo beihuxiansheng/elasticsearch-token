@@ -312,9 +312,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
 name|percolator
 operator|.
-name|PercolatorService
+name|PercolatorFieldMapper
 import|;
 end_import
 
@@ -3262,7 +3264,7 @@ name|prepareIndex
 argument_list|(
 name|INDEX
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,

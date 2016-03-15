@@ -479,7 +479,7 @@ name|CommonStatsFlags
 operator|.
 name|Flag
 operator|.
-name|Percolate
+name|PercolatorCache
 argument_list|)
 decl_stmt|;
 DECL|field|nodeService
@@ -870,6 +870,14 @@ argument_list|(
 name|indicesService
 operator|.
 name|getIndicesQueryCache
+argument_list|()
+argument_list|,
+name|indexService
+operator|.
+name|cache
+argument_list|()
+operator|.
+name|getPercolatorQueryCache
 argument_list|()
 argument_list|,
 name|indexShard

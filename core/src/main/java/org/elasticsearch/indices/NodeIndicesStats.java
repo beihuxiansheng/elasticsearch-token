@@ -308,7 +308,7 @@ name|index
 operator|.
 name|percolator
 operator|.
-name|PercolateStats
+name|PercolatorQueryCacheStats
 import|;
 end_import
 
@@ -661,14 +661,14 @@ annotation|@
 name|Nullable
 DECL|method|getPercolate
 specifier|public
-name|PercolateStats
+name|PercolatorQueryCacheStats
 name|getPercolate
 parameter_list|()
 block|{
 return|return
 name|stats
 operator|.
-name|getPercolate
+name|getPercolatorCache
 argument_list|()
 return|;
 block|}

@@ -104,6 +104,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|compress
+operator|.
+name|NotXContentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -121,6 +135,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|percolator
+operator|.
+name|PercolatorFieldMapper
 import|;
 end_import
 
@@ -432,6 +460,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|notNullValue
 import|;
 end_import
@@ -502,7 +542,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -553,7 +593,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -597,7 +637,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -657,7 +697,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -1234,7 +1274,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"document missing"
+literal|"[test/type/5] doesn't exist"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1281,7 +1321,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -1337,7 +1377,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -1386,7 +1426,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -1451,7 +1491,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -2058,7 +2098,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"document missing"
+literal|"[test/type/5] doesn't exist"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2115,7 +2155,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -2478,7 +2518,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"document missing"
+literal|"doesn't exist"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2714,14 +2754,6 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
-name|NumShards
-name|test
-init|=
-name|getNumShards
-argument_list|(
-literal|"test"
-argument_list|)
-decl_stmt|;
 name|int
 name|numQueries
 init|=
@@ -2761,7 +2793,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -3062,7 +3094,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3070,82 +3102,13 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|getResponse
-argument_list|()
-operator|.
-name|getSuccessfulShards
+name|getFailure
 argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
-literal|0
-argument_list|)
+name|notNullValue
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|item
-operator|.
-name|getResponse
-argument_list|()
-operator|.
-name|getShardFailures
-argument_list|()
-operator|.
-name|length
-argument_list|,
-name|equalTo
-argument_list|(
-name|test
-operator|.
-name|numPrimaries
-argument_list|)
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|ShardOperationFailedException
-name|shardFailure
-range|:
-name|item
-operator|.
-name|getResponse
-argument_list|()
-operator|.
-name|getShardFailures
-argument_list|()
-control|)
-block|{
-name|assertThat
-argument_list|(
-name|shardFailure
-operator|.
-name|reason
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"Failed to derive xcontent"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|shardFailure
-operator|.
-name|status
-argument_list|()
-operator|.
-name|getStatus
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|400
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// one valid request
 name|builder
@@ -3857,7 +3820,7 @@ name|prepareIndex
 argument_list|(
 literal|"nestedindex"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,

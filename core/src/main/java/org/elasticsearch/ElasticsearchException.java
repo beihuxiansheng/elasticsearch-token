@@ -4828,32 +4828,6 @@ argument_list|,
 literal|88
 argument_list|)
 block|,
-DECL|enum constant|PERCOLATE_EXCEPTION
-name|PERCOLATE_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|percolator
-operator|.
-name|PercolateException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|percolator
-operator|.
-name|PercolateException
-operator|::
-operator|new
-argument_list|,
-literal|89
-argument_list|)
-block|,
 DECL|enum constant|REFRESH_FAILED_ENGINE_EXCEPTION
 name|REFRESH_FAILED_ENGINE_EXCEPTION
 argument_list|(
