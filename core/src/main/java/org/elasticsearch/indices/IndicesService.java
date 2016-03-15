@@ -4146,17 +4146,20 @@ condition|)
 block|{
 if|if
 condition|(
-name|indexService
-operator|!=
-literal|null
-operator|&&
 name|nodeEnv
 operator|.
 name|hasNodeFile
 argument_list|()
 condition|)
 block|{
-return|return
+specifier|final
+name|boolean
+name|isAllocated
+init|=
+name|indexService
+operator|!=
+literal|null
+operator|&&
 name|indexService
 operator|.
 name|hasShard
@@ -4166,19 +4169,18 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-operator|==
-literal|false
-return|;
-block|}
-elseif|else
+decl_stmt|;
 if|if
 condition|(
-name|nodeEnv
-operator|.
-name|hasNodeFile
-argument_list|()
+name|isAllocated
 condition|)
 block|{
+return|return
+literal|false
+return|;
+comment|// we are allocated - can't delete the shard
+block|}
+elseif|else
 if|if
 condition|(
 name|indexSettings
@@ -4187,6 +4189,8 @@ name|hasCustomDataPath
 argument_list|()
 condition|)
 block|{
+comment|// lets see if it's on a custom path (return false if the shared doesn't exist)
+comment|// we don't need to delete anything that is not there
 return|return
 name|Files
 operator|.
@@ -4205,6 +4209,8 @@ return|;
 block|}
 else|else
 block|{
+comment|// lets see if it's path is available (return false if the shared doesn't exist)
+comment|// we don't need to delete anything that is not there
 return|return
 name|FileSystemUtils
 operator|.
