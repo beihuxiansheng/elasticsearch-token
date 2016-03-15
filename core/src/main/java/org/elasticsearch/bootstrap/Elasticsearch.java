@@ -208,7 +208,7 @@ name|KeyValuePair
 argument_list|>
 name|propertyOption
 decl_stmt|;
-comment|/** no instantiation */
+comment|// visible for testing
 DECL|method|Elasticsearch
 name|Elasticsearch
 parameter_list|()
