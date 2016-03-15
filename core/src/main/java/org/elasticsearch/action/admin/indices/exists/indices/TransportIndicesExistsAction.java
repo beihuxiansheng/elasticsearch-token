@@ -362,7 +362,7 @@ name|METADATA_READ
 argument_list|,
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|state
 argument_list|,
@@ -407,7 +407,7 @@ block|{
 comment|// Similar as the previous behaviour, but now also aliases and wildcards are supported.
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|state
 argument_list|,

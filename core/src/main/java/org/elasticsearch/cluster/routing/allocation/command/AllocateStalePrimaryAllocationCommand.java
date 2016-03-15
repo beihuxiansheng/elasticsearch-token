@@ -588,11 +588,11 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shardRouting
 operator|.
-name|getIndexName
+name|index
 argument_list|()
 argument_list|)
 decl_stmt|;

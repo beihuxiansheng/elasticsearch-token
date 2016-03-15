@@ -1001,8 +1001,8 @@ operator|.
 name|readOptionalWritable
 argument_list|(
 name|IngestStats
-operator|.
-name|PROTO
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}
