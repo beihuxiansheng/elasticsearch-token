@@ -691,6 +691,7 @@ name|Bootstrap
 operator|.
 name|init
 argument_list|(
+operator|!
 name|daemonize
 argument_list|,
 name|pathHome

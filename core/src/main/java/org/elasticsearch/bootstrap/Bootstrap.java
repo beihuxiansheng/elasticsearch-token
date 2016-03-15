@@ -905,7 +905,7 @@ name|Environment
 name|initialSettings
 parameter_list|(
 name|boolean
-name|daemonize
+name|foreground
 parameter_list|,
 name|String
 name|pathHome
@@ -917,13 +917,13 @@ block|{
 name|Terminal
 name|terminal
 init|=
-name|daemonize
+name|foreground
 condition|?
-literal|null
-else|:
 name|Terminal
 operator|.
 name|DEFAULT
+else|:
+literal|null
 decl_stmt|;
 name|Settings
 operator|.
@@ -1069,7 +1069,7 @@ name|init
 parameter_list|(
 specifier|final
 name|boolean
-name|daemonize
+name|foreground
 parameter_list|,
 specifier|final
 name|String
@@ -1111,7 +1111,7 @@ name|environment
 init|=
 name|initialSettings
 argument_list|(
-name|daemonize
+name|foreground
 argument_list|,
 name|pathHome
 argument_list|,
@@ -1209,7 +1209,8 @@ try|try
 block|{
 if|if
 condition|(
-name|daemonize
+operator|!
+name|foreground
 condition|)
 block|{
 name|Loggers
@@ -1249,7 +1250,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|daemonize
+operator|!
+name|foreground
 condition|)
 block|{
 name|closeSysError
@@ -1266,8 +1268,7 @@ block|{
 comment|// disable console logging, so user does not see the exception twice (jvm will show it already)
 if|if
 condition|(
-operator|!
-name|daemonize
+name|foreground
 condition|)
 block|{
 name|Loggers
@@ -1397,8 +1398,7 @@ block|}
 comment|// re-enable it if appropriate, so they can see any logging during the shutdown process
 if|if
 condition|(
-operator|!
-name|daemonize
+name|foreground
 condition|)
 block|{
 name|Loggers

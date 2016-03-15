@@ -497,7 +497,7 @@ argument_list|,
 name|outputConsumer
 argument_list|,
 parameter_list|(
-name|daemonize
+name|foreground
 parameter_list|,
 name|pathHome
 parameter_list|,
@@ -614,7 +614,7 @@ argument_list|,
 name|outputConsumer
 argument_list|,
 parameter_list|(
-name|daemonize
+name|foreground
 parameter_list|,
 name|pathHome
 parameter_list|,
@@ -695,7 +695,7 @@ lambda|->
 block|{}
 argument_list|,
 parameter_list|(
-name|daemonize
+name|foreground
 parameter_list|,
 name|pathHome
 parameter_list|,
@@ -706,10 +706,11 @@ parameter_list|)
 lambda|->
 name|assertThat
 argument_list|(
-name|daemonize
+name|foreground
 argument_list|,
 name|equalTo
 argument_list|(
+operator|!
 name|expectedDaemonize
 argument_list|)
 argument_list|)
@@ -739,7 +740,7 @@ lambda|->
 block|{}
 argument_list|,
 parameter_list|(
-name|daemonize
+name|foreground
 parameter_list|,
 name|pathHome
 parameter_list|,
@@ -859,7 +860,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 parameter_list|(
-name|daemonize
+name|foreground
 parameter_list|,
 name|pathHome
 parameter_list|,
@@ -903,7 +904,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 parameter_list|(
-name|daemonize
+name|foreground
 parameter_list|,
 name|pathHome
 parameter_list|,
@@ -949,7 +950,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 parameter_list|(
-name|daemonize
+name|foreground
 parameter_list|,
 name|pathHome
 parameter_list|,
@@ -975,7 +976,7 @@ name|accept
 parameter_list|(
 specifier|final
 name|boolean
-name|daemonize
+name|foreground
 parameter_list|,
 specifier|final
 name|String
@@ -1097,6 +1098,7 @@ name|initConsumer
 operator|.
 name|accept
 argument_list|(
+operator|!
 name|daemonize
 argument_list|,
 name|pathHome
