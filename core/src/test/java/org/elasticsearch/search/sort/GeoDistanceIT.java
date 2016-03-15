@@ -3157,7 +3157,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"max"
+name|SortMode
+operator|.
+name|MAX
 argument_list|)
 argument_list|)
 operator|.
@@ -3636,7 +3638,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"min"
+name|SortMode
+operator|.
+name|MIN
 argument_list|)
 argument_list|)
 operator|.
@@ -3870,7 +3874,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"avg"
+name|SortMode
+operator|.
+name|AVG
 argument_list|)
 operator|.
 name|order
@@ -4111,7 +4117,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"avg"
+name|SortMode
+operator|.
+name|AVG
 argument_list|)
 operator|.
 name|order
@@ -4352,7 +4360,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"sum"
+name|SortMode
+operator|.
+name|SUM
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5770,7 +5780,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"max"
+name|SortMode
+operator|.
+name|MAX
 argument_list|)
 operator|.
 name|setNestedPath
@@ -6187,7 +6199,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"min"
+name|SortMode
+operator|.
+name|MIN
 argument_list|)
 operator|.
 name|setNestedPath
@@ -6390,7 +6404,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"avg"
+name|SortMode
+operator|.
+name|AVG
 argument_list|)
 operator|.
 name|order
@@ -6605,7 +6621,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"avg"
+name|SortMode
+operator|.
+name|AVG
 argument_list|)
 operator|.
 name|order
@@ -6825,7 +6843,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"avg"
+name|SortMode
+operator|.
+name|AVG
 argument_list|)
 operator|.
 name|order
@@ -7045,7 +7065,9 @@ argument_list|)
 operator|.
 name|sortMode
 argument_list|(
-literal|"sum"
+name|SortMode
+operator|.
+name|SUM
 argument_list|)
 operator|.
 name|setNestedPath
@@ -7358,6 +7380,7 @@ expr_stmt|;
 block|}
 DECL|method|randomLon
 specifier|private
+specifier|static
 name|double
 name|randomLon
 parameter_list|()
@@ -7373,6 +7396,7 @@ return|;
 block|}
 DECL|method|randomLat
 specifier|private
+specifier|static
 name|double
 name|randomLat
 parameter_list|()
@@ -7847,6 +7871,7 @@ block|}
 block|}
 DECL|method|assertDuelOptimization
 specifier|private
+specifier|static
 name|long
 name|assertDuelOptimization
 parameter_list|(
