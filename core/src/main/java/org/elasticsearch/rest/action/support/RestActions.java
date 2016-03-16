@@ -332,6 +332,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|Suggesters
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -886,6 +900,9 @@ name|parseFieldMatcher
 parameter_list|,
 name|AggregatorParsers
 name|aggParsers
+parameter_list|,
+name|Suggesters
+name|suggesters
 parameter_list|)
 throws|throws
 name|IOException
@@ -937,6 +954,8 @@ argument_list|,
 name|queryParseContext
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 expr_stmt|;
 block|}

@@ -648,7 +648,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptSettings
+name|ScriptService
 import|;
 end_import
 
@@ -660,7 +660,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptSettings
 import|;
 end_import
 
