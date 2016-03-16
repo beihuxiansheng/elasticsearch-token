@@ -772,10 +772,6 @@ name|EngineConfig
 operator|.
 name|INDEX_CODEC_SETTING
 argument_list|,
-name|IndexWarmer
-operator|.
-name|INDEX_NORMS_LOADING_SETTING
-argument_list|,
 comment|// validate that built-in similarities don't get redefined
 name|Setting
 operator|.

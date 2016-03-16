@@ -2657,7 +2657,7 @@ literal|"type=text"
 argument_list|,
 name|STRING_FIELD_NAME_2
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|,
 name|INT_FIELD_NAME
 argument_list|,

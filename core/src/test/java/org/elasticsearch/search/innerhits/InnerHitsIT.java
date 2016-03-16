@@ -288,18 +288,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|InternalSettingsPlugin
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -12039,7 +12027,7 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
-literal|"_id"
+literal|"_uid"
 argument_list|,
 name|SortOrder
 operator|.

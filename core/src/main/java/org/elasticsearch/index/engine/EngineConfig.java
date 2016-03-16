@@ -649,8 +649,6 @@ literal|null
 condition|?
 parameter_list|(
 name|a
-parameter_list|,
-name|b
 parameter_list|)
 lambda|->
 block|{}

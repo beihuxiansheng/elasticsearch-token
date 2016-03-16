@@ -522,20 +522,6 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|FieldDataType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
 name|IndexFieldDataCache
 import|;
 end_import
@@ -2226,8 +2212,6 @@ name|engineWarmer
 init|=
 parameter_list|(
 name|searcher
-parameter_list|,
-name|toLevel
 parameter_list|)
 lambda|->
 block|{
@@ -2262,8 +2246,6 @@ operator|.
 name|this
 operator|.
 name|indexSettings
-argument_list|,
-name|toLevel
 argument_list|)
 expr_stmt|;
 block|}
@@ -3355,9 +3337,6 @@ parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
-name|FieldDataType
-name|fieldDataType
-parameter_list|,
 name|Accountable
 name|ramUsage
 parameter_list|)
@@ -3401,8 +3380,6 @@ name|shardId
 argument_list|,
 name|fieldName
 argument_list|,
-name|fieldDataType
-argument_list|,
 name|ramUsage
 argument_list|)
 expr_stmt|;
@@ -3421,9 +3398,6 @@ name|shardId
 parameter_list|,
 name|String
 name|fieldName
-parameter_list|,
-name|FieldDataType
-name|fieldDataType
 parameter_list|,
 name|boolean
 name|wasEvicted
@@ -3470,8 +3444,6 @@ argument_list|(
 name|shardId
 argument_list|,
 name|fieldName
-argument_list|,
-name|fieldDataType
 argument_list|,
 name|wasEvicted
 argument_list|,
