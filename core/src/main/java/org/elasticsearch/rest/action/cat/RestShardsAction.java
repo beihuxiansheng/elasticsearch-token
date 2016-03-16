@@ -840,7 +840,7 @@ name|addCell
 argument_list|(
 literal|"query_cache.memory_size"
 argument_list|,
-literal|"alias:fcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
+literal|"alias:qcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -849,7 +849,7 @@ name|addCell
 argument_list|(
 literal|"query_cache.evictions"
 argument_list|,
-literal|"alias:fce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
+literal|"alias:qce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
