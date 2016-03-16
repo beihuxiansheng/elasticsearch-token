@@ -418,8 +418,6 @@ argument_list|,
 name|nettyA
 argument_list|,
 name|threadPool
-argument_list|,
-name|registryA
 argument_list|)
 decl_stmt|;
 name|serviceA
@@ -478,8 +476,6 @@ argument_list|,
 name|nettyB
 argument_list|,
 name|threadPool
-argument_list|,
-name|registryB
 argument_list|)
 decl_stmt|;
 name|serviceB

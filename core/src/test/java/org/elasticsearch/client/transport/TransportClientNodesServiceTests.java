@@ -463,10 +463,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|transportService

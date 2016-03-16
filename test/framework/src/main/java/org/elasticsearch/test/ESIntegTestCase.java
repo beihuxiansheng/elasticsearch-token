@@ -7105,13 +7105,16 @@ decl_stmt|;
 name|int
 name|masterClusterStateSize
 init|=
-name|masterClusterState
+name|ClusterState
 operator|.
-name|toString
-argument_list|()
+name|Builder
+operator|.
+name|toBytes
+argument_list|(
+name|masterClusterState
+argument_list|)
 operator|.
 name|length
-argument_list|()
 decl_stmt|;
 name|String
 name|masterId
@@ -7209,13 +7212,16 @@ specifier|final
 name|int
 name|localClusterStateSize
 init|=
-name|localClusterState
+name|ClusterState
 operator|.
-name|toString
-argument_list|()
+name|Builder
+operator|.
+name|toBytes
+argument_list|(
+name|localClusterState
+argument_list|)
 operator|.
 name|length
-argument_list|()
 decl_stmt|;
 comment|// Check that the non-master node has the same version of the cluster state as the master and
 comment|// that the master node matches the master (otherwise there is no requirement for the cluster state to match)
