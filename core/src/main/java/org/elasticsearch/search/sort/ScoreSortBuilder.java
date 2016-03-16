@@ -165,11 +165,6 @@ name|SortBuilderParser
 argument_list|<
 name|ScoreSortBuilder
 argument_list|>
-implements|,
-name|SortElementParserTemp
-argument_list|<
-name|ScoreSortBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|private

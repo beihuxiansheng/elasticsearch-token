@@ -2422,32 +2422,21 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
-argument_list|()
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"max repeat: "
-operator|+
+literal|"max repeat: {}"
+argument_list|,
 name|maxRepeat
 argument_list|)
 expr_stmt|;
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"avg repeat: "
-operator|+
+literal|"avg repeat: {}"
+argument_list|,
 name|sumRepeat
 operator|/
 operator|(
@@ -2456,14 +2445,12 @@ operator|)
 name|filled
 argument_list|)
 expr_stmt|;
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"distribution: "
-operator|+
+literal|"distribution: {}"
+argument_list|,
 name|filled
 operator|/
 operator|(
@@ -2545,14 +2532,12 @@ operator|==
 literal|0
 condition|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"median: "
-operator|+
+literal|"median: {}"
+argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
@@ -2565,14 +2550,12 @@ operator|==
 literal|0
 condition|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"percentile_25: "
-operator|+
+literal|"percentile_25: {}"
+argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
@@ -2585,14 +2568,12 @@ operator|==
 literal|0
 condition|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"percentile_75: "
-operator|+
+literal|"percentile_75: {}"
+argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
@@ -2607,14 +2588,12 @@ name|percentile75
 operator|--
 expr_stmt|;
 block|}
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"mean: "
-operator|+
+literal|"mean: {}"
+argument_list|,
 name|sum
 operator|/
 operator|(

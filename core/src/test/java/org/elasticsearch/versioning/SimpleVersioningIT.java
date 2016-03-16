@@ -3301,21 +3301,13 @@ case|case
 literal|0
 case|:
 comment|// random simple
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"TEST: use random simple ids"
+literal|"--> use random simple ids"
 argument_list|)
 expr_stmt|;
-block|}
 name|ids
 operator|=
 operator|new
@@ -3345,21 +3337,13 @@ case|case
 literal|1
 case|:
 comment|// random realistic unicode
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"TEST: use random realistic unicode ids"
+literal|"--> use random realistic unicode ids"
 argument_list|)
 expr_stmt|;
-block|}
 name|ids
 operator|=
 operator|new
@@ -3389,21 +3373,13 @@ case|case
 literal|2
 case|:
 comment|// sequential
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"TEST: use seuquential ids"
+literal|"--> use sequential ids"
 argument_list|)
 expr_stmt|;
-block|}
 name|ids
 operator|=
 operator|new
@@ -3437,21 +3413,13 @@ case|case
 literal|3
 case|:
 comment|// zero-pad sequential
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"TEST: use zero-pad seuquential ids"
+literal|"--> use zero-padded sequential ids"
 argument_list|)
 expr_stmt|;
-block|}
 name|ids
 operator|=
 operator|new
@@ -3554,21 +3522,13 @@ case|case
 literal|4
 case|:
 comment|// random long
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"TEST: use random long ids"
+literal|"--> use random long ids"
 argument_list|)
 expr_stmt|;
-block|}
 name|ids
 operator|=
 operator|new
@@ -3627,21 +3587,13 @@ case|case
 literal|5
 case|:
 comment|// zero-pad random long
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"TEST: use zero-pad random long ids"
+literal|"--> use zero-padded random long ids"
 argument_list|)
 expr_stmt|;
-block|}
 name|ids
 operator|=
 operator|new
@@ -4272,23 +4224,15 @@ argument_list|(
 name|random
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
-literal|"TEST: use id prefix: "
-operator|+
+literal|"--> use id prefix {}"
+argument_list|,
 name|idPrefix
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|int
 name|numIDs
@@ -4414,31 +4358,19 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
-literal|"TEST: use "
-operator|+
+literal|"--> use {} ids; {} operations"
+argument_list|,
 name|numIDs
-operator|+
-literal|" ids; "
-operator|+
+argument_list|,
 name|idVersions
 operator|.
 name|length
-operator|+
-literal|" operations"
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -4650,11 +4582,6 @@ operator|=
 name|x
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|VERBOSE
-condition|)
-block|{
 for|for
 control|(
 name|IDAndVersion
@@ -4663,33 +4590,24 @@ range|:
 name|idVersions
 control|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|debug
 argument_list|(
-literal|"id="
-operator|+
+literal|"--> id={} version={} delete?={} truth?={}"
+argument_list|,
 name|idVersion
 operator|.
 name|id
-operator|+
-literal|" version="
-operator|+
+argument_list|,
 name|idVersion
 operator|.
 name|version
-operator|+
-literal|" delete?="
-operator|+
+argument_list|,
 name|idVersion
 operator|.
 name|delete
-operator|+
-literal|" truth?="
-operator|+
-operator|(
+argument_list|,
 name|truth
 operator|.
 name|get
@@ -4700,10 +4618,8 @@ name|id
 argument_list|)
 operator|==
 name|idVersion
-operator|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 specifier|final
 name|AtomicInteger
@@ -4836,8 +4752,6 @@ break|break;
 block|}
 if|if
 condition|(
-name|VERBOSE
-operator|&&
 name|index
 operator|%
 literal|100
@@ -4845,12 +4759,12 @@ operator|==
 literal|0
 condition|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|trace
 argument_list|(
+literal|"{}: index={}"
+argument_list|,
 name|Thread
 operator|.
 name|currentThread
@@ -4858,9 +4772,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|": index="
-operator|+
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -5078,47 +4990,39 @@ operator|==
 literal|7
 condition|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|trace
 argument_list|(
+literal|"--> {}: TEST: now refresh at {}"
+argument_list|,
 name|threadID
-operator|+
-literal|": TEST: now refresh at "
-operator|+
-operator|(
+argument_list|,
 name|System
 operator|.
 name|nanoTime
 argument_list|()
 operator|-
 name|startTime
-operator|)
 argument_list|)
 expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|trace
 argument_list|(
+literal|"--> {}: TEST: refresh done at {}"
+argument_list|,
 name|threadID
-operator|+
-literal|": TEST: refresh done at "
-operator|+
-operator|(
+argument_list|,
 name|System
 operator|.
 name|nanoTime
 argument_list|()
 operator|-
 name|startTime
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5134,24 +5038,20 @@ operator|==
 literal|7
 condition|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|trace
 argument_list|(
+literal|"--> {}: TEST: now flush at {}"
+argument_list|,
 name|threadID
-operator|+
-literal|": TEST: now flush at "
-operator|+
-operator|(
+argument_list|,
 name|System
 operator|.
 name|nanoTime
 argument_list|()
 operator|-
 name|startTime
-operator|)
 argument_list|)
 expr_stmt|;
 try|try
@@ -5168,24 +5068,20 @@ parameter_list|)
 block|{
 comment|// OK
 block|}
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|trace
 argument_list|(
+literal|"--> {}: TEST: flush done at {}"
+argument_list|,
 name|threadID
-operator|+
-literal|": TEST: flush done at "
-operator|+
-operator|(
+argument_list|,
 name|System
 operator|.
 name|nanoTime
 argument_list|()
 operator|-
 name|startTime
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -5322,18 +5218,14 @@ operator|!=
 name|expected
 condition|)
 block|{
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|error
 argument_list|(
-literal|"FAILED: idVersion="
-operator|+
+literal|"--> FAILED: idVersion={} actualVersion= {}"
+argument_list|,
 name|idVersion
-operator|+
-literal|" actualVersion="
-operator|+
+argument_list|,
 name|actualVersion
 argument_list|)
 expr_stmt|;
@@ -5348,15 +5240,13 @@ condition|(
 name|failed
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"All versions:"
-argument_list|)
-expr_stmt|;
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -5374,25 +5264,49 @@ name|i
 operator|++
 control|)
 block|{
-name|System
+name|sb
 operator|.
-name|out
-operator|.
-name|println
+name|append
 argument_list|(
 literal|"i="
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|i
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|" "
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|idVersions
 index|[
 name|i
 index|]
 argument_list|)
+operator|.
+name|append
+argument_list|(
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"All versions: {}"
+argument_list|,
+name|sb
+argument_list|)
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"wrong versions for some IDs"
