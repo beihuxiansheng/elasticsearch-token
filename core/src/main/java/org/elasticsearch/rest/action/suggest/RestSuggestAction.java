@@ -779,7 +779,7 @@ condition|)
 block|{
 name|suggest
 operator|.
-name|toXContent
+name|toInnerXContent
 argument_list|(
 name|builder
 argument_list|,
