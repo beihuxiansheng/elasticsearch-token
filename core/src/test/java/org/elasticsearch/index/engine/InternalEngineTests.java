@@ -8585,8 +8585,13 @@ expr_stmt|;
 name|engine
 operator|.
 name|flush
-argument_list|()
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
 expr_stmt|;
+comment|// we might hit a concurrent flush from a finishing merge here - just wait if ongoing...
 name|assertNull
 argument_list|(
 name|store
