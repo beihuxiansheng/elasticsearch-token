@@ -32,22 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|antlr
-operator|.
-name|v4
-operator|.
-name|runtime
-operator|.
-name|tree
-operator|.
-name|ParseTree
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|painless
@@ -69,34 +53,6 @@ operator|.
 name|Definition
 operator|.
 name|Type
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|PainlessParser
-operator|.
-name|ExpressionContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|PainlessParser
-operator|.
-name|PrecedenceContext
 import|;
 end_import
 
@@ -531,41 +487,6 @@ name|source
 expr_stmt|;
 block|}
 block|}
-comment|/**      * A utility method to output consistent error messages.      * @param ctx The ANTLR node the error occurred in.      * @return The error message with tacked on line number and character position.      */
-DECL|method|error
-specifier|static
-name|String
-name|error
-parameter_list|(
-specifier|final
-name|ParserRuleContext
-name|ctx
-parameter_list|)
-block|{
-return|return
-literal|"Error ["
-operator|+
-name|ctx
-operator|.
-name|getStart
-argument_list|()
-operator|.
-name|getLine
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|ctx
-operator|.
-name|getStart
-argument_list|()
-operator|.
-name|getCharPositionInLine
-argument_list|()
-operator|+
-literal|"]: "
-return|;
-block|}
 comment|/**      * Acts as both the Painless API and white-list for what types and methods are allowed.      */
 DECL|field|definition
 specifier|final
@@ -793,11 +714,6 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-name|error
-argument_list|(
-name|source
-argument_list|)
-operator|+
 literal|"Statement metadata does not exist at"
 operator|+
 literal|" the parse node with text ["
@@ -813,100 +729,6 @@ throw|;
 block|}
 return|return
 name|sourcesmd
-return|;
-block|}
-comment|/**      * The ANTLR parse tree is modified in one single case; a parent node needs to check a child node to see if it's      * a precedence node, and if so, it must be removed from the tree permanently. Once the ANTLR tree is built,      * precedence nodes are no longer necessary to maintain the correct ordering of the tree, so they only      * add a level of indirection where complicated decisions about metadata passing would have to be made.  This      * method removes the need for those decisions.      * @param source The child ANTLR node to check for precedence.      * @return The updated child ANTLR node.      */
-DECL|method|updateExpressionTree
-name|ExpressionContext
-name|updateExpressionTree
-parameter_list|(
-name|ExpressionContext
-name|source
-parameter_list|)
-block|{
-comment|// Check to see if the ANTLR node is a precedence node.
-if|if
-condition|(
-name|source
-operator|instanceof
-name|PrecedenceContext
-condition|)
-block|{
-specifier|final
-name|ParserRuleContext
-name|parent
-init|=
-name|source
-operator|.
-name|getParent
-argument_list|()
-decl_stmt|;
-name|int
-name|index
-init|=
-literal|0
-decl_stmt|;
-comment|// Mark the index of the source node within the list of child nodes from the parent.
-for|for
-control|(
-specifier|final
-name|ParseTree
-name|child
-range|:
-name|parent
-operator|.
-name|children
-control|)
-block|{
-if|if
-condition|(
-name|child
-operator|==
-name|source
-condition|)
-block|{
-break|break;
-block|}
-operator|++
-name|index
-expr_stmt|;
-block|}
-comment|// If there are multiple precedence nodes in a row, remove them all.
-while|while
-condition|(
-name|source
-operator|instanceof
-name|PrecedenceContext
-condition|)
-block|{
-name|source
-operator|=
-operator|(
-operator|(
-name|PrecedenceContext
-operator|)
-name|source
-operator|)
-operator|.
-name|expression
-argument_list|()
-expr_stmt|;
-block|}
-comment|// Update the parent node with the child of the precedence node.
-name|parent
-operator|.
-name|children
-operator|.
-name|set
-argument_list|(
-name|index
-argument_list|,
-name|source
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|source
 return|;
 block|}
 comment|/**      * Creates a new ExpressionMetadata and stores it in the expressionMetadata map.      * @param source The ANTLR node for this metadata.      * @return The new ExpressionMetadata.      */
@@ -973,11 +795,6 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-name|error
-argument_list|(
-name|source
-argument_list|)
-operator|+
 literal|"Expression metadata does not exist at"
 operator|+
 literal|" the parse node with text ["
@@ -1060,11 +877,6 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-name|error
-argument_list|(
-name|source
-argument_list|)
-operator|+
 literal|"External metadata does not exist at"
 operator|+
 literal|" the parse node with text ["
@@ -1153,11 +965,6 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-name|error
-argument_list|(
-name|source
-argument_list|)
-operator|+
 literal|"External metadata does not exist at"
 operator|+
 literal|" the parse node with text ["
