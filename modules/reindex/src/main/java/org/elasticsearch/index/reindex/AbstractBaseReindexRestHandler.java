@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -83,6 +73,8 @@ operator|.
 name|elasticsearch
 operator|.
 name|cluster
+operator|.
+name|service
 operator|.
 name|ClusterService
 import|;
@@ -239,6 +231,16 @@ operator|.
 name|tasks
 operator|.
 name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 

@@ -60,18 +60,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -839,17 +827,15 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|InternalClusterService
+DECL|class|ClusterService
 specifier|public
 class|class
-name|InternalClusterService
+name|ClusterService
 extends|extends
 name|AbstractLifecycleComponent
 argument_list|<
 name|ClusterService
 argument_list|>
-implements|implements
-name|ClusterService
 block|{
 DECL|field|CLUSTER_SERVICE_SLOW_TASK_LOGGING_THRESHOLD_SETTING
 specifier|public
@@ -1071,9 +1057,9 @@ name|nodeConnectionsService
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|InternalClusterService
+DECL|method|ClusterService
 specifier|public
-name|InternalClusterService
+name|ClusterService
 parameter_list|(
 name|Settings
 name|settings
@@ -1304,8 +1290,7 @@ operator|=
 name|nodeConnectionsService
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Adds an initial block to be set on the first cluster state created.      */
 DECL|method|addInitialStateBlock
 specifier|synchronized
 specifier|public
@@ -1342,8 +1327,7 @@ name|block
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
 specifier|synchronized
 specifier|public
@@ -1365,8 +1349,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
 specifier|synchronized
 specifier|public
@@ -1589,8 +1572,7 @@ name|void
 name|doClose
 parameter_list|()
 block|{     }
-annotation|@
-name|Override
+comment|/**      * The local node.      */
 DECL|method|localNode
 specifier|public
 name|DiscoveryNode
@@ -1607,8 +1589,6 @@ name|localNode
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|operationRouting
 specifier|public
 name|OperationRouting
@@ -1619,8 +1599,7 @@ return|return
 name|operationRouting
 return|;
 block|}
-annotation|@
-name|Override
+comment|/**      * The current state.      */
 DECL|method|state
 specifier|public
 name|ClusterState
@@ -1633,8 +1612,7 @@ operator|.
 name|clusterState
 return|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Adds a priority listener for updated cluster states.      */
 DECL|method|addFirst
 specifier|public
 name|void
@@ -1652,8 +1630,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Adds last listener.      */
 DECL|method|addLast
 specifier|public
 name|void
@@ -1671,8 +1648,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Adds a listener for updated cluster states.      */
 DECL|method|add
 specifier|public
 name|void
@@ -1690,8 +1666,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Removes a listener for updated cluster states.      */
 DECL|method|remove
 specifier|public
 name|void
@@ -1782,8 +1757,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
+comment|/**      * Add a listener for on/off local node master events      */
 DECL|method|add
 specifier|public
 name|void
@@ -1801,8 +1775,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Remove the given listener for on/off local master events      */
 DECL|method|remove
 specifier|public
 name|void
@@ -1820,8 +1793,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Adds a cluster state listener that will timeout after the provided timeout,      * and is executed after the clusterstate has been successfully applied ie. is      * in state {@link org.elasticsearch.cluster.ClusterState.ClusterStateStatus#APPLIED}      * NOTE: a {@code null} timeout means that the listener will never be removed      * automatically      */
 DECL|method|add
 specifier|public
 name|void
@@ -1967,8 +1939,7 @@ throw|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
+comment|/**      * Submits a cluster state update task; unlike {@link #submitStateUpdateTask(String, Object, ClusterStateTaskConfig,      * ClusterStateTaskExecutor, ClusterStateTaskListener)}, submitted updates will not be batched.      *      * @param source     the source of the cluster state update task      * @param updateTask the full context for the cluster state update      *                   task      */
 DECL|method|submitStateUpdateTask
 specifier|public
 name|void
@@ -1997,8 +1968,7 @@ name|updateTask
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Submits a cluster state update task; submitted updates will be      * batched across the same instance of executor. The exact batching      * semantics depend on the underlying implementation but a rough      * guideline is that if the update task is submitted while there      * are pending update tasks for the same executor, these update      * tasks will all be executed on the executor in a single batch      *      * @param source   the source of the cluster state update task      * @param task     the state needed for the cluster state update task      * @param config   the cluster state update task configuration      * @param executor the cluster state update task executor; tasks      *                 that share the same executor will be executed      *                 batches on this executor      * @param listener callback after the cluster state update task      *                 completes      * @param<T>      the type of the cluster state update task state      */
 DECL|method|submitStateUpdateTask
 specifier|public
 parameter_list|<
@@ -2259,10 +2229,12 @@ throw|;
 block|}
 end_expr_stmt
 
-begin_function
+begin_comment
 unit|}     }
-annotation|@
-name|Override
+comment|/**      * Returns the tasks that are pending.      */
+end_comment
+
+begin_function
 DECL|method|pendingTasks
 specifier|public
 name|List
@@ -2429,9 +2401,11 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/**      * Returns the number of currently pending tasks.      */
+end_comment
+
 begin_function
-annotation|@
-name|Override
 DECL|method|numberOfPendingTasks
 specifier|public
 name|int
@@ -2447,9 +2421,11 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/**      * Returns the maximum wait time for tasks in the queue      *      * @return A zero time value if the queue is empty, otherwise the time value oldest task waiting in the queue      */
+end_comment
+
 begin_function
-annotation|@
-name|Override
 DECL|method|getMaxTaskWaitTime
 specifier|public
 name|TimeValue
@@ -2487,7 +2463,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|InternalClusterService
+name|ClusterService
 operator|.
 name|UPDATE_THREAD_NAME
 argument_list|)
@@ -4463,7 +4439,9 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"exception thrown by listener while notifying of cluster state processed from [{}], old cluster state:\n{}\nnew cluster state:\n{}"
+literal|"exception thrown by listener while notifying of cluster state processed from [{}], old cluster state:\n"
+operator|+
+literal|"{}\nnew cluster state:\n{}"
 argument_list|,
 name|e
 argument_list|,

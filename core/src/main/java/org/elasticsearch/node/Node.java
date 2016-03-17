@@ -152,18 +152,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -272,7 +260,7 @@ name|cluster
 operator|.
 name|service
 operator|.
-name|InternalClusterService
+name|ClusterService
 import|;
 end_import
 
@@ -2556,27 +2544,10 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-assert|assert
-name|injector
-operator|.
-name|getInstance
-argument_list|(
-name|ClusterService
-operator|.
-name|class
-argument_list|)
-operator|instanceof
-name|InternalClusterService
-operator|:
-literal|"node cluster service implementation must inherit from InternalClusterService"
-assert|;
 specifier|final
-name|InternalClusterService
+name|ClusterService
 name|clusterService
 init|=
-operator|(
-name|InternalClusterService
-operator|)
 name|injector
 operator|.
 name|getInstance
