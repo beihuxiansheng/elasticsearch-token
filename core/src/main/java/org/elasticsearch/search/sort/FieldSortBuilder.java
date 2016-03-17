@@ -1141,8 +1141,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-comment|// Enable when we also know how to detect fields that do tokenize, but only emit one token
-comment|/*if (fieldMapper instanceof StringFieldMapper) {                 StringFieldMapper stringFieldMapper = (StringFieldMapper) fieldMapper;                 if (stringFieldMapper.fieldType().tokenized()) {                     // Fail early                     throw new SearchParseException(context, "Can't sort on tokenized string field[" + fieldName + "]");                 }             }*/
 name|MultiValueMode
 name|localSortMode
 init|=
