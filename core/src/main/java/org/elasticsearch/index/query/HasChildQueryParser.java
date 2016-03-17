@@ -108,6 +108,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * A query parser for<tt>has_child</tt> queries.  */
 end_comment
@@ -744,7 +754,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"total"
+literal|"sum"
 operator|.
 name|equals
 argument_list|(
@@ -769,6 +779,47 @@ operator|+
 literal|"] found"
 argument_list|)
 throw|;
+block|}
+DECL|method|scoreModeAsString
+specifier|public
+specifier|static
+name|String
+name|scoreModeAsString
+parameter_list|(
+name|ScoreMode
+name|scoreMode
+parameter_list|)
+block|{
+if|if
+condition|(
+name|scoreMode
+operator|==
+name|ScoreMode
+operator|.
+name|Total
+condition|)
+block|{
+comment|// Lucene uses 'total' but 'sum' is more consistent with other elasticsearch APIs
+return|return
+literal|"sum"
+return|;
+block|}
+else|else
+block|{
+return|return
+name|scoreMode
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+return|;
+block|}
 block|}
 annotation|@
 name|Override
