@@ -16560,7 +16560,7 @@ name|None
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -16721,7 +16721,7 @@ name|None
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -16882,7 +16882,7 @@ name|None
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -16999,7 +16999,7 @@ name|None
 argument_list|,
 literal|3
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17072,7 +17072,7 @@ name|None
 argument_list|,
 literal|4
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17653,7 +17653,7 @@ name|Total
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17814,7 +17814,7 @@ name|Total
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17975,7 +17975,7 @@ name|Total
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18092,7 +18092,7 @@ name|Total
 argument_list|,
 literal|3
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18165,7 +18165,7 @@ name|Total
 argument_list|,
 literal|4
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18746,7 +18746,7 @@ name|Max
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18907,7 +18907,7 @@ name|Max
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19068,7 +19068,7 @@ name|Max
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19185,7 +19185,7 @@ name|Max
 argument_list|,
 literal|3
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19258,7 +19258,7 @@ name|Max
 argument_list|,
 literal|4
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19839,7 +19839,7 @@ name|Avg
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20000,7 +20000,7 @@ name|Avg
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20161,7 +20161,7 @@ name|Avg
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20278,7 +20278,7 @@ name|Avg
 argument_list|,
 literal|3
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20351,7 +20351,7 @@ name|Avg
 argument_list|,
 literal|4
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat

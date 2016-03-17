@@ -1317,27 +1317,6 @@ name|fieldType
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|int
-name|maxChildren
-init|=
-name|maxChildren
-argument_list|()
-decl_stmt|;
-comment|// 0 in pre 2.x p/c impl means unbounded
-if|if
-condition|(
-name|maxChildren
-operator|==
-literal|0
-condition|)
-block|{
-name|maxChildren
-operator|=
-name|Integer
-operator|.
-name|MAX_VALUE
-expr_stmt|;
-block|}
 return|return
 operator|new
 name|LateParsingQuery
@@ -1353,6 +1332,7 @@ name|minChildren
 argument_list|()
 argument_list|,
 name|maxChildren
+argument_list|()
 argument_list|,
 name|parentType
 argument_list|,
