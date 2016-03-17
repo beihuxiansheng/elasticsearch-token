@@ -423,7 +423,7 @@ argument_list|(
 literal|"number"
 argument_list|)
 operator|.
-name|lte
+name|lt
 argument_list|(
 literal|2
 argument_list|)
@@ -441,7 +441,7 @@ argument_list|(
 literal|"number"
 argument_list|)
 operator|.
-name|gt
+name|gte
 argument_list|(
 literal|2
 argument_list|)
@@ -484,7 +484,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"1"
+literal|"3"
 argument_list|)
 operator|||
 name|hit
@@ -522,7 +522,7 @@ argument_list|()
 argument_list|,
 name|hasItemInArray
 argument_list|(
-literal|"test1"
+literal|"test2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -537,7 +537,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"3"
+literal|"1"
 argument_list|)
 condition|)
 block|{
@@ -565,7 +565,7 @@ argument_list|()
 argument_list|,
 name|hasItemInArray
 argument_list|(
-literal|"test2"
+literal|"test1"
 argument_list|)
 argument_list|)
 expr_stmt|;
