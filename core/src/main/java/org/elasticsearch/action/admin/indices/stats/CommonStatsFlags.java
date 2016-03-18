@@ -1016,6 +1016,7 @@ argument_list|(
 literal|"suggest"
 argument_list|)
 block|,
+comment|// unused
 DECL|enum constant|RequestCache
 name|RequestCache
 argument_list|(
