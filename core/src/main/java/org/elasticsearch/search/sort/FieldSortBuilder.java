@@ -1187,6 +1187,12 @@ operator|==
 name|SortMode
 operator|.
 name|AVG
+operator|||
+name|sortMode
+operator|==
+name|SortMode
+operator|.
+name|MEDIAN
 operator|)
 condition|)
 block|{
@@ -1196,7 +1202,7 @@ name|QueryShardException
 argument_list|(
 name|context
 argument_list|,
-literal|"we only support AVG and SUM on number based fields"
+literal|"we only support AVG, MEDIAN and SUM on number based fields"
 argument_list|)
 throw|;
 block|}

@@ -717,7 +717,7 @@ specifier|final
 name|int
 name|NUMBER_OF_TESTBUILDERS
 init|=
-literal|500
+literal|20
 decl_stmt|;
 DECL|field|indicesQueriesRegistry
 specifier|static

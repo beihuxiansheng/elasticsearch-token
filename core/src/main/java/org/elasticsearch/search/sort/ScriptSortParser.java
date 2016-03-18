@@ -1333,7 +1333,6 @@ break|break;
 case|case
 name|NUMBER
 case|:
-comment|// TODO: should we rather sort missing values last?
 name|fieldComparatorSource
 operator|=
 operator|new
