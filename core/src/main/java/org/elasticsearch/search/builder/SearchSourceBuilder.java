@@ -2652,6 +2652,27 @@ return|return
 name|ext
 return|;
 block|}
+comment|/**      * @return true if the source only has suggest      */
+DECL|method|hasOnlySuggest
+specifier|public
+name|boolean
+name|hasOnlySuggest
+parameter_list|()
+block|{
+return|return
+name|suggestBuilder
+operator|!=
+literal|null
+operator|&&
+name|queryBuilder
+operator|==
+literal|null
+operator|&&
+name|aggregations
+operator|==
+literal|null
+return|;
+block|}
 comment|/**      * Rewrites this search source builder into its primitive form. e.g. by      * rewriting the QueryBuilder. If the builder did not change the identity      * reference must be returned otherwise the builder will be rewritten      * infinitely.      */
 DECL|method|rewrite
 specifier|public

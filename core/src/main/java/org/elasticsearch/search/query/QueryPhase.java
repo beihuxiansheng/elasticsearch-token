@@ -972,6 +972,44 @@ parameter_list|)
 throws|throws
 name|QueryPhaseExecutionException
 block|{
+if|if
+condition|(
+name|searchContext
+operator|.
+name|hasOnlySuggest
+argument_list|()
+condition|)
+block|{
+name|suggestPhase
+operator|.
+name|execute
+argument_list|(
+name|searchContext
+argument_list|)
+expr_stmt|;
+comment|// TODO: fix this once we can fetch docs for suggestions
+name|searchContext
+operator|.
+name|queryResult
+argument_list|()
+operator|.
+name|topDocs
+argument_list|(
+operator|new
+name|TopDocs
+argument_list|(
+literal|0
+argument_list|,
+name|Lucene
+operator|.
+name|EMPTY_SCORE_DOCS
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// Pre-process aggregations as late as possible. In the case of a DFS_Q_T_F
 comment|// request, preProcess is called on the DFS phase phase, this is why we pre-process them
 comment|// here to make sure it happens during the QUERY phase
