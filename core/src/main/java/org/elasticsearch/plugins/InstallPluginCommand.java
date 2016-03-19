@@ -2371,7 +2371,6 @@ argument_list|(
 name|destBinDir
 argument_list|)
 expr_stmt|;
-comment|// setup file attributes for the installed files to those of the parent dir
 name|Set
 argument_list|<
 name|PosixFilePermission
@@ -2383,6 +2382,16 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|Constants
+operator|.
+name|WINDOWS
+operator|==
+literal|false
+condition|)
+block|{
+comment|// setup file attributes for the installed files to those of the parent dir
 name|PosixFileAttributeView
 name|binAttrs
 init|=
@@ -2450,6 +2459,7 @@ operator|.
 name|OTHERS_EXECUTE
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 try|try
 init|(
@@ -2636,7 +2646,23 @@ expr_stmt|;
 specifier|final
 name|PosixFileAttributes
 name|destConfigDirAttributes
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|Constants
+operator|.
+name|WINDOWS
+condition|)
+block|{
+name|destConfigDirAttributes
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
+block|{
+name|destConfigDirAttributes
+operator|=
 name|Files
 operator|.
 name|getFileAttributeView
@@ -2653,7 +2679,7 @@ argument_list|)
 operator|.
 name|readAttributes
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|setOwnerGroup
 argument_list|(
 name|destConfigDir
@@ -2661,6 +2687,7 @@ argument_list|,
 name|destConfigDirAttributes
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 init|(
 name|DirectoryStream
@@ -2748,6 +2775,15 @@ argument_list|,
 name|destFile
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Constants
+operator|.
+name|WINDOWS
+operator|==
+literal|false
+condition|)
+block|{
 name|setOwnerGroup
 argument_list|(
 name|destFile
@@ -2755,6 +2791,7 @@ argument_list|,
 name|destConfigDirAttributes
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
