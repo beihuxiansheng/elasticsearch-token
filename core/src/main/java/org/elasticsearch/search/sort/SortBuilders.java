@@ -44,11 +44,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|elasticsearch
 operator|.
-name|Arrays
+name|search
+operator|.
+name|sort
+operator|.
+name|ScriptSortBuilder
+operator|.
+name|ScriptSortType
 import|;
 end_import
 
@@ -105,7 +111,7 @@ parameter_list|(
 name|Script
 name|script
 parameter_list|,
-name|String
+name|ScriptSortType
 name|type
 parameter_list|)
 block|{
@@ -119,7 +125,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * A geo distance based sort.      *      * @param fieldName The geo point like field name.      * @param lat Latitude of the point to create the range distance facets from.      * @param lon Longitude of the point to create the range distance facets from.      *       */
+comment|/**      * A geo distance based sort.      *      * @param fieldName The geo point like field name.      * @param lat Latitude of the point to create the range distance facets from.      * @param lon Longitude of the point to create the range distance facets from.      *      */
 DECL|method|geoDistanceSort
 specifier|public
 specifier|static

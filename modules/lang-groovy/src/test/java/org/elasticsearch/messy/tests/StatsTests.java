@@ -4178,13 +4178,10 @@ literal|"Shard Failure: {}"
 argument_list|,
 name|failure
 operator|.
-name|reason
+name|getCause
 argument_list|()
 argument_list|,
 name|failure
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

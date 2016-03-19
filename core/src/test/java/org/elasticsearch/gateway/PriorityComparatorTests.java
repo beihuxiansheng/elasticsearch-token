@@ -118,6 +118,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -208,9 +220,6 @@ name|RoutingNodes
 operator|.
 name|UnassignedShards
 argument_list|(
-operator|(
-name|RoutingNodes
-operator|)
 literal|null
 argument_list|)
 decl_stmt|;
@@ -345,7 +354,7 @@ specifier|protected
 name|Settings
 name|getIndexSettings
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 block|{
@@ -356,6 +365,9 @@ operator|.
 name|equals
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -395,6 +407,9 @@ operator|.
 name|equals
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -644,7 +659,7 @@ specifier|protected
 name|Settings
 name|getIndexSettings
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 block|{
@@ -655,6 +670,9 @@ operator|.
 name|equals
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -694,6 +712,9 @@ operator|.
 name|equals
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1054,7 +1075,7 @@ specifier|protected
 name|Settings
 name|getIndexSettings
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 block|{
@@ -1066,6 +1087,9 @@ operator|.
 name|get
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

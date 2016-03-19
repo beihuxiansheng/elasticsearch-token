@@ -1707,13 +1707,11 @@ argument_list|(
 name|shard1
 argument_list|)
 expr_stmt|;
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"TEST: now index more"
+literal|"--> Indexing more data"
 argument_list|)
 expr_stmt|;
 comment|// More indexing to shard0

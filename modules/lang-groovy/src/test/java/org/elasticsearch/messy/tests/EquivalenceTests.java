@@ -3135,11 +3135,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Indexing ["
-operator|+
+literal|"Indexing [{}] docs"
+argument_list|,
 name|numDocs
-operator|+
-literal|"] docs"
 argument_list|)
 expr_stmt|;
 name|List

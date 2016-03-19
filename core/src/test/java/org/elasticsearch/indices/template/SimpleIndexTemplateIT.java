@@ -1140,8 +1140,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed search "
-operator|+
+literal|"failed search {}"
+argument_list|,
 name|Arrays
 operator|.
 name|toString

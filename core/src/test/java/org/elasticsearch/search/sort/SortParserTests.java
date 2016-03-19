@@ -361,6 +361,9 @@ argument_list|(
 name|parser
 argument_list|,
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|sortBuilder
@@ -994,6 +997,9 @@ argument_list|(
 name|parser
 argument_list|,
 name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

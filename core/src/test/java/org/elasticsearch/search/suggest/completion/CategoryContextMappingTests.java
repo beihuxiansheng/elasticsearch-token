@@ -1365,9 +1365,9 @@ name|List
 argument_list|<
 name|ContextMapping
 operator|.
-name|QueryContext
+name|InternalQueryContext
 argument_list|>
-name|queryContexts
+name|internalQueryContexts
 init|=
 name|mapping
 operator|.
@@ -1378,7 +1378,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|size
 argument_list|()
@@ -1391,7 +1391,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1408,7 +1408,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1425,7 +1425,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1508,9 +1508,9 @@ name|List
 argument_list|<
 name|ContextMapping
 operator|.
-name|QueryContext
+name|InternalQueryContext
 argument_list|>
-name|queryContexts
+name|internalQueryContexts
 init|=
 name|mapping
 operator|.
@@ -1521,7 +1521,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|size
 argument_list|()
@@ -1534,7 +1534,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1551,7 +1551,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1568,7 +1568,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1585,7 +1585,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1602,7 +1602,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1619,7 +1619,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1713,9 +1713,9 @@ name|List
 argument_list|<
 name|ContextMapping
 operator|.
-name|QueryContext
+name|InternalQueryContext
 argument_list|>
-name|queryContexts
+name|internalQueryContexts
 init|=
 name|mapping
 operator|.
@@ -1726,7 +1726,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|size
 argument_list|()
@@ -1739,7 +1739,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1756,7 +1756,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1773,7 +1773,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1900,9 +1900,9 @@ name|List
 argument_list|<
 name|ContextMapping
 operator|.
-name|QueryContext
+name|InternalQueryContext
 argument_list|>
-name|queryContexts
+name|internalQueryContexts
 init|=
 name|mapping
 operator|.
@@ -1913,7 +1913,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|size
 argument_list|()
@@ -1926,7 +1926,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1943,7 +1943,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1960,7 +1960,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1977,7 +1977,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -1994,7 +1994,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -2011,7 +2011,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -2116,9 +2116,9 @@ name|List
 argument_list|<
 name|ContextMapping
 operator|.
-name|QueryContext
+name|InternalQueryContext
 argument_list|>
-name|queryContexts
+name|internalQueryContexts
 init|=
 name|mapping
 operator|.
@@ -2129,7 +2129,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|size
 argument_list|()
@@ -2142,7 +2142,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -2159,7 +2159,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -2176,7 +2176,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -2193,7 +2193,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -2210,7 +2210,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(
@@ -2227,7 +2227,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|queryContexts
+name|internalQueryContexts
 operator|.
 name|get
 argument_list|(

@@ -1205,7 +1205,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Delegates to      * {@link org.elasticsearch.search.suggest.SuggestBuilder#addSuggestion(org.elasticsearch.search.suggest.SuggestBuilder.SuggestionBuilder)}      * .      */
+comment|/**      * Delegates to {@link SearchSourceBuilder#suggest(SuggestBuilder)}      */
 DECL|method|suggest
 specifier|public
 name|SearchRequestBuilder

@@ -411,7 +411,7 @@ operator|.
 name|LOCATION_MODE_SETTING
 argument_list|)
 expr_stmt|;
-comment|// Cloud storage API settings needed to be hidden
+comment|// Cloud storage API settings using a pattern needed to be hidden
 name|module
 operator|.
 name|registerSettingsFilter
@@ -436,20 +436,6 @@ operator|.
 name|PREFIX
 operator|+
 literal|"*.key"
-argument_list|)
-expr_stmt|;
-name|module
-operator|.
-name|registerSettingsFilter
-argument_list|(
-name|AzureStorageService
-operator|.
-name|Storage
-operator|.
-name|ACCOUNT_SETTING
-operator|.
-name|getKey
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

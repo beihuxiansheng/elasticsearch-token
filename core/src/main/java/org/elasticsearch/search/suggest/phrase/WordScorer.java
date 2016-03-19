@@ -742,12 +742,10 @@ return|;
 block|}
 DECL|interface|WordScorerFactory
 specifier|public
-specifier|static
 interface|interface
 name|WordScorerFactory
 block|{
 DECL|method|newScorer
-specifier|public
 name|WordScorer
 name|newScorer
 parameter_list|(

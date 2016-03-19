@@ -154,6 +154,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|Property
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -1437,13 +1453,13 @@ name|groupSetting
 argument_list|(
 literal|"threadpool."
 argument_list|,
-literal|true
+name|Property
+operator|.
+name|Dynamic
 argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|executors
@@ -2751,6 +2767,7 @@ name|stats
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the generic executor. This executor's {@link Executor#execute(Runnable)} method will run the Runnable it is given in      * the {@link ThreadContext} of the thread that queues it.      */
 DECL|method|generic
 specifier|public
 name|Executor
@@ -2766,6 +2783,7 @@ name|GENERIC
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the executor with the given name. This executor's {@link Executor#execute(Runnable)} method will run the Runnable it is given in      * the {@link ThreadContext} of the thread that queues it.      */
 DECL|method|executor
 specifier|public
 name|Executor
@@ -2823,6 +2841,7 @@ operator|.
 name|scheduler
 return|;
 block|}
+comment|/**      * Schedules a periodic action that always runs on the scheduler thread.      *      * @param command the action to take      * @param interval the delay interval      * @return a ScheduledFuture who's get will return when the task is complete and throw an exception if it is canceled      */
 DECL|method|scheduleWithFixedDelay
 specifier|public
 name|ScheduledFuture
@@ -2865,6 +2884,7 @@ name|MILLISECONDS
 argument_list|)
 return|;
 block|}
+comment|/**      * Schedules a one-shot command to run after a given delay. The command is not run in the context of the calling thread. To preserve the      * context of the calling thread you may call<code>threadPool.getThreadContext().preserveContext</code> on the runnable before passing      * it to this method.      *      * @param delay delay before the task executes      * @param name the name of the thread pool on which to execute this task. SAME means "execute on the scheduler thread" which changes the      *        meaning of the ScheduledFuture returned by this method. In that case the ScheduledFuture will complete only when the command      *        completes.      * @param command the command to run      * @return a ScheduledFuture who's get will return when the task is has been added to its target thread pool and throw an exception if      *         the task is canceled before it was added to its target thread pool. Once the task has been added to its target thread pool      *         the ScheduledFuture will cannot interact with it.      */
 DECL|method|schedule
 specifier|public
 name|ScheduledFuture

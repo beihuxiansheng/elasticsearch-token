@@ -826,7 +826,7 @@ name|Index
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"_na_"
+literal|"0xdeadbeef"
 argument_list|)
 decl_stmt|;
 name|ShardRouting
@@ -888,7 +888,10 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-literal|"test"
+name|index
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 operator|.
 name|resolve
@@ -974,7 +977,10 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-literal|"test"
+name|index
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 operator|.
 name|resolve
@@ -1023,8 +1029,6 @@ name|test0Path
 argument_list|,
 name|test0Path
 argument_list|,
-literal|"0xdeadbeef"
-argument_list|,
 name|test_0
 operator|.
 name|shardId
@@ -1051,8 +1055,6 @@ argument_list|,
 name|test1Path
 argument_list|,
 name|test1Path
-argument_list|,
-literal|"0xdeadbeef"
 argument_list|,
 name|test_1
 operator|.
@@ -1501,6 +1503,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 block|,
 operator|new
@@ -1549,6 +1553,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 block|,
 operator|new
@@ -1587,6 +1593,8 @@ literal|0
 argument_list|,
 name|node3FSInfo
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1966,6 +1974,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 block|,
 operator|new
@@ -2014,6 +2024,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 block|,
 operator|new
@@ -2052,6 +2064,8 @@ literal|0
 argument_list|,
 name|node3FSInfo
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

@@ -406,7 +406,7 @@ name|void
 name|testSimpleConcurrentPercolator
 parameter_list|()
 throws|throws
-name|Exception
+name|Throwable
 block|{
 comment|// We need to index a document / define mapping, otherwise field1 doesn't get recognized as number field.
 comment|// If we don't do this, then 'test2' percolate query gets parsed as a TermQuery and not a RangeQuery.
@@ -1129,24 +1129,10 @@ operator|!=
 literal|null
 condition|)
 block|{
+throw|throw
 name|assertionError
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
-name|assertThat
-argument_list|(
-name|assertionError
-operator|+
-literal|" should be null"
-argument_list|,
-name|assertionError
-argument_list|,
-name|nullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testConcurrentAddingAndPercolating
 specifier|public
@@ -2210,12 +2196,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Unexpected exception {}"
-argument_list|,
-name|t
-operator|.
-name|getMessage
-argument_list|()
+literal|"Unexpected exception while indexing"
 argument_list|,
 name|t
 argument_list|)

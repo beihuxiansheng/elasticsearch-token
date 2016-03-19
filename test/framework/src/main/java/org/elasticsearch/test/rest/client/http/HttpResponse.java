@@ -362,10 +362,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
+literal|"Failed closing response"
 argument_list|,
 name|e
 argument_list|)

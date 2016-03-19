@@ -1205,14 +1205,12 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"{} {} {}"
+argument_list|,
 name|hundred
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|ten
-operator|+
-literal|" "
-operator|+
+argument_list|,
 name|five
 argument_list|)
 expr_stmt|;

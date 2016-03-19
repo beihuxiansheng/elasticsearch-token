@@ -1274,15 +1274,12 @@ range|:
 name|indicesService
 control|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 name|indexService
 operator|.
 name|index
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 name|IndexMetaData
@@ -1334,7 +1331,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] removing shard (index is closed)"
+literal|"{}[{}] removing shard (index is closed)"
 argument_list|,
 name|index
 argument_list|,
@@ -1363,7 +1360,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] failed to remove shard (index is closed)"
+literal|"{} failed to remove shard (index is closed)"
 argument_list|,
 name|e
 argument_list|,
@@ -1622,16 +1619,11 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
-assert|assert
-name|metaData
-operator|!=
-literal|null
-assert|;
 name|indexSettings
 operator|=
 operator|new
@@ -1669,9 +1661,6 @@ name|state
 argument_list|()
 argument_list|,
 name|index
-operator|.
-name|getName
-argument_list|()
 argument_list|,
 name|indexSettings
 argument_list|,
@@ -1760,15 +1749,12 @@ range|:
 name|indicesService
 control|)
 block|{
-name|String
-name|indexName
+name|Index
+name|index
 init|=
 name|indexService
 operator|.
 name|index
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 name|IndexMetaData
@@ -1782,9 +1768,9 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
-name|indexName
+name|index
 argument_list|)
 decl_stmt|;
 if|if
@@ -1817,12 +1803,9 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|getName
-argument_list|()
-operator|.
 name|equals
 argument_list|(
-name|indexName
+name|index
 argument_list|)
 condition|)
 block|{
@@ -1886,9 +1869,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] removing shard (index is closed)"
+literal|"{}[{}] removing shard (index is closed)"
 argument_list|,
-name|indexName
+name|index
 argument_list|,
 name|existingShardId
 argument_list|)
@@ -1920,9 +1903,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] removing shard (not allocated)"
+literal|"{}[{}] removing shard (not allocated)"
 argument_list|,
-name|indexName
+name|index
 argument_list|,
 name|existingShardId
 argument_list|)
@@ -2023,7 +2006,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shard
 operator|.

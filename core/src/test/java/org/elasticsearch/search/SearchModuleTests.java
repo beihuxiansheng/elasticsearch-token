@@ -296,7 +296,7 @@ literal|"term"
 argument_list|,
 name|PhraseSuggester
 operator|.
-name|class
+name|PROTOTYPE
 argument_list|)
 expr_stmt|;
 block|}
@@ -347,7 +347,7 @@ literal|"custom"
 argument_list|,
 name|CustomSuggester
 operator|.
-name|class
+name|PROTOTYPE
 argument_list|)
 expr_stmt|;
 try|try
@@ -360,7 +360,7 @@ literal|"custom"
 argument_list|,
 name|CustomSuggester
 operator|.
-name|class
+name|PROTOTYPE
 argument_list|)
 expr_stmt|;
 block|}

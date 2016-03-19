@@ -1805,13 +1805,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to receive message for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"Failed to receive message for action [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 block|}
@@ -2068,13 +2066,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send error message back to client for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"Failed to send error message back to client for action [{}]"
 argument_list|,
 name|e1
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2120,13 +2116,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send error message back to client for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"Failed to send error message back to client for action [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger

@@ -1176,10 +1176,6 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|threadPool
-argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
 argument_list|)
 block|{
 annotation|@
@@ -1232,8 +1228,6 @@ operator|new
 name|TestClusterService
 argument_list|(
 name|threadPool
-argument_list|,
-name|transportService
 argument_list|)
 expr_stmt|;
 name|clusterService
@@ -1571,7 +1565,7 @@ index|[
 name|i
 index|]
 operator|.
-name|clusterService
+name|transportService
 operator|.
 name|getTaskManager
 argument_list|()

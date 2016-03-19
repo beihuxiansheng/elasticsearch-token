@@ -466,9 +466,6 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|MappingUpdatedAction
-name|mappingUpdatedAction
-parameter_list|,
 name|AutoCreateIndex
 name|autoCreateIndex
 parameter_list|)
@@ -490,8 +487,6 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|shardStateAction
-argument_list|,
-name|mappingUpdatedAction
 argument_list|,
 name|actionFilters
 argument_list|,

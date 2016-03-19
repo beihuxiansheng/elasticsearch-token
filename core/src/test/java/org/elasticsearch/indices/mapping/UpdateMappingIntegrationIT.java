@@ -1356,7 +1356,7 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\", \"norms\": { \"enabled\": false }}}}}"
+literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\", \"norms\": false }}}}"
 argument_list|)
 operator|.
 name|execute
@@ -1388,7 +1388,7 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\", \"norms\": { \"enabled\": true }}}}}"
+literal|"{\"type\":{\"properties\":{\"body\":{\"type\":\"text\", \"norms\": true }}}}"
 argument_list|)
 operator|.
 name|execute
@@ -1418,7 +1418,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"mapper [body] has different [omit_norms]"
+literal|"mapper [body] has different [norms]"
 argument_list|)
 argument_list|)
 expr_stmt|;

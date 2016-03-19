@@ -1693,7 +1693,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"shift: {[]}"
+literal|"shift: [{}]"
 argument_list|,
 name|shiftOffset
 argument_list|)
@@ -2151,7 +2151,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Component {[]}:"
+literal|"Component [{}]:"
 argument_list|,
 name|i
 argument_list|)
@@ -2180,8 +2180,8 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"\t"
-operator|+
+literal|"\t{}"
+argument_list|,
 name|Arrays
 operator|.
 name|toString
@@ -2574,8 +2574,8 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Holes: "
-operator|+
+literal|"Holes: {}"
+argument_list|,
 name|Arrays
 operator|.
 name|toString
@@ -2762,16 +2762,12 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"\tposition ("
-operator|+
+literal|"\tposition ({}) of edge {}: {}"
+argument_list|,
 name|index
-operator|+
-literal|") of edge "
-operator|+
+argument_list|,
 name|current
-operator|+
-literal|": "
-operator|+
+argument_list|,
 name|edges
 index|[
 name|index
@@ -2782,8 +2778,8 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"\tComponent: "
-operator|+
+literal|"\tComponent: {}"
+argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
@@ -2791,16 +2787,14 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"\tHole intersections ("
-operator|+
+literal|"\tHole intersections ({}): {}"
+argument_list|,
 name|current
 operator|.
 name|coordinate
 operator|.
 name|x
-operator|+
-literal|"): "
-operator|+
+argument_list|,
 name|Arrays
 operator|.
 name|toString

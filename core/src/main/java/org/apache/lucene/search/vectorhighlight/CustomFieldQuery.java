@@ -218,16 +218,6 @@ name|Collection
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -529,8 +519,7 @@ operator|.
 name|getTermArrays
 argument_list|()
 operator|.
-name|size
-argument_list|()
+name|length
 index|]
 argument_list|,
 name|q
@@ -617,11 +606,9 @@ parameter_list|,
 name|MultiPhraseQuery
 name|orig
 parameter_list|,
-name|List
-argument_list|<
 name|Term
 index|[]
-argument_list|>
+index|[]
 name|terms
 parameter_list|,
 name|int
@@ -722,8 +709,7 @@ name|currentPos
 operator|==
 name|terms
 operator|.
-name|size
-argument_list|()
+name|length
 condition|)
 block|{
 name|PhraseQuery
@@ -769,11 +755,9 @@ operator|.
 name|add
 argument_list|(
 name|terms
-operator|.
-name|get
-argument_list|(
+index|[
 name|i
-argument_list|)
+index|]
 index|[
 name|termsIdx
 index|[
@@ -817,11 +801,9 @@ index|[]
 name|t
 init|=
 name|terms
-operator|.
-name|get
-argument_list|(
+index|[
 name|currentPos
-argument_list|)
+index|]
 decl_stmt|;
 for|for
 control|(

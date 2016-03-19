@@ -594,6 +594,18 @@ literal|"discovery"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|nodesStatsRequest
+operator|.
+name|ingest
+argument_list|(
+name|metrics
+operator|.
+name|contains
+argument_list|(
+literal|"ingest"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// check for index specific metrics
 if|if
 condition|(
@@ -947,9 +959,7 @@ name|nodesStatsRequest
 argument_list|,
 operator|new
 name|RestToXContentListener
-argument_list|<
-name|NodesStatsResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|channel
 argument_list|)

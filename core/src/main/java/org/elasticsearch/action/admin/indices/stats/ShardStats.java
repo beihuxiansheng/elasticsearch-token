@@ -513,7 +513,7 @@ name|seqNoStats
 operator|=
 name|in
 operator|.
-name|readOptionalStreamableReader
+name|readOptionalWritable
 argument_list|(
 name|SeqNoStats
 operator|::
@@ -578,7 +578,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalWritable
+name|writeOptionalWriteable
 argument_list|(
 name|seqNoStats
 argument_list|)

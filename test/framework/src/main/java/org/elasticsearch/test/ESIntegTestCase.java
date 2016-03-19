@@ -912,6 +912,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|Property
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -1167,6 +1183,18 @@ operator|.
 name|index
 operator|.
 name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexModule
 import|;
 end_import
 
@@ -2191,7 +2219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ESIntegTestCase} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 2 different  * cluster scopes.  *<ul>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test methods in the same suite</li>  *</ul>  *<p>  * The most common test scope is {@link Scope#SUITE} which shares a cluster per test suite.  *<p>  * If the test methods need specific node settings or change persistent and/or transient cluster settings {@link Scope#TEST}  * should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * {@literal @}ClusterScope(scope=Scope.TEST) public class SomeIT extends ESIntegTestCase {  * public void testMethod() {}  * }  *</pre>  *<p>  * If no {@link ClusterScope} annotation is present on an integration test the default scope is {@link Scope#SUITE}  *<p>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The {@link ClusterScope} allows configuring the initial number of nodes  * that are created before the tests start.  *<pre>  * {@literal @}ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIT extends ESIntegTestCase {  * public void testMethod() {}  * }  *</pre>  *<p>  * Note, the {@link ESIntegTestCase} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value #TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  */
+comment|/**  * {@link ESIntegTestCase} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 2 different  * cluster scopes.  *<ul>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test methods in the same suite</li>  *</ul>  *<p>  * The most common test scope is {@link Scope#SUITE} which shares a cluster per test suite.  *<p>  * If the test methods need specific node settings or change persistent and/or transient cluster settings {@link Scope#TEST}  * should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * {@literal @}NodeScope(scope=Scope.TEST) public class SomeIT extends ESIntegTestCase {  * public void testMethod() {}  * }  *</pre>  *<p>  * If no {@link ClusterScope} annotation is present on an integration test the default scope is {@link Scope#SUITE}  *<p>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The {@link ClusterScope} allows configuring the initial number of nodes  * that are created before the tests start.  *<pre>  * {@literal @}NodeScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIT extends ESIntegTestCase {  * public void testMethod() {}  * }  *</pre>  *<p>  * Note, the {@link ESIntegTestCase} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value #TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  */
 end_comment
 
 begin_class
@@ -2318,13 +2346,9 @@ name|Long
 operator|.
 name|MIN_VALUE
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 argument_list|)
 decl_stmt|;
 comment|/**      * A boolean value to enable or disable mock modules. This is useful to test the      * system without asserting modules that to make sure they don't hide any bugs in      * production.      *      * @see ESIntegTestCase      */
@@ -3168,6 +3192,73 @@ name|startsWith
 argument_list|(
 literal|"index."
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// always default delayed allocation to 0 to make sure we have tests are not delayed
+name|randomSettingsBuilder
+operator|.
+name|put
+argument_list|(
+name|UnassignedInfo
+operator|.
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|randomSettingsBuilder
+operator|.
+name|put
+argument_list|(
+name|IndexModule
+operator|.
+name|INDEX_QUERY_CACHE_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|randomBoolean
+argument_list|()
+condition|?
+name|IndexModule
+operator|.
+name|INDEX_QUERY_CACHE
+else|:
+name|IndexModule
+operator|.
+name|NONE_QUERY_CACHE
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|randomSettingsBuilder
+operator|.
+name|put
+argument_list|(
+name|IndexModule
+operator|.
+name|INDEX_QUERY_CACHE_EVERYTHING_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4747,6 +4838,21 @@ name|dataPath
 argument_list|)
 expr_stmt|;
 block|}
+comment|// always default delayed allocation to 0 to make sure we have tests are not delayed
+name|builder
+operator|.
+name|put
+argument_list|(
+name|UnassignedInfo
+operator|.
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 return|return
 name|builder
 operator|.
@@ -5789,10 +5895,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
+literal|"{}"
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -7094,13 +7199,16 @@ decl_stmt|;
 name|int
 name|masterClusterStateSize
 init|=
-name|masterClusterState
+name|ClusterState
 operator|.
-name|toString
-argument_list|()
+name|Builder
+operator|.
+name|toBytes
+argument_list|(
+name|masterClusterState
+argument_list|)
 operator|.
 name|length
-argument_list|()
 decl_stmt|;
 name|String
 name|masterId
@@ -7198,13 +7306,16 @@ specifier|final
 name|int
 name|localClusterStateSize
 init|=
-name|localClusterState
+name|ClusterState
 operator|.
-name|toString
-argument_list|()
+name|Builder
+operator|.
+name|toBytes
+argument_list|(
+name|localClusterState
+argument_list|)
 operator|.
 name|length
-argument_list|()
 decl_stmt|;
 comment|// Check that the non-master node has the same version of the cluster state as the master and
 comment|// that the master node matches the master (otherwise there is no requirement for the cluster state to match)
@@ -10363,7 +10474,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"varargs"
 argument_list|)
-comment|// due to type erasure, the varargs type is non-reifiable, which casues this warning
+comment|// due to type erasure, the varargs type is non-reifiable, which causes this warning
 DECL|method|pluginList
 specifier|protected
 specifier|final
@@ -10397,7 +10508,7 @@ name|plugins
 argument_list|)
 return|;
 block|}
-comment|/**      * This method is used to obtain additional settings for clients created by the internal cluster.      * These settings will be applied on the client in addition to some randomized settings defined in      * the cluster. These setttings will also override any other settings the internal cluster might      * add by default.      */
+comment|/**      * This method is used to obtain additional settings for clients created by the internal cluster.      * These settings will be applied on the client in addition to some randomized settings defined in      * the cluster. These settings will also override any other settings the internal cluster might      * add by default.      */
 DECL|method|transportClientSettings
 specifier|protected
 name|Settings
@@ -11139,7 +11250,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"a test plugin that registeres index.tests.seed as an index setting"
+literal|"a test plugin that registers index.tests.seed as an index setting"
 return|;
 block|}
 DECL|method|onModule
@@ -11862,7 +11973,7 @@ argument_list|(
 literal|"finished"
 argument_list|)
 expr_stmt|;
-comment|// Deleting indices is going to clear search contexts implicitely so we
+comment|// Deleting indices is going to clear search contexts implicitly so we
 comment|// need to check that there are no more in-flight search contexts before
 comment|// we remove indices
 name|super

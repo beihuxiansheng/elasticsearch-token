@@ -1099,20 +1099,13 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Adding header "
-operator|+
+literal|"Adding header {}\n with value {}"
+argument_list|,
 name|header
 operator|.
 name|getKey
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|error
-argument_list|(
-literal|" with value "
-operator|+
+argument_list|,
 name|header
 operator|.
 name|getValue

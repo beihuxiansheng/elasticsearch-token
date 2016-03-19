@@ -259,7 +259,7 @@ decl_stmt|;
 assert|assert
 name|success
 operator|:
-literal|"startDisrupting called without waiting on stopDistrupting to complete"
+literal|"startDisrupting called without waiting on stopDisrupting to complete"
 assert|;
 specifier|final
 name|CountDownLatch

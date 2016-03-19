@@ -2711,11 +2711,11 @@ name|warn
 argument_list|(
 literal|"[{}] [{}] failed to read metadata for index"
 argument_list|,
+name|ex
+argument_list|,
 name|snapshotId
 argument_list|,
 name|index
-argument_list|,
-name|ex
 argument_list|)
 expr_stmt|;
 block|}

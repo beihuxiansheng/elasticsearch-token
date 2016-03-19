@@ -270,6 +270,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|Property
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -405,13 +421,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|EXPECTED_DATA_NODES_SETTING
@@ -436,13 +448,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|EXPECTED_MASTER_NODES_SETTING
@@ -467,13 +475,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVER_AFTER_TIME_SETTING
@@ -499,13 +503,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVER_AFTER_NODES_SETTING
@@ -530,13 +530,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVER_AFTER_DATA_NODES_SETTING
@@ -561,13 +557,9 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVER_AFTER_MASTER_NODES_SETTING
@@ -590,13 +582,9 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|STATE_NOT_RECOVERED_BLOCK
@@ -1129,8 +1117,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (data+master) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (data+master) [{}]< recover_after_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|masterAndDataNodes
@@ -1138,12 +1126,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1170,8 +1154,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (data) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (data) [{}]< recover_after_data_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|dataNodes
@@ -1179,12 +1163,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_data_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterDataNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1211,8 +1191,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"not recovering from gateway, nodes_size (master) ["
-operator|+
+literal|"not recovering from gateway, nodes_size (master) [{}]< recover_after_master_nodes [{}]"
+argument_list|,
 name|nodes
 operator|.
 name|masterNodes
@@ -1220,12 +1200,8 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"]< recover_after_master_nodes ["
-operator|+
+argument_list|,
 name|recoverAfterMasterNodes
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

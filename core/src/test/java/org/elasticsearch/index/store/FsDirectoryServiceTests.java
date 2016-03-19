@@ -333,7 +333,10 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"foo"
+name|settings
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 operator|.
 name|resolve
@@ -359,11 +362,6 @@ argument_list|,
 name|tempDir
 argument_list|,
 name|tempDir
-argument_list|,
-name|settings
-operator|.
-name|getUUID
-argument_list|()
 argument_list|,
 operator|new
 name|ShardId
@@ -508,7 +506,10 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"foo"
+name|settings
+operator|.
+name|getUUID
+argument_list|()
 argument_list|)
 operator|.
 name|resolve
@@ -534,11 +535,6 @@ argument_list|,
 name|tempDir
 argument_list|,
 name|tempDir
-argument_list|,
-name|settings
-operator|.
-name|getUUID
-argument_list|()
 argument_list|,
 operator|new
 name|ShardId

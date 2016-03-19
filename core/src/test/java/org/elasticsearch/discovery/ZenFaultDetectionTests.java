@@ -709,8 +709,6 @@ name|namedWriteableRegistry
 argument_list|)
 argument_list|,
 name|threadPool
-argument_list|,
-name|namedWriteableRegistry
 argument_list|)
 decl_stmt|;
 name|transportService

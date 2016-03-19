@@ -1040,7 +1040,7 @@ name|request
 operator|.
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1243,7 +1243,7 @@ name|index
 argument_list|(
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;

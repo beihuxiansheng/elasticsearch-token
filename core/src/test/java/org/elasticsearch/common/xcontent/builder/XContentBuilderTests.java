@@ -1215,15 +1215,14 @@ argument_list|,
 literal|"UTF8"
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertThat
 argument_list|(
-literal|"DATA: "
-operator|+
 name|sData
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"{\"name\":\"something\", source : { test : \"value\" },\"name2\":\"something2\"}"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -600,6 +600,16 @@ name|getPipelineStore
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|clusterService
+operator|.
+name|add
+argument_list|(
+name|ingestService
+operator|.
+name|getPipelineExecutionService
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// can not use constructor injection or there will be a circular dependency
 annotation|@
@@ -1119,6 +1129,14 @@ name|discovery
 operator|.
 name|stats
 argument_list|()
+argument_list|,
+name|ingestService
+operator|.
+name|getPipelineExecutionService
+argument_list|()
+operator|.
+name|stats
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1159,6 +1177,9 @@ name|script
 parameter_list|,
 name|boolean
 name|discoveryStats
+parameter_list|,
+name|boolean
+name|ingest
 parameter_list|)
 block|{
 comment|// for indices stats we want to include previous allocated shards stats as well (it will
@@ -1299,6 +1320,18 @@ argument_list|,
 name|discoveryStats
 condition|?
 name|discovery
+operator|.
+name|stats
+argument_list|()
+else|:
+literal|null
+argument_list|,
+name|ingest
+condition|?
+name|ingestService
+operator|.
+name|getPipelineExecutionService
+argument_list|()
 operator|.
 name|stats
 argument_list|()

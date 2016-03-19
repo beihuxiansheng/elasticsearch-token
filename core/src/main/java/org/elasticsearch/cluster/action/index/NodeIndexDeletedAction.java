@@ -517,7 +517,7 @@ name|ClusterState
 name|clusterState
 parameter_list|,
 specifier|final
-name|String
+name|Index
 name|index
 parameter_list|,
 specifier|final
@@ -583,6 +583,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"[{}] not acking store deletion (not a data node)"
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 return|return;
@@ -612,7 +614,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}]failed to ack index store deleted for  index"
+literal|"[{}] failed to ack index store deleted for index"
 argument_list|,
 name|t
 argument_list|,
@@ -652,7 +654,7 @@ specifier|private
 name|void
 name|lockIndexAndAck
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|DiscoveryNodes
@@ -768,7 +770,7 @@ DECL|method|onNodeIndexDeleted
 name|void
 name|onNodeIndexDeleted
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -779,7 +781,7 @@ DECL|method|onNodeIndexStoreDeleted
 name|void
 name|onNodeIndexStoreDeleted
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -918,7 +920,7 @@ extends|extends
 name|TransportRequest
 block|{
 DECL|field|index
-name|String
+name|Index
 name|index
 decl_stmt|;
 DECL|field|nodeId
@@ -933,7 +935,7 @@ block|{         }
 DECL|method|NodeIndexDeletedMessage
 name|NodeIndexDeletedMessage
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -973,11 +975,11 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|writeString
-argument_list|(
 name|index
+operator|.
+name|writeTo
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 name|out
@@ -1010,10 +1012,11 @@ argument_list|)
 expr_stmt|;
 name|index
 operator|=
+operator|new
+name|Index
+argument_list|(
 name|in
-operator|.
-name|readString
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|nodeId
 operator|=
@@ -1033,7 +1036,7 @@ extends|extends
 name|TransportRequest
 block|{
 DECL|field|index
-name|String
+name|Index
 name|index
 decl_stmt|;
 DECL|field|nodeId
@@ -1048,7 +1051,7 @@ block|{         }
 DECL|method|NodeIndexStoreDeletedMessage
 name|NodeIndexStoreDeletedMessage
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -1088,11 +1091,11 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|writeString
-argument_list|(
 name|index
+operator|.
+name|writeTo
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 name|out
@@ -1125,10 +1128,11 @@ argument_list|)
 expr_stmt|;
 name|index
 operator|=
+operator|new
+name|Index
+argument_list|(
 name|in
-operator|.
-name|readString
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|nodeId
 operator|=

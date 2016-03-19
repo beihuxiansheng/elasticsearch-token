@@ -430,6 +430,22 @@ name|common
 operator|.
 name|settings
 operator|.
+name|Setting
+operator|.
+name|Property
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
 name|Settings
 import|;
 end_import
@@ -1252,13 +1268,9 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
-literal|false
-argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|pluginsService
@@ -1849,13 +1861,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to remove index on stop "
-operator|+
-name|index
-operator|+
-literal|""
+literal|"failed to remove index on stop [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}
@@ -3778,15 +3788,14 @@ operator|.
 name|indexPaths
 argument_list|(
 name|index
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 comment|/**      * Deletes the shard with an already acquired shard lock.      * @param reason the reason for the shard deletion      * @param lock the lock of the shard to delete      * @param indexSettings the shards index settings.      * @throws IOException if an IOException occurs      */
+annotation|@
+name|Override
 DECL|method|deleteShardStore
 specifier|public
 name|void
@@ -4144,17 +4153,20 @@ condition|)
 block|{
 if|if
 condition|(
-name|indexService
-operator|!=
-literal|null
-operator|&&
 name|nodeEnv
 operator|.
 name|hasNodeFile
 argument_list|()
 condition|)
 block|{
-return|return
+specifier|final
+name|boolean
+name|isAllocated
+init|=
+name|indexService
+operator|!=
+literal|null
+operator|&&
 name|indexService
 operator|.
 name|hasShard
@@ -4164,19 +4176,18 @@ operator|.
 name|id
 argument_list|()
 argument_list|)
-operator|==
-literal|false
-return|;
-block|}
-elseif|else
+decl_stmt|;
 if|if
 condition|(
-name|nodeEnv
-operator|.
-name|hasNodeFile
-argument_list|()
+name|isAllocated
 condition|)
 block|{
+return|return
+literal|false
+return|;
+comment|// we are allocated - can't delete the shard
+block|}
+elseif|else
 if|if
 condition|(
 name|indexSettings
@@ -4185,6 +4196,8 @@ name|hasCustomDataPath
 argument_list|()
 condition|)
 block|{
+comment|// lets see if it's on a custom path (return false if the shared doesn't exist)
+comment|// we don't need to delete anything that is not there
 return|return
 name|Files
 operator|.
@@ -4203,6 +4216,8 @@ return|;
 block|}
 else|else
 block|{
+comment|// lets see if it's path is available (return false if the shared doesn't exist)
+comment|// we don't need to delete anything that is not there
 return|return
 name|FileSystemUtils
 operator|.
@@ -4258,6 +4273,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds a pending delete for the given index shard.      */
+annotation|@
+name|Override
 DECL|method|addPendingDelete
 specifier|public
 name|void

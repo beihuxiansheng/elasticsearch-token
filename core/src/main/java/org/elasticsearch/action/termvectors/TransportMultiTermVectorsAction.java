@@ -546,11 +546,11 @@ name|concreteSingleIndex
 argument_list|(
 name|clusterState
 argument_list|,
-operator|(
-name|DocumentRequest
-operator|)
 name|termVectorsRequest
 argument_list|)
+operator|.
+name|getName
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

@@ -180,9 +180,6 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|super
@@ -192,8 +189,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-name|namedWriteableRegistry
 argument_list|)
 expr_stmt|;
 block|}

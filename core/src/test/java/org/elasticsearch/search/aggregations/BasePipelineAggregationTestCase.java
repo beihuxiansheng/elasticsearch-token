@@ -1642,12 +1642,12 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
+literal|"Content string: {}"
+argument_list|,
 name|contentString
 argument_list|)
 expr_stmt|;

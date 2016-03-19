@@ -50,11 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|internal
+name|query
 operator|.
-name|SearchContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -81,7 +81,7 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|SearchContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
