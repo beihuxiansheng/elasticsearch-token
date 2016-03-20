@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Utilities for creating a Path from names,  * or accessing the default FileSystem.  *<p>  * This class allows the default filesystem to  * be changed during tests.  */
+comment|/**  * Utilities for creating a Path from names,  * or accessing the default FileSystem.  *<p>  * This class allows the default filesystem to  * be changed during tests.  */
 end_comment
 
 begin_class
@@ -132,7 +132,7 @@ name|DEFAULT
 init|=
 name|ACTUAL_DEFAULT
 decl_stmt|;
-comment|/**       * Returns a {@code Path} from name components.      *<p>      * This works just like {@code Paths.get()}.      * Remember: just like {@code Paths.get()} this is NOT A STRING CONCATENATION      * UTILITY FUNCTION.      *<p>      * Remember: this should almost never be used. Usually resolve      * a path against an existing one!      */
+comment|/**      * Returns a {@code Path} from name components.      *<p>      * This works just like {@code Paths.get()}.      * Remember: just like {@code Paths.get()} this is NOT A STRING CONCATENATION      * UTILITY FUNCTION.      *<p>      * Remember: this should almost never be used. Usually resolve      * a path against an existing one!      */
 DECL|method|get
 specifier|public
 specifier|static
@@ -148,7 +148,36 @@ name|more
 parameter_list|)
 block|{
 return|return
+name|get
+argument_list|(
 name|DEFAULT
+argument_list|,
+name|first
+argument_list|,
+name|more
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a {@code Path} from name components against the given      * {@code FileSystem}.      *<p>      * This works just like {@code Paths.get()}.      * Remember: just like {@code Paths.get()} this is NOT A STRING CONCATENATION      * UTILITY FUNCTION.      *<p>      * Remember: this should almost never be used. Usually resolve      * a path against an existing one!      *      * @param fs    the given {@code FileSystem}      * @param first the first path component      * @param more  the remaining path components      * @return a path      */
+DECL|method|get
+specifier|public
+specifier|static
+name|Path
+name|get
+parameter_list|(
+name|FileSystem
+name|fs
+parameter_list|,
+name|String
+name|first
+parameter_list|,
+name|String
+modifier|...
+name|more
+parameter_list|)
+block|{
+return|return
+name|fs
 operator|.
 name|getPath
 argument_list|(
@@ -158,7 +187,7 @@ name|more
 argument_list|)
 return|;
 block|}
-comment|/**       * Returns a {@code Path} from a URI      *<p>      * This works just like {@code Paths.get()}.      *<p>      * Remember: this should almost never be used. Usually resolve      * a path against an existing one!      */
+comment|/**      * Returns a {@code Path} from a URI      *<p>      * This works just like {@code Paths.get()}.      *<p>      * Remember: this should almost never be used. Usually resolve      * a path against an existing one!      */
 DECL|method|get
 specifier|public
 specifier|static

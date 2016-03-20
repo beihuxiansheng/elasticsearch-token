@@ -1765,6 +1765,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+name|IllegalArgumentException
+decl||
 name|UnsupportedOperationException
 name|e
 parameter_list|)
@@ -1916,7 +1918,6 @@ return|;
 block|}
 comment|/** check a candidate plugin for jar hell before installing it */
 DECL|method|jarHellCheck
-specifier|private
 name|void
 name|jarHellCheck
 parameter_list|(
