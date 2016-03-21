@@ -986,10 +986,10 @@ argument_list|(
 literal|"warmer"
 argument_list|)
 block|,
-DECL|enum constant|Percolate
-name|Percolate
+DECL|enum constant|PercolatorCache
+name|PercolatorCache
 argument_list|(
-literal|"percolate"
+literal|"percolator_cache"
 argument_list|)
 block|,
 DECL|enum constant|Completion

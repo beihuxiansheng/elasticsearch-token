@@ -330,8 +330,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to retrieve resource limits: "
-operator|+
+literal|"Unable to retrieve resource limits: {}"
+argument_list|,
 name|JNACLibrary
 operator|.
 name|strerror
@@ -360,12 +360,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to lock JVM Memory: error="
-operator|+
+literal|"Unable to lock JVM Memory: error={}, reason={}"
+argument_list|,
 name|errno
-operator|+
-literal|",reason="
-operator|+
+argument_list|,
 name|errMsg
 argument_list|)
 expr_stmt|;
@@ -394,15 +392,13 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Increase RLIMIT_MEMLOCK, soft limit: "
-operator|+
+literal|"Increase RLIMIT_MEMLOCK, soft limit: {}, hard limit: {}"
+argument_list|,
 name|rlimitToString
 argument_list|(
 name|softLimit
 argument_list|)
-operator|+
-literal|", hard limit: "
-operator|+
+argument_list|,
 name|rlimitToString
 argument_list|(
 name|hardLimit
@@ -433,23 +429,17 @@ name|warn
 argument_list|(
 literal|"These can be adjusted by modifying /etc/security/limits.conf, for example: \n"
 operator|+
-literal|"\t# allow user '"
+literal|"\t# allow user '{}' mlockall\n"
 operator|+
+literal|"\t{} soft memlock unlimited\n"
+operator|+
+literal|"\t{} hard memlock unlimited"
+argument_list|,
 name|user
-operator|+
-literal|"' mlockall\n"
-operator|+
-literal|"\t"
-operator|+
+argument_list|,
 name|user
-operator|+
-literal|" soft memlock unlimited\n"
-operator|+
-literal|"\t"
-operator|+
+argument_list|,
 name|user
-operator|+
-literal|" hard memlock unlimited"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -718,8 +708,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to lock JVM memory. Failed to set working set size. Error code "
-operator|+
+literal|"Unable to lock JVM memory. Failed to set working set size. Error code {}"
+argument_list|,
 name|Native
 operator|.
 name|getLastError
@@ -939,14 +929,12 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"unknown error "
-operator|+
+literal|"unknown error {} when adding console ctrl handler"
+argument_list|,
 name|Native
 operator|.
 name|getLastError
 argument_list|()
-operator|+
-literal|" when adding console ctrl handler:"
 argument_list|)
 expr_stmt|;
 block|}

@@ -88,6 +88,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|Property
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|AbstractIndexComponent
@@ -540,13 +556,9 @@ end_class
 
 begin_expr_stmt
 unit|},
-literal|false
-operator|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|IndexScope
 end_expr_stmt
 
 begin_empty_stmt
@@ -2120,11 +2132,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"field ["
-operator|+
+literal|"field [{}] has no doc values, will use default field data format"
+argument_list|,
 name|fieldName
-operator|+
-literal|"] has no doc values, will use default field data format"
 argument_list|)
 expr_stmt|;
 name|format
@@ -2169,15 +2179,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to find format ["
-operator|+
+literal|"failed to find format [{}] for field [{}], will use default"
+argument_list|,
 name|format
-operator|+
-literal|"] for field ["
-operator|+
+argument_list|,
 name|fieldName
-operator|+
-literal|"], will use default"
 argument_list|)
 expr_stmt|;
 block|}

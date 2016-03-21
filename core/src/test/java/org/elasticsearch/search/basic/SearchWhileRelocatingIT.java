@@ -1069,12 +1069,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Non-CriticalExceptions: "
-operator|+
+literal|"Non-CriticalExceptions: {}"
+argument_list|,
 name|nonCriticalExceptions
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertThat

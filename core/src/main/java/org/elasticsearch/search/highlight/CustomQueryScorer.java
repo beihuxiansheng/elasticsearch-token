@@ -384,10 +384,7 @@ name|extract
 argument_list|(
 name|query
 argument_list|,
-name|query
-operator|.
-name|getBoost
-argument_list|()
+literal|1F
 argument_list|,
 name|terms
 argument_list|)
@@ -417,10 +414,7 @@ name|extract
 argument_list|(
 name|query
 argument_list|,
-name|query
-operator|.
-name|getBoost
-argument_list|()
+literal|1F
 argument_list|,
 name|terms
 argument_list|)
@@ -441,10 +435,7 @@ name|terms
 argument_list|,
 name|query
 argument_list|,
-name|query
-operator|.
-name|getBoost
-argument_list|()
+literal|1F
 argument_list|)
 expr_stmt|;
 block|}

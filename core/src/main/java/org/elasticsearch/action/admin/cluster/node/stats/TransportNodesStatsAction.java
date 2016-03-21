@@ -88,7 +88,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
+name|metadata
+operator|.
+name|IndexNameExpressionResolver
 import|;
 end_import
 
@@ -100,9 +102,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
+name|service
 operator|.
-name|IndexNameExpressionResolver
+name|ClusterService
 import|;
 end_import
 
@@ -559,6 +561,11 @@ argument_list|,
 name|request
 operator|.
 name|discovery
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|ingest
 argument_list|()
 argument_list|)
 return|;

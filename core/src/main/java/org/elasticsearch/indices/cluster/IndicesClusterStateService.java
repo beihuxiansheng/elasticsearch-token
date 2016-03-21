@@ -62,18 +62,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -284,6 +272,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -387,6 +389,18 @@ operator|.
 name|concurrent
 operator|.
 name|ConcurrentCollections
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -1129,15 +1143,12 @@ range|:
 name|indicesService
 control|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 name|indexService
 operator|.
 name|index
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 for|for
@@ -1155,7 +1166,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] removing shard (disabled block persistence)"
+literal|"{}[{}] removing shard (disabled block persistence)"
 argument_list|,
 name|index
 argument_list|,
@@ -1184,7 +1195,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] failed to remove shard (disabled block persistence)"
+literal|"{} failed to remove shard (disabled block persistence)"
 argument_list|,
 name|e
 argument_list|,
@@ -1265,15 +1276,12 @@ range|:
 name|indicesService
 control|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 name|indexService
 operator|.
 name|index
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 name|IndexMetaData
@@ -1325,7 +1333,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] removing shard (index is closed)"
+literal|"{}[{}] removing shard (index is closed)"
 argument_list|,
 name|index
 argument_list|,
@@ -1354,7 +1362,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] failed to remove shard (index is closed)"
+literal|"{} failed to remove shard (index is closed)"
 argument_list|,
 name|e
 argument_list|,
@@ -1373,15 +1381,12 @@ range|:
 name|indicesService
 control|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 name|indexService
 operator|.
 name|index
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 if|if
@@ -1407,7 +1412,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] cleaning index (no shards allocated)"
+literal|"{} cleaning index (no shards allocated)"
 argument_list|,
 name|index
 argument_list|)
@@ -1532,9 +1537,6 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|,
 literal|"mismatch on index UUIDs between cluster state and local state, cleaning the index so it will be recreated"
 argument_list|)
@@ -1544,7 +1546,7 @@ block|}
 block|}
 for|for
 control|(
-name|String
+name|Index
 name|index
 range|:
 name|event
@@ -1619,16 +1621,11 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
-assert|assert
-name|metaData
-operator|!=
-literal|null
-assert|;
 name|indexSettings
 operator|=
 operator|new
@@ -1754,15 +1751,12 @@ range|:
 name|indicesService
 control|)
 block|{
-name|String
-name|indexName
+name|Index
+name|index
 init|=
 name|indexService
 operator|.
 name|index
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 name|IndexMetaData
@@ -1776,9 +1770,9 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
-name|indexName
+name|index
 argument_list|)
 decl_stmt|;
 if|if
@@ -1811,12 +1805,9 @@ operator|.
 name|index
 argument_list|()
 operator|.
-name|getName
-argument_list|()
-operator|.
 name|equals
 argument_list|(
-name|indexName
+name|index
 argument_list|)
 condition|)
 block|{
@@ -1880,9 +1871,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] removing shard (index is closed)"
+literal|"{}[{}] removing shard (index is closed)"
 argument_list|,
-name|indexName
+name|index
 argument_list|,
 name|existingShardId
 argument_list|)
@@ -1914,9 +1905,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] removing shard (not allocated)"
+literal|"{}[{}] removing shard (not allocated)"
 argument_list|,
-name|indexName
+name|index
 argument_list|,
 name|existingShardId
 argument_list|)
@@ -2000,7 +1991,7 @@ name|hasIndex
 argument_list|(
 name|shard
 operator|.
-name|getIndexName
+name|index
 argument_list|()
 argument_list|)
 condition|)
@@ -2017,7 +2008,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shard
 operator|.
@@ -2124,9 +2115,6 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2147,15 +2135,12 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|String
+name|Index
 name|index
 init|=
 name|indexMetaData
 operator|.
 name|getIndex
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 name|IndexService
@@ -2211,6 +2196,14 @@ name|metaData
 argument_list|()
 control|)
 block|{
+name|Index
+name|index
+init|=
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2218,13 +2211,7 @@ name|indicesService
 operator|.
 name|hasIndex
 argument_list|(
-name|indexMetaData
-operator|.
-name|getIndex
-argument_list|()
-operator|.
-name|getName
-argument_list|()
+name|index
 argument_list|)
 condition|)
 block|{
@@ -2235,17 +2222,6 @@ name|boolean
 name|requireRefresh
 init|=
 literal|false
-decl_stmt|;
-name|String
-name|index
-init|=
-name|indexMetaData
-operator|.
-name|getIndex
-argument_list|()
-operator|.
-name|getName
-argument_list|()
 decl_stmt|;
 name|IndexService
 name|indexService
@@ -2323,6 +2299,9 @@ operator||=
 name|processMapping
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|mapperService
 argument_list|,
@@ -2354,6 +2333,9 @@ operator|.
 name|NodeMappingRefreshRequest
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|indexMetaData
 operator|.
@@ -4726,7 +4708,7 @@ specifier|private
 name|void
 name|removeIndex
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -4772,7 +4754,7 @@ specifier|private
 name|void
 name|deleteIndex
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|String
@@ -5065,9 +5047,6 @@ name|shardId
 argument_list|()
 operator|.
 name|getIndex
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;

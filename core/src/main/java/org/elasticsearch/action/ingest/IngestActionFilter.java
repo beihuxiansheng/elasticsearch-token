@@ -818,9 +818,9 @@ name|ingestTookInMillis
 init|=
 name|TimeUnit
 operator|.
-name|MILLISECONDS
+name|NANOSECONDS
 operator|.
-name|convert
+name|toMillis
 argument_list|(
 name|System
 operator|.
@@ -828,10 +828,6 @@ name|nanoTime
 argument_list|()
 operator|-
 name|ingestStartTimeInNanos
-argument_list|,
-name|TimeUnit
-operator|.
-name|NANOSECONDS
 argument_list|)
 decl_stmt|;
 name|BulkRequest

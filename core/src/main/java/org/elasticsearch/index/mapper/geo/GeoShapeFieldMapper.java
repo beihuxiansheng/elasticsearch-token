@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -34,11 +34,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -48,11 +48,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -519,7 +519,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FieldMapper for indexing {@link com.spatial4j.core.shape.Shape}s.  *<p>  * Currently Shapes can only be indexed and can only be queried using  * {@link org.elasticsearch.index.query.GeoShapeQueryParser}, consequently  * a lot of behavior in this Mapper is disabled.  *<p>  * Format supported:  *<p>  * "field" : {  * "type" : "polygon",  * "coordinates" : [  * [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]  * ]  * }  */
+comment|/**  * FieldMapper for indexing {@link org.locationtech.spatial4j.shape.Shape}s.  *<p>  * Currently Shapes can only be indexed and can only be queried using  * {@link org.elasticsearch.index.query.GeoShapeQueryParser}, consequently  * a lot of behavior in this Mapper is disabled.  *<p>  * Format supported:  *<p>  * "field" : {  * "type" : "polygon",  * "coordinates" : [  * [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]  * ]  * }  */
 end_comment
 
 begin_class

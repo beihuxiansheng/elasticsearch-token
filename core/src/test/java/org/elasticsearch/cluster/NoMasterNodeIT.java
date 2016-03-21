@@ -1782,8 +1782,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Cluster state:\n"
-operator|+
+literal|"Cluster state:\n{}"
+argument_list|,
 name|clusterState
 operator|.
 name|getState

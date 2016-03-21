@@ -82,18 +82,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -156,6 +144,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -171,6 +173,20 @@ operator|.
 name|common
 operator|.
 name|Priority
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Tuple
 import|;
 end_import
 
@@ -252,7 +268,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexNotFoundException
+name|Index
 import|;
 end_import
 
@@ -314,6 +330,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|percolator
+operator|.
+name|PercolatorFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndicesService
@@ -329,18 +359,6 @@ operator|.
 name|indices
 operator|.
 name|InvalidTypeNameException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|percolator
-operator|.
-name|PercolatorService
 import|;
 end_import
 
@@ -750,14 +768,6 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|String
-name|index
-init|=
-name|entry
-operator|.
-name|getKey
-argument_list|()
-decl_stmt|;
 name|IndexMetaData
 name|indexMetaData
 init|=
@@ -765,7 +775,10 @@ name|mdBuilder
 operator|.
 name|get
 argument_list|(
-name|index
+name|entry
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -782,11 +795,23 @@ name|debug
 argument_list|(
 literal|"[{}] ignoring tasks - index meta data doesn't exist"
 argument_list|,
-name|index
+name|entry
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+specifier|final
+name|Index
+name|index
+init|=
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+decl_stmt|;
 comment|// the tasks lists to iterate over, filled with the list of mapping tasks, trying to keep
 comment|// the latest (based on order) update mapping one per node
 name|List
@@ -836,7 +861,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] ignoring task [{}] - index meta data doesn't match task uuid"
+literal|"{} ignoring task [{}] - index meta data doesn't match task uuid"
 argument_list|,
 name|index
 argument_list|,
@@ -867,7 +892,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
-name|index
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1315,7 +1343,7 @@ name|Exception
 block|{
 name|Set
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|indicesToClose
 init|=
@@ -1348,10 +1376,11 @@ range|:
 name|tasks
 control|)
 block|{
-comment|// failures here mean something is broken with our cluster state - fail all tasks by letting exceptions bubble up
+try|try
+block|{
 for|for
 control|(
-name|String
+name|Index
 name|index
 range|:
 name|request
@@ -1369,33 +1398,36 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|indexMetaData
-operator|!=
-literal|null
-operator|&&
 name|indicesService
 operator|.
 name|hasIndex
 argument_list|(
-name|index
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 operator|==
 literal|false
 condition|)
 block|{
-comment|// if we don't have the index, we will throw exceptions later;
+comment|// if the index does not exists we create it once, add all types to the mapper service and
+comment|// close it later once we are done with mapping update
 name|indicesToClose
 operator|.
 name|add
 argument_list|(
-name|index
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|IndexService
@@ -1469,17 +1501,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-for|for
-control|(
-name|PutMappingClusterStateUpdateRequest
-name|request
-range|:
-name|tasks
-control|)
-block|{
-try|try
-block|{
 name|currentState
 operator|=
 name|applyRequest
@@ -1527,7 +1548,7 @@ finally|finally
 block|{
 for|for
 control|(
-name|String
+name|Index
 name|index
 range|:
 name|indicesToClose
@@ -1579,9 +1600,35 @@ name|source
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
+name|MetaData
+name|metaData
+init|=
+name|currentState
+operator|.
+name|metaData
+argument_list|()
+decl_stmt|;
+specifier|final
+name|List
+argument_list|<
+name|Tuple
+argument_list|<
+name|IndexService
+argument_list|,
+name|IndexMetaData
+argument_list|>
+argument_list|>
+name|updateList
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
-name|String
+name|Index
 name|index
 range|:
 name|request
@@ -1600,6 +1647,38 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+comment|// IMPORTANT: always get the metadata from the state since it get's batched
+comment|// and if we pull it from the indexService we might miss an update etc.
+specifier|final
+name|IndexMetaData
+name|indexMetaData
+init|=
+name|currentState
+operator|.
+name|getMetaData
+argument_list|()
+operator|.
+name|getIndexSafe
+argument_list|(
+name|index
+argument_list|)
+decl_stmt|;
+comment|// this is paranoia... just to be sure we use the exact same indexService and metadata tuple on the update that
+comment|// we used for the validation, it makes this mechanism little less scary (a little)
+name|updateList
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Tuple
+argument_list|<>
+argument_list|(
+name|indexService
+argument_list|,
+name|indexMetaData
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// try and parse it (no need to add it here) so we can bail early in case of parsing exception
 name|DocumentMapper
 name|newMapper
@@ -1722,19 +1801,6 @@ name|active
 argument_list|()
 condition|)
 block|{
-name|IndexMetaData
-name|indexMetaData
-init|=
-name|currentState
-operator|.
-name|metaData
-argument_list|()
-operator|.
-name|index
-argument_list|(
-name|index
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|ObjectCursor
@@ -1843,7 +1909,7 @@ name|mappingType
 argument_list|)
 operator|&&
 operator|!
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 operator|.
@@ -1879,43 +1945,51 @@ name|MetaData
 operator|.
 name|builder
 argument_list|(
-name|currentState
-operator|.
 name|metaData
-argument_list|()
 argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|String
-name|index
+name|Tuple
+argument_list|<
+name|IndexService
+argument_list|,
+name|IndexMetaData
+argument_list|>
+name|toUpdate
 range|:
-name|request
-operator|.
-name|indices
-argument_list|()
+name|updateList
 control|)
 block|{
 comment|// do the actual merge here on the master, and update the mapping source
+comment|// we use the exact same indexService and metadata we used to validate above here to actually apply the update
+specifier|final
 name|IndexService
 name|indexService
 init|=
-name|indicesService
+name|toUpdate
 operator|.
-name|indexService
-argument_list|(
-name|index
-argument_list|)
+name|v1
+argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|indexService
-operator|==
-literal|null
-condition|)
-block|{
-continue|continue;
-block|}
+specifier|final
+name|IndexMetaData
+name|indexMetaData
+init|=
+name|toUpdate
+operator|.
+name|v2
+argument_list|()
+decl_stmt|;
+specifier|final
+name|Index
+name|index
+init|=
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+decl_stmt|;
 name|CompressedXContent
 name|existingSource
 init|=
@@ -2017,7 +2091,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] update_mapping [{}] with source [{}]"
+literal|"{} update_mapping [{}] with source [{}]"
 argument_list|,
 name|index
 argument_list|,
@@ -2043,7 +2117,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] update_mapping [{}]"
+literal|"{} update_mapping [{}]"
 argument_list|,
 name|index
 argument_list|,
@@ -2070,7 +2144,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] create_mapping [{}] with source [{}]"
+literal|"{} create_mapping [{}] with source [{}]"
 argument_list|,
 name|index
 argument_list|,
@@ -2093,7 +2167,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] create_mapping [{}]"
+literal|"{} create_mapping [{}]"
 argument_list|,
 name|index
 argument_list|,
@@ -2101,34 +2175,6 @@ name|mappingType
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|IndexMetaData
-name|indexMetaData
-init|=
-name|currentState
-operator|.
-name|metaData
-argument_list|()
-operator|.
-name|index
-argument_list|(
-name|index
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|indexMetaData
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IndexNotFoundException
-argument_list|(
-name|index
-argument_list|)
-throw|;
 block|}
 name|IndexMetaData
 operator|.

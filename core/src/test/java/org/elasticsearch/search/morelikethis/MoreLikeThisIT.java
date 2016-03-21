@@ -4284,7 +4284,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Running More Like This with max_query_terms = %s"
+literal|"Running More Like This with max_query_terms = {}"
 argument_list|,
 name|max_query_terms
 argument_list|)
@@ -4594,8 +4594,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Testing with minimum_should_match = "
-operator|+
+literal|"Testing with minimum_should_match = {}"
+argument_list|,
 name|minimumShouldMatch
 argument_list|)
 expr_stmt|;

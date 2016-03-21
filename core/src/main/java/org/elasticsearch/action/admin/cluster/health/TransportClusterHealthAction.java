@@ -96,18 +96,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -189,6 +177,20 @@ operator|.
 name|routing
 operator|.
 name|UnassignedInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -1393,7 +1395,7 @@ try|try
 block|{
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|clusterState
 argument_list|,
@@ -1947,7 +1949,7 @@ name|concreteIndices
 operator|=
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|clusterState
 argument_list|,

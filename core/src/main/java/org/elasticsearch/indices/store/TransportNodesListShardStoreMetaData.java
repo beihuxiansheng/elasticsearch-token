@@ -164,18 +164,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -219,6 +207,20 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -969,7 +971,7 @@ name|request
 operator|.
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1040,7 +1042,7 @@ name|request
 operator|.
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1151,7 +1153,7 @@ name|indexService
 argument_list|(
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1243,7 +1245,7 @@ name|index
 argument_list|(
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;

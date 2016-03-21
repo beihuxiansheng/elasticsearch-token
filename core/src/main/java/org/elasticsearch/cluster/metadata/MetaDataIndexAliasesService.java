@@ -80,18 +80,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -107,6 +95,20 @@ operator|.
 name|ack
 operator|.
 name|ClusterStateUpdateResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -173,6 +175,18 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -445,7 +459,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|String
+name|Index
 argument_list|>
 name|indicesToClose
 init|=
@@ -769,9 +783,6 @@ name|indexMetaData
 operator|.
 name|getIndex
 argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1001,7 +1012,7 @@ finally|finally
 block|{
 for|for
 control|(
-name|String
+name|Index
 name|index
 range|:
 name|indicesToClose

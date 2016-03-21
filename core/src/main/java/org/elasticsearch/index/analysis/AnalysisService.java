@@ -958,8 +958,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close analyzer "
-operator|+
+literal|"failed to close analyzer {}"
+argument_list|,
 name|analyzer
 argument_list|)
 expr_stmt|;

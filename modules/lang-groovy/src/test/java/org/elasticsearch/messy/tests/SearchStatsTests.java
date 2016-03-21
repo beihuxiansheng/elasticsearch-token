@@ -1013,8 +1013,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"###### indices search stats: "
-operator|+
+literal|"###### indices search stats: {}"
+argument_list|,
 name|indicesStats
 operator|.
 name|getTotal

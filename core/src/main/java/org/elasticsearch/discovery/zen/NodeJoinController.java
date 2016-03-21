@@ -34,18 +34,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -156,7 +144,7 @@ name|cluster
 operator|.
 name|service
 operator|.
-name|InternalClusterService
+name|ClusterService
 import|;
 end_import
 
@@ -1705,13 +1693,13 @@ block|{
 assert|assert
 name|clusterService
 operator|instanceof
-name|InternalClusterService
+name|ClusterService
 operator|==
 literal|false
 operator|||
 operator|(
 operator|(
-name|InternalClusterService
+name|ClusterService
 operator|)
 name|clusterService
 operator|)

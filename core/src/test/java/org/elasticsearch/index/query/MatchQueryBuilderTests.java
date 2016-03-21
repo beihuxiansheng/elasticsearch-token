@@ -82,7 +82,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchAllDocsQuery
+name|LegacyNumericRangeQuery
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NumericRangeQuery
+name|MatchAllDocsQuery
 import|;
 end_import
 
@@ -813,7 +813,7 @@ name|or
 argument_list|(
 name|instanceOf
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|class
 argument_list|)
@@ -872,7 +872,7 @@ name|or
 argument_list|(
 name|instanceOf
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|class
 argument_list|)
@@ -931,7 +931,7 @@ name|or
 argument_list|(
 name|instanceOf
 argument_list|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 operator|.
 name|class
 argument_list|)
@@ -1370,7 +1370,7 @@ if|if
 condition|(
 name|query
 operator|instanceof
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 condition|)
 block|{
 comment|// These are fuzzy numeric queries
@@ -1389,14 +1389,14 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Number
 argument_list|>
 name|numericRangeQuery
 init|=
 operator|(
-name|NumericRangeQuery
+name|LegacyNumericRangeQuery
 argument_list|<
 name|Number
 argument_list|>

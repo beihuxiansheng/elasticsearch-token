@@ -224,18 +224,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -295,6 +283,20 @@ operator|.
 name|decider
 operator|.
 name|EnableAllocationDecider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -3276,7 +3278,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node"
+literal|"--> stopping node [{}]"
 argument_list|,
 name|blockedNode
 argument_list|)
@@ -3716,7 +3718,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> stopping node"
+literal|"--> stopping node [{}]"
 argument_list|,
 name|blockedNode
 argument_list|)
@@ -6350,14 +6352,28 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"secret.mock.username"
+name|MockRepository
+operator|.
+name|Plugin
+operator|.
+name|USERNAME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"notsecretusername"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"secret.mock.password"
+name|MockRepository
+operator|.
+name|Plugin
+operator|.
+name|PASSWORD_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"verysecretpassword"
 argument_list|)

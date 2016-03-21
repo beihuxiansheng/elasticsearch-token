@@ -111,11 +111,17 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|getContextParser
+comment|/**      * link the suggester to its corresponding {@link SuggestionBuilder}      */
+DECL|method|getBuilderPrototype
 specifier|public
 specifier|abstract
-name|SuggestContextParser
-name|getContextParser
+name|SuggestionBuilder
+argument_list|<
+name|?
+extends|extends
+name|SuggestionBuilder
+argument_list|>
+name|getBuilderPrototype
 parameter_list|()
 function_decl|;
 specifier|public

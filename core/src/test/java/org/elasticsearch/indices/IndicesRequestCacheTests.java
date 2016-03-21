@@ -420,8 +420,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -881,8 +879,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -1244,8 +1240,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -1317,8 +1311,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2090,8 +2082,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2163,8 +2153,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2365,8 +2353,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2438,8 +2424,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2500,8 +2484,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2588,15 +2570,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Memory size: {}"
+argument_list|,
 name|requestCacheStats
 operator|.
 name|stats
 argument_list|()
 operator|.
 name|getMemorySize
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2745,8 +2726,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2818,8 +2797,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2880,8 +2857,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2977,15 +2952,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Memory size: {}"
+argument_list|,
 name|requestCacheStats
 operator|.
 name|stats
 argument_list|()
 operator|.
 name|getMemorySize
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

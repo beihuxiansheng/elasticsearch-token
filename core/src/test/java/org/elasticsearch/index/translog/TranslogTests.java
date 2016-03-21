@@ -11562,13 +11562,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Translog exception"
+argument_list|,
 name|threadExceptions
 index|[
 name|i
 index|]
-operator|.
-name|printStackTrace
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

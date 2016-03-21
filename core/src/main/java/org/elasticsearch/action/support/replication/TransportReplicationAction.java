@@ -136,18 +136,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -161,22 +149,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterStateObserver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|action
-operator|.
-name|index
-operator|.
-name|MappingUpdatedAction
 import|;
 end_import
 
@@ -342,6 +314,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -479,6 +465,18 @@ operator|.
 name|concurrent
 operator|.
 name|ThreadContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -931,12 +929,6 @@ specifier|final
 name|TransportRequestOptions
 name|transportOptions
 decl_stmt|;
-DECL|field|mappingUpdatedAction
-specifier|protected
-specifier|final
-name|MappingUpdatedAction
-name|mappingUpdatedAction
-decl_stmt|;
 DECL|field|transportReplicaAction
 specifier|final
 name|String
@@ -981,9 +973,6 @@ name|threadPool
 parameter_list|,
 name|ShardStateAction
 name|shardStateAction
-parameter_list|,
-name|MappingUpdatedAction
-name|mappingUpdatedAction
 parameter_list|,
 name|ActionFilters
 name|actionFilters
@@ -1048,12 +1037,6 @@ operator|.
 name|shardStateAction
 operator|=
 name|shardStateAction
-expr_stmt|;
-name|this
-operator|.
-name|mappingUpdatedAction
-operator|=
-name|mappingUpdatedAction
 expr_stmt|;
 name|this
 operator|.
@@ -1641,11 +1624,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send response for "
-operator|+
-name|actionName
+literal|"Failed to send response for {}"
 argument_list|,
 name|e1
+argument_list|,
+name|actionName
 argument_list|)
 expr_stmt|;
 block|}
@@ -2168,7 +2151,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|String
+name|Index
 name|index
 init|=
 name|request
@@ -2177,9 +2160,6 @@ name|shardId
 argument_list|()
 operator|.
 name|getIndex
-argument_list|()
-operator|.
-name|getName
 argument_list|()
 decl_stmt|;
 name|int
@@ -2241,7 +2221,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"ignoring failed replica [{}][{}] because index was already removed."
+literal|"ignoring failed replica {}[{}] because index was already removed."
 argument_list|,
 name|index
 argument_list|,
@@ -2271,7 +2251,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"ignoring failed replica [{}][{}] because index was already removed."
+literal|"ignoring failed replica {}[{}] because index was already removed."
 argument_list|,
 name|index
 argument_list|,
@@ -2322,13 +2302,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to send error message back to client for action ["
-operator|+
-name|transportReplicaAction
-operator|+
-literal|"]"
+literal|"failed to send error message back to client for action [{}]"
 argument_list|,
 name|responseException
+argument_list|,
+name|transportReplicaAction
 argument_list|)
 expr_stmt|;
 name|logger
@@ -3168,6 +3146,9 @@ name|state
 argument_list|,
 name|request
 argument_list|)
+operator|.
+name|getName
+argument_list|()
 else|:
 name|request
 operator|.
@@ -6144,13 +6125,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to send error message back to client for action ["
-operator|+
-name|transportReplicaAction
-operator|+
-literal|"]"
+literal|"failed to send error message back to client for action [{}]"
 argument_list|,
 name|responseException
+argument_list|,
+name|transportReplicaAction
 argument_list|)
 expr_stmt|;
 block|}

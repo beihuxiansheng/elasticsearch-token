@@ -850,6 +850,18 @@ literal|"suppressAccessChecks"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// xmlbeans, use by POI, needs to get the context classloader
+name|perms
+operator|.
+name|add
+argument_list|(
+operator|new
+name|RuntimePermission
+argument_list|(
+literal|"getClassLoader"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|perms
 operator|.
 name|setReadOnly

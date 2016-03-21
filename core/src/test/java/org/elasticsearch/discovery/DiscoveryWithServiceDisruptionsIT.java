@@ -126,18 +126,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -309,6 +297,20 @@ operator|.
 name|command
 operator|.
 name|MoveAllocationCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -1549,6 +1551,43 @@ name|ExecutionException
 throws|,
 name|InterruptedException
 block|{
+name|configureUnicastCluster
+argument_list|(
+name|DEFAULT_SETTINGS
+argument_list|,
+name|numberOfNodes
+argument_list|,
+name|unicastHostsOrdinals
+argument_list|,
+name|minimumMasterNode
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|configureUnicastCluster
+specifier|private
+name|void
+name|configureUnicastCluster
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|,
+name|int
+name|numberOfNodes
+parameter_list|,
+annotation|@
+name|Nullable
+name|int
+index|[]
+name|unicastHostsOrdinals
+parameter_list|,
+name|int
+name|minimumMasterNode
+parameter_list|)
+throws|throws
+name|ExecutionException
+throws|,
+name|InterruptedException
+block|{
 if|if
 condition|(
 name|minimumMasterNode
@@ -1583,7 +1622,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|DEFAULT_SETTINGS
+name|settings
 argument_list|)
 operator|.
 name|put
@@ -1682,8 +1721,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"---> legit elected master node="
-operator|+
+literal|"---> legit elected master node={}"
+argument_list|,
 name|masterNode
 argument_list|)
 expr_stmt|;
@@ -3256,11 +3295,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"indexing "
-operator|+
+literal|"indexing {} docs per indexer before partition"
+argument_list|,
 name|docsPerIndexer
-operator|+
-literal|" docs per indexer before partition"
 argument_list|)
 expr_stmt|;
 name|countDownLatchRef
@@ -3359,11 +3396,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"indexing "
-operator|+
+literal|"indexing {} docs per indexer during partition"
+argument_list|,
 name|docsPerIndexer
-operator|+
-literal|" docs per indexer during partition"
 argument_list|)
 expr_stmt|;
 name|countDownLatchRef
@@ -3631,9 +3666,7 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"Indexing exceptions during disruption:"
-argument_list|)
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3663,10 +3696,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"Indexing exceptions during disruption: {}"
+argument_list|,
 name|sb
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4891,11 +4923,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Verifying if document exists via node["
-operator|+
+literal|"Verifying if document exists via node[{}]"
+argument_list|,
 name|notIsolatedNode
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|GetResponse
@@ -4998,15 +5028,11 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Verifying if document exists after isolating node["
-operator|+
+literal|"Verifying if document exists after isolating node[{}] via node[{}]"
+argument_list|,
 name|isolatedNode
-operator|+
-literal|"] via node["
-operator|+
+argument_list|,
 name|node
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|getResponse
@@ -5128,8 +5154,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"---> legit elected master node="
-operator|+
+literal|"---> legit elected master node={}"
+argument_list|,
 name|masterNode
 argument_list|)
 expr_stmt|;
@@ -7019,13 +7045,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests that indices are properly deleted even if there is a master transition in between.      * Test for https://github.com/elastic/elasticsearch/issues/11665      */
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/16890"
-argument_list|)
 DECL|method|testIndicesDeleted
 specifier|public
 name|void
@@ -7034,8 +7053,59 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|Settings
+name|settings
+init|=
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|DEFAULT_SETTINGS
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|DiscoverySettings
+operator|.
+name|PUBLISH_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|"0s"
+argument_list|)
+comment|// don't wait on isolated data node
+operator|.
+name|put
+argument_list|(
+name|DiscoverySettings
+operator|.
+name|COMMIT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+literal|"30s"
+argument_list|)
+comment|// wait till cluster state is committed
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+specifier|final
+name|String
+name|idxName
+init|=
+literal|"test"
+decl_stmt|;
 name|configureUnicastCluster
 argument_list|(
+name|settings
+argument_list|,
 literal|3
 argument_list|,
 literal|null
@@ -7081,11 +7151,18 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+specifier|final
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|allMasterEligibleNodes
+init|=
 name|masterNodes
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|ensureStableCluster
 argument_list|(
 literal|3
@@ -7102,6 +7179,7 @@ expr_stmt|;
 name|ensureYellow
 argument_list|()
 expr_stmt|;
+specifier|final
 name|String
 name|masterNode1
 init|=
@@ -7141,6 +7219,8 @@ operator|.
 name|startDisrupting
 argument_list|()
 expr_stmt|;
+comment|// We know this will time out due to the partition, we check manually below to not proceed until
+comment|// the delete has been applied to the master node and the master eligible node.
 name|internalCluster
 argument_list|()
 operator|.
@@ -7157,16 +7237,79 @@ argument_list|()
 operator|.
 name|prepareDelete
 argument_list|(
-literal|"test"
+name|idxName
 argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1s"
+literal|"0s"
 argument_list|)
 operator|.
 name|get
 argument_list|()
+expr_stmt|;
+comment|// Don't restart the master node until we know the index deletion has taken effect on master and the master eligible node.
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
+block|{
+for|for
+control|(
+name|String
+name|masterNode
+range|:
+name|allMasterEligibleNodes
+control|)
+block|{
+specifier|final
+name|ClusterState
+name|masterState
+init|=
+name|internalCluster
+argument_list|()
+operator|.
+name|clusterService
+argument_list|(
+name|masterNode
+argument_list|)
+operator|.
+name|state
+argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"index not deleted on "
+operator|+
+name|masterNode
+argument_list|,
+name|masterState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|hasIndex
+argument_list|(
+name|idxName
+argument_list|)
+operator|==
+literal|false
+operator|&&
+name|masterState
+operator|.
+name|status
+argument_list|()
+operator|==
+name|ClusterState
+operator|.
+name|ClusterStateStatus
+operator|.
+name|APPLIED
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
 expr_stmt|;
 name|internalCluster
 argument_list|()
@@ -7196,7 +7339,7 @@ argument_list|()
 operator|.
 name|prepareExists
 argument_list|(
-literal|"test"
+name|idxName
 argument_list|)
 operator|.
 name|get

@@ -232,12 +232,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 init|)
 block|{
@@ -351,12 +345,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 init|)
 block|{

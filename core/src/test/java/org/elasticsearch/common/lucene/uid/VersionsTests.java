@@ -652,8 +652,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -1411,8 +1409,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -1716,8 +1712,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|,
 operator|new
@@ -2695,8 +2689,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 comment|// should increase cache size by 1
@@ -2902,8 +2894,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals

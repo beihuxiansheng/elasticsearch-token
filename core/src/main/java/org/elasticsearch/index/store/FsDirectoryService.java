@@ -264,7 +264,9 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Settings
+name|Setting
+operator|.
+name|Property
 import|;
 end_import
 
@@ -459,15 +461,16 @@ literal|"\": must be native or simple"
 argument_list|)
 throw|;
 block|}
+comment|// can we set on both - node and index level, some nodes might be running on NFS so they might need simple rather than native
 block|}
 argument_list|,
-literal|false
+name|Property
+operator|.
+name|IndexScope
 argument_list|,
-name|Setting
+name|Property
 operator|.
-name|Scope
-operator|.
-name|INDEX
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|rateLimitingTimeInNanos

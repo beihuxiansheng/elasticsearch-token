@@ -2029,16 +2029,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"update "
-operator|+
+literal|"update {} for test, see that things move"
+argument_list|,
 name|ShardsLimitAllocationDecider
 operator|.
 name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" for test, see that things move"
 argument_list|)
 expr_stmt|;
 name|metaData

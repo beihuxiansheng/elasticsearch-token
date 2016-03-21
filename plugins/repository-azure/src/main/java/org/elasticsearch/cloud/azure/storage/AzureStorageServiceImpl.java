@@ -984,12 +984,9 @@ name|trace
 argument_list|(
 literal|"fails creating container [{}]"
 argument_list|,
-name|container
-argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
+argument_list|,
+name|container
 argument_list|)
 expr_stmt|;
 throw|throw

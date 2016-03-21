@@ -468,10 +468,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -819,10 +818,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchRequestBuilder
@@ -844,15 +842,6 @@ operator|.
 name|setProfile
 argument_list|(
 literal|false
-argument_list|)
-operator|.
-name|addSort
-argument_list|(
-literal|"_score"
-argument_list|,
-name|SortOrder
-operator|.
-name|DESC
 argument_list|)
 operator|.
 name|addSort
@@ -895,15 +884,6 @@ operator|.
 name|setProfile
 argument_list|(
 literal|true
-argument_list|)
-operator|.
-name|addSort
-argument_list|(
-literal|"_score"
-argument_list|,
-name|SortOrder
-operator|.
-name|DESC
 argument_list|)
 operator|.
 name|addSort
@@ -2066,10 +2046,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -2395,10 +2374,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -2725,10 +2703,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -3060,10 +3037,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -3372,6 +3348,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
 operator|.
 name|toString
@@ -3687,10 +3665,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -3762,10 +3739,9 @@ name|logger
 operator|.
 name|error
 argument_list|(
+literal|"Shard search failure: {}"
+argument_list|,
 name|f
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4048,10 +4024,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Query: {}"
+argument_list|,
 name|q
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|SearchResponse

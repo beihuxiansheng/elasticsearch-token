@@ -564,7 +564,10 @@ name|service
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -709,7 +712,10 @@ name|service
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -1186,14 +1192,40 @@ name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
-name|assertEquals
+name|assertTrue
 argument_list|(
 name|ex
 operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"Can't update [index.number_of_replicas] on closed indices [[test]] - can leave index in an unopenable state"
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Can't update [index.number_of_replicas] on closed indices [[test/"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"]] - can leave index in an unopenable state"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// expected

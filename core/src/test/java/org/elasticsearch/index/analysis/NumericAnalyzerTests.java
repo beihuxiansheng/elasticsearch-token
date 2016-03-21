@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 import|;
 end_import
 
@@ -40,9 +40,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 operator|.
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 import|;
 end_import
 
@@ -179,11 +179,11 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 name|ts2
 init|=
 operator|new
-name|NumericTokenStream
+name|LegacyNumericTokenStream
 argument_list|(
 name|precisionStep
 argument_list|)
@@ -196,27 +196,27 @@ name|value
 argument_list|)
 expr_stmt|;
 specifier|final
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 name|numTerm1
 init|=
 name|ts1
 operator|.
 name|addAttribute
 argument_list|(
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 specifier|final
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 name|numTerm2
 init|=
 name|ts1
 operator|.
 name|addAttribute
 argument_list|(
-name|NumericTermAttribute
+name|LegacyNumericTermAttribute
 operator|.
 name|class
 argument_list|)

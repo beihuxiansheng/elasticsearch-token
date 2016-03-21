@@ -138,18 +138,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -193,6 +181,20 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -901,7 +903,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|isSet
@@ -918,7 +920,7 @@ name|resolveNodesIds
 argument_list|(
 name|request
 operator|.
-name|nodesIds
+name|getNodesIds
 argument_list|()
 argument_list|)
 return|;
@@ -932,7 +934,7 @@ index|[]
 block|{
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|getNodeId
@@ -960,7 +962,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|isSet
@@ -979,7 +981,7 @@ name|getTask
 argument_list|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|getId
@@ -1024,7 +1026,7 @@ literal|"task [{}] doesn't support this operation"
 argument_list|,
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 argument_list|)
 throw|;
@@ -1040,7 +1042,7 @@ literal|"task [{}] is missing"
 argument_list|,
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 argument_list|)
 throw|;
@@ -1592,7 +1594,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 operator|!=
 literal|null
@@ -1604,7 +1606,7 @@ name|withTimeout
 argument_list|(
 name|request
 operator|.
-name|timeout
+name|getTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;

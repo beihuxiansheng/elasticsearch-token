@@ -532,12 +532,6 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|PERCOLATE
-block|,
-name|ThreadPool
-operator|.
-name|Names
-operator|.
 name|REFRESH
 block|,
 name|ThreadPool
@@ -590,8 +584,6 @@ block|,
 literal|"ma"
 block|,
 literal|"fm"
-block|,
-literal|"p"
 block|,
 literal|"r"
 block|,

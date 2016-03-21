@@ -488,16 +488,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -1015,14 +1005,11 @@ name|ESIntegTestCase
 block|{
 annotation|@
 name|Override
-DECL|method|nodeSettings
-specifier|protected
+DECL|method|indexSettings
+specifier|public
 name|Settings
-name|nodeSettings
-parameter_list|(
-name|int
-name|nodeOrdinal
-parameter_list|)
+name|indexSettings
+parameter_list|()
 block|{
 return|return
 name|Settings
@@ -1034,10 +1021,8 @@ name|put
 argument_list|(
 name|super
 operator|.
-name|nodeSettings
-argument_list|(
-name|nodeOrdinal
-argument_list|)
+name|indexSettings
+argument_list|()
 argument_list|)
 comment|// aggressive filter caching so that we can assert on the filter cache size
 operator|.
@@ -6362,9 +6347,9 @@ operator|.
 name|getDescription
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|"Score based on join value p1"
+literal|"join value p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6431,9 +6416,9 @@ operator|.
 name|getDescription
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|"Score based on join value p1"
+literal|"join value p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6506,9 +6491,9 @@ operator|.
 name|getDescription
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|"Score based on join value p1"
+literal|"join value p1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16575,7 +16560,7 @@ name|None
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -16736,7 +16721,7 @@ name|None
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -16897,7 +16882,7 @@ name|None
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17014,7 +16999,7 @@ name|None
 argument_list|,
 literal|3
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17087,7 +17072,7 @@ name|None
 argument_list|,
 literal|4
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17668,7 +17653,7 @@ name|Total
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17829,7 +17814,7 @@ name|Total
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17990,7 +17975,7 @@ name|Total
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18107,7 +18092,7 @@ name|Total
 argument_list|,
 literal|3
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18180,7 +18165,7 @@ name|Total
 argument_list|,
 literal|4
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18761,7 +18746,7 @@ name|Max
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18922,7 +18907,7 @@ name|Max
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19083,7 +19068,7 @@ name|Max
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19200,7 +19185,7 @@ name|Max
 argument_list|,
 literal|3
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19273,7 +19258,7 @@ name|Max
 argument_list|,
 literal|4
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19854,7 +19839,7 @@ name|Avg
 argument_list|,
 literal|0
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20015,7 +20000,7 @@ name|Avg
 argument_list|,
 literal|1
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20176,7 +20161,7 @@ name|Avg
 argument_list|,
 literal|2
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20293,7 +20278,7 @@ name|Avg
 argument_list|,
 literal|3
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20366,7 +20351,7 @@ name|Avg
 argument_list|,
 literal|4
 argument_list|,
-literal|0
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat

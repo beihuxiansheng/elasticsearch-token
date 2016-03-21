@@ -112,18 +112,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -179,6 +167,20 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -2131,7 +2133,7 @@ name|nodeSettings
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0
 argument_list|)
 decl_stmt|;
 name|ZenDiscovery
@@ -2190,7 +2192,7 @@ argument_list|)
 argument_list|,
 name|Version
 operator|.
-name|V_1_6_0
+name|V_2_0_0
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2276,11 +2278,11 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Can't handle join request from a node with a version [1.6.0] that is lower than the minimum compatible version ["
+literal|"Can't handle join request from a node with a version [2.0.0] that is lower than the minimum compatible version ["
 operator|+
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -2308,7 +2310,7 @@ name|EMPTY
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0
 argument_list|)
 decl_stmt|;
 name|DiscoveryNode
@@ -2327,7 +2329,7 @@ argument_list|)
 argument_list|,
 name|Version
 operator|.
-name|V_2_0_0_beta1
+name|V_5_0_0
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -2365,12 +2367,12 @@ argument_list|)
 argument_list|,
 name|Version
 operator|.
-name|V_1_6_0
+name|V_2_0_0
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"Can't join master because version 1.6.0 is lower than the minimum compatable version 2.0.0 can support"
+literal|"Can't join master because version 2.0.0 is lower than the minimum compatable version 5.0.0 can support"
 argument_list|,
 name|electMasterService
 operator|.

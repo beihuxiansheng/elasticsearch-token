@@ -18,11 +18,25 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|ESLoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|context
 operator|.
@@ -32,11 +46,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|distance
 operator|.
@@ -46,11 +60,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|exception
 operator|.
@@ -60,11 +74,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|locationtech
 operator|.
 name|spatial4j
-operator|.
-name|core
 operator|.
 name|shape
 operator|.
@@ -5014,10 +5028,26 @@ name|UnsupportedSpatialOperation
 name|e
 parameter_list|)
 block|{
-name|e
+name|ESLoggerFactory
 operator|.
-name|printStackTrace
+name|getLogger
+argument_list|(
+name|GeoFilterIT
+operator|.
+name|class
+operator|.
+name|getName
 argument_list|()
+argument_list|)
+operator|.
+name|info
+argument_list|(
+literal|"Unsupported spatial operation {}"
+argument_list|,
+name|e
+argument_list|,
+name|relation
+argument_list|)
 expr_stmt|;
 return|return
 literal|false

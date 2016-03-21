@@ -96,18 +96,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -193,6 +181,20 @@ operator|.
 name|routing
 operator|.
 name|ShardRouting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -311,6 +313,18 @@ operator|.
 name|concurrent
 operator|.
 name|CountDown
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -894,7 +908,7 @@ name|state
 argument_list|()
 decl_stmt|;
 specifier|final
-name|String
+name|Index
 index|[]
 name|concreteIndices
 init|=
@@ -938,7 +952,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|String
+name|Index
 name|index
 range|:
 name|concreteIndices
@@ -953,7 +967,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|index
 argument_list|)
@@ -977,6 +991,9 @@ operator|.
 name|put
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -1029,12 +1046,21 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|String
-name|index
+name|Index
+name|concreteIndex
 range|:
 name|concreteIndices
 control|)
 block|{
+specifier|final
+name|String
+name|index
+init|=
+name|concreteIndex
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 specifier|final
 name|IndexMetaData
 name|indexMetaData
@@ -1044,9 +1070,9 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
-name|index
+name|concreteIndex
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1594,7 +1620,7 @@ name|index
 argument_list|(
 name|shardId
 operator|.
-name|getIndexName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2053,7 +2079,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} can't resolve expected commit id for {}, skipping for sync id [{}]. shard routing {}"
+literal|"{} can't resolve expected commit id for current node, skipping for sync id [{}]. shard routing {}"
 argument_list|,
 name|shardId
 argument_list|,

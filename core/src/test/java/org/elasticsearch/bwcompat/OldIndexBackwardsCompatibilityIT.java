@@ -354,6 +354,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|util
+operator|.
+name|IndexFolderUpgrader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -993,6 +1007,16 @@ name|String
 argument_list|>
 name|unsupportedIndexes
 decl_stmt|;
+DECL|field|singleDataPathNodeName
+specifier|static
+name|String
+name|singleDataPathNodeName
+decl_stmt|;
+DECL|field|multiDataPathNodeName
+specifier|static
+name|String
+name|multiDataPathNodeName
+decl_stmt|;
 DECL|field|singleDataPath
 specifier|static
 name|Path
@@ -1118,6 +1142,14 @@ name|void
 name|tearDownStatics
 parameter_list|()
 block|{
+name|singleDataPathNodeName
+operator|=
+literal|null
+expr_stmt|;
+name|multiDataPathNodeName
+operator|=
+literal|null
+expr_stmt|;
 name|singleDataPath
 operator|=
 literal|null
@@ -1352,6 +1384,13 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// find single data path dir
+name|singleDataPathNodeName
+operator|=
+name|singleDataPathNode
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
 name|Path
 index|[]
 name|nodePaths
@@ -1365,10 +1404,7 @@ name|NodeEnvironment
 operator|.
 name|class
 argument_list|,
-name|singleDataPathNode
-operator|.
-name|get
-argument_list|()
+name|singleDataPathNodeName
 argument_list|)
 operator|.
 name|nodeDataPaths
@@ -1418,15 +1454,19 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Single data path: "
-operator|+
+literal|"--> Single data path: {}"
+argument_list|,
 name|singleDataPath
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// find multi data path dirs
+name|multiDataPathNodeName
+operator|=
+name|multiDataPathNode
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
 name|nodePaths
 operator|=
 name|internalCluster
@@ -1438,10 +1478,7 @@ name|NodeEnvironment
 operator|.
 name|class
 argument_list|,
-name|multiDataPathNode
-operator|.
-name|get
-argument_list|()
+name|multiDataPathNodeName
 argument_list|)
 operator|.
 name|nodeDataPaths
@@ -1537,25 +1574,17 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Multi data paths: "
-operator|+
+literal|"--> Multi data paths: {}, {}"
+argument_list|,
 name|multiDataPath
 index|[
 literal|0
 index|]
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|", "
-operator|+
+argument_list|,
 name|multiDataPath
 index|[
 literal|1
 index|]
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|replicas
@@ -1564,6 +1593,68 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// wait for replicas
+block|}
+DECL|method|upgradeIndexFolder
+name|void
+name|upgradeIndexFolder
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+specifier|final
+name|NodeEnvironment
+name|nodeEnvironment
+init|=
+name|internalCluster
+argument_list|()
+operator|.
+name|getInstance
+argument_list|(
+name|NodeEnvironment
+operator|.
+name|class
+argument_list|,
+name|singleDataPathNodeName
+argument_list|)
+decl_stmt|;
+name|IndexFolderUpgrader
+operator|.
+name|upgradeIndicesIfNeeded
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|,
+name|nodeEnvironment
+argument_list|)
+expr_stmt|;
+specifier|final
+name|NodeEnvironment
+name|nodeEnv
+init|=
+name|internalCluster
+argument_list|()
+operator|.
+name|getInstance
+argument_list|(
+name|NodeEnvironment
+operator|.
+name|class
+argument_list|,
+name|multiDataPathNodeName
+argument_list|)
+decl_stmt|;
+name|IndexFolderUpgrader
+operator|.
+name|upgradeIndicesIfNeeded
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|,
+name|nodeEnv
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|loadIndex
 name|String
@@ -2005,12 +2096,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Skipping lock file: "
-operator|+
+literal|"Skipping lock file: {}"
+argument_list|,
 name|file
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -2048,19 +2136,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"--> Moving "
-operator|+
+literal|"--> Moving {} to {}"
+argument_list|,
 name|relativeFile
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" to "
-operator|+
+argument_list|,
 name|destFile
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|Files
@@ -2239,8 +2319,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Old indexes tests contain extra index: "
-operator|+
+literal|"Old indexes tests contain extra index: {}"
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -2334,8 +2414,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Testing old index "
-operator|+
+literal|"--> Testing old index {}"
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -2348,13 +2428,10 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Done testing "
-operator|+
+literal|"--> Done testing {}, took {} seconds"
+argument_list|,
 name|index
-operator|+
-literal|", took "
-operator|+
-operator|(
+argument_list|,
 operator|(
 name|System
 operator|.
@@ -2365,9 +2442,6 @@ name|startTime
 operator|)
 operator|/
 literal|1000.0
-operator|)
-operator|+
-literal|" seconds"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2398,6 +2472,12 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+comment|// we explicitly upgrade the index folders as these indices
+comment|// are imported as dangling indices and not available on
+comment|// node startup
+name|upgradeIndexFolder
+argument_list|()
+expr_stmt|;
 name|importIndex
 argument_list|(
 name|indexName
@@ -2794,11 +2874,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Found "
-operator|+
+literal|"Found {} in old index"
+argument_list|,
 name|numDocs
-operator|+
-literal|" in old index"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -3676,15 +3754,6 @@ if|if
 condition|(
 name|version
 operator|.
-name|onOrBefore
-argument_list|(
-name|Version
-operator|.
-name|V_1_0_0_Beta2
-argument_list|)
-operator|||
-name|version
-operator|.
 name|onOrAfter
 argument_list|(
 name|Version
@@ -4161,11 +4230,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Parsing cluster state files from index ["
-operator|+
+literal|"Parsing cluster state files from index [{}]"
+argument_list|,
 name|indexName
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|assertNotNull

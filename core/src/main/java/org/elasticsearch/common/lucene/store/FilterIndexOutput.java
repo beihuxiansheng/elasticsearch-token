@@ -74,6 +74,11 @@ block|{
 name|super
 argument_list|(
 name|resourceDescription
+argument_list|,
+name|out
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

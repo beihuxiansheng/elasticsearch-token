@@ -216,7 +216,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
+name|node
+operator|.
+name|DiscoveryNode
 import|;
 end_import
 
@@ -228,9 +230,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
+name|service
 operator|.
-name|DiscoveryNode
+name|ClusterService
 import|;
 end_import
 
@@ -425,6 +427,22 @@ operator|.
 name|atomic
 operator|.
 name|AtomicReference
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterServiceUtils
+operator|.
+name|setState
 import|;
 end_import
 
@@ -1437,14 +1455,14 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|reason
+name|setReason
 argument_list|(
 literal|"Testing Cancellation"
 argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -1682,7 +1700,7 @@ operator|new
 name|ListTasksRequest
 argument_list|()
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -1976,7 +1994,7 @@ operator|new
 name|ListTasksRequest
 argument_list|()
 operator|.
-name|parentTaskId
+name|setParentTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -2086,15 +2104,15 @@ operator|++
 control|)
 block|{
 comment|// Notify only nodes that should remain in the cluster
+name|setState
+argument_list|(
 name|testNodes
 index|[
 name|i
 index|]
 operator|.
 name|clusterService
-operator|.
-name|setState
-argument_list|(
+argument_list|,
 name|ClusterStateCreationUtils
 operator|.
 name|state
@@ -2135,14 +2153,14 @@ argument_list|()
 decl_stmt|;
 name|request
 operator|.
-name|reason
+name|setReason
 argument_list|(
 literal|"Testing Cancellation"
 argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
@@ -2351,7 +2369,7 @@ operator|new
 name|ListTasksRequest
 argument_list|()
 operator|.
-name|taskId
+name|setTaskId
 argument_list|(
 operator|new
 name|TaskId
