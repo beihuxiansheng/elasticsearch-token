@@ -557,7 +557,7 @@ argument_list|>
 argument_list|(
 name|XContentType
 operator|.
-name|JSON
+name|SMILE
 argument_list|,
 name|SHARD_STATE_FILE_PREFIX
 argument_list|)
