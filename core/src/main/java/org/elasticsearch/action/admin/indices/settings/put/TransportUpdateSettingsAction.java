@@ -515,6 +515,14 @@ name|settings
 argument_list|()
 argument_list|)
 operator|.
+name|setPreserveExisting
+argument_list|(
+name|request
+operator|.
+name|isPreserveExisting
+argument_list|()
+argument_list|)
+operator|.
 name|ackTimeout
 argument_list|(
 name|request

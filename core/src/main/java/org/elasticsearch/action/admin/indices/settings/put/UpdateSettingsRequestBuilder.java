@@ -270,6 +270,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|setPreserveExisting
+specifier|public
+name|UpdateSettingsRequestBuilder
+name|setPreserveExisting
+parameter_list|(
+name|boolean
+name|preserveExisting
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setPreserveExisting
+argument_list|(
+name|preserveExisting
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 
