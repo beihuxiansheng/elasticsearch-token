@@ -598,8 +598,9 @@ operator|<
 literal|0
 condition|)
 block|{
-if|if
-condition|(
+name|Task
+name|task
+init|=
 name|taskManager
 operator|.
 name|getTask
@@ -609,10 +610,33 @@ operator|.
 name|getId
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|task
 operator|==
 literal|null
 condition|)
 block|{
+return|return;
+block|}
+if|if
+condition|(
+name|task
+operator|.
+name|getAction
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|ListTasksAction
+operator|.
+name|NAME
+argument_list|)
+condition|)
+block|{
+comment|// It doesn't make sense to wait for List Tasks and it can cause an infinite loop of the task waiting
+comment|// for itself of one of its child tasks
 return|return;
 block|}
 try|try
