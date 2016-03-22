@@ -1077,7 +1077,7 @@ name|addCell
 argument_list|(
 literal|"query_cache.memory_size"
 argument_list|,
-literal|"sibling:pri;alias:fcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
+literal|"sibling:pri;alias:qcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1095,7 +1095,7 @@ name|addCell
 argument_list|(
 literal|"query_cache.evictions"
 argument_list|,
-literal|"sibling:pri;alias:fce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
+literal|"sibling:pri;alias:qce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1113,7 +1113,7 @@ name|addCell
 argument_list|(
 literal|"request_cache.memory_size"
 argument_list|,
-literal|"sibling:pri;alias:qcm,queryCacheMemory;default:false;text-align:right;desc:used request cache"
+literal|"sibling:pri;alias:rcm,requestCacheMemory;default:false;text-align:right;desc:used request cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1131,7 +1131,7 @@ name|addCell
 argument_list|(
 literal|"request_cache.evictions"
 argument_list|,
-literal|"sibling:pri;alias:qce,queryCacheEvictions;default:false;text-align:right;desc:request cache evictions"
+literal|"sibling:pri;alias:rce,requestCacheEvictions;default:false;text-align:right;desc:request cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1149,7 +1149,7 @@ name|addCell
 argument_list|(
 literal|"request_cache.hit_count"
 argument_list|,
-literal|"sibling:pri;alias:qchc,queryCacheHitCount;default:false;text-align:right;desc:request cache hit count"
+literal|"sibling:pri;alias:rchc,requestCacheHitCount;default:false;text-align:right;desc:request cache hit count"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1167,7 +1167,7 @@ name|addCell
 argument_list|(
 literal|"request_cache.miss_count"
 argument_list|,
-literal|"sibling:pri;alias:qcmc,queryCacheMissCount;default:false;text-align:right;desc:request cache miss count"
+literal|"sibling:pri;alias:rcmc,requestCacheMissCount;default:false;text-align:right;desc:request cache miss count"
 argument_list|)
 expr_stmt|;
 name|table

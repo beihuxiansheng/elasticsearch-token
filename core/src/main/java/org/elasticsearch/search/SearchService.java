@@ -3847,6 +3847,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|SearchContext
+operator|.
+name|setCurrent
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 name|request
 operator|.
 name|rewrite
@@ -3857,12 +3864,15 @@ name|getQueryShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|SearchContext
-operator|.
-name|setCurrent
-argument_list|(
+comment|// reset that we have used nowInMillis from the context since it may
+comment|// have been rewritten so its no longer in the query and the request can
+comment|// be cached. If it is still present in the request (e.g. in a range
+comment|// aggregation) it will still be caught when the aggregation is
+comment|// evaluated.
 name|context
-argument_list|)
+operator|.
+name|resetNowInMillisUsed
+argument_list|()
 expr_stmt|;
 try|try
 block|{

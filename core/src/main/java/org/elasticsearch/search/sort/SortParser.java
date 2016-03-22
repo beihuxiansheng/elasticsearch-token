@@ -58,6 +58,16 @@ name|QueryShardContext
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -85,7 +95,7 @@ name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 function_decl|;
 block|}
 end_interface

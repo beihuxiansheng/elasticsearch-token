@@ -5690,6 +5690,19 @@ block|}
 block|}
 end_class
 
+begin_function
+DECL|method|getClusterSettings
+specifier|public
+name|ClusterSettings
+name|getClusterSettings
+parameter_list|()
+block|{
+return|return
+name|clusterSettings
+return|;
+block|}
+end_function
+
 unit|}
 end_unit
 
