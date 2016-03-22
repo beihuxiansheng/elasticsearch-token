@@ -70,11 +70,44 @@ specifier|private
 name|Settings
 name|settings
 decl_stmt|;
-DECL|method|UpdateSettingsClusterStateUpdateRequest
+DECL|field|preserveExisting
+specifier|private
+name|boolean
+name|preserveExisting
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * Returns<code>true</code> iff the settings update should only add but not update settings. If the setting already exists      * it should not be overwritten by this update. The default is<code>false</code>      */
+DECL|method|isPreserveExisting
+specifier|public
+name|boolean
+name|isPreserveExisting
+parameter_list|()
+block|{
+return|return
+name|preserveExisting
+return|;
+block|}
+comment|/**      * Iff set to<code>true</code> this settings update will only add settings not already set on an index. Existing settings remain      * unchanged.      */
+DECL|method|setPreserveExisting
 specifier|public
 name|UpdateSettingsClusterStateUpdateRequest
-parameter_list|()
-block|{      }
+name|setPreserveExisting
+parameter_list|(
+name|boolean
+name|preserveExisting
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preserveExisting
+operator|=
+name|preserveExisting
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Returns the {@link Settings} to update      */
 DECL|method|settings
 specifier|public

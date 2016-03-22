@@ -227,6 +227,10 @@ argument_list|,
 operator|new
 name|NoopDiscovery
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}

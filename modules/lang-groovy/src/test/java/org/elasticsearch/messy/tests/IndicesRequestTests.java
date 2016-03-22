@@ -1589,6 +1589,15 @@ argument_list|(
 name|ordinal
 argument_list|)
 argument_list|)
+comment|// InternalClusterInfoService sends IndicesStatsRequest periodically which messes with this test
+comment|// this setting disables it...
+operator|.
+name|put
+argument_list|(
+literal|"cluster.routing.allocation.disk.threshold_enabled"
+argument_list|,
+literal|false
+argument_list|)
 operator|.
 name|put
 argument_list|(

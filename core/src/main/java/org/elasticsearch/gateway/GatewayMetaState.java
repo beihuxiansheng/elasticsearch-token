@@ -542,9 +542,6 @@ block|{
 name|ensureNoPre019State
 argument_list|()
 expr_stmt|;
-name|pre20Upgrade
-argument_list|()
-expr_stmt|;
 name|IndexFolderUpgrader
 operator|.
 name|upgradeIndicesIfNeeded
@@ -553,6 +550,9 @@ name|settings
 argument_list|,
 name|nodeEnv
 argument_list|)
+expr_stmt|;
+name|upgradeMetaData
+argument_list|()
 expr_stmt|;
 name|long
 name|startNS
@@ -1269,10 +1269,10 @@ block|}
 block|}
 block|}
 comment|/**      * Elasticsearch 2.0 removed several deprecated features and as well as support for Lucene 3.x. This method calls      * {@link MetaDataIndexUpgradeService} to makes sure that indices are compatible with the current version. The      * MetaDataIndexUpgradeService might also update obsolete settings if needed. When this happens we rewrite      * index metadata with new settings.      */
-DECL|method|pre20Upgrade
+DECL|method|upgradeMetaData
 specifier|private
 name|void
-name|pre20Upgrade
+name|upgradeMetaData
 parameter_list|()
 throws|throws
 name|Exception
@@ -1356,7 +1356,7 @@ operator|.
 name|getIndex
 argument_list|()
 operator|.
-name|getName
+name|getUUID
 argument_list|()
 argument_list|)
 argument_list|)
