@@ -1008,8 +1008,11 @@ name|setting
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isPrivateSetting
-specifier|public
+specifier|protected
+specifier|final
 name|boolean
 name|isPrivateSetting
 parameter_list|(
