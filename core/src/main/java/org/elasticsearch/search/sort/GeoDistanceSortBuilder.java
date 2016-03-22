@@ -521,6 +521,15 @@ name|NAME
 init|=
 literal|"_geo_distance"
 decl_stmt|;
+DECL|field|ALTERNATIVE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ALTERNATIVE_NAME
+init|=
+literal|"_geoDistance"
+decl_stmt|;
 DECL|field|DEFAULT_COERCE
 specifier|public
 specifier|static
