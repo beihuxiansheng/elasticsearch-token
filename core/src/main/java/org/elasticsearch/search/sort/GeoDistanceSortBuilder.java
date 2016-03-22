@@ -652,6 +652,7 @@ literal|"nested_filter"
 argument_list|)
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|GeoDistanceSortBuilder
@@ -660,7 +661,7 @@ init|=
 operator|new
 name|GeoDistanceSortBuilder
 argument_list|(
-literal|""
+literal|"_na_"
 argument_list|,
 operator|-
 literal|1

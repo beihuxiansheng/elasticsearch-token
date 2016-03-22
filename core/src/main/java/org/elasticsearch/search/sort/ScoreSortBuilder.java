@@ -199,6 +199,7 @@ init|=
 literal|"_score"
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|ScoreSortBuilder

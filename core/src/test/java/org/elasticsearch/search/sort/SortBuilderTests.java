@@ -284,14 +284,6 @@ specifier|static
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 decl_stmt|;
-DECL|field|parseElement
-name|SortParseElement
-name|parseElement
-init|=
-operator|new
-name|SortParseElement
-argument_list|()
-decl_stmt|;
 annotation|@
 name|BeforeClass
 DECL|method|init
@@ -1231,7 +1223,7 @@ init|=
 name|rarely
 argument_list|()
 condition|?
-name|SortParseElement
+name|FieldSortBuilder
 operator|.
 name|DOC_FIELD_NAME
 else|:
