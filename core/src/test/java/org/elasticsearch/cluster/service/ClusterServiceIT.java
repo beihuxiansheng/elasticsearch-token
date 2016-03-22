@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster
+DECL|package|org.elasticsearch.cluster.service
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|cluster
+operator|.
+name|service
 package|;
 end_package
 
@@ -58,9 +60,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
-operator|.
-name|DiscoveryNode
+name|AckedClusterStateUpdateTask
 import|;
 end_import
 
@@ -72,9 +72,45 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|service
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|PendingClusterTask
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|ClusterStateUpdateTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|LocalNodeMasterListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNode
 import|;
 end_import
 
@@ -2546,10 +2582,7 @@ operator|.
 name|preparePendingClusterTasks
 argument_list|()
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -3590,7 +3623,8 @@ argument_list|,
 name|node_2
 argument_list|)
 decl_stmt|;
-comment|// make sure both nodes see each other otherwise the masternode below could be null if node 2 is master and node 1 did'r receive the updated cluster state...
+comment|// make sure both nodes see each other otherwise the masternode below could be null if node 2 is master and node 1 did'r receive
+comment|// the updated cluster state...
 name|assertThat
 argument_list|(
 name|internalCluster

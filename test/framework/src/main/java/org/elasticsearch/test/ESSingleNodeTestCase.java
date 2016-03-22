@@ -1726,9 +1726,6 @@ name|bigArrays
 init|=
 name|indexService
 operator|.
-name|getIndexServices
-argument_list|()
-operator|.
 name|getBigArrays
 argument_list|()
 decl_stmt|;
@@ -1736,9 +1733,6 @@ name|ThreadPool
 name|threadPool
 init|=
 name|indexService
-operator|.
-name|getIndexServices
-argument_list|()
 operator|.
 name|getThreadPool
 argument_list|()

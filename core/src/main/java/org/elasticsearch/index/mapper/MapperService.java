@@ -202,6 +202,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|percolator
+operator|.
+name|PercolatorFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryShardContext
@@ -257,18 +271,6 @@ operator|.
 name|mapper
 operator|.
 name|MapperRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|percolator
-operator|.
-name|PercolatorService
 import|;
 end_import
 
@@ -2049,7 +2051,7 @@ literal|"."
 argument_list|)
 operator|&&
 operator|!
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 operator|.
@@ -2533,7 +2535,7 @@ name|defaultMappingSource
 decl_stmt|;
 if|if
 condition|(
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 operator|.

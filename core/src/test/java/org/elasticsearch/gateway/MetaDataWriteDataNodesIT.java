@@ -60,18 +60,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -89,24 +77,6 @@ operator|.
 name|metadata
 operator|.
 name|MetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|decider
-operator|.
-name|FilterAllocationDecider
 import|;
 end_import
 
@@ -1265,6 +1235,10 @@ operator|.
 name|get
 argument_list|()
 argument_list|)
+expr_stmt|;
+comment|// make sure index is fully initialized and nothing is changed anymore
+name|ensureGreen
+argument_list|()
 expr_stmt|;
 name|indicesMetaData
 operator|=

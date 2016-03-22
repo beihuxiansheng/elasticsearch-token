@@ -7546,7 +7546,7 @@ name|Warmer
 block|,
 name|Flag
 operator|.
-name|Percolate
+name|PercolatorCache
 block|,
 name|Flag
 operator|.
@@ -10172,7 +10172,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|Percolate
+name|PercolatorCache
 case|:
 name|builder
 operator|.
@@ -10399,12 +10399,12 @@ operator|!=
 literal|null
 return|;
 case|case
-name|Percolate
+name|PercolatorCache
 case|:
 return|return
 name|response
 operator|.
-name|getPercolate
+name|getPercolatorCache
 argument_list|()
 operator|!=
 literal|null

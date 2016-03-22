@@ -48,9 +48,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|IndexSettings
+name|util
+operator|.
+name|BigArrays
 import|;
 end_import
 
@@ -62,7 +64,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|NodeServicesProvider
+name|IndexSettings
 import|;
 end_import
 
@@ -234,6 +236,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -294,8 +308,11 @@ parameter_list|,
 name|IndexSearcherWrapper
 name|wrapper
 parameter_list|,
-name|NodeServicesProvider
-name|provider
+name|ThreadPool
+name|threadPool
+parameter_list|,
+name|BigArrays
+name|bigArrays
 parameter_list|,
 name|SearchSlowLog
 name|searchSlowLog
@@ -332,7 +349,9 @@ name|indexEventListener
 argument_list|,
 name|wrapper
 argument_list|,
-name|provider
+name|threadPool
+argument_list|,
+name|bigArrays
 argument_list|,
 name|searchSlowLog
 argument_list|,

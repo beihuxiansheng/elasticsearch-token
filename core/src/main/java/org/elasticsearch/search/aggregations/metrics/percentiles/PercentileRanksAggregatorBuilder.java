@@ -379,7 +379,7 @@ specifier|private
 name|boolean
 name|keyed
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|method|PercentileRanksAggregatorBuilder
 specifier|public

@@ -609,6 +609,8 @@ argument_list|,
 literal|"repository-s3"
 argument_list|,
 literal|"store-smb"
+argument_list|,
+literal|"xpack"
 argument_list|)
 argument_list|)
 argument_list|)
