@@ -583,7 +583,7 @@ name|Setting
 operator|.
 name|boolSetting
 argument_list|(
-literal|"foo.bar"
+literal|"index.foo.bar"
 argument_list|,
 literal|false
 argument_list|,
@@ -611,7 +611,7 @@ name|service
 operator|.
 name|hasDynamicSetting
 argument_list|(
-literal|"foo.bar"
+literal|"index.foo.bar"
 argument_list|)
 argument_list|)
 expr_stmt|;

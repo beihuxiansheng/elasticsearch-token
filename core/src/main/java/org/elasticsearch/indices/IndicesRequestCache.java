@@ -423,7 +423,7 @@ name|boolSetting
 argument_list|(
 literal|"index.requests.cache.enable"
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|Property
 operator|.

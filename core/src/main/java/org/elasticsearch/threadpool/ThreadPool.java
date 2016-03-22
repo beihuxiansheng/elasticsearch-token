@@ -726,15 +726,6 @@ name|SUGGEST
 init|=
 literal|"suggest"
 decl_stmt|;
-DECL|field|PERCOLATE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PERCOLATE
-init|=
-literal|"percolate"
-decl_stmt|;
 DECL|field|MANAGEMENT
 specifier|public
 specifier|static
@@ -1094,19 +1085,6 @@ argument_list|(
 name|Names
 operator|.
 name|SUGGEST
-argument_list|,
-name|ThreadPoolType
-operator|.
-name|FIXED
-argument_list|)
-expr_stmt|;
-name|map
-operator|.
-name|put
-argument_list|(
-name|Names
-operator|.
-name|PERCOLATE
 argument_list|,
 name|ThreadPoolType
 operator|.
@@ -1829,29 +1807,6 @@ argument_list|(
 name|Names
 operator|.
 name|SUGGEST
-argument_list|)
-operator|.
-name|size
-argument_list|(
-name|availableProcessors
-argument_list|)
-operator|.
-name|queueSize
-argument_list|(
-literal|1000
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|add
-argument_list|(
-name|defaultExecutorTypeSettings
-argument_list|,
-operator|new
-name|ExecutorSettingsBuilder
-argument_list|(
-name|Names
-operator|.
-name|PERCOLATE
 argument_list|)
 operator|.
 name|size
@@ -2767,6 +2722,7 @@ name|stats
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the generic executor. This executor's {@link Executor#execute(Runnable)} method will run the Runnable it is given in      * the {@link ThreadContext} of the thread that queues it.      */
 DECL|method|generic
 specifier|public
 name|Executor
@@ -2782,6 +2738,7 @@ name|GENERIC
 argument_list|)
 return|;
 block|}
+comment|/**      * Get the executor with the given name. This executor's {@link Executor#execute(Runnable)} method will run the Runnable it is given in      * the {@link ThreadContext} of the thread that queues it.      */
 DECL|method|executor
 specifier|public
 name|Executor
@@ -2839,6 +2796,7 @@ operator|.
 name|scheduler
 return|;
 block|}
+comment|/**      * Schedules a periodic action that always runs on the scheduler thread.      *      * @param command the action to take      * @param interval the delay interval      * @return a ScheduledFuture who's get will return when the task is complete and throw an exception if it is canceled      */
 DECL|method|scheduleWithFixedDelay
 specifier|public
 name|ScheduledFuture
@@ -2881,6 +2839,7 @@ name|MILLISECONDS
 argument_list|)
 return|;
 block|}
+comment|/**      * Schedules a one-shot command to run after a given delay. The command is not run in the context of the calling thread. To preserve the      * context of the calling thread you may call<code>threadPool.getThreadContext().preserveContext</code> on the runnable before passing      * it to this method.      *      * @param delay delay before the task executes      * @param name the name of the thread pool on which to execute this task. SAME means "execute on the scheduler thread" which changes the      *        meaning of the ScheduledFuture returned by this method. In that case the ScheduledFuture will complete only when the command      *        completes.      * @param command the command to run      * @return a ScheduledFuture who's get will return when the task is has been added to its target thread pool and throw an exception if      *         the task is canceled before it was added to its target thread pool. Once the task has been added to its target thread pool      *         the ScheduledFuture will cannot interact with it.      */
 DECL|method|schedule
 specifier|public
 name|ScheduledFuture

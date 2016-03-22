@@ -412,7 +412,7 @@ name|cluster
 operator|.
 name|service
 operator|.
-name|InternalClusterService
+name|ClusterService
 import|;
 end_import
 
@@ -1939,7 +1939,7 @@ name|HierarchyCircuitBreakerService
 operator|.
 name|REQUEST_CIRCUIT_BREAKER_OVERHEAD_SETTING
 argument_list|,
-name|InternalClusterService
+name|ClusterService
 operator|.
 name|CLUSTER_SERVICE_SLOW_TASK_LOGGING_THRESHOLD_SETTING
 argument_list|,

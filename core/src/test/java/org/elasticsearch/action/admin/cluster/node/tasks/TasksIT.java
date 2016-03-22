@@ -228,9 +228,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
+name|fieldstats
 operator|.
-name|IndexAction
+name|FieldStatsAction
 import|;
 end_import
 
@@ -242,21 +242,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|percolate
+name|index
 operator|.
-name|PercolateAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|ClusterService
+name|IndexAction
 import|;
 end_import
 
@@ -271,6 +259,20 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -1064,7 +1066,7 @@ parameter_list|()
 block|{
 name|registerTaskManageListeners
 argument_list|(
-name|PercolateAction
+name|FieldStatsAction
 operator|.
 name|NAME
 argument_list|)
@@ -1072,7 +1074,7 @@ expr_stmt|;
 comment|// main task
 name|registerTaskManageListeners
 argument_list|(
-name|PercolateAction
+name|FieldStatsAction
 operator|.
 name|NAME
 operator|+
@@ -1094,22 +1096,12 @@ comment|// Make sure all shards are allocated
 name|client
 argument_list|()
 operator|.
-name|preparePercolate
+name|prepareFieldStats
 argument_list|()
 operator|.
-name|setIndices
+name|setFields
 argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|setDocumentType
-argument_list|(
-literal|"foo"
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
-literal|"{}"
+literal|"field"
 argument_list|)
 operator|.
 name|get
@@ -1130,7 +1122,7 @@ literal|1
 argument_list|,
 name|numberOfEvents
 argument_list|(
-name|PercolateAction
+name|FieldStatsAction
 operator|.
 name|NAME
 argument_list|,
@@ -1149,7 +1141,7 @@ name|totalNumShards
 argument_list|,
 name|numberOfEvents
 argument_list|(
-name|PercolateAction
+name|FieldStatsAction
 operator|.
 name|NAME
 operator|+
@@ -1166,7 +1158,7 @@ name|assertParentTask
 argument_list|(
 name|findEvents
 argument_list|(
-name|PercolateAction
+name|FieldStatsAction
 operator|.
 name|NAME
 operator|+
@@ -1179,7 +1171,7 @@ argument_list|)
 argument_list|,
 name|findEvents
 argument_list|(
-name|PercolateAction
+name|FieldStatsAction
 operator|.
 name|NAME
 argument_list|,

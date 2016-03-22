@@ -1181,6 +1181,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|indicesQueriesRegistry
+argument_list|,
+literal|null
 argument_list|)
 block|{
 annotation|@

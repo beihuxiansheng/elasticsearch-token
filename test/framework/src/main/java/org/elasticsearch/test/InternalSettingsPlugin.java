@@ -138,6 +138,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|MERGE_ENABLED
@@ -161,6 +165,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|INDEX_CREATION_DATE_SETTING
@@ -190,6 +198,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|method|onModule

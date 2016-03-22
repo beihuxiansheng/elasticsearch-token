@@ -697,7 +697,7 @@ name|set
 argument_list|(
 name|Flag
 operator|.
-name|Percolate
+name|PercolatorCache
 argument_list|,
 name|percolate
 argument_list|)
@@ -719,7 +719,7 @@ name|isSet
 argument_list|(
 name|Flag
 operator|.
-name|Percolate
+name|PercolatorCache
 argument_list|)
 return|;
 block|}

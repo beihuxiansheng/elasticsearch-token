@@ -578,7 +578,7 @@ name|cluster
 operator|.
 name|service
 operator|.
-name|InternalClusterService
+name|ClusterService
 import|;
 end_import
 
@@ -1236,13 +1236,6 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|ClusterService
-operator|.
-name|class
-argument_list|)
-operator|.
-name|to
-argument_list|(
-name|InternalClusterService
 operator|.
 name|class
 argument_list|)

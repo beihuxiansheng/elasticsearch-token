@@ -931,12 +931,6 @@ name|Suggest
 operator|.
 name|readSuggest
 argument_list|(
-name|Suggest
-operator|.
-name|Fields
-operator|.
-name|SUGGEST
-argument_list|,
 name|in
 argument_list|)
 expr_stmt|;

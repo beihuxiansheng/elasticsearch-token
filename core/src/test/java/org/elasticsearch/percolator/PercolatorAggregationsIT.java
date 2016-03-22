@@ -64,6 +64,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|percolator
+operator|.
+name|PercolatorFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryBuilder
@@ -553,7 +567,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -1119,7 +1133,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,
@@ -1823,7 +1837,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|PercolatorService
+name|PercolatorFieldMapper
 operator|.
 name|TYPE_NAME
 argument_list|,

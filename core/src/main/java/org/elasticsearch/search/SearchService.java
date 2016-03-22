@@ -86,7 +86,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
+name|metadata
+operator|.
+name|IndexMetaData
 import|;
 end_import
 
@@ -98,9 +100,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
+name|service
 operator|.
-name|IndexMetaData
+name|ClusterService
 import|;
 end_import
 
@@ -409,6 +411,20 @@ operator|.
 name|engine
 operator|.
 name|Engine
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fieldstats
+operator|.
+name|FieldStatsProvider
 import|;
 end_import
 
@@ -1878,6 +1894,8 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|SearchContext
@@ -2024,6 +2042,8 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|SearchContext
@@ -2588,6 +2608,8 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|SearchContext
@@ -3590,6 +3612,8 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|SearchContext
 name|context
@@ -3692,6 +3716,8 @@ operator|.
 name|Searcher
 name|searcher
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|IndexService
 name|indexService
@@ -3802,6 +3828,35 @@ argument_list|,
 name|fetchPhase
 argument_list|)
 decl_stmt|;
+name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|setFieldStatsProvider
+argument_list|(
+operator|new
+name|FieldStatsProvider
+argument_list|(
+name|engineSearcher
+argument_list|,
+name|indexService
+operator|.
+name|mapperService
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|request
+operator|.
+name|rewrite
+argument_list|(
+name|context
+operator|.
+name|getQueryShardContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|SearchContext
 operator|.
 name|setCurrent

@@ -216,7 +216,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
+name|node
+operator|.
+name|DiscoveryNode
 import|;
 end_import
 
@@ -228,9 +230,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
+name|service
 operator|.
-name|DiscoveryNode
+name|ClusterService
 import|;
 end_import
 
@@ -425,6 +427,22 @@ operator|.
 name|atomic
 operator|.
 name|AtomicReference
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterServiceUtils
+operator|.
+name|setState
 import|;
 end_import
 
@@ -2086,15 +2104,15 @@ operator|++
 control|)
 block|{
 comment|// Notify only nodes that should remain in the cluster
+name|setState
+argument_list|(
 name|testNodes
 index|[
 name|i
 index|]
 operator|.
 name|clusterService
-operator|.
-name|setState
-argument_list|(
+argument_list|,
 name|ClusterStateCreationUtils
 operator|.
 name|state

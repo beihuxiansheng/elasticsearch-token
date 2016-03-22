@@ -102,6 +102,8 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|service
+operator|.
 name|ClusterService
 import|;
 end_import

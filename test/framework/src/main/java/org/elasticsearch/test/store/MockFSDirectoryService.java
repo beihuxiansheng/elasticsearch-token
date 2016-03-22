@@ -517,6 +517,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RANDOM_IO_EXCEPTION_RATE_SETTING
@@ -542,6 +546,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|RANDOM_PREVENT_DOUBLE_WRITE_SETTING
@@ -565,6 +573,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|// true is default in MDW
@@ -589,6 +601,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|// true is default in MDW
@@ -613,6 +629,10 @@ argument_list|,
 name|Property
 operator|.
 name|IndexScope
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 comment|// true is default in MDW

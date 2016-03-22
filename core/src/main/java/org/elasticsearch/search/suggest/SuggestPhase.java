@@ -524,12 +524,6 @@ return|return
 operator|new
 name|Suggest
 argument_list|(
-name|Suggest
-operator|.
-name|Fields
-operator|.
-name|SUGGEST
-argument_list|,
 name|suggestions
 argument_list|)
 return|;
