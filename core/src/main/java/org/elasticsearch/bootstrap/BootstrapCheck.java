@@ -865,9 +865,8 @@ operator|&&
 name|getMaxSizeVirtualMemory
 argument_list|()
 operator|!=
-name|JNACLibrary
-operator|.
-name|RLIM_INFINITY
+name|getRlimInfinity
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -902,6 +901,18 @@ argument_list|(
 literal|"user.name"
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|// visible for testing
+DECL|method|getRlimInfinity
+name|long
+name|getRlimInfinity
+parameter_list|()
+block|{
+return|return
+name|JNACLibrary
+operator|.
+name|RLIM_INFINITY
 return|;
 block|}
 comment|// visible for testing
