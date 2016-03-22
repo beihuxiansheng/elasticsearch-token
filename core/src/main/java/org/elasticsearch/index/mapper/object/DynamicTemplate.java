@@ -914,14 +914,21 @@ name|String
 name|dynamicType
 parameter_list|)
 block|{
-return|return
+name|String
+name|type
+decl_stmt|;
+if|if
+condition|(
 name|mapping
 operator|.
 name|containsKey
 argument_list|(
 literal|"type"
 argument_list|)
-condition|?
+condition|)
+block|{
+name|type
+operator|=
 name|mapping
 operator|.
 name|get
@@ -931,6 +938,10 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+expr_stmt|;
+name|type
+operator|=
+name|type
 operator|.
 name|replace
 argument_list|(
@@ -938,6 +949,10 @@ literal|"{dynamic_type}"
 argument_list|,
 name|dynamicType
 argument_list|)
+expr_stmt|;
+name|type
+operator|=
+name|type
 operator|.
 name|replace
 argument_list|(
@@ -945,8 +960,84 @@ literal|"{dynamicType}"
 argument_list|,
 name|dynamicType
 argument_list|)
-else|:
+expr_stmt|;
+block|}
+else|else
+block|{
+name|type
+operator|=
 name|dynamicType
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|type
+operator|.
+name|equals
+argument_list|(
+name|mapping
+operator|.
+name|get
+argument_list|(
+literal|"type"
+argument_list|)
+argument_list|)
+operator|==
+literal|false
+comment|// either the type was not set, or we updated it through replacements
+operator|&&
+literal|"text"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+comment|// and the result is "text"
+comment|// now that string has been splitted into text and keyword, we use text for
+comment|// dynamic mappings. However before it used to be possible to index as a keyword
+comment|// by setting index=not_analyzed, so for now we will use a keyword field rather
+comment|// than a text field if index=not_analyzed and the field type was not specified
+comment|// explicitly
+comment|// TODO: remove this in 6.0
+comment|// TODO: how to do it in the future?
+specifier|final
+name|Object
+name|index
+init|=
+name|mapping
+operator|.
+name|get
+argument_list|(
+literal|"index"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+literal|"not_analyzed"
+operator|.
+name|equals
+argument_list|(
+name|index
+argument_list|)
+operator|||
+literal|"no"
+operator|.
+name|equals
+argument_list|(
+name|index
+argument_list|)
+condition|)
+block|{
+name|type
+operator|=
+literal|"keyword"
+expr_stmt|;
+block|}
+block|}
+return|return
+name|type
 return|;
 block|}
 DECL|method|patternMatch
