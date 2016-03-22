@@ -2983,6 +2983,8 @@ name|settings
 return|;
 block|}
 block|}
+comment|/**      * Returns<code>true</code> iff the setting is a private setting ie. it should be treated as valid even though it has no internal      * representation. Otherwise<code>false</code>      */
+comment|// TODO this should be replaced by Setting.Property.HIDDEN or something like this.
 DECL|method|isPrivateSetting
 specifier|protected
 name|boolean
