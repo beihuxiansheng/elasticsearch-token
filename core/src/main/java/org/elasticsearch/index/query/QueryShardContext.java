@@ -832,6 +832,14 @@ name|percolatorQueryCache
 operator|=
 name|percolatorQueryCache
 expr_stmt|;
+name|this
+operator|.
+name|nestedScope
+operator|=
+operator|new
+name|NestedScope
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|QueryShardContext
 specifier|public
@@ -886,6 +894,8 @@ name|getTypes
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|QueryShardContext

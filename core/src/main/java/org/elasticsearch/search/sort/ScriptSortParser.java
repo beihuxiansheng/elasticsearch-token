@@ -522,7 +522,7 @@ name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|ScriptParameterParser
 name|scriptParameterParser
@@ -1109,7 +1109,6 @@ operator|.
 name|MIN
 expr_stmt|;
 block|}
-comment|// If nested_path is specified, then wrap the `fieldComparatorSource` in a `NestedFieldComparatorSource`
 specifier|final
 name|Nested
 name|nested
@@ -1334,7 +1333,6 @@ break|break;
 case|case
 name|NUMBER
 case|:
-comment|// TODO: should we rather sort missing values last?
 name|fieldComparatorSource
 operator|=
 operator|new

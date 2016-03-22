@@ -472,7 +472,7 @@ name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|String
 name|fieldName
