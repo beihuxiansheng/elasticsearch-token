@@ -273,7 +273,7 @@ init|=
 operator|new
 name|FieldSortBuilder
 argument_list|(
-literal|""
+literal|"_na_"
 argument_list|)
 decl_stmt|;
 DECL|field|NAME
@@ -788,6 +788,11 @@ block|{
 name|builder
 operator|.
 name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|startObject
 argument_list|(
 name|fieldName
 argument_list|)
@@ -906,6 +911,11 @@ name|nestedPath
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|builder
 operator|.
 name|endObject

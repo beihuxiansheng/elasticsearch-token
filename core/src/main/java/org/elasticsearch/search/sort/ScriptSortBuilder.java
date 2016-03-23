@@ -1003,6 +1003,11 @@ block|{
 name|builder
 operator|.
 name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|startObject
 argument_list|(
 name|NAME
 argument_list|)
@@ -1105,6 +1110,11 @@ name|builderParams
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|builder
 operator|.
 name|endObject

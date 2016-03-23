@@ -1070,11 +1070,6 @@ name|prettyPrint
 argument_list|()
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
 name|testItem
 operator|.
 name|toXContent
@@ -1085,11 +1080,6 @@ name|ToXContent
 operator|.
 name|EMPTY_PARAMS
 argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
 expr_stmt|;
 name|XContentParser
 name|itemParser
