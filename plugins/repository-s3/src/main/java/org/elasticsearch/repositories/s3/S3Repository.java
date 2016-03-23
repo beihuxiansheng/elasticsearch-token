@@ -1332,12 +1332,12 @@ name|this
 operator|.
 name|chunkSize
 operator|.
-name|getMb
+name|getBytes
 argument_list|()
 operator|<
 name|bufferSize
 operator|.
-name|getMb
+name|getBytes
 argument_list|()
 condition|)
 block|{
