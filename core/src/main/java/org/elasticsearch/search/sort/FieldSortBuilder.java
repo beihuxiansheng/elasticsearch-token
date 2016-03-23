@@ -290,11 +290,6 @@ name|SortBuilder
 argument_list|<
 name|FieldSortBuilder
 argument_list|>
-implements|implements
-name|SortBuilderParser
-argument_list|<
-name|FieldSortBuilder
-argument_list|>
 block|{
 DECL|field|PROTOTYPE
 specifier|static

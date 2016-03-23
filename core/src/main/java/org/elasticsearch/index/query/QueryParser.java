@@ -51,7 +51,7 @@ index|[]
 name|names
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryShardContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      */
+comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryParseContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      */
 DECL|method|fromXContent
 name|QB
 name|fromXContent

@@ -695,11 +695,6 @@ name|SortBuilder
 parameter_list|<
 name|T
 parameter_list|>
-operator|&
-name|SortBuilderParser
-parameter_list|<
-name|T
-parameter_list|>
 parameter_list|>
 extends|extends
 name|ESTestCase

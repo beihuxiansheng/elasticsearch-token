@@ -562,11 +562,6 @@ name|SortBuilder
 argument_list|<
 name|ScriptSortBuilder
 argument_list|>
-implements|implements
-name|SortBuilderParser
-argument_list|<
-name|ScriptSortBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public

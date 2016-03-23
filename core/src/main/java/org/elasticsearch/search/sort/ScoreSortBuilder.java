@@ -188,11 +188,6 @@ name|SortBuilder
 argument_list|<
 name|ScoreSortBuilder
 argument_list|>
-implements|implements
-name|SortBuilderParser
-argument_list|<
-name|ScoreSortBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
