@@ -1177,6 +1177,17 @@ operator|=
 name|ignoreAbove
 expr_stmt|;
 block|}
+comment|/** Values that have more chars than the return value of this method will      *  be skipped at parsing time. */
+comment|// pkg-private for testing
+DECL|method|ignoreAbove
+name|int
+name|ignoreAbove
+parameter_list|()
+block|{
+return|return
+name|ignoreAbove
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|clone

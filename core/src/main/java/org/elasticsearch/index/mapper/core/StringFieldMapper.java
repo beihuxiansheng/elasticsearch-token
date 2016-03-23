@@ -533,6 +533,9 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|// If a string field is created on 5.x and all parameters are in this list then we
+comment|// will automatically upgrade to a text/keyword field. Otherwise we will just fail
+comment|// saying that string fields are not supported anymore.
 DECL|field|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE
 specifier|private
 specifier|static
@@ -569,6 +572,8 @@ argument_list|,
 literal|"copy_to"
 argument_list|,
 literal|"fielddata"
+argument_list|,
+literal|"ignore_above"
 argument_list|)
 argument_list|)
 decl_stmt|;
