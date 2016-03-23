@@ -1268,8 +1268,6 @@ literal|"    \"unit\" : \"m\",\n"
 operator|+
 literal|"    \"distance_type\" : \"sloppy_arc\",\n"
 operator|+
-literal|"    \"reverse\" : true,\n"
-operator|+
 literal|"    \"mode\" : \"MAX\",\n"
 operator|+
 literal|"    \"nested_filter\" : {\n"
