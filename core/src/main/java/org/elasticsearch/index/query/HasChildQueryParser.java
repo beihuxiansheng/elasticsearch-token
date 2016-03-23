@@ -94,7 +94,7 @@ name|query
 operator|.
 name|support
 operator|.
-name|QueryInnerHits
+name|InnerHitBuilder
 import|;
 end_import
 
@@ -303,8 +303,8 @@ name|queryName
 init|=
 literal|null
 decl_stmt|;
-name|QueryInnerHits
-name|queryInnerHits
+name|InnerHitBuilder
+name|innerHitBuilder
 init|=
 literal|null
 decl_stmt|;
@@ -424,12 +424,15 @@ name|INNER_HITS_FIELD
 argument_list|)
 condition|)
 block|{
-name|queryInnerHits
+name|innerHitBuilder
 operator|=
-operator|new
-name|QueryInnerHits
+name|InnerHitBuilder
+operator|.
+name|fromXContent
 argument_list|(
 name|parser
+argument_list|,
+name|parseContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -653,7 +656,7 @@ name|minChildren
 argument_list|,
 name|scoreMode
 argument_list|,
-name|queryInnerHits
+name|innerHitBuilder
 argument_list|)
 decl_stmt|;
 name|hasChildQueryBuilder
