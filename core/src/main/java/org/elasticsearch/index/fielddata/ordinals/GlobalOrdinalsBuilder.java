@@ -481,11 +481,6 @@ operator|.
 name|getFieldName
 argument_list|()
 argument_list|,
-name|indexFieldData
-operator|.
-name|getFieldDataType
-argument_list|()
-argument_list|,
 name|atomicFD
 argument_list|,
 name|ordinalMap
@@ -679,11 +674,6 @@ argument_list|,
 name|indexFieldData
 operator|.
 name|getFieldName
-argument_list|()
-argument_list|,
-name|indexFieldData
-operator|.
-name|getFieldDataType
 argument_list|()
 argument_list|,
 name|atomicFD

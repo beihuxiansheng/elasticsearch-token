@@ -138,16 +138,12 @@ annotation|@
 name|Override
 DECL|method|getFieldDataType
 specifier|protected
-name|FieldDataType
+name|String
 name|getFieldDataType
 parameter_list|()
 block|{
 return|return
-operator|new
-name|FieldDataType
-argument_list|(
 literal|"geo_point"
-argument_list|)
 return|;
 block|}
 annotation|@

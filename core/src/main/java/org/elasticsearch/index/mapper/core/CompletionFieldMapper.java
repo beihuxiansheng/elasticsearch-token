@@ -1362,13 +1362,7 @@ DECL|method|CompletionFieldType
 specifier|public
 name|CompletionFieldType
 parameter_list|()
-block|{
-name|setFieldDataType
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
+block|{         }
 DECL|method|CompletionFieldType
 specifier|private
 name|CompletionFieldType

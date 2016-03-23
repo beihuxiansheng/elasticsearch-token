@@ -9207,20 +9207,16 @@ name|SearchPhaseExecutionException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
-literal|"found no fielddata type for field ["
-operator|+
-name|FIELD
-operator|+
-literal|"]"
+literal|"Fielddata is not supported on fields of type [completion]"
 argument_list|)
 argument_list|)
 expr_stmt|;

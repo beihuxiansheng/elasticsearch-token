@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|SortField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -62,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -90,7 +118,7 @@ name|ToXContent
 block|{
 comment|/**      * Creates a new item from the json held by the {@link SortBuilderParser}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param context      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new item      */
 DECL|method|fromXContent
-name|SortBuilder
+name|T
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -98,6 +126,17 @@ name|context
 parameter_list|,
 name|String
 name|elementName
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Create a @link {@link SortField} from this builder.      */
+DECL|method|build
+name|SortField
+name|build
+parameter_list|(
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException

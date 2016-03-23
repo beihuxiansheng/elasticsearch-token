@@ -688,6 +688,11 @@ operator|.
 name|trySetMaxNumberOfThreads
 argument_list|()
 expr_stmt|;
+name|JNANatives
+operator|.
+name|trySetMaxSizeVirtualMemory
+argument_list|()
+expr_stmt|;
 comment|// init lucene random seed. it will use /dev/urandom where available:
 name|StringHelper
 operator|.

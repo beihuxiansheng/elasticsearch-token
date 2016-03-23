@@ -1338,7 +1338,7 @@ range|:
 name|updateIndexMetaData
 control|)
 block|{
-comment|// since we still haven't upgraded the index folders, we write index state in the old folder
+comment|// since we upgraded the index folders already, write index state in the upgraded index folder
 name|metaStateService
 operator|.
 name|writeIndex
@@ -1346,19 +1346,6 @@ argument_list|(
 literal|"upgrade"
 argument_list|,
 name|indexMetaData
-argument_list|,
-name|nodeEnv
-operator|.
-name|resolveIndexFolder
-argument_list|(
-name|indexMetaData
-operator|.
-name|getIndex
-argument_list|()
-operator|.
-name|getUUID
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

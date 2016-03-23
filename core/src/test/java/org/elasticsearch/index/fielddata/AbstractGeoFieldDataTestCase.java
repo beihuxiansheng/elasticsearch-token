@@ -210,7 +210,7 @@ name|Override
 DECL|method|getFieldDataType
 specifier|protected
 specifier|abstract
-name|FieldDataType
+name|String
 name|getFieldDataType
 parameter_list|()
 function_decl|;

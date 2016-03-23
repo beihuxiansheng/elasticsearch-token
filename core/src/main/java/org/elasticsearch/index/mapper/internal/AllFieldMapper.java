@@ -94,16 +94,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -197,20 +187,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|FieldDataType
 import|;
 end_import
 
@@ -1006,17 +982,7 @@ DECL|method|AllFieldType
 specifier|public
 name|AllFieldType
 parameter_list|()
-block|{
-name|setFieldDataType
-argument_list|(
-operator|new
-name|FieldDataType
-argument_list|(
-literal|"string"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+block|{         }
 DECL|method|AllFieldType
 specifier|protected
 name|AllFieldType

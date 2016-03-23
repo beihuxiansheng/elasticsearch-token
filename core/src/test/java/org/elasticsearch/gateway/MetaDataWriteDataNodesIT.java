@@ -1236,6 +1236,10 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// make sure index is fully initialized and nothing is changed anymore
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 name|indicesMetaData
 operator|=
 name|getIndicesMetaDataOnNode

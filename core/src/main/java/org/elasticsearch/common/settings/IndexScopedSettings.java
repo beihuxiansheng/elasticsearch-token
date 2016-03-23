@@ -772,10 +772,6 @@ name|EngineConfig
 operator|.
 name|INDEX_CODEC_SETTING
 argument_list|,
-name|IndexWarmer
-operator|.
-name|INDEX_NORMS_LOADING_SETTING
-argument_list|,
 comment|// validate that built-in similarities don't get redefined
 name|Setting
 operator|.
@@ -1008,8 +1004,11 @@ name|setting
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isPrivateSetting
-specifier|public
+specifier|protected
+specifier|final
 name|boolean
 name|isPrivateSetting
 parameter_list|(

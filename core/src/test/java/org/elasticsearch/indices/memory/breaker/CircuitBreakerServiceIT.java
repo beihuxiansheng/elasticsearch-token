@@ -1059,7 +1059,7 @@ name|setSource
 argument_list|(
 literal|"{\"mappings\": {\"type\": {\"properties\": {\"test\": "
 operator|+
-literal|"{\"type\": \"text\",\"fielddata\": {\"filter\": {\"regex\": {\"pattern\": \"^value.*\"}}}}}}}}"
+literal|"{\"type\": \"text\",\"fielddata_frequency_filter\": {\"max\": 10000}}}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;

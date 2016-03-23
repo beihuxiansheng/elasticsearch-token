@@ -2468,7 +2468,9 @@ name|exception
 throw|;
 block|}
 comment|// in very rare cases a translog replay from primary is processed before a mapping update on this node
-comment|// which causes local mapping changes. we want to wait until these mappings are processed.
+comment|// which causes local mapping changes since the mapping (clusterstate) might not have arrived on this node.
+comment|// we want to wait until these mappings are processed but also need to do some maintenance and roll back the
+comment|// number of processed (completed) operations in this batch to ensure accounting is correct.
 name|logger
 operator|.
 name|trace
@@ -2483,6 +2485,31 @@ name|completedOperations
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
+name|RecoveryState
+operator|.
+name|Translog
+name|translog
+init|=
+name|recoveryTarget
+operator|.
+name|state
+argument_list|()
+operator|.
+name|getTranslog
+argument_list|()
+decl_stmt|;
+name|translog
+operator|.
+name|decrementRecoveredOperations
+argument_list|(
+name|exception
+operator|.
+name|completedOperations
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// do the maintainance and rollback competed ops
 comment|// we do not need to use a timeout here since the entire recovery mechanism has an inactivity protection (it will be
 comment|// canceled)
 name|observer
