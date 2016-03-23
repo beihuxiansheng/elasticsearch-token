@@ -1817,7 +1817,7 @@ operator|.
 name|source
 argument_list|()
 operator|.
-name|hasOnlySuggest
+name|isSuggestOnly
 argument_list|()
 return|;
 block|}

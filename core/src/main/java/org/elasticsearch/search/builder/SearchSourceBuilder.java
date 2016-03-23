@@ -2653,10 +2653,10 @@ name|ext
 return|;
 block|}
 comment|/**      * @return true if the source only has suggest      */
-DECL|method|hasOnlySuggest
+DECL|method|isSuggestOnly
 specifier|public
 name|boolean
-name|hasOnlySuggest
+name|isSuggestOnly
 parameter_list|()
 block|{
 return|return

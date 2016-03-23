@@ -895,10 +895,10 @@ name|requestCache
 return|;
 block|}
 comment|/**      * @return true if the request only has suggest      */
-DECL|method|hasOnlySuggest
+DECL|method|isSuggestOnly
 specifier|public
 name|boolean
-name|hasOnlySuggest
+name|isSuggestOnly
 parameter_list|()
 block|{
 return|return
@@ -908,7 +908,7 @@ literal|null
 operator|&&
 name|source
 operator|.
-name|hasOnlySuggest
+name|isSuggestOnly
 argument_list|()
 return|;
 block|}
