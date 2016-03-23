@@ -498,7 +498,7 @@ name|output
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Positional args not allowed, found [foo]"
+literal|"Positional arguments not allowed, found [foo]"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -531,7 +531,7 @@ name|output
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Positional args not allowed, found [foo, bar]"
+literal|"Positional arguments not allowed, found [foo, bar]"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -548,6 +548,47 @@ argument_list|,
 literal|"foo"
 argument_list|,
 literal|"bar"
+argument_list|)
+expr_stmt|;
+name|runTest
+argument_list|(
+name|ExitCodes
+operator|.
+name|USAGE
+argument_list|,
+literal|false
+argument_list|,
+name|output
+lambda|->
+name|assertThat
+argument_list|(
+name|output
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Positional arguments not allowed, found [foo]"
+argument_list|)
+argument_list|)
+argument_list|,
+parameter_list|(
+name|foreground
+parameter_list|,
+name|pidFile
+parameter_list|,
+name|esSettings
+parameter_list|)
+lambda|->
+block|{}
+argument_list|,
+literal|"-E"
+argument_list|,
+literal|"something"
+argument_list|,
+literal|"foo"
+argument_list|,
+literal|"-E"
+argument_list|,
+literal|"somethingelse"
 argument_list|)
 expr_stmt|;
 block|}
