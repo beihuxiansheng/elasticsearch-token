@@ -177,6 +177,9 @@ name|String
 name|replacePlaceholders
 parameter_list|(
 name|String
+name|key
+parameter_list|,
+name|String
 name|value
 parameter_list|,
 name|PlaceholderResolver
@@ -189,7 +192,11 @@ name|requireNonNull
 argument_list|(
 name|value
 argument_list|,
-literal|"Argument 'value' must not be null."
+literal|"value can not be null for ["
+operator|+
+name|key
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 return|return
