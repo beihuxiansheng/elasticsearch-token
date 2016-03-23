@@ -1019,7 +1019,7 @@ name|tasks
 operator|.
 name|get
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1027,7 +1027,7 @@ name|tasks
 operator|.
 name|get
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1044,7 +1044,7 @@ name|tasks
 operator|.
 name|get
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1052,7 +1052,7 @@ name|tasks
 operator|.
 name|get
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3594,7 +3594,7 @@ range|:
 name|tasks
 control|)
 block|{
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|task
 operator|.
