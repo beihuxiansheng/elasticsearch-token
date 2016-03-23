@@ -6048,6 +6048,11 @@ name|replacePlaceholders
 argument_list|(
 name|entry
 operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|entry
+operator|.
 name|getValue
 argument_list|()
 argument_list|,
