@@ -37,9 +37,6 @@ name|version
 parameter_list|,
 name|String
 name|classname
-parameter_list|,
-name|boolean
-name|isolated
 parameter_list|)
 block|{
 name|super
@@ -51,8 +48,6 @@ argument_list|,
 name|version
 argument_list|,
 name|classname
-argument_list|,
-name|isolated
 argument_list|)
 expr_stmt|;
 block|}
@@ -73,8 +68,6 @@ argument_list|,
 literal|"dummy_plugin_version"
 argument_list|,
 literal|"DummyPluginName"
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 block|}

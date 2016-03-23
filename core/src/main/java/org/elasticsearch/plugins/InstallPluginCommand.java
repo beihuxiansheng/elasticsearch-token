@@ -1944,11 +1944,6 @@ name|env
 operator|.
 name|pluginsFile
 argument_list|()
-argument_list|,
-name|info
-operator|.
-name|isIsolated
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// read optional security policy (extra permissions)
@@ -2003,9 +1998,6 @@ name|candidate
 parameter_list|,
 name|Path
 name|pluginsDir
-parameter_list|,
-name|boolean
-name|isolated
 parameter_list|)
 throws|throws
 name|Exception
@@ -2039,45 +2031,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// read existing bundles. this does some checks on the installation too.
-name|List
-argument_list|<
-name|PluginsService
-operator|.
-name|Bundle
-argument_list|>
-name|bundles
-init|=
 name|PluginsService
 operator|.
 name|getPluginBundles
 argument_list|(
 name|pluginsDir
 argument_list|)
-decl_stmt|;
-comment|// if we aren't isolated, we need to jarhellcheck against any other non-isolated plugins
-comment|// that's always the first bundle
-if|if
-condition|(
-name|isolated
-operator|==
-literal|false
-condition|)
-block|{
-name|jars
-operator|.
-name|addAll
-argument_list|(
-name|bundles
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|urls
-argument_list|)
 expr_stmt|;
-block|}
 comment|// add plugin jars to the list
 name|Path
 name|pluginJars
