@@ -188,14 +188,9 @@ name|SortBuilder
 argument_list|<
 name|ScoreSortBuilder
 argument_list|>
-implements|implements
-name|SortBuilderParser
-argument_list|<
-name|ScoreSortBuilder
-argument_list|>
 block|{
 DECL|field|NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -548,6 +543,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|build
 specifier|public
 name|SortField

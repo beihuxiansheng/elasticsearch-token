@@ -506,11 +506,6 @@ name|SortBuilder
 argument_list|<
 name|GeoDistanceSortBuilder
 argument_list|>
-implements|implements
-name|SortBuilderParser
-argument_list|<
-name|GeoDistanceSortBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -520,6 +515,15 @@ name|String
 name|NAME
 init|=
 literal|"_geo_distance"
+decl_stmt|;
+DECL|field|ALTERNATIVE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ALTERNATIVE_NAME
+init|=
+literal|"_geoDistance"
 decl_stmt|;
 DECL|field|DEFAULT_COERCE
 specifier|public
