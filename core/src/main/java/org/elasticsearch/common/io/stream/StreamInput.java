@@ -1968,6 +1968,17 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|Override
+DECL|method|available
+specifier|public
+specifier|abstract
+name|int
+name|available
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 DECL|method|readStringArray
 specifier|public
 name|String
@@ -3746,6 +3757,9 @@ comment|/**      * Reads a {@link AggregatorBuilder} from the current stream    
 DECL|method|readAggregatorFactory
 specifier|public
 name|AggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|readAggregatorFactory
 parameter_list|()
 throws|throws
@@ -3764,6 +3778,9 @@ comment|/**      * Reads a {@link PipelineAggregatorBuilder} from the current st
 DECL|method|readPipelineAggregatorFactory
 specifier|public
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|readPipelineAggregatorFactory
 parameter_list|()
 throws|throws
@@ -3782,6 +3799,9 @@ comment|/**      * Reads a {@link QueryBuilder} from the current stream      */
 DECL|method|readQuery
 specifier|public
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|readQuery
 parameter_list|()
 throws|throws
