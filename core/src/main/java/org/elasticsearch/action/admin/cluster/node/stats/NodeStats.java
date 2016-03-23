@@ -998,7 +998,7 @@ name|ingestStats
 operator|=
 name|in
 operator|.
-name|readOptionalWritable
+name|readOptionalWriteable
 argument_list|(
 name|IngestStats
 operator|::

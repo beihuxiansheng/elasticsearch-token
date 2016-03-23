@@ -2961,7 +2961,7 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|readOptionalWritable
+DECL|method|readOptionalWriteable
 specifier|public
 parameter_list|<
 name|T
@@ -2969,14 +2969,12 @@ extends|extends
 name|Writeable
 parameter_list|>
 name|T
-name|readOptionalWritable
+name|readOptionalWriteable
 parameter_list|(
 name|Writeable
 operator|.
-name|IOFunction
+name|Reader
 argument_list|<
-name|StreamInput
-argument_list|,
 name|T
 argument_list|>
 name|provider
@@ -2993,7 +2991,7 @@ block|{
 return|return
 name|provider
 operator|.
-name|apply
+name|read
 argument_list|(
 name|this
 argument_list|)
