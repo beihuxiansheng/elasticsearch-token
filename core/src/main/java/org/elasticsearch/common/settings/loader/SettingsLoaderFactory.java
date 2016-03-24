@@ -58,7 +58,9 @@ block|{
 return|return
 operator|new
 name|JsonSettingsLoader
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -82,7 +84,9 @@ block|{
 return|return
 operator|new
 name|YamlSettingsLoader
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -108,7 +112,9 @@ comment|// lets default to the json one
 return|return
 operator|new
 name|JsonSettingsLoader
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 return|;
 block|}
 block|}
@@ -149,7 +155,9 @@ block|{
 return|return
 operator|new
 name|JsonSettingsLoader
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 return|;
 block|}
 if|if
@@ -168,7 +176,9 @@ block|{
 return|return
 operator|new
 name|YamlSettingsLoader
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 return|;
 block|}
 return|return
