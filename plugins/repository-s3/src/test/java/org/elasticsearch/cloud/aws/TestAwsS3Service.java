@@ -42,6 +42,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|s3
+operator|.
+name|model
+operator|.
+name|EncryptionMaterials
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -218,6 +234,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|EncryptionMaterials
+name|clientSideEncryptionMaterials
 parameter_list|)
 block|{
 return|return
@@ -238,6 +257,8 @@ argument_list|,
 name|key
 argument_list|,
 name|maxRetries
+argument_list|,
+name|clientSideEncryptionMaterials
 argument_list|)
 argument_list|)
 return|;
