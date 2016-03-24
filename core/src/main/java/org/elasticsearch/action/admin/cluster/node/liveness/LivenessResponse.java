@@ -183,9 +183,11 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|node
+operator|=
 name|in
 operator|.
-name|readOptionalWritable
+name|readOptionalWriteable
 argument_list|(
 name|DiscoveryNode
 operator|::
