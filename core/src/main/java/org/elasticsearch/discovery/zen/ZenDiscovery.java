@@ -4961,7 +4961,7 @@ operator|.
 name|node
 argument_list|()
 decl_stmt|;
-comment|//nocommit we should rename this and its setting, also we ignore node.ingest, but maybe it's ok here
+comment|//TODO we should rename this and its setting, also we ignore node.ingest, but maybe it's ok here
 if|if
 condition|(
 name|masterElectionFilterClientNodes
