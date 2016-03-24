@@ -108,10 +108,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|YamlSettingsLoaderTests
 specifier|public
@@ -457,16 +453,24 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
-literal|"duplicate settings key [foo] found at line number [2], column number [6], previous value [bar], current value [baz]"
+literal|"duplicate settings key [foo] "
+operator|+
+literal|"found at line number [2], "
+operator|+
+literal|"column number [6], "
+operator|+
+literal|"previous value [bar], "
+operator|+
+literal|"current value [baz]"
 argument_list|)
 argument_list|)
 expr_stmt|;
