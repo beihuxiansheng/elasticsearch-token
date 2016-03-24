@@ -779,7 +779,7 @@ literal|"Roundtrip serialisation failed."
 argument_list|,
 name|DistanceUnit
 operator|.
-name|readDistanceUnit
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

@@ -1011,7 +1011,7 @@ name|unit
 operator|=
 name|DistanceUnit
 operator|.
-name|readDistanceUnit
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
