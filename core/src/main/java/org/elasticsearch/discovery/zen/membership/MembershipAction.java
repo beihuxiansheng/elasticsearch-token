@@ -730,9 +730,8 @@ argument_list|)
 expr_stmt|;
 name|node
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)
@@ -1079,9 +1078,8 @@ argument_list|)
 expr_stmt|;
 name|node
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)

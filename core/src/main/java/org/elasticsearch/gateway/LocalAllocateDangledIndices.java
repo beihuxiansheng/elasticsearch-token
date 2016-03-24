@@ -1364,9 +1364,8 @@ argument_list|)
 expr_stmt|;
 name|fromNode
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)

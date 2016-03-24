@@ -2650,7 +2650,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|readFrom
-specifier|public
+specifier|private
 name|DiscoveryNodes
 name|readFrom
 parameter_list|(
@@ -2733,9 +2733,8 @@ block|{
 name|DiscoveryNode
 name|node
 init|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)

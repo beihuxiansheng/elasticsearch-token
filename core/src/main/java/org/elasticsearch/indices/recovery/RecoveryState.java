@@ -1298,9 +1298,8 @@ argument_list|)
 expr_stmt|;
 name|targetNode
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)
@@ -1315,9 +1314,8 @@ condition|)
 block|{
 name|sourceNode
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)
