@@ -175,6 +175,7 @@ name|void
 name|testThatNoDuplicatesPropertiesDoesNotAcceptNullValues
 parameter_list|()
 block|{
+specifier|final
 name|PropertiesSettingsLoader
 name|loader
 init|=
@@ -182,6 +183,7 @@ operator|new
 name|PropertiesSettingsLoader
 argument_list|()
 decl_stmt|;
+specifier|final
 name|PropertiesSettingsLoader
 operator|.
 name|NoDuplicatesProperties
