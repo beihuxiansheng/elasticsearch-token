@@ -2677,6 +2677,7 @@ name|getUptime
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
 name|String
 name|roles
 decl_stmt|;
@@ -2687,10 +2688,8 @@ operator|.
 name|getRoles
 argument_list|()
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 name|roles
