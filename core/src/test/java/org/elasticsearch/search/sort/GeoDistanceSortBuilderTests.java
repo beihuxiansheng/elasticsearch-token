@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesArray
@@ -1228,6 +1240,103 @@ block|{
 comment|// all good
 block|}
 block|}
+DECL|method|testReverseOptionFails
+specifier|public
+name|void
+name|testReverseOptionFails
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"testname\" : [ {\n"
+operator|+
+literal|"    \"lat\" : -6.046997540714173,\n"
+operator|+
+literal|"    \"lon\" : -51.94128329747579\n"
+operator|+
+literal|"  } ],\n"
+operator|+
+literal|"  \"reverse\" : true\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|XContentParser
+name|itemParser
+init|=
+name|XContentHelper
+operator|.
+name|createParser
+argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|itemParser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+name|QueryParseContext
+name|context
+init|=
+operator|new
+name|QueryParseContext
+argument_list|(
+name|indicesQueriesRegistry
+argument_list|)
+decl_stmt|;
+name|context
+operator|.
+name|reset
+argument_list|(
+name|itemParser
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|GeoDistanceSortBuilder
+operator|.
+name|PROTOTYPE
+operator|.
+name|fromXContent
+argument_list|(
+name|context
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"adding reverse sorting option should fail with an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Sort option [reverse] no longer supported."
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|testSortModeSumIsRejectedInJSON
 specifier|public
 name|void
@@ -1252,8 +1361,6 @@ operator|+
 literal|"  \"unit\" : \"m\",\n"
 operator|+
 literal|"  \"distance_type\" : \"sloppy_arc\",\n"
-operator|+
-literal|"  \"reverse\" : true,\n"
 operator|+
 literal|"  \"mode\" : \"SUM\",\n"
 operator|+

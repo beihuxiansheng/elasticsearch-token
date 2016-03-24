@@ -1947,13 +1947,16 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|ParsingException
 argument_list|(
-literal|"Sort order "
-operator|+
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"Sort order [{}] not supported."
+argument_list|,
 name|sortOrder
-operator|+
-literal|" not supported."
 argument_list|)
 throw|;
 block|}
@@ -2015,13 +2018,16 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ParsingException
 argument_list|(
-literal|"Option "
-operator|+
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"Option [{}] not supported."
+argument_list|,
 name|currentFieldName
-operator|+
-literal|" not supported."
 argument_list|)
 throw|;
 block|}
