@@ -488,9 +488,8 @@ argument_list|()
 expr_stmt|;
 name|nodesStats
 operator|=
+operator|new
 name|ClusterStatsNodes
-operator|.
-name|readNodeStats
 argument_list|(
 name|in
 argument_list|)
