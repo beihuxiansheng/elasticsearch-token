@@ -550,12 +550,6 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|SUGGEST
-block|,
-name|ThreadPool
-operator|.
-name|Names
-operator|.
 name|WARMER
 block|}
 decl_stmt|;
@@ -590,8 +584,6 @@ block|,
 literal|"s"
 block|,
 literal|"sn"
-block|,
-literal|"su"
 block|,
 literal|"w"
 block|}

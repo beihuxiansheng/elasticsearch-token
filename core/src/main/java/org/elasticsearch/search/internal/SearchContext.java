@@ -1794,6 +1794,33 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @return true if the request contains only suggest      */
+DECL|method|hasOnlySuggest
+specifier|public
+specifier|final
+name|boolean
+name|hasOnlySuggest
+parameter_list|()
+block|{
+return|return
+name|request
+argument_list|()
+operator|.
+name|source
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|request
+argument_list|()
+operator|.
+name|source
+argument_list|()
+operator|.
+name|isSuggestOnly
+argument_list|()
+return|;
+block|}
 comment|/**      * Looks up the given field, but does not restrict to fields in the types set on this context.      */
 DECL|method|smartNameFieldType
 specifier|public

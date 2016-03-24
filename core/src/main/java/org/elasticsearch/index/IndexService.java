@@ -4666,6 +4666,7 @@ annotation|@
 name|Override
 DECL|method|close
 specifier|public
+specifier|synchronized
 name|void
 name|close
 parameter_list|()

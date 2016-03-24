@@ -1127,7 +1127,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"forwat"
+literal|"format"
 argument_list|,
 name|format
 argument_list|)

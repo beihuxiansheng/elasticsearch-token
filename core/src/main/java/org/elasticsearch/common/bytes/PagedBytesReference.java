@@ -2176,6 +2176,22 @@ name|IOException
 block|{
 comment|// do nothing
 block|}
+annotation|@
+name|Override
+DECL|method|available
+specifier|public
+name|int
+name|available
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|length
+operator|-
+name|pos
+return|;
+block|}
 block|}
 block|}
 end_class

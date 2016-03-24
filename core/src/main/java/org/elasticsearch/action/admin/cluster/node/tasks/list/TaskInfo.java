@@ -793,8 +793,6 @@ name|parentTaskId
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 name|builder

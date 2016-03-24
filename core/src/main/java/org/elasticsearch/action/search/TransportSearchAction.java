@@ -236,6 +236,22 @@ name|QUERY_AND_FETCH
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchType
+operator|.
+name|QUERY_THEN_FETCH
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -443,6 +459,47 @@ argument_list|(
 name|QUERY_AND_FETCH
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|searchRequest
+operator|.
+name|isSuggestOnly
+argument_list|()
+condition|)
+block|{
+comment|// disable request cache if we have only suggest
+name|searchRequest
+operator|.
+name|requestCache
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+switch|switch
+condition|(
+name|searchRequest
+operator|.
+name|searchType
+argument_list|()
+condition|)
+block|{
+case|case
+name|DFS_QUERY_AND_FETCH
+case|:
+case|case
+name|DFS_QUERY_THEN_FETCH
+case|:
+comment|// convert to Q_T_F if we have only suggest
+name|searchRequest
+operator|.
+name|searchType
+argument_list|(
+name|QUERY_THEN_FETCH
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
 block|}
 block|}
 catch|catch

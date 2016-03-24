@@ -627,8 +627,6 @@ argument_list|()
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 comment|// we are only checking one task, we can optimize it

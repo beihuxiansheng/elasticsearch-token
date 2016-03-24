@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A settings loader factory automatically trying to identify what type of  * {@link SettingsLoader} to use.  *  *  */
+comment|/**  * A class holding factory methods for settings loaders that attempts  * to infer the type of the underlying settings content.  */
 end_comment
 
 begin_class
@@ -33,8 +33,8 @@ DECL|method|SettingsLoaderFactory
 specifier|private
 name|SettingsLoaderFactory
 parameter_list|()
-block|{      }
-comment|/**      * Returns a {@link SettingsLoader} based on the resource name.      */
+block|{     }
+comment|/**      * Returns a {@link SettingsLoader} based on the source resource      * name. This factory method assumes that if the resource name ends      * with ".json" then the content should be parsed as JSON, else if      * the resource name ends with ".yml" or ".yaml" then the content      * should be parsed as YAML, else if the resource name ends with      * ".properties" then the content should be parsed as properties,      * otherwise default to attempting to parse as JSON. Note that the      * parsers returned by this method will not accept null-valued      * keys.      *      * @param resourceName The resource name containing the settings      *                     content.      * @return A settings loader.      */
 DECL|method|loaderFromResource
 specifier|public
 specifier|static
@@ -58,7 +58,9 @@ block|{
 return|return
 operator|new
 name|JsonSettingsLoader
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -82,7 +84,9 @@ block|{
 return|return
 operator|new
 name|YamlSettingsLoader
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -108,11 +112,13 @@ comment|// lets default to the json one
 return|return
 operator|new
 name|JsonSettingsLoader
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns a {@link SettingsLoader} based on the actual settings source.      */
+comment|/**      * Returns a {@link SettingsLoader} based on the source content.      * This factory method assumes that if the underlying content      * contains an opening and closing brace ('{' and '}') then the      * content should be parsed as JSON, else if the underlying content      * fails this condition but contains a ':' then the content should      * be parsed as YAML, and otherwise should be parsed as properties.      * Note that the JSON and YAML parsers returned by this method will      * accept null-valued keys.      *      * @param source The underlying settings content.      * @return A settings loader.      */
 DECL|method|loaderFromSource
 specifier|public
 specifier|static
@@ -149,7 +155,9 @@ block|{
 return|return
 operator|new
 name|JsonSettingsLoader
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 return|;
 block|}
 if|if
@@ -168,7 +176,9 @@ block|{
 return|return
 operator|new
 name|YamlSettingsLoader
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 return|;
 block|}
 return|return

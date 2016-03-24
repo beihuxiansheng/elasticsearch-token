@@ -562,14 +562,9 @@ name|SortBuilder
 argument_list|<
 name|ScriptSortBuilder
 argument_list|>
-implements|implements
-name|SortBuilderParser
-argument_list|<
-name|ScriptSortBuilder
-argument_list|>
 block|{
 DECL|field|NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -578,6 +573,7 @@ init|=
 literal|"_script"
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|ScriptSortBuilder
@@ -1007,6 +1003,11 @@ block|{
 name|builder
 operator|.
 name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|startObject
 argument_list|(
 name|NAME
 argument_list|)
@@ -1109,6 +1110,11 @@ name|builderParams
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|builder
 operator|.
 name|endObject

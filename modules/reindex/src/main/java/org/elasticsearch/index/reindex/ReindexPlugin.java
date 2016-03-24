@@ -166,7 +166,13 @@ name|BulkByScrollTask
 operator|.
 name|Status
 operator|.
-name|PROTOTYPE
+name|NAME
+argument_list|,
+name|BulkByScrollTask
+operator|.
+name|Status
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}

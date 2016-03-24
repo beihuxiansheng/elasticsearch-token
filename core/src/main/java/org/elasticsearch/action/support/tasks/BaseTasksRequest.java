@@ -282,8 +282,6 @@ name|taskId
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 operator|&&
 name|nodesIds
 operator|.
@@ -724,8 +722,6 @@ argument_list|()
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 if|if
@@ -753,8 +749,6 @@ name|parentTaskId
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 if|if

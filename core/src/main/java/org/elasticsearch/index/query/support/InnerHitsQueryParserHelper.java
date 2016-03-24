@@ -148,7 +148,7 @@ name|search
 operator|.
 name|sort
 operator|.
-name|SortParseElement
+name|SortBuilder
 import|;
 end_import
 
@@ -177,17 +177,6 @@ name|INSTANCE
 init|=
 operator|new
 name|InnerHitsQueryParserHelper
-argument_list|()
-decl_stmt|;
-DECL|field|sortParseElement
-specifier|private
-specifier|static
-specifier|final
-name|SortParseElement
-name|sortParseElement
-init|=
-operator|new
-name|SortParseElement
 argument_list|()
 decl_stmt|;
 DECL|field|sourceParseElement
@@ -351,8 +340,6 @@ name|fieldName
 argument_list|,
 name|subSearchContext
 argument_list|,
-name|sortParseElement
-argument_list|,
 name|sourceParseElement
 argument_list|,
 name|highlighterParseElement
@@ -375,8 +362,6 @@ argument_list|,
 name|fieldName
 argument_list|,
 name|subSearchContext
-argument_list|,
-name|sortParseElement
 argument_list|,
 name|sourceParseElement
 argument_list|,
@@ -436,9 +421,6 @@ parameter_list|,
 name|SubSearchContext
 name|subSearchContext
 parameter_list|,
-name|SortParseElement
-name|sortParseElement
-parameter_list|,
 name|FetchSourceParseElement
 name|sourceParseElement
 parameter_list|,
@@ -464,9 +446,9 @@ name|fieldName
 argument_list|)
 condition|)
 block|{
-name|sortParseElement
+name|SortBuilder
 operator|.
-name|parse
+name|parseSort
 argument_list|(
 name|parser
 argument_list|,

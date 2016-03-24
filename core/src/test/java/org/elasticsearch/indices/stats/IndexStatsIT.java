@@ -610,6 +610,22 @@ name|xcontent
 operator|.
 name|XContentFactory
 operator|.
+name|contentBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentFactory
+operator|.
 name|jsonBuilder
 import|;
 end_import
@@ -6877,6 +6893,18 @@ range|:
 name|values
 control|)
 block|{
+if|if
+condition|(
+name|flag
+operator|==
+name|Flag
+operator|.
+name|Suggest
+condition|)
+block|{
+comment|// suggest flag is unused
+continue|continue;
+block|}
 name|assertThat
 argument_list|(
 name|isSet
@@ -7141,6 +7169,18 @@ argument_list|)
 control|)
 block|{
 comment|// check the complement
+if|if
+condition|(
+name|flag
+operator|==
+name|Flag
+operator|.
+name|Suggest
+condition|)
+block|{
+comment|// suggest flag is unused
+continue|continue;
+block|}
 name|assertThat
 argument_list|(
 name|isSet
@@ -10218,13 +10258,7 @@ break|break;
 case|case
 name|Suggest
 case|:
-name|builder
-operator|.
-name|setSuggest
-argument_list|(
-name|set
-argument_list|)
-expr_stmt|;
+comment|// unused
 break|break;
 case|case
 name|RequestCache
@@ -10445,13 +10479,9 @@ return|;
 case|case
 name|Suggest
 case|:
+comment|// unused
 return|return
-name|response
-operator|.
-name|getSuggest
-argument_list|()
-operator|!=
-literal|null
+literal|true
 return|;
 case|case
 name|RequestCache

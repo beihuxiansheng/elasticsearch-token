@@ -2147,6 +2147,11 @@ name|mainRequest
 operator|.
 name|isRefresh
 argument_list|()
+operator|||
+name|destinationIndices
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|finishHim

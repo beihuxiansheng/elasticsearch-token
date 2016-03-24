@@ -894,6 +894,24 @@ operator|.
 name|requestCache
 return|;
 block|}
+comment|/**      * @return true if the request only has suggest      */
+DECL|method|isSuggestOnly
+specifier|public
+name|boolean
+name|isSuggestOnly
+parameter_list|()
+block|{
+return|return
+name|source
+operator|!=
+literal|null
+operator|&&
+name|source
+operator|.
+name|isSuggestOnly
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|readFrom
