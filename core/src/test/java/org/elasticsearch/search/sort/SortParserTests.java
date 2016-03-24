@@ -1008,8 +1008,6 @@ argument_list|()
 expr_stmt|;
 name|GeoDistanceSortBuilder
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|parseContext

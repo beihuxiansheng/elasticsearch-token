@@ -3838,6 +3838,37 @@ name|class
 argument_list|)
 return|;
 block|}
+comment|/**      * Reads an optional {@link QueryBuilder}.      */
+DECL|method|readOptionalQuery
+specifier|public
+name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
+name|readOptionalQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|readBoolean
+argument_list|()
+condition|)
+block|{
+return|return
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+return|return
+literal|null
+return|;
+block|}
 comment|/**      * Reads a {@link ShapeBuilder} from the current stream      */
 DECL|method|readShape
 specifier|public
