@@ -711,6 +711,8 @@ specifier|private
 name|Settings
 name|getJsonSettings
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|String
 name|json
@@ -770,6 +772,8 @@ specifier|private
 name|Settings
 name|getYamlSettings
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|String
 name|yaml

@@ -544,6 +544,8 @@ operator|!
 name|settingsFileFound
 condition|)
 block|{
+try|try
+block|{
 name|output
 operator|.
 name|loadFromPath
@@ -551,6 +553,28 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|SettingsException
+argument_list|(
+literal|"Failed to settings from "
+operator|+
+name|path
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 name|settingsFileFound
 operator|=
