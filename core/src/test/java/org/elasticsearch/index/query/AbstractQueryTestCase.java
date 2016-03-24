@@ -2584,6 +2584,8 @@ argument_list|,
 name|indicesQueriesRegistry
 argument_list|,
 name|percolatorQueryCache
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 comment|//create some random type with some default field, those types will stick around for all of the subclasses
@@ -2882,13 +2884,6 @@ name|void
 name|afterTest
 parameter_list|()
 block|{
-name|queryShardContext
-operator|.
-name|setFieldStatsProvider
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 name|clientInvocationHandler
 operator|.
 name|delegate
