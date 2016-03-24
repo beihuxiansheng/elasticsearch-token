@@ -1293,7 +1293,12 @@ expr_stmt|;
 block|}
 block|}
 return|return
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
 name|roles
+argument_list|)
 return|;
 block|}
 comment|/**      * The address that the node can be communicated with.      */
