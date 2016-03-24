@@ -69,12 +69,12 @@ specifier|public
 name|YamlSettingsLoader
 parameter_list|(
 name|boolean
-name|guardAgainstNullValuedSettings
+name|allowNullValues
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|guardAgainstNullValuedSettings
+name|allowNullValues
 argument_list|)
 expr_stmt|;
 block|}

@@ -59,7 +59,7 @@ return|return
 operator|new
 name|JsonSettingsLoader
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
@@ -85,7 +85,7 @@ return|return
 operator|new
 name|YamlSettingsLoader
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
@@ -113,7 +113,7 @@ return|return
 operator|new
 name|JsonSettingsLoader
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
@@ -156,7 +156,7 @@ return|return
 operator|new
 name|JsonSettingsLoader
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 return|;
 block|}
@@ -177,7 +177,7 @@ return|return
 operator|new
 name|YamlSettingsLoader
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 return|;
 block|}

@@ -1477,7 +1477,7 @@ argument_list|(
 operator|new
 name|YamlSettingsLoader
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 operator|.
 name|load
@@ -1491,7 +1491,7 @@ argument_list|(
 operator|new
 name|YamlSettingsLoader
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 operator|.
 name|load
