@@ -108,10 +108,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|YamlSettingsLoaderTests
 specifier|public
@@ -128,11 +124,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|String
 name|yaml
 init|=
 literal|"/org/elasticsearch/common/settings/loader/test-settings.yml"
 decl_stmt|;
+specifier|final
 name|Settings
 name|settings
 init|=
@@ -294,13 +292,24 @@ name|void
 name|testIndentation
 parameter_list|()
 block|{
+specifier|final
 name|String
 name|yaml
 init|=
 literal|"/org/elasticsearch/common/settings/loader/indentation-settings.yml"
 decl_stmt|;
-try|try
-block|{
+specifier|final
+name|SettingsException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|SettingsException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -319,19 +328,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected SettingsException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SettingsException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -345,7 +343,6 @@ literal|"Failed to load settings"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testIndentationWithExplicitDocumentStart
 specifier|public
@@ -353,13 +350,24 @@ name|void
 name|testIndentationWithExplicitDocumentStart
 parameter_list|()
 block|{
+specifier|final
 name|String
 name|yaml
 init|=
 literal|"/org/elasticsearch/common/settings/loader/indentation-with-explicit-document-start-settings.yml"
 decl_stmt|;
-try|try
-block|{
+specifier|final
+name|SettingsException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|SettingsException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -378,19 +386,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Expected SettingsException"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SettingsException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|e
@@ -405,20 +402,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 DECL|method|testDuplicateKeysThrowsException
 specifier|public
 name|void
 name|testDuplicateKeysThrowsException
 parameter_list|()
 block|{
+specifier|final
 name|String
 name|yaml
 init|=
 literal|"foo: bar\nfoo: baz"
 decl_stmt|;
-try|try
-block|{
+specifier|final
+name|SettingsException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|SettingsException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|settingsBuilder
 argument_list|()
 operator|.
@@ -429,19 +436,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected exception"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SettingsException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|e
@@ -457,20 +453,27 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
-literal|"duplicate settings key [foo] found at line number [2], column number [6], previous value [bar], current value [baz]"
+literal|"duplicate settings key [foo] "
+operator|+
+literal|"found at line number [2], "
+operator|+
+literal|"column number [6], "
+operator|+
+literal|"previous value [bar], "
+operator|+
+literal|"current value [baz]"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testNullValuedSettingThrowsException
 specifier|public
