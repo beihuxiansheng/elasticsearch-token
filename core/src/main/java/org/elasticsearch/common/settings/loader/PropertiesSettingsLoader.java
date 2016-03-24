@@ -411,6 +411,7 @@ name|Object
 name|value
 parameter_list|)
 block|{
+specifier|final
 name|Object
 name|previousValue
 init|=

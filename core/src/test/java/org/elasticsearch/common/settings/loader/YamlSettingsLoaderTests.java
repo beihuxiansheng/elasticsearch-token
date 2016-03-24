@@ -124,11 +124,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|String
 name|yaml
 init|=
 literal|"/org/elasticsearch/common/settings/loader/test-settings.yml"
 decl_stmt|;
+specifier|final
 name|Settings
 name|settings
 init|=

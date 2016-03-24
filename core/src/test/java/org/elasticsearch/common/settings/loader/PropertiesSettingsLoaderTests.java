@@ -199,6 +199,7 @@ name|void
 name|testThatNoDuplicatesPropertiesDoesNotAcceptNullValues
 parameter_list|()
 block|{
+specifier|final
 name|PropertiesSettingsLoader
 operator|.
 name|NoDuplicatesProperties

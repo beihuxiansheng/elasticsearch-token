@@ -124,11 +124,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|String
 name|json
 init|=
 literal|"/org/elasticsearch/common/settings/loader/test-settings.json"
 decl_stmt|;
+specifier|final
 name|Settings
 name|settings
 init|=
