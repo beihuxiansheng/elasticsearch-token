@@ -80,7 +80,7 @@ literal|"Prefer calling a constructor that takes a StreamInput to calling readFr
 argument_list|)
 throw|;
 block|}
-comment|/**      * Reference to a method that can read some object from a stream. By convention this is a constructor that takes      * {@linkplain StreamInput} as an argument for most classes and a static method for things like enums.      */
+comment|/**      * Reference to a method that can read some object from a stream. By convention this is a constructor that takes      * {@linkplain StreamInput} as an argument for most classes and a static method for things like enums. Returning null from one of these      * is always wrong - for that we use methods like {@link StreamInput#readOptionalWriteable(Reader)}.      */
 annotation|@
 name|FunctionalInterface
 DECL|interface|Reader
