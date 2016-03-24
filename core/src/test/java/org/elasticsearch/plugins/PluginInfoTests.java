@@ -232,14 +232,6 @@ name|getClassname
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|info
-operator|.
-name|isIsolated
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testReadFromPropertiesNameMissing
 specifier|public
@@ -1126,8 +1118,6 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1145,8 +1135,6 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1164,8 +1152,6 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1183,8 +1169,6 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1202,8 +1186,6 @@ argument_list|,
 literal|"dummy"
 argument_list|,
 literal|"dummyclass"
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

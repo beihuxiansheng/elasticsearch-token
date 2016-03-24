@@ -208,20 +208,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|sort
-operator|.
-name|SortParseElement
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -270,12 +256,6 @@ name|InnerHitsParseElement
 implements|implements
 name|SearchParseElement
 block|{
-DECL|field|sortParseElement
-specifier|private
-specifier|final
-name|SortParseElement
-name|sortParseElement
-decl_stmt|;
 DECL|field|sourceParseElement
 specifier|private
 specifier|final
@@ -304,9 +284,6 @@ DECL|method|InnerHitsParseElement
 specifier|public
 name|InnerHitsParseElement
 parameter_list|(
-name|SortParseElement
-name|sortParseElement
-parameter_list|,
 name|FetchSourceParseElement
 name|sourceParseElement
 parameter_list|,
@@ -320,12 +297,6 @@ name|ScriptFieldsParseElement
 name|scriptFieldsParseElement
 parameter_list|)
 block|{
-name|this
-operator|.
-name|sortParseElement
-operator|=
-name|sortParseElement
-expr_stmt|;
 name|this
 operator|.
 name|sourceParseElement
@@ -1374,8 +1345,6 @@ name|fieldName
 argument_list|,
 name|subSearchContext
 argument_list|,
-name|sortParseElement
-argument_list|,
 name|sourceParseElement
 argument_list|,
 name|highlighterParseElement
@@ -1398,8 +1367,6 @@ argument_list|,
 name|fieldName
 argument_list|,
 name|subSearchContext
-argument_list|,
-name|sortParseElement
 argument_list|,
 name|sourceParseElement
 argument_list|,

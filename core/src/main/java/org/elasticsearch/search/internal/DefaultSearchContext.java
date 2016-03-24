@@ -1430,6 +1430,14 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|hasOnlySuggest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
 name|scrollContext
 operator|==
 literal|null

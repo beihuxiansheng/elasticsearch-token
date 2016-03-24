@@ -199,6 +199,7 @@ init|=
 literal|"_score"
 decl_stmt|;
 DECL|field|PROTOTYPE
+specifier|public
 specifier|static
 specifier|final
 name|ScoreSortBuilder
@@ -294,6 +295,11 @@ block|{
 name|builder
 operator|.
 name|startObject
+argument_list|()
+expr_stmt|;
+name|builder
+operator|.
+name|startObject
 argument_list|(
 name|NAME
 argument_list|)
@@ -309,6 +315,11 @@ argument_list|()
 argument_list|,
 name|order
 argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 name|builder
 operator|.

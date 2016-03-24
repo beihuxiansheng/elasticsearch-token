@@ -437,8 +437,6 @@ argument_list|()
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 operator|&&
 name|banedParents
 operator|.
@@ -1196,8 +1194,6 @@ name|parentTaskId
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 operator|&&
 name|lastDiscoveryNodes
 operator|.

@@ -734,7 +734,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 operator|:
 literal|"trying to allocated a primary with an empty allocation id set, but index is new"
@@ -811,7 +811,7 @@ argument_list|()
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|,
 name|nodeShardsResult
 operator|.

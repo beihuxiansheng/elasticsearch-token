@@ -491,6 +491,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|Constants
+operator|.
+name|LINUX
+operator|||
+name|Constants
+operator|.
+name|MAC_OS_X
+condition|)
+block|{
 name|checks
 operator|.
 name|add
@@ -500,6 +511,7 @@ name|MaxSizeVirtualMemoryCheck
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|Collections
 operator|.
