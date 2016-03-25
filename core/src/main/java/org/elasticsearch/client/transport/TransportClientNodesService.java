@@ -428,6 +428,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -534,54 +544,6 @@ end_import
 
 begin_import
 import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyList
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptySet
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|unmodifiableList
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -654,6 +616,8 @@ name|DiscoveryNode
 argument_list|>
 name|listedNodes
 init|=
+name|Collections
+operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
@@ -676,6 +640,8 @@ name|DiscoveryNode
 argument_list|>
 name|nodes
 init|=
+name|Collections
+operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
@@ -688,6 +654,8 @@ name|DiscoveryNode
 argument_list|>
 name|filteredNodes
 init|=
+name|Collections
+operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
@@ -1041,6 +1009,8 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|Collections
+operator|.
 name|unmodifiableList
 argument_list|(
 name|lstBuilder
@@ -1256,9 +1226,13 @@ argument_list|()
 argument_list|,
 name|transportAddress
 argument_list|,
+name|Collections
+operator|.
 name|emptyMap
 argument_list|()
 argument_list|,
+name|Collections
+operator|.
 name|emptySet
 argument_list|()
 argument_list|,
@@ -1284,6 +1258,8 @@ expr_stmt|;
 block|}
 name|listedNodes
 operator|=
+name|Collections
+operator|.
 name|unmodifiableList
 argument_list|(
 name|builder
@@ -1382,6 +1358,8 @@ block|}
 block|}
 name|listedNodes
 operator|=
+name|Collections
+operator|.
 name|unmodifiableList
 argument_list|(
 name|builder
@@ -1804,6 +1782,8 @@ expr_stmt|;
 block|}
 name|nodes
 operator|=
+name|Collections
+operator|.
 name|emptyList
 argument_list|()
 expr_stmt|;
@@ -2028,6 +2008,8 @@ block|}
 block|}
 block|}
 return|return
+name|Collections
+operator|.
 name|unmodifiableList
 argument_list|(
 operator|new
@@ -2402,6 +2384,8 @@ argument_list|)
 expr_stmt|;
 name|filteredNodes
 operator|=
+name|Collections
+operator|.
 name|unmodifiableList
 argument_list|(
 operator|new
@@ -2962,6 +2946,8 @@ argument_list|)
 expr_stmt|;
 name|filteredNodes
 operator|=
+name|Collections
+operator|.
 name|unmodifiableList
 argument_list|(
 operator|new
