@@ -448,16 +448,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -490,7 +480,19 @@ name|util
 operator|.
 name|Collections
 operator|.
-name|*
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
 import|;
 end_import
 
@@ -8446,8 +8448,6 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
-name|Collections
-operator|.
 name|singleton
 argument_list|(
 name|DiscoveryNode
@@ -8481,8 +8481,6 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
-name|Collections
-operator|.
 name|singleton
 argument_list|(
 name|DiscoveryNode
@@ -9120,8 +9118,6 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
-name|Collections
-operator|.
 name|singleton
 argument_list|(
 name|DiscoveryNode

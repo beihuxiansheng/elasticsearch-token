@@ -559,6 +559,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|assertNotNull
+argument_list|(
+name|master
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|DiscoveryNode
