@@ -472,6 +472,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -635,6 +659,12 @@ argument_list|(
 literal|"master"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -653,6 +683,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"other"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -1717,6 +1753,12 @@ literal|10
 argument_list|)
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|randomVersion
 argument_list|(
 name|random
@@ -1775,6 +1817,12 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|randomVersion
 argument_list|(

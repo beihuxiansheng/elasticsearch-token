@@ -496,17 +496,31 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|List
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|shuffle
 import|;
 end_import
 
@@ -2535,8 +2549,6 @@ operator|>
 name|numNodes
 condition|)
 block|{
-name|Collections
-operator|.
 name|shuffle
 argument_list|(
 name|nodes
@@ -3608,6 +3620,11 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -3625,6 +3642,11 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
 argument_list|,
 name|VersionUtils
 operator|.
@@ -3644,6 +3666,11 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
 argument_list|,
 name|VersionUtils
 operator|.
@@ -4148,6 +4175,11 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -4165,6 +4197,11 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
 argument_list|,
 name|VersionUtils
 operator|.
@@ -4184,6 +4221,11 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
 argument_list|,
 name|VersionUtils
 operator|.

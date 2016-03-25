@@ -428,16 +428,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -544,6 +534,54 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyList
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableList
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -616,8 +654,6 @@ name|DiscoveryNode
 argument_list|>
 name|listedNodes
 init|=
-name|Collections
-operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
@@ -640,8 +676,6 @@ name|DiscoveryNode
 argument_list|>
 name|nodes
 init|=
-name|Collections
-operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
@@ -654,8 +688,6 @@ name|DiscoveryNode
 argument_list|>
 name|filteredNodes
 init|=
-name|Collections
-operator|.
 name|emptyList
 argument_list|()
 decl_stmt|;
@@ -1009,8 +1041,6 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|Collections
-operator|.
 name|unmodifiableList
 argument_list|(
 name|lstBuilder
@@ -1226,6 +1256,12 @@ argument_list|()
 argument_list|,
 name|transportAddress
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|minCompatibilityVersion
 argument_list|)
 decl_stmt|;
@@ -1248,8 +1284,6 @@ expr_stmt|;
 block|}
 name|listedNodes
 operator|=
-name|Collections
-operator|.
 name|unmodifiableList
 argument_list|(
 name|builder
@@ -1348,8 +1382,6 @@ block|}
 block|}
 name|listedNodes
 operator|=
-name|Collections
-operator|.
 name|unmodifiableList
 argument_list|(
 name|builder
@@ -1772,8 +1804,6 @@ expr_stmt|;
 block|}
 name|nodes
 operator|=
-name|Collections
-operator|.
 name|emptyList
 argument_list|()
 expr_stmt|;
@@ -1998,8 +2028,6 @@ block|}
 block|}
 block|}
 return|return
-name|Collections
-operator|.
 name|unmodifiableList
 argument_list|(
 operator|new
@@ -2285,7 +2313,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// use discovered information but do keep the original transport address, so people can control which address is exactly used.
+comment|// use discovered information but do keep the original transport address,
+comment|// so people can control which address is exactly used.
 name|DiscoveryNode
 name|nodeWithInfo
 init|=
@@ -2312,36 +2341,14 @@ name|id
 argument_list|()
 argument_list|,
 name|nodeWithInfo
-operator|.
-name|getHostName
-argument_list|()
-argument_list|,
-name|nodeWithInfo
-operator|.
-name|getHostAddress
-argument_list|()
-argument_list|,
-name|listedNode
-operator|.
-name|address
-argument_list|()
-argument_list|,
-name|nodeWithInfo
-operator|.
-name|attributes
-argument_list|()
-argument_list|,
-name|nodeWithInfo
-operator|.
-name|version
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-comment|// although we asked for one node, our target may not have completed initialization yet and doesn't have cluster nodes
+comment|// although we asked for one node, our target may not have completed
+comment|// initialization yet and doesn't have cluster nodes
 name|logger
 operator|.
 name|debug
@@ -2395,8 +2402,6 @@ argument_list|)
 expr_stmt|;
 name|filteredNodes
 operator|=
-name|Collections
-operator|.
 name|unmodifiableList
 argument_list|(
 operator|new
@@ -2957,8 +2962,6 @@ argument_list|)
 expr_stmt|;
 name|filteredNodes
 operator|=
-name|Collections
-operator|.
 name|unmodifiableList
 argument_list|(
 operator|new

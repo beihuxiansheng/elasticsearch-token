@@ -128,7 +128,6 @@ name|DiscoveryNodeFilters
 block|{
 DECL|enum|OpType
 specifier|public
-specifier|static
 enum|enum
 name|OpType
 block|{
@@ -138,7 +137,6 @@ block|,
 DECL|enum constant|OR
 name|OR
 block|}
-empty_stmt|;
 DECL|method|buildFromSettings
 specifier|public
 specifier|static

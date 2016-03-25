@@ -2720,6 +2720,11 @@ argument_list|)
 argument_list|,
 name|tribe
 operator|.
+name|getRoles
+argument_list|()
+argument_list|,
+name|tribe
+operator|.
 name|version
 argument_list|()
 argument_list|)

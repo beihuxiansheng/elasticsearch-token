@@ -338,6 +338,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -538,6 +562,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"abc"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -1086,6 +1116,12 @@ argument_list|(
 literal|"xyz"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -1630,6 +1666,12 @@ argument_list|(
 literal|"xyz"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|nodeVersion
 argument_list|)
 argument_list|)
@@ -1888,6 +1930,12 @@ argument_list|(
 literal|"xyz"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -1906,6 +1954,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"def"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|nodeVersion
 argument_list|)
