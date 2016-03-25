@@ -2105,7 +2105,7 @@ argument_list|)
 decl_stmt|;
 name|listener
 operator|.
-name|warmNewReaders
+name|warmReader
 argument_list|(
 name|indexShard
 argument_list|,
@@ -2642,7 +2642,7 @@ argument_list|)
 decl_stmt|;
 name|listener
 operator|.
-name|warmNewReaders
+name|warmReader
 argument_list|(
 name|indexShard
 argument_list|,
@@ -2893,7 +2893,7 @@ argument_list|)
 expr_stmt|;
 name|listener
 operator|.
-name|warmNewReaders
+name|warmReader
 argument_list|(
 name|indexShard
 argument_list|,
@@ -3073,7 +3073,7 @@ argument_list|)
 expr_stmt|;
 name|listener
 operator|.
-name|warmNewReaders
+name|warmReader
 argument_list|(
 name|indexShard
 argument_list|,

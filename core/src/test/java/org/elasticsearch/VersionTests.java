@@ -150,7 +150,7 @@ name|elasticsearch
 operator|.
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 import|;
 end_import
 
@@ -238,7 +238,7 @@ name|V_2_2_0
 operator|.
 name|before
 argument_list|(
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 argument_list|,
 name|is
@@ -264,7 +264,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_5_0_0
+name|V_5_0_0_alpha1
 operator|.
 name|before
 argument_list|(
@@ -283,7 +283,7 @@ name|V_2_2_0
 operator|.
 name|onOrBefore
 argument_list|(
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 argument_list|,
 name|is
@@ -309,7 +309,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_5_0_0
+name|V_5_0_0_alpha1
 operator|.
 name|onOrBefore
 argument_list|(
@@ -328,7 +328,7 @@ name|V_2_2_0
 operator|.
 name|after
 argument_list|(
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 argument_list|,
 name|is
@@ -354,7 +354,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_5_0_0
+name|V_5_0_0_alpha1
 operator|.
 name|after
 argument_list|(
@@ -373,7 +373,7 @@ name|V_2_2_0
 operator|.
 name|onOrAfter
 argument_list|(
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 argument_list|,
 name|is
@@ -399,7 +399,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|V_5_0_0
+name|V_5_0_0_alpha1
 operator|.
 name|onOrAfter
 argument_list|(
@@ -959,7 +959,7 @@ name|V_2_3_0
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1077,7 +1077,7 @@ name|assertThat
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -1086,7 +1086,7 @@ name|equalTo
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1112,11 +1112,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"5.0.0"
+literal|"5.0.0-alpha1"
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 operator|.
 name|toString
 argument_list|()
@@ -2033,6 +2033,27 @@ argument_list|(
 literal|"-rc"
 argument_list|,
 literal|"_rc"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|v
+operator|.
+name|isAlpha
+argument_list|()
+condition|)
+block|{
+name|number
+operator|=
+name|number
+operator|.
+name|replace
+argument_list|(
+literal|"-alpha"
+argument_list|,
+literal|"_alpha"
 argument_list|)
 expr_stmt|;
 block|}

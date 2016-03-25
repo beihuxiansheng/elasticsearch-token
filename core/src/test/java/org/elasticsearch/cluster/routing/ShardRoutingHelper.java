@@ -261,11 +261,6 @@ name|restoreSource
 argument_list|,
 name|routing
 operator|.
-name|primaryTerm
-argument_list|()
-argument_list|,
-name|routing
-operator|.
 name|primary
 argument_list|()
 argument_list|,

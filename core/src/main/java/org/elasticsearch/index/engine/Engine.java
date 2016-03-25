@@ -5984,7 +5984,7 @@ specifier|public
 interface|interface
 name|Warmer
 block|{
-comment|/**          * Called once a new Searcher is opened.          *          * @param searcher         the searcer to warm          * @param isTopLevelReader<code>true</code> iff the searcher is build from a top-level reader.          *                         Otherwise the searcher might be build from a leaf reader to warm in isolation          */
+comment|/**          * Called once a new Searcher is opened on the top-level searcher.          */
 DECL|method|warm
 name|void
 name|warm
@@ -5993,9 +5993,6 @@ name|Engine
 operator|.
 name|Searcher
 name|searcher
-parameter_list|,
-name|boolean
-name|isTopLevelReader
 parameter_list|)
 function_decl|;
 block|}

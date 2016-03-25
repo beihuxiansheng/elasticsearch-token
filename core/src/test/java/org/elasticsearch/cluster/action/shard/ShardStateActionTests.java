@@ -2166,11 +2166,6 @@ argument_list|()
 argument_list|,
 name|nodeId
 argument_list|,
-name|randomInt
-argument_list|(
-literal|10
-argument_list|)
-argument_list|,
 name|randomBoolean
 argument_list|()
 argument_list|,

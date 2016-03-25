@@ -798,8 +798,6 @@ name|relocatingNode
 argument_list|,
 literal|null
 argument_list|,
-name|primaryTerm
-argument_list|,
 literal|true
 argument_list|,
 name|primaryState
@@ -907,8 +905,6 @@ argument_list|,
 name|relocatingNode
 argument_list|,
 literal|null
-argument_list|,
-name|primaryTerm
 argument_list|,
 literal|false
 argument_list|,
@@ -1208,15 +1204,6 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-specifier|final
-name|int
-name|primaryTerm
-init|=
-name|randomInt
-argument_list|(
-literal|200
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -1301,8 +1288,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|primaryTerm
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -1336,8 +1321,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-name|primaryTerm
 argument_list|,
 literal|false
 argument_list|,

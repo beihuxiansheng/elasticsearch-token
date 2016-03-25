@@ -623,7 +623,7 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
-literal|"_id"
+literal|"_uid"
 argument_list|,
 name|SortOrder
 operator|.

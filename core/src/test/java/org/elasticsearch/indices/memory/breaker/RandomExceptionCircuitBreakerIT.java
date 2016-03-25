@@ -678,15 +678,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|startObject
-argument_list|(
-literal|"fielddata"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-comment|// fielddata
-operator|.
 name|endObject
 argument_list|()
 comment|// test-num

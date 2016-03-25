@@ -79,9 +79,6 @@ parameter_list|,
 name|String
 name|currentNodeId
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -106,8 +103,6 @@ name|shardId
 argument_list|,
 name|currentNodeId
 argument_list|,
-name|primaryTerm
-argument_list|,
 name|primary
 argument_list|,
 name|state
@@ -129,9 +124,6 @@ parameter_list|,
 name|String
 name|currentNodeId
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -152,8 +144,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,
@@ -194,9 +184,6 @@ parameter_list|,
 name|String
 name|relocatingNodeId
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -223,8 +210,6 @@ name|currentNodeId
 argument_list|,
 name|relocatingNodeId
 argument_list|,
-name|primaryTerm
-argument_list|,
 name|primary
 argument_list|,
 name|state
@@ -249,9 +234,6 @@ parameter_list|,
 name|String
 name|relocatingNodeId
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -272,8 +254,6 @@ argument_list|,
 name|relocatingNodeId
 argument_list|,
 literal|null
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,
@@ -313,9 +293,6 @@ name|currentNodeId
 parameter_list|,
 name|String
 name|relocatingNodeId
-parameter_list|,
-name|long
-name|primaryTerm
 parameter_list|,
 name|boolean
 name|primary
@@ -346,8 +323,6 @@ name|currentNodeId
 argument_list|,
 name|relocatingNodeId
 argument_list|,
-name|primaryTerm
-argument_list|,
 name|primary
 argument_list|,
 name|state
@@ -374,9 +349,6 @@ parameter_list|,
 name|String
 name|relocatingNodeId
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -400,8 +372,6 @@ argument_list|,
 name|relocatingNodeId
 argument_list|,
 literal|null
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,
@@ -442,9 +412,6 @@ parameter_list|,
 name|RestoreSource
 name|restoreSource
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -473,8 +440,6 @@ name|relocatingNodeId
 argument_list|,
 name|restoreSource
 argument_list|,
-name|primaryTerm
-argument_list|,
 name|primary
 argument_list|,
 name|state
@@ -502,9 +467,6 @@ parameter_list|,
 name|RestoreSource
 name|restoreSource
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -525,8 +487,6 @@ argument_list|,
 name|relocatingNodeId
 argument_list|,
 name|restoreSource
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,
@@ -569,9 +529,6 @@ name|relocatingNodeId
 parameter_list|,
 name|RestoreSource
 name|restoreSource
-parameter_list|,
-name|long
-name|primaryTerm
 parameter_list|,
 name|boolean
 name|primary
@@ -604,8 +561,6 @@ name|relocatingNodeId
 argument_list|,
 name|restoreSource
 argument_list|,
-name|primaryTerm
-argument_list|,
 name|primary
 argument_list|,
 name|state
@@ -635,9 +590,6 @@ parameter_list|,
 name|RestoreSource
 name|restoreSource
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -661,8 +613,6 @@ argument_list|,
 name|relocatingNodeId
 argument_list|,
 name|restoreSource
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,

@@ -68,20 +68,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
-operator|.
-name|FieldDataType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|similarity
 operator|.
 name|BM25SimilarityProvider
@@ -684,7 +670,7 @@ argument_list|,
 operator|new
 name|Modifier
 argument_list|(
-literal|"fielddata"
+literal|"eager_global_ordinals"
 argument_list|,
 literal|true
 argument_list|)
@@ -701,28 +687,14 @@ parameter_list|)
 block|{
 name|ft
 operator|.
-name|setFieldDataType
+name|setEagerGlobalOrdinals
 argument_list|(
-operator|new
-name|FieldDataType
-argument_list|(
-literal|"foo"
-argument_list|,
-name|Settings
+name|ft
 operator|.
-name|builder
+name|eagerGlobalOrdinals
 argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"loading"
-argument_list|,
-literal|"eager"
-argument_list|)
-operator|.
-name|build
-argument_list|()
-argument_list|)
+operator|==
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1156,11 +1128,11 @@ operator|.
 name|similarity
 argument_list|()
 operator|+
-literal|", fieldDataType="
+literal|", eagerGlobalOrdinals="
 operator|+
 name|ft
 operator|.
-name|fieldDataType
+name|eagerGlobalOrdinals
 argument_list|()
 operator|+
 literal|", nullValue="

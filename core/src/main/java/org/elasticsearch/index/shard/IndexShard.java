@@ -340,6 +340,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|LoggerMessageFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|Lucene
@@ -1088,38 +1102,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|suggest
-operator|.
-name|stats
-operator|.
-name|ShardSuggestMetric
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|suggest
-operator|.
-name|stats
-operator|.
-name|SuggestStats
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|translog
 operator|.
 name|Translog
@@ -1510,16 +1492,6 @@ specifier|final
 name|IndexFieldDataService
 name|indexFieldDataService
 decl_stmt|;
-DECL|field|shardSuggestMetric
-specifier|private
-specifier|final
-name|ShardSuggestMetric
-name|shardSuggestMetric
-init|=
-operator|new
-name|ShardSuggestMetric
-argument_list|()
-decl_stmt|;
 DECL|field|shardBitsetFilterCache
 specifier|private
 specifier|final
@@ -1586,7 +1558,7 @@ specifier|final
 name|IndexEventListener
 name|indexEventListener
 decl_stmt|;
-comment|/** How many bytes we are currently moving to disk, via either IndexWriter.flush or refresh.  IndexingMemoryController polls this      *  across all shards to decide if throttling is necessary because moving bytes to disk is falling behind vs incoming documents      *  being indexed/deleted. */
+comment|/**      * How many bytes we are currently moving to disk, via either IndexWriter.flush or refresh.  IndexingMemoryController polls this      * across all shards to decide if throttling is necessary because moving bytes to disk is falling behind vs incoming documents      * being indexed/deleted.      */
 DECL|field|writingBytes
 specifier|private
 specifier|final
@@ -1608,6 +1580,12 @@ specifier|protected
 specifier|volatile
 name|IndexShardState
 name|state
+decl_stmt|;
+DECL|field|primaryTerm
+specifier|protected
+specifier|volatile
+name|long
+name|primaryTerm
 decl_stmt|;
 DECL|field|currentEngineReference
 specifier|protected
@@ -2195,6 +2173,23 @@ name|searcherWrapper
 operator|=
 name|indexSearcherWrapper
 expr_stmt|;
+name|this
+operator|.
+name|primaryTerm
+operator|=
+name|indexSettings
+operator|.
+name|getIndexMetaData
+argument_list|()
+operator|.
+name|primaryTerm
+argument_list|(
+name|shardId
+operator|.
+name|id
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|store
 specifier|public
@@ -2208,7 +2203,7 @@ operator|.
 name|store
 return|;
 block|}
-comment|/** returns true if this shard supports indexing (i.e., write) operations. */
+comment|/**      * returns true if this shard supports indexing (i.e., write) operations.      */
 DECL|method|canIndex
 specifier|public
 name|boolean
@@ -2229,16 +2224,6 @@ return|return
 name|this
 operator|.
 name|getService
-return|;
-block|}
-DECL|method|getSuggestMetric
-specifier|public
-name|ShardSuggestMetric
-name|getSuggestMetric
-parameter_list|()
-block|{
-return|return
-name|shardSuggestMetric
 return|;
 block|}
 DECL|method|shardBitsetFilterCache
@@ -2319,6 +2304,86 @@ operator|.
 name|shardFieldData
 return|;
 block|}
+comment|/**      * Returns the primary term the index shard is on. See {@link org.elasticsearch.cluster.metadata.IndexMetaData#primaryTerm(int)}      */
+DECL|method|getPrimaryTerm
+specifier|public
+name|long
+name|getPrimaryTerm
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|primaryTerm
+return|;
+block|}
+comment|/**      * notifies the shard of an increase in the primary term      */
+DECL|method|updatePrimaryTerm
+specifier|public
+name|void
+name|updatePrimaryTerm
+parameter_list|(
+specifier|final
+name|long
+name|newTerm
+parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|mutex
+init|)
+block|{
+if|if
+condition|(
+name|newTerm
+operator|!=
+name|primaryTerm
+condition|)
+block|{
+assert|assert
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|==
+literal|false
+operator|:
+literal|"a primary shard should never update it's term. shard: "
+operator|+
+name|shardRouting
+operator|+
+literal|" current term ["
+operator|+
+name|primaryTerm
+operator|+
+literal|"] new term ["
+operator|+
+name|newTerm
+operator|+
+literal|"]"
+assert|;
+assert|assert
+name|newTerm
+operator|>
+name|primaryTerm
+operator|:
+literal|"primary terms can only go up. current ["
+operator|+
+name|primaryTerm
+operator|+
+literal|"], new ["
+operator|+
+name|newTerm
+operator|+
+literal|"]"
+assert|;
+name|primaryTerm
+operator|=
+name|newTerm
+expr_stmt|;
+block|}
+block|}
+block|}
 comment|/**      * Returns the latest cluster routing entry received with this shard. Might be null if the      * shard was just created.      */
 DECL|method|routingEntry
 specifier|public
@@ -2347,7 +2412,7 @@ name|getQueryCachingPolicy
 argument_list|()
 return|;
 block|}
-comment|/**      * Updates the shards routing entry. This mutate the shards internal state depending      * on the changes that get introduced by the new routing value. This method will persist shard level metadata      * unless explicitly disabled.      *      * @throws IndexShardRelocatedException if shard is marked as relocated and relocation aborted      * @throws IOException if shard state could not be persisted      */
+comment|/**      * Updates the shards routing entry. This mutate the shards internal state depending      * on the changes that get introduced by the new routing value. This method will persist shard level metadata      * unless explicitly disabled.      *      * @throws IndexShardRelocatedException if shard is marked as relocated and relocation aborted      * @throws IOException                  if shard state could not be persisted      */
 DECL|method|updateRoutingEntry
 specifier|public
 name|void
@@ -2967,28 +3032,9 @@ parameter_list|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|shardRouting
-operator|.
-name|primary
+name|verifyPrimary
 argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalIndexShardStateException
-argument_list|(
-name|shardId
-argument_list|,
-name|state
-argument_list|,
-literal|"shard is not a primary"
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 return|return
 name|prepareIndex
 argument_list|(
@@ -3058,33 +3104,9 @@ parameter_list|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|shardRouting
-operator|.
-name|primary
+name|verifyReplicationTarget
 argument_list|()
-operator|&&
-name|shardRouting
-operator|.
-name|isRelocationTarget
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalIndexShardStateException
-argument_list|(
-name|shardId
-argument_list|,
-name|state
-argument_list|,
-literal|"shard is not a replica"
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 return|return
 name|prepareIndex
 argument_list|(
@@ -3397,28 +3419,9 @@ name|VersionType
 name|versionType
 parameter_list|)
 block|{
-if|if
-condition|(
-name|shardRouting
-operator|.
-name|primary
+name|verifyPrimary
 argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalIndexShardStateException
-argument_list|(
-name|shardId
-argument_list|,
-name|state
-argument_list|,
-literal|"shard is not a primary"
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 specifier|final
 name|DocumentMapper
 name|documentMapper
@@ -3793,7 +3796,7 @@ name|acquireSearcher
 argument_list|)
 return|;
 block|}
-comment|/** Writes all indexing changes to disk and opens a new searcher reflecting all changes.  This can throw {@link EngineClosedException}. */
+comment|/**      * Writes all indexing changes to disk and opens a new searcher reflecting all changes.  This can throw {@link EngineClosedException}.      */
 DECL|method|refresh
 specifier|public
 name|void
@@ -3943,7 +3946,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** Returns how many bytes we are currently moving from heap to disk */
+comment|/**      * Returns how many bytes we are currently moving from heap to disk      */
 DECL|method|getWritingBytes
 specifier|public
 name|long
@@ -4369,19 +4372,6 @@ argument_list|()
 operator|.
 name|getTranslog
 argument_list|()
-operator|.
-name|stats
-argument_list|()
-return|;
-block|}
-DECL|method|suggestStats
-specifier|public
-name|SuggestStats
-name|suggestStats
-parameter_list|()
-block|{
-return|return
-name|shardSuggestMetric
 operator|.
 name|stats
 argument_list|()
@@ -5980,6 +5970,86 @@ throw|;
 block|}
 block|}
 block|}
+DECL|method|verifyPrimary
+specifier|private
+name|void
+name|verifyPrimary
+parameter_list|()
+block|{
+if|if
+condition|(
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+comment|// must use exception that is not ignored by replication logic. See TransportActions.isShardNotAvailableException
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"shard is not a primary "
+operator|+
+name|shardRouting
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|verifyReplicationTarget
+specifier|private
+name|void
+name|verifyReplicationTarget
+parameter_list|()
+block|{
+specifier|final
+name|IndexShardState
+name|state
+init|=
+name|state
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|&&
+name|shardRouting
+operator|.
+name|active
+argument_list|()
+operator|&&
+name|state
+operator|!=
+name|IndexShardState
+operator|.
+name|RELOCATED
+condition|)
+block|{
+comment|// must use exception that is not ignored by replication logic. See TransportActions.isShardNotAvailableException
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"active primary shard cannot be a replication target before "
+operator|+
+literal|" relocation hand off "
+operator|+
+name|shardRouting
+operator|+
+literal|", state is ["
+operator|+
+name|state
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|verifyStartedOrRecovering
 specifier|protected
 specifier|final
@@ -6142,7 +6212,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** Returns number of heap bytes used by the indexing buffer for this shard, or 0 if the shard is closed */
+comment|/**      * Returns number of heap bytes used by the indexing buffer for this shard, or 0 if the shard is closed      */
 DECL|method|getIndexBufferRAMBytesUsed
 specifier|public
 name|long
@@ -6210,7 +6280,7 @@ name|onShardFailure
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Called by {@link IndexingMemoryController} to check whether more than {@code inactiveTimeNS} has passed since the last      *  indexing operation, and notify listeners that we are now inactive so e.g. sync'd flush can happen. */
+comment|/**      * Called by {@link IndexingMemoryController} to check whether more than {@code inactiveTimeNS} has passed since the last      * indexing operation, and notify listeners that we are now inactive so e.g. sync'd flush can happen.      */
 DECL|method|checkIdle
 specifier|public
 name|void
@@ -6857,9 +6927,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
-comment|/**      * Should be called for each no-op update operation to increment relevant statistics.      * @param type the doc type of the update      */
+comment|/**      * Should be called for each no-op update operation to increment relevant statistics.      *      * @param type the doc type of the update      */
 DECL|method|noopUpdate
 specifier|public
 name|void
@@ -7972,28 +8041,9 @@ block|{
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|shardRouting
-operator|.
-name|primary
+name|verifyPrimary
 argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalIndexShardStateException
-argument_list|(
-name|shardId
-argument_list|,
-name|state
-argument_list|,
-literal|"shard is not a primary"
-argument_list|)
-throw|;
-block|}
+expr_stmt|;
 return|return
 name|suspendableRefContainer
 operator|.
@@ -8001,7 +8051,7 @@ name|acquireUninterruptibly
 argument_list|()
 return|;
 block|}
-comment|/**      * acquires operation log. If the given primary term is lower then the one in {@link #shardRouting}      * an {@link IllegalIndexShardStateException} is thrown.      */
+comment|/**      * acquires operation log. If the given primary term is lower then the one in {@link #shardRouting}      * an {@link IllegalArgumentException} is thrown.      */
 DECL|method|acquireReplicaOperationLock
 specifier|public
 name|Releasable
@@ -8014,59 +8064,33 @@ block|{
 name|verifyNotClosed
 argument_list|()
 expr_stmt|;
+name|verifyReplicationTarget
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
-name|shardRouting
-operator|.
 name|primaryTerm
-argument_list|()
 operator|>
 name|opPrimaryTerm
 condition|)
 block|{
+comment|// must use exception that is not ignored by replication logic. See TransportActions.isShardNotAvailableException
 throw|throw
 operator|new
-name|IllegalIndexShardStateException
+name|IllegalArgumentException
 argument_list|(
+name|LoggerMessageFormat
+operator|.
+name|format
+argument_list|(
+literal|"{} operation term [{}] is too old (current [{}])"
+argument_list|,
 name|shardId
-argument_list|,
-name|state
-argument_list|,
-literal|"operation term [{}] is too old (current [{}])"
 argument_list|,
 name|opPrimaryTerm
 argument_list|,
-name|shardRouting
-operator|.
 name|primaryTerm
-argument_list|()
 argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|shardRouting
-operator|.
-name|primary
-argument_list|()
-operator|&&
-name|shardRouting
-operator|.
-name|isRelocationTarget
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalIndexShardStateException
-argument_list|(
-name|shardId
-argument_list|,
-name|state
-argument_list|,
-literal|"shard is not a replica"
 argument_list|)
 throw|;
 block|}
@@ -8433,7 +8457,7 @@ return|return
 name|engineFactory
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff one or more changes to the engine are not visible to via the current searcher.      * Otherwise<code>false</code>.      *      * @throws EngineClosedException if the engine is already closed      * @throws AlreadyClosedException if the internal indexwriter in the engine is already closed      */
+comment|/**      * Returns<code>true</code> iff one or more changes to the engine are not visible to via the current searcher.      * Otherwise<code>false</code>.      *      * @throws EngineClosedException  if the engine is already closed      * @throws AlreadyClosedException if the internal indexwriter in the engine is already closed      */
 DECL|method|isRefreshNeeded
 specifier|public
 name|boolean

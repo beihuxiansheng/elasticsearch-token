@@ -4365,8 +4365,6 @@ argument_list|()
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 name|logger

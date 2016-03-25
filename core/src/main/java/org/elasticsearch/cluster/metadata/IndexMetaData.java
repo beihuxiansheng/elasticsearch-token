@@ -168,7 +168,23 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|RoutingTable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|AllocationService
 import|;
 end_import
 
@@ -1817,15 +1833,6 @@ name|KEY_ACTIVE_ALLOCATIONS
 init|=
 literal|"active_allocations"
 decl_stmt|;
-DECL|field|INDEX_STATE_FILE_PREFIX
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_STATE_FILE_PREFIX
-init|=
-literal|"state-"
-decl_stmt|;
 DECL|field|KEY_VERSION
 specifier|static
 specifier|final
@@ -1867,12 +1874,22 @@ init|=
 literal|"aliases"
 decl_stmt|;
 DECL|field|KEY_PRIMARY_TERMS
+specifier|public
 specifier|static
 specifier|final
 name|String
 name|KEY_PRIMARY_TERMS
 init|=
 literal|"primary_terms"
+decl_stmt|;
+DECL|field|INDEX_STATE_FILE_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_STATE_FILE_PREFIX
+init|=
+literal|"state-"
 decl_stmt|;
 DECL|field|numberOfShards
 specifier|private
@@ -2309,7 +2326,7 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * The term of the current selected primary. This is a non-negative number incremented when      * a primary shard is assigned after a full cluster restart (see {@link ShardRouting#initialize(java.lang.String, java.lang.String, long)}      * or a replica shard is promoted to a primary (see {@link ShardRouting#moveToPrimary()}).      **/
+comment|/**      * The term of the current selected primary. This is a non-negative number incremented when      * a primary shard is assigned after a full cluster restart or a replica shard is promoted to a primary      * See {@link AllocationService#updateMetaDataWithRoutingTable(MetaData, RoutingTable, RoutingTable)}.      **/
 DECL|method|primaryTerm
 specifier|public
 name|long

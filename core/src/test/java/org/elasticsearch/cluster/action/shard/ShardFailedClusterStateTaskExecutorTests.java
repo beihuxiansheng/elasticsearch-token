@@ -1874,11 +1874,6 @@ argument_list|()
 argument_list|,
 name|sr
 operator|.
-name|primaryTerm
-argument_list|()
-argument_list|,
-name|sr
-operator|.
 name|primary
 argument_list|()
 argument_list|,
@@ -1998,11 +1993,6 @@ argument_list|,
 name|randomFrom
 argument_list|(
 name|nodeIds
-argument_list|)
-argument_list|,
-name|randomInt
-argument_list|(
-literal|200
 argument_list|)
 argument_list|,
 name|primary
@@ -2676,11 +2666,6 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
-argument_list|)
-argument_list|,
-name|randomInt
-argument_list|(
-literal|20
 argument_list|)
 argument_list|,
 name|randomBoolean

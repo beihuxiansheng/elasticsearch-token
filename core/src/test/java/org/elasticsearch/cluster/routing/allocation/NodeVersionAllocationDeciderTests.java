@@ -3793,8 +3793,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|1
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -3823,8 +3821,6 @@ name|oldNode1
 operator|.
 name|id
 argument_list|()
-argument_list|,
-literal|1
 argument_list|,
 literal|false
 argument_list|,
@@ -3882,8 +3878,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|1
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -3912,8 +3906,6 @@ name|oldNode1
 operator|.
 name|id
 argument_list|()
-argument_list|,
-literal|1
 argument_list|,
 literal|false
 argument_list|,

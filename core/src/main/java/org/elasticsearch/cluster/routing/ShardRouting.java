@@ -235,11 +235,6 @@ specifier|private
 name|boolean
 name|primary
 decl_stmt|;
-DECL|field|primaryTerm
-specifier|private
-name|long
-name|primaryTerm
-decl_stmt|;
 DECL|field|state
 specifier|private
 name|ShardRoutingState
@@ -318,28 +313,6 @@ block|{
 name|this
 argument_list|(
 name|copy
-argument_list|,
-name|copy
-operator|.
-name|primaryTerm
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|ShardRouting
-specifier|public
-name|ShardRouting
-parameter_list|(
-name|ShardRouting
-name|copy
-parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|copy
 operator|.
 name|index
 argument_list|()
@@ -363,8 +336,6 @@ name|copy
 operator|.
 name|restoreSource
 argument_list|()
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|copy
 operator|.
@@ -414,9 +385,6 @@ parameter_list|,
 name|RestoreSource
 name|restoreSource
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -459,12 +427,6 @@ operator|.
 name|relocatingNodeId
 operator|=
 name|relocatingNodeId
-expr_stmt|;
-name|this
-operator|.
-name|primaryTerm
-operator|=
-name|primaryTerm
 expr_stmt|;
 name|this
 operator|.
@@ -621,9 +583,6 @@ parameter_list|,
 name|RestoreSource
 name|restoreSource
 parameter_list|,
-name|long
-name|primaryTerm
-parameter_list|,
 name|boolean
 name|primary
 parameter_list|,
@@ -644,8 +603,6 @@ argument_list|,
 literal|null
 argument_list|,
 name|restoreSource
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,
@@ -854,8 +811,6 @@ name|currentNodeId
 argument_list|,
 name|restoreSource
 argument_list|,
-name|primaryTerm
-argument_list|,
 name|primary
 argument_list|,
 name|ShardRoutingState
@@ -927,19 +882,6 @@ return|return
 name|this
 operator|.
 name|primary
-return|;
-block|}
-comment|/**      * Returns the term of the current primary shard for this shard.      * The term is incremented with every primary promotion/initial assignment.      *      * See {@link org.elasticsearch.cluster.metadata.IndexMetaData#primaryTerm(int)} for more info.      */
-DECL|method|primaryTerm
-specifier|public
-name|long
-name|primaryTerm
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|primaryTerm
 return|;
 block|}
 comment|/**      * The shard state.      */
@@ -1049,7 +991,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 condition|)
 block|{
@@ -1233,13 +1175,6 @@ operator|=
 name|in
 operator|.
 name|readBoolean
-argument_list|()
-expr_stmt|;
-name|primaryTerm
-operator|=
-name|in
-operator|.
-name|readVLong
 argument_list|()
 expr_stmt|;
 name|state
@@ -1436,13 +1371,6 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|primary
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeVLong
-argument_list|(
-name|primaryTerm
 argument_list|)
 expr_stmt|;
 name|out
@@ -1681,7 +1609,7 @@ operator|=
 name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 expr_stmt|;
 block|}
-comment|/**      * Initializes an unassigned shard on a node. If the shard is primary, it's term is incremented.      *      * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.      */
+comment|/**      * Initializes an unassigned shard on a node.      *      * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.      */
 DECL|method|initialize
 name|void
 name|initialize
@@ -1727,15 +1655,6 @@ name|currentNodeId
 operator|=
 name|nodeId
 expr_stmt|;
-if|if
-condition|(
-name|primary
-condition|)
-block|{
-name|primaryTerm
-operator|++
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|existingAllocationId
@@ -2019,9 +1938,6 @@ block|}
 name|primary
 operator|=
 literal|true
-expr_stmt|;
-name|primaryTerm
-operator|++
 expr_stmt|;
 block|}
 comment|/**      * Set the primary shard to non-primary      */
@@ -2374,29 +2290,6 @@ name|other
 operator|+
 literal|"]"
 assert|;
-assert|assert
-name|b
-operator|==
-literal|false
-operator|||
-name|this
-operator|.
-name|primaryTerm
-operator|==
-name|other
-operator|.
-name|primaryTerm
-operator|:
-literal|"ShardRouting is a relocation target but primary term is different. This ["
-operator|+
-name|this
-operator|+
-literal|"], target ["
-operator|+
-name|other
-operator|+
-literal|"]"
-assert|;
 return|return
 name|b
 return|;
@@ -2603,34 +2496,11 @@ name|other
 operator|+
 literal|"]"
 assert|;
-assert|assert
-name|b
-operator|==
-literal|false
-operator|||
-name|this
-operator|.
-name|primaryTerm
-operator|==
-name|other
-operator|.
-name|primaryTerm
-operator|:
-literal|"ShardRouting is a relocation source but primary term is different. This ["
-operator|+
-name|this
-operator|+
-literal|"], target ["
-operator|+
-name|other
-operator|+
-literal|"]"
-assert|;
 return|return
 name|b
 return|;
 block|}
-comment|/** returns true if the current routing is identical to the other routing in all but meta fields, i.e., version, primary term and unassigned info */
+comment|/** returns true if the current routing is identical to the other routing in all but meta fields, i.e., version and unassigned info */
 DECL|method|equalsIgnoringMetaData
 specifier|public
 name|boolean
@@ -2893,19 +2763,6 @@ return|return
 literal|false
 return|;
 block|}
-if|if
-condition|(
-name|primaryTerm
-operator|!=
-name|that
-operator|.
-name|primaryTerm
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
 return|return
 name|equalsIgnoringMetaData
 argument_list|(
@@ -3019,19 +2876,6 @@ literal|1
 else|:
 literal|0
 operator|)
-expr_stmt|;
-name|result
-operator|=
-literal|31
-operator|*
-name|result
-operator|+
-name|Long
-operator|.
-name|hashCode
-argument_list|(
-name|primaryTerm
-argument_list|)
 expr_stmt|;
 name|result
 operator|=
@@ -3249,23 +3093,6 @@ literal|"[R]"
 argument_list|)
 expr_stmt|;
 block|}
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", t["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|primaryTerm
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"]"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|this
@@ -3415,14 +3242,6 @@ argument_list|(
 literal|"primary"
 argument_list|,
 name|primary
-argument_list|()
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"primary_term"
-argument_list|,
-name|primaryTerm
 argument_list|()
 argument_list|)
 operator|.

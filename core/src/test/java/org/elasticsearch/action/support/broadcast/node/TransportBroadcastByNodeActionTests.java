@@ -1588,15 +1588,6 @@ operator|++
 name|shardIndex
 argument_list|)
 decl_stmt|;
-specifier|final
-name|int
-name|primaryTerm
-init|=
-name|randomInt
-argument_list|(
-literal|200
-argument_list|)
-decl_stmt|;
 name|ShardRouting
 name|shard
 init|=
@@ -1615,8 +1606,6 @@ name|node
 operator|.
 name|id
 argument_list|()
-argument_list|,
-name|primaryTerm
 argument_list|,
 literal|true
 argument_list|,

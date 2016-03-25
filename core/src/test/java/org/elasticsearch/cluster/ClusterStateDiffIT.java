@@ -2107,14 +2107,6 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
-name|int
-name|term
-init|=
-name|randomInt
-argument_list|(
-literal|200
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -2180,8 +2172,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-name|term
 argument_list|,
 name|j
 operator|==

@@ -244,20 +244,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|sort
-operator|.
-name|SortParseElement
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -334,9 +320,6 @@ DECL|method|InnerHitsFetchSubPhase
 specifier|public
 name|InnerHitsFetchSubPhase
 parameter_list|(
-name|SortParseElement
-name|sortParseElement
-parameter_list|,
 name|FetchSourceParseElement
 name|sourceParseElement
 parameter_list|,
@@ -359,8 +342,6 @@ argument_list|,
 operator|new
 name|InnerHitsParseElement
 argument_list|(
-name|sortParseElement
-argument_list|,
 name|sourceParseElement
 argument_list|,
 name|highlighterParseElement

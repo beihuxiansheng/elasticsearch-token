@@ -649,8 +649,6 @@ literal|null
 condition|?
 parameter_list|(
 name|a
-parameter_list|,
-name|b
 parameter_list|)
 lambda|->
 block|{}
@@ -817,7 +815,7 @@ return|return
 name|enableGcDeletes
 return|;
 block|}
-comment|/**      * Returns the {@link Codec} used in the engines {@link org.apache.lucene.index.IndexWriter}      *<p>      * Note: this settings is only read on startup.      *</p>      */
+comment|/**      * Returns the {@link Codec} used in the engines {@link org.apache.lucene.index.IndexWriter}      *<p>      *     Note: this settings is only read on startup.      *</p>      */
 DECL|method|getCodec
 specifier|public
 name|Codec

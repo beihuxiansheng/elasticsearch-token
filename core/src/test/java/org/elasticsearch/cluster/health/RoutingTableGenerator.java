@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
-name|RandomizedTest
+name|RandomizedContext
 import|;
 end_import
 
@@ -170,9 +170,15 @@ decl_stmt|;
 name|int
 name|stateRandomizer
 init|=
-name|RandomizedTest
+name|RandomizedContext
 operator|.
-name|randomInt
+name|current
+argument_list|()
+operator|.
+name|getRandom
+argument_list|()
+operator|.
+name|nextInt
 argument_list|(
 literal|40
 argument_list|)
@@ -215,18 +221,6 @@ operator|.
 name|INITIALIZING
 expr_stmt|;
 block|}
-name|long
-name|primaryTerm
-init|=
-name|RandomizedTest
-operator|.
-name|randomIntBetween
-argument_list|(
-literal|0
-argument_list|,
-literal|200
-argument_list|)
-decl_stmt|;
 switch|switch
 condition|(
 name|state
@@ -257,8 +251,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,
@@ -292,8 +284,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,
@@ -335,8 +325,6 @@ operator|++
 argument_list|)
 argument_list|,
 literal|null
-argument_list|,
-name|primaryTerm
 argument_list|,
 name|primary
 argument_list|,

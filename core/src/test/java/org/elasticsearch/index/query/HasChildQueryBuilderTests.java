@@ -625,6 +625,10 @@ name|STRING_FIELD_NAME
 argument_list|,
 literal|"type=text"
 argument_list|,
+name|STRING_FIELD_NAME_2
+argument_list|,
+literal|"type=keyword"
+argument_list|,
 name|INT_FIELD_NAME
 argument_list|,
 literal|"type=integer"
@@ -861,7 +865,7 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
-name|STRING_FIELD_NAME
+name|STRING_FIELD_NAME_2
 argument_list|,
 name|SortOrder
 operator|.
@@ -1159,7 +1163,7 @@ operator|.
 name|getField
 argument_list|()
 argument_list|,
-name|STRING_FIELD_NAME
+name|STRING_FIELD_NAME_2
 argument_list|)
 expr_stmt|;
 block|}

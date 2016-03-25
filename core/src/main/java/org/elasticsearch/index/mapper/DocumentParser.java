@@ -4773,7 +4773,7 @@ block|{
 name|builder
 operator|=
 operator|new
-name|DoubleFieldMapper
+name|FloatFieldMapper
 operator|.
 name|Builder
 argument_list|(

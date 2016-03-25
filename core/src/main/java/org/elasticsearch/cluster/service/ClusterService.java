@@ -4177,7 +4177,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to apply updated cluster state in [{}]:\nversion [{}], uuid [{}], source [{}]\n{}{}{}"
+literal|"failed to apply updated cluster state in [{}]:\nversion [{}], uuid [{}], source [{}]\n{}"
 argument_list|,
 name|t
 argument_list|,
@@ -4196,25 +4196,6 @@ argument_list|,
 name|source
 argument_list|,
 name|newClusterState
-operator|.
-name|nodes
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-argument_list|,
-name|newClusterState
-operator|.
-name|routingTable
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-argument_list|,
-name|newClusterState
-operator|.
-name|getRoutingNodes
-argument_list|()
 operator|.
 name|prettyPrint
 argument_list|()

@@ -2624,8 +2624,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|1
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -2752,8 +2750,6 @@ name|getId
 argument_list|()
 argument_list|,
 literal|null
-argument_list|,
-literal|1
 argument_list|,
 literal|false
 argument_list|,
@@ -2890,8 +2886,6 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|1
-argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -3020,8 +3014,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|1
 argument_list|,
 literal|false
 argument_list|,

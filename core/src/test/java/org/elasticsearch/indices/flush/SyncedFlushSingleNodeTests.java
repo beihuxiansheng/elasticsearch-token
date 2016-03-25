@@ -991,7 +991,7 @@ decl_stmt|;
 try|try
 init|(
 name|Releasable
-name|ignored
+name|operationLock
 init|=
 name|shard
 operator|.

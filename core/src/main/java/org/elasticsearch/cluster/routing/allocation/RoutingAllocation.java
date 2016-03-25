@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link RoutingAllocation} keep the state of the current allocation  * of shards and holds the {@link AllocationDeciders} which are responsible  * for the current routing state.  */
+comment|/**  * The {@link RoutingAllocation} keep the state of the current allocation  * of shards and holds the {@link AllocationDeciders} which are responsible  *  for the current routing state.  */
 end_comment
 
 begin_class
@@ -244,7 +244,7 @@ operator|new
 name|RoutingExplanations
 argument_list|()
 decl_stmt|;
-comment|/**          * Creates a new {@link RoutingAllocation.Result}          *          * @param changed      a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData     the {@link MetaData} this Result references          */
+comment|/**          * Creates a new {@link RoutingAllocation.Result}          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          */
 DECL|method|Result
 specifier|public
 name|Result
@@ -278,7 +278,7 @@ operator|=
 name|metaData
 expr_stmt|;
 block|}
-comment|/**          * Creates a new {@link RoutingAllocation.Result}          *          * @param changed      a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData     the {@link MetaData} this Result references          * @param explanations Explanation for the reroute actions          */
+comment|/**          * Creates a new {@link RoutingAllocation.Result}          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          * @param explanations Explanation for the reroute actions          */
 DECL|method|Result
 specifier|public
 name|Result
@@ -321,7 +321,7 @@ operator|=
 name|explanations
 expr_stmt|;
 block|}
-comment|/**          * determine whether the actual {@link RoutingTable} has been changed          *          * @return<code>true</code> if the {@link RoutingTable} has been changed by allocation. Otherwise<code>false</code>          */
+comment|/** determine whether the actual {@link RoutingTable} has been changed          * @return<code>true</code> if the {@link RoutingTable} has been changed by allocation. Otherwise<code>false</code>          */
 DECL|method|changed
 specifier|public
 name|boolean
@@ -334,7 +334,7 @@ operator|.
 name|changed
 return|;
 block|}
-comment|/**          * Get the {@link MetaData} referenced by this result          *          * @return referenced {@link MetaData}          */
+comment|/**          * Get the {@link MetaData} referenced by this result          * @return referenced {@link MetaData}          */
 DECL|method|metaData
 specifier|public
 name|MetaData
@@ -345,7 +345,7 @@ return|return
 name|metaData
 return|;
 block|}
-comment|/**          * Get the {@link RoutingTable} referenced by this result          *          * @return referenced {@link RoutingTable}          */
+comment|/**          * Get the {@link RoutingTable} referenced by this result          * @return referenced {@link RoutingTable}          */
 DECL|method|routingTable
 specifier|public
 name|RoutingTable
@@ -356,7 +356,7 @@ return|return
 name|routingTable
 return|;
 block|}
-comment|/**          * Get the explanation of this result          *          * @return explanation          */
+comment|/**          * Get the explanation of this result          * @return explanation          */
 DECL|method|explanations
 specifier|public
 name|RoutingExplanations
@@ -444,7 +444,7 @@ specifier|final
 name|long
 name|currentNanoTime
 decl_stmt|;
-comment|/**      * Creates a new {@link RoutingAllocation}      *      * @param deciders        {@link AllocationDeciders} to used to make decisions for routing allocations      * @param routingNodes    Routing nodes in the current cluster      * @param nodes           TODO: Documentation      * @param currentNanoTime the nano time to use for all delay allocation calculation (typically {@link System#nanoTime()})      */
+comment|/**      * Creates a new {@link RoutingAllocation}      *  @param deciders {@link AllocationDeciders} to used to make decisions for routing allocations      * @param routingNodes Routing nodes in the current cluster      * @param nodes TODO: Documentation      * @param currentNanoTime the nano time to use for all delay allocation calculation (typically {@link System#nanoTime()})      */
 DECL|method|RoutingAllocation
 specifier|public
 name|RoutingAllocation
@@ -507,7 +507,7 @@ return|return
 name|currentNanoTime
 return|;
 block|}
-comment|/**      * Get {@link AllocationDeciders} used for allocation      *      * @return {@link AllocationDeciders} used for allocation      */
+comment|/**      * Get {@link AllocationDeciders} used for allocation      * @return {@link AllocationDeciders} used for allocation      */
 DECL|method|deciders
 specifier|public
 name|AllocationDeciders
@@ -520,7 +520,7 @@ operator|.
 name|deciders
 return|;
 block|}
-comment|/**      * Get routing table of current nodes      *      * @return current routing table      */
+comment|/**      * Get routing table of current nodes      * @return current routing table      */
 DECL|method|routingTable
 specifier|public
 name|RoutingTable
@@ -534,7 +534,7 @@ name|routingTable
 argument_list|()
 return|;
 block|}
-comment|/**      * Get current routing nodes      *      * @return routing nodes      */
+comment|/**      * Get current routing nodes      * @return routing nodes      */
 DECL|method|routingNodes
 specifier|public
 name|RoutingNodes
@@ -545,7 +545,7 @@ return|return
 name|routingNodes
 return|;
 block|}
-comment|/**      * Get metadata of routing nodes      *      * @return Metadata of routing nodes      */
+comment|/**      * Get metadata of routing nodes      * @return Metadata of routing nodes      */
 DECL|method|metaData
 specifier|public
 name|MetaData
@@ -559,7 +559,7 @@ name|metaData
 argument_list|()
 return|;
 block|}
-comment|/**      * Get discovery nodes in current routing      *      * @return discovery nodes      */
+comment|/**      * Get discovery nodes in current routing      * @return discovery nodes      */
 DECL|method|nodes
 specifier|public
 name|DiscoveryNodes
@@ -580,7 +580,7 @@ return|return
 name|clusterInfo
 return|;
 block|}
-comment|/**      * Get explanations of current routing      *      * @return explanation of routing      */
+comment|/**      * Get explanations of current routing      * @return explanation of routing      */
 DECL|method|explanation
 specifier|public
 name|AllocationExplanation
@@ -829,7 +829,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a routing decision, including the reason if the debug flag is      * turned on      *      * @param decision     decision whether to allow/deny allocation      * @param deciderLabel a human readable label for the AllocationDecider      * @param reason       a format string explanation of the decision      * @param params       format string parameters      */
+comment|/**      * Create a routing decision, including the reason if the debug flag is      * turned on      * @param decision decision whether to allow/deny allocation      * @param deciderLabel a human readable label for the AllocationDecider      * @param reason a format string explanation of the decision      * @param params format string parameters      */
 DECL|method|decision
 specifier|public
 name|Decision

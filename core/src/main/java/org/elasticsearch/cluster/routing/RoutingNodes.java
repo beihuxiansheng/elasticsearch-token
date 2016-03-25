@@ -3372,7 +3372,7 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|/**              * Initializes the current unassigned shard and moves it from the unassigned list.              * If a primary is initalized, it's term is incremented.              *              * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.              */
+comment|/**              * Initializes the current unassigned shard and moves it from the unassigned list.              *              * @param existingAllocationId allocation id to use. If null, a fresh allocation id is generated.              */
 DECL|method|initialize
 specifier|public
 name|void

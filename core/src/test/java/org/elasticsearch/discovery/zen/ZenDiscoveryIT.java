@@ -2133,7 +2133,7 @@ name|nodeSettings
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 decl_stmt|;
 name|ZenDiscovery
@@ -2282,7 +2282,7 @@ literal|"Can't handle join request from a node with a version [2.0.0] that is lo
 operator|+
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -2310,7 +2310,7 @@ name|EMPTY
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 decl_stmt|;
 name|DiscoveryNode
@@ -2329,7 +2329,7 @@ argument_list|)
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 decl_stmt|;
 name|assertThat
