@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.query.functionscore.weight
+DECL|package|org.elasticsearch.index.query.functionscore
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|query
 operator|.
 name|functionscore
-operator|.
-name|weight
 package|;
 end_package
 
@@ -100,22 +98,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|ScoreFunctionBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -139,6 +121,51 @@ argument_list|<
 name|WeightBuilder
 argument_list|>
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"weight"
+decl_stmt|;
+comment|/**      * Standard constructor.      */
+DECL|method|WeightBuilder
+specifier|public
+name|WeightBuilder
+parameter_list|()
+block|{     }
+comment|/**      * Read from a stream.      */
+DECL|method|WeightBuilder
+specifier|public
+name|WeightBuilder
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doWriteTo
+specifier|protected
+name|void
+name|doWriteTo
+parameter_list|(
+name|StreamOutput
+name|out
+parameter_list|)
+throws|throws
+name|IOException
+block|{     }
 annotation|@
 name|Override
 DECL|method|getName
@@ -148,7 +175,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"weight"
+name|NAME
 return|;
 block|}
 annotation|@
@@ -167,38 +194,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
-annotation|@
-name|Override
-DECL|method|doWriteTo
-specifier|protected
-name|void
-name|doWriteTo
-parameter_list|(
-name|StreamOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-block|{      }
-annotation|@
-name|Override
-DECL|method|doReadFrom
-specifier|protected
-name|WeightBuilder
-name|doReadFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|WeightBuilder
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doEquals

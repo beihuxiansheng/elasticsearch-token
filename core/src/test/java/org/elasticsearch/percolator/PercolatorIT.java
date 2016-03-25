@@ -378,8 +378,6 @@ name|query
 operator|.
 name|functionscore
 operator|.
-name|weight
-operator|.
 name|WeightBuilder
 import|;
 end_import

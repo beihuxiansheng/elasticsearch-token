@@ -162,8 +162,6 @@ name|query
 operator|.
 name|functionscore
 operator|.
-name|script
-operator|.
 name|ScriptScoreFunctionBuilder
 import|;
 end_import
