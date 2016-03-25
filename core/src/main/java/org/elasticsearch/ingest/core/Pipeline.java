@@ -206,6 +206,17 @@ return|return
 name|description
 return|;
 block|}
+comment|/**      * Get the underlying {@link CompoundProcessor} containing the Pipeline's processors      */
+DECL|method|getCompoundProcessor
+specifier|public
+name|CompoundProcessor
+name|getCompoundProcessor
+parameter_list|()
+block|{
+return|return
+name|compoundProcessor
+return|;
+block|}
 comment|/**      * Unmodifiable list containing each processor that operates on the data.      */
 DECL|method|getProcessors
 specifier|public

@@ -362,6 +362,20 @@ name|test
 operator|.
 name|ESTestCase
 operator|.
+name|randomInt
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
+operator|.
 name|randomIntBetween
 import|;
 end_import
@@ -567,6 +581,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we need a non-local master to test shard failures
+specifier|final
+name|int
+name|primaryTerm
+init|=
+name|randomInt
+argument_list|(
+literal|200
+argument_list|)
+decl_stmt|;
 name|IndexMetaData
 name|indexMetaData
 init|=
@@ -616,6 +639,13 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 argument_list|)
+argument_list|)
+operator|.
+name|primaryTerm
+argument_list|(
+literal|0
+argument_list|,
+name|primaryTerm
 argument_list|)
 operator|.
 name|build
@@ -1112,7 +1142,7 @@ name|put
 argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
-literal|1
+name|numberOfShards
 argument_list|)
 operator|.
 name|put
@@ -1626,7 +1656,7 @@ name|build
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a cluster state where local node and master node can be specified      * @param localNode  node in allNodes that is the local node      * @param masterNode node in allNodes that is the master node. Can be null if no master exists      * @param allNodes   all nodes in the cluster      * @return cluster state      */
+comment|/**      * Creates a cluster state where local node and master node can be specified      *      * @param localNode  node in allNodes that is the local node      * @param masterNode node in allNodes that is the master node. Can be null if no master exists      * @param allNodes   all nodes in the cluster      * @return cluster state      */
 DECL|method|state
 specifier|public
 specifier|static
