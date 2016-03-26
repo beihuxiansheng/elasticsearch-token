@@ -108,18 +108,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESIntegTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|ESSingleNodeTestCase
 import|;
 end_import
@@ -1560,7 +1548,6 @@ literal|"The quick brown<em>fox</em> jumps over the lazy dog"
 argument_list|)
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 block|}
 block|}
 end_class

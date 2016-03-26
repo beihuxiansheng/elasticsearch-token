@@ -314,16 +314,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -378,31 +368,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|hasKey
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
 import|;
 end_import
 
@@ -2912,7 +2878,6 @@ operator|.
 name|Builder
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 name|builder
 operator|.
 name|add

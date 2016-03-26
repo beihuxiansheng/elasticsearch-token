@@ -268,20 +268,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Explanation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|IndexSearcher
 import|;
 end_import
@@ -555,30 +541,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
 import|;
 end_import
 
@@ -1625,10 +1587,10 @@ block|}
 end_function
 
 begin_function
-DECL|method|testDuel_specificQueries
+DECL|method|testDuelSpecificQueries
 specifier|public
 name|void
-name|testDuel_specificQueries
+name|testDuelSpecificQueries
 parameter_list|()
 throws|throws
 name|Exception
