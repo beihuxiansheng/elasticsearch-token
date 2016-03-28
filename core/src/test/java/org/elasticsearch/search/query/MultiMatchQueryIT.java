@@ -1308,9 +1308,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"omit_norms"
+literal|"norms"
 argument_list|,
-literal|"true"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -1337,9 +1337,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"omit_norms"
+literal|"norms"
 argument_list|,
-literal|"true"
+literal|false
 argument_list|)
 operator|.
 name|field
@@ -5631,7 +5631,7 @@ name|field
 argument_list|(
 literal|"last_name"
 argument_list|,
-literal|2
+literal|10
 argument_list|)
 operator|.
 name|type

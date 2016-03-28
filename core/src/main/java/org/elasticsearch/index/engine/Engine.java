@@ -3628,9 +3628,9 @@ name|debug
 argument_list|(
 literal|"tried to fail engine but engine is already failed. ignoring. [{}]"
 argument_list|,
-name|reason
-argument_list|,
 name|failure
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3764,9 +3764,9 @@ name|debug
 argument_list|(
 literal|"tried to fail engine but could not acquire lock - engine should be failed by now [{}]"
 argument_list|,
-name|reason
-argument_list|,
 name|failure
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
@@ -5883,7 +5883,7 @@ specifier|public
 interface|interface
 name|Warmer
 block|{
-comment|/**          * Called once a new Searcher is opened.          * @param searcher the searcer to warm          * @param isTopLevelReader<code>true</code> iff the searcher is build from a top-level reader.          *                         Otherwise the searcher might be build from a leaf reader to warm in isolation          */
+comment|/**          * Called once a new Searcher is opened on the top-level searcher.          */
 DECL|method|warm
 name|void
 name|warm
@@ -5892,9 +5892,6 @@ name|Engine
 operator|.
 name|Searcher
 name|searcher
-parameter_list|,
-name|boolean
-name|isTopLevelReader
 parameter_list|)
 function_decl|;
 block|}

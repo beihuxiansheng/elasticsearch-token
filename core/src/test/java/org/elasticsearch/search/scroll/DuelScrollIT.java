@@ -2021,8 +2021,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Control:\n"
-operator|+
+literal|"Control:\n{}"
+argument_list|,
 name|control
 argument_list|)
 expr_stmt|;
@@ -2030,16 +2030,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Scroll size="
-operator|+
+literal|"Scroll size={}, from={}:\n{}"
+argument_list|,
 name|size
-operator|+
-literal|", from="
-operator|+
+argument_list|,
 name|scrollDocs
-operator|+
-literal|":\n"
-operator|+
+argument_list|,
 name|scroll
 argument_list|)
 expr_stmt|;

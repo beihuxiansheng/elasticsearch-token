@@ -46,18 +46,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -249,6 +237,20 @@ operator|.
 name|allocation
 operator|.
 name|RoutingAllocation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -1189,14 +1191,6 @@ operator|.
 name|trace
 argument_list|(
 literal|"new cluster state [{}] after waiting for master election to fail shard [{}]"
-argument_list|,
-name|shardRoutingEntry
-operator|.
-name|getShardRouting
-argument_list|()
-operator|.
-name|shardId
-argument_list|()
 argument_list|,
 name|state
 operator|.
@@ -2228,9 +2222,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
+literal|"{}, scheduling a reroute"
+argument_list|,
 name|reason
-operator|+
-literal|", scheduling a reroute"
 argument_list|)
 expr_stmt|;
 block|}

@@ -72,18 +72,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -141,6 +129,20 @@ operator|.
 name|metadata
 operator|.
 name|IndexNameExpressionResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -225,6 +227,18 @@ operator|.
 name|util
 operator|.
 name|CollectionUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -388,7 +402,7 @@ name|METADATA_READ
 argument_list|,
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|state
 argument_list|,
@@ -431,7 +445,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-name|String
+name|Index
 index|[]
 name|concreteIndices
 init|=
@@ -461,7 +475,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|String
+name|Index
 name|concreteIndex
 range|:
 name|concreteIndices
@@ -613,6 +627,9 @@ operator|.
 name|put
 argument_list|(
 name|concreteIndex
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|settings
 argument_list|)

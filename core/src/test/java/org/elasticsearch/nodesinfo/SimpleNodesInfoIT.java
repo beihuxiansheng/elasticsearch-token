@@ -60,6 +60,8 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|service
+operator|.
 name|ClusterService
 import|;
 end_import
@@ -296,8 +298,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster_health, status "
-operator|+
+literal|"--> done cluster_health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -356,12 +358,10 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> started nodes: "
-operator|+
+literal|"--> started nodes: {} and {}"
+argument_list|,
 name|server1NodeId
-operator|+
-literal|" and "
-operator|+
+argument_list|,
 name|server2NodeId
 argument_list|)
 expr_stmt|;
@@ -828,8 +828,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster_health, status "
-operator|+
+literal|"--> done cluster_health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -888,12 +888,10 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> started nodes: "
-operator|+
+literal|"--> started nodes: {} and {}"
+argument_list|,
 name|server1NodeId
-operator|+
-literal|" and "
-operator|+
+argument_list|,
 name|server2NodeId
 argument_list|)
 expr_stmt|;

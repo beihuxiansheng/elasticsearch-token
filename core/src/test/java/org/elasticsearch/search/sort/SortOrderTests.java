@@ -170,7 +170,7 @@ literal|"Roundtrip serialisation failed."
 argument_list|,
 name|SortOrder
 operator|.
-name|readOrderFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

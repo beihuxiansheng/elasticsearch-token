@@ -1079,6 +1079,8 @@ name|trace
 argument_list|(
 literal|"[monitor] rescheduling check for [{}]. last access time is [{}]"
 argument_list|,
+name|recoveryId
+argument_list|,
 name|lastSeenAccessTime
 argument_list|)
 expr_stmt|;

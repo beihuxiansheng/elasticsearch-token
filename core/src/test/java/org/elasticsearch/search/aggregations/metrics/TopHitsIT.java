@@ -3691,10 +3691,10 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"{}: top_hits: [{}][{}] control: [{}][{}]"
+argument_list|,
 name|i
-operator|+
-literal|": top_hits: ["
-operator|+
+argument_list|,
 name|hits
 operator|.
 name|getAt
@@ -3704,9 +3704,7 @@ argument_list|)
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]["
-operator|+
+argument_list|,
 name|hits
 operator|.
 name|getAt
@@ -3719,9 +3717,7 @@ argument_list|()
 index|[
 literal|0
 index|]
-operator|+
-literal|"] control: ["
-operator|+
+argument_list|,
 name|controlHits
 operator|.
 name|getAt
@@ -3731,9 +3727,7 @@ argument_list|)
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]["
-operator|+
+argument_list|,
 name|controlHits
 operator|.
 name|getAt
@@ -3746,8 +3740,6 @@ argument_list|()
 index|[
 literal|0
 index|]
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -5316,8 +5308,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Track score="
-operator|+
+literal|"Track score={}"
+argument_list|,
 name|trackScore
 argument_list|)
 expr_stmt|;
@@ -5378,7 +5370,7 @@ argument_list|)
 operator|.
 name|sort
 argument_list|(
-literal|"_id"
+literal|"_uid"
 argument_list|,
 name|SortOrder
 operator|.

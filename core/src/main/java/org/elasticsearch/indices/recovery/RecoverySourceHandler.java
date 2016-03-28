@@ -865,7 +865,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"snapshot translog for recovery. current size is [{}]"
+literal|"{} snapshot translog for recovery. current size is [{}]"
+argument_list|,
+name|shard
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|translogView
 operator|.
@@ -1877,7 +1882,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"{} Remote file corruption during finalization on node {}, recovering {}. local checksum OK"
+literal|"{} Remote file corruption during finalization of recovery on node {}. local checksum OK"
 argument_list|,
 name|corruptIndexException
 argument_list|,

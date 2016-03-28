@@ -1209,6 +1209,10 @@ operator|.
 name|info
 argument_list|(
 literal|"started [{}] instances with [{}] stage=prod tag"
+argument_list|,
+name|nodes
+argument_list|,
+name|prodInstances
 argument_list|)
 expr_stmt|;
 name|List
@@ -1419,6 +1423,10 @@ operator|.
 name|info
 argument_list|(
 literal|"started [{}] instances with [{}] stage=prod tag"
+argument_list|,
+name|nodes
+argument_list|,
+name|prodInstances
 argument_list|)
 expr_stmt|;
 name|List

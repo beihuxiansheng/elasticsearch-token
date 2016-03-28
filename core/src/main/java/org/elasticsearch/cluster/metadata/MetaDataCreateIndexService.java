@@ -146,18 +146,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -293,6 +281,20 @@ operator|.
 name|allocation
 operator|.
 name|RoutingAllocation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -481,6 +483,18 @@ operator|.
 name|env
 operator|.
 name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -1535,10 +1549,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|boolean
-name|indexCreated
+name|Index
+name|createdIndex
 init|=
-literal|false
+literal|null
 decl_stmt|;
 name|String
 name|removalReason
@@ -2403,6 +2417,10 @@ name|build
 argument_list|()
 decl_stmt|;
 comment|// create the index here (on the master) to validate it can be created, as well as adding the mapping
+specifier|final
+name|IndexService
+name|indexService
+init|=
 name|indicesService
 operator|.
 name|createIndex
@@ -2416,25 +2434,15 @@ operator|.
 name|emptyList
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|indexCreated
+decl_stmt|;
+name|createdIndex
 operator|=
-literal|true
-expr_stmt|;
-comment|// now add the mappings
-name|IndexService
 name|indexService
-init|=
-name|indicesService
-operator|.
-name|indexServiceSafe
-argument_list|(
-name|request
 operator|.
 name|index
 argument_list|()
-argument_list|)
-decl_stmt|;
+expr_stmt|;
+comment|// now add the mappings
 name|MapperService
 name|mapperService
 init|=
@@ -3272,7 +3280,9 @@ finally|finally
 block|{
 if|if
 condition|(
-name|indexCreated
+name|createdIndex
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// Index was already partially created - need to clean up
@@ -3280,10 +3290,7 @@ name|indicesService
 operator|.
 name|removeIndex
 argument_list|(
-name|request
-operator|.
-name|index
-argument_list|()
+name|createdIndex
 argument_list|,
 name|removalReason
 operator|!=

@@ -752,7 +752,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 condition|)
 block|{
@@ -958,8 +958,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close analyzer "
-operator|+
+literal|"failed to close analyzer {}"
+argument_list|,
 name|analyzer
 argument_list|)
 expr_stmt|;

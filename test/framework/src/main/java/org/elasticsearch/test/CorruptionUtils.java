@@ -659,7 +659,7 @@ name|msg
 operator|.
 name|append
 argument_list|(
-literal|"Checksum before: ["
+literal|"before: ["
 argument_list|)
 operator|.
 name|append
@@ -669,14 +669,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"]"
+literal|"] "
 argument_list|)
 expr_stmt|;
 name|msg
 operator|.
 name|append
 argument_list|(
-literal|" after: ["
+literal|"after: ["
 argument_list|)
 operator|.
 name|append
@@ -686,14 +686,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"]"
+literal|"] "
 argument_list|)
 expr_stmt|;
 name|msg
 operator|.
 name|append
 argument_list|(
-literal|" checksum value after corruption: "
+literal|"checksum value after corruption: "
 argument_list|)
 operator|.
 name|append
@@ -703,14 +703,14 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"]"
+literal|"] "
 argument_list|)
 expr_stmt|;
 name|msg
 operator|.
 name|append
 argument_list|(
-literal|" file: "
+literal|"file: "
 argument_list|)
 operator|.
 name|append
@@ -746,10 +746,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"Checksum {}"
+argument_list|,
 name|msg
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assumeTrue

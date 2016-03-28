@@ -359,8 +359,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"numberOfEntries: "
-operator|+
+literal|"numberOfEntries: {}"
+argument_list|,
 name|numberOfEntries
 argument_list|)
 expr_stmt|;

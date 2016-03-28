@@ -1562,17 +1562,11 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// here we need to swap first before we let it go otherwise threads might be very fast and run that task twice due to
+comment|// random exception and the schedule interval is 1ms
 name|latch2
 operator|.
-name|get
-argument_list|()
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
-name|latch2
-operator|.
-name|set
+name|getAndSet
 argument_list|(
 operator|new
 name|CountDownLatch
@@ -1580,6 +1574,9 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 name|latch
 operator|.

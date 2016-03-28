@@ -242,7 +242,7 @@ name|ConstantScoreQueryBuilder
 operator|.
 name|NAME
 operator|+
-literal|"\" : {}"
+literal|"\" : {} }"
 decl_stmt|;
 try|try
 block|{
@@ -273,6 +273,126 @@ argument_list|,
 name|containsString
 argument_list|(
 literal|"requires a 'filter' element"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * test that multiple "filter" elements causes {@link ParsingException}      */
+DECL|method|testMultipleFilterElements
+specifier|public
+name|void
+name|testMultipleFilterElements
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|queryString
+init|=
+literal|"{ \""
+operator|+
+name|ConstantScoreQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"\" : {\n"
+operator|+
+literal|"\"filter\" : { \"term\": { \"foo\": \"a\" } },\n"
+operator|+
+literal|"\"filter\" : { \"term\": { \"foo\": \"x\" } },\n"
+operator|+
+literal|"} }"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|queryString
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ParsingException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"accepts only one 'filter' element"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * test that "filter" does not accept an array of queries, throws {@link ParsingException}      */
+DECL|method|testNoArrayAsFilterElements
+specifier|public
+name|void
+name|testNoArrayAsFilterElements
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|queryString
+init|=
+literal|"{ \""
+operator|+
+name|ConstantScoreQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"\" : {\n"
+operator|+
+literal|"\"filter\" : [ { \"term\": { \"foo\": \"a\" } },\n"
+operator|+
+literal|"{ \"term\": { \"foo\": \"x\" } } ]\n"
+operator|+
+literal|"} }"
+decl_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|queryString
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected ParsingException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParsingException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"unexpected token [START_ARRAY]"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -40,6 +40,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -218,6 +230,45 @@ argument_list|(
 literal|"validation should succeed"
 argument_list|,
 name|ex
+argument_list|)
+expr_stmt|;
+name|r
+operator|.
+name|setConcreteIndex
+argument_list|(
+operator|new
+name|Index
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"bar"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|ex
+operator|=
+name|r
+operator|.
+name|validate
+argument_list|()
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"source validation should fail"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+literal|"Validation Failed: 1: either concrete index or unresolved indices can be set,"
+operator|+
+literal|" concrete index: [[foo/bar]] and indices: [myindex];"
 argument_list|)
 expr_stmt|;
 block|}

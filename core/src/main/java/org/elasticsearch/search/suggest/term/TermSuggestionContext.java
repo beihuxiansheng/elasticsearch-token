@@ -24,11 +24,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|suggest
+name|query
 operator|.
-name|DirectSpellcheckerSettings
+name|QueryShardContext
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|Suggester
+name|DirectSpellcheckerSettings
 import|;
 end_import
 
@@ -84,18 +84,17 @@ DECL|method|TermSuggestionContext
 specifier|public
 name|TermSuggestionContext
 parameter_list|(
-name|Suggester
-argument_list|<
-name|?
-extends|extends
-name|TermSuggestionContext
-argument_list|>
-name|suggester
+name|QueryShardContext
+name|shardContext
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|suggester
+name|TermSuggester
+operator|.
+name|PROTOTYPE
+argument_list|,
+name|shardContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -107,6 +106,27 @@ parameter_list|()
 block|{
 return|return
 name|settings
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"SpellcheckerSettings"
+operator|+
+name|settings
+operator|+
+literal|", BaseSettings"
+operator|+
+name|super
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}

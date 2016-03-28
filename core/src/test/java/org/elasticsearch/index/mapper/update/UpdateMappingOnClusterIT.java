@@ -367,7 +367,7 @@ index|[]
 name|errorMessage
 init|=
 block|{
-literal|"[_all] has different [omit_norms] values"
+literal|"[_all] has different [norms] values"
 block|,
 literal|"[_all] has different [store] values"
 block|,

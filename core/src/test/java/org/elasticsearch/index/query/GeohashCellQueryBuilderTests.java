@@ -410,11 +410,13 @@ operator|.
 name|fieldName
 argument_list|()
 operator|+
+literal|"."
+operator|+
 name|GeoPointFieldMapper
 operator|.
 name|Names
 operator|.
-name|GEOHASH_SUFFIX
+name|GEOHASH
 argument_list|)
 argument_list|)
 expr_stmt|;

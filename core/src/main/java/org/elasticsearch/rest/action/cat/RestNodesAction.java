@@ -446,7 +446,7 @@ name|index
 operator|.
 name|percolator
 operator|.
-name|PercolateStats
+name|PercolatorQueryCacheStats
 import|;
 end_import
 
@@ -477,22 +477,6 @@ operator|.
 name|stats
 operator|.
 name|SearchStats
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|suggest
-operator|.
-name|stats
-operator|.
-name|SuggestStats
 import|;
 end_import
 
@@ -709,16 +693,6 @@ operator|.
 name|util
 operator|.
 name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -1368,7 +1342,7 @@ name|addCell
 argument_list|(
 literal|"query_cache.memory_size"
 argument_list|,
-literal|"alias:fcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
+literal|"alias:qcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1377,7 +1351,7 @@ name|addCell
 argument_list|(
 literal|"query_cache.evictions"
 argument_list|,
-literal|"alias:fce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
+literal|"alias:qce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1386,7 +1360,7 @@ name|addCell
 argument_list|(
 literal|"request_cache.memory_size"
 argument_list|,
-literal|"alias:qcm,requestCacheMemory;default:false;text-align:right;desc:used request cache"
+literal|"alias:rcm,requestCacheMemory;default:false;text-align:right;desc:used request cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1395,7 +1369,7 @@ name|addCell
 argument_list|(
 literal|"request_cache.evictions"
 argument_list|,
-literal|"alias:qce,requestCacheEvictions;default:false;text-align:right;desc:request cache evictions"
+literal|"alias:rce,requestCacheEvictions;default:false;text-align:right;desc:request cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1404,7 +1378,7 @@ name|addCell
 argument_list|(
 literal|"request_cache.hit_count"
 argument_list|,
-literal|"alias:qchc,requestCacheHitCount;default:false;text-align:right;desc:request cache hit counts"
+literal|"alias:rchc,requestCacheHitCount;default:false;text-align:right;desc:request cache hit counts"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1413,7 +1387,7 @@ name|addCell
 argument_list|(
 literal|"request_cache.miss_count"
 argument_list|,
-literal|"alias:qcmc,requestCacheMissCount;default:false;text-align:right;desc:request cache miss counts"
+literal|"alias:rcmc,requestCacheMissCount;default:false;text-align:right;desc:request cache miss counts"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1627,45 +1601,9 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"percolate.current"
-argument_list|,
-literal|"alias:pc,percolateCurrent;default:false;text-align:right;desc:number of current percolations"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-literal|"percolate.memory_size"
-argument_list|,
-literal|"alias:pm,percolateMemory;default:false;text-align:right;desc:memory used by percolations"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"percolate.queries"
 argument_list|,
 literal|"alias:pq,percolateQueries;default:false;text-align:right;desc:number of registered percolation queries"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-literal|"percolate.time"
-argument_list|,
-literal|"alias:pti,percolateTime;default:false;text-align:right;desc:time spent percolating"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-literal|"percolate.total"
-argument_list|,
-literal|"alias:pto,percolateTotal;default:false;text-align:right;desc:total percolations"
 argument_list|)
 expr_stmt|;
 name|table
@@ -3425,8 +3363,8 @@ name|getTotalTime
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|PercolateStats
-name|percolateStats
+name|PercolatorQueryCacheStats
+name|percolatorQueryCacheStats
 init|=
 name|indicesStats
 operator|==
@@ -3443,79 +3381,15 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-name|percolateStats
+name|percolatorQueryCacheStats
 operator|==
 literal|null
 condition|?
 literal|null
 else|:
-name|percolateStats
-operator|.
-name|getCurrent
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|percolateStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|percolateStats
-operator|.
-name|getMemorySize
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|percolateStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|percolateStats
+name|percolatorQueryCacheStats
 operator|.
 name|getNumQueries
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|percolateStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|percolateStats
-operator|.
-name|getTime
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|percolateStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|percolateStats
-operator|.
-name|getCount
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3922,33 +3796,22 @@ name|getBitsetMemory
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|SuggestStats
-name|suggestStats
-init|=
-name|indicesStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|indicesStats
-operator|.
-name|getSuggest
-argument_list|()
-decl_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-name|suggestStats
+name|searchStats
 operator|==
 literal|null
 condition|?
 literal|null
 else|:
-name|suggestStats
+name|searchStats
 operator|.
-name|getCurrent
+name|getTotal
+argument_list|()
+operator|.
+name|getSuggestCurrent
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3956,15 +3819,18 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-name|suggestStats
+name|searchStats
 operator|==
 literal|null
 condition|?
 literal|null
 else|:
-name|suggestStats
+name|searchStats
 operator|.
-name|getTime
+name|getTotal
+argument_list|()
+operator|.
+name|getSuggestTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3972,15 +3838,18 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-name|suggestStats
+name|searchStats
 operator|==
 literal|null
 condition|?
 literal|null
 else|:
-name|suggestStats
+name|searchStats
 operator|.
-name|getCount
+name|getTotal
+argument_list|()
+operator|.
+name|getSuggestCount
 argument_list|()
 argument_list|)
 expr_stmt|;

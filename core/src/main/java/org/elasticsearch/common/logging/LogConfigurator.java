@@ -675,16 +675,6 @@ name|settingsBuilder
 operator|.
 name|putProperties
 argument_list|(
-literal|"elasticsearch."
-argument_list|,
-name|BootstrapInfo
-operator|.
-name|getSystemProperties
-argument_list|()
-argument_list|)
-operator|.
-name|putProperties
-argument_list|(
 literal|"es."
 argument_list|,
 name|BootstrapInfo

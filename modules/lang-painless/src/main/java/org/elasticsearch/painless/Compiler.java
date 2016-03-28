@@ -566,7 +566,7 @@ name|loader
 operator|.
 name|define
 argument_list|(
-name|Writer
+name|WriterConstants
 operator|.
 name|CLASS_NAME
 argument_list|,

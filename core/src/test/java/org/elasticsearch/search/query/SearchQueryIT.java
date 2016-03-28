@@ -1276,9 +1276,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"omit_norms"
+literal|"norms"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 operator|.
 name|endObject
@@ -19263,6 +19263,13 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"NOCOMMIT"
+argument_list|)
 DECL|method|testRangeQueryWithTimeZone
 specifier|public
 name|void

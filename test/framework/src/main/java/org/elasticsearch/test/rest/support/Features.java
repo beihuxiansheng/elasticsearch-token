@@ -80,6 +80,8 @@ argument_list|,
 literal|"groovy_scripting"
 argument_list|,
 literal|"headers"
+argument_list|,
+literal|"yaml"
 argument_list|)
 decl_stmt|;
 DECL|method|Features

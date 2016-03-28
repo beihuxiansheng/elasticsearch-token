@@ -36,6 +36,8 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|service
+operator|.
 name|ClusterService
 import|;
 end_import
@@ -199,6 +201,20 @@ operator|.
 name|query
 operator|.
 name|QueryPhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|Suggesters
 import|;
 end_import
 
@@ -424,6 +440,9 @@ name|fetchPhase
 parameter_list|,
 name|AggregatorParsers
 name|aggParsers
+parameter_list|,
+name|Suggesters
+name|suggesters
 parameter_list|)
 block|{
 name|super
@@ -451,6 +470,8 @@ argument_list|,
 name|fetchPhase
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 expr_stmt|;
 block|}

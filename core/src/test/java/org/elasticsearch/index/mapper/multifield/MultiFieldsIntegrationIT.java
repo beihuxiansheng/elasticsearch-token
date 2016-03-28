@@ -969,8 +969,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Keys: "
-operator|+
+literal|"Keys: {}"
+argument_list|,
 name|aField
 operator|.
 name|keySet

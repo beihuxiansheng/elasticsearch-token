@@ -292,9 +292,6 @@ parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
-name|FieldDataType
-name|fieldDataType
-parameter_list|,
 name|Accountable
 name|ramUsage
 parameter_list|)
@@ -399,9 +396,6 @@ name|shardId
 parameter_list|,
 name|String
 name|fieldName
-parameter_list|,
-name|FieldDataType
-name|fieldDataType
 parameter_list|,
 name|boolean
 name|wasEvicted

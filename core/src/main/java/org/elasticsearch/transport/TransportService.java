@@ -40,22 +40,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|replication
-operator|.
-name|ReplicationTask
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|node
@@ -115,22 +99,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|NamedWriteableRegistry
 import|;
 end_import
 
@@ -230,7 +198,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|Property
 import|;
 end_import
 
@@ -369,18 +337,6 @@ operator|.
 name|concurrent
 operator|.
 name|ThreadContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|tasks
-operator|.
-name|Task
 import|;
 end_import
 
@@ -788,11 +744,13 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|TRACE_LOG_EXCLUDE_SETTING
@@ -828,11 +786,13 @@ operator|.
 name|identity
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|tracerLog
@@ -879,10 +839,6 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
-argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -900,9 +856,6 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
-parameter_list|,
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|super
@@ -962,23 +915,6 @@ name|taskManager
 operator|=
 name|createTaskManager
 argument_list|()
-expr_stmt|;
-name|namedWriteableRegistry
-operator|.
-name|registerPrototype
-argument_list|(
-name|Task
-operator|.
-name|Status
-operator|.
-name|class
-argument_list|,
-name|ReplicationTask
-operator|.
-name|Status
-operator|.
-name|PROTOTYPE
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * makes the transport service aware of the local node. this allows it to optimize requests sent      * from the local node to it self and by pass the network stack/ serialization      */
@@ -2342,13 +2278,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to notify channel of error message for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"failed to notify channel of error message for action [{}]"
 argument_list|,
 name|e1
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2393,13 +2327,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to notify channel of error message for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"failed to notify channel of error message for action [{}]"
 argument_list|,
 name|e1
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger

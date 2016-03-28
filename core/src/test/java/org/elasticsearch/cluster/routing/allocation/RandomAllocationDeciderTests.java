@@ -180,7 +180,7 @@ name|allocation
 operator|.
 name|allocator
 operator|.
-name|ShardsAllocators
+name|BalancedShardsAllocator
 import|;
 end_import
 
@@ -471,12 +471,16 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
-operator|new
-name|ShardsAllocators
-argument_list|(
 name|NoopGatewayAllocator
 operator|.
 name|INSTANCE
+argument_list|,
+operator|new
+name|BalancedShardsAllocator
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
 argument_list|)
 argument_list|,
 name|EmptyClusterInfoService

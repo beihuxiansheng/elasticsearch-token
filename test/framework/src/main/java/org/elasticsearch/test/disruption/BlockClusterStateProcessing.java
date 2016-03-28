@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -49,6 +37,20 @@ operator|.
 name|cluster
 operator|.
 name|ClusterStateUpdateTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -259,7 +261,7 @@ decl_stmt|;
 assert|assert
 name|success
 operator|:
-literal|"startDisrupting called without waiting on stopDistrupting to complete"
+literal|"startDisrupting called without waiting on stopDisrupting to complete"
 assert|;
 specifier|final
 name|CountDownLatch

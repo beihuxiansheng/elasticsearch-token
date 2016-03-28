@@ -920,7 +920,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|MockController
@@ -1122,7 +1125,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|MockController
@@ -1488,7 +1494,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|MockController
@@ -1698,13 +1707,11 @@ argument_list|(
 name|shard1
 argument_list|)
 expr_stmt|;
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"TEST: now index more"
+literal|"--> Indexing more data"
 argument_list|)
 expr_stmt|;
 comment|// More indexing to shard0
@@ -1886,7 +1893,10 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"index"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|IndexShard

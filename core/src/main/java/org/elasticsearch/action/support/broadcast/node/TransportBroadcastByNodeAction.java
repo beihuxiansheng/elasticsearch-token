@@ -220,18 +220,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -317,6 +305,20 @@ operator|.
 name|routing
 operator|.
 name|ShardsIterator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -451,18 +453,6 @@ operator|.
 name|transport
 operator|.
 name|TransportException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportRequest
 import|;
 end_import
 
@@ -1364,7 +1354,7 @@ name|concreteIndices
 init|=
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|clusterState
 argument_list|,

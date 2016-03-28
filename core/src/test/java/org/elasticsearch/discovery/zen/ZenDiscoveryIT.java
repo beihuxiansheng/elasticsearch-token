@@ -112,18 +112,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -179,6 +167,20 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -2131,7 +2133,7 @@ name|nodeSettings
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 decl_stmt|;
 name|ZenDiscovery
@@ -2280,7 +2282,7 @@ literal|"Can't handle join request from a node with a version [2.0.0] that is lo
 operator|+
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 operator|.
 name|minimumCompatibilityVersion
 argument_list|()
@@ -2308,7 +2310,7 @@ name|EMPTY
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 decl_stmt|;
 name|DiscoveryNode
@@ -2327,7 +2329,7 @@ argument_list|)
 argument_list|,
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 decl_stmt|;
 name|assertThat

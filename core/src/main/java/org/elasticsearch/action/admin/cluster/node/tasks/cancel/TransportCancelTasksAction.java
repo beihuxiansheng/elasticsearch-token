@@ -130,18 +130,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -171,6 +159,20 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -620,13 +622,11 @@ if|if
 condition|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|isSet
 argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 comment|// we are only checking one task, we can optimize it
@@ -639,7 +639,7 @@ name|getCancellableTask
 argument_list|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|getId
@@ -681,7 +681,7 @@ literal|"task ["
 operator|+
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|+
 literal|"] doesn't support this operation"
@@ -699,7 +699,7 @@ name|getTask
 argument_list|(
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|.
 name|getId
@@ -718,7 +718,7 @@ literal|"task ["
 operator|+
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 operator|+
 literal|"] doesn't support cancellation"
@@ -735,7 +735,7 @@ literal|"task [{}] doesn't support cancellation"
 argument_list|,
 name|request
 operator|.
-name|taskId
+name|getTaskId
 argument_list|()
 argument_list|)
 throw|;
@@ -825,7 +825,7 @@ name|cancellableTask
 argument_list|,
 name|request
 operator|.
-name|reason
+name|getReason
 argument_list|()
 argument_list|,
 name|banLock
@@ -894,7 +894,7 @@ name|setBanOnNodes
 argument_list|(
 name|request
 operator|.
-name|reason
+name|getReason
 argument_list|()
 argument_list|,
 name|cancellableTask

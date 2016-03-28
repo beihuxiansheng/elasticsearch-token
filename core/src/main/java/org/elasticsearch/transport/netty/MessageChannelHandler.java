@@ -941,6 +941,54 @@ name|streamIn
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|version
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+argument_list|)
+operator|==
+literal|false
+operator|||
+name|version
+operator|.
+name|major
+operator|!=
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|major
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Received message from unsupported version: ["
+operator|+
+name|version
+operator|+
+literal|"] minimal compatible version is: ["
+operator|+
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|streamIn
 operator|.
 name|setVersion
@@ -1891,13 +1939,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send error message back to client for action ["
-operator|+
-name|action
-operator|+
-literal|"]"
+literal|"Failed to send error message back to client for action [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|action
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2173,16 +2219,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to send error message back to client for action ["
-operator|+
+literal|"Failed to send error message back to client for action [{}]"
+argument_list|,
+name|e1
+argument_list|,
 name|reg
 operator|.
 name|getAction
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e1
 argument_list|)
 expr_stmt|;
 name|logger

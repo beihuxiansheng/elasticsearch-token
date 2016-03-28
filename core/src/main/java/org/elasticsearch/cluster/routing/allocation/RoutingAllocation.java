@@ -210,7 +210,7 @@ specifier|public
 class|class
 name|RoutingAllocation
 block|{
-comment|/**      * this class is used to describe results of a {@link RoutingAllocation}        */
+comment|/**      * this class is used to describe results of a {@link RoutingAllocation}      */
 DECL|class|Result
 specifier|public
 specifier|static

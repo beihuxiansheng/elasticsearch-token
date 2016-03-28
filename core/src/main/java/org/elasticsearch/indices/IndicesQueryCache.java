@@ -176,20 +176,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lucene
 operator|.
 name|ShardCoreKeyMap
@@ -222,7 +208,7 @@ name|settings
 operator|.
 name|Setting
 operator|.
-name|Scope
+name|Property
 import|;
 end_import
 
@@ -386,11 +372,9 @@ literal|"indices.queries.cache.size"
 argument_list|,
 literal|"10%"
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|INDICES_CACHE_QUERY_COUNT_SETTING
@@ -413,11 +397,9 @@ literal|10000
 argument_list|,
 literal|1
 argument_list|,
-literal|false
-argument_list|,
-name|Scope
+name|Property
 operator|.
-name|CLUSTER
+name|NodeScope
 argument_list|)
 decl_stmt|;
 DECL|field|cache

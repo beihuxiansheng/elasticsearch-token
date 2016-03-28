@@ -160,18 +160,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -187,6 +175,20 @@ operator|.
 name|metadata
 operator|.
 name|IndexNameExpressionResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -658,7 +660,7 @@ name|target
 operator|=
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|clusterState
 argument_list|,
@@ -676,7 +678,7 @@ name|sourceIndex
 range|:
 name|indexNameExpressionResolver
 operator|.
-name|concreteIndices
+name|concreteIndexNames
 argument_list|(
 name|clusterState
 argument_list|,
@@ -1149,6 +1151,9 @@ argument_list|<
 name|ShardSearchFailure
 argument_list|>
 name|searchFailures
+parameter_list|,
+name|boolean
+name|timedOut
 parameter_list|)
 block|{
 return|return
@@ -1165,6 +1170,8 @@ argument_list|,
 name|indexingFailures
 argument_list|,
 name|searchFailures
+argument_list|,
+name|timedOut
 argument_list|)
 return|;
 block|}

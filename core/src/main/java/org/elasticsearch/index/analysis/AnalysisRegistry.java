@@ -708,6 +708,16 @@ name|analyzerBuilder
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getHunspellService
+specifier|public
+name|HunspellService
+name|getHunspellService
+parameter_list|()
+block|{
+return|return
+name|hunspellService
+return|;
+block|}
 comment|/**      * Returns a registered {@link TokenizerFactory} provider by name or<code>null</code> if the tokenizer was not registered      */
 DECL|method|getTokenizerProvider
 specifier|public

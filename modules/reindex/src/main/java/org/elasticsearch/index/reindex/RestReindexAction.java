@@ -76,6 +76,8 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|service
+operator|.
 name|ClusterService
 import|;
 end_import
@@ -329,6 +331,20 @@ operator|.
 name|aggregations
 operator|.
 name|AggregatorParsers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|Suggesters
 import|;
 end_import
 
@@ -596,6 +612,10 @@ argument_list|,
 name|context
 operator|.
 name|aggParsers
+argument_list|,
+name|context
+operator|.
+name|suggesters
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,6 +963,9 @@ parameter_list|,
 name|AggregatorParsers
 name|aggParsers
 parameter_list|,
+name|Suggesters
+name|suggesters
+parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
@@ -959,6 +982,8 @@ argument_list|,
 name|indicesQueriesRegistry
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|,
 name|clusterService
 argument_list|,
@@ -1072,6 +1097,8 @@ name|indicesQueriesRegistry
 argument_list|)
 argument_list|,
 name|aggParsers
+argument_list|,
+name|suggesters
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1406,6 +1433,12 @@ specifier|final
 name|AggregatorParsers
 name|aggParsers
 decl_stmt|;
+DECL|field|suggesters
+specifier|private
+specifier|final
+name|Suggesters
+name|suggesters
+decl_stmt|;
 DECL|method|ReindexParseContext
 specifier|public
 name|ReindexParseContext
@@ -1415,6 +1448,9 @@ name|queryParseContext
 parameter_list|,
 name|AggregatorParsers
 name|aggParsers
+parameter_list|,
+name|Suggesters
+name|suggesters
 parameter_list|)
 block|{
 name|this
@@ -1428,6 +1464,12 @@ operator|.
 name|aggParsers
 operator|=
 name|aggParsers
+expr_stmt|;
+name|this
+operator|.
+name|suggesters
+operator|=
+name|suggesters
 expr_stmt|;
 block|}
 block|}
