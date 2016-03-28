@@ -3732,8 +3732,6 @@ name|highlightBuilder
 operator|=
 name|HighlightBuilder
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|context
