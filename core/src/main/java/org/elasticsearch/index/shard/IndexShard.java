@@ -4793,35 +4793,8 @@ name|e
 parameter_list|)
 block|{
 comment|// fail the engine. This will cause this shard to also be removed from the node's index service.
-specifier|final
-name|Engine
-name|engine
-init|=
-name|getEngineOrNull
+name|getEngine
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|engine
-operator|==
-literal|null
-condition|)
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"ignoring request to fail the shard, we're already closed. (reason: [{}])"
-argument_list|,
-name|e
-argument_list|,
-name|reason
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|engine
 operator|.
 name|failEngine
 argument_list|(
@@ -4830,7 +4803,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|acquireSearcher
 specifier|public
