@@ -3149,17 +3149,18 @@ argument_list|(
 name|timeout
 argument_list|)
 decl_stmt|;
-name|assertThat
+name|assertTrue
 argument_list|(
+literal|"doc ["
+operator|+
+name|id
+operator|+
+literal|"] should have been created"
+argument_list|,
 name|response
 operator|.
-name|getVersion
+name|isCreated
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|1L
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|ackedDocs
