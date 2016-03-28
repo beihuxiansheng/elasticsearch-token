@@ -231,7 +231,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"primary shard can be allocated anywhere"
+literal|"the primary shard is new and can be allocated anywhere"
 argument_list|)
 return|;
 block|}
@@ -388,7 +388,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"target node version [%s] is same or newer than source node version [%s]"
+literal|"target node version [%s] is the same or newer than source node version [%s]"
 argument_list|,
 name|target
 operator|.
@@ -421,7 +421,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"target node version [%s] is older than source node version [%s]"
+literal|"target node version [%s] is older than the source node version [%s]"
 argument_list|,
 name|target
 operator|.
@@ -489,7 +489,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"target node version [%s] is same or newer than snapshot version [%s]"
+literal|"target node version [%s] is the same or newer than snapshot version [%s]"
 argument_list|,
 name|target
 operator|.
@@ -519,7 +519,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"target node version [%s] is older than snapshot version [%s]"
+literal|"target node version [%s] is older than the snapshot version [%s]"
 argument_list|,
 name|target
 operator|.
