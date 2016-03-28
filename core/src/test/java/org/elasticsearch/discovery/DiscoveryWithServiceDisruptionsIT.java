@@ -1264,12 +1264,8 @@ name|beforeIndexDeletion
 parameter_list|()
 block|{
 comment|// some test may leave operations in flight
-comment|//        try {
-comment|////            assertBusy(() -> TransportReplicationAction.assertAllShardReferencesAreCleaned());
-comment|////            assertBusy(() -> super.beforeIndexDeletion());
-comment|//        } catch (Exception e) {
-comment|//            throw new AssertionError(e);
-comment|//        }
+comment|// this is because the disruption schemes swallow requests by design
+comment|// as such, these operations will never be marked as finished
 block|}
 DECL|method|startCluster
 specifier|private
