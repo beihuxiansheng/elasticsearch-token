@@ -559,9 +559,7 @@ name|sort
 operator|=
 name|SortBy
 operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

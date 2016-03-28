@@ -1028,15 +1028,6 @@ parameter_list|()
 block|{
 comment|// skip so we don't need transport
 block|}
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configureSuggesters
-parameter_list|()
-block|{
-comment|// skip so we don't need IndicesService
-block|}
 block|}
 argument_list|,
 name|scriptModule

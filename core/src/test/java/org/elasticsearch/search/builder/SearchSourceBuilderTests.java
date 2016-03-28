@@ -1890,6 +1890,10 @@ name|aggParsers
 operator|=
 literal|null
 expr_stmt|;
+name|suggesters
+operator|=
+literal|null
+expr_stmt|;
 name|currentTypes
 operator|=
 literal|null

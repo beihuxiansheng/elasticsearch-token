@@ -98,22 +98,6 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestionSearchContext
-operator|.
-name|SuggestionContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
 name|term
 operator|.
 name|TermSuggestionBuilder
@@ -916,26 +900,27 @@ throws|throws
 name|IOException
 block|{
 comment|// test missing field name
-try|try
-block|{
+name|Exception
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|TermSuggestionBuilder
 argument_list|(
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow null as field name"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NullPointerException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"suggestion requires a field name"
@@ -946,28 +931,24 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-comment|// test emtpy field name
-try|try
-block|{
+comment|// test empty field name
+name|e
+operator|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|TermSuggestionBuilder
 argument_list|(
 literal|""
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow empty string as field name"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
 name|assertEquals
 argument_list|(
 literal|"suggestion field name is empty"
@@ -978,7 +959,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|TermSuggestionBuilder
 name|builder
 init|=
@@ -994,8 +974,14 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// test invalid accuracy values
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|accuracy
@@ -1003,64 +989,49 @@ argument_list|(
 operator|-
 literal|0.5f
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow accuracy to be set to a negative value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|accuracy
 argument_list|(
 literal|1.1f
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow accuracy to be greater than 1.0."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
 comment|// test invalid max edit distance values
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|maxEdits
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow maxEdits to be less than 1."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|maxEdits
@@ -1068,43 +1039,33 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow maxEdits to be a negative value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|maxEdits
 argument_list|(
 literal|3
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow maxEdits to be greater than 2."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
 comment|// test invalid max inspections values
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|maxInspections
@@ -1112,22 +1073,17 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow maxInspections to be a negative value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
 comment|// test invalid max term freq values
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|maxTermFreq
@@ -1135,42 +1091,24 @@ argument_list|(
 operator|-
 literal|0.5f
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow max term freq to be a negative value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|maxTermFreq
 argument_list|(
 literal|1.5f
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"If max term freq is greater than 1, it must be a whole number."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
 name|builder
 operator|.
 name|maxTermFreq
@@ -1178,23 +1116,15 @@ argument_list|(
 literal|2.0f
 argument_list|)
 expr_stmt|;
-comment|// this should be allowed
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|fail
-argument_list|(
-literal|"A max term freq greater than 1 that is a whole number should be allowed."
-argument_list|)
-expr_stmt|;
-block|}
 comment|// test invalid min doc freq values
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|minDocFreq
@@ -1202,42 +1132,24 @@ argument_list|(
 operator|-
 literal|0.5f
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow min doc freq to be a negative value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|minDocFreq
 argument_list|(
 literal|1.5f
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"If min doc freq is greater than 1, it must be a whole number."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
 name|builder
 operator|.
 name|minDocFreq
@@ -1245,44 +1157,31 @@ argument_list|(
 literal|2.0f
 argument_list|)
 expr_stmt|;
-comment|// this should be allowed
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|fail
-argument_list|(
-literal|"A min doc freq greater than 1 that is a whole number should be allowed."
-argument_list|)
-expr_stmt|;
-block|}
 comment|// test invalid min word length values
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|minWordLength
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"A min word length< 1 should not be allowed."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|minWordLength
@@ -1290,22 +1189,17 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow min word length to be a negative value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
 comment|// test invalid prefix length values
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|prefixLength
@@ -1313,43 +1207,33 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow prefix length to be a negative value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
 comment|// test invalid size values
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|size
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Size must be a positive value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|size
@@ -1357,83 +1241,57 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Size must be a positive value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{         }
 comment|// null values not allowed for enums
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|sort
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow setting a null sort value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|NullPointerException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|stringDistance
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow setting a null string distance value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|NullPointerException
-name|e
-parameter_list|)
-block|{         }
-try|try
-block|{
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 name|builder
 operator|.
 name|suggestMode
 argument_list|(
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should not allow setting a null suggest mode value."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NullPointerException
-name|e
-parameter_list|)
-block|{         }
 block|}
 DECL|method|testDefaultValuesSet
 specifier|public
