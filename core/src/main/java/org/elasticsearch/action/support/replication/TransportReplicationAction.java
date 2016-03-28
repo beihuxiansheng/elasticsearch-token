@@ -5880,6 +5880,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// these can occur if the node is shutting down and are okay
+comment|// any other exception here is not expected and merits investigation
 assert|assert
 name|shardFailedError
 operator|instanceof
