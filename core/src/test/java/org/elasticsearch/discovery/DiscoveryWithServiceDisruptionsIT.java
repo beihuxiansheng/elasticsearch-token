@@ -2765,6 +2765,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|String
+name|timeout
+init|=
+operator|!
+operator|(
+name|TEST_NIGHTLY
+operator|&&
+name|rarely
+argument_list|()
+operator|)
+condition|?
+literal|"1s"
+else|:
+literal|"5s"
+decl_stmt|;
 comment|// TODO: add node count randomizaion
 specifier|final
 name|List
@@ -3125,12 +3141,12 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1s"
+name|timeout
 argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"1s"
+name|timeout
 argument_list|)
 decl_stmt|;
 name|assertThat
