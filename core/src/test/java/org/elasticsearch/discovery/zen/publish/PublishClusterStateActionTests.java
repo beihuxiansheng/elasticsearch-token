@@ -5044,7 +5044,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"received older cluster state version [%s] with uuid [%s] than last seen cluster state [%s] with uuid [%s]"
+literal|"received older cluster state version [%s] from current master with uuid [%s] than last seen cluster state [%s] from current master with uuid [%s]"
 argument_list|,
 name|incomingState
 operator|.
