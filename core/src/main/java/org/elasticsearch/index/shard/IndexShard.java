@@ -5853,7 +5853,6 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// must use exception that is not ignored by replication logic. See TransportActions.isShardNotAvailableException
 throw|throw
 operator|new
 name|IllegalStateException

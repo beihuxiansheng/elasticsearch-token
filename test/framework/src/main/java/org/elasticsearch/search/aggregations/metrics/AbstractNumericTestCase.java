@@ -477,6 +477,15 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+DECL|method|testOrderByEmptyAggregation
+specifier|public
+specifier|abstract
+name|void
+name|testOrderByEmptyAggregation
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_class
 
