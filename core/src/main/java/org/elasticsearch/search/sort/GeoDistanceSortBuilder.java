@@ -294,6 +294,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentParser
+operator|.
+name|Token
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|fielddata
@@ -2208,6 +2224,30 @@ block|}
 else|else
 block|{
 comment|// the json in the format of -> field : { lat : 30, lon : 12 }
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"Trying to reset fieldName to [{}], already set to [{}]."
+argument_list|,
+name|currentName
+argument_list|,
+name|fieldName
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|currentName
@@ -2440,19 +2480,20 @@ block|}
 elseif|else
 if|if
 condition|(
-name|parseFieldMatcher
+name|token
+operator|==
+name|Token
 operator|.
-name|match
-argument_list|(
-name|currentName
-argument_list|,
-name|REVERSE_FORBIDDEN
-argument_list|)
+name|VALUE_STRING
 condition|)
 block|{
-comment|// explicitly filter for reverse in json: used to be a valid sort option, forbidden now,
-comment|// if not filtered here it will be treated as a reference to a field in the index with
-comment|// geo coordinates given as geohash string
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
 throw|throw
 operator|new
 name|ParsingException
@@ -2462,17 +2503,14 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"Sort option [{}] no longer supported."
+literal|"Trying to reset fieldName to [{}], already set to [{}]."
 argument_list|,
-name|REVERSE_FORBIDDEN
-operator|.
-name|getPreferredName
-argument_list|()
+name|currentName
+argument_list|,
+name|fieldName
 argument_list|)
 throw|;
 block|}
-else|else
-block|{
 name|GeoPoint
 name|point
 init|=
@@ -2501,6 +2539,23 @@ name|fieldName
 operator|=
 name|currentName
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"Only geohashes of type string supported for field [{}]"
+argument_list|,
+name|currentName
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
@@ -2696,12 +2751,14 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"illegal latitude value [{}] for [GeoDistanceSort]"
+literal|"illegal latitude value [{}] for [GeoDistanceSort] for field [{}]."
 argument_list|,
 name|point
 operator|.
 name|lat
 argument_list|()
+argument_list|,
+name|fieldName
 argument_list|)
 throw|;
 block|}
@@ -2724,12 +2781,14 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"illegal longitude value [{}] for [GeoDistanceSort]"
+literal|"illegal longitude value [{}] for [GeoDistanceSort] for field [{}]."
 argument_list|,
 name|point
 operator|.
 name|lon
 argument_list|()
+argument_list|,
+name|fieldName
 argument_list|)
 throw|;
 block|}
