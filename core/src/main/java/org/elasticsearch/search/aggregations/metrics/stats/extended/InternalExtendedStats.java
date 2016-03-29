@@ -800,6 +800,23 @@ name|InternalExtendedStats
 operator|)
 name|aggregation
 decl_stmt|;
+if|if
+condition|(
+name|stats
+operator|.
+name|sigma
+operator|!=
+name|sigma
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Cannot reduce other stats aggregations that have a different sigma"
+argument_list|)
+throw|;
+block|}
 name|sumOfSqrs
 operator|+=
 name|stats

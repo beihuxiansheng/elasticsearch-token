@@ -1427,7 +1427,7 @@ name|NEGATIVE_INFINITY
 argument_list|,
 literal|0d
 argument_list|,
-literal|0d
+name|sigma
 argument_list|,
 name|formatter
 argument_list|,
