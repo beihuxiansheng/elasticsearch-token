@@ -1009,7 +1009,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"text"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -1056,7 +1056,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"text"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject

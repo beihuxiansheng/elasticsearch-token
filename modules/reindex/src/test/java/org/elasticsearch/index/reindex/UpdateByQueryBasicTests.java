@@ -548,7 +548,7 @@ argument_list|()
 operator|.
 name|addSort
 argument_list|(
-literal|"foo"
+literal|"foo.keyword"
 argument_list|,
 name|SortOrder
 operator|.

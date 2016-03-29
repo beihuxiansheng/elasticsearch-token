@@ -324,24 +324,6 @@ name|core
 operator|.
 name|TypeParsers
 operator|.
-name|parseMultiField
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|TypeParsers
-operator|.
 name|parseTextField
 import|;
 end_import
@@ -426,13 +408,6 @@ argument_list|()
 decl_stmt|;
 static|static
 block|{
-name|FIELD_TYPE
-operator|.
-name|setTokenized
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|FIELD_TYPE
 operator|.
 name|freeze
@@ -1204,10 +1179,14 @@ specifier|public
 name|TextFieldType
 parameter_list|()
 block|{
-comment|// TODO: change the default to false
+name|setTokenized
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|fielddata
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 name|fielddataMinFrequency
 operator|=

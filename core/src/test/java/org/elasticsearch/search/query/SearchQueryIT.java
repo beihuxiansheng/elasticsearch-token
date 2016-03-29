@@ -8100,7 +8100,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"field1"
+literal|"field1.keyword"
 argument_list|)
 argument_list|)
 operator|.

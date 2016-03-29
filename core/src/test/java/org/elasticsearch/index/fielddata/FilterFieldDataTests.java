@@ -451,6 +451,11 @@ argument_list|(
 literal|"high_freq"
 argument_list|)
 operator|.
+name|fielddata
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|fielddataFrequencyFilter
 argument_list|(
 literal|0
@@ -570,6 +575,11 @@ argument_list|(
 literal|"high_freq"
 argument_list|)
 operator|.
+name|fielddata
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|fielddataFrequencyFilter
 argument_list|(
 name|random
@@ -672,6 +682,11 @@ operator|.
 name|Builder
 argument_list|(
 literal|"med_freq"
+argument_list|)
+operator|.
+name|fielddata
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|fielddataFrequencyFilter
@@ -795,6 +810,11 @@ operator|.
 name|Builder
 argument_list|(
 literal|"med_freq"
+argument_list|)
+operator|.
+name|fielddata
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|fielddataFrequencyFilter
