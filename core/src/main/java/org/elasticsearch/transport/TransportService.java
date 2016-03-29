@@ -1241,14 +1241,65 @@ operator|.
 name|execute
 argument_list|(
 operator|new
-name|Runnable
+name|AbstractRunnable
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
 name|void
-name|run
+name|onRejection
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// if we get rejected during node shutdown we don't wanna bubble it up
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to notify response handler on rejection, action: {}"
+argument_list|,
+name|t
+argument_list|,
+name|holderToNotify
+operator|.
+name|action
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to notify response handler on exception, action: {}"
+argument_list|,
+name|t
+argument_list|,
+name|holderToNotify
+operator|.
+name|action
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|doRun
 parameter_list|()
 block|{
 name|holderToNotify
@@ -2044,9 +2095,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to notify response handler on rejection"
+literal|"failed to notify response handler on rejection, action: {}"
 argument_list|,
 name|t
+argument_list|,
+name|holderToNotify
+operator|.
+name|action
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2064,9 +2120,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to notify response handler on exception"
+literal|"failed to notify response handler on exception, action: {}"
 argument_list|,
 name|t
+argument_list|,
+name|holderToNotify
+operator|.
+name|action
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

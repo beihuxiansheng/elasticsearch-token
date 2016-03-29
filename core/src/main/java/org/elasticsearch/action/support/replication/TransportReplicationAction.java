@@ -3241,19 +3241,22 @@ block|{
 try|try
 block|{
 comment|// if we got disconnected from the node, or the node / shard is not in the right state (being closed)
-if|if
-condition|(
+specifier|final
+name|Throwable
+name|cause
+init|=
 name|exp
 operator|.
 name|unwrapCause
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cause
 operator|instanceof
 name|ConnectTransportException
 operator|||
-name|exp
-operator|.
-name|unwrapCause
-argument_list|()
+name|cause
 operator|instanceof
 name|NodeClosedException
 operator|||
@@ -3262,10 +3265,7 @@ name|isPrimaryAction
 operator|&&
 name|retryPrimaryException
 argument_list|(
-name|exp
-operator|.
-name|unwrapCause
-argument_list|()
+name|cause
 argument_list|)
 operator|)
 condition|)
@@ -4528,18 +4528,47 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|IndexShardReference
-name|ref
-init|=
+comment|// we may end up here if the cluster state used to route the primary is so stale that the underlying
+comment|// index shard was replaced with a replica. For example - in a two node cluster, if the primary fails
+comment|// the replica will take over and a replica will be assigned to the first node.
+if|if
+condition|(
+name|indexShard
+operator|.
+name|routingEntry
+argument_list|()
+operator|.
+name|primary
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|RetryOnPrimaryException
+argument_list|(
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+literal|"actual shard is not a primary "
+operator|+
+name|indexShard
+operator|.
+name|routingEntry
+argument_list|()
+argument_list|)
+throw|;
+block|}
+return|return
 name|IndexShardReferenceImpl
 operator|.
 name|createOnPrimary
 argument_list|(
 name|indexShard
 argument_list|)
-decl_stmt|;
-return|return
-name|ref
 return|;
 block|}
 comment|/**      * returns a new reference to {@link IndexShard} on a node that the request is replicated to. The reference is closed as soon as      * replication is completed on the node.      */
