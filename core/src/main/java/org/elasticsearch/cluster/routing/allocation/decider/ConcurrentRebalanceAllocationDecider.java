@@ -276,12 +276,13 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"all concurrent rebalances are allowed"
+literal|"unlimited concurrent rebalances are allowed"
 argument_list|)
 return|;
 block|}
-if|if
-condition|(
+name|int
+name|relocatingShards
+init|=
 name|allocation
 operator|.
 name|routingNodes
@@ -289,6 +290,10 @@ argument_list|()
 operator|.
 name|getRelocatingShardCount
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|relocatingShards
 operator|>=
 name|clusterConcurrentRebalance
 condition|)
@@ -304,15 +309,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many concurrent rebalances [%d], limit: [%d]"
+literal|"too many shards are concurrently rebalancing [%d], limit: [%d]"
 argument_list|,
-name|allocation
-operator|.
-name|routingNodes
-argument_list|()
-operator|.
-name|getRelocatingShardCount
-argument_list|()
+name|relocatingShards
 argument_list|,
 name|clusterConcurrentRebalance
 argument_list|)
@@ -329,9 +328,11 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"below threshold [%d] for concurrent rebalances"
+literal|"below threshold [%d] for concurrent rebalances, current rebalance shard count [%d]"
 argument_list|,
 name|clusterConcurrentRebalance
+argument_list|,
+name|relocatingShards
 argument_list|)
 return|;
 block|}

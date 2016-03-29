@@ -1529,6 +1529,11 @@ name|now
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|/*              * Also while we're here check that we preserved the headers from the last request. assertBusy because no requests might have              * come in yet.              */
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
 name|assertEquals
 argument_list|(
 name|expectedHeaders
@@ -1539,6 +1544,7 @@ name|lastHeaders
 operator|.
 name|get
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

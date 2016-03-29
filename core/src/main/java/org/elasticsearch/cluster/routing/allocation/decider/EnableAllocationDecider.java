@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This allocation decider allows shard allocations / rebalancing via the cluster wide settings {@link #CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING} /  * {@link #CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING} and the per index setting {@link #INDEX_ROUTING_ALLOCATION_ENABLE_SETTING} / {@link #INDEX_ROUTING_REBALANCE_ENABLE_SETTING}.  * The per index settings overrides the cluster wide setting.  *  *<p>  * Allocation settings can have the following values (non-casesensitive):  *<ul>  *<li><code>NONE</code> - no shard allocation is allowed.  *<li><code>NEW_PRIMARIES</code> - only primary shards of new indices are allowed to be allocated  *<li><code>PRIMARIES</code> - only primary shards are allowed to be allocated  *<li><code>ALL</code> - all shards are allowed to be allocated  *</ul>  *  *<p>  * Rebalancing settings can have the following values (non-casesensitive):  *<ul>  *<li><code>NONE</code> - no shard rebalancing is allowed.  *<li><code>REPLICAS</code> - only replica shards are allowed to be balanced  *<li><code>PRIMARIES</code> - only primary shards are allowed to be balanced  *<li><code>ALL</code> - all shards are allowed to be balanced  *</ul>  *  * @see Rebalance  * @see Allocation  */
+comment|/**  * This allocation decider allows shard allocations / rebalancing via the cluster wide settings  * {@link #CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING} / {@link #CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING} and the per index setting  * {@link #INDEX_ROUTING_ALLOCATION_ENABLE_SETTING} / {@link #INDEX_ROUTING_REBALANCE_ENABLE_SETTING}.  * The per index settings overrides the cluster wide setting.  *  *<p>  * Allocation settings can have the following values (non-casesensitive):  *<ul>  *<li><code>NONE</code> - no shard allocation is allowed.  *<li><code>NEW_PRIMARIES</code> - only primary shards of new indices are allowed to be allocated  *<li><code>PRIMARIES</code> - only primary shards are allowed to be allocated  *<li><code>ALL</code> - all shards are allowed to be allocated  *</ul>  *  *<p>  * Rebalancing settings can have the following values (non-casesensitive):  *<ul>  *<li><code>NONE</code> - no shard rebalancing is allowed.  *<li><code>REPLICAS</code> - only replica shards are allowed to be balanced  *<li><code>PRIMARIES</code> - only primary shards are allowed to be balanced  *<li><code>ALL</code> - all shards are allowed to be balanced  *</ul>  *  * @see Rebalance  * @see Allocation  */
 end_comment
 
 begin_class
@@ -468,7 +468,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"allocation disabling is ignored"
+literal|"allocation is explicitly ignoring any disabling of allocation"
 argument_list|)
 return|;
 block|}
@@ -705,7 +705,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"rebalance disabling is ignored"
+literal|"allocation is explicitly ignoring any disabling of relocation"
 argument_list|)
 return|;
 block|}
@@ -901,7 +901,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Allocation values or rather their string representation to be used used with      * {@link EnableAllocationDecider#CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING} / {@link EnableAllocationDecider#INDEX_ROUTING_ALLOCATION_ENABLE_SETTING}      * via cluster / index settings.      */
+comment|/**      * Allocation values or rather their string representation to be used used with      * {@link EnableAllocationDecider#CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING} /      * {@link EnableAllocationDecider#INDEX_ROUTING_ALLOCATION_ENABLE_SETTING}      * via cluster / index settings.      */
 DECL|enum|Allocation
 specifier|public
 enum|enum
@@ -985,7 +985,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Rebalance values or rather their string representation to be used used with      * {@link EnableAllocationDecider#CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING} / {@link EnableAllocationDecider#INDEX_ROUTING_REBALANCE_ENABLE_SETTING}      * via cluster / index settings.      */
+comment|/**      * Rebalance values or rather their string representation to be used used with      * {@link EnableAllocationDecider#CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING} /      * {@link EnableAllocationDecider#INDEX_ROUTING_REBALANCE_ENABLE_SETTING}      * via cluster / index settings.      */
 DECL|enum|Rebalance
 specifier|public
 enum|enum

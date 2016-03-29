@@ -2315,15 +2315,11 @@ name|SEND_LEAVE_REQUEST_SETTING
 argument_list|,
 name|ZenDiscovery
 operator|.
-name|MASTER_ELECTION_FILTER_CLIENT_SETTING
-argument_list|,
-name|ZenDiscovery
-operator|.
 name|MASTER_ELECTION_WAIT_FOR_JOINS_TIMEOUT_SETTING
 argument_list|,
 name|ZenDiscovery
 operator|.
-name|MASTER_ELECTION_FILTER_DATA_SETTING
+name|MASTER_ELECTION_IGNORE_NON_MASTER_PINGS_SETTING
 argument_list|,
 name|UnicastZenPing
 operator|.

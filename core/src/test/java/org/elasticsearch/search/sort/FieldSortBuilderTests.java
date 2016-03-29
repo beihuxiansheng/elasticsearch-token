@@ -688,6 +688,33 @@ block|{
 comment|// all good
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|fromXContent
+specifier|protected
+name|FieldSortBuilder
+name|fromXContent
+parameter_list|(
+name|QueryParseContext
+name|context
+parameter_list|,
+name|String
+name|fieldName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|FieldSortBuilder
+operator|.
+name|fromXContent
+argument_list|(
+name|context
+argument_list|,
+name|fieldName
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
