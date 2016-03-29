@@ -1304,8 +1304,6 @@ try|try
 block|{
 name|GeoDistanceSortBuilder
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|context

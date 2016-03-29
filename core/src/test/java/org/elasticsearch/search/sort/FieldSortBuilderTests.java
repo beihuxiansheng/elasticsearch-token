@@ -664,8 +664,6 @@ try|try
 block|{
 name|FieldSortBuilder
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|context

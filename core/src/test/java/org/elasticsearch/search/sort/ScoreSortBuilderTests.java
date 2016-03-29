@@ -472,8 +472,6 @@ try|try
 block|{
 name|ScoreSortBuilder
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|context
