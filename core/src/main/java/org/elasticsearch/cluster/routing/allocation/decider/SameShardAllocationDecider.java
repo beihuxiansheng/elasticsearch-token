@@ -237,7 +237,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard cannot be allocated on same node [%s] it already exists on"
+literal|"the shard cannot be allocated on the same node id [%s] on which it already exists"
 argument_list|,
 name|node
 operator|.
@@ -446,7 +446,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard cannot be allocated on same host [%s] it already exists on"
+literal|"shard cannot be allocated on the same host [%s] on which it already exists"
 argument_list|,
 name|node
 operator|.
