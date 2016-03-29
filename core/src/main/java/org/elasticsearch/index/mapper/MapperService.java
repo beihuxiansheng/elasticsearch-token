@@ -1713,6 +1713,11 @@ operator|.
 name|MAPPING_UPDATE
 condition|)
 block|{
+comment|// this check will only be performed on the master node when there is
+comment|// a call to the update mapping API. For all other cases like
+comment|// the master node restoring mappings from disk or data nodes
+comment|// deserializing cluster state that was sent by the master node,
+comment|// this check will be skipped.
 name|checkNestedFieldsLimit
 argument_list|(
 name|fullPathObjectMappers
