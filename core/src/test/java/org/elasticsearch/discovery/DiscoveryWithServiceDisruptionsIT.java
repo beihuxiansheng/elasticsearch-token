@@ -2755,8 +2755,8 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|String
-name|timeout
+name|int
+name|seconds
 init|=
 operator|!
 operator|(
@@ -2766,9 +2766,17 @@ name|rarely
 argument_list|()
 operator|)
 condition|?
-literal|"1s"
+literal|1
 else|:
-literal|"5s"
+literal|5
+decl_stmt|;
+specifier|final
+name|String
+name|timeout
+init|=
+name|seconds
+operator|+
+literal|"s"
 decl_stmt|;
 comment|// TODO: add node count randomizaion
 specifier|final
@@ -3473,6 +3481,8 @@ operator|.
 name|await
 argument_list|(
 name|docsPerIndexer
+operator|*
+name|seconds
 operator|*
 literal|1000
 operator|+
