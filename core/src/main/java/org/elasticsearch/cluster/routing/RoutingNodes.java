@@ -1615,7 +1615,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get

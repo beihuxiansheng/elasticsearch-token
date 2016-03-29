@@ -955,7 +955,7 @@ name|nodeAttributeValue
 init|=
 name|node
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
