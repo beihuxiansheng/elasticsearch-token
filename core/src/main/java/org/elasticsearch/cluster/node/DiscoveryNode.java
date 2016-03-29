@@ -745,10 +745,7 @@ operator|.
 name|values
 argument_list|()
 index|[
-name|in
-operator|.
-name|readVInt
-argument_list|()
+name|ordinal
 index|]
 argument_list|)
 expr_stmt|;
