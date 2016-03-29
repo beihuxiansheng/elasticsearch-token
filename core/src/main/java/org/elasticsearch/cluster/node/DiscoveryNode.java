@@ -194,7 +194,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|EnumSet
 import|;
 end_import
 
@@ -204,7 +204,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|HashMap
 import|;
 end_import
 
@@ -534,7 +534,7 @@ decl_stmt|;
 DECL|field|roles
 specifier|private
 specifier|final
-name|Set
+name|EnumSet
 argument_list|<
 name|Role
 argument_list|>
@@ -674,11 +674,13 @@ name|this
 operator|.
 name|roles
 operator|=
-operator|new
-name|HashSet
-argument_list|<>
+name|EnumSet
+operator|.
+name|noneOf
 argument_list|(
-name|rolesSize
+name|Role
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 for|for
@@ -732,6 +734,8 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+name|this
+operator|.
 name|roles
 operator|.
 name|add
@@ -1105,11 +1109,40 @@ literal|"] found in attributes"
 assert|;
 block|}
 block|}
+name|Set
+argument_list|<
+name|Role
+argument_list|>
+name|rolesSet
+init|=
+name|Collections
+operator|.
+name|unmodifiableSet
+argument_list|(
+name|roles
+argument_list|)
+decl_stmt|;
 name|this
 operator|.
 name|roles
 operator|=
+name|EnumSet
+operator|.
+name|noneOf
+argument_list|(
+name|Role
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
 name|roles
+operator|.
+name|addAll
+argument_list|(
+name|rolesSet
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The address that the node can be communicated with.      */
@@ -1279,6 +1312,7 @@ name|INGEST
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a set of all the roles that the node fulfills.      * If the node doesn't have any specific role, the set is returned empty, which means that the node is a coordinating only node.      */
 DECL|method|getRoles
 specifier|public
 name|Set
@@ -1811,6 +1845,7 @@ return|return
 name|builder
 return|;
 block|}
+comment|/**      * Enum that holds all the possible roles that that a node can fulfill in a cluster.      * Each role has its name and a corresponding abbreviation used by cat apis.      */
 DECL|enum|Role
 specifier|public
 enum|enum
