@@ -387,7 +387,7 @@ condition|(
 operator|!
 name|prevNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -395,7 +395,7 @@ name|assertFalse
 argument_list|(
 name|node
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -405,7 +405,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -492,7 +492,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -576,7 +576,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{

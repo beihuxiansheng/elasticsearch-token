@@ -3872,7 +3872,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 operator|==
 literal|true

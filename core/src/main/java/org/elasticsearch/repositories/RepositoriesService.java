@@ -1011,7 +1011,7 @@ block|{
 return|return
 name|discoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 return|;
 block|}
@@ -1320,7 +1320,7 @@ comment|// Since operation occurs only on masters, it's enough that only master-
 return|return
 name|discoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 return|;
 block|}

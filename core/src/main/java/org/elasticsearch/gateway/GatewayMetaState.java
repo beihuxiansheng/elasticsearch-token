@@ -709,7 +709,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 operator|||
 name|state
@@ -1058,7 +1058,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 operator|==
 literal|true
@@ -1107,7 +1107,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 operator|==
 literal|false

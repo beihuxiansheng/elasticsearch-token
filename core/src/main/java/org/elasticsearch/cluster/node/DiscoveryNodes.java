@@ -3131,7 +3131,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{

@@ -1193,10 +1193,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Can this node become master or not.      */
-DECL|method|masterNode
+DECL|method|isMasterNode
 specifier|public
 name|boolean
-name|masterNode
+name|isMasterNode
 parameter_list|()
 block|{
 return|return
@@ -1208,18 +1208,6 @@ name|Role
 operator|.
 name|MASTER
 argument_list|)
-return|;
-block|}
-comment|/**      * Can this node become master or not.      */
-DECL|method|isMasterNode
-specifier|public
-name|boolean
-name|isMasterNode
-parameter_list|()
-block|{
-return|return
-name|masterNode
-argument_list|()
 return|;
 block|}
 comment|/**      * Returns a boolean that tells whether this an ingest node or not      */

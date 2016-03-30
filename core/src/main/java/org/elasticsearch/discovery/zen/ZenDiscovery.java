@@ -5025,7 +5025,7 @@ if|if
 condition|(
 name|localNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{

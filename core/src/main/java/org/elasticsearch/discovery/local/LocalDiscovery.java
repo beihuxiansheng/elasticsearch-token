@@ -680,7 +680,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -1171,7 +1171,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
