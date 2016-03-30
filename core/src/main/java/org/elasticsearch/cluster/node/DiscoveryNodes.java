@@ -841,10 +841,10 @@ name|minNodeVersion
 return|;
 block|}
 comment|/**      * Returns the version of the node with the oldest version in the cluster that is not a client node      *      * @return the oldest version in the cluster      */
-DECL|method|smallestNonClientNodeVersion
+DECL|method|getSmallestNonClientNodeVersion
 specifier|public
 name|Version
-name|smallestNonClientNodeVersion
+name|getSmallestNonClientNodeVersion
 parameter_list|()
 block|{
 return|return
