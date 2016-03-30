@@ -3336,7 +3336,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -3378,7 +3378,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size

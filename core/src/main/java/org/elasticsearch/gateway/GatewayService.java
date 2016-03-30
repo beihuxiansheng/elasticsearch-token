@@ -1177,7 +1177,7 @@ literal|1
 operator|&&
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1194,7 +1194,7 @@ literal|"not recovering from gateway, nodes_size (data) [{}]< recover_after_data
 argument_list|,
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1347,7 +1347,7 @@ operator|&&
 operator|(
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1372,7 +1372,7 @@ literal|"] data nodes, but only have ["
 operator|+
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size

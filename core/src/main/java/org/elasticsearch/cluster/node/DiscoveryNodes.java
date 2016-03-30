@@ -546,24 +546,6 @@ name|nodes
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered data nodes arranged by their ids      *      * @return {@link Map} of the discovered data nodes arranged by their ids      */
-DECL|method|dataNodes
-specifier|public
-name|ImmutableOpenMap
-argument_list|<
-name|String
-argument_list|,
-name|DiscoveryNode
-argument_list|>
-name|dataNodes
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|dataNodes
-return|;
-block|}
-comment|/**      * Get a {@link Map} of the discovered data nodes arranged by their ids      *      * @return {@link Map} of the discovered data nodes arranged by their ids      */
 DECL|method|getDataNodes
 specifier|public
 name|ImmutableOpenMap
@@ -576,8 +558,9 @@ name|getDataNodes
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|dataNodes
-argument_list|()
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered master nodes arranged by their ids      *      * @return {@link Map} of the discovered master nodes arranged by their ids      */

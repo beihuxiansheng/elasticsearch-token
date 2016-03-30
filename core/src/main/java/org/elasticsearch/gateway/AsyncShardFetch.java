@@ -1346,7 +1346,7 @@ name|cursor
 range|:
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 control|)
 block|{
