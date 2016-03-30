@@ -201,7 +201,7 @@ literal|null
 else|:
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|,
 name|action

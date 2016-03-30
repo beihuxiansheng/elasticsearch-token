@@ -1110,17 +1110,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The address that the node can be communicated with.      */
-DECL|method|address
-specifier|public
-name|TransportAddress
-name|address
-parameter_list|()
-block|{
-return|return
-name|address
-return|;
-block|}
-comment|/**      * The address that the node can be communicated with.      */
 DECL|method|getAddress
 specifier|public
 name|TransportAddress
@@ -1129,7 +1118,6 @@ parameter_list|()
 block|{
 return|return
 name|address
-argument_list|()
 return|;
 block|}
 comment|/**      * The unique id of the node.      */
@@ -1699,7 +1687,7 @@ name|field
 argument_list|(
 literal|"transport_address"
 argument_list|,
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString

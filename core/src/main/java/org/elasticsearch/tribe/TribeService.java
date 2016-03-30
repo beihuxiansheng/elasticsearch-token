@@ -2671,7 +2671,7 @@ argument_list|()
 argument_list|,
 name|tribe
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|,
 name|unmodifiableMap

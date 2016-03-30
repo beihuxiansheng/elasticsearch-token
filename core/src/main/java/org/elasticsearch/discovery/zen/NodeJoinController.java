@@ -1930,14 +1930,14 @@ if|if
 condition|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|equals
 argument_list|(
 name|existingNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 condition|)

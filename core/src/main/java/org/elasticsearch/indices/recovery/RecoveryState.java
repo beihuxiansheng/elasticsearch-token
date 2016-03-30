@@ -1670,7 +1670,7 @@ name|TRANSPORT_ADDRESS
 argument_list|,
 name|sourceNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString
@@ -1758,7 +1758,7 @@ name|TRANSPORT_ADDRESS
 argument_list|,
 name|targetNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString

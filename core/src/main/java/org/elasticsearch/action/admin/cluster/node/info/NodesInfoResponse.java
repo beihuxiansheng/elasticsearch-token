@@ -423,7 +423,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString

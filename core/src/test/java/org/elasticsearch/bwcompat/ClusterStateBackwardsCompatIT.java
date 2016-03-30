@@ -309,7 +309,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -494,7 +494,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;

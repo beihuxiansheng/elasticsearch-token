@@ -1003,7 +1003,7 @@ name|add
 argument_list|(
 name|listedNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1130,7 +1130,7 @@ if|if
 condition|(
 name|otherNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|equals
@@ -1326,7 +1326,7 @@ condition|(
 operator|!
 name|otherNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|equals

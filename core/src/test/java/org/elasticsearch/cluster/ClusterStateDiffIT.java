@@ -1225,14 +1225,14 @@ name|assertThat
 argument_list|(
 name|node1
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 argument_list|)

@@ -754,7 +754,7 @@ literal|"transport_address"
 argument_list|,
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString

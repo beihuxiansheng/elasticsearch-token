@@ -4641,7 +4641,7 @@ name|addressSupported
 argument_list|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|getClass

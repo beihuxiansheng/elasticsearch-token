@@ -876,7 +876,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|instanceof
 name|InetSocketTransportAddress
@@ -892,7 +892,7 @@ name|InetSocketTransportAddress
 operator|)
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|)
 operator|.
