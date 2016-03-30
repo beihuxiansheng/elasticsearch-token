@@ -692,19 +692,6 @@ name|masterNodeId
 return|;
 block|}
 comment|/**      * Get the id of the local node      *      * @return id of the local node      */
-DECL|method|localNodeId
-specifier|public
-name|String
-name|localNodeId
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|localNodeId
-return|;
-block|}
-comment|/**      * Get the id of the local node      *      * @return id of the local node      */
 DECL|method|getLocalNodeId
 specifier|public
 name|String
@@ -712,8 +699,9 @@ name|getLocalNodeId
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|localNodeId
-argument_list|()
 return|;
 block|}
 comment|/**      * Get the local node      *      * @return local node      */
@@ -1063,7 +1051,7 @@ block|{
 name|String
 name|localNodeId
 init|=
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 if|if
@@ -2805,7 +2793,7 @@ name|localNodeId
 operator|=
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 expr_stmt|;
 name|this

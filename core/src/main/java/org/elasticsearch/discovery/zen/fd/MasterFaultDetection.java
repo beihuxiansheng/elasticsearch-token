@@ -1684,7 +1684,7 @@ name|equals
 argument_list|(
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 condition|)
