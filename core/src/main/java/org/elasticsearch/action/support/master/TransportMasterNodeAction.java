@@ -862,7 +862,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|||
 name|localExecute

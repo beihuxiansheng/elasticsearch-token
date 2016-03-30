@@ -1758,7 +1758,7 @@ condition|(
 operator|!
 name|nodes
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|||
 operator|!

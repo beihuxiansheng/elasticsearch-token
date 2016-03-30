@@ -3330,7 +3330,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 decl_stmt|;
 name|clusterService
@@ -4637,7 +4637,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 decl_stmt|;
 name|SnapshotsInProgress

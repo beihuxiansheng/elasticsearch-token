@@ -485,11 +485,11 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Returns<tt>true</tt> if the local node is the master node.      */
-DECL|method|localNodeMaster
+comment|/**      * Returns<tt>true</tt> if the local node is the elected master node.      */
+DECL|method|isLocalNodeElectedMaster
 specifier|public
 name|boolean
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 parameter_list|()
 block|{
 if|if

@@ -1605,7 +1605,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|:
 literal|"onElectedAsMaster called but local node is not master"
