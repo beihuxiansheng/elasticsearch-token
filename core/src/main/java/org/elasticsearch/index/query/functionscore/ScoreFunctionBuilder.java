@@ -246,7 +246,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|FunctionScoreQueryParser
+name|FunctionScoreQueryBuilder
 operator|.
 name|WEIGHT_FIELD
 operator|.

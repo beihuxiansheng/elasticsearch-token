@@ -31,6 +31,8 @@ comment|/**  * Defines a query parser that is able to read and parse a query obj
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|QueryParser
 specifier|public
 interface|interface
@@ -46,11 +48,19 @@ parameter_list|>
 block|{
 comment|/**      * The names this query parser is registered under.      */
 DECL|method|names
+specifier|default
 name|String
 index|[]
 name|names
 parameter_list|()
-function_decl|;
+block|{
+comment|// TODO remove this when nothing implements it
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryParseContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      */
 DECL|method|fromXContent
 name|QB
@@ -64,10 +74,18 @@ name|IOException
 function_decl|;
 comment|/**      * @return an empty {@link QueryBuilder} instance for this parser that can be used for deserialization      */
 DECL|method|getBuilderPrototype
+specifier|default
 name|QB
 name|getBuilderPrototype
 parameter_list|()
-function_decl|;
+block|{
+comment|// TODO remove this when nothing implements it
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 block|}
 end_interface
 

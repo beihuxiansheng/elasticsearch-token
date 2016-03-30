@@ -102,7 +102,7 @@ name|FB
 name|getBuilderPrototype
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the name of the function, for example "linear", "gauss" etc. This      * name is used for registering the parser in      * {@link FunctionScoreQueryParser}.      * */
+comment|/**      * Returns the name of the function, for example "linear", "gauss" etc. This      * name is used for registering the parser in      * {@link FunctionScoreQueryBuilder}.      * */
 DECL|method|getNames
 name|String
 index|[]

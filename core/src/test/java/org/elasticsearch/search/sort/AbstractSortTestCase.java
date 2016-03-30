@@ -938,6 +938,10 @@ name|namedWriteableRegistry
 operator|=
 literal|null
 expr_stmt|;
+name|indicesQueriesRegistry
+operator|=
+literal|null
+expr_stmt|;
 block|}
 comment|/** Returns random sort that is put under test */
 DECL|method|createTestItem
