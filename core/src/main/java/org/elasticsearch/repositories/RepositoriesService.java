@@ -530,7 +530,7 @@ argument_list|)
 operator|||
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|settings
 argument_list|)

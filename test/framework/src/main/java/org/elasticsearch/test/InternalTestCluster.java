@@ -10663,7 +10663,7 @@ argument_list|)
 operator|||
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|nodeAndClient
 operator|.
@@ -10757,7 +10757,7 @@ block|{
 return|return
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|nodeAndClient
 operator|.

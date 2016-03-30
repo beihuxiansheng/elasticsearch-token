@@ -851,7 +851,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|settings
 argument_list|)

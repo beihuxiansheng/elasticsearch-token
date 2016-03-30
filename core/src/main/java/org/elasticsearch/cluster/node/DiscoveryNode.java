@@ -418,11 +418,11 @@ name|settings
 argument_list|)
 return|;
 block|}
-DECL|method|masterNode
+DECL|method|isMasterNode
 specifier|public
 specifier|static
 name|boolean
-name|masterNode
+name|isMasterNode
 parameter_list|(
 name|Settings
 name|settings
