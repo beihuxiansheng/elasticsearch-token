@@ -166,7 +166,7 @@ name|RandomShapeGenerator
 operator|.
 name|randomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;

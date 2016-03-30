@@ -1386,7 +1386,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|EnumSet
@@ -1430,7 +1430,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|Rebalance
@@ -1490,7 +1490,7 @@ name|build
 argument_list|,
 name|clusterSettings
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2577,7 +2577,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|Rebalance
@@ -2625,7 +2625,7 @@ name|build
 argument_list|,
 name|clusterSettings
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;

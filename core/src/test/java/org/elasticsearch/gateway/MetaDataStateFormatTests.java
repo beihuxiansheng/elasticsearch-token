@@ -3196,7 +3196,7 @@ init|=
 operator|new
 name|MockDirectoryWrapper
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|super

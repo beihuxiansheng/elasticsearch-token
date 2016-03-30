@@ -1349,7 +1349,7 @@ name|BlockClusterStateProcessing
 argument_list|(
 name|node_3
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;

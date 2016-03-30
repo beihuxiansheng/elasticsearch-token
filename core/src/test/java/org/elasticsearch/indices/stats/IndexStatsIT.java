@@ -6992,7 +6992,7 @@ block|}
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|EnumSet
@@ -7297,7 +7297,7 @@ expr_stmt|;
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|flags

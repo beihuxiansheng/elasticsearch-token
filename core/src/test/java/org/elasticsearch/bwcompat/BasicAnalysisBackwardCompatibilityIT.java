@@ -431,7 +431,7 @@ name|TestUtil
 operator|.
 name|randomAnalysisString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|100
@@ -893,7 +893,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|PreBuiltAnalyzers

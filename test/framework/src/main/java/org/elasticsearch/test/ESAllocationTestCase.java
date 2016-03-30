@@ -634,7 +634,7 @@ name|createAllocationService
 argument_list|(
 name|settings
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 return|;
@@ -759,7 +759,7 @@ operator|.
 name|BUILT_IN_CLUSTER_SETTINGS
 argument_list|)
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
@@ -814,7 +814,7 @@ operator|.
 name|BUILT_IN_CLUSTER_SETTINGS
 argument_list|)
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
