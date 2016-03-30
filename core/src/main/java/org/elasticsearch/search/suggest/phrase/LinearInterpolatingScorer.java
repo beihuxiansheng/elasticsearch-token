@@ -107,11 +107,11 @@ comment|//TODO public for tests
 end_comment
 
 begin_class
-DECL|class|LinearInterpoatingScorer
+DECL|class|LinearInterpolatingScorer
 specifier|public
 specifier|final
 class|class
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 extends|extends
 name|WordScorer
 block|{
@@ -133,9 +133,9 @@ specifier|final
 name|double
 name|trigramLambda
 decl_stmt|;
-DECL|method|LinearInterpoatingScorer
+DECL|method|LinearInterpolatingScorer
 specifier|public
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 parameter_list|(
 name|IndexReader
 name|reader

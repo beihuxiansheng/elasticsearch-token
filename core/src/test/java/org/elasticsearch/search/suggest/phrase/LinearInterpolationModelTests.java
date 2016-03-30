@@ -272,11 +272,11 @@ name|LinearInterpolation
 operator|)
 name|in
 decl_stmt|;
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 name|testScorer
 init|=
 operator|(
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 operator|)
 name|wordScorer
 decl_stmt|;
@@ -286,7 +286,7 @@ name|wordScorer
 argument_list|,
 name|instanceOf
 argument_list|(
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 operator|.
 name|class
 argument_list|)

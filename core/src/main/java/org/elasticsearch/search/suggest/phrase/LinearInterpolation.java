@@ -915,7 +915,7 @@ name|separator
 parameter_list|)
 lambda|->
 operator|new
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 argument_list|(
 name|reader
 argument_list|,
