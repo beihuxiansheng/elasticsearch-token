@@ -460,11 +460,11 @@ name|settings
 argument_list|)
 return|;
 block|}
-DECL|method|ingestNode
+DECL|method|isIngestNode
 specifier|public
 specifier|static
 name|boolean
-name|ingestNode
+name|isIngestNode
 parameter_list|(
 name|Settings
 name|settings

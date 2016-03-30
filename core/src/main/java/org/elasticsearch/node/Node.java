@@ -2122,7 +2122,7 @@ name|ActionModule
 argument_list|(
 name|DiscoveryNode
 operator|.
-name|ingestNode
+name|isIngestNode
 argument_list|(
 name|settings
 argument_list|)
