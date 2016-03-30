@@ -4657,7 +4657,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.color"
+literal|"node.attr.color"
 argument_list|,
 literal|"blue"
 argument_list|)
@@ -4691,7 +4691,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.color"
+literal|"node.attr.color"
 argument_list|,
 literal|"red"
 argument_list|)
