@@ -759,6 +759,15 @@ literal|1
 argument_list|)
 argument_list|)
 argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"test"
+argument_list|,
+literal|"type=text,fielddata=true"
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1059,7 +1068,7 @@ name|setSource
 argument_list|(
 literal|"{\"mappings\": {\"type\": {\"properties\": {\"test\": "
 operator|+
-literal|"{\"type\": \"text\",\"fielddata_frequency_filter\": {\"max\": 10000}}}}}}"
+literal|"{\"type\": \"text\",\"fielddata\": true,\"fielddata_frequency_filter\": {\"max\": 10000}}}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1384,6 +1393,15 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|)
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"test"
+argument_list|,
+literal|"type=text,fielddata=true"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -2083,11 +2083,6 @@ name|settings
 init|=
 literal|"{\"index.number_of_shards\": 1, \"index.number_of_replicas\": 0}"
 decl_stmt|;
-name|String
-name|mappings
-init|=
-literal|"{\"doc\": {\"properties\":{\"text\": {\"type\":\"keyword\"}}}}"
-decl_stmt|;
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -2104,7 +2099,13 @@ name|addMapping
 argument_list|(
 literal|"doc"
 argument_list|,
-name|mappings
+literal|"text"
+argument_list|,
+literal|"type=keyword"
+argument_list|,
+name|CLASS_FIELD
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3398,11 +3399,11 @@ literal|"doc"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=text"
+literal|"type=text,fielddata=true"
 argument_list|,
 literal|"class"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3848,22 +3849,27 @@ throws|,
 name|InterruptedException
 block|{
 name|String
-name|mappings
+name|textMappings
 init|=
-literal|"{\""
-operator|+
-name|DOC_TYPE
-operator|+
-literal|"\": {\"properties\":{\""
-operator|+
-name|TEXT_FIELD
-operator|+
-literal|"\": {\"type\":\""
+literal|"type="
 operator|+
 name|type
-operator|+
-literal|"\"}}}}"
 decl_stmt|;
+if|if
+condition|(
+name|type
+operator|.
+name|equals
+argument_list|(
+literal|"text"
+argument_list|)
+condition|)
+block|{
+name|textMappings
+operator|+=
+literal|",fielddata=true"
+expr_stmt|;
+block|}
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -3875,7 +3881,13 @@ name|addMapping
 argument_list|(
 name|DOC_TYPE
 argument_list|,
-name|mappings
+name|TEXT_FIELD
+argument_list|,
+name|textMappings
+argument_list|,
+name|CLASS_FIELD
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;

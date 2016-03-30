@@ -82,7 +82,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|SearchSlowLog
+name|shard
+operator|.
+name|SearchOperationListener
 import|;
 end_import
 
@@ -166,13 +168,9 @@ specifier|public
 specifier|final
 class|class
 name|ShardSearchStats
+implements|implements
+name|SearchOperationListener
 block|{
-DECL|field|slowLogSearchService
-specifier|private
-specifier|final
-name|SearchSlowLog
-name|slowLogSearchService
-decl_stmt|;
 DECL|field|totalStats
 specifier|private
 specifier|final
@@ -207,21 +205,6 @@ init|=
 name|emptyMap
 argument_list|()
 decl_stmt|;
-DECL|method|ShardSearchStats
-specifier|public
-name|ShardSearchStats
-parameter_list|(
-name|SearchSlowLog
-name|searchSlowLog
-parameter_list|)
-block|{
-name|this
-operator|.
-name|slowLogSearchService
-operator|=
-name|searchSlowLog
-expr_stmt|;
-block|}
 comment|/**      * Returns the stats, including group specific stats. If the groups are null/0 length, then nothing      * is returned for them. If they are set, then only groups provided will be returned, or      *<tt>_all</tt> for all groups.      */
 DECL|method|stats
 specifier|public
@@ -409,6 +392,8 @@ name|groupsSt
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onPreQueryPhase
 specifier|public
 name|void
@@ -455,6 +440,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onFailedQueryPhase
 specifier|public
 name|void
@@ -501,6 +488,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onQueryPhase
 specifier|public
 name|void
@@ -567,16 +556,9 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|slowLogSearchService
-operator|.
-name|onQueryPhase
-argument_list|(
-name|searchContext
-argument_list|,
-name|tookInNanos
-argument_list|)
-expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onPreFetchPhase
 specifier|public
 name|void
@@ -601,6 +583,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onFailedFetchPhase
 specifier|public
 name|void
@@ -625,6 +609,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onFetchPhase
 specifier|public
 name|void
@@ -661,15 +647,6 @@ name|dec
 argument_list|()
 expr_stmt|;
 block|}
-argument_list|)
-expr_stmt|;
-name|slowLogSearchService
-operator|.
-name|onFetchPhase
-argument_list|(
-name|searchContext
-argument_list|,
-name|tookInNanos
 argument_list|)
 expr_stmt|;
 block|}
@@ -930,6 +907,8 @@ return|return
 name|stats
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|onNewContext
 specifier|public
 name|void
@@ -945,6 +924,8 @@ name|inc
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onFreeContext
 specifier|public
 name|void
@@ -960,6 +941,8 @@ name|dec
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onNewScrollContext
 specifier|public
 name|void
@@ -977,6 +960,8 @@ name|inc
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onFreeScrollContext
 specifier|public
 name|void

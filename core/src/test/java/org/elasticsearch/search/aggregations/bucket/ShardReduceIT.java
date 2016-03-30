@@ -665,6 +665,10 @@ argument_list|,
 literal|"location"
 argument_list|,
 literal|"type=geo_point"
+argument_list|,
+literal|"term-s"
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;

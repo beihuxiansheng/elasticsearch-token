@@ -3113,12 +3113,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"cluster is blocked ({}), scheduling a retry"
+literal|"cluster is blocked, scheduling a retry"
 argument_list|,
 name|blockException
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|retry

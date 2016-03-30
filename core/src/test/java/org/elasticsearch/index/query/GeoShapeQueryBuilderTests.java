@@ -424,7 +424,7 @@ name|ShapeType
 operator|.
 name|randomType
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -435,7 +435,7 @@ name|RandomShapeGenerator
 operator|.
 name|createShapeWithin
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|null
@@ -935,7 +935,7 @@ name|RandomShapeGenerator
 operator|.
 name|createShapeWithin
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|null
@@ -1123,7 +1123,7 @@ name|RandomShapeGenerator
 operator|.
 name|createShapeWithin
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|null
@@ -1191,7 +1191,7 @@ name|RandomShapeGenerator
 operator|.
 name|createShapeWithin
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|null

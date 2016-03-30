@@ -549,6 +549,10 @@ operator|.
 name|addMapping
 argument_list|(
 literal|"article"
+argument_list|,
+literal|"category"
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|addMapping
@@ -558,6 +562,10 @@ argument_list|,
 literal|"_parent"
 argument_list|,
 literal|"type=article"
+argument_list|,
+literal|"commenter"
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2848,7 +2856,7 @@ literal|"type=text"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|,
 literal|"material"
 argument_list|,
@@ -2865,11 +2873,11 @@ literal|"type=masterprod"
 argument_list|,
 literal|"color"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|,
 literal|"size"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3792,6 +3800,10 @@ operator|.
 name|addMapping
 argument_list|(
 name|grandParentType
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|addMapping

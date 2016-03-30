@@ -4625,11 +4625,11 @@ literal|"test"
 argument_list|,
 literal|"no_field"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|,
 literal|"some_field"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;

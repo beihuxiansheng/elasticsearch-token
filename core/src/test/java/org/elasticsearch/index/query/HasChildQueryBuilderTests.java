@@ -156,22 +156,6 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|DFISimilarity
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|similarities
-operator|.
 name|PerFieldSimilarityWrapper
 import|;
 end_import
@@ -362,7 +346,7 @@ name|query
 operator|.
 name|support
 operator|.
-name|QueryInnerHits
+name|InnerHitBuilder
 import|;
 end_import
 
@@ -406,22 +390,6 @@ name|fetch
 operator|.
 name|innerhits
 operator|.
-name|InnerHitsBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|fetch
-operator|.
-name|innerhits
-operator|.
 name|InnerHitsContext
 import|;
 end_import
@@ -437,6 +405,20 @@ operator|.
 name|internal
 operator|.
 name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|sort
+operator|.
+name|FieldSortBuilder
 import|;
 end_import
 
@@ -483,16 +465,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
 import|;
 end_import
 
@@ -847,31 +819,6 @@ operator|.
 name|MAX_VALUE
 argument_list|)
 decl_stmt|;
-name|InnerHitsBuilder
-operator|.
-name|InnerHit
-name|innerHit
-init|=
-operator|new
-name|InnerHitsBuilder
-operator|.
-name|InnerHit
-argument_list|()
-operator|.
-name|setSize
-argument_list|(
-literal|100
-argument_list|)
-operator|.
-name|addSort
-argument_list|(
-name|STRING_FIELD_NAME_2
-argument_list|,
-name|SortOrder
-operator|.
-name|ASC
-argument_list|)
-decl_stmt|;
 return|return
 operator|new
 name|HasChildQueryBuilder
@@ -909,11 +856,43 @@ condition|?
 literal|null
 else|:
 operator|new
-name|QueryInnerHits
+name|InnerHitBuilder
+argument_list|()
+operator|.
+name|setName
 argument_list|(
-literal|"inner_hits_name"
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
 argument_list|,
-name|innerHit
+literal|10
+argument_list|)
+argument_list|)
+operator|.
+name|setSize
+argument_list|(
+name|randomIntBetween
+argument_list|(
+literal|0
+argument_list|,
+literal|100
+argument_list|)
+argument_list|)
+operator|.
+name|addSort
+argument_list|(
+operator|new
+name|FieldSortBuilder
+argument_list|(
+name|STRING_FIELD_NAME_2
+argument_list|)
+operator|.
+name|order
+argument_list|(
+name|SortOrder
+operator|.
+name|ASC
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
@@ -1097,7 +1076,13 @@ argument_list|()
 operator|.
 name|containsKey
 argument_list|(
-literal|"inner_hits_name"
+name|queryBuilder
+operator|.
+name|innerHit
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1119,7 +1104,13 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"inner_hits_name"
+name|queryBuilder
+operator|.
+name|innerHit
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1129,7 +1120,13 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-literal|100
+name|queryBuilder
+operator|.
+name|innerHit
+argument_list|()
+operator|.
+name|getSize
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1445,9 +1442,19 @@ literal|"    \"_name\" : \"WNzYMJKRwePuRBh\",\n"
 operator|+
 literal|"    \"inner_hits\" : {\n"
 operator|+
+literal|"      \"type\" : \"child\",\n"
+operator|+
 literal|"      \"name\" : \"inner_hits_name\",\n"
 operator|+
+literal|"      \"from\" : 0,\n"
+operator|+
 literal|"      \"size\" : 100,\n"
+operator|+
+literal|"      \"version\" : false,\n"
+operator|+
+literal|"      \"explain\" : false,\n"
+operator|+
+literal|"      \"track_scores\" : false,\n"
 operator|+
 literal|"      \"sort\" : [ {\n"
 operator|+
@@ -1457,7 +1464,29 @@ literal|"          \"order\" : \"asc\"\n"
 operator|+
 literal|"        }\n"
 operator|+
-literal|"      } ]\n"
+literal|"      } ],\n"
+operator|+
+literal|"      \"query\" : {\n"
+operator|+
+literal|"        \"range\" : {\n"
+operator|+
+literal|"          \"mapped_string\" : {\n"
+operator|+
+literal|"            \"from\" : \"agJhRET\",\n"
+operator|+
+literal|"            \"to\" : \"zvqIq\",\n"
+operator|+
+literal|"            \"include_lower\" : true,\n"
+operator|+
+literal|"            \"include_upper\" : true,\n"
+operator|+
+literal|"            \"boost\" : 1.0\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      }\n"
 operator|+
 literal|"    }\n"
 operator|+
@@ -1579,15 +1608,18 @@ name|innerHit
 argument_list|()
 argument_list|,
 operator|new
-name|QueryInnerHits
+name|InnerHitBuilder
+argument_list|()
+operator|.
+name|setParentChildType
+argument_list|(
+literal|"child"
+argument_list|)
+operator|.
+name|setName
 argument_list|(
 literal|"inner_hits_name"
-argument_list|,
-operator|new
-name|InnerHitsBuilder
-operator|.
-name|InnerHit
-argument_list|()
+argument_list|)
 operator|.
 name|setSize
 argument_list|(
@@ -1596,12 +1628,26 @@ argument_list|)
 operator|.
 name|addSort
 argument_list|(
+operator|new
+name|FieldSortBuilder
+argument_list|(
 literal|"mapped_string"
-argument_list|,
+argument_list|)
+operator|.
+name|order
+argument_list|(
 name|SortOrder
 operator|.
 name|ASC
 argument_list|)
+argument_list|)
+operator|.
+name|setQuery
+argument_list|(
+name|queryBuilder
+operator|.
+name|query
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

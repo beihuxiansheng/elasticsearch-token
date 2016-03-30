@@ -669,7 +669,7 @@ name|Strings
 operator|.
 name|randomBase64UUID
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
@@ -696,7 +696,7 @@ name|cluster2
 operator|.
 name|beforeTest
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|0.1

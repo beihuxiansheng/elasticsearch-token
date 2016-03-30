@@ -1302,23 +1302,8 @@ block|}
 comment|// -----------------------------------------------------------------
 comment|// Test facilities and facades for subclasses.
 comment|// -----------------------------------------------------------------
-comment|// TODO: replaces uses of getRandom() with random()
 comment|// TODO: decide on one set of naming for between/scaledBetween and remove others
 comment|// TODO: replace frequently() with usually()
-comment|/** Shortcut for {@link RandomizedContext#getRandom()}. Use {@link #random()} instead. */
-DECL|method|getRandom
-specifier|public
-specifier|static
-name|Random
-name|getRandom
-parameter_list|()
-block|{
-comment|// TODO: replace uses of this function with random()
-return|return
-name|random
-argument_list|()
-return|;
-block|}
 comment|/**      * Returns a "scaled" random number between min and max (inclusive).      *      * @see RandomizedTest#scaledRandomIntBetween(int, int)      */
 DECL|method|scaledRandomIntBetween
 specifier|public

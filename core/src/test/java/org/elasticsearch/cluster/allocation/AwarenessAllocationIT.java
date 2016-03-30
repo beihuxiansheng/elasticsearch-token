@@ -400,7 +400,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.rack_id"
+literal|"node.attr.rack_id"
 argument_list|,
 literal|"rack_1"
 argument_list|)
@@ -482,7 +482,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.rack_id"
+literal|"node.attr.rack_id"
 argument_list|,
 literal|"rack_2"
 argument_list|)
@@ -777,7 +777,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"a"
 argument_list|)
@@ -797,7 +797,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"b"
 argument_list|)
@@ -817,7 +817,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"b"
 argument_list|)
@@ -837,7 +837,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"a"
 argument_list|)
@@ -1274,7 +1274,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"a"
 argument_list|)
@@ -1294,7 +1294,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"b"
 argument_list|)
@@ -1565,7 +1565,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"b"
 argument_list|)
