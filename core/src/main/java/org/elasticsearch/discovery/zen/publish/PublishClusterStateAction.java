@@ -884,7 +884,7 @@ name|localNode
 init|=
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -2496,7 +2496,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2710,7 +2710,7 @@ if|if
 condition|(
 name|currentNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|equals
@@ -2720,7 +2720,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 operator|==

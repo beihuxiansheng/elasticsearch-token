@@ -5682,7 +5682,7 @@ name|class
 argument_list|,
 name|discoveryNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|getName

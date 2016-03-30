@@ -482,7 +482,7 @@ name|localNode
 init|=
 name|discoNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 specifier|final

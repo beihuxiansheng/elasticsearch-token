@@ -1413,7 +1413,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 literal|"please set the local node before starting"
@@ -1585,7 +1585,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 return|;
 block|}
@@ -3970,7 +3970,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 literal|null
@@ -3996,7 +3996,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 expr_stmt|;

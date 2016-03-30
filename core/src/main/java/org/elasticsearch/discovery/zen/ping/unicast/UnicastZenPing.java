@@ -3397,7 +3397,7 @@ name|PingResponse
 argument_list|(
 name|discoNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|discoNodes

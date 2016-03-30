@@ -4048,7 +4048,7 @@ name|sourceNode
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4159,12 +4159,12 @@ name|STORE
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4198,7 +4198,7 @@ name|recoverFromStore
 argument_list|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 condition|)
@@ -4271,7 +4271,7 @@ argument_list|()
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4333,7 +4333,7 @@ name|indexShardRepository
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 condition|)

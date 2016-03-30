@@ -1954,7 +1954,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 name|zenDiscovery

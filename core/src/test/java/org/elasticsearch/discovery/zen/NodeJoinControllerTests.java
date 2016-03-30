@@ -756,7 +756,7 @@ name|localNode
 init|=
 name|initialNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 comment|// make sure we have a master

@@ -1865,7 +1865,7 @@ argument_list|()
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|TimeValue
@@ -1933,7 +1933,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|equals
@@ -1952,7 +1952,7 @@ name|sendLeaveRequest
 argument_list|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|possibleMaster

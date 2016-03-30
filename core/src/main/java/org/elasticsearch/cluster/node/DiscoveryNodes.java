@@ -705,10 +705,10 @@ name|localNodeId
 return|;
 block|}
 comment|/**      * Get the local node      *      * @return local node      */
-DECL|method|localNode
+DECL|method|getLocalNode
 specifier|public
 name|DiscoveryNode
-name|localNode
+name|getLocalNode
 parameter_list|()
 block|{
 return|return
@@ -718,18 +718,6 @@ name|get
 argument_list|(
 name|localNodeId
 argument_list|)
-return|;
-block|}
-comment|/**      * Get the local node      *      * @return local node      */
-DECL|method|getLocalNode
-specifier|public
-name|DiscoveryNode
-name|getLocalNode
-parameter_list|()
-block|{
-return|return
-name|localNode
-argument_list|()
 return|;
 block|}
 comment|/**      * Get the master node      *      * @return master node      */
@@ -1888,7 +1876,7 @@ if|if
 condition|(
 name|node
 operator|==
-name|localNode
+name|getLocalNode
 argument_list|()
 condition|)
 block|{
@@ -2692,7 +2680,7 @@ name|readFrom
 argument_list|(
 name|in
 argument_list|,
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 return|;
