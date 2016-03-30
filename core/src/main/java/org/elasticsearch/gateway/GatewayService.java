@@ -1214,7 +1214,7 @@ literal|1
 operator|&&
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1231,7 +1231,7 @@ literal|"not recovering from gateway, nodes_size (master) [{}]< recover_after_ma
 argument_list|,
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1392,7 +1392,7 @@ operator|&&
 operator|(
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1417,7 +1417,7 @@ literal|"] master nodes, but only have ["
 operator|+
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size

@@ -564,24 +564,6 @@ name|dataNodes
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered master nodes arranged by their ids      *      * @return {@link Map} of the discovered master nodes arranged by their ids      */
-DECL|method|masterNodes
-specifier|public
-name|ImmutableOpenMap
-argument_list|<
-name|String
-argument_list|,
-name|DiscoveryNode
-argument_list|>
-name|masterNodes
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|masterNodes
-return|;
-block|}
-comment|/**      * Get a {@link Map} of the discovered master nodes arranged by their ids      *      * @return {@link Map} of the discovered master nodes arranged by their ids      */
 DECL|method|getMasterNodes
 specifier|public
 name|ImmutableOpenMap
@@ -594,8 +576,9 @@ name|getMasterNodes
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|masterNodes
-argument_list|()
 return|;
 block|}
 comment|/**      * @return All the ingest nodes arranged by their ids      */

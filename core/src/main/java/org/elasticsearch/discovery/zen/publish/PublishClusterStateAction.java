@@ -893,7 +893,7 @@ name|totalMasterNodes
 init|=
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
