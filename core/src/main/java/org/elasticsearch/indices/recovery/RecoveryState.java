@@ -1701,7 +1701,7 @@ name|NAME
 argument_list|,
 name|sourceNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1789,7 +1789,7 @@ name|NAME
 argument_list|,
 name|targetNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

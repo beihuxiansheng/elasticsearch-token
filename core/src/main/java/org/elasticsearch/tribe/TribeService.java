@@ -2651,7 +2651,7 @@ name|DiscoveryNode
 argument_list|(
 name|tribe
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|tribe

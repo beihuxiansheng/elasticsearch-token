@@ -1597,7 +1597,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3444,7 +3444,7 @@ argument_list|<>
 argument_list|(
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|actionMasks

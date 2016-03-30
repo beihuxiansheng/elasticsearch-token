@@ -803,7 +803,7 @@ name|addCell
 argument_list|(
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

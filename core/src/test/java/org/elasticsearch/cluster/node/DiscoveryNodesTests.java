@@ -220,7 +220,7 @@ argument_list|()
 else|:
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -622,7 +622,7 @@ name|add
 argument_list|(
 name|discoveryNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

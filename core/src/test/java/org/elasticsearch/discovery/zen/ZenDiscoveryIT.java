@@ -1538,7 +1538,7 @@ if|if
 condition|(
 name|discoveryNode
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals

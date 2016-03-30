@@ -4220,7 +4220,7 @@ literal|null
 condition|?
 name|previousMaster
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null
@@ -4234,7 +4234,7 @@ literal|null
 condition|?
 name|currentMaster
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null
@@ -7857,7 +7857,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 expr_stmt|;
 block|}
@@ -8001,7 +8001,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null

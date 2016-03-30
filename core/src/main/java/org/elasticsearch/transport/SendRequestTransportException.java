@@ -102,7 +102,7 @@ literal|null
 else|:
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|node

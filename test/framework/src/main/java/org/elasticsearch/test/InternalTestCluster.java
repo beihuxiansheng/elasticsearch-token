@@ -8885,7 +8885,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 return|;
 block|}

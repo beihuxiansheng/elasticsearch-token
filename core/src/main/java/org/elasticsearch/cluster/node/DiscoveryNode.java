@@ -1144,19 +1144,6 @@ name|nodeId
 return|;
 block|}
 comment|/**      * The name of the node.      */
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|nodeName
-return|;
-block|}
-comment|/**      * The name of the node.      */
 DECL|method|getName
 specifier|public
 name|String
@@ -1164,8 +1151,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|name
-argument_list|()
+name|this
+operator|.
+name|nodeName
 return|;
 block|}
 comment|/**      * The node attributes.      */
@@ -1725,7 +1713,7 @@ name|field
 argument_list|(
 literal|"name"
 argument_list|,
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -992,7 +992,7 @@ literal|"[{}] received version [{}], uuid [{}]"
 argument_list|,
 name|discoveryNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|newClusterState

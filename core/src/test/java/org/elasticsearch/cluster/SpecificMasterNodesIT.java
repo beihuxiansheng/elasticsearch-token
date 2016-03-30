@@ -415,7 +415,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -456,7 +456,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -608,7 +608,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -649,7 +649,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -844,7 +844,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -885,7 +885,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -970,7 +970,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1011,7 +1011,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1052,7 +1052,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1106,7 +1106,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1147,7 +1147,7 @@ operator|.
 name|masterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo

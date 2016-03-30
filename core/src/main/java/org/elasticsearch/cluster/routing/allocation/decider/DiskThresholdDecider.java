@@ -2954,7 +2954,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|usage
@@ -3055,7 +3055,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|"_na_"
@@ -3123,7 +3123,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|"_na_"

@@ -1232,18 +1232,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexWarmer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|MergePolicyConfig
 import|;
 end_import
@@ -1351,18 +1339,6 @@ operator|.
 name|indices
 operator|.
 name|IndicesRequestCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndicesService
 import|;
 end_import
 
@@ -11420,7 +11396,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 decl_stmt|;
 name|nodes

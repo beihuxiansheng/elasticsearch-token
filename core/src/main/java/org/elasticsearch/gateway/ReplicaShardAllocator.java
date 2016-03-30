@@ -1647,7 +1647,7 @@ name|shard
 argument_list|,
 name|discoNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|replicaSyncId
@@ -1729,7 +1729,7 @@ name|shard
 argument_list|,
 name|discoNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 operator|new

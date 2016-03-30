@@ -4188,7 +4188,7 @@ operator|.
 name|getSourceNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|recoveryState
@@ -4196,7 +4196,7 @@ operator|.
 name|getTargetNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|recoveryState
@@ -4374,7 +4374,7 @@ operator|.
 name|getSourceNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|recoveryState
@@ -4382,7 +4382,7 @@ operator|.
 name|getTargetNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|recoveryState
