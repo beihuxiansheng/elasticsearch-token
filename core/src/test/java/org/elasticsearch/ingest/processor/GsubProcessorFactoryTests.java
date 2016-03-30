@@ -46,20 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -95,6 +81,18 @@ operator|.
 name|CoreMatchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
 import|;
 end_import
 
@@ -595,9 +593,9 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|"[pattern] Invalid regex pattern. Unclosed character class near index 0\n[\n^"
+literal|"[pattern] Invalid regex pattern. Unclosed character class"
 argument_list|)
 argument_list|)
 expr_stmt|;
