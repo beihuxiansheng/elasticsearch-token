@@ -1002,7 +1002,7 @@ operator|.
 name|getNodeWithHighestMatch
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1278,7 +1278,7 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1530,7 +1530,7 @@ name|node
 argument_list|(
 name|discoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;

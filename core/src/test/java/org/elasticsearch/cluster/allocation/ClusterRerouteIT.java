@@ -72,24 +72,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|state
-operator|.
-name|ClusterStateResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|ClusterState
@@ -107,20 +89,6 @@ operator|.
 name|health
 operator|.
 name|ClusterHealthStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
 import|;
 end_import
 
@@ -1022,7 +990,7 @@ argument_list|(
 name|node_1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1180,7 +1148,7 @@ argument_list|(
 name|node_1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1312,7 +1280,7 @@ argument_list|(
 name|node_1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1402,7 +1370,7 @@ argument_list|(
 name|node_1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1441,7 +1409,7 @@ argument_list|(
 name|node_2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1577,7 +1545,7 @@ argument_list|(
 name|node_2
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2202,7 +2170,7 @@ argument_list|(
 name|node_1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2333,7 +2301,7 @@ argument_list|(
 name|node_1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2655,7 +2623,7 @@ argument_list|(
 name|node_1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2786,7 +2754,7 @@ argument_list|(
 name|node_1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.

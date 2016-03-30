@@ -6806,7 +6806,7 @@ name|acquire
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 init|)
@@ -8159,7 +8159,7 @@ name|acquire
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 init|)
@@ -8273,7 +8273,7 @@ name|acquire
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 init|)

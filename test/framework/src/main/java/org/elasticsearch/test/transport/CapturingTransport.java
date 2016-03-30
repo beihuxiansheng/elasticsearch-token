@@ -539,7 +539,7 @@ name|request
 operator|.
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -565,7 +565,7 @@ name|request
 operator|.
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|nodeList

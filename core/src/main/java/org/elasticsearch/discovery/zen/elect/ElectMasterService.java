@@ -808,14 +808,14 @@ block|}
 return|return
 name|o1
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|compareTo
 argument_list|(
 name|o2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 return|;

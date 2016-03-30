@@ -831,7 +831,7 @@ name|localNodeId
 argument_list|(
 name|nodeA
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -843,12 +843,12 @@ name|master
 condition|?
 name|nodeA
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|nodeB
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -898,7 +898,7 @@ name|localNodeId
 argument_list|(
 name|nodeB
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -910,12 +910,12 @@ name|master
 condition|?
 name|nodeB
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|nodeA
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

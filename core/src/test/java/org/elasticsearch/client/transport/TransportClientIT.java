@@ -543,7 +543,7 @@ name|assertThat
 argument_list|(
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|startsWith

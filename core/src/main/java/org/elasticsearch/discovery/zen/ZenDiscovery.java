@@ -2056,7 +2056,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 return|;
 block|}
@@ -3044,7 +3044,7 @@ name|remove
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3282,7 +3282,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|==
@@ -3321,7 +3321,7 @@ name|remove
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3745,7 +3745,7 @@ condition|(
 operator|!
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -3783,7 +3783,7 @@ name|remove
 argument_list|(
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.

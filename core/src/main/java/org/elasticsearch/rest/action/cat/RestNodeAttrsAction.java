@@ -767,7 +767,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -815,7 +815,7 @@ name|fullId
 condition|?
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|Strings

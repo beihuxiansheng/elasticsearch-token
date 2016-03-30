@@ -846,7 +846,7 @@ name|localNodeId
 argument_list|(
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -891,7 +891,7 @@ name|masterNodeId
 argument_list|(
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2348,7 +2348,7 @@ name|nodeB
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2358,7 +2358,7 @@ name|nodeB
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2768,7 +2768,7 @@ name|nodeA
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -2778,7 +2778,7 @@ name|nodeA
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -3781,7 +3781,7 @@ name|master
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -3791,7 +3791,7 @@ name|master
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4419,7 +4419,7 @@ name|master
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -4429,7 +4429,7 @@ name|master
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4921,7 +4921,7 @@ name|otherNode
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -5474,7 +5474,7 @@ name|master
 operator|.
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)

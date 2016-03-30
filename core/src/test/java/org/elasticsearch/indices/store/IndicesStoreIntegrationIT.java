@@ -3653,7 +3653,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3671,7 +3671,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 specifier|final

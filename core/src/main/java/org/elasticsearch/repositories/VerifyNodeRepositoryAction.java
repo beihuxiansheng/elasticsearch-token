@@ -618,7 +618,7 @@ name|VerificationFailure
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|t
@@ -727,7 +727,7 @@ name|VerificationFailure
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|exp

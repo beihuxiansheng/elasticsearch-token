@@ -1642,7 +1642,7 @@ name|ID
 argument_list|,
 name|sourceNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1730,7 +1730,7 @@ name|ID
 argument_list|,
 name|targetNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

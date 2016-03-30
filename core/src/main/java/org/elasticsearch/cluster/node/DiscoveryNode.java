@@ -1133,17 +1133,6 @@ argument_list|()
 return|;
 block|}
 comment|/**      * The unique id of the node.      */
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
-name|nodeId
-return|;
-block|}
-comment|/**      * The unique id of the node.      */
 DECL|method|getId
 specifier|public
 name|String
@@ -1151,8 +1140,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-name|id
-argument_list|()
+name|nodeId
 return|;
 block|}
 comment|/**      * The name of the node.      */
@@ -1721,7 +1709,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|XContentBuilder

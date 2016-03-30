@@ -215,7 +215,7 @@ argument_list|()
 condition|?
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|node
@@ -228,14 +228,14 @@ name|assertThat
 argument_list|(
 name|resolvedNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -308,7 +308,7 @@ name|assertThat
 argument_list|(
 name|resolvedNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -632,7 +632,7 @@ name|add
 argument_list|(
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -852,7 +852,7 @@ argument_list|(
 name|nodesList
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -865,7 +865,7 @@ argument_list|(
 name|nodesList
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1246,7 +1246,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -2547,7 +2547,7 @@ name|get
 argument_list|(
 name|discoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|==
@@ -2575,7 +2575,7 @@ name|remove
 argument_list|(
 name|discoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2605,7 +2605,7 @@ name|get
 argument_list|(
 name|tribe
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|==
@@ -2656,7 +2656,7 @@ argument_list|()
 argument_list|,
 name|tribe
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|tribe

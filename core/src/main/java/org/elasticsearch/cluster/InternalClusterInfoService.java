@@ -2488,7 +2488,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 name|String

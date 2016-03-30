@@ -1066,7 +1066,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|nodeShardState
@@ -1151,7 +1151,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|nodeShardState
@@ -1300,7 +1300,7 @@ name|contains
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1894,7 +1894,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2095,7 +2095,7 @@ name|contains
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)

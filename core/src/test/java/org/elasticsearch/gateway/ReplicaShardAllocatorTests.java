@@ -1011,7 +1011,7 @@ name|equalTo
 argument_list|(
 name|nodeToMatch
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1139,7 +1139,7 @@ name|equalTo
 argument_list|(
 name|nodeToMatch
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1267,7 +1267,7 @@ name|equalTo
 argument_list|(
 name|nodeToMatch
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2185,7 +2185,7 @@ name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2621,7 +2621,7 @@ argument_list|()
 argument_list|,
 name|node1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|true
@@ -2883,7 +2883,7 @@ argument_list|()
 argument_list|,
 name|node1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|true
@@ -3008,7 +3008,7 @@ argument_list|()
 argument_list|,
 name|node2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|null

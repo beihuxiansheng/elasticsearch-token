@@ -2345,7 +2345,7 @@ condition|(
 operator|!
 name|nodeToSend
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|startsWith
@@ -2373,7 +2373,7 @@ literal|"_"
 operator|+
 name|nodeToSend
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|+
 literal|"#"
@@ -2915,7 +2915,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals

@@ -535,7 +535,7 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 operator|new
@@ -2922,7 +2922,7 @@ name|RoutingNode
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|node

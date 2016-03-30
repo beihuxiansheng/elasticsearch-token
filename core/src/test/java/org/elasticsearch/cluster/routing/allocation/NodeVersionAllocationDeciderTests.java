@@ -3817,7 +3817,7 @@ argument_list|()
 argument_list|,
 name|newNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|true
@@ -3846,7 +3846,7 @@ argument_list|()
 argument_list|,
 name|oldNode1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|false
@@ -3902,7 +3902,7 @@ argument_list|()
 argument_list|,
 name|newNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|true
@@ -3931,7 +3931,7 @@ argument_list|()
 argument_list|,
 name|oldNode1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|false

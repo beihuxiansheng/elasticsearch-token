@@ -1092,7 +1092,7 @@ index|]
 operator|=
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 expr_stmt|;
 block|}
@@ -1239,7 +1239,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1274,7 +1274,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1301,7 +1301,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1587,7 +1587,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1658,7 +1658,7 @@ name|contains
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1753,7 +1753,7 @@ name|nodeExists
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1784,7 +1784,7 @@ name|nodeExists
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -2317,7 +2317,7 @@ if|if
 condition|(
 name|newMasterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2495,7 +2495,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2543,7 +2543,7 @@ condition|(
 operator|!
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2709,7 +2709,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2754,14 +2754,14 @@ literal|null
 operator|&&
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -2939,7 +2939,7 @@ name|put
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|node

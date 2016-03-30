@@ -834,7 +834,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
