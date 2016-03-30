@@ -598,7 +598,7 @@ name|ingestNodes
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered master and data nodes arranged by their ids      *      * @return {@link Map} of the discovered master and data nodes arranged by their ids      */
-DECL|method|masterAndDataNodes
+DECL|method|getMasterAndDataNodes
 specifier|public
 name|ImmutableOpenMap
 argument_list|<
@@ -606,7 +606,7 @@ name|String
 argument_list|,
 name|DiscoveryNode
 argument_list|>
-name|masterAndDataNodes
+name|getMasterAndDataNodes
 parameter_list|()
 block|{
 name|ImmutableOpenMap

@@ -494,7 +494,7 @@ name|masterAndDataNodes
 init|=
 name|discoNodes
 operator|.
-name|masterAndDataNodes
+name|getMasterAndDataNodes
 argument_list|()
 operator|.
 name|values
