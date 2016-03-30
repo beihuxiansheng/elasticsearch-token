@@ -3951,7 +3951,7 @@ name|assertThat
 argument_list|(
 name|discoveryNodes
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo

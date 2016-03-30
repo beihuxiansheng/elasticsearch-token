@@ -1755,7 +1755,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 decl_stmt|;
 specifier|final

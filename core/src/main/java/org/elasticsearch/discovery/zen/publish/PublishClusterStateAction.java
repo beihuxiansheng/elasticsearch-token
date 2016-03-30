@@ -875,7 +875,7 @@ argument_list|<>
 argument_list|(
 name|nodes
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|)
 expr_stmt|;

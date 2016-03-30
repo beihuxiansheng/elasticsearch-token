@@ -669,7 +669,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 decl_stmt|;
 comment|// add the notifications that the store was deleted from *data* nodes

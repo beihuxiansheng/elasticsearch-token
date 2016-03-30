@@ -502,7 +502,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 expr_stmt|;
 name|numberOfDataNodes

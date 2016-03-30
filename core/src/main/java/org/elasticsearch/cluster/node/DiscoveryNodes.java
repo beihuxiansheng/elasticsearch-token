@@ -514,20 +514,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Get the number of known nodes      *      * @return number of nodes      */
-DECL|method|size
-specifier|public
-name|int
-name|size
-parameter_list|()
-block|{
-return|return
-name|nodes
-operator|.
-name|size
-argument_list|()
-return|;
-block|}
-comment|/**      * Get the number of known nodes      *      * @return number of nodes      */
 DECL|method|getSize
 specifier|public
 name|int
@@ -535,6 +521,8 @@ name|getSize
 parameter_list|()
 block|{
 return|return
+name|nodes
+operator|.
 name|size
 argument_list|()
 return|;

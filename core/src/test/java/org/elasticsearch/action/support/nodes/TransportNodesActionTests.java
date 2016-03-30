@@ -519,7 +519,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 decl_stmt|;
 comment|// check a request was sent to the right number of nodes
