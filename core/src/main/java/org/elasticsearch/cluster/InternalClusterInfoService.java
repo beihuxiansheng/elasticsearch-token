@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionListener
@@ -1824,12 +1834,9 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"NodeStatsAction timed out for ClusterInfoUpdateJob (reason [{}])"
+literal|"NodeStatsAction timed out for ClusterInfoUpdateJob"
 argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2002,12 +2009,9 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"IndicesStatsAction timed out for ClusterInfoUpdateJob (reason [{}])"
+literal|"IndicesStatsAction timed out for ClusterInfoUpdateJob"
 argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
