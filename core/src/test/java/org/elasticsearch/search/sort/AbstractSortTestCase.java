@@ -1569,7 +1569,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|createMockShardContext
-specifier|private
+specifier|protected
 name|QueryShardContext
 name|createMockShardContext
 parameter_list|()
