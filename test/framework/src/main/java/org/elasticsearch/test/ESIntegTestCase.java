@@ -2550,7 +2550,7 @@ argument_list|()
 operator|.
 name|beforeTest
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|getPerTestTransportClientRatio
@@ -2664,7 +2664,7 @@ name|randomSettingsBuilder
 init|=
 name|setRandomIndexSettings
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|Settings
@@ -2689,7 +2689,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextLong
@@ -4138,7 +4138,7 @@ name|RandomizingClient
 argument_list|(
 name|client
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4176,7 +4176,7 @@ name|RandomizingClient
 argument_list|(
 name|client
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -8084,7 +8084,7 @@ block|{
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|Set
@@ -11805,7 +11805,7 @@ name|type
 argument_list|,
 name|shard
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 return|;

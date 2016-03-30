@@ -463,7 +463,7 @@ argument_list|<
 name|TestResponse
 argument_list|>
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 block|{

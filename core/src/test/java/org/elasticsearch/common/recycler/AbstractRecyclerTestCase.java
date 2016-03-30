@@ -539,7 +539,7 @@ name|v
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBytes
@@ -863,7 +863,7 @@ name|data
 argument_list|)
 expr_stmt|;
 comment|// randomize& return to pool
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBytes

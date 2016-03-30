@@ -2229,7 +2229,7 @@ block|{
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|createIndex
@@ -2382,7 +2382,7 @@ name|boost
 argument_list|(
 literal|1.0f
 operator|+
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextFloat
@@ -2446,7 +2446,7 @@ name|boost
 argument_list|(
 literal|1.0f
 operator|+
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextFloat

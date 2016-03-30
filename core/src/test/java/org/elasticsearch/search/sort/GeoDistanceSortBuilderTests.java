@@ -300,7 +300,7 @@ name|RandomGeoGenerator
 operator|.
 name|randomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 operator|.
@@ -329,7 +329,7 @@ name|RandomGeoGenerator
 operator|.
 name|randomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -762,7 +762,7 @@ name|RandomGeoGenerator
 operator|.
 name|randomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -901,7 +901,7 @@ name|RandomGeoGenerator
 operator|.
 name|randomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1183,7 +1183,7 @@ name|RandomGeoGenerator
 operator|.
 name|randomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;

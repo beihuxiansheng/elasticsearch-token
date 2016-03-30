@@ -878,7 +878,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLength
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|10
@@ -901,7 +901,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLength
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|10
@@ -924,7 +924,7 @@ name|RandomStrings
 operator|.
 name|randomAsciiOfLength
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|10
@@ -9727,7 +9727,7 @@ DECL|field|preserveSeparators
 name|Boolean
 name|preserveSeparators
 init|=
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBoolean
@@ -9737,7 +9737,7 @@ DECL|field|preservePositionIncrements
 name|Boolean
 name|preservePositionIncrements
 init|=
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBoolean

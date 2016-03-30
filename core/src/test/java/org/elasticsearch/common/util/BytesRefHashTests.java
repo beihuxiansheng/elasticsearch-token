@@ -735,7 +735,7 @@ name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|1000
@@ -920,7 +920,7 @@ name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|1000
@@ -1186,7 +1186,7 @@ name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|1000
@@ -1435,7 +1435,7 @@ name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|1000

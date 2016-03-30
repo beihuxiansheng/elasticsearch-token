@@ -419,7 +419,7 @@ init|=
 operator|new
 name|RandomAllocationDecider
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
