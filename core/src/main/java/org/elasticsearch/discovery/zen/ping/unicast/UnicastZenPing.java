@@ -3402,7 +3402,7 @@ argument_list|()
 argument_list|,
 name|discoNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|clusterName

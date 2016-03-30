@@ -1834,7 +1834,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|==
 literal|null
@@ -1860,7 +1860,7 @@ name|sendLeaveRequestBlocking
 argument_list|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|nodes
@@ -1893,7 +1893,7 @@ name|e
 argument_list|,
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1975,7 +1975,7 @@ name|e
 argument_list|,
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|possibleMaster
@@ -2625,7 +2625,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|==
 literal|null
@@ -2659,7 +2659,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
 name|equals
@@ -3187,7 +3187,7 @@ argument_list|(
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)
@@ -3963,7 +3963,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -4008,7 +4008,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|newClusterState
@@ -4059,7 +4059,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)
@@ -4073,7 +4073,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 literal|"new cluster state received and we are monitoring the wrong master ["
@@ -4578,12 +4578,12 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|currentNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4598,14 +4598,14 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|", current "
 operator|+
 name|currentNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|")"

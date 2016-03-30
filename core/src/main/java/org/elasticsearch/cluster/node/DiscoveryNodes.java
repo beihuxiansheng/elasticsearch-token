@@ -721,10 +721,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Get the master node      *      * @return master node      */
-DECL|method|masterNode
+DECL|method|getMasterNode
 specifier|public
 name|DiscoveryNode
-name|masterNode
+name|getMasterNode
 parameter_list|()
 block|{
 return|return
@@ -734,18 +734,6 @@ name|get
 argument_list|(
 name|masterNodeId
 argument_list|)
-return|;
-block|}
-comment|/**      * Get the master node      *      * @return master node      */
-DECL|method|getMasterNode
-specifier|public
-name|DiscoveryNode
-name|getMasterNode
-parameter_list|()
-block|{
-return|return
-name|masterNode
-argument_list|()
 return|;
 block|}
 comment|/**      * Get a node by its address      *      * @param address {@link TransportAddress} of the wanted node      * @return node identified by the given address or<code>null</code> if no such node exists      */
@@ -1739,12 +1727,12 @@ name|previousMasterNode
 operator|=
 name|other
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 expr_stmt|;
 name|newMasterNode
 operator|=
-name|masterNode
+name|getMasterNode
 argument_list|()
 expr_stmt|;
 block|}
@@ -1892,7 +1880,7 @@ if|if
 condition|(
 name|node
 operator|==
-name|masterNode
+name|getMasterNode
 argument_list|()
 condition|)
 block|{
