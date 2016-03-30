@@ -987,7 +987,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"high disk watermark exceeded on {} but an automatic reroute has occurred in the last [{}], skipping reroute"
+literal|"high disk watermark exceeded on {} but an automatic reroute has occurred "
+operator|+
+literal|"in the last [{}], skipping reroute"
 argument_list|,
 name|node
 argument_list|,
@@ -1110,7 +1112,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"{} has gone below a disk threshold, but an automatic reroute has occurred in the last [{}], skipping reroute"
+literal|"{} has gone below a disk threshold, but an automatic reroute has occurred "
+operator|+
+literal|"in the last [{}], skipping reroute"
 argument_list|,
 name|node
 argument_list|,
@@ -1961,7 +1965,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"less than required [%s] free on node, free: [%s]"
+literal|"the node is above the low watermark and has less than required [%s] free, free: [%s]"
 argument_list|,
 name|freeBytesThresholdLow
 argument_list|,
@@ -2024,7 +2028,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"primary has never been allocated before"
+literal|"the node is above the low watermark, but this primary shard has never been allocated before"
 argument_list|)
 return|;
 block|}
@@ -2070,7 +2074,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"less than required [%s] free on node, free: [%s]"
+literal|"the node is above the high watermark even though this shard has never been allocated "
+operator|+
+literal|"and has less than required [%s] free on node, free: [%s]"
 argument_list|,
 name|freeBytesThresholdHigh
 argument_list|,
@@ -2160,7 +2166,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"more than allowed [%s%%] used disk on node, free: [%s%%]"
+literal|"the node is above the low watermark and has more than allowed [%s%%] used disk, free: [%s%%]"
 argument_list|,
 name|usedDiskThresholdLow
 argument_list|,
@@ -2230,7 +2236,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"primary has never been allocated before"
+literal|"the node is above the low watermark, but this primary shard has never been allocated before"
 argument_list|)
 return|;
 block|}
@@ -2290,7 +2296,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"more than allowed [%s%%] used disk on node, free: [%s%%]"
+literal|"the node is above the high watermark even though this shard has never been allocated "
+operator|+
+literal|"and has more than allowed [%s%%] used disk, free: [%s%%]"
 argument_list|,
 name|usedDiskThresholdHigh
 argument_list|,
@@ -2345,7 +2353,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"after allocating, node [{}] would have less than the required {} free bytes threshold ({} bytes free), preventing allocation"
+literal|"after allocating, node [{}] would have less than the required "
+operator|+
+literal|"{} free bytes threshold ({} bytes free), preventing allocation"
 argument_list|,
 name|node
 operator|.
@@ -2368,7 +2378,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocation less than required [%s] free on node, free: [%s]"
+literal|"after allocating the shard to this node, it would be above the high watermark "
+operator|+
+literal|"and have less than required [%s] free, free: [%s]"
 argument_list|,
 name|freeBytesThresholdLow
 argument_list|,
@@ -2391,7 +2403,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"after allocating, node [{}] would have more than the allowed {} free disk threshold ({} free), preventing allocation"
+literal|"after allocating, node [{}] would have more than the allowed "
+operator|+
+literal|"{} free disk threshold ({} free), preventing allocation"
 argument_list|,
 name|node
 operator|.
@@ -2428,7 +2442,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocation more than allowed [%s%%] used disk on node, free: [%s%%]"
+literal|"after allocating the shard to this node, it would be above the high watermark "
+operator|+
+literal|"and have more than allowed [%s%%] used disk, free: [%s%%]"
 argument_list|,
 name|usedDiskThresholdLow
 argument_list|,
@@ -2447,12 +2463,24 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"enough disk for shard on node, free: [%s]"
+literal|"enough disk for shard on node, free: [%s], shard size: [%s], free after allocating shard: [%s]"
 argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
 name|freeBytes
+argument_list|)
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|shardSize
+argument_list|)
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|freeBytesAfterShard
 argument_list|)
 argument_list|)
 return|;
@@ -2654,7 +2682,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard is not allocated on the most utilized disk"
+literal|"this shard is not allocated on the most utilized disk and can remain"
 argument_list|)
 return|;
 block|}
@@ -2704,7 +2732,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocation less than required [%s] free on node, free: [%s]"
+literal|"after allocating this shard this node would be above the high watermark "
+operator|+
+literal|"and there would be less than required [%s] free on node, free: [%s]"
 argument_list|,
 name|freeBytesThresholdHigh
 argument_list|,
@@ -2759,7 +2789,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocation less than required [%s%%] free disk on node, free: [%s%%]"
+literal|"after allocating this shard this node would be above the high watermark "
+operator|+
+literal|"and there would be less than required [%s%%] free disk on node, free: [%s%%]"
 argument_list|,
 name|freeDiskThresholdHigh
 argument_list|,
@@ -2778,7 +2810,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"enough disk for shard to remain on node, free: [%s]"
+literal|"there is enough disk on this node for the shard to remain, free: [%s]"
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -3208,7 +3240,8 @@ name|ElasticsearchParseException
 name|ex
 parameter_list|)
 block|{
-comment|// NOTE: this is not end-user leniency, since up above we check that it's a valid byte or percentage, and then store the two cases separately
+comment|// NOTE: this is not end-user leniency, since up above we check that it's a valid byte or percentage, and then store the two
+comment|// cases separately
 return|return
 literal|100.0
 return|;
@@ -3246,7 +3279,8 @@ name|ElasticsearchParseException
 name|ex
 parameter_list|)
 block|{
-comment|// NOTE: this is not end-user leniency, since up above we check that it's a valid byte or percentage, and then store the two cases separately
+comment|// NOTE: this is not end-user leniency, since up above we check that it's a valid byte or percentage, and then store the two
+comment|// cases separately
 return|return
 name|ByteSizeValue
 operator|.
@@ -3358,7 +3392,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"disk threshold decider disabled"
+literal|"the disk threshold decider is disabled"
 argument_list|)
 return|;
 block|}
@@ -3406,7 +3440,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"only a single data node is present"
+literal|"there is only a single data node present"
 argument_list|)
 return|;
 block|}
@@ -3454,7 +3488,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"cluster info unavailable"
+literal|"the cluster info is unavailable"
 argument_list|)
 return|;
 block|}
@@ -3494,7 +3528,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"disk usages unavailable"
+literal|"disk usages are unavailable"
 argument_list|)
 return|;
 block|}

@@ -221,6 +221,11 @@ name|RELOCATION_COUNT
 init|=
 literal|25
 decl_stmt|;
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,action.delete:TRACE,action.index:TRACE,index.shard:TRACE,cluster.service:TRACE"
+argument_list|)
 DECL|method|testPrimaryRelocationWhileIndexing
 specifier|public
 name|void

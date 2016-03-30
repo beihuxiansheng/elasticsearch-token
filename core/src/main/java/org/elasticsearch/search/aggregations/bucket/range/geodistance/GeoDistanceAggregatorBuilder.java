@@ -1141,7 +1141,7 @@ name|unit
 operator|=
 name|DistanceUnit
 operator|.
-name|readDistanceUnit
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -1223,13 +1223,11 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|DistanceUnit
+name|unit
 operator|.
-name|writeDistanceUnit
+name|writeTo
 argument_list|(
 name|out
-argument_list|,
-name|unit
 argument_list|)
 expr_stmt|;
 block|}

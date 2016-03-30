@@ -560,6 +560,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|equalTo
 import|;
 end_import
@@ -6971,15 +6983,10 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"more than allowed [70.0%] used disk on node, free: [26.0%]"
-argument_list|)
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|true
+literal|"the node is above the low watermark and has more than allowed [70.0%] used disk, free: [26.0%]"
 argument_list|)
 argument_list|)
 expr_stmt|;

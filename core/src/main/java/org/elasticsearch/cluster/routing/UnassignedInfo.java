@@ -506,6 +506,7 @@ literal|"provide a message if a failure exception is provided"
 assert|;
 block|}
 DECL|method|UnassignedInfo
+specifier|public
 name|UnassignedInfo
 parameter_list|(
 name|StreamInput

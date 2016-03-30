@@ -1227,6 +1227,8 @@ decl_stmt|;
 name|int
 name|numShards
 init|=
+literal|1
+operator|+
 name|randomInt
 argument_list|(
 literal|3

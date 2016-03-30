@@ -1479,6 +1479,8 @@ literal|0
 init|;
 name|i
 operator|<
+name|this
+operator|.
 name|nodesIds
 operator|.
 name|length
@@ -1498,6 +1500,8 @@ name|nodes
 operator|.
 name|get
 argument_list|(
+name|this
+operator|.
 name|nodesIds
 index|[
 name|i

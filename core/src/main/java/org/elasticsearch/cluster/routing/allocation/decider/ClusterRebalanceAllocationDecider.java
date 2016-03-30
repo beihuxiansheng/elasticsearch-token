@@ -485,7 +485,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"cluster has unassigned primary shards"
+literal|"the cluster has unassigned primary shards and rebalance type is set to [%s]"
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}
@@ -512,7 +514,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"cluster has inactive primary shards"
+literal|"the cluster has inactive primary shards and rebalance type is set to [%s]"
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}
@@ -563,7 +567,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"cluster has unassigned shards"
+literal|"the cluster has unassigned shards and rebalance type is set to [%s]"
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}
@@ -591,7 +597,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"cluster has inactive shards"
+literal|"the cluster has inactive shards and rebalance type is set to [%s]"
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}
@@ -608,7 +616,9 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"all shards are active"
+literal|"all shards are active, rebalance type is [%s]"
+argument_list|,
+name|type
 argument_list|)
 return|;
 block|}
