@@ -1880,7 +1880,7 @@ name|masterId
 init|=
 name|nodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 name|Table
