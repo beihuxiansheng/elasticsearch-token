@@ -830,10 +830,10 @@ operator|)
 return|;
 block|}
 comment|/**      * Returns the version of the node with the oldest version in the cluster      *      * @return the oldest version in the cluster      */
-DECL|method|smallestVersion
+DECL|method|getSmallestVersion
 specifier|public
 name|Version
-name|smallestVersion
+name|getSmallestVersion
 parameter_list|()
 block|{
 return|return
