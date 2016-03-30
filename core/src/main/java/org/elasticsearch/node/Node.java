@@ -1477,8 +1477,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|// this sucks that folks can mistype data, master or ingest and get away with it.
-comment|// TODO: we should move this to node.attribute.${name} = ${value} instead.
 DECL|field|NODE_ATTRIBUTES
 specifier|public
 specifier|static
@@ -1493,7 +1491,7 @@ name|Setting
 operator|.
 name|groupSetting
 argument_list|(
-literal|"node."
+literal|"node.attr."
 argument_list|,
 name|Property
 operator|.

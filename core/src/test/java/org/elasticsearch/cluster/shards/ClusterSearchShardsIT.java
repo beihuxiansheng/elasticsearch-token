@@ -310,7 +310,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.tag"
+literal|"node.attr.tag"
 argument_list|,
 literal|"B"
 argument_list|)
@@ -337,7 +337,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.tag"
+literal|"node.attr.tag"
 argument_list|,
 literal|"A"
 argument_list|)
