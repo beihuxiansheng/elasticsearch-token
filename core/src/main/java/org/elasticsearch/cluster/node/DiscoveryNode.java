@@ -283,11 +283,11 @@ argument_list|>
 implements|,
 name|ToXContent
 block|{
-DECL|method|localNode
+DECL|method|isLocalNode
 specifier|public
 specifier|static
 name|boolean
-name|localNode
+name|isLocalNode
 parameter_list|(
 name|Settings
 name|settings

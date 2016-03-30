@@ -322,7 +322,7 @@ name|settings
 lambda|->
 name|DiscoveryNode
 operator|.
-name|localNode
+name|isLocalNode
 argument_list|(
 name|settings
 argument_list|)

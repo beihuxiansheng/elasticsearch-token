@@ -2768,7 +2768,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|localNode
+name|isLocalNode
 argument_list|(
 name|builder
 operator|.
