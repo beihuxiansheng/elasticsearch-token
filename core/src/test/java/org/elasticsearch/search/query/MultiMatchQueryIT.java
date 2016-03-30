@@ -6427,7 +6427,7 @@ name|list
 operator|.
 name|add
 argument_list|(
-name|randomRealisticUnicodeOfCodepointLengthBetween
+name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
