@@ -723,7 +723,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeInfo
 operator|.

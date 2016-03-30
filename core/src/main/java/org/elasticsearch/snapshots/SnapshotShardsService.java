@@ -831,7 +831,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|settings
 argument_list|)

@@ -439,11 +439,11 @@ name|settings
 argument_list|)
 return|;
 block|}
-DECL|method|dataNode
+DECL|method|isDataNode
 specifier|public
 specifier|static
 name|boolean
-name|dataNode
+name|isDataNode
 parameter_list|(
 name|Settings
 name|settings

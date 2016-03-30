@@ -10613,7 +10613,7 @@ block|{
 return|return
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeAndClient
 operator|.
@@ -10651,7 +10651,7 @@ block|{
 return|return
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeAndClient
 operator|.
@@ -10771,7 +10771,7 @@ literal|false
 operator|&&
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeAndClient
 operator|.
