@@ -3341,6 +3341,8 @@ operator|.
 name|postIndex
 argument_list|(
 name|index
+argument_list|,
+name|created
 argument_list|)
 expr_stmt|;
 return|return
