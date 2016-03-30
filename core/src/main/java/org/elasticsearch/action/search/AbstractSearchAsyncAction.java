@@ -798,12 +798,70 @@ name|preference
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|expectedSuccessfulOps
-operator|=
+specifier|final
+name|int
+name|shardCount
+init|=
 name|shardsIts
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+specifier|final
+name|long
+name|shardCountLimit
+init|=
+name|clusterService
+operator|.
+name|getClusterSettings
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|TransportSearchAction
+operator|.
+name|SHARD_COUNT_LIMIT_SETTING
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|shardCount
+operator|>
+name|shardCountLimit
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Trying to query "
+operator|+
+name|shardCount
+operator|+
+literal|" shards, which is over the limit of "
+operator|+
+name|shardCountLimit
+operator|+
+literal|". This limit exists because querying many shards at the same time can make the "
+operator|+
+literal|"job of the coordinating node very CPU and/or memory intensive. It is usually a better idea to "
+operator|+
+literal|"have a smaller number of larger shards. Update ["
+operator|+
+name|TransportSearchAction
+operator|.
+name|SHARD_COUNT_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] to a greater value if you really want to query that many shards at the same time."
+argument_list|)
+throw|;
+block|}
+name|expectedSuccessfulOps
+operator|=
+name|shardCount
 expr_stmt|;
 comment|// we need to add 1 for non active partition, since we count it in the total!
 name|expectedTotalOps
