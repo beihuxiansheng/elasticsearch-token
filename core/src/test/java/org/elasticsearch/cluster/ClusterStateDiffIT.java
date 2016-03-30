@@ -1209,14 +1209,14 @@ name|assertThat
 argument_list|(
 name|node1
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)

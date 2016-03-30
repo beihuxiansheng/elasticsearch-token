@@ -1454,7 +1454,7 @@ name|containsKey
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|==
@@ -1467,7 +1467,7 @@ name|put
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|serializeFullClusterState
@@ -1476,7 +1476,7 @@ name|clusterState
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1511,7 +1511,7 @@ name|containsKey
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|==
@@ -1524,7 +1524,7 @@ name|put
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|serializeDiffClusterState
@@ -1533,7 +1533,7 @@ name|diff
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1596,7 +1596,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1617,7 +1617,7 @@ name|clusterState
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1627,7 +1627,7 @@ name|put
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|bytes
@@ -1724,7 +1724,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1741,7 +1741,7 @@ literal|" of version ["
 operator|+
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|+
 literal|"]"
@@ -1847,7 +1847,7 @@ name|bytes
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|,

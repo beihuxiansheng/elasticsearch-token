@@ -3120,7 +3120,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3160,7 +3160,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3201,7 +3201,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;

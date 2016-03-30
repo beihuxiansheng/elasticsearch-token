@@ -1364,7 +1364,7 @@ name|smallest
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|this
