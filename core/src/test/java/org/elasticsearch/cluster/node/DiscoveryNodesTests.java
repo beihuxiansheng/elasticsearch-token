@@ -182,7 +182,7 @@ name|nodes
 init|=
 name|discoveryNodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|values
@@ -513,7 +513,7 @@ name|nodeIds
 init|=
 name|discoveryNodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -580,7 +580,7 @@ name|nodes
 init|=
 name|discoveryNodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|values

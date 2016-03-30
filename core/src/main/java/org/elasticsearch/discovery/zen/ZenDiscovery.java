@@ -1912,7 +1912,7 @@ name|nextPossibleMasters
 argument_list|(
 name|nodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|values

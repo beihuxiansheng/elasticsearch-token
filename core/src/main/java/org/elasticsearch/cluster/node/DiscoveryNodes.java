@@ -528,24 +528,6 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered nodes arranged by their ids      *      * @return {@link Map} of the discovered nodes arranged by their ids      */
-DECL|method|nodes
-specifier|public
-name|ImmutableOpenMap
-argument_list|<
-name|String
-argument_list|,
-name|DiscoveryNode
-argument_list|>
-name|nodes
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|nodes
-return|;
-block|}
-comment|/**      * Get a {@link Map} of the discovered nodes arranged by their ids      *      * @return {@link Map} of the discovered nodes arranged by their ids      */
 DECL|method|getNodes
 specifier|public
 name|ImmutableOpenMap
@@ -558,8 +540,9 @@ name|getNodes
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|nodes
-argument_list|()
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered data nodes arranged by their ids      *      * @return {@link Map} of the discovered data nodes arranged by their ids      */
@@ -2881,7 +2864,7 @@ name|builder
 argument_list|(
 name|nodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|)
 expr_stmt|;

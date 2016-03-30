@@ -1455,7 +1455,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 decl_stmt|;
 name|this
