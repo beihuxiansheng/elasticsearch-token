@@ -1438,7 +1438,6 @@ operator|new
 name|ShardSearchStats
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 DECL|field|getService
 specifier|private
 specifier|final
