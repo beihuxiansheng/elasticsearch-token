@@ -720,7 +720,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 condition|)
 block|{
@@ -1121,7 +1121,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 operator|)
 return|;

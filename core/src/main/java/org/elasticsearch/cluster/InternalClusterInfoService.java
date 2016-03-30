@@ -1110,7 +1110,7 @@ if|if
 condition|(
 name|addedNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 condition|)
 block|{
@@ -1209,7 +1209,7 @@ if|if
 condition|(
 name|removedNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 condition|)
 block|{

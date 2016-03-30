@@ -3421,7 +3421,7 @@ condition|(
 operator|!
 name|node
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 condition|)
 block|{

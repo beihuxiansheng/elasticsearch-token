@@ -1175,10 +1175,10 @@ name|attributes
 return|;
 block|}
 comment|/**      * Should this node hold data (shards) or not.      */
-DECL|method|dataNode
+DECL|method|isDataNode
 specifier|public
 name|boolean
-name|dataNode
+name|isDataNode
 parameter_list|()
 block|{
 return|return
@@ -1190,18 +1190,6 @@ name|Role
 operator|.
 name|DATA
 argument_list|)
-return|;
-block|}
-comment|/**      * Should this node hold data (shards) or not.      */
-DECL|method|isDataNode
-specifier|public
-name|boolean
-name|isDataNode
-parameter_list|()
-block|{
-return|return
-name|dataNode
-argument_list|()
 return|;
 block|}
 comment|/**      * Can this node become master or not.      */
