@@ -764,16 +764,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -3336,6 +3326,7 @@ name|size
 argument_list|)
 return|;
 block|}
+comment|/**      * Randomly shuffles the fields inside objects in the {@link XContentBuilder} passed in.      * Recursively goes through inner objects and also shuffles them. Exceptions for this      * recursive shuffling behavior can be made by passing in the names of fields which      * internally should stay untouched.      */
 DECL|method|shuffleXContent
 specifier|public
 specifier|static
@@ -3394,9 +3385,6 @@ name|mapOrdered
 argument_list|()
 argument_list|,
 name|exceptFieldNames
-argument_list|,
-name|random
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|XContentBuilder
@@ -3404,8 +3392,13 @@ name|jsonBuilder
 init|=
 name|XContentFactory
 operator|.
-name|jsonBuilder
+name|contentBuilder
+argument_list|(
+name|builder
+operator|.
+name|contentType
 argument_list|()
+argument_list|)
 decl_stmt|;
 return|return
 name|jsonBuilder
@@ -3440,9 +3433,6 @@ argument_list|<
 name|String
 argument_list|>
 name|exceptFieldNames
-parameter_list|,
-name|Random
-name|r
 parameter_list|)
 block|{
 name|List
@@ -3461,6 +3451,8 @@ name|keySet
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// even though we shuffle later, we need this to make tests reproduce on different jvms
+comment|//Collections.sort(keys);
 name|Map
 argument_list|<
 name|String
@@ -3532,8 +3524,6 @@ operator|)
 name|value
 argument_list|,
 name|exceptFieldNames
-argument_list|,
-name|r
 argument_list|)
 argument_list|)
 expr_stmt|;

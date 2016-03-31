@@ -3050,7 +3050,7 @@ name|shuffleXContent
 argument_list|(
 name|builder
 argument_list|,
-name|provideShuffleproofFields
+name|shuffleProtectedFields
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3112,14 +3112,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * subclasses should override this method in case some fields in xContent should be protected from random      * shuffling in the {@link #testFromXContent()} test case      */
-DECL|method|provideShuffleproofFields
+comment|/**      * Subclasses can override this method and return a set of fields which should be protected from      * recursive random shuffling in the {@link #testFromXContent()} test case      */
+DECL|method|shuffleProtectedFields
 specifier|protected
 name|Set
 argument_list|<
 name|String
 argument_list|>
-name|provideShuffleproofFields
+name|shuffleProtectedFields
 parameter_list|()
 block|{
 return|return
