@@ -835,13 +835,16 @@ specifier|final
 name|String
 name|translogUUID
 decl_stmt|;
-comment|/**      * Creates a new Translog instance. This method will create a new transaction log unless the given {@link TranslogConfig} has      * a non-null {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}. If the generation is null this method      * us destructive and will delete all files in the translog path given.      *      * @see TranslogConfig#getTranslogPath()      */
+comment|/**      * Creates a new Translog instance. This method will create a new transaction log unless the given {@link TranslogConfig} has      * a non-null {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}. If the generation is null this method      * us destructive and will delete all files in the translog path given.      *      * @param config the configuration of this translog      * @param translogGeneration the translog generation to open. If this is<code>null</code> a new translog is created. If non-null      * the translog tries to open the given translog generation. The generation is treated as the last generation referenced      * form already committed data. This means all operations that have not yet been committed should be in the translog      * file referenced by this generation. The translog creation will fail if this generation can't be opened.      *      * @see TranslogConfig#getTranslogPath()      *      */
 DECL|method|Translog
 specifier|public
 name|Translog
 parameter_list|(
 name|TranslogConfig
 name|config
+parameter_list|,
+name|TranslogGeneration
+name|translogGeneration
 parameter_list|)
 throws|throws
 name|IOException
@@ -865,14 +868,6 @@ name|config
 operator|=
 name|config
 expr_stmt|;
-name|TranslogGeneration
-name|translogGeneration
-init|=
-name|config
-operator|.
-name|getTranslogGeneration
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|translogGeneration

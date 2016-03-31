@@ -2325,6 +2325,8 @@ operator|new
 name|Translog
 argument_list|(
 name|translogConfig
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -18050,6 +18052,8 @@ name|BigArrays
 operator|.
 name|NON_RECYCLING_INSTANCE
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|translog
