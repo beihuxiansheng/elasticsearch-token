@@ -1003,7 +1003,7 @@ name|add
 argument_list|(
 name|listedNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1130,7 +1130,7 @@ if|if
 condition|(
 name|otherNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|equals
@@ -1326,7 +1326,7 @@ condition|(
 operator|!
 name|otherNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|equals
@@ -2314,12 +2314,12 @@ name|DiscoveryNode
 argument_list|(
 name|nodeWithInfo
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|nodeWithInfo
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|nodeWithInfo
@@ -2910,7 +2910,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|clusterName
@@ -2947,7 +2947,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|values

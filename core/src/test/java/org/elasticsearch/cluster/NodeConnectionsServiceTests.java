@@ -911,7 +911,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|)
 argument_list|)

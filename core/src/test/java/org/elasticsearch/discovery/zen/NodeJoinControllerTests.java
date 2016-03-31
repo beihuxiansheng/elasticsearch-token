@@ -756,7 +756,7 @@ name|localNode
 init|=
 name|initialNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 comment|// make sure we have a master
@@ -787,7 +787,7 @@ name|masterNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1578,7 +1578,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1882,7 +1882,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2736,7 +2736,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3577,7 +3577,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3936,7 +3936,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|,
@@ -3951,7 +3951,7 @@ name|assertThat
 argument_list|(
 name|discoveryNodes
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo

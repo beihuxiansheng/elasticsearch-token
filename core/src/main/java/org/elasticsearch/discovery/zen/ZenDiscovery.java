@@ -1463,7 +1463,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1834,7 +1834,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|==
 literal|null
@@ -1848,7 +1848,7 @@ condition|(
 operator|!
 name|nodes
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -1860,12 +1860,12 @@ name|sendLeaveRequestBlocking
 argument_list|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|TimeValue
@@ -1893,7 +1893,7 @@ name|e
 argument_list|,
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1912,7 +1912,7 @@ name|nextPossibleMasters
 argument_list|(
 name|nodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|values
@@ -1933,7 +1933,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|equals
@@ -1952,7 +1952,7 @@ name|sendLeaveRequest
 argument_list|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|possibleMaster
@@ -1975,7 +1975,7 @@ name|e
 argument_list|,
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|possibleMaster
@@ -2056,7 +2056,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 return|;
 block|}
@@ -2122,7 +2122,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -2625,7 +2625,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|==
 literal|null
@@ -2659,7 +2659,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
 name|equals
@@ -3044,7 +3044,7 @@ name|remove
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3187,7 +3187,7 @@ argument_list|(
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)
@@ -3282,7 +3282,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|==
@@ -3321,7 +3321,7 @@ name|remove
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3745,7 +3745,7 @@ condition|(
 operator|!
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -3755,7 +3755,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -3783,7 +3783,7 @@ name|remove
 argument_list|(
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -3963,7 +3963,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -3994,7 +3994,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -4008,7 +4008,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|newClusterState
@@ -4059,7 +4059,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)
@@ -4073,7 +4073,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 literal|"new cluster state received and we are monitoring the wrong master ["
@@ -4115,7 +4115,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4539,7 +4539,7 @@ if|if
 condition|(
 name|currentNodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|==
 literal|null
@@ -4552,7 +4552,7 @@ condition|(
 operator|!
 name|currentNodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|.
 name|equals
@@ -4562,7 +4562,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -4578,12 +4578,12 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|currentNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4598,14 +4598,14 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|", current "
 operator|+
 name|currentNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|")"
@@ -4641,7 +4641,7 @@ name|addressSupported
 argument_list|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|getClass
@@ -5025,7 +5025,7 @@ if|if
 condition|(
 name|localNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -5497,7 +5497,7 @@ return|return
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 return|;
 block|}
@@ -5526,7 +5526,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|:
 literal|"handleAnotherMaster called but current node is not a master"
@@ -5619,7 +5619,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 argument_list|,

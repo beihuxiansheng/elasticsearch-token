@@ -2608,7 +2608,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|nodeState
@@ -2616,7 +2616,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2629,7 +2629,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|,
 name|nodeState
@@ -2637,7 +2637,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4220,7 +4220,7 @@ literal|null
 condition|?
 name|previousMaster
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null
@@ -4234,7 +4234,7 @@ literal|null
 condition|?
 name|currentMaster
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null
@@ -4312,7 +4312,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|==
 literal|null
@@ -5591,7 +5591,7 @@ name|class
 argument_list|,
 name|discoveryNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
 name|getName
@@ -5682,7 +5682,7 @@ name|class
 argument_list|,
 name|discoveryNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|getName
@@ -7721,7 +7721,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|"] as master"
@@ -7731,7 +7731,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7841,7 +7841,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -7854,10 +7854,10 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 expr_stmt|;
 block|}
@@ -7874,7 +7874,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7968,7 +7968,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -7988,7 +7988,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -7998,10 +7998,10 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null

@@ -2547,7 +2547,7 @@ name|get
 argument_list|(
 name|discoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|==
@@ -2575,7 +2575,7 @@ name|remove
 argument_list|(
 name|discoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2605,7 +2605,7 @@ name|get
 argument_list|(
 name|tribe
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|==
@@ -2651,12 +2651,12 @@ name|DiscoveryNode
 argument_list|(
 name|tribe
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|tribe
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|tribe
@@ -2671,7 +2671,7 @@ argument_list|()
 argument_list|,
 name|tribe
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|,
 name|unmodifiableMap
@@ -2686,7 +2686,7 @@ argument_list|()
 argument_list|,
 name|tribe
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;

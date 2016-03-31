@@ -1285,7 +1285,7 @@ name|NodeClosedException
 argument_list|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 argument_list|)

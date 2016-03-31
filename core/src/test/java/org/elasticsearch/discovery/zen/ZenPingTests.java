@@ -483,7 +483,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;

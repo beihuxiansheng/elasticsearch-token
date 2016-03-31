@@ -549,7 +549,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -563,7 +563,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -576,7 +576,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -718,7 +718,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 expr_stmt|;
 name|unassignedNodes
@@ -753,7 +753,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1094,7 +1094,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1107,7 +1107,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1301,7 +1301,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|null
@@ -1335,7 +1335,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|null
@@ -1583,7 +1583,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1596,7 +1596,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1713,7 +1713,7 @@ name|masterNodeId
 argument_list|(
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1724,7 +1724,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

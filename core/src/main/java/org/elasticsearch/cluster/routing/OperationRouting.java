@@ -373,7 +373,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|clusterState
@@ -431,7 +431,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|clusterState
@@ -576,7 +576,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|clusterState
@@ -1633,7 +1633,7 @@ condition|(
 operator|!
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|keys

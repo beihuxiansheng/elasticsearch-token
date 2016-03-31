@@ -6450,7 +6450,7 @@ name|version
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -6505,7 +6505,7 @@ decl_stmt|;
 assert|assert
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|.
 name|equals
@@ -6806,7 +6806,7 @@ name|acquire
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 init|)
@@ -7038,7 +7038,7 @@ name|InetSocketTransportAddress
 operator|)
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|)
 operator|.
@@ -7244,7 +7244,7 @@ name|InetSocketTransportAddress
 operator|)
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|)
 operator|.
@@ -8159,7 +8159,7 @@ name|acquire
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 init|)
@@ -8273,7 +8273,7 @@ name|acquire
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 init|)

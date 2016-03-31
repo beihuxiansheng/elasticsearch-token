@@ -793,7 +793,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 operator|<=
 name|atMostNodes
@@ -1028,7 +1028,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 operator|<
 name|maxNumReplicas
@@ -1078,7 +1078,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 operator|)
 condition|;
@@ -1390,7 +1390,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 decl_stmt|;
 specifier|final

@@ -3862,10 +3862,10 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 operator|==
 literal|true
@@ -4230,7 +4230,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|isMasterNode

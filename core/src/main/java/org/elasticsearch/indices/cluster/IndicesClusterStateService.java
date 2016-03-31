@@ -1316,7 +1316,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1521,7 +1521,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 assert|assert
@@ -1798,7 +1798,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2182,7 +2182,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2429,7 +2429,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2716,7 +2716,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3065,7 +3065,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3216,7 +3216,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -3229,7 +3229,7 @@ literal|"master "
 operator|+
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|" marked shard as started, but shard has previous failed. resending shard failure"
@@ -3278,7 +3278,7 @@ literal|"master ["
 operator|+
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|"] marked shard as started, but shard has not been created, mark shard as failed"
@@ -3659,7 +3659,7 @@ argument_list|()
 argument_list|,
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3668,7 +3668,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -3684,7 +3684,7 @@ literal|"master "
 operator|+
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|" marked shard as initializing, but shard state is ["
@@ -3809,7 +3809,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -3822,7 +3822,7 @@ literal|"master "
 operator|+
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|" marked shard as initializing, but shard is marked as failed, resend shard failure"
@@ -4048,7 +4048,7 @@ name|sourceNode
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4159,12 +4159,12 @@ name|STORE
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4198,7 +4198,7 @@ name|recoverFromStore
 argument_list|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 condition|)
@@ -4271,7 +4271,7 @@ argument_list|()
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -4333,7 +4333,7 @@ name|indexShardRepository
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 condition|)

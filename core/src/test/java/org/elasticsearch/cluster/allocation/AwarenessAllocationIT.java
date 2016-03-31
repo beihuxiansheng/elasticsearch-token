@@ -643,7 +643,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -1109,7 +1109,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -1499,7 +1499,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -1769,7 +1769,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -2027,7 +2027,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -2261,7 +2261,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1

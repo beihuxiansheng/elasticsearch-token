@@ -896,7 +896,7 @@ name|makeMaster
 condition|?
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 else|:
 literal|null

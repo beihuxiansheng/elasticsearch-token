@@ -545,7 +545,7 @@ name|nodeExists
 argument_list|(
 name|monitoredNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1024,7 +1024,7 @@ name|PingRequest
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|clusterName
@@ -1315,7 +1315,7 @@ condition|(
 operator|!
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1340,7 +1340,7 @@ literal|"], but I am node ["
 operator|+
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|+
 literal|"]"

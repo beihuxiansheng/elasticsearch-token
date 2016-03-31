@@ -2768,7 +2768,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|localNode
+name|isLocalNode
 argument_list|(
 name|builder
 operator|.
@@ -8882,10 +8882,10 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 return|;
 block|}
@@ -10613,7 +10613,7 @@ block|{
 return|return
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeAndClient
 operator|.
@@ -10651,7 +10651,7 @@ block|{
 return|return
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeAndClient
 operator|.
@@ -10663,7 +10663,7 @@ argument_list|)
 operator|||
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|nodeAndClient
 operator|.
@@ -10757,7 +10757,7 @@ block|{
 return|return
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|nodeAndClient
 operator|.
@@ -10771,7 +10771,7 @@ literal|false
 operator|&&
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeAndClient
 operator|.

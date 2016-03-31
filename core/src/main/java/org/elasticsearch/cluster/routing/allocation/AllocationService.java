@@ -2445,7 +2445,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|values
@@ -2531,7 +2531,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|containsKey

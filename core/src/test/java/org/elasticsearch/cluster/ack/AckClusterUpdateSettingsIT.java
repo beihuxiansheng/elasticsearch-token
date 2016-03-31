@@ -551,7 +551,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 expr_stmt|;
 break|break;
@@ -714,7 +714,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -852,7 +852,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 expr_stmt|;
 break|break;

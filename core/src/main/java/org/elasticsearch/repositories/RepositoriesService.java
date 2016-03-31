@@ -523,14 +523,14 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|settings
 argument_list|)
 operator|||
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|settings
 argument_list|)
@@ -1011,7 +1011,7 @@ block|{
 return|return
 name|discoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 return|;
 block|}
@@ -1320,7 +1320,7 @@ comment|// Since operation occurs only on masters, it's enough that only master-
 return|return
 name|discoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 return|;
 block|}

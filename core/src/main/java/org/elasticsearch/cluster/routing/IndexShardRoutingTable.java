@@ -2351,7 +2351,7 @@ name|localAttributeValue
 init|=
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|getAttributes

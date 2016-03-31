@@ -182,7 +182,7 @@ name|nodes
 init|=
 name|discoveryNodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|values
@@ -215,12 +215,12 @@ argument_list|()
 condition|?
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -228,14 +228,14 @@ name|assertThat
 argument_list|(
 name|resolvedNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -308,7 +308,7 @@ name|assertThat
 argument_list|(
 name|resolvedNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -513,7 +513,7 @@ name|nodeIds
 init|=
 name|discoveryNodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -580,7 +580,7 @@ name|nodes
 init|=
 name|discoveryNodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|values
@@ -622,7 +622,7 @@ name|add
 argument_list|(
 name|discoveryNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -632,7 +632,7 @@ name|add
 argument_list|(
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -852,7 +852,7 @@ argument_list|(
 name|nodesList
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -865,7 +865,7 @@ argument_list|(
 name|nodesList
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -958,7 +958,7 @@ name|singleton
 argument_list|(
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 return|;
@@ -990,7 +990,7 @@ name|singleton
 argument_list|(
 name|nodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 return|;
@@ -1246,7 +1246,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

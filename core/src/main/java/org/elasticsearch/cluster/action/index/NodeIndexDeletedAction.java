@@ -547,7 +547,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|INDEX_DELETED_ACTION_NAME
@@ -569,7 +569,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|isDataNode
@@ -709,7 +709,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|INDEX_STORE_DELETED_ACTION_NAME

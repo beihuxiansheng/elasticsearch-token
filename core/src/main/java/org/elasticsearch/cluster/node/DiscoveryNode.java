@@ -214,16 +214,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -283,11 +273,11 @@ argument_list|>
 implements|,
 name|ToXContent
 block|{
-DECL|method|localNode
+DECL|method|isLocalNode
 specifier|public
 specifier|static
 name|boolean
-name|localNode
+name|isLocalNode
 parameter_list|(
 name|Settings
 name|settings
@@ -418,11 +408,11 @@ name|settings
 argument_list|)
 return|;
 block|}
-DECL|method|masterNode
+DECL|method|isMasterNode
 specifier|public
 specifier|static
 name|boolean
-name|masterNode
+name|isMasterNode
 parameter_list|(
 name|Settings
 name|settings
@@ -439,11 +429,11 @@ name|settings
 argument_list|)
 return|;
 block|}
-DECL|method|dataNode
+DECL|method|isDataNode
 specifier|public
 specifier|static
 name|boolean
-name|dataNode
+name|isDataNode
 parameter_list|(
 name|Settings
 name|settings
@@ -460,11 +450,11 @@ name|settings
 argument_list|)
 return|;
 block|}
-DECL|method|ingestNode
+DECL|method|isIngestNode
 specifier|public
 specifier|static
 name|boolean
-name|ingestNode
+name|isIngestNode
 parameter_list|(
 name|Settings
 name|settings
@@ -481,21 +471,6 @@ name|settings
 argument_list|)
 return|;
 block|}
-DECL|field|EMPTY_LIST
-specifier|public
-specifier|static
-specifier|final
-name|List
-argument_list|<
-name|DiscoveryNode
-argument_list|>
-name|EMPTY_LIST
-init|=
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-decl_stmt|;
 DECL|field|nodeName
 specifier|private
 specifier|final
@@ -1110,17 +1085,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The address that the node can be communicated with.      */
-DECL|method|address
-specifier|public
-name|TransportAddress
-name|address
-parameter_list|()
-block|{
-return|return
-name|address
-return|;
-block|}
-comment|/**      * The address that the node can be communicated with.      */
 DECL|method|getAddress
 specifier|public
 name|TransportAddress
@@ -1129,18 +1093,6 @@ parameter_list|()
 block|{
 return|return
 name|address
-argument_list|()
-return|;
-block|}
-comment|/**      * The unique id of the node.      */
-DECL|method|id
-specifier|public
-name|String
-name|id
-parameter_list|()
-block|{
-return|return
-name|nodeId
 return|;
 block|}
 comment|/**      * The unique id of the node.      */
@@ -1151,21 +1103,7 @@ name|getId
 parameter_list|()
 block|{
 return|return
-name|id
-argument_list|()
-return|;
-block|}
-comment|/**      * The name of the node.      */
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|nodeName
+name|nodeId
 return|;
 block|}
 comment|/**      * The name of the node.      */
@@ -1176,8 +1114,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|name
-argument_list|()
+name|this
+operator|.
+name|nodeName
 return|;
 block|}
 comment|/**      * The node attributes.      */
@@ -1199,10 +1138,10 @@ name|attributes
 return|;
 block|}
 comment|/**      * Should this node hold data (shards) or not.      */
-DECL|method|dataNode
+DECL|method|isDataNode
 specifier|public
 name|boolean
-name|dataNode
+name|isDataNode
 parameter_list|()
 block|{
 return|return
@@ -1216,23 +1155,11 @@ name|DATA
 argument_list|)
 return|;
 block|}
-comment|/**      * Should this node hold data (shards) or not.      */
-DECL|method|isDataNode
-specifier|public
-name|boolean
-name|isDataNode
-parameter_list|()
-block|{
-return|return
-name|dataNode
-argument_list|()
-return|;
-block|}
 comment|/**      * Can this node become master or not.      */
-DECL|method|masterNode
+DECL|method|isMasterNode
 specifier|public
 name|boolean
-name|masterNode
+name|isMasterNode
 parameter_list|()
 block|{
 return|return
@@ -1244,18 +1171,6 @@ name|Role
 operator|.
 name|MASTER
 argument_list|)
-return|;
-block|}
-comment|/**      * Can this node become master or not.      */
-DECL|method|isMasterNode
-specifier|public
-name|boolean
-name|isMasterNode
-parameter_list|()
-block|{
-return|return
-name|masterNode
-argument_list|()
 return|;
 block|}
 comment|/**      * Returns a boolean that tells whether this an ingest node or not      */
@@ -1290,10 +1205,10 @@ return|return
 name|roles
 return|;
 block|}
-DECL|method|version
+DECL|method|getVersion
 specifier|public
 name|Version
-name|version
+name|getVersion
 parameter_list|()
 block|{
 return|return
@@ -1324,18 +1239,6 @@ return|return
 name|this
 operator|.
 name|hostAddress
-return|;
-block|}
-DECL|method|getVersion
-specifier|public
-name|Version
-name|getVersion
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|version
 return|;
 block|}
 annotation|@
@@ -1721,7 +1624,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -1737,7 +1640,7 @@ name|field
 argument_list|(
 literal|"name"
 argument_list|,
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1747,7 +1650,7 @@ name|field
 argument_list|(
 literal|"transport_address"
 argument_list|,
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString

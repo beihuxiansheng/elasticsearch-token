@@ -886,7 +886,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -950,7 +950,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo

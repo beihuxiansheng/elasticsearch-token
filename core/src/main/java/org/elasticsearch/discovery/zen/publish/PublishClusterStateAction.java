@@ -875,7 +875,7 @@ argument_list|<>
 argument_list|(
 name|nodes
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -884,7 +884,7 @@ name|localNode
 init|=
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -893,7 +893,7 @@ name|totalMasterNodes
 init|=
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1206,7 +1206,7 @@ name|nodeExists
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1440,7 +1440,7 @@ name|nodeExists
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1454,7 +1454,7 @@ name|containsKey
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|==
@@ -1467,7 +1467,7 @@ name|put
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|serializeFullClusterState
@@ -1476,7 +1476,7 @@ name|clusterState
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1511,7 +1511,7 @@ name|containsKey
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 operator|==
@@ -1524,7 +1524,7 @@ name|put
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|serializeDiffClusterState
@@ -1533,7 +1533,7 @@ name|diff
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1596,7 +1596,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1617,7 +1617,7 @@ name|clusterState
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1627,7 +1627,7 @@ name|put
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|bytes
@@ -1724,7 +1724,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1741,7 +1741,7 @@ literal|" of version ["
 operator|+
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 operator|+
 literal|"]"
@@ -1847,7 +1847,7 @@ name|bytes
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2496,7 +2496,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2683,7 +2683,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|incomingClusterName
@@ -2710,7 +2710,7 @@ if|if
 condition|(
 name|currentNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|equals
@@ -2720,7 +2720,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 operator|==
@@ -2738,7 +2738,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2895,7 +2895,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|" committed version ["

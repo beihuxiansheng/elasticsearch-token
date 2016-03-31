@@ -426,7 +426,7 @@ name|startObject
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|XContentBuilder
@@ -446,7 +446,7 @@ name|NAME
 argument_list|,
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|XContentBuilder

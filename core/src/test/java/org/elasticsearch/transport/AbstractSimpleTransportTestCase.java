@@ -7153,7 +7153,7 @@ name|assertTrue
 argument_list|(
 name|nodeA
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|sameHost
@@ -7169,7 +7169,7 @@ name|assertTrue
 argument_list|(
 name|nodeB
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|sameHost

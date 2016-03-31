@@ -2328,7 +2328,7 @@ name|version
 argument_list|,
 name|nodes
 operator|.
-name|smallestNonClientNodeVersion
+name|getSmallestNonClientNodeVersion
 argument_list|()
 argument_list|)
 decl_stmt|;

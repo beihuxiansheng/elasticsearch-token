@@ -1120,7 +1120,7 @@ if|if
 condition|(
 name|addedNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 condition|)
 block|{
@@ -1219,7 +1219,7 @@ if|if
 condition|(
 name|removedNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 condition|)
 block|{
@@ -2380,7 +2380,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2492,7 +2492,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 name|String

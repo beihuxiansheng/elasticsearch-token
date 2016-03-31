@@ -327,7 +327,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -543,7 +543,7 @@ name|assertThat
 argument_list|(
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|startsWith

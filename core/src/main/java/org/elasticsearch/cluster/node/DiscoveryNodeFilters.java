@@ -454,7 +454,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|instanceof
 name|InetSocketTransportAddress
@@ -472,7 +472,7 @@ name|InetSocketTransportAddress
 operator|)
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|)
 operator|.
@@ -621,7 +621,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|instanceof
 name|InetSocketTransportAddress
@@ -639,7 +639,7 @@ name|InetSocketTransportAddress
 operator|)
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|)
 operator|.
@@ -834,7 +834,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -911,7 +911,7 @@ name|value
 argument_list|,
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 condition|)

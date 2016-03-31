@@ -1085,10 +1085,10 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 if|if

@@ -449,7 +449,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|keys

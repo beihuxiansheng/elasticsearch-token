@@ -1628,7 +1628,7 @@ argument_list|()
 argument_list|,
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|true
@@ -1679,7 +1679,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1694,7 +1694,7 @@ operator|-
 literal|1
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2356,7 +2356,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 decl_stmt|;
 name|DiscoveryNodes
@@ -2383,7 +2383,7 @@ name|remove
 argument_list|(
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2496,7 +2496,7 @@ name|equals
 argument_list|(
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -2969,7 +2969,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 expr_stmt|;
 name|DiscoveryNodes
@@ -2996,7 +2996,7 @@ name|remove
 argument_list|(
 name|failedMasterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3408,7 +3408,7 @@ name|get
 argument_list|(
 name|failedMasterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.

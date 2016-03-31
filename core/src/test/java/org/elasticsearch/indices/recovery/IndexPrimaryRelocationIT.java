@@ -446,7 +446,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|values
@@ -467,7 +467,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|get

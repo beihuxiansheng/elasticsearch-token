@@ -581,7 +581,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo
@@ -951,7 +951,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 condition|)
@@ -1136,7 +1136,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo

@@ -717,7 +717,7 @@ name|localNodeId
 argument_list|(
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -967,7 +967,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1096,7 +1096,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1106,7 +1106,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1118,7 +1118,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1128,7 +1128,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1140,7 +1140,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1150,7 +1150,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1168,7 +1168,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -1209,14 +1209,14 @@ name|assertThat
 argument_list|(
 name|node1
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1225,14 +1225,14 @@ name|assertThat
 argument_list|(
 name|node1
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1673,7 +1673,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|size
@@ -1687,7 +1687,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -1977,7 +1977,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -2036,7 +2036,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys

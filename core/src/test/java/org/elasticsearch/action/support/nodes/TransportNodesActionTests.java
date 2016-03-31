@@ -519,7 +519,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 decl_stmt|;
 comment|// check a request was sent to the right number of nodes
@@ -614,7 +614,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -1054,7 +1054,7 @@ argument_list|(
 name|discoveryNodes
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1067,7 +1067,7 @@ argument_list|(
 name|discoveryNodes
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

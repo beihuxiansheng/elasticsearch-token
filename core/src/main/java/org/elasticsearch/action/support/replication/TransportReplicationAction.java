@@ -2589,7 +2589,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -3265,7 +3265,7 @@ name|exp
 argument_list|,
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|request
@@ -5112,7 +5112,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 operator|.
 name|equals
@@ -5145,7 +5145,7 @@ argument_list|()
 operator|&&
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 operator|.
 name|equals

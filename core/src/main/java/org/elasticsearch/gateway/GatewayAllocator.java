@@ -487,7 +487,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 if|if
@@ -501,7 +501,7 @@ if|if
 condition|(
 name|localNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 operator|==
 literal|true

@@ -932,7 +932,7 @@ name|node
 argument_list|(
 name|fromDiscoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 control|)
@@ -1046,7 +1046,7 @@ name|node
 argument_list|(
 name|toDiscoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;

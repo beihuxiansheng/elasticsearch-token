@@ -1182,7 +1182,7 @@ name|shard
 argument_list|,
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|shardIt

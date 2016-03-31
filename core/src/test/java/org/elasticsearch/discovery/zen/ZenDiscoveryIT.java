@@ -1538,7 +1538,7 @@ if|if
 condition|(
 name|discoveryNode
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -1636,7 +1636,7 @@ argument_list|()
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1954,7 +1954,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 name|zenDiscovery

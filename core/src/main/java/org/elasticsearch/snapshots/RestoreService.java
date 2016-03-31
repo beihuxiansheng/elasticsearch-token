@@ -2338,7 +2338,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2371,7 +2371,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|RestoreInProgress
@@ -3561,7 +3561,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|RestoreInProgress
@@ -3584,7 +3584,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|UPDATE_RESTORE_ACTION_NAME
@@ -5299,7 +5299,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|RestoreInProgress
@@ -5322,7 +5322,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|UPDATE_RESTORE_ACTION_NAME

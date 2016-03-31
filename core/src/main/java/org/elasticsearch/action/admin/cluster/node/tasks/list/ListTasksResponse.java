@@ -1000,7 +1000,7 @@ literal|"name"
 argument_list|,
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1012,7 +1012,7 @@ literal|"transport_address"
 argument_list|,
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString

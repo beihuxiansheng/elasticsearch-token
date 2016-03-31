@@ -1880,7 +1880,7 @@ name|masterId
 init|=
 name|nodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 name|Table
@@ -1911,7 +1911,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1927,7 +1927,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2028,7 +2028,7 @@ name|fullId
 condition|?
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|Strings
@@ -2079,7 +2079,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|instanceof
 name|InetSocketTransportAddress
@@ -2095,7 +2095,7 @@ name|InetSocketTransportAddress
 operator|)
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|)
 operator|.
@@ -2734,7 +2734,7 @@ name|equals
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|?
@@ -2749,7 +2749,7 @@ name|addCell
 argument_list|(
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

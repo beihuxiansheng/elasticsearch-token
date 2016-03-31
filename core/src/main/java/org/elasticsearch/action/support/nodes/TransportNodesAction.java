@@ -846,7 +846,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 decl_stmt|;
 name|this
@@ -1094,7 +1094,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|task
@@ -1184,7 +1184,7 @@ name|idx
 argument_list|,
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|exp

@@ -3224,7 +3224,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 operator|.
 name|equals
@@ -6297,7 +6297,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 comment|// no request was sent to the local node
@@ -6648,7 +6648,7 @@ name|capturedRequest
 operator|.
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
