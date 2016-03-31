@@ -12678,7 +12678,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|reinitWithWrapper
-specifier|private
+specifier|public
+specifier|static
 specifier|final
 name|IndexShard
 name|reinitWithWrapper
@@ -12726,7 +12727,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|recoverShard
-specifier|private
+specifier|public
+specifier|static
 specifier|final
 name|IndexShard
 name|recoverShard
@@ -12858,7 +12860,8 @@ name|newShard
 return|;
 block|}
 DECL|method|newIndexShard
-specifier|private
+specifier|public
+specifier|static
 specifier|final
 name|IndexShard
 name|newIndexShard
