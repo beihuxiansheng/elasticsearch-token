@@ -4746,11 +4746,8 @@ argument_list|)
 init|)
 block|{
 return|return
+operator|new
 name|HighlightBuilder
-operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)

@@ -1398,10 +1398,8 @@ operator|.
 name|readOptionalWriteable
 argument_list|(
 name|HighlightBuilder
-operator|.
-name|PROTOTYPE
 operator|::
-name|readFrom
+operator|new
 argument_list|)
 expr_stmt|;
 name|query
