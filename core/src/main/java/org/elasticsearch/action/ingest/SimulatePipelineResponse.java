@@ -390,9 +390,8 @@ condition|)
 block|{
 name|simulateDocumentResult
 operator|=
+operator|new
 name|SimulateDocumentVerboseResult
-operator|.
-name|readSimulateDocumentVerboseResultFrom
 argument_list|(
 name|in
 argument_list|)
@@ -402,9 +401,8 @@ else|else
 block|{
 name|simulateDocumentResult
 operator|=
+operator|new
 name|SimulateDocumentBaseResult
-operator|.
-name|readSimulateDocumentSimpleResult
 argument_list|(
 name|in
 argument_list|)
