@@ -174,18 +174,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|SearchSlowLog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|similarity
 operator|.
 name|SimilarityService
@@ -452,9 +440,6 @@ specifier|protected
 name|Engine
 name|newEngine
 parameter_list|(
-name|boolean
-name|skipInitialTranslogRecovery
-parameter_list|,
 name|EngineConfig
 name|config
 parameter_list|)
@@ -470,18 +455,17 @@ operator|==
 literal|false
 assert|;
 assert|assert
-name|skipInitialTranslogRecovery
-operator|:
-literal|"can not recover from gateway"
-assert|;
 name|config
 operator|.
-name|setCreate
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// hardcoded - we always expect an index to be present
+name|getOpenMode
+argument_list|()
+operator|==
+name|EngineConfig
+operator|.
+name|OpenMode
+operator|.
+name|OPEN_INDEX_CREATE_TRANSLOG
+assert|;
 return|return
 name|engineFactory
 operator|.

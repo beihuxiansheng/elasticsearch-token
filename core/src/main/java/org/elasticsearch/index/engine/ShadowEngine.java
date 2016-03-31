@@ -182,6 +182,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|shard
+operator|.
+name|TranslogRecoveryPerformer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|translog
 operator|.
 name|Translog
@@ -1115,6 +1129,24 @@ operator|new
 name|UnsupportedOperationException
 argument_list|(
 literal|"ShadowEngine has no IndexWriter"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|recoverFromTranslog
+specifier|public
+name|Engine
+name|recoverFromTranslog
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"can't recover on a shadow engine"
 argument_list|)
 throw|;
 block|}

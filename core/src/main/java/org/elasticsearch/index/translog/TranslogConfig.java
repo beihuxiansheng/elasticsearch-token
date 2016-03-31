@@ -350,6 +350,7 @@ block|{
 return|return
 name|translogGeneration
 return|;
+comment|// TODO make this a ctor argument on the Translog - this mutable state is aweful
 block|}
 comment|/**      * Set the generation to be opened. Use<code>null</code> to start with a fresh translog.      * @see #getTranslogGeneration()      */
 DECL|method|setTranslogGeneration

@@ -6740,6 +6740,17 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the translog uuid used to associate a lucene index with a translog.      */
+DECL|method|getTranslogUUID
+specifier|public
+name|String
+name|getTranslogUUID
+parameter_list|()
+block|{
+return|return
+name|translogUUID
+return|;
+block|}
 block|}
 end_class
 

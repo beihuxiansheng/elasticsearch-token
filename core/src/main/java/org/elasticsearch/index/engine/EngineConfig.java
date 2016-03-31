@@ -433,12 +433,6 @@ operator|.
 name|EventListener
 name|eventListener
 decl_stmt|;
-DECL|field|forceNewTranslog
-specifier|private
-specifier|final
-name|boolean
-name|forceNewTranslog
-decl_stmt|;
 DECL|field|queryCache
 specifier|private
 specifier|final
@@ -532,33 +526,25 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/** if set to true the engine will start even if the translog id in the commit point can not be found */
-DECL|field|INDEX_FORCE_NEW_TRANSLOG
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_FORCE_NEW_TRANSLOG
-init|=
-literal|"index.engine.force_new_translog"
-decl_stmt|;
 DECL|field|translogConfig
 specifier|private
 name|TranslogConfig
 name|translogConfig
 decl_stmt|;
-DECL|field|create
+DECL|field|openMode
 specifier|private
-name|boolean
-name|create
-init|=
-literal|false
+specifier|final
+name|OpenMode
+name|openMode
 decl_stmt|;
 comment|/**      * Creates a new {@link org.elasticsearch.index.engine.EngineConfig}      */
 DECL|method|EngineConfig
 specifier|public
 name|EngineConfig
 parameter_list|(
+name|OpenMode
+name|openMode
+parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,
@@ -612,21 +598,27 @@ name|TimeValue
 name|flushMergesAfter
 parameter_list|)
 block|{
+if|if
+condition|(
+name|openMode
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"openMode must not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|shardId
 operator|=
 name|shardId
 expr_stmt|;
-specifier|final
-name|Settings
-name|settings
-init|=
-name|indexSettings
-operator|.
-name|getSettings
-argument_list|()
-decl_stmt|;
 name|this
 operator|.
 name|indexSettings
@@ -729,19 +721,6 @@ name|translogRecoveryPerformer
 expr_stmt|;
 name|this
 operator|.
-name|forceNewTranslog
-operator|=
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|INDEX_FORCE_NEW_TRANSLOG
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
 name|queryCache
 operator|=
 name|queryCache
@@ -764,17 +743,12 @@ name|flushMergesAfter
 operator|=
 name|flushMergesAfter
 expr_stmt|;
-block|}
-comment|/** if true the engine will start even if the translog id in the commit point can not be found */
-DECL|method|forceNewTranslog
-specifier|public
-name|boolean
-name|forceNewTranslog
-parameter_list|()
-block|{
-return|return
-name|forceNewTranslog
-return|;
+name|this
+operator|.
+name|openMode
+operator|=
+name|openMode
+expr_stmt|;
 block|}
 comment|/**      * Enables / disables gc deletes      *      * @see #isEnableGcDeletes()      */
 DECL|method|setEnableGcDeletes
@@ -989,34 +963,6 @@ return|return
 name|translogConfig
 return|;
 block|}
-comment|/**      * Iff set to<code>true</code> the engine will create a new lucene index when opening the engine.      * Otherwise the lucene index writer is opened in append mode. The default is<code>false</code>      */
-DECL|method|setCreate
-specifier|public
-name|void
-name|setCreate
-parameter_list|(
-name|boolean
-name|create
-parameter_list|)
-block|{
-name|this
-operator|.
-name|create
-operator|=
-name|create
-expr_stmt|;
-block|}
-comment|/**      * Iff<code>true</code> the engine should create a new lucene index when opening the engine.      * Otherwise the lucene index writer should be opened in append mode. The default is<code>false</code>      */
-DECL|method|isCreate
-specifier|public
-name|boolean
-name|isCreate
-parameter_list|()
-block|{
-return|return
-name|create
-return|;
-block|}
 comment|/**      * Returns a {@link TimeValue} at what time interval after the last write modification to the engine finished merges      * should be automatically flushed. This is used to free up transient disk usage of potentially large segments that      * are written after the engine became inactive from an indexing perspective.      */
 DECL|method|getFlushMergesAfter
 specifier|public
@@ -1028,6 +974,32 @@ return|return
 name|flushMergesAfter
 return|;
 block|}
+comment|/**      * Returns the {@link OpenMode} for this engine config.      */
+DECL|method|getOpenMode
+specifier|public
+name|OpenMode
+name|getOpenMode
+parameter_list|()
+block|{
+return|return
+name|openMode
+return|;
+block|}
+comment|/**      * Engine open mode defines how the engine should be opened or in other words what the engine should expect      * to recover from. We either create a brand new engine with a new index and translog or we recover from an existing index.      * If the index exists we also have the ability open only the index and create a new transaction log which happens      * during remote recovery since we have already transferred the index files but the translog is replayed from remote. The last      * and safest option opens the lucene index as well as it's referenced transaction log for a translog recovery.      * See also {@link Engine#recoverFromTranslog()}      */
+DECL|enum|OpenMode
+specifier|public
+enum|enum
+name|OpenMode
+block|{
+DECL|enum constant|CREATE_INDEX_AND_TRANSLOG
+name|CREATE_INDEX_AND_TRANSLOG
+block|,
+DECL|enum constant|OPEN_INDEX_CREATE_TRANSLOG
+name|OPEN_INDEX_CREATE_TRANSLOG
+block|,
+DECL|enum constant|OPEN_INDEX_AND_TRANSLOG
+name|OPEN_INDEX_AND_TRANSLOG
+block|;     }
 block|}
 end_class
 
