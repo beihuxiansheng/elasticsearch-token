@@ -4074,6 +4074,27 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Verify that tasks are marked as non-cancellable
+for|for
+control|(
+name|TaskInfo
+name|taskInfo
+range|:
+name|listResponse
+operator|.
+name|getTasks
+argument_list|()
+control|)
+block|{
+name|assertFalse
+argument_list|(
+name|taskInfo
+operator|.
+name|isCancellable
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Release all tasks and wait for response
 name|checkLatch
 operator|.

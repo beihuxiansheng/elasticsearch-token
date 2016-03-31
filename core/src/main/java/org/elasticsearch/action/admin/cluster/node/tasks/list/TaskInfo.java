@@ -227,6 +227,12 @@ operator|.
 name|Status
 name|status
 decl_stmt|;
+DECL|field|cancellable
+specifier|private
+specifier|final
+name|boolean
+name|cancellable
+decl_stmt|;
 DECL|field|parentTaskId
 specifier|private
 specifier|final
@@ -262,6 +268,9 @@ name|startTime
 parameter_list|,
 name|long
 name|runningTimeNanos
+parameter_list|,
+name|boolean
+name|cancellable
 parameter_list|,
 name|TaskId
 name|parentTaskId
@@ -323,6 +332,12 @@ operator|.
 name|runningTimeNanos
 operator|=
 name|runningTimeNanos
+expr_stmt|;
+name|this
+operator|.
+name|cancellable
+operator|=
+name|cancellable
 expr_stmt|;
 name|this
 operator|.
@@ -421,6 +436,13 @@ operator|=
 name|in
 operator|.
 name|readLong
+argument_list|()
+expr_stmt|;
+name|cancellable
+operator|=
+name|in
+operator|.
+name|readBoolean
 argument_list|()
 expr_stmt|;
 name|parentTaskId
@@ -528,6 +550,17 @@ parameter_list|()
 block|{
 return|return
 name|runningTimeNanos
+return|;
+block|}
+comment|/**      * Returns true if the task supports cancellation      */
+DECL|method|isCancellable
+specifier|public
+name|boolean
+name|isCancellable
+parameter_list|()
+block|{
+return|return
+name|cancellable
 return|;
 block|}
 comment|/**      * Returns the parent task id      */
@@ -659,6 +692,13 @@ argument_list|(
 name|runningTimeNanos
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|cancellable
+argument_list|)
+expr_stmt|;
 name|parentTaskId
 operator|.
 name|writeTo
@@ -785,6 +825,15 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|NANOSECONDS
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"cancellable"
+argument_list|,
+name|cancellable
 argument_list|)
 expr_stmt|;
 if|if
