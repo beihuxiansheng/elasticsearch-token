@@ -429,7 +429,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"unexpected token ['PainlessError'] was expecting one of [TYPE]."
+literal|"Invalid type [PainlessError]."
 argument_list|)
 argument_list|)
 expr_stmt|;
