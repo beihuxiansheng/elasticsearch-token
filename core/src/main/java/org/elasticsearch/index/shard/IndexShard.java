@@ -5440,6 +5440,7 @@ operator|.
 name|OpenMode
 name|openMode
 decl_stmt|;
+comment|/* by default we recover and index and replay the translog but if the index          * doesn't exist we create everything from the scratch. Yet, if the index          * doesn't exist we don't need to worry about the skipTranslogRecovery since          * there is no translog on a non-existing index.          * The skipTranslogRecovery invariant is used if we do remote recovery since          * there the translog isn't local but on the remote host, hence we can skip it.          */
 if|if
 condition|(
 name|indexExists
