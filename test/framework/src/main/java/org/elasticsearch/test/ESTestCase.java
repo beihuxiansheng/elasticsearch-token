@@ -3452,7 +3452,13 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// even though we shuffle later, we need this to make tests reproduce on different jvms
-comment|//Collections.sort(keys);
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|keys
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String

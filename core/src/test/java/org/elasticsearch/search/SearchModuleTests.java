@@ -16,16 +16,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -190,23 +180,19 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|Suggester
+name|phrase
+operator|.
+name|PhraseSuggester
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|io
 operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|phrase
-operator|.
-name|PhraseSuggester
+name|IOException
 import|;
 end_import
 
