@@ -120,6 +120,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|CyclicBarrier
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledFuture
 import|;
 end_import
@@ -1046,6 +1058,15 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
+name|CyclicBarrier
+name|waitForShutdown
+init|=
+operator|new
+name|CyclicBarrier
+argument_list|(
+name|threads
+argument_list|)
+decl_stmt|;
 comment|/*          * We never end up waiting this long because the test rethrottles over and over again, ratcheting down the delay a random amount          * each time.          */
 name|float
 name|originalRequestsPerSecond
@@ -1295,6 +1316,11 @@ literal|"Rethrottled [{}] times"
 argument_list|,
 name|rethrottles
 argument_list|)
+expr_stmt|;
+name|waitForShutdown
+operator|.
+name|await
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
