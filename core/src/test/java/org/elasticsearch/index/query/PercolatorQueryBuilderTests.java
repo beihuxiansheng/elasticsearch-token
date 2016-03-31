@@ -229,6 +229,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -428,6 +448,45 @@ name|documentSource
 argument_list|)
 return|;
 block|}
+block|}
+comment|/**      * prevent fields in the "document" field from being shuffled randomly, because it later is parsed to      * a {@link BytesReference} and even though the documents are the same, equals will fail when comparing      * BytesReference      */
+annotation|@
+name|Override
+DECL|method|provideShuffleproofFields
+specifier|protected
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|provideShuffleproofFields
+parameter_list|()
+block|{
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|fieldNames
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|fieldNames
+operator|.
+name|add
+argument_list|(
+name|PercolatorQueryParser
+operator|.
+name|DOCUMENT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|fieldNames
+return|;
 block|}
 annotation|@
 name|Override
@@ -834,6 +893,8 @@ block|}
 block|}
 comment|// overwrite this test, because adding bogus field to the document part is valid and that would make the test fail
 comment|// (the document part represents the document being percolated and any key value pair is allowed there)
+annotation|@
+name|Override
 DECL|method|testUnknownObjectException
 specifier|public
 name|void
