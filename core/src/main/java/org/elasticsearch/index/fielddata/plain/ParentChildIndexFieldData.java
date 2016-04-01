@@ -1351,7 +1351,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Global-ordinals[_parent] took {}"
+literal|"global-ordinals [_parent] took [{}]"
 argument_list|,
 operator|new
 name|TimeValue

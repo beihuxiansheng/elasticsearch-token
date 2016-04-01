@@ -267,9 +267,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using probe [{}] with refresh_interval [{}]"
-argument_list|,
-name|probe
+literal|"using refresh_interval [{}]"
 argument_list|,
 name|refreshInterval
 argument_list|)
