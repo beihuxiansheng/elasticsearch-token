@@ -2329,6 +2329,10 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
+name|factory
+operator|.
+name|highlightBuilder
+operator|=
 name|in
 operator|.
 name|readOptionalWriteable
