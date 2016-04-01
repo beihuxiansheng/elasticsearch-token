@@ -229,6 +229,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -263,6 +273,28 @@ argument_list|<
 name|PercolatorQueryBuilder
 argument_list|>
 block|{
+DECL|field|SHUFFLE_PROTECTED_FIELDS
+specifier|private
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|SHUFFLE_PROTECTED_FIELDS
+init|=
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+name|PercolatorQueryParser
+operator|.
+name|DOCUMENT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
+argument_list|)
+decl_stmt|;
 DECL|field|indexedDocumentIndex
 specifier|private
 name|String
@@ -428,6 +460,22 @@ name|documentSource
 argument_list|)
 return|;
 block|}
+block|}
+comment|/**      * we don't want to shuffle the "document" field internally in {@link #testFromXContent()} because even though the      * documents would be functionally the same, their {@link BytesReference} representation isn't and thats what we      * compare when check for equality of the original and the shuffled builder      */
+annotation|@
+name|Override
+DECL|method|shuffleProtectedFields
+specifier|protected
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|shuffleProtectedFields
+parameter_list|()
+block|{
+return|return
+name|SHUFFLE_PROTECTED_FIELDS
+return|;
 block|}
 annotation|@
 name|Override
@@ -834,6 +882,8 @@ block|}
 block|}
 comment|// overwrite this test, because adding bogus field to the document part is valid and that would make the test fail
 comment|// (the document part represents the document being percolated and any key value pair is allowed there)
+annotation|@
+name|Override
 DECL|method|testUnknownObjectException
 specifier|public
 name|void
