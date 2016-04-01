@@ -1968,9 +1968,8 @@ expr_stmt|;
 name|Item
 name|newItem
 init|=
+operator|new
 name|Item
-operator|.
-name|readItemFrom
 argument_list|(
 name|StreamInput
 operator|.
