@@ -1343,12 +1343,12 @@ name|encoding
 argument_list|,
 name|center
 operator|.
-name|lon
+name|lat
 argument_list|()
 argument_list|,
 name|center
 operator|.
-name|lat
+name|lon
 argument_list|()
 argument_list|,
 name|normDistance

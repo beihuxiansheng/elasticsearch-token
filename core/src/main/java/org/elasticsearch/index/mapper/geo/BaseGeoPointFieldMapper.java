@@ -36,13 +36,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 operator|.
 name|GeoHashUtils
 import|;
@@ -499,24 +497,6 @@ operator|.
 name|TypeParsers
 operator|.
 name|parseField
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|TypeParsers
-operator|.
-name|parseMultiField
 import|;
 end_import
 

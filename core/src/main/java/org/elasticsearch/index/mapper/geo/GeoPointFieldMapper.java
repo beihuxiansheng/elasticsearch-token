@@ -822,12 +822,12 @@ argument_list|()
 argument_list|,
 name|point
 operator|.
-name|lon
+name|lat
 argument_list|()
 argument_list|,
 name|point
 operator|.
-name|lat
+name|lon
 argument_list|()
 argument_list|,
 name|fieldType

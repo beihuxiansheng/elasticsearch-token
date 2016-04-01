@@ -44,7 +44,7 @@ name|geopoint
 operator|.
 name|search
 operator|.
-name|GeoPointDistanceRangeQuery
+name|XGeoPointDistanceRangeQuery
 import|;
 end_import
 
@@ -391,12 +391,12 @@ name|maxRadialDistanceMeters
 argument_list|(
 name|point
 operator|.
-name|lon
+name|lat
 argument_list|()
 argument_list|,
 name|point
 operator|.
-name|lat
+name|lon
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1248,17 +1248,17 @@ name|query
 argument_list|,
 name|instanceOf
 argument_list|(
-name|GeoPointDistanceRangeQuery
+name|XGeoPointDistanceRangeQuery
 operator|.
 name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|GeoPointDistanceRangeQuery
+name|XGeoPointDistanceRangeQuery
 name|geoQuery
 init|=
 operator|(
-name|GeoPointDistanceRangeQuery
+name|XGeoPointDistanceRangeQuery
 operator|)
 name|query
 decl_stmt|;
