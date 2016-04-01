@@ -354,9 +354,7 @@ name|DateTime
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|Defaults
-operator|.
-name|DATE_TIME_FORMATTER
+name|DEFAULT_DATE_TIME_FORMATTER
 argument_list|,
 name|DateTimeZone
 operator|.

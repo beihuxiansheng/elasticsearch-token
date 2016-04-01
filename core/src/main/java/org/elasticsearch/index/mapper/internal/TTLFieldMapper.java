@@ -236,7 +236,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 import|;
 end_import
 
@@ -372,7 +372,7 @@ specifier|static
 class|class
 name|Defaults
 extends|extends
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 operator|.
 name|Defaults
 block|{
@@ -849,7 +849,7 @@ specifier|final
 class|class
 name|TTLFieldType
 extends|extends
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 operator|.
 name|LongFieldType
 block|{
@@ -1400,7 +1400,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 operator|.
 name|CustomLongNumericField
 argument_list|(

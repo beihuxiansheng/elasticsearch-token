@@ -328,7 +328,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 operator|.
 name|DoubleFieldType
 import|;

@@ -724,9 +724,7 @@ block|{
 return|return
 name|DateFieldMapper
 operator|.
-name|Defaults
-operator|.
-name|DATE_TIME_FORMATTER
+name|DEFAULT_DATE_TIME_FORMATTER
 operator|.
 name|parser
 argument_list|()
@@ -1224,9 +1222,7 @@ name|forPattern
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|Defaults
-operator|.
-name|DATE_TIME_FORMATTER
+name|DEFAULT_DATE_TIME_FORMATTER
 operator|.
 name|format
 argument_list|()

@@ -634,13 +634,16 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Deprecated
+comment|// for legacy ints only
 DECL|method|parseNumberField
 specifier|public
 specifier|static
 name|void
 name|parseNumberField
 parameter_list|(
-name|NumberFieldMapper
+name|LegacyNumberFieldMapper
 operator|.
 name|Builder
 name|builder

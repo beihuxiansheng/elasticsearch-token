@@ -1738,7 +1738,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=long,doc_values=true"
+literal|"type=long"
 argument_list|,
 literal|"field2"
 argument_list|,

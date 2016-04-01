@@ -150,9 +150,9 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|LongFieldMapper
+name|NumberFieldMapper
 operator|.
-name|LongFieldType
+name|NumberFieldType
 import|;
 end_import
 
@@ -1337,7 +1337,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|LongFieldType
+name|NumberFieldType
 operator|.
 name|class
 argument_list|)

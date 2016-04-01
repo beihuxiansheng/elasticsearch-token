@@ -60,7 +60,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DateFieldTypeTests
+name|LegacyDateFieldTypeTests
 import|;
 end_import
 
@@ -70,7 +70,7 @@ specifier|public
 class|class
 name|TimestampFieldTypeTests
 extends|extends
-name|DateFieldTypeTests
+name|LegacyDateFieldTypeTests
 block|{
 annotation|@
 name|Override
@@ -112,9 +112,7 @@ name|instant
 init|=
 name|DateFieldMapper
 operator|.
-name|Defaults
-operator|.
-name|DATE_TIME_FORMATTER
+name|DEFAULT_DATE_TIME_FORMATTER
 operator|.
 name|parser
 argument_list|()

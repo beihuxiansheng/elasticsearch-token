@@ -2011,6 +2011,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/17700"
+argument_list|)
 DECL|method|testIpRange
 specifier|public
 name|void

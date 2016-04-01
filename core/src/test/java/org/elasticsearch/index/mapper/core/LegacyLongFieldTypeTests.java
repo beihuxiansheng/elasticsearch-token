@@ -74,9 +74,9 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DoubleFieldMapper
+name|LegacyLongFieldMapper
 operator|.
-name|DoubleFieldType
+name|LongFieldType
 import|;
 end_import
 
@@ -101,10 +101,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DoubleFieldTypeTests
+DECL|class|LegacyLongFieldTypeTests
 specifier|public
 class|class
-name|DoubleFieldTypeTests
+name|LegacyLongFieldTypeTests
 extends|extends
 name|FieldTypeTestCase
 block|{
@@ -118,9 +118,9 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|DoubleFieldMapper
+name|LegacyLongFieldMapper
 operator|.
-name|DoubleFieldType
+name|LongFieldType
 argument_list|()
 return|;
 block|}
@@ -134,7 +134,10 @@ parameter_list|()
 block|{
 name|setDummyNullValue
 argument_list|(
-literal|10.0D
+operator|(
+name|long
+operator|)
+literal|10
 argument_list|)
 expr_stmt|;
 block|}
@@ -146,11 +149,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|DoubleFieldType
+name|LongFieldType
 name|ft
 init|=
 operator|new
-name|DoubleFieldType
+name|LongFieldType
 argument_list|()
 decl_stmt|;
 comment|// current impl ignores args and shourd always return INTERSECTS
@@ -166,10 +169,10 @@ name|isFieldWithinQuery
 argument_list|(
 literal|null
 argument_list|,
-name|randomDouble
+name|randomLong
 argument_list|()
 argument_list|,
-name|randomDouble
+name|randomLong
 argument_list|()
 argument_list|,
 name|randomBoolean
@@ -199,18 +202,23 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|Double
+name|Long
 operator|.
 name|valueOf
 argument_list|(
-literal|1.2
+literal|3
 argument_list|)
 argument_list|,
 name|ft
 operator|.
 name|valueForSearch
 argument_list|(
-literal|1.2
+name|Long
+operator|.
+name|valueOf
+argument_list|(
+literal|3
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -236,7 +236,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 import|;
 end_import
 
@@ -252,7 +252,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 import|;
 end_import
 
@@ -383,7 +383,7 @@ specifier|static
 class|class
 name|Defaults
 extends|extends
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 operator|.
 name|Defaults
 block|{
@@ -590,7 +590,7 @@ annotation|@
 name|Override
 DECL|method|fieldType
 specifier|public
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 operator|.
 name|DateFieldType
 name|fieldType
@@ -598,7 +598,7 @@ parameter_list|()
 block|{
 return|return
 operator|(
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 operator|.
 name|DateFieldType
 operator|)
@@ -1094,7 +1094,7 @@ specifier|final
 class|class
 name|TimestampFieldType
 extends|extends
-name|DateFieldMapper
+name|LegacyDateFieldMapper
 operator|.
 name|DateFieldType
 block|{
@@ -1429,7 +1429,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 operator|.
 name|CustomLongNumericField
 argument_list|(

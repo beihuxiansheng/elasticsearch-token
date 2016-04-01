@@ -356,9 +356,7 @@ index|[]
 block|{
 name|DateFieldMapper
 operator|.
-name|Defaults
-operator|.
-name|DATE_TIME_FORMATTER
+name|DEFAULT_DATE_TIME_FORMATTER
 block|,
 name|Joda
 operator|.
