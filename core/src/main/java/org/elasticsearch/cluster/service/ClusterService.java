@@ -1562,6 +1562,7 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
+comment|// close timeout listeners that did not have an ongoing timeout
 name|postAppliedListeners
 operator|.
 name|stream
@@ -1576,19 +1577,21 @@ operator|instanceof
 name|TimeoutClusterStateListener
 argument_list|)
 operator|.
-name|forEach
+name|map
 argument_list|(
 name|listener
 lambda|->
 operator|(
-operator|(
 name|TimeoutClusterStateListener
 operator|)
 name|listener
-operator|)
+argument_list|)
 operator|.
+name|forEach
+argument_list|(
+name|TimeoutClusterStateListener
+operator|::
 name|onClose
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|remove
