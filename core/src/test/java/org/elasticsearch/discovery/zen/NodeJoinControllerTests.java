@@ -414,17 +414,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
+name|HashSet
 import|;
 end_import
 
@@ -444,7 +434,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|Set
 import|;
 end_import
 
@@ -557,6 +547,42 @@ operator|.
 name|atomic
 operator|.
 name|AtomicReference
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|shuffle
 import|;
 end_import
 
@@ -730,7 +756,7 @@ name|localNode
 init|=
 name|initialNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 comment|// make sure we have a master
@@ -761,7 +787,7 @@ name|masterNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1552,7 +1578,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1856,7 +1882,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2077,8 +2103,6 @@ expr_stmt|;
 block|}
 block|}
 comment|// add
-name|Collections
-operator|.
 name|shuffle
 argument_list|(
 name|nodesToJoin
@@ -2278,8 +2302,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|Collections
-operator|.
 name|shuffle
 argument_list|(
 name|nodesToJoin
@@ -2613,8 +2635,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|Collections
-operator|.
 name|shuffle
 argument_list|(
 name|nodesToJoin
@@ -2716,7 +2736,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2896,6 +2916,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -3551,7 +3577,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3910,7 +3936,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|,
@@ -3925,7 +3951,7 @@ name|assertThat
 argument_list|(
 name|discoveryNodes
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4187,33 +4213,36 @@ name|boolean
 name|master
 parameter_list|)
 block|{
-name|Map
+name|Set
 argument_list|<
-name|String
-argument_list|,
-name|String
+name|DiscoveryNode
+operator|.
+name|Role
 argument_list|>
-name|attributes
+name|roles
 init|=
 operator|new
-name|HashMap
+name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|attributes
-operator|.
-name|put
-argument_list|(
-literal|"master"
-argument_list|,
-name|Boolean
-operator|.
-name|toString
-argument_list|(
+if|if
+condition|(
 name|master
-argument_list|)
+condition|)
+block|{
+name|roles
+operator|.
+name|add
+argument_list|(
+name|DiscoveryNode
+operator|.
+name|Role
+operator|.
+name|MASTER
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|String
 name|prefix
@@ -4244,7 +4273,10 @@ operator|+
 name|i
 argument_list|)
 argument_list|,
-name|attributes
+name|emptyMap
+argument_list|()
+argument_list|,
+name|roles
 argument_list|,
 name|Version
 operator|.

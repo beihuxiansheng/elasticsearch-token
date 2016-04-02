@@ -3284,7 +3284,7 @@ specifier|final
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 switch|switch
@@ -4178,7 +4178,7 @@ expr_stmt|;
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 comment|// Generate random IDs:
@@ -4717,7 +4717,7 @@ specifier|final
 name|Random
 name|threadRandom
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|startingGun

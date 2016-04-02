@@ -80,6 +80,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -117,6 +141,12 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -134,6 +164,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -251,7 +287,7 @@ name|masterNodeId
 argument_list|(
 name|node1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -292,7 +328,7 @@ name|masterNodeId
 argument_list|(
 name|node1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -333,7 +369,7 @@ name|masterNodeId
 argument_list|(
 name|node2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)

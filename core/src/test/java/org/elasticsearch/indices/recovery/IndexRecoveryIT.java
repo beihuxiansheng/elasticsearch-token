@@ -2498,7 +2498,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -2555,7 +2555,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -2715,7 +2715,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -2750,7 +2750,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -2985,7 +2985,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -3020,7 +3020,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -3194,7 +3194,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -3229,7 +3229,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -4657,7 +4657,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.color"
+literal|"node.attr.color"
 argument_list|,
 literal|"blue"
 argument_list|)
@@ -4691,7 +4691,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.color"
+literal|"node.attr.color"
 argument_list|,
 literal|"red"
 argument_list|)
@@ -4927,7 +4927,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 name|assertFalse

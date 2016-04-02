@@ -1413,15 +1413,6 @@ parameter_list|()
 block|{
 comment|// Skip me
 block|}
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configureSuggesters
-parameter_list|()
-block|{
-comment|// Skip me
-block|}
 block|}
 argument_list|,
 operator|new
@@ -1985,19 +1976,19 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|deserializedQuery
-argument_list|,
 name|testAgg
+argument_list|,
+name|deserializedQuery
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|deserializedQuery
+name|testAgg
 operator|.
 name|hashCode
 argument_list|()
 argument_list|,
-name|testAgg
+name|deserializedQuery
 operator|.
 name|hashCode
 argument_list|()
@@ -2005,9 +1996,9 @@ argument_list|)
 expr_stmt|;
 name|assertNotSame
 argument_list|(
-name|deserializedQuery
-argument_list|,
 name|testAgg
+argument_list|,
+name|deserializedQuery
 argument_list|)
 expr_stmt|;
 block|}

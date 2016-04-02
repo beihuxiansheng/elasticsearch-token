@@ -1730,7 +1730,7 @@ name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1769,7 +1769,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|values
@@ -2168,7 +2168,7 @@ name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2207,7 +2207,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|values
@@ -2614,7 +2614,7 @@ name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2734,7 +2734,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|values
@@ -2791,7 +2791,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|values
@@ -2973,7 +2973,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|values
@@ -2991,7 +2991,7 @@ name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|)

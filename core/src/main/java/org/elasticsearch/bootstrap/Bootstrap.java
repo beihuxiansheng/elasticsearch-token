@@ -683,12 +683,12 @@ parameter_list|)
 block|{
 comment|// we've already logged this.
 block|}
-name|JNANatives
+name|Natives
 operator|.
 name|trySetMaxNumberOfThreads
 argument_list|()
 expr_stmt|;
-name|JNANatives
+name|Natives
 operator|.
 name|trySetMaxSizeVirtualMemory
 argument_list|()

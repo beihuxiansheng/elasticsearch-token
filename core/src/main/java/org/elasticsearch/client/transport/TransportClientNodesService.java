@@ -1003,7 +1003,7 @@ name|add
 argument_list|(
 name|listedNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1130,7 +1130,7 @@ if|if
 condition|(
 name|otherNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|equals
@@ -1226,6 +1226,16 @@ argument_list|()
 argument_list|,
 name|transportAddress
 argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
+argument_list|,
 name|minCompatibilityVersion
 argument_list|)
 decl_stmt|;
@@ -1316,7 +1326,7 @@ condition|(
 operator|!
 name|otherNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|equals
@@ -2285,7 +2295,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// use discovered information but do keep the original transport address, so people can control which address is exactly used.
+comment|// use discovered information but do keep the original transport address,
+comment|// so people can control which address is exactly used.
 name|DiscoveryNode
 name|nodeWithInfo
 init|=
@@ -2303,12 +2314,12 @@ name|DiscoveryNode
 argument_list|(
 name|nodeWithInfo
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|nodeWithInfo
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|nodeWithInfo
@@ -2323,17 +2334,22 @@ argument_list|()
 argument_list|,
 name|listedNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|,
 name|nodeWithInfo
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 argument_list|,
 name|nodeWithInfo
 operator|.
-name|version
+name|getRoles
+argument_list|()
+argument_list|,
+name|nodeWithInfo
+operator|.
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2341,7 +2357,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// although we asked for one node, our target may not have completed initialization yet and doesn't have cluster nodes
+comment|// although we asked for one node, our target may not have completed
+comment|// initialization yet and doesn't have cluster nodes
 name|logger
 operator|.
 name|debug
@@ -2893,7 +2910,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|clusterName
@@ -2930,7 +2947,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|values

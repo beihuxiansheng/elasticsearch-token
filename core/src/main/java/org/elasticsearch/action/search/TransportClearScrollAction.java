@@ -527,7 +527,7 @@ name|expectedOps
 operator|=
 name|nodes
 operator|.
-name|size
+name|getSize
 argument_list|()
 expr_stmt|;
 block|}

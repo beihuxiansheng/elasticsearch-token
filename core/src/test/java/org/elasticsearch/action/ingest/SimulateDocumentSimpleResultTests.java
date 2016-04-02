@@ -215,9 +215,8 @@ decl_stmt|;
 name|SimulateDocumentBaseResult
 name|otherSimulateDocumentBaseResult
 init|=
+operator|new
 name|SimulateDocumentBaseResult
-operator|.
-name|readSimulateDocumentSimpleResult
 argument_list|(
 name|streamInput
 argument_list|)

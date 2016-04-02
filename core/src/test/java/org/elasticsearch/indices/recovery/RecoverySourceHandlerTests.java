@@ -486,6 +486,30 @@ name|AtomicBoolean
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
 begin_class
 DECL|class|RecoverySourceHandlerTests
 specifier|public
@@ -628,6 +652,12 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -641,6 +671,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -1109,6 +1145,12 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -1122,6 +1164,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -1375,7 +1423,7 @@ name|CorruptionUtils
 operator|.
 name|corruptFile
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|FileSystemUtils
@@ -1635,6 +1683,12 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -1648,6 +1702,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.

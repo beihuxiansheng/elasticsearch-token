@@ -1701,7 +1701,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|task
@@ -1862,7 +1862,7 @@ name|actionName
 argument_list|,
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1923,7 +1923,7 @@ name|nodeId
 init|=
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 if|if

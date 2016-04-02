@@ -209,16 +209,6 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
-DECL|field|ALL_TASKS
-specifier|public
-specifier|static
-specifier|final
-name|long
-name|ALL_TASKS
-init|=
-operator|-
-literal|1L
-decl_stmt|;
 DECL|field|nodesIds
 specifier|private
 name|String

@@ -1313,29 +1313,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-DECL|field|NODE_CLIENT_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|Setting
-argument_list|<
-name|Boolean
-argument_list|>
-name|NODE_CLIENT_SETTING
-init|=
-name|Setting
-operator|.
-name|boolSetting
-argument_list|(
-literal|"node.client"
-argument_list|,
-literal|false
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
-argument_list|)
-decl_stmt|;
 DECL|field|NODE_DATA_SETTING
 specifier|public
 specifier|static
@@ -1477,8 +1454,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|// this sucks that folks can mistype client etc and get away with it.
-comment|// TODO: we should move this to node.attribute.${name} = ${value} instead.
 DECL|field|NODE_ATTRIBUTES
 specifier|public
 specifier|static
@@ -1493,7 +1468,7 @@ name|Setting
 operator|.
 name|groupSetting
 argument_list|(
-literal|"node."
+literal|"node.attr."
 argument_list|,
 name|Property
 operator|.
@@ -2122,7 +2097,7 @@ name|ActionModule
 argument_list|(
 name|DiscoveryNode
 operator|.
-name|ingestNode
+name|isIngestNode
 argument_list|(
 name|settings
 argument_list|)
@@ -2830,7 +2805,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|==
 literal|null

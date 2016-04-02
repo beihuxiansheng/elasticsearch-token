@@ -737,7 +737,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -934,7 +934,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1248,7 +1248,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1447,7 +1447,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1797,7 +1797,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2138,7 +2138,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2455,7 +2455,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2472,7 +2472,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|,
 name|not
@@ -3699,7 +3699,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|nullValue

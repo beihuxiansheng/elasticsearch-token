@@ -396,7 +396,7 @@ name|query
 operator|.
 name|support
 operator|.
-name|QueryInnerHits
+name|InnerHitBuilder
 import|;
 end_import
 
@@ -16721,7 +16721,7 @@ operator|.
 name|innerHit
 argument_list|(
 operator|new
-name|QueryInnerHits
+name|InnerHitBuilder
 argument_list|()
 argument_list|)
 argument_list|)

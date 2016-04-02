@@ -198,7 +198,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using refresh_interval [{}]"
+literal|"using refresh_interval [{}]"
 argument_list|,
 name|refreshInterval
 argument_list|)

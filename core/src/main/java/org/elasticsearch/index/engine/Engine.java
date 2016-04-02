@@ -672,6 +672,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|shard
+operator|.
+name|TranslogRecoveryPerformer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|store
 operator|.
 name|Store
@@ -5606,7 +5620,7 @@ name|searcher
 parameter_list|)
 function_decl|;
 block|}
-comment|/**      * Request that this engine throttle incoming indexing requests to one thread.  Must be matched by a later call to {@link deactivateThrottling}.      */
+comment|/**      * Request that this engine throttle incoming indexing requests to one thread.  Must be matched by a later call to {@link #deactivateThrottling()}.      */
 DECL|method|activateThrottling
 specifier|public
 specifier|abstract
@@ -5621,6 +5635,16 @@ specifier|abstract
 name|void
 name|deactivateThrottling
 parameter_list|()
+function_decl|;
+comment|/**      * Performs recovery from the transaction log.      * This operation will close the engine if the recovery fails.      */
+DECL|method|recoverFromTranslog
+specifier|public
+specifier|abstract
+name|Engine
+name|recoverFromTranslog
+parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_class

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Same as {@link MatchQueryParser} but has support for multiple fields.  */
+comment|/**  * Same as {@link MatchQueryBuilder} but has support for multiple fields.  */
 end_comment
 
 begin_class

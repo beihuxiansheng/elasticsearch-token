@@ -296,6 +296,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|ConstantScoreQueryBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|PercolatorQueryBuilder
 import|;
 end_import
@@ -1583,13 +1597,25 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// wrapping in a constant score query with boost 0 for bwc reason.
+comment|// percolator api didn't emit scores before and never included scores
+comment|// for how well percolator queries matched with the document being percolated
 name|searchSource
 operator|.
 name|field
 argument_list|(
 literal|"query"
 argument_list|,
+operator|new
+name|ConstantScoreQueryBuilder
+argument_list|(
 name|percolatorQueryBuilder
+argument_list|)
+operator|.
+name|boost
+argument_list|(
+literal|0f
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

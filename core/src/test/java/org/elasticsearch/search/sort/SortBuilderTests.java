@@ -330,6 +330,10 @@ name|namedWriteableRegistry
 operator|=
 literal|null
 expr_stmt|;
+name|indicesQueriesRegistry
+operator|=
+literal|null
+expr_stmt|;
 block|}
 comment|/**      * test two syntax variations:      * - "sort" : "fieldname"      * - "sort" : { "fieldname" : "asc" }      */
 DECL|method|testSingleFieldSort

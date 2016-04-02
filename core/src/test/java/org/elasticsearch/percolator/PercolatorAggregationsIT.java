@@ -432,7 +432,7 @@ literal|"type=text"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -998,7 +998,7 @@ literal|"type=text"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1774,7 +1774,7 @@ literal|"type=text"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;

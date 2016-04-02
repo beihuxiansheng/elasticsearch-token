@@ -20360,6 +20360,7 @@ name|OBJECT
 expr_stmt|;
 for|for
 control|(
+specifier|final
 name|Sort
 name|value
 range|:

@@ -324,19 +324,6 @@ argument_list|(
 literal|"order"
 argument_list|)
 decl_stmt|;
-DECL|field|REVERSE
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|REVERSE
-init|=
-operator|new
-name|ParseField
-argument_list|(
-literal|"reverse"
-argument_list|)
-decl_stmt|;
 DECL|field|SORT_MODE
 specifier|public
 specifier|static
@@ -1741,39 +1728,6 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|REVERSE
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|parser
-operator|.
-name|booleanValue
-argument_list|()
-condition|)
-block|{
-name|order
-operator|=
-name|SortOrder
-operator|.
-name|DESC
-expr_stmt|;
-block|}
-comment|// else we keep the default ASC
-block|}
-elseif|else
-if|if
-condition|(
-name|context
-operator|.
-name|parseFieldMatcher
-argument_list|()
-operator|.
-name|match
-argument_list|(
-name|currentFieldName
-argument_list|,
 name|ORDER
 argument_list|)
 condition|)
@@ -1825,13 +1779,16 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|ParsingException
 argument_list|(
-literal|"Sort order "
-operator|+
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"Sort order [{}] not supported."
+argument_list|,
 name|sortOrder
-operator|+
-literal|" not supported."
 argument_list|)
 throw|;
 block|}
@@ -1893,13 +1850,16 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ParsingException
 argument_list|(
-literal|"Option "
-operator|+
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"Option [{}] not supported."
+argument_list|,
 name|currentFieldName
-operator|+
-literal|" not supported."
 argument_list|)
 throw|;
 block|}

@@ -2601,7 +2601,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -3125,12 +3125,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"cluster is blocked ({}), scheduling a retry"
+literal|"cluster is blocked, scheduling a retry"
 argument_list|,
 name|blockException
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|retry
@@ -3280,7 +3277,7 @@ name|exp
 argument_list|,
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|request
@@ -5137,7 +5134,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 operator|.
 name|equals
@@ -5170,7 +5167,7 @@ argument_list|()
 operator|&&
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 operator|.
 name|equals

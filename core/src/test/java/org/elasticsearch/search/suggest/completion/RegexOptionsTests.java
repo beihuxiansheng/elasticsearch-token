@@ -254,9 +254,8 @@ throws|throws
 name|IOException
 block|{
 return|return
+operator|new
 name|RegexOptions
-operator|.
-name|readRegexOptions
 argument_list|(
 name|in
 argument_list|)

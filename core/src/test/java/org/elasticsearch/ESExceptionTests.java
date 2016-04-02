@@ -2981,7 +2981,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
@@ -2996,7 +2996,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
@@ -3011,7 +3011,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,

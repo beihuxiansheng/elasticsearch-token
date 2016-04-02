@@ -383,7 +383,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utilities for testing reindex and update-by-query cancelation. This whole class isn't thread safe. Luckily we run out tests in separate  * jvms.  */
+comment|/**  * Utilities for testing reindex and update-by-query cancellation. This whole class isn't thread safe. Luckily we run out tests in separate  * jvms.  */
 end_comment
 
 begin_class

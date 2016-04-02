@@ -180,11 +180,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|fetch
+name|query
 operator|.
-name|innerhits
+name|support
 operator|.
 name|InnerHitsBuilder
 import|;

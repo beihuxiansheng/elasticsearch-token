@@ -358,20 +358,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|math
-operator|.
-name|MathUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -1772,7 +1758,7 @@ name|masterNode
 argument_list|,
 name|unluckyNode
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2606,7 +2592,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|nodeState
@@ -2614,7 +2600,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2627,7 +2613,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|,
 name|nodeState
@@ -2635,7 +2621,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3088,9 +3074,9 @@ expr_stmt|;
 name|int
 name|shard
 init|=
-name|MathUtils
+name|Math
 operator|.
-name|mod
+name|floorMod
 argument_list|(
 name|Murmur3HashFunction
 operator|.
@@ -3801,7 +3787,7 @@ name|IntermittentLongGCDisruption
 argument_list|(
 name|oldMasterNode
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|100
@@ -4048,7 +4034,7 @@ init|=
 operator|new
 name|LongGCDisruption
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|oldMasterNode
@@ -4241,7 +4227,7 @@ literal|null
 condition|?
 name|previousMaster
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null
@@ -4255,7 +4241,7 @@ literal|null
 condition|?
 name|currentMaster
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null
@@ -4333,7 +4319,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|==
 literal|null
@@ -5276,7 +5262,7 @@ name|masterNode
 argument_list|,
 name|isolatedNode
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -5461,7 +5447,7 @@ name|unicastTargetSide
 argument_list|,
 name|restOfClusterSide
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -5612,7 +5598,7 @@ name|class
 argument_list|,
 name|discoveryNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
 name|getName
@@ -5703,7 +5689,7 @@ name|class
 argument_list|,
 name|discoveryNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|getName
@@ -6294,7 +6280,7 @@ init|=
 operator|new
 name|SlowClusterStateProcessing
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|0
@@ -6766,7 +6752,7 @@ name|BlockClusterStateProcessing
 argument_list|(
 name|node_2
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -7223,7 +7209,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -7391,7 +7377,7 @@ operator|=
 operator|new
 name|NetworkUnresponsivePartition
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7403,7 +7389,7 @@ operator|=
 operator|new
 name|NetworkDisconnectPartition
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7491,7 +7477,7 @@ name|side1
 argument_list|,
 name|side2
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7507,7 +7493,7 @@ name|side1
 argument_list|,
 name|side2
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7544,28 +7530,28 @@ argument_list|(
 operator|new
 name|NetworkUnresponsivePartition
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
 operator|new
 name|NetworkDelaysPartition
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
 operator|new
 name|NetworkDisconnectPartition
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
 operator|new
 name|SlowClusterStateProcessing
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|)
@@ -7742,7 +7728,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|"] as master"
@@ -7752,7 +7738,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7862,7 +7848,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -7875,10 +7861,10 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 expr_stmt|;
 block|}
@@ -7895,7 +7881,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7989,7 +7975,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -8009,7 +7995,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -8019,10 +8005,10 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 else|:
 literal|null

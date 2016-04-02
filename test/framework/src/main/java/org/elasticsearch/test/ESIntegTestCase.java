@@ -1232,18 +1232,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexWarmer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|MergePolicyConfig
 import|;
 end_import
@@ -1351,18 +1339,6 @@ operator|.
 name|indices
 operator|.
 name|IndicesRequestCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndicesService
 import|;
 end_import
 
@@ -2550,7 +2526,7 @@ argument_list|()
 operator|.
 name|beforeTest
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|getPerTestTransportClientRatio
@@ -2664,7 +2640,7 @@ name|randomSettingsBuilder
 init|=
 name|setRandomIndexSettings
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|Settings
@@ -2689,7 +2665,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextLong
@@ -4138,7 +4114,7 @@ name|RandomizingClient
 argument_list|(
 name|client
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4176,7 +4152,7 @@ name|RandomizingClient
 argument_list|(
 name|client
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6836,7 +6812,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 for|for
@@ -6958,7 +6934,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -8084,7 +8060,7 @@ block|{
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|Set
@@ -11420,7 +11396,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 decl_stmt|;
 name|nodes
@@ -11805,7 +11781,7 @@ name|type
 argument_list|,
 name|shard
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 return|;

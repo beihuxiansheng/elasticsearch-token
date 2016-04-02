@@ -1188,7 +1188,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 decl_stmt|;
 name|assertThat

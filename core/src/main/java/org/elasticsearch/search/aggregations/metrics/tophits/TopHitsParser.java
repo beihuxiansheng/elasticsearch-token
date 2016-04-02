@@ -1034,8 +1034,6 @@ name|highlighter
 argument_list|(
 name|HighlightBuilder
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|context

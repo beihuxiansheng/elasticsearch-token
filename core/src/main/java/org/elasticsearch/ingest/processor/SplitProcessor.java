@@ -119,6 +119,7 @@ end_comment
 begin_class
 DECL|class|SplitProcessor
 specifier|public
+specifier|final
 class|class
 name|SplitProcessor
 extends|extends

@@ -744,6 +744,14 @@ name|MapperService
 operator|.
 name|INDEX_MAPPING_NESTED_FIELDS_LIMIT_SETTING
 argument_list|,
+name|MapperService
+operator|.
+name|INDEX_MAPPING_TOTAL_FIELDS_LIMIT_SETTING
+argument_list|,
+name|MapperService
+operator|.
+name|INDEX_MAPPING_DEPTH_LIMIT_SETTING
+argument_list|,
 name|BitsetFilterCache
 operator|.
 name|INDEX_LOAD_RANDOM_ACCESS_FILTERS_EAGERLY_SETTING

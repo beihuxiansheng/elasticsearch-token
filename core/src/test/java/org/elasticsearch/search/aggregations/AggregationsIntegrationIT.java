@@ -196,7 +196,7 @@ literal|"type"
 argument_list|,
 literal|"f"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|get

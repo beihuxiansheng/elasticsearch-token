@@ -342,7 +342,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -484,7 +484,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -619,7 +619,7 @@ name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|Version
@@ -746,7 +746,7 @@ name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|VersionUtils
@@ -895,7 +895,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1030,7 +1030,7 @@ name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|VersionUtils

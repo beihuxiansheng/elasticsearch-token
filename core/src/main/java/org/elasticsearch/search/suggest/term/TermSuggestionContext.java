@@ -92,7 +92,7 @@ name|super
 argument_list|(
 name|TermSuggester
 operator|.
-name|PROTOTYPE
+name|INSTANCE
 argument_list|,
 name|shardContext
 argument_list|)

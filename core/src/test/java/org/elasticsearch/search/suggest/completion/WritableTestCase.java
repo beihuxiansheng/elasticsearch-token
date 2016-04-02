@@ -192,7 +192,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * model prototype to read serialized format      */
+comment|/**      * Read from a stream.      */
 DECL|method|readFrom
 specifier|protected
 specifier|abstract

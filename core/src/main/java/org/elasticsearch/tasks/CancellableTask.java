@@ -155,6 +155,9 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
+name|onCancelled
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Returns true if this task should be automatically cancelled if the coordinating node that      * requested this task left the cluster.      */
 DECL|method|cancelOnParentLeaving
@@ -198,6 +201,13 @@ name|get
 argument_list|()
 return|;
 block|}
+comment|/**      * Called after the task is cancelled so that it can take any actions that it has to take.      */
+DECL|method|onCancelled
+specifier|protected
+name|void
+name|onCancelled
+parameter_list|()
+block|{     }
 block|}
 end_class
 

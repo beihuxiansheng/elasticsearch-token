@@ -472,24 +472,11 @@ name|valuesIt
 argument_list|()
 return|;
 block|}
-comment|/**      * Is this a valid nodes that has the minimal information set. The minimal set is defined      * by the localNodeId being set.      */
-DECL|method|valid
+comment|/**      * Returns<tt>true</tt> if the local node is the elected master node.      */
+DECL|method|isLocalNodeElectedMaster
 specifier|public
 name|boolean
-name|valid
-parameter_list|()
-block|{
-return|return
-name|localNodeId
-operator|!=
-literal|null
-return|;
-block|}
-comment|/**      * Returns<tt>true</tt> if the local node is the master node.      */
-DECL|method|localNodeMaster
-specifier|public
-name|boolean
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 parameter_list|()
 block|{
 if|if
@@ -514,20 +501,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Get the number of known nodes      *      * @return number of nodes      */
-DECL|method|size
-specifier|public
-name|int
-name|size
-parameter_list|()
-block|{
-return|return
-name|nodes
-operator|.
-name|size
-argument_list|()
-return|;
-block|}
-comment|/**      * Get the number of known nodes      *      * @return number of nodes      */
 DECL|method|getSize
 specifier|public
 name|int
@@ -535,26 +508,10 @@ name|getSize
 parameter_list|()
 block|{
 return|return
+name|nodes
+operator|.
 name|size
 argument_list|()
-return|;
-block|}
-comment|/**      * Get a {@link Map} of the discovered nodes arranged by their ids      *      * @return {@link Map} of the discovered nodes arranged by their ids      */
-DECL|method|nodes
-specifier|public
-name|ImmutableOpenMap
-argument_list|<
-name|String
-argument_list|,
-name|DiscoveryNode
-argument_list|>
-name|nodes
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|nodes
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered nodes arranged by their ids      *      * @return {@link Map} of the discovered nodes arranged by their ids      */
@@ -570,26 +527,9 @@ name|getNodes
 parameter_list|()
 block|{
 return|return
-name|nodes
-argument_list|()
-return|;
-block|}
-comment|/**      * Get a {@link Map} of the discovered data nodes arranged by their ids      *      * @return {@link Map} of the discovered data nodes arranged by their ids      */
-DECL|method|dataNodes
-specifier|public
-name|ImmutableOpenMap
-argument_list|<
-name|String
-argument_list|,
-name|DiscoveryNode
-argument_list|>
-name|dataNodes
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|dataNodes
+name|nodes
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered data nodes arranged by their ids      *      * @return {@link Map} of the discovered data nodes arranged by their ids      */
@@ -605,26 +545,9 @@ name|getDataNodes
 parameter_list|()
 block|{
 return|return
-name|dataNodes
-argument_list|()
-return|;
-block|}
-comment|/**      * Get a {@link Map} of the discovered master nodes arranged by their ids      *      * @return {@link Map} of the discovered master nodes arranged by their ids      */
-DECL|method|masterNodes
-specifier|public
-name|ImmutableOpenMap
-argument_list|<
-name|String
-argument_list|,
-name|DiscoveryNode
-argument_list|>
-name|masterNodes
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|masterNodes
+name|dataNodes
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered master nodes arranged by their ids      *      * @return {@link Map} of the discovered master nodes arranged by their ids      */
@@ -640,8 +563,9 @@ name|getMasterNodes
 parameter_list|()
 block|{
 return|return
+name|this
+operator|.
 name|masterNodes
-argument_list|()
 return|;
 block|}
 comment|/**      * @return All the ingest nodes arranged by their ids      */
@@ -661,7 +585,7 @@ name|ingestNodes
 return|;
 block|}
 comment|/**      * Get a {@link Map} of the discovered master and data nodes arranged by their ids      *      * @return {@link Map} of the discovered master and data nodes arranged by their ids      */
-DECL|method|masterAndDataNodes
+DECL|method|getMasterAndDataNodes
 specifier|public
 name|ImmutableOpenMap
 argument_list|<
@@ -669,7 +593,7 @@ name|String
 argument_list|,
 name|DiscoveryNode
 argument_list|>
-name|masterAndDataNodes
+name|getMasterAndDataNodes
 parameter_list|()
 block|{
 name|ImmutableOpenMap
@@ -742,19 +666,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Get the id of the master node      *      * @return id of the master      */
-DECL|method|masterNodeId
-specifier|public
-name|String
-name|masterNodeId
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|masterNodeId
-return|;
-block|}
-comment|/**      * Get the id of the master node      *      * @return id of the master      */
 DECL|method|getMasterNodeId
 specifier|public
 name|String
@@ -762,21 +673,9 @@ name|getMasterNodeId
 parameter_list|()
 block|{
 return|return
-name|masterNodeId
-argument_list|()
-return|;
-block|}
-comment|/**      * Get the id of the local node      *      * @return id of the local node      */
-DECL|method|localNodeId
-specifier|public
-name|String
-name|localNodeId
-parameter_list|()
-block|{
-return|return
 name|this
 operator|.
-name|localNodeId
+name|masterNodeId
 return|;
 block|}
 comment|/**      * Get the id of the local node      *      * @return id of the local node      */
@@ -787,24 +686,9 @@ name|getLocalNodeId
 parameter_list|()
 block|{
 return|return
-name|localNodeId
-argument_list|()
-return|;
-block|}
-comment|/**      * Get the local node      *      * @return local node      */
-DECL|method|localNode
-specifier|public
-name|DiscoveryNode
-name|localNode
-parameter_list|()
-block|{
-return|return
-name|nodes
+name|this
 operator|.
-name|get
-argument_list|(
 name|localNodeId
-argument_list|)
 return|;
 block|}
 comment|/**      * Get the local node      *      * @return local node      */
@@ -815,23 +699,11 @@ name|getLocalNode
 parameter_list|()
 block|{
 return|return
-name|localNode
-argument_list|()
-return|;
-block|}
-comment|/**      * Get the master node      *      * @return master node      */
-DECL|method|masterNode
-specifier|public
-name|DiscoveryNode
-name|masterNode
-parameter_list|()
-block|{
-return|return
 name|nodes
 operator|.
 name|get
 argument_list|(
-name|masterNodeId
+name|localNodeId
 argument_list|)
 return|;
 block|}
@@ -843,8 +715,12 @@ name|getMasterNode
 parameter_list|()
 block|{
 return|return
-name|masterNode
-argument_list|()
+name|nodes
+operator|.
+name|get
+argument_list|(
+name|masterNodeId
+argument_list|)
 return|;
 block|}
 comment|/**      * Get a node by its address      *      * @param address {@link TransportAddress} of the wanted node      * @return node identified by the given address or<code>null</code> if no such node exists      */
@@ -882,7 +758,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|equals
@@ -941,10 +817,10 @@ operator|)
 return|;
 block|}
 comment|/**      * Returns the version of the node with the oldest version in the cluster      *      * @return the oldest version in the cluster      */
-DECL|method|smallestVersion
+DECL|method|getSmallestVersion
 specifier|public
 name|Version
-name|smallestVersion
+name|getSmallestVersion
 parameter_list|()
 block|{
 return|return
@@ -952,10 +828,10 @@ name|minNodeVersion
 return|;
 block|}
 comment|/**      * Returns the version of the node with the oldest version in the cluster that is not a client node      *      * @return the oldest version in the cluster      */
-DECL|method|smallestNonClientNodeVersion
+DECL|method|getSmallestNonClientNodeVersion
 specifier|public
 name|Version
-name|smallestNonClientNodeVersion
+name|getSmallestNonClientNodeVersion
 parameter_list|()
 block|{
 return|return
@@ -1092,7 +968,7 @@ index|]
 operator|=
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 expr_stmt|;
 block|}
@@ -1138,7 +1014,7 @@ block|{
 name|String
 name|localNodeId
 init|=
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 if|if
@@ -1171,7 +1047,7 @@ block|{
 name|String
 name|masterNodeId
 init|=
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 if|if
@@ -1228,7 +1104,7 @@ name|nodeId
 argument_list|,
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 condition|)
@@ -1239,7 +1115,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1274,7 +1150,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1301,7 +1177,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1351,7 +1227,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-literal|"data"
+name|DiscoveryNode
+operator|.
+name|Role
+operator|.
+name|DATA
+operator|.
+name|getRoleName
+argument_list|()
 operator|.
 name|equals
 argument_list|(
@@ -1399,7 +1282,14 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"master"
+name|DiscoveryNode
+operator|.
+name|Role
+operator|.
+name|MASTER
+operator|.
+name|getRoleName
+argument_list|()
 operator|.
 name|equals
 argument_list|(
@@ -1444,6 +1334,61 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|DiscoveryNode
+operator|.
+name|Role
+operator|.
+name|INGEST
+operator|.
+name|getRoleName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|matchAttrName
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|Booleans
+operator|.
+name|parseBoolean
+argument_list|(
+name|matchAttrValue
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+name|resolvedNodesIds
+operator|.
+name|addAll
+argument_list|(
+name|ingestNodes
+operator|.
+name|keys
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|resolvedNodesIds
+operator|.
+name|removeAll
+argument_list|(
+name|ingestNodes
+operator|.
+name|keys
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 else|else
 block|{
 for|for
@@ -1456,7 +1401,9 @@ control|)
 block|{
 for|for
 control|(
-name|ObjectObjectCursor
+name|Map
+operator|.
+name|Entry
 argument_list|<
 name|String
 argument_list|,
@@ -1466,7 +1413,10 @@ name|entry
 range|:
 name|node
 operator|.
-name|attributes
+name|getAttributes
+argument_list|()
+operator|.
+name|entrySet
 argument_list|()
 control|)
 block|{
@@ -1475,14 +1425,16 @@ name|attrName
 init|=
 name|entry
 operator|.
-name|key
+name|getKey
+argument_list|()
 decl_stmt|;
 name|String
 name|attrValue
 init|=
 name|entry
 operator|.
-name|value
+name|getValue
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1511,7 +1463,7 @@ name|add
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1582,7 +1534,7 @@ name|contains
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1677,7 +1629,7 @@ name|nodeExists
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1708,7 +1660,7 @@ name|nodeExists
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1762,12 +1714,12 @@ name|previousMasterNode
 operator|=
 name|other
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 expr_stmt|;
 name|newMasterNode
 operator|=
-name|masterNode
+name|getMasterNode
 argument_list|()
 expr_stmt|;
 block|}
@@ -1899,7 +1851,7 @@ if|if
 condition|(
 name|node
 operator|==
-name|localNode
+name|getLocalNode
 argument_list|()
 condition|)
 block|{
@@ -1915,7 +1867,7 @@ if|if
 condition|(
 name|node
 operator|==
-name|masterNode
+name|getMasterNode
 argument_list|()
 condition|)
 block|{
@@ -1940,32 +1892,6 @@ name|sb
 operator|.
 name|toString
 argument_list|()
-return|;
-block|}
-DECL|method|emptyDelta
-specifier|public
-name|Delta
-name|emptyDelta
-parameter_list|()
-block|{
-return|return
-operator|new
-name|Delta
-argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|,
-name|localNodeId
-argument_list|,
-name|DiscoveryNode
-operator|.
-name|EMPTY_LIST
-argument_list|,
-name|DiscoveryNode
-operator|.
-name|EMPTY_LIST
-argument_list|)
 return|;
 block|}
 DECL|class|Delta
@@ -2241,7 +2167,7 @@ if|if
 condition|(
 name|newMasterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2419,7 +2345,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2467,7 +2393,7 @@ condition|(
 operator|!
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -2581,7 +2507,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|readFrom
-specifier|public
+specifier|private
 name|DiscoveryNodes
 name|readFrom
 parameter_list|(
@@ -2633,7 +2559,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2664,9 +2590,8 @@ block|{
 name|DiscoveryNode
 name|node
 init|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)
@@ -2679,14 +2604,14 @@ literal|null
 operator|&&
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -2730,7 +2655,7 @@ name|readFrom
 argument_list|(
 name|in
 argument_list|,
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 return|;
@@ -2822,7 +2747,7 @@ name|masterNodeId
 operator|=
 name|nodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 expr_stmt|;
 name|this
@@ -2831,7 +2756,7 @@ name|localNodeId
 operator|=
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 expr_stmt|;
 name|this
@@ -2844,7 +2769,7 @@ name|builder
 argument_list|(
 name|nodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2864,7 +2789,7 @@ name|put
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|node
@@ -3016,7 +2941,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 condition|)
 block|{
@@ -3045,7 +2970,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3056,7 +2981,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -3085,7 +3010,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3126,7 +3051,7 @@ name|nodeEntry
 operator|.
 name|value
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;

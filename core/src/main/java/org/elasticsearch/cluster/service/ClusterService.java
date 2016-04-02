@@ -1209,7 +1209,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 operator|==
 literal|null
@@ -1240,7 +1240,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1413,7 +1413,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 literal|"please set the local node before starting"
@@ -1622,7 +1622,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 return|;
 block|}
@@ -2764,7 +2764,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|&&
 name|executor
@@ -3352,7 +3352,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -3740,7 +3740,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -3992,7 +3992,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -4007,7 +4007,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 literal|null
@@ -4033,7 +4033,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5563,7 +5563,7 @@ name|equals
 argument_list|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)

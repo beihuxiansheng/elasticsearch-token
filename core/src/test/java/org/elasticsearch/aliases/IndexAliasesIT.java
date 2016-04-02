@@ -1477,7 +1477,7 @@ literal|"type=text"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=text"
+literal|"type=text,fielddata=true"
 argument_list|)
 argument_list|)
 expr_stmt|;

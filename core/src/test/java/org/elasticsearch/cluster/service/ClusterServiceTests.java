@@ -530,6 +530,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -763,6 +787,12 @@ name|DummyTransportAddress
 operator|.
 name|INSTANCE
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -866,7 +896,7 @@ name|makeMaster
 condition|?
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 else|:
 literal|null

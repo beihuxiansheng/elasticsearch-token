@@ -289,6 +289,28 @@ name|TrapContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#identifier}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitIdentifier
+name|T
+name|visitIdentifier
+parameter_list|(
+name|PainlessParser
+operator|.
+name|IdentifierContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#generic}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitGeneric
+name|T
+name|visitGeneric
+parameter_list|(
+name|PainlessParser
+operator|.
+name|GenericContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code comp}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitComp
 name|T
@@ -517,17 +539,6 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|ExtdotContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#exttype}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExttype
-name|T
-name|visitExttype
-parameter_list|(
-name|PainlessParser
-operator|.
-name|ExttypeContext
 name|ctx
 parameter_list|)
 function_decl|;

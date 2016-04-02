@@ -207,6 +207,9 @@ name|Engine
 operator|.
 name|Index
 name|index
+parameter_list|,
+name|boolean
+name|created
 parameter_list|)
 block|{
 name|postIndex
@@ -337,6 +340,9 @@ name|Engine
 operator|.
 name|Index
 name|index
+parameter_list|,
+name|boolean
+name|created
 parameter_list|)
 block|{
 throw|throw
@@ -755,6 +761,8 @@ operator|.
 name|postIndex
 argument_list|(
 name|index
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertEquals

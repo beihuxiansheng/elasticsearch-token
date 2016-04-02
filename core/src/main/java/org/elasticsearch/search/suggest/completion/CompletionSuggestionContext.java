@@ -186,7 +186,7 @@ name|super
 argument_list|(
 name|CompletionSuggester
 operator|.
-name|PROTOTYPE
+name|INSTANCE
 argument_list|,
 name|shardContext
 argument_list|)

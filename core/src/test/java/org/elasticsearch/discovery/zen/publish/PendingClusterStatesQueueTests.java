@@ -186,6 +186,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -714,7 +738,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 comment|// now check that queue doesn't contain anything pending from another master
@@ -739,7 +763,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -781,7 +805,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|.
 name|equals
@@ -1787,6 +1811,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.

@@ -938,6 +938,10 @@ name|namedWriteableRegistry
 operator|=
 literal|null
 expr_stmt|;
+name|indicesQueriesRegistry
+operator|=
+literal|null
+expr_stmt|;
 block|}
 comment|/** Returns random sort that is put under test */
 DECL|method|createTestItem
@@ -1569,7 +1573,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|createMockShardContext
-specifier|private
+specifier|protected
 name|QueryShardContext
 name|createMockShardContext
 parameter_list|()
@@ -1701,6 +1705,8 @@ argument_list|,
 name|scriptService
 argument_list|,
 name|indicesQueriesRegistry
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)

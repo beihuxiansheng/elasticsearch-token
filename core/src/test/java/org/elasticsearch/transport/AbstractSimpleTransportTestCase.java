@@ -316,6 +316,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -535,8 +547,6 @@ name|DiscoveryNode
 argument_list|(
 literal|"TS_A"
 argument_list|,
-literal|"TS_A"
-argument_list|,
 name|serviceA
 operator|.
 name|boundAddress
@@ -546,6 +556,9 @@ name|publishAddress
 argument_list|()
 argument_list|,
 name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
 argument_list|()
 argument_list|,
 name|version0
@@ -607,8 +620,6 @@ name|DiscoveryNode
 argument_list|(
 literal|"TS_B"
 argument_list|,
-literal|"TS_B"
-argument_list|,
 name|serviceB
 operator|.
 name|boundAddress
@@ -618,6 +629,9 @@ name|publishAddress
 argument_list|()
 argument_list|,
 name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
 argument_list|()
 argument_list|,
 name|version1
@@ -7139,7 +7153,7 @@ name|assertTrue
 argument_list|(
 name|nodeA
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|sameHost
@@ -7155,7 +7169,7 @@ name|assertTrue
 argument_list|(
 name|nodeB
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|sameHost
@@ -7291,6 +7305,9 @@ name|publishAddress
 argument_list|()
 argument_list|,
 name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
 argument_list|()
 argument_list|,
 name|version0

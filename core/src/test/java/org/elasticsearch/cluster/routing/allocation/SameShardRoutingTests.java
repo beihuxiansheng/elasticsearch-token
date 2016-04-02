@@ -474,6 +474,8 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|MASTER_DATA_ROLES
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -499,6 +501,8 @@ name|INSTANCE
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
 argument_list|,
 name|Version
 operator|.
@@ -694,6 +698,8 @@ name|INSTANCE
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
 argument_list|,
 name|Version
 operator|.

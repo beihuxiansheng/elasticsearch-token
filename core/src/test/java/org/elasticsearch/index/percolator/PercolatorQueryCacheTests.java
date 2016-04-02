@@ -1205,6 +1205,8 @@ argument_list|,
 name|indicesQueriesRegistry
 argument_list|,
 name|cache
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

@@ -1731,7 +1731,7 @@ expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -1799,7 +1799,7 @@ expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -1887,7 +1887,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|index
@@ -1962,7 +1962,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|delete
@@ -2071,7 +2071,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|update
@@ -2178,7 +2178,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|update
@@ -2302,7 +2302,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|update
@@ -2566,7 +2566,7 @@ block|}
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|bulk
@@ -2625,7 +2625,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|get
@@ -2692,7 +2692,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|explain
@@ -2751,7 +2751,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|termVectors
@@ -2869,7 +2869,7 @@ block|}
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|multiTermVectors
@@ -2987,7 +2987,7 @@ block|}
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|multiGet
@@ -3058,7 +3058,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3159,7 +3159,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3236,7 +3236,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3337,7 +3337,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3398,7 +3398,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3459,7 +3459,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3523,7 +3523,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3584,7 +3584,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3638,7 +3638,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3694,7 +3694,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3758,7 +3758,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3818,7 +3818,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3886,7 +3886,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -3945,7 +3945,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -4017,7 +4017,7 @@ decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|admin
@@ -4147,7 +4147,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|search
@@ -4310,7 +4310,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|search
@@ -4469,7 +4469,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|search
@@ -4620,7 +4620,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|search

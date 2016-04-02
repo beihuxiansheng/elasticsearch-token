@@ -1531,7 +1531,7 @@ name|node
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 control|)

@@ -1426,15 +1426,6 @@ parameter_list|()
 block|{
 comment|// Skip me
 block|}
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configureSuggesters
-parameter_list|()
-block|{
-comment|// Skip me
-block|}
 block|}
 argument_list|,
 operator|new

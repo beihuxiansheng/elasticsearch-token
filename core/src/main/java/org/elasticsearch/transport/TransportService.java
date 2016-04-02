@@ -4742,7 +4742,7 @@ name|RemoteTransportException
 argument_list|(
 name|localNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|localNode

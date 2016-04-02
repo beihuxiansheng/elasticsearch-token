@@ -1939,7 +1939,7 @@ literal|4000000
 argument_list|)
 index|]
 decl_stmt|;
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBytes
@@ -2111,7 +2111,7 @@ literal|4000000
 argument_list|)
 index|]
 decl_stmt|;
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBytes
@@ -2560,7 +2560,7 @@ literal|4000000
 argument_list|)
 index|]
 decl_stmt|;
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBytes
