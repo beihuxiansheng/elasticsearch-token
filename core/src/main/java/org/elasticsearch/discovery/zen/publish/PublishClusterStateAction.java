@@ -3374,7 +3374,7 @@ literal|"timed out waiting for commit (commit timeout ["
 operator|+
 name|commitTimeout
 operator|+
-literal|"]"
+literal|"])"
 argument_list|)
 expr_stmt|;
 block|}
