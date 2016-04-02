@@ -2797,9 +2797,9 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"received older cluster state version [%s] from current master "
+literal|"received cluster state from current master superseded by last seen cluster state; "
 operator|+
-literal|"with uuid [%s] than last seen cluster state [%s] from current master with uuid [%s]"
+literal|"received version [%s] with uuid [%s], last seen version [%s] with uuid [%s]"
 argument_list|,
 name|incomingState
 operator|.
