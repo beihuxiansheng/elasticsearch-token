@@ -209,6 +209,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -402,6 +412,19 @@ operator|.
 name|EMPTY_PARAMS
 argument_list|)
 decl_stmt|;
+name|XContentBuilder
+name|shuffled
+init|=
+name|shuffleXContent
+argument_list|(
+name|builder
+argument_list|,
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|XContentParser
 name|shapeParser
 init|=
@@ -409,7 +432,7 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
-name|builder
+name|shuffled
 operator|.
 name|bytes
 argument_list|()

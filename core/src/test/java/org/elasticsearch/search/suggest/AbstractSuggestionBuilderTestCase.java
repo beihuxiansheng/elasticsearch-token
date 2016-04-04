@@ -273,6 +273,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -988,6 +1008,17 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+name|XContentBuilder
+name|shuffled
+init|=
+name|shuffleXContent
+argument_list|(
+name|xContentBuilder
+argument_list|,
+name|shuffleProtectedFields
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -995,7 +1026,7 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
-name|xContentBuilder
+name|shuffled
 operator|.
 name|bytes
 argument_list|()
@@ -1057,6 +1088,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Subclasses can override this method and return a set of fields which should be protected from      * recursive random shuffling in the {@link #testFromXContent()} test case      */
+DECL|method|shuffleProtectedFields
+specifier|protected
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|shuffleProtectedFields
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
+return|;
 block|}
 DECL|method|mutate
 specifier|private
