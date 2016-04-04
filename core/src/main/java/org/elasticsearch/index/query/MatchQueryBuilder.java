@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Match query is a query that analyzes the text and constructs a query as the result of the analysis. It  * can construct different queries based on the type provided.  */
+comment|/**  * Match query is a query that analyzes the text and constructs a query as the  * result of the analysis.  */
 end_comment
 
 begin_class
@@ -277,36 +277,6 @@ argument_list|<
 name|MatchQueryBuilder
 argument_list|>
 block|{
-DECL|field|MATCH_PHRASE_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|MATCH_PHRASE_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-literal|"match_phrase"
-argument_list|,
-literal|"text_phrase"
-argument_list|)
-decl_stmt|;
-DECL|field|MATCH_PHRASE_PREFIX_FIELD
-specifier|public
-specifier|static
-specifier|final
-name|ParseField
-name|MATCH_PHRASE_PREFIX_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-literal|"match_phrase_prefix"
-argument_list|,
-literal|"text_phrase_prefix"
-argument_list|)
-decl_stmt|;
 DECL|field|SLOP_FIELD
 specifier|public
 specifier|static
@@ -320,6 +290,11 @@ argument_list|(
 literal|"slop"
 argument_list|,
 literal|"phrase_slop"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"match_phrase query"
 argument_list|)
 decl_stmt|;
 DECL|field|ZERO_TERMS_QUERY_FIELD
@@ -464,6 +439,11 @@ name|ParseField
 argument_list|(
 literal|"type"
 argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"match_phrase and match_phrase_prefix query"
+argument_list|)
 decl_stmt|;
 DECL|field|QUERY_FIELD
 specifier|public
@@ -478,7 +458,7 @@ argument_list|(
 literal|"query"
 argument_list|)
 decl_stmt|;
-comment|/** The default name for the match query */
+comment|/** The name for the match query */
 DECL|field|NAME
 specifier|public
 specifier|static
@@ -501,6 +481,8 @@ operator|.
 name|OR
 decl_stmt|;
 comment|/** The default mode match query type */
+annotation|@
+name|Deprecated
 DECL|field|DEFAULT_TYPE
 specifier|public
 specifier|static
@@ -528,6 +510,8 @@ specifier|final
 name|Object
 name|value
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|type
 specifier|private
 name|MatchQuery
@@ -549,6 +533,8 @@ specifier|private
 name|String
 name|analyzer
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|slop
 specifier|private
 name|int
@@ -735,7 +721,9 @@ operator|.
 name|value
 return|;
 block|}
-comment|/** Sets the type of the text query. */
+comment|/**      * Sets the type of the text query.      *      * @deprecated Use {@link MatchPhraseQueryBuilder} for<code>phrase</code>      *             queries and {@link MatchPhrasePrefixQueryBuilder} for      *<code>phrase_prefix</code> queries      */
+annotation|@
+name|Deprecated
 DECL|method|type
 specifier|public
 name|MatchQueryBuilder
@@ -776,7 +764,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/** Get the type of the query. */
+comment|/**      * Get the type of the query.      *      * @deprecated Use {@link MatchPhraseQueryBuilder} for<code>phrase</code>      *             queries and {@link MatchPhrasePrefixQueryBuilder} for      *<code>phrase_prefix</code> queries      */
+annotation|@
+name|Deprecated
 DECL|method|type
 specifier|public
 name|MatchQuery
@@ -876,7 +866,9 @@ operator|.
 name|analyzer
 return|;
 block|}
-comment|/** Sets a slop factor for phrase queries */
+comment|/**      * Sets a slop factor for phrase queries      *      * @deprecated for phrase queries use {@link MatchPhraseQueryBuilder}      */
+annotation|@
+name|Deprecated
 DECL|method|slop
 specifier|public
 name|MatchQueryBuilder
@@ -911,7 +903,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/** Get the slop factor for phrase queries. */
+comment|/**      * Get the slop factor for phrase queries.      *      * @deprecated for phrase queries use {@link MatchPhraseQueryBuilder}      */
+annotation|@
+name|Deprecated
 DECL|method|slop
 specifier|public
 name|int
@@ -1340,6 +1334,18 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+comment|// this is deprecated so only output the value if its not the default value (for bwc)
+if|if
+condition|(
+name|type
+operator|!=
+name|MatchQuery
+operator|.
+name|Type
+operator|.
+name|BOOLEAN
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1362,6 +1368,7 @@ name|ENGLISH
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|field
@@ -1397,6 +1404,16 @@ name|analyzer
 argument_list|)
 expr_stmt|;
 block|}
+comment|// this is deprecated so only output the value if its not the default value (for bwc)
+if|if
+condition|(
+name|slop
+operator|!=
+name|MatchQuery
+operator|.
+name|DEFAULT_PHRASE_SLOP
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1409,6 +1426,7 @@ argument_list|,
 name|slop
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|fuzziness
@@ -1605,7 +1623,11 @@ name|QueryShardException
 argument_list|(
 name|context
 argument_list|,
-literal|"[match] analyzer ["
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] analyzer ["
 operator|+
 name|analyzer
 operator|+
@@ -2407,72 +2429,6 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|MatchQuery
-operator|.
-name|Type
-name|type
-init|=
-name|MatchQuery
-operator|.
-name|Type
-operator|.
-name|BOOLEAN
-decl_stmt|;
-if|if
-condition|(
-name|parseContext
-operator|.
-name|parseFieldMatcher
-argument_list|()
-operator|.
-name|match
-argument_list|(
-name|parser
-operator|.
-name|currentName
-argument_list|()
-argument_list|,
-name|MATCH_PHRASE_FIELD
-argument_list|)
-condition|)
-block|{
-name|type
-operator|=
-name|MatchQuery
-operator|.
-name|Type
-operator|.
-name|PHRASE
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|parseContext
-operator|.
-name|parseFieldMatcher
-argument_list|()
-operator|.
-name|match
-argument_list|(
-name|parser
-operator|.
-name|currentName
-argument_list|()
-argument_list|,
-name|MATCH_PHRASE_PREFIX_FIELD
-argument_list|)
-condition|)
-block|{
-name|type
-operator|=
-name|MatchQuery
-operator|.
-name|Type
-operator|.
-name|PHRASE_PREFIX
-expr_stmt|;
-block|}
 name|XContentParser
 operator|.
 name|Token
@@ -2520,6 +2476,17 @@ name|parser
 operator|.
 name|currentName
 argument_list|()
+decl_stmt|;
+name|MatchQuery
+operator|.
+name|Type
+name|type
+init|=
+name|MatchQuery
+operator|.
+name|Type
+operator|.
+name|BOOLEAN
 decl_stmt|;
 name|Object
 name|value

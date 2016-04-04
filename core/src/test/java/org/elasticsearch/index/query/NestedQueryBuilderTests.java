@@ -876,11 +876,7 @@ literal|"            \"obj1.name\" : {\n"
 operator|+
 literal|"              \"query\" : \"blue\",\n"
 operator|+
-literal|"              \"type\" : \"boolean\",\n"
-operator|+
 literal|"              \"operator\" : \"OR\",\n"
-operator|+
-literal|"              \"slop\" : 0,\n"
 operator|+
 literal|"              \"prefix_length\" : 0,\n"
 operator|+
