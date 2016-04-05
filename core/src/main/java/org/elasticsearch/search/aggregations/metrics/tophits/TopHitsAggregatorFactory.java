@@ -322,6 +322,16 @@ name|Optional
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_class
 DECL|class|TopHitsAggregatorFactory
 specifier|public
@@ -402,7 +412,7 @@ decl_stmt|;
 DECL|field|scriptFields
 specifier|private
 specifier|final
-name|List
+name|Set
 argument_list|<
 name|ScriptField
 argument_list|>
@@ -463,7 +473,7 @@ name|String
 argument_list|>
 name|fieldDataFields
 parameter_list|,
-name|List
+name|Set
 argument_list|<
 name|ScriptField
 argument_list|>

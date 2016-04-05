@@ -118,7 +118,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorFactories
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -132,9 +134,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactories
-operator|.
-name|Builder
+name|AggregatorFactory
 import|;
 end_import
 
@@ -201,6 +201,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -327,6 +337,14 @@ argument_list|,
 name|InternalFilters
 operator|.
 name|TYPE
+argument_list|)
+expr_stmt|;
+comment|// internally we want to have a fixed order of filters, regardless of the order of the filters in the request
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|filters
 argument_list|)
 expr_stmt|;
 name|this
