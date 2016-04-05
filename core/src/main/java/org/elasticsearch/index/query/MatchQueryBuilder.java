@@ -468,6 +468,23 @@ name|NAME
 init|=
 literal|"match"
 decl_stmt|;
+DECL|field|QUERY_NAME_FIELD
+specifier|public
+specifier|static
+specifier|final
+name|ParseField
+name|QUERY_NAME_FIELD
+init|=
+operator|new
+name|ParseField
+argument_list|(
+name|NAME
+argument_list|,
+literal|"match_fuzzy"
+argument_list|,
+literal|"fuzzy_match"
+argument_list|)
+decl_stmt|;
 comment|/** The default mode terms are combined in a match query */
 DECL|field|DEFAULT_OPERATOR
 specifier|public

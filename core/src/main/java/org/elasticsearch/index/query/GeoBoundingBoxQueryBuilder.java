@@ -297,7 +297,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"geo_bbox"
+literal|"geo_bounding_box"
 decl_stmt|;
 comment|/** Default type for executing this query (memory as of this writing). */
 DECL|field|DEFAULT_TYPE

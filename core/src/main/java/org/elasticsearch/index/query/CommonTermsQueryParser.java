@@ -79,6 +79,21 @@ argument_list|<
 name|CommonTermsQueryBuilder
 argument_list|>
 block|{
+DECL|field|QUERY_NAME_FIELD
+specifier|public
+specifier|static
+specifier|final
+name|ParseField
+name|QUERY_NAME_FIELD
+init|=
+operator|new
+name|ParseField
+argument_list|(
+name|CommonTermsQueryBuilder
+operator|.
+name|NAME
+argument_list|)
+decl_stmt|;
 DECL|field|CUTOFF_FREQUENCY_FIELD
 specifier|public
 specifier|static
@@ -196,26 +211,6 @@ argument_list|(
 literal|"low_freq"
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|names
-specifier|public
-name|String
-index|[]
-name|names
-parameter_list|()
-block|{
-return|return
-operator|new
-name|String
-index|[]
-block|{
-name|CommonTermsQueryBuilder
-operator|.
-name|NAME
-block|}
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|fromXContent
@@ -925,7 +920,9 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[common] query parsed in simplified form, with direct field name, but included more options than just the field name, possibly use its 'options' form, with 'query' element?"
+literal|"[common] query parsed in simplified form, with direct field name, but included more options than just "
+operator|+
+literal|"the field name, possibly use its 'options' form, with 'query' element?"
 argument_list|)
 throw|;
 block|}

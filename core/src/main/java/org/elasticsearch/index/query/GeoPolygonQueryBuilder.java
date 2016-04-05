@@ -308,16 +308,12 @@ name|asList
 argument_list|(
 operator|new
 name|GeoPoint
-index|[]
-block|{
-operator|new
-name|GeoPoint
 argument_list|(
 literal|1.0
 argument_list|,
 literal|1.0
 argument_list|)
-block|,
+argument_list|,
 operator|new
 name|GeoPoint
 argument_list|(
@@ -325,7 +321,7 @@ literal|1.0
 argument_list|,
 literal|2.0
 argument_list|)
-block|,
+argument_list|,
 operator|new
 name|GeoPoint
 argument_list|(
@@ -333,7 +329,6 @@ literal|2.0
 argument_list|,
 literal|1.0
 argument_list|)
-block|}
 argument_list|)
 decl_stmt|;
 DECL|field|PROTOTYPE

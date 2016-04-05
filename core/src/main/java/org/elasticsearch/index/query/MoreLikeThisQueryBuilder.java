@@ -688,7 +688,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"mlt"
+literal|"more_like_this"
 decl_stmt|;
 DECL|field|DEFAULT_MAX_QUERY_TERMS
 specifier|public
@@ -2987,7 +2987,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"mlt query requires 'fields' to be specified"
+name|NAME
+operator|+
+literal|" query requires 'fields' to be specified"
 argument_list|)
 throw|;
 block|}
@@ -3022,7 +3024,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"mlt query requires either 'like' texts or items to be specified."
+name|NAME
+operator|+
+literal|" query requires either 'like' texts or items to be specified."
 argument_list|)
 throw|;
 block|}
@@ -4462,9 +4466,14 @@ name|moreLikeFields
 operator|.
 name|toArray
 argument_list|(
-name|Strings
+operator|new
+name|String
+index|[
+name|moreLikeFields
 operator|.
-name|EMPTY_ARRAY
+name|size
+argument_list|()
+index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5375,7 +5384,10 @@ argument_list|(
 operator|new
 name|BytesRef
 index|[
-literal|0
+name|uids
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 argument_list|)

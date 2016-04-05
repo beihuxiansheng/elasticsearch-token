@@ -731,7 +731,7 @@ operator|.
 name|defaultField
 return|;
 block|}
-comment|/**      * Adds a field to run the query string against. The field will be associated with the default boost of {@link AbstractQueryBuilder#DEFAULT_BOOST}.      * Use {@link #field(String, float)} to set a specific boost for the field.      */
+comment|/**      * Adds a field to run the query string against. The field will be associated with the      * default boost of {@link AbstractQueryBuilder#DEFAULT_BOOST}.      * Use {@link #field(String, float)} to set a specific boost for the field.      */
 DECL|method|field
 specifier|public
 name|QueryStringQueryBuilder

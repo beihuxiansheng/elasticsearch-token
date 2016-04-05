@@ -46,21 +46,6 @@ name|QB
 parameter_list|>
 parameter_list|>
 block|{
-comment|/**      * The names this query parser is registered under.      */
-DECL|method|names
-specifier|default
-name|String
-index|[]
-name|names
-parameter_list|()
-block|{
-comment|// TODO remove this when nothing implements it
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
 comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryParseContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      */
 DECL|method|fromXContent
 name|QB

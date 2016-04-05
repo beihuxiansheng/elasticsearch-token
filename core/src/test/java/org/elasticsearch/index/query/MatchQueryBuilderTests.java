@@ -162,6 +162,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|search
@@ -2198,6 +2210,156 @@ argument_list|,
 name|containsString
 argument_list|(
 literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testLegacyFuzzyMatchQuery
+specifier|public
+name|void
+name|testLegacyFuzzyMatchQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|MatchQueryBuilder
+name|expectedQB
+init|=
+operator|new
+name|MatchQueryBuilder
+argument_list|(
+literal|"message"
+argument_list|,
+literal|"to be or not to be"
+argument_list|)
+decl_stmt|;
+name|String
+name|type
+init|=
+name|randomFrom
+argument_list|(
+literal|"fuzzy_match"
+argument_list|,
+literal|"match_fuzzy"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|type
+operator|=
+name|Strings
+operator|.
+name|toCamelCase
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+block|}
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \""
+operator|+
+name|type
+operator|+
+literal|"\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"to be or not to be\",\n"
+operator|+
+literal|"      \"operator\" : \"OR\",\n"
+operator|+
+literal|"      \"slop\" : 0,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 50,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MatchQueryBuilder
+name|qb
+init|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|qb
+argument_list|,
+name|equalTo
+argument_list|(
+name|expectedQB
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Now check with strict parsing an exception is thrown
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected query to fail with strict parsing"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Deprecated field ["
+operator|+
+name|type
+operator|+
+literal|"] used, expected [match] instead"
 argument_list|)
 argument_list|)
 expr_stmt|;
