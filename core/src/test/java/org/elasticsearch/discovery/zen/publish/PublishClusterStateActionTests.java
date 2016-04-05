@@ -5144,7 +5144,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"received cluster state from current master superseded by last seen cluster state; received version [%d] with uuid [%s], last seen version [%d] with uuid [%s]"
+literal|"rejecting cluster state version [%d] uuid [%s] received from [%s]"
 argument_list|,
 name|incomingState
 operator|.
@@ -5156,18 +5156,12 @@ operator|.
 name|stateUUID
 argument_list|()
 argument_list|,
-name|node
+name|incomingState
 operator|.
-name|clusterState
-operator|.
-name|version
+name|nodes
 argument_list|()
-argument_list|,
-name|node
 operator|.
-name|clusterState
-operator|.
-name|stateUUID
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
