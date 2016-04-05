@@ -633,6 +633,30 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1320,7 +1344,11 @@ name|settings
 argument_list|,
 name|service
 argument_list|,
+parameter_list|()
+lambda|->
 name|node
+operator|.
+name|clusterState
 argument_list|,
 name|node
 argument_list|)
@@ -1725,8 +1753,11 @@ parameter_list|,
 name|MockTransportService
 name|transportService
 parameter_list|,
-name|DiscoveryNodesProvider
-name|nodesProvider
+name|Supplier
+argument_list|<
+name|ClusterState
+argument_list|>
+name|clusterStateSupplier
 parameter_list|,
 name|PublishClusterStateAction
 operator|.
@@ -1761,7 +1792,7 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|nodesProvider
+name|clusterStateSupplier
 argument_list|,
 name|listener
 argument_list|,
@@ -4719,7 +4750,21 @@ parameter_list|(
 name|IllegalStateException
 name|OK
 parameter_list|)
-block|{         }
+block|{
+name|assertThat
+argument_list|(
+name|OK
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"cluster state from a different master than the current one, rejecting"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|info
@@ -4759,6 +4804,9 @@ argument_list|(
 literal|"master"
 argument_list|)
 argument_list|)
+operator|.
+name|incrementVersion
+argument_list|()
 operator|.
 name|build
 argument_list|()
@@ -4824,7 +4872,21 @@ parameter_list|(
 name|IllegalStateException
 name|OK
 parameter_list|)
-block|{         }
+block|{
+name|assertThat
+argument_list|(
+name|OK
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"received state from a node that is not part of the cluster"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|info
@@ -4896,7 +4958,21 @@ parameter_list|(
 name|IllegalStateException
 name|OK
 parameter_list|)
-block|{         }
+block|{
+name|assertThat
+argument_list|(
+name|OK
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"received state from local node that does not match the current local node"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 try|try
 block|{
 name|MockNode
@@ -4981,7 +5057,21 @@ parameter_list|(
 name|IllegalStateException
 name|OK
 parameter_list|)
-block|{         }
+block|{
+name|assertThat
+argument_list|(
+name|OK
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"received state from local node that does not match the current local node"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|logger
 operator|.
 name|info
@@ -5054,7 +5144,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"received older cluster state version [%s] from current master with uuid [%s] than last seen cluster state [%s] from current master with uuid [%s]"
+literal|"received cluster state from current master superseded by last seen cluster state; received version [%d] with uuid [%s], last seen version [%d] with uuid [%s]"
 argument_list|,
 name|incomingState
 operator|.
@@ -5365,6 +5455,13 @@ argument_list|(
 literal|"--> committing states"
 argument_list|)
 expr_stmt|;
+name|long
+name|largestVersionSeen
+init|=
+name|Long
+operator|.
+name|MIN_VALUE
+decl_stmt|;
 name|Randomness
 operator|.
 name|shuffle
@@ -5400,6 +5497,16 @@ argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|largestVersionSeen
+operator|<
+name|state
+operator|.
+name|getVersion
+argument_list|()
+condition|)
+block|{
 name|assertThat
 argument_list|(
 name|channel
@@ -5443,12 +5550,50 @@ name|get
 argument_list|()
 throw|;
 block|}
+name|largestVersionSeen
+operator|=
+name|state
+operator|.
+name|getVersion
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|assertNotNull
+argument_list|(
+name|channel
+operator|.
+name|error
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|channel
+operator|.
+name|error
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|IllegalStateException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 name|channel
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
 comment|//now check the last state held
 name|assertSameState
 argument_list|(
@@ -6497,8 +6642,11 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
-name|DiscoveryNodesProvider
-name|nodesProvider
+name|Supplier
+argument_list|<
+name|ClusterState
+argument_list|>
+name|clusterStateSupplier
 parameter_list|,
 name|NewPendingClusterStateListener
 name|listener
@@ -6516,7 +6664,7 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|nodesProvider
+name|clusterStateSupplier
 argument_list|,
 name|listener
 argument_list|,

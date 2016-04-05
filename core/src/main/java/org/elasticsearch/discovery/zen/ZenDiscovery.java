@@ -1567,7 +1567,9 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|this
+name|clusterService
+operator|::
+name|state
 argument_list|,
 operator|new
 name|NewPendingClusterStateListener
