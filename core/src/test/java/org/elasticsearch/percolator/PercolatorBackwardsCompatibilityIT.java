@@ -532,7 +532,7 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// important: verify that the query field in the .percolator mapping is of type object (from 3.0.0 this is of type percolator)
+comment|// important: verify that the query field in the .percolator mapping is of type object (from 5.x this is of type percolator)
 name|MappingMetaData
 name|mappingMetaData
 init|=

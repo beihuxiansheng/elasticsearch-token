@@ -278,10 +278,6 @@ name|IndexSearcher
 operator|.
 name|class
 argument_list|)
-argument_list|,
-operator|new
-name|MatchAllDocsQuery
-argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -461,10 +457,6 @@ name|IndexSearcher
 operator|.
 name|class
 argument_list|)
-argument_list|,
-operator|new
-name|MatchAllDocsQuery
-argument_list|()
 argument_list|)
 operator|.
 name|build
