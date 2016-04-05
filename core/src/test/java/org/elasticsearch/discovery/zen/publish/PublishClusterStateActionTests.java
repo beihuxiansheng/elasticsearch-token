@@ -5560,6 +5560,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// older cluster states will be rejected
 name|assertNotNull
 argument_list|(
 name|channel
