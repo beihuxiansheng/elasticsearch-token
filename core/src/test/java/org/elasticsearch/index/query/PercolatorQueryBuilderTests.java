@@ -240,6 +240,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -283,11 +295,9 @@ name|String
 argument_list|>
 name|SHUFFLE_PROTECTED_FIELDS
 init|=
-name|Collections
-operator|.
 name|singleton
 argument_list|(
-name|PercolatorQueryParser
+name|PercolatorQueryBuilder
 operator|.
 name|DOCUMENT_FIELD
 operator|.

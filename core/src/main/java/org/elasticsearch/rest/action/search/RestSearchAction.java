@@ -204,7 +204,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|TemplateQueryParser
+name|TemplateQueryBuilder
 import|;
 end_import
 
@@ -422,11 +422,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|term
-operator|.
-name|TermSuggestionBuilder
-operator|.
-name|SuggestMode
+name|Suggesters
 import|;
 end_import
 
@@ -440,7 +436,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|Suggesters
+name|term
+operator|.
+name|TermSuggestionBuilder
+operator|.
+name|SuggestMode
 import|;
 end_import
 
@@ -969,7 +969,7 @@ block|{
 name|Template
 name|template
 init|=
-name|TemplateQueryParser
+name|TemplateQueryBuilder
 operator|.
 name|parse
 argument_list|(

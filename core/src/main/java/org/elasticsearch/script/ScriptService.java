@@ -530,7 +530,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|TemplateQueryParser
+name|TemplateQueryBuilder
 import|;
 end_import
 
@@ -2333,7 +2333,7 @@ expr_stmt|;
 name|Template
 name|template
 init|=
-name|TemplateQueryParser
+name|TemplateQueryBuilder
 operator|.
 name|parse
 argument_list|(

@@ -707,7 +707,6 @@ literal|null
 argument_list|)
 decl_stmt|;
 DECL|field|DOCUMENT_FIELD
-specifier|private
 specifier|static
 specifier|final
 name|ParseField
