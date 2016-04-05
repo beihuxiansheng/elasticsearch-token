@@ -36,6 +36,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|transport
 operator|.
 name|Transports
@@ -141,6 +153,15 @@ argument_list|<
 name|V
 argument_list|>
 block|{
+DECL|field|BLOCKING_OP_REASON
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|BLOCKING_OP_REASON
+init|=
+literal|"Blocking operation"
+decl_stmt|;
 comment|/**      * Synchronization control for AbstractFutures.      */
 DECL|field|sync
 specifier|private
@@ -183,12 +204,21 @@ name|timeout
 operator|<=
 literal|0
 operator|||
+operator|(
 name|Transports
 operator|.
 name|assertNotTransportThread
 argument_list|(
-literal|"Blocking operation"
+name|BLOCKING_OP_REASON
 argument_list|)
+operator|&&
+name|ThreadPool
+operator|.
+name|assertNotScheduleThread
+argument_list|(
+name|BLOCKING_OP_REASON
+argument_list|)
+operator|)
 assert|;
 return|return
 name|sync
@@ -223,7 +253,14 @@ name|Transports
 operator|.
 name|assertNotTransportThread
 argument_list|(
-literal|"Blocking operation"
+name|BLOCKING_OP_REASON
+argument_list|)
+operator|&&
+name|ThreadPool
+operator|.
+name|assertNotScheduleThread
+argument_list|(
+name|BLOCKING_OP_REASON
 argument_list|)
 assert|;
 return|return
