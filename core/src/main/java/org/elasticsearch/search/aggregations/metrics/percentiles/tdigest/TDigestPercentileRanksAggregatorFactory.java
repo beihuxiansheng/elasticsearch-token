@@ -376,7 +376,7 @@ name|keyed
 argument_list|,
 name|config
 operator|.
-name|formatter
+name|format
 argument_list|()
 argument_list|,
 name|pipelineAggregators
@@ -438,7 +438,7 @@ name|keyed
 argument_list|,
 name|config
 operator|.
-name|formatter
+name|format
 argument_list|()
 argument_list|,
 name|pipelineAggregators

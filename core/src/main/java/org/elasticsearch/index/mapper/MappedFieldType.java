@@ -406,6 +406,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|joda
 operator|.
 name|time
@@ -2571,6 +2583,77 @@ name|eagerGlobalOrdinals
 operator|=
 name|eagerGlobalOrdinals
 expr_stmt|;
+block|}
+comment|/** Return a {@link DocValueFormat} that can be used to display and parse      *  values as returned by the fielddata API.      *  The default implementation returns a {@link DocValueFormat#RAW}. */
+DECL|method|docValueFormat
+specifier|public
+name|DocValueFormat
+name|docValueFormat
+parameter_list|(
+annotation|@
+name|Nullable
+name|String
+name|format
+parameter_list|,
+name|DateTimeZone
+name|timeZone
+parameter_list|)
+block|{
+if|if
+condition|(
+name|format
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Field ["
+operator|+
+name|name
+argument_list|()
+operator|+
+literal|"] of type ["
+operator|+
+name|typeName
+argument_list|()
+operator|+
+literal|"] does not support custom formats"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|timeZone
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Field ["
+operator|+
+name|name
+argument_list|()
+operator|+
+literal|"] of type ["
+operator|+
+name|typeName
+argument_list|()
+operator|+
+literal|"] does not support custom time zones"
+argument_list|)
+throw|;
+block|}
+return|return
+name|DocValueFormat
+operator|.
+name|RAW
+return|;
 block|}
 block|}
 end_class

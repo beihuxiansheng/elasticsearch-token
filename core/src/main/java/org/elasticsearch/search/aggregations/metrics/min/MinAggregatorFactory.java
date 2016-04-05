@@ -317,7 +317,7 @@ literal|null
 argument_list|,
 name|config
 operator|.
-name|formatter
+name|format
 argument_list|()
 argument_list|,
 name|context
@@ -375,7 +375,7 @@ name|valuesSource
 argument_list|,
 name|config
 operator|.
-name|formatter
+name|format
 argument_list|()
 argument_list|,
 name|context
