@@ -1177,9 +1177,16 @@ block|{
 return|return
 name|queryStringTermQuery
 argument_list|(
-name|createTerm
+operator|new
+name|Term
+argument_list|(
+name|name
+argument_list|()
+argument_list|,
+name|indexedValueForSearch
 argument_list|(
 name|value
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
