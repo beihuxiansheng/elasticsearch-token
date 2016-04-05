@@ -2766,7 +2766,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"received state from local node that does not match the current local node"
+literal|"received state with a local node that does not match the current local node"
 argument_list|)
 throw|;
 block|}

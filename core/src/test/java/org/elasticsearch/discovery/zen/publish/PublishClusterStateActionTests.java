@@ -4968,7 +4968,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"received state from local node that does not match the current local node"
+literal|"received state with a local node that does not match the current local node"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5067,7 +5067,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"received state from local node that does not match the current local node"
+literal|"received state with a local node that does not match the current local node"
 argument_list|)
 argument_list|)
 expr_stmt|;
