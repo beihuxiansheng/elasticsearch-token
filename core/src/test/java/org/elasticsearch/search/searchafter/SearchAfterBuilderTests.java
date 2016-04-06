@@ -144,6 +144,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentFactory
 import|;
 end_import
@@ -158,7 +172,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentBuilder
+name|XContentHelper
 import|;
 end_import
 
@@ -196,20 +210,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -228,7 +228,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|MatchAllQueryParser
+name|QueryParseContext
 import|;
 end_import
 
@@ -242,7 +242,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryParser
 import|;
 end_import
 
@@ -379,6 +379,16 @@ operator|new
 name|NamedWriteableRegistry
 argument_list|()
 expr_stmt|;
+name|QueryParser
+argument_list|<
+name|MatchAllQueryBuilder
+argument_list|>
+name|parser
+init|=
+name|MatchAllQueryBuilder
+operator|::
+name|fromXContent
+decl_stmt|;
 name|indicesQueriesRegistry
 operator|=
 operator|new
@@ -404,13 +414,11 @@ operator|new
 name|Tuple
 argument_list|<>
 argument_list|(
-name|MatchAllQueryParser
+name|MatchAllQueryBuilder
 operator|.
 name|QUERY_NAME_FIELD
 argument_list|,
-operator|new
-name|MatchAllQueryParser
-argument_list|()
+name|parser
 argument_list|)
 argument_list|)
 argument_list|)
