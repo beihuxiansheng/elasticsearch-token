@@ -5732,6 +5732,12 @@ name|randomTimeValue
 argument_list|()
 argument_list|)
 return|;
+case|case
+name|BOOLEAN_FIELD_NAME
+case|:
+return|return
+literal|null
+return|;
 default|default:
 if|if
 condition|(
