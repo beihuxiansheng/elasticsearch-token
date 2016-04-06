@@ -1273,8 +1273,6 @@ name|getWriteableName
 parameter_list|()
 block|{
 return|return
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 return|;
 block|}
@@ -2680,8 +2678,6 @@ argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. [query] is already defined."
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|)
 throw|;
@@ -2710,10 +2706,10 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"failed to parse [{}] query. already found function [{}], now encountering [{}]. use [functions] array if you want to define several functions."
+literal|"failed to parse [{}] query. already found function [{}], now encountering [{}]. use [functions] "
+operator|+
+literal|"array if you want to define several functions."
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|,
 name|singleFunctionName
@@ -2880,8 +2876,6 @@ argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. array [{}] is not supported"
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|,
 name|currentFieldName
@@ -3073,10 +3067,10 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"failed to parse [{}] query. already found function [{}], now encountering [{}]. use [functions] array if you want to define several functions."
+literal|"failed to parse [{}] query. already found function [{}], now encountering [{}]. use [functions] array "
+operator|+
+literal|"if you want to define several functions."
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|,
 name|singleFunctionName
@@ -3170,8 +3164,6 @@ argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. field [{}] is not supported"
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|,
 name|currentFieldName
@@ -3303,8 +3295,6 @@ name|contentLocation
 argument_list|,
 literal|"failed to parse [{}] query. [{}]"
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|,
 name|MISPLACED_FUNCTION_MESSAGE_PREFIX
@@ -3423,8 +3413,6 @@ name|START_OBJECT
 argument_list|,
 name|token
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|)
 throw|;
@@ -3606,8 +3594,6 @@ argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. field [{}] is not supported"
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|,
 name|currentFieldName
@@ -3686,8 +3672,6 @@ argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. an entry in functions list is missing a function."
 argument_list|,
-name|FunctionScoreQueryBuilder
-operator|.
 name|NAME
 argument_list|)
 throw|;

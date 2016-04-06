@@ -550,7 +550,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|MultiMatchQueryParser
+name|MultiMatchQueryBuilder
 import|;
 end_import
 
@@ -3952,7 +3952,7 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Register a query.      * TODO remove this in favor of registerQuery and rename innerRegisterQueryParser      */
+comment|/**      * Register a query via its parser's prototype.      * TODO remove this in favor of registerQuery and merge innerRegisterQueryParser into registerQuery      */
 DECL|method|registerQueryParser
 specifier|public
 name|void
@@ -4077,12 +4077,10 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Query parser ["
 operator|+
-name|queryParsers
+name|previousValue
 operator|.
-name|get
-argument_list|(
-name|name
-argument_list|)
+name|v2
+argument_list|()
 operator|+
 literal|"] already registered for name ["
 operator|+
@@ -5239,13 +5237,19 @@ operator|.
 name|QUERY_NAME_FIELD
 argument_list|)
 expr_stmt|;
-name|registerQueryParser
+name|registerQuery
 argument_list|(
-operator|new
-name|MultiMatchQueryParser
-argument_list|()
+name|MultiMatchQueryBuilder
+operator|.
+name|PROTOTYPE
+operator|::
+name|readFrom
 argument_list|,
-name|MultiMatchQueryParser
+name|MultiMatchQueryBuilder
+operator|::
+name|fromXContent
+argument_list|,
+name|MultiMatchQueryBuilder
 operator|.
 name|QUERY_NAME_FIELD
 argument_list|)

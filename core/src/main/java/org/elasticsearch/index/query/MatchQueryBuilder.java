@@ -2793,8 +2793,6 @@ argument_list|()
 argument_list|,
 literal|"["
 operator|+
-name|MatchQueryBuilder
-operator|.
 name|NAME
 operator|+
 literal|"] query does not support type "
@@ -3225,8 +3223,6 @@ argument_list|()
 argument_list|,
 literal|"["
 operator|+
-name|MatchQueryBuilder
-operator|.
 name|NAME
 operator|+
 literal|"] query does not support ["
@@ -3251,8 +3247,6 @@ argument_list|()
 argument_list|,
 literal|"["
 operator|+
-name|MatchQueryBuilder
-operator|.
 name|NAME
 operator|+
 literal|"] unknown token ["
