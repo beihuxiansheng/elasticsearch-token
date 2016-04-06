@@ -328,6 +328,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -339,6 +349,16 @@ operator|.
 name|util
 operator|.
 name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -436,7 +456,7 @@ name|fieldDataFields
 decl_stmt|;
 DECL|field|scriptFields
 specifier|private
-name|List
+name|Set
 argument_list|<
 name|ScriptField
 argument_list|>
@@ -1514,7 +1534,7 @@ block|{
 name|scriptFields
 operator|=
 operator|new
-name|ArrayList
+name|HashSet
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -1583,7 +1603,7 @@ operator|.
 name|scriptFields
 operator|=
 operator|new
-name|ArrayList
+name|HashSet
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -1604,7 +1624,7 @@ block|}
 comment|/**      * Gets the script fields.      */
 DECL|method|scriptFields
 specifier|public
-name|List
+name|Set
 argument_list|<
 name|ScriptField
 argument_list|>
@@ -2358,14 +2378,14 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|List
+name|Set
 argument_list|<
 name|ScriptField
 argument_list|>
 name|scriptFields
 init|=
 operator|new
-name|ArrayList
+name|HashSet
 argument_list|<>
 argument_list|(
 name|size
