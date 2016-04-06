@@ -86,6 +86,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|transport
 operator|.
 name|DummyTransportAddress
@@ -449,9 +461,9 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
-literal|"should not ignore, because new state's version is equal to current state's version"
+literal|"should ignore, because new state's version is equal to current state's version"
 argument_list|,
 name|shouldIgnoreOrRejectNewClusterState
 argument_list|(

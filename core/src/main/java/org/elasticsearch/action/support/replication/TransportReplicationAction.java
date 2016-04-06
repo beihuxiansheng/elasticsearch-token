@@ -788,6 +788,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ConcurrentMap
 import|;
 end_import
@@ -3877,6 +3889,8 @@ operator|=
 name|getIndexShardReferenceOnPrimary
 argument_list|(
 name|shardId
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 if|if
@@ -4480,6 +4494,9 @@ name|getIndexShardReferenceOnPrimary
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+name|Request
+name|request
 parameter_list|)
 block|{
 name|IndexService
@@ -4590,7 +4607,9 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-return|return
+name|IndexShardReference
+name|ref
+init|=
 name|IndexShardReferenceImpl
 operator|.
 name|createOnReplica
@@ -4599,6 +4618,9 @@ name|indexShard
 argument_list|,
 name|primaryTerm
 argument_list|)
+decl_stmt|;
+return|return
+name|ref
 return|;
 block|}
 comment|/**      * Responsible for sending replica requests (see {@link AsyncReplicaAction}) to nodes with replica copy, including      * relocating copies      */
@@ -5589,6 +5611,13 @@ operator|.
 name|NoLongerPrimaryShardException
 condition|)
 block|{
+name|String
+name|message
+init|=
+literal|"unknown"
+decl_stmt|;
+try|try
+block|{
 name|ShardRouting
 name|primaryShard
 init|=
@@ -5597,9 +5626,8 @@ operator|.
 name|routingEntry
 argument_list|()
 decl_stmt|;
-name|String
 name|message
-init|=
+operator|=
 name|String
 operator|.
 name|format
@@ -5616,7 +5644,7 @@ name|shard
 argument_list|,
 name|exp
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// we are no longer the primary, fail ourselves and start over
 name|indexShardReference
 operator|.
@@ -5627,6 +5655,21 @@ argument_list|,
 name|shardFailedError
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|shardFailedError
+operator|.
+name|addSuppressed
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 name|forceFinishAsFailed
 argument_list|(
 operator|new
@@ -5643,8 +5686,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// these can occur if the node is shutting down and are okay
+comment|// any other exception here is not expected and merits investigation
 assert|assert
-literal|false
+name|shardFailedError
+operator|instanceof
+name|TransportException
+operator|||
+name|shardFailedError
+operator|instanceof
+name|NodeClosedException
 operator|:
 name|shardFailedError
 assert|;
