@@ -340,10 +340,23 @@ name|TYPE
 argument_list|)
 expr_stmt|;
 comment|// internally we want to have a fixed order of filters, regardless of the order of the filters in the request
+name|this
+operator|.
+name|filters
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|filters
+argument_list|)
+expr_stmt|;
 name|Collections
 operator|.
 name|sort
 argument_list|(
+name|this
+operator|.
 name|filters
 argument_list|,
 parameter_list|(
@@ -367,12 +380,6 @@ name|key
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|filters
-operator|=
-name|filters
 expr_stmt|;
 name|this
 operator|.
@@ -502,6 +509,27 @@ parameter_list|()
 block|{
 return|return
 name|otherBucket
+return|;
+block|}
+comment|/**      * Get the filters. This will be an unmodifiable list      */
+DECL|method|filters
+specifier|public
+name|List
+argument_list|<
+name|KeyedFilter
+argument_list|>
+name|filters
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
+name|this
+operator|.
+name|filters
+argument_list|)
 return|;
 block|}
 comment|/**      * Set the key to use for the bucket for documents not matching any      * filter.      */
