@@ -946,10 +946,15 @@ name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
-name|long
+name|Long
 name|val
 init|=
-name|value
+operator|(
+name|Long
+operator|)
+name|super
+operator|.
+name|valueForSearch
 argument_list|(
 name|value
 argument_list|)

@@ -1872,21 +1872,7 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** Returns the actual value of the field. */
-DECL|method|value
-specifier|public
-name|Object
-name|value
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-return|return
-name|value
-return|;
-block|}
-comment|/** Returns the value that will be used as a result for search. Can be only of specific types... */
+comment|/** Given a value that comes from the stored fields API, convert it to the      *  expected type. For instance a date field would store dates as longs and      *  format it back to a string in this method. */
 DECL|method|valueForSearch
 specifier|public
 name|Object

@@ -947,10 +947,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|value
+DECL|method|valueForSearch
 specifier|public
 name|Double
-name|value
+name|valueForSearch
 parameter_list|(
 name|Object
 name|value

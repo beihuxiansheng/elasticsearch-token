@@ -1147,7 +1147,6 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**          * Override the default behavior to return a timestamp          */
 annotation|@
 name|Override
 DECL|method|valueForSearch
@@ -1161,9 +1160,6 @@ parameter_list|)
 block|{
 return|return
 name|value
-argument_list|(
-name|value
-argument_list|)
 return|;
 block|}
 block|}

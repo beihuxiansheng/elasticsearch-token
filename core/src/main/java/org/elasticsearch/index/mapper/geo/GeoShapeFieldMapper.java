@@ -2603,25 +2603,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|value
-specifier|public
-name|String
-name|value
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"GeoShape fields cannot be converted to String values"
-argument_list|)
-throw|;
-block|}
 block|}
 DECL|field|coerce
 specifier|protected
