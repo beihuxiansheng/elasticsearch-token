@@ -565,6 +565,15 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+name|BOOLEAN_FIELD_NAME
+argument_list|)
+operator|==
+literal|false
+operator|&&
 name|randomBoolean
 argument_list|()
 condition|)
