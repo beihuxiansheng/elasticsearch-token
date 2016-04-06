@@ -6960,7 +6960,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-literal|"type1"
+literal|"type"
 argument_list|)
 operator|.
 name|source
@@ -7080,7 +7080,7 @@ argument_list|)
 argument_list|,
 name|linearDecayFunction
 argument_list|(
-literal|"type1.geo"
+literal|"type.geo"
 argument_list|,
 name|lonlat
 argument_list|,
