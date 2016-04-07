@@ -1225,7 +1225,7 @@ name|networkAddress
 operator|=
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|privateIp
 argument_list|)
@@ -1295,7 +1295,7 @@ name|networkAddress
 operator|=
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 operator|new
 name|InetSocketAddress

@@ -2163,7 +2163,7 @@ name|addCell
 argument_list|(
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 operator|(
 operator|(

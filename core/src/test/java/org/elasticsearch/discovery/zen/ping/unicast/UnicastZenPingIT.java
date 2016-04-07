@@ -631,7 +631,7 @@ literal|"discovery.zen.ping.unicast.hosts"
 argument_list|,
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 operator|new
 name|InetSocketAddress
@@ -656,7 +656,7 @@ argument_list|)
 argument_list|,
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 operator|new
 name|InetSocketAddress

@@ -601,7 +601,7 @@ name|append
 argument_list|(
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|address
 argument_list|)
@@ -640,7 +640,7 @@ name|append
 argument_list|(
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|address
 argument_list|)
@@ -668,7 +668,7 @@ literal|" netmask:"
 operator|+
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|InetAddress
 operator|.
@@ -745,7 +745,7 @@ literal|" broadcast:"
 operator|+
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|broadcast
 argument_list|)

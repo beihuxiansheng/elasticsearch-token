@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|SuppressForbidden
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -69,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Utility functions for presentation of network addresses.  *<p>  * Java's address formatting is particularly bad, every address  * has an optional host if its resolved, so IPv4 addresses often  * look like this (note the confusing leading slash):  *<pre>  *    {@code /127.0.0.1}  *</pre>  * IPv6 addresses are even worse, with no IPv6 address compression,  * and often containing things like numeric scopeids, which are even  * more confusing (e.g. not going to work in any user's browser, refer  * to an interface on<b>another</b> machine, etc):  *<pre>  *    {@code /0:0:0:0:0:0:0:1%1}  *</pre>  * This class provides sane address formatting instead, e.g.   * {@code 127.0.0.1} and {@code ::1} respectively. No methods do reverse  * lookups.  */
+comment|/**  * Utility functions for presentation of network addresses.  *<p>  * Java's address formatting is particularly bad, every address  * has an optional host if its resolved, so IPv4 addresses often  * look like this (note the confusing leading slash):  *<pre>  *    {@code /127.0.0.1}  *</pre>  * IPv6 addresses are even worse, with no IPv6 address compression,  * and often containing things like numeric scopeids, which are even  * more confusing (e.g. not going to work in any user's browser, refer  * to an interface on<b>another</b> machine, etc):  *<pre>  *    {@code /0:0:0:0:0:0:0:1%1}  *</pre>  * Note: the {@code %1} is the "scopeid".  *<p>  * This class provides sane address formatting instead, e.g.  * {@code 127.0.0.1} and {@code ::1} respectively. No methods do reverse  * lookups.  */
 end_comment
 
 begin_class
@@ -85,7 +73,7 @@ specifier|private
 name|NetworkAddress
 parameter_list|()
 block|{}
-comment|/**      * Formats a network address (with optional host) for display purposes.      *<p>      * If the host is already resolved (typically because, we looked up      * a name to do that), then we include it, otherwise it is      * omitted. See {@link #formatAddress(InetAddress)} if you only      * want the address.      *<p>      * IPv6 addresses are compressed and without scope      * identifiers.      *<p>      * Example output with already-resolved hostnames:      *<ul>      *<li>IPv4: {@code localhost/127.0.0.1}</li>      *<li>IPv6: {@code localhost/::1}</li>      *</ul>      *<p>      * Example output with just an address:      *<ul>      *<li>IPv4: {@code 127.0.0.1}</li>      *<li>IPv6: {@code ::1}</li>      *</ul>      * @param address IPv4 or IPv6 address      * @return formatted string      * @see #formatAddress(InetAddress)      */
+comment|/**      * Formats a network address for display purposes.      *<p>      * This formats only the address, any hostname information,      * if present, is ignored. IPv6 addresses are compressed      * and without scope identifiers.      *<p>      * Example output with just an address:      *<ul>      *<li>IPv4: {@code 127.0.0.1}</li>      *<li>IPv6: {@code ::1}</li>      *</ul>      * @param address IPv4 or IPv6 address      * @return formatted string      */
 DECL|method|format
 specifier|public
 specifier|static
@@ -103,12 +91,10 @@ name|address
 argument_list|,
 operator|-
 literal|1
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Formats a network address and port for display purposes.      *<p>      * If the host is already resolved (typically because, we looked up      * a name to do that), then we include it, otherwise it is      * omitted. See {@link #formatAddress(InetSocketAddress)} if you only      * want the address.      *<p>      * This formats the address with {@link #format(InetAddress)}      * and appends the port number. IPv6 addresses will be bracketed.      *<p>      * Example output with already-resolved hostnames:      *<ul>      *<li>IPv4: {@code localhost/127.0.0.1:9300}</li>      *<li>IPv6: {@code localhost/[::1]:9300}</li>      *</ul>      *<p>      * Example output with just an address:      *<ul>      *<li>IPv4: {@code 127.0.0.1:9300}</li>      *<li>IPv6: {@code [::1]:9300}</li>      *</ul>      * @param address IPv4 or IPv6 address with port      * @return formatted string      * @see #formatAddress(InetSocketAddress)      */
+comment|/**      * Formats a network address and port for display purposes.      *<p>      * This formats the address with {@link #format(InetAddress)}      * and appends the port number. IPv6 addresses will be bracketed.      * Any host information, if present is ignored.      *<p>      * Example output:      *<ul>      *<li>IPv4: {@code 127.0.0.1:9300}</li>      *<li>IPv6: {@code [::1]:9300}</li>      *</ul>      * @param address IPv4 or IPv6 address with port      * @return formatted string      */
 DECL|method|format
 specifier|public
 specifier|static
@@ -131,70 +117,10 @@ name|address
 operator|.
 name|getPort
 argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-return|;
-block|}
-comment|/**      * Formats a network address for display purposes.      *<p>      * This formats only the address, any hostname information,      * if present, is ignored. IPv6 addresses are compressed       * and without scope identifiers.      *<p>      * Example output with just an address:      *<ul>      *<li>IPv4: {@code 127.0.0.1}</li>      *<li>IPv6: {@code ::1}</li>      *</ul>      * @param address IPv4 or IPv6 address      * @return formatted string      */
-DECL|method|formatAddress
-specifier|public
-specifier|static
-name|String
-name|formatAddress
-parameter_list|(
-name|InetAddress
-name|address
-parameter_list|)
-block|{
-return|return
-name|format
-argument_list|(
-name|address
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
-comment|/**      * Formats a network address and port for display purposes.      *<p>      * This formats the address with {@link #formatAddress(InetAddress)}      * and appends the port number. IPv6 addresses will be bracketed.      * Any host information, if present is ignored.      *<p>      * Example output:      *<ul>      *<li>IPv4: {@code 127.0.0.1:9300}</li>      *<li>IPv6: {@code [::1]:9300}</li>      *</ul>      * @param address IPv4 or IPv6 address with port      * @return formatted string      */
-DECL|method|formatAddress
-specifier|public
-specifier|static
-name|String
-name|formatAddress
-parameter_list|(
-name|InetSocketAddress
-name|address
-parameter_list|)
-block|{
-return|return
-name|format
-argument_list|(
-name|address
-operator|.
-name|getAddress
-argument_list|()
-argument_list|,
-name|address
-operator|.
-name|getPort
-argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}
 comment|// note, we don't validate port, because we only allow InetSocketAddress
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"we call toString to avoid a DNS lookup"
-argument_list|)
 DECL|method|format
 specifier|static
 name|String
@@ -205,9 +131,6 @@ name|address
 parameter_list|,
 name|int
 name|port
-parameter_list|,
-name|boolean
-name|includeHost
 parameter_list|)
 block|{
 name|Objects
@@ -224,53 +147,6 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|includeHost
-condition|)
-block|{
-comment|// must use toString, to avoid DNS lookup. but the format is specified in the spec
-name|String
-name|toString
-init|=
-name|address
-operator|.
-name|toString
-argument_list|()
-decl_stmt|;
-name|int
-name|separator
-init|=
-name|toString
-operator|.
-name|indexOf
-argument_list|(
-literal|'/'
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|separator
-operator|>
-literal|0
-condition|)
-block|{
-comment|// append hostname, with the slash too
-name|builder
-operator|.
-name|append
-argument_list|(
-name|toString
-argument_list|,
-literal|0
-argument_list|,
-name|separator
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 if|if
 condition|(
 name|port

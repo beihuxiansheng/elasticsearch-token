@@ -343,7 +343,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[localhost/127.0.0.1:9876]"
+literal|"[127.0.0.1:9876]"
 argument_list|)
 argument_list|)
 expr_stmt|;

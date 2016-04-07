@@ -905,7 +905,7 @@ name|assertThat
 argument_list|(
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|publishAddress
 operator|.

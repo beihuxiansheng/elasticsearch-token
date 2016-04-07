@@ -804,7 +804,7 @@ name|ipAddress
 operator|=
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|inetAddress
 argument_list|)
