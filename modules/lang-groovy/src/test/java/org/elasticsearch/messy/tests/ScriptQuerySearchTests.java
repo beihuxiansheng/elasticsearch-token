@@ -311,14 +311,12 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|INDEX_QUERY_CACHE_TYPE_SETTING
+name|INDEX_QUERY_CACHE_ENABLED_SETTING
 operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|IndexModule
-operator|.
-name|INDEX_QUERY_CACHE
+literal|true
 argument_list|)
 operator|.
 name|put

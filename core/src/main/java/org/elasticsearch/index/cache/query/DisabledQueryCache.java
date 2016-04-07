@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.cache.query.none
+DECL|package|org.elasticsearch.index.cache.query
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|cache
 operator|.
 name|query
-operator|.
-name|none
 package|;
 end_package
 
@@ -45,20 +43,6 @@ operator|.
 name|search
 operator|.
 name|Weight
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -107,18 +91,18 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|NoneQueryCache
+DECL|class|DisabledQueryCache
 specifier|public
 class|class
-name|NoneQueryCache
+name|DisabledQueryCache
 extends|extends
 name|AbstractIndexComponent
 implements|implements
 name|QueryCache
 block|{
-DECL|method|NoneQueryCache
+DECL|method|DisabledQueryCache
 specifier|public
-name|NoneQueryCache
+name|DisabledQueryCache
 parameter_list|(
 name|IndexSettings
 name|indexSettings
