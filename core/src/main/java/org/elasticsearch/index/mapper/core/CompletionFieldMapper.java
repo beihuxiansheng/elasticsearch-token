@@ -2094,18 +2094,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isSortable
-specifier|public
-name|boolean
-name|isSortable
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 block|}
 comment|/**      * Builder for {@link CompletionFieldMapper}      */
 DECL|class|Builder

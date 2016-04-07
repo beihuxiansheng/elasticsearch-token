@@ -684,7 +684,12 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Fielddata is not supported on fields of type ["
+literal|"Fielddata is not supported on field ["
+operator|+
+name|name
+argument_list|()
+operator|+
+literal|"] of type ["
 operator|+
 name|typeName
 argument_list|()
@@ -1600,16 +1605,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-DECL|method|isSortable
-specifier|public
-name|boolean
-name|isSortable
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 DECL|method|name
 specifier|public

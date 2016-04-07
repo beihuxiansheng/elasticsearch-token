@@ -7161,11 +7161,11 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Sorting not supported for field["
+literal|"Fielddata is not supported on field ["
 operator|+
 name|FIELD
 operator|+
-literal|"]"
+literal|"] of type [completion]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9422,7 +9422,11 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Fielddata is not supported on fields of type [completion]"
+literal|"Fielddata is not supported on field ["
+operator|+
+name|FIELD
+operator|+
+literal|"] of type [completion]"
 argument_list|)
 argument_list|)
 expr_stmt|;
