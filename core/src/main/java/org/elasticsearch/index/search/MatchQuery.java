@@ -1201,8 +1201,10 @@ literal|null
 operator|&&
 name|fieldType
 operator|.
-name|useTermQueryWithQueryString
+name|tokenized
 argument_list|()
+operator|==
+literal|false
 operator|&&
 name|noForcedAnalyzer
 condition|)

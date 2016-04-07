@@ -1601,16 +1601,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|isNumeric
-specifier|public
-name|boolean
-name|isNumeric
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|isSortable
 specifier|public
 name|boolean
@@ -1932,17 +1922,6 @@ name|toBytesRef
 argument_list|(
 name|value
 argument_list|)
-return|;
-block|}
-comment|/**      * Should the field query {@link #termQuery(Object, org.elasticsearch.index.query.QueryShardContext)}  be used when detecting this      * field in query string.      */
-DECL|method|useTermQueryWithQueryString
-specifier|public
-name|boolean
-name|useTermQueryWithQueryString
-parameter_list|()
-block|{
-return|return
-literal|false
 return|;
 block|}
 comment|/**      * Creates a term associated with the field of this mapper for the given      * value. Its important to use termQuery when building term queries because      * things like ParentFieldMapper override it to make more interesting      * queries.      */

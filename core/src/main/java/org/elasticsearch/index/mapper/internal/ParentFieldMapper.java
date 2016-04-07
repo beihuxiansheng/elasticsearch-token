@@ -576,6 +576,13 @@ static|static
 block|{
 name|FIELD_TYPE
 operator|.
+name|setTokenized
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|FIELD_TYPE
+operator|.
 name|setIndexOptions
 argument_list|(
 name|IndexOptions
@@ -1278,19 +1285,6 @@ parameter_list|()
 block|{
 return|return
 name|CONTENT_TYPE
-return|;
-block|}
-comment|/**          * We don't need to analyzer the text, and we need to convert it to UID...          */
-annotation|@
-name|Override
-DECL|method|useTermQueryWithQueryString
-specifier|public
-name|boolean
-name|useTermQueryWithQueryString
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 annotation|@

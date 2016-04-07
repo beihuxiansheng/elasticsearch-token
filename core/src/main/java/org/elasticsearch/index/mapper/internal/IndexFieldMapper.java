@@ -688,23 +688,6 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|useTermQueryWithQueryString
-specifier|public
-name|boolean
-name|useTermQueryWithQueryString
-parameter_list|()
-block|{
-comment|// As we spoof the presence of an indexed field we have to override
-comment|// the default of returning false which otherwise leads MatchQuery
-comment|// et al to run an analyzer over the query string and then try to
-comment|// hit the search index. We need them to use our termQuery(..)
-comment|// method which checks index names
-return|return
-literal|true
-return|;
-block|}
 comment|/**          * This termQuery impl looks at the context to determine the index that          * is being queried and then returns a MATCH_ALL_QUERY or MATCH_NO_QUERY          * if the value matches this index. This can be useful if aliases or          * wildcards are used but the aim is to restrict the query to specific          * indices          */
 annotation|@
 name|Override

@@ -971,8 +971,10 @@ if|if
 condition|(
 name|fieldType
 operator|.
-name|isNumeric
+name|tokenized
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -986,7 +988,7 @@ operator|.
 name|field
 argument_list|()
 operator|+
-literal|"], Analysis requests are not supported on numeric fields"
+literal|"], Analysis requests are only supported on tokenized fields"
 argument_list|)
 throw|;
 block|}

@@ -1446,10 +1446,13 @@ if|if
 condition|(
 name|currentFieldType
 operator|.
-name|useTermQueryWithQueryString
+name|tokenized
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
+comment|// this might be a structured field like a numeric
 try|try
 block|{
 name|query
@@ -2138,10 +2141,9 @@ if|if
 condition|(
 name|lowercaseExpandedTerms
 operator|&&
-operator|!
 name|currentFieldType
 operator|.
-name|isNumeric
+name|tokenized
 argument_list|()
 condition|)
 block|{
@@ -3067,8 +3069,10 @@ if|if
 condition|(
 name|currentFieldType
 operator|.
-name|useTermQueryWithQueryString
+name|tokenized
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|query
@@ -4593,8 +4597,10 @@ if|if
 condition|(
 name|currentFieldType
 operator|.
-name|useTermQueryWithQueryString
+name|tokenized
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|query
