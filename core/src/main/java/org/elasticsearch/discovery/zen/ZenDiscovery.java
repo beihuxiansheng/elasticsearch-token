@@ -240,18 +240,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|SuppressForbidden
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -4466,13 +4454,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * In the case we follow an elected master the new cluster state needs to have the same elected master and      * the new cluster state version needs to be equal or higher than our cluster state version.      * If the first condition fails we reject the cluster state and throw an error.      * If the second condition fails we ignore the cluster state.      */
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"debug"
-argument_list|)
 DECL|method|shouldIgnoreOrRejectNewClusterState
 specifier|public
 specifier|static
