@@ -3820,6 +3820,11 @@ comment|/**      * Reads a {@link NamedWriteable} from the current stream, by fi
 DECL|method|readNamedWriteable
 parameter_list|<
 name|C
+extends|extends
+name|NamedWriteable
+argument_list|<
+name|?
+argument_list|>
 parameter_list|>
 name|C
 name|readNamedWriteable
