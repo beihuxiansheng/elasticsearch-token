@@ -355,6 +355,14 @@ name|IOException
 block|{
 name|pipelineStore
 operator|.
+name|getProcessorRegistry
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|pipelineStore
+operator|.
 name|close
 argument_list|()
 expr_stmt|;
