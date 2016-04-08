@@ -1422,9 +1422,12 @@ block|,
 DECL|enum constant|FS
 name|FS
 block|,
+DECL|enum constant|Deprecated
+annotation|@
+name|Deprecated
 DECL|enum constant|DEFAULT
 name|DEFAULT
-block|;
+decl_stmt|;
 DECL|method|getSettingsKey
 specifier|public
 name|String
