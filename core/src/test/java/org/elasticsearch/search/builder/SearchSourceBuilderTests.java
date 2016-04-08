@@ -498,6 +498,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|support
+operator|.
+name|InnerHitsBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndicesModule
@@ -691,22 +707,6 @@ operator|.
 name|aggregations
 operator|.
 name|AggregatorParsers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|support
-operator|.
-name|InnerHitsBuilder
 import|;
 end_import
 
@@ -2600,9 +2600,6 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
 name|builder
 operator|.
 name|query
@@ -2634,9 +2631,6 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.postFilter(RandomQueryBuilder.createQuery(getRandom()));
 name|builder
 operator|.
 name|postFilter
@@ -3284,7 +3278,6 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-comment|// NORELEASE need a random aggregation builder method
 name|builder
 operator|.
 name|aggregation
@@ -3309,7 +3302,6 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-comment|// NORELEASE need a method to randomly build content for ext
 name|XContentBuilder
 name|xContentBuilder
 init|=

@@ -175,9 +175,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
 name|filters
 index|[
 name|i
@@ -263,9 +260,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
 name|filters
 index|[
 name|i
