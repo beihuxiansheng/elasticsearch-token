@@ -1416,22 +1416,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|transport
 operator|.
 name|NetworkExceptionHelper
@@ -2976,7 +2960,9 @@ condition|)
 block|{
 name|profileSettings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3040,7 +3026,9 @@ comment|// merge fallback settings with default settings with profile settings s
 name|Settings
 name|mergedSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3389,7 +3377,9 @@ operator|.
 name|Builder
 name|fallbackSettingsBuilder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|List

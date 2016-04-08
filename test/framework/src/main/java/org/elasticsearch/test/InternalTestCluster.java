@@ -1374,22 +1374,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -2149,7 +2133,7 @@ name|builder
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 if|if
@@ -2856,7 +2840,7 @@ name|builder
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3080,7 +3064,7 @@ name|builder
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 if|if
@@ -4628,7 +4612,9 @@ assert|;
 name|Settings
 name|finalSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4972,7 +4958,9 @@ comment|// currently unused
 name|Builder
 name|builder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6085,7 +6073,9 @@ decl_stmt|;
 name|Builder
 name|builder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

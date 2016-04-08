@@ -3939,25 +3939,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Returns a builder to be used in order to build settings.      */
 DECL|method|builder
 specifier|public
 specifier|static
 name|Builder
 name|builder
-parameter_list|()
-block|{
-return|return
-operator|new
-name|Builder
-argument_list|()
-return|;
-block|}
-comment|/**      * Returns a builder to be used in order to build settings.      */
-DECL|method|settingsBuilder
-specifier|public
-specifier|static
-name|Builder
-name|settingsBuilder
 parameter_list|()
 block|{
 return|return
@@ -4111,7 +4098,7 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-comment|/**      * A builder allowing to put different settings and then {@link #build()} an immutable      * settings implementation. Use {@link Settings#settingsBuilder()} in order to      * construct it.      */
+comment|/**      * A builder allowing to put different settings and then {@link #build()} an immutable      * settings implementation. Use {@link Settings#builder()} in order to      * construct it.      */
 DECL|class|Builder
 specifier|public
 specifier|static

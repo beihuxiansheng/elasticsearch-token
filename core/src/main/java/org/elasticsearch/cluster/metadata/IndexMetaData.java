@@ -694,22 +694,6 @@ name|settings
 operator|.
 name|Settings
 operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
 name|writeSettingsToStream
 import|;
 end_import
@@ -4553,7 +4537,9 @@ parameter_list|)
 block|{
 name|settings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4604,7 +4590,9 @@ parameter_list|)
 block|{
 name|settings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4655,7 +4643,9 @@ parameter_list|)
 block|{
 name|settings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6406,7 +6396,7 @@ name|settings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put

@@ -622,7 +622,7 @@ name|hostsSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|putArray

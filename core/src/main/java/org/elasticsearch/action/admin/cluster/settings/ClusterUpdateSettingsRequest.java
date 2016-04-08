@@ -391,7 +391,7 @@ name|transientSettings
 operator|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|loadFromSource
@@ -536,7 +536,7 @@ name|persistentSettings
 operator|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|loadFromSource

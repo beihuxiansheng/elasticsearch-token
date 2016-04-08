@@ -480,22 +480,6 @@ name|TimeUnit
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  * The transport client allows to create a client that is not part of the cluster, but simply connects to one  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.  *<p>  * The transport client important modules used is the {@link org.elasticsearch.common.network.NetworkModule} which is  * started in client mode (only connects, no bind).  */
 end_comment
@@ -640,7 +624,9 @@ operator|.
 name|Builder
 name|settingsBuilder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

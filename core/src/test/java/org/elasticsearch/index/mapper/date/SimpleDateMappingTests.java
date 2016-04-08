@@ -578,22 +578,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|mapper
@@ -1501,7 +1485,9 @@ name|createIndex
 argument_list|(
 name|indexName
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3020,7 +3006,9 @@ comment|// Unless the global ignore_malformed option is set to true
 name|Settings
 name|indexSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

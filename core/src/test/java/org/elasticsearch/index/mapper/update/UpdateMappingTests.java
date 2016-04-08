@@ -970,7 +970,7 @@ literal|"test"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -1197,7 +1197,7 @@ literal|"test"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -1356,7 +1356,7 @@ literal|"test"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -1601,7 +1601,7 @@ literal|"test"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -1891,7 +1891,7 @@ literal|"test"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -2223,7 +2223,7 @@ literal|"test"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -2742,7 +2742,7 @@ literal|"test"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -2851,7 +2851,7 @@ literal|"test1"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -2864,7 +2864,7 @@ literal|"test2"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build

@@ -752,7 +752,7 @@ comment|//Filter/Query cache is cleaned periodically, default is 60s, so make su
 return|return
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -792,7 +792,7 @@ block|{
 return|return
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put

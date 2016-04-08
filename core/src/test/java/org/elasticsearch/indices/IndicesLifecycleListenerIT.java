@@ -454,22 +454,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|builder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|shard
@@ -1469,6 +1453,8 @@ argument_list|()
 operator|.
 name|setPersistentSettings
 argument_list|(
+name|Settings
+operator|.
 name|builder
 argument_list|()
 operator|.
@@ -1539,6 +1525,8 @@ argument_list|()
 operator|.
 name|setPersistentSettings
 argument_list|(
+name|Settings
+operator|.
 name|builder
 argument_list|()
 operator|.
@@ -1606,6 +1594,8 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
+name|Settings
+operator|.
 name|builder
 argument_list|()
 operator|.

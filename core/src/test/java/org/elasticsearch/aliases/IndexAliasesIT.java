@@ -274,6 +274,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -653,22 +667,6 @@ operator|.
 name|IndexMetaData
 operator|.
 name|SETTING_READ_ONLY
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -5556,7 +5554,9 @@ argument_list|)
 operator|.
 name|settings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

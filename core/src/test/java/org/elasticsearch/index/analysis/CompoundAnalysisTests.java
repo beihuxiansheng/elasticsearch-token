@@ -150,18 +150,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|IndexSettings
 import|;
 end_import
@@ -269,22 +257,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -718,7 +690,9 @@ init|=
 literal|"/org/elasticsearch/index/analysis/test1.json"
 decl_stmt|;
 return|return
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|loadFromStream
@@ -777,7 +751,9 @@ init|=
 literal|"/org/elasticsearch/index/analysis/test1.yml"
 decl_stmt|;
 return|return
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|loadFromStream
