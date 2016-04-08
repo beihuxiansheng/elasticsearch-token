@@ -631,11 +631,6 @@ argument_list|,
 literal|1.0f
 argument_list|)
 expr_stmt|;
-name|allEntries
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 name|TokenStream
 name|stream
 init|=
@@ -645,7 +640,9 @@ name|allTokenStream
 argument_list|(
 literal|"_all"
 argument_list|,
-name|allEntries
+name|text
+argument_list|,
+literal|1.0f
 argument_list|,
 name|analyzer
 argument_list|)
