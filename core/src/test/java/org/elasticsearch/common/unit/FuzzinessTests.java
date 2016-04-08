@@ -1622,9 +1622,8 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
+operator|new
 name|Fuzziness
-operator|.
-name|readFuzzinessFrom
 argument_list|(
 name|streamInput
 argument_list|)

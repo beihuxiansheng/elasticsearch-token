@@ -134,11 +134,11 @@ operator|!=
 name|STRICT
 operator|)
 decl_stmt|;
-DECL|method|readGeoValidationMethodFrom
+DECL|method|readFromStream
 specifier|public
 specifier|static
 name|GeoValidationMethod
-name|readGeoValidationMethodFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

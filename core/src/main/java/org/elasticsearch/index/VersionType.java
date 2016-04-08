@@ -1447,11 +1447,11 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-DECL|method|readVersionTypeFrom
+DECL|method|readFromStream
 specifier|public
 specifier|static
 name|VersionType
-name|readVersionTypeFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

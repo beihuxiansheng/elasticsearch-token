@@ -744,11 +744,11 @@ name|ord
 index|]
 return|;
 block|}
-DECL|method|readGeoDistanceFrom
+DECL|method|readFromStream
 specifier|public
 specifier|static
 name|GeoDistance
-name|readGeoDistanceFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

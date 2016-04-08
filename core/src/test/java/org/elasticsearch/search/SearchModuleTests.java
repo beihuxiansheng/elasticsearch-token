@@ -540,10 +540,8 @@ operator|.
 name|registerQuery
 argument_list|(
 name|TermQueryBuilder
-operator|.
-name|PROTOTYPE
 operator|::
-name|readFrom
+operator|new
 argument_list|,
 name|TermQueryBuilder
 operator|::

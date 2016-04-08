@@ -343,28 +343,24 @@ name|void
 name|testIllegalArgument
 parameter_list|()
 block|{
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|TemplateQueryBuilder
 argument_list|(
+operator|(
+name|Template
+operator|)
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 comment|/**      * Override superclass test since template query doesn't support boost and queryName, so      * we need to mutate other existing field in the test query.      */
 annotation|@

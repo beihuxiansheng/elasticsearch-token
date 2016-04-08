@@ -111,7 +111,6 @@ name|NAME
 init|=
 literal|"empty_query"
 decl_stmt|;
-comment|/** the one and only empty query builder */
 DECL|field|PROTOTYPE
 specifier|public
 specifier|static
@@ -123,6 +122,42 @@ operator|new
 name|EmptyQueryBuilder
 argument_list|()
 decl_stmt|;
+comment|/**      * Construct an empty query. This query can *technically* be named and given a boost.      */
+DECL|method|EmptyQueryBuilder
+specifier|public
+name|EmptyQueryBuilder
+parameter_list|()
+block|{     }
+comment|/**      * Read from a stream.      */
+DECL|method|EmptyQueryBuilder
+specifier|public
+name|EmptyQueryBuilder
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doWriteTo
+specifier|protected
+name|void
+name|doWriteTo
+parameter_list|(
+name|StreamOutput
+name|out
+parameter_list|)
+throws|throws
+name|IOException
+block|{     }
 annotation|@
 name|Override
 DECL|method|getWriteableName
@@ -181,38 +216,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
-annotation|@
-name|Override
-DECL|method|doWriteTo
-specifier|protected
-name|void
-name|doWriteTo
-parameter_list|(
-name|StreamOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-block|{     }
-annotation|@
-name|Override
-DECL|method|doReadFrom
-specifier|protected
-name|EmptyQueryBuilder
-name|doReadFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|EmptyQueryBuilder
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doHashCode

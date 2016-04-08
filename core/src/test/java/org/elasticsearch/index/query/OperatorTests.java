@@ -301,7 +301,7 @@ name|assertThat
 argument_list|(
 name|Operator
 operator|.
-name|readOperatorFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -353,7 +353,7 @@ name|assertThat
 argument_list|(
 name|Operator
 operator|.
-name|readOperatorFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

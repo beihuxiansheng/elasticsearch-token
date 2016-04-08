@@ -281,6 +281,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// So we have a stack trace logged somewhere
 return|return
 literal|"{ \"error\" : \""
 operator|+

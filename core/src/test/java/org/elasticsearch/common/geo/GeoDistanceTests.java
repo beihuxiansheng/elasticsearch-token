@@ -289,7 +289,7 @@ name|copy
 init|=
 name|GeoDistance
 operator|.
-name|readGeoDistanceFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -396,7 +396,7 @@ init|)
 block|{
 name|GeoDistance
 operator|.
-name|readGeoDistanceFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
