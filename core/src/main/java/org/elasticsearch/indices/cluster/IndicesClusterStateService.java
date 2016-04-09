@@ -1623,7 +1623,7 @@ argument_list|)
 expr_stmt|;
 name|indicesService
 operator|.
-name|deleteClosedIndex
+name|deleteUnassignedIndex
 argument_list|(
 literal|"closed index no longer part of the metadata"
 argument_list|,

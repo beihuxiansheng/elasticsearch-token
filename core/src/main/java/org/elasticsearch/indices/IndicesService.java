@@ -3464,8 +3464,6 @@ name|index
 argument_list|()
 argument_list|,
 name|indexSettings
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3714,10 +3712,11 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|deleteClosedIndex
+comment|/**      * Deletes an index that is not assigned to this node. This method cleans up all disk folders relating to the index      * but does not deal with in-memory structures. For those call {@link #deleteIndex(Index, String)}      */
+DECL|method|deleteUnassignedIndex
 specifier|public
 name|void
-name|deleteClosedIndex
+name|deleteUnassignedIndex
 parameter_list|(
 name|String
 name|reason
@@ -3781,7 +3780,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't delete closed index store for ["
+literal|"Can't delete unassigned index store for ["
 operator|+
 name|indexName
 operator|+
@@ -3810,8 +3809,6 @@ argument_list|,
 name|metaData
 argument_list|,
 name|clusterState
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -3825,7 +3822,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] failed to delete closed index"
+literal|"[{}] failed to delete unassigned index (reason [{}])"
 argument_list|,
 name|e
 argument_list|,
@@ -3833,14 +3830,15 @@ name|metaData
 operator|.
 name|getIndex
 argument_list|()
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Deletes the index store trying to acquire all shards locks for this index.      * This method will delete the metadata for the index even if the actual shards can't be locked.      */
+comment|/**      * Deletes the index store trying to acquire all shards locks for this index.      * This method will delete the metadata for the index even if the actual shards can't be locked.      *      * Package private for testing      */
 DECL|method|deleteIndexStore
-specifier|public
 name|void
 name|deleteIndexStore
 parameter_list|(
@@ -3852,9 +3850,6 @@ name|metaData
 parameter_list|,
 name|ClusterState
 name|clusterState
-parameter_list|,
-name|boolean
-name|closed
 parameter_list|)
 throws|throws
 name|IOException
@@ -3979,14 +3974,16 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't delete closed index store for ["
+literal|"Can't delete index store for ["
 operator|+
 name|index
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"] - it's still part of the cluster state ["
+literal|"] - it's still part of the "
+operator|+
+literal|"cluster state ["
 operator|+
 name|idxMeta
 operator|.
@@ -4000,7 +3997,9 @@ operator|.
 name|getIndexUUID
 argument_list|()
 operator|+
-literal|"]"
+literal|"], "
+operator|+
+literal|"we are master eligible, so will keep the index metadata even if no shards are left."
 argument_list|)
 throw|;
 block|}
@@ -4024,8 +4023,6 @@ name|getIndex
 argument_list|()
 argument_list|,
 name|indexSettings
-argument_list|,
-name|closed
 argument_list|)
 expr_stmt|;
 block|}
@@ -4043,9 +4040,6 @@ name|index
 parameter_list|,
 name|IndexSettings
 name|indexSettings
-parameter_list|,
-name|boolean
-name|closed
 parameter_list|)
 throws|throws
 name|IOException
@@ -4078,11 +4072,10 @@ argument_list|(
 name|index
 argument_list|,
 name|indexSettings
-argument_list|,
-name|closed
 argument_list|)
 condition|)
 block|{
+comment|// its safe to delete all index metadata and shard data
 name|nodeEnv
 operator|.
 name|deleteIndexDirectorySafe
@@ -4331,8 +4324,6 @@ name|getIndex
 argument_list|()
 argument_list|,
 name|indexSettings
-argument_list|,
-literal|false
 argument_list|)
 condition|)
 block|{
@@ -4362,8 +4353,6 @@ argument_list|,
 name|metaData
 argument_list|,
 name|clusterState
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -4406,7 +4395,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * This method returns true if the current node is allowed to delete the      * given index. If the index uses a shared filesystem this method always      * returns false.      * @param index {@code Index} to check whether deletion is allowed      * @param indexSettings {@code IndexSettings} for the given index      * @return true if the index can be deleted on this node      */
+comment|/**      * This method returns true if the current node is allowed to delete the given index.      * This is the case if the index is deleted in the metadata or there is no allocation      * on the local node and the index isn't on a shared file system.      * @param index {@code Index} to check whether deletion is allowed      * @param indexSettings {@code IndexSettings} for the given index      * @return true if the index can be deleted on this node      */
 DECL|method|canDeleteIndexContents
 specifier|public
 name|boolean
@@ -4417,10 +4406,34 @@ name|index
 parameter_list|,
 name|IndexSettings
 name|indexSettings
-parameter_list|,
-name|boolean
-name|closed
 parameter_list|)
+block|{
+comment|// index contents can be deleted if the index is not on a shared file system,
+comment|// or if its on a shared file system but its an already closed index (so all
+comment|// its resources have already been relinquished)
+if|if
+condition|(
+name|indexSettings
+operator|.
+name|isOnSharedFilesystem
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|indexSettings
+operator|.
+name|getIndexMetaData
+argument_list|()
+operator|.
+name|getState
+argument_list|()
+operator|==
+name|IndexMetaData
+operator|.
+name|State
+operator|.
+name|CLOSE
+condition|)
 block|{
 specifier|final
 name|IndexService
@@ -4431,20 +4444,6 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
-comment|// Closed indices may be deleted, even if they are on a shared
-comment|// filesystem. Since it is closed we aren't deleting it for relocation
-if|if
-condition|(
-name|indexSettings
-operator|.
-name|isOnSharedFilesystem
-argument_list|()
-operator|==
-literal|false
-operator|||
-name|closed
-condition|)
-block|{
 if|if
 condition|(
 name|indexService
