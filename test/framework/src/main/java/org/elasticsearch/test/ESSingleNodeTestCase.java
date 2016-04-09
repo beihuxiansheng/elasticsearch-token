@@ -592,7 +592,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|startNode
-specifier|private
+specifier|protected
 name|void
 name|startNode
 parameter_list|()
@@ -693,7 +693,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|stopNode
-specifier|private
+specifier|protected
 specifier|static
 name|void
 name|stopNode
