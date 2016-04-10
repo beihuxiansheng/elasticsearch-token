@@ -297,7 +297,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"There are still 1 in-flight contexts. The first one's creation site is listed as the cause of this exception."
+literal|"There are still [1] in-flight contexts. The first one's creation site is listed as the cause of this exception."
 argument_list|,
 name|e
 operator|.
