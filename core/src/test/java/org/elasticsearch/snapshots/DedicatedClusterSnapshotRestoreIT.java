@@ -482,7 +482,7 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
+name|AbstractRestChannel
 import|;
 end_import
 
@@ -6449,7 +6449,7 @@ argument_list|(
 name|getRepoRequest
 argument_list|,
 operator|new
-name|RestChannel
+name|AbstractRestChannel
 argument_list|(
 name|getRepoRequest
 argument_list|,
@@ -6607,7 +6607,7 @@ argument_list|(
 name|clusterStateRequest
 argument_list|,
 operator|new
-name|RestChannel
+name|AbstractRestChannel
 argument_list|(
 name|clusterStateRequest
 argument_list|,

@@ -98,18 +98,6 @@ name|elasticsearch
 operator|.
 name|http
 operator|.
-name|HttpChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|http
-operator|.
 name|netty
 operator|.
 name|cors
@@ -147,6 +135,18 @@ operator|.
 name|pipelining
 operator|.
 name|OrderedUpstreamMessageEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|AbstractRestChannel
 import|;
 end_import
 
@@ -497,7 +497,7 @@ specifier|final
 class|class
 name|NettyHttpChannel
 extends|extends
-name|HttpChannel
+name|AbstractRestChannel
 block|{
 DECL|field|transport
 specifier|private
