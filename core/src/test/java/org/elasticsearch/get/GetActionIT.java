@@ -8356,8 +8356,6 @@ argument_list|,
 name|equalTo
 argument_list|(
 literal|"some text"
-operator|+
-literal|" "
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -8904,8 +8904,6 @@ name|hit
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|" "
 argument_list|)
 argument_list|)
 expr_stmt|;
