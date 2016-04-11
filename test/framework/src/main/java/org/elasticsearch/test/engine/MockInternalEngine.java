@@ -145,9 +145,6 @@ parameter_list|(
 name|EngineConfig
 name|config
 parameter_list|,
-name|boolean
-name|skipInitialTranslogRecovery
-parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -162,8 +159,6 @@ block|{
 name|super
 argument_list|(
 name|config
-argument_list|,
-name|skipInitialTranslogRecovery
 argument_list|)
 expr_stmt|;
 name|randomizeFlushOnClose

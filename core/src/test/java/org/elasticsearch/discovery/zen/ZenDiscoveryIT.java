@@ -626,6 +626,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -1514,7 +1538,7 @@ if|if
 condition|(
 name|discoveryNode
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -1562,6 +1586,12 @@ argument_list|(
 literal|"abc"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -1606,7 +1636,7 @@ argument_list|()
 argument_list|,
 name|node
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1778,7 +1808,7 @@ name|nodeSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1924,7 +1954,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 name|zenDiscovery
@@ -2107,7 +2137,7 @@ name|nodeSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2189,6 +2219,12 @@ argument_list|)
 argument_list|,
 literal|0
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -2327,6 +2363,20 @@ argument_list|(
 literal|"_id"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+name|DiscoveryNode
+operator|.
+name|Role
+operator|.
+name|MASTER
+argument_list|)
+argument_list|,
 name|Version
 operator|.
 name|V_5_0_0_alpha1
@@ -2364,6 +2414,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"_id"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -2425,7 +2481,7 @@ name|nodeSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put

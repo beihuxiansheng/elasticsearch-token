@@ -92,6 +92,9 @@ name|Engine
 operator|.
 name|Index
 name|index
+parameter_list|,
+name|boolean
+name|created
 parameter_list|)
 block|{}
 comment|/**      * Called after the indexing operation occurred with exception.      */
@@ -276,6 +279,9 @@ name|Engine
 operator|.
 name|Index
 name|index
+parameter_list|,
+name|boolean
+name|created
 parameter_list|)
 block|{
 assert|assert
@@ -298,6 +304,8 @@ operator|.
 name|postIndex
 argument_list|(
 name|index
+argument_list|,
+name|created
 argument_list|)
 expr_stmt|;
 block|}

@@ -28,6 +28,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|aggregations
 operator|.
 name|Aggregator
@@ -169,6 +181,9 @@ operator|.
 name|Order
 name|order
 parameter_list|,
+name|DocValueFormat
+name|format
+parameter_list|,
 name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
@@ -209,6 +224,8 @@ name|bucketCountThresholds
 argument_list|,
 name|order
 argument_list|,
+name|format
+argument_list|,
 name|subAggCollectMode
 argument_list|,
 name|pipelineAggregators
@@ -238,6 +255,8 @@ argument_list|(
 name|name
 argument_list|,
 name|order
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 operator|.

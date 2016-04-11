@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ShardOperationFailedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|percolate
 operator|.
 name|MultiPercolateRequestBuilder
@@ -104,9 +92,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|compress
+name|settings
 operator|.
-name|NotXContentException
+name|Settings
 import|;
 end_import
 
@@ -215,22 +203,6 @@ operator|.
 name|PercolateSourceBuilder
 operator|.
 name|docBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -449,18 +421,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
 import|;
 end_import
 
@@ -3503,7 +3463,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

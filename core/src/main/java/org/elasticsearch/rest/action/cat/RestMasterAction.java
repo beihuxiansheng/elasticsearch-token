@@ -524,7 +524,7 @@ name|get
 argument_list|(
 name|nodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;

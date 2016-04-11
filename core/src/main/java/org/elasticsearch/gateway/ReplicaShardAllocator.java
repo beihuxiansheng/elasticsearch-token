@@ -1002,7 +1002,7 @@ operator|.
 name|getNodeWithHighestMatch
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1257,7 +1257,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|values
@@ -1278,7 +1278,7 @@ name|cursor
 operator|.
 name|value
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1530,7 +1530,7 @@ name|node
 argument_list|(
 name|discoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1647,7 +1647,7 @@ name|shard
 argument_list|,
 name|discoNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|replicaSyncId
@@ -1729,7 +1729,7 @@ name|shard
 argument_list|,
 name|discoNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 operator|new

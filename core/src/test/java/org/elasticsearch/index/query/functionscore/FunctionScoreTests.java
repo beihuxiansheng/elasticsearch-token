@@ -394,6 +394,46 @@ name|search
 operator|.
 name|function
 operator|.
+name|FiltersFunctionScoreQuery
+operator|.
+name|FilterFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|function
+operator|.
+name|FiltersFunctionScoreQuery
+operator|.
+name|ScoreMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|function
+operator|.
 name|FunctionScoreQuery
 import|;
 end_import
@@ -467,46 +507,6 @@ operator|.
 name|function
 operator|.
 name|WeightFactorFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|function
-operator|.
-name|FiltersFunctionScoreQuery
-operator|.
-name|FilterFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|function
-operator|.
-name|FiltersFunctionScoreQuery
-operator|.
-name|ScoreMode
 import|;
 end_import
 
@@ -617,60 +617,6 @@ operator|.
 name|fielddata
 operator|.
 name|SortedNumericDoubleValues
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|exp
-operator|.
-name|ExponentialDecayFunctionBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|gauss
-operator|.
-name|GaussDecayFunctionBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|lin
-operator|.
-name|LinearDecayFunctionBuilder
 import|;
 end_import
 
@@ -1771,7 +1717,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"0.1 = exp(-0.5*pow(MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)],2.0)/0.21714724095162594)\n"
+literal|"0.1 = exp(-0.5*pow(MAX[Math.max(Math.abs"
+operator|+
+literal|"(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)],2.0)/0.21714724095162594)\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1907,7 +1855,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"0.1 = max(0.0, ((1.1111111111111112 - MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)])/1.1111111111111112)\n"
+literal|"0.1 = max(0.0, ((1.1111111111111112"
+operator|+
+literal|" - MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)])/1.1111111111111112)\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2348,7 +2298,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"0.1 = exp(-0.5*pow(MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)],2.0)/0.21714724095162594)\n"
+literal|"0.1 = "
+operator|+
+literal|"exp(-0.5*pow(MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)],2.0)/0.21714724095162594)\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2536,7 +2488,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"0.1 = max(0.0, ((1.1111111111111112 - MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)])/1.1111111111111112)\n"
+literal|"0.1 = max(0.0, ((1.1111111111111112 - MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin)))"
+operator|+
+literal|" - 0.0(=offset), 0)])/1.1111111111111112)\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2723,7 +2677,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"0.1 = exp(-0.5*pow(MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)],2.0)/0.21714724095162594)\n"
+literal|"0.1 = "
+operator|+
+literal|"exp(-0.5*pow(MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)],2.0)/0.21714724095162594)\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2808,7 +2764,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"0.1 = exp(- MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)] * 2.3025850929940455)\n"
+literal|"0.1 = exp(- "
+operator|+
+literal|"MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)] * 2.3025850929940455)\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2893,7 +2851,9 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"0.1 = max(0.0, ((1.1111111111111112 - MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin))) - 0.0(=offset), 0)])/1.1111111111111112)\n"
+literal|"0.1 = max(0.0, ((1.1111111111111112 - MAX[Math.max(Math.abs(1.0(=doc value) - 0.0(=origin)))"
+operator|+
+literal|" - 0.0(=offset), 0)])/1.1111111111111112)\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3051,15 +3011,11 @@ modifier|...
 name|scoreFunctions
 parameter_list|)
 block|{
-name|FiltersFunctionScoreQuery
-operator|.
 name|FilterFunction
 index|[]
 name|filterFunctions
 init|=
 operator|new
-name|FiltersFunctionScoreQuery
-operator|.
 name|FilterFunction
 index|[
 name|scoreFunctions
@@ -3164,8 +3120,9 @@ literal|"min of:"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
+name|Explanation
+name|explanation
+init|=
 name|randomExplanation
 operator|.
 name|getDetails
@@ -3173,6 +3130,10 @@ argument_list|()
 index|[
 literal|0
 index|]
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|explanation
 operator|.
 name|getDescription
 argument_list|()
@@ -3183,8 +3144,9 @@ literal|"function score, score mode [avg]"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
+name|Explanation
+name|functionExplanation
+init|=
 name|randomExplanation
 operator|.
 name|getDetails
@@ -3198,6 +3160,10 @@ argument_list|()
 index|[
 name|whichFunction
 index|]
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|functionExplanation
 operator|.
 name|getDescription
 argument_list|()
@@ -3210,19 +3176,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|randomExplanation
-operator|.
-name|getDetails
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|getDetails
-argument_list|()
-index|[
-name|whichFunction
-index|]
+name|functionExplanation
 operator|.
 name|getDetails
 argument_list|()
@@ -3250,19 +3204,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|randomExplanation
-operator|.
-name|getDetails
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|getDetails
-argument_list|()
-index|[
-name|whichFunction
-index|]
+name|functionExplanation
 operator|.
 name|getDetails
 argument_list|()

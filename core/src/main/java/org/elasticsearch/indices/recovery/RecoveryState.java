@@ -1298,9 +1298,8 @@ argument_list|)
 expr_stmt|;
 name|targetNode
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)
@@ -1315,9 +1314,8 @@ condition|)
 block|{
 name|sourceNode
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)
@@ -1644,7 +1642,7 @@ name|ID
 argument_list|,
 name|sourceNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1672,7 +1670,7 @@ name|TRANSPORT_ADDRESS
 argument_list|,
 name|sourceNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString
@@ -1703,7 +1701,7 @@ name|NAME
 argument_list|,
 name|sourceNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1732,7 +1730,7 @@ name|ID
 argument_list|,
 name|targetNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1760,7 +1758,7 @@ name|TRANSPORT_ADDRESS
 argument_list|,
 name|targetNode
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|toString
@@ -1791,7 +1789,7 @@ name|NAME
 argument_list|,
 name|targetNode
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

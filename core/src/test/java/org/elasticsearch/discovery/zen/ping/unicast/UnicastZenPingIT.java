@@ -292,6 +292,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -481,6 +505,12 @@ operator|.
 name|publishAddress
 argument_list|()
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -562,6 +592,12 @@ operator|.
 name|publishAddress
 argument_list|()
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -586,7 +622,7 @@ name|hostsSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|putArray
@@ -595,7 +631,7 @@ literal|"discovery.zen.ping.unicast.hosts"
 argument_list|,
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 operator|new
 name|InetSocketAddress
@@ -620,7 +656,7 @@ argument_list|)
 argument_list|,
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 operator|new
 name|InetSocketAddress
@@ -850,7 +886,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -914,7 +950,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|equalTo

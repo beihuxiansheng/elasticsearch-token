@@ -26,11 +26,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
-name|PipelineAggregator
+name|DocValueFormat
 import|;
 end_import
 
@@ -44,11 +40,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|support
+name|pipeline
 operator|.
-name|format
-operator|.
-name|ValueFormatter
+name|PipelineAggregator
 import|;
 end_import
 
@@ -85,10 +79,23 @@ name|InternalNumericMetricsAggregation
 extends|extends
 name|InternalMetricsAggregation
 block|{
-DECL|field|valueFormatter
+DECL|field|DEFAULT_FORMAT
+specifier|private
+specifier|static
+specifier|final
+name|DocValueFormat
+name|DEFAULT_FORMAT
+init|=
+name|DocValueFormat
+operator|.
+name|RAW
+decl_stmt|;
+DECL|field|format
 specifier|protected
-name|ValueFormatter
-name|valueFormatter
+name|DocValueFormat
+name|format
+init|=
+name|DEFAULT_FORMAT
 decl_stmt|;
 DECL|class|SingleValue
 specifier|public
@@ -149,7 +156,7 @@ name|getValueAsString
 parameter_list|()
 block|{
 return|return
-name|valueFormatter
+name|format
 operator|.
 name|format
 argument_list|(
@@ -301,7 +308,7 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|valueFormatter
+name|format
 operator|.
 name|format
 argument_list|(

@@ -156,6 +156,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -273,6 +297,12 @@ argument_list|,
 literal|9876
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -313,7 +343,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[localhost/127.0.0.1:9876]"
+literal|"[127.0.0.1:9876]"
 argument_list|)
 argument_list|)
 expr_stmt|;

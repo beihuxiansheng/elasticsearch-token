@@ -459,7 +459,7 @@ name|node
 argument_list|(
 name|discoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;

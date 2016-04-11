@@ -884,7 +884,7 @@ name|getOrDefault
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 literal|0
@@ -1104,7 +1104,7 @@ name|addCell
 argument_list|(
 name|node
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

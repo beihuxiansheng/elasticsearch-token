@@ -76,7 +76,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Prefer calling a constructor that takes a StreamInput to calling readFrom."
+literal|"Prefer calling a constructor or static method that takes a StreamInput to calling readFrom."
 argument_list|)
 throw|;
 block|}
@@ -90,12 +90,13 @@ parameter_list|<
 name|R
 parameter_list|>
 block|{
+comment|/**          * Read R from a stream.          */
 DECL|method|read
 name|R
 name|read
 parameter_list|(
 name|StreamInput
-name|t
+name|in
 parameter_list|)
 throws|throws
 name|IOException

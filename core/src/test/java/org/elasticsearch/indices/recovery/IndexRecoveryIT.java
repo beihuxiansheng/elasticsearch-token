@@ -670,22 +670,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|hamcrest
@@ -1772,7 +1756,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2498,7 +2484,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -2555,7 +2541,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -2715,7 +2701,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -2750,7 +2736,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -2985,7 +2971,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -3020,7 +3006,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -3072,7 +3058,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3194,7 +3182,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -3229,7 +3217,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|.
 name|equals
@@ -3826,7 +3814,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4309,7 +4297,9 @@ name|name
 argument_list|,
 name|nodeCount
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4657,7 +4647,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.color"
+literal|"node.attr.color"
 argument_list|,
 literal|"blue"
 argument_list|)
@@ -4691,7 +4681,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.color"
+literal|"node.attr.color"
 argument_list|,
 literal|"red"
 argument_list|)
@@ -4927,7 +4917,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 name|assertFalse

@@ -326,16 +326,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|atomic
@@ -484,7 +474,7 @@ name|clientSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -733,7 +723,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeInfo
 operator|.
@@ -754,7 +744,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|nodeInfo
 operator|.

@@ -1011,10 +1011,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testOverideHeader
+DECL|method|testOverrideHeader
 specifier|public
 name|void
-name|testOverideHeader
+name|testOverrideHeader
 parameter_list|()
 throws|throws
 name|Exception

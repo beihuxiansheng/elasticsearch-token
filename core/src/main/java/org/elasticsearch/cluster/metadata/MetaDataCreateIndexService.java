@@ -870,22 +870,6 @@ name|SETTING_VERSION_CREATED
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  * Service responsible for submitting create index requests  */
 end_comment
@@ -1447,7 +1431,7 @@ name|updatedSettingsBuilder
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 name|updatedSettingsBuilder
@@ -2072,7 +2056,9 @@ operator|.
 name|Builder
 name|indexSettingsBuilder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 comment|// apply templates, here, in reverse order, since first ones are better matching
@@ -2328,7 +2314,7 @@ name|version
 argument_list|,
 name|nodes
 operator|.
-name|smallestNonClientNodeVersion
+name|getSmallestNonClientNodeVersion
 argument_list|()
 argument_list|)
 decl_stmt|;

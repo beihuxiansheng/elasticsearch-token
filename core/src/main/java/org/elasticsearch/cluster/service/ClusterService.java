@@ -1209,7 +1209,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 operator|==
 literal|null
@@ -1240,7 +1240,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1413,7 +1413,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 literal|"please set the local node before starting"
@@ -1512,6 +1512,11 @@ range|:
 name|onGoingTimeouts
 control|)
 block|{
+name|onGoingTimeout
+operator|.
+name|cancel
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|onGoingTimeout
@@ -1557,6 +1562,38 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
+comment|// close timeout listeners that did not have an ongoing timeout
+name|postAppliedListeners
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|filter
+argument_list|(
+name|listener
+lambda|->
+name|listener
+operator|instanceof
+name|TimeoutClusterStateListener
+argument_list|)
+operator|.
+name|map
+argument_list|(
+name|listener
+lambda|->
+operator|(
+name|TimeoutClusterStateListener
+operator|)
+name|listener
+argument_list|)
+operator|.
+name|forEach
+argument_list|(
+name|TimeoutClusterStateListener
+operator|::
+name|onClose
+argument_list|)
+expr_stmt|;
 name|remove
 argument_list|(
 name|localNodeMasterListeners
@@ -1585,7 +1622,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 return|;
 block|}
@@ -2727,7 +2764,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|&&
 name|executor
@@ -3315,7 +3352,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -3703,7 +3740,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -3955,7 +3992,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -3970,7 +4007,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 literal|null
@@ -3996,7 +4033,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4149,7 +4186,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to apply updated cluster state in [{}]:\nversion [{}], uuid [{}], source [{}]\n{}{}{}"
+literal|"failed to apply updated cluster state in [{}]:\nversion [{}], uuid [{}], source [{}]\n{}"
 argument_list|,
 name|t
 argument_list|,
@@ -4168,25 +4205,6 @@ argument_list|,
 name|source
 argument_list|,
 name|newClusterState
-operator|.
-name|nodes
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-argument_list|,
-name|newClusterState
-operator|.
-name|routingTable
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-argument_list|,
-name|newClusterState
-operator|.
-name|getRoutingNodes
-argument_list|()
 operator|.
 name|prettyPrint
 argument_list|()
@@ -5545,7 +5563,7 @@ name|equals
 argument_list|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)

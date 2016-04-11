@@ -3330,7 +3330,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5067,7 +5067,7 @@ block|{
 return|return
 name|randomhash
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|length
@@ -5110,7 +5110,7 @@ block|{
 return|return
 name|randomhash
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 return|;

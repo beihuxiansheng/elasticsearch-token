@@ -152,6 +152,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -459,22 +473,6 @@ operator|.
 name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_SHARDS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -2229,7 +2227,7 @@ block|{
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|createIndex
@@ -2382,7 +2380,7 @@ name|boost
 argument_list|(
 literal|1.0f
 operator|+
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextFloat
@@ -2446,7 +2444,7 @@ name|boost
 argument_list|(
 literal|1.0f
 operator|+
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextFloat
@@ -4181,7 +4179,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -8100,7 +8100,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"field1"
+literal|"field1.keyword"
 argument_list|)
 argument_list|)
 operator|.
@@ -16052,7 +16052,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -16389,7 +16391,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -16619,7 +16623,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -20306,7 +20312,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

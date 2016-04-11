@@ -172,11 +172,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|shard
+name|settings
 operator|.
-name|ShardId
+name|Settings
 import|;
 end_import
 
@@ -345,22 +345,6 @@ operator|.
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -1033,7 +1017,9 @@ name|strategy
 init|=
 name|createAllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|build

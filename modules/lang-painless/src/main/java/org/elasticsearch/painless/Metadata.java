@@ -519,14 +519,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Used to determine what slot the score variable is stored in.  This is used in the {@link Writer} whenever      * the score variable is accessed.      */
-DECL|field|scoreValueSlot
-name|int
-name|scoreValueSlot
-init|=
-operator|-
-literal|1
-decl_stmt|;
 comment|/**      * Used to determine what slot the loopCounter variable is stored in.  This is used n the {@link Writer} whenever      * the loop variable is accessed.      */
 DECL|field|loopCounterSlot
 name|int
@@ -534,6 +526,21 @@ name|loopCounterSlot
 init|=
 operator|-
 literal|1
+decl_stmt|;
+comment|/**      * Used to determine what slot the _score variable is stored in.  This is used in the {@link Writer} whenever      * the score variable is accessed.      */
+DECL|field|scoreValueSlot
+name|int
+name|scoreValueSlot
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|/**      * Used to determine if the _score variable is actually used.  This is used in the {@link Analyzer} to update      * variable slots at the completion of analysis if _score is not used.      */
+DECL|field|scoreValueUsed
+name|boolean
+name|scoreValueUsed
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Maps the relevant ANTLR node to its metadata.      */
 DECL|field|statementMetadata

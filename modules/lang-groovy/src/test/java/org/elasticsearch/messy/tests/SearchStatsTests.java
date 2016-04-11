@@ -914,7 +914,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|prepareSearch

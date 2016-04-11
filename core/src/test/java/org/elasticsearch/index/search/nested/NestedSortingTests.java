@@ -637,7 +637,7 @@ name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|2
@@ -850,7 +850,7 @@ name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|2

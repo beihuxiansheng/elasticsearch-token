@@ -370,6 +370,30 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1201,7 +1225,7 @@ name|networkAddress
 operator|=
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|privateIp
 argument_list|)
@@ -1271,7 +1295,7 @@ name|networkAddress
 operator|=
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 operator|new
 name|InetSocketAddress
@@ -1397,6 +1421,12 @@ name|getInstanceName
 argument_list|()
 argument_list|,
 name|address
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|version
 operator|.

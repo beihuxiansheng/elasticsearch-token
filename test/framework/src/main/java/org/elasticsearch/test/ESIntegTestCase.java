@@ -1232,18 +1232,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexWarmer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|MergePolicyConfig
 import|;
 end_import
@@ -1351,18 +1339,6 @@ operator|.
 name|indices
 operator|.
 name|IndicesRequestCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndicesService
 import|;
 end_import
 
@@ -2014,22 +1990,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|CollectionUtils
@@ -2550,7 +2510,7 @@ argument_list|()
 operator|.
 name|beforeTest
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|getPerTestTransportClientRatio
@@ -2664,7 +2624,7 @@ name|randomSettingsBuilder
 init|=
 name|setRandomIndexSettings
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|Settings
@@ -2689,7 +2649,7 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextLong
@@ -2913,21 +2873,13 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|INDEX_QUERY_CACHE_TYPE_SETTING
+name|INDEX_QUERY_CACHE_ENABLED_SETTING
 operator|.
 name|getKey
 argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
-condition|?
-name|IndexModule
-operator|.
-name|INDEX_QUERY_CACHE
-else|:
-name|IndexModule
-operator|.
-name|NONE_QUERY_CACHE
 argument_list|)
 expr_stmt|;
 block|}
@@ -4138,7 +4090,7 @@ name|RandomizingClient
 argument_list|(
 name|client
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4176,7 +4128,7 @@ name|RandomizingClient
 argument_list|(
 name|client
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6335,7 +6287,9 @@ argument_list|()
 operator|.
 name|setTransientSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6836,7 +6790,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 for|for
@@ -6958,7 +6912,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -8084,7 +8038,7 @@ block|{
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|Set
@@ -8950,7 +8904,9 @@ block|{
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -9969,7 +9925,9 @@ operator|.
 name|Builder
 name|builder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 comment|// Default the watermarks to absurdly low to prevent the tests
 comment|// from failing on nodes without enough disk space
@@ -11420,7 +11378,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 decl_stmt|;
 name|nodes
@@ -11805,7 +11763,7 @@ name|type
 argument_list|,
 name|shard
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 return|;
@@ -12243,7 +12201,7 @@ name|host
 argument_list|(
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|address
 operator|.

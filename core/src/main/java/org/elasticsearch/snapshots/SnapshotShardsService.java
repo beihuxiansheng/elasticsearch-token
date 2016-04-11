@@ -831,7 +831,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|settings
 argument_list|)
@@ -851,7 +851,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|settings
 argument_list|)
@@ -1061,7 +1061,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 if|if
@@ -1082,7 +1082,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 operator|==
@@ -1281,7 +1281,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 if|if
@@ -1702,7 +1702,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|SnapshotsInProgress
@@ -1757,7 +1757,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|SnapshotsInProgress
@@ -2612,7 +2612,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|SnapshotsInProgress
@@ -2679,7 +2679,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|SnapshotsInProgress
@@ -3030,7 +3030,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -3054,7 +3054,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|UPDATE_SNAPSHOT_ACTION_NAME

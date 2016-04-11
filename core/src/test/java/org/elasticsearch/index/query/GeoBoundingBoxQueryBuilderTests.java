@@ -20,6 +20,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|locationtech
 operator|.
 name|spatial4j
@@ -315,14 +327,14 @@ name|RandomShapeGenerator
 operator|.
 name|xRandomRectangle
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|RandomShapeGenerator
 operator|.
 name|xRandomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2733,7 +2745,7 @@ name|json
 init|=
 literal|"{\n"
 operator|+
-literal|"  \"geo_bbox\" : {\n"
+literal|"  \"geo_bounding_box\" : {\n"
 operator|+
 literal|"    \"pin.location\" : {\n"
 operator|+
@@ -2881,6 +2893,88 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|json
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_bbox\" : {\n"
+operator|+
+literal|"    \"pin.location\" : {\n"
+operator|+
+literal|"      \"top_left\" : [ -74.1, 40.73 ],\n"
+operator|+
+literal|"      \"bottom_right\" : [ -71.12, 40.01 ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"validation_method\" : \"STRICT\",\n"
+operator|+
+literal|"    \"type\" : \"MEMORY\",\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
+name|parsedGeoBboxShortcut
+init|=
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|parsedGeoBboxShortcut
+argument_list|,
+name|equalTo
+argument_list|(
+name|parsed
+argument_list|)
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parse query should have failed in strict mode"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"Deprecated field [geo_bbox] used, expected [geo_bounding_box] instead"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

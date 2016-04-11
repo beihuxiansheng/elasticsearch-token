@@ -205,6 +205,9 @@ literal|"took"
 argument_list|,
 name|getTook
 argument_list|()
+operator|.
+name|millis
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder

@@ -883,10 +883,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|waitFor
-operator|==
-literal|0
-operator|||
 name|request
 operator|.
 name|timeout

@@ -268,22 +268,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -342,7 +326,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -484,7 +468,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -619,7 +603,7 @@ name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|Version
@@ -746,7 +730,7 @@ name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|VersionUtils
@@ -895,7 +879,7 @@ name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1030,7 +1014,7 @@ name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|VersionUtils
@@ -1232,7 +1216,9 @@ decl_stmt|;
 name|Settings
 name|indexSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1648,7 +1634,9 @@ decl_stmt|;
 name|Settings
 name|indexSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1820,7 +1808,9 @@ name|newIndexSettings
 argument_list|(
 literal|"index"
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1931,7 +1921,9 @@ decl_stmt|;
 name|Settings
 name|indexSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

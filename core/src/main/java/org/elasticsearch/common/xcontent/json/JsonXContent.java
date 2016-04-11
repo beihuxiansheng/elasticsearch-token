@@ -274,7 +274,7 @@ name|Feature
 operator|.
 name|ALLOW_UNQUOTED_FIELD_NAMES
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|jsonFactory

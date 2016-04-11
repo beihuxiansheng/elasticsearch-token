@@ -966,7 +966,7 @@ name|finalSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 if|if
@@ -1188,7 +1188,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 decl_stmt|;
 name|assertThat

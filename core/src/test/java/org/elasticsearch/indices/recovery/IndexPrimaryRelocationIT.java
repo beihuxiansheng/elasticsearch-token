@@ -221,6 +221,11 @@ name|RELOCATION_COUNT
 init|=
 literal|25
 decl_stmt|;
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,action.delete:TRACE,action.index:TRACE,index.shard:TRACE,cluster.service:TRACE"
+argument_list|)
 DECL|method|testPrimaryRelocationWhileIndexing
 specifier|public
 name|void
@@ -260,7 +265,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -441,7 +446,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|values
@@ -462,7 +467,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|get

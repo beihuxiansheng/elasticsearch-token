@@ -2839,7 +2839,7 @@ name|RandomShapeGenerator
 operator|.
 name|createGeometryCollection
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3038,12 +3038,12 @@ name|mbr
 init|=
 name|xRandomRectangle
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|xRandomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
@@ -3055,7 +3055,7 @@ name|gcb
 init|=
 name|createGeometryCollectionWithin
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|mbr

@@ -473,7 +473,7 @@ name|RandomShapeGenerator
 operator|.
 name|createShape
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|)

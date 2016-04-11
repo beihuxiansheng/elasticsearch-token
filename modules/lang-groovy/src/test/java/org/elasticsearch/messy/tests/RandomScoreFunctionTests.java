@@ -72,8 +72,6 @@ name|query
 operator|.
 name|functionscore
 operator|.
-name|random
-operator|.
 name|RandomScoreFunctionBuilder
 import|;
 end_import

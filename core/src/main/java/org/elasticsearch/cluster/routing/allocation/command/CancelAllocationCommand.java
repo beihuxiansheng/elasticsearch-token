@@ -929,7 +929,7 @@ name|routingNodeIter
 argument_list|(
 name|discoNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 init|;

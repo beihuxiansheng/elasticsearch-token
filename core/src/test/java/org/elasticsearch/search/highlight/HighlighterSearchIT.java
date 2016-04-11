@@ -83,6 +83,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 operator|.
 name|Builder
 import|;
@@ -371,22 +385,6 @@ operator|.
 name|Requests
 operator|.
 name|searchRequest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -1710,7 +1708,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2002,7 +2002,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2256,7 +2258,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5045,6 +5049,21 @@ argument_list|(
 literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
+argument_list|)
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|startObject
+argument_list|(
+literal|"field2"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -8885,8 +8904,6 @@ name|hit
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|" "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12079,7 +12096,9 @@ block|{
 name|Builder
 name|builder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -13855,7 +13874,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -18185,7 +18206,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|highlighterTypes
@@ -18263,7 +18284,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|supportedQueryTypes

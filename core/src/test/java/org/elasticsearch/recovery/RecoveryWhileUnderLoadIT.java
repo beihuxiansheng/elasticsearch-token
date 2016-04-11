@@ -104,20 +104,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|routing
-operator|.
-name|Murmur3HashFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|service
 operator|.
 name|ClusterService
@@ -198,9 +184,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|math
+name|settings
 operator|.
-name|MathUtils
+name|Settings
 import|;
 end_import
 
@@ -269,18 +255,6 @@ operator|.
 name|translog
 operator|.
 name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchHit
 import|;
 end_import
 
@@ -389,22 +363,6 @@ operator|.
 name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_SHARDS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -545,7 +503,9 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -900,7 +860,9 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1253,7 +1215,9 @@ literal|"test"
 argument_list|,
 literal|2
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1820,7 +1784,9 @@ literal|"test"
 argument_list|,
 literal|3
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2025,7 +1991,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

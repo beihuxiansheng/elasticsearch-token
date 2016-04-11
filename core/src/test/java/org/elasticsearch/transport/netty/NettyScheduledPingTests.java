@@ -282,6 +282,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -509,6 +521,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -533,6 +548,9 @@ name|publishAddress
 argument_list|()
 argument_list|,
 name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
 argument_list|()
 argument_list|,
 name|Version

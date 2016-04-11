@@ -1012,22 +1012,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|CollectionUtils
@@ -2924,7 +2908,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 operator|.
@@ -2999,7 +2983,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 operator|)
@@ -3022,7 +3006,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 argument_list|,
@@ -3187,7 +3171,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|+
 literal|","
@@ -3197,7 +3181,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 operator|.
@@ -3496,7 +3480,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 operator|.
@@ -3673,7 +3657,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 operator|)
@@ -3696,7 +3680,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 argument_list|,
@@ -4499,7 +4483,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5462,7 +5448,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|iterators
@@ -5708,7 +5694,7 @@ name|CorruptionUtils
 operator|.
 name|corruptFile
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|files

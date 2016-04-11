@@ -310,6 +310,18 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -497,6 +509,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|version0
 argument_list|)
 expr_stmt|;
@@ -540,6 +555,9 @@ name|publishAddress
 argument_list|()
 argument_list|,
 name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
 argument_list|()
 argument_list|,
 name|version1
@@ -813,7 +831,7 @@ name|localNodeId
 argument_list|(
 name|nodeA
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -825,12 +843,12 @@ name|master
 condition|?
 name|nodeA
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|nodeB
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -880,7 +898,7 @@ name|localNodeId
 argument_list|(
 name|nodeB
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -892,12 +910,12 @@ name|master
 condition|?
 name|nodeB
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|nodeA
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

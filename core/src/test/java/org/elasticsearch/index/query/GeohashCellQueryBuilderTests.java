@@ -714,7 +714,7 @@ name|RandomShapeGenerator
 operator|.
 name|xRandomPoint
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;

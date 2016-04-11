@@ -339,11 +339,11 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Throw an {@link AssertionError} if there are still in-flight contexts. */
-DECL|method|assertNoInFLightContext
+DECL|method|assertNoInFlightContext
 specifier|public
 specifier|static
 name|void
-name|assertNoInFLightContext
+name|assertNoInFlightContext
 parameter_list|()
 block|{
 specifier|final
@@ -376,14 +376,14 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|(
-literal|"There are still "
+literal|"There are still ["
 operator|+
 name|copy
 operator|.
 name|size
 argument_list|()
 operator|+
-literal|" in-flight contexts"
+literal|"] in-flight contexts. The first one's creation site is listed as the cause of this exception."
 argument_list|,
 name|copy
 operator|.
@@ -398,6 +398,51 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * Add an active search context to the list of tracked contexts. Package private for testing.      */
+DECL|method|addActiveContext
+specifier|static
+name|void
+name|addActiveContext
+parameter_list|(
+name|SearchContext
+name|context
+parameter_list|)
+block|{
+name|ACTIVE_SEARCH_CONTEXTS
+operator|.
+name|put
+argument_list|(
+name|context
+argument_list|,
+operator|new
+name|RuntimeException
+argument_list|(
+name|context
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Clear an active search context from the list of tracked contexts. Package private for testing.      */
+DECL|method|removeActiveContext
+specifier|static
+name|void
+name|removeActiveContext
+parameter_list|(
+name|SearchContext
+name|context
+parameter_list|)
+block|{
+name|ACTIVE_SEARCH_CONTEXTS
+operator|.
+name|remove
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Inject
@@ -493,15 +538,9 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-name|ACTIVE_SEARCH_CONTEXTS
-operator|.
-name|put
+name|addActiveContext
 argument_list|(
 name|context
-argument_list|,
-operator|new
-name|RuntimeException
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -534,9 +573,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ACTIVE_SEARCH_CONTEXTS
-operator|.
-name|remove
+name|removeActiveContext
 argument_list|(
 name|removed
 argument_list|)

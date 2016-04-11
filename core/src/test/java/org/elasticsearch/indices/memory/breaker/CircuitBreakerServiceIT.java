@@ -336,22 +336,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -502,7 +486,9 @@ expr_stmt|;
 name|Settings
 name|resetSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -744,7 +730,9 @@ literal|"cb-test"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -758,6 +746,15 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|)
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"test"
+argument_list|,
+literal|"type=text,fielddata=true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -855,7 +852,9 @@ comment|// Update circuit breaker settings
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1059,7 +1058,7 @@ name|setSource
 argument_list|(
 literal|"{\"mappings\": {\"type\": {\"properties\": {\"test\": "
 operator|+
-literal|"{\"type\": \"text\",\"fielddata_frequency_filter\": {\"max\": 10000}}}}}}"
+literal|"{\"type\": \"text\",\"fielddata\": true,\"fielddata_frequency_filter\": {\"max\": 10000}}}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1181,7 +1180,9 @@ comment|// Update circuit breaker settings
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1370,7 +1371,9 @@ literal|"cb-test"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1384,6 +1387,15 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|)
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"test"
+argument_list|,
+literal|"type=text,fielddata=true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1513,7 +1525,9 @@ decl_stmt|;
 name|Settings
 name|resetSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1672,7 +1686,9 @@ expr_stmt|;
 comment|// Adjust settings so the parent breaker will fail, but the fielddata breaker doesn't
 name|resetSettings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1841,7 +1857,9 @@ literal|"cb-test"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1868,7 +1886,9 @@ comment|// Make request breaker limited to a small amount
 name|Settings
 name|resetSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

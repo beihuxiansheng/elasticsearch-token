@@ -186,6 +186,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -714,7 +738,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 comment|// now check that queue doesn't contain anything pending from another master
@@ -739,7 +763,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -781,7 +805,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|.
 name|equals
@@ -1434,6 +1458,11 @@ name|state
 expr_stmt|;
 block|}
 block|}
+assert|assert
+name|highestCommitted
+operator|!=
+literal|null
+assert|;
 name|queue
 operator|.
 name|markAsProcessed
@@ -1443,6 +1472,9 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+operator|(
+name|long
+operator|)
 name|queue
 operator|.
 name|stats
@@ -1458,15 +1490,22 @@ operator|.
 name|size
 argument_list|()
 operator|-
-name|committedContexts
+operator|(
+literal|1
+operator|+
+name|highestCommitted
 operator|.
-name|size
+name|version
 argument_list|()
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+operator|(
+name|long
+operator|)
 name|queue
 operator|.
 name|stats
@@ -1482,10 +1521,14 @@ operator|.
 name|size
 argument_list|()
 operator|-
-name|committedContexts
+operator|(
+literal|1
+operator|+
+name|highestCommitted
 operator|.
-name|size
+name|version
 argument_list|()
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1787,6 +1830,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.

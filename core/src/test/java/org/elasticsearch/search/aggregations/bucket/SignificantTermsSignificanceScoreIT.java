@@ -2046,7 +2046,7 @@ condition|)
 block|{
 name|result
 operator|=
-literal|"\"class\"{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[{\"key\":\"0\",\"doc_count\":4,\"sig_terms\":{\"doc_count\":4,\"buckets\":[{\"key\":0,\"key_as_string\":\"0\",\"doc_count\":4,\"score\":0.39999999999999997,\"bg_count\":5}]}},{\"key\":\"1\",\"doc_count\":3,\"sig_terms\":{\"doc_count\":3,\"buckets\":[{\"key\":1,\"key_as_string\":\"1\",\"doc_count\":3,\"score\":0.75,\"bg_count\":4}]}}]}"
+literal|"\"class\"{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[{\"key\":\"0\",\"doc_count\":4,\"sig_terms\":{\"doc_count\":4,\"buckets\":[{\"key\":0,\"doc_count\":4,\"score\":0.39999999999999997,\"bg_count\":5}]}},{\"key\":\"1\",\"doc_count\":3,\"sig_terms\":{\"doc_count\":3,\"buckets\":[{\"key\":1,\"doc_count\":3,\"score\":0.75,\"bg_count\":4}]}}]}"
 expr_stmt|;
 block|}
 else|else
@@ -2083,11 +2083,6 @@ name|settings
 init|=
 literal|"{\"index.number_of_shards\": 1, \"index.number_of_replicas\": 0}"
 decl_stmt|;
-name|String
-name|mappings
-init|=
-literal|"{\"doc\": {\"properties\":{\"text\": {\"type\":\"keyword\"}}}}"
-decl_stmt|;
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -2104,7 +2099,13 @@ name|addMapping
 argument_list|(
 literal|"doc"
 argument_list|,
-name|mappings
+literal|"text"
+argument_list|,
+literal|"type=keyword"
+argument_list|,
+name|CLASS_FIELD
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3398,11 +3399,11 @@ literal|"doc"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=text"
+literal|"type=text,fielddata=true"
 argument_list|,
 literal|"class"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3848,22 +3849,27 @@ throws|,
 name|InterruptedException
 block|{
 name|String
-name|mappings
+name|textMappings
 init|=
-literal|"{\""
-operator|+
-name|DOC_TYPE
-operator|+
-literal|"\": {\"properties\":{\""
-operator|+
-name|TEXT_FIELD
-operator|+
-literal|"\": {\"type\":\""
+literal|"type="
 operator|+
 name|type
-operator|+
-literal|"\"}}}}"
 decl_stmt|;
+if|if
+condition|(
+name|type
+operator|.
+name|equals
+argument_list|(
+literal|"text"
+argument_list|)
+condition|)
+block|{
+name|textMappings
+operator|+=
+literal|",fielddata=true"
+expr_stmt|;
+block|}
 name|assertAcked
 argument_list|(
 name|prepareCreate
@@ -3875,7 +3881,13 @@ name|addMapping
 argument_list|(
 name|DOC_TYPE
 argument_list|,
-name|mappings
+name|TEXT_FIELD
+argument_list|,
+name|textMappings
+argument_list|,
+name|CLASS_FIELD
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;

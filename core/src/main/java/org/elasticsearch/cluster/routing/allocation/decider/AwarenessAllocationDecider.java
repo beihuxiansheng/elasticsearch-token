@@ -620,7 +620,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"no allocation awareness enabled"
+literal|"allocation awareness is not enabled"
 argument_list|)
 return|;
 block|}
@@ -668,7 +668,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|containsKey
@@ -688,7 +688,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node does not contain awareness attribute: [%s]"
+literal|"node does not contain the awareness attribute: [%s]"
 argument_list|,
 name|awarenessAttribute
 argument_list|)
@@ -779,7 +779,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
@@ -855,7 +855,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
@@ -878,7 +878,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
@@ -902,7 +902,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
@@ -1031,7 +1031,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
@@ -1063,13 +1063,21 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards on node for attribute: [%s], required per attribute: [%d], node count: [%d], leftover: [%d]"
+literal|"there are too many shards on the node for attribute [%s], there are [%d] total shards for the index "
+operator|+
+literal|" and [%d] total attributes values, expected the node count [%d] to be lower or equal to the required "
+operator|+
+literal|"number of shards per attribute [%d] plus leftover [%d]"
 argument_list|,
 name|awarenessAttribute
 argument_list|,
-name|requiredCountPerAttribute
+name|shardCount
+argument_list|,
+name|numberOfAttributes
 argument_list|,
 name|currentNodeCount
+argument_list|,
+name|requiredCountPerAttribute
 argument_list|,
 name|leftoverPerAttribute
 argument_list|)
@@ -1097,7 +1105,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"node meets awareness requirements"
+literal|"node meets all awareness attribute requirements"
 argument_list|)
 return|;
 block|}

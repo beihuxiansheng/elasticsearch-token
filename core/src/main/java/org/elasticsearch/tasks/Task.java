@@ -347,6 +347,10 @@ argument_list|()
 operator|-
 name|startTimeNanos
 argument_list|,
+name|this
+operator|instanceof
+name|CancellableTask
+argument_list|,
 name|parentTask
 argument_list|)
 return|;

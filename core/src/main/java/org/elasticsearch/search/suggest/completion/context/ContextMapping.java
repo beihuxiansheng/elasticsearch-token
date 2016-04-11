@@ -197,7 +197,7 @@ name|ContextMapping
 parameter_list|<
 name|T
 extends|extends
-name|QueryContext
+name|ToXContent
 parameter_list|>
 implements|implements
 name|ToXContent
@@ -383,12 +383,17 @@ name|document
 parameter_list|)
 function_decl|;
 comment|/**      * Prototype for the query context      */
-DECL|method|prototype
+DECL|method|fromXContent
 specifier|protected
 specifier|abstract
 name|T
-name|prototype
-parameter_list|()
+name|fromXContent
+parameter_list|(
+name|XContentParser
+name|parser
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Parses query contexts for this mapper      */
 DECL|method|parseQueryContext
@@ -446,13 +451,7 @@ name|queryContexts
 operator|.
 name|add
 argument_list|(
-operator|(
-name|T
-operator|)
-name|prototype
-argument_list|()
-operator|.
-name|fromXContext
+name|fromXContent
 argument_list|(
 name|parser
 argument_list|)
@@ -485,13 +484,7 @@ name|queryContexts
 operator|.
 name|add
 argument_list|(
-operator|(
-name|T
-operator|)
-name|prototype
-argument_list|()
-operator|.
-name|fromXContext
+name|fromXContent
 argument_list|(
 name|parser
 argument_list|)

@@ -1262,22 +1262,6 @@ name|Function
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  * A node represent a node within a cluster (<tt>cluster.name</tt>). The {@link #client()} can be used  * in order to use a {@link Client} to perform actions/operations against the cluster.  */
 end_comment
@@ -1305,29 +1289,6 @@ operator|.
 name|boolSetting
 argument_list|(
 literal|"node.portsfile"
-argument_list|,
-literal|false
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
-argument_list|)
-decl_stmt|;
-DECL|field|NODE_CLIENT_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|Setting
-argument_list|<
-name|Boolean
-argument_list|>
-name|NODE_CLIENT_SETTING
-init|=
-name|Setting
-operator|.
-name|boolSetting
-argument_list|(
-literal|"node.client"
 argument_list|,
 literal|false
 argument_list|,
@@ -1477,8 +1438,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|// this sucks that folks can mistype client etc and get away with it.
-comment|// TODO: we should move this to node.attribute.${name} = ${value} instead.
 DECL|field|NODE_ATTRIBUTES
 specifier|public
 specifier|static
@@ -1493,7 +1452,7 @@ name|Setting
 operator|.
 name|groupSetting
 argument_list|(
-literal|"node."
+literal|"node.attr."
 argument_list|,
 name|Property
 operator|.
@@ -1613,7 +1572,9 @@ block|{
 name|Settings
 name|tmpSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2122,7 +2083,7 @@ name|ActionModule
 argument_list|(
 name|DiscoveryNode
 operator|.
-name|ingestNode
+name|isIngestNode
 argument_list|(
 name|settings
 argument_list|)
@@ -2830,7 +2791,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|==
 literal|null
@@ -4394,7 +4355,7 @@ name|write
 argument_list|(
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 operator|new
 name|InetSocketAddress

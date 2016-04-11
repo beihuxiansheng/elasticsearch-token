@@ -346,7 +346,7 @@ block|{
 return|return
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|address
 operator|.

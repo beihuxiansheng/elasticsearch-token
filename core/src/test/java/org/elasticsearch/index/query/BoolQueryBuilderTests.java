@@ -1001,7 +1001,7 @@ argument_list|)
 decl_stmt|;
 name|contentString
 operator|+=
-literal|"must: "
+literal|"\"must\": "
 operator|+
 name|must
 operator|.
@@ -1053,9 +1053,9 @@ operator|(
 name|randomBoolean
 argument_list|()
 condition|?
-literal|"must_not: "
+literal|"\"must_not\": "
 else|:
-literal|"mustNot: "
+literal|"\"mustNot\": "
 operator|)
 operator|+
 name|mustNot
@@ -1104,7 +1104,7 @@ argument_list|)
 decl_stmt|;
 name|contentString
 operator|+=
-literal|"should: "
+literal|"\"should\": "
 operator|+
 name|should
 operator|.
@@ -1152,7 +1152,7 @@ argument_list|)
 decl_stmt|;
 name|contentString
 operator|+=
-literal|"filter: "
+literal|"\"filter\": "
 operator|+
 name|filter
 operator|.

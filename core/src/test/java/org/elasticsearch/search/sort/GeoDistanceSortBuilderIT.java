@@ -449,7 +449,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1367,7 +1367,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2030,7 +2030,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3480,7 +3480,7 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"str_field1"
+literal|"str_field"
 argument_list|,
 literal|"type=keyword"
 argument_list|,

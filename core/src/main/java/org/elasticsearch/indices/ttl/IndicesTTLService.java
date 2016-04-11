@@ -1896,12 +1896,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to execute bulk: [{}]"
+literal|"failed to execute bulk: "
 argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

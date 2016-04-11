@@ -1182,7 +1182,10 @@ name|settings
 argument_list|,
 name|pipelineAggregatorName
 argument_list|,
+name|factory
+operator|.
 name|window
+argument_list|()
 argument_list|,
 name|context
 operator|.

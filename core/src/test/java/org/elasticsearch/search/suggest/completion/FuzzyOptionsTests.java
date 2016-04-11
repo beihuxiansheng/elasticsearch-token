@@ -459,9 +459,8 @@ throws|throws
 name|IOException
 block|{
 return|return
+operator|new
 name|FuzzyOptions
-operator|.
-name|readFuzzyOptions
 argument_list|(
 name|in
 argument_list|)

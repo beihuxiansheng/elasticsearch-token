@@ -312,20 +312,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
-operator|.
-name|IndicesOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|termvectors
 operator|.
 name|TermVectorsResponse
@@ -2611,7 +2597,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -3126,7 +3112,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|indices
@@ -4323,7 +4309,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
 name|getVersion

@@ -830,7 +830,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -899,7 +899,7 @@ name|indexSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1329,15 +1329,6 @@ name|Override
 specifier|protected
 name|void
 name|configureSearch
-parameter_list|()
-block|{
-comment|// Skip me
-block|}
-annotation|@
-name|Override
-specifier|protected
-name|void
-name|configureSuggesters
 parameter_list|()
 block|{
 comment|// Skip me
@@ -1947,7 +1938,7 @@ decl_stmt|;
 name|Random
 name|rand
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|int

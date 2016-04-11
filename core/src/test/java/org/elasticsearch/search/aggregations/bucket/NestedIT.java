@@ -2424,7 +2424,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"nested1.a"
+literal|"nested1.a.keyword"
 argument_list|)
 operator|.
 name|collectMode
@@ -3896,7 +3896,7 @@ literal|"product"
 argument_list|,
 literal|"categories"
 argument_list|,
-literal|"type=text"
+literal|"type=keyword"
 argument_list|,
 literal|"name"
 argument_list|,

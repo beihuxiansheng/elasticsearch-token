@@ -172,20 +172,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -662,7 +648,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 expr_stmt|;
 name|replicaNode
@@ -688,7 +674,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 expr_stmt|;
 block|}
@@ -717,7 +703,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 expr_stmt|;
 name|replicaNode
@@ -743,7 +729,7 @@ operator|.
 name|node
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 expr_stmt|;
 block|}

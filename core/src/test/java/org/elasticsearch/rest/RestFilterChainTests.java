@@ -1005,7 +1005,7 @@ specifier|static
 class|class
 name|FakeRestChannel
 extends|extends
-name|RestChannel
+name|AbstractRestChannel
 block|{
 DECL|field|latch
 specifier|private

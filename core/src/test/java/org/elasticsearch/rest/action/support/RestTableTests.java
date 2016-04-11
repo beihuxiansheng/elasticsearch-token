@@ -52,7 +52,7 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
+name|AbstractRestChannel
 import|;
 end_import
 
@@ -842,7 +842,7 @@ argument_list|(
 name|table
 argument_list|,
 operator|new
-name|RestChannel
+name|AbstractRestChannel
 argument_list|(
 name|requestWithAcceptHeader
 argument_list|,

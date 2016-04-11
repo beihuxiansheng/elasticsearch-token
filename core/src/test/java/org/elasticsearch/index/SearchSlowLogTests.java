@@ -101,7 +101,7 @@ literal|"index"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -267,7 +267,7 @@ literal|"index"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -401,7 +401,7 @@ literal|"index"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -637,7 +637,7 @@ literal|"index"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -764,7 +764,7 @@ literal|"index"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1070,7 +1070,7 @@ literal|"index"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1495,7 +1495,7 @@ literal|"index"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1801,7 +1801,7 @@ literal|"index"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2228,7 +2228,7 @@ name|build
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put

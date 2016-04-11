@@ -104,6 +104,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|SearchOperationListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|internal
@@ -134,6 +148,8 @@ specifier|public
 specifier|final
 class|class
 name|SearchSlowLog
+implements|implements
+name|SearchOperationListener
 block|{
 DECL|field|reformat
 specifier|private
@@ -965,6 +981,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onQueryPhase
 specifier|public
 name|void
@@ -1097,6 +1115,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onFetchPhase
 specifier|public
 name|void

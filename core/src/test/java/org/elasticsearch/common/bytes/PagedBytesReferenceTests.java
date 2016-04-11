@@ -747,7 +747,7 @@ index|[
 name|length
 index|]
 decl_stmt|;
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBytes
@@ -1068,7 +1068,7 @@ operator|.
 name|length
 index|]
 decl_stmt|;
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBytes
@@ -4059,7 +4059,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextInt

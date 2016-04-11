@@ -234,7 +234,7 @@ literal|"testidx"
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -1007,8 +1007,6 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 name|GeoDistanceSortBuilder
-operator|.
-name|PROTOTYPE
 operator|.
 name|fromXContent
 argument_list|(

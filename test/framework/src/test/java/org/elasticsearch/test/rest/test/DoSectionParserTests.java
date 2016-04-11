@@ -1099,9 +1099,9 @@ literal|"search:\n"
 operator|+
 literal|"    body:\n"
 operator|+
-literal|"        _source: [ include.field1, include.field2 ]\n"
+literal|"        \"_source\": [ include.field1, include.field2 ]\n"
 operator|+
-literal|"        query: { match_all: {} }"
+literal|"        \"query\": { \"match_all\": {} }"
 argument_list|)
 expr_stmt|;
 name|String
@@ -1859,7 +1859,7 @@ literal|"    type:   test\n"
 operator|+
 literal|"    id:     1\n"
 operator|+
-literal|"    body:   \"{ _source: true, query: { match_all: {} } }\""
+literal|"    body:   \"{ \\\"_source\\\": true, \\\"query\\\": { \\\"match_all\\\": {} } }\""
 argument_list|)
 expr_stmt|;
 name|DoSectionParser
@@ -2028,7 +2028,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|"{ _source: true, query: { match_all: {} } }"
+literal|"{ \"_source\": true, \"query\": { \"match_all\": {} } }"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2052,7 +2052,7 @@ literal|"index:\n"
 operator|+
 literal|"    body:\n"
 operator|+
-literal|"        - \"{ _source: true, query: { match_all: {} } }\"\n"
+literal|"        - \"{ \\\"_source\\\": true, \\\"query\\\": { \\\"match_all\\\": {} } }\"\n"
 operator|+
 literal|"        - { size: 100, query: { match_all: {} } }"
 argument_list|)
@@ -2166,7 +2166,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-literal|"{ _source: true, query: { match_all: {} } }"
+literal|"{ \"_source\": true, \"query\": { \"match_all\": {} } }"
 argument_list|)
 expr_stmt|;
 name|assertJsonEquals

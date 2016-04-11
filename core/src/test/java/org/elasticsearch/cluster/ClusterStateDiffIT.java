@@ -472,6 +472,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -635,6 +659,12 @@ argument_list|(
 literal|"master"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -653,6 +683,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"other"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -681,7 +717,7 @@ name|localNodeId
 argument_list|(
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -931,7 +967,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1060,7 +1096,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1070,7 +1106,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1082,7 +1118,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1092,7 +1128,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1104,7 +1140,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1114,7 +1150,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1132,7 +1168,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -1173,14 +1209,14 @@ name|assertThat
 argument_list|(
 name|node1
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|version
+name|getVersion
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1189,14 +1225,14 @@ name|assertThat
 argument_list|(
 name|node1
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1205,14 +1241,14 @@ name|assertThat
 argument_list|(
 name|node1
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1637,7 +1673,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|size
@@ -1651,7 +1687,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -1717,6 +1753,12 @@ literal|10
 argument_list|)
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|randomVersion
 argument_list|(
 name|random
@@ -1775,6 +1817,12 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|randomVersion
 argument_list|(
@@ -1929,7 +1977,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -1988,7 +2036,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -3465,7 +3513,7 @@ argument_list|()
 decl_stmt|;
 name|setRandomIndexSettings
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|settingsBuilder
@@ -4509,7 +4557,7 @@ name|Strings
 operator|.
 name|randomBase64UUID
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 return|;

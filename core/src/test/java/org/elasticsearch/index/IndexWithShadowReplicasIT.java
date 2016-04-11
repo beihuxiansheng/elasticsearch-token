@@ -1158,7 +1158,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6161,7 +6161,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.affinity"
+literal|"node.attr.affinity"
 argument_list|,
 literal|"foo"
 argument_list|)
@@ -6184,7 +6184,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.affinity"
+literal|"node.attr.affinity"
 argument_list|,
 literal|"bar"
 argument_list|)

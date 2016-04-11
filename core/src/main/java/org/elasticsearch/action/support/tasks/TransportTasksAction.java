@@ -834,7 +834,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|task
@@ -859,7 +859,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|results
@@ -1455,7 +1455,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 decl_stmt|;
 name|this
@@ -1479,6 +1479,8 @@ literal|0
 init|;
 name|i
 operator|<
+name|this
+operator|.
 name|nodesIds
 operator|.
 name|length
@@ -1498,6 +1500,8 @@ name|nodes
 operator|.
 name|get
 argument_list|(
+name|this
+operator|.
 name|nodesIds
 index|[
 name|i
@@ -1701,7 +1705,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|task
@@ -1791,7 +1795,7 @@ name|idx
 argument_list|,
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|exp

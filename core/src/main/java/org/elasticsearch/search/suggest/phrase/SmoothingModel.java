@@ -385,8 +385,6 @@ name|model
 operator|=
 name|LinearInterpolation
 operator|.
-name|PROTOTYPE
-operator|.
 name|innerFromXContent
 argument_list|(
 name|parseContext
@@ -412,8 +410,6 @@ name|model
 operator|=
 name|Laplace
 operator|.
-name|PROTOTYPE
-operator|.
 name|innerFromXContent
 argument_list|(
 name|parseContext
@@ -438,8 +434,6 @@ block|{
 name|model
 operator|=
 name|StupidBackoff
-operator|.
-name|PROTOTYPE
 operator|.
 name|innerFromXContent
 argument_list|(
@@ -490,18 +484,6 @@ return|return
 name|model
 return|;
 block|}
-DECL|method|innerFromXContent
-specifier|public
-specifier|abstract
-name|SmoothingModel
-name|innerFromXContent
-parameter_list|(
-name|QueryParseContext
-name|parseContext
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 DECL|method|buildWordScorerFactory
 specifier|public
 specifier|abstract

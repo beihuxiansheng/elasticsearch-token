@@ -482,7 +482,7 @@ name|localNode
 init|=
 name|discoNodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -494,7 +494,7 @@ name|masterAndDataNodes
 init|=
 name|discoNodes
 operator|.
-name|masterAndDataNodes
+name|getMasterAndDataNodes
 argument_list|()
 operator|.
 name|values
@@ -618,7 +618,7 @@ name|VerificationFailure
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|t
@@ -727,7 +727,7 @@ name|VerificationFailure
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|exp

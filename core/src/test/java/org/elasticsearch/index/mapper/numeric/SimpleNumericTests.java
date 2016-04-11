@@ -188,22 +188,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
-operator|.
-name|IndexNumericFieldData
-operator|.
-name|NumericType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|mapper
 operator|.
 name|DocumentMapper
@@ -425,22 +409,6 @@ operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -1325,7 +1293,9 @@ comment|// Unless the global ignore_malformed option is set to true
 name|Settings
 name|indexSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

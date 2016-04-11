@@ -890,7 +890,7 @@ literal|"ip"
 argument_list|,
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|ipAddress
 argument_list|)
@@ -1199,7 +1199,7 @@ literal|"ip"
 argument_list|,
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|ipAddress
 argument_list|)

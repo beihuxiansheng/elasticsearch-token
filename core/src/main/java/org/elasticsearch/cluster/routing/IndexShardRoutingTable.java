@@ -2351,10 +2351,10 @@ name|localAttributeValue
 init|=
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get
@@ -2434,7 +2434,7 @@ name|equals
 argument_list|(
 name|discoveryNode
 operator|.
-name|attributes
+name|getAttributes
 argument_list|()
 operator|.
 name|get

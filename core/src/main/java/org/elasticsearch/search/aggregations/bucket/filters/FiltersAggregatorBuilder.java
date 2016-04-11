@@ -118,7 +118,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactory
+name|AggregatorFactories
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -132,9 +134,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorFactories
-operator|.
-name|Builder
+name|AggregatorFactory
 import|;
 end_import
 
@@ -201,6 +201,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -329,11 +339,47 @@ operator|.
 name|TYPE
 argument_list|)
 expr_stmt|;
+comment|// internally we want to have a fixed order of filters, regardless of the order of the filters in the request
 name|this
 operator|.
 name|filters
 operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|filters
+argument_list|)
+expr_stmt|;
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|this
+operator|.
+name|filters
+argument_list|,
+parameter_list|(
+name|KeyedFilter
+name|kf1
+parameter_list|,
+name|KeyedFilter
+name|kf2
+parameter_list|)
+lambda|->
+name|kf1
+operator|.
+name|key
+argument_list|()
+operator|.
+name|compareTo
+argument_list|(
+name|kf2
+operator|.
+name|key
+argument_list|()
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -463,6 +509,27 @@ parameter_list|()
 block|{
 return|return
 name|otherBucket
+return|;
+block|}
+comment|/**      * Get the filters. This will be an unmodifiable list      */
+DECL|method|filters
+specifier|public
+name|List
+argument_list|<
+name|KeyedFilter
+argument_list|>
+name|filters
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
+name|this
+operator|.
+name|filters
+argument_list|)
 return|;
 block|}
 comment|/**      * Set the key to use for the bucket for documents not matching any      * filter.      */

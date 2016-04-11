@@ -162,8 +162,6 @@ name|query
 operator|.
 name|functionscore
 operator|.
-name|script
-operator|.
 name|ScriptScoreFunctionBuilder
 import|;
 end_import
@@ -462,22 +460,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -695,7 +677,9 @@ operator|.
 name|Builder
 name|settingsBuilder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -980,7 +964,9 @@ operator|.
 name|Builder
 name|settingsBuilder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

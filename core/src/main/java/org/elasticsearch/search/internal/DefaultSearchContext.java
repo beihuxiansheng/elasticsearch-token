@@ -1387,7 +1387,12 @@ operator|=
 name|indexService
 operator|.
 name|newQueryShardContext
+argument_list|(
+name|searcher
+operator|.
+name|getIndexReader
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|queryShardContext
 operator|.

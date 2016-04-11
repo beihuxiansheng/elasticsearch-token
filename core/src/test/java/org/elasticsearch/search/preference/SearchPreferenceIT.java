@@ -62,6 +62,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|rest
 operator|.
 name|RestStatus
@@ -103,22 +117,6 @@ operator|.
 name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_REPLICAS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -239,7 +237,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -609,7 +609,9 @@ operator|.
 name|setSettings
 argument_list|(
 comment|//this test needs at least a replica to make sure two consecutive searches go to two different copies of the same data
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

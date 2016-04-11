@@ -1072,7 +1072,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|==
 literal|false
@@ -1114,7 +1114,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|==
 literal|null
@@ -1139,7 +1139,7 @@ operator|&&
 operator|(
 name|nodes
 operator|.
-name|masterAndDataNodes
+name|getMasterAndDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1157,7 +1157,7 @@ literal|"not recovering from gateway, nodes_size (data+master) [{}]< recover_aft
 argument_list|,
 name|nodes
 operator|.
-name|masterAndDataNodes
+name|getMasterAndDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1177,7 +1177,7 @@ literal|1
 operator|&&
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1194,7 +1194,7 @@ literal|"not recovering from gateway, nodes_size (data) [{}]< recover_after_data
 argument_list|,
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1214,7 +1214,7 @@ literal|1
 operator|&&
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1231,7 +1231,7 @@ literal|"not recovering from gateway, nodes_size (master) [{}]< recover_after_ma
 argument_list|,
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1302,7 +1302,7 @@ operator|&&
 operator|(
 name|nodes
 operator|.
-name|masterAndDataNodes
+name|getMasterAndDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1327,7 +1327,7 @@ literal|"] nodes, but only have ["
 operator|+
 name|nodes
 operator|.
-name|masterAndDataNodes
+name|getMasterAndDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1347,7 +1347,7 @@ operator|&&
 operator|(
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1372,7 +1372,7 @@ literal|"] data nodes, but only have ["
 operator|+
 name|nodes
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -1392,7 +1392,7 @@ operator|&&
 operator|(
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1417,7 +1417,7 @@ literal|"] master nodes, but only have ["
 operator|+
 name|nodes
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size

@@ -221,7 +221,7 @@ name|EMPTY_SETTINGS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link org.elasticsearch.cluster.routing.allocation.decider.SnapshotInProgressAllocationDecider} instance from given settings      *      * @param settings {@link org.elasticsearch.common.settings.Settings} to use      */
+comment|/**      * Creates a new {@link org.elasticsearch.cluster.routing.allocation.decider.SnapshotInProgressAllocationDecider} instance from      * given settings      *      * @param settings {@link org.elasticsearch.common.settings.Settings} to use      */
 DECL|method|SnapshotInProgressAllocationDecider
 specifier|public
 name|SnapshotInProgressAllocationDecider
@@ -481,6 +481,14 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -498,6 +506,7 @@ name|nodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|allocation
 operator|.
@@ -536,7 +545,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard not primary or relocation disabled"
+literal|"the shard is not primary or relocation is disabled"
 argument_list|)
 return|;
 block|}
