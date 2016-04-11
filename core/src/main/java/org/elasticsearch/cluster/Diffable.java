@@ -100,6 +100,17 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Reads an object of this type from the provided {@linkplain StreamInput}. The receiving instance remains unchanged.      */
+DECL|method|readFrom
+name|T
+name|readFrom
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 block|}
 end_interface
 

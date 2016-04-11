@@ -40,13 +40,8 @@ name|Writeable
 parameter_list|<
 name|T
 parameter_list|>
-extends|extends
-name|StreamableReader
-argument_list|<
-name|T
-argument_list|>
 block|{
-comment|// TODO remove extends StreamableReader<T> from this interface, and remove<T>
+comment|// TODO remove<T>
 comment|/**      * Write this into the {@linkplain StreamOutput}.      */
 DECL|method|writeTo
 name|void
@@ -58,8 +53,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-annotation|@
-name|Override
 DECL|method|readFrom
 specifier|default
 name|T

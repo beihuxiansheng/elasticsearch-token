@@ -199,10 +199,7 @@ name|T
 argument_list|>
 name|readDiffFrom
 parameter_list|(
-name|StreamableReader
-argument_list|<
 name|T
-argument_list|>
 name|reader
 parameter_list|,
 name|StreamInput
@@ -285,7 +282,7 @@ DECL|method|CompleteDiff
 specifier|public
 name|CompleteDiff
 parameter_list|(
-name|StreamableReader
+name|Diffable
 argument_list|<
 name|T
 argument_list|>
