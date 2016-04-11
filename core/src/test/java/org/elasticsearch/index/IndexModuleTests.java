@@ -1169,12 +1169,7 @@ name|indicesQueriesRegistry
 init|=
 operator|new
 name|IndicesQueriesRegistry
-argument_list|(
-name|settings
-argument_list|,
-name|emptyMap
 argument_list|()
-argument_list|)
 decl_stmt|;
 return|return
 operator|new

@@ -401,7 +401,7 @@ name|queriesRegistry
 operator|=
 name|searchModule
 operator|.
-name|buildQueryParserRegistry
+name|getQueryParserRegistry
 argument_list|()
 expr_stmt|;
 name|suggesters

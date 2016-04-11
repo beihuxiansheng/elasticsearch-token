@@ -1884,6 +1884,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|AggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|newAgg
 init|=
 name|aggParsers
@@ -1894,6 +1897,8 @@ name|testAgg
 operator|.
 name|getType
 argument_list|()
+argument_list|,
+name|parser
 argument_list|)
 operator|.
 name|parse

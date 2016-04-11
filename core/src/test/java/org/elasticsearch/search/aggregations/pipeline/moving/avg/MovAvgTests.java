@@ -885,12 +885,14 @@ name|newAgg
 init|=
 name|aggParsers
 operator|.
-name|pipelineAggregator
+name|pipelineParser
 argument_list|(
 name|expected
 operator|.
 name|getWriteableName
 argument_list|()
+argument_list|,
+name|parser
 argument_list|)
 operator|.
 name|parse

@@ -241,16 +241,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -909,16 +899,7 @@ name|QueryParseContext
 argument_list|(
 operator|new
 name|IndicesQueriesRegistry
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|context
@@ -1290,16 +1271,7 @@ name|QueryParseContext
 argument_list|(
 operator|new
 name|IndicesQueriesRegistry
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|,
-name|Collections
-operator|.
-name|emptyMap
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|context

@@ -919,7 +919,7 @@ argument_list|,
 name|namedWriteableRegistry
 argument_list|)
 operator|.
-name|buildQueryParserRegistry
+name|getQueryParserRegistry
 argument_list|()
 expr_stmt|;
 block|}

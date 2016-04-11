@@ -3900,13 +3900,13 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Reads a {@link AggregatorBuilder} from the current stream      */
-DECL|method|readAggregatorFactory
+DECL|method|readAggregatorBuilder
 specifier|public
 name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
-name|readAggregatorFactory
+name|readAggregatorBuilder
 parameter_list|()
 throws|throws
 name|IOException
@@ -3921,13 +3921,13 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Reads a {@link PipelineAggregatorBuilder} from the current stream      */
-DECL|method|readPipelineAggregatorFactory
+DECL|method|readPipelineAggregatorBuilder
 specifier|public
 name|PipelineAggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
-name|readPipelineAggregatorFactory
+name|readPipelineAggregatorBuilder
 parameter_list|()
 throws|throws
 name|IOException

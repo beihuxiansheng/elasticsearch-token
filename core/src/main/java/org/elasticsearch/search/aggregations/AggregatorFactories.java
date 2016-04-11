@@ -1797,7 +1797,7 @@ name|factory
 init|=
 name|in
 operator|.
-name|readAggregatorFactory
+name|readAggregatorBuilder
 argument_list|()
 decl_stmt|;
 name|builder
@@ -1839,7 +1839,7 @@ name|factory
 init|=
 name|in
 operator|.
-name|readPipelineAggregatorFactory
+name|readPipelineAggregatorBuilder
 argument_list|()
 decl_stmt|;
 name|builder
