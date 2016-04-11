@@ -186,23 +186,24 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the source for the request      */
-DECL|method|setSource
+comment|/**      * Sets the commands for the request to execute.      */
+DECL|method|setCommands
 specifier|public
 name|ClusterRerouteRequestBuilder
-name|setSource
+name|setCommands
 parameter_list|(
-name|BytesReference
-name|source
+name|AllocationCommand
+modifier|...
+name|commands
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 name|request
 operator|.
-name|source
+name|commands
 argument_list|(
-name|source
+name|commands
 argument_list|)
 expr_stmt|;
 return|return
