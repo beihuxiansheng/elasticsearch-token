@@ -610,7 +610,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"null-valued setting found for key [foo]"
+literal|"null-valued setting found for key [foo] found at line"
 argument_list|)
 argument_list|)
 expr_stmt|;
