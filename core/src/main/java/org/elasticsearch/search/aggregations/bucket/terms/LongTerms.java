@@ -847,10 +847,6 @@ name|builder
 return|;
 block|}
 block|}
-DECL|field|format
-name|DocValueFormat
-name|format
-decl_stmt|;
 DECL|method|LongTerms
 name|LongTerms
 parameter_list|()
@@ -869,7 +865,7 @@ name|Order
 name|order
 parameter_list|,
 name|DocValueFormat
-name|formatter
+name|format
 parameter_list|,
 name|int
 name|requiredSize
@@ -920,6 +916,8 @@ name|name
 argument_list|,
 name|order
 argument_list|,
+name|format
+argument_list|,
 name|requiredSize
 argument_list|,
 name|shardSize
@@ -938,12 +936,6 @@ name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|format
-operator|=
-name|formatter
 expr_stmt|;
 block|}
 annotation|@

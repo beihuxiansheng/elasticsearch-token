@@ -244,6 +244,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|aggregations
 operator|.
 name|Aggregator
@@ -536,6 +548,9 @@ operator|.
 name|Order
 name|order
 parameter_list|,
+name|DocValueFormat
+name|format
+parameter_list|,
 name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
@@ -584,6 +599,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|order
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
@@ -1356,6 +1373,8 @@ argument_list|,
 name|showTermDocCountError
 argument_list|,
 literal|0
+argument_list|,
+name|format
 argument_list|)
 expr_stmt|;
 name|list
@@ -1445,6 +1464,8 @@ argument_list|(
 name|name
 argument_list|,
 name|order
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 operator|.
@@ -1727,6 +1748,9 @@ operator|.
 name|Order
 name|order
 parameter_list|,
+name|DocValueFormat
+name|format
+parameter_list|,
 name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
@@ -1773,6 +1797,8 @@ argument_list|,
 name|valuesSource
 argument_list|,
 name|order
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
@@ -2130,6 +2156,9 @@ operator|.
 name|Order
 name|order
 parameter_list|,
+name|DocValueFormat
+name|format
+parameter_list|,
 name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
@@ -2171,6 +2200,8 @@ argument_list|,
 name|valuesSource
 argument_list|,
 name|order
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
