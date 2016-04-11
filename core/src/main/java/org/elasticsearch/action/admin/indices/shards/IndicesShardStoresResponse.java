@@ -645,6 +645,7 @@ name|allocationStatus
 return|;
 block|}
 DECL|method|readStoreStatus
+specifier|public
 specifier|static
 name|StoreStatus
 name|readStoreStatus
