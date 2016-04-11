@@ -769,11 +769,11 @@ name|registerScoreFunction
 argument_list|(
 name|RandomScoreFunctionBuilderWithFixedSeed
 operator|::
-name|fromXContent
+operator|new
 argument_list|,
 name|RandomScoreFunctionBuilderWithFixedSeed
 operator|::
-operator|new
+name|fromXContent
 argument_list|,
 name|RandomScoreFunctionBuilderWithFixedSeed
 operator|.
