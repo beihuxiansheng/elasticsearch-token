@@ -1033,6 +1033,8 @@ expr_stmt|;
 return|return
 name|downloadZipAndChecksum
 argument_list|(
+name|terminal
+argument_list|,
 name|url
 argument_list|,
 name|tmpDir
@@ -1122,6 +1124,8 @@ expr_stmt|;
 return|return
 name|downloadZipAndChecksum
 argument_list|(
+name|terminal
+argument_list|,
 name|mavenUrl
 argument_list|,
 name|tmpDir
@@ -1148,6 +1152,8 @@ expr_stmt|;
 return|return
 name|downloadZip
 argument_list|(
+name|terminal
+argument_list|,
 name|pluginId
 argument_list|,
 name|tmpDir
@@ -1160,6 +1166,9 @@ specifier|private
 name|Path
 name|downloadZip
 parameter_list|(
+name|Terminal
+name|terminal
+parameter_list|,
 name|String
 name|urlString
 parameter_list|,
@@ -1169,6 +1178,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|terminal
+operator|.
+name|println
+argument_list|(
+name|VERBOSE
+argument_list|,
+literal|"Retrieving zip from "
+operator|+
+name|urlString
+argument_list|)
+expr_stmt|;
 name|URL
 name|url
 init|=
@@ -1228,6 +1248,9 @@ specifier|private
 name|Path
 name|downloadZipAndChecksum
 parameter_list|(
+name|Terminal
+name|terminal
+parameter_list|,
 name|String
 name|urlString
 parameter_list|,
@@ -1242,6 +1265,8 @@ name|zip
 init|=
 name|downloadZip
 argument_list|(
+name|terminal
+argument_list|,
 name|urlString
 argument_list|,
 name|tmpDir
