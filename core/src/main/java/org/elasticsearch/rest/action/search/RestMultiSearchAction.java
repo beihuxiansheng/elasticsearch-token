@@ -1546,7 +1546,7 @@ name|source
 argument_list|(
 name|SearchSourceBuilder
 operator|.
-name|parseSearchSource
+name|fromXContent
 argument_list|(
 name|requestParser
 argument_list|,

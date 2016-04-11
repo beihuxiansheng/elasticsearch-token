@@ -1023,9 +1023,8 @@ condition|)
 block|{
 name|source
 operator|=
+operator|new
 name|SearchSourceBuilder
-operator|.
-name|readSearchSourceFrom
 argument_list|(
 name|in
 argument_list|)

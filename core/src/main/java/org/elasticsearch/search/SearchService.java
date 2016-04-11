@@ -4026,7 +4026,7 @@ name|context
 argument_list|,
 name|SearchSourceBuilder
 operator|.
-name|parseSearchSource
+name|fromXContent
 argument_list|(
 name|parser
 argument_list|,
