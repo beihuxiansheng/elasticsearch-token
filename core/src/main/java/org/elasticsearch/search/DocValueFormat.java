@@ -36,11 +36,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
-operator|.
 name|util
 operator|.
-name|GeoHashUtils
+name|BytesRef
 import|;
 end_import
 
@@ -48,13 +46,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|util
+name|geo
 operator|.
-name|BytesRef
+name|GeoHashUtils
 import|;
 end_import
 

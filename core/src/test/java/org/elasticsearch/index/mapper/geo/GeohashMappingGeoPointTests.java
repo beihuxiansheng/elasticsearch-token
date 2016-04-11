@@ -188,13 +188,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 operator|.
 name|GeoHashUtils
 operator|.
@@ -582,9 +580,9 @@ name|equalTo
 argument_list|(
 name|mortonHash
 argument_list|(
-literal|1.3
-argument_list|,
 literal|1.2
+argument_list|,
+literal|1.3
 argument_list|)
 argument_list|)
 argument_list|)
@@ -841,9 +839,9 @@ name|equalTo
 argument_list|(
 name|mortonHash
 argument_list|(
-literal|1.3
-argument_list|,
 literal|1.2
+argument_list|,
+literal|1.3
 argument_list|)
 argument_list|)
 argument_list|)
