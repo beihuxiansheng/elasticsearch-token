@@ -1148,10 +1148,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isSourceEmpty
+DECL|method|hasSource
 specifier|public
 name|boolean
-name|isSourceEmpty
+name|hasSource
 parameter_list|()
 block|{
 return|return

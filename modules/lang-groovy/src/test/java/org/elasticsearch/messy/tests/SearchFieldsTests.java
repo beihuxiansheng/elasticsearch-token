@@ -2581,7 +2581,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|isSourceEmpty
+name|hasSource
 argument_list|()
 argument_list|,
 name|equalTo

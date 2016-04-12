@@ -562,7 +562,7 @@ if|if
 condition|(
 name|doc
 operator|.
-name|isSourceEmpty
+name|hasSource
 argument_list|()
 condition|)
 block|{
