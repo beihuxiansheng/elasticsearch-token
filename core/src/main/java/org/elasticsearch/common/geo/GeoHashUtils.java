@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utilities for converting to/from the GeoHash standard  *  * The geohash long format is represented as lon/lat (x/y) interleaved with the 4 least significant bits  * representing the level (1-12) [xyxy...xyxyllll]  *  * This differs from a morton encoded value which interleaves lat/lon (y/x).  *  * @lucene.experimental  */
+comment|/**  * Utilities for converting to/from the GeoHash standard  *  * The geohash long format is represented as lon/lat (x/y) interleaved with the 4 least significant bits  * representing the level (1-12) [xyxy...xyxyllll]  *  * This differs from a morton encoded value which interleaves lat/lon (y/x).*  */
 end_comment
 
 begin_class
