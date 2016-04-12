@@ -2270,6 +2270,8 @@ argument_list|(
 name|indexLocation
 argument_list|,
 name|shardId
+argument_list|,
+name|logger
 argument_list|)
 expr_stmt|;
 block|}
@@ -2310,6 +2312,9 @@ name|indexLocation
 parameter_list|,
 name|ShardId
 name|shardId
+parameter_list|,
+name|ESLogger
+name|logger
 parameter_list|)
 throws|throws
 name|IOException
@@ -2333,11 +2338,25 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
+name|SegmentInfos
+name|segInfo
+init|=
 name|Lucene
 operator|.
 name|readSegmentInfos
 argument_list|(
 name|dir
+argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{} loaded segment info [{}]"
+argument_list|,
+name|shardId
+argument_list|,
+name|segInfo
 argument_list|)
 expr_stmt|;
 block|}
