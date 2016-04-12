@@ -205,7 +205,9 @@ name|BucketCollector
 implements|implements
 name|Releasable
 block|{
-comment|/**      * Parses the aggregation request and creates the appropriate aggregator factory for it.      *      * @see AggregatorBuilder     */
+comment|/**      * Parses the aggregation request and creates the appropriate aggregator factory for it.      *      * @see AggregatorBuilder      */
+annotation|@
+name|FunctionalInterface
 DECL|interface|Parser
 specifier|public
 interface|interface
@@ -213,10 +215,18 @@ name|Parser
 block|{
 comment|/**          * @return The aggregation type this parser is associated with.          */
 DECL|method|type
+specifier|default
 name|String
 name|type
 parameter_list|()
-function_decl|;
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+comment|// NORELEASE remove before 5.0.0GA
+block|}
 comment|/**          * Returns the aggregator factory with which this parser is associated, may return {@code null} indicating the          * aggregation should be skipped (e.g. when trying to aggregate on unmapped fields).          *          * @param aggregationName   The name of the aggregation          * @param parser            The xcontent parser          * @param context           The search context          * @return                  The resolved aggregator factory or {@code null} in case the aggregation should be skipped          * @throws java.io.IOException      When parsing fails          */
 DECL|method|parse
 name|AggregatorBuilder
@@ -239,13 +249,21 @@ name|IOException
 function_decl|;
 comment|/**          * @return an empty {@link AggregatorBuilder} instance for this parser          *         that can be used for deserialization          */
 DECL|method|getFactoryPrototypes
+specifier|default
 name|AggregatorBuilder
 argument_list|<
 name|?
 argument_list|>
 name|getFactoryPrototypes
 parameter_list|()
-function_decl|;
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+comment|// NORELEASE remove before 5.0.0GA
+block|}
 block|}
 comment|/**      * Returns whether one of the parents is a {@link BucketsAggregator}.      */
 DECL|method|descendsFromBucketAggregator

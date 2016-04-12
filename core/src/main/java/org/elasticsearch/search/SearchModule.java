@@ -1208,7 +1208,7 @@ name|bucket
 operator|.
 name|children
 operator|.
-name|ChildrenParser
+name|ChildrenAggregatorBuilder
 import|;
 end_import
 
@@ -4739,11 +4739,21 @@ name|ScriptedMetricParser
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|registerAggregatorParser
+name|registerAggregation
 argument_list|(
-operator|new
-name|ChildrenParser
-argument_list|()
+name|ChildrenAggregatorBuilder
+operator|.
+name|PROTOTYPE
+operator|::
+name|readFrom
+argument_list|,
+name|ChildrenAggregatorBuilder
+operator|::
+name|parse
+argument_list|,
+name|ChildrenAggregatorBuilder
+operator|.
+name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerPipelineParser
