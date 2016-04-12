@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Implements a point distance range query on a GeoPoint field. This is based on  * {@code org.apache.lucene.spatial.geopoint.search.GeoPointDistanceQuery} and is implemented using a  * {@code org.apache.lucene.search.BooleanClause.MUST_NOT} clause to exclude any points that fall within  * minRadiusMeters from the provided point.  *<p>  * NOTE: this query does not correctly support multi-value docs (see: https://issues.apache.org/jira/browse/LUCENE-7126)  *<br>  * TODO: remove this per ISSUE #17658  *  *    @lucene.experimental  */
+comment|/** Implements a point distance range query on a GeoPoint field. This is based on  * {@code org.apache.lucene.spatial.geopoint.search.GeoPointDistanceQuery} and is implemented using a  * {@code org.apache.lucene.search.BooleanClause.MUST_NOT} clause to exclude any points that fall within  * minRadiusMeters from the provided point.  *<p>  * NOTE: this query does not correctly support multi-value docs (see: https://issues.apache.org/jira/browse/LUCENE-7126)  *<br>  * TODO: remove this per ISSUE #17658  **/
 end_comment
 
 begin_class
