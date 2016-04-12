@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines a query parser that is able to read and parse a query object in {@link org.elasticsearch.common.xcontent.XContent}  * format and create an internal object representing the query, implementing {@link QueryBuilder}, which can be streamed to other nodes.  */
+comment|/**  * Defines a query parser that is able to parse {@link QueryBuilder}s from {@link org.elasticsearch.common.xcontent.XContent}.  */
 end_comment
 
 begin_interface
@@ -57,20 +57,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * @return an empty {@link QueryBuilder} instance for this parser that can be used for deserialization      */
-DECL|method|getBuilderPrototype
-specifier|default
-name|QB
-name|getBuilderPrototype
-parameter_list|()
-block|{
-comment|// TODO remove this when nothing implements it
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
 block|}
 end_interface
 
