@@ -566,6 +566,7 @@ name|isSourceEmpty
 argument_list|()
 condition|)
 block|{
+comment|/*                  * Either the document didn't store _source or we didn't fetch it for some reason. Since we don't allow the user to                  * change the "fields" part of the search request it is unlikely that we got here because we didn't fetch _source.                  * Thus the error message assumes that it wasn't stored.                  */
 throw|throw
 operator|new
 name|IllegalArgumentException
