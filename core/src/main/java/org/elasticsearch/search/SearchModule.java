@@ -4742,10 +4742,8 @@ expr_stmt|;
 name|registerAggregation
 argument_list|(
 name|ChildrenAggregatorBuilder
-operator|.
-name|PROTOTYPE
 operator|::
-name|readFrom
+operator|new
 argument_list|,
 name|ChildrenAggregatorBuilder
 operator|::
