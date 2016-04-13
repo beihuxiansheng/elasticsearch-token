@@ -377,8 +377,6 @@ name|parser
 operator|.
 name|parseAggregators
 argument_list|(
-name|aggParser
-argument_list|,
 name|parseContext
 argument_list|)
 operator|.

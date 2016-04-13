@@ -1002,8 +1002,6 @@ argument_list|()
 operator|.
 name|parseXContent
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|,
 name|aggParsers

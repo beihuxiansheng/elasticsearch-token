@@ -118,20 +118,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -227,7 +213,7 @@ argument_list|()
 throw|;
 comment|// NORELEASE remove before 5.0.0GA
 block|}
-comment|/**          * Returns the aggregator factory with which this parser is associated, may return {@code null} indicating the          * aggregation should be skipped (e.g. when trying to aggregate on unmapped fields).          *          * @param aggregationName   The name of the aggregation          * @param parser            The xcontent parser          * @param context           The search context          * @return                  The resolved aggregator factory or {@code null} in case the aggregation should be skipped          * @throws java.io.IOException      When parsing fails          */
+comment|/**          * Returns the aggregator factory with which this parser is associated, may return {@code null} indicating the          * aggregation should be skipped (e.g. when trying to aggregate on unmapped fields).          *          * @param aggregationName   The name of the aggregation          * @param context           The parse context          * @return                  The resolved aggregator factory or {@code null} in case the aggregation should be skipped          * @throws java.io.IOException      When parsing fails          */
 DECL|method|parse
 name|AggregatorBuilder
 argument_list|<
@@ -237,9 +223,6 @@ name|parse
 parameter_list|(
 name|String
 name|aggregationName
-parameter_list|,
-name|XContentParser
-name|parser
 parameter_list|,
 name|QueryParseContext
 name|context

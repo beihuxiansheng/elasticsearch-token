@@ -3474,8 +3474,6 @@ name|SearchSourceBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|,
 name|aggParsers
@@ -3976,8 +3974,6 @@ name|SearchSourceBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|createParseContext
 argument_list|(
 name|parser
@@ -4057,8 +4053,6 @@ name|SearchSourceBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|createParseContext
 argument_list|(
 name|parser
@@ -4154,8 +4148,6 @@ name|SearchSourceBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|createParseContext
 argument_list|(
 name|parser
@@ -4243,8 +4235,6 @@ name|SearchSourceBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|createParseContext
 argument_list|(
 name|parser

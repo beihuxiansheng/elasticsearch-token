@@ -1548,8 +1548,6 @@ name|SearchSourceBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|requestParser
-argument_list|,
 name|queryParseContext
 argument_list|,
 name|aggParsers

@@ -961,9 +961,6 @@ specifier|static
 name|SearchSourceBuilder
 name|fromXContent
 parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
 name|QueryParseContext
 name|context
 parameter_list|,
@@ -987,8 +984,6 @@ name|builder
 operator|.
 name|parseXContent
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|,
 name|aggParsers
@@ -4156,15 +4151,12 @@ return|return
 name|rewrittenBuilder
 return|;
 block|}
-comment|/**      * Parse some xContent into this SearchSourceBuilder, overwriting any values specified in the xContent. Use this if you need to set up      * different defaults than a regular SearchSourceBuilder would have and use      * {@link #fromXContent(XContentParser, QueryParseContext, AggregatorParsers, Suggesters)} if you have normal defaults.      */
+comment|/**      * Parse some xContent into this SearchSourceBuilder, overwriting any values specified in the xContent. Use this if you need to set up      * different defaults than a regular SearchSourceBuilder would have and use      * {@link #fromXContent(QueryParseContext, AggregatorParsers, Suggesters)} if you have normal defaults.      */
 DECL|method|parseXContent
 specifier|public
 name|void
 name|parseXContent
 parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
 name|QueryParseContext
 name|context
 parameter_list|,
@@ -4177,6 +4169,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|XContentParser
+name|parser
+init|=
+name|context
+operator|.
+name|parser
+argument_list|()
+decl_stmt|;
 name|XContentParser
 operator|.
 name|Token
@@ -4507,8 +4507,6 @@ name|FetchSourceContext
 operator|.
 name|parse
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -4697,8 +4695,6 @@ name|FetchSourceContext
 operator|.
 name|parse
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -4751,8 +4747,6 @@ argument_list|(
 operator|new
 name|ScriptField
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|)
 argument_list|)
@@ -4895,8 +4889,6 @@ name|aggParsers
 operator|.
 name|parseAggregators
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -4949,8 +4941,6 @@ name|InnerHitsBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -5502,8 +5492,6 @@ name|FetchSourceContext
 operator|.
 name|parse
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
@@ -6535,9 +6523,6 @@ DECL|method|ScriptField
 specifier|public
 name|ScriptField
 parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
 name|QueryParseContext
 name|context
 parameter_list|)
@@ -6548,6 +6533,14 @@ name|boolean
 name|ignoreFailure
 init|=
 literal|false
+decl_stmt|;
+name|XContentParser
+name|parser
+init|=
+name|context
+operator|.
+name|parser
+argument_list|()
 decl_stmt|;
 name|String
 name|scriptFieldName
@@ -7066,6 +7059,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

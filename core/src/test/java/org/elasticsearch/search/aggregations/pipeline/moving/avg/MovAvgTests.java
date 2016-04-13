@@ -90,7 +90,9 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorBuilder
+name|BucketHelpers
+operator|.
+name|GapPolicy
 import|;
 end_import
 
@@ -106,9 +108,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|BucketHelpers
-operator|.
-name|GapPolicy
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -901,8 +901,6 @@ name|expected
 operator|.
 name|name
 argument_list|()
-argument_list|,
-name|parser
 argument_list|,
 name|parseContext
 argument_list|)

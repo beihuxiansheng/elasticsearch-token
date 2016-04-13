@@ -292,7 +292,7 @@ name|parser
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses the aggregation request recursively generating aggregator factories in turn.      *      * @param parser    The input xcontent that will be parsed.      * @param parseContext   The parse context.      *      * @return          The parsed aggregator factories.      *      * @throws IOException When parsing fails for unknown reasons.      */
+comment|/**      * Parses the aggregation request recursively generating aggregator factories in turn.      *      * @param parseContext   The parse context.      *      * @return          The parsed aggregator factories.      *      * @throws IOException When parsing fails for unknown reasons.      */
 DECL|method|parseAggregators
 specifier|public
 name|AggregatorFactories
@@ -300,9 +300,6 @@ operator|.
 name|Builder
 name|parseAggregators
 parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
 name|QueryParseContext
 name|parseContext
 parameter_list|)
@@ -312,7 +309,10 @@ block|{
 return|return
 name|parseAggregators
 argument_list|(
+name|parseContext
+operator|.
 name|parser
+argument_list|()
 argument_list|,
 name|parseContext
 argument_list|,
@@ -1026,8 +1026,6 @@ name|parse
 argument_list|(
 name|aggregationName
 argument_list|,
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
@@ -1042,8 +1040,6 @@ operator|.
 name|parse
 argument_list|(
 name|aggregationName
-argument_list|,
-name|parser
 argument_list|,
 name|parseContext
 argument_list|)

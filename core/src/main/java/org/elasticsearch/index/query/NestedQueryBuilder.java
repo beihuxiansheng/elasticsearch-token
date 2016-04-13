@@ -856,6 +856,9 @@ init|=
 literal|null
 decl_stmt|;
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|query
 init|=
 literal|null
@@ -979,8 +982,6 @@ name|InnerHitBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
