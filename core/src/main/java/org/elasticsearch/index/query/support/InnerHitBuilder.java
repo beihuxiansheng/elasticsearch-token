@@ -1289,10 +1289,8 @@ operator|.
 name|readList
 argument_list|(
 name|ScriptField
-operator|.
-name|PROTOTYPE
 operator|::
-name|readFrom
+operator|new
 argument_list|)
 expr_stmt|;
 block|}
