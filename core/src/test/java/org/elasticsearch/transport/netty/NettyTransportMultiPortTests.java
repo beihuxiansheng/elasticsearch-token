@@ -874,6 +874,10 @@ argument_list|,
 operator|new
 name|NamedWriteableRegistry
 argument_list|()
+argument_list|,
+operator|new
+name|NoneCircuitBreakerService
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|nettyTransport

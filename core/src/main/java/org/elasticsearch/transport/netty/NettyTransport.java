@@ -106,6 +106,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|breaker
+operator|.
+name|CircuitBreaker
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|ReleasablePagedBytesReference
@@ -531,6 +545,20 @@ operator|.
 name|concurrent
 operator|.
 name|KeyedLock
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|breaker
+operator|.
+name|CircuitBreakerService
 import|;
 end_import
 
@@ -2378,6 +2406,12 @@ specifier|final
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 decl_stmt|;
+DECL|field|circuitBreakerService
+specifier|private
+specifier|final
+name|CircuitBreakerService
+name|circuitBreakerService
+decl_stmt|;
 comment|// this lock is here to make sure we close this transport and disconnect all the client nodes
 comment|// connections while no connect operations is going on... (this might help with 100% CPU when stopping the transport?)
 DECL|field|globalLock
@@ -2419,6 +2453,9 @@ name|version
 parameter_list|,
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
+parameter_list|,
+name|CircuitBreakerService
+name|circuitBreakerService
 parameter_list|)
 block|{
 name|super
@@ -2708,6 +2745,12 @@ name|namedWriteableRegistry
 operator|=
 name|namedWriteableRegistry
 expr_stmt|;
+name|this
+operator|.
+name|circuitBreakerService
+operator|=
+name|circuitBreakerService
+expr_stmt|;
 block|}
 DECL|method|settings
 specifier|public
@@ -2755,6 +2798,23 @@ parameter_list|()
 block|{
 return|return
 name|threadPool
+return|;
+block|}
+DECL|method|inFlightRequestsBreaker
+name|CircuitBreaker
+name|inFlightRequestsBreaker
+parameter_list|()
+block|{
+comment|// We always obtain a fresh breaker to reflect changes to the breaker configuration.
+return|return
+name|circuitBreakerService
+operator|.
+name|getBreaker
+argument_list|(
+name|CircuitBreaker
+operator|.
+name|IN_FLIGHT_REQUESTS
+argument_list|)
 return|;
 block|}
 annotation|@
