@@ -1960,6 +1960,15 @@ operator|new
 name|DefaultHttpHeaders
 argument_list|()
 decl_stmt|;
+DECL|field|content
+specifier|private
+name|ChannelBuffer
+name|content
+init|=
+name|ChannelBuffers
+operator|.
+name|EMPTY_BUFFER
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getMethod
@@ -2052,9 +2061,7 @@ name|getContent
 parameter_list|()
 block|{
 return|return
-name|ChannelBuffers
-operator|.
-name|EMPTY_BUFFER
+name|content
 return|;
 block|}
 annotation|@
@@ -2067,7 +2074,14 @@ parameter_list|(
 name|ChannelBuffer
 name|content
 parameter_list|)
-block|{          }
+block|{
+name|this
+operator|.
+name|content
+operator|=
+name|content
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|isChunked

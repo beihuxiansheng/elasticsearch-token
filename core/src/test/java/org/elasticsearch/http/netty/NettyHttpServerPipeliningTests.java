@@ -823,7 +823,7 @@ name|responses
 init|=
 name|nettyHttpClient
 operator|.
-name|sendRequests
+name|get
 argument_list|(
 name|transportAddress
 operator|.
@@ -974,7 +974,7 @@ name|responses
 init|=
 name|nettyHttpClient
 operator|.
-name|sendRequests
+name|get
 argument_list|(
 name|transportAddress
 operator|.

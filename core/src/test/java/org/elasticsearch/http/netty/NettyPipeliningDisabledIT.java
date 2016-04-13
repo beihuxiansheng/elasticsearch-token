@@ -377,7 +377,7 @@ name|responses
 init|=
 name|nettyHttpClient
 operator|.
-name|sendRequests
+name|get
 argument_list|(
 name|inetSocketTransportAddress
 operator|.
