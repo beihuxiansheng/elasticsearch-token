@@ -1947,6 +1947,14 @@ name|FIELDDATA_CIRCUIT_BREAKER_OVERHEAD_SETTING
 argument_list|,
 name|HierarchyCircuitBreakerService
 operator|.
+name|IN_FLIGHT_REQUESTS_CIRCUIT_BREAKER_LIMIT_SETTING
+argument_list|,
+name|HierarchyCircuitBreakerService
+operator|.
+name|IN_FLIGHT_REQUESTS_CIRCUIT_BREAKER_OVERHEAD_SETTING
+argument_list|,
+name|HierarchyCircuitBreakerService
+operator|.
 name|REQUEST_CIRCUIT_BREAKER_LIMIT_SETTING
 argument_list|,
 name|HierarchyCircuitBreakerService

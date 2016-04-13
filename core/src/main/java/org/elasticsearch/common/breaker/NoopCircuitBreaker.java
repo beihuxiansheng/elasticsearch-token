@@ -28,6 +28,16 @@ name|NoopCircuitBreaker
 implements|implements
 name|CircuitBreaker
 block|{
+DECL|field|LIMIT
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|LIMIT
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|field|name
 specifier|private
 specifier|final
@@ -121,7 +131,7 @@ name|getLimit
 parameter_list|()
 block|{
 return|return
-literal|0
+name|LIMIT
 return|;
 block|}
 annotation|@
