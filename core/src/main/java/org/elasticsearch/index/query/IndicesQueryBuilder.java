@@ -94,6 +94,34 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|DeprecationLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -165,10 +193,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that will execute the wrapped query only for the specified indices, and "match_all" when  * it does not match those indices (by default).  */
+comment|/**  * A query that will execute the wrapped query only for the specified indices,  * and "match_all" when it does not match those indices (by default).  *  * @deprecated instead search on the `_index` field  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
+comment|// TODO remove this class in 6.0
 DECL|class|IndicesQueryBuilder
 specifier|public
 class|class
@@ -253,6 +284,26 @@ argument_list|(
 literal|"indices"
 argument_list|)
 decl_stmt|;
+DECL|field|DEPRECATION_LOGGER
+specifier|private
+specifier|static
+specifier|final
+name|DeprecationLogger
+name|DEPRECATION_LOGGER
+init|=
+operator|new
+name|DeprecationLogger
+argument_list|(
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|IndicesQueryBuilder
+operator|.
+name|class
+argument_list|)
+argument_list|)
+decl_stmt|;
 DECL|field|innerQuery
 specifier|private
 specifier|final
@@ -280,6 +331,9 @@ init|=
 name|defaultNoMatchQuery
 argument_list|()
 decl_stmt|;
+comment|/**      * @deprecated instead search on the `_index` field      */
+annotation|@
+name|Deprecated
 DECL|method|IndicesQueryBuilder
 specifier|public
 name|IndicesQueryBuilder
@@ -295,6 +349,15 @@ modifier|...
 name|indices
 parameter_list|)
 block|{
+name|DEPRECATION_LOGGER
+operator|.
+name|deprecated
+argument_list|(
+literal|"{} query is deprecated. Instead search on the '_index' field"
+argument_list|,
+name|NAME
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|innerQuery
