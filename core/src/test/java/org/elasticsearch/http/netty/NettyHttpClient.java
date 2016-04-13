@@ -783,7 +783,7 @@ name|Tuple
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|CharSequence
 argument_list|>
 modifier|...
 name|urisAndBodies
@@ -812,7 +812,7 @@ name|Tuple
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|CharSequence
 argument_list|>
 name|uriAndBody
 range|:
