@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementers can be written to a {@linkplain StreamOutput} and read from a {@linkplain StreamInput}. This allows them to be "thrown  * across the wire" using Elasticsearch's internal protocol. If the implementer also implements equals and hashCode then a copy made by  * serializing and deserializing must be equal and have the same hashCode. It isn't required that such a copy be entirely unchanged. For  * example, {@link org.elasticsearch.common.unit.TimeValue} converts the time to nanoseconds for serialization.  * {@linkplain org.elasticsearch.common.unit.TimeValue} actually implements {@linkplain Streamable} not {@linkplain Writeable} but it has  * the same contract.  *  * Prefer implementing this interface over implementing {@link Streamable} where possible. Lots of code depends on {@linkplain Streamable}  * so this isn't always possible.  *  * The fact that this interface extends {@link StreamableReader} should be consider vestigial. Instead of using its  * {@link #readFrom(StreamInput)} method you should prefer using the Reader interface as a reference to a constructor that takes  * {@link StreamInput}. The reasoning behind this is that most "good" readFrom implementations just delegated to such a constructor anyway  * and they required an unsightly PROTOTYPE object.  */
+comment|/**  * Implementers can be written to a {@linkplain StreamOutput} and read from a {@linkplain StreamInput}. This allows them to be "thrown  * across the wire" using Elasticsearch's internal protocol. If the implementer also implements equals and hashCode then a copy made by  * serializing and deserializing must be equal and have the same hashCode. It isn't required that such a copy be entirely unchanged. For  * example, {@link org.elasticsearch.common.unit.TimeValue} converts the time to nanoseconds for serialization.  * {@linkplain org.elasticsearch.common.unit.TimeValue} actually implements {@linkplain Streamable} not {@linkplain Writeable} but it has  * the same contract.  *  * Prefer implementing this interface over implementing {@link Streamable} where possible. Lots of code depends on {@linkplain Streamable}  * so this isn't always possible.  */
 end_comment
 
 begin_interface
@@ -53,6 +53,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Read this object from a stream. Use a {@link Writeable.Reader} instead. This lives on for backwards compatibility but should be      * removed before 5.0.0GA. It is not deprecated because Diffable extends this interface and it shouldn't be deprecated there.      */
 DECL|method|readFrom
 specifier|default
 name|T
@@ -64,7 +65,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// See class javadoc for reasoning
+comment|// NORELEASE remove before 5.0.0GA
 throw|throw
 operator|new
 name|UnsupportedOperationException
