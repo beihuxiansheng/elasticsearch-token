@@ -225,10 +225,18 @@ block|{
 if|if
 condition|(
 name|result
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+name|result
+operator|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+expr_stmt|;
+block|}
 name|result
 operator|.
 name|add
@@ -236,7 +244,6 @@ argument_list|(
 name|indexOrPattern
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 if|if
