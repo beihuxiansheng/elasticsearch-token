@@ -78,6 +78,11 @@ name|TransportAddress
 name|other
 parameter_list|)
 function_decl|;
+DECL|method|isLoopbackOrLinkLocalAddress
+name|boolean
+name|isLoopbackOrLinkLocalAddress
+parameter_list|()
+function_decl|;
 DECL|method|toString
 specifier|public
 name|String
