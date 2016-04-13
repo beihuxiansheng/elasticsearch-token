@@ -1302,13 +1302,9 @@ name|void
 name|doRun
 parameter_list|()
 block|{
-name|holderToNotify
-operator|.
-name|handler
-argument_list|()
-operator|.
-name|handleException
-argument_list|(
+name|TransportException
+name|ex
+init|=
 operator|new
 name|TransportException
 argument_list|(
@@ -1319,6 +1315,15 @@ operator|.
 name|action
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|holderToNotify
+operator|.
+name|handler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -1884,21 +1889,15 @@ name|requestId
 argument_list|)
 expr_stmt|;
 block|}
-name|clientHandlers
-operator|.
-name|put
-argument_list|(
-name|requestId
-argument_list|,
-operator|new
-name|RequestHolder
-argument_list|<>
-argument_list|(
-operator|new
-name|ContextRestoreResponseHandler
+name|TransportResponseHandler
 argument_list|<
 name|T
 argument_list|>
+name|responseHandler
+init|=
+operator|new
+name|ContextRestoreResponseHandler
+argument_list|<>
 argument_list|(
 name|threadPool
 operator|.
@@ -1910,6 +1909,18 @@ argument_list|()
 argument_list|,
 name|handler
 argument_list|)
+decl_stmt|;
+name|clientHandlers
+operator|.
+name|put
+argument_list|(
+name|requestId
+argument_list|,
+operator|new
+name|RequestHolder
+argument_list|<>
+argument_list|(
+name|responseHandler
 argument_list|,
 name|node
 argument_list|,
@@ -1927,8 +1938,8 @@ name|stoppedOrClosed
 argument_list|()
 condition|)
 block|{
-comment|// if we are not started the exception handling will remove the RequestHolder again and calls the handler to notify the caller.
-comment|// it will only notify if the toStop code hasn't done the work yet.
+comment|// if we are not started the exception handling will remove the RequestHolder again and calls the handler to notify
+comment|// the caller. It will only notify if the toStop code hasn't done the work yet.
 throw|throw
 operator|new
 name|TransportException
@@ -3207,7 +3218,9 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Received response for a request that has timed out, sent [{}ms] ago, timed out [{}ms] ago, action [{}], node [{}], id [{}]"
+literal|"Received response for a request that has timed out, sent [{}ms] ago, timed out [{}ms] ago, "
+operator|+
+literal|"action [{}], node [{}], id [{}]"
 argument_list|,
 name|time
 operator|-

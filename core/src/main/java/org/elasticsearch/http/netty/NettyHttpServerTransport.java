@@ -2310,7 +2310,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using max_chunk_size[{}], max_header_size[{}], max_initial_line_length[{}], max_content_length[{}], receive_predictor[{}->{}], pipelining[{}], pipelining_max_events[{}]"
+literal|"using max_chunk_size[{}], max_header_size[{}], max_initial_line_length[{}], max_content_length[{}], "
+operator|+
+literal|"receive_predictor[{}->{}], pipelining[{}], pipelining_max_events[{}]"
 argument_list|,
 name|maxChunkSize
 argument_list|,
@@ -2725,10 +2727,7 @@ argument_list|(
 operator|new
 name|TransportAddress
 index|[
-name|boundAddresses
-operator|.
-name|size
-argument_list|()
+literal|0
 index|]
 argument_list|)
 argument_list|,
