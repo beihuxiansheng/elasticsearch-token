@@ -1818,11 +1818,8 @@ condition|)
 block|{
 name|searchAfterBuilder
 operator|=
+operator|new
 name|SearchAfterBuilder
-operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
@@ -5524,8 +5521,6 @@ block|{
 name|searchAfterBuilder
 operator|=
 name|SearchAfterBuilder
-operator|.
-name|PROTOTYPE
 operator|.
 name|fromXContent
 argument_list|(

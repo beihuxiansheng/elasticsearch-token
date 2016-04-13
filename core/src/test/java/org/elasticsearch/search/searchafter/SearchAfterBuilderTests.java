@@ -861,8 +861,6 @@ expr_stmt|;
 return|return
 name|SearchAfterBuilder
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|parser
@@ -923,11 +921,8 @@ argument_list|)
 init|)
 block|{
 return|return
+operator|new
 name|SearchAfterBuilder
-operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
@@ -1387,8 +1382,6 @@ name|SearchAfterBuilder
 name|secondSearchAfterBuilder
 init|=
 name|SearchAfterBuilder
-operator|.
-name|PROTOTYPE
 operator|.
 name|fromXContent
 argument_list|(

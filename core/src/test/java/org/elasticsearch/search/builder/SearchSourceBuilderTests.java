@@ -3117,8 +3117,6 @@ name|searchAfter
 argument_list|(
 name|SearchAfterBuilder
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|parser
