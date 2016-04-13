@@ -69,6 +69,9 @@ DECL|method|createQuery
 specifier|public
 specifier|static
 name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
 name|createQuery
 parameter_list|(
 name|Random
@@ -135,9 +138,9 @@ case|case
 literal|4
 case|:
 return|return
+operator|new
 name|EmptyQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|()
 return|;
 default|default:
 throw|throw

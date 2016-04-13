@@ -208,9 +208,9 @@ name|FilterAggregatorBuilder
 argument_list|(
 literal|""
 argument_list|,
-name|EmptyQueryBuilder
-operator|.
-name|PROTOTYPE
+operator|new
+name|MatchAllQueryBuilder
+argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|filter

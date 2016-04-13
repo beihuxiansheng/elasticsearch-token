@@ -678,7 +678,7 @@ name|type
 operator|=
 name|GeoExecType
 operator|.
-name|readTypeFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

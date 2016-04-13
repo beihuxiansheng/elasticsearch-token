@@ -4397,9 +4397,9 @@ name|builder
 operator|.
 name|postFilter
 argument_list|(
+operator|new
 name|EmptyQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String

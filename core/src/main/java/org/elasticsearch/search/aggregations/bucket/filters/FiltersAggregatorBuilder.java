@@ -76,7 +76,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|EmptyQueryBuilder
+name|MatchAllQueryBuilder
 import|;
 end_import
 
@@ -256,9 +256,9 @@ name|FiltersAggregatorBuilder
 argument_list|(
 literal|""
 argument_list|,
-name|EmptyQueryBuilder
-operator|.
-name|PROTOTYPE
+operator|new
+name|MatchAllQueryBuilder
+argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|filters

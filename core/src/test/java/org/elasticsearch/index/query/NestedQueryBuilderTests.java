@@ -769,9 +769,9 @@ name|NestedQueryBuilder
 argument_list|(
 literal|null
 argument_list|,
-name|EmptyQueryBuilder
-operator|.
-name|PROTOTYPE
+operator|new
+name|MatchAllQueryBuilder
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -820,9 +820,9 @@ name|NestedQueryBuilder
 argument_list|(
 literal|"path"
 argument_list|,
-name|EmptyQueryBuilder
-operator|.
-name|PROTOTYPE
+operator|new
+name|MatchAllQueryBuilder
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try

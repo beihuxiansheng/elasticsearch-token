@@ -330,9 +330,13 @@ init|=
 operator|new
 name|SpanOrQueryBuilder
 argument_list|(
+operator|new
 name|SpanTermQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|(
+literal|"field"
+argument_list|,
+literal|"value"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|spanOrBuilder

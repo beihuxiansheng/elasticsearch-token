@@ -111,17 +111,6 @@ name|NAME
 init|=
 literal|"empty_query"
 decl_stmt|;
-DECL|field|PROTOTYPE
-specifier|public
-specifier|static
-specifier|final
-name|EmptyQueryBuilder
-name|PROTOTYPE
-init|=
-operator|new
-name|EmptyQueryBuilder
-argument_list|()
-decl_stmt|;
 comment|/**      * Construct an empty query. This query can *technically* be named and given a boost.      */
 DECL|method|EmptyQueryBuilder
 specifier|public
