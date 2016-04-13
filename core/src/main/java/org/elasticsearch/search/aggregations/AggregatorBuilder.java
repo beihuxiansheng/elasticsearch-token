@@ -361,6 +361,7 @@ name|boolean
 name|usesNewStyleSerialization
 parameter_list|()
 block|{
+comment|// NORELEASE remove this before 5.0.0GA, when all the aggregations have been migrated
 return|return
 literal|false
 return|;
