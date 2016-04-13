@@ -1244,7 +1244,7 @@ name|bucket
 operator|.
 name|filter
 operator|.
-name|FilterParser
+name|FilterAggregatorBuilder
 import|;
 end_import
 
@@ -4636,11 +4636,19 @@ name|MissingParser
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|registerAggregatorParser
+name|registerAggregation
 argument_list|(
+name|FilterAggregatorBuilder
+operator|::
 operator|new
-name|FilterParser
-argument_list|()
+argument_list|,
+name|FilterAggregatorBuilder
+operator|::
+name|parse
+argument_list|,
+name|FilterAggregatorBuilder
+operator|.
+name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregatorParser
