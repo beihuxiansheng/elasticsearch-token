@@ -2330,7 +2330,7 @@ name|metrics
 operator|.
 name|scripted
 operator|.
-name|ScriptedMetricParser
+name|ScriptedMetricAggregatorBuilder
 import|;
 end_import
 
@@ -4732,11 +4732,19 @@ name|GeoCentroidParser
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|registerAggregatorParser
+name|registerAggregation
 argument_list|(
+name|ScriptedMetricAggregatorBuilder
+operator|::
 operator|new
-name|ScriptedMetricParser
-argument_list|()
+argument_list|,
+name|ScriptedMetricAggregatorBuilder
+operator|::
+name|parse
+argument_list|,
+name|ScriptedMetricAggregatorBuilder
+operator|.
+name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation

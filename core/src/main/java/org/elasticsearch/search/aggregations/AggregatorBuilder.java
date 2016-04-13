@@ -503,7 +503,6 @@ return|;
 block|}
 DECL|method|doReadFrom
 specifier|protected
-specifier|abstract
 name|AB
 name|doReadFrom
 parameter_list|(
@@ -515,7 +514,14 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+comment|// NORELEASE remove before 5.0.0GA
+block|}
 comment|/**      * Add a sub aggregation to this aggregation.      */
 annotation|@
 name|SuppressWarnings
