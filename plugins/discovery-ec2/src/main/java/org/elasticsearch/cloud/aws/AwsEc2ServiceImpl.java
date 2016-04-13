@@ -124,6 +124,18 @@ name|com
 operator|.
 name|amazonaws
 operator|.
+name|http
+operator|.
+name|IdleConnectionReaper
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
 name|internal
 operator|.
 name|StaticCredentialsProvider
@@ -1164,6 +1176,12 @@ name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Ensure that IdleConnectionReaper is shutdown
+name|IdleConnectionReaper
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
