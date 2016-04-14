@@ -256,7 +256,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|ParentTaskAssigningClient
 import|;
 end_import
 
@@ -746,7 +746,7 @@ decl_stmt|;
 DECL|field|client
 specifier|private
 specifier|final
-name|Client
+name|ParentTaskAssigningClient
 name|client
 decl_stmt|;
 DECL|field|threadPool
@@ -786,7 +786,7 @@ parameter_list|,
 name|ESLogger
 name|logger
 parameter_list|,
-name|Client
+name|ParentTaskAssigningClient
 name|client
 parameter_list|,
 name|ThreadPool
@@ -2350,7 +2350,11 @@ argument_list|(
 name|scrollId
 argument_list|)
 expr_stmt|;
+comment|/*              * Unwrap the client so we don't set our task as the parent. If we *did* set our ID then the clear scroll would be cancelled as              * if this task is cancelled. But we want to clear the scroll regardless of whether or not the main request was cancelled.              */
 name|client
+operator|.
+name|unwrap
+argument_list|()
 operator|.
 name|clearScroll
 argument_list|(

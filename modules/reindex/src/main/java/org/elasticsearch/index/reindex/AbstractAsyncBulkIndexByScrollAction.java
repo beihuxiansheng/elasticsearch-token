@@ -78,7 +78,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|ParentTaskAssigningClient
 import|;
 end_import
 
@@ -91,20 +91,6 @@ operator|.
 name|cluster
 operator|.
 name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|service
-operator|.
-name|ClusterService
 import|;
 end_import
 
@@ -450,7 +436,7 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|,
-name|Client
+name|ParentTaskAssigningClient
 name|client
 parameter_list|,
 name|ThreadPool
