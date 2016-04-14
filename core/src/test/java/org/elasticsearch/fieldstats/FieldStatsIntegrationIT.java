@@ -416,14 +416,14 @@ name|Long
 operator|.
 name|MIN_VALUE
 decl_stmt|;
-name|float
+name|double
 name|minFloat
 init|=
 name|Float
 operator|.
 name|MAX_VALUE
 decl_stmt|;
-name|float
+name|double
 name|maxFloat
 init|=
 name|Float

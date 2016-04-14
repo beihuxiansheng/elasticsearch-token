@@ -1199,7 +1199,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|-
-literal|1f
+literal|1d
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1220,7 +1220,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|9f
+literal|9d
 argument_list|)
 argument_list|)
 expr_stmt|;
