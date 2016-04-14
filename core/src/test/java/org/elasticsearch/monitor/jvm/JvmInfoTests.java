@@ -81,6 +81,15 @@ name|contains
 argument_list|(
 literal|"HotSpot"
 argument_list|)
+operator|||
+name|Constants
+operator|.
+name|JVM_NAME
+operator|.
+name|contains
+argument_list|(
+literal|"OpenJDK"
+argument_list|)
 condition|)
 block|{
 name|assertEquals
