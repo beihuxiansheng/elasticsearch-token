@@ -808,7 +808,7 @@ block|{
 name|Version
 name|previousMajor
 decl_stmt|;
-comment|// find a GA build whose major version is N-1
+comment|// find a GA build whose major version is<N
 do|do
 block|{
 name|previousMajor
@@ -826,17 +826,16 @@ do|while
 condition|(
 name|previousMajor
 operator|.
-name|major
-operator|!=
+name|onOrAfter
+argument_list|(
 name|Version
 operator|.
 name|CURRENT
 operator|.
-name|major
-operator|-
-literal|1
-operator|&&
-operator|(
+name|minimumCompatibilityVersion
+argument_list|()
+argument_list|)
+operator|||
 name|previousMajor
 operator|.
 name|isAlpha
@@ -851,7 +850,6 @@ name|previousMajor
 operator|.
 name|isRC
 argument_list|()
-operator|)
 condition|)
 do|;
 name|previousMajorVersion
