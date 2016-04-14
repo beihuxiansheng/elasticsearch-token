@@ -799,12 +799,11 @@ return|return
 name|description
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|ValueType
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in
