@@ -5910,6 +5910,7 @@ operator|.
 name|QUERY_NAME_FIELD
 argument_list|)
 expr_stmt|;
+comment|// TODO Remove IndicesQuery in 6.0
 name|registerQuery
 argument_list|(
 name|IndicesQueryBuilder
