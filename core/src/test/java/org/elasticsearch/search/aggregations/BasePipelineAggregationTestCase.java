@@ -1932,8 +1932,6 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 decl_stmt|;

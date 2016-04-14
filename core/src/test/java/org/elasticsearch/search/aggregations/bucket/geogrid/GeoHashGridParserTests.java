@@ -204,8 +204,6 @@ name|parse
 argument_list|(
 literal|"geohash_grid"
 argument_list|,
-name|stParser
-argument_list|,
 name|parseContext
 argument_list|)
 argument_list|)
@@ -307,8 +305,6 @@ name|parse
 argument_list|(
 literal|"geohash_grid"
 argument_list|,
-name|stParser
-argument_list|,
 name|parseContext
 argument_list|)
 argument_list|)
@@ -394,8 +390,6 @@ operator|.
 name|parse
 argument_list|(
 literal|"geohash_grid"
-argument_list|,
-name|stParser
 argument_list|,
 name|parseContext
 argument_list|)
@@ -503,8 +497,6 @@ name|parse
 argument_list|(
 literal|"geohash_grid"
 argument_list|,
-name|stParser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
@@ -610,8 +602,6 @@ operator|.
 name|parse
 argument_list|(
 literal|"geohash_grid"
-argument_list|,
-name|stParser
 argument_list|,
 name|parseContext
 argument_list|)

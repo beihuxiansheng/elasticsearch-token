@@ -2406,8 +2406,6 @@ name|parse
 argument_list|(
 literal|"testagg"
 argument_list|,
-name|stParser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
@@ -2592,8 +2590,6 @@ operator|.
 name|parse
 argument_list|(
 literal|"testagg"
-argument_list|,
-name|stParser
 argument_list|,
 name|parseContext
 argument_list|)

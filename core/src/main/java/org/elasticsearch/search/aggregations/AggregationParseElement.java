@@ -214,8 +214,6 @@ name|aggregatorParsers
 operator|.
 name|parseAggregators
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 decl_stmt|;

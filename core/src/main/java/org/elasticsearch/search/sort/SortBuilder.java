@@ -617,8 +617,6 @@ condition|)
 block|{
 name|parseCompoundSortField
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|,
 name|sortFields
@@ -715,8 +713,6 @@ condition|)
 block|{
 name|parseCompoundSortField
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|,
 name|sortFields
@@ -785,9 +781,6 @@ specifier|static
 name|void
 name|parseCompoundSortField
 parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
 name|QueryParseContext
 name|context
 parameter_list|,
@@ -807,6 +800,14 @@ name|XContentParser
 operator|.
 name|Token
 name|token
+decl_stmt|;
+name|XContentParser
+name|parser
+init|=
+name|context
+operator|.
+name|parser
+argument_list|()
 decl_stmt|;
 while|while
 condition|(

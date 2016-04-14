@@ -1676,8 +1676,6 @@ name|aggParsers
 operator|.
 name|parseAggregators
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
@@ -1879,8 +1877,6 @@ name|aggParsers
 operator|.
 name|parseAggregators
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
@@ -2136,8 +2132,6 @@ name|aggParsers
 operator|.
 name|parseAggregators
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
@@ -2310,8 +2304,6 @@ name|aggParsers
 operator|.
 name|parseAggregators
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
@@ -2480,8 +2472,6 @@ name|aggParsers
 operator|.
 name|parseAggregators
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;
@@ -2634,8 +2624,6 @@ name|aggParsers
 operator|.
 name|parseAggregators
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;

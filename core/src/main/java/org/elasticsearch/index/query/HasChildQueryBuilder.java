@@ -1381,8 +1381,6 @@ name|InnerHitBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|parseContext
 argument_list|)
 expr_stmt|;

@@ -1046,9 +1046,6 @@ parameter_list|(
 name|String
 name|aggregationName
 parameter_list|,
-name|XContentParser
-name|parser
-parameter_list|,
 name|QueryParseContext
 name|context
 parameter_list|)
@@ -1164,6 +1161,14 @@ name|ScriptParameterParser
 argument_list|(
 name|scriptParameters
 argument_list|)
+decl_stmt|;
+name|XContentParser
+name|parser
+init|=
+name|context
+operator|.
+name|parser
+argument_list|()
 decl_stmt|;
 while|while
 condition|(

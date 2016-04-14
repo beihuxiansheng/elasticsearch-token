@@ -1105,7 +1105,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Returns the boost mode, meaning how the combined result of score functions will influence the final score together with the sub query      * score.      *       * @see CombineFunction      */
+comment|/**      * Returns the boost mode, meaning how the combined result of score functions will influence the final score together with the sub query      * score.      *      * @see CombineFunction      */
 DECL|method|boostMode
 specifier|public
 name|CombineFunction
@@ -2583,8 +2583,6 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parseContext
-argument_list|,
-name|parser
 argument_list|)
 decl_stmt|;
 name|filterFunctionBuilders
@@ -2665,8 +2663,6 @@ argument_list|(
 name|scoreFunctionsRegistry
 argument_list|,
 name|parseContext
-argument_list|,
-name|parser
 argument_list|,
 name|filterFunctionBuilders
 argument_list|)
@@ -3130,9 +3126,6 @@ parameter_list|,
 name|QueryParseContext
 name|parseContext
 parameter_list|,
-name|XContentParser
-name|parser
-parameter_list|,
 name|List
 argument_list|<
 name|FunctionScoreQueryBuilder
@@ -3153,6 +3146,14 @@ name|XContentParser
 operator|.
 name|Token
 name|token
+decl_stmt|;
+name|XContentParser
+name|parser
+init|=
+name|parseContext
+operator|.
+name|parser
+argument_list|()
 decl_stmt|;
 while|while
 condition|(
@@ -3344,8 +3345,6 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parseContext
-argument_list|,
-name|parser
 argument_list|)
 expr_stmt|;
 block|}

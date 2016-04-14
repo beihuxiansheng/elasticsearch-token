@@ -4028,8 +4028,6 @@ name|SearchSourceBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
-argument_list|,
 name|queryParseContext
 argument_list|,
 name|aggParsers

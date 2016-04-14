@@ -789,8 +789,6 @@ argument_list|(
 operator|new
 name|ScriptField
 argument_list|(
-name|p
-argument_list|,
 name|c
 argument_list|)
 argument_list|)
@@ -896,8 +894,6 @@ name|FetchSourceContext
 operator|.
 name|parse
 argument_list|(
-name|p
-argument_list|,
 name|c
 argument_list|)
 argument_list|)
@@ -1037,8 +1033,6 @@ name|InnerHitsBuilder
 operator|.
 name|fromXContent
 argument_list|(
-name|p
-argument_list|,
 name|c
 argument_list|)
 return|;
@@ -3711,9 +3705,6 @@ specifier|static
 name|InnerHitBuilder
 name|fromXContent
 parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
 name|QueryParseContext
 name|context
 parameter_list|)
@@ -3725,7 +3716,10 @@ name|PARSER
 operator|.
 name|parse
 argument_list|(
+name|context
+operator|.
 name|parser
+argument_list|()
 argument_list|,
 operator|new
 name|InnerHitBuilder
