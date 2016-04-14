@@ -470,6 +470,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 control|)
+block|{
 name|cycle
 operator|.
 name|add
@@ -477,6 +478,7 @@ argument_list|(
 name|t
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -487,6 +489,7 @@ argument_list|(
 name|cycle
 argument_list|)
 condition|)
+block|{
 name|cycles
 operator|.
 name|add
@@ -494,6 +497,7 @@ argument_list|(
 name|cycle
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|cycles
@@ -610,6 +614,9 @@ block|{
 for|for
 control|(
 name|LinkedHashSet
+argument_list|<
+name|ThreadInfo
+argument_list|>
 name|cycle
 range|:
 name|cycles
@@ -649,13 +656,13 @@ name|LinkedHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-for|for
-control|(
 name|ThreadInfo
 name|node
 init|=
 name|threadInfo
-init|;
+decl_stmt|;
+while|while
+condition|(
 operator|!
 name|chain
 operator|.
@@ -663,7 +670,15 @@ name|contains
 argument_list|(
 name|node
 argument_list|)
-condition|;
+condition|)
+block|{
+name|chain
+operator|.
+name|add
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
 name|node
 operator|=
 name|threadInfoMap
@@ -680,14 +695,8 @@ name|getLockOwnerId
 argument_list|()
 argument_list|)
 argument_list|)
-control|)
-name|chain
-operator|.
-name|add
-argument_list|(
-name|node
-argument_list|)
 expr_stmt|;
+block|}
 name|deadlockChain
 operator|.
 name|add
@@ -874,6 +883,7 @@ name|members
 operator|.
 name|length
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -881,6 +891,7 @@ argument_list|(
 literal|"> "
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|x
@@ -891,6 +902,7 @@ name|length
 operator|-
 literal|1
 condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -901,6 +913,7 @@ name|getLockOwnerName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|add

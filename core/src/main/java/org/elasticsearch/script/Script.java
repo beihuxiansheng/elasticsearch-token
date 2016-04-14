@@ -1096,7 +1096,8 @@ return|return
 literal|false
 return|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 operator|!
@@ -1112,6 +1113,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|params
@@ -1131,7 +1133,8 @@ return|return
 literal|false
 return|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 operator|!
@@ -1147,6 +1150,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|script
@@ -1166,7 +1170,8 @@ return|return
 literal|false
 return|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 operator|!
@@ -1182,6 +1187,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|type
