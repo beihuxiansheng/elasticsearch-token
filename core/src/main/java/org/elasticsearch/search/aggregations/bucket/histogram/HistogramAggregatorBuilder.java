@@ -275,6 +275,18 @@ name|metaData
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getWriteableName
+specifier|public
+name|String
+name|getWriteableName
+parameter_list|()
+block|{
+return|return
+name|NAME
+return|;
+block|}
 block|}
 end_class
 
