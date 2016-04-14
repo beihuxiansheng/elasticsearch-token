@@ -322,8 +322,12 @@ comment|// JDK 9 type inference gets confused, so we have to help the
 comment|// type inference
 name|assertBusy
 argument_list|(
-parameter_list|()
-lambda|->
+operator|(
+call|(
+name|Runnable
+call|)
+argument_list|()
+operator|->
 name|assertThat
 argument_list|(
 name|client
@@ -351,6 +355,7 @@ operator|.
 name|YELLOW
 argument_list|)
 argument_list|)
+operator|)
 argument_list|)
 expr_stmt|;
 specifier|final
