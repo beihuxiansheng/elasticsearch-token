@@ -1123,15 +1123,13 @@ if|if
 condition|(
 name|clauses
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
-comment|// happens for stopwords
 return|return
 literal|null
 return|;
+comment|// happens for stopwords
 return|return
 name|getBooleanQueryCoordDisabled
 argument_list|(
@@ -1793,15 +1791,13 @@ if|if
 condition|(
 name|clauses
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
-comment|// happens for stopwords
 return|return
 literal|null
 return|;
+comment|// happens for stopwords
 return|return
 name|getBooleanQueryCoordDisabled
 argument_list|(
@@ -2113,15 +2109,13 @@ if|if
 condition|(
 name|clauses
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
-comment|// happens for stopwords
 return|return
 literal|null
 return|;
+comment|// happens for stopwords
 return|return
 name|getBooleanQueryCoordDisabled
 argument_list|(
@@ -2999,15 +2993,13 @@ if|if
 condition|(
 name|clauses
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
-comment|// happens for stopwords
 return|return
 literal|null
 return|;
+comment|// happens for stopwords
 return|return
 name|getBooleanQueryCoordDisabled
 argument_list|(
@@ -4069,15 +4061,13 @@ if|if
 condition|(
 name|clauses
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
-comment|// happens for stopwords
 return|return
 literal|null
 return|;
+comment|// happens for stopwords
 return|return
 name|getBooleanQueryCoordDisabled
 argument_list|(
@@ -4838,15 +4828,13 @@ if|if
 condition|(
 name|clauses
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
-comment|// happens for stopwords
 return|return
 literal|null
 return|;
+comment|// happens for stopwords
 return|return
 name|getBooleanQueryCoordDisabled
 argument_list|(
