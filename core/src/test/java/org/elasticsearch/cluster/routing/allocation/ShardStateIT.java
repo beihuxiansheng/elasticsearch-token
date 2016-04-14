@@ -318,6 +318,8 @@ argument_list|(
 literal|"--> waiting for a yellow index"
 argument_list|)
 expr_stmt|;
+comment|// JDK 9 type inference gets confused, so we have to help the
+comment|// type inference
 name|assertBusy
 argument_list|(
 parameter_list|()
