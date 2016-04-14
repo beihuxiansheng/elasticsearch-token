@@ -1563,6 +1563,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that a breaker correctly redistributes to a different breaker, in      * this case, the fielddata breaker borrows space from the request breaker      */
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"way too unstable request size. Needs a proper and more stable fix."
+argument_list|)
 DECL|method|testParentChecking
 specifier|public
 name|void
