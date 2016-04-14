@@ -1727,8 +1727,6 @@ name|bitsetFilterCache
 argument_list|,
 name|indexCache
 argument_list|,
-name|mapperService
-argument_list|,
 name|indexFieldData
 argument_list|,
 name|analysisService
