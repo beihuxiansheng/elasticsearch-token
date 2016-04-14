@@ -166,20 +166,6 @@ name|netty
 operator|.
 name|channel
 operator|.
-name|ChannelStateEvent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
 name|Channels
 import|;
 end_import
@@ -497,7 +483,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tiny helper  */
+comment|/**  * Tiny helper to send http requests over netty.  */
 end_comment
 
 begin_class
@@ -768,8 +754,12 @@ name|requests
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SafeVarargs
+comment|// Safe not because it doesn't do anything with the type parameters but because it won't leak them into other methods.
 DECL|method|post
 specifier|public
+specifier|final
 name|Collection
 argument_list|<
 name|HttpResponse
