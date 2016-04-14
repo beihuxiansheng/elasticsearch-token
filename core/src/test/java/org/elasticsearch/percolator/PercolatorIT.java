@@ -15359,10 +15359,7 @@ name|Operator
 operator|.
 name|AND
 argument_list|)
-argument_list|)
-operator|.
-name|scoreMode
-argument_list|(
+argument_list|,
 name|ScoreMode
 operator|.
 name|Avg
@@ -16686,6 +16683,10 @@ literal|"nested.name"
 argument_list|,
 literal|"value"
 argument_list|)
+argument_list|,
+name|ScoreMode
+operator|.
+name|Avg
 argument_list|)
 operator|.
 name|innerHit
@@ -16815,6 +16816,10 @@ literal|"child"
 argument_list|,
 name|matchAllQuery
 argument_list|()
+argument_list|,
+name|ScoreMode
+operator|.
+name|None
 argument_list|)
 argument_list|)
 operator|.

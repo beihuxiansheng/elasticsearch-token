@@ -3822,10 +3822,7 @@ name|Operator
 operator|.
 name|AND
 argument_list|)
-argument_list|)
-operator|.
-name|scoreMode
-argument_list|(
+argument_list|,
 name|ScoreMode
 operator|.
 name|Avg

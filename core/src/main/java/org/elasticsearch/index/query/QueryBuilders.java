@@ -20,6 +20,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|join
+operator|.
+name|ScoreMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -119,6 +135,22 @@ operator|.
 name|functionscore
 operator|.
 name|ScoreFunctionBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|support
+operator|.
+name|InnerHitBuilder
 import|;
 end_import
 
@@ -1362,7 +1394,7 @@ name|likeItems
 argument_list|)
 return|;
 block|}
-comment|/**      * Constructs a new NON scoring child query, with the child type and the query to run on the child documents. The      * results of this query are the parent docs that those child docs matched.      *      * @param type  The child type.      * @param query The query.      */
+comment|/**      * Constructs a new has_child query, with the child type and the query to run on the child documents. The      * results of this query are the parent docs that those child docs matched.      *      * @param type      The child type.      * @param query     The query.      * @param scoreMode How the scores from the children hits should be aggregated into the parent hit.      */
 DECL|method|hasChildQuery
 specifier|public
 specifier|static
@@ -1374,6 +1406,9 @@ name|type
 parameter_list|,
 name|QueryBuilder
 name|query
+parameter_list|,
+name|ScoreMode
+name|scoreMode
 parameter_list|)
 block|{
 return|return
@@ -1383,10 +1418,12 @@ argument_list|(
 name|type
 argument_list|,
 name|query
+argument_list|,
+name|scoreMode
 argument_list|)
 return|;
 block|}
-comment|/**      * Constructs a new NON scoring parent query, with the parent type and the query to run on the parent documents. The      * results of this query are the children docs that those parent docs matched.      *      * @param type  The parent type.      * @param query The query.      */
+comment|/**      * Constructs a new parent query, with the parent type and the query to run on the parent documents. The      * results of this query are the children docs that those parent docs matched.      *      * @param type      The parent type.      * @param query     The query.      * @param score     Whether the score from the parent hit should propogate to the child hit      */
 DECL|method|hasParentQuery
 specifier|public
 specifier|static
@@ -1398,6 +1435,9 @@ name|type
 parameter_list|,
 name|QueryBuilder
 name|query
+parameter_list|,
+name|boolean
+name|score
 parameter_list|)
 block|{
 return|return
@@ -1407,6 +1447,8 @@ argument_list|(
 name|type
 argument_list|,
 name|query
+argument_list|,
+name|score
 argument_list|)
 return|;
 block|}
@@ -1445,6 +1487,9 @@ name|path
 parameter_list|,
 name|QueryBuilder
 name|query
+parameter_list|,
+name|ScoreMode
+name|scoreMode
 parameter_list|)
 block|{
 return|return
@@ -1454,6 +1499,8 @@ argument_list|(
 name|path
 argument_list|,
 name|query
+argument_list|,
+name|scoreMode
 argument_list|)
 return|;
 block|}

@@ -5614,6 +5614,8 @@ name|QueryBuilders
 operator|.
 name|matchAllQuery
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -5833,6 +5835,8 @@ name|QueryBuilders
 operator|.
 name|matchAllQuery
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 operator|.

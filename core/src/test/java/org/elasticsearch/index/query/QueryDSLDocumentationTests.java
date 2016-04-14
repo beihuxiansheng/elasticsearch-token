@@ -1565,6 +1565,10 @@ literal|"tag"
 argument_list|,
 literal|"something"
 argument_list|)
+argument_list|,
+name|ScoreMode
+operator|.
+name|None
 argument_list|)
 expr_stmt|;
 block|}
@@ -1584,6 +1588,8 @@ literal|"tag"
 argument_list|,
 literal|"something"
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1797,10 +1803,7 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|)
-argument_list|)
-operator|.
-name|scoreMode
-argument_list|(
+argument_list|,
 name|ScoreMode
 operator|.
 name|Avg
