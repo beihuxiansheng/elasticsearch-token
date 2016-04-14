@@ -3084,7 +3084,7 @@ name|pipeline
 operator|.
 name|derivative
 operator|.
-name|DerivativeParser
+name|DerivativePipelineAggregator
 import|;
 end_import
 
@@ -3102,7 +3102,7 @@ name|pipeline
 operator|.
 name|derivative
 operator|.
-name|DerivativePipelineAggregator
+name|DerivativePipelineAggregatorBuilder
 import|;
 end_import
 
@@ -4904,11 +4904,19 @@ operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
-name|registerPipelineParser
+name|registerPipelineAggregation
 argument_list|(
+name|DerivativePipelineAggregatorBuilder
+operator|::
 operator|new
-name|DerivativeParser
-argument_list|()
+argument_list|,
+name|DerivativePipelineAggregatorBuilder
+operator|::
+name|parse
+argument_list|,
+name|DerivativePipelineAggregatorBuilder
+operator|.
+name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerPipelineParser
