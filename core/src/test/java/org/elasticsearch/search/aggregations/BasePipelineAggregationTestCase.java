@@ -1922,7 +1922,9 @@ operator|.
 name|getWriteableName
 argument_list|()
 argument_list|,
-name|parser
+name|ParseFieldMatcher
+operator|.
+name|STRICT
 argument_list|)
 operator|.
 name|parse

@@ -2578,6 +2578,11 @@ name|parseContext
 operator|.
 name|parser
 argument_list|()
+argument_list|,
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
 argument_list|)
 operator|.
 name|fromXContent
@@ -3340,6 +3345,11 @@ argument_list|(
 name|currentFieldName
 argument_list|,
 name|parser
+argument_list|,
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
 argument_list|)
 operator|.
 name|fromXContent

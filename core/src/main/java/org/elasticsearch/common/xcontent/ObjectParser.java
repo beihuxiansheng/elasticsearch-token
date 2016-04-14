@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcherSupplier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|ParsingException
 import|;
 end_import
@@ -322,6 +334,8 @@ parameter_list|<
 name|Value
 parameter_list|,
 name|Context
+extends|extends
+name|ParseFieldMatcherSupplier
 parameter_list|>
 implements|implements
 name|BiFunction
@@ -484,7 +498,7 @@ operator|=
 name|valueSupplier
 expr_stmt|;
 block|}
-comment|/**      * Parses a Value from the given {@link XContentParser}      * @param parser the parser to build a value from      * @return a new value instance drawn from the provided value supplier on {@link #ObjectParser(String, Supplier)}      * @throws IOException if an IOException occurs.      */
+comment|/**      * Parses a Value from the given {@link XContentParser}      * @param parser the parser to build a value from      * @param context must at least provide a {@link ParseFieldMatcher}      * @return a new value instance drawn from the provided value supplier on {@link #ObjectParser(String, Supplier)}      * @throws IOException if an IOException occurs.      */
 DECL|method|parse
 specifier|public
 name|Value
@@ -492,6 +506,9 @@ name|parse
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|Context
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -521,37 +538,11 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|null
+name|context
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses a Value from the given {@link XContentParser}      * @param parser the parser to build a value from      * @param value the value to fill from the parser      * @return the parsed value      * @throws IOException if an IOException occurs.      */
-DECL|method|parse
-specifier|public
-name|Value
-name|parse
-parameter_list|(
-name|XContentParser
-name|parser
-parameter_list|,
-name|Value
-name|value
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|parse
-argument_list|(
-name|parser
-argument_list|,
-name|value
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
-comment|/**      * Parses a Value from the given {@link XContentParser}      * @param parser the parser to build a value from      * @param value the value to fill from the parser      * @param context an optional context that is passed along to all declared field parsers      * @return the parsed value      * @throws IOException if an IOException occurs.      */
+comment|/**      * Parses a Value from the given {@link XContentParser}      * @param parser the parser to build a value from      * @param value the value to fill from the parser      * @param context a context that is passed along to all declared field parsers      * @return the parsed value      * @throws IOException if an IOException occurs.      */
 DECL|method|parse
 specifier|public
 name|Value
@@ -724,9 +715,9 @@ name|token
 argument_list|,
 name|currentFieldName
 argument_list|,
-name|parser
+name|context
 operator|.
-name|getParseFieldMatcher
+name|parseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
