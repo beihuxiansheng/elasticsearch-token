@@ -637,6 +637,17 @@ operator|.
 name|ENDPOINT_SETTING
 argument_list|)
 expr_stmt|;
+name|settingsModule
+operator|.
+name|registerSetting
+argument_list|(
+name|AwsS3Service
+operator|.
+name|CLOUD_S3
+operator|.
+name|THROTTLE_RETRIES_SETTING
+argument_list|)
+expr_stmt|;
 comment|// Register S3 repositories settings: repositories.s3
 name|settingsModule
 operator|.

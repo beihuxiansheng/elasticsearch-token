@@ -580,6 +580,22 @@ argument_list|(
 name|maxRetries
 argument_list|)
 expr_stmt|;
+name|clientConfiguration
+operator|.
+name|setUseThrottleRetries
+argument_list|(
+name|AwsS3Service
+operator|.
+name|CLOUD_S3
+operator|.
+name|THROTTLE_RETRIES_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|// #155: we might have 3rd party users using older S3 API version
 name|String
