@@ -257,10 +257,7 @@ name|ParseField
 argument_list|(
 name|X_FIELD_NAME
 operator|.
-name|camelCase
-argument_list|()
-operator|.
-name|getValue
+name|value
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -767,12 +767,6 @@ name|indexUpgradeStatus
 operator|.
 name|getIndex
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|builder

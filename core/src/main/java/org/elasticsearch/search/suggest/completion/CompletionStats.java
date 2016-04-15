@@ -590,12 +590,6 @@ name|keys
 index|[
 name|i
 index|]
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|builder

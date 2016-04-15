@@ -1832,12 +1832,6 @@ name|indexTemplateMetaData
 operator|.
 name|name
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|builder
@@ -2132,12 +2126,6 @@ argument_list|(
 name|cursor
 operator|.
 name|key
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|cursor
