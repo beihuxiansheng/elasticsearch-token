@@ -1496,7 +1496,7 @@ name|parser
 argument_list|,
 name|queryParseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 literal|"params"

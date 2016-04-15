@@ -666,10 +666,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parseFieldMatcher
+DECL|method|getParseFieldMatcher
 specifier|public
 name|ParseFieldMatcher
-name|parseFieldMatcher
+name|getParseFieldMatcher
 parameter_list|()
 block|{
 return|return

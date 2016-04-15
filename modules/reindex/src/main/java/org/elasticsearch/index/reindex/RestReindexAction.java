@@ -932,7 +932,7 @@ name|c
 operator|.
 name|queryParseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1507,7 +1507,7 @@ block|{
 return|return
 name|queryParseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 return|;
 block|}

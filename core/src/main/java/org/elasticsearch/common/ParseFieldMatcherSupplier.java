@@ -55,9 +55,9 @@ interface|interface
 name|ParseFieldMatcherSupplier
 block|{
 comment|/**      * @return the parseFieldMatcher      */
-DECL|method|parseFieldMatcher
+DECL|method|getParseFieldMatcher
 name|ParseFieldMatcher
-name|parseFieldMatcher
+name|getParseFieldMatcher
 parameter_list|()
 function_decl|;
 block|}

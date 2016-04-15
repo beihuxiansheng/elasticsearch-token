@@ -360,7 +360,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -384,7 +384,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -420,7 +420,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -456,7 +456,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -479,7 +479,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -528,7 +528,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -671,7 +671,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -694,7 +694,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -704,7 +704,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

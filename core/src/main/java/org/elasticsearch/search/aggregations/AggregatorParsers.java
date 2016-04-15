@@ -765,7 +765,7 @@ name|fieldName
 argument_list|,
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -787,7 +787,7 @@ name|fieldName
 argument_list|,
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 decl_stmt|;

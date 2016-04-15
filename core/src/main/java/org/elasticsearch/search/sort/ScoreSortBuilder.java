@@ -392,7 +392,7 @@ name|matcher
 init|=
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 decl_stmt|;
 name|XContentParser
