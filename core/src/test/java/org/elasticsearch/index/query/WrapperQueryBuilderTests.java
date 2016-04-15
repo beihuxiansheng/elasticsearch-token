@@ -273,7 +273,7 @@ name|queryBuilder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -609,7 +609,7 @@ name|qb
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -644,7 +644,7 @@ name|qb
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -676,6 +676,12 @@ argument_list|(
 literal|"{ \"match_all\" : {\"_name\" : \"foobar\"}}"
 argument_list|)
 decl_stmt|;
+name|QueryShardContext
+name|shardContext
+init|=
+name|createShardContext
+argument_list|()
+decl_stmt|;
 name|assertEquals
 argument_list|(
 operator|new
@@ -691,8 +697,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
-argument_list|()
+name|shardContext
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -736,8 +741,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
-argument_list|()
+name|shardContext
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -782,6 +786,12 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|QueryShardContext
+name|shardContext
+init|=
+name|createShardContext
+argument_list|()
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|query
@@ -790,8 +800,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
-argument_list|()
+name|shardContext
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -831,8 +840,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
-argument_list|()
+name|shardContext
 argument_list|)
 argument_list|)
 expr_stmt|;

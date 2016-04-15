@@ -293,7 +293,7 @@ expr_stmt|;
 name|MapperService
 name|mapperService
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 operator|.
 name|getMapperService
@@ -428,7 +428,7 @@ specifier|final
 name|MapperService
 name|mapperService
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 operator|.
 name|getMapperService
@@ -447,7 +447,7 @@ init|=
 operator|new
 name|TestSearchContext
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 block|{
@@ -828,7 +828,7 @@ name|queryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -886,7 +886,7 @@ name|failingQueryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
