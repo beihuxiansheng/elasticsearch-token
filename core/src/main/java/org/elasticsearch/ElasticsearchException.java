@@ -4126,36 +4126,7 @@ argument_list|,
 literal|60
 argument_list|)
 block|,
-DECL|enum constant|ROUTING_VALIDATION_EXCEPTION
-name|ROUTING_VALIDATION_EXCEPTION
-argument_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingValidationException
-operator|.
-name|class
-argument_list|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|RoutingValidationException
-operator|::
-operator|new
-argument_list|,
-literal|61
-argument_list|)
-block|,
+comment|// 61 used to be for RoutingValidationException
 DECL|enum constant|NOT_SERIALIZABLE_EXCEPTION_WRAPPER
 name|NOT_SERIALIZABLE_EXCEPTION_WRAPPER
 argument_list|(
