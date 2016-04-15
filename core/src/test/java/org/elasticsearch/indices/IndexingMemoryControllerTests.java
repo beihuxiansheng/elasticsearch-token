@@ -1160,6 +1160,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"4mb"
 argument_list|)
@@ -1365,6 +1368,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"5mb"
 argument_list|)
@@ -1560,6 +1566,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"0.001%"
 argument_list|)
@@ -1569,6 +1578,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|MIN_INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"6mb"
 argument_list|)
@@ -1621,6 +1633,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"90%"
 argument_list|)
@@ -1630,6 +1645,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|MAX_INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"6mb"
 argument_list|)
@@ -1734,6 +1752,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"4mb"
 argument_list|)
@@ -2226,6 +2247,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1kb"
 argument_list|)
@@ -2557,6 +2581,9 @@ argument_list|(
 name|IndexingMemoryController
 operator|.
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"50kb"
 argument_list|)
