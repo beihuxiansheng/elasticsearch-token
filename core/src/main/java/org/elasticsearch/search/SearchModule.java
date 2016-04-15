@@ -3270,7 +3270,7 @@ name|pipeline
 operator|.
 name|cumulativesum
 operator|.
-name|CumulativeSumParser
+name|CumulativeSumPipelineAggregator
 import|;
 end_import
 
@@ -3288,7 +3288,7 @@ name|pipeline
 operator|.
 name|cumulativesum
 operator|.
-name|CumulativeSumPipelineAggregator
+name|CumulativeSumPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -3436,7 +3436,7 @@ name|pipeline
 operator|.
 name|serialdiff
 operator|.
-name|SerialDiffParser
+name|SerialDiffPipelineAggregator
 import|;
 end_import
 
@@ -3454,7 +3454,7 @@ name|pipeline
 operator|.
 name|serialdiff
 operator|.
-name|SerialDiffPipelineAggregator
+name|SerialDiffPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -5362,11 +5362,19 @@ name|movAvgModelParserMapper
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|registerPipelineParser
+name|registerPipelineAggregation
 argument_list|(
+name|CumulativeSumPipelineAggregatorBuilder
+operator|::
 operator|new
-name|CumulativeSumParser
-argument_list|()
+argument_list|,
+name|CumulativeSumPipelineAggregatorBuilder
+operator|::
+name|parse
+argument_list|,
+name|CumulativeSumPipelineAggregatorBuilder
+operator|.
+name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerPipelineParser
@@ -5383,11 +5391,19 @@ name|BucketSelectorParser
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|registerPipelineParser
+name|registerPipelineAggregation
 argument_list|(
+name|SerialDiffPipelineAggregatorBuilder
+operator|::
 operator|new
-name|SerialDiffParser
-argument_list|()
+argument_list|,
+name|SerialDiffPipelineAggregatorBuilder
+operator|::
+name|parse
+argument_list|,
+name|SerialDiffPipelineAggregatorBuilder
+operator|.
+name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|AggregationParseElement
