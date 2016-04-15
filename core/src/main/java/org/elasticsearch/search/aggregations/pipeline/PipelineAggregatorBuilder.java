@@ -740,6 +740,14 @@ name|String
 name|getWriteableName
 parameter_list|()
 block|{
+assert|assert
+literal|false
+operator|==
+name|usesNewStyleSerialization
+argument_list|()
+operator|:
+literal|"Migrated aggregations should just return NAME"
+assert|;
 return|return
 name|type
 return|;
