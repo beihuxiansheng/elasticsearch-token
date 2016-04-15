@@ -82,6 +82,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcherSupplier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -314,7 +326,7 @@ name|ObjectParser
 argument_list|<
 name|Builder
 argument_list|,
-name|Void
+name|ParseFieldMatcherSupplier
 argument_list|>
 name|PARSER
 init|=
@@ -646,6 +658,9 @@ name|parse
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|ParseFieldMatcherSupplier
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -656,6 +671,8 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|context
 argument_list|)
 operator|.
 name|build

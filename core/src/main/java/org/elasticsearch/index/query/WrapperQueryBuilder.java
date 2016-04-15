@@ -543,7 +543,7 @@ condition|(
 operator|!
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

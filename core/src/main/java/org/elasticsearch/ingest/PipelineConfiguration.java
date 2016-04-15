@@ -46,6 +46,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcherSupplier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -268,7 +280,7 @@ name|ObjectParser
 argument_list|<
 name|Builder
 argument_list|,
-name|Void
+name|ParseFieldMatcherSupplier
 argument_list|>
 name|PARSER
 init|=
@@ -374,7 +386,7 @@ name|BiFunction
 argument_list|<
 name|XContentParser
 argument_list|,
-name|Void
+name|ParseFieldMatcherSupplier
 argument_list|,
 name|PipelineConfiguration
 argument_list|>
@@ -615,6 +627,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeTo
 specifier|public
 name|void

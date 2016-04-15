@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|ParsingException
 import|;
 end_import
@@ -226,7 +238,7 @@ operator|=
 name|pipelineAggregationParserRegistry
 expr_stmt|;
 block|}
-comment|/**      * Returns the parser that is registered under the given aggregation type.      *      * @param type The aggregation type      * @param parser the parser the type was read from. Used to lookup the ParseFieldMatcher and for making error messages.      * @return The parser associated with the given aggregation type or null if it wasn't found.      */
+comment|/**      * Returns the parser that is registered under the given aggregation type.      *      * @param type The aggregation type      * @param parseFieldMatcher used for making error messages.      * @return The parser associated with the given aggregation type or null if it wasn't found.      */
 DECL|method|parser
 specifier|public
 name|Aggregator
@@ -237,8 +249,8 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|XContentParser
-name|parser
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 block|{
 return|return
@@ -248,11 +260,11 @@ name|lookupReturningNullIfNotFound
 argument_list|(
 name|type
 argument_list|,
-name|parser
+name|parseFieldMatcher
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the parser that is registered under the given pipeline aggregator type.      *      * @param type The pipeline aggregator type      * @param parser the parser the type was read from. Used to lookup the ParseFieldMatcher and for making error messages.      * @return The parser associated with the given pipeline aggregator type or null if it wasn't found.      */
+comment|/**      * Returns the parser that is registered under the given pipeline aggregator type.      *      * @param type The pipeline aggregator type      * @param parseFieldMatcher used for making error messages.      * @return The parser associated with the given pipeline aggregator type or null if it wasn't found.      */
 DECL|method|pipelineParser
 specifier|public
 name|PipelineAggregator
@@ -263,8 +275,8 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|XContentParser
-name|parser
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 block|{
 return|return
@@ -274,7 +286,7 @@ name|lookupReturningNullIfNotFound
 argument_list|(
 name|type
 argument_list|,
-name|parser
+name|parseFieldMatcher
 argument_list|)
 return|;
 block|}
@@ -751,7 +763,10 @@ name|parser
 argument_list|(
 name|fieldName
 argument_list|,
-name|parser
+name|parseContext
+operator|.
+name|getParseFieldMatcher
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -770,7 +785,10 @@ name|pipelineParser
 argument_list|(
 name|fieldName
 argument_list|,
-name|parser
+name|parseContext
+operator|.
+name|getParseFieldMatcher
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
