@@ -2894,7 +2894,7 @@ name|String
 name|key
 parameter_list|,
 name|ByteSizeValue
-name|value
+name|defaultValue
 parameter_list|,
 name|ByteSizeValue
 name|minValue
@@ -2916,7 +2916,7 @@ parameter_list|(
 name|s
 parameter_list|)
 lambda|->
-name|value
+name|defaultValue
 operator|.
 name|toString
 argument_list|()
