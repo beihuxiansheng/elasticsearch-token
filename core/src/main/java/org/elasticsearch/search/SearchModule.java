@@ -2700,7 +2700,7 @@ name|metrics
 operator|.
 name|tophits
 operator|.
-name|TopHitsParser
+name|TopHitsAggregatorBuilder
 import|;
 end_import
 
@@ -5064,11 +5064,19 @@ operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
-name|registerAggregatorParser
+name|registerAggregation
 argument_list|(
+name|TopHitsAggregatorBuilder
+operator|::
 operator|new
-name|TopHitsParser
-argument_list|()
+argument_list|,
+name|TopHitsAggregatorBuilder
+operator|::
+name|parse
+argument_list|,
+name|TopHitsAggregatorBuilder
+operator|.
+name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
