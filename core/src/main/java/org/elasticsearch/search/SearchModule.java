@@ -3360,7 +3360,7 @@ name|pipeline
 operator|.
 name|movavg
 operator|.
-name|MovAvgParser
+name|MovAvgPipelineAggregator
 import|;
 end_import
 
@@ -3378,7 +3378,7 @@ name|pipeline
 operator|.
 name|movavg
 operator|.
-name|MovAvgPipelineAggregator
+name|MovAvgPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -5353,13 +5353,32 @@ name|PercentilesBucketParser
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|registerPipelineParser
+name|registerPipelineAggregation
 argument_list|(
+name|MovAvgPipelineAggregatorBuilder
+operator|::
 operator|new
-name|MovAvgParser
+argument_list|,
+parameter_list|(
+name|n
+parameter_list|,
+name|c
+parameter_list|)
+lambda|->
+name|MovAvgPipelineAggregatorBuilder
+operator|.
+name|parse
 argument_list|(
 name|movAvgModelParserMapper
+argument_list|,
+name|n
+argument_list|,
+name|c
 argument_list|)
+argument_list|,
+name|MovAvgPipelineAggregatorBuilder
+operator|.
+name|AGGREGATION_FIELD_NAME
 argument_list|)
 expr_stmt|;
 name|registerPipelineAggregation
