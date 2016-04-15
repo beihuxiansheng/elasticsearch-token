@@ -1703,10 +1703,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testNegative
+DECL|method|testNegativeMaxIndexBufferSize
 specifier|public
 name|void
-name|testNegative
+name|testNegativeMaxIndexBufferSize
 parameter_list|()
 block|{
 name|Exception
