@@ -1126,7 +1126,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|FORMAT_FIELD
+name|UNIT_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
