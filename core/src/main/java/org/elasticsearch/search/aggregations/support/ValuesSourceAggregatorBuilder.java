@@ -411,7 +411,7 @@ name|targetValueType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Read from a stream.          */
+comment|/**          * Read an aggregation from a stream that does not serialize its targetValueType. This should be used by most subclasses.          */
 DECL|method|LeafOnly
 specifier|protected
 name|LeafOnly
@@ -440,6 +440,33 @@ argument_list|,
 name|valuesSourceType
 argument_list|,
 name|targetValueType
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**          * Read an aggregation from a stream that serializes its targetValueType. This should only be used by subclasses that override          * {@link #serializeTargetValueType()} to return true.          */
+DECL|method|LeafOnly
+specifier|protected
+name|LeafOnly
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|,
+name|Type
+name|type
+parameter_list|,
+name|ValuesSourceType
+name|valuesSourceType
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
+argument_list|,
+name|type
+argument_list|,
+name|valuesSourceType
 argument_list|)
 expr_stmt|;
 block|}
