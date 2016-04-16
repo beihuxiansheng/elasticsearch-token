@@ -1483,6 +1483,11 @@ literal|null
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|TestReponse
@@ -1754,6 +1759,11 @@ argument_list|,
 literal|null
 argument_list|,
 name|randomBoolean
+argument_list|()
+argument_list|,
+name|threadPool
+operator|.
+name|getThreadContext
 argument_list|()
 argument_list|)
 decl_stmt|;

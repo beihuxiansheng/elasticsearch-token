@@ -322,6 +322,8 @@ argument_list|,
 name|oue
 argument_list|,
 name|detailedErrorsEnabled
+argument_list|,
+name|threadContext
 argument_list|)
 decl_stmt|;
 name|serverTransport

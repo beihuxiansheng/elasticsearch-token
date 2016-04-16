@@ -1720,26 +1720,21 @@ argument_list|(
 name|status
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|isRequest
-condition|)
-block|{
-name|ThreadContext
-name|threadContext
-init|=
 name|threadPool
 operator|.
 name|getThreadContext
 argument_list|()
-decl_stmt|;
-name|threadContext
 operator|.
 name|readHeaders
 argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isRequest
+condition|)
+block|{
 name|handleRequest
 argument_list|(
 name|stream
@@ -2038,6 +2033,11 @@ argument_list|,
 name|version
 argument_list|,
 name|messageLengthBytes
+argument_list|,
+name|threadPool
+operator|.
+name|getThreadContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try
@@ -2513,7 +2513,7 @@ operator|=
 operator|new
 name|RemoteTransportException
 argument_list|(
-literal|"None remote transport exception"
+literal|"Not a remote transport exception"
 argument_list|,
 literal|null
 argument_list|,

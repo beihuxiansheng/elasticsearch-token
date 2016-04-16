@@ -234,6 +234,12 @@ specifier|final
 name|long
 name|reservedBytes
 decl_stmt|;
+DECL|field|threadContext
+specifier|private
+specifier|final
+name|ThreadContext
+name|threadContext
+decl_stmt|;
 DECL|field|closed
 specifier|private
 specifier|final
@@ -268,6 +274,9 @@ name|version
 parameter_list|,
 name|long
 name|reservedBytes
+parameter_list|,
+name|ThreadContext
+name|threadContext
 parameter_list|)
 block|{
 name|this
@@ -311,6 +320,12 @@ operator|.
 name|reservedBytes
 operator|=
 name|reservedBytes
+expr_stmt|;
+name|this
+operator|.
+name|threadContext
+operator|=
+name|threadContext
 expr_stmt|;
 block|}
 annotation|@
@@ -422,6 +437,13 @@ name|status
 argument_list|)
 expr_stmt|;
 comment|// 0 for request, 1 for response.
+name|threadContext
+operator|.
+name|writeTo
+argument_list|(
+name|stream
+argument_list|)
+expr_stmt|;
 name|response
 operator|.
 name|writeTo
@@ -718,6 +740,13 @@ operator|.
 name|writeByte
 argument_list|(
 name|status
+argument_list|)
+expr_stmt|;
+name|threadContext
+operator|.
+name|writeTo
+argument_list|(
+name|stream
 argument_list|)
 expr_stmt|;
 block|}
