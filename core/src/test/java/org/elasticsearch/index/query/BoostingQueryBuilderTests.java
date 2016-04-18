@@ -40,20 +40,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchAllDocsQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -541,7 +527,7 @@ name|qb
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -582,7 +568,7 @@ name|positive
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|,
@@ -590,7 +576,7 @@ name|negative
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)

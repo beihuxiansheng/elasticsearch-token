@@ -750,7 +750,7 @@ name|pqb
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -790,7 +790,7 @@ name|pqb
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -842,7 +842,7 @@ name|pqb
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
