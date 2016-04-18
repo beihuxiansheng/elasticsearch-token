@@ -1154,7 +1154,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalQuery
+name|writeOptionalNamedWriteable
 argument_list|(
 name|nestedFilter
 argument_list|)

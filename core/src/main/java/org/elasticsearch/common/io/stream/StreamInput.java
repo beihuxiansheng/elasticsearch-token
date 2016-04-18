@@ -3918,7 +3918,7 @@ literal|"can't read named writeable from StreamInput"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Reads an optional {@link QueryBuilder}.      */
+comment|/**      * Reads an optional {@link NamedWriteable}.      */
 DECL|method|readOptionalNamedWriteable
 specifier|public
 parameter_list|<
