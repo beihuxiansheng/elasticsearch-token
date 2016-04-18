@@ -1231,13 +1231,10 @@ condition|)
 block|{
 name|aggregations
 operator|=
+operator|new
 name|AggregatorFactories
 operator|.
 name|Builder
-operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
