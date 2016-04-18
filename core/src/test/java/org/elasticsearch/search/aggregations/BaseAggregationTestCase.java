@@ -812,6 +812,15 @@ name|DATE_FIELD_NAME
 init|=
 literal|"mapped_date"
 decl_stmt|;
+DECL|field|IP_FIELD_NAME
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|IP_FIELD_NAME
+init|=
+literal|"mapped_ip"
+decl_stmt|;
 DECL|field|OBJECT_FIELD_NAME
 specifier|protected
 specifier|static
@@ -842,6 +851,8 @@ block|,
 name|BOOLEAN_FIELD_NAME
 block|,
 name|DATE_FIELD_NAME
+block|,
+name|IP_FIELD_NAME
 block|,
 name|OBJECT_FIELD_NAME
 block|}

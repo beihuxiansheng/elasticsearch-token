@@ -1768,9 +1768,9 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|ipv4
+name|ip
 operator|.
-name|IPv4RangeAggregatorBuilder
+name|IpRangeAggregatorBuilder
 import|;
 end_import
 
@@ -1788,9 +1788,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|ipv4
-operator|.
-name|InternalIPv4Range
+name|InternalBinaryRange
 import|;
 end_import
 
@@ -1808,7 +1806,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|ipv4
+name|ip
 operator|.
 name|IpRangeParser
 import|;
@@ -5425,7 +5423,7 @@ argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|IPv4RangeAggregatorBuilder
+name|IpRangeAggregatorBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5433,7 +5431,7 @@ operator|new
 name|IpRangeParser
 argument_list|()
 argument_list|,
-name|IPv4RangeAggregatorBuilder
+name|IpRangeAggregatorBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
@@ -7423,7 +7421,7 @@ operator|.
 name|registerStream
 argument_list|()
 expr_stmt|;
-name|InternalIPv4Range
+name|InternalBinaryRange
 operator|.
 name|registerStream
 argument_list|()
