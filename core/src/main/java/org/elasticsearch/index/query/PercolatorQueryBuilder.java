@@ -1274,6 +1274,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -1288,7 +1290,8 @@ name|createParser
 argument_list|(
 name|document
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|parser
 operator|.
 name|nextToken
@@ -1311,6 +1314,7 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if

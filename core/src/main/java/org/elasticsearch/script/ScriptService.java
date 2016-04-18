@@ -2309,7 +2309,7 @@ name|scriptLang
 parameter_list|)
 block|{
 try|try
-block|{
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -2324,7 +2324,8 @@ name|createParser
 argument_list|(
 name|scriptBytes
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|parser
 operator|.
 name|nextToken

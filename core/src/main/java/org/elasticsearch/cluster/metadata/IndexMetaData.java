@@ -5951,6 +5951,8 @@ operator|.
 name|uncompressed
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -5965,7 +5967,8 @@ name|createParser
 argument_list|(
 name|data
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|Map
 argument_list|<
 name|String
@@ -5979,11 +5982,6 @@ operator|.
 name|mapOrdered
 argument_list|()
 decl_stmt|;
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|builder
 operator|.
 name|map
@@ -5991,6 +5989,7 @@ argument_list|(
 name|mapping
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|builder

@@ -492,6 +492,8 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -506,7 +508,8 @@ name|createParser
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|String
 name|templateId
 init|=
@@ -723,6 +726,7 @@ argument_list|(
 name|template
 argument_list|)
 expr_stmt|;
+block|}
 name|client
 operator|.
 name|admin
