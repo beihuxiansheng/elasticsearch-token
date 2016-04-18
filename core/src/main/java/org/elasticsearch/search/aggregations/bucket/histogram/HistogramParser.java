@@ -896,7 +896,7 @@ name|extendedBounds
 init|=
 name|ExtendedBounds
 operator|.
-name|parse
+name|fromXContent
 argument_list|(
 name|parser
 argument_list|,

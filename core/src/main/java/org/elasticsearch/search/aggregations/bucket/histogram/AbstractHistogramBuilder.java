@@ -349,9 +349,8 @@ condition|)
 block|{
 name|extendedBounds
 operator|=
+operator|new
 name|ExtendedBounds
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)

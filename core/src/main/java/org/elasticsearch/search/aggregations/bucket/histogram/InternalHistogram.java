@@ -1259,9 +1259,8 @@ name|rounding
 argument_list|,
 name|aggs
 argument_list|,
+operator|new
 name|ExtendedBounds
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
