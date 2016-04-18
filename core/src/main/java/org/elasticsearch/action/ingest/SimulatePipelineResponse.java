@@ -90,20 +90,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilderString
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -478,14 +464,10 @@ block|{
 DECL|field|DOCUMENTS
 specifier|static
 specifier|final
-name|XContentBuilderString
+name|String
 name|DOCUMENTS
 init|=
-operator|new
-name|XContentBuilderString
-argument_list|(
 literal|"docs"
-argument_list|)
 decl_stmt|;
 block|}
 block|}
