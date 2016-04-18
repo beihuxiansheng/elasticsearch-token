@@ -3873,7 +3873,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write an optional {@link QueryBuilder} to the stream.      */
+comment|/**      * Write an optional {@link NamedWriteable} to the stream.      */
 DECL|method|writeOptionalNamedWriteable
 specifier|public
 name|void
