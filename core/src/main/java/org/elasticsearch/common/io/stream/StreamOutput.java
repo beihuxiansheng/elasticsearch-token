@@ -4188,46 +4188,6 @@ name|sort
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link DocValueFormat}.      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
-annotation|@
-name|Deprecated
-DECL|method|writeValueFormat
-specifier|public
-name|void
-name|writeValueFormat
-parameter_list|(
-name|DocValueFormat
-name|format
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeNamedWriteable
-argument_list|(
-name|format
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Writes an {@link AllocationCommand} to the stream.      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
-annotation|@
-name|Deprecated
-DECL|method|writeAllocationCommand
-specifier|public
-name|void
-name|writeAllocationCommand
-parameter_list|(
-name|AllocationCommand
-name|command
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeNamedWriteable
-argument_list|(
-name|command
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 

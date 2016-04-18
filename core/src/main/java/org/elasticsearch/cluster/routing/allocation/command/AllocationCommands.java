@@ -394,8 +394,12 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readAllocationCommand
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|AllocationCommand
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -443,7 +447,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeAllocationCommand
+name|writeNamedWriteable
 argument_list|(
 name|command
 argument_list|)

@@ -4036,46 +4036,6 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link DocValueFormat} from the current stream.      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link DocValueFormat}.      */
-annotation|@
-name|Deprecated
-DECL|method|readValueFormat
-specifier|public
-name|DocValueFormat
-name|readValueFormat
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|readNamedWriteable
-argument_list|(
-name|DocValueFormat
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
-comment|/**      * Reads an {@link AllocationCommand} from the stream.      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link AllocationCommand}.      */
-annotation|@
-name|Deprecated
-DECL|method|readAllocationCommand
-specifier|public
-name|AllocationCommand
-name|readAllocationCommand
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|readNamedWriteable
-argument_list|(
-name|AllocationCommand
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
 comment|/**      * Reads a list of objects      */
 DECL|method|readList
 specifier|public

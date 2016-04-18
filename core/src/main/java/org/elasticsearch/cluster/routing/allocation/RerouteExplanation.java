@@ -229,8 +229,12 @@ name|command
 init|=
 name|in
 operator|.
-name|readAllocationCommand
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|AllocationCommand
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|Decision
 name|decisions
@@ -269,7 +273,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeAllocationCommand
+name|writeNamedWriteable
 argument_list|(
 name|explanation
 operator|.
