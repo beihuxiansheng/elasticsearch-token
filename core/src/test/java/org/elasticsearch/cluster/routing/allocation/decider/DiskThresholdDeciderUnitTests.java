@@ -2541,9 +2541,11 @@ name|DiscoveryNode
 argument_list|(
 literal|"node1"
 argument_list|,
+operator|new
 name|LocalTransportAddress
-operator|.
-name|PROTO
+argument_list|(
+literal|"test"
+argument_list|)
 argument_list|,
 name|emptyMap
 argument_list|()
@@ -2773,9 +2775,11 @@ name|DiscoveryNode
 argument_list|(
 literal|"node1"
 argument_list|,
+operator|new
 name|LocalTransportAddress
-operator|.
-name|PROTO
+argument_list|(
+literal|"test"
+argument_list|)
 argument_list|,
 name|emptyMap
 argument_list|()
