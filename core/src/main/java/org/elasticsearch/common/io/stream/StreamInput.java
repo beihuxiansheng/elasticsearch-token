@@ -3884,6 +3884,7 @@ return|;
 block|}
 comment|/**      * Reads a {@link NamedWriteable} from the current stream, by first reading its name and then looking for      * the corresponding entry in the registry by name, so that the proper object can be read and returned.      * Default implementation throws {@link UnsupportedOperationException} as StreamInput doesn't hold a registry.      * Use {@link FilterInputStream} instead which wraps a stream and supports a {@link NamedWriteableRegistry} too.      */
 DECL|method|readNamedWriteable
+specifier|public
 parameter_list|<
 name|C
 extends|extends

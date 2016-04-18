@@ -3904,6 +3904,7 @@ block|}
 block|}
 comment|/**      * Writes a {@link NamedWriteable} to the current stream, by first writing its name and then the object itself      */
 DECL|method|writeNamedWriteable
+specifier|public
 name|void
 name|writeNamedWriteable
 parameter_list|(
