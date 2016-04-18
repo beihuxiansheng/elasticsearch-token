@@ -376,18 +376,6 @@ name|percents
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|usesNewStyleSerialization
-specifier|protected
-name|boolean
-name|usesNewStyleSerialization
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Get the percentages to calculate percentiles for in this aggregation      */
 DECL|method|percents
 specifier|public

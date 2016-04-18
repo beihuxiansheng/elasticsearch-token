@@ -356,18 +356,6 @@ name|wrapLongitude
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|usesNewStyleSerialization
-specifier|protected
-name|boolean
-name|usesNewStyleSerialization
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Set whether to wrap longitudes. Defaults to true.      */
 DECL|method|wrapLongitude
 specifier|public

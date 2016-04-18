@@ -345,7 +345,7 @@ operator|=
 name|stream
 expr_stmt|;
 block|}
-comment|/**          * @return The name of the type (mainly used for registering the parser for the aggregator (see {@link org.elasticsearch.search.aggregations.Aggregator.Parser#type()}).          */
+comment|/**          * @return The name of the type of aggregation.  This is the key for parsing the aggregation from XContent and is the name of the          * aggregation's builder when serialized.          */
 DECL|method|name
 specifier|public
 name|String

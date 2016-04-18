@@ -338,18 +338,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|usesNewStyleSerialization
-specifier|protected
-name|boolean
-name|usesNewStyleSerialization
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Get the path to use for this nested aggregation.      */
 DECL|method|path
 specifier|public

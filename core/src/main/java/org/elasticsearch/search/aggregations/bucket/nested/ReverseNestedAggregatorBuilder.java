@@ -308,18 +308,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|usesNewStyleSerialization
-specifier|protected
-name|boolean
-name|usesNewStyleSerialization
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Set the path to use for this nested aggregation. The path must match      * the path to a nested object in the mappings. If it is not specified      * then this aggregation will go back to the root document.      */
 DECL|method|path
 specifier|public

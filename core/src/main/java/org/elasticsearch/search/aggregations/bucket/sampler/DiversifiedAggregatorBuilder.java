@@ -423,18 +423,6 @@ name|executionHint
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|usesNewStyleSerialization
-specifier|protected
-name|boolean
-name|usesNewStyleSerialization
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Set the max num docs to be returned from each shard.      */
 DECL|method|shardSize
 specifier|public

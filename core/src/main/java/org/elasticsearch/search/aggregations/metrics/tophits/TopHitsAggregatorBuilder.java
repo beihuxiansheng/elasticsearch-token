@@ -1087,18 +1087,6 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|usesNewStyleSerialization
-specifier|protected
-name|boolean
-name|usesNewStyleSerialization
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * From index to start the search from. Defaults to<tt>0</tt>.      */
 DECL|method|from
 specifier|public

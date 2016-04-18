@@ -805,10 +805,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-name|type
-argument_list|()
-operator|+
-literal|" aggregation ["
+literal|"Aggregation ["
 operator|+
 name|aggregationName
 operator|+
@@ -816,12 +813,7 @@ literal|"] was configured with an incompatible value type ["
 operator|+
 name|valueType
 operator|+
-literal|"]. ["
-operator|+
-name|type
-argument_list|()
-operator|+
-literal|"] aggregation can only work on value of type ["
+literal|"]. It can only work on value of type ["
 operator|+
 name|targetValueType
 operator|+

@@ -215,20 +215,6 @@ argument_list|(
 literal|"gap_policy"
 argument_list|)
 decl_stmt|;
-comment|/**          * @return The aggregation type this parser is associated with.          */
-DECL|method|type
-specifier|default
-name|String
-name|type
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-comment|// NORELEASE remove before 5.0.0GA
-block|}
 comment|/**          * Returns the pipeline aggregator factory with which this parser is          * associated.          *          * @param pipelineAggregatorName          *            The name of the pipeline aggregation          * @param context          *            The search context          * @return The resolved pipeline aggregator factory          * @throws java.io.IOException          *             When parsing fails          */
 DECL|method|parse
 name|PipelineAggregatorBuilder
@@ -246,23 +232,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          * @return an empty {@link PipelineAggregatorBuilder} instance for this          *         parser that can be used for deserialization          */
-DECL|method|getFactoryPrototype
-specifier|default
-name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
-name|getFactoryPrototype
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-comment|// NORELEASE remove before 5.0.0GA
-block|}
 block|}
 DECL|field|name
 specifier|private
