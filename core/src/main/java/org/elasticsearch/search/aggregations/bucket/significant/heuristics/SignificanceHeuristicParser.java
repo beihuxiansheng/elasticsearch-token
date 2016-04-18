@@ -70,7 +70,13 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parses {@link SignificanceHeuristic}s from an {@link XContentParser}.  */
+end_comment
+
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|SignificanceHeuristicParser
 specifier|public
 interface|interface
@@ -90,12 +96,6 @@ throws|throws
 name|IOException
 throws|,
 name|ParsingException
-function_decl|;
-DECL|method|getNames
-name|String
-index|[]
-name|getNames
-parameter_list|()
 function_decl|;
 block|}
 end_interface

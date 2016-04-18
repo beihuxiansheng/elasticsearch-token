@@ -1140,9 +1140,9 @@ literal|0
 case|:
 name|significanceHeuristic
 operator|=
+operator|new
 name|PercentageScore
-operator|.
-name|PROTOTYPE
+argument_list|()
 expr_stmt|;
 break|break;
 case|case
@@ -1211,9 +1211,9 @@ literal|5
 case|:
 name|significanceHeuristic
 operator|=
+operator|new
 name|JLHScore
-operator|.
-name|PROTOTYPE
+argument_list|()
 expr_stmt|;
 break|break;
 default|default:
