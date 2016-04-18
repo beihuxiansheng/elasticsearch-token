@@ -911,9 +911,8 @@ condition|)
 block|{
 name|fs
 operator|=
+operator|new
 name|FsInfo
-operator|.
-name|readFsInfo
 argument_list|(
 name|in
 argument_list|)
