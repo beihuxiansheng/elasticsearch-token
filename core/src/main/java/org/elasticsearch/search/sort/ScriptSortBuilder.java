@@ -839,8 +839,12 @@ name|nestedFilter
 operator|=
 name|in
 operator|.
-name|readOptionalQuery
-argument_list|()
+name|readOptionalNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
