@@ -2115,7 +2115,7 @@ init|)
 block|{
 name|output
 operator|.
-name|writeRescorer
+name|writeNamedWriteable
 argument_list|(
 name|original
 argument_list|)
@@ -2145,8 +2145,12 @@ block|{
 return|return
 name|in
 operator|.
-name|readRescorer
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|RescoreBuilder
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 block|}
