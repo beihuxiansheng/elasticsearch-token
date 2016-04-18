@@ -288,10 +288,8 @@ operator|.
 name|FACTORY
 argument_list|,
 name|Range
-operator|.
-name|PROTOTYPE
 operator|::
-name|readFrom
+operator|new
 argument_list|)
 expr_stmt|;
 block|}

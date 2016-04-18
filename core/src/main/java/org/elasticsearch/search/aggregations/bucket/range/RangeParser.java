@@ -547,8 +547,6 @@ block|{
 return|return
 name|Range
 operator|.
-name|PROTOTYPE
-operator|.
 name|fromXContent
 argument_list|(
 name|parser
