@@ -1677,8 +1677,12 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readSortBuilder
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|SortBuilder
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2299,7 +2303,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeSortBuilder
+name|writeNamedWriteable
 argument_list|(
 name|sort
 argument_list|)
