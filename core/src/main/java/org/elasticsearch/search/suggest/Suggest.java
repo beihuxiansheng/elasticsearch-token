@@ -260,6 +260,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Comparator
 import|;
 end_import
@@ -472,7 +482,16 @@ DECL|method|Suggest
 specifier|public
 name|Suggest
 parameter_list|()
-block|{     }
+block|{
+name|this
+argument_list|(
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|Suggest
 specifier|public
 name|Suggest
