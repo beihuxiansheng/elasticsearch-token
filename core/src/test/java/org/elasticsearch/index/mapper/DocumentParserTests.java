@@ -699,6 +699,15 @@ argument_list|,
 name|bytes
 argument_list|)
 decl_stmt|;
+name|assertNull
+argument_list|(
+name|doc
+operator|.
+name|dynamicMappingsUpdate
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// no update!
 name|String
 index|[]
 name|values
