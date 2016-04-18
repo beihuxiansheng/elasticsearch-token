@@ -98,20 +98,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentType
 import|;
 end_import
@@ -745,7 +731,7 @@ name|builder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -780,7 +766,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -846,7 +832,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -910,7 +896,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -983,7 +969,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1043,7 +1029,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)

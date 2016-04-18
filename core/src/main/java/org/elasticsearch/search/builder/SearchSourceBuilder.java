@@ -1569,8 +1569,12 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readRescorer
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|RescoreBuilder
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2199,7 +2203,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeRescorer
+name|writeNamedWriteable
 argument_list|(
 name|rescoreBuilder
 argument_list|)
@@ -4292,7 +4296,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4316,7 +4320,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4340,7 +4344,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4364,7 +4368,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4388,7 +4392,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4412,7 +4416,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4436,7 +4440,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4460,7 +4464,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4484,7 +4488,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4510,7 +4514,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4535,7 +4539,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4560,7 +4564,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4624,7 +4628,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4648,7 +4652,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4672,7 +4676,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4698,7 +4702,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4752,7 +4756,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4866,7 +4870,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4892,7 +4896,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4918,7 +4922,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4944,7 +4948,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -4972,7 +4976,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5003,7 +5007,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5080,7 +5084,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5181,7 +5185,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5282,7 +5286,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5313,7 +5317,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5368,7 +5372,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5469,7 +5473,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5495,7 +5499,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -5516,7 +5520,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6346,6 +6350,8 @@ name|getPreferredName
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -6362,7 +6368,8 @@ name|createParser
 argument_list|(
 name|ext
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|parser
 operator|.
 name|nextToken
@@ -6375,6 +6382,7 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|class|ScriptField
@@ -6625,7 +6633,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -6646,7 +6654,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6656,7 +6664,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -6720,7 +6728,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -6741,7 +6749,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;

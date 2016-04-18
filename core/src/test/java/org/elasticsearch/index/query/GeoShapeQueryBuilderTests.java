@@ -1502,7 +1502,7 @@ name|sqb
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1537,7 +1537,7 @@ name|sqb
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1640,7 +1640,7 @@ name|queryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1698,7 +1698,7 @@ name|failingQueryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)

@@ -320,7 +320,7 @@ block|{
 name|Version
 name|version
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 operator|.
 name|indexVersionCreated
@@ -2081,7 +2081,7 @@ comment|// create a nested geo_point type with a subfield named "geohash" (expli
 name|MapperService
 name|mapperService
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 operator|.
 name|getMapperService
@@ -2325,7 +2325,7 @@ name|queryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2394,7 +2394,7 @@ name|failingQueryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)

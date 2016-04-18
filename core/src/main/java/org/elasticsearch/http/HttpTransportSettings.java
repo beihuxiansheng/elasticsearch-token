@@ -178,9 +178,7 @@ name|SETTING_CORS_ALLOW_ORIGIN
 init|=
 operator|new
 name|Setting
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"http.cors.allow-origin"
 argument_list|,
@@ -232,9 +230,7 @@ name|SETTING_CORS_ALLOW_METHODS
 init|=
 operator|new
 name|Setting
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"http.cors.allow-methods"
 argument_list|,
@@ -263,9 +259,7 @@ name|SETTING_CORS_ALLOW_HEADERS
 init|=
 operator|new
 name|Setting
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"http.cors.allow-headers"
 argument_list|,
@@ -497,9 +491,7 @@ name|SETTING_HTTP_PORT
 init|=
 operator|new
 name|Setting
-argument_list|<
-name|PortsRange
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|"http.port"
 argument_list|,

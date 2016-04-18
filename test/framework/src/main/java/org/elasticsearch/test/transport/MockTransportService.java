@@ -2043,7 +2043,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a new delegate transport that is used for communication with the given transport service.      *      * @return<tt>true</tt> iff no other delegate was registered for any of the addresses bound by transport service, otherwise<tt>false</tt>      */
+comment|/**      * Adds a new delegate transport that is used for communication with the given transport service.      *      * @return<tt>true</tt> iff no other delegate was registered for any of the addresses bound by transport service.      */
 DECL|method|addDelegate
 specifier|public
 name|boolean
@@ -2086,7 +2086,7 @@ return|return
 name|noRegistered
 return|;
 block|}
-comment|/**      * Adds a new delegate transport that is used for communication with the given transport address.      *      * @return<tt>true</tt> iff no other delegate was registered for this address before, otherwise<tt>false</tt>      */
+comment|/**      * Adds a new delegate transport that is used for communication with the given transport address.      *      * @return<tt>true</tt> iff no other delegate was registered for this address before.      */
 DECL|method|addDelegate
 specifier|public
 name|boolean

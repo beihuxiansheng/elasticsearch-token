@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcherSupplier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -465,7 +477,7 @@ name|CompletionSuggestionBuilder
 operator|.
 name|InnerBuilder
 argument_list|,
-name|Void
+name|ParseFieldMatcherSupplier
 argument_list|>
 name|TLP_PARSER
 init|=
@@ -554,6 +566,8 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -591,6 +605,8 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|context
 argument_list|)
 argument_list|,
 name|RegexOptions
@@ -1397,6 +1413,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+init|(
 name|XContentParser
 name|contextParser
 init|=
@@ -1413,7 +1431,8 @@ name|createParser
 argument_list|(
 name|contextBytes
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1431,6 +1450,7 @@ argument_list|(
 name|contextParser
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|builder
@@ -1468,6 +1488,8 @@ name|parser
 argument_list|()
 argument_list|,
 name|builder
+argument_list|,
+name|parseContext
 argument_list|)
 expr_stmt|;
 name|String
@@ -1774,7 +1796,12 @@ name|mapping
 operator|.
 name|parseQueryContext
 argument_list|(
+name|context
+operator|.
+name|newParseContext
+argument_list|(
 name|contextParser
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -18,22 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|locationtech
-operator|.
-name|spatial4j
-operator|.
-name|shape
-operator|.
-name|jts
-operator|.
-name|JtsGeometry
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|vividsolutions
@@ -229,6 +213,22 @@ operator|.
 name|RandomShapeGenerator
 operator|.
 name|ShapeType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|locationtech
+operator|.
+name|spatial4j
+operator|.
+name|shape
+operator|.
+name|jts
+operator|.
+name|JtsGeometry
 import|;
 end_import
 
@@ -2325,7 +2325,7 @@ name|queryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2383,7 +2383,7 @@ name|failingQueryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)

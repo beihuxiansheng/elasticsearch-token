@@ -3487,6 +3487,20 @@ operator|.
 name|size
 argument_list|()
 operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
+name|tlist
+operator|.
+name|size
+argument_list|()
+operator|==
 literal|1
 operator|&&
 name|tlist
@@ -3523,8 +3537,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 comment|// build a boolean query with prefix on the last position only.
 name|List
 argument_list|<
@@ -3602,6 +3614,8 @@ condition|)
 block|{
 name|posQuery
 operator|=
+name|super
+operator|.
 name|getPrefixQuery
 argument_list|(
 name|field
@@ -3733,6 +3747,8 @@ argument_list|(
 operator|new
 name|BooleanClause
 argument_list|(
+name|super
+operator|.
 name|getPrefixQuery
 argument_list|(
 name|field
@@ -3794,7 +3810,6 @@ argument_list|(
 name|clauses
 argument_list|)
 return|;
-block|}
 block|}
 annotation|@
 name|Override

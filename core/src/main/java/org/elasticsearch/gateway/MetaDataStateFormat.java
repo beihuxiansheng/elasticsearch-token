@@ -1849,10 +1849,6 @@ name|pathAndStateId
 operator|.
 name|id
 decl_stmt|;
-specifier|final
-name|XContentParser
-name|parser
-decl_stmt|;
 if|if
 condition|(
 name|pathAndStateId
@@ -1898,8 +1894,12 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+try|try
+init|(
+specifier|final
+name|XContentParser
 name|parser
-operator|=
+init|=
 name|XContentHelper
 operator|.
 name|createParser
@@ -1910,7 +1910,8 @@ argument_list|(
 name|data
 argument_list|)
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 name|state
 operator|=
 name|fromXContent
@@ -1918,6 +1919,7 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|state

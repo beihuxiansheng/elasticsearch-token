@@ -179,7 +179,7 @@ name|BoundTransportAddress
 name|boundAddress
 parameter_list|()
 function_decl|;
-comment|/**      * Further profile bound addresses      * @return Should return null if transport does not support profiles, otherwise a map with name of profile and its bound transport address      */
+comment|/**      * Further profile bound addresses      * @return<code>null</code> iff profiles are unsupported, otherwise a map with name of profile and its bound transport address      */
 DECL|method|profileBoundAddresses
 name|Map
 argument_list|<

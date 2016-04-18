@@ -232,22 +232,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|geo
-operator|.
-name|builders
-operator|.
-name|ShapeBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|text
 operator|.
 name|Text
@@ -293,50 +277,6 @@ operator|.
 name|search
 operator|.
 name|DocValueFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
-name|PipelineAggregatorBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|rescore
-operator|.
-name|RescoreBuilder
 import|;
 end_import
 
@@ -3883,7 +3823,10 @@ literal|null
 return|;
 block|}
 comment|/**      * Reads a {@link NamedWriteable} from the current stream, by first reading its name and then looking for      * the corresponding entry in the registry by name, so that the proper object can be read and returned.      * Default implementation throws {@link UnsupportedOperationException} as StreamInput doesn't hold a registry.      * Use {@link FilterInputStream} instead which wraps a stream and supports a {@link NamedWriteableRegistry} too.      */
+annotation|@
+name|Nullable
 DECL|method|readNamedWriteable
+specifier|public
 parameter_list|<
 name|C
 extends|extends
@@ -3917,49 +3860,49 @@ literal|"can't read named writeable from StreamInput"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Reads a {@link AggregatorBuilder} from the current stream      */
-DECL|method|readAggregatorBuilder
+comment|/**      * Reads an optional {@link NamedWriteable}.      */
+DECL|method|readOptionalNamedWriteable
 specifier|public
-name|AggregatorBuilder
+parameter_list|<
+name|C
+extends|extends
+name|NamedWriteable
 argument_list|<
 name|?
 argument_list|>
-name|readAggregatorBuilder
-parameter_list|()
+parameter_list|>
+name|C
+name|readOptionalNamedWriteable
+parameter_list|(
+name|Class
+argument_list|<
+name|C
+argument_list|>
+name|categoryClass
+parameter_list|)
 throws|throws
 name|IOException
+block|{
+if|if
+condition|(
+name|readBoolean
+argument_list|()
+condition|)
 block|{
 return|return
 name|readNamedWriteable
 argument_list|(
-name|AggregatorBuilder
-operator|.
-name|class
+name|categoryClass
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link PipelineAggregatorBuilder} from the current stream      */
-DECL|method|readPipelineAggregatorBuilder
-specifier|public
-name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
-name|readPipelineAggregatorBuilder
-parameter_list|()
-throws|throws
-name|IOException
-block|{
 return|return
-name|readNamedWriteable
-argument_list|(
-name|PipelineAggregatorBuilder
-operator|.
-name|class
-argument_list|)
+literal|null
 return|;
 block|}
-comment|/**      * Reads a {@link QueryBuilder} from the current stream      */
+comment|/**      * Reads a {@link QueryBuilder} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link QueryBuilder}.      */
+annotation|@
+name|Deprecated
 DECL|method|readQuery
 specifier|public
 name|QueryBuilder
@@ -3980,77 +3923,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads an optional {@link QueryBuilder}.      */
-DECL|method|readOptionalQuery
-specifier|public
-name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
-name|readOptionalQuery
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|readBoolean
-argument_list|()
-condition|)
-block|{
-return|return
-name|readNamedWriteable
-argument_list|(
-name|QueryBuilder
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
-return|return
-literal|null
-return|;
-block|}
-comment|/**      * Reads a {@link ShapeBuilder} from the current stream      */
-DECL|method|readShape
-specifier|public
-name|ShapeBuilder
-name|readShape
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|readNamedWriteable
-argument_list|(
-name|ShapeBuilder
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
-comment|/**      * Reads a {@link RescoreBuilder} from the current stream      */
-DECL|method|readRescorer
-specifier|public
-name|RescoreBuilder
-argument_list|<
-name|?
-argument_list|>
-name|readRescorer
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|readNamedWriteable
-argument_list|(
-name|RescoreBuilder
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
-comment|/**      * Reads a {@link SuggestionBuilder} from the current stream      */
+comment|/**      * Reads a {@link SuggestionBuilder} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link SuggestionBuilder}.      */
+annotation|@
+name|Deprecated
 DECL|method|readSuggestion
 specifier|public
 name|SuggestionBuilder
@@ -4071,7 +3946,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link SortBuilder} from the current stream      */
+comment|/**      * Reads a {@link SortBuilder} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link SortBuilder}.      */
+annotation|@
+name|Deprecated
 DECL|method|readSortBuilder
 specifier|public
 name|SortBuilder
@@ -4092,7 +3969,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link org.elasticsearch.index.query.functionscore.ScoreFunctionBuilder} from the current stream      */
+comment|/**      * Reads a {@link org.elasticsearch.index.query.functionscore.ScoreFunctionBuilder} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link ScoreFunctionBuilder}.      */
+annotation|@
+name|Deprecated
 DECL|method|readScoreFunction
 specifier|public
 name|ScoreFunctionBuilder
@@ -4113,7 +3992,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link SmoothingModel} from the current stream      */
+comment|/**      * Reads a {@link SmoothingModel} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link SmoothingModel}.      */
+annotation|@
+name|Deprecated
 DECL|method|readPhraseSuggestionSmoothingModel
 specifier|public
 name|SmoothingModel
@@ -4131,7 +4012,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link Task.Status} from the current stream.      */
+comment|/**      * Reads a {@link Task.Status} from the current stream.      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link Task.Status}.      */
+annotation|@
+name|Deprecated
 DECL|method|readTaskStatus
 specifier|public
 name|Task
@@ -4153,7 +4036,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link DocValueFormat} from the current stream.      */
+comment|/**      * Reads a {@link DocValueFormat} from the current stream.      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link DocValueFormat}.      */
+annotation|@
+name|Deprecated
 DECL|method|readValueFormat
 specifier|public
 name|DocValueFormat
@@ -4171,7 +4056,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads an {@link AllocationCommand} from the stream.      */
+comment|/**      * Reads an {@link AllocationCommand} from the stream.      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link AllocationCommand}.      */
+annotation|@
+name|Deprecated
 DECL|method|readAllocationCommand
 specifier|public
 name|AllocationCommand

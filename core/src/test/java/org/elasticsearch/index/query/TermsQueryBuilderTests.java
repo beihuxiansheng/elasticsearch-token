@@ -1845,7 +1845,7 @@ name|termsQueryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1876,7 +1876,7 @@ name|termsQueryBuilder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|,

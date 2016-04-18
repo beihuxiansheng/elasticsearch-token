@@ -216,22 +216,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|geo
-operator|.
-name|builders
-operator|.
-name|ShapeBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|text
 operator|.
 name|Text
@@ -277,50 +261,6 @@ operator|.
 name|search
 operator|.
 name|DocValueFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
-name|PipelineAggregatorBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|rescore
-operator|.
-name|RescoreBuilder
 import|;
 end_import
 
@@ -3904,6 +3844,7 @@ block|}
 block|}
 comment|/**      * Writes a {@link NamedWriteable} to the current stream, by first writing its name and then the object itself      */
 DECL|method|writeNamedWriteable
+specifier|public
 name|void
 name|writeNamedWriteable
 parameter_list|(
@@ -3932,49 +3873,53 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link AggregatorBuilder} to the current stream      */
-DECL|method|writeAggregatorBuilder
+comment|/**      * Write an optional {@link NamedWriteable} to the stream.      */
+DECL|method|writeOptionalNamedWriteable
 specifier|public
 name|void
-name|writeAggregatorBuilder
+name|writeOptionalNamedWriteable
 parameter_list|(
-name|AggregatorBuilder
+annotation|@
+name|Nullable
+name|NamedWriteable
 argument_list|<
 name|?
 argument_list|>
-name|builder
+name|namedWriteable
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|writeNamedWriteable
-argument_list|(
-name|builder
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Writes a {@link PipelineAggregatorBuilder} to the current stream      */
-DECL|method|writePipelineAggregatorBuilder
-specifier|public
-name|void
-name|writePipelineAggregatorBuilder
-parameter_list|(
-name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
-name|builder
-parameter_list|)
-throws|throws
-name|IOException
+if|if
+condition|(
+name|namedWriteable
+operator|==
+literal|null
+condition|)
 block|{
-name|writeNamedWriteable
+name|writeBoolean
 argument_list|(
-name|builder
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link QueryBuilder} to the current stream      */
+else|else
+block|{
+name|writeBoolean
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|writeNamedWriteable
+argument_list|(
+name|namedWriteable
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Writes a {@link QueryBuilder} to the current stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeQuery
 specifier|public
 name|void
@@ -3995,69 +3940,9 @@ name|queryBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write an optional {@link QueryBuilder} to the stream.      */
-DECL|method|writeOptionalQuery
-specifier|public
-name|void
-name|writeOptionalQuery
-parameter_list|(
+comment|/**      * Writes a {@link ScoreFunctionBuilder} to the current stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
 annotation|@
-name|Nullable
-name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
-name|queryBuilder
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|queryBuilder
-operator|==
-literal|null
-condition|)
-block|{
-name|writeBoolean
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|writeBoolean
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|writeQuery
-argument_list|(
-name|queryBuilder
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/**      * Writes a {@link ShapeBuilder} to the current stream      */
-DECL|method|writeShape
-specifier|public
-name|void
-name|writeShape
-parameter_list|(
-name|ShapeBuilder
-name|shapeBuilder
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeNamedWriteable
-argument_list|(
-name|shapeBuilder
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Writes a {@link ScoreFunctionBuilder} to the current stream      */
+name|Deprecated
 DECL|method|writeScoreFunction
 specifier|public
 name|void
@@ -4078,7 +3963,9 @@ name|scoreFunctionBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes the given {@link SmoothingModel} to the stream      */
+comment|/**      * Writes the given {@link SmoothingModel} to the stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writePhraseSuggestionSmoothingModel
 specifier|public
 name|void
@@ -4096,7 +3983,9 @@ name|smoothinModel
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link Task.Status} to the current stream.      */
+comment|/**      * Writes a {@link Task.Status} to the current stream.      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeTaskStatus
 specifier|public
 name|void
@@ -4253,28 +4142,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Writes a {@link RescoreBuilder} to the current stream      */
-DECL|method|writeRescorer
-specifier|public
-name|void
-name|writeRescorer
-parameter_list|(
-name|RescoreBuilder
-argument_list|<
-name|?
-argument_list|>
-name|rescorer
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeNamedWriteable
-argument_list|(
-name|rescorer
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Writes a {@link SuggestionBuilder} to the current stream      */
+comment|/**      * Writes a {@link SuggestionBuilder} to the current stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeSuggestion
 specifier|public
 name|void
@@ -4295,7 +4165,9 @@ name|suggestion
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link SortBuilder} to the current stream      */
+comment|/**      * Writes a {@link SortBuilder} to the current stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeSortBuilder
 specifier|public
 name|void
@@ -4316,7 +4188,9 @@ name|sort
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes a {@link DocValueFormat}. */
+comment|/**      * Writes a {@link DocValueFormat}.      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeValueFormat
 specifier|public
 name|void
@@ -4334,7 +4208,9 @@ name|format
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes an {@link AllocationCommand} to the stream.      */
+comment|/**      * Writes an {@link AllocationCommand} to the stream.      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeAllocationCommand
 specifier|public
 name|void

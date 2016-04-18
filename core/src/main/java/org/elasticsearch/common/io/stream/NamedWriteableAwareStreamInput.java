@@ -72,14 +72,15 @@ block|}
 annotation|@
 name|Override
 DECL|method|readNamedWriteable
-argument_list|<
+specifier|public
+parameter_list|<
 name|C
 extends|extends
 name|NamedWriteable
 argument_list|<
 name|?
 argument_list|>
-argument_list|>
+parameter_list|>
 name|C
 name|readNamedWriteable
 parameter_list|(

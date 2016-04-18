@@ -2458,7 +2458,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2578,6 +2578,11 @@ name|parseContext
 operator|.
 name|parser
 argument_list|()
+argument_list|,
+name|parseContext
+operator|.
+name|getParseFieldMatcher
+argument_list|()
 argument_list|)
 operator|.
 name|fromXContent
@@ -2616,7 +2621,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2701,7 +2706,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2732,7 +2737,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2761,7 +2766,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2785,7 +2790,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2811,7 +2816,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2837,7 +2842,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2913,7 +2918,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3283,7 +3288,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3340,6 +3345,11 @@ argument_list|(
 name|currentFieldName
 argument_list|,
 name|parser
+argument_list|,
+name|parseContext
+operator|.
+name|getParseFieldMatcher
+argument_list|()
 argument_list|)
 operator|.
 name|fromXContent
@@ -3362,7 +3372,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

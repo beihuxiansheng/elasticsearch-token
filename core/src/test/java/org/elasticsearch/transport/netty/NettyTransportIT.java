@@ -777,7 +777,7 @@ specifier|public
 name|ErrorPipelineFactory
 parameter_list|(
 name|ExceptionThrowingNettyTransport
-name|exceptionThrowingNettyTransport
+name|nettyTransport
 parameter_list|,
 name|String
 name|name
@@ -788,7 +788,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|exceptionThrowingNettyTransport
+name|nettyTransport
 argument_list|,
 name|name
 argument_list|,
@@ -799,7 +799,7 @@ name|this
 operator|.
 name|logger
 operator|=
-name|exceptionThrowingNettyTransport
+name|nettyTransport
 operator|.
 name|logger
 expr_stmt|;

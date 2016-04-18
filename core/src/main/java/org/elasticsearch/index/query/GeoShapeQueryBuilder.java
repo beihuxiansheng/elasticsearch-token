@@ -842,8 +842,12 @@ name|shape
 operator|=
 name|in
 operator|.
-name|readShape
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|ShapeBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|indexedShapeId
 operator|=
@@ -962,7 +966,7 @@ condition|)
 block|{
 name|out
 operator|.
-name|writeShape
+name|writeNamedWriteable
 argument_list|(
 name|shape
 argument_list|)
@@ -1715,15 +1719,11 @@ name|currentPathSlot
 init|=
 literal|0
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|parser
-operator|=
 name|XContentHelper
 operator|.
 name|createParser
@@ -1733,7 +1733,8 @@ operator|.
 name|getSourceAsBytesRef
 argument_list|()
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 name|XContentParser
 operator|.
 name|Token
@@ -1842,22 +1843,6 @@ operator|+
 literal|" field"
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|parser
-operator|!=
-literal|null
-condition|)
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getArgs
@@ -2386,7 +2371,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2412,7 +2397,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2470,7 +2455,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2526,7 +2511,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2587,7 +2572,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2611,7 +2596,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2635,7 +2620,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2659,7 +2644,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2751,7 +2736,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2777,7 +2762,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2803,7 +2788,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

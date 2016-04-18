@@ -441,7 +441,7 @@ decl_stmt|;
 try|try
 init|(
 name|TransportClient
-name|transportClient
+name|client
 init|=
 name|TransportClient
 operator|.
@@ -460,7 +460,7 @@ name|build
 argument_list|()
 init|)
 block|{
-name|transportClient
+name|client
 operator|.
 name|addTransportAddresses
 argument_list|(
@@ -469,7 +469,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|transportClient
+name|client
 operator|.
 name|connectedNodes
 argument_list|()
@@ -547,7 +547,7 @@ condition|)
 block|{
 name|clusterState
 operator|=
-name|transportClient
+name|client
 operator|.
 name|admin
 argument_list|()
@@ -579,13 +579,13 @@ operator|new
 name|PlainListenableActionFuture
 argument_list|<>
 argument_list|(
-name|transportClient
+name|client
 operator|.
 name|threadPool
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|transportClient
+name|client
 operator|.
 name|admin
 argument_list|()
@@ -631,7 +631,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|transportClient
+name|client
 operator|.
 name|connectedNodes
 argument_list|()

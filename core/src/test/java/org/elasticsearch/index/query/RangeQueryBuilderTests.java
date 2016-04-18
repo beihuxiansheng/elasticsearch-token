@@ -2808,6 +2808,8 @@ argument_list|(
 name|fieldName
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|MappedFieldType
 operator|.
@@ -2941,7 +2943,7 @@ expr_stmt|;
 name|QueryShardContext
 name|queryShardContext
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
@@ -3044,6 +3046,8 @@ argument_list|(
 name|fieldName
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|MappedFieldType
 operator|.
@@ -3129,7 +3133,7 @@ expr_stmt|;
 name|QueryShardContext
 name|queryShardContext
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
@@ -3185,6 +3189,8 @@ argument_list|(
 name|fieldName
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|MappedFieldType
 operator|.
@@ -3270,7 +3276,7 @@ expr_stmt|;
 name|QueryShardContext
 name|queryShardContext
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
@@ -3324,6 +3330,8 @@ argument_list|(
 name|fieldName
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|MappedFieldType
 operator|.
@@ -3347,7 +3355,7 @@ decl_stmt|;
 name|QueryShardContext
 name|queryShardContext
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 decl_stmt|;
 name|QueryBuilder

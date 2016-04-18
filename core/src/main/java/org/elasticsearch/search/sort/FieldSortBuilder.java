@@ -588,8 +588,12 @@ name|nestedFilter
 operator|=
 name|in
 operator|.
-name|readOptionalQuery
-argument_list|()
+name|readOptionalNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|nestedPath
 operator|=
@@ -657,7 +661,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalQuery
+name|writeOptionalNamedWriteable
 argument_list|(
 name|nestedFilter
 argument_list|)
@@ -1616,7 +1620,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -1671,7 +1675,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -1695,7 +1699,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -1719,7 +1723,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -1796,7 +1800,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -1825,7 +1829,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

@@ -254,6 +254,18 @@ name|lang
 operator|.
 name|Math
 operator|.
+name|max
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
 name|round
 import|;
 end_import
@@ -585,6 +597,10 @@ block|}
 return|return
 name|timeValueNanos
 argument_list|(
+name|max
+argument_list|(
+literal|0
+argument_list|,
 name|delayed
 operator|.
 name|future
@@ -594,6 +610,7 @@ argument_list|(
 name|TimeUnit
 operator|.
 name|NANOSECONDS
+argument_list|)
 argument_list|)
 argument_list|)
 return|;

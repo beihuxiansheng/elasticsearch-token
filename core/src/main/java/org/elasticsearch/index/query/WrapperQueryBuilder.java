@@ -543,7 +543,7 @@ condition|(
 operator|!
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -731,15 +731,10 @@ init|=
 name|context
 operator|.
 name|newParseContext
-argument_list|()
-decl_stmt|;
-name|parseContext
-operator|.
-name|reset
 argument_list|(
 name|qSourceParser
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 specifier|final
 name|QueryBuilder
 argument_list|<

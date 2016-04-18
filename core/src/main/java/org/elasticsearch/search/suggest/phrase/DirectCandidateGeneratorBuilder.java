@@ -1827,6 +1827,8 @@ name|tmpFieldName
 argument_list|,
 name|tempGenerator
 argument_list|)
+argument_list|,
+name|parseContext
 argument_list|)
 expr_stmt|;
 if|if
@@ -1868,6 +1870,8 @@ name|tempGenerator
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|build
 specifier|public
 name|PhraseSuggestionContext

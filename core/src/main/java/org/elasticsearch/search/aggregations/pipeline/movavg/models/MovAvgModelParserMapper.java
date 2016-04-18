@@ -36,20 +36,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -110,8 +96,6 @@ name|AbstractModelParser
 argument_list|>
 name|movAvgParsers
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|MovAvgModelParserMapper
 specifier|public
 name|MovAvgModelParserMapper

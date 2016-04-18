@@ -219,8 +219,12 @@ name|shape
 argument_list|(
 name|in
 operator|.
-name|readShape
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|ShapeBuilder
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -258,7 +262,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeShape
+name|writeNamedWriteable
 argument_list|(
 name|shape
 argument_list|)
