@@ -3958,27 +3958,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Reads a {@link PipelineAggregatorBuilder} from the current stream      */
-DECL|method|readPipelineAggregatorBuilder
-specifier|public
-name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
-name|readPipelineAggregatorBuilder
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|readNamedWriteable
-argument_list|(
-name|PipelineAggregatorBuilder
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
 comment|/**      * Reads a {@link QueryBuilder} from the current stream      */
 DECL|method|readQuery
 specifier|public

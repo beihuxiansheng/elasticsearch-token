@@ -3977,27 +3977,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Writes a {@link PipelineAggregatorBuilder} to the current stream      */
-DECL|method|writePipelineAggregatorBuilder
-specifier|public
-name|void
-name|writePipelineAggregatorBuilder
-parameter_list|(
-name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
-name|builder
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeNamedWriteable
-argument_list|(
-name|builder
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Writes a {@link QueryBuilder} to the current stream      */
 DECL|method|writeQuery
 specifier|public
