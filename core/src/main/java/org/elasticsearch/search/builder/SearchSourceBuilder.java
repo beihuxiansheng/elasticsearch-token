@@ -1464,11 +1464,8 @@ condition|)
 block|{
 name|innerHitsBuilder
 operator|=
+operator|new
 name|InnerHitsBuilder
-operator|.
-name|PROTO
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)

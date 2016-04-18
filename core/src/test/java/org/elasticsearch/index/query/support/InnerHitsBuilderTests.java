@@ -970,11 +970,8 @@ argument_list|)
 init|)
 block|{
 return|return
+operator|new
 name|InnerHitsBuilder
-operator|.
-name|PROTO
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
