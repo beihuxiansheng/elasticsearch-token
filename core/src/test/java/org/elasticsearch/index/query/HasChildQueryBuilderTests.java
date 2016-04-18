@@ -342,22 +342,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
-operator|.
-name|support
-operator|.
-name|InnerHitBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|similarity
 operator|.
 name|SimilarityService
@@ -463,6 +447,26 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -973,12 +977,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|assertNotNull
-argument_list|(
+name|SearchContext
+name|searchContext
+init|=
 name|SearchContext
 operator|.
 name|current
 argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|searchContext
 argument_list|)
 expr_stmt|;
 if|if
@@ -988,12 +997,55 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|InnerHitBuilder
+argument_list|>
+name|innerHitBuilders
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|InnerHitBuilder
+operator|.
+name|extractInnerHits
+argument_list|(
+name|queryBuilder
+argument_list|,
+name|innerHitBuilders
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|InnerHitBuilder
+name|builder
+range|:
+name|innerHitBuilders
+operator|.
+name|values
+argument_list|()
+control|)
+block|{
+name|builder
+operator|.
+name|build
+argument_list|(
+name|searchContext
+argument_list|,
+name|searchContext
+operator|.
+name|innerHits
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|assertNotNull
 argument_list|(
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|searchContext
 operator|.
 name|innerHits
 argument_list|()
@@ -1003,10 +1055,7 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|searchContext
 operator|.
 name|innerHits
 argument_list|()
@@ -1020,10 +1069,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|searchContext
 operator|.
 name|innerHits
 argument_list|()
@@ -1048,10 +1094,7 @@ operator|.
 name|BaseInnerHits
 name|innerHits
 init|=
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|searchContext
 operator|.
 name|innerHits
 argument_list|()
@@ -1125,10 +1168,7 @@ else|else
 block|{
 name|assertThat
 argument_list|(
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|searchContext
 operator|.
 name|innerHits
 argument_list|()
@@ -1460,8 +1500,6 @@ literal|"    \"_name\" : \"WNzYMJKRwePuRBh\",\n"
 operator|+
 literal|"    \"inner_hits\" : {\n"
 operator|+
-literal|"      \"type\" : \"child\",\n"
-operator|+
 literal|"      \"name\" : \"inner_hits_name\",\n"
 operator|+
 literal|"      \"from\" : 0,\n"
@@ -1482,29 +1520,7 @@ literal|"          \"order\" : \"asc\"\n"
 operator|+
 literal|"        }\n"
 operator|+
-literal|"      } ],\n"
-operator|+
-literal|"      \"query\" : {\n"
-operator|+
-literal|"        \"range\" : {\n"
-operator|+
-literal|"          \"mapped_string\" : {\n"
-operator|+
-literal|"            \"from\" : \"agJhRET\",\n"
-operator|+
-literal|"            \"to\" : \"zvqIq\",\n"
-operator|+
-literal|"            \"include_lower\" : true,\n"
-operator|+
-literal|"            \"include_upper\" : true,\n"
-operator|+
-literal|"            \"boost\" : 1.0\n"
-operator|+
-literal|"          }\n"
-operator|+
-literal|"        }\n"
-operator|+
-literal|"      }\n"
+literal|"      } ]\n"
 operator|+
 literal|"    }\n"
 operator|+
@@ -1616,21 +1632,21 @@ name|innerHit
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|InnerHitBuilder
+name|expected
+init|=
+operator|new
+name|InnerHitBuilder
 argument_list|(
-name|query
-argument_list|,
-name|queryBuilder
-operator|.
-name|innerHit
-argument_list|()
-argument_list|,
 operator|new
 name|InnerHitBuilder
 argument_list|()
+argument_list|,
+name|queryBuilder
 operator|.
-name|setParentChildType
-argument_list|(
+name|query
+argument_list|()
+argument_list|,
 literal|"child"
 argument_list|)
 operator|.
@@ -1659,14 +1675,17 @@ operator|.
 name|ASC
 argument_list|)
 argument_list|)
-operator|.
-name|setQuery
+decl_stmt|;
+name|assertEquals
 argument_list|(
+name|query
+argument_list|,
 name|queryBuilder
 operator|.
-name|query
+name|innerHit
 argument_list|()
-argument_list|)
+argument_list|,
+name|expected
 argument_list|)
 expr_stmt|;
 block|}
