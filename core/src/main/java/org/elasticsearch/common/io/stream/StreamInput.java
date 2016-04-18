@@ -3898,7 +3898,9 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Reads a {@link QueryBuilder} from the current stream      */
+comment|/**      * Reads a {@link QueryBuilder} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link QueryBuilder}.      */
+annotation|@
+name|Deprecated
 DECL|method|readQuery
 specifier|public
 name|QueryBuilder
@@ -3919,7 +3921,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link SuggestionBuilder} from the current stream      */
+comment|/**      * Reads a {@link SuggestionBuilder} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link SuggestionBuilder}.      */
+annotation|@
+name|Deprecated
 DECL|method|readSuggestion
 specifier|public
 name|SuggestionBuilder
@@ -3940,7 +3944,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link SortBuilder} from the current stream      */
+comment|/**      * Reads a {@link SortBuilder} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link SortBuilder}.      */
+annotation|@
+name|Deprecated
 DECL|method|readSortBuilder
 specifier|public
 name|SortBuilder
@@ -3961,7 +3967,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link org.elasticsearch.index.query.functionscore.ScoreFunctionBuilder} from the current stream      */
+comment|/**      * Reads a {@link org.elasticsearch.index.query.functionscore.ScoreFunctionBuilder} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link ScoreFunctionBuilder}.      */
+annotation|@
+name|Deprecated
 DECL|method|readScoreFunction
 specifier|public
 name|ScoreFunctionBuilder
@@ -3982,7 +3990,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link SmoothingModel} from the current stream      */
+comment|/**      * Reads a {@link SmoothingModel} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link SmoothingModel}.      */
+annotation|@
+name|Deprecated
 DECL|method|readPhraseSuggestionSmoothingModel
 specifier|public
 name|SmoothingModel
@@ -4000,7 +4010,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link Task.Status} from the current stream.      */
+comment|/**      * Reads a {@link Task.Status} from the current stream.      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link Task.Status}.      */
+annotation|@
+name|Deprecated
 DECL|method|readTaskStatus
 specifier|public
 name|Task
@@ -4022,7 +4034,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link DocValueFormat} from the current stream.      */
+comment|/**      * Reads a {@link DocValueFormat} from the current stream.      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link DocValueFormat}.      */
+annotation|@
+name|Deprecated
 DECL|method|readValueFormat
 specifier|public
 name|DocValueFormat
@@ -4040,7 +4054,9 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads an {@link AllocationCommand} from the stream.      */
+comment|/**      * Reads an {@link AllocationCommand} from the stream.      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link AllocationCommand}.      */
+annotation|@
+name|Deprecated
 DECL|method|readAllocationCommand
 specifier|public
 name|AllocationCommand

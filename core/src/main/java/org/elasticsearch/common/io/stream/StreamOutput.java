@@ -3917,7 +3917,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Writes a {@link QueryBuilder} to the current stream      */
+comment|/**      * Writes a {@link QueryBuilder} to the current stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeQuery
 specifier|public
 name|void
@@ -3938,7 +3940,9 @@ name|queryBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link ScoreFunctionBuilder} to the current stream      */
+comment|/**      * Writes a {@link ScoreFunctionBuilder} to the current stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeScoreFunction
 specifier|public
 name|void
@@ -3959,7 +3963,9 @@ name|scoreFunctionBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes the given {@link SmoothingModel} to the stream      */
+comment|/**      * Writes the given {@link SmoothingModel} to the stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writePhraseSuggestionSmoothingModel
 specifier|public
 name|void
@@ -3977,7 +3983,9 @@ name|smoothinModel
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link Task.Status} to the current stream.      */
+comment|/**      * Writes a {@link Task.Status} to the current stream.      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeTaskStatus
 specifier|public
 name|void
@@ -4134,7 +4142,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Writes a {@link SuggestionBuilder} to the current stream      */
+comment|/**      * Writes a {@link SuggestionBuilder} to the current stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeSuggestion
 specifier|public
 name|void
@@ -4155,7 +4165,9 @@ name|suggestion
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link SortBuilder} to the current stream      */
+comment|/**      * Writes a {@link SortBuilder} to the current stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeSortBuilder
 specifier|public
 name|void
@@ -4176,7 +4188,9 @@ name|sort
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes a {@link DocValueFormat}. */
+comment|/**      * Writes a {@link DocValueFormat}.      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeValueFormat
 specifier|public
 name|void
@@ -4194,7 +4208,9 @@ name|format
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes an {@link AllocationCommand} to the stream.      */
+comment|/**      * Writes an {@link AllocationCommand} to the stream.      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
+annotation|@
+name|Deprecated
 DECL|method|writeAllocationCommand
 specifier|public
 name|void
