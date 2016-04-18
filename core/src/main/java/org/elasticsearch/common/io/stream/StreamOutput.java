@@ -3998,24 +3998,6 @@ name|queryBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a {@link ShapeBuilder} to the current stream      */
-DECL|method|writeShape
-specifier|public
-name|void
-name|writeShape
-parameter_list|(
-name|ShapeBuilder
-name|shapeBuilder
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeNamedWriteable
-argument_list|(
-name|shapeBuilder
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Writes a {@link ScoreFunctionBuilder} to the current stream      */
 DECL|method|writeScoreFunction
 specifier|public
