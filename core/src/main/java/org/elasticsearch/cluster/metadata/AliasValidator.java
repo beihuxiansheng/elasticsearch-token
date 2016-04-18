@@ -564,7 +564,7 @@ operator|!=
 literal|null
 assert|;
 try|try
-block|{
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -579,7 +579,8 @@ name|createParser
 argument_list|(
 name|filter
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|validateAliasFilter
 argument_list|(
 name|parser
@@ -632,7 +633,7 @@ operator|!=
 literal|null
 assert|;
 try|try
-block|{
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -647,7 +648,8 @@ name|createParser
 argument_list|(
 name|filter
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|validateAliasFilter
 argument_list|(
 name|parser

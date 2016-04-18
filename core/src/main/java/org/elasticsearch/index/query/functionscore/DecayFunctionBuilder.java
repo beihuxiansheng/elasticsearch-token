@@ -975,6 +975,8 @@ argument_list|(
 name|fieldName
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -989,7 +991,8 @@ name|createParser
 argument_list|(
 name|functionBytes
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|builder
 operator|.
 name|copyCurrentStructure
@@ -997,6 +1000,7 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+block|}
 name|builder
 operator|.
 name|field
@@ -1169,6 +1173,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|AbstractDistanceScoreFunction
+name|scoreFunction
+decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -1183,8 +1192,10 @@ name|createParser
 argument_list|(
 name|functionBytes
 argument_list|)
-decl_stmt|;
-return|return
+init|)
+block|{
+name|scoreFunction
+operator|=
 name|parseVariable
 argument_list|(
 name|fieldName
@@ -1195,6 +1206,10 @@ name|context
 argument_list|,
 name|multiValueMode
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|scoreFunction
 return|;
 block|}
 comment|/**      * Override this function if you want to produce your own scorer.      * */

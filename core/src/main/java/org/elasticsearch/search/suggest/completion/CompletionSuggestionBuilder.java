@@ -1413,6 +1413,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+init|(
 name|XContentParser
 name|contextParser
 init|=
@@ -1429,7 +1431,8 @@ name|createParser
 argument_list|(
 name|contextBytes
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|builder
 operator|.
 name|field
@@ -1447,6 +1450,7 @@ argument_list|(
 name|contextParser
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|builder

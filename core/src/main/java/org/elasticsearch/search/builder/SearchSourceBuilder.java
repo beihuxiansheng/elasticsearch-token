@@ -6346,6 +6346,8 @@ name|getPreferredName
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -6362,7 +6364,8 @@ name|createParser
 argument_list|(
 name|ext
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|parser
 operator|.
 name|nextToken
@@ -6375,6 +6378,7 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|class|ScriptField
