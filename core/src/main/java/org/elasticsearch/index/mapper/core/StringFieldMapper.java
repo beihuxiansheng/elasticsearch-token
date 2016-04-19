@@ -586,7 +586,7 @@ decl_stmt|;
 comment|// If a string field is created on 5.x and all parameters are in this list then we
 comment|// will automatically upgrade to a text/keyword field. Otherwise we will just fail
 comment|// saying that string fields are not supported anymore.
-DECL|field|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE
+DECL|field|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE_TO_KEYWORD
 specifier|private
 specifier|static
 specifier|final
@@ -594,7 +594,7 @@ name|Set
 argument_list|<
 name|String
 argument_list|>
-name|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE
+name|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE_TO_KEYWORD
 init|=
 operator|new
 name|HashSet
@@ -606,7 +606,7 @@ name|asList
 argument_list|(
 literal|"type"
 argument_list|,
-comment|// most common parameters, for which the upgrade is straightforward
+comment|// common keyword parameters, for which the upgrade is straightforward
 literal|"index"
 argument_list|,
 literal|"store"
@@ -624,6 +624,51 @@ argument_list|,
 literal|"fielddata"
 argument_list|,
 literal|"ignore_above"
+argument_list|)
+argument_list|)
+decl_stmt|;
+DECL|field|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE_TO_TEXT
+specifier|private
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE_TO_TEXT
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"type"
+argument_list|,
+comment|// common text parameters, for which the upgrade is straightforward
+literal|"index"
+argument_list|,
+literal|"store"
+argument_list|,
+literal|"doc_values"
+argument_list|,
+literal|"omit_norms"
+argument_list|,
+literal|"norms"
+argument_list|,
+literal|"fields"
+argument_list|,
+literal|"copy_to"
+argument_list|,
+literal|"fielddata"
+argument_list|,
+literal|"analyzer"
+argument_list|,
+literal|"search_analyzer"
+argument_list|,
+literal|"search_quote_analyzer"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1259,36 +1304,13 @@ name|V_5_0_0_alpha1
 argument_list|)
 condition|)
 block|{
-comment|// Automatically upgrade simple mappings for ease of upgrade, otherwise fail
-if|if
-condition|(
-name|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE
-operator|.
-name|containsAll
-argument_list|(
-name|node
-operator|.
-name|keySet
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|deprecationLogger
-operator|.
-name|deprecated
-argument_list|(
-literal|"The [string] field is deprecated, please use [text] or [keyword] instead on [{}]"
-argument_list|,
-name|fieldName
-argument_list|)
-expr_stmt|;
 specifier|final
 name|Object
 name|index
 init|=
 name|node
 operator|.
-name|remove
+name|get
 argument_list|(
 literal|"index"
 argument_list|)
@@ -1310,6 +1332,41 @@ argument_list|)
 operator|==
 literal|false
 decl_stmt|;
+comment|// Automatically upgrade simple mappings for ease of upgrade, otherwise fail
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|autoUpgradeParameters
+init|=
+name|keyword
+condition|?
+name|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE_TO_KEYWORD
+else|:
+name|SUPPORTED_PARAMETERS_FOR_AUTO_UPGRADE_TO_TEXT
+decl_stmt|;
+if|if
+condition|(
+name|autoUpgradeParameters
+operator|.
+name|containsAll
+argument_list|(
+name|node
+operator|.
+name|keySet
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|deprecationLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"The [string] field is deprecated, please use [text] or [keyword] instead on [{}]"
+argument_list|,
+name|fieldName
+argument_list|)
+expr_stmt|;
 block|{
 comment|// upgrade the index setting
 name|node
