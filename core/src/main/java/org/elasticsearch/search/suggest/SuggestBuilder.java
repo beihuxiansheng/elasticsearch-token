@@ -377,8 +377,12 @@ argument_list|()
 argument_list|,
 name|in
 operator|.
-name|readSuggestion
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|SuggestionBuilder
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -450,7 +454,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeSuggestion
+name|writeNamedWriteable
 argument_list|(
 name|suggestion
 operator|.

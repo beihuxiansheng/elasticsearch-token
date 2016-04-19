@@ -1344,7 +1344,7 @@ init|)
 block|{
 name|output
 operator|.
-name|writeSuggestion
+name|writeNamedWriteable
 argument_list|(
 name|original
 argument_list|)
@@ -1377,8 +1377,12 @@ name|SB
 operator|)
 name|in
 operator|.
-name|readSuggestion
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|SuggestionBuilder
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 block|}
