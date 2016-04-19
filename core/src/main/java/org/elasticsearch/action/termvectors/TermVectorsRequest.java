@@ -439,8 +439,11 @@ argument_list|>
 name|selectedFields
 decl_stmt|;
 DECL|field|realtime
-name|Boolean
+specifier|private
+name|boolean
 name|realtime
+init|=
+literal|true
 decl_stmt|;
 DECL|field|perFieldAnalyzer
 specifier|private
@@ -1569,17 +1572,8 @@ return|return
 name|this
 operator|.
 name|realtime
-operator|==
-literal|null
-condition|?
-literal|true
-else|:
-name|this
-operator|.
-name|realtime
 return|;
 block|}
-comment|/**      * Choose whether term vectors be generated real-time.      */
 annotation|@
 name|Override
 DECL|method|realtime
@@ -1587,7 +1581,7 @@ specifier|public
 name|TermVectorsRequest
 name|realtime
 parameter_list|(
-name|Boolean
+name|boolean
 name|realtime
 parameter_list|)
 block|{
@@ -2368,7 +2362,6 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|realtime
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|out

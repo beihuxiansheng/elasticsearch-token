@@ -504,7 +504,7 @@ specifier|public
 name|GetRequestBuilder
 name|setRealtime
 parameter_list|(
-name|Boolean
+name|boolean
 name|realtime
 parameter_list|)
 block|{
