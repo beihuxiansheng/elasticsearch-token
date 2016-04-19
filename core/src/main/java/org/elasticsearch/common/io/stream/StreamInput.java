@@ -3913,26 +3913,6 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Reads a {@link SmoothingModel} from the current stream      * @deprecated prefer {@link #readNamedWriteable(Class)} passing {@link SmoothingModel}.      */
-annotation|@
-name|Deprecated
-DECL|method|readPhraseSuggestionSmoothingModel
-specifier|public
-name|SmoothingModel
-name|readPhraseSuggestionSmoothingModel
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|readNamedWriteable
-argument_list|(
-name|SmoothingModel
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
 comment|/**      * Reads a list of objects      */
 DECL|method|readList
 specifier|public

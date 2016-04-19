@@ -3907,26 +3907,6 @@ name|scoreFunctionBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes the given {@link SmoothingModel} to the stream      * @deprecated prefer {@link #writeNamedWriteable(NamedWriteable)}      */
-annotation|@
-name|Deprecated
-DECL|method|writePhraseSuggestionSmoothingModel
-specifier|public
-name|void
-name|writePhraseSuggestionSmoothingModel
-parameter_list|(
-name|SmoothingModel
-name|smoothinModel
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|writeNamedWriteable
-argument_list|(
-name|smoothinModel
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Writes the given {@link GeoPoint} to the stream      */
 DECL|method|writeGeoPoint
 specifier|public
