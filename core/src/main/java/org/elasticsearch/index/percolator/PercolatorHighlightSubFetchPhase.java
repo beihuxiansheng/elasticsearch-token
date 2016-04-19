@@ -194,7 +194,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|PercolatorQuery
+name|PercolateQuery
 import|;
 end_import
 
@@ -325,11 +325,11 @@ import|;
 end_import
 
 begin_comment
-comment|// Highlighting in the case of the percolator query is a bit different, because the PercolatorQuery itself doesn't get highlighted,
+comment|// Highlighting in the case of the percolate query is a bit different, because the PercolateQuery itself doesn't get highlighted,
 end_comment
 
 begin_comment
-comment|// but the source of the PercolatorQuery gets highlighted by each hit with type '.percolator' (percolator queries).
+comment|// but the source of the PercolateQuery gets highlighted by each hit with type '.percolator' (percolator queries).
 end_comment
 
 begin_class
@@ -408,8 +408,8 @@ index|[]
 name|hits
 parameter_list|)
 block|{
-name|PercolatorQuery
-name|percolatorQuery
+name|PercolateQuery
+name|percolateQuery
 init|=
 name|locatePercolatorQuery
 argument_list|(
@@ -421,7 +421,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|percolatorQuery
+name|percolateQuery
 operator|==
 literal|null
 condition|)
@@ -463,7 +463,7 @@ decl_stmt|;
 name|IndexSearcher
 name|percolatorIndexSearcher
 init|=
-name|percolatorQuery
+name|percolateQuery
 operator|.
 name|getPercolatorIndexSearcher
 argument_list|()
@@ -504,7 +504,7 @@ name|context
 argument_list|,
 name|percolatorLeafReaderContext
 argument_list|,
-name|percolatorQuery
+name|percolateQuery
 operator|.
 name|getDocumentSource
 argument_list|()
@@ -597,7 +597,7 @@ argument_list|,
 operator|new
 name|Text
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 operator|.
 name|getDocumentType
 argument_list|()
@@ -705,7 +705,7 @@ parameter_list|)
 block|{     }
 DECL|method|locatePercolatorQuery
 specifier|static
-name|PercolatorQuery
+name|PercolateQuery
 name|locatePercolatorQuery
 parameter_list|(
 name|Query
@@ -716,12 +716,12 @@ if|if
 condition|(
 name|query
 operator|instanceof
-name|PercolatorQuery
+name|PercolateQuery
 condition|)
 block|{
 return|return
 operator|(
-name|PercolatorQuery
+name|PercolateQuery
 operator|)
 name|query
 return|;
@@ -750,7 +750,7 @@ name|clauses
 argument_list|()
 control|)
 block|{
-name|PercolatorQuery
+name|PercolateQuery
 name|result
 init|=
 name|locatePercolatorQuery

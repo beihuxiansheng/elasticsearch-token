@@ -610,7 +610,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 import|;
 end_import
 
@@ -7278,15 +7278,15 @@ argument_list|)
 expr_stmt|;
 name|registerQuery
 argument_list|(
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|::
 operator|new
 argument_list|,
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|::
 name|fromXContent
 argument_list|,
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|.
 name|QUERY_NAME_FIELD
 argument_list|)

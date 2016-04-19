@@ -932,7 +932,7 @@ literal|"parentId"
 block|,
 literal|"parent_id"
 block|,
-literal|"percolator"
+literal|"percolate"
 block|,
 literal|"prefix"
 block|,

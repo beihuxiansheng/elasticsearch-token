@@ -520,7 +520,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|PercolatorQuery
+name|PercolateQuery
 import|;
 end_import
 
@@ -711,7 +711,7 @@ name|LeafReader
 operator|.
 name|CoreClosedListener
 implements|,
-name|PercolatorQuery
+name|PercolateQuery
 operator|.
 name|QueryRegistry
 block|{

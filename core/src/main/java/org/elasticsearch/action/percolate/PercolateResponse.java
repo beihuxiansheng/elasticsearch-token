@@ -299,7 +299,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-comment|// PercolatorQuery emits this score if no 'query' is defined in the percolate request
+comment|// PercolateQuery emits this score if no 'query' is defined in the percolate request
 DECL|field|NO_SCORE
 specifier|public
 specifier|final

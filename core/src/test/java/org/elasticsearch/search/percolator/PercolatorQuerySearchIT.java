@@ -106,20 +106,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|highlight
@@ -262,7 +248,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 import|;
 end_import
 
@@ -616,7 +602,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -695,7 +681,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -811,7 +797,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -1183,7 +1169,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -1245,7 +1231,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -1337,7 +1323,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -1940,7 +1926,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -2498,7 +2484,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -2876,9 +2862,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|QueryBuilders
-operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"query"
 argument_list|,
@@ -3383,7 +3367,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 name|queryFieldName
 argument_list|,
@@ -3481,7 +3465,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"object_field."
 operator|+

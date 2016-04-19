@@ -631,14 +631,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|PercolatorQueryBuilder
+DECL|class|PercolateQueryBuilder
 specifier|public
 class|class
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 extends|extends
 name|AbstractQueryBuilder
 argument_list|<
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|>
 block|{
 DECL|field|NAME
@@ -648,7 +648,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"percolator"
+literal|"percolate"
 decl_stmt|;
 DECL|field|QUERY_NAME_FIELD
 specifier|public
@@ -833,9 +833,9 @@ specifier|final
 name|Long
 name|indexedDocumentVersion
 decl_stmt|;
-DECL|method|PercolatorQueryBuilder
+DECL|method|PercolateQueryBuilder
 specifier|public
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 parameter_list|(
 name|String
 name|field
@@ -935,9 +935,9 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-DECL|method|PercolatorQueryBuilder
+DECL|method|PercolateQueryBuilder
 specifier|public
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 parameter_list|(
 name|String
 name|field
@@ -1095,9 +1095,9 @@ literal|null
 expr_stmt|;
 block|}
 comment|/**      * Read from a stream.      */
-DECL|method|PercolatorQueryBuilder
+DECL|method|PercolateQueryBuilder
 specifier|public
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 parameter_list|(
 name|StreamInput
 name|in
@@ -1574,7 +1574,7 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -1767,7 +1767,7 @@ argument_list|()
 argument_list|,
 literal|"["
 operator|+
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|.
 name|NAME
 operator|+
@@ -2045,7 +2045,7 @@ argument_list|()
 argument_list|,
 literal|"["
 operator|+
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|.
 name|NAME
 operator|+
@@ -2071,7 +2071,7 @@ argument_list|()
 argument_list|,
 literal|"["
 operator|+
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|.
 name|NAME
 operator|+
@@ -2097,7 +2097,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"["
 operator|+
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|.
 name|NAME
 operator|+
@@ -2112,7 +2112,7 @@ literal|"] parameter"
 argument_list|)
 throw|;
 block|}
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|queryBuilder
 decl_stmt|;
 if|if
@@ -2125,7 +2125,7 @@ block|{
 name|queryBuilder
 operator|=
 operator|new
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|(
 name|field
 argument_list|,
@@ -2146,7 +2146,7 @@ block|{
 name|queryBuilder
 operator|=
 operator|new
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|(
 name|field
 argument_list|,
@@ -2174,7 +2174,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"["
 operator|+
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|.
 name|NAME
 operator|+
@@ -2207,7 +2207,7 @@ specifier|protected
 name|boolean
 name|doEquals
 parameter_list|(
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|other
 parameter_list|)
 block|{
@@ -2436,7 +2436,7 @@ throw|;
 block|}
 return|return
 operator|new
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|(
 name|field
 argument_list|,
@@ -2730,13 +2730,13 @@ literal|"no percolator query registry"
 argument_list|)
 throw|;
 block|}
-name|PercolatorQuery
+name|PercolateQuery
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|PercolatorQuery
+name|PercolateQuery
 operator|.
 name|Builder
 argument_list|(

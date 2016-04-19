@@ -124,7 +124,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|PercolatorQuery
+name|PercolateQuery
 import|;
 end_import
 
@@ -250,11 +250,11 @@ name|void
 name|testHitsExecutionNeeded
 parameter_list|()
 block|{
-name|PercolatorQuery
-name|percolatorQuery
+name|PercolateQuery
+name|percolateQuery
 init|=
 operator|new
-name|PercolatorQuery
+name|PercolateQuery
 operator|.
 name|Builder
 argument_list|(
@@ -404,7 +404,7 @@ argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -429,11 +429,11 @@ name|void
 name|testLocatePercolatorQuery
 parameter_list|()
 block|{
-name|PercolatorQuery
-name|percolatorQuery
+name|PercolateQuery
+name|percolateQuery
 init|=
 operator|new
-name|PercolatorQuery
+name|PercolateQuery
 operator|.
 name|Builder
 argument_list|(
@@ -523,7 +523,7 @@ name|bq
 operator|.
 name|add
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|,
 name|BooleanClause
 operator|.
@@ -546,7 +546,7 @@ argument_list|)
 argument_list|,
 name|sameInstance
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -579,7 +579,7 @@ operator|=
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -593,7 +593,7 @@ argument_list|)
 argument_list|,
 name|sameInstance
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -628,7 +628,7 @@ operator|=
 operator|new
 name|BoostQuery
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|,
 literal|1f
 argument_list|)
@@ -644,7 +644,7 @@ argument_list|)
 argument_list|,
 name|sameInstance
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 argument_list|)
 argument_list|)
 expr_stmt|;

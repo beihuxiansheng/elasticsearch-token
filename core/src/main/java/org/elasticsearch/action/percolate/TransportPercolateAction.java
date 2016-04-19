@@ -350,7 +350,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 import|;
 end_import
 
@@ -517,16 +517,6 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -1521,11 +1511,11 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-name|PercolatorQueryBuilder
-name|percolatorQueryBuilder
+name|PercolateQueryBuilder
+name|percolateQueryBuilder
 init|=
 operator|new
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|(
 literal|"query"
 argument_list|,
@@ -1600,7 +1590,7 @@ name|boolQueryBuilder
 operator|.
 name|filter
 argument_list|(
-name|percolatorQueryBuilder
+name|percolateQueryBuilder
 argument_list|)
 expr_stmt|;
 name|searchSource
@@ -1628,7 +1618,7 @@ argument_list|,
 operator|new
 name|ConstantScoreQueryBuilder
 argument_list|(
-name|percolatorQueryBuilder
+name|percolateQueryBuilder
 argument_list|)
 operator|.
 name|boost

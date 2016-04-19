@@ -321,14 +321,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|PercolatorQueryBuilderTests
+DECL|class|PercolateQueryBuilderTests
 specifier|public
 class|class
-name|PercolatorQueryBuilderTests
+name|PercolateQueryBuilderTests
 extends|extends
 name|AbstractQueryTestCase
 argument_list|<
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|>
 block|{
 DECL|field|SHUFFLE_PROTECTED_FIELDS
@@ -345,7 +345,7 @@ name|Collections
 operator|.
 name|singleton
 argument_list|(
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 operator|.
 name|DOCUMENT_FIELD
 operator|.
@@ -511,7 +511,7 @@ annotation|@
 name|Override
 DECL|method|doCreateTestQueryBuilder
 specifier|protected
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|doCreateTestQueryBuilder
 parameter_list|()
 block|{
@@ -525,7 +525,7 @@ return|;
 block|}
 DECL|method|doCreateTestQueryBuilder
 specifier|private
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|doCreateTestQueryBuilder
 parameter_list|(
 name|boolean
@@ -593,7 +593,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|(
 name|queryField
 argument_list|,
@@ -617,7 +617,7 @@ else|else
 block|{
 return|return
 operator|new
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|(
 name|queryField
 argument_list|,
@@ -815,7 +815,7 @@ specifier|protected
 name|void
 name|doAssertLuceneQuery
 parameter_list|(
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|queryBuilder
 parameter_list|,
 name|Query
@@ -835,23 +835,23 @@ name|Matchers
 operator|.
 name|instanceOf
 argument_list|(
-name|PercolatorQuery
+name|PercolateQuery
 operator|.
 name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|PercolatorQuery
-name|percolatorQuery
+name|PercolateQuery
+name|percolateQuery
 init|=
 operator|(
-name|PercolatorQuery
+name|PercolateQuery
 operator|)
 name|query
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 operator|.
 name|getDocumentType
 argument_list|()
@@ -869,7 +869,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|percolatorQuery
+name|percolateQuery
 operator|.
 name|getDocumentSource
 argument_list|()
@@ -893,7 +893,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|pqb
 init|=
 name|doCreateTestQueryBuilder
@@ -948,11 +948,11 @@ name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|geoShapeQueryBuilder
 init|=
 operator|new
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 argument_list|(
 name|pqb
 operator|.
@@ -987,7 +987,7 @@ name|indexedDocumentExists
 operator|=
 literal|false
 expr_stmt|;
-name|PercolatorQueryBuilder
+name|PercolateQueryBuilder
 name|pqb
 init|=
 name|doCreateTestQueryBuilder
@@ -1214,7 +1214,7 @@ lambda|->
 block|{
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|null
 argument_list|,
@@ -1255,7 +1255,7 @@ parameter_list|()
 lambda|->
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"_field"
 argument_list|,
@@ -1294,7 +1294,7 @@ parameter_list|()
 lambda|->
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"_field"
 argument_list|,
@@ -1330,7 +1330,7 @@ lambda|->
 block|{
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|null
 argument_list|,
@@ -1378,7 +1378,7 @@ lambda|->
 block|{
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"_field"
 argument_list|,
@@ -1426,7 +1426,7 @@ lambda|->
 block|{
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"_field"
 argument_list|,
@@ -1474,7 +1474,7 @@ lambda|->
 block|{
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"_field"
 argument_list|,
@@ -1522,7 +1522,7 @@ lambda|->
 block|{
 name|QueryBuilders
 operator|.
-name|percolatorQuery
+name|percolateQuery
 argument_list|(
 literal|"_field"
 argument_list|,
@@ -1579,7 +1579,7 @@ parameter_list|()
 lambda|->
 name|parseQuery
 argument_list|(
-literal|"{\"percolator\" : { \"document\": {}}"
+literal|"{\"percolate\" : { \"document\": {}}"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1592,7 +1592,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[percolator] query is missing required [document_type] parameter"
+literal|"[percolate] query is missing required [document_type] parameter"
 argument_list|)
 argument_list|)
 expr_stmt|;
