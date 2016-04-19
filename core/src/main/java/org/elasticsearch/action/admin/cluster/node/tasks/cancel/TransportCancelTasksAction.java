@@ -1601,8 +1601,9 @@ argument_list|)
 expr_stmt|;
 name|parentTaskId
 operator|=
-operator|new
 name|TaskId
+operator|.
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
