@@ -153,7 +153,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set a reference to task that caused this task to be run.      */
+comment|/**      * Set a reference to task that created this request.      */
 DECL|method|setParentTask
 specifier|public
 name|void
@@ -170,6 +170,17 @@ operator|=
 name|taskId
 expr_stmt|;
 block|}
+comment|/**      * Get a reference to the task that created this request. Defaults to {@link TaskId#EMPTY_TASK_ID}, meaning "there is no parent".      */
+DECL|method|getParentTask
+specifier|public
+name|TaskId
+name|getParentTask
+parameter_list|()
+block|{
+return|return
+name|parentTaskId
+return|;
+block|}
 comment|/**      * Returns the task object that should be used to keep track of the processing of the request.      *      * A request can override this method and return null to avoid being tracked by the task manager.      */
 DECL|method|createTask
 specifier|public
@@ -184,39 +195,6 @@ name|type
 parameter_list|,
 name|String
 name|action
-parameter_list|)
-block|{
-return|return
-operator|new
-name|Task
-argument_list|(
-name|id
-argument_list|,
-name|type
-argument_list|,
-name|action
-argument_list|,
-name|getDescription
-argument_list|()
-argument_list|)
-return|;
-block|}
-DECL|method|createTask
-specifier|public
-name|Task
-name|createTask
-parameter_list|(
-name|long
-name|id
-parameter_list|,
-name|String
-name|type
-parameter_list|,
-name|String
-name|action
-parameter_list|,
-name|TaskId
-name|parentTaskId
 parameter_list|)
 block|{
 return|return
