@@ -58,7 +58,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamOutput
+name|NamedWriteable
 import|;
 end_import
 
@@ -74,7 +74,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|Writeable
+name|StreamOutput
 import|;
 end_import
 
@@ -149,7 +149,7 @@ specifier|abstract
 class|class
 name|MovAvgModel
 implements|implements
-name|Writeable
+name|NamedWriteable
 argument_list|<
 name|MovAvgModel
 argument_list|>
@@ -386,14 +386,6 @@ specifier|static
 class|class
 name|AbstractModelParser
 block|{
-comment|/**          * Returns the name of the model          *          * @return The model's name          */
-DECL|method|getName
-specifier|public
-specifier|abstract
-name|String
-name|getName
-parameter_list|()
-function_decl|;
 comment|/**          * Parse a settings hash that is specific to this model          *          * @param settings           Map of settings, extracted from the request          * @param pipelineName       Name of the parent pipeline agg          * @param windowSize         Size of the window for this moving avg          * @param parseFieldMatcher  Matcher for field names          * @return                   A fully built moving average model          */
 DECL|method|parse
 specifier|public
