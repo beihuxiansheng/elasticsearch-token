@@ -263,8 +263,12 @@ name|filterBuilder
 operator|=
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -282,7 +286,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|filterBuilder
 argument_list|)

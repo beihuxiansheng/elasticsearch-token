@@ -708,8 +708,12 @@ argument_list|)
 argument_list|,
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -794,7 +798,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|keyedFilter
 operator|.

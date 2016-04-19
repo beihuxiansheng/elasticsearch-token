@@ -1370,8 +1370,12 @@ name|query
 operator|=
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|innerHitsBuilder
 operator|=
@@ -1560,7 +1564,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|query
 argument_list|)

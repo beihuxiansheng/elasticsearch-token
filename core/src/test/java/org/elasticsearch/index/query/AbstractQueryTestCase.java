@@ -4708,7 +4708,7 @@ init|)
 block|{
 name|output
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|testQuery
 argument_list|)
@@ -4743,8 +4743,12 @@ name|deserializedQuery
 init|=
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -5133,7 +5137,7 @@ init|)
 block|{
 name|output
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|query
 argument_list|)
@@ -5166,8 +5170,12 @@ name|QB
 operator|)
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 block|}
