@@ -284,7 +284,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -3762,7 +3762,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_INDEX_UUID
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -4553,7 +4553,7 @@ block|{
 return|return
 name|prefix
 operator|+
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|(

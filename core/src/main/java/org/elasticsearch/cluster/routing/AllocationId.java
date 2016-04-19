@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -454,7 +454,7 @@ return|return
 operator|new
 name|AllocationId
 argument_list|(
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -547,7 +547,7 @@ operator|.
 name|getId
 argument_list|()
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

@@ -210,7 +210,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -5795,7 +5795,7 @@ condition|)
 block|{
 name|clusterUUID
 operator|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

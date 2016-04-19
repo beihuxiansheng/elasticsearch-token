@@ -116,7 +116,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -294,7 +294,7 @@ specifier|final
 name|String
 name|INITIAL_CLUSTER_ID
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1636,7 +1636,7 @@ name|builder
 operator|.
 name|stateUUID
 argument_list|(
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1687,7 +1687,7 @@ name|metaBuilder
 operator|.
 name|clusterUUID
 argument_list|(
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

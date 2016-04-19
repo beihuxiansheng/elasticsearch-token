@@ -408,7 +408,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -7235,7 +7235,7 @@ name|uuid
 init|=
 name|CORRUPTED
 operator|+
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

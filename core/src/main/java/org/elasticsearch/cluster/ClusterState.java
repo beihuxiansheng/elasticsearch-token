@@ -314,6 +314,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|UUIDs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|ImmutableOpenMap
@@ -3879,7 +3891,7 @@ condition|)
 block|{
 name|uuid
 operator|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

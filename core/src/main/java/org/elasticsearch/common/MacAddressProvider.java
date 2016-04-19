@@ -16,34 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|Loggers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -78,22 +50,6 @@ specifier|public
 class|class
 name|MacAddressProvider
 block|{
-DECL|field|logger
-specifier|private
-specifier|static
-specifier|final
-name|ESLogger
-name|logger
-init|=
-name|Loggers
-operator|.
-name|getLogger
-argument_list|(
-name|MacAddressProvider
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|getMacAddress
 specifier|private
 specifier|static
@@ -258,15 +214,6 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Unable to get mac address, will use a dummy address"
-argument_list|,
-name|t
-argument_list|)
-expr_stmt|;
 comment|// address will be set below
 block|}
 if|if
@@ -278,13 +225,6 @@ name|address
 argument_list|)
 condition|)
 block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Unable to get a valid mac address, will use a dummy address"
-argument_list|)
-expr_stmt|;
 name|address
 operator|=
 name|constructDummyMulticastAddress

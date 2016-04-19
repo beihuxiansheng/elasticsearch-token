@@ -118,7 +118,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -884,7 +884,7 @@ block|{
 comment|// legacy case
 name|translogUUID
 operator|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

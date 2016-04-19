@@ -34,18 +34,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Booleans
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Randomness
 import|;
 end_import
@@ -58,7 +46,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -340,7 +328,7 @@ name|NODE_ID_SEED_SETTING
 argument_list|)
 decl_stmt|;
 return|return
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|(
