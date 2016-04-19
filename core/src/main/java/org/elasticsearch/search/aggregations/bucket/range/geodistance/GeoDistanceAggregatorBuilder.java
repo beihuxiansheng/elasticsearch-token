@@ -597,11 +597,8 @@ name|ranges
 operator|.
 name|add
 argument_list|(
+operator|new
 name|Range
-operator|.
-name|PROTOTYPE
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
