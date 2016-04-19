@@ -1149,6 +1149,9 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// If a percolator query has been defined in an array object then multiple percolator queries
+comment|// could be provided. In order to prevent this we fail if we try to parse more than one query
+comment|// for the current document.
 throw|throw
 operator|new
 name|IllegalArgumentException
