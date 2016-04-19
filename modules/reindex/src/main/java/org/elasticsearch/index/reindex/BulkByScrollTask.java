@@ -455,6 +455,9 @@ parameter_list|,
 name|String
 name|description
 parameter_list|,
+name|TaskId
+name|parentTask
+parameter_list|,
 name|float
 name|requestsPerSecond
 parameter_list|)
@@ -469,9 +472,7 @@ name|action
 argument_list|,
 name|description
 argument_list|,
-name|TaskId
-operator|.
-name|EMPTY_TASK_ID
+name|parentTask
 argument_list|)
 expr_stmt|;
 name|setRequestsPerSecond

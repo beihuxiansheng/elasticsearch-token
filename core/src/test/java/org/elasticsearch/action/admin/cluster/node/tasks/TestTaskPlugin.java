@@ -1154,6 +1154,9 @@ name|type
 parameter_list|,
 name|String
 name|action
+parameter_list|,
+name|TaskId
+name|parentTaskId
 parameter_list|)
 block|{
 return|return
@@ -1169,9 +1172,7 @@ argument_list|,
 name|getDescription
 argument_list|()
 argument_list|,
-name|TaskId
-operator|.
-name|EMPTY_TASK_ID
+name|parentTaskId
 argument_list|)
 return|;
 block|}

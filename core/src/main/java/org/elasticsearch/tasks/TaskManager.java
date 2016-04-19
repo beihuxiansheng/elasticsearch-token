@@ -344,8 +344,33 @@ argument_list|,
 name|type
 argument_list|,
 name|action
+argument_list|,
+name|request
+operator|.
+name|getParentTask
+argument_list|()
 argument_list|)
 decl_stmt|;
+assert|assert
+name|task
+operator|.
+name|getParentTaskId
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|request
+operator|.
+name|getParentTask
+argument_list|()
+argument_list|)
+operator|:
+literal|"Request [ "
+operator|+
+name|request
+operator|+
+literal|"] didn't preserve it parentTaskId"
+assert|;
 if|if
 condition|(
 name|task
