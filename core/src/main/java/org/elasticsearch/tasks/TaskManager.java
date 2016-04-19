@@ -351,6 +351,17 @@ name|getParentTask
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|task
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 assert|assert
 name|task
 operator|.
@@ -371,13 +382,6 @@ name|request
 operator|+
 literal|"] didn't preserve it parentTaskId"
 assert|;
-if|if
-condition|(
-name|task
-operator|!=
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|logger
@@ -544,7 +548,6 @@ name|previousTask
 operator|==
 literal|null
 assert|;
-block|}
 block|}
 return|return
 name|task
