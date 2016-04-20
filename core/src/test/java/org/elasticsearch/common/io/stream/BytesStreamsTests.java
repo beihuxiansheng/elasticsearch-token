@@ -2492,22 +2492,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{             }
-annotation|@
-name|Override
-specifier|public
-name|Object
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
