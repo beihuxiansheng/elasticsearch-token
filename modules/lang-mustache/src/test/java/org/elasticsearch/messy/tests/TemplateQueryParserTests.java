@@ -1435,6 +1435,9 @@ argument_list|(
 name|templateSourceParser
 argument_list|)
 argument_list|)
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|context
 argument_list|)
@@ -1523,6 +1526,9 @@ argument_list|(
 name|templateSourceParser
 argument_list|)
 argument_list|)
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|context
 argument_list|)
@@ -1608,6 +1614,9 @@ argument_list|(
 name|templateSourceParser
 argument_list|)
 argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|rewrite
 argument_list|(
@@ -1703,6 +1712,9 @@ argument_list|(
 name|templateSourceParser
 argument_list|)
 argument_list|)
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|context
 argument_list|)
@@ -1779,6 +1791,9 @@ argument_list|(
 name|templateSourceParser
 argument_list|)
 argument_list|)
+operator|.
+name|get
+argument_list|()
 operator|.
 name|toQuery
 argument_list|(

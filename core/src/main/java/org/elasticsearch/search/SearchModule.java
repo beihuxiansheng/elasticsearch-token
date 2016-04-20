@@ -288,20 +288,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|EmptyQueryBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
 name|ExistsQueryBuilder
 import|;
 end_import
@@ -7211,25 +7197,6 @@ name|QUERY_NAME_FIELD
 argument_list|)
 expr_stmt|;
 block|}
-comment|// EmptyQueryBuilder is not registered as query parser but used internally.
-comment|// We need to register it with the NamedWriteableRegistry in order to serialize it
-name|namedWriteableRegistry
-operator|.
-name|register
-argument_list|(
-name|QueryBuilder
-operator|.
-name|class
-argument_list|,
-name|EmptyQueryBuilder
-operator|.
-name|NAME
-argument_list|,
-name|EmptyQueryBuilder
-operator|::
-operator|new
-argument_list|)
-expr_stmt|;
 block|}
 static|static
 block|{

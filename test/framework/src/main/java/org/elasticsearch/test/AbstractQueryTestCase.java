@@ -2451,6 +2451,7 @@ comment|/**      * Parses the query provided as string argument and compares it 
 DECL|method|assertParsedQuery
 specifier|protected
 specifier|final
+specifier|static
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -2478,6 +2479,7 @@ block|}
 DECL|method|assertParsedQuery
 specifier|protected
 specifier|final
+specifier|static
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -2535,6 +2537,7 @@ comment|/**      * Parses the query provided as bytes argument and compares it w
 DECL|method|assertParsedQuery
 specifier|protected
 specifier|final
+specifier|static
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -2562,6 +2565,7 @@ block|}
 DECL|method|assertParsedQuery
 specifier|protected
 specifier|final
+specifier|static
 name|void
 name|assertParsedQuery
 parameter_list|(
@@ -2618,6 +2622,7 @@ block|}
 DECL|method|parseQuery
 specifier|protected
 specifier|final
+specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -2641,6 +2646,7 @@ block|}
 DECL|method|parseQuery
 specifier|protected
 specifier|final
+specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -2680,6 +2686,7 @@ block|}
 DECL|method|parseQuery
 specifier|protected
 specifier|final
+specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -2703,6 +2710,7 @@ block|}
 DECL|method|parseQuery
 specifier|protected
 specifier|final
+specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -2741,6 +2749,7 @@ return|;
 block|}
 DECL|method|parseQuery
 specifier|private
+specifier|static
 name|QueryBuilder
 name|parseQuery
 parameter_list|(
@@ -2770,6 +2779,17 @@ name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|orElseThrow
+argument_list|(
+parameter_list|()
+lambda|->
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"inner query body cannot be empty"
+argument_list|)
+argument_list|)
 decl_stmt|;
 name|assertNull
 argument_list|(
@@ -3590,22 +3610,12 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Serialize the given query builder and asserts that both are equal      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|assertSerialization
 specifier|protected
-parameter_list|<
-name|QB
-extends|extends
 name|QueryBuilder
-parameter_list|>
-name|QB
 name|assertSerialization
 parameter_list|(
-name|QB
+name|QueryBuilder
 name|testQuery
 parameter_list|)
 throws|throws
@@ -3692,9 +3702,6 @@ name|deserializedQuery
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|QB
-operator|)
 name|deserializedQuery
 return|;
 block|}

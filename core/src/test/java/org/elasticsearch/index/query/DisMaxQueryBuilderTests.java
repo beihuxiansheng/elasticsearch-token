@@ -92,6 +92,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|AbstractQueryTestCase
@@ -577,11 +589,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test inner query parsing to null. Current DSL allows inner filter element to parse to<tt>null</tt>.      * Those should be ignored upstream. To test this, we use inner {@link ConstantScoreQueryBuilder}      * with empty inner filter.      */
-DECL|method|testInnerQueryReturnsNull
+comment|/**      * Test with empty inner query body, this should be ignored upstream.      * To test this, we use inner {@link ConstantScoreQueryBuilder} with empty inner filter.      */
+DECL|method|testInnerQueryEmptyIgnored
 specifier|public
 name|void
-name|testInnerQueryReturnsNull
+name|testInnerQueryEmptyIgnored
 parameter_list|()
 throws|throws
 name|IOException
@@ -591,41 +603,50 @@ name|queryString
 init|=
 literal|"{ \""
 operator|+
+name|DisMaxQueryBuilder
+operator|.
+name|NAME
+operator|+
+literal|"\" :"
+operator|+
+literal|"             { \"queries\" : [ {\""
+operator|+
 name|ConstantScoreQueryBuilder
 operator|.
 name|NAME
 operator|+
-literal|"\" : { \"filter\" : { } } }"
+literal|"\" : { \"filter\" : { } } } ] "
+operator|+
+literal|"             }"
+operator|+
+literal|"           }"
 decl_stmt|;
-name|QueryBuilder
-name|innerQueryBuilder
+name|DisMaxQueryBuilder
+name|builder
 init|=
+operator|(
+name|DisMaxQueryBuilder
+operator|)
 name|parseQuery
 argument_list|(
 name|queryString
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
 argument_list|)
 decl_stmt|;
-name|DisMaxQueryBuilder
-name|disMaxBuilder
-init|=
-operator|new
-name|DisMaxQueryBuilder
+name|assertTrue
+argument_list|(
+literal|"the inner query has an empty body, so it should be ignored"
+argument_list|,
+name|builder
+operator|.
+name|innerQueries
 argument_list|()
 operator|.
-name|add
-argument_list|(
-name|innerQueryBuilder
-argument_list|)
-decl_stmt|;
-name|assertNull
-argument_list|(
-name|disMaxBuilder
-operator|.
-name|toQuery
-argument_list|(
-name|createShardContext
+name|isEmpty
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

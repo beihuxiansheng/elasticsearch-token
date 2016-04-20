@@ -180,6 +180,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * Validator for an alias, to be used before adding an alias to the index metadata  * and make sure the alias is valid  */
 end_comment
@@ -704,6 +714,25 @@ argument_list|(
 name|parser
 argument_list|)
 decl_stmt|;
+name|Optional
+argument_list|<
+name|QueryBuilder
+argument_list|>
+name|parseInnerQueryBuilder
+init|=
+name|queryParseContext
+operator|.
+name|parseInnerQueryBuilder
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|parseInnerQueryBuilder
+operator|.
+name|isPresent
+argument_list|()
+condition|)
+block|{
 name|QueryBuilder
 name|queryBuilder
 init|=
@@ -711,9 +740,9 @@ name|QueryBuilder
 operator|.
 name|rewriteQuery
 argument_list|(
-name|queryParseContext
-operator|.
 name|parseInnerQueryBuilder
+operator|.
+name|get
 argument_list|()
 argument_list|,
 name|queryShardContext
@@ -726,6 +755,7 @@ argument_list|(
 name|queryShardContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

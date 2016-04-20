@@ -248,6 +248,16 @@ name|Objects
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Optional
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Query that does fuzzy matching for a specific value.  */
 end_comment
@@ -890,7 +900,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|RegexpQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -1331,6 +1344,10 @@ argument_list|)
 throw|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 operator|new
 name|RegexpQueryBuilder
 argument_list|(
@@ -1362,6 +1379,7 @@ operator|.
 name|queryName
 argument_list|(
 name|queryName
+argument_list|)
 argument_list|)
 return|;
 block|}

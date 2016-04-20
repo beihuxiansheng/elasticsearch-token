@@ -2972,6 +2972,9 @@ name|SearchSourceBuilder
 name|aggregation
 parameter_list|(
 name|PipelineAggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
 name|aggregation
 parameter_list|)
 block|{
@@ -4498,6 +4501,11 @@ name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -4522,6 +4530,11 @@ name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 elseif|else
