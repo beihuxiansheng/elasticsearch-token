@@ -2227,11 +2227,14 @@ name|lookup
 argument_list|(
 name|model
 argument_list|,
-name|parser
-argument_list|,
 name|context
 operator|.
 name|getParseFieldMatcher
+argument_list|()
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
 argument_list|()
 argument_list|)
 decl_stmt|;

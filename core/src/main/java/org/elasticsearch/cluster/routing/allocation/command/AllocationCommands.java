@@ -685,9 +685,12 @@ name|lookup
 argument_list|(
 name|commandName
 argument_list|,
-name|parser
-argument_list|,
 name|parseFieldMatcher
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 operator|.
 name|fromXContent
