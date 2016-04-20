@@ -454,12 +454,11 @@ name|value
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|SubAggCollectionMode
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

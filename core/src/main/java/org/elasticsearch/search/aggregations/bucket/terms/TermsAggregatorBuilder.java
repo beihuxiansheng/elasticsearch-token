@@ -600,9 +600,7 @@ name|collectMode
 operator|=
 name|SubAggCollectionMode
 operator|.
-name|BREADTH_FIRST
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

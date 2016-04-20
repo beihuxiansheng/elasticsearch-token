@@ -494,9 +494,7 @@ name|method
 operator|=
 name|PercentilesMethod
 operator|.
-name|TDIGEST
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
