@@ -488,9 +488,8 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|=
+operator|new
 name|Template
-operator|.
-name|readTemplate
 argument_list|(
 name|in
 argument_list|)
