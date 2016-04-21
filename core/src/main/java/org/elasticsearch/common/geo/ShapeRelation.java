@@ -143,12 +143,11 @@ operator|=
 name|relationName
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|ShapeRelation
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

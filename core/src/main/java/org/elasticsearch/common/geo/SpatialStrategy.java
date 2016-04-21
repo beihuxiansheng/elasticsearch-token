@@ -132,12 +132,11 @@ return|return
 name|strategyName
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|SpatialStrategy
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in
