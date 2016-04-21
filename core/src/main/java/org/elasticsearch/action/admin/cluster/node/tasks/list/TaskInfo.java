@@ -171,9 +171,6 @@ class|class
 name|TaskInfo
 implements|implements
 name|Writeable
-argument_list|<
-name|TaskInfo
-argument_list|>
 implements|,
 name|ToXContent
 block|{

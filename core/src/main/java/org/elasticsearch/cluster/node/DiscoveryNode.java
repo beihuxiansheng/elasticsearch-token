@@ -267,9 +267,6 @@ class|class
 name|DiscoveryNode
 implements|implements
 name|Writeable
-argument_list|<
-name|DiscoveryNode
-argument_list|>
 implements|,
 name|ToXContent
 block|{

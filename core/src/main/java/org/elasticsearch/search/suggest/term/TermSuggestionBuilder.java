@@ -2482,9 +2482,6 @@ enum|enum
 name|SuggestMode
 implements|implements
 name|Writeable
-argument_list|<
-name|SuggestMode
-argument_list|>
 block|{
 comment|/** Only suggest terms in the suggest text that aren't in the index. This is the default. */
 DECL|enum constant|MISSING
@@ -2740,9 +2737,6 @@ enum|enum
 name|StringDistanceImpl
 implements|implements
 name|Writeable
-argument_list|<
-name|StringDistanceImpl
-argument_list|>
 block|{
 comment|/** This is the default and is based on<code>damerau_levenshtein</code>, but highly optimized          * for comparing string distance for terms inside the index. */
 DECL|enum constant|INTERNAL

@@ -117,9 +117,6 @@ interface|interface
 name|AllocationCommand
 extends|extends
 name|NamedWriteable
-argument_list|<
-name|AllocationCommand
-argument_list|>
 extends|,
 name|ToXContent
 block|{

@@ -139,9 +139,6 @@ class|class
 name|IngestStats
 implements|implements
 name|Writeable
-argument_list|<
-name|IngestStats
-argument_list|>
 implements|,
 name|ToXContent
 block|{
@@ -479,9 +476,6 @@ class|class
 name|Stats
 implements|implements
 name|Writeable
-argument_list|<
-name|Stats
-argument_list|>
 implements|,
 name|ToXContent
 block|{

@@ -2926,9 +2926,6 @@ parameter_list|(
 annotation|@
 name|Nullable
 name|Writeable
-argument_list|<
-name|?
-argument_list|>
 name|writeable
 parameter_list|)
 throws|throws
@@ -3733,9 +3730,6 @@ name|void
 name|writeNamedWriteable
 parameter_list|(
 name|NamedWriteable
-argument_list|<
-name|?
-argument_list|>
 name|namedWriteable
 parameter_list|)
 throws|throws
@@ -3766,9 +3760,6 @@ parameter_list|(
 annotation|@
 name|Nullable
 name|NamedWriteable
-argument_list|<
-name|?
-argument_list|>
 name|namedWriteable
 parameter_list|)
 throws|throws
@@ -3897,9 +3888,6 @@ parameter_list|<
 name|T
 extends|extends
 name|Writeable
-argument_list|<
-name|T
-argument_list|>
 parameter_list|>
 name|void
 name|writeList

@@ -85,9 +85,6 @@ parameter_list|>
 parameter_list|>
 extends|extends
 name|NamedWriteable
-argument_list|<
-name|QB
-argument_list|>
 extends|,
 name|ToXContent
 block|{

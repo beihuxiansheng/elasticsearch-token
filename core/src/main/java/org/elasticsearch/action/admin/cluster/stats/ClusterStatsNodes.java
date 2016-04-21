@@ -371,9 +371,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|ClusterStatsNodes
-argument_list|>
 block|{
 DECL|field|counts
 specifier|private
@@ -1302,9 +1299,6 @@ class|class
 name|Counts
 implements|implements
 name|Writeable
-argument_list|<
-name|Counts
-argument_list|>
 implements|,
 name|ToXContent
 block|{
@@ -1684,9 +1678,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|OsStats
-argument_list|>
 block|{
 DECL|field|availableProcessors
 specifier|final
@@ -2135,9 +2126,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|ProcessStats
-argument_list|>
 block|{
 DECL|field|count
 specifier|final
@@ -2681,9 +2669,6 @@ class|class
 name|JvmStats
 implements|implements
 name|Writeable
-argument_list|<
-name|JvmStats
-argument_list|>
 implements|,
 name|ToXContent
 block|{

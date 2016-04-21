@@ -479,9 +479,6 @@ class|class
 name|Failure
 implements|implements
 name|Writeable
-argument_list|<
-name|Failure
-argument_list|>
 implements|,
 name|ToXContent
 block|{

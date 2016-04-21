@@ -236,9 +236,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|ClusterAllocationExplanation
-argument_list|>
 block|{
 DECL|field|shard
 specifier|private

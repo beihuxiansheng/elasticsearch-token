@@ -162,9 +162,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|Fuzziness
-argument_list|>
 block|{
 DECL|field|X_FIELD_NAME
 specifier|public

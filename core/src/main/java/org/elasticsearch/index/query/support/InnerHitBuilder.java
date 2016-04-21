@@ -540,9 +540,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|Writeable
-argument_list|<
-name|InnerHitBuilder
-argument_list|>
 block|{
 DECL|field|NAME_FIELD
 specifier|public

@@ -143,9 +143,6 @@ class|class
 name|WriteableIngestDocument
 implements|implements
 name|Writeable
-argument_list|<
-name|WriteableIngestDocument
-argument_list|>
 implements|,
 name|ToXContent
 block|{

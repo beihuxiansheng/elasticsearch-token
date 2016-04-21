@@ -2501,9 +2501,6 @@ enum|enum
 name|Order
 implements|implements
 name|Writeable
-argument_list|<
-name|Order
-argument_list|>
 block|{
 DECL|enum constant|NONE
 DECL|enum constant|SCORE

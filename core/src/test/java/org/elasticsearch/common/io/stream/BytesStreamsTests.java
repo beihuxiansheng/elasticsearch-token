@@ -3076,14 +3076,8 @@ specifier|static
 specifier|abstract
 class|class
 name|BaseNamedWriteable
-parameter_list|<
-name|T
-parameter_list|>
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|T
-argument_list|>
 block|{      }
 end_class
 
@@ -3095,9 +3089,6 @@ class|class
 name|TestNamedWriteable
 extends|extends
 name|BaseNamedWriteable
-argument_list|<
-name|TestNamedWriteable
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|private

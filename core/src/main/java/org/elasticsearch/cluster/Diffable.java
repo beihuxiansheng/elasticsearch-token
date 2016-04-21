@@ -70,9 +70,6 @@ name|T
 parameter_list|>
 extends|extends
 name|Writeable
-argument_list|<
-name|T
-argument_list|>
 block|{
 comment|/**      * Returns serializable object representing differences between this and previousState      */
 DECL|method|diff

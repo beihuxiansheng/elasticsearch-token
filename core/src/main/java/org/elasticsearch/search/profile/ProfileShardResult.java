@@ -144,9 +144,6 @@ class|class
 name|ProfileShardResult
 implements|implements
 name|Writeable
-argument_list|<
-name|ProfileShardResult
-argument_list|>
 implements|,
 name|ToXContent
 block|{

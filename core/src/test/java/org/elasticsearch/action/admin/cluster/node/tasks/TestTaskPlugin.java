@@ -1808,9 +1808,6 @@ class|class
 name|UnblockTestTaskResponse
 implements|implements
 name|Writeable
-argument_list|<
-name|UnblockTestTaskResponse
-argument_list|>
 block|{
 DECL|method|UnblockTestTaskResponse
 specifier|public

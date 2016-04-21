@@ -150,9 +150,6 @@ class|class
 name|MovAvgModel
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|MovAvgModel
-argument_list|>
 implements|,
 name|ToXContent
 block|{

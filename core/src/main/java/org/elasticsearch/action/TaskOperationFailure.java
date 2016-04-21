@@ -156,9 +156,6 @@ class|class
 name|TaskOperationFailure
 implements|implements
 name|Writeable
-argument_list|<
-name|TaskOperationFailure
-argument_list|>
 implements|,
 name|ToXContent
 block|{

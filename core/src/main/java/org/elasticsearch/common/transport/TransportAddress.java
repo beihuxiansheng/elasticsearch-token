@@ -43,9 +43,6 @@ interface|interface
 name|TransportAddress
 extends|extends
 name|Writeable
-argument_list|<
-name|TransportAddress
-argument_list|>
 block|{
 comment|/**      * Returns the host string for this transport address      */
 DECL|method|getHost

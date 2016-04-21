@@ -37,11 +37,7 @@ DECL|interface|Writeable
 specifier|public
 interface|interface
 name|Writeable
-parameter_list|<
-name|T
-parameter_list|>
 block|{
-comment|// TODO remove<T>
 comment|/**      * Write this into the {@linkplain StreamOutput}.      */
 DECL|method|writeTo
 name|void

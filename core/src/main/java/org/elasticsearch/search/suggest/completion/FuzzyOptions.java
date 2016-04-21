@@ -237,9 +237,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|FuzzyOptions
-argument_list|>
 block|{
 DECL|field|FUZZY_OPTIONS
 specifier|static

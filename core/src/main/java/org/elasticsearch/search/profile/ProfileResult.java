@@ -185,9 +185,6 @@ class|class
 name|ProfileResult
 implements|implements
 name|Writeable
-argument_list|<
-name|ProfileResult
-argument_list|>
 implements|,
 name|ToXContent
 block|{

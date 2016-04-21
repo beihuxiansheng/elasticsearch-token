@@ -150,9 +150,6 @@ class|class
 name|SmoothingModel
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|SmoothingModel
-argument_list|>
 implements|,
 name|ToXContent
 block|{

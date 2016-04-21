@@ -109,9 +109,6 @@ class|class
 name|ProcessorInfo
 implements|implements
 name|Writeable
-argument_list|<
-name|ProcessorInfo
-argument_list|>
 implements|,
 name|ToXContent
 implements|,

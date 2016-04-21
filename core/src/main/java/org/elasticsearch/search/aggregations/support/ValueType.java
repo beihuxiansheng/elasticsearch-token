@@ -169,9 +169,6 @@ enum|enum
 name|ValueType
 implements|implements
 name|Writeable
-argument_list|<
-name|ValueType
-argument_list|>
 block|{
 DECL|enum constant|STRING
 name|STRING

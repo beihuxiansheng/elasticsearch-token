@@ -454,9 +454,6 @@ enum|enum
 name|ScoreMode
 implements|implements
 name|Writeable
-argument_list|<
-name|ScoreMode
-argument_list|>
 block|{
 DECL|enum constant|FIRST
 DECL|enum constant|AVG

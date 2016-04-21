@@ -3817,9 +3817,6 @@ name|StoreFileMetaData
 argument_list|>
 implements|,
 name|Writeable
-argument_list|<
-name|MetadataSnapshot
-argument_list|>
 block|{
 DECL|field|metadata
 specifier|private

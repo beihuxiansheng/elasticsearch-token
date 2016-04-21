@@ -333,16 +333,13 @@ name|T
 extends|extends
 name|SortBuilder
 parameter_list|<
-name|?
+name|T
 parameter_list|>
 parameter_list|>
 extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|field|order
 specifier|protected

@@ -151,9 +151,6 @@ class|class
 name|SearchShardTarget
 implements|implements
 name|Writeable
-argument_list|<
-name|SearchShardTarget
-argument_list|>
 implements|,
 name|Comparable
 argument_list|<

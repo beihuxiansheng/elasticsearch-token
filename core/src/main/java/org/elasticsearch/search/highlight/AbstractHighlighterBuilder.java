@@ -310,9 +310,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|Writeable
-argument_list|<
-name|HB
-argument_list|>
 block|{
 DECL|field|PRE_TAGS_FIELD
 specifier|public

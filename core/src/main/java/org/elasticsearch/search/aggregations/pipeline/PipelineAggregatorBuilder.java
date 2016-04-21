@@ -192,12 +192,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|PipelineAggregatorBuilder
-argument_list|<
-name|PAB
-argument_list|>
-argument_list|>
 block|{
 comment|/**      * Field shared by many parsers.      */
 DECL|field|BUCKETS_PATH_FIELD

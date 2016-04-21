@@ -4008,9 +4008,6 @@ interface|interface
 name|CandidateGenerator
 extends|extends
 name|Writeable
-argument_list|<
-name|CandidateGenerator
-argument_list|>
 extends|,
 name|ToXContent
 block|{

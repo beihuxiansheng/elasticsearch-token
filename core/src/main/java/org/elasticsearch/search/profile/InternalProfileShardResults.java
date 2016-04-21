@@ -176,9 +176,6 @@ class|class
 name|InternalProfileShardResults
 implements|implements
 name|Writeable
-argument_list|<
-name|InternalProfileShardResults
-argument_list|>
 implements|,
 name|ToXContent
 block|{

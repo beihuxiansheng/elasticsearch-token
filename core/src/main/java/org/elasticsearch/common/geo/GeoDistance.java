@@ -221,9 +221,6 @@ enum|enum
 name|GeoDistance
 implements|implements
 name|Writeable
-argument_list|<
-name|GeoDistance
-argument_list|>
 block|{
 comment|/**      * Calculates distance as points on a plane. Faster, but less accurate than {@link #ARC}.      */
 DECL|enum constant|PLANE

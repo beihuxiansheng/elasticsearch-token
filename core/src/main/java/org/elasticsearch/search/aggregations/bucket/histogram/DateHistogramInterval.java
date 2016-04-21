@@ -99,9 +99,6 @@ class|class
 name|DateHistogramInterval
 implements|implements
 name|Writeable
-argument_list|<
-name|DateHistogramInterval
-argument_list|>
 block|{
 DECL|field|SECOND
 specifier|public

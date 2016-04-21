@@ -105,9 +105,6 @@ enum|enum
 name|SortBy
 implements|implements
 name|Writeable
-argument_list|<
-name|SortBy
-argument_list|>
 block|{
 comment|/** Sort should first be based on score, then document frequency and then the term itself. */
 DECL|enum constant|SCORE

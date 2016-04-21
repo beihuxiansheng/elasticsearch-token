@@ -459,9 +459,6 @@ class|class
 name|Range
 implements|implements
 name|Writeable
-argument_list|<
-name|Range
-argument_list|>
 implements|,
 name|ToXContent
 block|{

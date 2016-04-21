@@ -227,9 +227,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|ExtendedBounds
-argument_list|>
 block|{
 DECL|field|EXTENDED_BOUNDS_FIELD
 specifier|static

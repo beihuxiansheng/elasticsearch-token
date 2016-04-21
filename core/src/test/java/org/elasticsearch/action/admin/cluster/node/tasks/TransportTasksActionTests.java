@@ -1301,9 +1301,6 @@ class|class
 name|TestTaskResponse
 implements|implements
 name|Writeable
-argument_list|<
-name|TestTaskResponse
-argument_list|>
 block|{
 DECL|field|status
 specifier|private

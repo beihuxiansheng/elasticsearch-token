@@ -505,9 +505,6 @@ parameter_list|,
 name|TaskResponse
 extends|extends
 name|Writeable
-parameter_list|<
-name|TaskResponse
-parameter_list|>
 parameter_list|>
 extends|extends
 name|HandledTransportAction

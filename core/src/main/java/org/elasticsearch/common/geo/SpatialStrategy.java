@@ -85,9 +85,6 @@ enum|enum
 name|SpatialStrategy
 implements|implements
 name|Writeable
-argument_list|<
-name|SpatialStrategy
-argument_list|>
 block|{
 DECL|enum constant|TERM
 name|TERM

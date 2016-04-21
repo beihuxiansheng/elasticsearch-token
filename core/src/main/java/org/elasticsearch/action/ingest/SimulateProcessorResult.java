@@ -147,9 +147,6 @@ class|class
 name|SimulateProcessorResult
 implements|implements
 name|Writeable
-argument_list|<
-name|SimulateProcessorResult
-argument_list|>
 implements|,
 name|ToXContent
 block|{

@@ -294,9 +294,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|field|field
 specifier|protected
