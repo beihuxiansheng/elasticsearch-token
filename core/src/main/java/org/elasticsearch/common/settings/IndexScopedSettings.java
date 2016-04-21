@@ -670,6 +670,10 @@ name|MAX_RESULT_WINDOW_SETTING
 argument_list|,
 name|IndexSettings
 operator|.
+name|MAX_RESCORE_WINDOW_SETTING
+argument_list|,
+name|IndexSettings
+operator|.
 name|INDEX_TRANSLOG_SYNC_INTERVAL_SETTING
 argument_list|,
 name|IndexSettings
