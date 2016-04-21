@@ -161,9 +161,6 @@ class|class
 name|TermsLookup
 implements|implements
 name|Writeable
-argument_list|<
-name|TermsLookup
-argument_list|>
 implements|,
 name|ToXContent
 block|{

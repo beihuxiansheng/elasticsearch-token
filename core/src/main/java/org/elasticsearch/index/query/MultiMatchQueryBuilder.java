@@ -754,9 +754,6 @@ enum|enum
 name|Type
 implements|implements
 name|Writeable
-argument_list|<
-name|Type
-argument_list|>
 block|{
 comment|/**          * Uses the best matching boolean field as main score and uses          * a tie-breaker to adjust the score based on remaining field matches          */
 DECL|enum constant|BEST_FIELDS

@@ -1233,9 +1233,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|Item
-argument_list|>
 block|{
 DECL|field|EMPTY_ARRAY
 specifier|public

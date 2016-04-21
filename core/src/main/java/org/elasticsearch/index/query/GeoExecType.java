@@ -95,9 +95,6 @@ enum|enum
 name|GeoExecType
 implements|implements
 name|Writeable
-argument_list|<
-name|GeoExecType
-argument_list|>
 block|{
 DECL|enum constant|MEMORY
 DECL|enum constant|INDEXED

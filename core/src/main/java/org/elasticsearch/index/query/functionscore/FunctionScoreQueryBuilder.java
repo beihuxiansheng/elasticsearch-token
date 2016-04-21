@@ -1769,9 +1769,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|FilterFunctionBuilder
-argument_list|>
 block|{
 DECL|field|filter
 specifier|private

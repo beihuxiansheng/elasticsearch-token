@@ -190,7 +190,7 @@ name|allOf
 argument_list|(
 name|GeoIpProcessor
 operator|.
-name|Field
+name|Property
 operator|.
 name|class
 argument_list|)
@@ -504,7 +504,7 @@ name|allOf
 argument_list|(
 name|GeoIpProcessor
 operator|.
-name|Field
+name|Property
 operator|.
 name|class
 argument_list|)
@@ -727,7 +727,7 @@ name|allOf
 argument_list|(
 name|GeoIpProcessor
 operator|.
-name|Field
+name|Property
 operator|.
 name|class
 argument_list|)
@@ -873,7 +873,7 @@ name|allOf
 argument_list|(
 name|GeoIpProcessor
 operator|.
-name|Field
+name|Property
 operator|.
 name|class
 argument_list|)

@@ -202,9 +202,6 @@ implements|implements
 name|Closeable
 implements|,
 name|Writeable
-argument_list|<
-name|ThreadContext
-argument_list|>
 block|{
 DECL|field|PREFIX
 specifier|public

@@ -440,9 +440,6 @@ extends|extends
 name|ToXContent
 extends|,
 name|NamedWriteable
-argument_list|<
-name|Status
-argument_list|>
 block|{}
 block|}
 end_class

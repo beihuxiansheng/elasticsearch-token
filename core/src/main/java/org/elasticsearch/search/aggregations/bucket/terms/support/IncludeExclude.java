@@ -481,9 +481,6 @@ class|class
 name|IncludeExclude
 implements|implements
 name|Writeable
-argument_list|<
-name|IncludeExclude
-argument_list|>
 implements|,
 name|ToXContent
 block|{

@@ -446,9 +446,6 @@ class|class
 name|KeyedFilter
 implements|implements
 name|Writeable
-argument_list|<
-name|KeyedFilter
-argument_list|>
 implements|,
 name|ToXContent
 block|{

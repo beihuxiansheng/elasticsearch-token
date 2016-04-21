@@ -331,9 +331,6 @@ interface|interface
 name|DocValueFormat
 extends|extends
 name|NamedWriteable
-argument_list|<
-name|DocValueFormat
-argument_list|>
 block|{
 DECL|method|format
 name|String

@@ -897,9 +897,7 @@ name|relation
 operator|=
 name|ShapeRelation
 operator|.
-name|DISJOINT
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -911,10 +909,8 @@ operator|.
 name|readOptionalWriteable
 argument_list|(
 name|SpatialStrategy
-operator|.
-name|RECURSIVE
 operator|::
-name|readFrom
+name|readFromStream
 argument_list|)
 expr_stmt|;
 name|ignoreUnmapped

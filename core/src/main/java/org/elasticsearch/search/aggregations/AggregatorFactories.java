@@ -667,9 +667,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|Writeable
-argument_list|<
-name|Builder
-argument_list|>
 block|{
 DECL|field|names
 specifier|private

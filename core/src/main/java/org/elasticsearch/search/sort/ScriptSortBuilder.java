@@ -2326,9 +2326,6 @@ enum|enum
 name|ScriptSortType
 implements|implements
 name|Writeable
-argument_list|<
-name|ScriptSortType
-argument_list|>
 block|{
 comment|/** script sort for a string value **/
 DECL|enum constant|STRING

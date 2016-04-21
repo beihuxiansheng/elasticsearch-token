@@ -249,9 +249,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|UnassignedInfo
-argument_list|>
 block|{
 DECL|field|DATE_TIME_FORMATTER
 specifier|public

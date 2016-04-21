@@ -109,9 +109,6 @@ enum|enum
 name|CombineFunction
 implements|implements
 name|Writeable
-argument_list|<
-name|CombineFunction
-argument_list|>
 block|{
 DECL|enum constant|MULTIPLY
 name|MULTIPLY

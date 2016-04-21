@@ -85,9 +85,6 @@ enum|enum
 name|SpatialStrategy
 implements|implements
 name|Writeable
-argument_list|<
-name|SpatialStrategy
-argument_list|>
 block|{
 DECL|enum constant|TERM
 name|TERM
@@ -132,12 +129,11 @@ return|return
 name|strategyName
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|SpatialStrategy
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

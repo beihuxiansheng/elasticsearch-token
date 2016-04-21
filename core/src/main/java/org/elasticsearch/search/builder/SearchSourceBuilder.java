@@ -598,9 +598,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|Writeable
-argument_list|<
-name|SearchSourceBuilder
-argument_list|>
 block|{
 DECL|field|FROM_FIELD
 specifier|public
@@ -6398,9 +6395,6 @@ class|class
 name|ScriptField
 implements|implements
 name|Writeable
-argument_list|<
-name|ScriptField
-argument_list|>
 implements|,
 name|ToXContent
 block|{

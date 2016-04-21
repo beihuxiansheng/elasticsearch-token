@@ -383,9 +383,6 @@ enum|enum
 name|Type
 implements|implements
 name|Writeable
-argument_list|<
-name|Type
-argument_list|>
 block|{
 comment|/**          * The text is analyzed and terms are added to a boolean query.          */
 DECL|enum constant|BOOLEAN
@@ -517,9 +514,6 @@ enum|enum
 name|ZeroTermsQuery
 implements|implements
 name|Writeable
-argument_list|<
-name|ZeroTermsQuery
-argument_list|>
 block|{
 DECL|enum constant|NONE
 name|NONE

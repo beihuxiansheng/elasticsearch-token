@@ -321,9 +321,6 @@ enum|enum
 name|SubAggCollectionMode
 implements|implements
 name|Writeable
-argument_list|<
-name|SubAggCollectionMode
-argument_list|>
 block|{
 comment|/**          * Creates buckets and delegates to child aggregators in a single pass over          * the matching documents          */
 DECL|enum constant|DEPTH_FIRST
@@ -454,12 +451,11 @@ name|value
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|SubAggCollectionMode
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

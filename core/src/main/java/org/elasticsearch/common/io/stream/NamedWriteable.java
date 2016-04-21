@@ -27,14 +27,8 @@ DECL|interface|NamedWriteable
 specifier|public
 interface|interface
 name|NamedWriteable
-parameter_list|<
-name|T
-parameter_list|>
 extends|extends
 name|Writeable
-argument_list|<
-name|T
-argument_list|>
 block|{
 comment|/**      * Returns the name of the writeable object      */
 DECL|method|getWriteableName

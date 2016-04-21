@@ -77,9 +77,6 @@ parameter_list|<
 name|C
 extends|extends
 name|NamedWriteable
-argument_list|<
-name|?
-argument_list|>
 parameter_list|>
 name|C
 name|readNamedWriteable

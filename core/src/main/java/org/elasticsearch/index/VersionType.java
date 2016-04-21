@@ -99,9 +99,6 @@ enum|enum
 name|VersionType
 implements|implements
 name|Writeable
-argument_list|<
-name|VersionType
-argument_list|>
 block|{
 DECL|method|INTERNAL
 DECL|method|INTERNAL

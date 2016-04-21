@@ -96,9 +96,6 @@ class|class
 name|TaskId
 implements|implements
 name|Writeable
-argument_list|<
-name|TaskId
-argument_list|>
 block|{
 DECL|field|EMPTY_TASK_ID
 specifier|public

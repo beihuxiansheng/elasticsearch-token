@@ -206,9 +206,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|AB
-argument_list|>
 implements|,
 name|ToXContent
 block|{

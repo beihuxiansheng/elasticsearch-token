@@ -326,9 +326,6 @@ class|class
 name|BucketCountThresholds
 implements|implements
 name|Writeable
-argument_list|<
-name|BucketCountThresholds
-argument_list|>
 implements|,
 name|ToXContent
 block|{

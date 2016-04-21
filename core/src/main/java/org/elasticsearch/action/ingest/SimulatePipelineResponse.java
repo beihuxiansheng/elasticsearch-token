@@ -364,9 +364,6 @@ operator|++
 control|)
 block|{
 name|SimulateDocumentResult
-argument_list|<
-name|?
-argument_list|>
 name|simulateDocumentResult
 decl_stmt|;
 if|if

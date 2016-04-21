@@ -71,11 +71,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Register a {@link NamedWriteable} given its category, its name, and a function to read it from the stream.      *      * This method suppresses the rawtypes warning because it intentionally using NamedWriteable instead of {@code NamedWriteable<T>} so it      * is easier to use and because we might be able to drop the type parameter from NamedWriteable entirely some day.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|method|register
 specifier|public
 specifier|synchronized

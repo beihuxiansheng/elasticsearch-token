@@ -1808,9 +1808,6 @@ class|class
 name|UnblockTestTaskResponse
 implements|implements
 name|Writeable
-argument_list|<
-name|UnblockTestTaskResponse
-argument_list|>
 block|{
 DECL|method|UnblockTestTaskResponse
 specifier|public
@@ -1824,7 +1821,7 @@ parameter_list|(
 name|StreamInput
 name|in
 parameter_list|)
-block|{          }
+block|{         }
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -1837,28 +1834,7 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
-block|{          }
-annotation|@
-name|Override
-DECL|method|readFrom
-specifier|public
-name|UnblockTestTaskResponse
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|UnblockTestTaskResponse
-argument_list|(
-name|in
-argument_list|)
-return|;
-block|}
+block|{         }
 block|}
 DECL|class|UnblockTestTasksRequest
 specifier|public

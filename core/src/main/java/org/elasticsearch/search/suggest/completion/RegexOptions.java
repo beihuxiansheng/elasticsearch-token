@@ -225,9 +225,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|RegexOptions
-argument_list|>
 block|{
 DECL|field|REGEX_OPTIONS
 specifier|static

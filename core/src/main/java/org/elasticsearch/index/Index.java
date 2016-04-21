@@ -95,9 +95,6 @@ class|class
 name|Index
 implements|implements
 name|Writeable
-argument_list|<
-name|Index
-argument_list|>
 block|{
 DECL|field|EMPTY_ARRAY
 specifier|public

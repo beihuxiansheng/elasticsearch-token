@@ -221,9 +221,6 @@ enum|enum
 name|GeoDistance
 implements|implements
 name|Writeable
-argument_list|<
-name|GeoDistance
-argument_list|>
 block|{
 comment|/**      * Calculates distance as points on a plane. Faster, but less accurate than {@link #ARC}.      */
 DECL|enum constant|PLANE
@@ -686,13 +683,11 @@ return|;
 block|}
 block|}
 block|;
-comment|/** Returns a GeoDistance object as read from the StreamInput. */
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|GeoDistance
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in
@@ -742,27 +737,6 @@ argument_list|()
 index|[
 name|ord
 index|]
-return|;
-block|}
-DECL|method|readFromStream
-specifier|public
-specifier|static
-name|GeoDistance
-name|readFromStream
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|DEFAULT
-operator|.
-name|readFrom
-argument_list|(
-name|in
-argument_list|)
 return|;
 block|}
 annotation|@

@@ -656,9 +656,6 @@ enum|enum
 name|Modifier
 implements|implements
 name|Writeable
-argument_list|<
-name|Modifier
-argument_list|>
 block|{
 DECL|enum constant|NONE
 name|NONE

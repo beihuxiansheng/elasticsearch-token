@@ -400,9 +400,9 @@ init|=
 operator|new
 name|ParseField
 argument_list|(
-literal|"token_filters"
+literal|"filter"
 argument_list|,
-literal|"filters"
+literal|"token_filter"
 argument_list|)
 decl_stmt|;
 DECL|field|CHAR_FILTERS
@@ -415,7 +415,7 @@ init|=
 operator|new
 name|ParseField
 argument_list|(
-literal|"char_filters"
+literal|"char_filter"
 argument_list|)
 decl_stmt|;
 DECL|field|EXPLAIN
@@ -609,13 +609,13 @@ name|request
 operator|.
 name|paramAsStringArray
 argument_list|(
-literal|"token_filters"
+literal|"filter"
 argument_list|,
 name|request
 operator|.
 name|paramAsStringArray
 argument_list|(
-literal|"filters"
+literal|"token_filter"
 argument_list|,
 name|analyzeRequest
 operator|.
@@ -633,7 +633,7 @@ name|request
 operator|.
 name|paramAsStringArray
 argument_list|(
-literal|"char_filters"
+literal|"char_filter"
 argument_list|,
 name|analyzeRequest
 operator|.

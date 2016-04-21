@@ -313,9 +313,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|Writeable
-argument_list|<
-name|SearchAfterBuilder
-argument_list|>
 block|{
 DECL|field|SEARCH_AFTER
 specifier|public

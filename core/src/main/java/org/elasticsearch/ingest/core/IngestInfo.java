@@ -149,9 +149,6 @@ class|class
 name|IngestInfo
 implements|implements
 name|Writeable
-argument_list|<
-name|IngestInfo
-argument_list|>
 implements|,
 name|ToXContent
 block|{
