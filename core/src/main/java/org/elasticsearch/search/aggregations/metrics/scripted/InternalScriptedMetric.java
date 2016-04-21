@@ -747,9 +747,8 @@ condition|)
 block|{
 name|reduceScript
 operator|=
+operator|new
 name|Script
-operator|.
-name|readScript
 argument_list|(
 name|in
 argument_list|)
