@@ -16461,7 +16461,7 @@ literal|"lowercase"
 argument_list|,
 literal|"keyword_repeat"
 argument_list|,
-literal|"porterStem"
+literal|"porter_stem"
 argument_list|,
 literal|"unique_stem"
 argument_list|)

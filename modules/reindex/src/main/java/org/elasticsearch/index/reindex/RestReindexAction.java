@@ -712,7 +712,7 @@ argument_list|,
 operator|new
 name|ParseField
 argument_list|(
-literal|"opType"
+literal|"op_type"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -756,7 +756,7 @@ argument_list|,
 operator|new
 name|ParseField
 argument_list|(
-literal|"versionType"
+literal|"version_type"
 argument_list|)
 argument_list|)
 expr_stmt|;

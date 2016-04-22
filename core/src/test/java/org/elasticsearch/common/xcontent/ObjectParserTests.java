@@ -207,7 +207,7 @@ literal|"  \"test\" : \"foo\",\n"
 operator|+
 literal|"  \"test_number\" : 2,\n"
 operator|+
-literal|"  \"testArray\":  [1,2,3,4]\n"
+literal|"  \"test_array\":  [1,2,3,4]\n"
 operator|+
 literal|"}"
 argument_list|)
@@ -412,10 +412,6 @@ argument_list|,
 literal|"ObjectParser{name='foo', fields=["
 operator|+
 literal|"FieldParser{preferred_name=test, supportedTokens=[VALUE_STRING], type=STRING}, "
-operator|+
-literal|"FieldParser{preferred_name=test_number, supportedTokens=[VALUE_STRING, VALUE_NUMBER], type=INT}, "
-operator|+
-literal|"FieldParser{preferred_name=test_array, supportedTokens=[START_ARRAY, VALUE_STRING, VALUE_NUMBER], type=INT_ARRAY}, "
 operator|+
 literal|"FieldParser{preferred_name=test_array, supportedTokens=[START_ARRAY, VALUE_STRING, VALUE_NUMBER], type=INT_ARRAY}, "
 operator|+
