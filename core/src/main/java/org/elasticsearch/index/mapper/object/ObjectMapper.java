@@ -1075,15 +1075,10 @@ decl_stmt|;
 name|String
 name|fieldName
 init|=
-name|Strings
-operator|.
-name|toUnderscoreCase
-argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Object
 name|fieldNode

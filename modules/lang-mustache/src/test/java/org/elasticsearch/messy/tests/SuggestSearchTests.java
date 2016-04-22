@@ -3813,7 +3813,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -4214,7 +4214,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -5156,10 +5156,10 @@ name|UTF_8
 argument_list|)
 return|;
 block|}
-DECL|method|testSizePararm
+DECL|method|testSizeParam
 specifier|public
 name|void
-name|testSizePararm
+name|testSizeParam
 parameter_list|()
 throws|throws
 name|IOException
@@ -5291,7 +5291,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -5798,7 +5798,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -7129,7 +7129,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)

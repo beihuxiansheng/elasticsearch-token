@@ -561,12 +561,7 @@ name|typeParsers
 operator|.
 name|apply
 argument_list|(
-name|Strings
-operator|.
-name|toUnderscoreCase
-argument_list|(
 name|type
-argument_list|)
 argument_list|)
 return|;
 block|}

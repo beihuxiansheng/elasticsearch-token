@@ -7065,7 +7065,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -7103,7 +7103,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -7138,7 +7138,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -7176,7 +7176,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -8945,7 +8945,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -8972,7 +8972,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -8994,7 +8994,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -12166,7 +12166,7 @@ literal|"type2"
 argument_list|,
 literal|"_all"
 argument_list|,
-literal|"store=true,termVector=with_positions_offsets"
+literal|"store=true,term_vector=with_positions_offsets"
 argument_list|,
 literal|"field4"
 argument_list|,
