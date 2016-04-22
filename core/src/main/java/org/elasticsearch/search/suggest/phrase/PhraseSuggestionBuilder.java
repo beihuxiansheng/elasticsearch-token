@@ -1000,9 +1000,8 @@ condition|)
 block|{
 name|collateQuery
 operator|=
+operator|new
 name|Template
-operator|.
-name|readTemplate
 argument_list|(
 name|in
 argument_list|)
