@@ -216,7 +216,7 @@ name|min
 operator|=
 name|randomIntBetween
 argument_list|(
-literal|1
+literal|0
 argument_list|,
 literal|8
 argument_list|)
