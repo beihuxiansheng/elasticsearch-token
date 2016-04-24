@@ -3948,7 +3948,7 @@ literal|"thread pool ["
 operator|+
 name|name
 operator|+
-literal|"] can not have its queue re-sized but was ["
+literal|"] of type scaling can not have its queue re-sized but was ["
 operator|+
 name|queueSize
 operator|+

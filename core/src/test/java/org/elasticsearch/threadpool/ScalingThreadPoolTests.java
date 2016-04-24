@@ -1642,7 +1642,7 @@ literal|"java.lang.IllegalArgumentException: thread pool ["
 operator|+
 name|threadPoolName
 operator|+
-literal|"] can not have its queue re-sized but was ["
+literal|"] of type scaling can not have its queue re-sized but was ["
 operator|+
 name|size
 operator|+
