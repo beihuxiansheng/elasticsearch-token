@@ -134,18 +134,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -334,6 +322,7 @@ comment|/**      * Loads the index state for the provided index name, returning 
 annotation|@
 name|Nullable
 DECL|method|loadIndexState
+specifier|public
 name|IndexMetaData
 name|loadIndexState
 parameter_list|(
@@ -556,8 +545,9 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**      * Writes the index state.      */
+comment|/**      * Writes the index state.      *      * This method is public for testing purposes.      */
 DECL|method|writeIndex
+specifier|public
 name|void
 name|writeIndex
 parameter_list|(
