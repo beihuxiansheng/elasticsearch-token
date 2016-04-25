@@ -24,6 +24,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|CorruptIndexException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -1056,21 +1070,8 @@ argument_list|(
 name|storeErr
 argument_list|)
 operator|instanceof
-name|IOException
+name|CorruptIndexException
 condition|)
-block|{
-name|storeCopy
-operator|=
-name|StoreCopy
-operator|.
-name|IO_ERROR
-expr_stmt|;
-name|finalExplanation
-operator|=
-literal|"there was an IO error reading from data in the shard store"
-expr_stmt|;
-block|}
-else|else
 block|{
 name|storeCopy
 operator|=
@@ -1081,6 +1082,19 @@ expr_stmt|;
 name|finalExplanation
 operator|=
 literal|"the copy of data in the shard store is corrupt"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|storeCopy
+operator|=
+name|StoreCopy
+operator|.
+name|IO_ERROR
+expr_stmt|;
+name|finalExplanation
+operator|=
+literal|"there was an IO error reading from data in the shard store"
 expr_stmt|;
 block|}
 block|}
