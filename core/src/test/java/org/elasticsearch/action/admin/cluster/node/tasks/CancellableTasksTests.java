@@ -1596,7 +1596,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1644,7 +1645,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// and we should have at least as many failures as the number of blocked operations

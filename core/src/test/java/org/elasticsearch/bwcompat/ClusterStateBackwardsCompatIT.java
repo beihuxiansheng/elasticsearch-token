@@ -289,6 +289,9 @@ name|n
 range|:
 name|clusterNodes
 argument_list|()
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 try|try
@@ -473,6 +476,9 @@ name|NodeInfo
 name|n
 range|:
 name|clusterNodes
+argument_list|()
+operator|.
+name|getNodes
 argument_list|()
 control|)
 block|{

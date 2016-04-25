@@ -515,6 +515,9 @@ name|NodeInfo
 name|nodeInfo
 range|:
 name|nodesInfo
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 if|if
@@ -820,6 +823,9 @@ name|NodeInfo
 name|nodeInfo
 range|:
 name|nodesInfo
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 if|if

@@ -424,6 +424,9 @@ name|NodeInfo
 name|nodeInfo
 range|:
 name|nodesInfoResponse
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 name|BoundTransportAddress

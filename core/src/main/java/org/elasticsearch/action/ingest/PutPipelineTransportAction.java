@@ -557,6 +557,9 @@ name|NodeInfo
 name|nodeInfo
 range|:
 name|nodeInfos
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 name|ingestInfos

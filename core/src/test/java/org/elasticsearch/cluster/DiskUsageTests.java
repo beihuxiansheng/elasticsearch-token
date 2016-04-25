@@ -309,6 +309,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import static
 name|java
 operator|.
@@ -2088,14 +2108,16 @@ literal|80
 argument_list|)
 block|,         }
 decl_stmt|;
+name|List
+argument_list|<
 name|NodeStats
-index|[]
+argument_list|>
 name|nodeStats
 init|=
-operator|new
-name|NodeStats
-index|[]
-block|{
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 operator|new
 name|NodeStats
 argument_list|(
@@ -2151,7 +2173,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-block|,
+argument_list|,
 operator|new
 name|NodeStats
 argument_list|(
@@ -2207,7 +2229,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-block|,
+argument_list|,
 operator|new
 name|NodeStats
 argument_list|(
@@ -2263,7 +2285,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-block|}
+argument_list|)
 decl_stmt|;
 name|InternalClusterInfoService
 operator|.
@@ -2577,14 +2599,16 @@ literal|0
 argument_list|)
 block|,         }
 decl_stmt|;
+name|List
+argument_list|<
 name|NodeStats
-index|[]
+argument_list|>
 name|nodeStats
 init|=
-operator|new
-name|NodeStats
-index|[]
-block|{
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 operator|new
 name|NodeStats
 argument_list|(
@@ -2640,7 +2664,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-block|,
+argument_list|,
 operator|new
 name|NodeStats
 argument_list|(
@@ -2696,7 +2720,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-block|,
+argument_list|,
 operator|new
 name|NodeStats
 argument_list|(
@@ -2752,7 +2776,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-block|}
+argument_list|)
 decl_stmt|;
 name|InternalClusterInfoService
 operator|.
