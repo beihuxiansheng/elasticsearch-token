@@ -1111,10 +1111,20 @@ name|StoreCopy
 operator|.
 name|AVAILABLE
 expr_stmt|;
+if|if
+condition|(
+name|finalDecision
+operator|!=
+name|FinalDecision
+operator|.
+name|NO
+condition|)
+block|{
 name|finalExplanation
 operator|=
 literal|"the shard can be assigned and the node contains a valid copy of the shard data"
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
