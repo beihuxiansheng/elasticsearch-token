@@ -899,16 +899,6 @@ name|SearchType
 name|searchType
 parameter_list|()
 function_decl|;
-DECL|method|searchType
-specifier|public
-specifier|abstract
-name|SearchContext
-name|searchType
-parameter_list|(
-name|SearchType
-name|searchType
-parameter_list|)
-function_decl|;
 DECL|method|shardTarget
 specifier|public
 specifier|abstract
