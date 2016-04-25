@@ -755,6 +755,8 @@ operator|.
 name|sort
 argument_list|()
 operator|.
+name|sort
+operator|.
 name|getSort
 argument_list|()
 operator|.
@@ -769,6 +771,8 @@ name|innerHits
 operator|.
 name|sort
 argument_list|()
+operator|.
+name|sort
 operator|.
 name|getSort
 argument_list|()
