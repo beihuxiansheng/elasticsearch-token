@@ -236,8 +236,6 @@ name|getUnassignedInfo
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ClusterAllocationExplanation
-operator|.
 name|NodeExplanation
 name|explanation
 init|=

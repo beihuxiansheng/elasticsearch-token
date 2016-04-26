@@ -392,6 +392,8 @@ parameter_list|,
 name|long
 name|remainingDelayMillis
 parameter_list|,
+annotation|@
+name|Nullable
 name|UnassignedInfo
 name|unassignedInfo
 parameter_list|,

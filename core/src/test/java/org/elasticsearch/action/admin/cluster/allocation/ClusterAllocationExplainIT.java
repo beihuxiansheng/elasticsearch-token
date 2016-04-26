@@ -518,12 +518,12 @@ literal|"expecting a remaining delay, got: "
 operator|+
 name|cae
 operator|.
-name|getRemainingDelayNanos
+name|getRemainingDelayMillis
 argument_list|()
 argument_list|,
 name|cae
 operator|.
-name|getRemainingDelayNanos
+name|getRemainingDelayMillis
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -881,12 +881,12 @@ literal|"expecting no remaining delay: "
 operator|+
 name|cae
 operator|.
-name|getRemainingDelayNanos
+name|getRemainingDelayMillis
 argument_list|()
 argument_list|,
 name|cae
 operator|.
-name|getRemainingDelayNanos
+name|getRemainingDelayMillis
 argument_list|()
 argument_list|,
 name|equalTo
@@ -899,8 +899,6 @@ name|Map
 argument_list|<
 name|DiscoveryNode
 argument_list|,
-name|ClusterAllocationExplanation
-operator|.
 name|NodeExplanation
 argument_list|>
 name|explanations
@@ -936,8 +934,6 @@ name|Entry
 argument_list|<
 name|DiscoveryNode
 argument_list|,
-name|ClusterAllocationExplanation
-operator|.
 name|NodeExplanation
 argument_list|>
 name|entry
@@ -964,8 +960,6 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
-name|ClusterAllocationExplanation
-operator|.
 name|NodeExplanation
 name|explanation
 init|=
