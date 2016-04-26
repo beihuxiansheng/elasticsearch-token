@@ -688,6 +688,19 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isSearchable
+specifier|public
+name|boolean
+name|isSearchable
+parameter_list|()
+block|{
+comment|// The _index field is always searchable.
+return|return
+literal|true
+return|;
+block|}
 comment|/**          * This termQuery impl looks at the context to determine the index that          * is being queried and then returns a MATCH_ALL_QUERY or MATCH_NO_QUERY          * if the value matches this index. This can be useful if aliases or          * wildcards are used but the aim is to restrict the query to specific          * indices          */
 annotation|@
 name|Override

@@ -253,7 +253,7 @@ name|value
 init|=
 name|FieldStats
 operator|.
-name|read
+name|readFrom
 argument_list|(
 name|in
 argument_list|)

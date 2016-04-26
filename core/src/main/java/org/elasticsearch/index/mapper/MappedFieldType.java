@@ -657,7 +657,7 @@ name|MappedFieldType
 name|clone
 parameter_list|()
 function_decl|;
-comment|/** Return a fielddata builder for this field. */
+comment|/** Return a fielddata builder for this field      *  @throws IllegalArgumentException if the fielddata is not supported on this type.      *  An IllegalArgumentException is needed in order to return an http error 400      *  when this error occurs in a request. see: {@link org.elasticsearch.ExceptionsHelper#status}      **/
 DECL|method|fielddataBuilder
 specifier|public
 name|IndexFieldData
@@ -1891,6 +1891,49 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/** Returns true if the field is searchable.      *      */
+DECL|method|isSearchable
+specifier|protected
+name|boolean
+name|isSearchable
+parameter_list|()
+block|{
+return|return
+name|indexOptions
+argument_list|()
+operator|!=
+name|IndexOptions
+operator|.
+name|NONE
+return|;
+block|}
+comment|/** Returns true if the field is aggregatable.      *      */
+DECL|method|isAggregatable
+specifier|protected
+name|boolean
+name|isAggregatable
+parameter_list|()
+block|{
+try|try
+block|{
+name|fielddataBuilder
+argument_list|()
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
 comment|/** Generates a query that will only match documents that contain the given value.      *  The default implementation returns a {@link TermQuery} over the value bytes,      *  boosted by {@link #boost()}.      *  @throws IllegalArgumentException if {@code value} cannot be converted to the expected data type */
 DECL|method|termQuery
 specifier|public
@@ -2321,10 +2364,24 @@ literal|null
 condition|)
 block|{
 return|return
-literal|null
+operator|new
+name|FieldStats
+operator|.
+name|Text
+argument_list|(
+name|maxDoc
+argument_list|,
+name|isSearchable
+argument_list|()
+argument_list|,
+name|isAggregatable
+argument_list|()
+argument_list|)
 return|;
 block|}
-return|return
+name|FieldStats
+name|stats
+init|=
 operator|new
 name|FieldStats
 operator|.
@@ -2347,6 +2404,12 @@ operator|.
 name|getSumTotalTermFreq
 argument_list|()
 argument_list|,
+name|isSearchable
+argument_list|()
+argument_list|,
+name|isAggregatable
+argument_list|()
+argument_list|,
 name|terms
 operator|.
 name|getMin
@@ -2357,6 +2420,9 @@ operator|.
 name|getMax
 argument_list|()
 argument_list|)
+decl_stmt|;
+return|return
+name|stats
 return|;
 block|}
 comment|/**      * An enum used to describe the relation between the range of terms in a      * shard when compared with a query range      */
@@ -2427,6 +2493,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/** @throws IllegalArgumentException if the fielddata is not supported on this type.      *  An IllegalArgumentException is needed in order to return an http error 400      *  when this error occurs in a request. see: {@link org.elasticsearch.ExceptionsHelper#status}      **/
 DECL|method|failIfNoDocValues
 specifier|protected
 specifier|final
@@ -2444,7 +2511,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 literal|"Can't load fielddata on ["
 operator|+
