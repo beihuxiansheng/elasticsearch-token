@@ -327,16 +327,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"threadpool.generic.size"
+literal|"threadpool.generic.max"
 argument_list|,
-literal|1
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"threadpool.generic.queue_size"
-argument_list|,
-literal|1
+literal|4
 argument_list|)
 comment|// don't mess with this one! It's quite sensitive to a low queue size
 comment|// (see also ThreadedActionListener which is happily spawning threads even when we already got rejected)
