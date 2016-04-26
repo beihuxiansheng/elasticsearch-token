@@ -112,18 +112,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|Iterators
@@ -1073,7 +1061,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_5_0_0
+name|V_5_0_0_alpha2
 argument_list|)
 condition|)
 block|{
