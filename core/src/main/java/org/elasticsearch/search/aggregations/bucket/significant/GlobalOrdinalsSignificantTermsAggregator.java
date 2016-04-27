@@ -617,10 +617,8 @@ name|supersetSize
 init|=
 name|termsAggFactory
 operator|.
-name|prepareBackground
-argument_list|(
-name|context
-argument_list|)
+name|getSupersetNumDocs
+argument_list|()
 decl_stmt|;
 name|long
 name|subsetSize
