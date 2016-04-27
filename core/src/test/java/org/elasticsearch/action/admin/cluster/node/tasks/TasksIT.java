@@ -1161,7 +1161,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-comment|// the percolate operation should produce one main task
+comment|// the field stats operation should produce one main task
 name|NumShards
 name|numberOfShards
 init|=
@@ -1191,7 +1191,7 @@ name|assertEquals
 argument_list|(
 name|numberOfShards
 operator|.
-name|totalNumShards
+name|numPrimaries
 argument_list|,
 name|numberOfEvents
 argument_list|(
