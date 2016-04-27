@@ -379,6 +379,28 @@ name|self
 argument_list|()
 return|;
 block|}
+comment|/**      * Set the throttle for this request in sub-requests per second. {@link Float#POSITIVE_INFINITY} means set no throttle and that is the      * default. Throttling is done between batches, as we start the next scroll requests. That way we can increase the scroll's timeout to      * make sure that it contains any time that we might wait.      */
+DECL|method|setRequestsPerSecond
+specifier|public
+name|Self
+name|setRequestsPerSecond
+parameter_list|(
+name|float
+name|requestsPerSecond
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setRequestsPerSecond
+argument_list|(
+name|requestsPerSecond
+argument_list|)
+expr_stmt|;
+return|return
+name|self
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

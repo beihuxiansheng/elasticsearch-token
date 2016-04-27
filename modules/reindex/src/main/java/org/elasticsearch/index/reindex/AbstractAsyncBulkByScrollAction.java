@@ -2044,7 +2044,9 @@ operator|.
 name|getRequestsPerSecond
 argument_list|()
 operator|==
-literal|0
+name|Float
+operator|.
+name|POSITIVE_INFINITY
 condition|)
 block|{
 return|return

@@ -2915,7 +2915,9 @@ name|testRequest
 operator|.
 name|setRequestsPerSecond
 argument_list|(
-literal|0
+name|Float
+operator|.
+name|POSITIVE_INFINITY
 argument_list|)
 expr_stmt|;
 name|assertThat

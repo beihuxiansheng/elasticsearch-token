@@ -214,7 +214,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|reindexResponseMatcher
 argument_list|()
 operator|.
 name|created
@@ -256,7 +256,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|reindexResponseMatcher
 argument_list|()
 operator|.
 name|created
@@ -320,7 +320,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|reindexResponseMatcher
 argument_list|()
 operator|.
 name|created
@@ -384,7 +384,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|reindexResponseMatcher
 argument_list|()
 operator|.
 name|created
