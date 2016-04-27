@@ -771,6 +771,19 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|isSearchable
+specifier|public
+name|boolean
+name|isSearchable
+parameter_list|()
+block|{
+comment|// The _id field is always searchable.
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|termQuery
 specifier|public
 name|Query
