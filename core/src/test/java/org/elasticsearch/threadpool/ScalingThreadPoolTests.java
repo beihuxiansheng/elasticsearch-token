@@ -1178,6 +1178,21 @@ name|SCALING
 argument_list|)
 decl_stmt|;
 specifier|final
+name|int
+name|min
+init|=
+literal|"generic"
+operator|.
+name|equals
+argument_list|(
+name|threadPoolName
+argument_list|)
+condition|?
+literal|4
+else|:
+literal|1
+decl_stmt|;
+specifier|final
 name|Settings
 name|settings
 init|=
@@ -1233,6 +1248,16 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
+specifier|final
+name|CountDownLatch
+name|taskLatch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|128
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1267,6 +1292,11 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
+name|taskLatch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1287,10 +1317,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|int
-name|active
-init|=
+name|assertThat
+argument_list|(
 name|stats
 argument_list|(
 name|threadPool
@@ -1300,10 +1328,6 @@ argument_list|)
 operator|.
 name|getThreads
 argument_list|()
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|active
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1316,6 +1340,12 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+comment|// this while loop is the core of this test; if threads
+comment|// are correctly idled down by the pool, the number of
+comment|// threads in the pool will drop to the min for the pool
+comment|// but if threads are not correctly idled down by the pool,
+comment|// this test will just timeout waiting for them to idle
+comment|// down
 do|do
 block|{
 name|spinForAtLeastOneMillisecond
@@ -1334,9 +1364,31 @@ operator|.
 name|getThreads
 argument_list|()
 operator|>
-literal|4
+name|min
 condition|)
 do|;
+try|try
+block|{
+name|taskLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 name|assertThat
 argument_list|(
 name|stats
