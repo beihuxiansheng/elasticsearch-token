@@ -612,7 +612,7 @@ operator|.
 name|unassignedInfo
 return|;
 block|}
-comment|/** Return the remaining allocation delay for this shard in nanoseconds */
+comment|/** Return the remaining allocation delay for this shard in millisocends */
 DECL|method|getRemainingDelayMillis
 specifier|public
 name|long
@@ -788,7 +788,7 @@ name|builder
 operator|.
 name|timeValueField
 argument_list|(
-literal|"allocation_delay_ms"
+literal|"allocation_delay_in_millis"
 argument_list|,
 literal|"allocation_delay"
 argument_list|,
@@ -804,7 +804,7 @@ name|builder
 operator|.
 name|timeValueField
 argument_list|(
-literal|"remaining_delay_ms"
+literal|"remaining_delay_in_millis"
 argument_list|,
 literal|"remaining_delay"
 argument_list|,
