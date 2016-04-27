@@ -1399,6 +1399,8 @@ name|Query
 name|zeroTermsQuery
 parameter_list|()
 block|{
+comment|// TODO This is weird: DEFAULT_ZERO_TERMS_QUERY is a public static final field, so this can have only one value.
+comment|// why are we then having this if clause in here?
 return|return
 name|zeroTermsQuery
 operator|==
