@@ -1949,6 +1949,9 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|TermQuery
 name|query
 init|=
@@ -2021,6 +2024,9 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|BytesRef
 index|[]
 name|bytesRefs
@@ -2096,6 +2102,9 @@ name|boolean
 name|includeUpper
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|TermRangeQuery
@@ -2152,6 +2161,9 @@ name|boolean
 name|transpositions
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|FuzzyQuery
@@ -2209,6 +2221,9 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|PrefixQuery
 name|query
 init|=
@@ -2524,6 +2539,43 @@ name|typeName
 argument_list|()
 operator|+
 literal|"]. Use doc values instead."
+argument_list|)
+throw|;
+block|}
+block|}
+DECL|method|failIfNotIndexed
+specifier|protected
+specifier|final
+name|void
+name|failIfNotIndexed
+parameter_list|()
+block|{
+if|if
+condition|(
+name|indexOptions
+argument_list|()
+operator|==
+name|IndexOptions
+operator|.
+name|NONE
+operator|&&
+name|pointDimensionCount
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+comment|// we throw an IAE rather than an ISE so that it translates to a 4xx code rather than 5xx code on the http layer
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot search on field ["
+operator|+
+name|name
+argument_list|()
+operator|+
+literal|"] since it is not indexed."
 argument_list|)
 throw|;
 block|}

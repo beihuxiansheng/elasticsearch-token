@@ -4849,6 +4849,9 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|Query
 name|query
 init|=
@@ -4900,6 +4903,9 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|Query
 name|query
 init|=
@@ -4957,6 +4963,9 @@ name|boolean
 name|includeUpper
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|Query
 name|query
 init|=
@@ -5023,6 +5032,9 @@ name|boolean
 name|transpositions
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 return|return
 name|type
 operator|.

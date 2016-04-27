@@ -1145,6 +1145,9 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|value
@@ -1325,6 +1328,9 @@ name|boolean
 name|includeUpper
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|InetAddress
 name|lower
 decl_stmt|;
@@ -1486,6 +1492,9 @@ name|boolean
 name|transpositions
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|InetAddress
 name|base
 init|=

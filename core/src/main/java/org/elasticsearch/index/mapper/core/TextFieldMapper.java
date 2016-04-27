@@ -1802,6 +1802,9 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|RegexpQuery
 name|query
 init|=

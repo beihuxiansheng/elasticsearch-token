@@ -2186,6 +2186,9 @@ name|boolean
 name|transpositions
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|long
 name|baseLo
 init|=
@@ -2283,6 +2286,9 @@ name|boolean
 name|includeUpper
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 return|return
 name|rangeQuery
 argument_list|(
@@ -2328,6 +2334,9 @@ name|DateMathParser
 name|forcedDateParser
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|LateParsingQuery
@@ -2373,6 +2382,9 @@ name|DateMathParser
 name|forcedDateParser
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|DateMathParser
 name|parser
 init|=
