@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|LongPoint
+name|StoredField
 import|;
 end_import
 
@@ -70,7 +70,21 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|StoredField
+name|LongPoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|XPointValues
 import|;
 end_import
 
@@ -99,20 +113,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|PointValues
 import|;
 end_import
 
@@ -2640,7 +2640,7 @@ decl_stmt|;
 name|long
 name|size
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|size
 argument_list|(
@@ -2681,7 +2681,7 @@ block|}
 name|int
 name|docCount
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getDocCount
 argument_list|(
@@ -2694,7 +2694,7 @@ name|byte
 index|[]
 name|min
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMinPackedValue
 argument_list|(
@@ -2707,7 +2707,7 @@ name|byte
 index|[]
 name|max
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMaxPackedValue
 argument_list|(
@@ -2810,7 +2810,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|PointValues
+name|XPointValues
 operator|.
 name|size
 argument_list|(
@@ -2837,7 +2837,7 @@ name|LongPoint
 operator|.
 name|decodeDimension
 argument_list|(
-name|PointValues
+name|XPointValues
 operator|.
 name|getMinPackedValue
 argument_list|(
@@ -2857,7 +2857,7 @@ name|LongPoint
 operator|.
 name|decodeDimension
 argument_list|(
-name|PointValues
+name|XPointValues
 operator|.
 name|getMaxPackedValue
 argument_list|(
