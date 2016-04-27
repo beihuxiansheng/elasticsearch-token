@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchNoDocsQuery
+name|Query
 import|;
 end_import
 
@@ -34,13 +34,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|MatchNoDocsQuery
 import|;
 end_import
 

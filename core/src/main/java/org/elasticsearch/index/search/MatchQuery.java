@@ -1399,16 +1399,23 @@ name|Query
 name|zeroTermsQuery
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
 name|zeroTermsQuery
 operator|==
 name|DEFAULT_ZERO_TERMS_QUERY
-condition|?
+condition|)
+block|{
+return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
-argument_list|()
-else|:
+argument_list|(
+literal|"No query supplied in match query"
+argument_list|)
+return|;
+block|}
+return|return
 name|Queries
 operator|.
 name|newMatchAllQuery

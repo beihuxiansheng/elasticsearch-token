@@ -733,7 +733,16 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
+argument_list|(
+literal|"No terms supplied for "
+operator|+
+name|MultiPhrasePrefixQuery
+operator|.
+name|class
+operator|.
+name|getName
 argument_list|()
+argument_list|)
 return|;
 block|}
 name|query

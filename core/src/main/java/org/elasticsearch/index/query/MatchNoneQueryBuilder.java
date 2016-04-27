@@ -495,7 +495,14 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
+argument_list|(
+literal|"User requested "
+operator|+
+name|this
+operator|.
+name|getName
 argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@

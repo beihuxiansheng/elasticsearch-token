@@ -110,20 +110,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchNoDocsQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|PhraseQuery
 import|;
 end_import
@@ -190,7 +176,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|lucene
+operator|.
+name|search
+operator|.
+name|MatchNoDocsQuery
 import|;
 end_import
 
