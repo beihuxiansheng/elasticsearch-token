@@ -1003,7 +1003,7 @@ name|Deprecated
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff this setting is a group setting. Group settings represent a set of settings      * rather than a single value. The key, see {@link #getKey()}, in contrast to non-group settings is a prefix like<tt>cluster.store.</tt>      * that matches all settings with this prefix.      */
+comment|/**      * Returns<code>true</code> iff this setting is a group setting. Group settings represent a set of settings rather than a single value.      * The key, see {@link #getKey()}, in contrast to non-group settings is a prefix like<tt>cluster.store.</tt> that matches all settings      * with this prefix.      */
 DECL|method|isGroupSetting
 name|boolean
 name|isGroupSetting
@@ -1450,6 +1450,7 @@ name|String
 name|key
 parameter_list|)
 block|{
+comment|// we use startsWith here since the key might be foo.bar.0 if it's an array
 assert|assert
 name|key
 operator|.
@@ -1470,7 +1471,6 @@ operator|+
 name|getKey
 argument_list|()
 assert|;
-comment|// we use startsWith here since the key might be foo.bar.0 if it's an array
 return|return
 name|this
 return|;
@@ -1571,7 +1571,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * this is used for settings that depend on each other... see {@link org.elasticsearch.common.settings.AbstractScopedSettings#addSettingsUpdateConsumer(Setting, Setting, BiConsumer)} and it's      * usage for details.      */
+comment|/**      * Updates settings that depend on eachother. See {@link AbstractScopedSettings#addSettingsUpdateConsumer(Setting, Setting, BiConsumer)}      * and its usage for details.      */
 DECL|method|compoundUpdater
 specifier|static
 parameter_list|<

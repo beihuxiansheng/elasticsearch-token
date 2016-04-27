@@ -447,6 +447,7 @@ decl_stmt|;
 DECL|field|BUILT_IN_INDEX_SETTINGS
 specifier|public
 specifier|static
+specifier|final
 name|Set
 argument_list|<
 name|Setting
@@ -882,8 +883,6 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-name|IndexScopedSettings
-operator|.
 name|BUILT_IN_INDEX_SETTINGS
 argument_list|)
 decl_stmt|;
