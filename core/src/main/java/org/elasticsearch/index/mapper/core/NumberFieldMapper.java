@@ -154,7 +154,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|PointValues
+name|XPointValues
 import|;
 end_import
 
@@ -1870,7 +1870,7 @@ block|{
 name|long
 name|size
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|size
 argument_list|(
@@ -1906,7 +1906,7 @@ block|}
 name|int
 name|docCount
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getDocCount
 argument_list|(
@@ -1919,7 +1919,7 @@ name|byte
 index|[]
 name|min
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMinPackedValue
 argument_list|(
@@ -1932,7 +1932,7 @@ name|byte
 index|[]
 name|max
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMaxPackedValue
 argument_list|(
@@ -2480,7 +2480,7 @@ block|{
 name|long
 name|size
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|size
 argument_list|(
@@ -2516,7 +2516,7 @@ block|}
 name|int
 name|docCount
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getDocCount
 argument_list|(
@@ -2529,7 +2529,7 @@ name|byte
 index|[]
 name|min
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMinPackedValue
 argument_list|(
@@ -2542,7 +2542,7 @@ name|byte
 index|[]
 name|max
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMaxPackedValue
 argument_list|(
@@ -3788,7 +3788,7 @@ block|{
 name|long
 name|size
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|size
 argument_list|(
@@ -3824,7 +3824,7 @@ block|}
 name|int
 name|docCount
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getDocCount
 argument_list|(
@@ -3837,7 +3837,7 @@ name|byte
 index|[]
 name|min
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMinPackedValue
 argument_list|(
@@ -3850,7 +3850,7 @@ name|byte
 index|[]
 name|max
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMaxPackedValue
 argument_list|(
@@ -4411,7 +4411,7 @@ block|{
 name|long
 name|size
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|size
 argument_list|(
@@ -4447,7 +4447,7 @@ block|}
 name|int
 name|docCount
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getDocCount
 argument_list|(
@@ -4460,7 +4460,7 @@ name|byte
 index|[]
 name|min
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMinPackedValue
 argument_list|(
@@ -4473,7 +4473,7 @@ name|byte
 index|[]
 name|max
 init|=
-name|PointValues
+name|XPointValues
 operator|.
 name|getMaxPackedValue
 argument_list|(
