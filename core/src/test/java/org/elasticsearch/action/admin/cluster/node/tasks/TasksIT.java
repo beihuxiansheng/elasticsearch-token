@@ -1840,7 +1840,8 @@ operator|.
 name|getDescription
 argument_list|()
 decl_stmt|;
-comment|// This shard level task runs on another node - it should have a corresponding shard level task on the node where main task is running
+comment|// This shard level task runs on another node - it should have a corresponding shard level task on the node where main task
+comment|// is running
 name|List
 argument_list|<
 name|TaskInfo
