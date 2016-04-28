@@ -394,7 +394,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"malformed, expected end of settings but encountered additional content starting at line number: [{}], column number: [{}]"
+literal|"malformed, expected end of settings but encountered additional content starting at line number: [{}], "
+operator|+
+literal|"column number: [{}]"
 argument_list|,
 name|e
 argument_list|,
@@ -425,7 +427,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"malformed, expected end of settings but encountered additional content starting at line number: [{}], column number: [{}]"
+literal|"malformed, expected end of settings but encountered additional content starting at line number: [{}], "
+operator|+
+literal|"column number: [{}]"
 argument_list|,
 name|jp
 operator|.

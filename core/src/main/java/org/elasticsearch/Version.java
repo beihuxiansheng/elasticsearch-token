@@ -149,9 +149,7 @@ specifier|public
 class|class
 name|Version
 block|{
-comment|// The logic for ID is: XXYYZZAA, where XX is major version, YY is minor version, ZZ is revision, and AA is alpha/beta/rc indicator
-comment|// AA values below 25 are for alpha builder (since 5.0), and above 25 and below 50 are beta builds, and below 99 are RC builds, with 99 indicating a release
-comment|// the (internal) format of the id is there so we can easily do after/before checks on the id
+comment|/*      * The logic for ID is: XXYYZZAA, where XX is major version, YY is minor version, ZZ is revision, and AA is alpha/beta/rc indicator AA      * values below 25 are for alpha builder (since 5.0), and above 25 and below 50 are beta builds, and below 99 are RC builds, with 99      * indicating a release the (internal) format of the id is there so we can easily do after/before checks on the id      */
 DECL|field|V_2_0_0_beta1_ID
 specifier|public
 specifier|static
@@ -945,7 +943,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Return the {@link Version} of Elasticsearch that has been used to create an index given its settings.      *      * @throws IllegalStateException if the given index settings doesn't contain a value for the key {@value IndexMetaData#SETTING_VERSION_CREATED}      */
+comment|/**      * Return the {@link Version} of Elasticsearch that has been used to create an index given its settings.      *      * @throws IllegalStateException if the given index settings doesn't contain a value for the key      *         {@value IndexMetaData#SETTING_VERSION_CREATED}      */
 DECL|method|indexCreated
 specifier|public
 specifier|static

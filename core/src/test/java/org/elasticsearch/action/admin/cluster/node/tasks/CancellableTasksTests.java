@@ -1261,7 +1261,7 @@ name|EMPTY
 argument_list|,
 literal|"testAction"
 argument_list|,
-name|clusterName
+name|CLUSTER_NAME
 argument_list|,
 name|threadPool
 argument_list|,

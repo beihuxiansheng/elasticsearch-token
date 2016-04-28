@@ -601,12 +601,12 @@ specifier|static
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|field|clusterName
+DECL|field|CLUSTER_NAME
 specifier|public
 specifier|static
 specifier|final
 name|ClusterName
-name|clusterName
+name|CLUSTER_NAME
 init|=
 operator|new
 name|ClusterName
@@ -1343,7 +1343,7 @@ name|TransportListTasksAction
 argument_list|(
 name|settings
 argument_list|,
-name|clusterName
+name|CLUSTER_NAME
 argument_list|,
 name|threadPool
 argument_list|,
@@ -1363,7 +1363,7 @@ name|TransportCancelTasksAction
 argument_list|(
 name|settings
 argument_list|,
-name|clusterName
+name|CLUSTER_NAME
 argument_list|,
 name|threadPool
 argument_list|,

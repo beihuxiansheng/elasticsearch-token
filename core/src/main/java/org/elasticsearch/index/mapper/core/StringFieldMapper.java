@@ -3058,7 +3058,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 literal|"Fielddata is disabled on analyzed string fields by default. Set fielddata=true on ["
 operator|+

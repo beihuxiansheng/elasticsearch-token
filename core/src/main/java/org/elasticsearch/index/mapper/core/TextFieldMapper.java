@@ -1746,7 +1746,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 literal|"Fielddata is disabled on text fields by default. Set fielddata=true on ["
 operator|+
@@ -1802,6 +1802,9 @@ name|QueryShardContext
 name|context
 parameter_list|)
 block|{
+name|failIfNotIndexed
+argument_list|()
+expr_stmt|;
 name|RegexpQuery
 name|query
 init|=

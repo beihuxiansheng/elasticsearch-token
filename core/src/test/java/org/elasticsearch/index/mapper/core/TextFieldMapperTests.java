@@ -3554,12 +3554,12 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|IllegalStateException
+name|IllegalArgumentException
 name|e
 init|=
 name|expectThrows
 argument_list|(
-name|IllegalStateException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|,
