@@ -356,7 +356,7 @@ name|builder
 operator|.
 name|setNestedFilter
 argument_list|(
-name|RandomSortDataGenerator
+name|NestedQueryBuilderGenerator
 operator|.
 name|nestedFilter
 argument_list|(
@@ -479,7 +479,7 @@ name|mutated
 operator|.
 name|setNestedFilter
 argument_list|(
-name|RandomSortDataGenerator
+name|NestedQueryBuilderGenerator
 operator|.
 name|nestedFilter
 argument_list|(
