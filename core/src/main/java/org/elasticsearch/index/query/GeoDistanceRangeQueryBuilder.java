@@ -677,6 +677,11 @@ literal|"coerce"
 argument_list|,
 literal|"normalize"
 argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use validation_method instead"
+argument_list|)
 decl_stmt|;
 DECL|field|IGNORE_MALFORMED_FIELD
 specifier|private
@@ -689,6 +694,11 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"ignore_malformed"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use validation_method instead"
 argument_list|)
 decl_stmt|;
 DECL|field|VALIDATION_METHOD
