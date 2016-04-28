@@ -1782,10 +1782,12 @@ name|Queries
 operator|.
 name|newMatchNoDocsQuery
 argument_list|(
-literal|"No terms supplied for "
+literal|"No terms supplied for \""
 operator|+
 name|getName
 argument_list|()
+operator|+
+literal|"\" query."
 argument_list|)
 return|;
 block|}

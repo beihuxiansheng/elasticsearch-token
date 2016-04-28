@@ -1239,12 +1239,14 @@ name|Queries
 operator|.
 name|newMatchNoDocsQuery
 argument_list|(
-literal|"Missing ids in "
+literal|"Missing ids in \""
 operator|+
 name|this
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|"\" query."
 argument_list|)
 expr_stmt|;
 block|}

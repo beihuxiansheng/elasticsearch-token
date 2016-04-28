@@ -781,9 +781,11 @@ name|Queries
 operator|.
 name|newMatchNoDocsQuery
 argument_list|(
-literal|"Missing types in "
+literal|"Missing types in \""
 operator|+
 name|NAME
+operator|+
+literal|"\" query."
 argument_list|)
 return|;
 block|}

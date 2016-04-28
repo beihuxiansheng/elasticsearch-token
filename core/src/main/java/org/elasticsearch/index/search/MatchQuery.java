@@ -1411,7 +1411,7 @@ name|Queries
 operator|.
 name|newMatchNoDocsQuery
 argument_list|(
-literal|"No query supplied in match query"
+literal|"Matching no documents because no terms present."
 argument_list|)
 return|;
 block|}
