@@ -277,11 +277,12 @@ name|builder
 operator|.
 name|order
 argument_list|(
-name|RandomSortDataGenerator
-operator|.
-name|order
+name|randomFrom
 argument_list|(
-literal|null
+name|SortOrder
+operator|.
+name|values
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
