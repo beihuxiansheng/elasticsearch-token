@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanQuery
+name|Query
 import|;
 end_import
 
@@ -34,13 +34,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -51,18 +53,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|equalTo
 import|;
 end_import
 
@@ -128,33 +118,9 @@ name|query
 argument_list|,
 name|instanceOf
 argument_list|(
-name|BooleanQuery
+name|MatchNoDocsQuery
 operator|.
 name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|BooleanQuery
-name|booleanQuery
-init|=
-operator|(
-name|BooleanQuery
-operator|)
-name|query
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|booleanQuery
-operator|.
-name|clauses
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

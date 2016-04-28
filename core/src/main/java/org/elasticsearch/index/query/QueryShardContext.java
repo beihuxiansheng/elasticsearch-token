@@ -2138,7 +2138,9 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
-argument_list|()
+argument_list|(
+literal|"No query left after rewrite."
+argument_list|)
 return|;
 block|}
 return|return
