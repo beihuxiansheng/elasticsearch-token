@@ -4559,7 +4559,7 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 block|{
-comment|// this method should only be called when we know the index is not part of the cluster state
+comment|// this method should only be called when we know the index (name + uuid) is not part of the cluster state
 if|if
 condition|(
 name|clusterState
@@ -4567,13 +4567,12 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|hasIndex
+name|index
 argument_list|(
 name|index
-operator|.
-name|getName
-argument_list|()
 argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 throw|throw
