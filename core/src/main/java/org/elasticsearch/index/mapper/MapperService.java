@@ -649,6 +649,10 @@ name|INDEX_MAPPER_DYNAMIC_DEFAULT
 argument_list|,
 name|Property
 operator|.
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
 name|IndexScope
 argument_list|)
 decl_stmt|;
