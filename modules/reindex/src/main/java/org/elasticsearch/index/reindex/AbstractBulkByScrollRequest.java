@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -156,21 +176,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|tasks
 operator|.
-name|util
-operator|.
-name|Arrays
+name|TaskId
 import|;
 end_import
 
@@ -448,6 +460,29 @@ operator|=
 name|addValidationError
 argument_list|(
 literal|"from is not supported in this context"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|searchRequest
+operator|.
+name|source
+argument_list|()
+operator|.
+name|fields
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|e
+operator|=
+name|addValidationError
+argument_list|(
+literal|"fields is not supported in this context"
 argument_list|,
 name|e
 argument_list|)
@@ -833,6 +868,9 @@ name|type
 parameter_list|,
 name|String
 name|action
+parameter_list|,
+name|TaskId
+name|parentTaskId
 parameter_list|)
 block|{
 return|return
@@ -847,6 +885,8 @@ name|action
 argument_list|,
 name|getDescription
 argument_list|()
+argument_list|,
+name|parentTaskId
 argument_list|,
 name|requestsPerSecond
 argument_list|)

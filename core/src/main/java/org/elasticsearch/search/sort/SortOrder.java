@@ -95,9 +95,6 @@ enum|enum
 name|SortOrder
 implements|implements
 name|Writeable
-argument_list|<
-name|SortOrder
-argument_list|>
 block|{
 comment|/**      * Ascending order.      */
 DECL|enum constant|ASC

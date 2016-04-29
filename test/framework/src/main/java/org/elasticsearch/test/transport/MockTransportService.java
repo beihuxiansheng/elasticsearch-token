@@ -280,6 +280,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|indices
+operator|.
+name|breaker
+operator|.
+name|NoneCircuitBreakerService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -680,6 +694,10 @@ argument_list|,
 name|version
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+operator|new
+name|NoneCircuitBreakerService
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -740,6 +758,10 @@ argument_list|,
 name|version
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+operator|new
+name|NoneCircuitBreakerService
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -2021,7 +2043,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a new delegate transport that is used for communication with the given transport service.      *      * @return<tt>true</tt> iff no other delegate was registered for any of the addresses bound by transport service, otherwise<tt>false</tt>      */
+comment|/**      * Adds a new delegate transport that is used for communication with the given transport service.      *      * @return<tt>true</tt> iff no other delegate was registered for any of the addresses bound by transport service.      */
 DECL|method|addDelegate
 specifier|public
 name|boolean
@@ -2064,7 +2086,7 @@ return|return
 name|noRegistered
 return|;
 block|}
-comment|/**      * Adds a new delegate transport that is used for communication with the given transport address.      *      * @return<tt>true</tt> iff no other delegate was registered for this address before, otherwise<tt>false</tt>      */
+comment|/**      * Adds a new delegate transport that is used for communication with the given transport address.      *      * @return<tt>true</tt> iff no other delegate was registered for this address before.      */
 DECL|method|addDelegate
 specifier|public
 name|boolean

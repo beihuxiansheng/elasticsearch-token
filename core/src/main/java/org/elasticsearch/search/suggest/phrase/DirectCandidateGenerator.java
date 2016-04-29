@@ -1783,7 +1783,8 @@ return|return
 literal|false
 return|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 operator|!
@@ -1799,6 +1800,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 return|return
 literal|true
 return|;

@@ -90,7 +90,19 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParseFieldMatcherSupplier
 import|;
 end_import
 
@@ -165,16 +177,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -210,7 +212,7 @@ name|ObjectParser
 argument_list|<
 name|ClusterAllocationExplainRequest
 argument_list|,
-name|Void
+name|ParseFieldMatcherSupplier
 argument_list|>
 name|PARSER
 init|=
@@ -704,6 +706,12 @@ argument_list|,
 operator|new
 name|ClusterAllocationExplainRequest
 argument_list|()
+argument_list|,
+parameter_list|()
+lambda|->
+name|ParseFieldMatcher
+operator|.
+name|STRICT
 argument_list|)
 decl_stmt|;
 name|Exception

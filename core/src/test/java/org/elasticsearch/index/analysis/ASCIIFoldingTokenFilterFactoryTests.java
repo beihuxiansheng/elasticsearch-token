@@ -52,6 +52,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|Environment
@@ -90,22 +104,6 @@ name|StringReader
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_class
 DECL|class|ASCIIFoldingTokenFilterFactoryTests
 specifier|public
@@ -129,7 +127,9 @@ name|AnalysisTestsHelper
 operator|.
 name|createAnalysisServiceFromSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -231,7 +231,9 @@ name|AnalysisTestsHelper
 operator|.
 name|createAnalysisServiceFromSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

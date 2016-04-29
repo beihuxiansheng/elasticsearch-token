@@ -1362,6 +1362,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ingestService
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|indicesService
 operator|.
 name|close

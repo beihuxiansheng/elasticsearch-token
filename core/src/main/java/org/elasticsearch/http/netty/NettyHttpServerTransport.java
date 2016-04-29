@@ -344,31 +344,7 @@ name|elasticsearch
 operator|.
 name|http
 operator|.
-name|HttpChannel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|http
-operator|.
 name|HttpInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|http
-operator|.
-name|HttpRequest
 import|;
 end_import
 
@@ -483,6 +459,30 @@ operator|.
 name|jvm
 operator|.
 name|JvmInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestRequest
 import|;
 end_import
 
@@ -2310,7 +2310,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using max_chunk_size[{}], max_header_size[{}], max_initial_line_length[{}], max_content_length[{}], receive_predictor[{}->{}], pipelining[{}], pipelining_max_events[{}]"
+literal|"using max_chunk_size[{}], max_header_size[{}], max_initial_line_length[{}], max_content_length[{}], "
+operator|+
+literal|"receive_predictor[{}->{}], pipelining[{}], pipelining_max_events[{}]"
 argument_list|,
 name|maxChunkSize
 argument_list|,
@@ -2725,10 +2727,7 @@ argument_list|(
 operator|new
 name|TransportAddress
 index|[
-name|boundAddresses
-operator|.
-name|size
-argument_list|()
+literal|0
 index|]
 argument_list|)
 argument_list|,
@@ -3533,10 +3532,10 @@ specifier|protected
 name|void
 name|dispatchRequest
 parameter_list|(
-name|HttpRequest
+name|RestRequest
 name|request
 parameter_list|,
-name|HttpChannel
+name|RestChannel
 name|channel
 parameter_list|)
 block|{

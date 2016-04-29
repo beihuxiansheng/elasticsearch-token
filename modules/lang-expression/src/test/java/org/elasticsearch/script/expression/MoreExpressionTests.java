@@ -3358,7 +3358,7 @@ try|try
 block|{
 name|buildRequest
 argument_list|(
-literal|"doc['text']"
+literal|"doc['text.keyword']"
 argument_list|)
 operator|.
 name|get

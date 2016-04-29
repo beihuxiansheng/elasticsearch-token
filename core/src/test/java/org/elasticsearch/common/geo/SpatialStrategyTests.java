@@ -293,9 +293,7 @@ name|assertThat
 argument_list|(
 name|SpatialStrategy
 operator|.
-name|TERM
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -347,9 +345,7 @@ name|assertThat
 argument_list|(
 name|SpatialStrategy
 operator|.
-name|TERM
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -415,9 +411,7 @@ init|)
 block|{
 name|SpatialStrategy
 operator|.
-name|TERM
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

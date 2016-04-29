@@ -4610,7 +4610,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"No query registered for [invalid]"
+literal|"no [query] registered for [invalid]"
 argument_list|)
 argument_list|)
 expr_stmt|;

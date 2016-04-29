@@ -1209,7 +1209,7 @@ name|assertThat
 argument_list|(
 operator|(
 operator|(
-name|Long
+name|Number
 operator|)
 name|getResponse
 operator|.
@@ -1221,6 +1221,9 @@ operator|.
 name|getValue
 argument_list|()
 operator|)
+operator|.
+name|longValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1292,7 +1295,7 @@ name|assertThat
 argument_list|(
 operator|(
 operator|(
-name|Long
+name|Number
 operator|)
 name|getResponse
 operator|.
@@ -1304,6 +1307,9 @@ operator|.
 name|getValue
 argument_list|()
 operator|)
+operator|.
+name|longValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1867,7 +1873,7 @@ name|assertThat
 argument_list|(
 operator|(
 operator|(
-name|Long
+name|Number
 operator|)
 name|getResponse
 operator|.
@@ -1879,6 +1885,9 @@ operator|.
 name|getValue
 argument_list|()
 operator|)
+operator|.
+name|longValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1997,7 +2006,7 @@ name|assertThat
 argument_list|(
 operator|(
 operator|(
-name|Long
+name|Number
 operator|)
 name|getResponse
 operator|.
@@ -2009,6 +2018,9 @@ operator|.
 name|getValue
 argument_list|()
 operator|)
+operator|.
+name|longValue
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -3917,7 +3929,8 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|(
-name|Long
+operator|(
+name|Number
 operator|)
 name|getResponse
 operator|.
@@ -3927,6 +3940,10 @@ literal|"counter"
 argument_list|)
 operator|.
 name|getValue
+argument_list|()
+operator|)
+operator|.
+name|longValue
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5597,6 +5614,8 @@ name|QueryBuilders
 operator|.
 name|matchAllQuery
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 operator|.
@@ -5816,6 +5835,8 @@ name|QueryBuilders
 operator|.
 name|matchAllQuery
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 operator|.

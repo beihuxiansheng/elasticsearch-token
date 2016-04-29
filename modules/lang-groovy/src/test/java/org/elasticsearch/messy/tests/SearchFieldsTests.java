@@ -2581,7 +2581,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|isSourceEmpty
+name|hasSource
 argument_list|()
 argument_list|,
 name|equalTo
@@ -6542,7 +6542,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put

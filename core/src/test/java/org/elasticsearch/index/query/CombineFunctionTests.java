@@ -549,7 +549,7 @@ name|assertThat
 argument_list|(
 name|CombineFunction
 operator|.
-name|readCombineFunctionFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -601,7 +601,7 @@ name|assertThat
 argument_list|(
 name|CombineFunction
 operator|.
-name|readCombineFunctionFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -653,7 +653,7 @@ name|assertThat
 argument_list|(
 name|CombineFunction
 operator|.
-name|readCombineFunctionFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -705,7 +705,7 @@ name|assertThat
 argument_list|(
 name|CombineFunction
 operator|.
-name|readCombineFunctionFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -757,7 +757,7 @@ name|assertThat
 argument_list|(
 name|CombineFunction
 operator|.
-name|readCombineFunctionFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -809,7 +809,7 @@ name|assertThat
 argument_list|(
 name|CombineFunction
 operator|.
-name|readCombineFunctionFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

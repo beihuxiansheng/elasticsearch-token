@@ -138,7 +138,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchNoDocsQuery
+name|PhraseQuery
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|PhraseQuery
+name|PointRangeQuery
 import|;
 end_import
 
@@ -197,6 +197,22 @@ operator|.
 name|all
 operator|.
 name|AllTermQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -914,6 +930,16 @@ argument_list|(
 name|instanceOf
 argument_list|(
 name|LegacyNumericRangeQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+operator|.
+name|or
+argument_list|(
+name|instanceOf
+argument_list|(
+name|PointRangeQuery
 operator|.
 name|class
 argument_list|)

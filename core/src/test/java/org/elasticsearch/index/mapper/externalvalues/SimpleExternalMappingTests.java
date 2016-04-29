@@ -395,7 +395,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -715,9 +715,9 @@ name|GeoEncodingUtils
 operator|.
 name|mortonHash
 argument_list|(
-literal|51.0
-argument_list|,
 literal|42.0
+argument_list|,
+literal|51.0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -834,7 +834,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1243,9 +1243,9 @@ name|GeoEncodingUtils
 operator|.
 name|mortonHash
 argument_list|(
-literal|51.0
-argument_list|,
 literal|42.0
+argument_list|,
+literal|51.0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1374,7 +1374,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1807,9 +1807,9 @@ name|GeoEncodingUtils
 operator|.
 name|mortonHash
 argument_list|(
-literal|51.0
-argument_list|,
 literal|42.0
+argument_list|,
+literal|51.0
 argument_list|)
 argument_list|)
 argument_list|)

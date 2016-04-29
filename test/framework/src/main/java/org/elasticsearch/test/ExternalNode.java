@@ -336,22 +336,6 @@ name|TimeUnit
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  * Simple helper class to start external nodes to be used within a test cluster  */
 end_comment
@@ -1307,7 +1291,9 @@ comment|// verify that the end node setting will have network enabled.
 name|Settings
 name|clientSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

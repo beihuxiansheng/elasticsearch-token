@@ -56,23 +56,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
+name|io
 operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|stream
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|Loggers
+name|Writeable
 import|;
 end_import
 
@@ -119,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A global registry of all different types of {@link org.elasticsearch.common.transport.TransportAddress} allowing  * to perform serialization of them.  *<p>  * By default, adds {@link org.elasticsearch.common.transport.InetSocketTransportAddress}.  *  *  */
+comment|/**  * A global registry of all supported types of {@link TransportAddress}s. This registry is not open for modification by plugins.  */
 end_comment
 
 begin_class
@@ -129,22 +117,6 @@ specifier|abstract
 class|class
 name|TransportAddressSerializers
 block|{
-DECL|field|logger
-specifier|private
-specifier|static
-specifier|final
-name|ESLogger
-name|logger
-init|=
-name|Loggers
-operator|.
-name|getLogger
-argument_list|(
-name|TransportAddressSerializers
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|ADDRESS_REGISTRY
 specifier|private
 specifier|static
@@ -153,7 +125,12 @@ name|Map
 argument_list|<
 name|Short
 argument_list|,
+name|Writeable
+operator|.
+name|Reader
+argument_list|<
 name|TransportAddress
+argument_list|>
 argument_list|>
 name|ADDRESS_REGISTRY
 decl_stmt|;
@@ -163,7 +140,12 @@ name|Map
 argument_list|<
 name|Short
 argument_list|,
+name|Writeable
+operator|.
+name|Reader
+argument_list|<
 name|TransportAddress
+argument_list|>
 argument_list|>
 name|registry
 init|=
@@ -172,12 +154,21 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 name|addAddressType
 argument_list|(
 name|registry
 argument_list|,
+name|DummyTransportAddress
+operator|.
+name|INSTANCE
+operator|.
+name|uniqueAddressTypeId
+argument_list|()
+argument_list|,
+parameter_list|(
+name|in
+parameter_list|)
+lambda|->
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
@@ -189,7 +180,11 @@ name|registry
 argument_list|,
 name|InetSocketTransportAddress
 operator|.
-name|PROTO
+name|TYPE_ID
+argument_list|,
+name|InetSocketTransportAddress
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|addAddressType
@@ -198,26 +193,13 @@ name|registry
 argument_list|,
 name|LocalTransportAddress
 operator|.
-name|PROTO
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Failed to setup TransportAddresses"
+name|TYPE_ID
 argument_list|,
-name|e
+name|LocalTransportAddress
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
-block|}
 name|ADDRESS_REGISTRY
 operator|=
 name|unmodifiableMap
@@ -227,9 +209,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|addAddressType
-specifier|public
+specifier|private
 specifier|static
-specifier|synchronized
 name|void
 name|addAddressType
 parameter_list|(
@@ -237,15 +218,26 @@ name|Map
 argument_list|<
 name|Short
 argument_list|,
+name|Writeable
+operator|.
+name|Reader
+argument_list|<
 name|TransportAddress
+argument_list|>
 argument_list|>
 name|registry
 parameter_list|,
+name|short
+name|uniqueAddressTypeId
+parameter_list|,
+name|Writeable
+operator|.
+name|Reader
+argument_list|<
 name|TransportAddress
+argument_list|>
 name|address
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -253,10 +245,7 @@ name|registry
 operator|.
 name|containsKey
 argument_list|(
-name|address
-operator|.
 name|uniqueAddressTypeId
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -266,10 +255,7 @@ name|IllegalStateException
 argument_list|(
 literal|"Address ["
 operator|+
-name|address
-operator|.
 name|uniqueAddressTypeId
-argument_list|()
 operator|+
 literal|"] already bound"
 argument_list|)
@@ -279,10 +265,7 @@ name|registry
 operator|.
 name|put
 argument_list|(
-name|address
-operator|.
 name|uniqueAddressTypeId
-argument_list|()
 argument_list|,
 name|address
 argument_list|)
@@ -300,6 +283,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO why don't we just use named writeables here?
 name|short
 name|addressUniqueId
 init|=
@@ -308,7 +292,12 @@ operator|.
 name|readShort
 argument_list|()
 decl_stmt|;
+name|Writeable
+operator|.
+name|Reader
+argument_list|<
 name|TransportAddress
+argument_list|>
 name|addressType
 init|=
 name|ADDRESS_REGISTRY
@@ -340,7 +329,7 @@ block|}
 return|return
 name|addressType
 operator|.
-name|readFrom
+name|read
 argument_list|(
 name|input
 argument_list|)

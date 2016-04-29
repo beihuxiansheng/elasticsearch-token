@@ -230,9 +230,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|RB
-argument_list|>
 block|{
 DECL|field|windowSize
 specifier|protected
@@ -450,7 +447,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

@@ -30,6 +30,30 @@ name|ThreadContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestRequest
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -44,10 +68,10 @@ DECL|method|dispatchRequest
 name|void
 name|dispatchRequest
 parameter_list|(
-name|HttpRequest
+name|RestRequest
 name|request
 parameter_list|,
-name|HttpChannel
+name|RestChannel
 name|channel
 parameter_list|,
 name|ThreadContext

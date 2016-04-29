@@ -621,7 +621,10 @@ name|paramAsBoolean
 argument_list|(
 literal|"realtime"
 argument_list|,
-literal|null
+name|termVectorsRequest
+operator|.
+name|realtime
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

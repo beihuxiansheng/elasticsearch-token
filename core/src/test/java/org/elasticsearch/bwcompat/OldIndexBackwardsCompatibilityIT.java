@@ -2258,6 +2258,15 @@ if|if
 condition|(
 name|v
 operator|.
+name|isAlpha
+argument_list|()
+condition|)
+continue|continue;
+comment|// no guarantees for alpha releases
+if|if
+condition|(
+name|v
+operator|.
 name|onOrBefore
 argument_list|(
 name|Version

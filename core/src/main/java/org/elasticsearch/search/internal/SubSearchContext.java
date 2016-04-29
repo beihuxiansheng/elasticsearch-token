@@ -446,25 +446,6 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|searchType
-specifier|public
-name|SearchContext
-name|searchType
-parameter_list|(
-name|SearchType
-name|searchType
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"this context should be read only"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
 DECL|method|queryBoost
 specifier|public
 name|SearchContext

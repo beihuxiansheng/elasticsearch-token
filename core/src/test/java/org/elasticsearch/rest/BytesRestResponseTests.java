@@ -1158,7 +1158,7 @@ specifier|static
 class|class
 name|SimpleExceptionRestChannel
 extends|extends
-name|RestChannel
+name|AbstractRestChannel
 block|{
 DECL|method|SimpleExceptionRestChannel
 name|SimpleExceptionRestChannel
@@ -1193,7 +1193,7 @@ specifier|static
 class|class
 name|DetailedExceptionRestChannel
 extends|extends
-name|RestChannel
+name|AbstractRestChannel
 block|{
 DECL|method|DetailedExceptionRestChannel
 name|DetailedExceptionRestChannel

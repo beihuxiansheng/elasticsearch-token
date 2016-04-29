@@ -697,9 +697,6 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|IndexMetaData
-name|indexMetaData
-parameter_list|,
 name|String
 index|[]
 name|nodesIds

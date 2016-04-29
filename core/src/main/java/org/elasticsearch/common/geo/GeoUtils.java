@@ -352,12 +352,12 @@ name|maxRadialDistanceMeters
 argument_list|(
 name|center
 operator|.
-name|lon
+name|lat
 argument_list|()
 argument_list|,
 name|center
 operator|.
-name|lat
+name|lon
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -466,29 +466,6 @@ return|;
 block|}
 return|return
 literal|true
-return|;
-block|}
-comment|/**      * Return an approximate value of the diameter of the earth (in meters) at the given latitude (in radians).      */
-DECL|method|earthDiameter
-specifier|public
-specifier|static
-name|double
-name|earthDiameter
-parameter_list|(
-name|double
-name|latitude
-parameter_list|)
-block|{
-comment|// SloppyMath impl returns a result in kilometers
-return|return
-name|SloppyMath
-operator|.
-name|earthDiameter
-argument_list|(
-name|latitude
-argument_list|)
-operator|*
-literal|1000
 return|;
 block|}
 comment|/**      * Calculate the width (in meters) of geohash cells at a specific level      * @param level geohash level must be greater or equal to zero      * @return the width of cells at level in meters      */

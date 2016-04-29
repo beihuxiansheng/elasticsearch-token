@@ -62,18 +62,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -153,15 +141,6 @@ name|AbstractXContentParser
 implements|implements
 name|XContentParser
 block|{
-DECL|field|matcher
-specifier|private
-name|ParseFieldMatcher
-name|matcher
-init|=
-name|ParseFieldMatcher
-operator|.
-name|STRICT
-decl_stmt|;
 comment|// Currently this is not a setting that can be changed and is a policy
 comment|// that relates to how parsing of things like "boost" are done across
 comment|// the whole of Elasticsearch (eg if String "1.0" is a valid float).
@@ -1716,32 +1695,6 @@ name|boolean
 name|isClosed
 parameter_list|()
 function_decl|;
-DECL|method|getParseFieldMatcher
-specifier|public
-name|ParseFieldMatcher
-name|getParseFieldMatcher
-parameter_list|()
-block|{
-return|return
-name|matcher
-return|;
-block|}
-DECL|method|setParseFieldMatcher
-specifier|public
-name|void
-name|setParseFieldMatcher
-parameter_list|(
-name|ParseFieldMatcher
-name|matcher
-parameter_list|)
-block|{
-name|this
-operator|.
-name|matcher
-operator|=
-name|matcher
-expr_stmt|;
-block|}
 block|}
 end_class
 

@@ -130,6 +130,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -656,8 +670,8 @@ specifier|protected
 name|CategoryQueryContext
 name|fromXContent
 parameter_list|(
-name|XContentParser
-name|parser
+name|QueryParseContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -667,7 +681,7 @@ name|CategoryQueryContext
 operator|.
 name|fromXContent
 argument_list|(
-name|parser
+name|context
 argument_list|)
 return|;
 block|}

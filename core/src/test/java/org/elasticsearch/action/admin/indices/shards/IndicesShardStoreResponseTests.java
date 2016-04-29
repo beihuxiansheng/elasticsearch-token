@@ -66,7 +66,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -501,7 +501,7 @@ name|ShardStateMetaData
 operator|.
 name|NO_VERSION
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -533,7 +533,7 @@ name|ShardStateMetaData
 operator|.
 name|NO_VERSION
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1333,7 +1333,7 @@ name|ShardStateMetaData
 operator|.
 name|NO_VERSION
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1365,7 +1365,7 @@ name|ShardStateMetaData
 operator|.
 name|NO_VERSION
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1397,7 +1397,7 @@ name|ShardStateMetaData
 operator|.
 name|NO_VERSION
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1537,7 +1537,7 @@ name|ShardStateMetaData
 operator|.
 name|NO_VERSION
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

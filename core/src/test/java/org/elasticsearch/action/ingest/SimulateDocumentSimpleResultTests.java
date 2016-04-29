@@ -56,9 +56,7 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|core
-operator|.
-name|IngestDocument
+name|RandomDocumentPicks
 import|;
 end_import
 
@@ -70,7 +68,9 @@ name|elasticsearch
 operator|.
 name|ingest
 operator|.
-name|RandomDocumentPicks
+name|core
+operator|.
+name|IngestDocument
 import|;
 end_import
 
@@ -93,6 +93,22 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ingest
+operator|.
+name|core
+operator|.
+name|IngestDocumentTests
+operator|.
+name|assertIngestDocument
 import|;
 end_import
 
@@ -221,6 +237,11 @@ argument_list|(
 name|streamInput
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|isFailure
+condition|)
+block|{
 name|assertThat
 argument_list|(
 name|otherSimulateDocumentBaseResult
@@ -237,11 +258,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|isFailure
-condition|)
-block|{
 name|assertThat
 argument_list|(
 name|otherSimulateDocumentBaseResult
@@ -279,6 +295,22 @@ name|equalTo
 argument_list|(
 literal|"test"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|assertIngestDocument
+argument_list|(
+name|otherSimulateDocumentBaseResult
+operator|.
+name|getIngestDocument
+argument_list|()
+argument_list|,
+name|simulateDocumentBaseResult
+operator|.
+name|getIngestDocument
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

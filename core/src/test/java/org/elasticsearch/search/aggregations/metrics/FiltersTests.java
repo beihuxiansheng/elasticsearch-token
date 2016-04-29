@@ -160,38 +160,41 @@ index|[
 name|size
 index|]
 decl_stmt|;
-for|for
-control|(
 name|int
 name|i
 init|=
 literal|0
-init|;
-name|i
-operator|<
-name|size
-condition|;
-name|i
-operator|++
-control|)
-block|{
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
-name|filters
-index|[
-name|i
-index|]
-operator|=
-operator|new
-name|KeyedFilter
+decl_stmt|;
+for|for
+control|(
+name|String
+name|key
+range|:
+name|randomUnique
 argument_list|(
+parameter_list|()
+lambda|->
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
 argument_list|,
 literal|20
 argument_list|)
+argument_list|,
+name|size
+argument_list|)
+control|)
+block|{
+name|filters
+index|[
+name|i
+operator|++
+index|]
+operator|=
+operator|new
+name|KeyedFilter
+argument_list|(
+name|key
 argument_list|,
 name|QueryBuilders
 operator|.
@@ -212,8 +215,7 @@ literal|20
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
+block|;             }
 name|factory
 operator|=
 operator|new
@@ -263,9 +265,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|// NORELEASE make RandomQueryBuilder work outside of the
-comment|// AbstractQueryTestCase
-comment|// builder.query(RandomQueryBuilder.createQuery(getRandom()));
 name|filters
 index|[
 name|i

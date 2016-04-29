@@ -752,7 +752,7 @@ comment|//Filter/Query cache is cleaned periodically, default is 60s, so make su
 return|return
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -792,7 +792,7 @@ block|{
 return|return
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -819,14 +819,12 @@ name|put
 argument_list|(
 name|IndexModule
 operator|.
-name|INDEX_QUERY_CACHE_TYPE_SETTING
+name|INDEX_QUERY_CACHE_ENABLED_SETTING
 operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|IndexModule
-operator|.
-name|INDEX_QUERY_CACHE
+literal|true
 argument_list|)
 operator|.
 name|build

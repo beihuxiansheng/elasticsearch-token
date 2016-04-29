@@ -169,9 +169,6 @@ enum|enum
 name|ValueType
 implements|implements
 name|Writeable
-argument_list|<
-name|ValueType
-argument_list|>
 block|{
 DECL|enum constant|STRING
 name|STRING
@@ -354,9 +351,7 @@ name|DateTime
 argument_list|(
 name|DateFieldMapper
 operator|.
-name|Defaults
-operator|.
-name|DATE_TIME_FORMATTER
+name|DEFAULT_DATE_TIME_FORMATTER
 argument_list|,
 name|DateTimeZone
 operator|.
@@ -801,12 +796,11 @@ return|return
 name|description
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|ValueType
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

@@ -714,6 +714,9 @@ name|Override
 name|void
 name|executeBulk
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|BulkRequest
 name|bulkRequest
 parameter_list|,
@@ -744,6 +747,8 @@ name|super
 operator|.
 name|executeBulk
 argument_list|(
+name|task
+argument_list|,
 name|bulkRequest
 argument_list|,
 name|startTimeNanos
@@ -832,6 +837,9 @@ name|Override
 name|void
 name|executeBulk
 parameter_list|(
+name|Task
+name|task
+parameter_list|,
 name|BulkRequest
 name|bulkRequest
 parameter_list|,
@@ -868,6 +876,8 @@ name|super
 operator|.
 name|executeBulk
 argument_list|(
+name|task
+argument_list|,
 name|bulkRequest
 argument_list|,
 name|startTimeNanos
@@ -1006,6 +1016,8 @@ name|action
 operator|.
 name|doExecute
 argument_list|(
+literal|null
+argument_list|,
 name|bulkRequest
 argument_list|,
 operator|new

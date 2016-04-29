@@ -83,6 +83,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 operator|.
 name|Builder
 import|;
@@ -371,22 +385,6 @@ operator|.
 name|Requests
 operator|.
 name|searchRequest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -1710,7 +1708,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2002,7 +2002,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2256,7 +2258,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7061,7 +7065,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -7099,7 +7103,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -7134,7 +7138,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -7172,7 +7176,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -8900,8 +8904,6 @@ name|hit
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|" "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8943,7 +8945,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -8970,7 +8972,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -8992,7 +8994,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"termVector"
+literal|"term_vector"
 argument_list|,
 literal|"with_positions_offsets"
 argument_list|)
@@ -12094,7 +12096,9 @@ block|{
 name|Builder
 name|builder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -12162,7 +12166,7 @@ literal|"type2"
 argument_list|,
 literal|"_all"
 argument_list|,
-literal|"store=true,termVector=with_positions_offsets"
+literal|"store=true,term_vector=with_positions_offsets"
 argument_list|,
 literal|"field4"
 argument_list|,
@@ -13870,7 +13874,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

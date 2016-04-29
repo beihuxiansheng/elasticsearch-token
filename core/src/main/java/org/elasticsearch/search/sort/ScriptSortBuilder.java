@@ -792,9 +792,8 @@ name|IOException
 block|{
 name|script
 operator|=
+operator|new
 name|Script
-operator|.
-name|readScript
 argument_list|(
 name|in
 argument_list|)
@@ -839,8 +838,12 @@ name|nestedFilter
 operator|=
 name|in
 operator|.
-name|readOptionalQuery
-argument_list|()
+name|readOptionalNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -893,7 +896,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalQuery
+name|writeOptionalNamedWriteable
 argument_list|(
 name|nestedFilter
 argument_list|)
@@ -1259,7 +1262,7 @@ name|parseField
 init|=
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 decl_stmt|;
 name|Script
@@ -1815,6 +1818,11 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+name|context
+operator|.
+name|getClusterState
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|MultiValueMode
@@ -2323,9 +2331,6 @@ enum|enum
 name|ScriptSortType
 implements|implements
 name|Writeable
-argument_list|<
-name|ScriptSortType
-argument_list|>
 block|{
 comment|/** script sort for a string value **/
 DECL|enum constant|STRING

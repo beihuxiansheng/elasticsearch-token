@@ -1118,7 +1118,7 @@ block|{
 return|return
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|loadFromPath
@@ -1157,7 +1157,7 @@ block|{
 return|return
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|loadFromPath

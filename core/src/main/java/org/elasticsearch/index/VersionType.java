@@ -99,9 +99,6 @@ enum|enum
 name|VersionType
 implements|implements
 name|Writeable
-argument_list|<
-name|VersionType
-argument_list|>
 block|{
 DECL|method|INTERNAL
 DECL|method|INTERNAL
@@ -1447,11 +1444,11 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-DECL|method|readVersionTypeFrom
+DECL|method|readFromStream
 specifier|public
 specifier|static
 name|VersionType
-name|readVersionTypeFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

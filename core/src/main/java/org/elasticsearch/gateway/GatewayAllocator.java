@@ -1033,11 +1033,6 @@ argument_list|()
 argument_list|,
 name|allocation
 operator|.
-name|metaData
-argument_list|()
-argument_list|,
-name|allocation
-operator|.
 name|getIgnoreNodes
 argument_list|(
 name|shard
@@ -1199,11 +1194,6 @@ argument_list|(
 name|allocation
 operator|.
 name|nodes
-argument_list|()
-argument_list|,
-name|allocation
-operator|.
-name|metaData
 argument_list|()
 argument_list|,
 name|allocation

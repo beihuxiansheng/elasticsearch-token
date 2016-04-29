@@ -386,6 +386,20 @@ name|common
 operator|.
 name|logging
 operator|.
+name|DeprecationLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
 name|ESLogger
 import|;
 end_import
@@ -557,6 +571,22 @@ operator|.
 name|unit
 operator|.
 name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|json
+operator|.
+name|JsonXContent
 import|;
 end_import
 
@@ -1262,22 +1292,6 @@ name|Function
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_comment
 comment|/**  * A node represent a node within a cluster (<tt>cluster.name</tt>). The {@link #client()} can be used  * in order to use a {@link Client} to perform actions/operations against the cluster.  */
 end_comment
@@ -1588,7 +1602,9 @@ block|{
 name|Settings
 name|tmpSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1737,6 +1753,35 @@ name|tmpEnv
 operator|.
 name|pluginsFile
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// TODO: Remove this in Elasticsearch 6.0.0
+if|if
+condition|(
+name|JsonXContent
+operator|.
+name|unquotedFieldNamesSet
+condition|)
+block|{
+name|DeprecationLogger
+name|dLogger
+init|=
+operator|new
+name|DeprecationLogger
+argument_list|(
+name|logger
+argument_list|)
+decl_stmt|;
+name|dLogger
+operator|.
+name|deprecated
+argument_list|(
+literal|"[{}] has been set, but will be removed in Elasticsearch 6.0.0"
+argument_list|,
+name|JsonXContent
+operator|.
+name|JSON_ALLOW_UNQUOTED_FIELD_NAMES
 argument_list|)
 expr_stmt|;
 block|}
@@ -2675,6 +2720,16 @@ name|transportService
 operator|.
 name|start
 argument_list|()
+expr_stmt|;
+name|validateNodeBeforeAcceptingRequests
+argument_list|(
+name|settings
+argument_list|,
+name|transportService
+operator|.
+name|boundAddress
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|DiscoveryNode
 name|localNode
@@ -4276,6 +4331,24 @@ operator|.
 name|injector
 return|;
 block|}
+comment|/**      * Hook for validating the node after network      * services are started but before the cluster service is started      * and before the network service starts accepting incoming network      * requests.      *      * @param settings              the fully-resolved settings      * @param boundTransportAddress the network addresses the node is      *                              bound and publishing to      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+DECL|method|validateNodeBeforeAcceptingRequests
+specifier|protected
+name|void
+name|validateNodeBeforeAcceptingRequests
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|,
+name|BoundTransportAddress
+name|boundTransportAddress
+parameter_list|)
+block|{     }
 comment|/** Writes a file to the logs dir containing the ports for the given transport type */
 DECL|method|writePortsFile
 specifier|private

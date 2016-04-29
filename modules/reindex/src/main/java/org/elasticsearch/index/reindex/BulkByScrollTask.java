@@ -150,6 +150,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|tasks
+operator|.
+name|TaskId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -243,6 +255,18 @@ operator|.
 name|atomic
 operator|.
 name|AtomicReference
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|max
 import|;
 end_import
 
@@ -431,6 +455,9 @@ parameter_list|,
 name|String
 name|description
 parameter_list|,
+name|TaskId
+name|parentTask
+parameter_list|,
 name|float
 name|requestsPerSecond
 parameter_list|)
@@ -444,6 +471,8 @@ argument_list|,
 name|action
 argument_list|,
 name|description
+argument_list|,
+name|parentTask
 argument_list|)
 expr_stmt|;
 name|setRequestsPerSecond
@@ -585,6 +614,10 @@ block|}
 return|return
 name|timeValueNanos
 argument_list|(
+name|max
+argument_list|(
+literal|0
+argument_list|,
 name|delayed
 operator|.
 name|future
@@ -594,6 +627,7 @@ argument_list|(
 name|TimeUnit
 operator|.
 name|NANOSECONDS
+argument_list|)
 argument_list|)
 argument_list|)
 return|;

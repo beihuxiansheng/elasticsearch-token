@@ -679,12 +679,12 @@ name|mortonHash
 argument_list|(
 name|pt
 index|[
-literal|0
+literal|1
 index|]
 argument_list|,
 name|pt
 index|[
-literal|1
+literal|0
 index|]
 argument_list|)
 argument_list|)

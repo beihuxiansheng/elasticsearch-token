@@ -564,22 +564,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -641,7 +625,9 @@ block|{
 name|Settings
 name|diskSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -940,7 +926,9 @@ init|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1629,7 +1617,9 @@ comment|// Set the high threshold to 70 instead of 80
 comment|// node2 now should not have new shards allocated to it, but shards can remain
 name|diskSettings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1710,7 +1700,9 @@ operator|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1893,7 +1885,9 @@ comment|// Set the high threshold to 60 instead of 70
 comment|// node2 now should not have new shards allocated to it, and shards cannot remain
 name|diskSettings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1974,7 +1968,9 @@ operator|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2411,7 +2407,9 @@ block|{
 name|Settings
 name|diskSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2732,7 +2730,9 @@ init|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3133,7 +3133,9 @@ operator|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3635,7 +3637,9 @@ comment|// Set the high threshold to 70 instead of 80
 comment|// node2 now should not have new shards allocated to it, but shards can remain
 name|diskSettings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3716,7 +3720,9 @@ operator|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3899,7 +3905,9 @@ comment|// Set the high threshold to 60 instead of 70
 comment|// node2 now should not have new shards allocated to it, and shards cannot remain
 name|diskSettings
 operator|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3980,7 +3988,9 @@ operator|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4747,7 +4757,9 @@ block|{
 name|Settings
 name|diskSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4993,7 +5005,9 @@ init|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5316,7 +5330,9 @@ block|{
 name|Settings
 name|diskSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5572,7 +5588,9 @@ init|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6174,7 +6192,9 @@ block|{
 name|Settings
 name|diskSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6482,7 +6502,9 @@ init|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7025,7 +7047,9 @@ block|{
 name|Settings
 name|diskSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7880,7 +7904,9 @@ init|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -8159,7 +8185,9 @@ block|{
 name|Settings
 name|diskSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -8846,7 +8874,9 @@ init|=
 operator|new
 name|AllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

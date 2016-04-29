@@ -378,28 +378,27 @@ name|void
 name|testIllegalArgument
 parameter_list|()
 block|{
-try|try
-block|{
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 operator|new
 name|SpanMultiTermQueryBuilder
 argument_list|(
+operator|(
+name|MultiTermQueryBuilder
+argument_list|<
+name|?
+argument_list|>
+operator|)
 literal|null
 argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"cannot be null"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 block|}
 comment|/**      * test checks that we throw an {@link UnsupportedOperationException} if the query wrapped      * by {@link SpanMultiTermQueryBuilder} does not generate a lucene {@link MultiTermQuery}.      * This is currently the case for {@link RangeQueryBuilder} when the target field is mapped      * to a date.      */
 DECL|method|testUnsupportedInnerQueryType

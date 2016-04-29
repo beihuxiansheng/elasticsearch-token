@@ -338,12 +338,6 @@ operator|.
 name|Numeric
 name|valuesSource
 decl_stmt|;
-DECL|field|format
-specifier|protected
-specifier|final
-name|DocValueFormat
-name|format
-decl_stmt|;
 DECL|field|bucketOrds
 specifier|protected
 specifier|final
@@ -434,6 +428,8 @@ name|bucketCountThresholds
 argument_list|,
 name|order
 argument_list|,
+name|format
+argument_list|,
 name|subAggCollectMode
 argument_list|,
 name|pipelineAggregators
@@ -452,12 +448,6 @@ operator|.
 name|showTermDocCountError
 operator|=
 name|showTermDocCountError
-expr_stmt|;
-name|this
-operator|.
-name|format
-operator|=
-name|format
 expr_stmt|;
 name|this
 operator|.

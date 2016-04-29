@@ -133,7 +133,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 operator|.
 name|getMapperService

@@ -44,7 +44,7 @@ name|mapper
 operator|.
 name|ip
 operator|.
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 import|;
 end_import
 
@@ -285,7 +285,7 @@ argument_list|)
 condition|?
 literal|null
 else|:
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|longToIp
 argument_list|(
@@ -307,7 +307,7 @@ argument_list|)
 condition|?
 literal|null
 else|:
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|longToIp
 argument_list|(

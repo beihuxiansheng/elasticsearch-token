@@ -161,11 +161,11 @@ operator|.
 name|CustomSuggestionsContext
 argument_list|>
 block|{
-DECL|field|PROTOTYPE
+DECL|field|INSTANCE
 specifier|public
 specifier|static
 name|CustomSuggester
-name|PROTOTYPE
+name|INSTANCE
 init|=
 operator|new
 name|CustomSuggester

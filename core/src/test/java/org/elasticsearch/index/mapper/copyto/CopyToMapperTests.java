@@ -270,7 +270,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 import|;
 end_import
 
@@ -1176,12 +1176,16 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|fieldMapper
-argument_list|,
-name|instanceOf
-argument_list|(
-name|LongFieldMapper
 operator|.
-name|class
+name|fieldType
+argument_list|()
+operator|.
+name|typeName
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"long"
 argument_list|)
 argument_list|)
 expr_stmt|;

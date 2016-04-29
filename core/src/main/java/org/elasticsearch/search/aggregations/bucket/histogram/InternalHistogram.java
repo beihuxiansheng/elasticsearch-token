@@ -1259,9 +1259,8 @@ name|rounding
 argument_list|,
 name|aggs
 argument_list|,
+operator|new
 name|ExtendedBounds
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
@@ -3011,8 +3010,12 @@ name|format
 operator|=
 name|in
 operator|.
-name|readValueFormat
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|DocValueFormat
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|keyed
 operator|=
@@ -3245,7 +3248,7 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeValueFormat
+name|writeNamedWriteable
 argument_list|(
 name|format
 argument_list|)

@@ -1429,6 +1429,8 @@ argument_list|(
 name|settings
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 comment|// We just upsert one document with ttl

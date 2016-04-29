@@ -1801,7 +1801,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"more_like_this doesn't support binary/numeric fields"
+literal|"more_like_this only supports text/keyword fields"
 argument_list|)
 argument_list|)
 expr_stmt|;

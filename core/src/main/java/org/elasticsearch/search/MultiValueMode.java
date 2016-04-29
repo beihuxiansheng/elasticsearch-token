@@ -303,9 +303,6 @@ enum|enum
 name|MultiValueMode
 implements|implements
 name|Writeable
-argument_list|<
-name|MultiValueMode
-argument_list|>
 block|{
 comment|/**      * Pick the sum of all the values.      */
 DECL|enum constant|SUM

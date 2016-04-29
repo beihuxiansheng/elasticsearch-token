@@ -3841,7 +3841,7 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-literal|5
+literal|3
 argument_list|)
 decl_stmt|;
 comment|// Simple and Linear don't have any settings to test
@@ -3849,33 +3849,27 @@ name|parsers
 operator|.
 name|add
 argument_list|(
-operator|new
 name|EwmaModel
 operator|.
-name|SingleExpModelParser
-argument_list|()
+name|PARSER
 argument_list|)
 expr_stmt|;
 name|parsers
 operator|.
 name|add
 argument_list|(
-operator|new
 name|HoltWintersModel
 operator|.
-name|HoltWintersModelParser
-argument_list|()
+name|PARSER
 argument_list|)
 expr_stmt|;
 name|parsers
 operator|.
 name|add
 argument_list|(
-operator|new
 name|HoltLinearModel
 operator|.
-name|DoubleExpModelParser
-argument_list|()
+name|PARSER
 argument_list|)
 expr_stmt|;
 name|Object
@@ -3972,9 +3966,6 @@ block|{
 name|fail
 argument_list|(
 name|parser
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|" parser should not have thrown SearchParseException while parsing ["
 operator|+
@@ -4059,9 +4050,6 @@ block|}
 name|fail
 argument_list|(
 name|parser
-operator|.
-name|getName
-argument_list|()
 operator|+
 literal|" parser should have thrown SearchParseException while parsing [String]"
 argument_list|)

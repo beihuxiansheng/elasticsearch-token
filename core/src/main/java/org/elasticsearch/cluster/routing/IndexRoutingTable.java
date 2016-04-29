@@ -457,17 +457,14 @@ name|index
 return|;
 block|}
 DECL|method|validate
-specifier|public
-name|void
+name|boolean
 name|validate
 parameter_list|(
-name|RoutingTableValidation
-name|validation
-parameter_list|,
 name|MetaData
 name|metaData
 parameter_list|)
 block|{
+comment|// check index exists
 if|if
 condition|(
 operator|!
@@ -482,19 +479,15 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|validation
-operator|.
-name|addIndexFailure
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
 name|index
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-literal|"Exists in routing does not exists in metadata"
+operator|+
+literal|" exists in routing does not exists in metadata"
 argument_list|)
-expr_stmt|;
-return|return;
+throw|;
 block|}
 name|IndexMetaData
 name|indexMetaData
@@ -527,69 +520,19 @@ operator|==
 literal|false
 condition|)
 block|{
-name|validation
-operator|.
-name|addIndexFailure
-argument_list|(
-name|index
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-literal|"Exists in routing does not exists in metadata with the same uuid"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-for|for
-control|(
-name|String
-name|failure
-range|:
-name|validate
-argument_list|(
-name|indexMetaData
-argument_list|)
-control|)
-block|{
-name|validation
-operator|.
-name|addIndexFailure
-argument_list|(
-name|index
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|failure
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/**      * validate based on a meta data, returning failures found      */
-DECL|method|validate
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|validate
-parameter_list|(
-name|IndexMetaData
-name|indexMetaData
-parameter_list|)
-block|{
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-name|failures
-init|=
+throw|throw
 operator|new
-name|ArrayList
-argument_list|<>
+name|IllegalStateException
+argument_list|(
+name|index
+operator|.
+name|getName
 argument_list|()
-decl_stmt|;
+operator|+
+literal|" exists in routing does not exists in metadata with the same uuid"
+argument_list|)
+throw|;
+block|}
 comment|// check the number of shards
 if|if
 condition|(
@@ -664,15 +607,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|failures
-operator|.
-name|add
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
 literal|"Wrong number of shards in routing table, missing: "
 operator|+
 name|expected
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 comment|// check the replicas
 for|for
@@ -703,9 +646,9 @@ name|getNumberOfReplicas
 argument_list|()
 condition|)
 block|{
-name|failures
-operator|.
-name|add
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
 literal|"Shard ["
 operator|+
@@ -730,7 +673,7 @@ name|routingNumberOfReplicas
 operator|+
 literal|"]"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 for|for
 control|(
@@ -754,9 +697,9 @@ name|index
 argument_list|)
 condition|)
 block|{
-name|failures
-operator|.
-name|add
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
 literal|"shard routing has an index ["
 operator|+
@@ -765,14 +708,16 @@ operator|.
 name|index
 argument_list|()
 operator|+
-literal|"] that is different than the routing table"
+literal|"] that is different "
+operator|+
+literal|"from the routing table"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 block|}
 return|return
-name|failures
+literal|true
 return|;
 block|}
 annotation|@
@@ -1354,14 +1299,6 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|validate
-specifier|public
-name|void
-name|validate
-parameter_list|()
-throws|throws
-name|RoutingValidationException
-block|{     }
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -2541,12 +2478,8 @@ specifier|public
 name|IndexRoutingTable
 name|build
 parameter_list|()
-throws|throws
-name|RoutingValidationException
 block|{
-name|IndexRoutingTable
-name|indexRoutingTable
-init|=
+return|return
 operator|new
 name|IndexRoutingTable
 argument_list|(
@@ -2557,14 +2490,6 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|indexRoutingTable
-operator|.
-name|validate
-argument_list|()
-expr_stmt|;
-return|return
-name|indexRoutingTable
 return|;
 block|}
 block|}

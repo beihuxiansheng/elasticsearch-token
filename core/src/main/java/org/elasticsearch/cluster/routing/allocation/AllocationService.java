@@ -833,6 +833,15 @@ argument_list|,
 name|newRoutingTable
 argument_list|)
 decl_stmt|;
+assert|assert
+name|newRoutingTable
+operator|.
+name|validate
+argument_list|(
+name|newMetaData
+argument_list|)
+assert|;
+comment|// validates the routing table is coherent with the cluster state metadata
 return|return
 operator|new
 name|RoutingAllocation
@@ -842,11 +851,6 @@ argument_list|(
 literal|true
 argument_list|,
 name|newRoutingTable
-operator|.
-name|validateRaiseException
-argument_list|(
-name|newMetaData
-argument_list|)
 argument_list|,
 name|newMetaData
 argument_list|,

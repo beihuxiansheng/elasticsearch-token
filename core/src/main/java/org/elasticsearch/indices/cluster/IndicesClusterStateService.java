@@ -400,6 +400,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|gateway
+operator|.
+name|GatewayService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|Index
@@ -1595,8 +1607,24 @@ literal|"index no longer part of the metadata"
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|previousState
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|hasIndex
+argument_list|(
+name|index
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
 block|{
+comment|// The deleted index was part of the previous cluster state, but not loaded on the local node
 specifier|final
 name|IndexMetaData
 name|metaData
@@ -1606,7 +1634,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|getIndexSafe
+name|index
 argument_list|(
 name|index
 argument_list|)
@@ -1623,9 +1651,9 @@ argument_list|)
 expr_stmt|;
 name|indicesService
 operator|.
-name|deleteClosedIndex
+name|deleteUnassignedIndex
 argument_list|(
-literal|"closed index no longer part of the metadata"
+literal|"deleted index was not assigned to local node"
 argument_list|,
 name|metaData
 argument_list|,
@@ -1636,6 +1664,78 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// The previous cluster state's metadata also does not contain the index,
+comment|// which is what happens on node startup when an index was deleted while the
+comment|// node was not part of the cluster.  In this case, try reading the index
+comment|// metadata from disk.  If its not there, there is nothing to delete.
+comment|// First, though, verify the precondition for applying this case by
+comment|// asserting that the previous cluster state is not initialized/recovered.
+assert|assert
+name|previousState
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|hasGlobalBlock
+argument_list|(
+name|GatewayService
+operator|.
+name|STATE_NOT_RECOVERED_BLOCK
+argument_list|)
+assert|;
+specifier|final
+name|IndexMetaData
+name|metaData
+init|=
+name|indicesService
+operator|.
+name|verifyIndexIsDeleted
+argument_list|(
+name|index
+argument_list|,
+name|event
+operator|.
+name|state
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|metaData
+operator|!=
+literal|null
+condition|)
+block|{
+name|indexSettings
+operator|=
+operator|new
+name|IndexSettings
+argument_list|(
+name|metaData
+argument_list|,
+name|settings
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|indexSettings
+operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
+comment|// indexSettings can only be null if there was no IndexService and no metadata existed
+comment|// on disk for this index, so it won't need to go through the node deleted action anyway
+if|if
+condition|(
+name|indexSettings
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|nodeIndexDeletedAction
@@ -1657,7 +1757,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1672,6 +1772,7 @@ argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 for|for

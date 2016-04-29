@@ -99,9 +99,6 @@ enum|enum
 name|DistanceUnit
 implements|implements
 name|Writeable
-argument_list|<
-name|DistanceUnit
-argument_list|>
 block|{
 DECL|enum constant|INCH
 name|INCH

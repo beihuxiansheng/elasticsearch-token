@@ -690,17 +690,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|useTermQueryWithQueryString
+DECL|method|isSearchable
 specifier|public
 name|boolean
-name|useTermQueryWithQueryString
+name|isSearchable
 parameter_list|()
 block|{
-comment|// As we spoof the presence of an indexed field we have to override
-comment|// the default of returning false which otherwise leads MatchQuery
-comment|// et al to run an analyzer over the query string and then try to
-comment|// hit the search index. We need them to use our termQuery(..)
-comment|// method which checks index names
+comment|// The _index field is always searchable.
 return|return
 literal|true
 return|;
@@ -769,7 +765,21 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
+argument_list|(
+literal|"Index didn't match. Index queried: "
+operator|+
+name|context
+operator|.
+name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" vs. "
+operator|+
+name|value
+argument_list|)
 return|;
 block|}
 block|}
@@ -844,7 +854,21 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
+argument_list|(
+literal|"Index didn't match. Index queried: "
+operator|+
+name|context
+operator|.
+name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" vs. "
+operator|+
+name|values
+argument_list|)
 return|;
 block|}
 DECL|method|isSameIndex
@@ -903,35 +927,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|value
-specifier|public
-name|String
-name|value
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-return|return
-name|value
-operator|.
-name|toString
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Override
@@ -1037,51 +1032,6 @@ operator|.
 name|enabledState
 operator|.
 name|enabled
-return|;
-block|}
-DECL|method|value
-specifier|public
-name|String
-name|value
-parameter_list|(
-name|Document
-name|document
-parameter_list|)
-block|{
-name|Field
-name|field
-init|=
-operator|(
-name|Field
-operator|)
-name|document
-operator|.
-name|getField
-argument_list|(
-name|fieldType
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|)
-decl_stmt|;
-return|return
-name|field
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-operator|(
-name|String
-operator|)
-name|fieldType
-argument_list|()
-operator|.
-name|value
-argument_list|(
-name|field
-argument_list|)
 return|;
 block|}
 annotation|@

@@ -585,6 +585,11 @@ specifier|protected
 name|int
 name|requiredSize
 decl_stmt|;
+DECL|field|format
+specifier|protected
+name|DocValueFormat
+name|format
+decl_stmt|;
 DECL|field|shardSize
 specifier|protected
 name|int
@@ -648,6 +653,9 @@ operator|.
 name|Order
 name|order
 parameter_list|,
+name|DocValueFormat
+name|format
+parameter_list|,
 name|int
 name|requiredSize
 parameter_list|,
@@ -703,6 +711,12 @@ operator|.
 name|order
 operator|=
 name|order
+expr_stmt|;
+name|this
+operator|.
+name|format
+operator|=
+name|format
 expr_stmt|;
 name|this
 operator|.

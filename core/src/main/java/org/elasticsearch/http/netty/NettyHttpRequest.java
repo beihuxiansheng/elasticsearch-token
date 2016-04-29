@@ -64,9 +64,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|http
+name|rest
 operator|.
-name|HttpRequest
+name|RestRequest
 import|;
 end_import
 
@@ -156,7 +156,7 @@ specifier|public
 class|class
 name|NettyHttpRequest
 extends|extends
-name|HttpRequest
+name|RestRequest
 block|{
 DECL|field|request
 specifier|private

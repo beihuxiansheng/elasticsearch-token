@@ -756,7 +756,7 @@ name|ALL_LANGS
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
 name|ScriptType
 operator|.
@@ -1086,7 +1086,7 @@ name|contains
 argument_list|(
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 operator|==
 literal|false
@@ -1102,7 +1102,7 @@ name|ALL_LANGS
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|)
 expr_stmt|;
 block|}
@@ -1385,7 +1385,7 @@ index|[]
 block|{
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 block|,
 name|ScriptType
 operator|.
@@ -1439,7 +1439,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"script.indexed"
+literal|"script.stored"
 argument_list|,
 name|randomFrom
 argument_list|(
@@ -1508,7 +1508,7 @@ name|FILE
 block|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 block|}
 argument_list|,
 name|complementOf

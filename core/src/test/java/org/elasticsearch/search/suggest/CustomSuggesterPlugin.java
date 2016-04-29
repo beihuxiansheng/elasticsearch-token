@@ -93,7 +93,7 @@ literal|"custom"
 argument_list|,
 name|CustomSuggester
 operator|.
-name|PROTOTYPE
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}

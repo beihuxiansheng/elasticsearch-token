@@ -99,9 +99,6 @@ enum|enum
 name|GeoValidationMethod
 implements|implements
 name|Writeable
-argument_list|<
-name|GeoValidationMethod
-argument_list|>
 block|{
 DECL|enum constant|COERCE
 DECL|enum constant|IGNORE_MALFORMED
@@ -134,11 +131,11 @@ operator|!=
 name|STRICT
 operator|)
 decl_stmt|;
-DECL|method|readGeoValidationMethodFrom
+DECL|method|readFromStream
 specifier|public
 specifier|static
 name|GeoValidationMethod
-name|readGeoValidationMethodFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

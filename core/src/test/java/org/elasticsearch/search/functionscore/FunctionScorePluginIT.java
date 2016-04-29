@@ -871,12 +871,12 @@ operator|.
 name|registerScoreFunction
 argument_list|(
 name|CustomDistanceScoreBuilder
-operator|.
-name|PARSER
-argument_list|,
-name|CustomDistanceScoreBuilder
 operator|::
 operator|new
+argument_list|,
+name|CustomDistanceScoreBuilder
+operator|.
+name|PARSER
 argument_list|,
 name|CustomDistanceScoreBuilder
 operator|.

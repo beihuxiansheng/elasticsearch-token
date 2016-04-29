@@ -324,20 +324,6 @@ argument_list|(
 name|nodeOrdinal
 argument_list|)
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"threadpool.generic.size"
-argument_list|,
-literal|1
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"threadpool.generic.queue_size"
-argument_list|,
-literal|1
-argument_list|)
 comment|// don't mess with this one! It's quite sensitive to a low queue size
 comment|// (see also ThreadedActionListener which is happily spawning threads even when we already got rejected)
 comment|//.put("threadpool.listener.queue_size", 1)

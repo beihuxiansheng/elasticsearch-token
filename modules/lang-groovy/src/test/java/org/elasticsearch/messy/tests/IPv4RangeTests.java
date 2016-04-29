@@ -20,6 +20,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -56,7 +72,7 @@ name|mapper
 operator|.
 name|ip
 operator|.
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 import|;
 end_import
 
@@ -403,6 +419,13 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/17700"
+argument_list|)
 annotation|@
 name|ESIntegTestCase
 operator|.
@@ -1121,7 +1144,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -1209,7 +1232,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -1251,7 +1274,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -1339,7 +1362,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -1568,7 +1591,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -1610,7 +1633,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -1698,7 +1721,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -1740,7 +1763,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -2010,7 +2033,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -2098,7 +2121,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -2140,7 +2163,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -2228,7 +2251,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -2569,7 +2592,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -2745,7 +2768,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -2787,7 +2810,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -2962,7 +2985,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -3345,7 +3368,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -3433,7 +3456,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -3475,7 +3498,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -3563,7 +3586,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -3847,7 +3870,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -3935,7 +3958,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -3977,7 +4000,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -4065,7 +4088,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -4357,7 +4380,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -4445,7 +4468,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -4487,7 +4510,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -4575,7 +4598,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -4862,7 +4885,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -4950,7 +4973,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -4992,7 +5015,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -5080,7 +5103,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -5367,7 +5390,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -5455,7 +5478,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -5497,7 +5520,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -5585,7 +5608,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -5868,7 +5891,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -5956,7 +5979,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -5998,7 +6021,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -6086,7 +6109,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -6371,7 +6394,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -6459,7 +6482,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -6501,7 +6524,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(
@@ -6589,7 +6612,7 @@ argument_list|(
 operator|(
 name|double
 operator|)
-name|IpFieldMapper
+name|LegacyIpFieldMapper
 operator|.
 name|ipToLong
 argument_list|(

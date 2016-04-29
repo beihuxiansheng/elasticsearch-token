@@ -834,6 +834,14 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+name|subSearchContext
+operator|.
+name|getQueryShardContext
+argument_list|()
+operator|.
+name|getClusterState
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|subSearchContext

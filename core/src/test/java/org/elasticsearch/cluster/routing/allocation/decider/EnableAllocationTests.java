@@ -382,22 +382,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -444,7 +428,9 @@ name|strategy
 init|=
 name|createAllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -673,7 +659,9 @@ name|strategy
 init|=
 name|createAllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -969,7 +957,9 @@ name|strategy
 init|=
 name|createAllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -1410,7 +1400,9 @@ decl_stmt|;
 name|Settings
 name|build
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1503,7 +1495,9 @@ name|Settings
 operator|.
 name|EMPTY
 else|:
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2104,7 +2098,9 @@ argument_list|)
 operator|.
 name|transientSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2200,7 +2196,9 @@ argument_list|)
 operator|.
 name|settings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2557,7 +2555,9 @@ decl_stmt|;
 name|Settings
 name|build
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2638,7 +2638,9 @@ name|Settings
 operator|.
 name|EMPTY
 else|:
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3104,7 +3106,9 @@ argument_list|)
 operator|.
 name|transientSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3186,7 +3190,9 @@ argument_list|)
 operator|.
 name|settings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

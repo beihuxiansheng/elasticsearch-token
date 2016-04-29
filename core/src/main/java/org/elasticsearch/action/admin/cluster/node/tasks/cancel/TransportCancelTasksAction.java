@@ -427,7 +427,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Transport action that can be used to cancel currently running cancellable tasks.  *<p>  * For a task to be cancellable it has to return an instance of  * {@link CancellableTask} from {@link TransportRequest#createTask(long, String, String)}  */
+comment|/**  * Transport action that can be used to cancel currently running cancellable tasks.  *<p>  * For a task to be cancellable it has to return an instance of  * {@link CancellableTask} from {@link TransportRequest#createTask(long, String, String, TaskId)}  */
 end_comment
 
 begin_class
@@ -1601,8 +1601,9 @@ argument_list|)
 expr_stmt|;
 name|parentTaskId
 operator|=
-operator|new
 name|TaskId
+operator|.
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

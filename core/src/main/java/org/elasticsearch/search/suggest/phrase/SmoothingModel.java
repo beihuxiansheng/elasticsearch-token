@@ -150,9 +150,6 @@ class|class
 name|SmoothingModel
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|SmoothingModel
-argument_list|>
 implements|,
 name|ToXContent
 block|{
@@ -300,7 +297,7 @@ name|parseFieldMatcher
 init|=
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 decl_stmt|;
 name|XContentParser
