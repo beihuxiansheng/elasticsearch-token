@@ -838,7 +838,7 @@ block|{
 name|String
 name|response
 init|=
-name|GceComputeServiceMock
+name|GceMockUtils
 operator|.
 name|readGoogleInternalJsonResponse
 argument_list|(

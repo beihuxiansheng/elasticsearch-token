@@ -360,11 +360,11 @@ argument_list|(
 name|nodeSettings
 argument_list|)
 decl_stmt|;
-name|GceComputeServiceMock
+name|GceMetadataServiceMock
 name|mock
 init|=
 operator|new
-name|GceComputeServiceMock
+name|GceMetadataServiceMock
 argument_list|(
 name|nodeSettings
 argument_list|,

@@ -38,6 +38,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cloud
+operator|.
+name|gce
+operator|.
+name|GceMetadataService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Strings
@@ -122,11 +136,11 @@ name|AbstractComponent
 implements|implements
 name|CustomNameResolver
 block|{
-DECL|field|gceComputeService
+DECL|field|gceMetadataService
 specifier|private
 specifier|final
-name|GceComputeService
-name|gceComputeService
+name|GceMetadataService
+name|gceMetadataService
 decl_stmt|;
 comment|/**      * enum that can be added to over time with more meta-data types      */
 DECL|enum|GceAddressResolverType
@@ -205,8 +219,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|GceComputeService
-name|gceComputeService
+name|GceMetadataService
+name|gceMetadataService
 parameter_list|)
 block|{
 name|super
@@ -216,9 +230,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|gceComputeService
+name|gceMetadataService
 operator|=
-name|gceComputeService
+name|gceMetadataService
 expr_stmt|;
 block|}
 comment|/**      * @param value the gce hostname type to discover.      * @return the appropriate host resolved from gce meta-data.      * @see CustomNameResolver#resolveIfPossible(String)      */
@@ -389,7 +403,7 @@ block|{
 name|String
 name|metadataResult
 init|=
-name|gceComputeService
+name|gceMetadataService
 operator|.
 name|metadata
 argument_list|(

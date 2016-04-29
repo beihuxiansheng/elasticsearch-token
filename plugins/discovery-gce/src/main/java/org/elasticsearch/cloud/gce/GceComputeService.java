@@ -297,17 +297,6 @@ argument_list|>
 name|instances
 parameter_list|()
 function_decl|;
-comment|/**      *<p>Gets metadata on the current running machine (call to      * http://metadata.google.internal/computeMetadata/v1/instance/xxx).</p>      *<p>For example, you can retrieve network information by replacing xxx with:</p>      *<ul>      *<li>`hostname` when we need to resolve the host name</li>      *<li>`network-interfaces/0/ip` when we need to resolve private IP</li>      *</ul>      * @see org.elasticsearch.cloud.gce.network.GceNameResolver for bindings      * @param metadataPath path to metadata information      * @return extracted information (for example a hostname or an IP address)      * @throws IOException in case metadata URL is not accessible      */
-DECL|method|metadata
-name|String
-name|metadata
-parameter_list|(
-name|String
-name|metadataPath
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 block|}
 end_interface
 
