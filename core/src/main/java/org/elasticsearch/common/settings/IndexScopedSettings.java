@@ -262,7 +262,7 @@ name|index
 operator|.
 name|percolator
 operator|.
-name|PercolatorQueryCache
+name|PercolatorFieldMapper
 import|;
 end_import
 
@@ -737,7 +737,7 @@ name|Store
 operator|.
 name|INDEX_STORE_STATS_REFRESH_INTERVAL_SETTING
 argument_list|,
-name|PercolatorQueryCache
+name|PercolatorFieldMapper
 operator|.
 name|INDEX_MAP_UNMAPPED_FIELDS_AS_STRING_SETTING
 argument_list|,

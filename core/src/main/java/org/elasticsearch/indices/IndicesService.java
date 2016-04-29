@@ -2386,14 +2386,6 @@ name|CommonStats
 argument_list|(
 name|indicesQueryCache
 argument_list|,
-name|indexService
-operator|.
-name|cache
-argument_list|()
-operator|.
-name|getPercolatorQueryCache
-argument_list|()
-argument_list|,
 name|indexShard
 argument_list|,
 name|flags
