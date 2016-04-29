@@ -1349,14 +1349,6 @@ name|ISO_8859_1
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|threadPool
-operator|=
-operator|new
-name|ThreadPool
-argument_list|(
-literal|"testing-only"
-argument_list|)
-expr_stmt|;
 name|MapperService
 name|mapperService
 init|=
