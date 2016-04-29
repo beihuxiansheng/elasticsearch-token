@@ -663,16 +663,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|// TODO CHANGEME
-DECL|field|PATH_STYLE_ACCESS
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PATH_STYLE_ACCESS
-init|=
-literal|"repositories.s3.path_style_access"
-decl_stmt|;
 block|}
 DECL|method|client
 name|AmazonS3
