@@ -6685,9 +6685,13 @@ name|DeleteNatGatewayRequest
 name|deleteNatGatewayRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -7252,9 +7256,13 @@ name|ModifyHostsRequest
 name|modifyHostsRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -7266,7 +7274,15 @@ parameter_list|(
 name|ModifyIdFormatRequest
 name|modifyIdFormatRequest
 parameter_list|)
-block|{      }
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
+block|}
 annotation|@
 name|Override
 DECL|method|describeSecurityGroups
@@ -8773,9 +8789,13 @@ name|DisableVpcClassicLinkDnsSupportRequest
 name|disableVpcClassicLinkDnsSupportRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -8903,9 +8923,13 @@ name|RunScheduledInstancesRequest
 name|runScheduledInstancesRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -9079,9 +9103,13 @@ name|ModifyInstancePlacementRequest
 name|modifyInstancePlacementRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -9715,9 +9743,13 @@ name|PurchaseScheduledInstancesRequest
 name|purchaseScheduledInstancesRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -10535,9 +10567,13 @@ name|ReleaseHostsRequest
 name|releaseHostsRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -10596,9 +10632,13 @@ name|CreateNatGatewayRequest
 name|createNatGatewayRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -10749,9 +10789,13 @@ name|EnableVpcClassicLinkDnsSupportRequest
 name|enableVpcClassicLinkDnsSupportRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11233,9 +11277,13 @@ name|DescribeScheduledInstanceAvailabilityRequest
 name|describeScheduledInstanceAvailabilityRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11248,9 +11296,13 @@ name|DescribeScheduledInstancesRequest
 name|describeScheduledInstancesRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11423,9 +11475,13 @@ name|DescribeNatGatewaysRequest
 name|describeNatGatewaysRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11498,9 +11554,13 @@ name|DescribeHostsRequest
 name|describeHostsRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11510,9 +11570,13 @@ name|DescribeHostsResult
 name|describeHosts
 parameter_list|()
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11525,9 +11589,13 @@ name|DescribeIdFormatRequest
 name|describeIdFormatRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11537,9 +11605,13 @@ name|DescribeIdFormatResult
 name|describeIdFormat
 parameter_list|()
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11712,9 +11784,13 @@ name|DescribeVpcClassicLinkDnsSupportRequest
 name|describeVpcClassicLinkDnsSupportRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -11987,9 +12063,13 @@ name|AllocateHostsRequest
 name|allocateHostsRequest
 parameter_list|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Not supported in mock"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
