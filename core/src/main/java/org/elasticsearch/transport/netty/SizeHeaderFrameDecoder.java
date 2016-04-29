@@ -239,6 +239,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|int
+name|sizeHeaderLength
+init|=
+name|NettyHeader
+operator|.
+name|MARKER_BYTES_SIZE
+operator|+
+name|NettyHeader
+operator|.
+name|MESSAGE_LENGTH_SIZE
+decl_stmt|;
 if|if
 condition|(
 name|buffer
@@ -246,7 +258,7 @@ operator|.
 name|readableBytes
 argument_list|()
 operator|<
-literal|6
+name|sizeHeaderLength
 condition|)
 block|{
 return|return
@@ -459,7 +471,9 @@ operator|.
 name|readerIndex
 argument_list|()
 operator|+
-literal|2
+name|NettyHeader
+operator|.
+name|MARKER_BYTES_SIZE
 argument_list|)
 decl_stmt|;
 if|if
@@ -477,7 +491,7 @@ name|buffer
 operator|.
 name|skipBytes
 argument_list|(
-literal|6
+name|sizeHeaderLength
 argument_list|)
 expr_stmt|;
 return|return
@@ -542,7 +556,7 @@ argument_list|()
 operator|<
 name|dataLen
 operator|+
-literal|6
+name|sizeHeaderLength
 condition|)
 block|{
 return|return
@@ -553,7 +567,7 @@ name|buffer
 operator|.
 name|skipBytes
 argument_list|(
-literal|6
+name|sizeHeaderLength
 argument_list|)
 expr_stmt|;
 return|return

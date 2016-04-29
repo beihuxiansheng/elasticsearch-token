@@ -165,7 +165,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -180,7 +180,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,7 +197,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -216,7 +216,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -238,7 +238,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -253,7 +253,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -268,7 +268,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -285,7 +285,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -307,7 +307,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 argument_list|)
@@ -324,7 +324,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -339,7 +339,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -354,7 +354,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -376,7 +376,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 operator|*
@@ -395,7 +395,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 argument_list|)
@@ -412,7 +412,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -427,7 +427,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -449,7 +449,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 operator|*
@@ -470,7 +470,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 operator|*
@@ -489,7 +489,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 argument_list|)
@@ -506,7 +506,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -521,7 +521,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -543,7 +543,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 operator|*
@@ -566,7 +566,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 operator|*
@@ -587,7 +587,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 operator|*
@@ -606,7 +606,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 operator|*
 literal|1024
 argument_list|)
@@ -623,7 +623,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1024l
+literal|1024L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -638,7 +638,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;

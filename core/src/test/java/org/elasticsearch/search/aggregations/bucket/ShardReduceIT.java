@@ -22,20 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|GeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -57,6 +43,20 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|geo
+operator|.
+name|GeoHashUtils
 import|;
 end_import
 
@@ -663,6 +663,10 @@ argument_list|,
 literal|"location"
 argument_list|,
 literal|"type=geo_point"
+argument_list|,
+literal|"term-s"
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -742,7 +746,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -842,10 +846,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|QueryBuilders
 operator|.
 name|matchAllQuery
@@ -864,7 +865,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -983,7 +984,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1090,10 +1091,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|QueryBuilders
 operator|.
 name|matchAllQuery
@@ -1124,7 +1122,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1252,10 +1250,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 operator|.
@@ -1271,7 +1266,7 @@ argument_list|(
 literal|"nested.date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1401,7 +1396,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1536,7 +1531,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1671,7 +1666,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1804,7 +1799,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1940,7 +1935,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2016,6 +2011,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/17700"
+argument_list|)
 DECL|method|testIpRange
 specifier|public
 name|void
@@ -2076,7 +2078,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2208,7 +2210,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2323,7 +2325,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2342,7 +2344,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2470,7 +2472,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.

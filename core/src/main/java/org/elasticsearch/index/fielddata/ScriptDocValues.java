@@ -475,7 +475,7 @@ literal|0
 condition|)
 block|{
 return|return
-literal|0l
+literal|0L
 return|;
 block|}
 return|return

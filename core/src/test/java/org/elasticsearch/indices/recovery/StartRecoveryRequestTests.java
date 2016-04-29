@@ -148,6 +148,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -212,6 +236,8 @@ name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|0
 argument_list|)
 argument_list|,
@@ -225,6 +251,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"1"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|targetNodeVersion
 argument_list|)
@@ -240,10 +272,14 @@ argument_list|(
 literal|"1"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|targetNodeVersion
 argument_list|)
-argument_list|,
-literal|true
 argument_list|,
 name|Store
 operator|.
@@ -255,9 +291,9 @@ name|RecoveryState
 operator|.
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 decl_stmt|;
 name|ByteArrayOutputStream
@@ -376,22 +412,6 @@ argument_list|(
 name|inRequest
 operator|.
 name|targetNode
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|outRequest
-operator|.
-name|markAsRelocated
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-name|inRequest
-operator|.
-name|markAsRelocated
 argument_list|()
 argument_list|)
 argument_list|)

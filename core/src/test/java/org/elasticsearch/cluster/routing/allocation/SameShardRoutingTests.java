@@ -192,6 +192,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|transport
 operator|.
 name|DummyTransportAddress
@@ -260,22 +274,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -322,7 +320,9 @@ name|strategy
 init|=
 name|createAllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -474,6 +474,8 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|MASTER_DATA_ROLES
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -499,6 +501,8 @@ name|INSTANCE
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
 argument_list|,
 name|Version
 operator|.
@@ -694,6 +698,8 @@ name|INSTANCE
 argument_list|,
 name|emptyMap
 argument_list|()
+argument_list|,
+name|MASTER_DATA_ROLES
 argument_list|,
 name|Version
 operator|.

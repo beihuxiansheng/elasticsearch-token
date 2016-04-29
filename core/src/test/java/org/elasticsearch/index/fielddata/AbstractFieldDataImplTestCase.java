@@ -1251,8 +1251,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1622,7 +1620,7 @@ argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1748,8 +1746,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;

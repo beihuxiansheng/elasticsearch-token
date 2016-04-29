@@ -756,8 +756,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"AGG COLLECTION MODE: "
-operator|+
+literal|"AGG COLLECTION MODE: {}"
+argument_list|,
 name|aggCollectionMode
 argument_list|)
 expr_stmt|;
@@ -1340,10 +1340,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 operator|.
@@ -1655,10 +1652,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"value"
 argument_list|)
 operator|.
@@ -1727,7 +1721,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1756,10 +1750,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 operator|.
@@ -2185,10 +2176,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 operator|.
@@ -2423,10 +2411,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"level1"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested1"
 argument_list|)
 operator|.
@@ -2439,7 +2424,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"nested1.a"
+literal|"nested1.a.keyword"
 argument_list|)
 operator|.
 name|collectMode
@@ -2452,10 +2437,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"level2"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested1.nested2"
 argument_list|)
 operator|.
@@ -2526,7 +2508,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2564,7 +2546,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2590,7 +2572,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2650,7 +2632,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2675,7 +2657,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2744,7 +2726,7 @@ argument_list|)
 operator|.
 name|interval
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 operator|.
 name|minDocCount
@@ -2757,10 +2739,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"nested"
 argument_list|)
 argument_list|)
@@ -2784,7 +2763,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2881,7 +2860,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2915,10 +2894,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"object_field"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"incorrect"
 argument_list|)
 argument_list|)
@@ -2954,7 +2930,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Test based on: https://github.com/elasticsearch/elasticsearch/issues/9280
+comment|// Test based on: https://github.com/elastic/elasticsearch/issues/9280
 DECL|method|testParentFilterResolvedCorrectly
 specifier|public
 name|void
@@ -3023,14 +2999,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -3077,14 +3046,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -3211,14 +3173,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -3408,10 +3363,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"ctxt_idfier_nested"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments"
 argument_list|)
 operator|.
@@ -3420,10 +3372,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"comment_filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|termQuery
 argument_list|(
 literal|"comments.identifier"
@@ -3437,10 +3386,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"nested_tags"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments.tags"
 argument_list|)
 operator|.
@@ -3516,10 +3462,9 @@ name|startDate
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|"1414800000000"
+literal|"2014-11-01T00:00:00.000Z"
 argument_list|)
 decl_stmt|;
-comment|// 2014-11-01T00:00:00.000Z
 name|assertThat
 argument_list|(
 name|bucket
@@ -3529,7 +3474,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3552,10 +3497,9 @@ name|endDate
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|"1417305600000"
+literal|"2014-11-30T00:00:00.000Z"
 argument_list|)
 expr_stmt|;
-comment|// 2014-11-30T00:00:00.000Z
 name|assertThat
 argument_list|(
 name|bucket
@@ -3565,7 +3509,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3600,7 +3544,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3626,7 +3570,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3652,7 +3596,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3678,7 +3622,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3719,10 +3663,9 @@ name|startDate
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|"1417392000000"
+literal|"2014-12-01T00:00:00.000Z"
 argument_list|)
 expr_stmt|;
-comment|// 2014-12-01T00:00:00.000Z
 name|assertThat
 argument_list|(
 name|bucket
@@ -3732,7 +3675,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3754,10 +3697,9 @@ name|endDate
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|"1419984000000"
+literal|"2014-12-31T00:00:00.000Z"
 argument_list|)
 expr_stmt|;
-comment|// 2014-12-31T00:00:00.000Z
 name|assertThat
 argument_list|(
 name|bucket
@@ -3767,7 +3709,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3801,7 +3743,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3826,7 +3768,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3851,7 +3793,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3876,7 +3818,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3954,11 +3896,11 @@ literal|"product"
 argument_list|,
 literal|"categories"
 argument_list|,
-literal|"type=string"
+literal|"type=keyword"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|,
 literal|"property"
 argument_list|,
@@ -4191,10 +4133,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"property"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"property"
 argument_list|)
 operator|.
@@ -4278,7 +4217,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4304,7 +4243,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|6l
+literal|6L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4351,7 +4290,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4369,7 +4308,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4387,7 +4326,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4405,7 +4344,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4423,7 +4362,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4445,7 +4384,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4470,7 +4409,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|6l
+literal|6L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4516,7 +4455,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4534,7 +4473,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4552,7 +4491,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4570,7 +4509,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4588,7 +4527,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4610,7 +4549,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4635,7 +4574,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4681,7 +4620,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4699,7 +4638,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4717,7 +4656,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4739,7 +4678,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4764,7 +4703,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4810,7 +4749,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4828,7 +4767,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4846,7 +4785,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;

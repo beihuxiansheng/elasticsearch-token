@@ -158,7 +158,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -291,7 +291,7 @@ name|put
 argument_list|(
 literal|"1"
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -300,7 +300,7 @@ name|put
 argument_list|(
 literal|"3"
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -309,7 +309,7 @@ name|put
 argument_list|(
 literal|"2"
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 for|for
@@ -355,7 +355,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -493,7 +493,7 @@ name|put
 argument_list|(
 literal|"1"
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -502,7 +502,7 @@ name|put
 argument_list|(
 literal|"3"
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -511,7 +511,7 @@ name|put
 argument_list|(
 literal|"2"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 for|for
@@ -557,7 +557,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -696,7 +696,7 @@ name|put
 argument_list|(
 literal|"1"
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -705,7 +705,7 @@ name|put
 argument_list|(
 literal|"3"
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -714,7 +714,7 @@ name|put
 argument_list|(
 literal|"2"
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 comment|//<-- count is now fixed
@@ -761,7 +761,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -905,7 +905,7 @@ name|put
 argument_list|(
 literal|"1"
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -914,7 +914,7 @@ name|put
 argument_list|(
 literal|"2"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -923,7 +923,7 @@ name|put
 argument_list|(
 literal|"3"
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 comment|//<-- count is now fixed
@@ -970,7 +970,7 @@ name|Exception
 block|{
 name|createIdx
 argument_list|(
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 expr_stmt|;
 name|indexData
@@ -1103,7 +1103,7 @@ name|put
 argument_list|(
 literal|"1"
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1112,7 +1112,7 @@ name|put
 argument_list|(
 literal|"2"
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1121,7 +1121,7 @@ name|put
 argument_list|(
 literal|"3"
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 for|for
@@ -1300,7 +1300,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1309,7 +1309,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1318,7 +1318,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 for|for
@@ -1505,7 +1505,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1514,7 +1514,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1523,7 +1523,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 for|for
@@ -1711,7 +1711,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1720,7 +1720,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1729,7 +1729,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 comment|//<-- count is now fixed
@@ -1923,7 +1923,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1932,7 +1932,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -1941,7 +1941,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2123,7 +2123,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2132,7 +2132,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2141,7 +2141,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2323,7 +2323,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2332,7 +2332,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2341,7 +2341,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2528,7 +2528,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2537,7 +2537,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2546,7 +2546,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 for|for
@@ -2733,7 +2733,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2742,7 +2742,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2751,7 +2751,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 comment|//<-- count is now fixed
@@ -2944,7 +2944,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2953,7 +2953,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -2962,7 +2962,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 expr_stmt|;
 for|for
@@ -3144,7 +3144,7 @@ name|put
 argument_list|(
 literal|1
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -3153,7 +3153,7 @@ name|put
 argument_list|(
 literal|2
 argument_list|,
-literal|5l
+literal|5L
 argument_list|)
 expr_stmt|;
 name|expected
@@ -3162,7 +3162,7 @@ name|put
 argument_list|(
 literal|3
 argument_list|,
-literal|8l
+literal|8L
 argument_list|)
 expr_stmt|;
 for|for

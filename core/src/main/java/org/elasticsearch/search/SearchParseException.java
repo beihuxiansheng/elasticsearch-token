@@ -92,20 +92,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|rest
 operator|.
 name|RestStatus
@@ -408,7 +394,7 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Line number of the location of the error      *       * @return the line number or -1 if unknown      */
+comment|/**      * Line number of the location of the error      *      * @return the line number or -1 if unknown      */
 DECL|method|getLineNumber
 specifier|public
 name|int
@@ -419,7 +405,7 @@ return|return
 name|lineNumber
 return|;
 block|}
-comment|/**      * Column number of the location of the error      *       * @return the column number or -1 if unknown      */
+comment|/**      * Column number of the location of the error      *      * @return the column number or -1 if unknown      */
 DECL|method|getColumnNumber
 specifier|public
 name|int

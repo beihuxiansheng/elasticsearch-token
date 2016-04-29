@@ -440,6 +440,18 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|mapper
+operator|=
+name|index
+operator|.
+name|mapperService
+argument_list|()
+operator|.
+name|documentMapper
+argument_list|(
+literal|"type"
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|addDocument
@@ -468,8 +480,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|IndexSearcher

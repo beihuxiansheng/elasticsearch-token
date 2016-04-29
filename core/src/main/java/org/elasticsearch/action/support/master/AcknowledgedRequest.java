@@ -143,14 +143,17 @@ specifier|abstract
 class|class
 name|AcknowledgedRequest
 parameter_list|<
-name|T
+name|Request
 extends|extends
 name|MasterNodeRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|>
 extends|extends
 name|MasterNodeRequest
 argument_list|<
-name|T
+name|Request
 argument_list|>
 implements|implements
 name|AckedRequest
@@ -179,20 +182,6 @@ specifier|protected
 name|AcknowledgedRequest
 parameter_list|()
 block|{     }
-DECL|method|AcknowledgedRequest
-specifier|protected
-name|AcknowledgedRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Allows to set the timeout      * @param timeout timeout as a string (e.g. 1s)      * @return the request itself      */
 annotation|@
 name|SuppressWarnings
@@ -202,7 +191,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Request
 name|timeout
 parameter_list|(
 name|String
@@ -234,7 +223,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;
@@ -248,7 +237,7 @@ argument_list|)
 DECL|method|timeout
 specifier|public
 specifier|final
-name|T
+name|Request
 name|timeout
 parameter_list|(
 name|TimeValue
@@ -263,7 +252,7 @@ name|timeout
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;

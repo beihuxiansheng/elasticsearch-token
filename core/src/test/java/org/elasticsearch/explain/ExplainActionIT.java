@@ -374,7 +374,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1918,7 +1918,7 @@ literal|"test"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addAlias
@@ -2055,7 +2055,7 @@ literal|"test"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addAlias

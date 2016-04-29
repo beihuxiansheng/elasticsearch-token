@@ -140,22 +140,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -249,6 +233,9 @@ argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|FIELDDATA_CIRCUIT_BREAKER_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"noop"
 argument_list|)
@@ -259,6 +246,9 @@ argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|FIELDDATA_CIRCUIT_BREAKER_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10b"
 argument_list|)
@@ -268,6 +258,9 @@ argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|REQUEST_CIRCUIT_BREAKER_TYPE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"noop"
 argument_list|)
@@ -278,6 +271,9 @@ argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|REQUEST_CIRCUIT_BREAKER_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10b"
 argument_list|)
@@ -302,7 +298,9 @@ literal|"cb-test"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -446,7 +444,9 @@ literal|"cb-test"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

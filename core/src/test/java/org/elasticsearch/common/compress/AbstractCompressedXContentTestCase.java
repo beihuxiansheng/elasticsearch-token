@@ -388,7 +388,7 @@ expr_stmt|;
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 for|for

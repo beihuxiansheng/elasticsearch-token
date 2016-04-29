@@ -940,8 +940,6 @@ operator|.
 name|open
 argument_list|(
 name|iw
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|List
@@ -1453,7 +1451,7 @@ name|shuffle
 argument_list|(
 name|terms
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;

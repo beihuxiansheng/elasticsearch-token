@@ -62,20 +62,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|health
-operator|.
-name|ClusterHealthStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -137,6 +123,20 @@ operator|.
 name|client
 operator|.
 name|Requests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|health
+operator|.
+name|ClusterHealthStatus
 import|;
 end_import
 
@@ -266,22 +266,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -384,16 +368,6 @@ argument_list|(
 literal|"test"
 argument_list|,
 literal|1
-argument_list|,
-name|settingsBuilder
-argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"routing.hash.type"
-argument_list|,
-literal|"simple"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -731,8 +705,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus

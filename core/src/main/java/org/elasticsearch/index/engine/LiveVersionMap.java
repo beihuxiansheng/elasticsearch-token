@@ -295,9 +295,9 @@ name|NUM_BYTES_OBJECT_HEADER
 operator|+
 literal|2
 operator|*
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 operator|+
 name|RamUsageEstimator
 operator|.
@@ -319,9 +319,9 @@ name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_HEADER
 operator|+
-name|RamUsageEstimator
+name|Integer
 operator|.
-name|NUM_BYTES_INT
+name|BYTES
 operator|+
 literal|5
 operator|*

@@ -767,7 +767,7 @@ name|ref
 argument_list|)
 expr_stmt|;
 comment|// undo the single-page optimization by ByteArray.get(), otherwise
-comment|// a materialized stream will contain traling garbage/zeros
+comment|// a materialized stream will contain trailing garbage/zeros
 name|byte
 index|[]
 name|result
@@ -2002,7 +2002,7 @@ operator|-
 name|pos
 argument_list|)
 decl_stmt|;
-comment|// copy the full lenth or the remaining part
+comment|// copy the full length or the remaining part
 comment|// current offset into the underlying ByteArray
 name|long
 name|byteArrayOffset
@@ -2175,6 +2175,22 @@ throws|throws
 name|IOException
 block|{
 comment|// do nothing
+block|}
+annotation|@
+name|Override
+DECL|method|available
+specifier|public
+name|int
+name|available
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|length
+operator|-
+name|pos
+return|;
 block|}
 block|}
 block|}

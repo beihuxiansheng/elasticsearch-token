@@ -38,7 +38,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|HasContextAndHeaders
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -48,11 +50,25 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|bytes
+name|query
 operator|.
-name|BytesReference
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
 import|;
 end_import
 
@@ -113,16 +129,9 @@ DECL|interface|ShardSearchRequest
 specifier|public
 interface|interface
 name|ShardSearchRequest
-extends|extends
-name|HasContextAndHeaders
 block|{
-DECL|method|index
-name|String
-name|index
-parameter_list|()
-function_decl|;
 DECL|method|shardId
-name|int
+name|ShardId
 name|shardId
 parameter_list|()
 function_decl|;
@@ -181,11 +190,37 @@ name|Scroll
 name|scroll
 parameter_list|()
 function_decl|;
+comment|/**      * Sets if this shard search needs to be profiled or not      * @param profile True if the shard should be profiled      */
+DECL|method|setProfile
+name|void
+name|setProfile
+parameter_list|(
+name|boolean
+name|profile
+parameter_list|)
+function_decl|;
+comment|/**      * Returns true if this shard search is being profiled or not      */
+DECL|method|isProfile
+name|boolean
+name|isProfile
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the cache key for this shard search request, based on its content      */
 DECL|method|cacheKey
 name|BytesReference
 name|cacheKey
 parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Rewrites this request into its primitive form. e.g. by rewriting the      * QueryBuilder.      */
+DECL|method|rewrite
+name|void
+name|rewrite
+parameter_list|(
+name|QueryShardContext
+name|context
+parameter_list|)
 throws|throws
 name|IOException
 function_decl|;

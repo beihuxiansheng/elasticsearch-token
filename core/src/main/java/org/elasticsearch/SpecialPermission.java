@@ -23,7 +23,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Elasticsearch-specific permission to check before entering   * {@code AccessController.doPrivileged()} blocks.   *<p>  * We try to avoid these blocks in our code and keep security simple,   * but we need them for a few special places to contain hacks for third   * party code, or dangerous things used by scripting engines.  *<p>  * All normal code has this permission, but checking this before truncating the stack  * prevents unprivileged code (e.g. scripts), which do not have it, from gaining elevated   * privileges.  *<p>  * In other words, don't do this:  *<br>  *<pre><code>  *   // throw away all information about caller and run with our own privs  *   AccessController.doPrivileged(  *    ...  *   );  *</code></pre>  *<br>  * Instead do this;  *<br>  *<pre><code>  *   // check caller first, to see if they should be allowed to do this  *   SecurityManager sm = System.getSecurityManager();  *   if (sm != null) {  *     sm.checkPermission(new SpecialPermission());  *   }  *   // throw away all information about caller and run with our own privs  *   AccessController.doPrivileged(  *    ...  *   );  *</code></pre>  */
+comment|/**  * Elasticsearch-specific permission to check before entering  * {@code AccessController.doPrivileged()} blocks.  *<p>  * We try to avoid these blocks in our code and keep security simple,  * but we need them for a few special places to contain hacks for third  * party code, or dangerous things used by scripting engines.  *<p>  * All normal code has this permission, but checking this before truncating the stack  * prevents unprivileged code (e.g. scripts), which do not have it, from gaining elevated  * privileges.  *<p>  * In other words, don't do this:  *<br>  *<pre><code>  *   // throw away all information about caller and run with our own privs  *   AccessController.doPrivileged(  *    ...  *   );  *</code></pre>  *<br>  * Instead do this;  *<br>  *<pre><code>  *   // check caller first, to see if they should be allowed to do this  *   SecurityManager sm = System.getSecurityManager();  *   if (sm != null) {  *     sm.checkPermission(new SpecialPermission());  *   }  *   // throw away all information about caller and run with our own privs  *   AccessController.doPrivileged(  *    ...  *   );  *</code></pre>  */
 end_comment
 
 begin_class
@@ -35,16 +35,6 @@ name|SpecialPermission
 extends|extends
 name|BasicPermission
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|4129500096157408168L
-decl_stmt|;
 comment|/**      * Creates a new SpecialPermision object.      */
 DECL|method|SpecialPermission
 specifier|public
@@ -59,7 +49,7 @@ literal|"*"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new SpecialPermission object.      * This constructor exists for use by the {@code Policy} object to instantiate new Permission objects.      *       * @param name ignored      * @param actions ignored      */
+comment|/**      * Creates a new SpecialPermission object.      * This constructor exists for use by the {@code Policy} object to instantiate new Permission objects.      *      * @param name ignored      * @param actions ignored      */
 DECL|method|SpecialPermission
 specifier|public
 name|SpecialPermission

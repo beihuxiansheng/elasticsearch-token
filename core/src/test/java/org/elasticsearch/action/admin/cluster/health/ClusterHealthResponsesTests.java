@@ -182,7 +182,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
 import|;
 end_import
 
@@ -484,24 +508,6 @@ operator|.
 name|getClusterStateHealth
 argument_list|()
 decl_stmt|;
-name|assertThat
-argument_list|(
-name|clusterHealth
-operator|.
-name|getValidationFailures
-argument_list|()
-argument_list|,
-name|Matchers
-operator|.
-name|equalTo
-argument_list|(
-name|clusterStateHealth
-operator|.
-name|getValidationFailures
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 name|clusterHealth

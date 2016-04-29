@@ -85,6 +85,8 @@ operator|.
 name|functionscore
 operator|.
 name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
 import|;
 end_import
 
@@ -395,7 +397,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -678,7 +680,7 @@ name|put
 argument_list|(
 literal|"script.inline"
 argument_list|,
-literal|"on"
+literal|"true"
 argument_list|)
 operator|.
 name|build
@@ -729,14 +731,10 @@ literal|"value"
 argument_list|)
 argument_list|,
 operator|new
-name|FunctionScoreQueryBuilder
-operator|.
 name|FilterFunctionBuilder
 index|[]
 block|{
 operator|new
-name|FunctionScoreQueryBuilder
-operator|.
 name|FilterFunctionBuilder
 argument_list|(
 name|gaussDecayFunction
@@ -756,8 +754,6 @@ argument_list|)
 argument_list|)
 block|,
 operator|new
-name|FunctionScoreQueryBuilder
-operator|.
 name|FilterFunctionBuilder
 argument_list|(
 name|scriptFunction
@@ -771,8 +767,6 @@ argument_list|)
 argument_list|)
 block|,
 operator|new
-name|FunctionScoreQueryBuilder
-operator|.
 name|FilterFunctionBuilder
 argument_list|(
 name|termQuery

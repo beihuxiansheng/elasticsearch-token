@@ -252,6 +252,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -355,6 +379,14 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
+name|Index
+name|idx
+init|=
+name|resolveIndex
+argument_list|(
+literal|"test"
+argument_list|)
+decl_stmt|;
 name|IndexMetaData
 name|metaData
 init|=
@@ -362,7 +394,7 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
-literal|"test"
+name|idx
 argument_list|)
 operator|.
 name|getMetaData
@@ -375,7 +407,7 @@ name|indicesService
 operator|.
 name|indexService
 argument_list|(
-literal|"test"
+name|idx
 argument_list|)
 operator|.
 name|getShard
@@ -577,7 +609,7 @@ name|indicesService
 operator|.
 name|deleteIndex
 argument_list|(
-literal|"test"
+name|idx
 argument_list|,
 literal|"simon says"
 argument_list|)
@@ -613,6 +645,13 @@ name|countingListener
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|idx
+operator|=
+name|index
+operator|.
+name|index
+argument_list|()
+expr_stmt|;
 name|ShardRouting
 name|newRouting
 init|=
@@ -689,6 +728,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -767,7 +812,7 @@ name|indicesService
 operator|.
 name|deleteIndex
 argument_list|(
-literal|"test"
+name|idx
 argument_list|,
 literal|"simon says"
 argument_list|)

@@ -485,7 +485,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -884,7 +884,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -914,7 +914,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -983,6 +983,9 @@ name|Client
 name|client
 range|:
 name|internalCluster
+argument_list|()
+operator|.
+name|getClients
 argument_list|()
 control|)
 block|{
@@ -1106,6 +1109,9 @@ name|Client
 name|client
 range|:
 name|internalCluster
+argument_list|()
+operator|.
+name|getClients
 argument_list|()
 control|)
 block|{
@@ -1235,7 +1241,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1671,7 +1677,7 @@ literal|"test"
 argument_list|,
 literal|"field"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|addAlias
@@ -1821,7 +1827,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1865,7 +1871,7 @@ literal|"test"
 argument_list|,
 literal|"field"
 argument_list|,
-literal|"type=string,analyzer=syns"
+literal|"type=text,analyzer=syns"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2219,6 +2225,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
+comment|// fuzzy queries will be removed in 4.0
 DECL|method|testExplainWithRewriteValidateQuery
 specifier|public
 name|void
@@ -2247,7 +2259,7 @@ literal|"type1"
 argument_list|,
 literal|"field"
 argument_list|,
-literal|"type=string,analyzer=whitespace"
+literal|"type=text,analyzer=whitespace"
 argument_list|)
 operator|.
 name|setSettings
@@ -2512,7 +2524,7 @@ argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"field:the field:tree^0.3333333"
+literal|"field:the (field:tree)^0.3333333"
 argument_list|)
 argument_list|,
 literal|true
@@ -2531,7 +2543,7 @@ argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"field:jumps^0.75"
+literal|"(field:jumps)^0.75"
 argument_list|)
 argument_list|,
 literal|true

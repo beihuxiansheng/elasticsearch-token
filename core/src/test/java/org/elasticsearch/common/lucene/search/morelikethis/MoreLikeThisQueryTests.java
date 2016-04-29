@@ -374,8 +374,6 @@ operator|.
 name|open
 argument_list|(
 name|indexWriter
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|IndexSearcher
@@ -444,7 +442,7 @@ name|count
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;

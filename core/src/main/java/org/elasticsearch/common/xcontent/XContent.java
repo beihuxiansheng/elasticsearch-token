@@ -36,7 +36,37 @@ name|java
 operator|.
 name|io
 operator|.
-name|*
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
 import|;
 end_import
 
@@ -63,6 +93,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * Creates a new generator using the provided output stream.      */
 DECL|method|createGenerator
+specifier|default
 name|XContentGenerator
 name|createGenerator
 parameter_list|(
@@ -71,9 +102,21 @@ name|os
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-comment|/**      * Creates a new generator using the provided output stream and some filters.      */
+block|{
+return|return
+name|createGenerator
+argument_list|(
+name|os
+argument_list|,
+literal|null
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new generator using the provided output stream and some      * inclusive filters. Same as createGenerator(os, filters, true).      */
 DECL|method|createGenerator
+specifier|default
 name|XContentGenerator
 name|createGenerator
 parameter_list|(
@@ -86,14 +129,32 @@ name|filters
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-comment|/**      * Creates a new generator using the provided writer.      */
+block|{
+return|return
+name|createGenerator
+argument_list|(
+name|os
+argument_list|,
+name|filters
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new generator using the provided output stream and some      * filters.      *      * @param inclusive      *            If true only paths matching a filter will be included in      *            output. If false no path matching a filter will be included in      *            output      */
 DECL|method|createGenerator
 name|XContentGenerator
 name|createGenerator
 parameter_list|(
-name|Writer
-name|writer
+name|OutputStream
+name|os
+parameter_list|,
+name|String
+index|[]
+name|filters
+parameter_list|,
+name|boolean
+name|inclusive
 parameter_list|)
 throws|throws
 name|IOException

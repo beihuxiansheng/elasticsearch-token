@@ -112,8 +112,6 @@ argument_list|(
 literal|"tree"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -152,8 +150,6 @@ argument_list|(
 literal|"strategy"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -192,8 +188,6 @@ argument_list|(
 literal|"tree_levels"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -232,8 +226,6 @@ argument_list|(
 literal|"precision"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -272,8 +264,6 @@ argument_list|(
 literal|"distance_error_pct"
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -310,8 +300,6 @@ operator|new
 name|Modifier
 argument_list|(
 literal|"orientation"
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)

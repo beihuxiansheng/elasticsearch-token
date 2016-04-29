@@ -108,20 +108,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|service
-operator|.
-name|NodeService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -150,37 +136,10 @@ name|DiscoveryNode
 name|localNode
 parameter_list|()
 function_decl|;
-DECL|method|addListener
-name|void
-name|addListener
-parameter_list|(
-name|InitialStateDiscoveryListener
-name|listener
-parameter_list|)
-function_decl|;
-DECL|method|removeListener
-name|void
-name|removeListener
-parameter_list|(
-name|InitialStateDiscoveryListener
-name|listener
-parameter_list|)
-function_decl|;
 DECL|method|nodeDescription
 name|String
 name|nodeDescription
 parameter_list|()
-function_decl|;
-comment|/**      * Here as a hack to solve dep injection problem...      */
-DECL|method|setNodeService
-name|void
-name|setNodeService
-parameter_list|(
-annotation|@
-name|Nullable
-name|NodeService
-name|nodeService
-parameter_list|)
 function_decl|;
 comment|/**      * Another hack to solve dep injection problem..., note, this will be called before      * any start is called.      */
 DECL|method|setRoutingService
@@ -298,6 +257,23 @@ comment|/**      * @return stats about the discovery      */
 DECL|method|stats
 name|DiscoveryStats
 name|stats
+parameter_list|()
+function_decl|;
+DECL|method|getDiscoverySettings
+name|DiscoverySettings
+name|getDiscoverySettings
+parameter_list|()
+function_decl|;
+comment|/**      * Triggers the first join cycle      */
+DECL|method|startInitialJoin
+name|void
+name|startInitialJoin
+parameter_list|()
+function_decl|;
+comment|/***      * @return the current value of minimum master nodes, or -1 for not set      */
+DECL|method|getMinimumMasterNodes
+name|int
+name|getMinimumMasterNodes
 parameter_list|()
 function_decl|;
 block|}

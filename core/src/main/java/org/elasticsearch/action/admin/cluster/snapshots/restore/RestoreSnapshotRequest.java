@@ -334,7 +334,7 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 import|;
 end_import
 
@@ -959,7 +959,7 @@ name|settings
 operator|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|loadFromSource
@@ -1247,7 +1247,7 @@ name|indexSettings
 operator|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|loadFromSource
@@ -1516,7 +1516,7 @@ condition|)
 block|{
 name|partial
 argument_list|(
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|entry
 operator|.
@@ -1588,7 +1588,7 @@ condition|)
 block|{
 name|includeGlobalState
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|entry
 operator|.
@@ -1610,7 +1610,7 @@ condition|)
 block|{
 name|includeAliases
 operator|=
-name|nodeBooleanValue
+name|lenientNodeBooleanValue
 argument_list|(
 name|entry
 operator|.

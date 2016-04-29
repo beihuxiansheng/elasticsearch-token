@@ -108,7 +108,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets to reutrn all the data.      */
+comment|/**      * Sets to return all the data.      */
 DECL|method|all
 specifier|public
 name|NodesInfoRequestBuilder
@@ -287,6 +287,28 @@ operator|.
 name|plugins
 argument_list|(
 name|plugins
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Should the node ingest info be returned.      */
+DECL|method|setIngest
+specifier|public
+name|NodesInfoRequestBuilder
+name|setIngest
+parameter_list|(
+name|boolean
+name|ingest
+parameter_list|)
+block|{
+name|request
+argument_list|()
+operator|.
+name|ingest
+argument_list|(
+name|ingest
 argument_list|)
 expr_stmt|;
 return|return

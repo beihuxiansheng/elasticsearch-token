@@ -32,20 +32,6 @@ name|Similarity
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
 begin_comment
 comment|/**  * Provider for {@link Similarity} instances  */
 end_comment

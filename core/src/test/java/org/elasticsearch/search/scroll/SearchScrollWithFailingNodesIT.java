@@ -324,7 +324,10 @@ name|put
 argument_list|(
 name|ShardsLimitAllocationDecider
 operator|.
-name|INDEX_TOTAL_SHARDS_PER_NODE
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|1
 argument_list|)
@@ -512,7 +515,7 @@ name|numHits
 argument_list|,
 name|equalTo
 argument_list|(
-literal|100l
+literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -662,7 +665,7 @@ name|numHits
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

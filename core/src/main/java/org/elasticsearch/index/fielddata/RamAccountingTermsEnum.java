@@ -64,13 +64,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|fielddata
+name|breaker
 operator|.
-name|plain
-operator|.
-name|AbstractIndexFieldData
+name|CircuitBreaker
 import|;
 end_import
 
@@ -80,11 +78,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|breaker
+name|fielddata
 operator|.
-name|CircuitBreaker
+name|plain
+operator|.
+name|AbstractIndexFieldData
 import|;
 end_import
 

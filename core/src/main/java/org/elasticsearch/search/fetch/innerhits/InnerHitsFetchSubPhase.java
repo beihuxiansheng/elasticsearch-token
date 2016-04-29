@@ -194,20 +194,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|highlight
-operator|.
-name|HighlighterParseElement
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|InternalSearchHit
@@ -244,15 +230,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|io
 operator|.
-name|search
-operator|.
-name|sort
-operator|.
-name|SortParseElement
+name|IOException
 import|;
 end_import
 
@@ -260,9 +242,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|IOException
+name|Collections
 import|;
 end_import
 
@@ -286,18 +268,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|singletonMap
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -310,19 +280,6 @@ name|InnerHitsFetchSubPhase
 implements|implements
 name|FetchSubPhase
 block|{
-DECL|field|parseElements
-specifier|private
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|?
-extends|extends
-name|SearchParseElement
-argument_list|>
-name|parseElements
-decl_stmt|;
 DECL|field|fetchPhase
 specifier|private
 name|FetchPhase
@@ -333,45 +290,8 @@ name|Inject
 DECL|method|InnerHitsFetchSubPhase
 specifier|public
 name|InnerHitsFetchSubPhase
-parameter_list|(
-name|SortParseElement
-name|sortParseElement
-parameter_list|,
-name|FetchSourceParseElement
-name|sourceParseElement
-parameter_list|,
-name|HighlighterParseElement
-name|highlighterParseElement
-parameter_list|,
-name|FieldDataFieldsParseElement
-name|fieldDataFieldsParseElement
-parameter_list|,
-name|ScriptFieldsParseElement
-name|scriptFieldsParseElement
-parameter_list|)
-block|{
-name|parseElements
-operator|=
-name|singletonMap
-argument_list|(
-literal|"inner_hits"
-argument_list|,
-operator|new
-name|InnerHitsParseElement
-argument_list|(
-name|sortParseElement
-argument_list|,
-name|sourceParseElement
-argument_list|,
-name|highlighterParseElement
-argument_list|,
-name|fieldDataFieldsParseElement
-argument_list|,
-name|scriptFieldsParseElement
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|parseElements
@@ -387,8 +307,13 @@ argument_list|>
 name|parseElements
 parameter_list|()
 block|{
+comment|// SearchParse elements needed because everything is parsed by InnerHitBuilder and eventually put
+comment|// into the search context.
 return|return
-name|parseElements
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -409,6 +334,19 @@ name|innerHits
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|context
+operator|.
+name|innerHits
+argument_list|()
+operator|.
+name|getInnerHits
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
 return|;
 block|}
 annotation|@

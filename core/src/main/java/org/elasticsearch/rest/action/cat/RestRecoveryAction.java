@@ -152,6 +152,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|recovery
@@ -609,6 +623,13 @@ argument_list|)
 operator|.
 name|addCell
 argument_list|(
+literal|"files_recovered"
+argument_list|,
+literal|"alias:fr;desc:files recovered"
+argument_list|)
+operator|.
+name|addCell
+argument_list|(
 literal|"files_percent"
 argument_list|,
 literal|"alias:fp;desc:percent of files recovered"
@@ -616,9 +637,23 @@ argument_list|)
 operator|.
 name|addCell
 argument_list|(
+literal|"files_total"
+argument_list|,
+literal|"alias:tf;desc:total number of files"
+argument_list|)
+operator|.
+name|addCell
+argument_list|(
 literal|"bytes"
 argument_list|,
-literal|"alias:b;desc:size to recover in bytes"
+literal|"alias:b;desc:number of bytes to recover"
+argument_list|)
+operator|.
+name|addCell
+argument_list|(
+literal|"bytes_recovered"
+argument_list|,
+literal|"alias:br;desc:bytes recovered"
 argument_list|)
 operator|.
 name|addCell
@@ -630,37 +665,30 @@ argument_list|)
 operator|.
 name|addCell
 argument_list|(
-literal|"total_files"
-argument_list|,
-literal|"alias:tf;desc:total number of files"
-argument_list|)
-operator|.
-name|addCell
-argument_list|(
-literal|"total_bytes"
+literal|"bytes_total"
 argument_list|,
 literal|"alias:tb;desc:total number of bytes"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
-literal|"translog"
+literal|"translog_ops"
 argument_list|,
-literal|"alias:tr;desc:translog operations recovered"
+literal|"alias:to;desc:number of translog ops to recover"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
-literal|"translog_percent"
+literal|"translog_ops_recovered"
 argument_list|,
-literal|"alias:trp;desc:percent of translog recovery"
+literal|"alias:tor;desc:translog ops recovered"
 argument_list|)
 operator|.
 name|addCell
 argument_list|(
-literal|"total_translog"
+literal|"translog_ops_percent"
 argument_list|,
-literal|"alias:trt;desc:current total translog operations"
+literal|"alias:top;desc:percent of translog ops recovered"
 argument_list|)
 operator|.
 name|endHeaders
@@ -853,6 +881,9 @@ name|t
 operator|.
 name|addCell
 argument_list|(
+operator|new
+name|TimeValue
+argument_list|(
 name|state
 operator|.
 name|getTimer
@@ -860,6 +891,7 @@ argument_list|()
 operator|.
 name|time
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|t
@@ -1004,6 +1036,19 @@ name|t
 operator|.
 name|addCell
 argument_list|(
+name|state
+operator|.
+name|getIndex
+argument_list|()
+operator|.
+name|recoveredFileCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|t
+operator|.
+name|addCell
+argument_list|(
 name|String
 operator|.
 name|format
@@ -1033,7 +1078,33 @@ operator|.
 name|getIndex
 argument_list|()
 operator|.
+name|totalFileCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|t
+operator|.
+name|addCell
+argument_list|(
+name|state
+operator|.
+name|getIndex
+argument_list|()
+operator|.
 name|totalRecoverBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|t
+operator|.
+name|addCell
+argument_list|(
+name|state
+operator|.
+name|getIndex
+argument_list|()
+operator|.
+name|recoveredBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1070,7 +1141,7 @@ operator|.
 name|getIndex
 argument_list|()
 operator|.
-name|totalFileCount
+name|totalBytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1080,10 +1151,10 @@ name|addCell
 argument_list|(
 name|state
 operator|.
-name|getIndex
+name|getTranslog
 argument_list|()
 operator|.
-name|totalBytes
+name|totalOperations
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1122,19 +1193,6 @@ operator|.
 name|recoveredPercent
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|t
-operator|.
-name|addCell
-argument_list|(
-name|state
-operator|.
-name|getTranslog
-argument_list|()
-operator|.
-name|totalOperations
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|t

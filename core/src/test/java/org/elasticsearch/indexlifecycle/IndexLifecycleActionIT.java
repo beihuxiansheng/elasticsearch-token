@@ -128,20 +128,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|UnassignedInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Priority
@@ -332,7 +318,7 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|INITIALIZING
 import|;
 end_import
 
@@ -342,13 +328,29 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cluster
 operator|.
-name|settings
+name|routing
 operator|.
-name|Settings
+name|ShardRoutingState
 operator|.
-name|settingsBuilder
+name|RELOCATING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
 import|;
 end_import
 
@@ -360,7 +362,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsInAnyOrder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -400,8 +450,16 @@ block|{
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|indexSettings
+argument_list|()
+argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -415,15 +473,6 @@ argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|1
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|UnassignedInfo
-operator|.
-name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
-argument_list|,
-literal|"0s"
 argument_list|)
 operator|.
 name|build
@@ -445,9 +494,7 @@ name|internalCluster
 argument_list|()
 operator|.
 name|startNode
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 decl_stmt|;
 specifier|final
 name|String
@@ -482,6 +529,11 @@ argument_list|(
 name|createIndexRequest
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|settings
+argument_list|(
+name|settings
 argument_list|)
 argument_list|)
 operator|.
@@ -543,8 +595,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -643,9 +695,7 @@ name|internalCluster
 argument_list|()
 operator|.
 name|startNode
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// first wait for 2 nodes in the cluster
 name|logger
@@ -687,8 +737,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -1022,9 +1072,7 @@ name|internalCluster
 argument_list|()
 operator|.
 name|startNode
-argument_list|(
-name|settings
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// first wait for 3 nodes in the cluster
 name|clusterHealth
@@ -1517,8 +1565,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus

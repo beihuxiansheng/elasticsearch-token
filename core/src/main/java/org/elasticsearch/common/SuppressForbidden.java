@@ -22,6 +22,18 @@ name|lang
 operator|.
 name|annotation
 operator|.
+name|ElementType
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
 name|Retention
 import|;
 end_import
@@ -47,18 +59,6 @@ operator|.
 name|annotation
 operator|.
 name|Target
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|ElementType
 import|;
 end_import
 

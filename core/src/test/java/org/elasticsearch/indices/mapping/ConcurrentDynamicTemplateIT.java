@@ -229,11 +229,11 @@ literal|"\"path_match\": \"*\","
 operator|+
 literal|"\"mapping\": {"
 operator|+
-literal|"\"type\": \"string\","
+literal|"\"type\": \"text\","
 operator|+
-literal|"\"store\": \"yes\","
+literal|"\"store\": true,"
 operator|+
-literal|"\"index\": \"analyzed\", \"analyzer\": \"whitespace\" } } } ] } }"
+literal|"\"analyzer\": \"whitespace\" } } } ] } }"
 decl_stmt|;
 comment|// The 'fieldNames' array is used to help with retrieval of index terms
 comment|// after testing

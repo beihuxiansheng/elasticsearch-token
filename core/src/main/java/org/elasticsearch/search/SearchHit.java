@@ -224,10 +224,10 @@ index|[]
 name|source
 parameter_list|()
 function_decl|;
-comment|/**      * Is the source empty (not available) or not.      */
-DECL|method|isSourceEmpty
+comment|/**      * Is the source available or not. A source with no fields will return true. This will return false if {@code fields} doesn't contain      * {@code _source} or if source is disabled in the mapping.      */
+DECL|method|hasSource
 name|boolean
-name|isSourceEmpty
+name|hasSource
 parameter_list|()
 function_decl|;
 comment|/**      * The source of the document as a map (can be<tt>null</tt>).      */

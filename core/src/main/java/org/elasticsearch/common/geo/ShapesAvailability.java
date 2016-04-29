@@ -51,7 +51,7 @@ name|Class
 operator|.
 name|forName
 argument_list|(
-literal|"com.spatial4j.core.shape.impl.PointImpl"
+literal|"org.locationtech.spatial4j.shape.impl.PointImpl"
 argument_list|)
 expr_stmt|;
 name|xSPATIAL4J_AVAILABLE

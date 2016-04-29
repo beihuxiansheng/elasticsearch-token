@@ -90,6 +90,34 @@ DECL|method|InvalidIndexNameException
 specifier|public
 name|InvalidIndexNameException
 parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|desc
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Invalid index name ["
+operator|+
+name|name
+operator|+
+literal|"], "
+operator|+
+name|desc
+argument_list|)
+expr_stmt|;
+name|setIndex
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|InvalidIndexNameException
+specifier|public
+name|InvalidIndexNameException
+parameter_list|(
 name|Index
 name|index
 parameter_list|,

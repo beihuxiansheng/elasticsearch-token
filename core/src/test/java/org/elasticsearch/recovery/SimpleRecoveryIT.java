@@ -152,22 +152,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|hamcrest
@@ -207,7 +191,9 @@ name|indexSettings
 parameter_list|()
 block|{
 return|return
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1062,7 +1048,7 @@ name|nameValue
 parameter_list|)
 block|{
 return|return
-literal|"{ type1 : { \"id\" : \""
+literal|"{ \"type1\" : { \"id\" : \""
 operator|+
 name|id
 operator|+

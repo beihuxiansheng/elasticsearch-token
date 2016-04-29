@@ -311,7 +311,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1330,7 +1330,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1622,9 +1622,8 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
+operator|new
 name|Fuzziness
-operator|.
-name|readFuzzinessFrom
 argument_list|(
 name|streamInput
 argument_list|)

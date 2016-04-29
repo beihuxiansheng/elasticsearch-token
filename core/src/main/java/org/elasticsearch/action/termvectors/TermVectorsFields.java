@@ -122,7 +122,49 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|RamUsageEstimator
 import|;
 end_import
 
@@ -1870,7 +1912,7 @@ block|}
 block|}
 comment|// read a vInt. this is used if the integer might be negative. In this case,
 comment|// the writer writes a 0 for -1 or value +1 and accordingly we have to
-comment|// substract 1 again
+comment|// subtract 1 again
 comment|// adds one to mock not existing term freq
 DECL|method|readPotentiallyNegativeVInt
 name|int
@@ -1893,7 +1935,7 @@ return|;
 block|}
 comment|// read a vLong. this is used if the integer might be negative. In this
 comment|// case, the writer writes a 0 for -1 or value +1 and accordingly we have to
-comment|// substract 1 again
+comment|// subtract 1 again
 comment|// adds one to mock not existing term freq
 DECL|method|readPotentiallyNegativeVLong
 name|long

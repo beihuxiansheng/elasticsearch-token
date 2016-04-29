@@ -172,11 +172,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|shard
+name|settings
 operator|.
-name|ShardId
+name|Settings
 import|;
 end_import
 
@@ -348,24 +348,8 @@ name|INITIALIZING
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_comment
-comment|/**  * A base testscase that allows to run tests based on the output of the CAT API  * The input is a line based cat/shards output like:  *   kibana-int           0 p STARTED       2  24.8kb 10.202.245.2 r5-9-35  *  * the test builds up a clusterstate from the cat input and optionally runs a full balance on it.  * This can be used to debug cluster allocation decisions.  */
+comment|/**  * A base testcase that allows to run tests based on the output of the CAT API  * The input is a line based cat/shards output like:  *   kibana-int           0 p STARTED       2  24.8kb 10.202.245.2 r5-9-35  *  * the test builds up a clusterstate from the cat input and optionally runs a full balance on it.  * This can be used to debug cluster allocation decisions.  */
 end_comment
 
 begin_class
@@ -617,8 +601,6 @@ argument_list|,
 name|primary
 argument_list|,
 name|state
-argument_list|,
-literal|1
 argument_list|)
 decl_stmt|;
 name|idx
@@ -748,9 +730,10 @@ name|IndexRoutingTable
 operator|.
 name|Builder
 argument_list|(
-name|idx
+name|idxMeta
 operator|.
-name|name
+name|getIndex
+argument_list|()
 argument_list|)
 operator|.
 name|initializeAsRecovery
@@ -789,18 +772,10 @@ name|IndexShardRoutingTable
 operator|.
 name|Builder
 argument_list|(
-operator|new
-name|ShardId
-argument_list|(
-name|idx
-operator|.
-name|name
-argument_list|,
 name|r
 operator|.
-name|id
+name|shardId
 argument_list|()
-argument_list|)
 argument_list|)
 operator|.
 name|addShard
@@ -1042,7 +1017,9 @@ name|strategy
 init|=
 name|createAllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|build
@@ -1131,10 +1108,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"Initializing shards: {}"
+argument_list|,
 name|initializing
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|numRelocations
@@ -1180,8 +1156,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"--> num relocations to get balance: "
-operator|+
+literal|"--> num relocations to get balance: {}"
+argument_list|,
 name|numRelocations
 argument_list|)
 expr_stmt|;

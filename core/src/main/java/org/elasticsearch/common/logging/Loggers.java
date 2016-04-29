@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A set of utilities around Logging.  *  *  */
+comment|/**  * A set of utilities around Logging.  */
 end_comment
 
 begin_class
@@ -235,6 +235,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Settings
@@ -257,7 +260,7 @@ name|settings
 argument_list|,
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|asArrayList
@@ -286,7 +289,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** Just like {@link #getLogger(Class, org.elasticsearch.common.settings.Settings,ShardId,String...)} but String loggerName instead of Class. */
+comment|/**      * Just like {@link #getLogger(Class, org.elasticsearch.common.settings.Settings,ShardId,String...)} but String loggerName instead of      * Class.      */
 DECL|method|getLogger
 specifier|public
 specifier|static
@@ -318,10 +321,7 @@ name|asArrayList
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndexName
 argument_list|()
 argument_list|,
 name|Integer
@@ -355,6 +355,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Settings
@@ -381,7 +384,7 @@ name|SPACE
 argument_list|,
 name|index
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|prefixes
@@ -405,6 +408,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|Settings
@@ -581,7 +587,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"name"
+literal|"node.name"
 argument_list|)
 decl_stmt|;
 if|if
@@ -711,6 +717,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{
@@ -736,6 +745,9 @@ name|ESLogger
 name|getLogger
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|,
 name|String
@@ -896,6 +908,9 @@ name|String
 name|buildClassLoggerName
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 parameter_list|)
 block|{

@@ -38,9 +38,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|Booleans
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -52,7 +50,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
+name|Booleans
 import|;
 end_import
 
@@ -86,7 +84,47 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|LinkedHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -103,27 +141,18 @@ name|AbstractXContentParser
 implements|implements
 name|XContentParser
 block|{
-DECL|field|matcher
-specifier|private
-name|ParseFieldMatcher
-name|matcher
-init|=
-name|ParseFieldMatcher
-operator|.
-name|STRICT
-decl_stmt|;
-comment|//Currently this is not a setting that can be changed and is a policy
+comment|// Currently this is not a setting that can be changed and is a policy
 comment|// that relates to how parsing of things like "boost" are done across
 comment|// the whole of Elasticsearch (eg if String "1.0" is a valid float).
 comment|// The idea behind keeping it as a constant is that we can track
 comment|// references to this policy decision throughout the codebase and find
 comment|// and change any code that needs to apply an alternative policy.
-DECL|field|DEFAULT_NUMBER_COEERCE_POLICY
+DECL|field|DEFAULT_NUMBER_COERCE_POLICY
 specifier|public
 specifier|static
 specifier|final
 name|boolean
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 init|=
 literal|true
 decl_stmt|;
@@ -134,7 +163,7 @@ name|void
 name|checkCoerceString
 parameter_list|(
 name|boolean
-name|coeerce
+name|coerce
 parameter_list|,
 name|Class
 argument_list|<
@@ -148,7 +177,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|coeerce
+name|coerce
 condition|)
 block|{
 comment|//Need to throw type IllegalArgumentException as current catch logic in
@@ -389,7 +418,7 @@ block|{
 return|return
 name|shortValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -483,7 +512,7 @@ block|{
 return|return
 name|intValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -577,7 +606,7 @@ block|{
 return|return
 name|longValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -671,7 +700,7 @@ block|{
 return|return
 name|floatValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -749,7 +778,7 @@ block|{
 return|return
 name|doubleValue
 argument_list|(
-name|DEFAULT_NUMBER_COEERCE_POLICY
+name|DEFAULT_NUMBER_COERCE_POLICY
 argument_list|)
 return|;
 block|}
@@ -818,6 +847,7 @@ annotation|@
 name|Override
 DECL|method|textOrNull
 specifier|public
+specifier|final
 name|String
 name|textOrNull
 parameter_list|()
@@ -1299,6 +1329,21 @@ if|if
 condition|(
 name|token
 operator|==
+literal|null
+condition|)
+block|{
+name|token
+operator|=
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|token
+operator|==
 name|XContentParser
 operator|.
 name|Token
@@ -1333,6 +1378,26 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"Failed to parse list:  expecting "
+operator|+
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_ARRAY
+operator|+
+literal|" but got "
+operator|+
+name|token
+argument_list|)
+throw|;
+block|}
 name|ArrayList
 argument_list|<
 name|Object
@@ -1347,6 +1412,10 @@ decl_stmt|;
 for|for
 control|(
 init|;
+name|token
+operator|!=
+literal|null
+operator|&&
 name|token
 operator|!=
 name|XContentParser
@@ -1626,32 +1695,6 @@ name|boolean
 name|isClosed
 parameter_list|()
 function_decl|;
-DECL|method|getParseFieldMatcher
-specifier|public
-name|ParseFieldMatcher
-name|getParseFieldMatcher
-parameter_list|()
-block|{
-return|return
-name|matcher
-return|;
-block|}
-DECL|method|setParseFieldMatcher
-specifier|public
-name|void
-name|setParseFieldMatcher
-parameter_list|(
-name|ParseFieldMatcher
-name|matcher
-parameter_list|)
-block|{
-name|this
-operator|.
-name|matcher
-operator|=
-name|matcher
-expr_stmt|;
-block|}
 block|}
 end_class
 

@@ -330,20 +330,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|mustache
-operator|.
-name|MustacheScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -426,8 +412,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|controller
-argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
@@ -508,6 +492,8 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -522,7 +508,8 @@ name|createParser
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|String
 name|templateId
 init|=
@@ -714,11 +701,11 @@ name|templateId
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 argument_list|,
-name|MustacheScriptEngineService
+name|Template
 operator|.
-name|NAME
+name|DEFAULT_LANG
 argument_list|,
 literal|null
 argument_list|,
@@ -739,6 +726,7 @@ argument_list|(
 name|template
 argument_list|)
 expr_stmt|;
+block|}
 name|client
 operator|.
 name|admin

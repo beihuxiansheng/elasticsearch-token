@@ -28,21 +28,17 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Implementers can be written to a {@linkplain StreamOutput} and read from a {@linkplain StreamInput}. This allows them to be "thrown  * across the wire" using Elasticsearch's internal protocol. If the implementer also implements equals and hashCode then a copy made by  * serializing and deserializing must be equal and have the same hashCode. It isn't required that such a copy be entirely unchanged. For  * example, {@link org.elasticsearch.common.unit.TimeValue} converts the time to nanoseconds for serialization.  * {@linkplain org.elasticsearch.common.unit.TimeValue} actually implements {@linkplain Streamable} not {@linkplain Writeable} but it has  * the same contract.  *  * Prefer implementing this interface over implementing {@link Streamable} where possible. Lots of code depends on {@linkplain Streamable}  * so this isn't always possible.  */
+end_comment
+
 begin_interface
 DECL|interface|Writeable
 specifier|public
 interface|interface
 name|Writeable
-parameter_list|<
-name|T
-parameter_list|>
-extends|extends
-name|StreamableReader
-argument_list|<
-name|T
-argument_list|>
 block|{
-comment|/**      * Writes the current object into the output stream out      */
+comment|/**      * Write this into the {@linkplain StreamOutput}.      */
 DECL|method|writeTo
 name|void
 name|writeTo
@@ -53,6 +49,28 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Reference to a method that can read some object from a stream. By convention this is a constructor that takes      * {@linkplain StreamInput} as an argument for most classes and a static method for things like enums. Returning null from one of these      * is always wrong - for that we use methods like {@link StreamInput#readOptionalWriteable(Reader)}.      */
+annotation|@
+name|FunctionalInterface
+DECL|interface|Reader
+interface|interface
+name|Reader
+parameter_list|<
+name|R
+parameter_list|>
+block|{
+comment|/**          * Read R from a stream.          */
+DECL|method|read
+name|R
+name|read
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+block|}
 block|}
 end_interface
 

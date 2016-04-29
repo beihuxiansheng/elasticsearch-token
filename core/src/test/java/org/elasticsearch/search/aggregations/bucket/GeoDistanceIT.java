@@ -78,6 +78,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|geo
+operator|.
+name|GeoPoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -109,6 +123,18 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plugins
+operator|.
+name|Plugin
 import|;
 end_import
 
@@ -222,6 +248,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|InternalSettingsPlugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|VersionUtils
 import|;
 end_import
@@ -253,6 +291,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -462,6 +510,32 @@ name|GeoDistanceIT
 extends|extends
 name|ESIntegTestCase
 block|{
+annotation|@
+name|Override
+DECL|method|nodePlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|nodePlugins
+parameter_list|()
+block|{
+return|return
+name|pluginList
+argument_list|(
+name|InternalSettingsPlugin
+operator|.
+name|class
+argument_list|)
+return|;
+comment|// uses index.version.created
+block|}
 DECL|field|version
 specifier|private
 name|Version
@@ -476,7 +550,7 @@ argument_list|()
 argument_list|,
 name|Version
 operator|.
-name|V_1_0_0
+name|V_2_0_0
 argument_list|,
 name|Version
 operator|.
@@ -596,7 +670,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -631,7 +705,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"city"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|execute
@@ -655,7 +729,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"city"
 argument_list|,
-literal|"type=string,index=not_analyzed"
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|execute
@@ -1028,6 +1102,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -1041,12 +1123,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -1250,7 +1326,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1364,7 +1440,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1478,7 +1554,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1507,6 +1583,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -1520,12 +1604,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -1735,7 +1813,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1849,7 +1927,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1963,7 +2041,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2015,6 +2093,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -2028,12 +2114,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -2240,7 +2320,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2354,7 +2434,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2468,7 +2548,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2499,6 +2579,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -2512,12 +2600,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -2724,7 +2806,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2838,7 +2920,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2952,7 +3034,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2981,6 +3063,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -2994,12 +3084,6 @@ name|DistanceUnit
 operator|.
 name|KILOMETERS
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -3275,7 +3359,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3406,7 +3490,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3536,7 +3620,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3662,7 +3746,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3792,7 +3876,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3911,7 +3995,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3971,7 +4055,7 @@ argument_list|)
 operator|.
 name|interval
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 operator|.
 name|minDocCount
@@ -3984,16 +4068,19 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"geo_dist"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"location"
-argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
 argument_list|)
 operator|.
 name|addRange
@@ -4025,7 +4112,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4272,7 +4359,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4301,6 +4388,14 @@ argument_list|(
 name|geoDistance
 argument_list|(
 literal|"amsterdam_rings"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|52.3760
+argument_list|,
+literal|4.894
+argument_list|)
 argument_list|)
 operator|.
 name|field
@@ -4329,12 +4424,6 @@ name|GeoDistance
 operator|.
 name|ARC
 argument_list|)
-operator|.
-name|point
-argument_list|(
-literal|"52.3760, 4.894"
-argument_list|)
-comment|// coords of amsterdam
 operator|.
 name|addUnboundedTo
 argument_list|(
@@ -4541,7 +4630,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4655,7 +4744,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4769,7 +4858,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;

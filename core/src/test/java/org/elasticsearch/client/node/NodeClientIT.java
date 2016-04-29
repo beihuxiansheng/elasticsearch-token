@@ -86,22 +86,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -143,7 +127,9 @@ name|nodeOrdinal
 parameter_list|)
 block|{
 return|return
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -160,7 +146,10 @@ name|put
 argument_list|(
 name|Client
 operator|.
-name|CLIENT_TYPE_SETTING
+name|CLIENT_TYPE_SETTING_S
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"anything"
 argument_list|)
@@ -193,13 +182,13 @@ control|)
 block|{
 name|assertThat
 argument_list|(
-name|settings
+name|Client
+operator|.
+name|CLIENT_TYPE_SETTING_S
 operator|.
 name|get
 argument_list|(
-name|Client
-operator|.
-name|CLIENT_TYPE_SETTING
+name|settings
 argument_list|)
 argument_list|,
 name|is

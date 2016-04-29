@@ -364,7 +364,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_JOIN_TIMEOUT
+name|JOIN_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"30s"
 argument_list|)
@@ -697,7 +700,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2000l
+literal|2000L
 argument_list|)
 expr_stmt|;
 block|}
@@ -850,7 +853,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2000l
+literal|2000L
 argument_list|)
 expr_stmt|;
 block|}
@@ -1002,7 +1005,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-literal|2000l
+literal|2000L
 argument_list|)
 expr_stmt|;
 block|}
@@ -1073,6 +1076,9 @@ argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
@@ -1242,7 +1248,7 @@ name|RecoveryState
 operator|.
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|)
 expr_stmt|;
 block|}
@@ -1350,7 +1356,7 @@ name|RecoveryState
 operator|.
 name|Type
 operator|.
-name|RELOCATION
+name|PRIMARY_RELOCATION
 argument_list|)
 expr_stmt|;
 block|}

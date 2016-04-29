@@ -160,18 +160,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
-operator|.
-name|Discovery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|plugins
 operator|.
 name|Plugin
@@ -505,7 +493,7 @@ block|{
 comment|// a write operation might still be in flight when the test has finished
 comment|// so we should not check the operation counter here
 block|}
-comment|/**      * Tests retry mechanism when indexing. If an exception occurs when indexing then the indexing request is tried again before finally failing.      * If auto generated ids are used this must not lead to duplicate ids      * see https://github.com/elasticsearch/elasticsearch/issues/8788      */
+comment|/**      * Tests retry mechanism when indexing. If an exception occurs when indexing then the indexing request is tried again before finally failing.      * If auto generated ids are used this must not lead to duplicate ids      * see https://github.com/elastic/elasticsearch/issues/8788      */
 DECL|method|testRetryDueToExceptionOnNetworkLayer
 specifier|public
 name|void
@@ -622,7 +610,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 operator|)
@@ -645,7 +633,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|)
 argument_list|,
@@ -1018,7 +1006,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1089,7 +1077,7 @@ name|dupCounter
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

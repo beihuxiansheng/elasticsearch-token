@@ -32,15 +32,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Iterators
+name|ArrayList
 import|;
 end_import
 
@@ -50,7 +46,37 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -190,7 +216,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the nodes {@link DiscoveryNode}.      *       * @return discoveryNode of this node      */
+comment|/**      * Returns the nodes {@link DiscoveryNode}.      *      * @return discoveryNode of this node      */
 DECL|method|node
 specifier|public
 name|DiscoveryNode
@@ -203,7 +229,7 @@ operator|.
 name|node
 return|;
 block|}
-comment|/**      * Get the id of this node       * @return id of the node      */
+comment|/**      * Get the id of this node      * @return id of the node      */
 DECL|method|nodeId
 specifier|public
 name|String
@@ -268,10 +294,10 @@ operator|.
 name|shardId
 argument_list|()
 operator|.
-name|index
+name|getIndex
 argument_list|()
 operator|.
-name|name
+name|getName
 argument_list|()
 operator|+
 literal|"]["
@@ -301,7 +327,7 @@ name|shard
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Determine the number of shards with a specific state      * @param states set of states which should be counted      * @return number of shards       */
+comment|/**      * Determine the number of shards with a specific state      * @param states set of states which should be counted      * @return number of shards      */
 DECL|method|numberOfShardsWithState
 specifier|public
 name|int
@@ -353,7 +379,7 @@ return|return
 name|count
 return|;
 block|}
-comment|/**      * Determine the shards with a specific state      * @param states set of states which should be listed      * @return List of shards       */
+comment|/**      * Determine the shards with a specific state      * @param states set of states which should be listed      * @return List of shards      */
 DECL|method|shardsWithState
 specifier|public
 name|List
@@ -418,7 +444,7 @@ return|return
 name|shards
 return|;
 block|}
-comment|/**      * Determine the shards of an index with a specific state       * @param index id of the index      * @param states set of states which should be listed      * @return a list of shards      */
+comment|/**      * Determine the shards of an index with a specific state      * @param index id of the index      * @param states set of states which should be listed      * @return a list of shards      */
 DECL|method|shardsWithState
 specifier|public
 name|List
@@ -459,7 +485,7 @@ condition|(
 operator|!
 name|shardEntry
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 operator|.
 name|equals

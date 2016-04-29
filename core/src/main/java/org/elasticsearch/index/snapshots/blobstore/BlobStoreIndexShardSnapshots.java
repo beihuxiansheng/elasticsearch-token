@@ -104,20 +104,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentBuilderString
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentParser
 import|;
 end_import
@@ -223,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Contains information about all snapshot for the given shard in repository  *<p>  * This class is used to find files that were already snapshoted and clear out files that no longer referenced by any  * snapshots  */
+comment|/**  * Contains information about all snapshot for the given shard in repository  *<p>  * This class is used to find files that were already snapshotted and clear out files that no longer referenced by any  * snapshots  */
 end_comment
 
 begin_class
@@ -862,26 +848,18 @@ block|{
 DECL|field|FILES
 specifier|static
 specifier|final
-name|XContentBuilderString
+name|String
 name|FILES
 init|=
-operator|new
-name|XContentBuilderString
-argument_list|(
 literal|"files"
-argument_list|)
 decl_stmt|;
 DECL|field|SNAPSHOTS
 specifier|static
 specifier|final
-name|XContentBuilderString
+name|String
 name|SNAPSHOTS
 init|=
-operator|new
-name|XContentBuilderString
-argument_list|(
 literal|"snapshots"
-argument_list|)
 decl_stmt|;
 block|}
 DECL|class|ParseFields
@@ -1006,12 +984,6 @@ name|snapshot
 operator|.
 name|snapshot
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|builder

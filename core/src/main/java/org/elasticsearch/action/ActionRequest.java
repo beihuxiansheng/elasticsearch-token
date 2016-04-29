@@ -79,9 +79,12 @@ specifier|abstract
 class|class
 name|ActionRequest
 parameter_list|<
-name|T
+name|Request
 extends|extends
 name|ActionRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|>
 extends|extends
 name|TransportRequest
@@ -94,23 +97,9 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|ActionRequest
-specifier|protected
-name|ActionRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
 comment|// this does not set the listenerThreaded API, if needed, its up to the caller to set it
 comment|// since most times, we actually want it to not be threaded...
-comment|//this.listenerThreaded = request.listenerThreaded();
+comment|// this.listenerThreaded = request.listenerThreaded();
 block|}
 DECL|method|validate
 specifier|public

@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|ClusterName
@@ -185,22 +175,6 @@ operator|.
 name|ClusterName
 operator|.
 name|readClusterName
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|DiscoveryNode
-operator|.
-name|readNode
 import|;
 end_import
 
@@ -480,7 +454,8 @@ argument_list|)
 expr_stmt|;
 name|node
 operator|=
-name|readNode
+operator|new
+name|DiscoveryNode
 argument_list|(
 name|in
 argument_list|)
@@ -495,7 +470,8 @@ condition|)
 block|{
 name|master
 operator|=
-name|readNode
+operator|new
+name|DiscoveryNode
 argument_list|(
 name|in
 argument_list|)

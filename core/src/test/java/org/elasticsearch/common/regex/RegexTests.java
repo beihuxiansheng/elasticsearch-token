@@ -101,6 +101,8 @@ block|,
 literal|"COMMENTS"
 block|,
 literal|"UNICODE_CHAR_CLASS"
+block|,
+literal|"UNICODE_CHARACTER_CLASS"
 block|}
 decl_stmt|;
 name|int
@@ -151,7 +153,7 @@ decl_stmt|;
 name|Random
 name|random
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|int

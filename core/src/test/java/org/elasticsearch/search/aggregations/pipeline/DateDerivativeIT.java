@@ -490,9 +490,7 @@ block|{
 return|return
 name|DateFieldMapper
 operator|.
-name|Defaults
-operator|.
-name|DATE_TIME_FORMATTER
+name|DEFAULT_DATE_TIME_FORMATTER
 operator|.
 name|parser
 argument_list|()
@@ -944,7 +942,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -961,10 +959,7 @@ argument_list|(
 name|derivative
 argument_list|(
 literal|"deriv"
-argument_list|)
-operator|.
-name|setBucketsPaths
-argument_list|(
+argument_list|,
 literal|"_count"
 argument_list|)
 argument_list|)
@@ -1107,7 +1102,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1194,7 +1189,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1293,7 +1288,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1362,7 +1357,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1379,10 +1374,7 @@ argument_list|(
 name|derivative
 argument_list|(
 literal|"deriv"
-argument_list|)
-operator|.
-name|setBucketsPaths
-argument_list|(
+argument_list|,
 literal|"_count"
 argument_list|)
 operator|.
@@ -1532,7 +1524,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1619,7 +1611,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1737,7 +1729,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1825,7 +1817,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -1839,19 +1831,6 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|derivative
-argument_list|(
-literal|"deriv"
-argument_list|)
-operator|.
-name|setBucketsPaths
-argument_list|(
-literal|"sum"
-argument_list|)
-argument_list|)
-operator|.
-name|subAggregation
-argument_list|(
 name|sum
 argument_list|(
 literal|"sum"
@@ -1860,6 +1839,16 @@ operator|.
 name|field
 argument_list|(
 literal|"value"
+argument_list|)
+argument_list|)
+operator|.
+name|subAggregation
+argument_list|(
+name|derivative
+argument_list|(
+literal|"deriv"
+argument_list|,
+literal|"sum"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2046,7 +2035,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2152,7 +2141,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2234,7 +2223,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2379,7 +2368,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2461,7 +2450,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2606,7 +2595,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2658,7 +2647,7 @@ argument_list|(
 literal|"dates"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -2675,10 +2664,7 @@ argument_list|(
 name|derivative
 argument_list|(
 literal|"deriv"
-argument_list|)
-operator|.
-name|setBucketsPaths
-argument_list|(
+argument_list|,
 literal|"_count"
 argument_list|)
 argument_list|)
@@ -2821,7 +2807,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2927,7 +2913,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3045,7 +3031,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5l
+literal|5L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3163,7 +3149,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3252,7 +3238,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -3269,10 +3255,7 @@ argument_list|(
 name|derivative
 argument_list|(
 literal|"deriv"
-argument_list|)
-operator|.
-name|setBucketsPaths
-argument_list|(
+argument_list|,
 literal|"_count"
 argument_list|)
 argument_list|)
@@ -3373,7 +3356,7 @@ argument_list|(
 literal|"date"
 argument_list|)
 operator|.
-name|interval
+name|dateHistogramInterval
 argument_list|(
 name|DateHistogramInterval
 operator|.
@@ -3390,10 +3373,7 @@ argument_list|(
 name|derivative
 argument_list|(
 literal|"deriv"
-argument_list|)
-operator|.
-name|setBucketsPaths
-argument_list|(
+argument_list|,
 literal|"_count"
 argument_list|)
 argument_list|)
@@ -3536,7 +3516,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3642,7 +3622,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3760,7 +3740,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;

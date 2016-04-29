@@ -914,7 +914,7 @@ init|=
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|prepareSearch
@@ -1013,8 +1013,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"###### indices search stats: "
-operator|+
+literal|"###### indices search stats: {}"
+argument_list|,
 name|indicesStats
 operator|.
 name|getTotal
@@ -1042,7 +1042,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1064,7 +1064,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1086,7 +1086,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1108,7 +1108,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1194,7 +1194,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1221,7 +1221,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1248,7 +1248,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1275,7 +1275,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1374,7 +1374,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1387,7 +1387,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1406,7 +1406,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1419,7 +1419,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1715,7 +1715,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2107,7 +2107,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2139,7 +2139,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;

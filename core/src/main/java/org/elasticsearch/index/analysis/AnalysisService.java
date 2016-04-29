@@ -48,33 +48,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Inject
 import|;
 end_import
 
@@ -128,7 +102,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -139,16 +113,6 @@ operator|.
 name|io
 operator|.
 name|Closeable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -479,17 +443,11 @@ comment|/*              * Lucene defaults positionIncrementGap to 0 in all analy
 name|int
 name|overridePositionIncrementGap
 init|=
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|positionIncrementGap
-argument_list|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-argument_list|)
+name|POSITION_INCREMENT_GAP
 decl_stmt|;
 if|if
 condition|(
@@ -794,7 +752,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_3_0_0
+name|V_5_0_0_alpha1
 argument_list|)
 condition|)
 block|{
@@ -1000,8 +958,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close analyzer "
-operator|+
+literal|"failed to close analyzer {}"
+argument_list|,
 name|analyzer
 argument_list|)
 expr_stmt|;

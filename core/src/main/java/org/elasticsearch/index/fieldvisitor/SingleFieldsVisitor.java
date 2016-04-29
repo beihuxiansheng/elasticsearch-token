@@ -40,20 +40,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MappedFieldType
 import|;
 end_import
@@ -279,7 +265,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: this switch seems very wrong...either each case should be breaking, or this should not be a switch
 switch|switch
 condition|(
 name|field
@@ -300,6 +285,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|IdFieldMapper
 operator|.
@@ -315,6 +301,7 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 name|TypeFieldMapper
 operator|.
@@ -330,6 +317,7 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
+break|break;
 block|}
 block|}
 if|if
@@ -353,10 +341,7 @@ name|get
 argument_list|(
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 decl_stmt|;

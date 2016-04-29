@@ -142,8 +142,6 @@ argument_list|(
 literal|"preserve_separators"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -187,8 +185,6 @@ argument_list|(
 literal|"preserve_position_increments"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -232,8 +228,6 @@ argument_list|(
 literal|"context_mappings"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@

@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class tests that repository operations (Put, Delete, Verify) are blocked when the cluster is read-only.  *  * The @ClusterScope TEST is needed because this class updates the cluster setting "cluster.blocks.read_only".  */
+comment|/**  * This class tests that repository operations (Put, Delete, Verify) are blocked when the cluster is read-only.  *  * The @NodeScope TEST is needed because this class updates the cluster setting "cluster.blocks.read_only".  */
 end_comment
 
 begin_class
@@ -243,7 +243,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -306,7 +306,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -356,7 +356,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -465,7 +465,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -583,7 +583,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put

@@ -26,20 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|health
-operator|.
-name|ClusterHealthStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -194,7 +180,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
+name|health
+operator|.
+name|ClusterHealthStatus
 import|;
 end_import
 
@@ -223,6 +211,20 @@ operator|.
 name|metadata
 operator|.
 name|IndexNameExpressionResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -479,7 +481,7 @@ name|CommonStatsFlags
 operator|.
 name|Flag
 operator|.
-name|Percolate
+name|PercolatorCache
 argument_list|)
 decl_stmt|;
 DECL|field|nodeService
@@ -763,6 +765,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|NodeStats
@@ -785,6 +789,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -863,6 +869,19 @@ argument_list|,
 operator|new
 name|CommonStats
 argument_list|(
+name|indicesService
+operator|.
+name|getIndicesQueryCache
+argument_list|()
+argument_list|,
+name|indexService
+operator|.
+name|cache
+argument_list|()
+operator|.
+name|getPercolatorQueryCache
+argument_list|()
+argument_list|,
 name|indexShard
 argument_list|,
 name|SHARD_STATS_FLAGS
@@ -893,7 +912,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -984,8 +1003,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|request
-argument_list|,
 name|nodeId
 argument_list|)
 expr_stmt|;

@@ -121,7 +121,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4503599627370496l
+literal|4503599627370496L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -151,7 +151,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4398046511104l
+literal|4398046511104L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -181,7 +181,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4294967296l
+literal|4294967296L
 argument_list|)
 argument_list|)
 expr_stmt|;

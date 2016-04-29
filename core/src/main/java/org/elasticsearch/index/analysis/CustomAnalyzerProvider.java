@@ -64,7 +64,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -364,17 +364,11 @@ block|}
 name|int
 name|positionIncrementGap
 init|=
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|positionIncrementGap
-argument_list|(
-name|indexSettings
-operator|.
-name|getIndexVersionCreated
-argument_list|()
-argument_list|)
+name|POSITION_INCREMENT_GAP
 decl_stmt|;
 if|if
 condition|(

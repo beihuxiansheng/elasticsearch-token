@@ -446,7 +446,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -561,7 +561,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|equalTo
@@ -584,7 +584,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 expr_stmt|;
 block|}
@@ -601,7 +601,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 argument_list|,

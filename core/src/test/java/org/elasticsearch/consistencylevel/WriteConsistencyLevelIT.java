@@ -192,7 +192,7 @@ literal|1
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -256,8 +256,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -409,7 +409,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test][0] Not enough active copies to meet write consistency of [QUORUM] (have 1, needed 2). Timeout: [100ms], request: [index {[test][type1][1], source[{ type1 : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
+literal|"[test][0] Not enough active copies to meet write consistency of [QUORUM] (have 1, needed 2). Timeout: [100ms], request: [index {[test][type1][1], source[{ \"type1\" : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -461,8 +461,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -622,7 +622,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test][0] Not enough active copies to meet write consistency of [ALL] (have 2, needed 3). Timeout: [100ms], request: [index {[test][type1][1], source[{ type1 : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
+literal|"[test][0] Not enough active copies to meet write consistency of [ALL] (have 2, needed 3). Timeout: [100ms], request: [index {[test][type1][1], source[{ \"type1\" : { \"id\" : \"1\", \"name\" : \"test\" } }]}]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -674,8 +674,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
-operator|+
+literal|"Done Cluster Health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -768,7 +768,7 @@ name|nameValue
 parameter_list|)
 block|{
 return|return
-literal|"{ type1 : { \"id\" : \""
+literal|"{ \"type1\" : { \"id\" : \""
 operator|+
 name|id
 operator|+

@@ -54,22 +54,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
-operator|.
-name|azure
-operator|.
-name|storage
-operator|.
-name|AzureStorageSettingsFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -200,23 +184,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"starting azure services"
-argument_list|)
-expr_stmt|;
-name|bind
-argument_list|(
-name|AzureStorageSettingsFilter
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
 comment|// If we have settings for azure repository, let's start the azure storage service
 name|logger
 operator|.

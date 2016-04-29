@@ -38,21 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|common
 operator|.
-name|elasticsearch
+name|bytes
 operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
+name|BytesArray
 import|;
 end_import
 
@@ -64,9 +54,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
+name|compress
 operator|.
-name|BytesArray
+name|CompressedXContent
 import|;
 end_import
 
@@ -113,20 +103,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
 import|;
 end_import
 
@@ -342,7 +318,13 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
+literal|"type"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|mapping
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|FieldMapper
@@ -432,7 +414,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -466,7 +448,13 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
+literal|"type"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|mapping
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// case 1: a simple binary value

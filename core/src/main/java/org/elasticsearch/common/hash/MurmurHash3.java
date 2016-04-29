@@ -154,6 +154,12 @@ name|k
 return|;
 block|}
 comment|/**      * Compute the hash of the MurmurHash3_x64_128 hashing function.      *      * Note, this hashing function might be used to persist hashes, so if the way hashes are computed      * changes for some reason, it needs to be addressed (like in BloomFilter and MurmurHashField).      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
+comment|// Intentionally uses fallthrough to implement a well known hashing algorithm
 DECL|method|hash128
 specifier|public
 specifier|static

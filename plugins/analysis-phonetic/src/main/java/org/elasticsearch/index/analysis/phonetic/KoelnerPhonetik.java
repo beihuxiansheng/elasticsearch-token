@@ -20,29 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|commons
-operator|.
-name|codec
-operator|.
-name|EncoderException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|codec
-operator|.
-name|StringEncoder
+name|ArrayList
 import|;
 end_import
 
@@ -52,7 +34,47 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -80,8 +102,36 @@ name|Pattern
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|codec
+operator|.
+name|EncoderException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|codec
+operator|.
+name|StringEncoder
+import|;
+end_import
+
 begin_comment
-comment|/**  * K&ouml;lner Phonetik  *  * H.J. Postel, Die K&ouml;lner Phonetik. Ein Verfahren zu Identifizierung  * von Personennamen auf der Grundlage der Gestaltanalyse. IBM-Nachrichten 19 (1969), 925-931  *  * Algorithmus aus der Matching Toolbox von Rainer Schnell  * Java-Programmierung von J&ouml;rg Reiher  *  * mit&Auml;nderungen von JÃ¶rg Prante  *   */
+comment|/**  * K&ouml;lner Phonetik  *  * H.J. Postel, Die K&ouml;lner Phonetik. Ein Verfahren zu Identifizierung  * von Personennamen auf der Grundlage der Gestaltanalyse. IBM-Nachrichten 19 (1969), 925-931  *  * Algorithmus aus der Matching Toolbox von Rainer Schnell  * Java-Programmierung von J&ouml;rg Reiher  *  * mit&Auml;nderungen von JÃ¶rg Prante  *  */
 end_comment
 
 begin_class
@@ -160,6 +210,7 @@ name|csz
 init|=
 operator|new
 name|HashSet
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -184,6 +235,7 @@ name|ckq
 init|=
 operator|new
 name|HashSet
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -208,6 +260,7 @@ name|aouhkxq
 init|=
 operator|new
 name|HashSet
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -240,6 +293,7 @@ name|ahkloqrux
 init|=
 operator|new
 name|HashSet
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -293,7 +347,7 @@ operator|=
 name|useOnlyPrimaryCode
 expr_stmt|;
 block|}
-comment|/**      * Get variation patterns      *       * @return string array of variations      */
+comment|/**      * Get variation patterns      *      * @return string array of variations      */
 DECL|method|getPatterns
 specifier|protected
 name|String
@@ -705,6 +759,7 @@ name|parts
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|parts
@@ -735,6 +790,7 @@ name|tmpParts
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|tmpParts
@@ -852,6 +908,7 @@ name|variations
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -873,6 +930,9 @@ operator|++
 control|)
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|variation
 init|=
 name|getVariations
@@ -908,6 +968,9 @@ block|}
 DECL|method|getVariations
 specifier|private
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getVariations
 parameter_list|(
 name|String
@@ -927,6 +990,7 @@ name|variations
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|variations
@@ -1026,6 +1090,7 @@ name|varNew
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String

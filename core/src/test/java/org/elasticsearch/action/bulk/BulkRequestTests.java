@@ -222,7 +222,67 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|contains
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|empty
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -1004,6 +1064,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|ActionRequest
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|requests
 init|=
@@ -1385,7 +1448,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"should have thrown an exception about the unknown paramater _foo"
+literal|"should have thrown an exception about the unknown parameter _foo"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1397,7 +1460,7 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"message contains error about the unknown paramater _foo: "
+literal|"message contains error about the unknown parameter _foo: "
 operator|+
 name|e
 operator|.

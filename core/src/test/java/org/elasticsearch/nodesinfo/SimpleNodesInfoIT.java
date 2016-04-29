@@ -60,6 +60,8 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|service
+operator|.
 name|ClusterService
 import|;
 end_import
@@ -166,7 +168,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -195,37 +221,6 @@ name|SimpleNodesInfoIT
 extends|extends
 name|ESIntegTestCase
 block|{
-DECL|class|Fields
-specifier|static
-specifier|final
-class|class
-name|Fields
-block|{
-DECL|field|SITE_PLUGIN
-specifier|static
-specifier|final
-name|String
-name|SITE_PLUGIN
-init|=
-literal|"dummy"
-decl_stmt|;
-DECL|field|SITE_PLUGIN_DESCRIPTION
-specifier|static
-specifier|final
-name|String
-name|SITE_PLUGIN_DESCRIPTION
-init|=
-literal|"This is a description for a dummy test site plugin."
-decl_stmt|;
-DECL|field|SITE_PLUGIN_VERSION
-specifier|static
-specifier|final
-name|String
-name|SITE_PLUGIN_VERSION
-init|=
-literal|"0.0.7-BOND-SITE"
-decl_stmt|;
-block|}
 DECL|method|testNodesInfos
 specifier|public
 name|void
@@ -303,8 +298,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster_health, status "
-operator|+
+literal|"--> done cluster_health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -332,7 +327,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 name|String
@@ -356,19 +351,17 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> started nodes: "
-operator|+
+literal|"--> started nodes: {} and {}"
+argument_list|,
 name|server1NodeId
-operator|+
-literal|" and "
-operator|+
+argument_list|,
 name|server2NodeId
 argument_list|)
 expr_stmt|;
@@ -748,7 +741,10 @@ name|put
 argument_list|(
 name|EsExecutors
 operator|.
-name|PROCESSORS
+name|PROCESSORS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|3
 argument_list|)
@@ -765,7 +761,10 @@ name|put
 argument_list|(
 name|EsExecutors
 operator|.
-name|PROCESSORS
+name|PROCESSORS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|6
 argument_list|)
@@ -829,8 +828,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> done cluster_health, status "
-operator|+
+literal|"--> done cluster_health, status {}"
+argument_list|,
 name|clusterHealth
 operator|.
 name|getStatus
@@ -858,7 +857,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 name|String
@@ -882,19 +881,17 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> started nodes: "
-operator|+
+literal|"--> started nodes: {} and {}"
+argument_list|,
 name|server1NodeId
-operator|+
-literal|" and "
-operator|+
+argument_list|,
 name|server2NodeId
 argument_list|)
 expr_stmt|;

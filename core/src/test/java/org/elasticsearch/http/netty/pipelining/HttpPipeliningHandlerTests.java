@@ -1098,7 +1098,7 @@ operator|.
 name|getChannel
 argument_list|()
 decl_stmt|;
-comment|// NetworkAddress.formatAddress makes a proper HOST header.
+comment|// NetworkAddress.format makes a proper HOST header.
 specifier|final
 name|HttpRequest
 name|request1
@@ -1126,7 +1126,7 @@ name|HOST
 argument_list|,
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|boundAddress
 argument_list|)
@@ -1159,7 +1159,7 @@ name|HOST
 argument_list|,
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|boundAddress
 argument_list|)

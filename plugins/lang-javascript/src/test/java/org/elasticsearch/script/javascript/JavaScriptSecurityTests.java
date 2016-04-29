@@ -96,6 +96,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -238,6 +248,11 @@ operator|.
 name|compile
 argument_list|(
 name|script
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -392,6 +407,11 @@ expr_stmt|;
 name|assertSuccess
 argument_list|(
 literal|"Math.cos(Math.PI)"
+argument_list|)
+expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"Array.apply(null, Array(100)).map(function (_, i) {return i;}).map(function (i) {return i+1;})"
 argument_list|)
 expr_stmt|;
 block|}

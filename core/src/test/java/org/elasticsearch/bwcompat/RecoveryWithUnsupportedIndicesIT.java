@@ -22,6 +22,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|network
+operator|.
+name|NetworkModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -77,8 +91,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Checking static index "
-operator|+
+literal|"Checking static index {}"
+argument_list|,
 name|indexName
 argument_list|)
 expr_stmt|;
@@ -97,9 +111,12 @@ operator|+
 literal|".zip"
 argument_list|)
 argument_list|,
-name|Node
+name|NetworkModule
 operator|.
 name|HTTP_ENABLED
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

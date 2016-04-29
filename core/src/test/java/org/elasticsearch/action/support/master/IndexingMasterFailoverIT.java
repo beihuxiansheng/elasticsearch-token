@@ -14,6 +14,10 @@ name|master
 package|;
 end_package
 
+begin_comment
+comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+end_comment
+
 begin_import
 import|import
 name|org
@@ -39,20 +43,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
 import|;
 end_import
 
@@ -363,7 +353,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1s"
 argument_list|)
@@ -373,7 +366,10 @@ name|put
 argument_list|(
 name|FaultDetection
 operator|.
-name|SETTING_PING_RETRIES
+name|PING_RETRIES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1"
 argument_list|)
@@ -391,7 +387,10 @@ name|put
 argument_list|(
 name|DiscoverySettings
 operator|.
-name|PUBLISH_TIMEOUT
+name|PUBLISH_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"1s"
 argument_list|)
@@ -401,7 +400,10 @@ name|put
 argument_list|(
 name|ElectMasterService
 operator|.
-name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|2
 argument_list|)

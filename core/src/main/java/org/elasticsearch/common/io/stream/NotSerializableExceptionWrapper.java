@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This exception can be used to wrap a given, not serializable exception  * to serialize via {@link StreamOutput#writeThrowable(Throwable)}.  * This class will perserve the stacktrace as well as the suppressed exceptions of  * the throwable it was created with instead of it's own. The stacktrace has no indication  * of where this exception was created.  */
+comment|/**  * This exception can be used to wrap a given, not serializable exception  * to serialize via {@link StreamOutput#writeThrowable(Throwable)}.  * This class will preserve the stacktrace as well as the suppressed exceptions of  * the throwable it was created with instead of it's own. The stacktrace has no indication  * of where this exception was created.  */
 end_comment
 
 begin_class
@@ -95,6 +95,15 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|ElasticsearchException
+operator|.
+name|getExceptionName
+argument_list|(
+name|other
+argument_list|)
+operator|+
+literal|": "
+operator|+
 name|other
 operator|.
 name|getMessage

@@ -305,7 +305,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -367,7 +367,7 @@ index|[]
 name|errorMessage
 init|=
 block|{
-literal|"[_all] has different [omit_norms] values"
+literal|"[_all] has different [norms] values"
 block|,
 literal|"[_all] has different [store] values"
 block|,
@@ -484,7 +484,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -676,7 +676,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1147,7 +1147,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1525,6 +1525,9 @@ name|Client
 name|client
 range|:
 name|cluster
+argument_list|()
+operator|.
+name|getClients
 argument_list|()
 control|)
 block|{

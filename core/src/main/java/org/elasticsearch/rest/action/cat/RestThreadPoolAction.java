@@ -532,12 +532,6 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|PERCOLATE
-block|,
-name|ThreadPool
-operator|.
-name|Names
-operator|.
 name|REFRESH
 block|,
 name|ThreadPool
@@ -551,12 +545,6 @@ operator|.
 name|Names
 operator|.
 name|SNAPSHOT
-block|,
-name|ThreadPool
-operator|.
-name|Names
-operator|.
-name|SUGGEST
 block|,
 name|ThreadPool
 operator|.
@@ -591,15 +579,11 @@ literal|"ma"
 block|,
 literal|"fm"
 block|,
-literal|"p"
-block|,
 literal|"r"
 block|,
 literal|"s"
 block|,
 literal|"sn"
-block|,
-literal|"su"
 block|,
 literal|"w"
 block|}
@@ -1491,7 +1475,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1507,7 +1491,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1524,7 +1508,7 @@ name|fullId
 condition|?
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 else|:
 name|Strings
@@ -1585,7 +1569,7 @@ if|if
 condition|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|instanceof
 name|InetSocketTransportAddress
@@ -1601,7 +1585,7 @@ name|InetSocketTransportAddress
 operator|)
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|)
 operator|.

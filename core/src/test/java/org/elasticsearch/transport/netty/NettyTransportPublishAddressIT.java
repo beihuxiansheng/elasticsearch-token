@@ -66,6 +66,20 @@ name|common
 operator|.
 name|network
 operator|.
+name|NetworkModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|network
+operator|.
 name|NetworkUtils
 import|;
 end_import
@@ -132,9 +146,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|node
 operator|.
-name|ESIntegTestCase
+name|Node
 import|;
 end_import
 
@@ -144,9 +158,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|test
 operator|.
-name|TransportModule
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -157,16 +171,6 @@ operator|.
 name|net
 operator|.
 name|Inet4Address
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|Inet6Address
 import|;
 end_import
 
@@ -202,31 +206,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|greaterThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
 import|;
 end_import
 
@@ -288,7 +268,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TransportModule
+name|NetworkModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
@@ -297,7 +277,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.mode"
+name|Node
+operator|.
+name|NODE_MODE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"network"
 argument_list|)

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To be implemented by {@link SearchScript} which can provided an {@link Explanation} of the score  * This is currently not used inside elasticsearch but it is used, see for example here:  * https://github.com/elasticsearch/elasticsearch/issues/8561  */
+comment|/**  * To be implemented by {@link SearchScript} which can provided an {@link Explanation} of the score  * This is currently not used inside elasticsearch but it is used, see for example here:  * https://github.com/elastic/elasticsearch/issues/8561  */
 end_comment
 
 begin_interface

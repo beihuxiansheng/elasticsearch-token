@@ -548,11 +548,9 @@ name|fieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldType
+name|fullName
 argument_list|(
 name|name
-argument_list|,
-name|types
 argument_list|)
 decl_stmt|;
 if|if
@@ -619,10 +617,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 decl_stmt|;
 name|fieldVisitor
@@ -673,10 +668,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|)
 argument_list|)

@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class holds a collection of all on going recoveries on the current node (i.e., the node is the target node  * of those recoveries). The class is used to guarantee concurrent semantics such that once a recoveries was done/cancelled/failed  * no other thread will be able to find it. Last, the {@link StatusRef} inner class verifies that recovery temporary files  * and store will only be cleared once on going usage is finished.  */
+comment|/**  * This class holds a collection of all on going recoveries on the current node (i.e., the node is the target node  * of those recoveries). The class is used to guarantee concurrent semantics such that once a recoveries was done/cancelled/failed  * no other thread will be able to find it. Last, the {@link RecoveryRef} inner class verifies that recovery temporary files  * and store will only be cleared once on going usage is finished.  */
 end_comment
 
 begin_class
@@ -210,7 +210,7 @@ name|ConcurrentMap
 argument_list|<
 name|Long
 argument_list|,
-name|RecoveryStatus
+name|RecoveryTarget
 argument_list|>
 name|onGoingRecoveries
 init|=
@@ -267,7 +267,7 @@ parameter_list|,
 name|DiscoveryNode
 name|sourceNode
 parameter_list|,
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
@@ -276,11 +276,11 @@ name|TimeValue
 name|activityTimeout
 parameter_list|)
 block|{
-name|RecoveryStatus
+name|RecoveryTarget
 name|status
 init|=
 operator|new
-name|RecoveryStatus
+name|RecoveryTarget
 argument_list|(
 name|indexShard
 argument_list|,
@@ -289,7 +289,7 @@ argument_list|,
 name|listener
 argument_list|)
 decl_stmt|;
-name|RecoveryStatus
+name|RecoveryTarget
 name|existingStatus
 init|=
 name|onGoingRecoveries
@@ -366,17 +366,17 @@ name|recoveryId
 argument_list|()
 return|;
 block|}
-comment|/**      * gets the {@link RecoveryStatus } for a given id. The RecoveryStatus returned has it's ref count already incremented      * to make sure it's safe to use. However, you must call {@link RecoveryStatus#decRef()} when you are done with it, typically      * by using this method in a try-with-resources clause.      *<p>      * Returns null if recovery is not found      */
-DECL|method|getStatus
+comment|/**      * gets the {@link RecoveryTarget } for a given id. The RecoveryStatus returned has it's ref count already incremented      * to make sure it's safe to use. However, you must call {@link RecoveryTarget#decRef()} when you are done with it, typically      * by using this method in a try-with-resources clause.      *<p>      * Returns null if recovery is not found      */
+DECL|method|getRecovery
 specifier|public
-name|StatusRef
-name|getStatus
+name|RecoveryRef
+name|getRecovery
 parameter_list|(
 name|long
 name|id
 parameter_list|)
 block|{
-name|RecoveryStatus
+name|RecoveryTarget
 name|status
 init|=
 name|onGoingRecoveries
@@ -400,7 +400,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|StatusRef
+name|RecoveryRef
 argument_list|(
 name|status
 argument_list|)
@@ -410,11 +410,11 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** Similar to {@link #getStatus(long)} but throws an exception if no recovery is found */
-DECL|method|getStatusSafe
+comment|/** Similar to {@link #getRecovery(long)} but throws an exception if no recovery is found */
+DECL|method|getRecoverySafe
 specifier|public
-name|StatusRef
-name|getStatusSafe
+name|RecoveryRef
+name|getRecoverySafe
 parameter_list|(
 name|long
 name|id
@@ -423,17 +423,17 @@ name|ShardId
 name|shardId
 parameter_list|)
 block|{
-name|StatusRef
-name|statusRef
+name|RecoveryRef
+name|recoveryRef
 init|=
-name|getStatus
+name|getRecovery
 argument_list|(
 name|id
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|statusRef
+name|recoveryRef
 operator|==
 literal|null
 condition|)
@@ -447,7 +447,7 @@ argument_list|)
 throw|;
 block|}
 assert|assert
-name|statusRef
+name|recoveryRef
 operator|.
 name|status
 argument_list|()
@@ -461,7 +461,7 @@ name|shardId
 argument_list|)
 assert|;
 return|return
-name|statusRef
+name|recoveryRef
 return|;
 block|}
 comment|/** cancel the recovery with the given id (if found) and remove it from the recovery collection */
@@ -477,7 +477,7 @@ name|String
 name|reason
 parameter_list|)
 block|{
-name|RecoveryStatus
+name|RecoveryTarget
 name|removed
 init|=
 name|onGoingRecoveries
@@ -555,7 +555,7 @@ name|boolean
 name|sendShardFailure
 parameter_list|)
 block|{
-name|RecoveryStatus
+name|RecoveryTarget
 name|removed
 init|=
 name|onGoingRecoveries
@@ -617,7 +617,7 @@ name|long
 name|id
 parameter_list|)
 block|{
-name|RecoveryStatus
+name|RecoveryTarget
 name|removed
 init|=
 name|onGoingRecoveries
@@ -717,7 +717,7 @@ name|reason
 parameter_list|,
 name|Predicate
 argument_list|<
-name|RecoveryStatus
+name|RecoveryTarget
 argument_list|>
 name|shouldCancel
 parameter_list|)
@@ -729,7 +729,7 @@ literal|false
 decl_stmt|;
 for|for
 control|(
-name|RecoveryStatus
+name|RecoveryTarget
 name|status
 range|:
 name|onGoingRecoveries
@@ -812,19 +812,19 @@ return|return
 name|cancelled
 return|;
 block|}
-comment|/**      * a reference to {@link RecoveryStatus}, which implements {@link AutoCloseable}. closing the reference      * causes {@link RecoveryStatus#decRef()} to be called. This makes sure that the underlying resources      * will not be freed until {@link RecoveriesCollection.StatusRef#close()} is called.      */
-DECL|class|StatusRef
+comment|/**      * a reference to {@link RecoveryTarget}, which implements {@link AutoCloseable}. closing the reference      * causes {@link RecoveryTarget#decRef()} to be called. This makes sure that the underlying resources      * will not be freed until {@link RecoveryRef#close()} is called.      */
+DECL|class|RecoveryRef
 specifier|public
 specifier|static
 class|class
-name|StatusRef
+name|RecoveryRef
 implements|implements
 name|AutoCloseable
 block|{
 DECL|field|status
 specifier|private
 specifier|final
-name|RecoveryStatus
+name|RecoveryTarget
 name|status
 decl_stmt|;
 DECL|field|closed
@@ -839,12 +839,12 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-comment|/**          * Important: {@link org.elasticsearch.indices.recovery.RecoveryStatus#tryIncRef()} should          * be *successfully* called on status before          */
-DECL|method|StatusRef
+comment|/**          * Important: {@link RecoveryTarget#tryIncRef()} should          * be *successfully* called on status before          */
+DECL|method|RecoveryRef
 specifier|public
-name|StatusRef
+name|RecoveryRef
 parameter_list|(
-name|RecoveryStatus
+name|RecoveryTarget
 name|status
 parameter_list|)
 block|{
@@ -891,7 +891,7 @@ block|}
 block|}
 DECL|method|status
 specifier|public
-name|RecoveryStatus
+name|RecoveryTarget
 name|status
 parameter_list|()
 block|{
@@ -990,7 +990,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|RecoveryStatus
+name|RecoveryTarget
 name|status
 init|=
 name|onGoingRecoveries
@@ -1078,6 +1078,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"[monitor] rescheduling check for [{}]. last access time is [{}]"
+argument_list|,
+name|recoveryId
 argument_list|,
 name|lastSeenAccessTime
 argument_list|)

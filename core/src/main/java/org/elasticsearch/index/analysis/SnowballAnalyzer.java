@@ -68,38 +68,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|en
-operator|.
-name|EnglishPossessiveFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|tr
-operator|.
-name|TurkishLowerCaseFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|core
 operator|.
 name|LowerCaseFilter
@@ -132,9 +100,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|snowball
+name|en
 operator|.
-name|SnowballFilter
+name|EnglishPossessiveFilter
 import|;
 end_import
 
@@ -148,9 +116,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|standard
+name|snowball
 operator|.
-name|StandardTokenizer
+name|SnowballFilter
 import|;
 end_import
 
@@ -182,9 +150,23 @@ name|analysis
 operator|.
 name|standard
 operator|.
-name|std40
+name|StandardTokenizer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|StandardTokenizer40
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|tr
+operator|.
+name|TurkishLowerCaseFilter
 import|;
 end_import
 
@@ -219,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Filters {@link StandardTokenizer} with {@link StandardFilter}, {@link  * LowerCaseFilter}, {@link StopFilter} and {@link SnowballFilter}.  *  * Available stemmers are listed in org.tartarus.snowball.ext.  The name of a  * stemmer is the part of the class name before "Stemmer", e.g., the stemmer in  * {@link org.tartarus.snowball.ext.EnglishStemmer} is named "English".   * @deprecated (3.1) Use the language-specific analyzer in modules/analysis instead.   * This analyzer WAS removed in Lucene 5.0  */
+comment|/** Filters {@link StandardTokenizer} with {@link StandardFilter}, {@link  * LowerCaseFilter}, {@link StopFilter} and {@link SnowballFilter}.  *  * Available stemmers are listed in org.tartarus.snowball.ext.  The name of a  * stemmer is the part of the class name before "Stemmer", e.g., the stemmer in  * {@link org.tartarus.snowball.ext.EnglishStemmer} is named "English".   * @deprecated (3.1) Use the language-specific analyzer in modules/analysis instead.  * This analyzer WAS removed in Lucene 5.0  */
 end_comment
 
 begin_class
@@ -306,36 +288,11 @@ block|{
 specifier|final
 name|Tokenizer
 name|tokenizer
-decl_stmt|;
-if|if
-condition|(
-name|getVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|LUCENE_4_7_0
-argument_list|)
-condition|)
-block|{
-name|tokenizer
-operator|=
+init|=
 operator|new
 name|StandardTokenizer
 argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|tokenizer
-operator|=
-operator|new
-name|StandardTokenizer40
-argument_list|()
-expr_stmt|;
-block|}
+decl_stmt|;
 name|TokenStream
 name|result
 init|=

@@ -366,7 +366,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"_parent"
+literal|"_parent#parenttype"
 argument_list|)
 argument_list|)
 operator|.
@@ -385,7 +385,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -454,7 +454,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;

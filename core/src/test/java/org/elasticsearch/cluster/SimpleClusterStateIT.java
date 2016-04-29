@@ -126,7 +126,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -181,6 +181,20 @@ operator|.
 name|index
 operator|.
 name|IndexNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperService
 import|;
 end_import
 
@@ -289,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Checking simple filtering capabilites of the cluster state  *  */
+comment|/**  * Checking simple filtering capabilities of the cluster state  *  */
 end_comment
 
 begin_class
@@ -663,7 +677,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|size
@@ -710,7 +724,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|size
@@ -886,14 +900,14 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -908,21 +922,14 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -996,7 +1003,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -1349,7 +1356,7 @@ name|mapping
 operator|.
 name|startObject
 argument_list|(
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1359,7 +1366,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -1449,6 +1456,17 @@ operator|.
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
 literal|0
+argument_list|,
+name|MapperService
+operator|.
+name|INDEX_MAPPING_TOTAL_FIELDS_LIMIT_SETTING
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|Long
+operator|.
+name|MAX_VALUE
 argument_list|)
 operator|.
 name|addMapping

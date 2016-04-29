@@ -174,7 +174,7 @@ name|indicesOptions
 init|=
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpand
 argument_list|()
 decl_stmt|;
 DECL|method|GetAliasesRequest

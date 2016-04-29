@@ -518,7 +518,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"value cannot be parsed to boolean [ true/1/on/yes OR false/0/off/no ]  "
+literal|"Failed to parse value ["
+operator|+
+name|value
+operator|+
+literal|"] cannot be parsed to boolean [ true/1/on/yes OR false/0/off/no ]"
 argument_list|)
 throw|;
 block|}

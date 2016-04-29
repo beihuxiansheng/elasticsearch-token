@@ -22,20 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|GeoHashUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchParseException
@@ -159,6 +145,22 @@ operator|.
 name|Matchers
 operator|.
 name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|geo
+operator|.
+name|GeoHashUtils
+operator|.
+name|stringEncode
 import|;
 end_import
 
@@ -360,8 +362,6 @@ name|point
 operator|.
 name|resetFromGeoHash
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|lon
@@ -941,8 +941,6 @@ name|field
 argument_list|(
 literal|"geohash"
 argument_list|,
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 literal|0d
@@ -1046,8 +1044,6 @@ name|field
 argument_list|(
 literal|"geohash"
 argument_list|,
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 literal|0d
@@ -1455,8 +1451,6 @@ name|content
 operator|.
 name|value
 argument_list|(
-name|GeoHashUtils
-operator|.
 name|stringEncode
 argument_list|(
 name|lon

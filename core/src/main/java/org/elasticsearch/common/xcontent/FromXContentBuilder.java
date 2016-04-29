@@ -30,22 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamableReader
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -55,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Indicates that the class supports XContent deserialization.  *  * This interface is similar to what {@link StreamableReader} does, only it works with XContent serialization  * instead of binary serialization.  */
+comment|/**  * Indicates that the class supports XContent deserialization.  */
 end_comment
 
 begin_interface

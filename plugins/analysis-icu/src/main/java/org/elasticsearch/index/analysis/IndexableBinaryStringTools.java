@@ -33,11 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|// javadoc
-end_comment
-
-begin_comment
-comment|/**  * Provides support for converting byte sequences to Strings and back again.  * The resulting Strings preserve the original byte sequences' sort order.  *<p>  * The Strings are constructed using a Base 8000h encoding of the original  * binary data - each char of an encoded String represents a 15-bit chunk  * from the byte sequence.  Base 8000h was chosen because it allows for all  * lower 15 bits of char to be used without restriction; the surrogate range   * [U+D8000-U+DFFF] does not represent valid chars, and would require  * complicated handling to avoid them and allow use of char's high bit.  *<p>  * Although unset bits are used as padding in the final char, the original  * byte sequence could contain trailing bytes with no set bits (null bytes):  * padding is indistinguishable from valid information.  To overcome this  * problem, a char is appended, indicating the number of encoded bytes in the  * final content char.  *<p>  *  * @deprecated Implement {@link TermToBytesRefAttribute} and store bytes directly  * instead. This class WAS removed in Lucene 5.0  */
+comment|/**  * Provides support for converting byte sequences to Strings and back again.  * The resulting Strings preserve the original byte sequences' sort order.  *<p>  * The Strings are constructed using a Base 8000h encoding of the original  * binary data - each char of an encoded String represents a 15-bit chunk  * from the byte sequence.  Base 8000h was chosen because it allows for all  * lower 15 bits of char to be used without restriction; the surrogate range  * [U+D8000-U+DFFF] does not represent valid chars, and would require  * complicated handling to avoid them and allow use of char's high bit.  *<p>  * Although unset bits are used as padding in the final char, the original  * byte sequence could contain trailing bytes with no set bits (null bytes):  * padding is indistinguishable from valid information.  To overcome this  * problem, a char is appended, indicating the number of encoded bytes in the  * final content char.  *<p>  *  * @deprecated Implement {@link TermToBytesRefAttribute} and store bytes directly  * instead. This class WAS removed in Lucene 5.0  */
 end_comment
 
 begin_class
@@ -143,7 +139,7 @@ specifier|private
 name|IndexableBinaryStringTools
 parameter_list|()
 block|{}
-comment|/**    * Returns the number of chars required to encode the given bytes.    *     * @param inputArray byte sequence to be encoded    * @param inputOffset initial offset into inputArray    * @param inputLength number of bytes in inputArray    * @return The number of chars required to encode the number of bytes.    */
+comment|/**    * Returns the number of chars required to encode the given bytes.    *    * @param inputArray byte sequence to be encoded    * @param inputOffset initial offset into inputArray    * @param inputLength number of bytes in inputArray    * @return The number of chars required to encode the number of bytes.    */
 DECL|method|getEncodedLength
 specifier|public
 specifier|static
@@ -181,7 +177,7 @@ operator|+
 literal|1
 return|;
 block|}
-comment|/**    * Returns the number of bytes required to decode the given char sequence.    *     * @param encoded char sequence to be decoded    * @param offset initial offset    * @param length number of characters    * @return The number of bytes required to decode the given char sequence    */
+comment|/**    * Returns the number of bytes required to decode the given char sequence.    *    * @param encoded char sequence to be decoded    * @param offset initial offset    * @param length number of characters    * @return The number of bytes required to decode the given char sequence    */
 DECL|method|getDecodedLength
 specifier|public
 specifier|static
@@ -262,7 +258,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**    * Encodes the input byte sequence into the output char sequence.  Before    * calling this method, ensure that the output array has sufficient    * capacity by calling {@link #getEncodedLength(byte[], int, int)}.    *     * @param inputArray byte sequence to be encoded    * @param inputOffset initial offset into inputArray    * @param inputLength number of bytes in inputArray    * @param outputArray char sequence to store encoded result    * @param outputOffset initial offset into outputArray    * @param outputLength length of output, must be getEncodedLength    */
+comment|/**    * Encodes the input byte sequence into the output char sequence.  Before    * calling this method, ensure that the output array has sufficient    * capacity by calling {@link #getEncodedLength(byte[], int, int)}.    *    * @param inputArray byte sequence to be encoded    * @param inputOffset initial offset into inputArray    * @param inputLength number of bytes in inputArray    * @param outputArray char sequence to store encoded result    * @param outputOffset initial offset into outputArray    * @param outputLength length of output, must be getEncodedLength    */
 DECL|method|encode
 specifier|public
 specifier|static
@@ -673,7 +669,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Decodes the input char sequence into the output byte sequence. Before    * calling this method, ensure that the output array has sufficient capacity    * by calling {@link #getDecodedLength(char[], int, int)}.    *     * @param inputArray char sequence to be decoded    * @param inputOffset initial offset into inputArray    * @param inputLength number of chars in inputArray    * @param outputArray byte sequence to store encoded result    * @param outputOffset initial offset into outputArray    * @param outputLength length of output, must be    *        getDecodedLength(inputArray, inputOffset, inputLength)    */
+comment|/**    * Decodes the input char sequence into the output byte sequence. Before    * calling this method, ensure that the output array has sufficient capacity    * by calling {@link #getDecodedLength(char[], int, int)}.    *    * @param inputArray char sequence to be decoded    * @param inputOffset initial offset into inputArray    * @param inputLength number of chars in inputArray    * @param outputArray byte sequence to store encoded result    * @param outputOffset initial offset into outputArray    * @param outputLength length of output, must be    *        getDecodedLength(inputArray, inputOffset, inputLength)    */
 DECL|method|decode
 specifier|public
 specifier|static

@@ -26,7 +26,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|Writeable
+name|StreamInput
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamInput
+name|Writeable
 import|;
 end_import
 
@@ -70,9 +70,6 @@ name|T
 parameter_list|>
 extends|extends
 name|Writeable
-argument_list|<
-name|T
-argument_list|>
 block|{
 comment|/**      * Returns serializable object representing differences between this and previousState      */
 DECL|method|diff
@@ -93,6 +90,17 @@ argument_list|<
 name|T
 argument_list|>
 name|readDiffFrom
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Reads an object of this type from the provided {@linkplain StreamInput}. The receiving instance remains unchanged.      */
+DECL|method|readFrom
+name|T
+name|readFrom
 parameter_list|(
 name|StreamInput
 name|in

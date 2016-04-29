@@ -140,7 +140,23 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AbstractAggregationBuilder
+name|AggregatorBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
@@ -155,22 +171,6 @@ operator|.
 name|builder
 operator|.
 name|SearchSourceBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|fetch
-operator|.
-name|innerhits
-operator|.
-name|InnerHitsBuilder
 import|;
 end_import
 
@@ -745,7 +745,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the boost a specific index will receive when the query is executeed against it.      *      * @param index      The index to apply the boost against      * @param indexBoost The boost to apply to the index      */
+comment|/**      * Sets the boost a specific index will receive when the query is executed against it.      *      * @param index      The index to apply the boost against      * @param indexBoost The boost to apply to the index      */
 DECL|method|addIndexBoost
 specifier|public
 name|SearchRequestBuilder
@@ -1048,6 +1048,29 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the sort values that indicates which docs this request should "search after".      *      */
+DECL|method|searchAfter
+specifier|public
+name|SearchRequestBuilder
+name|searchAfter
+parameter_list|(
+name|Object
+index|[]
+name|values
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|searchAfter
+argument_list|(
+name|values
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Applies when sorting, and controls if scores will be tracked as well. Defaults to      *<tt>false</tt>.      */
 DECL|method|setTrackScores
 specifier|public
@@ -1098,13 +1121,38 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an get to the search operation.      */
+comment|/**      * Adds an aggregation to the search operation.      */
 DECL|method|addAggregation
 specifier|public
 name|SearchRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AbstractAggregationBuilder
+name|AggregatorBuilder
+argument_list|<
+name|?
+argument_list|>
+name|aggregation
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|aggregation
+argument_list|(
+name|aggregation
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds an aggregation to the search operation.      */
+DECL|method|addAggregation
+specifier|public
+name|SearchRequestBuilder
+name|addAggregation
+parameter_list|(
+name|PipelineAggregatorBuilder
 name|aggregation
 parameter_list|)
 block|{
@@ -1141,7 +1189,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Delegates to      * {@link org.elasticsearch.search.suggest.SuggestBuilder#addSuggestion(org.elasticsearch.search.suggest.SuggestBuilder.SuggestionBuilder)}      * .      */
+comment|/**      * Delegates to {@link SearchSourceBuilder#suggest(SuggestBuilder)}      */
 DECL|method|suggest
 specifier|public
 name|SearchRequestBuilder
@@ -1163,36 +1211,16 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|innerHits
-specifier|public
-name|SearchRequestBuilder
-name|innerHits
-parameter_list|(
-name|InnerHitsBuilder
-name|innerHitsBuilder
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|innerHits
-argument_list|(
-name|innerHitsBuilder
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      *      * @param rescorer rescorer configuration      * @return this for chaining      */
+comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder, int)}.      *      * @param rescorer rescorer configuration      * @return this for chaining      */
 DECL|method|setRescorer
 specifier|public
 name|SearchRequestBuilder
 name|setRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|)
 block|{
@@ -1209,15 +1237,13 @@ name|rescorer
 argument_list|)
 return|;
 block|}
-comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      *      * @param rescorer rescorer configuration      * @param window   rescore window      * @return this for chaining      */
+comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder, int)}.      *      * @param rescorer rescorer configuration      * @param window   rescore window      * @return this for chaining      */
 DECL|method|setRescorer
 specifier|public
 name|SearchRequestBuilder
 name|setRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
 name|rescorer
 parameter_list|,
 name|int
@@ -1234,8 +1260,11 @@ return|return
 name|addRescorer
 argument_list|(
 name|rescorer
-argument_list|,
+operator|.
+name|windowSize
+argument_list|(
 name|window
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1246,8 +1275,9 @@ name|SearchRequestBuilder
 name|addRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|)
 block|{
@@ -1256,14 +1286,7 @@ argument_list|()
 operator|.
 name|addRescorer
 argument_list|(
-operator|new
-name|RescoreBuilder
-argument_list|()
-operator|.
 name|rescorer
-argument_list|(
-name|rescorer
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1277,8 +1300,9 @@ name|SearchRequestBuilder
 name|addRescorer
 parameter_list|(
 name|RescoreBuilder
-operator|.
-name|Rescorer
+argument_list|<
+name|?
+argument_list|>
 name|rescorer
 parameter_list|,
 name|int
@@ -1290,14 +1314,7 @@ argument_list|()
 operator|.
 name|addRescorer
 argument_list|(
-operator|new
-name|RescoreBuilder
-argument_list|()
-operator|.
 name|rescorer
-argument_list|(
-name|rescorer
-argument_list|)
 operator|.
 name|windowSize
 argument_list|(
@@ -1383,6 +1400,28 @@ operator|.
 name|requestCache
 argument_list|(
 name|requestCache
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Should the query be profiled. Defaults to<code>false</code>      */
+DECL|method|setProfile
+specifier|public
+name|SearchRequestBuilder
+name|setProfile
+parameter_list|(
+name|boolean
+name|profile
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|profile
+argument_list|(
+name|profile
 argument_list|)
 expr_stmt|;
 return|return

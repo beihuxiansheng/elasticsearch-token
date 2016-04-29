@@ -26,20 +26,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
-operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParsingException
 import|;
 end_import
@@ -68,7 +54,13 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parses XContent into a {@link ScoreFunctionBuilder}.  */
+end_comment
+
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|ScoreFunctionParser
 specifier|public
 interface|interface
@@ -88,26 +80,11 @@ name|fromXContent
 parameter_list|(
 name|QueryParseContext
 name|context
-parameter_list|,
-name|XContentParser
-name|parser
 parameter_list|)
 throws|throws
 name|IOException
 throws|,
 name|ParsingException
-function_decl|;
-DECL|method|getBuilderPrototype
-name|FB
-name|getBuilderPrototype
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the name of the function, for example "linear", "gauss" etc. This      * name is used for registering the parser in      * {@link FunctionScoreQueryParser}.      * */
-DECL|method|getNames
-name|String
-index|[]
-name|getNames
-parameter_list|()
 function_decl|;
 block|}
 end_interface

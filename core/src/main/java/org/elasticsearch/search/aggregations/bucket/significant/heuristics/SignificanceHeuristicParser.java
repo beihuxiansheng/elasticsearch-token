@@ -42,9 +42,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
-operator|.
-name|XContentParser
+name|ParsingException
 import|;
 end_import
 
@@ -56,21 +54,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|xcontent
 operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
+name|XContentParser
 import|;
 end_import
 
@@ -84,7 +70,13 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parses {@link SignificanceHeuristic}s from an {@link XContentParser}.  */
+end_comment
+
 begin_interface
+annotation|@
+name|FunctionalInterface
 DECL|interface|SignificanceHeuristicParser
 specifier|public
 interface|interface
@@ -99,20 +91,11 @@ name|parser
 parameter_list|,
 name|ParseFieldMatcher
 name|parseFieldMatcher
-parameter_list|,
-name|SearchContext
-name|context
 parameter_list|)
 throws|throws
 name|IOException
 throws|,
 name|ParsingException
-function_decl|;
-DECL|method|getNames
-name|String
-index|[]
-name|getNames
-parameter_list|()
 function_decl|;
 block|}
 end_interface

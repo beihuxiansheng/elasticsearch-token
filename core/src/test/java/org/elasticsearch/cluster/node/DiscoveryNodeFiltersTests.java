@@ -190,6 +190,18 @@ name|util
 operator|.
 name|Collections
 operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
 name|singletonMap
 import|;
 end_import
@@ -312,7 +324,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -356,6 +368,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -392,6 +407,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -424,7 +442,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -468,6 +486,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -504,6 +525,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -538,7 +562,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -590,6 +614,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -624,6 +651,9 @@ operator|.
 name|INSTANCE
 argument_list|,
 name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
 argument_list|()
 argument_list|,
 name|Version
@@ -662,6 +692,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -696,7 +729,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -778,6 +811,9 @@ name|INSTANCE
 argument_list|,
 name|attributes
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -846,6 +882,9 @@ operator|.
 name|INSTANCE
 argument_list|,
 name|attributes
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -916,6 +955,9 @@ name|INSTANCE
 argument_list|,
 name|attributes
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -952,6 +994,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -984,7 +1029,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1028,6 +1073,9 @@ argument_list|,
 name|emptyMap
 argument_list|()
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -1062,7 +1110,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1129,6 +1177,9 @@ argument_list|,
 literal|"A"
 argument_list|)
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1161,7 +1212,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1228,6 +1279,9 @@ argument_list|,
 literal|"A"
 argument_list|)
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1260,7 +1314,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1326,6 +1380,9 @@ literal|"tag"
 argument_list|,
 literal|"A"
 argument_list|)
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -1359,7 +1416,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1425,6 +1482,9 @@ literal|"tag"
 argument_list|,
 literal|"A"
 argument_list|)
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -1458,7 +1518,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1525,6 +1585,9 @@ argument_list|,
 literal|"A"
 argument_list|)
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1557,7 +1620,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1614,6 +1677,9 @@ literal|"tag"
 argument_list|,
 literal|"A"
 argument_list|)
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -1647,7 +1713,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1705,6 +1771,9 @@ argument_list|,
 literal|"A"
 argument_list|)
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1737,7 +1806,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1795,6 +1864,9 @@ argument_list|,
 literal|"A"
 argument_list|)
 argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1827,7 +1899,7 @@ name|shuffleSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1884,6 +1956,9 @@ literal|"tag"
 argument_list|,
 literal|"A"
 argument_list|)
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -1920,7 +1995,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 name|List
@@ -1948,7 +2023,7 @@ name|shuffle
 argument_list|(
 name|keys
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;

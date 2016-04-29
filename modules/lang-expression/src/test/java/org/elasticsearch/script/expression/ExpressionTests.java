@@ -186,6 +186,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"1.2"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchScript
@@ -237,6 +242,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"doc['d'].value"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ss
@@ -287,6 +297,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"1/_score"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ss
@@ -337,6 +352,11 @@ operator|.
 name|compile
 argument_list|(
 literal|"doc['d'].value * _score"
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ss

@@ -222,7 +222,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -280,7 +280,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -356,7 +356,7 @@ name|settings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -414,7 +414,7 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|address
+name|getAddress
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -449,7 +449,7 @@ name|method
 range|:
 name|c
 operator|.
-name|getDeclaredMethods
+name|getMethods
 argument_list|()
 control|)
 block|{

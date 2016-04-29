@@ -335,18 +335,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -465,6 +453,42 @@ return|return
 literal|2
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|maximumNumberOfReplicas
+specifier|protected
+name|int
+name|maximumNumberOfReplicas
+parameter_list|()
+block|{
+return|return
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|0
+argument_list|,
+name|Math
+operator|.
+name|min
+argument_list|(
+name|backwardsCluster
+argument_list|()
+operator|.
+name|numBackwardsDataNodes
+argument_list|()
+argument_list|,
+name|backwardsCluster
+argument_list|()
+operator|.
+name|numNewDataNodes
+argument_list|()
+argument_list|)
+operator|-
+literal|1
+argument_list|)
+return|;
+block|}
 DECL|method|testUpgrade
 specifier|public
 name|void
@@ -490,7 +514,10 @@ name|put
 argument_list|(
 name|ConcurrentRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_CLUSTER_CONCURRENT_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|100
 argument_list|)
@@ -714,42 +741,6 @@ argument_list|(
 name|indexName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|globalCompatibilityVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_1_4_0_Beta1
-argument_list|)
-condition|)
-block|{
-comment|// before 1.4 and the wait_if_ongoing flag, flushes could fail randomly, so we
-comment|// need to continue to try flushing until all shards succeed
-name|assertTrue
-argument_list|(
-name|awaitBusy
-argument_list|(
-parameter_list|()
-lambda|->
-name|flush
-argument_list|(
-name|indexName
-argument_list|)
-operator|.
-name|getFailedShards
-argument_list|()
-operator|==
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertEquals
 argument_list|(
 literal|0
@@ -763,7 +754,6 @@ name|getFailedShards
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 comment|// index more docs that won't be flushed
 name|numDocs
 operator|=
@@ -876,7 +866,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.
@@ -925,7 +918,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_REBALANCE_ENABLE
+name|CLUSTER_ROUTING_REBALANCE_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.
@@ -940,7 +936,10 @@ name|put
 argument_list|(
 name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ENABLE
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|EnableAllocationDecider
 operator|.
@@ -1018,8 +1017,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Running upgrade on index "
-operator|+
+literal|"--> Running upgrade on index {}"
+argument_list|,
 name|indexToUpgrade
 argument_list|)
 expr_stmt|;
@@ -1715,22 +1714,18 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Index: "
-operator|+
+literal|"Index: {}, total: {}, toUpgrade: {}"
+argument_list|,
 name|status
 operator|.
 name|getIndex
 argument_list|()
-operator|+
-literal|", total: "
-operator|+
+argument_list|,
 name|status
 operator|.
 name|getTotalBytes
 argument_list|()
-operator|+
-literal|", toUpgrade: "
-operator|+
+argument_list|,
 name|status
 operator|.
 name|getToUpgradeBytes

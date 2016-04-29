@@ -261,7 +261,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Installs a limited form of secure computing mode,  * to filters system calls to block process execution.  *<p>  * This is supported on Linux, Solaris, FreeBSD, OpenBSD, Mac OS X, and Windows.  *<p>  * On Linux it currently supports amd64 and i386 architectures, requires Linux kernel 3.5 or above, and requires  * {@code CONFIG_SECCOMP} and {@code CONFIG_SECCOMP_FILTER} compiled into the kernel.  *<p>  * On Linux BPF Filters are installed using either {@code seccomp(2)} (3.17+) or {@code prctl(2)} (3.5+). {@code seccomp(2)}  * is preferred, as it allows filters to be applied to any existing threads in the process, and one motivation  * here is to protect against bugs in the JVM. Otherwise, code will fall back to the {@code prctl(2)} method   * which will at least protect elasticsearch application threads.  *<p>  * Linux BPF filters will return {@code EACCES} (Access Denied) for the following system calls:  *<ul>  *<li>{@code execve}</li>  *<li>{@code fork}</li>  *<li>{@code vfork}</li>  *<li>{@code execveat}</li>  *</ul>  *<p>  * On Solaris 10 or higher, the following privileges are dropped with {@code priv_set(3C)}:  *<ul>  *<li>{@code PRIV_PROC_FORK}</li>  *<li>{@code PRIV_PROC_EXEC}</li>  *</ul>  *<p>  * On BSD systems, process creation is restricted with {@code setrlimit(RLIMIT_NPROC)}.  *<p>  * On Mac OS X Leopard or above, a custom {@code sandbox(7)} ("Seatbelt") profile is installed that  * denies the following rules:  *<ul>  *<li>{@code process-fork}</li>  *<li>{@code process-exec}</li>  *</ul>  *<p>  * On Windows, process creation is restricted with {@code SetInformationJobObject/ActiveProcessLimit}.  *<p>  * This is not intended as a sandbox. It is another level of security, mostly intended to annoy  * security researchers and make their lives more difficult in achieving "remote execution" exploits.  * @see<a href="http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">  *      http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt</a>  * @see<a href="https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf">  *      https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf</a>  * @see<a href="https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html">  *      https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html</a>  */
+comment|/**  * Installs a limited form of secure computing mode,  * to filters system calls to block process execution.  *<p>  * This is supported on Linux, Solaris, FreeBSD, OpenBSD, Mac OS X, and Windows.  *<p>  * On Linux it currently supports amd64 and i386 architectures, requires Linux kernel 3.5 or above, and requires  * {@code CONFIG_SECCOMP} and {@code CONFIG_SECCOMP_FILTER} compiled into the kernel.  *<p>  * On Linux BPF Filters are installed using either {@code seccomp(2)} (3.17+) or {@code prctl(2)} (3.5+). {@code seccomp(2)}  * is preferred, as it allows filters to be applied to any existing threads in the process, and one motivation  * here is to protect against bugs in the JVM. Otherwise, code will fall back to the {@code prctl(2)} method  * which will at least protect elasticsearch application threads.  *<p>  * Linux BPF filters will return {@code EACCES} (Access Denied) for the following system calls:  *<ul>  *<li>{@code execve}</li>  *<li>{@code fork}</li>  *<li>{@code vfork}</li>  *<li>{@code execveat}</li>  *</ul>  *<p>  * On Solaris 10 or higher, the following privileges are dropped with {@code priv_set(3C)}:  *<ul>  *<li>{@code PRIV_PROC_FORK}</li>  *<li>{@code PRIV_PROC_EXEC}</li>  *</ul>  *<p>  * On BSD systems, process creation is restricted with {@code setrlimit(RLIMIT_NPROC)}.  *<p>  * On Mac OS X Leopard or above, a custom {@code sandbox(7)} ("Seatbelt") profile is installed that  * denies the following rules:  *<ul>  *<li>{@code process-fork}</li>  *<li>{@code process-exec}</li>  *</ul>  *<p>  * On Windows, process creation is restricted with {@code SetInformationJobObject/ActiveProcessLimit}.  *<p>  * This is not intended as a sandbox. It is another level of security, mostly intended to annoy  * security researchers and make their lives more difficult in achieving "remote execution" exploits.  * @see<a href="http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt">  *      http://www.kernel.org/doc/Documentation/prctl/seccomp_filter.txt</a>  * @see<a href="https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf">  *      https://reverse.put.as/wp-content/uploads/2011/06/The-Apple-Sandbox-BHDC2011-Paper.pdf</a>  * @see<a href="https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html">  *      https://docs.oracle.com/cd/E23824_01/html/821-1456/prbac-2.html</a>  */
 end_comment
 
 begin_comment
@@ -299,7 +299,7 @@ name|LinuxLibrary
 extends|extends
 name|Library
 block|{
-comment|/**           * maps to prctl(2)           */
+comment|/**          * maps to prctl(2)          */
 DECL|method|prctl
 name|int
 name|prctl
@@ -320,7 +320,7 @@ name|NativeLong
 name|arg5
 parameter_list|)
 function_decl|;
-comment|/**           * used to call seccomp(2), its too new...           * this is the only way, DONT use it on some other architecture unless you know wtf you are doing           */
+comment|/**          * used to call seccomp(2), its too new...          * this is the only way, DON'T use it on some other architecture unless you know wtf you are doing          */
 DECL|method|syscall
 name|NativeLong
 name|syscall
@@ -2075,16 +2075,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"seccomp(SECCOMP_SET_MODE_FILTER): "
-operator|+
+literal|"seccomp(SECCOMP_SET_MODE_FILTER): {}, falling back to prctl(PR_SET_SECCOMP)..."
+argument_list|,
 name|JNACLibrary
 operator|.
 name|strerror
 argument_list|(
 name|errno1
 argument_list|)
-operator|+
-literal|", falling back to prctl(PR_SET_SECCOMP)..."
 argument_list|)
 expr_stmt|;
 block|}
@@ -2516,7 +2514,7 @@ name|SolarisLibrary
 extends|extends
 name|Library
 block|{
-comment|/**           * see priv_set(3C), a convenience method for setppriv(2).          */
+comment|/**          * see priv_set(3C), a convenience method for setppriv(2).          */
 DECL|method|priv_set
 name|int
 name|priv_set

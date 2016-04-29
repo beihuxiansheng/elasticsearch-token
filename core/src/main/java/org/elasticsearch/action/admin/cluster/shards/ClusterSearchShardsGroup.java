@@ -112,6 +112,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -136,7 +148,7 @@ name|ToXContent
 block|{
 DECL|field|index
 specifier|private
-name|String
+name|Index
 name|index
 decl_stmt|;
 DECL|field|shardId
@@ -157,7 +169,7 @@ DECL|method|ClusterSearchShardsGroup
 specifier|public
 name|ClusterSearchShardsGroup
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|,
 name|int
@@ -225,6 +237,9 @@ parameter_list|()
 block|{
 return|return
 name|index
+operator|.
+name|getName
+argument_list|()
 return|;
 block|}
 DECL|method|getShardId
@@ -263,10 +278,11 @@ name|IOException
 block|{
 name|index
 operator|=
+operator|new
+name|Index
+argument_list|(
 name|in
-operator|.
-name|readString
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|shardId
 operator|=
@@ -334,11 +350,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|out
-operator|.
-name|writeString
-argument_list|(
 name|index
+operator|.
+name|writeTo
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 name|out

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|groovy
+operator|.
+name|lang
+operator|.
+name|MissingPropertyException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -103,16 +113,6 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|groovy
-operator|.
-name|lang
-operator|.
-name|MissingPropertyException
 import|;
 end_import
 
@@ -357,12 +357,6 @@ argument_list|(
 literal|"def v = doc['foo'].value; def m = [:]; m.put(\"value\", v)"
 argument_list|)
 expr_stmt|;
-comment|// serialization to json (this is best effort considering the unsafe etc at play)
-name|assertSuccess
-argument_list|(
-literal|"def x = 5; groovy.json.JsonOutput.toJson(x)"
-argument_list|)
-expr_stmt|;
 comment|// Times
 name|assertSuccess
 argument_list|(
@@ -373,6 +367,30 @@ comment|// GroovyCollections
 name|assertSuccess
 argument_list|(
 literal|"def n = [1,2,3]; GroovyCollections.max(n)"
+argument_list|)
+expr_stmt|;
+comment|// Groovy closures
+name|assertSuccess
+argument_list|(
+literal|"[1, 2, 3, 4].findAll { it % 2 == 0 }"
+argument_list|)
+expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"def buckets=[ [2, 4, 6, 8], [10, 12, 16, 14], [18, 22, 20, 24] ]; buckets[-3..-1].every { it.every { i -> i % 2 == 0 } }"
+argument_list|)
+expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"def val = \"\"; [1, 2, 3, 4].each { val += it }; val"
+argument_list|)
+expr_stmt|;
+comment|// Groovy uses reflection to invoke closures. These reflective calls are optimized by the JVM after "sun.reflect.inflationThreshold"
+comment|// invocations. After the inflation step, access to sun.reflect.MethodAccessorImpl is required from the security manager. This test,
+comment|// assuming a inflation threshold below 100 (15 is current value on Oracle JVMs), checks that the relevant permission is available.
+name|assertSuccess
+argument_list|(
+literal|"(1..100).collect{ it + 1 }"
 argument_list|)
 expr_stmt|;
 comment|// Fail cases:
@@ -641,6 +659,11 @@ operator|.
 name|compile
 argument_list|(
 name|script
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,

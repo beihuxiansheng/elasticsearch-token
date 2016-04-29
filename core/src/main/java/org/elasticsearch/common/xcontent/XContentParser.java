@@ -38,18 +38,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseFieldMatcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lease
 operator|.
 name|Releasable
@@ -448,12 +436,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Is the number type estimated or not (i.e. an int might actually be a long, its just low enough      * to be an int).      */
-DECL|method|estimatedNumberType
-name|boolean
-name|estimatedNumberType
-parameter_list|()
-function_decl|;
 DECL|method|shortValue
 name|short
 name|shortValue
@@ -554,7 +536,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Reads a plain binary value that was written via one of the following methods:      *      *<ul>      *<li>{@link XContentBuilder#field(String, org.apache.lucene.util.BytesRef)}</li>      *<li>{@link XContentBuilder#field(String, org.elasticsearch.common.bytes.BytesReference)}</li>      *<li>{@link XContentBuilder#field(String, byte[], int, int)}}</li>      *<li>{@link XContentBuilder#field(String, byte[])}}</li>      *</ul>      *      * as well as via their<code>XContentBuilderString</code> variants of the separated value methods.      * Note: Do not use this method to read values written with:      *<ul>      *<li>{@link XContentBuilder#utf8Field(XContentBuilderString, org.apache.lucene.util.BytesRef)}</li>      *<li>{@link XContentBuilder#utf8Field(String, org.apache.lucene.util.BytesRef)}</li>      *</ul>      *      * these methods write UTF-8 encoded strings and must be read through:      *<ul>      *<li>{@link XContentParser#utf8Bytes()}</li>      *<li>{@link XContentParser#utf8BytesOrNull()}}</li>      *<li>{@link XContentParser#text()} ()}</li>      *<li>{@link XContentParser#textOrNull()} ()}</li>      *<li>{@link XContentParser#textCharacters()} ()}}</li>      *</ul>      *      */
+comment|/**      * Reads a plain binary value that was written via one of the following methods:      *      *<ul>      *<li>{@link XContentBuilder#field(String, org.apache.lucene.util.BytesRef)}</li>      *<li>{@link XContentBuilder#field(String, org.elasticsearch.common.bytes.BytesReference)}</li>      *<li>{@link XContentBuilder#field(String, byte[], int, int)}}</li>      *<li>{@link XContentBuilder#field(String, byte[])}}</li>      *</ul>      *      * as well as via their<code>String</code> variants of the separated value methods.      * Note: Do not use this method to read values written with:      *<ul>      *<li>{@link XContentBuilder#utf8Field(String, org.apache.lucene.util.BytesRef)}</li>      *<li>{@link XContentBuilder#utf8Field(String, org.apache.lucene.util.BytesRef)}</li>      *</ul>      *      * these methods write UTF-8 encoded strings and must be read through:      *<ul>      *<li>{@link XContentParser#utf8Bytes()}</li>      *<li>{@link XContentParser#utf8BytesOrNull()}}</li>      *<li>{@link XContentParser#text()} ()}</li>      *<li>{@link XContentParser#textOrNull()} ()}</li>      *<li>{@link XContentParser#textCharacters()} ()}}</li>      *</ul>      *      */
 DECL|method|binaryValue
 name|byte
 index|[]
@@ -563,7 +545,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Used for error reporting to highlight where syntax errors occur in      * content being parsed.      *       * @return last token's location or null if cannot be determined      */
+comment|/**      * Used for error reporting to highlight where syntax errors occur in      * content being parsed.      *      * @return last token's location or null if cannot be determined      */
 DECL|method|getTokenLocation
 name|XContentLocation
 name|getTokenLocation
@@ -573,21 +555,6 @@ DECL|method|isClosed
 name|boolean
 name|isClosed
 parameter_list|()
-function_decl|;
-comment|/**      * Returns this parsers {@link ParseFieldMatcher}      */
-DECL|method|getParseFieldMatcher
-name|ParseFieldMatcher
-name|getParseFieldMatcher
-parameter_list|()
-function_decl|;
-comment|/**      * Sets this parsers {@link ParseFieldMatcher}      */
-DECL|method|setParseFieldMatcher
-name|void
-name|setParseFieldMatcher
-parameter_list|(
-name|ParseFieldMatcher
-name|matcher
-parameter_list|)
 function_decl|;
 block|}
 end_interface

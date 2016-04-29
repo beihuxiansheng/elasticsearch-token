@@ -28,22 +28,6 @@ name|io
 operator|.
 name|stream
 operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
 name|Writeable
 import|;
 end_import
@@ -59,9 +43,6 @@ interface|interface
 name|TransportAddress
 extends|extends
 name|Writeable
-argument_list|<
-name|TransportAddress
-argument_list|>
 block|{
 comment|/**      * Returns the host string for this transport address      */
 DECL|method|getHost
@@ -93,6 +74,11 @@ parameter_list|(
 name|TransportAddress
 name|other
 parameter_list|)
+function_decl|;
+DECL|method|isLoopbackOrLinkLocalAddress
+name|boolean
+name|isLoopbackOrLinkLocalAddress
+parameter_list|()
 function_decl|;
 DECL|method|toString
 specifier|public

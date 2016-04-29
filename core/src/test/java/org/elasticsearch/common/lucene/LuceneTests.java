@@ -302,20 +302,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|test
@@ -422,26 +408,6 @@ name|LuceneTests
 extends|extends
 name|ESTestCase
 block|{
-comment|/**      * simple test that ensures that we bump the version on Upgrade      */
-DECL|method|testVersion
-specifier|public
-name|void
-name|testVersion
-parameter_list|()
-block|{
-comment|// note this is just a silly sanity check, we test it in lucene, and we point to it this way
-name|assertEquals
-argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
-name|Version
-operator|.
-name|LATEST
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testWaitForIndex
 specifier|public
 name|void
@@ -572,13 +538,6 @@ name|latch
 operator|.
 name|countDown
 argument_list|()
-expr_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
 expr_stmt|;
 name|IndexWriterConfig
 name|iwc
@@ -712,13 +671,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -976,8 +928,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 init|)
 block|{
@@ -1131,13 +1081,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -1403,8 +1346,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1685,13 +1626,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -2283,13 +2217,6 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -2766,7 +2693,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|dir
@@ -3001,6 +2928,12 @@ block|{
 comment|// add assume's here if needed for certain platforms, but we should know if it does not work.
 name|assertTrue
 argument_list|(
+literal|"MMapDirectory does not support unmapping: "
+operator|+
+name|MMapDirectory
+operator|.
+name|UNMAP_NOT_SUPPORTED_REASON
+argument_list|,
 name|MMapDirectory
 operator|.
 name|UNMAP_SUPPORTED

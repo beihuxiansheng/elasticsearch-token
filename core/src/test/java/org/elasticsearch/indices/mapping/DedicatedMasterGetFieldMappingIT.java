@@ -34,25 +34,21 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Before
+name|node
+operator|.
+name|Node
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|elasticsearch
+name|junit
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
+name|Before
 import|;
 end_import
 
@@ -118,12 +114,19 @@ block|{
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"node.data"
+name|Node
+operator|.
+name|NODE_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

@@ -336,14 +336,8 @@ operator|.
 name|getNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|builder

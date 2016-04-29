@@ -100,7 +100,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -112,9 +114,39 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
+name|settings
 operator|.
-name|Inject
+name|ClusterSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Setting
+operator|.
+name|Property
 import|;
 end_import
 
@@ -132,22 +164,8 @@ name|Settings
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|settings
-operator|.
-name|NodeSettingsService
-import|;
-end_import
-
 begin_comment
-comment|/**  * This {@link AllocationDecider} limits the number of shards per node on a per  * index or node-wide basis. The allocator prevents a single node to hold more  * than {@value #INDEX_TOTAL_SHARDS_PER_NODE} per index and  * {@value #CLUSTER_TOTAL_SHARDS_PER_NODE} globally during the allocation  * process. The limits of this decider can be changed in real-time via a the  * index settings API.  *<p>  * If {@value #INDEX_TOTAL_SHARDS_PER_NODE} is reset to a negative value shards  * per index are unlimited per node. Shards currently in the  * {@link ShardRoutingState#RELOCATING relocating} state are ignored by this  * {@link AllocationDecider} until the shard changed its state to either  * {@link ShardRoutingState#STARTED started},  * {@link ShardRoutingState#INITIALIZING inializing} or  * {@link ShardRoutingState#UNASSIGNED unassigned}  *<p>  * Note: Reducing the number of shards per node via the index update API can  * trigger relocation and significant additional load on the clusters nodes.  *</p>  */
+comment|/**  * This {@link AllocationDecider} limits the number of shards per node on a per  * index or node-wide basis. The allocator prevents a single node to hold more  * than<tt>index.routing.allocation.total_shards_per_node</tt> per index and  *<tt>cluster.routing.allocation.total_shards_per_node</tt> globally during the allocation  * process. The limits of this decider can be changed in real-time via a the  * index settings API.  *<p>  * If<tt>index.routing.allocation.total_shards_per_node</tt> is reset to a negative value shards  * per index are unlimited per node. Shards currently in the  * {@link ShardRoutingState#RELOCATING relocating} state are ignored by this  * {@link AllocationDecider} until the shard changed its state to either  * {@link ShardRoutingState#STARTED started},  * {@link ShardRoutingState#INITIALIZING inializing} or  * {@link ShardRoutingState#UNASSIGNED unassigned}  *<p>  * Note: Reducing the number of shards per node via the index update API can  * trigger relocation and significant additional load on the clusters nodes.  *</p>  */
 end_comment
 
 begin_class
@@ -174,91 +192,69 @@ name|int
 name|clusterShardLimit
 decl_stmt|;
 comment|/**      * Controls the maximum number of shards per index on a single Elasticsearch      * node. Negative values are interpreted as unlimited.      */
-DECL|field|INDEX_TOTAL_SHARDS_PER_NODE
+DECL|field|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
 specifier|public
 specifier|static
 specifier|final
-name|String
-name|INDEX_TOTAL_SHARDS_PER_NODE
+name|Setting
+argument_list|<
+name|Integer
+argument_list|>
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
 init|=
+name|Setting
+operator|.
+name|intSetting
+argument_list|(
 literal|"index.routing.allocation.total_shards_per_node"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+name|Property
+operator|.
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
+name|IndexScope
+argument_list|)
 decl_stmt|;
 comment|/**      * Controls the maximum number of shards per node on a global level.      * Negative values are interpreted as unlimited.      */
-DECL|field|CLUSTER_TOTAL_SHARDS_PER_NODE
+DECL|field|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
 specifier|public
 specifier|static
 specifier|final
-name|String
-name|CLUSTER_TOTAL_SHARDS_PER_NODE
-init|=
-literal|"cluster.routing.allocation.total_shards_per_node"
-decl_stmt|;
-DECL|class|ApplySettings
-class|class
-name|ApplySettings
-implements|implements
-name|NodeSettingsService
-operator|.
-name|Listener
-block|{
-annotation|@
-name|Override
-DECL|method|onRefreshSettings
-specifier|public
-name|void
-name|onRefreshSettings
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
-block|{
+name|Setting
+argument_list|<
 name|Integer
-name|newClusterLimit
+argument_list|>
+name|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
 init|=
-name|settings
+name|Setting
 operator|.
-name|getAsInt
+name|intSetting
 argument_list|(
-name|CLUSTER_TOTAL_SHARDS_PER_NODE
+literal|"cluster.routing.allocation.total_shards_per_node"
 argument_list|,
-literal|null
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+name|Property
+operator|.
+name|Dynamic
+argument_list|,
+name|Property
+operator|.
+name|NodeScope
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|newClusterLimit
-operator|!=
-literal|null
-condition|)
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"updating [{}] from [{}] to [{}]"
-argument_list|,
-name|CLUSTER_TOTAL_SHARDS_PER_NODE
-argument_list|,
-name|ShardsLimitAllocationDecider
-operator|.
-name|this
-operator|.
-name|clusterShardLimit
-argument_list|,
-name|newClusterLimit
-argument_list|)
-expr_stmt|;
-name|ShardsLimitAllocationDecider
-operator|.
-name|this
-operator|.
-name|clusterShardLimit
-operator|=
-name|newClusterLimit
-expr_stmt|;
-block|}
-block|}
-block|}
 annotation|@
 name|Inject
 DECL|method|ShardsLimitAllocationDecider
@@ -268,8 +264,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|NodeSettingsService
-name|nodeSettingsService
+name|ClusterSettings
+name|clusterSettings
 parameter_list|)
 block|{
 name|super
@@ -281,24 +277,39 @@ name|this
 operator|.
 name|clusterShardLimit
 operator|=
-name|settings
+name|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
 operator|.
-name|getAsInt
+name|get
 argument_list|(
-name|CLUSTER_TOTAL_SHARDS_PER_NODE
-argument_list|,
-operator|-
-literal|1
+name|settings
 argument_list|)
 expr_stmt|;
-name|nodeSettingsService
+name|clusterSettings
 operator|.
-name|addListener
+name|addSettingsUpdateConsumer
 argument_list|(
-operator|new
-name|ApplySettings
-argument_list|()
+name|CLUSTER_TOTAL_SHARDS_PER_NODE_SETTING
+argument_list|,
+name|this
+operator|::
+name|setClusterShardLimit
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setClusterShardLimit
+specifier|private
+name|void
+name|setClusterShardLimit
+parameter_list|(
+name|int
+name|clusterShardLimit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clusterShardLimit
+operator|=
+name|clusterShardLimit
 expr_stmt|;
 block|}
 annotation|@
@@ -329,7 +340,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shardRouting
 operator|.
@@ -337,20 +348,20 @@ name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
 name|int
 name|indexShardLimit
 init|=
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|get
+argument_list|(
 name|indexMd
 operator|.
 name|getSettings
 argument_list|()
-operator|.
-name|getAsInt
-argument_list|(
-name|INDEX_TOTAL_SHARDS_PER_NODE
 argument_list|,
-operator|-
-literal|1
+name|settings
 argument_list|)
 decl_stmt|;
 comment|// Capture the limit here in case it changes during this method's
@@ -385,7 +396,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"total shard limit disabled: [index: %d, cluster: %d]<= 0"
+literal|"total shard limits are disabled: [index: %d, cluster: %d]<= 0"
 argument_list|,
 name|indexShardLimit
 argument_list|,
@@ -468,7 +479,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this node [%d], limit: [%d]"
+literal|"too many shards for this node [%d], cluster-level limit per node: [%d]"
 argument_list|,
 name|nodeShardCount
 argument_list|,
@@ -498,7 +509,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this index [%s] on node [%d], limit: [%d]"
+literal|"too many shards for this index [%s] on node [%d], index-level limit per node: [%d]"
 argument_list|,
 name|shardRouting
 operator|.
@@ -522,7 +533,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard count under index limit [%d] and node limit [%d] of total shards per node"
+literal|"the shard count is under index limit [%d] and cluster level node limit [%d] of total shards per node"
 argument_list|,
 name|indexShardLimit
 argument_list|,
@@ -558,7 +569,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|shardRouting
 operator|.
@@ -566,20 +577,20 @@ name|index
 argument_list|()
 argument_list|)
 decl_stmt|;
+specifier|final
 name|int
 name|indexShardLimit
 init|=
+name|INDEX_TOTAL_SHARDS_PER_NODE_SETTING
+operator|.
+name|get
+argument_list|(
 name|indexMd
 operator|.
 name|getSettings
 argument_list|()
-operator|.
-name|getAsInt
-argument_list|(
-name|INDEX_TOTAL_SHARDS_PER_NODE
 argument_list|,
-operator|-
-literal|1
+name|settings
 argument_list|)
 decl_stmt|;
 comment|// Capture the limit here in case it changes during this method's
@@ -614,7 +625,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"total shard limit disabled: [index: %d, cluster: %d]<= 0"
+literal|"total shard limits are disabled: [index: %d, cluster: %d]<= 0"
 argument_list|,
 name|indexShardLimit
 argument_list|,
@@ -699,7 +710,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this node [%d], limit: [%d]"
+literal|"too many shards for this node [%d], cluster-level limit per node: [%d]"
 argument_list|,
 name|nodeShardCount
 argument_list|,
@@ -729,7 +740,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this index [%s] on node [%d], limit: [%d]"
+literal|"too many shards for this index [%s] on node [%d], index-level limit per node: [%d]"
 argument_list|,
 name|shardRouting
 operator|.
@@ -753,7 +764,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard count under index limit [%d] and node limit [%d] of total shards per node"
+literal|"the shard count is under index limit [%d] and cluster level node limit [%d] of total shards per node"
 argument_list|,
 name|indexShardLimit
 argument_list|,
@@ -804,7 +815,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"total shard limit disabled: [cluster: %d]<= 0"
+literal|"total shard limits are disabled: [cluster: %d]<= 0"
 argument_list|,
 name|clusterShardLimit
 argument_list|)
@@ -860,7 +871,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards for this node [%d], limit: [%d]"
+literal|"too many shards for this node [%d], cluster-level limit per node: [%d]"
 argument_list|,
 name|nodeShardCount
 argument_list|,
@@ -879,7 +890,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard count under node limit [%d] of total shards per node"
+literal|"the shard count is under node limit [%d] of total shards per node"
 argument_list|,
 name|clusterShardLimit
 argument_list|)

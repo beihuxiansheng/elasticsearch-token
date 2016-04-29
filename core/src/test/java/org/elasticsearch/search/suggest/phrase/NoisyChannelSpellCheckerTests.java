@@ -785,8 +785,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|WordScorer
@@ -2551,8 +2549,6 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|LaplaceScorer
@@ -3545,15 +3541,13 @@ operator|.
 name|open
 argument_list|(
 name|writer
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|WordScorer
 name|wordScorer
 init|=
 operator|new
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 argument_list|(
 name|ir
 argument_list|,
@@ -3746,7 +3740,7 @@ comment|//        assertThat(corrections[0].join(new BytesRef(" ")).utf8ToString
 name|wordScorer
 operator|=
 operator|new
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 argument_list|(
 name|ir
 argument_list|,
@@ -4272,7 +4266,7 @@ expr_stmt|;
 name|wordScorer
 operator|=
 operator|new
-name|LinearInterpoatingScorer
+name|LinearInterpolatingScorer
 argument_list|(
 name|ir
 argument_list|,

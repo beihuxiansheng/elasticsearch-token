@@ -656,29 +656,8 @@ name|localContext
 operator|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|Object
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|Object
-index|[]
-name|initialValue
-parameter_list|()
-block|{
-return|return
-operator|new
-name|Object
-index|[
-literal|1
-index|]
-return|;
-block|}
-block|}
 expr_stmt|;
 block|}
 block|}
@@ -2795,7 +2774,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-comment|// this is unforunate. We don't support building TypeLiterals for type variable like 'T'. If
+comment|// this is unfortunate. We don't support building TypeLiterals for type variable like 'T'. If
 comment|// this proves problematic, we can probably fix TypeLiteral to support type variables
 if|if
 condition|(
@@ -4919,6 +4898,7 @@ end_function
 
 begin_decl_stmt
 DECL|field|localContext
+specifier|private
 specifier|final
 name|ThreadLocal
 argument_list|<
@@ -4959,6 +4939,29 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|reference
+operator|==
+literal|null
+condition|)
+block|{
+name|reference
+operator|=
+operator|new
+name|Object
+index|[
+literal|1
+index|]
+expr_stmt|;
+name|localContext
+operator|.
+name|set
+argument_list|(
+name|reference
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|reference

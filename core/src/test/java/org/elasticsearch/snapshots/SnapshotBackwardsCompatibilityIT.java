@@ -116,20 +116,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|search
-operator|.
-name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|index
 operator|.
 name|IndexRequest
@@ -147,6 +133,20 @@ operator|.
 name|index
 operator|.
 name|IndexRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchResponse
 import|;
 end_import
 
@@ -432,7 +432,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -680,7 +680,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|indicesBefore
@@ -748,7 +748,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|indicesBefore
@@ -1046,7 +1046,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|buildersBefore
@@ -1538,7 +1538,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|indices
@@ -1767,7 +1767,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2307,8 +2307,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"---> repo exists: "
-operator|+
+literal|"---> repo exists: {} files: {}"
+argument_list|,
 name|Files
 operator|.
 name|exists
@@ -2320,9 +2320,7 @@ argument_list|(
 literal|"indices/test/0"
 argument_list|)
 argument_list|)
-operator|+
-literal|" files: "
-operator|+
+argument_list|,
 name|Arrays
 operator|.
 name|toString

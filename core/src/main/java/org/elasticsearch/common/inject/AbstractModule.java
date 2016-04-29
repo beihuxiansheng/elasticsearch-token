@@ -130,6 +130,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|SettingsModule
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|lang

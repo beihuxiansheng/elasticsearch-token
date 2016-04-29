@@ -362,8 +362,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|controller
-argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
@@ -723,12 +721,6 @@ name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|builder

@@ -28,9 +28,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|pl
-operator|.
-name|PolishAnalyzer
+name|TokenStream
 import|;
 end_import
 
@@ -44,7 +42,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|pl
+operator|.
+name|PolishAnalyzer
 import|;
 end_import
 

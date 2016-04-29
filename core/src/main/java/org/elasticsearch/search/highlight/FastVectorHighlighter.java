@@ -266,7 +266,7 @@ name|common
 operator|.
 name|text
 operator|.
-name|StringText
+name|Text
 import|;
 end_import
 
@@ -1297,10 +1297,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|field
@@ -1370,10 +1367,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|fragmentCharSize
@@ -1429,7 +1423,7 @@ name|highlighterContext
 operator|.
 name|fieldName
 argument_list|,
-name|StringText
+name|Text
 operator|.
 name|convertFromStringArray
 argument_list|(
@@ -1510,10 +1504,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
-name|indexName
+name|name
 argument_list|()
 argument_list|,
 name|fieldFragList
@@ -1560,7 +1551,7 @@ name|highlighterContext
 operator|.
 name|fieldName
 argument_list|,
-name|StringText
+name|Text
 operator|.
 name|convertFromStringArray
 argument_list|(

@@ -28,9 +28,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|routing
+name|node
 operator|.
-name|RoutingNode
+name|DiscoveryNode
 import|;
 end_import
 
@@ -58,36 +58,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRoutingState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|FailedRerouteAllocation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|allocation
 operator|.
 name|RoutingAllocation
@@ -96,22 +66,16 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|StartedRerouteAllocation
+name|Map
 import|;
 end_import
 
 begin_comment
-comment|/**  *<p>  * A {@link ShardsAllocator} is the main entry point for shard allocation on nodes in the cluster.  * The allocator makes basic decision where a shard instance will be allocated, if already allocated instances  * need relocate to other nodes due to node failures or due to rebalancing decisions.  *</p>  */
+comment|/**  *<p>  * A {@link ShardsAllocator} is the main entry point for shard allocation on nodes in the cluster.  * The allocator makes basic decision where a shard instance will be allocated, if already allocated instances  * need to relocate to other nodes due to node failures or due to rebalancing decisions.  *</p>  */
 end_comment
 
 begin_interface
@@ -120,55 +84,30 @@ specifier|public
 interface|interface
 name|ShardsAllocator
 block|{
-comment|/**      * Applies changes on started nodes based on the implemented algorithm. For example if a       * shard has changed to {@link ShardRoutingState#STARTED} from {@link ShardRoutingState#RELOCATING}       * this allocator might apply some cleanups on the node that used to hold the shard.      * @param allocation all started {@link ShardRouting shards}      */
-DECL|method|applyStartedShards
-name|void
-name|applyStartedShards
-parameter_list|(
-name|StartedRerouteAllocation
-name|allocation
-parameter_list|)
-function_decl|;
-comment|/**      * Applies changes on failed nodes based on the implemented algorithm.       * @param allocation all failed {@link ShardRouting shards}      */
-DECL|method|applyFailedShards
-name|void
-name|applyFailedShards
-parameter_list|(
-name|FailedRerouteAllocation
-name|allocation
-parameter_list|)
-function_decl|;
-comment|/**      * Assign all unassigned shards to nodes       *       * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
-DECL|method|allocateUnassigned
+comment|/**      * Allocates shards to nodes in the cluster. An implementation of this method should:      * - assign unassigned shards      * - relocate shards that cannot stay on a node anymore      * - relocate shards to find a good shard balance in the cluster      *      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
+DECL|method|allocate
 name|boolean
-name|allocateUnassigned
+name|allocate
 parameter_list|(
 name|RoutingAllocation
 name|allocation
 parameter_list|)
 function_decl|;
-comment|/**      * Rebalancing number of shards on all nodes      *         * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
-DECL|method|rebalance
-name|boolean
-name|rebalance
+comment|/**      * Returns a map of node to a float "weight" of where the allocator would like to place the shard.      * Higher weights signify greater desire to place the shard on that node.      * Does not modify the allocation at all.      *      * @param allocation current node allocation      * @param shard shard to weigh      * @return map of nodes to float weights      */
+DECL|method|weighShard
+name|Map
+argument_list|<
+name|DiscoveryNode
+argument_list|,
+name|Float
+argument_list|>
+name|weighShard
 parameter_list|(
 name|RoutingAllocation
 name|allocation
-parameter_list|)
-function_decl|;
-comment|/**      * Moves a shard from the given node to other node.      *       * @param shardRouting the shard to move      * @param node A node containing the shard      * @param allocation current node allocation      * @return<code>true</code> if the allocation has changed, otherwise<code>false</code>      */
-DECL|method|move
-name|boolean
-name|move
-parameter_list|(
+parameter_list|,
 name|ShardRouting
-name|shardRouting
-parameter_list|,
-name|RoutingNode
-name|node
-parameter_list|,
-name|RoutingAllocation
-name|allocation
+name|shard
 parameter_list|)
 function_decl|;
 block|}

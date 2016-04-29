@@ -1801,7 +1801,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"more_like_this doesn't support binary/numeric fields"
+literal|"more_like_this only supports text/keyword fields"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1968,9 +1968,8 @@ expr_stmt|;
 name|Item
 name|newItem
 init|=
+operator|new
 name|Item
-operator|.
-name|readItemFrom
 argument_list|(
 name|StreamInput
 operator|.
@@ -2079,7 +2078,7 @@ name|json
 init|=
 literal|"{\n"
 operator|+
-literal|"  \"mlt\" : {\n"
+literal|"  \"more_like_this\" : {\n"
 operator|+
 literal|"    \"fields\" : [ \"title\", \"description\" ],\n"
 operator|+
@@ -2174,6 +2173,116 @@ literal|0
 index|]
 argument_list|)
 expr_stmt|;
+name|json
+operator|=
+literal|"{\n"
+operator|+
+literal|"  \"mlt\" : {\n"
+operator|+
+literal|"    \"fields\" : [ \"title\", \"description\" ],\n"
+operator|+
+literal|"    \"like\" : [ \"and potentially some more text here as well\", {\n"
+operator|+
+literal|"      \"_index\" : \"imdb\",\n"
+operator|+
+literal|"      \"_type\" : \"movies\",\n"
+operator|+
+literal|"      \"_id\" : \"1\"\n"
+operator|+
+literal|"    }, {\n"
+operator|+
+literal|"      \"_index\" : \"imdb\",\n"
+operator|+
+literal|"      \"_type\" : \"movies\",\n"
+operator|+
+literal|"      \"_id\" : \"2\"\n"
+operator|+
+literal|"    } ],\n"
+operator|+
+literal|"    \"max_query_terms\" : 12,\n"
+operator|+
+literal|"    \"min_term_freq\" : 1,\n"
+operator|+
+literal|"    \"min_doc_freq\" : 5,\n"
+operator|+
+literal|"    \"max_doc_freq\" : 2147483647,\n"
+operator|+
+literal|"    \"min_word_length\" : 0,\n"
+operator|+
+literal|"    \"max_word_length\" : 0,\n"
+operator|+
+literal|"    \"minimum_should_match\" : \"30%\",\n"
+operator|+
+literal|"    \"boost_terms\" : 0.0,\n"
+operator|+
+literal|"    \"include\" : false,\n"
+operator|+
+literal|"    \"fail_on_unsupported_field\" : true,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+name|MoreLikeThisQueryBuilder
+name|parsedQueryMltShortcut
+init|=
+operator|(
+name|MoreLikeThisQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|parsedQueryMltShortcut
+argument_list|,
+name|equalTo
+argument_list|(
+name|parsed
+argument_list|)
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"parse query should have failed in strict mode"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"Deprecated field [mlt] used, expected [more_like_this] instead"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

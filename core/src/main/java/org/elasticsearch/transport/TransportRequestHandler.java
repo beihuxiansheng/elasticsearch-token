@@ -14,6 +14,18 @@ name|transport
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|Task
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -29,6 +41,34 @@ extends|extends
 name|TransportRequest
 parameter_list|>
 block|{
+comment|/**      * Override this method if access to the Task parameter is needed      */
+DECL|method|messageReceived
+specifier|default
+name|void
+name|messageReceived
+parameter_list|(
+specifier|final
+name|T
+name|request
+parameter_list|,
+specifier|final
+name|TransportChannel
+name|channel
+parameter_list|,
+name|Task
+name|task
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|messageReceived
+argument_list|(
+name|request
+argument_list|,
+name|channel
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|messageReceived
 name|void
 name|messageReceived

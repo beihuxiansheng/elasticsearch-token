@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -56,8 +46,18 @@ name|FilterIndexOutput
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
-comment|/**   * abstract class for verifying what was written.  * subclasses override {@link #writeByte(byte)} and {@link #writeBytes(byte[], int, int)}  */
+comment|/**  * abstract class for verifying what was written.  * subclasses override {@link #writeByte(byte)} and {@link #writeBytes(byte[], int, int)}  */
 end_comment
 
 begin_comment

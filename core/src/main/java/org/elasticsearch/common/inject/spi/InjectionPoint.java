@@ -838,7 +838,7 @@ name|dependencies
 argument_list|)
 return|;
 block|}
-comment|// This metohd is necessary to create a Dependency<T> with proper generic type information
+comment|// This method is necessary to create a Dependency<T> with proper generic type information
 DECL|method|newDependency
 specifier|private
 parameter_list|<
@@ -1035,7 +1035,7 @@ name|constructor
 range|:
 name|rawType
 operator|.
-name|getDeclaredConstructors
+name|getConstructors
 argument_list|()
 control|)
 block|{
@@ -1135,7 +1135,7 @@ name|noArgConstructor
 init|=
 name|rawType
 operator|.
-name|getDeclaredConstructor
+name|getConstructor
 argument_list|()
 decl_stmt|;
 comment|// Disallow private constructors on non-private classes (unless they have @Inject)
@@ -1567,7 +1567,7 @@ operator|.
 name|getDeclaringClass
 argument_list|()
 operator|.
-name|getDeclaredField
+name|getField
 argument_list|(
 name|member
 operator|.
@@ -1901,7 +1901,7 @@ block|{
 return|return
 name|type
 operator|.
-name|getDeclaredFields
+name|getFields
 argument_list|()
 return|;
 block|}
@@ -1967,7 +1967,7 @@ block|{
 return|return
 name|type
 operator|.
-name|getDeclaredMethods
+name|getMethods
 argument_list|()
 return|;
 block|}

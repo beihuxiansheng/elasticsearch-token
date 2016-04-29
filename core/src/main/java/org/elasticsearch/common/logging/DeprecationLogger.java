@@ -16,6 +16,18 @@ name|logging
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressLoggerChecks
+import|;
+end_import
+
 begin_comment
 comment|/**  * A logger that logs deprecation notices.  */
 end_comment
@@ -98,6 +110,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Logs a deprecated message.      */
+annotation|@
+name|SuppressLoggerChecks
+argument_list|(
+name|reason
+operator|=
+literal|"safely delegates to logger"
+argument_list|)
 DECL|method|deprecated
 specifier|public
 name|void

@@ -575,7 +575,7 @@ name|shuffle
 argument_list|(
 name|tmpList
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -830,7 +830,7 @@ name|shuffle
 argument_list|(
 name|values
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -316,22 +316,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|hamcrest
@@ -466,7 +450,9 @@ expr_stmt|;
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -494,7 +480,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"200ms"
 argument_list|)
@@ -510,7 +499,10 @@ name|put
 argument_list|(
 name|DiscoverySettings
 operator|.
-name|NO_MASTER_BLOCK
+name|NO_MASTER_BLOCK_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"all"
 argument_list|)
@@ -1565,7 +1557,9 @@ block|{
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1593,7 +1587,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"200ms"
 argument_list|)
@@ -1609,7 +1606,10 @@ name|put
 argument_list|(
 name|DiscoverySettings
 operator|.
-name|NO_MASTER_BLOCK
+name|NO_MASTER_BLOCK_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"write"
 argument_list|)
@@ -1770,8 +1770,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Cluster state:\n"
-operator|+
+literal|"Cluster state:\n{}"
+argument_list|,
 name|clusterState
 operator|.
 name|getState
@@ -1883,7 +1883,7 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -1904,7 +1904,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 expr_stmt|;
 name|countResponse

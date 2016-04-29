@@ -64,9 +64,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|support
+name|admin
 operator|.
-name|IndicesOptions
+name|indices
+operator|.
+name|flush
+operator|.
+name|SyncedFlushResponse
 import|;
 end_import
 
@@ -76,9 +80,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|action
 operator|.
-name|ClusterService
+name|support
+operator|.
+name|IndicesOptions
 import|;
 end_import
 
@@ -184,9 +190,23 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -293,6 +313,18 @@ operator|.
 name|concurrent
 operator|.
 name|CountDown
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
 import|;
 end_import
 
@@ -690,7 +722,7 @@ name|registerRequestHandler
 argument_list|(
 name|PRE_SYNCED_FLUSH_ACTION_NAME
 argument_list|,
-name|PreSyncedFlushRequest
+name|PreShardSyncedFlushRequest
 operator|::
 operator|new
 argument_list|,
@@ -711,7 +743,7 @@ name|registerRequestHandler
 argument_list|(
 name|SYNCED_FLUSH_ACTION_NAME
 argument_list|,
-name|SyncedFlushRequest
+name|ShardSyncedFlushRequest
 operator|::
 operator|new
 argument_list|,
@@ -861,7 +893,7 @@ parameter_list|,
 specifier|final
 name|ActionListener
 argument_list|<
-name|IndicesSyncedFlushResult
+name|SyncedFlushResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -876,7 +908,7 @@ name|state
 argument_list|()
 decl_stmt|;
 specifier|final
-name|String
+name|Index
 index|[]
 name|concreteIndices
 init|=
@@ -920,7 +952,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|String
+name|Index
 name|index
 range|:
 name|concreteIndices
@@ -935,7 +967,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|index
 argument_list|)
@@ -959,6 +991,9 @@ operator|.
 name|put
 argument_list|(
 name|index
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|Collections
 operator|.
@@ -966,9 +1001,7 @@ name|synchronizedList
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardsSyncedFlushResult
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 argument_list|)
@@ -986,7 +1019,7 @@ operator|.
 name|onResponse
 argument_list|(
 operator|new
-name|IndicesSyncedFlushResult
+name|SyncedFlushResponse
 argument_list|(
 name|results
 argument_list|)
@@ -1013,25 +1046,40 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|String
-name|index
+name|Index
+name|concreteIndex
 range|:
 name|concreteIndices
 control|)
 block|{
 specifier|final
-name|int
-name|indexNumberOfShards
+name|String
+name|index
+init|=
+name|concreteIndex
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+specifier|final
+name|IndexMetaData
+name|indexMetaData
 init|=
 name|state
 operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
-name|index
+name|concreteIndex
 argument_list|)
+decl_stmt|;
+specifier|final
+name|int
+name|indexNumberOfShards
+init|=
+name|indexMetaData
 operator|.
 name|getNumberOfShards
 argument_list|()
@@ -1058,7 +1106,10 @@ init|=
 operator|new
 name|ShardId
 argument_list|(
-name|index
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
 argument_list|,
 name|shard
 argument_list|)
@@ -1109,7 +1160,7 @@ operator|.
 name|onResponse
 argument_list|(
 operator|new
-name|IndicesSyncedFlushResult
+name|SyncedFlushResponse
 argument_list|(
 name|results
 argument_list|)
@@ -1172,7 +1223,7 @@ operator|.
 name|onResponse
 argument_list|(
 operator|new
-name|IndicesSyncedFlushResult
+name|SyncedFlushResponse
 argument_list|(
 name|results
 argument_list|)
@@ -1416,7 +1467,7 @@ comment|// 3. now send the sync request to all the shards
 name|String
 name|syncId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|base64UUID
 argument_list|()
@@ -1546,10 +1597,7 @@ name|index
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndexName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1572,10 +1620,7 @@ name|index
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|getName
+name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1603,7 +1648,7 @@ name|IndexClosedException
 argument_list|(
 name|shardId
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 throw|;
@@ -1614,10 +1659,7 @@ name|IndexNotFoundException
 argument_list|(
 name|shardId
 operator|.
-name|index
-argument_list|()
-operator|.
-name|getName
+name|getIndexName
 argument_list|()
 argument_list|)
 throw|;
@@ -1923,7 +1965,7 @@ name|Map
 argument_list|<
 name|ShardRouting
 argument_list|,
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|>
 name|results
 init|=
@@ -1985,7 +2027,7 @@ argument_list|(
 name|shard
 argument_list|,
 operator|new
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|(
 literal|"unknown node"
 argument_list|)
@@ -2037,7 +2079,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} can't resolve expected commit id for {}, skipping for sync id [{}]. shard routing {}"
+literal|"{} can't resolve expected commit id for current node, skipping for sync id [{}]. shard routing {}"
 argument_list|,
 name|shardId
 argument_list|,
@@ -2053,7 +2095,7 @@ argument_list|(
 name|shard
 argument_list|,
 operator|new
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|(
 literal|"no commit id from pre-sync flush"
 argument_list|)
@@ -2100,7 +2142,7 @@ argument_list|,
 name|SYNCED_FLUSH_ACTION_NAME
 argument_list|,
 operator|new
-name|SyncedFlushRequest
+name|ShardSyncedFlushRequest
 argument_list|(
 name|shard
 operator|.
@@ -2115,20 +2157,20 @@ argument_list|,
 operator|new
 name|BaseTransportResponseHandler
 argument_list|<
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|>
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 name|newInstance
 parameter_list|()
 block|{
 return|return
 operator|new
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|()
 return|;
 block|}
@@ -2138,11 +2180,11 @@ specifier|public
 name|void
 name|handleResponse
 parameter_list|(
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 name|response
 parameter_list|)
 block|{
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 name|existing
 init|=
 name|results
@@ -2214,7 +2256,7 @@ argument_list|(
 name|shard
 argument_list|,
 operator|new
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|(
 name|exp
 operator|.
@@ -2294,7 +2336,7 @@ name|Map
 argument_list|<
 name|ShardRouting
 argument_list|,
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|>
 name|results
 parameter_list|)
@@ -2483,7 +2525,7 @@ argument_list|,
 name|PRE_SYNCED_FLUSH_ACTION_NAME
 argument_list|,
 operator|new
-name|PreSyncedFlushRequest
+name|PreShardSyncedFlushRequest
 argument_list|(
 name|shard
 operator|.
@@ -2532,7 +2574,7 @@ name|putIfAbsent
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|response
@@ -2635,7 +2677,7 @@ specifier|private
 name|PreSyncedFlushResponse
 name|performPreSyncedFlush
 parameter_list|(
-name|PreSyncedFlushRequest
+name|PreShardSyncedFlushRequest
 name|request
 parameter_list|)
 block|{
@@ -2731,10 +2773,10 @@ return|;
 block|}
 DECL|method|performSyncedFlush
 specifier|private
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 name|performSyncedFlush
 parameter_list|(
-name|SyncedFlushRequest
+name|ShardSyncedFlushRequest
 name|request
 parameter_list|)
 block|{
@@ -2841,7 +2883,7 @@ name|SUCCESS
 case|:
 return|return
 operator|new
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|()
 return|;
 case|case
@@ -2849,7 +2891,7 @@ name|COMMIT_MISMATCH
 case|:
 return|return
 operator|new
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|(
 literal|"commit has changed"
 argument_list|)
@@ -2859,7 +2901,7 @@ name|PENDING_OPERATIONS
 case|:
 return|return
 operator|new
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 argument_list|(
 literal|"pending operations"
 argument_list|)
@@ -2952,7 +2994,7 @@ name|opCount
 init|=
 name|indexShard
 operator|.
-name|getOperationsCount
+name|getActiveOperationsCount
 argument_list|()
 decl_stmt|;
 name|logger
@@ -2977,12 +3019,12 @@ name|opCount
 argument_list|)
 return|;
 block|}
-DECL|class|PreSyncedFlushRequest
+DECL|class|PreShardSyncedFlushRequest
 specifier|public
 specifier|final
 specifier|static
 class|class
-name|PreSyncedFlushRequest
+name|PreShardSyncedFlushRequest
 extends|extends
 name|TransportRequest
 block|{
@@ -2991,14 +3033,14 @@ specifier|private
 name|ShardId
 name|shardId
 decl_stmt|;
-DECL|method|PreSyncedFlushRequest
+DECL|method|PreShardSyncedFlushRequest
 specifier|public
-name|PreSyncedFlushRequest
+name|PreShardSyncedFlushRequest
 parameter_list|()
 block|{         }
-DECL|method|PreSyncedFlushRequest
+DECL|method|PreShardSyncedFlushRequest
 specifier|public
-name|PreSyncedFlushRequest
+name|PreShardSyncedFlushRequest
 parameter_list|(
 name|ShardId
 name|shardId
@@ -3020,7 +3062,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"PreSyncedFlushRequest{"
+literal|"PreShardSyncedFlushRequest{"
 operator|+
 literal|"shardId="
 operator|+
@@ -3207,12 +3249,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|SyncedFlushRequest
+DECL|class|ShardSyncedFlushRequest
 specifier|public
 specifier|static
 specifier|final
 class|class
-name|SyncedFlushRequest
+name|ShardSyncedFlushRequest
 extends|extends
 name|TransportRequest
 block|{
@@ -3233,14 +3275,14 @@ specifier|private
 name|ShardId
 name|shardId
 decl_stmt|;
-DECL|method|SyncedFlushRequest
+DECL|method|ShardSyncedFlushRequest
 specifier|public
-name|SyncedFlushRequest
+name|ShardSyncedFlushRequest
 parameter_list|()
 block|{         }
-DECL|method|SyncedFlushRequest
+DECL|method|ShardSyncedFlushRequest
 specifier|public
-name|SyncedFlushRequest
+name|ShardSyncedFlushRequest
 parameter_list|(
 name|ShardId
 name|shardId
@@ -3403,7 +3445,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SyncedFlushRequest{"
+literal|"ShardSyncedFlushRequest{"
 operator|+
 literal|"shardId="
 operator|+
@@ -3420,12 +3462,12 @@ return|;
 block|}
 block|}
 comment|/**      * Response for third step of synced flush (writing the sync id) for one shard copy      */
-DECL|class|SyncedFlushResponse
+DECL|class|ShardSyncedFlushResponse
 specifier|public
 specifier|static
 specifier|final
 class|class
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 extends|extends
 name|TransportResponse
 block|{
@@ -3434,9 +3476,9 @@ DECL|field|failureReason
 name|String
 name|failureReason
 decl_stmt|;
-DECL|method|SyncedFlushResponse
+DECL|method|ShardSyncedFlushResponse
 specifier|public
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 parameter_list|()
 block|{
 name|failureReason
@@ -3444,9 +3486,9 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-DECL|method|SyncedFlushResponse
+DECL|method|ShardSyncedFlushResponse
 specifier|public
-name|SyncedFlushResponse
+name|ShardSyncedFlushResponse
 parameter_list|(
 name|String
 name|failureReason
@@ -3546,7 +3588,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SyncedFlushResponse{"
+literal|"ShardSyncedFlushResponse{"
 operator|+
 literal|"success="
 operator|+
@@ -3560,6 +3602,36 @@ operator|+
 literal|'\''
 operator|+
 literal|'}'
+return|;
+block|}
+DECL|method|readSyncedFlushResponse
+specifier|public
+specifier|static
+name|ShardSyncedFlushResponse
+name|readSyncedFlushResponse
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|ShardSyncedFlushResponse
+name|shardSyncedFlushResponse
+init|=
+operator|new
+name|ShardSyncedFlushResponse
+argument_list|()
+decl_stmt|;
+name|shardSyncedFlushResponse
+operator|.
+name|readFrom
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+return|return
+name|shardSyncedFlushResponse
 return|;
 block|}
 block|}
@@ -3810,7 +3882,7 @@ name|PreSyncedFlushTransportHandler
 implements|implements
 name|TransportRequestHandler
 argument_list|<
-name|PreSyncedFlushRequest
+name|PreShardSyncedFlushRequest
 argument_list|>
 block|{
 annotation|@
@@ -3820,7 +3892,7 @@ specifier|public
 name|void
 name|messageReceived
 parameter_list|(
-name|PreSyncedFlushRequest
+name|PreShardSyncedFlushRequest
 name|request
 parameter_list|,
 name|TransportChannel
@@ -3849,7 +3921,7 @@ name|SyncedFlushTransportHandler
 implements|implements
 name|TransportRequestHandler
 argument_list|<
-name|SyncedFlushRequest
+name|ShardSyncedFlushRequest
 argument_list|>
 block|{
 annotation|@
@@ -3859,7 +3931,7 @@ specifier|public
 name|void
 name|messageReceived
 parameter_list|(
-name|SyncedFlushRequest
+name|ShardSyncedFlushRequest
 name|request
 parameter_list|,
 name|TransportChannel

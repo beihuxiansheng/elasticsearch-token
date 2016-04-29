@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -82,9 +94,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|SearchParseException
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -156,41 +170,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
-name|derivative
-operator|.
-name|DerivativeParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|support
 operator|.
 name|AggregationPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -280,7 +262,7 @@ specifier|static
 name|GapPolicy
 name|parse
 parameter_list|(
-name|SearchContext
+name|QueryParseContext
 name|context
 parameter_list|,
 name|String
@@ -308,7 +290,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -401,9 +383,9 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|SearchParseException
+name|ParsingException
 argument_list|(
-name|context
+name|tokenLocation
 argument_list|,
 literal|"Invalid gap policy: ["
 operator|+
@@ -412,8 +394,6 @@ operator|+
 literal|"], accepted values: "
 operator|+
 name|validNames
-argument_list|,
-name|tokenLocation
 argument_list|)
 throw|;
 block|}
@@ -673,9 +653,9 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-name|DerivativeParser
+name|PipelineAggregatorBuilder
 operator|.
-name|BUCKETS_PATH
+name|BUCKETS_PATH_FIELD
 operator|.
 name|getPreferredName
 argument_list|()
@@ -740,9 +720,9 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-name|DerivativeParser
+name|PipelineAggregatorBuilder
 operator|.
-name|BUCKETS_PATH
+name|BUCKETS_PATH_FIELD
 operator|.
 name|getPreferredName
 argument_list|()

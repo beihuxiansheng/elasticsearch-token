@@ -104,7 +104,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|Streamable
+name|Writeable
 import|;
 end_import
 
@@ -117,8 +117,6 @@ operator|.
 name|common
 operator|.
 name|logging
-operator|.
-name|support
 operator|.
 name|LoggerMessageFormat
 import|;
@@ -212,7 +210,7 @@ name|Script
 implements|implements
 name|ToXContent
 implements|,
-name|Streamable
+name|Writeable
 block|{
 DECL|field|DEFAULT_TYPE
 specifier|public
@@ -267,11 +265,6 @@ name|Object
 argument_list|>
 name|params
 decl_stmt|;
-comment|/**      * For Serialization      */
-DECL|method|Script
-name|Script
-parameter_list|()
-block|{     }
 comment|/**      * Constructor for simple inline script. The script will have no lang or      * params set.      *      * @param script      *            The inline script to execute.      */
 DECL|method|Script
 specifier|public
@@ -315,7 +308,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor for Script.      *       * @param script      *            The cache key of the script to be compiled/executed. For      *            inline scripts this is the actual script source code. For      *            indexed scripts this is the id used in the request. For on      *            file scripts this is the file name.      * @param type      *            The type of script -- dynamic, indexed, or file.      * @param lang      *            The language of the script to be compiled/executed.      * @param params      *            The map of parameters the script will be executed with.      */
+comment|/**      * Constructor for Script.      *      * @param script      *            The cache key of the script to be compiled/executed. For      *            inline scripts this is the actual script source code. For      *            indexed scripts this is the id used in the request. For on      *            file scripts this is the file name.      * @param type      *            The type of script -- dynamic, indexed, or file.      * @param lang      *            The language of the script to be compiled/executed.      * @param params      *            The map of parameters the script will be executed with.      */
 DECL|method|Script
 specifier|public
 name|Script
@@ -407,68 +400,9 @@ operator|)
 name|params
 expr_stmt|;
 block|}
-comment|/**      * Method for getting the script.      * @return The cache key of the script to be compiled/executed.  For dynamic scripts this is the actual      *         script source code.  For indexed scripts this is the id used in the request.  For on disk scripts      *         this is the file name.      */
-DECL|method|getScript
+DECL|method|Script
 specifier|public
-name|String
-name|getScript
-parameter_list|()
-block|{
-return|return
-name|script
-return|;
-block|}
-comment|/**      * Method for getting the type.      *       * @return The type of script -- inline, indexed, or file.      */
-DECL|method|getType
-specifier|public
-name|ScriptType
-name|getType
-parameter_list|()
-block|{
-return|return
-name|type
-operator|==
-literal|null
-condition|?
-name|DEFAULT_TYPE
-else|:
-name|type
-return|;
-block|}
-comment|/**      * Method for getting language.      *       * @return The language of the script to be compiled/executed.      */
-DECL|method|getLang
-specifier|public
-name|String
-name|getLang
-parameter_list|()
-block|{
-return|return
-name|lang
-return|;
-block|}
-comment|/**      * Method for getting the parameters.      *       * @return The map of parameters the script will be executed with.      */
-DECL|method|getParams
-specifier|public
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|getParams
-parameter_list|()
-block|{
-return|return
-name|params
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|readFrom
-specifier|public
-specifier|final
-name|void
-name|readFrom
+name|Script
 parameter_list|(
 name|StreamInput
 name|in
@@ -524,24 +458,6 @@ name|readMap
 argument_list|()
 expr_stmt|;
 block|}
-name|doReadFrom
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|doReadFrom
-specifier|protected
-name|void
-name|doReadFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// For sub-classes to Override
 block|}
 annotation|@
 name|Override
@@ -643,8 +559,62 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
+block|{}
+empty_stmt|;
+comment|/**      * Method for getting the script.      * @return The cache key of the script to be compiled/executed.  For dynamic scripts this is the actual      *         script source code.  For indexed scripts this is the id used in the request.  For on disk scripts      *         this is the file name.      */
+DECL|method|getScript
+specifier|public
+name|String
+name|getScript
+parameter_list|()
 block|{
-comment|// For sub-classes to Override
+return|return
+name|script
+return|;
+block|}
+comment|/**      * Method for getting the type.      *      * @return The type of script -- inline, indexed, or file.      */
+DECL|method|getType
+specifier|public
+name|ScriptType
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+operator|==
+literal|null
+condition|?
+name|DEFAULT_TYPE
+else|:
+name|type
+return|;
+block|}
+comment|/**      * Method for getting language.      *      * @return The language of the script to be compiled/executed.      */
+DECL|method|getLang
+specifier|public
+name|String
+name|getLang
+parameter_list|()
+block|{
+return|return
+name|lang
+return|;
+block|}
+comment|/**      * Method for getting the parameters.      *      * @return The map of parameters the script will be executed with.      */
+DECL|method|getParams
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getParams
+parameter_list|()
+block|{
+return|return
+name|params
+return|;
 block|}
 annotation|@
 name|Override
@@ -785,36 +755,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|builder
-return|;
-block|}
-DECL|method|readScript
-specifier|public
-specifier|static
-name|Script
-name|readScript
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|Script
-name|script
-init|=
-operator|new
-name|Script
-argument_list|()
-decl_stmt|;
-name|script
-operator|.
-name|readFrom
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
-return|return
-name|script
 return|;
 block|}
 DECL|method|parse
@@ -1053,7 +993,8 @@ return|return
 literal|false
 return|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 operator|!
@@ -1069,6 +1010,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|params
@@ -1088,7 +1030,8 @@ return|return
 literal|false
 return|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 operator|!
@@ -1104,6 +1047,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|script
@@ -1123,7 +1067,8 @@ return|return
 literal|false
 return|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 operator|!
@@ -1139,6 +1084,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|type

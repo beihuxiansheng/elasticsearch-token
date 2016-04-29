@@ -37,35 +37,30 @@ interface|interface
 name|CircuitBreaker
 block|{
 DECL|field|PARENT
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|PARENT
 init|=
 literal|"parent"
 decl_stmt|;
 DECL|field|FIELDDATA
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|FIELDDATA
 init|=
 literal|"fielddata"
 decl_stmt|;
 DECL|field|REQUEST
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|REQUEST
 init|=
 literal|"request"
 decl_stmt|;
+DECL|field|IN_FLIGHT_REQUESTS
+name|String
+name|IN_FLIGHT_REQUESTS
+init|=
+literal|"in_flight_requests"
+decl_stmt|;
 DECL|enum|Type
-specifier|public
-specifier|static
 enum|enum
 name|Type
 block|{
@@ -142,7 +137,6 @@ block|}
 block|}
 comment|/**      * Trip the circuit breaker      * @param fieldName name of the field responsible for tripping the breaker      * @param bytesNeeded bytes asked for but unable to be allocated      */
 DECL|method|circuitBreak
-specifier|public
 name|void
 name|circuitBreak
 parameter_list|(
@@ -155,7 +149,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * add bytes to the breaker and maybe trip      * @param bytes number of bytes to add      * @param label string label describing the bytes being added      * @return the number of "used" bytes for the circuit breaker      */
 DECL|method|addEstimateBytesAndMaybeBreak
-specifier|public
 name|double
 name|addEstimateBytesAndMaybeBreak
 parameter_list|(
@@ -170,7 +163,6 @@ name|CircuitBreakingException
 function_decl|;
 comment|/**      * Adjust the circuit breaker without tripping      */
 DECL|method|addWithoutBreaking
-specifier|public
 name|long
 name|addWithoutBreaking
 parameter_list|(
@@ -180,35 +172,30 @@ parameter_list|)
 function_decl|;
 comment|/**      * @return the currently used bytes the breaker is tracking      */
 DECL|method|getUsed
-specifier|public
 name|long
 name|getUsed
 parameter_list|()
 function_decl|;
 comment|/**      * @return maximum number of bytes the circuit breaker can track before tripping      */
 DECL|method|getLimit
-specifier|public
 name|long
 name|getLimit
 parameter_list|()
 function_decl|;
 comment|/**      * @return overhead of circuit breaker      */
 DECL|method|getOverhead
-specifier|public
 name|double
 name|getOverhead
 parameter_list|()
 function_decl|;
 comment|/**      * @return the number of times the circuit breaker has been tripped      */
 DECL|method|getTrippedCount
-specifier|public
 name|long
 name|getTrippedCount
 parameter_list|()
 function_decl|;
 comment|/**      * @return the name of the breaker      */
 DECL|method|getName
-specifier|public
 name|String
 name|getName
 parameter_list|()

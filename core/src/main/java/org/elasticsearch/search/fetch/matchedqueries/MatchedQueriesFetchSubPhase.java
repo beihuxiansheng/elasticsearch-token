@@ -542,7 +542,7 @@ name|twoPhase
 init|=
 name|scorer
 operator|.
-name|asTwoPhaseIterator
+name|twoPhaseIterator
 argument_list|()
 decl_stmt|;
 if|if
@@ -555,6 +555,9 @@ block|{
 if|if
 condition|(
 name|scorer
+operator|.
+name|iterator
+argument_list|()
 operator|.
 name|advance
 argument_list|(

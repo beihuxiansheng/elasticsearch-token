@@ -24,13 +24,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|util
+name|geo
 operator|.
-name|PriorityQueue
+name|GeoHashUtils
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|GeoHashUtils
+name|PriorityQueue
 import|;
 end_import
 
@@ -119,20 +119,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilderString
 import|;
 end_import
 
@@ -1067,6 +1053,11 @@ name|aggregations
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|getBuckets

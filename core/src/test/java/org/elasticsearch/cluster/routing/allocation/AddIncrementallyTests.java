@@ -310,22 +310,6 @@ name|STARTED
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_class
 DECL|class|AddIncrementallyTests
 specifier|public
@@ -360,7 +344,9 @@ operator|.
 name|Builder
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|settings
@@ -369,7 +355,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|ClusterRebalanceAllocationDecider
 operator|.
@@ -934,7 +923,9 @@ operator|.
 name|Builder
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|settings
@@ -943,7 +934,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|ClusterRebalanceAllocationDecider
 operator|.
@@ -1959,7 +1953,9 @@ operator|.
 name|Builder
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|settings
@@ -1968,7 +1964,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|ClusterRebalanceAllocationDecider
 operator|.
@@ -3516,11 +3515,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"start "
-operator|+
+literal|"start {} nodes"
+argument_list|,
 name|numberOfNodes
-operator|+
-literal|" nodes"
 argument_list|)
 expr_stmt|;
 name|DiscoveryNodes
@@ -4295,7 +4292,7 @@ name|shuffle
 argument_list|(
 name|discoveryNodes
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4313,7 +4310,7 @@ name|remove
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -58,6 +58,22 @@ name|io
 operator|.
 name|stream
 operator|.
+name|NamedWriteable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
 name|StreamOutput
 import|;
 end_import
@@ -68,9 +84,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|SearchParseException
+name|xcontent
+operator|.
+name|ToXContent
 import|;
 end_import
 
@@ -130,6 +148,10 @@ specifier|public
 specifier|abstract
 class|class
 name|MovAvgModel
+implements|implements
+name|NamedWriteable
+implements|,
+name|ToXContent
 block|{
 comment|/**      * Should this model be fit to the data via a cost minimizing algorithm by default?      */
 DECL|method|minimizeByDefault
@@ -308,6 +330,8 @@ name|predictions
 return|;
 block|}
 comment|/**      * Write the model to the output stream      *      * @param out   Output stream      */
+annotation|@
+name|Override
 DECL|method|writeTo
 specifier|public
 specifier|abstract
@@ -321,12 +345,35 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Clone the model, returning an exact copy      */
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 specifier|abstract
 name|MovAvgModel
 name|clone
 parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+DECL|method|hashCode
+specifier|public
+specifier|abstract
+name|int
+name|hashCode
+parameter_list|()
+function_decl|;
+annotation|@
+name|Override
+DECL|method|equals
+specifier|public
+specifier|abstract
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|obj
+parameter_list|)
 function_decl|;
 comment|/**      * Abstract class which also provides some concrete parsing functionality.      */
 DECL|class|AbstractModelParser
@@ -336,14 +383,6 @@ specifier|static
 class|class
 name|AbstractModelParser
 block|{
-comment|/**          * Returns the name of the model          *          * @return The model's name          */
-DECL|method|getName
-specifier|public
-specifier|abstract
-name|String
-name|getName
-parameter_list|()
-function_decl|;
 comment|/**          * Parse a settings hash that is specific to this model          *          * @param settings           Map of settings, extracted from the request          * @param pipelineName       Name of the parent pipeline agg          * @param windowSize         Size of the window for this moving avg          * @param parseFieldMatcher  Matcher for field names          * @return                   A fully built moving average model          */
 DECL|method|parse
 specifier|public

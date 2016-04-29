@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Reported issue in #15  * (https://github.com/elasticsearch/elasticsearch-cloud-azure/issues/15)  */
+comment|/**  * Reported issue in #15  * (https://github.com/elastic/elasticsearch-cloud-azure/issues/15)  */
 end_comment
 
 begin_class
@@ -223,7 +223,7 @@ name|builder
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -248,7 +248,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_JOIN_TIMEOUT
+name|JOIN_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"50ms"
 argument_list|)
@@ -257,7 +260,10 @@ name|put
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|SETTING_PING_TIMEOUT
+name|PING_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10ms"
 argument_list|)
@@ -330,7 +336,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|,
 name|nullValue
@@ -395,7 +401,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -448,7 +454,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|,
 name|nullValue
@@ -513,7 +519,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|,
 name|notNullValue

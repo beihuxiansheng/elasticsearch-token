@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Simple class to log {@code ifconfig}-style output at DEBUG logging.  */
+comment|/**  * Simple class to log {@code ifconfig}-style output at DEBUG logging.  */
 end_comment
 
 begin_class
@@ -542,19 +542,14 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"configuration:"
-operator|+
+literal|"configuration:{}{}"
+argument_list|,
 name|System
 operator|.
 name|lineSeparator
 argument_list|()
-operator|+
-literal|"{}"
 argument_list|,
 name|msg
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -606,7 +601,7 @@ name|append
 argument_list|(
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|address
 argument_list|)
@@ -645,7 +640,7 @@ name|append
 argument_list|(
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|address
 argument_list|)
@@ -673,7 +668,7 @@ literal|" netmask:"
 operator|+
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|InetAddress
 operator|.
@@ -750,7 +745,7 @@ literal|" broadcast:"
 operator|+
 name|NetworkAddress
 operator|.
-name|formatAddress
+name|format
 argument_list|(
 name|broadcast
 argument_list|)

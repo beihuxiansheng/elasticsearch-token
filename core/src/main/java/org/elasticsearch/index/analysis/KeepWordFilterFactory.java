@@ -56,22 +56,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|miscellaneous
-operator|.
-name|Lucene43KeepWordFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|util
 operator|.
 name|CharArraySet
@@ -98,9 +82,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
+name|common
 operator|.
-name|Environment
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -110,11 +96,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|env
 operator|.
-name|settings
-operator|.
-name|Settings
+name|Environment
 import|;
 end_import
 
@@ -131,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TokenFilterFactory} for {@link KeepWordFilter}. This filter only  * keep tokens that are contained in the term set configured via  * {@value #KEEP_WORDS_KEY} setting. This filter acts like an inverse stop  * filter.  *<p>  * Configuration options:  *<ul>  *<li>{@value #KEEP_WORDS_KEY} the array of words / tokens to keep.</li>  *<li>{@value #KEEP_WORDS_PATH_KEY} an reference to a file containing the words  * / tokens to keep. Note: this is an alternative to {@value #KEEP_WORDS_KEY} if  * both are set an exception will be thrown.</li>  *<li>{@value #ENABLE_POS_INC_KEY}<code>true</code> iff the filter should  * maintain position increments for dropped tokens. The default is  *<code>true</code>.</li>  *<li>{@value #KEEP_WORDS_CASE_KEY} to use case sensitive keep words. The  * default is<code>false</code> which corresponds to case-sensitive.</li>  *</ul>  *  * @see StopTokenFilterFactory  */
+comment|/**  * A {@link TokenFilterFactory} for {@link KeepWordFilter}. This filter only  * keep tokens that are contained in the term set configured via  * {@value #KEEP_WORDS_KEY} setting. This filter acts like an inverse stop  * filter.  *<p>  * Configuration options:  *<ul>  *<li>{@value #KEEP_WORDS_KEY} the array of words / tokens to keep.</li>  *<li>{@value #KEEP_WORDS_PATH_KEY} an reference to a file containing the words  * / tokens to keep. Note: this is an alternative to {@value #KEEP_WORDS_KEY} if  * both are set an exception will be thrown.</li>  *<li>{@value #KEEP_WORDS_CASE_KEY} to use case sensitive keep words. The  * default is<code>false</code> which corresponds to case-sensitive.</li>  *</ul>  *  * @see StopTokenFilterFactory  */
 end_comment
 
 begin_class
@@ -147,12 +131,6 @@ specifier|private
 specifier|final
 name|CharArraySet
 name|keepWords
-decl_stmt|;
-DECL|field|enablePositionIncrements
-specifier|private
-specifier|final
-name|boolean
-name|enablePositionIncrements
 decl_stmt|;
 DECL|field|KEEP_WORDS_KEY
 specifier|private
@@ -186,6 +164,7 @@ operator|+
 literal|"_case"
 decl_stmt|;
 comment|// for javadoc
+comment|// unsupported ancient option
 DECL|field|ENABLE_POS_INC_KEY
 specifier|private
 specifier|static
@@ -290,15 +269,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|version
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|LUCENE_4_4
-argument_list|)
-operator|&&
 name|settings
 operator|.
 name|get
@@ -315,34 +285,10 @@ name|IllegalArgumentException
 argument_list|(
 name|ENABLE_POS_INC_KEY
 operator|+
-literal|" is not supported anymore. Please fix your analysis chain or use"
-operator|+
-literal|" an older compatibility version (<=4.3) but beware that it might cause highlighting bugs."
+literal|" is not supported anymore. Please fix your analysis chain"
 argument_list|)
 throw|;
 block|}
-name|enablePositionIncrements
-operator|=
-name|version
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|LUCENE_4_4
-argument_list|)
-condition|?
-literal|true
-else|:
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|ENABLE_POS_INC_KEY
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|keepWords
@@ -370,18 +316,6 @@ name|TokenStream
 name|tokenStream
 parameter_list|)
 block|{
-if|if
-condition|(
-name|version
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|LUCENE_4_4
-argument_list|)
-condition|)
-block|{
 return|return
 operator|new
 name|KeepWordFilter
@@ -391,32 +325,6 @@ argument_list|,
 name|keepWords
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-specifier|final
-name|TokenStream
-name|filter
-init|=
-operator|new
-name|Lucene43KeepWordFilter
-argument_list|(
-name|enablePositionIncrements
-argument_list|,
-name|tokenStream
-argument_list|,
-name|keepWords
-argument_list|)
-decl_stmt|;
-return|return
-name|filter
-return|;
-block|}
 block|}
 block|}
 end_class

@@ -72,15 +72,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
+name|hamcrest
 operator|.
-name|common
+name|CoreMatchers
 operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
+name|containsString
 import|;
 end_import
 
@@ -95,10 +91,6 @@ operator|.
 name|equalTo
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|JsonSettingsLoaderTests
@@ -116,15 +108,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|String
 name|json
 init|=
 literal|"/org/elasticsearch/common/settings/loader/test-settings.json"
 decl_stmt|;
+specifier|final
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|loadFromStream
@@ -282,14 +278,27 @@ name|void
 name|testDuplicateKeysThrowsException
 parameter_list|()
 block|{
+specifier|final
 name|String
 name|json
 init|=
 literal|"{\"foo\":\"bar\",\"foo\":\"baz\"}"
 decl_stmt|;
-try|try
-block|{
-name|settingsBuilder
+specifier|final
+name|SettingsException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|SettingsException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|loadFromSource
@@ -299,19 +308,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected exception"
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SettingsException
-name|e
-parameter_list|)
-block|{
+decl_stmt|;
 name|assertEquals
 argument_list|(
 name|e
@@ -327,20 +325,77 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
-literal|"duplicate settings key [foo] found at line number [1], column number [13], previous value [bar], current value [baz]"
+literal|"duplicate settings key [foo] "
+operator|+
+literal|"found at line number [1], "
+operator|+
+literal|"column number [20], "
+operator|+
+literal|"previous value [bar], "
+operator|+
+literal|"current value [baz]"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testNullValuedSettingThrowsException
+specifier|public
+name|void
+name|testNullValuedSettingThrowsException
+parameter_list|()
+block|{
+specifier|final
+name|String
+name|json
+init|=
+literal|"{\"foo\":null}"
+decl_stmt|;
+specifier|final
+name|ElasticsearchParseException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|ElasticsearchParseException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+operator|new
+name|JsonSettingsLoader
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|load
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"null-valued setting found for key [foo] found at line number [1], column number [8]"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

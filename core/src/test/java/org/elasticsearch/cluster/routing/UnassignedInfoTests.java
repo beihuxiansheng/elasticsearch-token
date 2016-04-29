@@ -230,6 +230,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESAllocationTestCase
@@ -268,7 +280,39 @@ name|routing
 operator|.
 name|ShardRoutingState
 operator|.
-name|*
+name|INITIALIZING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|STARTED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|ShardRoutingState
+operator|.
+name|UNASSIGNED
 import|;
 end_import
 
@@ -280,7 +324,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -459,7 +539,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|UnassignedInfo
@@ -1491,6 +1571,20 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Index
+name|index
+init|=
+name|metaData
+operator|.
+name|index
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|getIndex
+argument_list|()
+decl_stmt|;
 name|ClusterState
 name|clusterState
 init|=
@@ -1521,7 +1615,7 @@ name|metaData
 operator|.
 name|index
 argument_list|(
-literal|"test"
+name|index
 argument_list|)
 argument_list|)
 operator|.
@@ -1626,7 +1720,7 @@ name|IndexRoutingTable
 operator|.
 name|builder
 argument_list|(
-literal|"test"
+name|index
 argument_list|)
 decl_stmt|;
 for|for
@@ -1641,7 +1735,7 @@ argument_list|()
 operator|.
 name|index
 argument_list|(
-literal|"test"
+name|index
 argument_list|)
 control|)
 block|{
@@ -1800,8 +1894,6 @@ name|ShardRoutingState
 operator|.
 name|UNASSIGNED
 argument_list|,
-literal|1
-argument_list|,
 operator|new
 name|UnassignedInfo
 argument_list|(
@@ -1840,6 +1932,8 @@ operator|.
 name|initialize
 argument_list|(
 literal|"test_node"
+argument_list|,
+literal|null
 argument_list|,
 operator|-
 literal|1
@@ -2325,7 +2419,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2813,7 +2907,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2868,6 +2962,9 @@ argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -2968,7 +3065,7 @@ name|RandomPicks
 operator|.
 name|randomFrom
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|reasons
@@ -3002,6 +3099,9 @@ argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -3020,7 +3120,7 @@ name|delay
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3037,7 +3137,7 @@ name|delay
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3113,6 +3213,9 @@ argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|TimeValue
 operator|.
@@ -3812,6 +3915,9 @@ argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|delayTest1
 argument_list|)
@@ -3851,6 +3957,9 @@ argument_list|(
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|delayTest2
 argument_list|)

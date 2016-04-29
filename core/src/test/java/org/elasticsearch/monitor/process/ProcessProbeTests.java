@@ -389,7 +389,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// CPU time can return -1 if the the platform does not support this operation, let's see which platforms fail
+comment|// CPU time can return -1 if the platform does not support this operation, let's see which platforms fail
 name|assertThat
 argument_list|(
 name|cpu

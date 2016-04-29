@@ -178,7 +178,43 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|*
+name|BaseRestHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestController
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestRequest
 import|;
 end_import
 
@@ -315,8 +351,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
 argument_list|,
 name|client
 argument_list|)
@@ -584,7 +618,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Malforrmed content, must start with an object"
+literal|"Malformed content, must start with an object"
 argument_list|)
 throw|;
 block|}

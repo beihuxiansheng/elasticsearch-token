@@ -158,8 +158,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|bulkRequest
-argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
@@ -424,15 +422,58 @@ name|String
 name|toString
 parameter_list|()
 block|{
+comment|// This is included in error messages so we'll try to make it somewhat user friendly.
+name|StringBuilder
+name|b
+init|=
+operator|new
+name|StringBuilder
+argument_list|(
+literal|"BulkShardRequest to ["
+argument_list|)
+decl_stmt|;
+name|b
+operator|.
+name|append
+argument_list|(
+name|index
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"] containing ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|items
+operator|.
+name|length
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"] requests"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|refresh
+condition|)
+block|{
+name|b
+operator|.
+name|append
+argument_list|(
+literal|" and a refresh"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-literal|"shard bulk {"
-operator|+
-name|super
+name|b
 operator|.
 name|toString
 argument_list|()
-operator|+
-literal|"}"
 return|;
 block|}
 block|}

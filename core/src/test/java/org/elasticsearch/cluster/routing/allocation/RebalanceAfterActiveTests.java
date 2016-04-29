@@ -214,6 +214,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESAllocationTestCase
@@ -281,22 +295,6 @@ operator|.
 name|ShardRoutingState
 operator|.
 name|UNASSIGNED
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -405,12 +403,14 @@ name|strategy
 init|=
 name|createAllocationService
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+literal|"cluster.routing.allocation.node_concurrent_recoveries"
 argument_list|,
 literal|10
 argument_list|)
@@ -419,7 +419,10 @@ name|put
 argument_list|(
 name|ClusterRebalanceAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 literal|"always"
 argument_list|)
@@ -465,7 +468,7 @@ if|if
 condition|(
 name|shardRouting
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 operator|.
 name|equals
@@ -1844,7 +1847,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"complete relocation, thats it!"
+literal|"complete relocation, that's it!"
 argument_list|)
 expr_stmt|;
 name|routingNodes

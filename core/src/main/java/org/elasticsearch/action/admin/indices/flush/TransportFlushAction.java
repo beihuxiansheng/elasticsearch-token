@@ -28,7 +28,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -82,7 +82,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
+name|metadata
+operator|.
+name|IndexNameExpressionResolver
 import|;
 end_import
 
@@ -94,9 +96,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
+name|service
 operator|.
-name|IndexNameExpressionResolver
+name|ClusterService
 import|;
 end_import
 
@@ -194,7 +196,7 @@ name|FlushResponse
 argument_list|,
 name|ShardFlushRequest
 argument_list|,
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 block|{
 annotation|@
@@ -255,13 +257,13 @@ annotation|@
 name|Override
 DECL|method|newShardResponse
 specifier|protected
-name|ActionWriteResponse
+name|ReplicationResponse
 name|newShardResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 return|;
 block|}

@@ -207,7 +207,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -222,14 +222,14 @@ name|field
 argument_list|(
 literal|"similarity"
 argument_list|,
-literal|"default"
+literal|"classic"
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject
@@ -246,7 +246,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -281,7 +281,7 @@ name|put
 argument_list|(
 literal|"similarity.custom.b"
 argument_list|,
-literal|1.5f
+literal|0.5f
 argument_list|)
 argument_list|)
 operator|.
@@ -362,7 +362,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -420,7 +420,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -84,18 +84,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Numbers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|DistanceUnit
@@ -145,6 +133,24 @@ operator|.
 name|geo
 operator|.
 name|GeoPointFieldMapper
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|util
+operator|.
+name|GeoDistanceUtils
+operator|.
+name|maxRadialDistanceMeters
 import|;
 end_import
 
@@ -324,93 +330,6 @@ name|PI
 operator|*
 name|EARTH_SEMI_MINOR_AXIS
 decl_stmt|;
-comment|/** Returns the maximum distance/radius from the point 'center' before overlapping */
-DECL|method|maxRadialDistance
-specifier|public
-specifier|static
-name|double
-name|maxRadialDistance
-parameter_list|(
-name|GeoPoint
-name|center
-parameter_list|)
-block|{
-if|if
-condition|(
-name|Math
-operator|.
-name|abs
-argument_list|(
-name|center
-operator|.
-name|lat
-argument_list|()
-argument_list|)
-operator|==
-literal|90.0
-condition|)
-block|{
-return|return
-name|SloppyMath
-operator|.
-name|haversin
-argument_list|(
-name|center
-operator|.
-name|lat
-argument_list|()
-argument_list|,
-name|center
-operator|.
-name|lon
-argument_list|()
-argument_list|,
-literal|0
-argument_list|,
-name|center
-operator|.
-name|lon
-argument_list|()
-argument_list|)
-operator|*
-literal|1000.0
-return|;
-block|}
-return|return
-name|SloppyMath
-operator|.
-name|haversin
-argument_list|(
-name|center
-operator|.
-name|lat
-argument_list|()
-argument_list|,
-name|center
-operator|.
-name|lon
-argument_list|()
-argument_list|,
-name|center
-operator|.
-name|lat
-argument_list|()
-argument_list|,
-operator|(
-literal|180.0
-operator|+
-name|center
-operator|.
-name|lon
-argument_list|()
-operator|)
-operator|%
-literal|360
-argument_list|)
-operator|*
-literal|1000.0
-return|;
-block|}
 comment|/** Returns the minimum between the provided distance 'initialRadius' and the      * maximum distance/radius from the point 'center' before overlapping      **/
 DECL|method|maxRadialDistance
 specifier|public
@@ -429,9 +348,17 @@ specifier|final
 name|double
 name|maxRadius
 init|=
-name|maxRadialDistance
+name|maxRadialDistanceMeters
 argument_list|(
 name|center
+operator|.
+name|lat
+argument_list|()
+argument_list|,
+name|center
+operator|.
+name|lon
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -541,30 +468,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Return an approximate value of the diameter of the earth (in meters) at the given latitude (in radians).      */
-DECL|method|earthDiameter
-specifier|public
-specifier|static
-name|double
-name|earthDiameter
-parameter_list|(
-name|double
-name|latitude
-parameter_list|)
-block|{
-comment|// SloppyMath impl returns a result in kilometers
-return|return
-name|SloppyMath
-operator|.
-name|earthDiameter
-argument_list|(
-name|latitude
-argument_list|)
-operator|*
-literal|1000
-return|;
-block|}
-comment|/**      * Calculate the width (in meters) of geohash cells at a specific level       * @param level geohash level must be greater or equal to zero       * @return the width of cells at level in meters        */
+comment|/**      * Calculate the width (in meters) of geohash cells at a specific level      * @param level geohash level must be greater or equal to zero      * @return the width of cells at level in meters      */
 DECL|method|geoHashCellWidth
 specifier|public
 specifier|static
@@ -616,7 +520,7 @@ operator|)
 operator|)
 return|;
 block|}
-comment|/**      * Calculate the width (in meters) of quadtree cells at a specific level       * @param level quadtree level must be greater or equal to zero       * @return the width of cells at level in meters        */
+comment|/**      * Calculate the width (in meters) of quadtree cells at a specific level      * @param level quadtree level must be greater or equal to zero      * @return the width of cells at level in meters      */
 DECL|method|quadTreeCellWidth
 specifier|public
 specifier|static
@@ -642,7 +546,7 @@ name|level
 operator|)
 return|;
 block|}
-comment|/**      * Calculate the height (in meters) of geohash cells at a specific level       * @param level geohash level must be greater or equal to zero       * @return the height of cells at level in meters        */
+comment|/**      * Calculate the height (in meters) of geohash cells at a specific level      * @param level geohash level must be greater or equal to zero      * @return the height of cells at level in meters      */
 DECL|method|geoHashCellHeight
 specifier|public
 specifier|static
@@ -694,7 +598,7 @@ operator|)
 operator|)
 return|;
 block|}
-comment|/**      * Calculate the height (in meters) of quadtree cells at a specific level       * @param level quadtree level must be greater or equal to zero       * @return the height of cells at level in meters        */
+comment|/**      * Calculate the height (in meters) of quadtree cells at a specific level      * @param level quadtree level must be greater or equal to zero      * @return the height of cells at level in meters      */
 DECL|method|quadTreeCellHeight
 specifier|public
 specifier|static
@@ -720,7 +624,7 @@ name|level
 operator|)
 return|;
 block|}
-comment|/**      * Calculate the size (in meters) of geohash cells at a specific level       * @param level geohash level must be greater or equal to zero       * @return the size of cells at level in meters        */
+comment|/**      * Calculate the size (in meters) of geohash cells at a specific level      * @param level geohash level must be greater or equal to zero      * @return the size of cells at level in meters      */
 DECL|method|geoHashCellSize
 specifier|public
 specifier|static
@@ -769,7 +673,7 @@ name|h
 argument_list|)
 return|;
 block|}
-comment|/**      * Calculate the size (in meters) of quadtree cells at a specific level       * @param level quadtree level must be greater or equal to zero       * @return the size of cells at level in meters        */
+comment|/**      * Calculate the size (in meters) of quadtree cells at a specific level      * @param level quadtree level must be greater or equal to zero      * @return the size of cells at level in meters      */
 DECL|method|quadTreeCellSize
 specifier|public
 specifier|static
@@ -806,7 +710,7 @@ name|level
 operator|)
 return|;
 block|}
-comment|/**      * Calculate the number of levels needed for a specific precision. Quadtree      * cells will not exceed the specified size (diagonal) of the precision.      * @param meters Maximum size of cells in meters (must greater than zero)      * @return levels need to achieve precision        */
+comment|/**      * Calculate the number of levels needed for a specific precision. Quadtree      * cells will not exceed the specified size (diagonal) of the precision.      * @param meters Maximum size of cells in meters (must greater than zero)      * @return levels need to achieve precision      */
 DECL|method|quadTreeLevelsForPrecision
 specifier|public
 specifier|static
@@ -913,7 +817,7 @@ operator|(
 name|part
 operator|<=
 operator|(
-literal|1l
+literal|1L
 operator|<<
 name|level
 operator|)
@@ -930,7 +834,7 @@ return|;
 comment|// adjust level
 block|}
 block|}
-comment|/**      * Calculate the number of levels needed for a specific precision. QuadTree      * cells will not exceed the specified size (diagonal) of the precision.      * @param distance Maximum size of cells as unit string (must greater or equal to zero)      * @return levels need to achieve precision        */
+comment|/**      * Calculate the number of levels needed for a specific precision. QuadTree      * cells will not exceed the specified size (diagonal) of the precision.      * @param distance Maximum size of cells as unit string (must greater or equal to zero)      * @return levels need to achieve precision      */
 DECL|method|quadTreeLevelsForPrecision
 specifier|public
 specifier|static
@@ -959,7 +863,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Calculate the number of levels needed for a specific precision. GeoHash      * cells will not exceed the specified size (diagonal) of the precision.      * @param meters Maximum size of cells in meters (must greater or equal to zero)      * @return levels need to achieve precision        */
+comment|/**      * Calculate the number of levels needed for a specific precision. GeoHash      * cells will not exceed the specified size (diagonal) of the precision.      * @param meters Maximum size of cells in meters (must greater or equal to zero)      * @return levels need to achieve precision      */
 DECL|method|geoHashLevelsForPrecision
 specifier|public
 specifier|static
@@ -1140,7 +1044,7 @@ name|odd
 return|;
 block|}
 block|}
-comment|/**      * Calculate the number of levels needed for a specific precision. GeoHash      * cells will not exceed the specified size (diagonal) of the precision.      * @param distance Maximum size of cells as unit string (must greater or equal to zero)      * @return levels need to achieve precision        */
+comment|/**      * Calculate the number of levels needed for a specific precision. GeoHash      * cells will not exceed the specified size (diagonal) of the precision.      * @param distance Maximum size of cells as unit string (must greater or equal to zero)      * @return levels need to achieve precision      */
 DECL|method|geoHashLevelsForPrecision
 specifier|public
 specifier|static
@@ -1614,7 +1518,7 @@ return|return
 name|rtn
 return|;
 block|}
-comment|/**      * Parse a {@link GeoPoint} with a {@link XContentParser}:      *       * @param parser {@link XContentParser} to parse the value from      * @return new {@link GeoPoint} parsed from the parse      */
+comment|/**      * Parse a {@link GeoPoint} with a {@link XContentParser}:      *      * @param parser {@link XContentParser} to parse the value from      * @return new {@link GeoPoint} parsed from the parse      */
 DECL|method|parseGeoPoint
 specifier|public
 specifier|static
@@ -1640,7 +1544,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Parse a {@link GeoPoint} with a {@link XContentParser}. A geopoint has one of the following forms:      *       *<ul>      *<li>Object:<pre>{&quot;lat&quot;:<i>&lt;latitude&gt;</i>,&quot;lon&quot;:<i>&lt;longitude&gt;</i>}</pre></li>      *<li>String:<pre>&quot;<i>&lt;latitude&gt;</i>,<i>&lt;longitude&gt;</i>&quot;</pre></li>      *<li>Geohash:<pre>&quot;<i>&lt;geohash&gt;</i>&quot;</pre></li>      *<li>Array:<pre>[<i>&lt;longitude&gt;</i>,<i>&lt;latitude&gt;</i>]</pre></li>      *</ul>      *       * @param parser {@link XContentParser} to parse the value from      * @param point A {@link GeoPoint} that will be reset by the values parsed      * @return new {@link GeoPoint} parsed from the parse      */
+comment|/**      * Parse a {@link GeoPoint} with a {@link XContentParser}. A geopoint has one of the following forms:      *      *<ul>      *<li>Object:<pre>{&quot;lat&quot;:<i>&lt;latitude&gt;</i>,&quot;lon&quot;:<i>&lt;longitude&gt;</i>}</pre></li>      *<li>String:<pre>&quot;<i>&lt;latitude&gt;</i>,<i>&lt;longitude&gt;</i>&quot;</pre></li>      *<li>Geohash:<pre>&quot;<i>&lt;geohash&gt;</i>&quot;</pre></li>      *<li>Array:<pre>[<i>&lt;longitude&gt;</i>,<i>&lt;latitude&gt;</i>]</pre></li>      *</ul>      *      * @param parser {@link XContentParser} to parse the value from      * @param point A {@link GeoPoint} that will be reset by the values parsed      * @return new {@link GeoPoint} parsed from the parse      */
 DECL|method|parseGeoPoint
 specifier|public
 specifier|static
@@ -1674,6 +1578,11 @@ name|NaN
 decl_stmt|;
 name|String
 name|geohash
+init|=
+literal|null
+decl_stmt|;
+name|NumberFormatException
+name|numberFormatException
 init|=
 literal|null
 decl_stmt|;
@@ -1718,7 +1627,7 @@ name|field
 init|=
 name|parser
 operator|.
-name|text
+name|currentName
 argument_list|()
 decl_stmt|;
 if|if
@@ -1750,6 +1659,8 @@ case|:
 case|case
 name|VALUE_STRING
 case|:
+try|try
+block|{
 name|lat
 operator|=
 name|parser
@@ -1759,6 +1670,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|e
+parameter_list|)
+block|{
+name|numberFormatException
+operator|=
+name|e
+expr_stmt|;
+block|}
 break|break;
 default|default:
 throw|throw
@@ -1800,6 +1723,8 @@ case|:
 case|case
 name|VALUE_STRING
 case|:
+try|try
+block|{
 name|lon
 operator|=
 name|parser
@@ -1809,6 +1734,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|e
+parameter_list|)
+block|{
+name|numberFormatException
+operator|=
+name|e
+expr_stmt|;
+block|}
 break|break;
 default|default:
 throw|throw
@@ -1940,6 +1877,28 @@ name|geohash
 argument_list|)
 return|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|numberFormatException
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"[{}] and [{}] must be valid double values"
+argument_list|,
+name|numberFormatException
+argument_list|,
+name|LATITUDE
+argument_list|,
+name|LONGITUDE
+argument_list|)
+throw|;
 block|}
 elseif|else
 if|if

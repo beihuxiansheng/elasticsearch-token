@@ -28,7 +28,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionWriteResponse
+name|ReplicationResponse
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ReplicationRequest
+name|BasicReplicationRequest
 import|;
 end_import
 
@@ -98,7 +98,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterService
+name|metadata
+operator|.
+name|IndexNameExpressionResolver
 import|;
 end_import
 
@@ -110,9 +112,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
+name|service
 operator|.
-name|IndexNameExpressionResolver
+name|ClusterService
 import|;
 end_import
 
@@ -208,9 +210,9 @@ name|RefreshRequest
 argument_list|,
 name|RefreshResponse
 argument_list|,
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|,
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|>
 block|{
 annotation|@
@@ -271,13 +273,13 @@ annotation|@
 name|Override
 DECL|method|newShardResponse
 specifier|protected
-name|ActionWriteResponse
+name|ReplicationResponse
 name|newShardResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ActionWriteResponse
+name|ReplicationResponse
 argument_list|()
 return|;
 block|}
@@ -285,7 +287,7 @@ annotation|@
 name|Override
 DECL|method|newShardRequest
 specifier|protected
-name|ReplicationRequest
+name|BasicReplicationRequest
 name|newShardRequest
 parameter_list|(
 name|RefreshRequest
@@ -297,10 +299,8 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ReplicationRequest
+name|BasicReplicationRequest
 argument_list|(
-name|request
-argument_list|,
 name|shardId
 argument_list|)
 return|;

@@ -255,7 +255,7 @@ name|Long
 operator|.
 name|MIN_VALUE
 block|,
-literal|9223372036854775807l
+literal|9223372036854775807L
 block|}
 decl_stmt|;
 DECL|field|floatArray

@@ -40,7 +40,63 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|*
+name|IndexReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|LeafReaderContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|Term
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|Terms
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|TermsEnum
 import|;
 end_import
 
@@ -116,20 +172,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ToStringUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -144,7 +186,47 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ListIterator
 import|;
 end_import
 
@@ -204,7 +286,7 @@ name|slop
 init|=
 literal|0
 decl_stmt|;
-comment|/**      * Sets the phrase slop for this query.      *      * @see org.apache.lucene.search.PhraseQuery#setSlop(int)      */
+comment|/**      * Sets the phrase slop for this query.      *      * @see org.apache.lucene.search.PhraseQuery.Builder#setSlop(int)      */
 DECL|method|setSlop
 specifier|public
 name|void
@@ -235,7 +317,7 @@ operator|=
 name|maxExpansions
 expr_stmt|;
 block|}
-comment|/**      * Sets the phrase slop for this query.      *      * @see org.apache.lucene.search.PhraseQuery#getSlop()      */
+comment|/**      * Sets the phrase slop for this query.      *      * @see org.apache.lucene.search.PhraseQuery.Builder#getSlop()      */
 DECL|method|getSlop
 specifier|public
 name|int
@@ -246,7 +328,7 @@ return|return
 name|slop
 return|;
 block|}
-comment|/**      * Add a single term at the next position in the phrase.      *      * @see org.apache.lucene.search.PhraseQuery#add(Term)      */
+comment|/**      * Add a single term at the next position in the phrase.      *      * @see org.apache.lucene.search.PhraseQuery.Builder#add(Term)      */
 DECL|method|add
 specifier|public
 name|void
@@ -267,7 +349,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add multiple terms at the next position in the phrase.  Any of the terms      * may match.      *      * @see org.apache.lucene.search.PhraseQuery#add(Term)      */
+comment|/**      * Add multiple terms at the next position in the phrase.  Any of the terms      * may match.      *      * @see org.apache.lucene.search.PhraseQuery.Builder#add(Term)      */
 DECL|method|add
 specifier|public
 name|void
@@ -316,7 +398,7 @@ name|position
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows to specify the relative position of terms within the phrase.      *      * @param terms the terms      * @param position the position of the terms provided as argument      * @see org.apache.lucene.search.PhraseQuery#add(Term, int)      */
+comment|/**      * Allows to specify the relative position of terms within the phrase.      *      * @param terms the terms      * @param position the position of the terms provided as argument      * @see org.apache.lucene.search.PhraseQuery.Builder#add(Term, int)      */
 DECL|method|add
 specifier|public
 name|void
@@ -515,10 +597,14 @@ argument_list|()
 return|;
 block|}
 name|MultiPhraseQuery
+operator|.
+name|Builder
 name|query
 init|=
 operator|new
 name|MultiPhraseQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|query
@@ -647,7 +733,16 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
+argument_list|(
+literal|"No terms supplied for "
+operator|+
+name|MultiPhrasePrefixQuery
+operator|.
+name|class
+operator|.
+name|getName
 argument_list|()
+argument_list|)
 return|;
 block|}
 name|query
@@ -669,10 +764,8 @@ expr_stmt|;
 return|return
 name|query
 operator|.
-name|rewrite
-argument_list|(
-name|reader
-argument_list|)
+name|build
+argument_list|()
 return|;
 block|}
 DECL|method|getPrefixTerms
@@ -1118,19 +1211,6 @@ name|slop
 argument_list|)
 expr_stmt|;
 block|}
-name|buffer
-operator|.
-name|append
-argument_list|(
-name|ToStringUtils
-operator|.
-name|boost
-argument_list|(
-name|getBoost
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
 name|buffer
 operator|.

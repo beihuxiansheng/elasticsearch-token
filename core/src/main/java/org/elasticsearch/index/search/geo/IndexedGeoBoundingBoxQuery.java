@@ -102,22 +102,6 @@ name|mapper
 operator|.
 name|geo
 operator|.
-name|GeoPointFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|geo
-operator|.
 name|GeoPointFieldMapperLegacy
 import|;
 end_import
@@ -167,10 +151,7 @@ literal|"lat/lon is not enabled (indexed) for field ["
 operator|+
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|fullName
+name|name
 argument_list|()
 operator|+
 literal|"], can't use indexed filter on it"

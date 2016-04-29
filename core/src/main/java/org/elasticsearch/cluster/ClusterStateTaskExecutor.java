@@ -96,6 +96,16 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Callback invoked after new cluster state is published. Note that      * this method is not invoked if the cluster state was not updated.      */
+DECL|method|clusterStatePublished
+specifier|default
+name|void
+name|clusterStatePublished
+parameter_list|(
+name|ClusterState
+name|newClusterState
+parameter_list|)
+block|{     }
 comment|/**      * Represents the result of a batched execution of cluster state update tasks      * @param<T> the type of the cluster state update task      */
 DECL|class|BatchResult
 class|class
@@ -447,9 +457,24 @@ name|isSuccess
 parameter_list|()
 block|{
 return|return
+name|this
+operator|==
+name|SUCCESS
+return|;
+block|}
+DECL|method|getFailure
+specifier|public
+name|Throwable
+name|getFailure
+parameter_list|()
+block|{
+assert|assert
+operator|!
+name|isSuccess
+argument_list|()
+assert|;
+return|return
 name|failure
-operator|!=
-literal|null
 return|;
 block|}
 comment|/**          * Handle the execution result with the provided consumers          * @param onSuccess handler to invoke on success          * @param onFailure handler to invoke on failure; the throwable passed through will not be null          */

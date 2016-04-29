@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -58,9 +48,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|IndexSettings
+name|util
+operator|.
+name|BigArrays
 import|;
 end_import
 
@@ -72,7 +64,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|NodeServicesProvider
+name|IndexSettings
 import|;
 end_import
 
@@ -216,6 +208,48 @@ name|TranslogStats
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * ShadowIndexShard extends {@link IndexShard} to add file synchronization  * from the primary when a flush happens. It also ensures that a replica being  * promoted to a primary causes the shard to fail, kicking off a re-allocation  * of the primary shard.  */
 end_comment
@@ -268,8 +302,22 @@ parameter_list|,
 name|IndexSearcherWrapper
 name|wrapper
 parameter_list|,
-name|NodeServicesProvider
-name|provider
+name|ThreadPool
+name|threadPool
+parameter_list|,
+name|BigArrays
+name|bigArrays
+parameter_list|,
+name|Engine
+operator|.
+name|Warmer
+name|engineWarmer
+parameter_list|,
+name|List
+argument_list|<
+name|SearchOperationListener
+argument_list|>
+name|searchOperationListeners
 parameter_list|)
 throws|throws
 name|IOException
@@ -298,11 +346,22 @@ name|indexEventListener
 argument_list|,
 name|wrapper
 argument_list|,
-name|provider
+name|threadPool
+argument_list|,
+name|bigArrays
+argument_list|,
+name|engineWarmer
+argument_list|,
+name|searchOperationListeners
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * In addition to the regular accounting done in      * {@link IndexShard#updateRoutingEntry(org.elasticsearch.cluster.routing.ShardRouting, boolean)},      * if this shadow replica needs to be promoted to a primary, the shard is      * failed in order to allow a new primary to be re-allocated.      */
+comment|/**      * In addition to the regular accounting done in      * {@link IndexShard#updateRoutingEntry(ShardRouting, boolean)},      * if this shadow replica needs to be promoted to a primary, the shard is      * failed in order to allow a new primary to be re-allocated.      */
 annotation|@
 name|Override
 DECL|method|updateRoutingEntry
@@ -316,6 +375,8 @@ parameter_list|,
 name|boolean
 name|persistState
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -379,9 +440,6 @@ specifier|protected
 name|Engine
 name|newEngine
 parameter_list|(
-name|boolean
-name|skipInitialTranslogRecovery
-parameter_list|,
 name|EngineConfig
 name|config
 parameter_list|)
@@ -397,18 +455,17 @@ operator|==
 literal|false
 assert|;
 assert|assert
-name|skipInitialTranslogRecovery
-operator|:
-literal|"can not recover from gateway"
-assert|;
 name|config
 operator|.
-name|setCreate
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// hardcoded - we always expect an index to be present
+name|getOpenMode
+argument_list|()
+operator|==
+name|EngineConfig
+operator|.
+name|OpenMode
+operator|.
+name|OPEN_INDEX_CREATE_TRANSLOG
+assert|;
 return|return
 name|engineFactory
 operator|.

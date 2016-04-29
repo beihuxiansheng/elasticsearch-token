@@ -363,6 +363,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
+literal|"{}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -431,6 +433,79 @@ condition|)
 block|{
 name|newUsed
 operator|=
+name|noLimit
+argument_list|(
+name|bytes
+argument_list|,
+name|label
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|newUsed
+operator|=
+name|limit
+argument_list|(
+name|bytes
+argument_list|,
+name|label
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Additionally, we need to check that we haven't exceeded the parent's limit
+try|try
+block|{
+name|parent
+operator|.
+name|checkParentLimit
+argument_list|(
+name|label
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CircuitBreakingException
+name|e
+parameter_list|)
+block|{
+comment|// If the parent breaker is tripped, this breaker has to be
+comment|// adjusted back down because the allocation is "blocked" but the
+comment|// breaker has already been incremented
+name|this
+operator|.
+name|addWithoutBreaking
+argument_list|(
+operator|-
+name|bytes
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
+return|return
+name|newUsed
+return|;
+block|}
+DECL|method|noLimit
+specifier|private
+name|long
+name|noLimit
+parameter_list|(
+name|long
+name|bytes
+parameter_list|,
+name|String
+name|label
+parameter_list|)
+block|{
+name|long
+name|newUsed
+decl_stmt|;
+name|newUsed
+operator|=
 name|this
 operator|.
 name|used
@@ -474,9 +549,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|newUsed
+return|;
 block|}
-else|else
+DECL|method|limit
+specifier|private
+name|long
+name|limit
+parameter_list|(
+name|long
+name|bytes
+parameter_list|,
+name|String
+name|label
+parameter_list|)
 block|{
+name|long
+name|newUsed
+decl_stmt|;
 comment|// Otherwise, check the addition and commit the addition, looping if
 comment|// there are conflicts. May result in additional logging, but it's
 comment|// trace logging and shouldn't be counted on for additions.
@@ -628,39 +719,6 @@ name|newUsed
 argument_list|)
 condition|)
 do|;
-block|}
-comment|// Additionally, we need to check that we haven't exceeded the parent's limit
-try|try
-block|{
-name|parent
-operator|.
-name|checkParentLimit
-argument_list|(
-name|label
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CircuitBreakingException
-name|e
-parameter_list|)
-block|{
-comment|// If the parent breaker is tripped, this breaker has to be
-comment|// adjusted back down because the allocation is "blocked" but the
-comment|// breaker has already been incremented
-name|this
-operator|.
-name|addWithoutBreaking
-argument_list|(
-operator|-
-name|bytes
-argument_list|)
-expr_stmt|;
-throw|throw
-name|e
-throw|;
-block|}
 return|return
 name|newUsed
 return|;

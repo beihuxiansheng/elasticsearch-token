@@ -16,6 +16,18 @@ name|ack
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base cluster state update request that allows to execute update against multiple indices  */
 end_comment
@@ -42,14 +54,14 @@ argument_list|>
 block|{
 DECL|field|indices
 specifier|private
-name|String
+name|Index
 index|[]
 name|indices
 decl_stmt|;
 comment|/**      * Returns the indices the operation needs to be executed on      */
 DECL|method|indices
 specifier|public
-name|String
+name|Index
 index|[]
 name|indices
 parameter_list|()
@@ -69,7 +81,7 @@ specifier|public
 name|T
 name|indices
 parameter_list|(
-name|String
+name|Index
 index|[]
 name|indices
 parameter_list|)

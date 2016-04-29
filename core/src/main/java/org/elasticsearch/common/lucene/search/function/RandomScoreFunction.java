@@ -104,6 +104,16 @@ name|SortedBinaryDocValues
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  * Pseudo randomly generate a score for each {@link LeafScoreFunction#score}.  */
 end_comment
@@ -406,6 +416,25 @@ operator|==
 name|randomScoreFunction
 operator|.
 name|saltedSeed
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doHashCode
+specifier|protected
+name|int
+name|doHashCode
+parameter_list|()
+block|{
+return|return
+name|Objects
+operator|.
+name|hash
+argument_list|(
+name|originalSeed
+argument_list|,
+name|saltedSeed
+argument_list|)
 return|;
 block|}
 block|}

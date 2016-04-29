@@ -58,7 +58,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 import|;
 end_import
 
@@ -128,8 +128,6 @@ argument_list|(
 literal|"geohash"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -176,8 +174,6 @@ argument_list|(
 literal|"lat_lon"
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -202,13 +198,13 @@ operator|.
 name|setLatLonEnabled
 argument_list|(
 operator|new
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 operator|.
 name|DoubleFieldType
 argument_list|()
 argument_list|,
 operator|new
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 operator|.
 name|DoubleFieldType
 argument_list|()

@@ -364,6 +364,23 @@ name|allVersions
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|version
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+comment|// unsupported version, no need to test
+continue|continue;
+block|}
 specifier|final
 name|Settings
 name|settings

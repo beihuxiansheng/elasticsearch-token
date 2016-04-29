@@ -1343,69 +1343,13 @@ control|)
 block|{
 if|if
 condition|(
-name|aliasAction
+name|CollectionUtils
 operator|.
-name|actionType
-argument_list|()
-operator|==
-name|AliasAction
-operator|.
-name|Type
-operator|.
-name|ADD
-condition|)
-block|{
-if|if
-condition|(
-name|aliasAction
-operator|.
-name|aliases
-operator|.
-name|length
-operator|!=
-literal|1
-condition|)
-block|{
-name|validationException
-operator|=
-name|addValidationError
-argument_list|(
-literal|"Alias action ["
-operator|+
-name|aliasAction
-operator|.
-name|actionType
-argument_list|()
-operator|.
-name|name
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ENGLISH
-argument_list|)
-operator|+
-literal|"] requires exactly one [alias] to be set"
-argument_list|,
-name|validationException
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|Strings
-operator|.
-name|hasText
+name|isEmpty
 argument_list|(
 name|aliasAction
 operator|.
 name|aliases
-index|[
-literal|0
-index|]
 argument_list|)
 condition|)
 block|{
@@ -1430,53 +1374,14 @@ operator|.
 name|ENGLISH
 argument_list|)
 operator|+
-literal|"] requires an [alias] to be set"
+literal|"]: Property [alias/aliases] is either missing or null"
 argument_list|,
 name|validationException
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|aliasAction
-operator|.
-name|aliases
-operator|.
-name|length
-operator|==
-literal|0
-condition|)
-block|{
-name|validationException
-operator|=
-name|addValidationError
-argument_list|(
-literal|"Alias action ["
-operator|+
-name|aliasAction
-operator|.
-name|actionType
-argument_list|()
-operator|.
-name|name
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ENGLISH
-argument_list|)
-operator|+
-literal|"]: aliases may not be empty"
-argument_list|,
-name|validationException
-argument_list|)
-expr_stmt|;
-block|}
 for|for
 control|(
 name|String
@@ -1519,7 +1424,7 @@ operator|.
 name|ENGLISH
 argument_list|)
 operator|+
-literal|"]: [alias] may not be empty string"
+literal|"]: [alias/aliases] may not be empty string"
 argument_list|,
 name|validationException
 argument_list|)
@@ -1560,7 +1465,7 @@ operator|.
 name|ENGLISH
 argument_list|)
 operator|+
-literal|"]: Property [index] was either missing or null"
+literal|"]: Property [index/indices] is either missing or null"
 argument_list|,
 name|validationException
 argument_list|)
@@ -1610,7 +1515,7 @@ operator|.
 name|ENGLISH
 argument_list|)
 operator|+
-literal|"]: [index] may not be empty string"
+literal|"]: [index/indices] may not be empty string"
 argument_list|,
 name|validationException
 argument_list|)

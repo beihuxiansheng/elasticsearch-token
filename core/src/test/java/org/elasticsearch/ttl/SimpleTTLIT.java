@@ -260,22 +260,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -450,7 +434,9 @@ name|nodeOrdinal
 parameter_list|)
 block|{
 return|return
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -472,21 +458,6 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|MILLISECONDS
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"cluster.routing.operation.use_type"
-argument_list|,
-literal|false
-argument_list|)
-comment|// make sure we control the shard computation
-operator|.
-name|put
-argument_list|(
-literal|"cluster.routing.operation.hash.type"
-argument_list|,
-literal|"djb"
 argument_list|)
 operator|.
 name|build
@@ -947,7 +918,7 @@ operator|)
 argument_list|,
 name|lessThanOrEqualTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1041,7 +1012,7 @@ operator|)
 argument_list|,
 name|lessThanOrEqualTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1140,7 +1111,7 @@ operator|)
 argument_list|,
 name|lessThanOrEqualTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1239,7 +1210,7 @@ operator|)
 argument_list|,
 name|lessThanOrEqualTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2077,7 +2048,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|endObject

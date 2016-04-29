@@ -186,7 +186,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryStatus
+name|RecoveryTarget
 import|;
 end_import
 
@@ -200,7 +200,7 @@ name|indices
 operator|.
 name|recovery
 operator|.
-name|RecoveryTarget
+name|RecoveryTargetService
 import|;
 end_import
 
@@ -290,6 +290,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -323,13 +347,13 @@ block|{
 DECL|field|listener
 specifier|final
 specifier|static
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
 init|=
 operator|new
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|RecoveryListener
 argument_list|()
@@ -403,12 +427,12 @@ try|try
 init|(
 name|RecoveriesCollection
 operator|.
-name|StatusRef
+name|RecoveryRef
 name|status
 init|=
 name|collection
 operator|.
-name|getStatus
+name|getRecovery
 argument_list|(
 name|recoveryId
 argument_list|)
@@ -443,12 +467,12 @@ try|try
 init|(
 name|RecoveriesCollection
 operator|.
-name|StatusRef
+name|RecoveryRef
 name|currentStatus
 init|=
 name|collection
 operator|.
-name|getStatus
+name|getRecovery
 argument_list|(
 name|recoveryId
 argument_list|)
@@ -546,7 +570,7 @@ argument_list|(
 name|collection
 argument_list|,
 operator|new
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|RecoveryListener
 argument_list|()
@@ -693,12 +717,12 @@ try|try
 init|(
 name|RecoveriesCollection
 operator|.
-name|StatusRef
-name|statusRef
+name|RecoveryRef
+name|recoveryRef
 init|=
 name|collection
 operator|.
-name|getStatus
+name|getRecovery
 argument_list|(
 name|recoveryId
 argument_list|)
@@ -707,7 +731,7 @@ block|{
 name|ShardId
 name|shardId
 init|=
-name|statusRef
+name|recoveryRef
 operator|.
 name|status
 argument_list|()
@@ -829,12 +853,12 @@ try|try
 block|{
 name|RecoveriesCollection
 operator|.
-name|StatusRef
-name|statusRef
+name|RecoveryRef
+name|recoveryRef
 init|=
 name|collection
 operator|.
-name|getStatus
+name|getRecovery
 argument_list|(
 name|recoveryId
 argument_list|)
@@ -843,13 +867,13 @@ name|toClose
 operator|.
 name|add
 argument_list|(
-name|statusRef
+name|recoveryRef
 argument_list|)
 expr_stmt|;
 name|ShardId
 name|shardId
 init|=
-name|statusRef
+name|recoveryRef
 operator|.
 name|status
 argument_list|()
@@ -878,7 +902,7 @@ expr_stmt|;
 specifier|final
 name|Predicate
 argument_list|<
-name|RecoveryStatus
+name|RecoveryTarget
 argument_list|>
 name|shouldCancel
 init|=
@@ -922,11 +946,11 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|statusRef
+name|recoveryRef
 operator|=
 name|collection
 operator|.
-name|getStatus
+name|getRecovery
 argument_list|(
 name|recoveryId
 argument_list|)
@@ -935,21 +959,21 @@ name|toClose
 operator|.
 name|add
 argument_list|(
-name|statusRef
+name|recoveryRef
 argument_list|)
 expr_stmt|;
 name|assertNull
 argument_list|(
 literal|"recovery should have been deleted"
 argument_list|,
-name|statusRef
+name|recoveryRef
 argument_list|)
 expr_stmt|;
-name|statusRef
+name|recoveryRef
 operator|=
 name|collection
 operator|.
-name|getStatus
+name|getRecovery
 argument_list|(
 name|recoveryId2
 argument_list|)
@@ -958,14 +982,14 @@ name|toClose
 operator|.
 name|add
 argument_list|(
-name|statusRef
+name|recoveryRef
 argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
 literal|"recovery should NOT have been deleted"
 argument_list|,
-name|statusRef
+name|recoveryRef
 argument_list|)
 expr_stmt|;
 block|}
@@ -1083,7 +1107,7 @@ parameter_list|(
 name|RecoveriesCollection
 name|collection
 parameter_list|,
-name|RecoveryTarget
+name|RecoveryTargetService
 operator|.
 name|RecoveryListener
 name|listener
@@ -1109,7 +1133,10 @@ name|indexServices
 operator|.
 name|indexServiceSafe
 argument_list|(
+name|resolveIndex
+argument_list|(
 literal|"test"
+argument_list|)
 argument_list|)
 operator|.
 name|getShardOrNull
@@ -1129,6 +1156,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.

@@ -161,8 +161,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Checking static index "
-operator|+
+literal|"Checking static index {}"
+argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
@@ -283,7 +283,7 @@ argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;

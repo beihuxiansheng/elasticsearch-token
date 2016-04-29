@@ -18,16 +18,6 @@ name|matcher
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  * Implements {@code and()} and {@code or()}.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
@@ -121,8 +111,6 @@ name|AbstractMatcher
 argument_list|<
 name|T
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|a
 DECL|field|b
@@ -218,6 +206,9 @@ operator|&&
 operator|(
 operator|(
 name|AndMatcher
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|other
 operator|)
@@ -232,6 +223,9 @@ operator|&&
 operator|(
 operator|(
 name|AndMatcher
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|other
 operator|)
@@ -288,15 +282,6 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 DECL|class|OrMatcher
 specifier|private
@@ -311,8 +296,6 @@ name|AbstractMatcher
 argument_list|<
 name|T
 argument_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|field|a
 DECL|field|b
@@ -408,6 +391,9 @@ operator|&&
 operator|(
 operator|(
 name|OrMatcher
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|other
 operator|)
@@ -422,6 +408,9 @@ operator|&&
 operator|(
 operator|(
 name|OrMatcher
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|other
 operator|)
@@ -478,15 +467,6 @@ operator|+
 literal|")"
 return|;
 block|}
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|0
-decl_stmt|;
 block|}
 block|}
 end_class

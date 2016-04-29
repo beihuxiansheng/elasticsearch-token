@@ -161,7 +161,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// if compression is disabled only allow "indentity" (uncompressed) requests
+comment|// if compression is disabled only allow "identity" (uncompressed) requests
 if|if
 condition|(
 name|HttpHeaders

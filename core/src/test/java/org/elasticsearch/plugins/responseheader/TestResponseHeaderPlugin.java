@@ -22,9 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|common
 operator|.
-name|Plugin
+name|network
+operator|.
+name|NetworkModule
 import|;
 end_import
 
@@ -34,9 +36,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|rest
+name|plugins
 operator|.
-name|RestModule
+name|Plugin
 import|;
 end_import
 
@@ -77,13 +79,13 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|RestModule
-name|restModule
+name|NetworkModule
+name|module
 parameter_list|)
 block|{
-name|restModule
+name|module
 operator|.
-name|addRestAction
+name|registerRestHandler
 argument_list|(
 name|TestResponseHeaderRestAction
 operator|.

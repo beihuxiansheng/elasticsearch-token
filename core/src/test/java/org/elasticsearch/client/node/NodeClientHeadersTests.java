@@ -124,11 +124,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
+name|common
 operator|.
-name|support
+name|settings
 operator|.
-name|Headers
+name|Settings
 import|;
 end_import
 
@@ -138,11 +138,21 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|tasks
 operator|.
-name|settings
+name|Task
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|Settings
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskManager
 import|;
 end_import
 
@@ -229,15 +239,6 @@ name|settings
 init|=
 name|HEADER_SETTINGS
 decl_stmt|;
-name|Headers
-name|headers
-init|=
-operator|new
-name|Headers
-argument_list|(
-name|settings
-argument_list|)
-decl_stmt|;
 name|Actions
 name|actions
 init|=
@@ -258,8 +259,6 @@ argument_list|(
 name|settings
 argument_list|,
 name|threadPool
-argument_list|,
-name|headers
 argument_list|,
 name|actions
 argument_list|)
@@ -355,6 +354,12 @@ argument_list|,
 name|EMPTY_FILTERS
 argument_list|,
 literal|null
+argument_list|,
+operator|new
+name|TaskManager
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -380,8 +385,6 @@ operator|new
 name|InternalException
 argument_list|(
 name|actionName
-argument_list|,
-name|request
 argument_list|)
 argument_list|)
 expr_stmt|;

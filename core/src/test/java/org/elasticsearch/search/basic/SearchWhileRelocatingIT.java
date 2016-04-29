@@ -106,6 +106,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|SearchHits
@@ -177,22 +191,6 @@ operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -375,7 +373,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -395,7 +395,7 @@ argument_list|)
 operator|.
 name|addMapping
 argument_list|(
-literal|"type1"
+literal|"type"
 argument_list|,
 literal|"loc"
 argument_list|,
@@ -403,7 +403,7 @@ literal|"type=geo_point"
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"type=string"
+literal|"type=text"
 argument_list|)
 operator|.
 name|execute
@@ -1069,12 +1069,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Non-CriticalExceptions: "
-operator|+
+literal|"Non-CriticalExceptions: {}"
+argument_list|,
 name|nonCriticalExceptions
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertThat

@@ -71,14 +71,17 @@ specifier|abstract
 class|class
 name|MasterNodeReadRequest
 parameter_list|<
-name|T
+name|Request
 extends|extends
 name|MasterNodeReadRequest
+parameter_list|<
+name|Request
+parameter_list|>
 parameter_list|>
 extends|extends
 name|MasterNodeRequest
 argument_list|<
-name|T
+name|Request
 argument_list|>
 block|{
 DECL|field|local
@@ -96,7 +99,7 @@ argument_list|)
 DECL|method|local
 specifier|public
 specifier|final
-name|T
+name|Request
 name|local
 parameter_list|(
 name|boolean
@@ -111,7 +114,7 @@ name|local
 expr_stmt|;
 return|return
 operator|(
-name|T
+name|Request
 operator|)
 name|this
 return|;

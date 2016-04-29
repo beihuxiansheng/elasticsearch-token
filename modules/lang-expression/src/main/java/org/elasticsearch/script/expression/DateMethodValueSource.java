@@ -197,6 +197,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"rawtypes"
+argument_list|)
+comment|// ValueSource uses a rawtype
 DECL|method|getValues
 specifier|public
 name|FunctionValues
@@ -260,10 +266,7 @@ literal|": field("
 operator|+
 name|fieldData
 operator|.
-name|getFieldNames
-argument_list|()
-operator|.
-name|toString
+name|getFieldName
 argument_list|()
 operator|+
 literal|")"

@@ -24,6 +24,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|compress
+operator|.
+name|CompressedXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -82,7 +96,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|StringFieldMapper
+name|TextFieldMapper
 import|;
 end_import
 
@@ -193,7 +207,13 @@ name|mapperParser
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+operator|new
+name|CompressedXContent
+argument_list|(
 name|mapping
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Our mapping should be kept as a String
@@ -211,7 +231,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|StringFieldMapper
+name|TextFieldMapper
 operator|.
 name|class
 argument_list|)

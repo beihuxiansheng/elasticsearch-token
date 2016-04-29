@@ -40,6 +40,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|join
+operator|.
+name|ScoreMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|ArrayUtil
@@ -944,9 +960,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createIndex
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"idx"
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type"
+argument_list|,
+name|TERMS_AGGS_FIELD
+argument_list|,
+literal|"type=keyword"
+argument_list|,
+literal|"group"
+argument_list|,
+literal|"type=keyword"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|createIndex
@@ -983,6 +1015,21 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
+name|TERMS_AGGS_FIELD
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"keyword"
+argument_list|)
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|startObject
+argument_list|(
 literal|"comments"
 argument_list|)
 operator|.
@@ -997,6 +1044,21 @@ name|startObject
 argument_list|(
 literal|"properties"
 argument_list|)
+operator|.
+name|startObject
+argument_list|(
+literal|"user"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"keyword"
+argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|startObject
 argument_list|(
@@ -1022,7 +1084,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"text"
 argument_list|)
 operator|.
 name|field
@@ -1075,14 +1137,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|endObject
@@ -1835,7 +1890,7 @@ name|field
 argument_list|(
 literal|"date"
 argument_list|,
-literal|1l
+literal|1L
 argument_list|)
 operator|.
 name|field
@@ -1909,7 +1964,7 @@ name|field
 argument_list|(
 literal|"date"
 argument_list|,
-literal|2l
+literal|2L
 argument_list|)
 operator|.
 name|field
@@ -2034,7 +2089,7 @@ name|field
 argument_list|(
 literal|"date"
 argument_list|,
-literal|3l
+literal|3L
 argument_list|)
 operator|.
 name|field
@@ -2082,7 +2137,7 @@ name|field
 argument_list|(
 literal|"date"
 argument_list|,
-literal|4l
+literal|4L
 argument_list|)
 operator|.
 name|field
@@ -2181,7 +2236,7 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 name|SortBuilders
 operator|.
@@ -2324,7 +2379,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2358,7 +2413,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2567,7 +2622,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|8l
+literal|8L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2849,7 +2904,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|8l
+literal|8L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2994,7 +3049,7 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 literal|3
 argument_list|)
@@ -3120,7 +3175,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3154,7 +3209,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3434,7 +3489,7 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 name|SortBuilders
 operator|.
@@ -3451,12 +3506,12 @@ name|DESC
 argument_list|)
 argument_list|)
 operator|.
-name|setFrom
+name|from
 argument_list|(
 name|from
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 name|size
 argument_list|)
@@ -3613,7 +3668,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3698,10 +3753,10 @@ name|logger
 operator|.
 name|info
 argument_list|(
+literal|"{}: top_hits: [{}][{}] control: [{}][{}]"
+argument_list|,
 name|i
-operator|+
-literal|": top_hits: ["
-operator|+
+argument_list|,
 name|hits
 operator|.
 name|getAt
@@ -3711,9 +3766,7 @@ argument_list|)
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]["
-operator|+
+argument_list|,
 name|hits
 operator|.
 name|getAt
@@ -3726,9 +3779,7 @@ argument_list|()
 index|[
 literal|0
 index|]
-operator|+
-literal|"] control: ["
-operator|+
+argument_list|,
 name|controlHits
 operator|.
 name|getAt
@@ -3738,9 +3789,7 @@ argument_list|)
 operator|.
 name|id
 argument_list|()
-operator|+
-literal|"]["
-operator|+
+argument_list|,
 name|controlHits
 operator|.
 name|getAt
@@ -3753,8 +3802,6 @@ argument_list|()
 index|[
 literal|0
 index|]
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -3880,7 +3927,7 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 name|SortBuilders
 operator|.
@@ -3897,7 +3944,7 @@ name|DESC
 argument_list|)
 argument_list|)
 operator|.
-name|setTrackScores
+name|trackScores
 argument_list|(
 literal|true
 argument_list|)
@@ -4023,7 +4070,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4057,7 +4104,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4272,7 +4319,7 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 literal|1
 argument_list|)
@@ -4419,7 +4466,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4504,7 +4551,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4589,7 +4636,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4689,7 +4736,7 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 literal|1
 argument_list|)
@@ -4706,22 +4753,22 @@ literal|"text"
 argument_list|)
 argument_list|)
 operator|.
-name|setExplain
+name|explain
 argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|addField
+name|field
 argument_list|(
 literal|"text"
 argument_list|)
 operator|.
-name|addFieldDataField
+name|fieldDataField
 argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
-name|addScriptField
+name|scriptField
 argument_list|(
 literal|"script"
 argument_list|,
@@ -4747,14 +4794,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|setFetchSource
+name|fetchSource
 argument_list|(
 literal|"text"
 argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|setVersion
+name|version
 argument_list|(
 literal|true
 argument_list|)
@@ -4862,7 +4909,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|10l
+literal|10L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4973,7 +5020,7 @@ name|version
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5152,7 +5199,7 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 name|SortBuilders
 operator|.
@@ -5199,38 +5246,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// public void testFailWithSubAgg() throws Exception {
-comment|// String source = "{\n" +
-comment|// "  \"aggs\": {\n" +
-comment|// "    \"top-tags\": {\n" +
-comment|// "      \"terms\": {\n" +
-comment|// "        \"field\": \"tags\"\n" +
-comment|// "      },\n" +
-comment|// "      \"aggs\": {\n" +
-comment|// "        \"top_tags_hits\": {\n" +
-comment|// "          \"top_hits\": {},\n" +
-comment|// "          \"aggs\": {\n" +
-comment|// "            \"max\": {\n" +
-comment|// "              \"max\": {\n" +
-comment|// "                \"field\": \"age\"\n" +
-comment|// "              }\n" +
-comment|// "            }\n" +
-comment|// "          }\n" +
-comment|// "        }\n" +
-comment|// "      }\n" +
-comment|// "    }\n" +
-comment|// "  }\n" +
-comment|// "}";
-comment|// try {
-comment|// client().prepareSearch("idx").setTypes("type")
-comment|// .setSource(new BytesArray(source))
-comment|// .get();
-comment|// fail();
-comment|// } catch (SearchPhaseExecutionException e) {
-comment|// assertThat(e.toString(),
-comment|// containsString("Aggregator [top_tags_hits] of type [top_hits] cannot accept sub-aggregations"));
-comment|// }
-comment|// } NORELEASE this needs to be tested in a top_hits aggregations unit test
 DECL|method|testEmptyIndex
 specifier|public
 name|void
@@ -5317,7 +5332,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5355,8 +5370,8 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Track score="
-operator|+
+literal|"Track score={}"
+argument_list|,
 name|trackScore
 argument_list|)
 expr_stmt|;
@@ -5405,19 +5420,19 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|setTrackScores
+name|trackScores
 argument_list|(
 name|trackScore
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
-literal|"_id"
+literal|"_uid"
 argument_list|,
 name|SortOrder
 operator|.
@@ -5825,10 +5840,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"to-comments"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments"
 argument_list|)
 operator|.
@@ -5851,7 +5863,7 @@ argument_list|(
 literal|"top-comments"
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 literal|"comments.date"
 argument_list|,
@@ -5888,7 +5900,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5926,7 +5938,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5960,7 +5972,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6053,7 +6065,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6085,7 +6097,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|2l
+literal|2L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6249,7 +6261,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6281,7 +6293,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6391,10 +6403,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"to-comments"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments"
 argument_list|)
 operator|.
@@ -6403,10 +6412,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"to-reviewers"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments.reviewers"
 argument_list|)
 operator|.
@@ -6418,7 +6424,7 @@ argument_list|(
 literal|"top-reviewers"
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 literal|"comments.reviewers.name"
 argument_list|,
@@ -6427,7 +6433,7 @@ operator|.
 name|ASC
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 literal|"_doc"
 argument_list|,
@@ -6436,7 +6442,7 @@ operator|.
 name|DESC
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 literal|7
 argument_list|)
@@ -6450,7 +6456,7 @@ argument_list|(
 literal|"top-comments"
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 literal|"comments.date"
 argument_list|,
@@ -6459,7 +6465,7 @@ operator|.
 name|DESC
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 literal|4
 argument_list|)
@@ -6496,7 +6502,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6525,7 +6531,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6945,7 +6951,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|7l
+literal|7L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6974,7 +6980,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|7l
+literal|7L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8184,6 +8190,10 @@ name|queryName
 argument_list|(
 literal|"test"
 argument_list|)
+argument_list|,
+name|ScoreMode
+operator|.
+name|Avg
 argument_list|)
 argument_list|)
 operator|.
@@ -8192,10 +8202,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"to-comments"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments"
 argument_list|)
 operator|.
@@ -8206,7 +8213,7 @@ argument_list|(
 literal|"top-comments"
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 literal|1
 argument_list|)
@@ -8223,17 +8230,17 @@ name|hlField
 argument_list|)
 argument_list|)
 operator|.
-name|setExplain
+name|explain
 argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|addFieldDataField
+name|fieldDataField
 argument_list|(
 literal|"comments.user"
 argument_list|)
 operator|.
-name|addScriptField
+name|scriptField
 argument_list|(
 literal|"script"
 argument_list|,
@@ -8259,19 +8266,19 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|setFetchSource
+name|fetchSource
 argument_list|(
 literal|"message"
 argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|setVersion
+name|version
 argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 literal|"comments.date"
 argument_list|,
@@ -8314,7 +8321,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8348,7 +8355,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8490,7 +8497,7 @@ name|version
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1l
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8651,10 +8658,7 @@ argument_list|(
 name|nested
 argument_list|(
 literal|"to-comments"
-argument_list|)
-operator|.
-name|path
-argument_list|(
+argument_list|,
 literal|"comments"
 argument_list|)
 operator|.
@@ -8693,7 +8697,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 literal|"comments.id"
 argument_list|,
@@ -8763,7 +8767,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|5l
+literal|5L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9028,7 +9032,7 @@ argument_list|(
 literal|"hits"
 argument_list|)
 operator|.
-name|setSize
+name|size
 argument_list|(
 name|ArrayUtil
 operator|.
@@ -9037,7 +9041,7 @@ operator|-
 literal|1
 argument_list|)
 operator|.
-name|addSort
+name|sort
 argument_list|(
 name|SortBuilders
 operator|.

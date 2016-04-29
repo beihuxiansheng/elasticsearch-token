@@ -96,9 +96,7 @@ name|elasticsearch
 operator|.
 name|http
 operator|.
-name|netty
-operator|.
-name|NettyHttpServerTransport
+name|HttpTransportSettings
 import|;
 end_import
 
@@ -122,9 +120,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|netty
-operator|.
-name|NettyTransport
+name|TransportSettings
 import|;
 end_import
 
@@ -134,7 +130,17 @@ name|java
 operator|.
 name|io
 operator|.
-name|*
+name|FilePermission
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -331,7 +337,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Initializes SecurityManager with necessary permissions.  *<br>  *<h1>Initialization</h1>  * The JVM is not initially started with security manager enabled,  * instead we turn it on early in the startup process. This is a tradeoff  * between security and ease of use:  *<ul>  *<li>Assigns file permissions to user-configurable paths that can  *       be specified from the command-line or {@code elasticsearch.yml}.</li>  *<li>Allows for some contained usage of native code that would not  *       otherwise be permitted.</li>  *</ul>  *<br>  *<h1>Permissions</h1>  * Permissions use a policy file packaged as a resource, this file is  * also used in tests. File permissions are generated dynamically and  * combined with this policy file.  *<p>  * For each configured path, we ensure it exists and is accessible before  * granting permissions, otherwise directory creation would require  * permissions to parent directories.  *<p>  * In some exceptional cases, permissions are assigned to specific jars only,  * when they are so dangerous that general code should not be granted the  * permission, but there are extenuating circumstances.  *<p>  * Scripts (groovy, javascript, python) are assigned minimal permissions. This does not provide adequate  * sandboxing, as these scripts still have access to ES classes, and could  * modify members, etc that would cause bad things to happen later on their  * behalf (no package protections are yet in place, this would need some  * cleanups to the scripting apis). But still it can provide some defense for users  * that enable dynamic scripting without being fully aware of the consequences.  *<br>  *<h1>Disabling Security</h1>  * SecurityManager can be disabled completely with this setting:  *<pre>  * es.security.manager.enabled = false  *</pre>  *<br>  *<h1>Debugging Security</h1>  * A good place to start when there is a problem is to turn on security debugging:  *<pre>  * JAVA_OPTS="-Djava.security.debug=access,failure" bin/elasticsearch  *</pre>  *<p>  * When running tests you have to pass it to the test runner like this:  *<pre>  * mvn test -Dtests.jvm.argline="-Djava.security.debug=access,failure" ...  *</pre>  * See<a href="https://docs.oracle.com/javase/7/docs/technotes/guides/security/troubleshooting-security.html">  * Troubleshooting Security</a> for information.  */
+comment|/**  * Initializes SecurityManager with necessary permissions.  *<br>  *<h1>Initialization</h1>  * The JVM is not initially started with security manager enabled,  * instead we turn it on early in the startup process. This is a tradeoff  * between security and ease of use:  *<ul>  *<li>Assigns file permissions to user-configurable paths that can  *       be specified from the command-line or {@code elasticsearch.yml}.</li>  *<li>Allows for some contained usage of native code that would not  *       otherwise be permitted.</li>  *</ul>  *<br>  *<h1>Permissions</h1>  * Permissions use a policy file packaged as a resource, this file is  * also used in tests. File permissions are generated dynamically and  * combined with this policy file.  *<p>  * For each configured path, we ensure it exists and is accessible before  * granting permissions, otherwise directory creation would require  * permissions to parent directories.  *<p>  * In some exceptional cases, permissions are assigned to specific jars only,  * when they are so dangerous that general code should not be granted the  * permission, but there are extenuating circumstances.  *<p>  * Scripts (groovy, javascript, python) are assigned minimal permissions. This does not provide adequate  * sandboxing, as these scripts still have access to ES classes, and could  * modify members, etc that would cause bad things to happen later on their  * behalf (no package protections are yet in place, this would need some  * cleanups to the scripting apis). But still it can provide some defense for users  * that enable dynamic scripting without being fully aware of the consequences.  *<br>  *<h1>Disabling Security</h1>  * SecurityManager can be disabled completely with this setting:  *<pre>  * es.security.manager.enabled = false  *</pre>  *<br>  *<h1>Debugging Security</h1>  * A good place to start when there is a problem is to turn on security debugging:  *<pre>  * ES_JAVA_OPTS="-Djava.security.debug=access,failure" bin/elasticsearch  *</pre>  *<p>  * When running tests you have to pass it to the test runner like this:  *<pre>  * gradle test -Dtests.jvm.argline="-Djava.security.debug=access,failure" ...  *</pre>  * See<a href="https://docs.oracle.com/javase/7/docs/technotes/guides/security/troubleshooting-security.html">  * Troubleshooting Security</a> for information.  */
 end_comment
 
 begin_class
@@ -346,7 +352,7 @@ specifier|private
 name|Security
 parameter_list|()
 block|{}
-comment|/**       * Initializes SecurityManager for the environment      * Can only happen once!      * @param environment configuration for generating dynamic permissions      * @param filterBadDefaults true if we should filter out bad java defaults in the system policy.      */
+comment|/**      * Initializes SecurityManager for the environment      * Can only happen once!      * @param environment configuration for generating dynamic permissions      * @param filterBadDefaults true if we should filter out bad java defaults in the system policy.      */
 DECL|method|configure
 specifier|static
 name|void
@@ -1050,7 +1056,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|environment
 operator|.
@@ -1064,7 +1075,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|environment
 operator|.
@@ -1078,7 +1094,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.home"
+name|Environment
+operator|.
+name|PATH_HOME_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|environment
 operator|.
@@ -1092,7 +1113,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.plugins"
+name|Environment
+operator|.
+name|PATH_PLUGINS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|environment
 operator|.
@@ -1106,7 +1132,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.conf"
+name|Environment
+operator|.
+name|PATH_CONF_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|environment
 operator|.
@@ -1120,7 +1151,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.scripts"
+name|Environment
+operator|.
+name|PATH_SCRIPTS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|environment
 operator|.
@@ -1149,7 +1185,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.logs"
+name|Environment
+operator|.
+name|PATH_LOGS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|environment
 operator|.
@@ -1173,7 +1214,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.shared_data"
+name|Environment
+operator|.
+name|PATH_SHARED_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|environment
 operator|.
@@ -1199,7 +1245,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.data"
+name|Environment
+operator|.
+name|PATH_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|path
 argument_list|,
@@ -1222,7 +1273,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.data"
+name|Environment
+operator|.
+name|PATH_DATA_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|path
 argument_list|,
@@ -1245,7 +1301,12 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-literal|"path.repo"
+name|Environment
+operator|.
+name|PATH_REPO_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|path
 argument_list|,
@@ -1303,23 +1364,17 @@ comment|// http is simple
 name|String
 name|httpRange
 init|=
-name|settings
+name|HttpTransportSettings
+operator|.
+name|SETTING_HTTP_PORT
 operator|.
 name|get
 argument_list|(
-literal|"http.netty.port"
-argument_list|,
 name|settings
-operator|.
-name|get
-argument_list|(
-literal|"http.port"
-argument_list|,
-name|NettyHttpServerTransport
-operator|.
-name|DEFAULT_PORT_RANGE
 argument_list|)
-argument_list|)
+operator|.
+name|getPortRangeString
+argument_list|()
 decl_stmt|;
 comment|// listen is always called with 'localhost' but use wildcard to be sure, no name service is consulted.
 comment|// see SocketPermission implies() code
@@ -1347,14 +1402,17 @@ name|Settings
 argument_list|>
 name|profiles
 init|=
-name|settings
+name|TransportSettings
 operator|.
-name|getGroups
+name|TRANSPORT_PROFILES_SETTING
+operator|.
+name|get
 argument_list|(
-literal|"transport.profiles"
-argument_list|,
-literal|true
+name|settings
 argument_list|)
+operator|.
+name|getAsGroups
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1363,7 +1421,7 @@ name|profiles
 operator|.
 name|containsKey
 argument_list|(
-name|NettyTransport
+name|TransportSettings
 operator|.
 name|DEFAULT_PROFILE
 argument_list|)
@@ -1382,7 +1440,7 @@ name|profiles
 operator|.
 name|put
 argument_list|(
-name|NettyTransport
+name|TransportSettings
 operator|.
 name|DEFAULT_PROFILE
 argument_list|,
@@ -1437,15 +1495,13 @@ name|get
 argument_list|(
 literal|"port"
 argument_list|,
-name|settings
+name|TransportSettings
+operator|.
+name|PORT
 operator|.
 name|get
 argument_list|(
-literal|"transport.tcp.port"
-argument_list|,
-name|NettyTransport
-operator|.
-name|DEFAULT_PORT_RANGE
+name|settings
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1453,7 +1509,7 @@ comment|// a profile is only valid if its the default profile, or if it has an a
 name|boolean
 name|valid
 init|=
-name|NettyTransport
+name|TransportSettings
 operator|.
 name|DEFAULT_PROFILE
 operator|.

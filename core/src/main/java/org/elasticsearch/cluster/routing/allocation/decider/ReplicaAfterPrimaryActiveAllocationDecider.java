@@ -188,7 +188,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"shard is primary"
+literal|"shard is primary and can be allocated"
 argument_list|)
 return|;
 block|}
@@ -223,7 +223,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"primary shard is not yet active"
+literal|"primary shard for this replica is not yet active"
 argument_list|)
 return|;
 block|}
@@ -238,7 +238,7 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"primary is already active"
+literal|"primary shard for this replica is already active"
 argument_list|)
 return|;
 block|}

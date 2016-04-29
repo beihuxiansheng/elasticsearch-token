@@ -160,9 +160,6 @@ block|{      }
 DECL|method|MultiTermVectorsShardRequest
 name|MultiTermVectorsShardRequest
 parameter_list|(
-name|MultiTermVectorsRequest
-name|request
-parameter_list|,
 name|String
 name|index
 parameter_list|,
@@ -172,8 +169,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|request
-argument_list|,
 name|index
 argument_list|)
 expr_stmt|;

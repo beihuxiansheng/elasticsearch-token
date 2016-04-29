@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|DocValues
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocValues
+name|LeafReaderContext
 import|;
 end_import
 
@@ -79,20 +79,6 @@ operator|.
 name|index
 operator|.
 name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|FieldDataType
 import|;
 end_import
 
@@ -166,22 +152,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MappedFieldType
-operator|.
-name|Names
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MapperService
 import|;
 end_import
@@ -242,20 +212,15 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-name|Names
-name|fieldNames
-parameter_list|,
-name|FieldDataType
-name|fieldDataType
+name|String
+name|fieldName
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|index
 argument_list|,
-name|fieldNames
-argument_list|,
-name|fieldDataType
+name|fieldName
 argument_list|)
 expr_stmt|;
 block|}
@@ -313,10 +278,7 @@ operator|.
 name|reader
 argument_list|()
 argument_list|,
-name|fieldNames
-operator|.
-name|indexName
-argument_list|()
+name|fieldName
 argument_list|)
 argument_list|)
 return|;
@@ -396,12 +358,12 @@ parameter_list|)
 block|{
 comment|// Ignore breaker
 specifier|final
-name|Names
-name|fieldNames
+name|String
+name|fieldName
 init|=
 name|fieldType
 operator|.
-name|names
+name|name
 argument_list|()
 decl_stmt|;
 return|return
@@ -413,12 +375,7 @@ operator|.
 name|getIndex
 argument_list|()
 argument_list|,
-name|fieldNames
-argument_list|,
-name|fieldType
-operator|.
-name|fieldDataType
-argument_list|()
+name|fieldName
 argument_list|)
 return|;
 block|}

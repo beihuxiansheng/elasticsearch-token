@@ -74,13 +74,13 @@ specifier|private
 name|long
 name|lastTimestamp
 decl_stmt|;
-DECL|field|secureMungedAddress
+DECL|field|SECURE_MUNGED_ADDRESS
 specifier|private
 specifier|static
 specifier|final
 name|byte
 index|[]
-name|secureMungedAddress
+name|SECURE_MUNGED_ADDRESS
 init|=
 name|MacAddressProvider
 operator|.
@@ -90,7 +90,7 @@ decl_stmt|;
 static|static
 block|{
 assert|assert
-name|secureMungedAddress
+name|SECURE_MUNGED_ADDRESS
 operator|.
 name|length
 operator|==
@@ -250,7 +250,7 @@ name|System
 operator|.
 name|arraycopy
 argument_list|(
-name|secureMungedAddress
+name|SECURE_MUNGED_ADDRESS
 argument_list|,
 literal|0
 argument_list|,
@@ -258,7 +258,7 @@ name|uuidBytes
 argument_list|,
 literal|6
 argument_list|,
-name|secureMungedAddress
+name|SECURE_MUNGED_ADDRESS
 operator|.
 name|length
 argument_list|)
@@ -278,7 +278,7 @@ expr_stmt|;
 assert|assert
 literal|9
 operator|+
-name|secureMungedAddress
+name|SECURE_MUNGED_ADDRESS
 operator|.
 name|length
 operator|==

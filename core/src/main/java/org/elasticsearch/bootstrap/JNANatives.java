@@ -176,6 +176,25 @@ name|LOCAL_SECCOMP_ALL
 init|=
 literal|false
 decl_stmt|;
+comment|// set to the maximum number of threads that can be created for
+comment|// the user ID that owns the running Elasticsearch process
+DECL|field|MAX_NUMBER_OF_THREADS
+specifier|static
+name|long
+name|MAX_NUMBER_OF_THREADS
+init|=
+operator|-
+literal|1
+decl_stmt|;
+DECL|field|MAX_SIZE_VIRTUAL_MEMORY
+specifier|static
+name|long
+name|MAX_SIZE_VIRTUAL_MEMORY
+init|=
+name|Long
+operator|.
+name|MIN_VALUE
+decl_stmt|;
 DECL|method|tryMlockall
 specifier|static
 name|void
@@ -320,8 +339,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to retrieve resource limits: "
-operator|+
+literal|"Unable to retrieve resource limits: {}"
+argument_list|,
 name|JNACLibrary
 operator|.
 name|strerror
@@ -350,12 +369,10 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to lock JVM Memory: error="
-operator|+
+literal|"Unable to lock JVM Memory: error={}, reason={}"
+argument_list|,
 name|errno
-operator|+
-literal|",reason="
-operator|+
+argument_list|,
 name|errMsg
 argument_list|)
 expr_stmt|;
@@ -384,15 +401,13 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Increase RLIMIT_MEMLOCK, soft limit: "
-operator|+
+literal|"Increase RLIMIT_MEMLOCK, soft limit: {}, hard limit: {}"
+argument_list|,
 name|rlimitToString
 argument_list|(
 name|softLimit
 argument_list|)
-operator|+
-literal|", hard limit: "
-operator|+
+argument_list|,
 name|rlimitToString
 argument_list|(
 name|hardLimit
@@ -423,23 +438,17 @@ name|warn
 argument_list|(
 literal|"These can be adjusted by modifying /etc/security/limits.conf, for example: \n"
 operator|+
-literal|"\t# allow user '"
+literal|"\t# allow user '{}' mlockall\n"
 operator|+
+literal|"\t{} soft memlock unlimited\n"
+operator|+
+literal|"\t{} hard memlock unlimited"
+argument_list|,
 name|user
-operator|+
-literal|"' mlockall\n"
-operator|+
-literal|"\t"
-operator|+
+argument_list|,
 name|user
-operator|+
-literal|" soft memlock unlimited\n"
-operator|+
-literal|"\t"
-operator|+
+argument_list|,
 name|user
-operator|+
-literal|" hard memlock unlimited"
 argument_list|)
 expr_stmt|;
 name|logger
@@ -458,6 +467,168 @@ operator|.
 name|warn
 argument_list|(
 literal|"Increase RLIMIT_MEMLOCK (ulimit)."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+DECL|method|trySetMaxNumberOfThreads
+specifier|static
+name|void
+name|trySetMaxNumberOfThreads
+parameter_list|()
+block|{
+if|if
+condition|(
+name|Constants
+operator|.
+name|LINUX
+condition|)
+block|{
+comment|// this is only valid on Linux and the value *is* different on OS X
+comment|// see /usr/include/sys/resource.h on OS X
+comment|// on Linux the resource RLIMIT_NPROC means *the number of threads*
+comment|// this is in opposition to BSD-derived OSes
+specifier|final
+name|int
+name|rlimit_nproc
+init|=
+literal|6
+decl_stmt|;
+specifier|final
+name|JNACLibrary
+operator|.
+name|Rlimit
+name|rlimit
+init|=
+operator|new
+name|JNACLibrary
+operator|.
+name|Rlimit
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|JNACLibrary
+operator|.
+name|getrlimit
+argument_list|(
+name|rlimit_nproc
+argument_list|,
+name|rlimit
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|MAX_NUMBER_OF_THREADS
+operator|=
+name|rlimit
+operator|.
+name|rlim_cur
+operator|.
+name|longValue
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"unable to retrieve max number of threads ["
+operator|+
+name|JNACLibrary
+operator|.
+name|strerror
+argument_list|(
+name|Native
+operator|.
+name|getLastError
+argument_list|()
+argument_list|)
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+DECL|method|trySetMaxSizeVirtualMemory
+specifier|static
+name|void
+name|trySetMaxSizeVirtualMemory
+parameter_list|()
+block|{
+if|if
+condition|(
+name|Constants
+operator|.
+name|LINUX
+operator|||
+name|Constants
+operator|.
+name|MAC_OS_X
+condition|)
+block|{
+specifier|final
+name|JNACLibrary
+operator|.
+name|Rlimit
+name|rlimit
+init|=
+operator|new
+name|JNACLibrary
+operator|.
+name|Rlimit
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|JNACLibrary
+operator|.
+name|getrlimit
+argument_list|(
+name|JNACLibrary
+operator|.
+name|RLIMIT_AS
+argument_list|,
+name|rlimit
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|MAX_SIZE_VIRTUAL_MEMORY
+operator|=
+name|rlimit
+operator|.
+name|rlim_cur
+operator|.
+name|longValue
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"unable to retrieve max size virtual memory ["
+operator|+
+name|JNACLibrary
+operator|.
+name|strerror
+argument_list|(
+name|Native
+operator|.
+name|getLastError
+argument_list|()
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -496,11 +667,10 @@ return|;
 block|}
 else|else
 block|{
-comment|// TODO, on java 8 use Long.toUnsignedString, since thats what it is.
 return|return
 name|Long
 operator|.
-name|toString
+name|toUnsignedString
 argument_list|(
 name|value
 argument_list|)
@@ -626,8 +796,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Unable to lock JVM memory. Failed to set working set size. Error code "
-operator|+
+literal|"Unable to lock JVM memory. Failed to set working set size. Error code {}"
+argument_list|,
 name|Native
 operator|.
 name|getLastError
@@ -847,14 +1017,12 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"unknown error "
-operator|+
+literal|"unknown error {} when adding console ctrl handler"
+argument_list|,
 name|Native
 operator|.
 name|getLastError
 argument_list|()
-operator|+
-literal|" when adding console ctrl handler:"
 argument_list|)
 expr_stmt|;
 block|}

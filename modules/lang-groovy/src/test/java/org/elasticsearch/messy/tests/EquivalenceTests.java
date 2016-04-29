@@ -282,7 +282,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeBuilder
+name|RangeAggregatorBuilder
 import|;
 end_import
 
@@ -1072,7 +1072,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-name|RangeBuilder
+name|RangeAggregatorBuilder
 name|query
 init|=
 name|range
@@ -1318,10 +1318,7 @@ argument_list|(
 literal|"filter"
 operator|+
 name|i
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|filter
 argument_list|)
 argument_list|)
@@ -1637,14 +1634,7 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"index"
-argument_list|,
-literal|"not_analyzed"
+literal|"keyword"
 argument_list|)
 operator|.
 name|startObject
@@ -1661,30 +1651,15 @@ name|field
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"string"
+literal|"keyword"
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"index"
 argument_list|,
-literal|"no"
+literal|false
 argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"fielddata"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"format"
-argument_list|,
-literal|"doc_values"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|endObject
 argument_list|()
@@ -3160,11 +3135,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Indexing ["
-operator|+
+literal|"Indexing [{}] docs"
+argument_list|,
 name|numDocs
-operator|+
-literal|"] docs"
 argument_list|)
 expr_stmt|;
 name|List
@@ -3304,7 +3277,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// https://github.com/elasticsearch/elasticsearch/issues/6435
+comment|// https://github.com/elastic/elasticsearch/issues/6435
 DECL|method|testReduce
 specifier|public
 name|void
@@ -3373,10 +3346,7 @@ argument_list|(
 name|filter
 argument_list|(
 literal|"filter"
-argument_list|)
-operator|.
-name|filter
-argument_list|(
+argument_list|,
 name|QueryBuilders
 operator|.
 name|matchAllQuery

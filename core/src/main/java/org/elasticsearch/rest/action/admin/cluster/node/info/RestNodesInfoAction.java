@@ -333,6 +333,8 @@ argument_list|,
 literal|"thread_pool"
 argument_list|,
 literal|"transport"
+argument_list|,
+literal|"ingest"
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -357,8 +359,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|controller
 argument_list|,
 name|client
 argument_list|)
@@ -598,7 +598,7 @@ literal|"timeout"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// shortcut, dont do checks if only all is specified
+comment|// shortcut, don't do checks if only all is specified
 if|if
 condition|(
 name|metrics
@@ -722,6 +722,18 @@ operator|.
 name|contains
 argument_list|(
 literal|"plugins"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|nodesInfoRequest
+operator|.
+name|ingest
+argument_list|(
+name|metrics
+operator|.
+name|contains
+argument_list|(
+literal|"ingest"
 argument_list|)
 argument_list|)
 expr_stmt|;

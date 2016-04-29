@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ActionRequestBuilder
 import|;
 end_import
@@ -421,27 +409,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to use distributed frequencies instead of shard statistics.      */
-DECL|method|setDfs
-specifier|public
-name|TermVectorsRequestBuilder
-name|setDfs
-parameter_list|(
-name|boolean
-name|dfs
-parameter_list|)
-block|{
-name|request
-operator|.
-name|dfs
-argument_list|(
-name|dfs
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets whether to return only term vectors for special selected fields. Returns the term      * vectors for all fields if selectedFields == null      */
 DECL|method|setSelectedFields
 specifier|public
@@ -470,7 +437,7 @@ specifier|public
 name|TermVectorsRequestBuilder
 name|setRealtime
 parameter_list|(
-name|Boolean
+name|boolean
 name|realtime
 parameter_list|)
 block|{

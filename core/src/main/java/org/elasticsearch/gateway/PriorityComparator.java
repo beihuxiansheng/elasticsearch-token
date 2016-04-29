@@ -74,6 +74,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|Index
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -119,7 +131,7 @@ name|o1Index
 init|=
 name|o1
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -128,7 +140,7 @@ name|o2Index
 init|=
 name|o2
 operator|.
-name|index
+name|getIndexName
 argument_list|()
 decl_stmt|;
 name|int
@@ -154,7 +166,10 @@ name|settingsO1
 init|=
 name|getIndexSettings
 argument_list|(
-name|o1Index
+name|o1
+operator|.
+name|index
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -163,7 +178,10 @@ name|settingsO2
 init|=
 name|getIndexSettings
 argument_list|(
-name|o2Index
+name|o2
+operator|.
+name|index
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|cmp
@@ -240,15 +258,13 @@ name|settings
 parameter_list|)
 block|{
 return|return
-name|settings
-operator|.
-name|getAsInt
-argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_PRIORITY
-argument_list|,
-literal|1
+name|INDEX_PRIORITY_SETTING
+operator|.
+name|get
+argument_list|(
+name|settings
 argument_list|)
 return|;
 block|}
@@ -271,7 +287,7 @@ operator|.
 name|SETTING_CREATION_DATE
 argument_list|,
 operator|-
-literal|1l
+literal|1L
 argument_list|)
 return|;
 block|}
@@ -281,7 +297,7 @@ specifier|abstract
 name|Settings
 name|getIndexSettings
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 function_decl|;
@@ -308,7 +324,7 @@ specifier|protected
 name|Settings
 name|getIndexSettings
 parameter_list|(
-name|String
+name|Index
 name|index
 parameter_list|)
 block|{
@@ -320,7 +336,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|index
+name|getIndexSafe
 argument_list|(
 name|index
 argument_list|)

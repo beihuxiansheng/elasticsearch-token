@@ -22,18 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -49,18 +37,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|ActionRequest
 import|;
 end_import
 
@@ -342,6 +318,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -404,24 +392,6 @@ name|settings
 operator|.
 name|Settings
 operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
 name|readSettingsFromStream
 import|;
 end_import
@@ -439,6 +409,24 @@ operator|.
 name|Settings
 operator|.
 name|writeSettingsToStream
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+operator|.
+name|Builder
+operator|.
+name|EMPTY_SETTINGS
 import|;
 end_import
 
@@ -538,21 +526,6 @@ specifier|public
 name|CreateIndexRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new request to create an index that was triggered by a different request,      * provided as an argument so that its headers and context can be copied to the new request.      */
-DECL|method|CreateIndexRequest
-specifier|public
-name|CreateIndexRequest
-parameter_list|(
-name|ActionRequest
-name|request
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|request
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Constructs a new request to create an index with the specified name.      */
 DECL|method|CreateIndexRequest
 specifier|public
@@ -807,7 +780,7 @@ name|settings
 operator|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|loadFromSource
@@ -1353,7 +1326,7 @@ name|source
 parameter_list|)
 block|{
 try|try
-block|{
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -1363,7 +1336,8 @@ name|createParser
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|//move to the first alias
 name|parser
 operator|.

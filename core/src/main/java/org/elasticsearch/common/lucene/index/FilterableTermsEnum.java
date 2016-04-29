@@ -154,7 +154,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Weight
+name|Scorer
 import|;
 end_import
 
@@ -166,9 +166,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|search
 operator|.
-name|BitDocIdSet
+name|Weight
 import|;
 end_import
 
@@ -434,7 +434,7 @@ literal|null
 condition|)
 block|{
 comment|// Important - need to use the doc count that includes deleted docs
-comment|// or we have this issue: https://github.com/elasticsearch/elasticsearch/issues/7951
+comment|// or we have this issue: https://github.com/elastic/elasticsearch/issues/7951
 name|numDocs
 operator|=
 name|reader
@@ -576,8 +576,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|DocIdSetIterator
-name|docs
+name|Scorer
+name|scorer
 init|=
 name|weight
 operator|.
@@ -588,7 +588,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|docs
+name|scorer
 operator|==
 literal|null
 condition|)
@@ -596,6 +596,14 @@ block|{
 comment|// fully filtered, none matching, no need to iterate on this
 continue|continue;
 block|}
+name|DocIdSetIterator
+name|docs
+init|=
+name|scorer
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
 comment|// we want to force apply deleted docs
 specifier|final
 name|Bits
@@ -646,16 +654,14 @@ block|}
 block|}
 expr_stmt|;
 block|}
-name|BitDocIdSet
+name|bits
+operator|=
+name|BitSet
 operator|.
-name|Builder
-name|builder
-init|=
-operator|new
-name|BitDocIdSet
-operator|.
-name|Builder
+name|of
 argument_list|(
+name|docs
+argument_list|,
 name|context
 operator|.
 name|reader
@@ -664,23 +670,6 @@ operator|.
 name|maxDoc
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|builder
-operator|.
-name|or
-argument_list|(
-name|docs
-argument_list|)
-expr_stmt|;
-name|bits
-operator|=
-name|builder
-operator|.
-name|build
-argument_list|()
-operator|.
-name|bits
-argument_list|()
 expr_stmt|;
 comment|// Count how many docs are in our filtered set
 comment|// TODO make this lazy-loaded only for those that need it?

@@ -94,6 +94,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -246,6 +256,11 @@ operator|.
 name|compile
 argument_list|(
 name|script
+argument_list|,
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -357,6 +372,11 @@ expr_stmt|;
 name|assertSuccess
 argument_list|(
 literal|"from java.lang import Math\nMath.cos(0)"
+argument_list|)
+expr_stmt|;
+name|assertSuccess
+argument_list|(
+literal|"map(lambda x: x + 1, range(100))"
 argument_list|)
 expr_stmt|;
 block|}

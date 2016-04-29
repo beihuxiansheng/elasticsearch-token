@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
+comment|/* /*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
@@ -156,6 +156,32 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
+name|uri
+operator|.
+name|URLRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|rest
 operator|.
 name|RestStatus
@@ -235,6 +261,18 @@ operator|.
 name|ESIntegTestCase
 operator|.
 name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
 import|;
 end_import
 
@@ -372,22 +410,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|hamcrest
@@ -482,7 +504,9 @@ condition|)
 block|{
 comment|// Configure using path.repo
 return|return
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -497,7 +521,12 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"path.repo"
+name|Environment
+operator|.
+name|PATH_REPO_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|getBwcIndicesPath
 argument_list|()
@@ -533,7 +562,9 @@ literal|"*.zip!/repo/"
 argument_list|)
 decl_stmt|;
 return|return
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -548,7 +579,12 @@ argument_list|)
 operator|.
 name|putArray
 argument_list|(
-literal|"repositories.url.allowed_urls"
+name|URLRepository
+operator|.
+name|ALLOWED_URLS_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|repoJarPatternUri
 operator|.
@@ -656,68 +692,35 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-name|field
-range|:
 name|Version
+name|v
+range|:
+name|VersionUtils
 operator|.
-name|class
-operator|.
-name|getDeclaredFields
+name|allVersions
 argument_list|()
 control|)
 block|{
 if|if
 condition|(
-name|Modifier
+name|VersionUtils
 operator|.
-name|isStatic
+name|isSnapshot
 argument_list|(
-name|field
-operator|.
-name|getModifiers
-argument_list|()
-argument_list|)
-operator|&&
-name|field
-operator|.
-name|getType
-argument_list|()
-operator|==
-name|Version
-operator|.
-name|class
-condition|)
-block|{
-name|Version
 name|v
-init|=
-operator|(
-name|Version
-operator|)
-name|field
-operator|.
-name|get
-argument_list|(
-name|Version
-operator|.
-name|class
 argument_list|)
-decl_stmt|;
+condition|)
+continue|continue;
+comment|// snapshots are unreleased, so there is no backcompat yet
 if|if
 condition|(
 name|v
 operator|.
-name|snapshot
+name|isAlpha
 argument_list|()
 condition|)
 continue|continue;
+comment|// no guarantees for alpha releases
 if|if
 condition|(
 name|v
@@ -730,6 +733,7 @@ name|V_2_0_0_beta1
 argument_list|)
 condition|)
 continue|continue;
+comment|// we can only test back one major lucene version
 if|if
 condition|(
 name|v
@@ -742,6 +746,7 @@ name|CURRENT
 argument_list|)
 condition|)
 continue|continue;
+comment|// the current version is always compatible with itself
 name|expectedVersions
 operator|.
 name|add
@@ -752,7 +757,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 for|for
 control|(
@@ -778,8 +782,8 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Old repositories tests contain extra repo: "
-operator|+
+literal|"Old repositories tests contain extra repo: {}"
+argument_list|,
 name|repoVersion
 argument_list|)
 expr_stmt|;
@@ -1143,7 +1147,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1449,7 +1455,10 @@ name|get
 argument_list|(
 name|FilterAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_EXCLUDE_GROUP
+name|CLUSTER_ROUTING_EXCLUDE_GROUP_SETTING
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"version_attr"
 argument_list|)
@@ -1573,24 +1582,6 @@ literal|"{\"type1\":{\"_source\":{\"enabled\":false}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|Version
-operator|.
-name|fromString
-argument_list|(
-name|version
-argument_list|)
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_1_1_0
-argument_list|)
-condition|)
-block|{
-comment|// Support for aliases in templates was added in v1.1.0
 name|assertThat
 argument_list|(
 name|template
@@ -1684,7 +1675,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|logger
 operator|.
 name|info

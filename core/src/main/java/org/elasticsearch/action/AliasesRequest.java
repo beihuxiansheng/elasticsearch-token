@@ -41,7 +41,7 @@ name|AliasesRequest
 name|aliases
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|aliases
 parameter_list|)
 function_decl|;

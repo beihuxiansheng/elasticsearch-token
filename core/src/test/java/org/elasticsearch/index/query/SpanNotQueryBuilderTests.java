@@ -376,9 +376,13 @@ name|SpanNotQueryBuilder
 argument_list|(
 literal|null
 argument_list|,
+operator|new
 name|SpanTermQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|(
+literal|"field"
+argument_list|,
+literal|"value"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fail
@@ -400,9 +404,13 @@ block|{
 operator|new
 name|SpanNotQueryBuilder
 argument_list|(
+operator|new
 name|SpanTermQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|(
+literal|"field"
+argument_list|,
+literal|"value"
+argument_list|)
 argument_list|,
 literal|null
 argument_list|)
@@ -1299,8 +1307,6 @@ operator|+
 literal|"        \"slop\" : 0,\n"
 operator|+
 literal|"        \"in_order\" : true,\n"
-operator|+
-literal|"        \"collect_payloads\" : true,\n"
 operator|+
 literal|"        \"boost\" : 1.0\n"
 operator|+
