@@ -1779,6 +1779,7 @@ annotation|@
 name|Override
 DECL|method|isSystemCheck
 specifier|public
+specifier|final
 name|boolean
 name|isSystemCheck
 parameter_list|()
