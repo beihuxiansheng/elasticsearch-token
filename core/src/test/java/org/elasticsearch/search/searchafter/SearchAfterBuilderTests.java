@@ -1328,15 +1328,15 @@ name|XContentHelper
 operator|.
 name|createParser
 argument_list|(
+name|shuffleXContent
+argument_list|(
 name|builder
+argument_list|)
 operator|.
 name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|QueryParseContext
-name|context
-init|=
 operator|new
 name|QueryParseContext
 argument_list|(
@@ -1348,7 +1348,7 @@ name|ParseFieldMatcher
 operator|.
 name|STRICT
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|parser
 operator|.
 name|nextToken

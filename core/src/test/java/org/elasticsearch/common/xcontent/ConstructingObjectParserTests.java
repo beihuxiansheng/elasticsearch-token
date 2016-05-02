@@ -102,18 +102,6 @@ end_import
 
 begin_import
 import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptySet
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -281,9 +269,6 @@ operator|=
 name|shuffleXContent
 argument_list|(
 name|builder
-argument_list|,
-name|emptySet
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|BytesReference

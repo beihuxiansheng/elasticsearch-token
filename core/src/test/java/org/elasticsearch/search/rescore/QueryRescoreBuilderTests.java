@@ -473,16 +473,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -1017,11 +1007,6 @@ init|=
 name|shuffleXContent
 argument_list|(
 name|builder
-argument_list|,
-name|Collections
-operator|.
-name|emptySet
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|XContentParser

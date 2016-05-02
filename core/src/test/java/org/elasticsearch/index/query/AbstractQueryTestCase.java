@@ -3211,21 +3211,20 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Subclasses can override this method and return a set of fields which should be protected from      * recursive random shuffling in the {@link #testFromXContent()} test case      */
+comment|/**      * Subclasses can override this method and return an array of fieldnames which should be protected from      * recursive random shuffling in the {@link #testFromXContent()} test case      */
 DECL|method|shuffleProtectedFields
 specifier|protected
-name|Set
-argument_list|<
 name|String
-argument_list|>
+index|[]
 name|shuffleProtectedFields
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
-name|emptySet
-argument_list|()
+operator|new
+name|String
+index|[
+literal|0
+index|]
 return|;
 block|}
 DECL|method|toXContent

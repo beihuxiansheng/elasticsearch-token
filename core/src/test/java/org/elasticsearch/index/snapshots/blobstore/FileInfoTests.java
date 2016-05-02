@@ -429,7 +429,10 @@ name|byte
 index|[]
 name|xcontent
 init|=
+name|shuffleXContent
+argument_list|(
 name|builder
+argument_list|)
 operator|.
 name|bytes
 argument_list|()
