@@ -158,14 +158,14 @@ end_comment
 
 begin_class
 DECL|class|EmptyMemberValueSource
-specifier|public
+specifier|final
 class|class
 name|EmptyMemberValueSource
 extends|extends
 name|ValueSource
 block|{
 DECL|field|fieldData
-specifier|protected
+specifier|final
 name|IndexFieldData
 argument_list|<
 name|?
@@ -173,7 +173,6 @@ argument_list|>
 name|fieldData
 decl_stmt|;
 DECL|method|EmptyMemberValueSource
-specifier|protected
 name|EmptyMemberValueSource
 parameter_list|(
 name|IndexFieldData
