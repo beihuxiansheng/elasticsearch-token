@@ -2595,6 +2595,10 @@ name|BootstrapSettings
 operator|.
 name|CTRLHANDLER_SETTING
 argument_list|,
+name|BootstrapSettings
+operator|.
+name|IGNORE_SYSTEM_BOOTSTRAP_CHECKS
+argument_list|,
 name|IndexingMemoryController
 operator|.
 name|INDEX_BUFFER_SIZE_SETTING
