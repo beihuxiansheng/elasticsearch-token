@@ -236,6 +236,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Objects
 import|;
 end_import
@@ -1302,6 +1312,21 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * For internal usage only!      *      * Extracts the inner hits from the query tree.      * While it extracts inner hits, child inner hits are inlined into the inner hit builder they belong to.      */
+DECL|method|extractInnerHitBuilders
+specifier|protected
+name|void
+name|extractInnerHitBuilders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|InnerHitBuilder
+argument_list|>
+name|innerHits
+parameter_list|)
+block|{     }
 comment|// Like Objects.requireNotNull(...) but instead throws a IllegalArgumentException
 DECL|method|requireValue
 specifier|protected

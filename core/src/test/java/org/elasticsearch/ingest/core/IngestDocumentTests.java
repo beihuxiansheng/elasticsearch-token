@@ -1333,6 +1333,9 @@ name|ingestDocument
 operator|.
 name|getFieldValue
 argument_list|(
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|,
 name|String
@@ -1655,6 +1658,9 @@ name|ingestDocument
 operator|.
 name|hasField
 argument_list|(
+operator|(
+name|String
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;

@@ -765,7 +765,21 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
+argument_list|(
+literal|"Index didn't match. Index queried: "
+operator|+
+name|context
+operator|.
+name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" vs. "
+operator|+
+name|value
+argument_list|)
 return|;
 block|}
 block|}
@@ -840,7 +854,21 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
+argument_list|(
+literal|"Index didn't match. Index queried: "
+operator|+
+name|context
+operator|.
+name|index
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" vs. "
+operator|+
+name|values
+argument_list|)
 return|;
 block|}
 DECL|method|isSameIndex
