@@ -391,6 +391,8 @@ operator|.
 name|randomValueOtherThanMany
 argument_list|(
 name|exceptThis
+operator|::
+name|contains
 argument_list|,
 parameter_list|()
 lambda|->
