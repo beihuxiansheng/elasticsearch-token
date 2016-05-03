@@ -1415,11 +1415,9 @@ argument_list|)
 return|;
 block|}
 DECL|method|parseQueryBuilder
+specifier|private
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parseQueryBuilder
 parameter_list|(
 name|QueryParseContext

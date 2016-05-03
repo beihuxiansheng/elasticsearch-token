@@ -2919,6 +2919,8 @@ return|return
 name|nodeServicesProvider
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIndexSettings
 specifier|public
 name|IndexSettings
@@ -3733,7 +3735,7 @@ name|AliasMetaData
 name|alias
 parameter_list|,
 name|QueryShardContext
-name|parseContext
+name|shardContext
 parameter_list|)
 block|{
 if|if
@@ -3785,11 +3787,19 @@ block|{
 name|ParsedQuery
 name|parsedFilter
 init|=
-name|parseContext
+name|shardContext
 operator|.
-name|parseInnerFilter
+name|toFilter
+argument_list|(
+name|shardContext
+operator|.
+name|newParseContext
 argument_list|(
 name|parser
+argument_list|)
+operator|.
+name|parseInnerQueryBuilder
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -3816,7 +3826,7 @@ throw|throw
 operator|new
 name|AliasFilterParsingException
 argument_list|(
-name|parseContext
+name|shardContext
 operator|.
 name|index
 argument_list|()
@@ -4551,6 +4561,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 specifier|final
@@ -4846,6 +4858,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getThreadPool
 specifier|protected
 name|String
@@ -4929,6 +4943,8 @@ name|maybeRefreshEngine
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getThreadPool
 specifier|protected
 name|String

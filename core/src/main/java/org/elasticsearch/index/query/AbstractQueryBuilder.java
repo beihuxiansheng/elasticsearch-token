@@ -1081,6 +1081,7 @@ block|}
 DECL|method|writeQueries
 specifier|protected
 specifier|final
+specifier|static
 name|void
 name|writeQueries
 parameter_list|(
@@ -1092,9 +1093,6 @@ argument_list|<
 name|?
 extends|extends
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queries
 parameter_list|)
@@ -1134,6 +1132,7 @@ block|}
 DECL|method|readQueries
 specifier|protected
 specifier|final
+specifier|static
 name|List
 argument_list|<
 name|QueryBuilder
