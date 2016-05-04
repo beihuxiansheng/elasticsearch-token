@@ -729,13 +729,11 @@ name|String
 index|[]
 name|sAttrs
 init|=
-name|Strings
-operator|.
-name|splitStringToArray
-argument_list|(
 name|attributes
-argument_list|,
-literal|';'
+operator|.
+name|split
+argument_list|(
+literal|";"
 argument_list|)
 decl_stmt|;
 for|for

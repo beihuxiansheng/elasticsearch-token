@@ -1549,13 +1549,11 @@ control|(
 name|String
 name|elem
 range|:
-name|Strings
-operator|.
-name|splitStringToArray
-argument_list|(
 name|basePath
-argument_list|,
-literal|'/'
+operator|.
+name|split
+argument_list|(
+literal|"/"
 argument_list|)
 control|)
 block|{
