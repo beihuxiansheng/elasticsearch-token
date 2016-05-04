@@ -1130,13 +1130,6 @@ name|SubAggCollectionMode
 operator|.
 name|BREADTH_FIRST
 operator|&&
-name|aggregator
-operator|.
-name|needsScores
-argument_list|()
-operator|==
-literal|false
-operator|&&
 operator|!
 name|aggsUsedForSorting
 operator|.
