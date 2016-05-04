@@ -88,6 +88,7 @@ end_comment
 
 begin_class
 DECL|class|ReplaceableConstValueSource
+specifier|final
 class|class
 name|ReplaceableConstValueSource
 extends|extends
@@ -99,7 +100,6 @@ name|ReplaceableConstFunctionValues
 name|fv
 decl_stmt|;
 DECL|method|ReplaceableConstValueSource
-specifier|public
 name|ReplaceableConstValueSource
 parameter_list|()
 block|{

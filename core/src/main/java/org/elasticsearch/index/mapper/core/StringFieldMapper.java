@@ -160,18 +160,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|DeprecationLogger
@@ -1315,6 +1303,45 @@ argument_list|(
 literal|"index"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|null
+argument_list|,
+literal|"no"
+argument_list|,
+literal|"not_analyzed"
+argument_list|,
+literal|"analyzed"
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+name|index
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Can't parse [index] value ["
+operator|+
+name|index
+operator|+
+literal|"] for field ["
+operator|+
+name|fieldName
+operator|+
+literal|"], expected [no], [not_analyzed] or [analyzed]"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|boolean
 name|keyword
@@ -1852,7 +1879,7 @@ literal|"] for field ["
 operator|+
 name|fieldName
 operator|+
-literal|"], expected [true], [false], [no], [not_analyzed] or [analyzed]"
+literal|"], expected [no], [not_analyzed] or [analyzed]"
 argument_list|)
 throw|;
 block|}

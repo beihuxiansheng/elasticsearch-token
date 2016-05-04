@@ -4479,6 +4479,7 @@ name|fields
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Necessary for 2.x shards:
 name|Completion090PostingsFormat
 name|postingsFormat
 init|=

@@ -1509,8 +1509,6 @@ throws|throws
 name|ExecutionException
 throws|,
 name|InterruptedException
-throws|,
-name|XMLStreamException
 block|{
 comment|// only wait for the cluster to form
 name|assertNoTimeout

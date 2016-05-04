@@ -176,7 +176,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|lucene
+operator|.
+name|search
+operator|.
+name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -852,6 +856,16 @@ argument_list|(
 name|instanceOf
 argument_list|(
 name|FuzzyQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+operator|.
+name|or
+argument_list|(
+name|instanceOf
+argument_list|(
+name|MatchNoDocsQuery
 operator|.
 name|class
 argument_list|)
