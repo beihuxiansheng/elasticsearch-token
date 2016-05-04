@@ -716,10 +716,10 @@ name|NestedScope
 name|nestedScope
 decl_stmt|;
 DECL|field|isFilter
+specifier|private
 name|boolean
 name|isFilter
 decl_stmt|;
-comment|// pkg private for testing
 DECL|method|QueryShardContext
 specifier|public
 name|QueryShardContext
@@ -902,7 +902,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|reset
-specifier|public
+specifier|private
 name|void
 name|reset
 parameter_list|()
@@ -1166,6 +1166,21 @@ block|{
 return|return
 name|isFilter
 return|;
+block|}
+DECL|method|setIsFilter
+name|void
+name|setIsFilter
+parameter_list|(
+name|boolean
+name|isFilter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|isFilter
+operator|=
+name|isFilter
+expr_stmt|;
 block|}
 DECL|method|simpleMatchToIndexNames
 specifier|public

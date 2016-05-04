@@ -1379,11 +1379,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|context
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 comment|// This means that fields in the query need to exist in the mapping prior to registering this query
 comment|// The reason that this is required, is that if a field doesn't exist then the query assumes defaults, which may be undesired.
 comment|//
@@ -1410,8 +1405,6 @@ argument_list|(
 name|mapUnmappedFieldsAsString
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 return|return
 name|queryBuilder
 operator|.
@@ -1420,15 +1413,6 @@ argument_list|(
 name|context
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|context
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|parseQueryBuilder
 specifier|static
