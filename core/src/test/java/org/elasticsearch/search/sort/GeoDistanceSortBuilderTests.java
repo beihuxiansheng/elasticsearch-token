@@ -242,18 +242,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|geo
 operator|.
 name|RandomGeoGenerator
@@ -516,8 +504,6 @@ name|result
 operator|.
 name|unit
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|result
@@ -568,8 +554,6 @@ name|result
 operator|.
 name|sortMode
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|SortMode
@@ -643,8 +627,6 @@ name|result
 operator|.
 name|validation
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|result
@@ -980,8 +962,6 @@ name|result
 operator|.
 name|unit
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|result
@@ -1036,8 +1016,6 @@ name|result
 operator|.
 name|sortMode
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThanMany
 argument_list|(
 name|Arrays
@@ -1053,6 +1031,8 @@ operator|.
 name|sortMode
 argument_list|()
 argument_list|)
+operator|::
+name|contains
 argument_list|,
 parameter_list|()
 lambda|->
@@ -1122,8 +1102,6 @@ name|result
 operator|.
 name|validation
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|result
