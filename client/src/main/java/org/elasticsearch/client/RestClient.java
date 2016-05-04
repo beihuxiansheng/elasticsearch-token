@@ -127,8 +127,8 @@ specifier|public
 name|ElasticsearchResponse
 name|performRequest
 parameter_list|(
-name|Verb
-name|verb
+name|String
+name|method
 parameter_list|,
 name|String
 name|endpoint
@@ -152,7 +152,7 @@ name|transport
 operator|.
 name|performRequest
 argument_list|(
-name|verb
+name|method
 argument_list|,
 name|endpoint
 argument_list|,

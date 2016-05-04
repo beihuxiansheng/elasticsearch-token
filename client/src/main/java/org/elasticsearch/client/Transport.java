@@ -650,11 +650,11 @@ operator|<=
 literal|0
 condition|)
 block|{
-name|RetryTimeoutException
+name|IOException
 name|retryTimeoutException
 init|=
 operator|new
-name|RetryTimeoutException
+name|IOException
 argument_list|(
 literal|"request retries exceeded max retry timeout ["
 operator|+
