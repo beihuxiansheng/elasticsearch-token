@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client
+DECL|package|org.elasticsearch.client.sniff
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|client
+operator|.
+name|sniff
 package|;
 end_package
 
@@ -83,6 +85,30 @@ operator|.
 name|client
 operator|.
 name|CloseableHttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|AbstractStaticConnectionPool
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|StatefulConnection
 import|;
 end_import
 
