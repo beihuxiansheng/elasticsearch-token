@@ -1570,12 +1570,7 @@ name|leafCollector
 operator|.
 name|setScorer
 argument_list|(
-name|Lucene
-operator|.
-name|illegalScorer
-argument_list|(
-literal|"dummy scorer"
-argument_list|)
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertThat
