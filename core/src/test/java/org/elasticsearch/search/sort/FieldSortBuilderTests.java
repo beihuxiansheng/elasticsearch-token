@@ -98,18 +98,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -135,18 +123,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Supplier
 import|;
 end_import
 
@@ -190,15 +166,11 @@ literal|"_last"
 argument_list|,
 literal|"_first"
 argument_list|,
-name|ESTestCase
-operator|.
 name|randomAsciiOfLength
 argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|ESTestCase
-operator|.
 name|randomUnicodeOfCodepointLengthBetween
 argument_list|(
 literal|5
@@ -206,8 +178,6 @@ argument_list|,
 literal|15
 argument_list|)
 argument_list|,
-name|ESTestCase
-operator|.
 name|randomInt
 argument_list|()
 argument_list|)
@@ -291,8 +261,6 @@ name|builder
 operator|.
 name|unmappedType
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
@@ -332,8 +300,6 @@ name|builder
 operator|.
 name|setNestedFilter
 argument_list|(
-name|NestedQueryBuilderGenerator
-operator|.
 name|randomNestedFilter
 argument_list|()
 argument_list|)
@@ -349,8 +315,6 @@ name|builder
 operator|.
 name|setNestedPath
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
@@ -408,8 +372,6 @@ name|mutated
 operator|.
 name|setNestedPath
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original
@@ -419,8 +381,6 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|ESTestCase
-operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
@@ -438,8 +398,6 @@ name|mutated
 operator|.
 name|setNestedFilter
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original
@@ -449,8 +407,6 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|NestedQueryBuilderGenerator
-operator|.
 name|randomNestedFilter
 argument_list|()
 argument_list|)
@@ -464,8 +420,6 @@ name|mutated
 operator|.
 name|sortMode
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original
@@ -493,8 +447,6 @@ name|mutated
 operator|.
 name|unmappedType
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original
@@ -504,8 +456,6 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|ESTestCase
-operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
@@ -523,8 +473,6 @@ name|mutated
 operator|.
 name|missing
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original
@@ -549,8 +497,6 @@ name|mutated
 operator|.
 name|order
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original

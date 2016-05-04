@@ -562,8 +562,6 @@ name|result
 operator|.
 name|setNestedFilter
 argument_list|(
-name|NestedQueryBuilderGenerator
-operator|.
 name|randomNestedFilter
 argument_list|()
 argument_list|)
@@ -1134,8 +1132,6 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|NestedQueryBuilderGenerator
-operator|.
 name|randomNestedFilter
 argument_list|()
 argument_list|)
