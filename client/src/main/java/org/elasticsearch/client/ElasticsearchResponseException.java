@@ -22,6 +22,18 @@ name|apache
 operator|.
 name|http
 operator|.
+name|HttpHost
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
 name|RequestLine
 import|;
 end_import
@@ -48,6 +60,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Exception thrown when an elasticsearch node responds to a request with a status code that indicates an error  */
+end_comment
+
 begin_class
 DECL|class|ElasticsearchResponseException
 specifier|public
@@ -56,11 +72,11 @@ name|ElasticsearchResponseException
 extends|extends
 name|IOException
 block|{
-DECL|field|node
+DECL|field|host
 specifier|private
 specifier|final
-name|Node
-name|node
+name|HttpHost
+name|host
 decl_stmt|;
 DECL|field|requestLine
 specifier|private
@@ -80,8 +96,8 @@ parameter_list|(
 name|RequestLine
 name|requestLine
 parameter_list|,
-name|Node
-name|node
+name|HttpHost
+name|host
 parameter_list|,
 name|StatusLine
 name|statusLine
@@ -93,7 +109,7 @@ name|buildMessage
 argument_list|(
 name|requestLine
 argument_list|,
-name|node
+name|host
 argument_list|,
 name|statusLine
 argument_list|)
@@ -101,9 +117,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|node
+name|host
 operator|=
-name|node
+name|host
 expr_stmt|;
 name|this
 operator|.
@@ -127,8 +143,8 @@ parameter_list|(
 name|RequestLine
 name|requestLine
 parameter_list|,
-name|Node
-name|node
+name|HttpHost
+name|host
 parameter_list|,
 name|StatusLine
 name|statusLine
@@ -142,10 +158,7 @@ argument_list|()
 operator|+
 literal|" "
 operator|+
-name|node
-operator|.
-name|getHttpHost
-argument_list|()
+name|host
 operator|+
 name|requestLine
 operator|.
@@ -160,6 +173,7 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/**      * Returns whether the error is recoverable or not, hence whether the same request should be retried on other nodes or not      */
 DECL|method|isRecoverable
 specifier|public
 name|boolean
@@ -183,16 +197,18 @@ operator|<=
 literal|504
 return|;
 block|}
-DECL|method|getNode
+comment|/**      * Returns the {@link HttpHost} that returned the error      */
+DECL|method|getHost
 specifier|public
-name|Node
-name|getNode
+name|HttpHost
+name|getHost
 parameter_list|()
 block|{
 return|return
-name|node
+name|host
 return|;
 block|}
+comment|/**      * Returns the {@link RequestLine} that triggered the error      */
 DECL|method|getRequestLine
 specifier|public
 name|RequestLine
@@ -203,6 +219,7 @@ return|return
 name|requestLine
 return|;
 block|}
+comment|/**      * Returns the {@link StatusLine} that was returned by elasticsearch      */
 DECL|method|getStatusLine
 specifier|public
 name|StatusLine

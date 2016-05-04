@@ -14,8 +14,20 @@ name|client
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|HttpHost
+import|;
+end_import
+
 begin_comment
-comment|/**  * Simplest representation of a connection to an elasticsearch node.  * It doesn't have any mutable state. It holds the node that the connection points to.  * Allows the transport to deal with very simple connection objects that are immutable.  * Any change to the state of connections should be made through the connection pool  * which is aware of the connection object that it supports.  */
+comment|/**  * Simplest representation of a connection to an elasticsearch node.  * It doesn't have any mutable state. It holds the host that the connection points to.  * Allows the transport to deal with very simple connection objects that are immutable.  * Any change to the state of connections should be made through the connection pool  * which is aware of the connection object that it supports.  */
 end_comment
 
 begin_class
@@ -24,37 +36,37 @@ specifier|public
 class|class
 name|Connection
 block|{
-DECL|field|node
+DECL|field|host
 specifier|private
 specifier|final
-name|Node
-name|node
+name|HttpHost
+name|host
 decl_stmt|;
-comment|/**      * Creates a new connection pointing to the provided {@link Node} argument      */
+comment|/**      * Creates a new connection pointing to the provided {@link HttpHost} argument      */
 DECL|method|Connection
 specifier|public
 name|Connection
 parameter_list|(
-name|Node
-name|node
+name|HttpHost
+name|host
 parameter_list|)
 block|{
 name|this
 operator|.
-name|node
+name|host
 operator|=
-name|node
+name|host
 expr_stmt|;
 block|}
-comment|/**      * Returns the {@link Node} that the connection points to      */
-DECL|method|getNode
+comment|/**      * Returns the {@link HttpHost} that the connection points to      */
+DECL|method|getHost
 specifier|public
-name|Node
-name|getNode
+name|HttpHost
+name|getHost
 parameter_list|()
 block|{
 return|return
-name|node
+name|host
 return|;
 block|}
 block|}

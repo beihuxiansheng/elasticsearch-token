@@ -516,7 +516,7 @@ literal|"no healthy nodes available, trying "
 operator|+
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -831,10 +831,7 @@ name|execute
 argument_list|(
 name|connection
 operator|.
-name|getNode
-argument_list|()
-operator|.
-name|getHttpHost
+name|getHost
 argument_list|()
 argument_list|,
 name|request
@@ -862,7 +859,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|e
@@ -933,7 +930,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|response
@@ -953,7 +950,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|response
@@ -987,7 +984,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|response
@@ -1007,7 +1004,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|statusLine

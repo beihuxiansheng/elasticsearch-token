@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|http
 operator|.
+name|HttpHost
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
 name|RequestLine
 import|;
 end_import
@@ -109,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holds an elasticsearch response. It wraps the {@link CloseableHttpResponse} response and associates it with  * its corresponding {@link RequestLine} and {@link Node}  */
+comment|/**  * Holds an elasticsearch response. It wraps the {@link CloseableHttpResponse} response and associates it with  * its corresponding {@link RequestLine} and {@link HttpHost}  */
 end_comment
 
 begin_class
@@ -126,11 +138,11 @@ specifier|final
 name|RequestLine
 name|requestLine
 decl_stmt|;
-DECL|field|node
+DECL|field|host
 specifier|private
 specifier|final
-name|Node
-name|node
+name|HttpHost
+name|host
 decl_stmt|;
 DECL|field|response
 specifier|private
@@ -144,8 +156,8 @@ parameter_list|(
 name|RequestLine
 name|requestLine
 parameter_list|,
-name|Node
-name|node
+name|HttpHost
+name|host
 parameter_list|,
 name|CloseableHttpResponse
 name|response
@@ -164,7 +176,7 @@ name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|node
+name|host
 argument_list|,
 literal|"node cannot be null"
 argument_list|)
@@ -186,9 +198,9 @@ name|requestLine
 expr_stmt|;
 name|this
 operator|.
-name|node
+name|host
 operator|=
-name|node
+name|host
 expr_stmt|;
 name|this
 operator|.
@@ -209,14 +221,14 @@ name|requestLine
 return|;
 block|}
 comment|/**      * Returns the node that returned this response      */
-DECL|method|getNode
+DECL|method|getHost
 specifier|public
-name|Node
-name|getNode
+name|HttpHost
+name|getHost
 parameter_list|()
 block|{
 return|return
-name|node
+name|host
 return|;
 block|}
 comment|/**      * Returns the status line of the current response      */
@@ -248,7 +260,7 @@ name|getAllHeaders
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the response bodyi available, null otherwise      */
+comment|/**      * Returns the response body available, null otherwise      * @see HttpEntity      */
 DECL|method|getEntity
 specifier|public
 name|HttpEntity
@@ -277,9 +289,9 @@ literal|"requestLine="
 operator|+
 name|requestLine
 operator|+
-literal|", node="
+literal|", host="
 operator|+
-name|node
+name|host
 operator|+
 literal|", response="
 operator|+

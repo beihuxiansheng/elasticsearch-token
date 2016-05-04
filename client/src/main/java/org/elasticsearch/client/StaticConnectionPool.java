@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|http
 operator|.
+name|HttpHost
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
 name|StatusLine
 import|;
 end_import
@@ -244,9 +256,9 @@ name|Connection
 argument_list|>
 name|connectionSelector
 parameter_list|,
-name|Node
+name|HttpHost
 modifier|...
-name|nodes
+name|hosts
 parameter_list|)
 block|{
 name|super
@@ -274,11 +286,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|nodes
+name|hosts
 operator|==
 literal|null
 operator|||
-name|nodes
+name|hosts
 operator|.
 name|length
 operator|==
@@ -289,7 +301,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"no nodes provided"
+literal|"no hosts provided"
 argument_list|)
 throw|;
 block|}
@@ -317,7 +329,7 @@ name|connections
 operator|=
 name|createConnections
 argument_list|(
-name|nodes
+name|hosts
 argument_list|)
 expr_stmt|;
 block|}
@@ -389,10 +401,7 @@ name|execute
 argument_list|(
 name|connection
 operator|.
-name|getNode
-argument_list|()
-operator|.
-name|getHttpHost
+name|getHost
 argument_list|()
 argument_list|,
 name|httpHead
@@ -438,7 +447,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|e
@@ -478,7 +487,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|statusLine
@@ -500,7 +509,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|statusLine
@@ -524,7 +533,7 @@ argument_list|()
 argument_list|,
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|,
 name|statusLine

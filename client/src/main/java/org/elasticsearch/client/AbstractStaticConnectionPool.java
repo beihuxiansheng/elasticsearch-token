@@ -44,6 +44,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|HttpHost
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -338,9 +350,9 @@ name|StatefulConnection
 argument_list|>
 name|createConnections
 parameter_list|(
-name|Node
+name|HttpHost
 modifier|...
-name|nodes
+name|hosts
 parameter_list|)
 block|{
 name|List
@@ -356,19 +368,19 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Node
-name|node
+name|HttpHost
+name|host
 range|:
-name|nodes
+name|hosts
 control|)
 block|{
 name|Objects
 operator|.
 name|requireNonNull
 argument_list|(
-name|node
+name|host
 argument_list|,
-literal|"node cannot be null"
+literal|"host cannot be null"
 argument_list|)
 expr_stmt|;
 name|connections
@@ -378,7 +390,7 @@ argument_list|(
 operator|new
 name|StatefulConnection
 argument_list|(
-name|node
+name|host
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -472,7 +484,7 @@ literal|"marked connection alive for "
 operator|+
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -503,7 +515,7 @@ literal|"marked connection dead for "
 operator|+
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;

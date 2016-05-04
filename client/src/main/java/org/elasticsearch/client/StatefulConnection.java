@@ -16,6 +16,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|HttpHost
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -100,18 +112,18 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Creates a new mutable connection pointing to the provided {@link Node} argument      */
+comment|/**      * Creates a new mutable connection pointing to the provided {@link HttpHost} argument      */
 DECL|method|StatefulConnection
 specifier|public
 name|StatefulConnection
 parameter_list|(
-name|Node
-name|node
+name|HttpHost
+name|host
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|node
+name|host
 argument_list|)
 expr_stmt|;
 block|}

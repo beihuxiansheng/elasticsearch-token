@@ -36,6 +36,18 @@ name|apache
 operator|.
 name|http
 operator|.
+name|HttpHost
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
 name|RequestLine
 import|;
 end_import
@@ -63,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper class that exposes static method to unify the way requests are logged  */
+comment|/**  * Helper class that exposes static methods to unify the way requests are logged  */
 end_comment
 
 begin_class
@@ -94,8 +106,8 @@ parameter_list|,
 name|RequestLine
 name|requestLine
 parameter_list|,
-name|Node
-name|node
+name|HttpHost
+name|host
 parameter_list|,
 name|StatusLine
 name|statusLine
@@ -116,10 +128,7 @@ argument_list|()
 operator|+
 literal|" "
 operator|+
-name|node
-operator|.
-name|getHttpHost
-argument_list|()
+name|host
 operator|+
 name|requestLine
 operator|.
@@ -150,8 +159,8 @@ parameter_list|,
 name|RequestLine
 name|requestLine
 parameter_list|,
-name|Node
-name|node
+name|HttpHost
+name|host
 parameter_list|,
 name|IOException
 name|e
@@ -172,10 +181,7 @@ argument_list|()
 operator|+
 literal|" "
 operator|+
-name|node
-operator|.
-name|getHttpHost
-argument_list|()
+name|host
 operator|+
 name|requestLine
 operator|.

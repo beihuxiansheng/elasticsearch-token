@@ -181,12 +181,12 @@ argument_list|,
 literal|5
 argument_list|)
 decl_stmt|;
-name|Node
+name|HttpHost
 index|[]
-name|nodes
+name|hosts
 init|=
 operator|new
-name|Node
+name|HttpHost
 index|[
 name|numNodes
 index|]
@@ -206,21 +206,17 @@ name|i
 operator|++
 control|)
 block|{
-name|nodes
+name|hosts
 index|[
 name|i
 index|]
 operator|=
-operator|new
-name|Node
-argument_list|(
 operator|new
 name|HttpHost
 argument_list|(
 literal|"localhost"
 argument_list|,
 literal|9200
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -309,7 +305,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 argument_list|,
-name|nodes
+name|hosts
 argument_list|)
 init|)
 block|{
@@ -422,7 +418,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 argument_list|,
-name|nodes
+name|hosts
 argument_list|)
 init|)
 block|{
@@ -535,7 +531,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 argument_list|,
-name|nodes
+name|hosts
 argument_list|)
 init|)
 block|{
@@ -646,7 +642,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 argument_list|,
-name|nodes
+name|hosts
 argument_list|)
 init|)
 block|{
@@ -759,7 +755,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 argument_list|,
-name|nodes
+name|hosts
 argument_list|)
 init|)
 block|{
@@ -866,7 +862,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-name|nodes
+name|hosts
 argument_list|)
 init|)
 block|{
@@ -981,7 +977,7 @@ name|nextBoolean
 argument_list|()
 argument_list|,
 operator|(
-name|Node
+name|HttpHost
 index|[]
 operator|)
 literal|null
@@ -1008,7 +1004,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"no nodes provided"
+literal|"no hosts provided"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1098,7 +1094,7 @@ name|nextBoolean
 argument_list|()
 argument_list|,
 operator|(
-name|Node
+name|HttpHost
 operator|)
 literal|null
 argument_list|)
@@ -1124,7 +1120,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"node cannot be null"
+literal|"host cannot be null"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1235,7 +1231,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"no nodes provided"
+literal|"no hosts provided"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1324,7 +1320,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 argument_list|,
-name|nodes
+name|hosts
 argument_list|)
 init|)
 block|{

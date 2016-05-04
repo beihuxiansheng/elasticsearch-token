@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|http
 operator|.
+name|HttpHost
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
 name|client
 operator|.
 name|config
@@ -292,9 +304,9 @@ name|Connection
 argument_list|>
 name|connectionSelector
 parameter_list|,
-name|Node
+name|HttpHost
 modifier|...
-name|nodes
+name|hosts
 parameter_list|)
 block|{
 name|super
@@ -343,11 +355,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|nodes
+name|hosts
 operator|==
 literal|null
 operator|||
-name|nodes
+name|hosts
 operator|.
 name|length
 operator|==
@@ -358,7 +370,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"no nodes provided"
+literal|"no hosts provided"
 argument_list|)
 throw|;
 block|}
@@ -393,7 +405,7 @@ name|connections
 operator|=
 name|createConnections
 argument_list|(
-name|nodes
+name|hosts
 argument_list|)
 expr_stmt|;
 name|this
@@ -471,7 +483,7 @@ name|sniffOnFailure
 argument_list|(
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -653,8 +665,8 @@ DECL|method|sniffOnFailure
 name|void
 name|sniffOnFailure
 parameter_list|(
-name|Node
-name|failedNode
+name|HttpHost
+name|failedHost
 parameter_list|)
 block|{
 comment|//sync sniff straightaway on failure
@@ -664,19 +676,13 @@ literal|true
 expr_stmt|;
 name|sniff
 argument_list|(
-name|node
+name|host
 lambda|->
-name|node
-operator|.
-name|getHttpHost
-argument_list|()
+name|host
 operator|.
 name|equals
 argument_list|(
-name|failedNode
-operator|.
-name|getHttpHost
-argument_list|()
+name|failedHost
 argument_list|)
 operator|==
 literal|false
@@ -689,9 +695,9 @@ name|sniff
 parameter_list|(
 name|Predicate
 argument_list|<
-name|Node
+name|HttpHost
 argument_list|>
-name|nodeFilter
+name|hostFilter
 parameter_list|)
 block|{
 if|if
@@ -732,7 +738,7 @@ name|sniff
 argument_list|(
 name|connectionIterator
 argument_list|,
-name|nodeFilter
+name|hostFilter
 argument_list|)
 expr_stmt|;
 block|}
@@ -752,7 +758,7 @@ literal|"no healthy nodes available, trying "
 operator|+
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -768,7 +774,7 @@ operator|.
 name|iterator
 argument_list|()
 argument_list|,
-name|nodeFilter
+name|hostFilter
 argument_list|)
 expr_stmt|;
 block|}
@@ -900,9 +906,9 @@ name|connectionIterator
 parameter_list|,
 name|Predicate
 argument_list|<
-name|Node
+name|HttpHost
 argument_list|>
-name|nodeFilter
+name|hostFilter
 parameter_list|)
 throws|throws
 name|IOException
@@ -932,7 +938,7 @@ try|try
 block|{
 name|List
 argument_list|<
-name|Node
+name|HttpHost
 argument_list|>
 name|sniffedNodes
 init|=
@@ -942,11 +948,11 @@ name|sniffNodes
 argument_list|(
 name|connection
 operator|.
-name|getNode
+name|getHost
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Node
+name|HttpHost
 index|[]
 name|filteredNodes
 init|=
@@ -957,12 +963,12 @@ argument_list|()
 operator|.
 name|filter
 argument_list|(
-name|nodeFilter
+name|hostFilter
 argument_list|)
 operator|.
 name|toArray
 argument_list|(
-name|Node
+name|HttpHost
 index|[]
 operator|::
 operator|new
