@@ -592,9 +592,6 @@ name|SearchRequestBuilder
 name|setQuery
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -617,9 +614,6 @@ name|SearchRequestBuilder
 name|setPostFilter
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|postFilter
 parameter_list|)
 block|{

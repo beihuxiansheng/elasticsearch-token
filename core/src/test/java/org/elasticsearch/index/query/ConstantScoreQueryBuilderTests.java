@@ -417,9 +417,6 @@ name|ConstantScoreQueryBuilder
 argument_list|(
 operator|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 literal|null
 argument_list|)

@@ -202,9 +202,6 @@ name|SpanNearQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|SpanNearQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -300,9 +297,6 @@ specifier|final
 name|List
 argument_list|<
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|clauses
 init|=
@@ -330,9 +324,6 @@ specifier|public
 name|SpanNearQueryBuilder
 parameter_list|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|initialClause
 parameter_list|,
 name|int
@@ -389,9 +380,6 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|clause
 range|:
 name|readQueries
@@ -408,9 +396,6 @@ name|add
 argument_list|(
 operator|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|clause
 argument_list|)
@@ -485,9 +470,6 @@ name|SpanNearQueryBuilder
 name|clause
 parameter_list|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|clause
 parameter_list|)
 block|{
@@ -523,9 +505,6 @@ specifier|public
 name|List
 argument_list|<
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|clauses
 parameter_list|()
@@ -605,9 +584,6 @@ expr_stmt|;
 for|for
 control|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|clause
 range|:
 name|clauses

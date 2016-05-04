@@ -1528,9 +1528,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 init|=
 name|sqb

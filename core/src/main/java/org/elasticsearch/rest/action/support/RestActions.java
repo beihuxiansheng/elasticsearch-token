@@ -664,9 +664,6 @@ DECL|method|urlParamsToQueryBuilder
 specifier|public
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|urlParamsToQueryBuilder
 parameter_list|(
 name|RestRequest
@@ -872,9 +869,6 @@ DECL|method|getQueryContent
 specifier|public
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|getQueryContent
 parameter_list|(
 name|BytesReference

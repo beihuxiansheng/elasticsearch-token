@@ -875,9 +875,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQueryBuilder
 init|=
 name|queryBuilder
@@ -1195,9 +1192,6 @@ name|testIllegalValues
 parameter_list|()
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 name|RandomQueryBuilder

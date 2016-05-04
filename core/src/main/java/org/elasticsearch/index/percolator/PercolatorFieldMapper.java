@@ -1171,9 +1171,6 @@ name|parser
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|parseQueryBuilder
@@ -1371,9 +1368,6 @@ name|boolean
 name|mapUnmappedFieldsAsString
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|)
 throws|throws

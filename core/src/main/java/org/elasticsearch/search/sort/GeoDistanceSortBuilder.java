@@ -1473,9 +1473,6 @@ name|GeoDistanceSortBuilder
 name|setNestedFilter
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 parameter_list|)
 block|{
@@ -1493,9 +1490,6 @@ comment|/**      * Returns the nested filter that the nested objects should matc
 DECL|method|getNestedFilter
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|getNestedFilter
 parameter_list|()
 block|{
@@ -2016,9 +2010,6 @@ init|=
 literal|null
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 init|=
 literal|null

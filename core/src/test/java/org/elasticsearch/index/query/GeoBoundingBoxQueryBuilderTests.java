@@ -3023,9 +3023,6 @@ operator|+
 literal|"}"
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parsedGeoBboxShortcut
 init|=
 name|parseQuery

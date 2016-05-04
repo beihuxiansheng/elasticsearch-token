@@ -1101,9 +1101,6 @@ decl_stmt|;
 DECL|field|query
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 operator|new
@@ -2540,9 +2537,6 @@ return|;
 block|}
 DECL|method|getQuery
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|getQuery
 parameter_list|()
 block|{
@@ -4092,9 +4086,6 @@ name|void
 name|extractInnerHits
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|,
 name|Map

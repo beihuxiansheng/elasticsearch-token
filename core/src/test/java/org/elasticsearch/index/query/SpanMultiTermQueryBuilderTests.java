@@ -391,9 +391,6 @@ name|SpanMultiTermQueryBuilder
 argument_list|(
 operator|(
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 literal|null
 argument_list|)

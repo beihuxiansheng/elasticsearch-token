@@ -2016,9 +2016,6 @@ name|includeQueryTypeOrPath
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 operator|new

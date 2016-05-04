@@ -1132,9 +1132,6 @@ name|String
 name|nestedPath
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 parameter_list|)
 throws|throws

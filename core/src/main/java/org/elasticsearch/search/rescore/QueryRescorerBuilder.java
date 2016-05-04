@@ -241,9 +241,6 @@ DECL|field|queryBuilder
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 decl_stmt|;
 DECL|field|rescoreQueryWeight
@@ -442,9 +439,6 @@ specifier|public
 name|QueryRescorerBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 parameter_list|)
 block|{
@@ -552,9 +546,6 @@ comment|/**      * @return the query used for this rescore query      */
 DECL|method|getRescoreQuery
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|getRescoreQuery
 parameter_list|()
 block|{
@@ -1065,9 +1056,6 @@ block|{
 DECL|field|queryBuilder
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 decl_stmt|;
 DECL|field|rescoreQueryWeight
@@ -1096,9 +1084,6 @@ name|void
 name|setQueryBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 parameter_list|)
 block|{

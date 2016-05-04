@@ -272,9 +272,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|QueryBuilder
-argument_list|<
-name|QB
-argument_list|>
 block|{
 comment|/** Default for boost to apply to resulting Lucene query. Defaults to 1.0*/
 DECL|field|DEFAULT_BOOST
@@ -993,9 +990,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queryBuilders
 parameter_list|,
@@ -1026,9 +1020,6 @@ decl_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 range|:
 name|queryBuilders
@@ -1112,9 +1103,6 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 range|:
 name|queries
@@ -1136,9 +1124,6 @@ specifier|static
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|readQueries
 parameter_list|(
@@ -1151,9 +1136,6 @@ block|{
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queries
 init|=
@@ -1210,9 +1192,6 @@ DECL|method|rewrite
 specifier|public
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -1222,9 +1201,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|doRewrite
@@ -1299,9 +1275,6 @@ block|}
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext

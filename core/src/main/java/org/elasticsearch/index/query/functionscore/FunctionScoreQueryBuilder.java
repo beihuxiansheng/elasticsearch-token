@@ -628,9 +628,6 @@ DECL|field|query
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 decl_stmt|;
 DECL|field|maxBoost
@@ -676,9 +673,6 @@ specifier|public
 name|FunctionScoreQueryBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|)
 block|{
@@ -751,9 +745,6 @@ specifier|public
 name|FunctionScoreQueryBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|,
 name|ScoreFunctionBuilder
@@ -786,9 +777,6 @@ specifier|public
 name|FunctionScoreQueryBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|,
 name|FilterFunctionBuilder
@@ -1012,9 +1000,6 @@ comment|/**      * Returns the query that defines which documents the function_s
 DECL|method|query
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|()
 block|{
@@ -1798,9 +1783,6 @@ DECL|field|filter
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 decl_stmt|;
 DECL|field|scoreFunction
@@ -1838,9 +1820,6 @@ specifier|public
 name|FilterFunctionBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 parameter_list|,
 name|ScoreFunctionBuilder
@@ -1958,9 +1937,6 @@ block|}
 DECL|method|getFilter
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|getFilter
 parameter_list|()
 block|{
@@ -2147,9 +2123,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 init|=
 name|filter
@@ -2186,9 +2159,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -2198,9 +2168,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|this
@@ -2381,9 +2348,6 @@ name|parser
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 literal|null
@@ -3239,9 +3203,6 @@ name|END_ARRAY
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 init|=
 literal|null

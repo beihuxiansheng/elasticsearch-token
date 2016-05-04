@@ -558,9 +558,6 @@ specifier|private
 specifier|static
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|QUERY
 init|=
 name|QueryBuilders

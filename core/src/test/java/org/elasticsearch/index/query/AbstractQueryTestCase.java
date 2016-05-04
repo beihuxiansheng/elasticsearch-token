@@ -3235,9 +3235,6 @@ name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|,
 name|XContentType
@@ -3537,9 +3534,6 @@ name|String
 name|queryAsString
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedQuery
 parameter_list|)
 throws|throws
@@ -3567,9 +3561,6 @@ name|String
 name|queryAsString
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedQuery
 parameter_list|,
 name|ParseFieldMatcher
@@ -3579,9 +3570,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newQuery
 init|=
 name|parseQuery
@@ -3630,9 +3618,6 @@ name|BytesReference
 name|queryAsBytes
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedQuery
 parameter_list|)
 throws|throws
@@ -3660,9 +3645,6 @@ name|BytesReference
 name|queryAsBytes
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedQuery
 parameter_list|,
 name|ParseFieldMatcher
@@ -3672,9 +3654,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newQuery
 init|=
 name|parseQuery
@@ -3716,9 +3695,6 @@ DECL|method|parseQuery
 specifier|protected
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parseQuery
 parameter_list|(
 name|String
@@ -3742,9 +3718,6 @@ DECL|method|parseQuery
 specifier|protected
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parseQuery
 parameter_list|(
 name|String
@@ -3784,9 +3757,6 @@ DECL|method|parseQuery
 specifier|protected
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parseQuery
 parameter_list|(
 name|BytesReference
@@ -3810,9 +3780,6 @@ DECL|method|parseQuery
 specifier|protected
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parseQuery
 parameter_list|(
 name|BytesReference
@@ -3851,9 +3818,6 @@ block|}
 DECL|method|parseQuery
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parseQuery
 parameter_list|(
 name|XContentParser
@@ -3876,9 +3840,6 @@ name|matcher
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parseInnerQueryBuilder
 init|=
 name|context
@@ -4257,9 +4218,6 @@ block|}
 DECL|method|rewriteQuery
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewriteQuery
 parameter_list|(
 name|QB
@@ -4272,9 +4230,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|QueryBuilder
@@ -4772,9 +4727,6 @@ argument_list|)
 init|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|deserializedQuery
 init|=
 name|in
@@ -6266,9 +6218,6 @@ name|String
 name|expected
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|source
 parameter_list|)
 throws|throws

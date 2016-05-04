@@ -1968,9 +1968,6 @@ name|randomRescoreBuilder
 parameter_list|()
 block|{
 name|QueryBuilder
-argument_list|<
-name|MatchAllQueryBuilder
-argument_list|>
 name|queryBuilder
 init|=
 operator|new

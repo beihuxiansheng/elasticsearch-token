@@ -248,9 +248,6 @@ name|PrefixQueryBuilder
 argument_list|>
 implements|implements
 name|MultiTermQueryBuilder
-argument_list|<
-name|PrefixQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public

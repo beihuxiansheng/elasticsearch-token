@@ -1311,9 +1311,6 @@ name|String
 name|name
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 parameter_list|)
 block|{
@@ -1363,9 +1360,6 @@ name|String
 name|name
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 modifier|...
 name|filters
 parameter_list|)

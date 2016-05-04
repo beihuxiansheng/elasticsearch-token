@@ -1669,9 +1669,6 @@ name|FunctionScoreQueryBuilder
 argument_list|(
 operator|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 literal|null
 argument_list|)
@@ -2025,9 +2022,6 @@ operator|+
 literal|"}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|parseQuery
@@ -2533,9 +2527,6 @@ argument_list|(
 operator|(
 operator|(
 name|AbstractQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|queryBuilder
 operator|)
@@ -2605,9 +2596,6 @@ operator|+
 literal|"}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|parseQuery
@@ -2883,9 +2871,6 @@ argument_list|(
 operator|(
 operator|(
 name|AbstractQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|queryBuilder
 operator|)
@@ -3197,9 +3182,6 @@ name|string
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 name|parseQuery
@@ -4102,9 +4084,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|firstFunction
 init|=
 operator|new
@@ -4134,9 +4113,6 @@ literal|"2"
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|randomBoolean

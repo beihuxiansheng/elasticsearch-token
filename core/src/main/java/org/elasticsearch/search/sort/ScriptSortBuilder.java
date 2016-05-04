@@ -670,9 +670,6 @@ decl_stmt|;
 DECL|field|nestedFilter
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 decl_stmt|;
 DECL|field|nestedPath
@@ -1021,9 +1018,6 @@ name|ScriptSortBuilder
 name|setNestedFilter
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 parameter_list|)
 block|{
@@ -1041,9 +1035,6 @@ comment|/**      * Gets the nested filter.      */
 DECL|method|getNestedFilter
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|getNestedFilter
 parameter_list|()
 block|{
@@ -1286,9 +1277,6 @@ init|=
 literal|null
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 init|=
 literal|null

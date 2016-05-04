@@ -2947,9 +2947,6 @@ name|createShardContext
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|query
@@ -3137,9 +3134,6 @@ name|createShardContext
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|query
@@ -3280,9 +3274,6 @@ name|createShardContext
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|query
@@ -3359,9 +3350,6 @@ name|createShardContext
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|query

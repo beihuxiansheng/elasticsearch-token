@@ -208,9 +208,6 @@ DECL|field|templateBase
 specifier|private
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|templateBase
 decl_stmt|;
 annotation|@
@@ -570,9 +567,6 @@ literal|"all"
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedBuilder
 init|=
 operator|new
@@ -644,9 +638,6 @@ literal|"all"
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedBuilder
 init|=
 operator|new
@@ -695,9 +686,6 @@ init|=
 literal|"{ \"match_all\" : {}}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -787,9 +775,6 @@ init|=
 literal|"{ \"match_all\" : {\"_name\" : \"foobar\"}}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -928,9 +913,6 @@ literal|2
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new

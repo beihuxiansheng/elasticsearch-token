@@ -488,9 +488,6 @@ decl_stmt|;
 DECL|field|filterBuilder
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filterBuilder
 init|=
 literal|null
@@ -959,9 +956,6 @@ name|SignificantTermsAggregatorBuilder
 name|backgroundFilter
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|backgroundFilter
 parameter_list|)
 block|{
@@ -997,9 +991,6 @@ block|}
 DECL|method|backgroundFilter
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|backgroundFilter
 parameter_list|()
 block|{

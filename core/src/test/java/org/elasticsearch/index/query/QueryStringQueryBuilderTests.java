@@ -3513,9 +3513,6 @@ operator|+
 literal|"}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|parseQuery

@@ -814,9 +814,6 @@ name|testValidate
 parameter_list|()
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 init|=
 name|RandomQueryBuilder

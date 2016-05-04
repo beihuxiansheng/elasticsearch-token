@@ -3107,9 +3107,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|GeoShapeQueryBuilder
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext

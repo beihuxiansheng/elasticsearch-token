@@ -1922,9 +1922,6 @@ DECL|method|randomNestedFilter
 specifier|protected
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|randomNestedFilter
 parameter_list|()
 block|{

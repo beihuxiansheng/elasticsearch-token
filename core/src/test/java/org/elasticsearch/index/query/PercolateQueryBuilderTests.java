@@ -935,9 +935,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 init|=
 name|pqb

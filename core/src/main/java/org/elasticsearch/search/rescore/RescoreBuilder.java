@@ -695,9 +695,6 @@ name|QueryRescorerBuilder
 name|queryRescorer
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{

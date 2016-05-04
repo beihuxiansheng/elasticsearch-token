@@ -586,9 +586,6 @@ literal|null
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 name|RestActions

@@ -264,9 +264,6 @@ name|FuzzyQueryBuilder
 argument_list|>
 implements|implements
 name|MultiTermQueryBuilder
-argument_list|<
-name|FuzzyQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
