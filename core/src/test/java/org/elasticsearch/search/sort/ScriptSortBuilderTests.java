@@ -142,18 +142,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Rule
@@ -306,8 +294,6 @@ name|builder
 operator|.
 name|sortMode
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|builder
@@ -372,8 +358,6 @@ name|builder
 operator|.
 name|sortMode
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThanMany
 argument_list|(
 name|exceptThis
@@ -419,8 +403,6 @@ name|builder
 operator|.
 name|setNestedPath
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
@@ -666,8 +648,6 @@ name|result
 operator|.
 name|sortMode
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|result
@@ -734,8 +714,6 @@ name|result
 operator|.
 name|setNestedFilter
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original

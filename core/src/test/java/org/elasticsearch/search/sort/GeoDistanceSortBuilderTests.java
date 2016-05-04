@@ -228,18 +228,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|geo
 operator|.
 name|RandomGeoGenerator
@@ -577,8 +565,6 @@ name|result
 operator|.
 name|setNestedPath
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|result
@@ -588,8 +574,6 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|ESTestCase
-operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
@@ -1075,8 +1059,6 @@ name|result
 operator|.
 name|order
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original
@@ -1121,8 +1103,6 @@ name|result
 operator|.
 name|setNestedFilter
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original
@@ -1145,8 +1125,6 @@ name|result
 operator|.
 name|setNestedPath
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|result
@@ -1156,8 +1134,6 @@ argument_list|()
 argument_list|,
 parameter_list|()
 lambda|->
-name|ESTestCase
-operator|.
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1

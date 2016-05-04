@@ -100,18 +100,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Rule
@@ -215,8 +203,6 @@ name|result
 operator|.
 name|order
 argument_list|(
-name|ESTestCase
-operator|.
 name|randomValueOtherThan
 argument_list|(
 name|original
