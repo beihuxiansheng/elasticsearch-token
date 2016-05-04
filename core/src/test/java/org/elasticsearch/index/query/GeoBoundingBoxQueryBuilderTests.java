@@ -3081,6 +3081,138 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testFromJsonCoerceFails
+specifier|public
+name|void
+name|testFromJsonCoerceFails
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_bounding_box\" : {\n"
+operator|+
+literal|"    \"pin.location\" : {\n"
+operator|+
+literal|"      \"top_left\" : [ -74.1, 40.73 ],\n"
+operator|+
+literal|"      \"bottom_right\" : [ -71.12, 40.01 ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"coerce\" : true,\n"
+operator|+
+literal|"    \"type\" : \"MEMORY\",\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJsonIgnoreMalformedFails
+specifier|public
+name|void
+name|testFromJsonIgnoreMalformedFails
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_bounding_box\" : {\n"
+operator|+
+literal|"    \"pin.location\" : {\n"
+operator|+
+literal|"      \"top_left\" : [ -74.1, 40.73 ],\n"
+operator|+
+literal|"      \"bottom_right\" : [ -71.12, 40.01 ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"ignore_malformed\" : true,\n"
+operator|+
+literal|"    \"type\" : \"MEMORY\",\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|testMustRewrite
