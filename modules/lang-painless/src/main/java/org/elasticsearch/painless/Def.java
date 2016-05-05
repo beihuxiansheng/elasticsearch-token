@@ -1620,8 +1620,9 @@ throw|;
 block|}
 block|}
 block|}
+comment|/** Method lookup for owner.name(), returns null if no matching method was found */
 DECL|method|getMethod
-specifier|public
+specifier|private
 specifier|static
 name|Method
 name|getMethod
@@ -1770,8 +1771,9 @@ return|return
 literal|null
 return|;
 block|}
+comment|/** Field lookup for owner.name, returns null if no matching field was found */
 DECL|method|getField
-specifier|public
+specifier|private
 specifier|static
 name|Field
 name|getField
