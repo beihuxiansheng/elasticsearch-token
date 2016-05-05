@@ -124,7 +124,7 @@ specifier|public
 name|GeoPoint
 parameter_list|()
 block|{     }
-comment|/**      * Create a new Geopointform a string. This String must either be a geohash      * or a lat-lon tuple.      *      * @param value String to create the point from      */
+comment|/**      * Create a new Geopoint from a string. This String must either be a geohash      * or a lat-lon tuple.      *      * @param value String to create the point from      */
 DECL|method|GeoPoint
 specifier|public
 name|GeoPoint
