@@ -214,11 +214,13 @@ argument_list|)
 expr_stmt|;
 name|snapshotInfo
 operator|=
-name|SnapshotInfo
-operator|.
-name|readOptionalSnapshotInfo
-argument_list|(
 name|in
+operator|.
+name|readOptionalWriteable
+argument_list|(
+name|SnapshotInfo
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}
@@ -244,7 +246,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalStreamable
+name|writeOptionalWriteable
 argument_list|(
 name|snapshotInfo
 argument_list|)
@@ -334,7 +336,7 @@ argument_list|)
 expr_stmt|;
 name|snapshotInfo
 operator|.
-name|toXContent
+name|toExternalXContent
 argument_list|(
 name|builder
 argument_list|,

@@ -1431,7 +1431,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 init|=
 name|repository
@@ -4969,7 +4969,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|)
 block|{
@@ -5340,7 +5340,7 @@ specifier|private
 name|boolean
 name|failed
 parameter_list|(
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|,
 name|String

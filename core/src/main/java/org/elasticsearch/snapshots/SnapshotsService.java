@@ -827,7 +827,7 @@ block|}
 comment|/**      * Retrieves snapshot from repository      *      * @param snapshotId snapshot id      * @return snapshot      * @throws SnapshotMissingException if snapshot is not found      */
 DECL|method|snapshot
 specifier|public
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|(
 name|SnapshotId
@@ -909,7 +909,7 @@ DECL|method|snapshots
 specifier|public
 name|List
 argument_list|<
-name|Snapshot
+name|SnapshotInfo
 argument_list|>
 name|snapshots
 parameter_list|(
@@ -922,7 +922,7 @@ parameter_list|)
 block|{
 name|Set
 argument_list|<
-name|Snapshot
+name|SnapshotInfo
 argument_list|>
 name|snapshotSet
 init|=
@@ -1052,7 +1052,7 @@ block|}
 block|}
 name|ArrayList
 argument_list|<
-name|Snapshot
+name|SnapshotInfo
 argument_list|>
 name|snapshotList
 init|=
@@ -1084,7 +1084,7 @@ DECL|method|currentSnapshots
 specifier|public
 name|List
 argument_list|<
-name|Snapshot
+name|SnapshotInfo
 argument_list|>
 name|currentSnapshots
 parameter_list|(
@@ -1094,7 +1094,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|Snapshot
+name|SnapshotInfo
 argument_list|>
 name|snapshotList
 init|=
@@ -2584,7 +2584,7 @@ block|}
 block|}
 DECL|method|inProgressSnapshot
 specifier|private
-name|Snapshot
+name|SnapshotInfo
 name|inProgressSnapshot
 parameter_list|(
 name|SnapshotsInProgress
@@ -2595,7 +2595,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|Snapshot
+name|SnapshotInfo
 argument_list|(
 name|entry
 operator|.
@@ -2980,7 +2980,7 @@ name|getRepository
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 init|=
 name|repository
@@ -5168,7 +5168,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 init|=
 name|repository
@@ -5209,11 +5209,7 @@ name|removeSnapshotFromClusterState
 argument_list|(
 name|snapshotId
 argument_list|,
-operator|new
-name|SnapshotInfo
-argument_list|(
 name|snapshot
-argument_list|)
 argument_list|,
 literal|null
 argument_list|)

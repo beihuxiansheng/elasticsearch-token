@@ -266,9 +266,8 @@ name|builder
 operator|.
 name|add
 argument_list|(
+operator|new
 name|SnapshotInfo
-operator|.
-name|readSnapshotInfo
 argument_list|(
 name|in
 argument_list|)
@@ -384,7 +383,7 @@ control|)
 block|{
 name|snapshotInfo
 operator|.
-name|toXContent
+name|toExternalXContent
 argument_list|(
 name|builder
 argument_list|,
