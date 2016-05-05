@@ -856,6 +856,9 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|ClusterName
+name|clusterName
 parameter_list|)
 block|{
 name|super
@@ -865,6 +868,8 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterName
 argument_list|)
 expr_stmt|;
 block|}

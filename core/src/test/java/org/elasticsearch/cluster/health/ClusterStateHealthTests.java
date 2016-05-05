@@ -628,6 +628,14 @@ name|CapturingTransport
 argument_list|()
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|transportService

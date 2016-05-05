@@ -2500,6 +2500,11 @@ operator|.
 name|connectToNodeLight
 argument_list|(
 name|finalNodeToSend
+argument_list|,
+name|timeout
+operator|.
+name|getMillis
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2928,45 +2933,6 @@ argument_list|)
 condition|)
 block|{
 comment|// that's us, ignore
-continue|continue;
-block|}
-if|if
-condition|(
-operator|!
-name|pingResponse
-operator|.
-name|clusterName
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|clusterName
-argument_list|)
-condition|)
-block|{
-comment|// not part of the cluster
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"[{}] filtering out response from {}, not same cluster_name [{}]"
-argument_list|,
-name|id
-argument_list|,
-name|pingResponse
-operator|.
-name|node
-argument_list|()
-argument_list|,
-name|pingResponse
-operator|.
-name|clusterName
-argument_list|()
-operator|.
-name|value
-argument_list|()
-argument_list|)
-expr_stmt|;
 continue|continue;
 block|}
 name|SendPingsHandler

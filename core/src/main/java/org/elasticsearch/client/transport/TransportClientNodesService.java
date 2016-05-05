@@ -2158,6 +2158,11 @@ operator|.
 name|connectToNodeLight
 argument_list|(
 name|listedNode
+argument_list|,
+name|pingTimeout
+argument_list|,
+operator|!
+name|ignoreClusterName
 argument_list|)
 expr_stmt|;
 block|}
@@ -2175,6 +2180,13 @@ literal|"failed to connect to node [{}], removed from nodes list"
 argument_list|,
 name|e
 argument_list|,
+name|listedNode
+argument_list|)
+expr_stmt|;
+name|newFilteredNodes
+operator|.
+name|add
+argument_list|(
 name|listedNode
 argument_list|)
 expr_stmt|;
@@ -2605,6 +2617,11 @@ operator|.
 name|connectToNodeLight
 argument_list|(
 name|listedNode
+argument_list|,
+name|pingTimeout
+argument_list|,
+operator|!
+name|ignoreClusterName
 argument_list|)
 expr_stmt|;
 block|}

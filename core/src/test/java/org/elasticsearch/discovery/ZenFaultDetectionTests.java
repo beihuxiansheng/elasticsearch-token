@@ -817,6 +817,10 @@ name|circuitBreakerService
 argument_list|)
 argument_list|,
 name|threadPool
+argument_list|,
+name|ClusterName
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|transportService
