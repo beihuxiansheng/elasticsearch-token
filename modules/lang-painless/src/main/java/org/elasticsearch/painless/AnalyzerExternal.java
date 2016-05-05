@@ -4534,16 +4534,6 @@ operator|&&
 operator|(
 name|setter
 operator|.
-name|rtn
-operator|.
-name|sort
-operator|!=
-name|Sort
-operator|.
-name|VOID
-operator|||
-name|setter
-operator|.
 name|arguments
 operator|.
 name|size

@@ -465,17 +465,6 @@ name|BinaryContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code char}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitChar
-name|T
-name|visitChar
-parameter_list|(
-name|PainlessParser
-operator|.
-name|CharContext
-name|ctx
-parameter_list|)
-function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code true}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitTrue
 name|T

@@ -156,7 +156,7 @@ literal|'x'
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 'x';"
+literal|"return (char)'x';"
 argument_list|)
 argument_list|)
 expr_stmt|;

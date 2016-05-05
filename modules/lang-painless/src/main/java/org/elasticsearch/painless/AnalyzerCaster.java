@@ -663,6 +663,9 @@ case|:
 case|case
 name|SHORT_OBJ
 case|:
+case|case
+name|STRING
+case|:
 if|if
 condition|(
 name|explicit
@@ -1304,6 +1307,9 @@ case|:
 case|case
 name|SHORT_OBJ
 case|:
+case|case
+name|STRING
+case|:
 if|if
 condition|(
 name|explicit
@@ -1607,6 +1613,36 @@ return|;
 break|break;
 block|}
 break|break;
+case|case
+name|STRING
+case|:
+switch|switch
+condition|(
+name|to
+operator|.
+name|sort
+condition|)
+block|{
+case|case
+name|CHAR
+case|:
+case|case
+name|CHAR_OBJ
+case|:
+if|if
+condition|(
+name|explicit
+condition|)
+return|return
+name|checkTransform
+argument_list|(
+name|source
+argument_list|,
+name|cast
+argument_list|)
+return|;
+break|break;
+block|}
 block|}
 try|try
 block|{
@@ -2157,7 +2193,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 name|AnalyzerUtility
 operator|.
@@ -2166,9 +2202,7 @@ argument_list|(
 name|source
 argument_list|)
 operator|+
-literal|"Unable to invoke transform to cast constant from "
-operator|+
-literal|"["
+literal|"Cannot cast constant from ["
 operator|+
 name|transform
 operator|.
