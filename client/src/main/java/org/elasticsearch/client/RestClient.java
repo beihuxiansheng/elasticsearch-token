@@ -196,20 +196,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|util
-operator|.
-name|EntityUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -924,16 +910,6 @@ return|;
 block|}
 else|else
 block|{
-name|EntityUtils
-operator|.
-name|consume
-argument_list|(
-name|response
-operator|.
-name|getEntity
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|RequestLogger
 operator|.
 name|log
@@ -972,7 +948,7 @@ operator|.
 name|getHost
 argument_list|()
 argument_list|,
-name|statusLine
+name|response
 argument_list|)
 throw|;
 block|}

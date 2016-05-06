@@ -46,7 +46,11 @@ name|apache
 operator|.
 name|http
 operator|.
-name|StatusLine
+name|client
+operator|.
+name|methods
+operator|.
+name|CloseableHttpResponse
 import|;
 end_import
 
@@ -84,11 +88,11 @@ specifier|final
 name|RequestLine
 name|requestLine
 decl_stmt|;
-DECL|field|statusLine
+DECL|field|response
 specifier|private
 specifier|final
-name|StatusLine
-name|statusLine
+name|CloseableHttpResponse
+name|response
 decl_stmt|;
 DECL|method|ElasticsearchResponseException
 specifier|public
@@ -100,8 +104,8 @@ parameter_list|,
 name|HttpHost
 name|host
 parameter_list|,
-name|StatusLine
-name|statusLine
+name|CloseableHttpResponse
+name|response
 parameter_list|)
 block|{
 name|super
@@ -112,7 +116,7 @@ name|requestLine
 argument_list|,
 name|host
 argument_list|,
-name|statusLine
+name|response
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -130,9 +134,9 @@ name|requestLine
 expr_stmt|;
 name|this
 operator|.
-name|statusLine
+name|response
 operator|=
-name|statusLine
+name|response
 expr_stmt|;
 block|}
 DECL|method|buildMessage
@@ -147,8 +151,8 @@ parameter_list|,
 name|HttpHost
 name|host
 parameter_list|,
-name|StatusLine
-name|statusLine
+name|CloseableHttpResponse
+name|response
 parameter_list|)
 block|{
 return|return
@@ -168,7 +172,10 @@ argument_list|()
 operator|+
 literal|": "
 operator|+
-name|statusLine
+name|response
+operator|.
+name|getStatusLine
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -181,19 +188,24 @@ name|boolean
 name|isRecoverable
 parameter_list|()
 block|{
-comment|//clients don't retry on 500 because elasticsearch still misuses it instead of 400 in some places
-return|return
-name|statusLine
+name|int
+name|statusCode
+init|=
+name|response
+operator|.
+name|getStatusLine
+argument_list|()
 operator|.
 name|getStatusCode
 argument_list|()
+decl_stmt|;
+comment|//clients don't retry on 500 because elasticsearch still misuses it instead of 400 in some places
+return|return
+name|statusCode
 operator|>=
 literal|502
 operator|&&
-name|statusLine
-operator|.
-name|getStatusCode
-argument_list|()
+name|statusCode
 operator|<=
 literal|504
 return|;
@@ -220,15 +232,15 @@ return|return
 name|requestLine
 return|;
 block|}
-comment|/**      * Returns the {@link StatusLine} that was returned by elasticsearch      */
-DECL|method|getStatusLine
+comment|/**      * Returns the {@link CloseableHttpResponse} that was returned by elasticsearch      */
+DECL|method|getResponse
 specifier|public
-name|StatusLine
-name|getStatusLine
+name|CloseableHttpResponse
+name|getResponse
 parameter_list|()
 block|{
 return|return
-name|statusLine
+name|response
 return|;
 block|}
 block|}

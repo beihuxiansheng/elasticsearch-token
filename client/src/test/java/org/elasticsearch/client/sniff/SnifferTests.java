@@ -779,6 +779,9 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
+name|getResponse
+argument_list|()
+operator|.
 name|getStatusLine
 argument_list|()
 operator|.
@@ -821,6 +824,9 @@ argument_list|(
 literal|"sniffNodes should have succeeded: "
 operator|+
 name|e
+operator|.
+name|getResponse
+argument_list|()
 operator|.
 name|getStatusLine
 argument_list|()
