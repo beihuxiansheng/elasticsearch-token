@@ -606,9 +606,6 @@ argument_list|,
 name|sniffRequestTimeout
 argument_list|,
 name|scheme
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|HttpHost
@@ -779,9 +776,6 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getResponse
-argument_list|()
-operator|.
 name|getStatusLine
 argument_list|()
 operator|.
@@ -824,9 +818,6 @@ argument_list|(
 literal|"sniffNodes should have succeeded: "
 operator|+
 name|e
-operator|.
-name|getResponse
-argument_list|()
 operator|.
 name|getStatusLine
 argument_list|()
@@ -1236,9 +1227,6 @@ argument_list|,
 name|port
 argument_list|,
 name|scheme
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|hosts
