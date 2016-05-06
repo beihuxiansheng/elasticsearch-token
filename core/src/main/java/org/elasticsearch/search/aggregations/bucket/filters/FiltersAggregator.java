@@ -459,9 +459,6 @@ DECL|field|filter
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 decl_stmt|;
 DECL|method|KeyedFilter
@@ -472,9 +469,6 @@ name|String
 name|key
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 parameter_list|)
 block|{
@@ -611,9 +605,6 @@ block|}
 DECL|method|filter
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 parameter_list|()
 block|{

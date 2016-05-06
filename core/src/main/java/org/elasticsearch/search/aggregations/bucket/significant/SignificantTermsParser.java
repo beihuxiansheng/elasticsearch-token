@@ -462,16 +462,10 @@ argument_list|)
 expr_stmt|;
 block|}
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|backgroundFilter
 init|=
 operator|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|otherOptions
 operator|.
@@ -650,9 +644,6 @@ name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 init|=
 name|queryParseContext

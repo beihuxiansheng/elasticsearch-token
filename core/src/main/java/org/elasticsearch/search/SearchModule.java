@@ -4581,9 +4581,6 @@ parameter_list|<
 name|QB
 extends|extends
 name|QueryBuilder
-argument_list|<
-name|QB
-argument_list|>
 parameter_list|>
 name|void
 name|registerQuery

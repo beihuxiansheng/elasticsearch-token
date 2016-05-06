@@ -182,9 +182,6 @@ name|SpanWithinQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|SpanWithinQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -238,18 +235,12 @@ DECL|field|big
 specifier|private
 specifier|final
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|big
 decl_stmt|;
 DECL|field|little
 specifier|private
 specifier|final
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|little
 decl_stmt|;
 comment|/**      * Query that returns spans from<code>little</code> that are contained in a spans from<code>big</code>.      * @param big clause that must enclose {@code little} for a match.      * @param little the little clause, it must be contained within {@code big} for a match.      */
@@ -258,15 +249,9 @@ specifier|public
 name|SpanWithinQueryBuilder
 parameter_list|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|big
 parameter_list|,
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|little
 parameter_list|)
 block|{
@@ -333,9 +318,6 @@ name|big
 operator|=
 operator|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|in
 operator|.
@@ -350,9 +332,6 @@ name|little
 operator|=
 operator|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|in
 operator|.

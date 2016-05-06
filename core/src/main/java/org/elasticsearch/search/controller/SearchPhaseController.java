@@ -2686,6 +2686,11 @@ argument_list|(
 name|fieldDoc
 operator|.
 name|fields
+argument_list|,
+name|firstResult
+operator|.
+name|sortValueFormats
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

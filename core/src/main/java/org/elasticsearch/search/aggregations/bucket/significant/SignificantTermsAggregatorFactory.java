@@ -579,9 +579,6 @@ DECL|field|filterBuilder
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filterBuilder
 decl_stmt|;
 DECL|field|bucketCountThresholds
@@ -621,9 +618,6 @@ name|String
 name|executionHint
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filterBuilder
 parameter_list|,
 name|TermsAggregator

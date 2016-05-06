@@ -235,17 +235,11 @@ block|}
 else|else
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 index|[]
 name|filters
 init|=
 operator|new
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 index|[
 name|size
 index|]

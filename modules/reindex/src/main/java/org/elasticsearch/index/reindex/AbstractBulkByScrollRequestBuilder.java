@@ -251,9 +251,6 @@ name|Self
 name|filter
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 parameter_list|)
 block|{

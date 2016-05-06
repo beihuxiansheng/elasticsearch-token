@@ -610,18 +610,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|arrayWithSize
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|equalTo
 import|;
 end_import
@@ -635,6 +623,18 @@ operator|.
 name|Matchers
 operator|.
 name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasSize
 import|;
 end_import
 
@@ -5196,7 +5196,7 @@ operator|.
 name|getNodes
 argument_list|()
 argument_list|,
-name|arrayWithSize
+name|hasSize
 argument_list|(
 literal|1
 argument_list|)
@@ -5208,9 +5208,11 @@ name|response
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 operator|.
 name|allocationId
 argument_list|()
@@ -5230,9 +5232,11 @@ name|response
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 operator|.
 name|storeException
 argument_list|()
@@ -5250,9 +5254,11 @@ name|response
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 operator|.
 name|storeException
 argument_list|()

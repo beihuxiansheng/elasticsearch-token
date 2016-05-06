@@ -98,6 +98,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -542,6 +554,9 @@ name|builder
 parameter_list|,
 name|SortField
 name|sortField
+parameter_list|,
+name|DocValueFormat
+name|format
 parameter_list|)
 throws|throws
 name|IOException
@@ -642,6 +657,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|assertEquals
+argument_list|(
+name|DocValueFormat
+operator|.
+name|RAW
+argument_list|,
+name|format
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testReverseOptionFails
 specifier|public

@@ -106,7 +106,7 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|Snapshot
+name|SnapshotInfo
 import|;
 end_import
 
@@ -159,7 +159,7 @@ argument_list|>
 block|{
 comment|/**      * Reads snapshot description from repository.      *      * @param snapshotId snapshot ID      * @return information about snapshot      */
 DECL|method|readSnapshot
-name|Snapshot
+name|SnapshotInfo
 name|readSnapshot
 parameter_list|(
 name|SnapshotId
@@ -174,7 +174,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|,
 name|List
@@ -215,7 +215,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Finalizes snapshotting process      *<p>      * This method is called on master after all shards are snapshotted.      *      * @param snapshotId    snapshot id      * @param failure       global failure reason or null      * @param totalShards   total number of shards      * @param shardFailures list of shard failures      * @return snapshot description      */
 DECL|method|finalizeSnapshot
-name|Snapshot
+name|SnapshotInfo
 name|finalizeSnapshot
 parameter_list|(
 name|SnapshotId

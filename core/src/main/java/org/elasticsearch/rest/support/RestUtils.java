@@ -352,6 +352,10 @@ condition|(
 name|c
 operator|==
 literal|'&'
+operator|||
+name|c
+operator|==
+literal|';'
 condition|)
 block|{
 if|if

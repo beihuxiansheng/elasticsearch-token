@@ -214,9 +214,6 @@ DECL|field|filterBuilder
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filterBuilder
 decl_stmt|;
 comment|/**      * A query that wraps another query and simply returns a constant score equal to the      * query boost for every document in the query.      *      * @param filterBuilder The query to wrap in a constant score query      */
@@ -225,9 +222,6 @@ specifier|public
 name|ConstantScoreQueryBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filterBuilder
 parameter_list|)
 block|{
@@ -306,9 +300,6 @@ comment|/**      * @return the query that was wrapped in this constant score que
 DECL|method|innerQuery
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 parameter_list|()
 block|{
@@ -392,9 +383,6 @@ name|parser
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 literal|null
@@ -808,9 +796,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -820,9 +805,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 init|=
 name|filterBuilder

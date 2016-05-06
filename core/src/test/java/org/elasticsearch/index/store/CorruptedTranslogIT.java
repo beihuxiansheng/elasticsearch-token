@@ -999,9 +999,11 @@ name|nodeStatses
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 operator|.
 name|getFs
 argument_list|()

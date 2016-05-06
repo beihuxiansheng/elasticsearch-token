@@ -140,7 +140,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestToXContentListener
+name|RestActions
+operator|.
+name|NodesResponseRestListener
 import|;
 end_import
 
@@ -274,7 +276,7 @@ argument_list|(
 name|clusterStatsRequest
 argument_list|,
 operator|new
-name|RestToXContentListener
+name|NodesResponseRestListener
 argument_list|<>
 argument_list|(
 name|channel

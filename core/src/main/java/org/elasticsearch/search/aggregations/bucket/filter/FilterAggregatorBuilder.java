@@ -280,9 +280,6 @@ DECL|field|filter
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 decl_stmt|;
 comment|/**      * @param name      *            the name of this aggregation      * @param filter      *            Set the filter to use, only documents that match this      *            filter will fall into the bucket defined by this      *            {@link Filter} aggregation.      */
@@ -294,9 +291,6 @@ name|String
 name|name
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 parameter_list|)
 block|{
@@ -507,9 +501,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 init|=
 name|context

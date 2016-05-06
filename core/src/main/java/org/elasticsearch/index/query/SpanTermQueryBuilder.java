@@ -184,9 +184,6 @@ name|SpanTermQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|SpanTermQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public

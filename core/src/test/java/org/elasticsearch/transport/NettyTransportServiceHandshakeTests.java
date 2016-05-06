@@ -595,7 +595,7 @@ name|handleA
 operator|.
 name|transportService
 operator|.
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -717,7 +717,7 @@ name|handleA
 operator|.
 name|transportService
 operator|.
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -843,7 +843,7 @@ name|handleA
 operator|.
 name|transportService
 operator|.
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 operator|new
 name|DiscoveryNode
@@ -976,7 +976,7 @@ name|handleA
 operator|.
 name|transportService
 operator|.
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 operator|new
 name|DiscoveryNode

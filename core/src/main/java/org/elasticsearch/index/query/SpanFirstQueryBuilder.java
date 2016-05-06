@@ -178,9 +178,6 @@ name|SpanFirstQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|SpanFirstQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -234,9 +231,6 @@ DECL|field|matchBuilder
 specifier|private
 specifier|final
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|matchBuilder
 decl_stmt|;
 DECL|field|end
@@ -251,9 +245,6 @@ specifier|public
 name|SpanFirstQueryBuilder
 parameter_list|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|matchBuilder
 parameter_list|,
 name|int
@@ -323,9 +314,6 @@ name|matchBuilder
 operator|=
 operator|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|in
 operator|.
@@ -376,9 +364,6 @@ comment|/**      * @return the inner {@link SpanQueryBuilder} defined in this qu
 DECL|method|innerQuery
 specifier|public
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 parameter_list|()
 block|{

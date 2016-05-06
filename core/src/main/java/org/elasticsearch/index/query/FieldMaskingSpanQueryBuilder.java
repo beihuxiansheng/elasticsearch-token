@@ -204,9 +204,6 @@ name|FieldMaskingSpanQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|FieldMaskingSpanQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -260,9 +257,6 @@ DECL|field|queryBuilder
 specifier|private
 specifier|final
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 decl_stmt|;
 DECL|field|fieldName
@@ -277,9 +271,6 @@ specifier|public
 name|FieldMaskingSpanQueryBuilder
 parameter_list|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|,
 name|String
@@ -352,9 +343,6 @@ name|queryBuilder
 operator|=
 operator|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|in
 operator|.

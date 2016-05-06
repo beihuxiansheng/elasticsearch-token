@@ -3633,11 +3633,7 @@ operator|new
 name|Object
 index|[]
 block|{
-operator|new
-name|Text
-argument_list|(
 literal|"bcd"
-argument_list|)
 block|,
 literal|null
 block|}

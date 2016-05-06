@@ -264,9 +264,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 init|=
 name|queryBuilder
@@ -635,9 +632,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 init|=
 name|qb
@@ -665,9 +659,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -772,9 +763,6 @@ literal|2
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new

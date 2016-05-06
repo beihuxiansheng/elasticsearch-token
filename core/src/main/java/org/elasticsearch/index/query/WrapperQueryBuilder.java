@@ -696,9 +696,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -737,9 +734,6 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|parseContext

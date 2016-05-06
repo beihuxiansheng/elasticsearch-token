@@ -840,7 +840,7 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,
-name|List
+name|Lister
 argument_list|<
 name|?
 extends|extends

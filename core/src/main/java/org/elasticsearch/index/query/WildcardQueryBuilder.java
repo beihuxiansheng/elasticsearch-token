@@ -248,9 +248,6 @@ name|WildcardQueryBuilder
 argument_list|>
 implements|implements
 name|MultiTermQueryBuilder
-argument_list|<
-name|WildcardQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public

@@ -515,9 +515,6 @@ name|String
 name|name
 parameter_list|,
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 modifier|...
 name|filters
 parameter_list|)
@@ -1156,9 +1153,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|nonKeyedFilters
 init|=
@@ -1428,9 +1422,6 @@ block|}
 else|else
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 init|=
 name|context
@@ -1544,9 +1535,6 @@ name|END_ARRAY
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 init|=
 name|context
@@ -1692,9 +1680,6 @@ name|toArray
 argument_list|(
 operator|new
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 index|[
 name|nonKeyedFilters
 operator|.

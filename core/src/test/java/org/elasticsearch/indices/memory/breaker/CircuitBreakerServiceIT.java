@@ -837,6 +837,9 @@ name|NodeStats
 name|nodeStats
 range|:
 name|stats
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 if|if
@@ -1735,9 +1738,11 @@ argument_list|()
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 operator|.
 name|getBreaker
 argument_list|()

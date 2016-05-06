@@ -601,6 +601,9 @@ name|NodeHotThreads
 name|node
 range|:
 name|response
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 name|sb

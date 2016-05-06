@@ -308,9 +308,6 @@ DECL|field|innerQuery
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 decl_stmt|;
 DECL|field|indices
@@ -323,9 +320,6 @@ decl_stmt|;
 DECL|field|noMatchQuery
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|noMatchQuery
 init|=
 name|defaultNoMatchQuery
@@ -339,9 +333,6 @@ specifier|public
 name|IndicesQueryBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 parameter_list|,
 name|String
@@ -496,9 +487,6 @@ block|}
 DECL|method|innerQuery
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 parameter_list|()
 block|{
@@ -528,9 +516,6 @@ name|IndicesQueryBuilder
 name|noMatchQuery
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|noMatchQuery
 parameter_list|)
 block|{
@@ -585,9 +570,6 @@ block|}
 DECL|method|noMatchQuery
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|noMatchQuery
 parameter_list|()
 block|{
@@ -601,9 +583,6 @@ DECL|method|defaultNoMatchQuery
 specifier|private
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|defaultNoMatchQuery
 parameter_list|()
 block|{
@@ -721,9 +700,6 @@ name|parser
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 init|=
 literal|null
@@ -740,9 +716,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|noMatchQuery
 init|=
 name|defaultNoMatchQuery
@@ -1246,9 +1219,6 @@ block|}
 DECL|method|parseNoMatchQuery
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|parseNoMatchQuery
 parameter_list|(
 name|String
@@ -1434,9 +1404,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -1446,9 +1413,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newInnnerQuery
 init|=
 name|innerQuery
@@ -1459,9 +1423,6 @@ name|queryShardContext
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newNoMatchQuery
 init|=
 name|noMatchQuery
