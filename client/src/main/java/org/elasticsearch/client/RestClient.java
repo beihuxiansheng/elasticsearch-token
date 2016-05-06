@@ -746,6 +746,7 @@ name|statusCode
 operator|<
 literal|300
 operator|||
+operator|(
 name|request
 operator|.
 name|getMethod
@@ -761,6 +762,7 @@ operator|&&
 name|statusCode
 operator|==
 literal|404
+operator|)
 condition|)
 block|{
 name|RequestLogger
