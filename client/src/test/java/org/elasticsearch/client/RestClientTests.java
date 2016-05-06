@@ -109,10 +109,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TransportTests
+DECL|class|RestClientTests
 specifier|public
 class|class
-name|TransportTests
+name|RestClientTests
 extends|extends
 name|LuceneTestCase
 block|{
@@ -132,6 +132,8 @@ specifier|public
 name|void
 name|testConstructor
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|CloseableHttpClient
 name|httpClient
@@ -224,7 +226,7 @@ decl_stmt|;
 try|try
 block|{
 operator|new
-name|Transport
+name|RestClient
 argument_list|(
 literal|null
 argument_list|,
@@ -271,7 +273,7 @@ block|}
 try|try
 block|{
 operator|new
-name|Transport
+name|RestClient
 argument_list|(
 name|httpClient
 argument_list|,
@@ -318,7 +320,7 @@ block|}
 try|try
 block|{
 operator|new
-name|Transport
+name|RestClient
 argument_list|(
 name|httpClient
 argument_list|,
@@ -362,11 +364,13 @@ literal|"maxRetryTimeout must be greater than 0"
 argument_list|)
 expr_stmt|;
 block|}
-name|Transport
-name|transport
+try|try
+init|(
+name|RestClient
+name|client
 init|=
 operator|new
-name|Transport
+name|RestClient
 argument_list|(
 name|httpClient
 argument_list|,
@@ -386,12 +390,14 @@ operator|.
 name|MAX_VALUE
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertNotNull
 argument_list|(
-name|transport
+name|client
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
