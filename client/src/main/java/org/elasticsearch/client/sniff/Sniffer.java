@@ -285,11 +285,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Calls nodes info api and returns a list of http hosts extracted from it  */
+comment|/**  * Calls nodes info api and returns a list of http hosts extracted from it.  */
 end_comment
 
 begin_comment
-comment|//TODO this could potentially a call to _cat/nodes (although it doesn't support timeout param), but how would we handle bw comp with 2.x?
+comment|//TODO This could potentially be using _cat/nodes which wouldn't require jackson as a dependency, but we'd have bw comp problems with 2.x
 end_comment
 
 begin_class

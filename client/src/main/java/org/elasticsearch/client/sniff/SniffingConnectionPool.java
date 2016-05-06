@@ -238,6 +238,10 @@ name|Stream
 import|;
 end_import
 
+begin_comment
+comment|/**  * Connection pool implementation that sniffs nodes from elasticsearch at regular intervals.  * Can optionally sniff nodes on each failure as well.  */
+end_comment
+
 begin_class
 DECL|class|SniffingConnectionPool
 specifier|public

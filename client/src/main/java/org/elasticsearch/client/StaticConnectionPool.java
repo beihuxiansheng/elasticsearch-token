@@ -174,6 +174,10 @@ name|Objects
 import|;
 end_import
 
+begin_comment
+comment|/**  * Static implementation of {@link ConnectionPool}. Its underlying list of connections is immutable.  */
+end_comment
+
 begin_class
 DECL|class|StaticConnectionPool
 specifier|public
