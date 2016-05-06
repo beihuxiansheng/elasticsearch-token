@@ -666,6 +666,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/18166"
+argument_list|)
 DECL|method|testFromAndToXContent
 specifier|public
 name|void
