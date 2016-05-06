@@ -182,18 +182,6 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|beforeAttempt
-parameter_list|(
-name|Connection
-name|connection
-parameter_list|)
-throws|throws
-name|IOException
-block|{              }
-annotation|@
-name|Override
-specifier|public
-name|void
 name|onSuccess
 parameter_list|(
 name|Connection

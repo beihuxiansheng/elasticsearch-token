@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Pool of connections to the different hosts that belong to an elasticsearch cluster.  * It keeps track of the different hosts to communicate with and allows to retrieve a stream of connections to be used  * for each request. Exposes the needed hooks to be able to eventually mark connections dead or alive and execute  * arbitrary operations before each single request attempt.  */
+comment|/**  * Pool of connections to the different hosts that belong to an elasticsearch cluster.  * It keeps track of the different hosts to communicate with and allows to retrieve a stream of connections to be used  * for each request. Exposes the needed hooks to be able to eventually mark connections dead or alive.  */
 end_comment
 
 begin_interface
@@ -72,17 +72,6 @@ DECL|method|lastResortConnection
 name|Connection
 name|lastResortConnection
 parameter_list|()
-function_decl|;
-comment|/**      * Called before each single request attempt. Allows to execute operations (e.g. ping) before each request.      * Receives as an argument the connection that is going to be used for the request.      */
-DECL|method|beforeAttempt
-name|void
-name|beforeAttempt
-parameter_list|(
-name|Connection
-name|connection
-parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
 comment|/**      * Called after each successful request call.      * Receives as an argument the connection that was used for the successful request.      */
 DECL|method|onSuccess

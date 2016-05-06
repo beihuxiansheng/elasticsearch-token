@@ -476,19 +476,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|beforeAttempt
-specifier|public
-name|void
-name|beforeAttempt
-parameter_list|(
-name|Connection
-name|connection
-parameter_list|)
-throws|throws
-name|IOException
-block|{      }
-annotation|@
-name|Override
 DECL|method|onFailure
 specifier|public
 name|void
