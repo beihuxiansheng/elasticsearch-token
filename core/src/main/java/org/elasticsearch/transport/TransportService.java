@@ -1692,11 +1692,42 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Lightly connect to the specified node, and handshake cluster      * name and version      *      * @param node             the node to connect to      * @param handshakeTimeout handshake timeout      * @return the connected node with version set      * @throws ConnectTransportException if the connection or the      *                                   handshake failed      */
+comment|/**      * Lightly connect to the specified node      *      * @param node the node to connect to      */
 DECL|method|connectToNodeLight
 specifier|public
-name|DiscoveryNode
+name|void
 name|connectToNodeLight
+parameter_list|(
+specifier|final
+name|DiscoveryNode
+name|node
+parameter_list|)
+block|{
+if|if
+condition|(
+name|node
+operator|.
+name|equals
+argument_list|(
+name|localNode
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
+name|transport
+operator|.
+name|connectToNodeLight
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Lightly connect to the specified node, and handshake cluster      * name and version      *      * @param node             the node to connect to      * @param handshakeTimeout handshake timeout      * @return the connected node with version set      * @throws ConnectTransportException if the connection or the      *                                   handshake failed      */
+DECL|method|connectToNodeLightAndHandshake
+specifier|public
+name|DiscoveryNode
+name|connectToNodeLightAndHandshake
 parameter_list|(
 specifier|final
 name|DiscoveryNode
@@ -1710,7 +1741,7 @@ throws|throws
 name|ConnectTransportException
 block|{
 return|return
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 name|node
 argument_list|,
@@ -1721,10 +1752,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Lightly connect to the specified node, returning updated node      * information. The handshake will fail if the cluster name on the      * target node mismatches the local cluster name and      * {@code checkClusterName} is {@code true}.      *      * @param node             the node to connect to      * @param handshakeTimeout handshake timeout      * @param checkClusterName whether or not to ignore cluster name      *                         mismatches      * @return the connected node      * @throws ConnectTransportException if the connection or the      *                                   handshake failed      */
-DECL|method|connectToNodeLight
+DECL|method|connectToNodeLightAndHandshake
 specifier|public
 name|DiscoveryNode
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 parameter_list|(
 specifier|final
 name|DiscoveryNode
@@ -1995,7 +2026,6 @@ argument_list|)
 return|;
 block|}
 DECL|class|HandshakeRequest
-specifier|public
 specifier|static
 class|class
 name|HandshakeRequest
@@ -2020,7 +2050,6 @@ parameter_list|()
 block|{         }
 block|}
 DECL|class|HandshakeResponse
-specifier|public
 specifier|static
 class|class
 name|HandshakeResponse

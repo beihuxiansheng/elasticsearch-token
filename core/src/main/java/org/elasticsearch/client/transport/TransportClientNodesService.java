@@ -2158,11 +2158,6 @@ operator|.
 name|connectToNodeLight
 argument_list|(
 name|listedNode
-argument_list|,
-name|pingTimeout
-argument_list|,
-operator|!
-name|ignoreClusterName
 argument_list|)
 expr_stmt|;
 block|}
@@ -2617,11 +2612,6 @@ operator|.
 name|connectToNodeLight
 argument_list|(
 name|listedNode
-argument_list|,
-name|pingTimeout
-argument_list|,
-operator|!
-name|ignoreClusterName
 argument_list|)
 expr_stmt|;
 block|}
