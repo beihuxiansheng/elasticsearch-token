@@ -221,7 +221,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|connections
 decl_stmt|;
@@ -316,7 +316,7 @@ DECL|method|getConnections
 specifier|protected
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|getConnections
 parameter_list|()
@@ -325,6 +325,7 @@ return|return
 name|connections
 return|;
 block|}
+comment|//TODO do we still need pinging? seems like a workaround for some clients that don't support connect timeout but we have that
 annotation|@
 name|Override
 DECL|method|beforeAttempt
@@ -332,7 +333,7 @@ specifier|public
 name|void
 name|beforeAttempt
 parameter_list|(
-name|StatefulConnection
+name|Connection
 name|connection
 parameter_list|)
 throws|throws

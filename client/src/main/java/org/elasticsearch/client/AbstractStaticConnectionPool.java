@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base static connection pool implementation that deals with mutable connections. Marks connections as dead/alive when needed.  * Provides a stream of alive connections or dead ones that should be retried for each {@link #nextConnection()} call, which  * allows to filter connections through a customizable {@link Predicate}, called connection selector.  * In case the returned stream is empty a last resort dead connection should be retrieved by calling {@link #lastResortConnection()}  * and resurrected so that a single request attempt can be performed.  * The {@link #onSuccess(StatefulConnection)} method marks the connection provided as an argument alive.  * The {@link #onFailure(StatefulConnection)} method marks the connection provided as an argument dead.  * This base implementation doesn't define the list implementation that stores connections, so that concurrency can be  * handled in the subclasses depending on the usecase (e.g. defining the list volatile when needed).  */
+comment|/**  * Base static connection pool implementation that deals with mutable connections. Marks connections as dead/alive when needed.  * Provides a stream of alive connections or dead ones that should be retried for each {@link #nextConnection()} call, which  * allows to filter connections through a customizable {@link Predicate}, called connection selector.  * In case the returned stream is empty a last resort dead connection should be retrieved by calling {@link #lastResortConnection()}  * and resurrected so that a single request attempt can be performed.  * The {@link #onSuccess(Connection)} method marks the connection provided as an argument alive.  * The {@link #onFailure(Connection)} method marks the connection provided as an argument dead.  * This base implementation doesn't define the list implementation that stores connections, so that concurrency can be  * handled in the subclasses depending on the usecase (e.g. defining the list volatile when needed).  */
 end_comment
 
 begin_class
@@ -154,9 +154,6 @@ class|class
 name|AbstractStaticConnectionPool
 implements|implements
 name|ConnectionPool
-argument_list|<
-name|StatefulConnection
-argument_list|>
 block|{
 DECL|field|logger
 specifier|private
@@ -191,7 +188,7 @@ specifier|protected
 specifier|abstract
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|getConnections
 parameter_list|()
@@ -203,14 +200,14 @@ specifier|public
 specifier|final
 name|Stream
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|nextConnection
 parameter_list|()
 block|{
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|connections
 init|=
@@ -235,7 +232,7 @@ throw|;
 block|}
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|sortedConnections
 init|=
@@ -290,7 +287,7 @@ DECL|method|createConnections
 specifier|protected
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|createConnections
 parameter_list|(
@@ -301,7 +298,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|connections
 init|=
@@ -332,7 +329,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StatefulConnection
+name|Connection
 argument_list|(
 name|host
 argument_list|)
@@ -352,12 +349,12 @@ annotation|@
 name|Override
 DECL|method|lastResortConnection
 specifier|public
-name|StatefulConnection
+name|Connection
 name|lastResortConnection
 parameter_list|()
 block|{
-name|StatefulConnection
-name|statefulConnection
+name|Connection
+name|Connection
 init|=
 name|getConnections
 argument_list|()
@@ -395,13 +392,13 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|statefulConnection
+name|Connection
 operator|.
 name|markResurrected
 argument_list|()
 expr_stmt|;
 return|return
-name|statefulConnection
+name|Connection
 return|;
 block|}
 annotation|@
@@ -411,7 +408,7 @@ specifier|public
 name|void
 name|onSuccess
 parameter_list|(
-name|StatefulConnection
+name|Connection
 name|connection
 parameter_list|)
 block|{
@@ -440,7 +437,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|StatefulConnection
+name|Connection
 name|connection
 parameter_list|)
 throws|throws

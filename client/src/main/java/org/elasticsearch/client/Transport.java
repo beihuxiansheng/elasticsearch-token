@@ -317,11 +317,6 @@ DECL|class|Transport
 specifier|final
 class|class
 name|Transport
-parameter_list|<
-name|C
-extends|extends
-name|Connection
-parameter_list|>
 implements|implements
 name|Closeable
 block|{
@@ -351,9 +346,6 @@ DECL|field|connectionPool
 specifier|private
 specifier|final
 name|ConnectionPool
-argument_list|<
-name|C
-argument_list|>
 name|connectionPool
 decl_stmt|;
 DECL|field|maxRetryTimeout
@@ -369,9 +361,6 @@ name|CloseableHttpClient
 name|client
 parameter_list|,
 name|ConnectionPool
-argument_list|<
-name|C
-argument_list|>
 name|connectionPool
 parameter_list|,
 name|long
@@ -478,7 +467,7 @@ argument_list|)
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|C
+name|Connection
 argument_list|>
 name|connectionIterator
 init|=
@@ -500,7 +489,7 @@ operator|==
 literal|false
 condition|)
 block|{
-name|C
+name|Connection
 name|connection
 init|=
 name|connectionPool
@@ -556,7 +545,7 @@ name|request
 parameter_list|,
 name|Iterator
 argument_list|<
-name|C
+name|Connection
 argument_list|>
 name|connectionIterator
 parameter_list|)
@@ -604,7 +593,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|C
+name|Connection
 name|connection
 init|=
 name|connectionIterator
@@ -812,7 +801,7 @@ parameter_list|(
 name|HttpRequestBase
 name|request
 parameter_list|,
-name|C
+name|Connection
 name|connection
 parameter_list|)
 throws|throws

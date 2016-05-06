@@ -95,11 +95,6 @@ name|CloseableHttpClient
 name|client
 parameter_list|,
 name|ConnectionPool
-argument_list|<
-name|?
-extends|extends
-name|Connection
-argument_list|>
 name|connectionPool
 parameter_list|,
 name|long
@@ -112,7 +107,6 @@ name|transport
 operator|=
 operator|new
 name|Transport
-argument_list|<>
 argument_list|(
 name|client
 argument_list|,

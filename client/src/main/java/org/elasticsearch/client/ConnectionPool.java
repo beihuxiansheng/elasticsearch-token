@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Pool of connections to the different nodes that belong to an elasticsearch cluster.  * It keeps track of the different nodes to communicate with and allows to retrieve a stream of connections to be used  * for each request. Exposes the needed hooks to be able to eventually mark connections dead or alive and execute  * arbitrary operations before each single request attempt.  *  * @param<C> the type of {@link Connection} that the pool supports  */
+comment|/**  * Pool of connections to the different hosts that belong to an elasticsearch cluster.  * It keeps track of the different hosts to communicate with and allows to retrieve a stream of connections to be used  * for each request. Exposes the needed hooks to be able to eventually mark connections dead or alive and execute  * arbitrary operations before each single request attempt.  */
 end_comment
 
 begin_interface
@@ -55,11 +55,6 @@ DECL|interface|ConnectionPool
 specifier|public
 interface|interface
 name|ConnectionPool
-parameter_list|<
-name|C
-extends|extends
-name|Connection
-parameter_list|>
 extends|extends
 name|Closeable
 block|{
@@ -67,14 +62,14 @@ comment|/**      * Returns a stream of connections that should be used for a req
 DECL|method|nextConnection
 name|Stream
 argument_list|<
-name|C
+name|Connection
 argument_list|>
 name|nextConnection
 parameter_list|()
 function_decl|;
 comment|/**      * Returns a connection that is not necessarily healthy, but can be used for a request attempt. To be called as last resort      * only in case {@link #nextConnection()} returns an empty stream      */
 DECL|method|lastResortConnection
-name|C
+name|Connection
 name|lastResortConnection
 parameter_list|()
 function_decl|;
@@ -83,7 +78,7 @@ DECL|method|beforeAttempt
 name|void
 name|beforeAttempt
 parameter_list|(
-name|C
+name|Connection
 name|connection
 parameter_list|)
 throws|throws
@@ -94,7 +89,7 @@ DECL|method|onSuccess
 name|void
 name|onSuccess
 parameter_list|(
-name|C
+name|Connection
 name|connection
 parameter_list|)
 function_decl|;
@@ -103,7 +98,7 @@ DECL|method|onFailure
 name|void
 name|onFailure
 parameter_list|(
-name|C
+name|Connection
 name|connection
 parameter_list|)
 throws|throws

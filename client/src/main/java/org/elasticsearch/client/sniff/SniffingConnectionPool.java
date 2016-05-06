@@ -108,7 +108,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|StatefulConnection
+name|Connection
 import|;
 end_import
 
@@ -289,7 +289,7 @@ specifier|private
 specifier|volatile
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|connections
 decl_stmt|;
@@ -299,6 +299,7 @@ specifier|final
 name|SnifferTask
 name|snifferTask
 decl_stmt|;
+comment|//TODO do we still need the sniff request timeout? or should we just use a low connect timeout?
 DECL|method|SniffingConnectionPool
 specifier|public
 name|SniffingConnectionPool
@@ -442,7 +443,7 @@ DECL|method|getConnections
 specifier|protected
 name|List
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|getConnections
 parameter_list|()
@@ -460,7 +461,7 @@ specifier|public
 name|void
 name|beforeAttempt
 parameter_list|(
-name|StatefulConnection
+name|Connection
 name|connection
 parameter_list|)
 throws|throws
@@ -473,7 +474,7 @@ specifier|public
 name|void
 name|onFailure
 parameter_list|(
-name|StatefulConnection
+name|Connection
 name|connection
 parameter_list|)
 throws|throws
@@ -731,7 +732,7 @@ try|try
 block|{
 name|Iterator
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|connectionIterator
 init|=
@@ -759,7 +760,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|StatefulConnection
+name|Connection
 name|connection
 init|=
 name|lastResortConnection
@@ -915,7 +916,7 @@ name|sniff
 parameter_list|(
 name|Iterator
 argument_list|<
-name|StatefulConnection
+name|Connection
 argument_list|>
 name|connectionIterator
 parameter_list|,
@@ -941,7 +942,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|StatefulConnection
+name|Connection
 name|connection
 init|=
 name|connectionIterator

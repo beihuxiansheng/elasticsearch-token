@@ -91,6 +91,7 @@ name|StatusLine
 name|statusLine
 decl_stmt|;
 DECL|method|ElasticsearchResponseException
+specifier|public
 name|ElasticsearchResponseException
 parameter_list|(
 name|RequestLine

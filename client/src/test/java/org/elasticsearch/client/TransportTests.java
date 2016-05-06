@@ -145,16 +145,10 @@ name|build
 argument_list|()
 decl_stmt|;
 name|ConnectionPool
-argument_list|<
-name|Connection
-argument_list|>
 name|connectionPool
 init|=
 operator|new
 name|ConnectionPool
-argument_list|<
-name|Connection
-argument_list|>
 argument_list|()
 block|{
 annotation|@
@@ -231,7 +225,6 @@ try|try
 block|{
 operator|new
 name|Transport
-argument_list|<>
 argument_list|(
 literal|null
 argument_list|,
@@ -279,7 +272,6 @@ try|try
 block|{
 operator|new
 name|Transport
-argument_list|<>
 argument_list|(
 name|httpClient
 argument_list|,
@@ -327,7 +319,6 @@ try|try
 block|{
 operator|new
 name|Transport
-argument_list|<>
 argument_list|(
 name|httpClient
 argument_list|,
@@ -372,14 +363,10 @@ argument_list|)
 expr_stmt|;
 block|}
 name|Transport
-argument_list|<
-name|Connection
-argument_list|>
 name|transport
 init|=
 operator|new
 name|Transport
-argument_list|<>
 argument_list|(
 name|httpClient
 argument_list|,
