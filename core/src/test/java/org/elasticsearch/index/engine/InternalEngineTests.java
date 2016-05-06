@@ -2166,8 +2166,6 @@ return|return
 operator|new
 name|ParsedDocument
 argument_list|(
-name|uidField
-argument_list|,
 name|versionField
 argument_list|,
 name|id

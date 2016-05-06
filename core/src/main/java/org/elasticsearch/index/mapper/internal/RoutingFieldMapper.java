@@ -874,19 +874,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|context
-operator|.
-name|sourceToParse
-argument_list|()
-operator|.
-name|routing
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|String
 name|routing
 init|=
@@ -944,7 +931,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

@@ -1587,6 +1587,9 @@ name|isParent
 argument_list|(
 name|context
 operator|.
+name|sourceToParse
+argument_list|()
+operator|.
 name|type
 argument_list|()
 argument_list|)
@@ -1615,6 +1618,9 @@ operator|new
 name|BytesRef
 argument_list|(
 name|context
+operator|.
+name|sourceToParse
+argument_list|()
 operator|.
 name|id
 argument_list|()
