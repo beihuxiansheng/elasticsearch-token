@@ -274,16 +274,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-import|;
-end_import
-
 begin_comment
 comment|/**  * Calls nodes info api and returns a list of http hosts extracted from it.  */
 end_comment
@@ -360,48 +350,6 @@ name|String
 name|scheme
 parameter_list|)
 block|{
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
-name|client
-argument_list|,
-literal|"client cannot be null"
-argument_list|)
-expr_stmt|;
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
-name|sniffRequestConfig
-argument_list|,
-literal|"sniffRequestConfig cannot be null"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|sniffRequestTimeout
-operator|<=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"sniffRequestTimeout must be greater than 0"
-argument_list|)
-throw|;
-block|}
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
-name|scheme
-argument_list|,
-literal|"scheme cannot be null"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|client
