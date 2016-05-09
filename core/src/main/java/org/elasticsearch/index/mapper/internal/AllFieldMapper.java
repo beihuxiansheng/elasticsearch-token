@@ -592,12 +592,6 @@ name|builder
 operator|=
 name|this
 expr_stmt|;
-name|indexName
-operator|=
-name|Defaults
-operator|.
-name|INDEX_NAME
-expr_stmt|;
 block|}
 DECL|method|enabled
 specifier|public

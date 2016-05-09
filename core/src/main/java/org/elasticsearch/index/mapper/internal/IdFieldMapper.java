@@ -560,12 +560,6 @@ operator|.
 name|FIELD_TYPE
 argument_list|)
 expr_stmt|;
-name|indexName
-operator|=
-name|Defaults
-operator|.
-name|NAME
-expr_stmt|;
 block|}
 annotation|@
 name|Override
