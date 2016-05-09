@@ -369,6 +369,17 @@ literal|"$body."
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|response
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|response
 operator|.
