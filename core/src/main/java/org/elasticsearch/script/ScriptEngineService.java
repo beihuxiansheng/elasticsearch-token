@@ -98,11 +98,6 @@ argument_list|>
 name|getExtensions
 parameter_list|()
 function_decl|;
-DECL|method|isSandboxed
-name|boolean
-name|isSandboxed
-parameter_list|()
-function_decl|;
 DECL|method|compile
 name|Object
 name|compile

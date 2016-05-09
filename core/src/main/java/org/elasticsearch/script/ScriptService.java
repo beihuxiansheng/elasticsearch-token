@@ -200,6 +200,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|ParseField
 import|;
 end_import
@@ -3174,15 +3186,6 @@ case|:
 return|return
 literal|false
 return|;
-case|case
-name|SANDBOX
-case|:
-return|return
-name|scriptEngineService
-operator|.
-name|isSandboxed
-argument_list|()
-return|;
 default|default:
 throw|throw
 operator|new
@@ -3868,7 +3871,7 @@ literal|"inline"
 argument_list|,
 name|ScriptMode
 operator|.
-name|SANDBOX
+name|OFF
 argument_list|)
 block|,
 DECL|enum constant|STORED
@@ -3882,7 +3885,7 @@ literal|"stored"
 argument_list|,
 name|ScriptMode
 operator|.
-name|SANDBOX
+name|OFF
 argument_list|)
 block|,
 DECL|enum constant|FILE

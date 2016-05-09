@@ -677,6 +677,11 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+name|numberOfSettings
+operator|+=
+literal|6
+expr_stmt|;
+comment|// for top-level inline/store/file settings
 name|assertThat
 argument_list|(
 name|scriptModes
@@ -750,7 +755,7 @@ name|assertScriptModesAllOps
 argument_list|(
 name|ScriptMode
 operator|.
-name|SANDBOX
+name|OFF
 argument_list|,
 name|ALL_LANGS
 argument_list|,
@@ -1096,7 +1101,7 @@ name|assertScriptModesAllOps
 argument_list|(
 name|ScriptMode
 operator|.
-name|SANDBOX
+name|OFF
 argument_list|,
 name|ALL_LANGS
 argument_list|,
@@ -1124,7 +1129,7 @@ name|assertScriptModesAllOps
 argument_list|(
 name|ScriptMode
 operator|.
-name|SANDBOX
+name|OFF
 argument_list|,
 name|ALL_LANGS
 argument_list|,
@@ -1375,7 +1380,7 @@ name|assertScriptModes
 argument_list|(
 name|ScriptMode
 operator|.
-name|SANDBOX
+name|OFF
 argument_list|,
 name|ALL_LANGS
 argument_list|,
@@ -1451,7 +1456,7 @@ name|put
 argument_list|(
 literal|"script.inline"
 argument_list|,
-literal|"sandbox"
+literal|"true"
 argument_list|)
 decl_stmt|;
 comment|//operations generic settings have precedence over script type generic settings
@@ -1518,7 +1523,7 @@ name|assertScriptModes
 argument_list|(
 name|ScriptMode
 operator|.
-name|SANDBOX
+name|ON
 argument_list|,
 name|ALL_LANGS
 argument_list|,
@@ -1661,6 +1666,19 @@ range|:
 name|scriptTypes
 control|)
 block|{
+name|checkedSettings
+operator|.
+name|add
+argument_list|(
+literal|"script.engine."
+operator|+
+name|lang
+operator|+
+literal|"."
+operator|+
+name|scriptType
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|ScriptContext
@@ -1945,18 +1963,6 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|isSandboxed
-specifier|public
-name|boolean
-name|isSandboxed
-parameter_list|()
-block|{
-return|return
-literal|false
 return|;
 block|}
 annotation|@

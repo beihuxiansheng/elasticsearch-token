@@ -870,6 +870,13 @@ operator|.
 name|CURRENT
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"script.inline"
+argument_list|,
+literal|"true"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;

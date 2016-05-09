@@ -445,19 +445,6 @@ return|return
 name|EXTENSIONS
 return|;
 block|}
-comment|/**      * Whether or not the engine is secure.      * @return Always true as the engine should be secure at runtime.      */
-annotation|@
-name|Override
-DECL|method|isSandboxed
-specifier|public
-name|boolean
-name|isSandboxed
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|/**      * Compiles a Painless script with the specified parameters.      * @param script The code to be compiled.      * @param params The params used to modify the compiler settings on a per script basis.      * @return Compiled script object represented by an {@link Executable}.      */
 annotation|@
 name|Override
