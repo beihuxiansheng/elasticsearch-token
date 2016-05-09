@@ -298,6 +298,17 @@ specifier|static
 name|ThreadPool
 name|threadPool
 decl_stmt|;
+DECL|field|timeout
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|timeout
+init|=
+name|Long
+operator|.
+name|MAX_VALUE
+decl_stmt|;
 annotation|@
 name|BeforeClass
 DECL|method|startThreadPool
@@ -623,7 +634,7 @@ name|minimumCompatibilityVersion
 argument_list|()
 argument_list|)
 argument_list|,
-literal|100
+name|timeout
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -745,7 +756,7 @@ name|minimumCompatibilityVersion
 argument_list|()
 argument_list|)
 argument_list|,
-literal|100
+name|timeout
 argument_list|)
 expr_stmt|;
 name|fail
@@ -871,7 +882,7 @@ name|minimumCompatibilityVersion
 argument_list|()
 argument_list|)
 argument_list|,
-literal|100
+name|timeout
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1004,7 +1015,7 @@ name|minimumCompatibilityVersion
 argument_list|()
 argument_list|)
 argument_list|,
-literal|100
+name|timeout
 argument_list|,
 literal|false
 argument_list|)
