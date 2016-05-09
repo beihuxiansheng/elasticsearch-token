@@ -96,7 +96,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|AbstractStaticConnectionPool
+name|ConnectionPool
 import|;
 end_import
 
@@ -248,7 +248,7 @@ specifier|public
 class|class
 name|SniffingConnectionPool
 extends|extends
-name|AbstractStaticConnectionPool
+name|ConnectionPool
 block|{
 DECL|field|logger
 specifier|private

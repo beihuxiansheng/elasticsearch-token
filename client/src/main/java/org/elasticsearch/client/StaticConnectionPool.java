@@ -56,7 +56,7 @@ specifier|public
 class|class
 name|StaticConnectionPool
 extends|extends
-name|AbstractStaticConnectionPool
+name|ConnectionPool
 block|{
 DECL|field|connections
 specifier|private
