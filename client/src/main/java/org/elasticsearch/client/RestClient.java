@@ -690,9 +690,6 @@ argument_list|,
 literal|"request failed"
 argument_list|,
 name|request
-operator|.
-name|getRequestLine
-argument_list|()
 argument_list|,
 name|connection
 operator|.
@@ -774,9 +771,6 @@ argument_list|,
 literal|"request succeeded"
 argument_list|,
 name|request
-operator|.
-name|getRequestLine
-argument_list|()
 argument_list|,
 name|connection
 operator|.
@@ -784,9 +778,6 @@ name|getHost
 argument_list|()
 argument_list|,
 name|response
-operator|.
-name|getStatusLine
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|connectionPool
@@ -825,9 +816,6 @@ argument_list|,
 literal|"request failed"
 argument_list|,
 name|request
-operator|.
-name|getRequestLine
-argument_list|()
 argument_list|,
 name|connection
 operator|.
@@ -835,9 +823,6 @@ name|getHost
 argument_list|()
 argument_list|,
 name|response
-operator|.
-name|getStatusLine
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|String

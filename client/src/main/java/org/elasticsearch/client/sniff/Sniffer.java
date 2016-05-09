@@ -510,13 +510,10 @@ argument_list|,
 literal|"sniff failed"
 argument_list|,
 name|httpGet
-operator|.
-name|getRequestLine
-argument_list|()
 argument_list|,
 name|host
 argument_list|,
-name|statusLine
+name|response
 argument_list|)
 expr_stmt|;
 name|String
@@ -592,13 +589,10 @@ argument_list|,
 literal|"sniff succeeded"
 argument_list|,
 name|httpGet
-operator|.
-name|getRequestLine
-argument_list|()
 argument_list|,
 name|host
 argument_list|,
-name|statusLine
+name|response
 argument_list|)
 expr_stmt|;
 return|return
@@ -621,9 +615,6 @@ argument_list|,
 literal|"sniff failed"
 argument_list|,
 name|httpGet
-operator|.
-name|getRequestLine
-argument_list|()
 argument_list|,
 name|host
 argument_list|,
