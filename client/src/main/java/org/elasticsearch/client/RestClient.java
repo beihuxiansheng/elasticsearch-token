@@ -302,6 +302,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -335,18 +345,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
-name|Stream
 import|;
 end_import
 
@@ -483,9 +481,6 @@ name|connectionPool
 operator|.
 name|nextConnection
 argument_list|()
-operator|.
-name|iterator
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -522,9 +517,9 @@ name|performRequest
 argument_list|(
 name|request
 argument_list|,
-name|Stream
+name|Collections
 operator|.
-name|of
+name|singleton
 argument_list|(
 name|connection
 argument_list|)

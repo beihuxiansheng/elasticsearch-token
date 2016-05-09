@@ -832,9 +832,11 @@ specifier|static
 name|MockWebServer
 name|buildMockWebServer
 parameter_list|(
+specifier|final
 name|SniffResponse
 name|sniffResponse
 parameter_list|,
+specifier|final
 name|int
 name|sniffTimeout
 parameter_list|)
@@ -1725,6 +1727,9 @@ literal|""
 argument_list|,
 name|Collections
 operator|.
+expr|<
+name|HttpHost
+operator|>
 name|emptyList
 argument_list|()
 argument_list|,
