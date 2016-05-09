@@ -910,11 +910,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|response
 init|=
 operator|new
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|(
 name|timeValueMillis
 argument_list|(
@@ -935,11 +935,11 @@ name|randomBoolean
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|tripped
 init|=
 operator|new
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|()
 decl_stmt|;
 name|roundTrip

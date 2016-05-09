@@ -243,7 +243,7 @@ name|IndexBySearchResponseMatcher
 extends|extends
 name|AbstractBulkIndexByScrollResponseMatcher
 argument_list|<
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|,
 name|IndexBySearchResponseMatcher
 argument_list|>
@@ -309,7 +309,7 @@ specifier|protected
 name|boolean
 name|matchesSafely
 parameter_list|(
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|item
 parameter_list|)
 block|{

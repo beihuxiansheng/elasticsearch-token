@@ -184,8 +184,6 @@ specifier|abstract
 name|AbstractAsyncBulkIndexByScrollAction
 argument_list|<
 name|Request
-argument_list|,
-name|Response
 argument_list|>
 name|action
 parameter_list|()

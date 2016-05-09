@@ -195,8 +195,6 @@ specifier|protected
 name|AbstractAsyncBulkIndexByScrollAction
 argument_list|<
 name|UpdateByQueryRequest
-argument_list|,
-name|BulkIndexByScrollResponse
 argument_list|>
 name|action
 parameter_list|()

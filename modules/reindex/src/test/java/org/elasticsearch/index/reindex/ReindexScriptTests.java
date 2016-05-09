@@ -98,7 +98,7 @@ name|AbstractAsyncBulkIndexByScrollActionScriptTestCase
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|>
 block|{
 DECL|method|testSetIndex
@@ -956,8 +956,6 @@ specifier|protected
 name|AbstractAsyncBulkIndexByScrollAction
 argument_list|<
 name|ReindexRequest
-argument_list|,
-name|ReindexResponse
 argument_list|>
 name|action
 parameter_list|()

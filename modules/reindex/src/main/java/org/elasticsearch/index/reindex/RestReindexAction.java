@@ -462,8 +462,6 @@ name|AbstractBaseReindexRestHandler
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|ReindexResponse
-argument_list|,
 name|TransportReindexAction
 argument_list|>
 block|{
@@ -1161,6 +1159,12 @@ argument_list|,
 name|internalRequest
 argument_list|,
 name|channel
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

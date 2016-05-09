@@ -86,7 +86,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|response
 init|=
 name|CancelTestUtils

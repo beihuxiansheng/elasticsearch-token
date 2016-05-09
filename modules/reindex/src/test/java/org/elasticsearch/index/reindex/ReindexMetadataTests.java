@@ -74,7 +74,7 @@ name|AbstractAsyncBulkIndexbyScrollActionMetadataTestCase
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|>
 block|{
 DECL|method|testRoutingCopiedByDefault
