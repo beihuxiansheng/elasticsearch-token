@@ -114,7 +114,7 @@ name|assertThat
 argument_list|(
 name|response
 argument_list|,
-name|reindexResponseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|created

@@ -250,7 +250,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|updateByQueryResponseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -334,7 +334,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|updateByQueryResponseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -418,7 +418,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|updateByQueryResponseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -562,7 +562,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|updateByQueryResponseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated

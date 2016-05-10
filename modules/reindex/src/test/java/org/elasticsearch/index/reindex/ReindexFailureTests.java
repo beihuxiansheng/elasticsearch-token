@@ -270,7 +270,7 @@ name|assertThat
 argument_list|(
 name|response
 argument_list|,
-name|reindexResponseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|batches
@@ -407,7 +407,7 @@ name|assertThat
 argument_list|(
 name|response
 argument_list|,
-name|reindexResponseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|batches
