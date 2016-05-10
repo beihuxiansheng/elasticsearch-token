@@ -703,17 +703,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|parseElements
-operator|.
-name|put
-argument_list|(
-literal|"fields"
-argument_list|,
-operator|new
-name|FieldsParseElement
-argument_list|()
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|FetchSubPhase
