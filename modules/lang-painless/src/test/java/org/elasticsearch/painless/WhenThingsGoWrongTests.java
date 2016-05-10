@@ -18,6 +18,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|invoke
+operator|.
+name|WrongMethodTypeException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -671,7 +683,7 @@ parameter_list|()
 block|{
 name|expectThrows
 argument_list|(
-name|ClassCastException
+name|WrongMethodTypeException
 operator|.
 name|class
 argument_list|,

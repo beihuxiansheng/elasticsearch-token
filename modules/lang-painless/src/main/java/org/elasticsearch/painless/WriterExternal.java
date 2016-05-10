@@ -38,6 +38,20 @@ name|painless
 operator|.
 name|Definition
 operator|.
+name|Cast
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|Definition
+operator|.
 name|Constructor
 import|;
 end_import
@@ -5249,8 +5263,6 @@ name|getDescriptor
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: remove our explicit conversions and feed more type information for args/return value,
-comment|// it can avoid some unnecessary boxing etc.
 for|for
 control|(
 name|int
@@ -5269,13 +5281,55 @@ name|i
 operator|++
 control|)
 block|{
+name|ExpressionMetadata
+name|arg
+init|=
+name|metadata
+operator|.
+name|getExpressionMetadata
+argument_list|(
+name|arguments
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// disable any implicit casts/conversion for arguments, let invokeDynamic take care
+name|arg
+operator|.
+name|to
+operator|=
+name|arg
+operator|.
+name|from
+expr_stmt|;
+name|arg
+operator|.
+name|cast
+operator|=
+operator|new
+name|Cast
+argument_list|(
+name|arg
+operator|.
+name|from
+argument_list|,
+name|arg
+operator|.
+name|from
+argument_list|)
+expr_stmt|;
 name|signature
 operator|.
 name|append
 argument_list|(
-name|WriterConstants
+name|arg
 operator|.
-name|OBJECT_TYPE
+name|from
+operator|.
+name|type
 operator|.
 name|getDescriptor
 argument_list|()
@@ -5301,7 +5355,7 @@ argument_list|(
 literal|')'
 argument_list|)
 expr_stmt|;
-comment|// return value
+comment|// return value: currently always Object. making this better may be tricky...
 name|signature
 operator|.
 name|append
