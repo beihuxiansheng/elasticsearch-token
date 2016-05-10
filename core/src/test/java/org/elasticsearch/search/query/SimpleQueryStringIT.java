@@ -3357,7 +3357,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|0l
+literal|0L
 argument_list|)
 expr_stmt|;
 block|}
