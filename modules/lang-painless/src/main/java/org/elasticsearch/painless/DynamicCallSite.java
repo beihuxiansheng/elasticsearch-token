@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Painless invokedynamic call site.  *<p>  * Has 3 flavors (passed as static bootstrap parameters): dynamic method call,  * dynamic field load (getter), and dynamic field store (setter).  *<p>  * When a new type is encountered at the call site, we lookup from the appropriate  * whitelist, and cache with a guard. If we encounter too many types, we stop caching.  *<p>  * Based on the cascaded inlining cache from the JSR 292 cookbook   * (https://code.google.com/archive/p/jsr292-cookbook/, BSD license)  */
+comment|/**  * Painless invokedynamic call site.  *<p>  * Has 5 flavors (passed as static bootstrap parameters): dynamic method call,  * dynamic field load (getter), and dynamic field store (setter), dynamic array load,  * and dynamic array store.  *<p>  * When a new type is encountered at the call site, we lookup from the appropriate  * whitelist, and cache with a guard. If we encounter too many types, we stop caching.  *<p>  * Based on the cascaded inlining cache from the JSR 292 cookbook   * (https://code.google.com/archive/p/jsr292-cookbook/, BSD license)  */
 end_comment
 
 begin_comment
