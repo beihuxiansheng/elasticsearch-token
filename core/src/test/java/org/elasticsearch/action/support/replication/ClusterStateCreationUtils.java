@@ -766,6 +766,13 @@ argument_list|(
 name|unassignedNodesExecludingPrimary
 argument_list|)
 expr_stmt|;
+name|unassignedNodes
+operator|.
+name|remove
+argument_list|(
+name|primaryNode
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
