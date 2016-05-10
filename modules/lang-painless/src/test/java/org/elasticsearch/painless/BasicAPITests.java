@@ -275,6 +275,63 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testListAsArray
+specifier|public
+name|void
+name|testListAsArray
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add(5); return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add(5); return x[0]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"List x = new ArrayList(); x.add('Hallo'); return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"List<String> x = new ArrayList<String>(); x.add('Hallo'); return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"List<Object> x = new ArrayList<Object>(); x.add('Hallo'); return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
