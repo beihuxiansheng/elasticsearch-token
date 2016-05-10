@@ -138,21 +138,6 @@ name|MAXIMUM_SOURCE_LENGTH
 init|=
 literal|16384
 decl_stmt|;
-comment|/**      * The default language API to be used with Painless.  The second construction is used      * to finalize all the variables, so there is no mistake of modification afterwards.      */
-DECL|field|DEFAULT_DEFINITION
-specifier|private
-specifier|static
-name|Definition
-name|DEFAULT_DEFINITION
-init|=
-operator|new
-name|Definition
-argument_list|(
-operator|new
-name|Definition
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|/**      * Define the class with lowest privileges.      */
 DECL|field|CODESOURCE
 specifier|private
@@ -292,10 +277,6 @@ name|String
 name|source
 parameter_list|,
 specifier|final
-name|Definition
-name|custom
-parameter_list|,
-specifier|final
 name|CompilerSettings
 name|settings
 parameter_list|)
@@ -335,17 +316,9 @@ specifier|final
 name|Definition
 name|definition
 init|=
-name|custom
-operator|!=
-literal|null
-condition|?
-operator|new
 name|Definition
-argument_list|(
-name|custom
-argument_list|)
-else|:
-name|DEFAULT_DEFINITION
+operator|.
+name|INSTANCE
 decl_stmt|;
 specifier|final
 name|ParserRuleContext

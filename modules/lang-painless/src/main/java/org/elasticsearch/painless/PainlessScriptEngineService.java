@@ -380,31 +380,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Used only for testing.      */
-DECL|field|definition
-specifier|private
-name|Definition
-name|definition
-init|=
-literal|null
-decl_stmt|;
-comment|/**      * Used only for testing.      */
-DECL|method|setDefinition
-name|void
-name|setDefinition
-parameter_list|(
-specifier|final
-name|Definition
-name|definition
-parameter_list|)
-block|{
-name|this
-operator|.
-name|definition
-operator|=
-name|definition
-expr_stmt|;
-block|}
 comment|/**      * Constructor.      * @param settings The settings to initialize the engine with.      */
 annotation|@
 name|Inject
@@ -718,8 +693,6 @@ argument_list|,
 literal|"unknown"
 argument_list|,
 name|script
-argument_list|,
-name|definition
 argument_list|,
 name|compilerSettings
 argument_list|)

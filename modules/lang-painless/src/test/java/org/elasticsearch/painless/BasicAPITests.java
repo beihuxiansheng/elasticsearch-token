@@ -163,6 +163,146 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Test loads and stores with a map */
+DECL|method|testMapLoadStore
+specifier|public
+name|void
+name|testMapLoadStore
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x.abc = 5; return x.abc;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); x['abc'] = 5; return x['abc'];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Test loads and stores with a list */
+DECL|method|testListLoadStore
+specifier|public
+name|void
+name|testListLoadStore
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add(3); x.0 = 5; return x.0;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add(3); x[0] = 5; return x[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Test loads and stores with a list */
+DECL|method|testArrayLoadStore
+specifier|public
+name|void
+name|testArrayLoadStore
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new int[5]; return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new int[4]; x[0] = 5; return x[0];"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Test shortcut for getters with isXXXX */
+DECL|method|testListEmpty
+specifier|public
+name|void
+name|testListEmpty
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); return x.empty;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new HashMap(); return x.empty;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Test list method invocation */
+DECL|method|testListGet
+specifier|public
+name|void
+name|testListGet
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add(5); return x.get(0);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add(5); def index = 0; return x.get(index);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
