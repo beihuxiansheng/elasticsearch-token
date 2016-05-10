@@ -235,14 +235,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|SIGNATURE
-specifier|final
-specifier|static
-name|String
-name|SIGNATURE
-init|=
-literal|"(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Ljava/lang/Object;"
-decl_stmt|;
 DECL|field|PAINLESS_ERROR_TYPE
 specifier|final
 specifier|static

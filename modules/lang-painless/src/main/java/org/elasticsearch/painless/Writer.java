@@ -906,20 +906,6 @@ name|SCORE_ACCESSOR_TYPE
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|WriterConstants
-operator|.
-name|SIGNATURE
-import|;
-end_import
-
 begin_class
 DECL|class|Writer
 class|class
@@ -1075,7 +1061,7 @@ name|ACC_PUBLIC
 argument_list|,
 name|EXECUTE
 argument_list|,
-name|SIGNATURE
+literal|null
 argument_list|,
 literal|null
 argument_list|,
