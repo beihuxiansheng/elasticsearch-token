@@ -370,6 +370,20 @@ name|common
 operator|.
 name|collect
 operator|.
+name|Iterators
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
 name|Tuple
 import|;
 end_import
@@ -4135,14 +4149,6 @@ operator|.
 name|newShardRouting
 argument_list|(
 name|shardId
-operator|.
-name|getIndex
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|,
 literal|"NOT THERE"
 argument_list|,

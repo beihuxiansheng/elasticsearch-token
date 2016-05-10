@@ -655,11 +655,7 @@ expr_stmt|;
 name|ShardRouting
 name|newRouting
 init|=
-operator|new
-name|ShardRouting
-argument_list|(
 name|shardRouting
-argument_list|)
 decl_stmt|;
 name|String
 name|nodeId
@@ -669,6 +665,8 @@ operator|.
 name|currentNodeId
 argument_list|()
 decl_stmt|;
+name|newRouting
+operator|=
 name|ShardRoutingHelper
 operator|.
 name|moveToUnassigned
@@ -688,6 +686,8 @@ literal|"boom"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|newRouting
+operator|=
 name|ShardRoutingHelper
 operator|.
 name|initialize
@@ -783,12 +783,6 @@ argument_list|)
 expr_stmt|;
 name|newRouting
 operator|=
-operator|new
-name|ShardRouting
-argument_list|(
-name|newRouting
-argument_list|)
-expr_stmt|;
 name|ShardRoutingHelper
 operator|.
 name|moveToStarted

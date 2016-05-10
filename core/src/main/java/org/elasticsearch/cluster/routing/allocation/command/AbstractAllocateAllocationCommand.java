@@ -86,6 +86,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|UnassignedInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|allocation
 operator|.
 name|RerouteExplanation
@@ -269,6 +283,18 @@ operator|.
 name|function
 operator|.
 name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Function
 import|;
 end_import
 
@@ -914,7 +940,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Initializes an unassigned shard on a node and removes it from the unassigned      *      * @param allocation the allocation      * @param routingNodes the routing nodes      * @param routingNode the node to initialize it to      * @param shardRouting the shard routing that is to be matched in unassigned shards      * @param shardRoutingChanges changes to apply for shard routing in unassigned shards before initialization      */
+comment|/**      * Initializes an unassigned shard on a node and removes it from the unassigned      *      * @param allocation the allocation      * @param routingNodes the routing nodes      * @param routingNode the node to initialize it to      * @param shardRouting the shard routing that is to be matched in unassigned shards      * @param unassignedInfo unassigned info to override      */
 DECL|method|initializeUnassignedShard
 specifier|protected
 name|void
@@ -934,11 +960,8 @@ name|shardRouting
 parameter_list|,
 annotation|@
 name|Nullable
-name|Consumer
-argument_list|<
-name|ShardRouting
-argument_list|>
-name|shardRoutingChanges
+name|UnassignedInfo
+name|unassignedInfo
 parameter_list|)
 block|{
 for|for
@@ -988,16 +1011,18 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|shardRoutingChanges
+name|unassignedInfo
 operator|!=
 literal|null
 condition|)
 block|{
-name|shardRoutingChanges
-operator|.
-name|accept
-argument_list|(
 name|unassigned
+operator|=
+name|it
+operator|.
+name|updateUnassignedInfo
+argument_list|(
+name|unassignedInfo
 argument_list|)
 expr_stmt|;
 block|}

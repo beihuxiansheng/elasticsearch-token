@@ -2164,12 +2164,7 @@ name|newShardRouting
 argument_list|(
 name|failedShard
 operator|.
-name|index
-argument_list|()
-argument_list|,
-name|failedShard
-operator|.
-name|id
+name|shardId
 argument_list|()
 argument_list|,
 name|nodeId
