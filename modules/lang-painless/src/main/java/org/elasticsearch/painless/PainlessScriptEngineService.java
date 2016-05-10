@@ -812,7 +812,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**              * Whether or not the score is needed.              * @return Always true as it's assumed score is needed.              */
+comment|/**              * Whether or not the score is needed.              */
 annotation|@
 name|Override
 specifier|public
@@ -821,7 +821,12 @@ name|needsScores
 parameter_list|()
 block|{
 return|return
-literal|true
+name|compiledScript
+operator|.
+name|compiled
+argument_list|()
+operator|instanceof
+name|NeedsScore
 return|;
 block|}
 block|}
