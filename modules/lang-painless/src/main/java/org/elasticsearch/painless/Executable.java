@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Scorer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -128,6 +142,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|input
+parameter_list|,
+name|Scorer
+name|scorer
 parameter_list|)
 function_decl|;
 block|}
