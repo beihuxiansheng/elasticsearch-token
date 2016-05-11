@@ -58,18 +58,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|ScoreAccessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|lookup
@@ -137,6 +125,12 @@ specifier|private
 specifier|final
 name|LeafSearchLookup
 name|lookup
+decl_stmt|;
+comment|/**      * Current scorer being used      * @see #setScorer(Scorer)      */
+DECL|field|scorer
+specifier|private
+name|Scorer
+name|scorer
 decl_stmt|;
 comment|/**      * Creates a ScriptImpl for the a previously compiled Painless script.      * @param executable The previously compiled Painless script.      * @param vars The initial variables to run the script with.      * @param lookup The lookup to allow search fields to be available if this is run as a search script.      */
 DECL|method|ScriptImpl
@@ -257,6 +251,8 @@ operator|.
 name|execute
 argument_list|(
 name|variables
+argument_list|,
+name|scorer
 argument_list|)
 return|;
 block|}
@@ -339,18 +335,11 @@ name|Scorer
 name|scorer
 parameter_list|)
 block|{
-name|variables
+name|this
 operator|.
-name|put
-argument_list|(
-literal|"#score"
-argument_list|,
-operator|new
-name|ScoreAccessor
-argument_list|(
 name|scorer
-argument_list|)
-argument_list|)
+operator|=
+name|scorer
 expr_stmt|;
 block|}
 comment|/**      * Sets the current document.      * @param doc The current document.      */
