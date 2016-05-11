@@ -1598,6 +1598,9 @@ name|totalBytesUsed
 argument_list|)
 argument_list|,
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|indexingBuffer
 argument_list|,
@@ -1777,6 +1780,9 @@ name|totalBytesUsed
 argument_list|)
 argument_list|,
 name|INDEX_BUFFER_SIZE_SETTING
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|indexingBuffer
 argument_list|,
