@@ -416,17 +416,14 @@ block|}
 comment|/**      * Get the type name(s) for the language.      * @return Always contains only the single name of the language.      */
 annotation|@
 name|Override
-DECL|method|getTypes
+DECL|method|getType
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
-name|getTypes
+name|getType
 parameter_list|()
 block|{
 return|return
-name|TYPES
+name|NAME
 return|;
 block|}
 comment|/**      * Get the extension(s) for the language.      * @return Always contains only the single extension of the language.      */

@@ -120,7 +120,7 @@ name|class
 argument_list|,
 name|MustacheScriptEngineService
 operator|.
-name|TYPES
+name|NAME
 argument_list|,
 name|ScriptMode
 operator|.

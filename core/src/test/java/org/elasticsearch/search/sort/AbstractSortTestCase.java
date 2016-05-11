@@ -905,7 +905,7 @@ name|class
 argument_list|,
 name|TestEngineService
 operator|.
-name|TYPES
+name|NAME
 argument_list|)
 argument_list|)
 argument_list|)

@@ -3364,7 +3364,7 @@ name|class
 argument_list|,
 name|ExtractFieldScriptEngine
 operator|.
-name|TYPES
+name|NAME
 argument_list|,
 name|ScriptMode
 operator|.
@@ -3421,17 +3421,14 @@ name|IOException
 block|{         }
 annotation|@
 name|Override
-DECL|method|getTypes
+DECL|method|getType
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
-name|getTypes
+name|getType
 parameter_list|()
 block|{
 return|return
-name|TYPES
+name|NAME
 return|;
 block|}
 annotation|@
@@ -3865,7 +3862,7 @@ name|class
 argument_list|,
 name|FieldValueScriptEngine
 operator|.
-name|TYPES
+name|NAME
 argument_list|,
 name|ScriptMode
 operator|.
@@ -3922,17 +3919,14 @@ name|IOException
 block|{         }
 annotation|@
 name|Override
-DECL|method|getTypes
+DECL|method|getType
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
-name|getTypes
+name|getType
 parameter_list|()
 block|{
 return|return
-name|TYPES
+name|NAME
 return|;
 block|}
 annotation|@

@@ -2194,7 +2194,7 @@ name|class
 argument_list|,
 name|MockScriptEngine
 operator|.
-name|TYPES
+name|NAME
 argument_list|,
 name|ScriptMode
 operator|.
