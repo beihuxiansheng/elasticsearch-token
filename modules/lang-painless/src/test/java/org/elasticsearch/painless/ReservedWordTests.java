@@ -14,6 +14,26 @@ name|painless
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
 begin_comment
 comment|/** Tests for special reserved words such as _score */
 end_comment
@@ -149,7 +169,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** check that we can't write to _score, its read-only! */
+comment|/** check that we can't write to doc, its read-only! */
 DECL|method|testDocStore
 specifier|public
 name|void
@@ -186,6 +206,122 @@ operator|.
 name|contains
 argument_list|(
 literal|"Variable [doc] is read-only"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** check that we can't declare a variable of ctx, its really reserved! */
+DECL|method|testCtxVar
+specifier|public
+name|void
+name|testCtxVar
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"int ctx = 5; return ctx;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Variable name [ctx] already defined"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** check that we can't write to ctx, its read-only! */
+DECL|method|testCtxStore
+specifier|public
+name|void
+name|testCtxStore
+parameter_list|()
+block|{
+name|IllegalArgumentException
+name|expected
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"ctx = 5; return ctx;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|expected
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Variable [ctx] is read-only"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** check that we can modify its contents though */
+DECL|method|testCtxStoreMap
+specifier|public
+name|void
+name|testCtxStoreMap
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"ctx.foo = 5; return ctx.foo;"
+argument_list|,
+name|Collections
+operator|.
+name|singletonMap
+argument_list|(
+literal|"ctx"
+argument_list|,
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

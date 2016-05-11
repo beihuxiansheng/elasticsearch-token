@@ -3367,11 +3367,6 @@ block|}
 comment|// special cases: reserved words
 if|if
 condition|(
-name|varenmd
-operator|.
-name|last
-operator|&&
-operator|(
 literal|"_score"
 operator|.
 name|equals
@@ -3385,12 +3380,22 @@ name|equals
 argument_list|(
 name|id
 argument_list|)
-operator|)
+operator|||
+literal|"ctx"
+operator|.
+name|equals
+argument_list|(
+name|id
+argument_list|)
 condition|)
 block|{
-comment|// read-only: don't allow stores
+comment|// read-only: don't allow stores to ourself
 if|if
 condition|(
+name|varenmd
+operator|.
+name|last
+operator|&&
 name|parentemd
 operator|.
 name|storeExpr
@@ -3417,8 +3422,6 @@ literal|"] is read-only."
 argument_list|)
 throw|;
 block|}
-block|}
-comment|// track if the _score value is ever used, we will invoke Scorer.score() only once if so.
 if|if
 condition|(
 literal|"_score"
@@ -3429,12 +3432,33 @@ name|id
 argument_list|)
 condition|)
 block|{
+comment|// track if the _score value is ever used, we will invoke Scorer.score() only once if so.
 name|metadata
 operator|.
 name|scoreValueUsed
 operator|=
 literal|true
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"ctx"
+operator|.
+name|equals
+argument_list|(
+name|id
+argument_list|)
+condition|)
+block|{
+comment|// track if ctx value is ever used, we will invoke Map.get() only once if so.
+name|metadata
+operator|.
+name|ctxValueUsed
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 name|varenmd
 operator|.
