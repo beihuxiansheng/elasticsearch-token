@@ -882,6 +882,10 @@ operator|.
 name|execType
 argument_list|)
 expr_stmt|;
+comment|//
+comment|// reserved words parameters.
+comment|//
+comment|// input map of variables passed to the script. TODO: rename to 'params' since that will be its use
 name|metadata
 operator|.
 name|inputValueSlot
@@ -901,6 +905,7 @@ argument_list|)
 operator|.
 name|slot
 expr_stmt|;
+comment|// scorer parameter passed to the script. internal use only.
 name|metadata
 operator|.
 name|scorerValueSlot
@@ -920,6 +925,31 @@ argument_list|)
 operator|.
 name|slot
 expr_stmt|;
+comment|// doc parameter passed to the script.
+comment|// TODO: currently working as a def type, should be smapType...
+name|metadata
+operator|.
+name|docValueSlot
+operator|=
+name|utility
+operator|.
+name|addVariable
+argument_list|(
+literal|null
+argument_list|,
+literal|"doc"
+argument_list|,
+name|definition
+operator|.
+name|defType
+argument_list|)
+operator|.
+name|slot
+expr_stmt|;
+comment|//
+comment|// reserved words implemented as local variables
+comment|//
+comment|// loop counter to catch runaway scripts. internal use only.
 name|metadata
 operator|.
 name|loopCounterSlot
@@ -939,6 +969,7 @@ argument_list|)
 operator|.
 name|slot
 expr_stmt|;
+comment|// document's score as a read-only float.
 name|metadata
 operator|.
 name|scoreValueSlot

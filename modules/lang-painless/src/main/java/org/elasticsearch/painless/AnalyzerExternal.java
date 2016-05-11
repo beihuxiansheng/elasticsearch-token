@@ -3373,6 +3373,13 @@ name|equals
 argument_list|(
 name|id
 argument_list|)
+operator|||
+literal|"doc"
+operator|.
+name|equals
+argument_list|(
+name|id
+argument_list|)
 condition|)
 block|{
 comment|// read-only: don't allow stores
@@ -3404,6 +3411,18 @@ literal|"] is read-only."
 argument_list|)
 throw|;
 block|}
+block|}
+comment|// track if the _score value is ever used, we will invoke Scorer.score() only once if so.
+if|if
+condition|(
+literal|"_score"
+operator|.
+name|equals
+argument_list|(
+name|id
+argument_list|)
+condition|)
+block|{
 name|metadata
 operator|.
 name|scoreValueUsed
