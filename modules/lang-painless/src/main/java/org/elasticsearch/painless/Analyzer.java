@@ -926,7 +926,7 @@ operator|.
 name|slot
 expr_stmt|;
 comment|// doc parameter passed to the script.
-comment|// TODO: currently working as a def type, should be smapType...
+comment|// TODO: currently working as a Map<String,Def>, we can do better?
 name|metadata
 operator|.
 name|docValueSlot
@@ -985,6 +985,26 @@ argument_list|,
 name|definition
 operator|.
 name|floatType
+argument_list|)
+operator|.
+name|slot
+expr_stmt|;
+comment|// ctx map set by executable scripts as a read-only map.
+name|metadata
+operator|.
+name|ctxValueSlot
+operator|=
+name|utility
+operator|.
+name|addVariable
+argument_list|(
+literal|null
+argument_list|,
+literal|"ctx"
+argument_list|,
+name|definition
+operator|.
+name|smapType
 argument_list|)
 operator|.
 name|slot
