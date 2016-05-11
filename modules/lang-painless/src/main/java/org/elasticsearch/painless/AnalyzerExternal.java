@@ -3364,6 +3364,7 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
+comment|// special cases: reserved words
 if|if
 condition|(
 literal|"_score"
@@ -3374,6 +3375,35 @@ name|id
 argument_list|)
 condition|)
 block|{
+comment|// read-only: don't allow stores
+if|if
+condition|(
+name|parentemd
+operator|.
+name|storeExpr
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|AnalyzerUtility
+operator|.
+name|error
+argument_list|(
+name|ctx
+argument_list|)
+operator|+
+literal|"Variable ["
+operator|+
+name|id
+operator|+
+literal|"] is read-only."
+argument_list|)
+throw|;
+block|}
 name|metadata
 operator|.
 name|scoreValueUsed
