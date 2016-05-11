@@ -1463,22 +1463,6 @@ argument_list|,
 literal|"remote"
 argument_list|)
 expr_stmt|;
-name|httpRequest
-operator|.
-name|headers
-argument_list|()
-operator|.
-name|add
-argument_list|(
-name|HttpHeaders
-operator|.
-name|Names
-operator|.
-name|USER_AGENT
-argument_list|,
-literal|"Mozilla fake"
-argument_list|)
-expr_stmt|;
 name|WriteCapturingChannel
 name|writeCapturingChannel
 init|=
@@ -1734,22 +1718,6 @@ operator|.
 name|ORIGIN
 argument_list|,
 name|originValue
-argument_list|)
-expr_stmt|;
-name|httpRequest
-operator|.
-name|headers
-argument_list|()
-operator|.
-name|add
-argument_list|(
-name|HttpHeaders
-operator|.
-name|Names
-operator|.
-name|USER_AGENT
-argument_list|,
-literal|"Mozilla fake"
 argument_list|)
 expr_stmt|;
 name|httpRequest
