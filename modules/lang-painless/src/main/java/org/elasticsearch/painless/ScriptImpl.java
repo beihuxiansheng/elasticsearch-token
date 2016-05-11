@@ -153,6 +153,12 @@ specifier|private
 name|Scorer
 name|scorer
 decl_stmt|;
+comment|/**      * Current _value for aggregation      * @see #setNextAggregationValue(Object)      */
+DECL|field|aggregationValue
+specifier|private
+name|Object
+name|aggregationValue
+decl_stmt|;
 comment|/**      * Creates a ScriptImpl for the a previously compiled Painless script.      * @param executable The previously compiled Painless script.      * @param vars The initial variables to run the script with.      * @param lookup The lookup to allow search fields to be available if this is run as a search script.      */
 DECL|method|ScriptImpl
 name|ScriptImpl
@@ -271,6 +277,24 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|setNextAggregationValue
+specifier|public
+name|void
+name|setNextAggregationValue
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|aggregationValue
+operator|=
+name|value
+expr_stmt|;
+block|}
 comment|/**      * Run the script.      * @return The script result.      */
 annotation|@
 name|Override
@@ -290,6 +314,8 @@ argument_list|,
 name|scorer
 argument_list|,
 name|doc
+argument_list|,
+name|aggregationValue
 argument_list|)
 return|;
 block|}

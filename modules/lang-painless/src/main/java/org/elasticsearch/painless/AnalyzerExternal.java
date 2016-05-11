@@ -3374,6 +3374,13 @@ argument_list|(
 name|id
 argument_list|)
 operator|||
+literal|"_value"
+operator|.
+name|equals
+argument_list|(
+name|id
+argument_list|)
+operator|||
 literal|"doc"
 operator|.
 name|equals

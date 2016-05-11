@@ -257,6 +257,10 @@ argument_list|,
 name|LeafDocLookup
 operator|.
 name|class
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|PAINLESS_ERROR_TYPE
