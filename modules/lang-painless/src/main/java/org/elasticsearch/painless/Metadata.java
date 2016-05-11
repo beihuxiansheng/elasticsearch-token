@@ -550,6 +550,14 @@ name|scoreValueUsed
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Used to determine what slot the doc variable is stored in.  This is used in the {@link Writer} whenever      * the doc variable is accessed.      */
+DECL|field|docValueSlot
+name|int
+name|docValueSlot
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/**      * Maps the relevant ANTLR node to its metadata.      */
 DECL|field|statementMetadata
 specifier|private

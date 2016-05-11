@@ -30,6 +30,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|lookup
+operator|.
+name|LeafDocLookup
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -145,6 +159,9 @@ name|input
 parameter_list|,
 name|Scorer
 name|scorer
+parameter_list|,
+name|LeafDocLookup
+name|doc
 parameter_list|)
 function_decl|;
 block|}

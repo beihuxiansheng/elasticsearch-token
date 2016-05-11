@@ -62,6 +62,20 @@ name|search
 operator|.
 name|lookup
 operator|.
+name|LeafDocLookup
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|lookup
+operator|.
 name|LeafSearchLookup
 import|;
 end_import
@@ -125,6 +139,13 @@ specifier|private
 specifier|final
 name|LeafSearchLookup
 name|lookup
+decl_stmt|;
+comment|/**      * the 'doc' object accessed by the script, if available.      */
+DECL|field|doc
+specifier|private
+specifier|final
+name|LeafDocLookup
+name|doc
 decl_stmt|;
 comment|/**      * Current scorer being used      * @see #setScorer(Scorer)      */
 DECL|field|scorer
@@ -207,6 +228,20 @@ name|asMap
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|doc
+operator|=
+name|lookup
+operator|.
+name|doc
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|doc
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Set a variable for the script to be run against.      * @param name The variable name.      * @param value The variable value.      */
@@ -253,6 +288,8 @@ argument_list|(
 name|variables
 argument_list|,
 name|scorer
+argument_list|,
+name|doc
 argument_list|)
 return|;
 block|}

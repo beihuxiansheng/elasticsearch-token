@@ -247,7 +247,7 @@ name|service
 operator|.
 name|compile
 argument_list|(
-literal|"input.doc['d'].value"
+literal|"doc['d'].value"
 argument_list|,
 name|Collections
 operator|.
@@ -357,7 +357,7 @@ name|service
 operator|.
 name|compile
 argument_list|(
-literal|"input.doc['d'].value * _score"
+literal|"doc['d'].value * _score"
 argument_list|,
 name|Collections
 operator|.
