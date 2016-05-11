@@ -941,7 +941,7 @@ literal|"doc"
 argument_list|,
 name|definition
 operator|.
-name|defType
+name|smapType
 argument_list|)
 operator|.
 name|slot
