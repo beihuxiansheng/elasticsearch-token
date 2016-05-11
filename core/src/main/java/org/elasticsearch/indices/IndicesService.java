@@ -3811,7 +3811,9 @@ literal|"Can't delete unassigned index store for ["
 operator|+
 name|indexName
 operator|+
-literal|"] - it's still part of the cluster state ["
+literal|"] - it's still part of "
+operator|+
+literal|"the cluster state ["
 operator|+
 name|index
 operator|.
