@@ -969,7 +969,7 @@ argument_list|)
 operator|.
 name|slot
 expr_stmt|;
-comment|// document's score as a read-only float.
+comment|// document's score as a read-only double.
 name|metadata
 operator|.
 name|scoreValueSlot
@@ -984,7 +984,7 @@ literal|"_score"
 argument_list|,
 name|definition
 operator|.
-name|floatType
+name|doubleType
 argument_list|)
 operator|.
 name|slot

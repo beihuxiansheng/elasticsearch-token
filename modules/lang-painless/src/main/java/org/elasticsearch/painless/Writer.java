@@ -1268,7 +1268,7 @@ name|scoreValueUsed
 condition|)
 block|{
 comment|// if the _score value is used, we do this once:
-comment|//   float _score = scorer.score();
+comment|//   final double _score = scorer.score();
 name|execute
 operator|.
 name|visitVarInsn
@@ -1297,11 +1297,20 @@ argument_list|)
 expr_stmt|;
 name|execute
 operator|.
+name|visitInsn
+argument_list|(
+name|Opcodes
+operator|.
+name|F2D
+argument_list|)
+expr_stmt|;
+name|execute
+operator|.
 name|visitVarInsn
 argument_list|(
 name|Opcodes
 operator|.
-name|FSTORE
+name|DSTORE
 argument_list|,
 name|metadata
 operator|.
@@ -1317,7 +1326,7 @@ name|ctxValueUsed
 condition|)
 block|{
 comment|// if the _ctx value is used, we do this once:
-comment|//   Map<String,Object> ctx = input.get("ctx");
+comment|//   final Map<String,Object> ctx = input.get("ctx");
 name|execute
 operator|.
 name|visitVarInsn
