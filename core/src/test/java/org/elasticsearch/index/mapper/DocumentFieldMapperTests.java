@@ -318,7 +318,7 @@ specifier|static
 class|class
 name|FakeFieldType
 extends|extends
-name|MappedFieldType
+name|TermBasedFieldType
 block|{
 DECL|method|FakeFieldType
 specifier|public
