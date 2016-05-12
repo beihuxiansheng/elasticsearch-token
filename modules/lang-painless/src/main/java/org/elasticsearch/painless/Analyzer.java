@@ -946,6 +946,26 @@ argument_list|)
 operator|.
 name|slot
 expr_stmt|;
+comment|// aggregation _value parameter passed to the script
+name|metadata
+operator|.
+name|aggregationValueSlot
+operator|=
+name|utility
+operator|.
+name|addVariable
+argument_list|(
+literal|null
+argument_list|,
+literal|"_value"
+argument_list|,
+name|definition
+operator|.
+name|defType
+argument_list|)
+operator|.
+name|slot
+expr_stmt|;
 comment|//
 comment|// reserved words implemented as local variables
 comment|//

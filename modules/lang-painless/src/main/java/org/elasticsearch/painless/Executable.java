@@ -162,6 +162,9 @@ name|scorer
 parameter_list|,
 name|LeafDocLookup
 name|doc
+parameter_list|,
+name|Object
+name|value
 parameter_list|)
 function_decl|;
 block|}

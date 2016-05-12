@@ -527,6 +527,14 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/**      * Used to determine what slot the _value variable is scored in.       */
+DECL|field|aggregationValueSlot
+name|int
+name|aggregationValueSlot
+init|=
+operator|-
+literal|1
+decl_stmt|;
 comment|/**      * Used to determine what slot the loopCounter variable is stored in.  This is used n the {@link Writer} whenever      * the loop variable is accessed.      */
 DECL|field|loopCounterSlot
 name|int
