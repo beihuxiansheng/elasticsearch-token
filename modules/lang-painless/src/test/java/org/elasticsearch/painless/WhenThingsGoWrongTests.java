@@ -71,7 +71,7 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"int x = (int) ((Map) input).get(\"missing\"); return x;"
+literal|"int x = params['missing']; return x;"
 argument_list|)
 expr_stmt|;
 block|}

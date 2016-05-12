@@ -155,7 +155,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|input
+name|params
 parameter_list|,
 name|Scorer
 name|scorer
