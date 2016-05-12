@@ -208,12 +208,18 @@ specifier|public
 name|AExpression
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -324,6 +330,8 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -385,6 +393,8 @@ init|=
 operator|new
 name|ECast
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|this
@@ -445,6 +455,8 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -504,6 +516,8 @@ init|=
 operator|new
 name|ECast
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|this
@@ -530,6 +544,8 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -577,6 +593,8 @@ init|=
 operator|new
 name|ECast
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|econstant

@@ -122,6 +122,10 @@ specifier|public
 name|LBrace
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|,
@@ -132,6 +136,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|2
@@ -265,6 +271,8 @@ return|return
 operator|new
 name|LDefArray
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|index
@@ -304,6 +312,8 @@ return|return
 operator|new
 name|LMapShortcut
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|index
@@ -350,6 +360,8 @@ return|return
 operator|new
 name|LListShortcut
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|index

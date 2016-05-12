@@ -27,6 +27,12 @@ specifier|abstract
 class|class
 name|ANode
 block|{
+comment|/**      * The line number in the original source used for debug messages.      */
+DECL|field|line
+specifier|final
+name|int
+name|line
+decl_stmt|;
 comment|/**      * The location in the original source to be printed in error messages.      */
 DECL|field|location
 specifier|final
@@ -37,10 +43,20 @@ DECL|method|ANode
 name|ANode
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|)
 block|{
+name|this
+operator|.
+name|line
+operator|=
+name|line
+expr_stmt|;
 name|this
 operator|.
 name|location

@@ -228,6 +228,10 @@ specifier|public
 name|EChain
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|,
@@ -257,6 +261,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -654,6 +660,8 @@ operator|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1D
@@ -675,6 +683,8 @@ operator|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1F
@@ -696,6 +706,8 @@ operator|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1L
@@ -709,6 +721,8 @@ operator|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1
@@ -746,6 +760,8 @@ operator|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1D
@@ -767,6 +783,8 @@ operator|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1F
@@ -788,6 +806,8 @@ operator|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1L
@@ -801,6 +821,8 @@ operator|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1
