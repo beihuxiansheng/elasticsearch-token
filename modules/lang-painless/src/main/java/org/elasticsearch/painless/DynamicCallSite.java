@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Painless invokedynamic call site.  *<p>  * Has 5 flavors (passed as static bootstrap parameters): dynamic method call,  * dynamic field load (getter), and dynamic field store (setter), dynamic array load,  * and dynamic array store.  *<p>  * When a new type is encountered at the call site, we lookup from the appropriate  * whitelist, and cache with a guard. If we encounter too many types, we stop caching.  *<p>  * Based on the cascaded inlining cache from the JSR 292 cookbook   * (https://code.google.com/archive/p/jsr292-cookbook/, BSD license)  */
+comment|/**  * Painless invokedynamic call site.  *<p>  * Has 5 flavors (passed as static bootstrap parameters): dynamic method call,  * dynamic field load (getter), and dynamic field store (setter), dynamic array load,  * and dynamic array store.  *<p>  * When a new type is encountered at the call site, we lookup from the appropriate  * whitelist, and cache with a guard. If we encounter too many types, we stop caching.  *<p>  * Based on the cascaded inlining cache from the JSR 292 cookbook  * (https://code.google.com/archive/p/jsr292-cookbook/, BSD license)  */
 end_comment
 
 begin_comment
@@ -110,6 +110,7 @@ block|{
 comment|// NOTE: these must be primitive types, see https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.invokedynamic
 comment|/** static bootstrap parameter indicating a dynamic method call, e.g. foo.bar(...) */
 DECL|field|METHOD_CALL
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -119,6 +120,7 @@ literal|0
 decl_stmt|;
 comment|/** static bootstrap parameter indicating a dynamic load (getter), e.g. baz = foo.bar */
 DECL|field|LOAD
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -128,6 +130,7 @@ literal|1
 decl_stmt|;
 comment|/** static bootstrap parameter indicating a dynamic store (setter), e.g. foo.bar = baz */
 DECL|field|STORE
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -137,6 +140,7 @@ literal|2
 decl_stmt|;
 comment|/** static bootstrap parameter indicating a dynamic array load, e.g. baz = foo[bar] */
 DECL|field|ARRAY_LOAD
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -146,6 +150,7 @@ literal|3
 decl_stmt|;
 comment|/** static bootstrap parameter indicating a dynamic array store, e.g. foo[bar] = baz */
 DECL|field|ARRAY_STORE
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -229,7 +234,7 @@ name|flavor
 expr_stmt|;
 block|}
 block|}
-comment|/**       * invokeDynamic bootstrap method      *<p>      * In addition to ordinary parameters, we also take a static parameter {@code flavor} which      * tells us what type of dynamic call it is (and which part of whitelist to look at).      *<p>      * see https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.invokedynamic      */
+comment|/**      * invokeDynamic bootstrap method      *<p>      * In addition to ordinary parameters, we also take a static parameter {@code flavor} which      * tells us what type of dynamic call it is (and which part of whitelist to look at).      *<p>      * see https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.invokedynamic      */
 DECL|method|bootstrap
 specifier|public
 specifier|static
@@ -311,7 +316,7 @@ return|return
 name|callSite
 return|;
 block|}
-comment|/**       * guard method for inline caching: checks the receiver's class is the same      * as the cached class      */
+comment|/**      * guard method for inline caching: checks the receiver's class is the same      * as the cached class      */
 DECL|method|checkClass
 specifier|static
 name|boolean
@@ -442,7 +447,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/**      * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}      * types at this call site and given up on caching).       */
+comment|/**      * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}      * types at this call site and given up on caching).      */
 DECL|method|fallback
 specifier|static
 name|Object

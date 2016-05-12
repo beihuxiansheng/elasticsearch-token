@@ -138,12 +138,19 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * General pool of constants used during the writing phase of compilation.  */
+end_comment
+
 begin_class
 DECL|class|WriterConstants
+specifier|public
+specifier|final
 class|class
 name|WriterConstants
 block|{
 DECL|field|BASE_CLASS_NAME
+specifier|public
 specifier|final
 specifier|static
 name|String
@@ -157,6 +164,7 @@ name|getName
 argument_list|()
 decl_stmt|;
 DECL|field|CLASS_NAME
+specifier|public
 specifier|final
 specifier|static
 name|String
@@ -167,6 +175,7 @@ operator|+
 literal|"$CompiledPainlessExecutable"
 decl_stmt|;
 DECL|field|BASE_CLASS_TYPE
+specifier|public
 specifier|final
 specifier|static
 name|Type
@@ -182,6 +191,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|CLASS_TYPE
+specifier|public
 specifier|final
 specifier|static
 name|Type
@@ -206,6 +216,7 @@ literal|";"
 argument_list|)
 decl_stmt|;
 DECL|field|CONSTRUCTOR
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -219,10 +230,6 @@ name|class
 argument_list|,
 literal|"<init>"
 argument_list|,
-name|Definition
-operator|.
-name|class
-argument_list|,
 name|String
 operator|.
 name|class
@@ -233,6 +240,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|EXECUTE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -264,6 +272,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|PAINLESS_ERROR_TYPE
+specifier|public
 specifier|final
 specifier|static
 name|Type
@@ -278,22 +287,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|DEFINITION_TYPE
-specifier|final
-specifier|static
-name|Type
-name|DEFINITION_TYPE
-init|=
-name|Type
-operator|.
-name|getType
-argument_list|(
-name|Definition
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|NEEDS_SCORE_TYPE
+specifier|public
 specifier|final
 specifier|static
 name|Type
@@ -308,22 +303,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|OBJECT_TYPE
-specifier|final
-specifier|static
-name|Type
-name|OBJECT_TYPE
-init|=
-name|Type
-operator|.
-name|getType
-argument_list|(
-name|Object
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|SCORER_TYPE
+specifier|public
 specifier|final
 specifier|static
 name|Type
@@ -339,6 +320,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|SCORER_SCORE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -354,6 +336,7 @@ literal|"score"
 argument_list|)
 decl_stmt|;
 DECL|field|MAP_TYPE
+specifier|public
 specifier|final
 specifier|static
 name|Type
@@ -369,6 +352,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|MAP_GET
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -389,6 +373,7 @@ argument_list|)
 decl_stmt|;
 comment|/** dynamic callsite bootstrap signature */
 DECL|field|DEF_BOOTSTRAP_TYPE
+specifier|public
 specifier|final
 specifier|static
 name|MethodType
@@ -422,6 +407,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_BOOTSTRAP_HANDLE
+specifier|public
 specifier|final
 specifier|static
 name|Handle
@@ -445,8 +431,6 @@ argument_list|)
 argument_list|,
 literal|"bootstrap"
 argument_list|,
-name|WriterConstants
-operator|.
 name|DEF_BOOTSTRAP_TYPE
 operator|.
 name|toMethodDescriptorString
@@ -454,6 +438,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_DYNAMIC_LOAD_FIELD_DESC
+specifier|public
 specifier|final
 specifier|static
 name|String
@@ -476,6 +461,7 @@ name|toMethodDescriptorString
 argument_list|()
 decl_stmt|;
 DECL|field|DEF_DYNAMIC_STORE_FIELD_DESC
+specifier|public
 specifier|final
 specifier|static
 name|String
@@ -502,6 +488,7 @@ name|toMethodDescriptorString
 argument_list|()
 decl_stmt|;
 DECL|field|DEF_DYNAMIC_ARRAY_LOAD_DESC
+specifier|public
 specifier|final
 specifier|static
 name|String
@@ -528,6 +515,7 @@ name|toMethodDescriptorString
 argument_list|()
 decl_stmt|;
 DECL|field|DEF_DYNAMIC_ARRAY_STORE_DESC
+specifier|public
 specifier|final
 specifier|static
 name|String
@@ -558,6 +546,7 @@ name|toMethodDescriptorString
 argument_list|()
 decl_stmt|;
 DECL|field|DEF_NOT_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -577,6 +566,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_NEG_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -596,6 +586,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_MUL_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -619,6 +610,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_DIV_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -642,6 +634,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_REM_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -665,6 +658,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_ADD_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -688,6 +682,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_SUB_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -711,6 +706,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_LSH_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -728,12 +724,13 @@ name|Object
 operator|.
 name|class
 argument_list|,
-name|Object
+name|int
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_RSH_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -751,12 +748,13 @@ name|Object
 operator|.
 name|class
 argument_list|,
-name|Object
+name|int
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_USH_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -774,12 +772,13 @@ name|Object
 operator|.
 name|class
 argument_list|,
-name|Object
+name|int
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_AND_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -803,6 +802,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_XOR_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -826,6 +826,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_OR_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -849,6 +850,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_EQ_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -872,6 +874,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_LT_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -895,6 +898,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_LTE_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -918,6 +922,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_GT_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -941,6 +946,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DEF_GTE_CALL
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -964,6 +970,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_TYPE
+specifier|public
 specifier|final
 specifier|static
 name|Type
@@ -979,6 +986,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_CONSTRUCTOR
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -994,6 +1002,7 @@ literal|"<init>"
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_BOOLEAN
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1013,6 +1022,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_CHAR
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1032,6 +1042,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1051,6 +1062,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1070,6 +1082,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1089,6 +1102,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1108,6 +1122,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_STRING
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1127,6 +1142,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_APPEND_OBJECT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1146,6 +1162,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|STRINGBUILDER_TOSTRING
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1161,6 +1178,7 @@ literal|"toString"
 argument_list|)
 decl_stmt|;
 DECL|field|TOINTEXACT_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1180,6 +1198,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|NEGATEEXACT_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1199,6 +1218,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|NEGATEEXACT_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1218,6 +1238,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|MULEXACT_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1241,6 +1262,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|MULEXACT_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1264,6 +1286,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|ADDEXACT_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1287,6 +1310,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|ADDEXACT_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1310,6 +1334,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|SUBEXACT_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1333,6 +1358,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|SUBEXACT_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1356,6 +1382,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|CHECKEQUALS
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1379,6 +1406,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOBYTEEXACT_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1398,6 +1426,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOBYTEEXACT_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1417,6 +1446,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOBYTEWOOVERFLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1436,6 +1466,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOBYTEWOOVERFLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1455,6 +1486,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOSHORTEXACT_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1474,6 +1506,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOSHORTEXACT_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1493,6 +1526,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOSHORTWOOVERFLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1512,6 +1546,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOSHORTWOOVERFLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1531,6 +1566,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOCHAREXACT_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1550,6 +1586,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOCHAREXACT_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1569,6 +1606,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOCHARWOOVERFLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1588,6 +1626,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOCHARWOOVERFLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1607,6 +1646,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOINTWOOVERFLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1626,6 +1666,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOINTWOOVERFLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1645,6 +1686,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOLONGWOOVERFLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1664,6 +1706,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOLONGWOOVERFLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1683,6 +1726,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|TOFLOATWOOVERFLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1702,6 +1746,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|MULWOOVERLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1725,6 +1770,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|MULWOOVERLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1748,6 +1794,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DIVWOOVERLOW_INT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1771,6 +1818,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DIVWOOVERLOW_LONG
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1794,6 +1842,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DIVWOOVERLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1817,6 +1866,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|DIVWOOVERLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1840,6 +1890,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|REMWOOVERLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1863,6 +1914,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|REMWOOVERLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1886,6 +1938,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|ADDWOOVERLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1909,6 +1962,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|ADDWOOVERLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1932,6 +1986,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|SUBWOOVERLOW_FLOAT
+specifier|public
 specifier|final
 specifier|static
 name|Method
@@ -1955,6 +2010,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|SUBWOOVERLOW_DOUBLE
+specifier|public
 specifier|final
 specifier|static
 name|Method

@@ -4,13 +4,15 @@ comment|// ANTLR GENERATED CODE: DO NOT EDIT
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.painless
+DECL|package|org.elasticsearch.painless.antlr
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|painless
+operator|.
+name|antlr
 package|;
 end_package
 
@@ -369,7 +371,7 @@ DECL|field|EQR
 DECL|field|NE
 DECL|field|NER
 DECL|field|BWAND
-DECL|field|BWXOR
+DECL|field|XOR
 name|LTE
 init|=
 literal|35
@@ -402,7 +404,7 @@ name|BWAND
 init|=
 literal|42
 decl_stmt|,
-name|BWXOR
+name|XOR
 init|=
 literal|43
 decl_stmt|,
@@ -671,7 +673,7 @@ literal|"NER"
 block|,
 literal|"BWAND"
 block|,
-literal|"BWXOR"
+literal|"XOR"
 block|,
 literal|"BWOR"
 block|,
@@ -981,7 +983,7 @@ literal|"NER"
 block|,
 literal|"BWAND"
 block|,
-literal|"BWXOR"
+literal|"XOR"
 block|,
 literal|"BWOR"
 block|,

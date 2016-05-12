@@ -4,13 +4,15 @@ comment|// ANTLR GENERATED CODE: DO NOT EDIT
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.painless
+DECL|package|org.elasticsearch.painless.antlr
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|painless
+operator|.
+name|antlr
 package|;
 end_package
 
@@ -322,6 +324,17 @@ name|CompContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code read}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitRead
+name|T
+name|visitRead
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ReadContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code bool}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitBool
 name|T
@@ -432,17 +445,6 @@ name|CastContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by the {@code external}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExternal
-name|T
-name|visitExternal
-parameter_list|(
-name|PainlessParser
-operator|.
-name|ExternalContext
-name|ctx
-parameter_list|)
-function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code null}    * labeled alternative in {@link PainlessParser#expression}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitNull
 name|T
@@ -476,113 +478,113 @@ name|TrueContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extstart}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtstart
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#chain}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitChain
 name|T
-name|visitExtstart
+name|visitChain
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtstartContext
+name|ChainContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extprec}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtprec
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linkprec}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinkprec
 name|T
-name|visitExtprec
+name|visitLinkprec
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtprecContext
+name|LinkprecContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extcast}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtcast
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linkcast}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinkcast
 name|T
-name|visitExtcast
+name|visitLinkcast
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtcastContext
+name|LinkcastContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extbrace}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtbrace
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linkbrace}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinkbrace
 name|T
-name|visitExtbrace
+name|visitLinkbrace
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtbraceContext
+name|LinkbraceContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extdot}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtdot
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linkdot}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinkdot
 name|T
-name|visitExtdot
+name|visitLinkdot
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtdotContext
+name|LinkdotContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extcall}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtcall
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linkcall}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinkcall
 name|T
-name|visitExtcall
+name|visitLinkcall
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtcallContext
+name|LinkcallContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extvar}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtvar
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linkvar}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinkvar
 name|T
-name|visitExtvar
+name|visitLinkvar
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtvarContext
+name|LinkvarContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extfield}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtfield
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linkfield}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinkfield
 name|T
-name|visitExtfield
+name|visitLinkfield
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtfieldContext
+name|LinkfieldContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extnew}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtnew
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linknew}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinknew
 name|T
-name|visitExtnew
+name|visitLinknew
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtnewContext
+name|LinknewContext
 name|ctx
 parameter_list|)
 function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#extstring}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitExtstring
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#linkstring}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitLinkstring
 name|T
-name|visitExtstring
+name|visitLinkstring
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtstringContext
+name|LinkstringContext
 name|ctx
 parameter_list|)
 function_decl|;
@@ -594,17 +596,6 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|ArgumentsContext
-name|ctx
-parameter_list|)
-function_decl|;
-comment|/**    * Visit a parse tree produced by {@link PainlessParser#increment}.    * @param ctx the parse tree    * @return the visitor result    */
-DECL|method|visitIncrement
-name|T
-name|visitIncrement
-parameter_list|(
-name|PainlessParser
-operator|.
-name|IncrementContext
 name|ctx
 parameter_list|)
 function_decl|;

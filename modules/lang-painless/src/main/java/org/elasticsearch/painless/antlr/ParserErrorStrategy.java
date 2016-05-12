@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.painless
+DECL|package|org.elasticsearch.painless.antlr
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|painless
+operator|.
+name|antlr
 package|;
 end_package
 
@@ -108,8 +110,13 @@ name|ParseException
 import|;
 end_import
 
+begin_comment
+comment|/**  * An error strategy that will override the default error behavior to fail on the first parser error.  */
+end_comment
+
 begin_class
 DECL|class|ParserErrorStrategy
+specifier|final
 class|class
 name|ParserErrorStrategy
 extends|extends
@@ -122,13 +129,16 @@ specifier|public
 name|void
 name|recover
 parameter_list|(
+specifier|final
 name|Parser
 name|recognizer
 parameter_list|,
+specifier|final
 name|RecognitionException
 name|re
 parameter_list|)
 block|{
+specifier|final
 name|Token
 name|token
 init|=
@@ -291,6 +301,7 @@ operator|+
 literal|"]."
 expr_stmt|;
 block|}
+specifier|final
 name|ParseException
 name|parseException
 init|=
@@ -334,12 +345,14 @@ specifier|public
 name|Token
 name|recoverInline
 parameter_list|(
+specifier|final
 name|Parser
 name|recognizer
 parameter_list|)
 throws|throws
 name|RecognitionException
 block|{
+specifier|final
 name|Token
 name|token
 init|=
@@ -348,6 +361,7 @@ operator|.
 name|getCurrentToken
 argument_list|()
 decl_stmt|;
+specifier|final
 name|String
 name|message
 init|=
@@ -393,6 +407,7 @@ argument_list|)
 operator|+
 literal|"]."
 decl_stmt|;
+specifier|final
 name|ParseException
 name|parseException
 init|=
@@ -422,6 +437,7 @@ specifier|public
 name|void
 name|sync
 parameter_list|(
+specifier|final
 name|Parser
 name|recognizer
 parameter_list|)

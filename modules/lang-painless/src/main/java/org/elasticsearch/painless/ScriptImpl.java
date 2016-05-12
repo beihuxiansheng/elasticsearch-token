@@ -277,6 +277,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the next aggregation value.      * @param value Per-document value, typically a String, Long, or Double.      */
 annotation|@
 name|Override
 DECL|method|setNextAggregationValue

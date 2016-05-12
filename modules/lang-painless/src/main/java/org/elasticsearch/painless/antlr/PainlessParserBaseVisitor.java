@@ -4,13 +4,15 @@ comment|// ANTLR GENERATED CODE: DO NOT EDIT
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.painless
+DECL|package|org.elasticsearch.painless.antlr
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|painless
+operator|.
+name|antlr
 package|;
 end_package
 
@@ -578,6 +580,27 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
+DECL|method|visitRead
+annotation|@
+name|Override
+specifier|public
+name|T
+name|visitRead
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ReadContext
+name|ctx
+parameter_list|)
+block|{
+return|return
+name|visitChildren
+argument_list|(
+name|ctx
+argument_list|)
+return|;
+block|}
+comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
 DECL|method|visitBool
 annotation|@
 name|Override
@@ -788,27 +811,6 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExternal
-annotation|@
-name|Override
-specifier|public
-name|T
-name|visitExternal
-parameter_list|(
-name|PainlessParser
-operator|.
-name|ExternalContext
-name|ctx
-parameter_list|)
-block|{
-return|return
-name|visitChildren
-argument_list|(
-name|ctx
-argument_list|)
-return|;
-block|}
-comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
 DECL|method|visitNull
 annotation|@
 name|Override
@@ -872,16 +874,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtstart
+DECL|method|visitChain
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtstart
+name|visitChain
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtstartContext
+name|ChainContext
 name|ctx
 parameter_list|)
 block|{
@@ -893,16 +895,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtprec
+DECL|method|visitLinkprec
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtprec
+name|visitLinkprec
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtprecContext
+name|LinkprecContext
 name|ctx
 parameter_list|)
 block|{
@@ -914,16 +916,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtcast
+DECL|method|visitLinkcast
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtcast
+name|visitLinkcast
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtcastContext
+name|LinkcastContext
 name|ctx
 parameter_list|)
 block|{
@@ -935,16 +937,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtbrace
+DECL|method|visitLinkbrace
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtbrace
+name|visitLinkbrace
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtbraceContext
+name|LinkbraceContext
 name|ctx
 parameter_list|)
 block|{
@@ -956,16 +958,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtdot
+DECL|method|visitLinkdot
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtdot
+name|visitLinkdot
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtdotContext
+name|LinkdotContext
 name|ctx
 parameter_list|)
 block|{
@@ -977,16 +979,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtcall
+DECL|method|visitLinkcall
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtcall
+name|visitLinkcall
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtcallContext
+name|LinkcallContext
 name|ctx
 parameter_list|)
 block|{
@@ -998,16 +1000,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtvar
+DECL|method|visitLinkvar
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtvar
+name|visitLinkvar
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtvarContext
+name|LinkvarContext
 name|ctx
 parameter_list|)
 block|{
@@ -1019,16 +1021,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtfield
+DECL|method|visitLinkfield
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtfield
+name|visitLinkfield
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtfieldContext
+name|LinkfieldContext
 name|ctx
 parameter_list|)
 block|{
@@ -1040,16 +1042,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtnew
+DECL|method|visitLinknew
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtnew
+name|visitLinknew
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtnewContext
+name|LinknewContext
 name|ctx
 parameter_list|)
 block|{
@@ -1061,16 +1063,16 @@ argument_list|)
 return|;
 block|}
 comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitExtstring
+DECL|method|visitLinkstring
 annotation|@
 name|Override
 specifier|public
 name|T
-name|visitExtstring
+name|visitLinkstring
 parameter_list|(
 name|PainlessParser
 operator|.
-name|ExtstringContext
+name|LinkstringContext
 name|ctx
 parameter_list|)
 block|{
@@ -1092,27 +1094,6 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|ArgumentsContext
-name|ctx
-parameter_list|)
-block|{
-return|return
-name|visitChildren
-argument_list|(
-name|ctx
-argument_list|)
-return|;
-block|}
-comment|/**    * {@inheritDoc}    *    *<p>The default implementation returns the result of calling    * {@link #visitChildren} on {@code ctx}.</p>    */
-DECL|method|visitIncrement
-annotation|@
-name|Override
-specifier|public
-name|T
-name|visitIncrement
-parameter_list|(
-name|PainlessParser
-operator|.
-name|IncrementContext
 name|ctx
 parameter_list|)
 block|{

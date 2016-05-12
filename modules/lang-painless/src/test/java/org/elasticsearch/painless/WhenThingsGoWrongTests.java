@@ -455,7 +455,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Invalid type [PainlessError]."
+literal|"Not a type [PainlessError]."
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/** Marker interface that a generated {@link Executable} uses the {@code _score} value */
+comment|/**  * Marker interface that a generated {@link Executable} uses the {@code _score} value  */
 end_comment
 
 begin_interface

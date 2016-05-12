@@ -52,6 +52,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * The superclass used to build all Painless scripts on top of.  */
+end_comment
+
 begin_class
 DECL|class|Executable
 specifier|public
@@ -59,12 +63,6 @@ specifier|abstract
 class|class
 name|Executable
 block|{
-DECL|field|definition
-specifier|protected
-specifier|final
-name|Definition
-name|definition
-decl_stmt|;
 DECL|field|name
 specifier|private
 specifier|final
@@ -82,10 +80,6 @@ specifier|public
 name|Executable
 parameter_list|(
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|String
 name|name
 parameter_list|,
@@ -94,12 +88,6 @@ name|String
 name|source
 parameter_list|)
 block|{
-name|this
-operator|.
-name|definition
-operator|=
-name|definition
-expr_stmt|;
 name|this
 operator|.
 name|name
@@ -133,22 +121,13 @@ return|return
 name|source
 return|;
 block|}
-DECL|method|getDefinition
-specifier|public
-name|Definition
-name|getDefinition
-parameter_list|()
-block|{
-return|return
-name|definition
-return|;
-block|}
 DECL|method|execute
 specifier|public
 specifier|abstract
 name|Object
 name|execute
 parameter_list|(
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -157,12 +136,15 @@ name|Object
 argument_list|>
 name|params
 parameter_list|,
+specifier|final
 name|Scorer
 name|scorer
 parameter_list|,
+specifier|final
 name|LeafDocLookup
 name|doc
 parameter_list|,
+specifier|final
 name|Object
 name|value
 parameter_list|)

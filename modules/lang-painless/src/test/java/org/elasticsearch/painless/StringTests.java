@@ -966,22 +966,28 @@ literal|"return (String)(char)\"cc\""
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 specifier|final
-name|IllegalArgumentException
-name|ise
+name|ClassCastException
+name|cce
 parameter_list|)
 block|{
-name|ise
+name|assertTrue
+argument_list|(
+name|cce
 operator|.
 name|getMessage
 argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Cannot cast constant from [String] to [char]."
+literal|"Cannot cast from [String] to [char]."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -997,22 +1003,28 @@ literal|"return (String)(char)'cc'"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 specifier|final
-name|IllegalArgumentException
-name|ise
+name|ClassCastException
+name|cce
 parameter_list|)
 block|{
-name|ise
+name|assertTrue
+argument_list|(
+name|cce
 operator|.
 name|getMessage
 argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Cannot cast constant from [String] to [char]."
+literal|"Cannot cast from [String] to [char]."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1028,6 +1040,9 @@ literal|"String s = \"cc\" (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1036,6 +1051,8 @@ name|ClassCastException
 name|cce
 parameter_list|)
 block|{
+name|assertTrue
+argument_list|(
 name|cce
 operator|.
 name|getMessage
@@ -1044,6 +1061,7 @@ operator|.
 name|contains
 argument_list|(
 literal|"Cannot cast [String] with length greater than one to [char]."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1059,6 +1077,9 @@ literal|"String s = 'cc' (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1067,6 +1088,8 @@ name|ClassCastException
 name|cce
 parameter_list|)
 block|{
+name|assertTrue
+argument_list|(
 name|cce
 operator|.
 name|getMessage
@@ -1075,6 +1098,7 @@ operator|.
 name|contains
 argument_list|(
 literal|"Cannot cast [String] with length greater than one to [char]."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1150,6 +1174,9 @@ literal|"return (String)(Character)\"cc\""
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1158,6 +1185,8 @@ name|ClassCastException
 name|ise
 parameter_list|)
 block|{
+name|assertTrue
+argument_list|(
 name|ise
 operator|.
 name|getMessage
@@ -1166,6 +1195,7 @@ operator|.
 name|contains
 argument_list|(
 literal|"Cannot cast [String] with length greater than one to [Character]."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1181,6 +1211,9 @@ literal|"return (String)(Character)'cc'"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1189,6 +1222,8 @@ name|ClassCastException
 name|ise
 parameter_list|)
 block|{
+name|assertTrue
+argument_list|(
 name|ise
 operator|.
 name|getMessage
@@ -1197,6 +1232,7 @@ operator|.
 name|contains
 argument_list|(
 literal|"Cannot cast [String] with length greater than one to [Character]."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1212,6 +1248,9 @@ literal|"String s = \"cc\" (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1220,6 +1259,8 @@ name|ClassCastException
 name|cce
 parameter_list|)
 block|{
+name|assertTrue
+argument_list|(
 name|cce
 operator|.
 name|getMessage
@@ -1228,6 +1269,7 @@ operator|.
 name|contains
 argument_list|(
 literal|"Cannot cast [String] with length greater than one to [Character]."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1243,6 +1285,9 @@ literal|"String s = 'cc' (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1251,6 +1296,8 @@ name|ClassCastException
 name|cce
 parameter_list|)
 block|{
+name|assertTrue
+argument_list|(
 name|cce
 operator|.
 name|getMessage
@@ -1259,6 +1306,7 @@ operator|.
 name|contains
 argument_list|(
 literal|"Cannot cast [String] with length greater than one to [Character]."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

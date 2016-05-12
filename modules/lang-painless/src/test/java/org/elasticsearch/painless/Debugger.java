@@ -108,6 +108,7 @@ specifier|static
 name|String
 name|toString
 parameter_list|(
+specifier|final
 name|String
 name|source
 parameter_list|)
@@ -129,13 +130,16 @@ specifier|static
 name|String
 name|toString
 parameter_list|(
+specifier|final
 name|String
 name|source
 parameter_list|,
+specifier|final
 name|CompilerSettings
 name|settings
 parameter_list|)
 block|{
+specifier|final
 name|byte
 index|[]
 name|bytes
@@ -144,17 +148,12 @@ name|Compiler
 operator|.
 name|compile
 argument_list|(
-literal|"debugger"
-argument_list|,
 name|source
-argument_list|,
-name|Definition
-operator|.
-name|INSTANCE
 argument_list|,
 name|settings
 argument_list|)
 decl_stmt|;
+specifier|final
 name|ByteArrayOutputStream
 name|output
 init|=
@@ -162,6 +161,7 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
+specifier|final
 name|PrintWriter
 name|outputWriter
 init|=
@@ -179,6 +179,7 @@ name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;
+specifier|final
 name|ClassReader
 name|reader
 init|=
@@ -219,6 +220,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|UnsupportedEncodingException
 name|e
 parameter_list|)

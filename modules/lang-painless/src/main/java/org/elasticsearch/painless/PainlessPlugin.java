@@ -50,6 +50,10 @@ name|ScriptModule
 import|;
 end_import
 
+begin_comment
+comment|/**  * Registers Painless as a plugin.  */
+end_comment
+
 begin_class
 DECL|class|PainlessPlugin
 specifier|public

@@ -86,6 +86,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|painless
+operator|.
+name|Compiler
+operator|.
+name|Loader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|CompiledScript
@@ -261,6 +275,7 @@ end_comment
 begin_class
 DECL|class|PainlessScriptEngineService
 specifier|public
+specifier|final
 class|class
 name|PainlessScriptEngineService
 extends|extends
@@ -304,7 +319,7 @@ specifier|final
 name|String
 name|EXTENSION
 init|=
-literal|"pain"
+literal|"painless"
 decl_stmt|;
 comment|/**      * Standard list of extensions for the Painless language.  (There is only one.)      */
 DECL|field|EXTENSIONS
@@ -619,8 +634,6 @@ expr_stmt|;
 block|}
 comment|// Create our loader (which loads compiled code with no permissions).
 specifier|final
-name|Compiler
-operator|.
 name|Loader
 name|loader
 init|=
@@ -631,8 +644,6 @@ argument_list|(
 operator|new
 name|PrivilegedAction
 argument_list|<
-name|Compiler
-operator|.
 name|Loader
 argument_list|>
 argument_list|()
@@ -640,16 +651,12 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|Compiler
-operator|.
 name|Loader
 name|run
 parameter_list|()
 block|{
 return|return
 operator|new
-name|Compiler
-operator|.
 name|Loader
 argument_list|(
 name|getClass
