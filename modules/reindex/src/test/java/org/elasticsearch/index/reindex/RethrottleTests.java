@@ -166,10 +166,6 @@ argument_list|<
 name|?
 argument_list|,
 name|?
-extends|extends
-name|BulkIndexByScrollResponse
-argument_list|,
-name|?
 argument_list|>
 name|request
 parameter_list|,
