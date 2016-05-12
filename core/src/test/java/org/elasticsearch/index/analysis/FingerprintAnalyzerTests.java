@@ -199,6 +199,20 @@ literal|"bach escher godel"
 block|}
 argument_list|)
 expr_stmt|;
+name|assertAnalyzesTo
+argument_list|(
+name|a
+argument_list|,
+literal|"gÃ¶del godel escher bach"
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"bach escher godel"
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testPreserveOriginal
 specifier|public
@@ -235,9 +249,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"bach escher godel"
-block|,
-literal|"bach escher gÃ¶del"
+literal|"bach escher godel gÃ¶del"
 block|}
 argument_list|)
 expr_stmt|;
