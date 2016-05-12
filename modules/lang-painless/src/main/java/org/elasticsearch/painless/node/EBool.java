@@ -121,6 +121,10 @@ specifier|public
 name|EBool
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|,
@@ -139,6 +143,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
