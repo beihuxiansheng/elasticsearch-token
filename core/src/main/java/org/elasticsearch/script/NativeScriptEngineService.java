@@ -229,21 +229,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getExtensions
+DECL|method|getExtension
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
-name|getExtensions
+name|getExtension
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
+literal|""
 return|;
+comment|// Native scripts have no extensions
 block|}
 annotation|@
 name|Override

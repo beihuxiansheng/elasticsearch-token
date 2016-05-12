@@ -87,12 +87,9 @@ name|String
 name|getType
 parameter_list|()
 function_decl|;
-DECL|method|getExtensions
-name|List
-argument_list|<
+DECL|method|getExtension
 name|String
-argument_list|>
-name|getExtensions
+name|getExtension
 parameter_list|()
 function_decl|;
 DECL|method|compile

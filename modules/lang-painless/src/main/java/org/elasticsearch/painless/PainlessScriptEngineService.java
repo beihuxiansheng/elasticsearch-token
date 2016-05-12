@@ -293,52 +293,6 @@ name|NAME
 init|=
 literal|"painless"
 decl_stmt|;
-comment|/**      * Standard list of names for the Painless language.  (There is only one.)      */
-DECL|field|TYPES
-specifier|public
-specifier|static
-specifier|final
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|TYPES
-init|=
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|NAME
-argument_list|)
-decl_stmt|;
-comment|/**      * Standard extension of the Painless language.      */
-DECL|field|EXTENSION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|EXTENSION
-init|=
-literal|"painless"
-decl_stmt|;
-comment|/**      * Standard list of extensions for the Painless language.  (There is only one.)      */
-DECL|field|EXTENSIONS
-specifier|public
-specifier|static
-specifier|final
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|EXTENSIONS
-init|=
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|EXTENSION
-argument_list|)
-decl_stmt|;
 comment|/**      * Default compiler settings to be used.      */
 DECL|field|DEFAULT_COMPILER_SETTINGS
 specifier|private
@@ -429,17 +383,14 @@ block|}
 comment|/**      * Get the extension(s) for the language.      * @return Always contains only the single extension of the language.      */
 annotation|@
 name|Override
-DECL|method|getExtensions
+DECL|method|getExtension
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
-name|getExtensions
+name|getExtension
 parameter_list|()
 block|{
 return|return
-name|EXTENSIONS
+name|NAME
 return|;
 block|}
 comment|/**      * Compiles a Painless script with the specified parameters.      * @param script The code to be compiled.      * @param params The params used to modify the compiler settings on a per script basis.      * @return Compiled script object represented by an {@link Executable}.      */

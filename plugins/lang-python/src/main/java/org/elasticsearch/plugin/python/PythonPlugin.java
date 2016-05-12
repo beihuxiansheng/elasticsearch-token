@@ -126,7 +126,7 @@ name|class
 argument_list|,
 name|PythonScriptEngineService
 operator|.
-name|TYPE
+name|NAME
 argument_list|)
 argument_list|)
 expr_stmt|;
