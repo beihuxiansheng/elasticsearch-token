@@ -883,12 +883,12 @@ name|execType
 argument_list|)
 expr_stmt|;
 comment|//
-comment|// reserved words parameters.
+comment|// reserved words.
 comment|//
-comment|// input map of variables passed to the script. TODO: rename to 'params' since that will be its use
+comment|// input map of parameters passed to the script.
 name|metadata
 operator|.
-name|inputValueSlot
+name|paramsValueSlot
 operator|=
 name|utility
 operator|.
@@ -896,7 +896,7 @@ name|addVariable
 argument_list|(
 literal|null
 argument_list|,
-literal|"input"
+literal|"params"
 argument_list|,
 name|definition
 operator|.

@@ -512,9 +512,9 @@ name|CompilerSettings
 name|settings
 decl_stmt|;
 comment|/**      * Used to determine what slot the input variable is stored in.  This is used in the {@link Writer} whenever      * the input variable is accessed.      */
-DECL|field|inputValueSlot
+DECL|field|paramsValueSlot
 name|int
-name|inputValueSlot
+name|paramsValueSlot
 init|=
 operator|-
 literal|1
