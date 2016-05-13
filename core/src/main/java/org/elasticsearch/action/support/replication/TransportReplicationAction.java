@@ -771,15 +771,14 @@ specifier|private
 name|TransportRequestOptions
 name|transportOptions
 decl_stmt|;
+comment|// package private for testing
 DECL|field|transportReplicaAction
 specifier|final
-specifier|private
 name|String
 name|transportReplicaAction
 decl_stmt|;
 DECL|field|transportPrimaryAction
 specifier|final
-specifier|private
 name|String
 name|transportPrimaryAction
 decl_stmt|;
@@ -938,6 +937,8 @@ argument_list|,
 name|replicaRequest
 argument_list|,
 name|executor
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|,
