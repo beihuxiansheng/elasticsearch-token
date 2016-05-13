@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a connection to a host. It holds the host that the connection points to.  * Allows the transport to deal with very simple connection objects that are immutable.  * Any change to the state of a connection should be made through the connection pool.  */
+comment|/**  * Represents a connection to a host. It holds the host that the connection points to and the state of the connection to it.  */
 end_comment
 
 begin_class
@@ -86,24 +86,13 @@ specifier|final
 name|HttpHost
 name|host
 decl_stmt|;
-DECL|field|state
-specifier|private
-specifier|volatile
-name|State
-name|state
-init|=
-name|State
-operator|.
-name|UNKNOWN
-decl_stmt|;
 DECL|field|failedAttempts
 specifier|private
 specifier|volatile
 name|int
 name|failedAttempts
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 DECL|field|deadUntil
 specifier|private
@@ -141,7 +130,7 @@ return|return
 name|host
 return|;
 block|}
-comment|/**      * Marks connection as dead. Should be called in case the corresponding node is not responding or caused failures.      * Once marked dead, the number of failed attempts will be incremented on each call to this method. A dead connection      * should be retried once {@link #shouldBeRetried()} returns true, which depends on the number of previous failed attempts      * and when the last failure was registered.      */
+comment|/**      * Marks connection as dead. Should be called in case the corresponding node is not responding or caused failures.      * Once marked dead, the number of failed attempts will be incremented on each call to this method. A dead connection      * should be retried once {@link #isBlacklisted()} returns true, which depends on the number of previous failed attempts      * and when the last failure was registered.      */
 DECL|method|markDead
 name|void
 name|markDead
@@ -221,17 +210,9 @@ operator|=
 operator|++
 name|failedAttempts
 expr_stmt|;
-name|this
-operator|.
-name|state
-operator|=
-name|State
-operator|.
-name|DEAD
-expr_stmt|;
 block|}
 block|}
-comment|/**      * Marks this connection alive. Should be called when the corresponding node is working properly.      * Will reset the number of failed attempts that were counted in case the connection was previously dead,      * as well as its dead timeout.      */
+comment|/**      * Marks this connection alive. Should be called when the corresponding node is working properly.      * Will reset the number of failed attempts that were counted in case the connection was previously dead, as well as its timeout.      */
 DECL|method|markAlive
 name|void
 name|markAlive
@@ -241,11 +222,9 @@ if|if
 condition|(
 name|this
 operator|.
-name|state
-operator|!=
-name|State
-operator|.
-name|ALIVE
+name|failedAttempts
+operator|>
+literal|0
 condition|)
 block|{
 synchronized|synchronized
@@ -266,51 +245,10 @@ name|failedAttempts
 operator|=
 literal|0
 expr_stmt|;
-name|this
-operator|.
-name|state
-operator|=
-name|State
-operator|.
-name|ALIVE
-expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Resets the connection to its initial state, so it will be retried. To be called when all the connections in the pool      * are dead, so that one connection can be retried. Note that calling this method only changes the state of the connection,      * it doesn't reset its failed attempts and dead until timestamp. That way if the connection goes back to dead straightaway      * all of its previous failed attempts are taken into account.      */
-DECL|method|markResurrected
-name|void
-name|markResurrected
-parameter_list|()
-block|{
-if|if
-condition|(
-name|this
-operator|.
-name|state
-operator|==
-name|State
-operator|.
-name|DEAD
-condition|)
-block|{
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
-name|this
-operator|.
-name|state
-operator|=
-name|State
-operator|.
-name|UNKNOWN
-expr_stmt|;
-block|}
-block|}
-block|}
-comment|/**      * Returns the timestamp till the connection is supposed to stay dead till it can be retried      */
+comment|/**      * Returns the timestamp till the connection is supposed to stay dead. After that moment the connection should be retried      */
 DECL|method|getDeadUntil
 specifier|public
 name|long
@@ -321,41 +259,17 @@ return|return
 name|deadUntil
 return|;
 block|}
-comment|/**      * Returns true if the connection is alive, false otherwise.      */
-DECL|method|isAlive
+comment|/**      * Returns true when the connection should be skipped due to previous failures, false in case the connection is alive      * or dead but ready to be retried. When the connection is dead, returns false when it is time to retry it, depending      * on how many failed attempts were registered and when the last failure happened (minimum 1 minute, maximum 30 minutes).      */
+DECL|method|isBlacklisted
 specifier|public
 name|boolean
-name|isAlive
+name|isBlacklisted
 parameter_list|()
 block|{
 return|return
-name|state
-operator|==
-name|State
-operator|.
-name|ALIVE
-return|;
-block|}
-comment|/**      * Returns true in case the connection is not alive but should be used/retried, false otherwise.      * Returns true in case the connection is in unknown state (never used before) or resurrected. When the connection is dead,      * returns true when it is time to retry it, depending on how many failed attempts were registered and when the last failure      * happened (minimum 1 minute, maximum 30 minutes).      */
-DECL|method|shouldBeRetried
-specifier|public
-name|boolean
-name|shouldBeRetried
-parameter_list|()
-block|{
-return|return
-name|state
-operator|==
-name|State
-operator|.
-name|UNKNOWN
-operator|||
-operator|(
-name|state
-operator|==
-name|State
-operator|.
-name|DEAD
+name|failedAttempts
+operator|>
+literal|0
 operator|&&
 name|System
 operator|.
@@ -363,24 +277,9 @@ name|nanoTime
 argument_list|()
 operator|-
 name|deadUntil
-operator|>=
+operator|<
 literal|0
-operator|)
 return|;
-block|}
-DECL|enum|State
-specifier|private
-enum|enum
-name|State
-block|{
-DECL|enum constant|UNKNOWN
-DECL|enum constant|DEAD
-DECL|enum constant|ALIVE
-name|UNKNOWN
-block|,
-name|DEAD
-block|,
-name|ALIVE
 block|}
 block|}
 end_class

@@ -1029,7 +1029,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"no connections available in the connection pool"
+literal|"no connections available"
 argument_list|)
 throw|;
 block|}
@@ -1095,17 +1095,8 @@ if|if
 condition|(
 name|connection
 operator|.
-name|isAlive
+name|isBlacklisted
 argument_list|()
-operator|==
-literal|false
-operator|&&
-name|connection
-operator|.
-name|shouldBeRetried
-argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 name|connectionIterator
@@ -1192,16 +1183,11 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|connection
-operator|.
-name|markResurrected
-argument_list|()
-expr_stmt|;
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"marked connection resurrected for "
+literal|"trying to resurrect connection for "
 operator|+
 name|connection
 operator|.
@@ -1779,7 +1765,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Sets the hosts that the client will send requests to. Mandatory if no connection pool is specified,          * as the provided hosts will be used to create the default static connection pool.          */
+comment|/**          * Sets the hosts that the client will send requests to.          */
 DECL|method|setHosts
 specifier|public
 name|Builder
