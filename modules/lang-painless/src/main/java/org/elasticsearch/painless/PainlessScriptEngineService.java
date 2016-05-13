@@ -416,17 +416,14 @@ block|}
 comment|/**      * Get the type name(s) for the language.      * @return Always contains only the single name of the language.      */
 annotation|@
 name|Override
-DECL|method|getTypes
+DECL|method|getType
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
-name|getTypes
+name|getType
 parameter_list|()
 block|{
 return|return
-name|TYPES
+name|NAME
 return|;
 block|}
 comment|/**      * Get the extension(s) for the language.      * @return Always contains only the single extension of the language.      */
@@ -443,19 +440,6 @@ parameter_list|()
 block|{
 return|return
 name|EXTENSIONS
-return|;
-block|}
-comment|/**      * Whether or not the engine is secure.      * @return Always true as the engine should be secure at runtime.      */
-annotation|@
-name|Override
-DECL|method|isSandboxed
-specifier|public
-name|boolean
-name|isSandboxed
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 comment|/**      * Compiles a Painless script with the specified parameters.      * @param script The code to be compiled.      * @param params The params used to modify the compiler settings on a per script basis.      * @return Compiled script object represented by an {@link Executable}.      */

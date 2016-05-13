@@ -82,12 +82,9 @@ name|ScriptEngineService
 extends|extends
 name|Closeable
 block|{
-DECL|method|getTypes
-name|List
-argument_list|<
+DECL|method|getType
 name|String
-argument_list|>
-name|getTypes
+name|getType
 parameter_list|()
 function_decl|;
 DECL|method|getExtensions
@@ -96,11 +93,6 @@ argument_list|<
 name|String
 argument_list|>
 name|getExtensions
-parameter_list|()
-function_decl|;
-DECL|method|isSandboxed
-name|boolean
-name|isSandboxed
 parameter_list|()
 function_decl|;
 DECL|method|compile

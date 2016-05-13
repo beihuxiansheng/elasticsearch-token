@@ -201,7 +201,7 @@ name|scriptModes
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the script mode for a script of a certain written in a certain language,      * of a certain type and executing as part of a specific operation/api.      *      * @param lang the language that the script is written in      * @param scriptType the type of the script      * @param scriptContext the operation that requires the execution of the script      * @return whether scripts are on, off, or enabled only for sandboxed languages      */
+comment|/**      * Returns the script mode for a script of a certain written in a certain language,      * of a certain type and executing as part of a specific operation/api.      *      * @param lang the language that the script is written in      * @param scriptType the type of the script      * @param scriptContext the operation that requires the execution of the script      * @return whether scripts are on or off      */
 DECL|method|getScriptMode
 specifier|public
 name|ScriptMode
@@ -325,6 +325,30 @@ name|scriptType
 operator|.
 name|getScriptType
 argument_list|()
+return|;
+block|}
+DECL|method|getGlobalKey
+specifier|static
+name|String
+name|getGlobalKey
+parameter_list|(
+name|String
+name|lang
+parameter_list|,
+name|ScriptType
+name|scriptType
+parameter_list|)
+block|{
+return|return
+name|ENGINE_SETTINGS_PREFIX
+operator|+
+literal|"."
+operator|+
+name|lang
+operator|+
+literal|"."
+operator|+
+name|scriptType
 return|;
 block|}
 DECL|method|getKey

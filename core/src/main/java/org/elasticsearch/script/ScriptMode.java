@@ -35,11 +35,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Mode for a specific script, used for script settings.  * Defines whether a certain script or category of scripts can be executed or not, or whether it can  * only be executed by a sandboxed scripting language.  */
+comment|/**  * Mode for a specific script, used for script settings.  * Defines whether a certain script or category of scripts can be executed or not.  */
 end_comment
 
 begin_enum
 DECL|enum|ScriptMode
+specifier|public
 enum|enum
 name|ScriptMode
 block|{
@@ -53,12 +54,6 @@ DECL|enum constant|OFF
 name|OFF
 argument_list|(
 literal|"false"
-argument_list|)
-block|,
-DECL|enum constant|SANDBOX
-name|SANDBOX
-argument_list|(
-literal|"sandbox"
 argument_list|)
 block|;
 DECL|field|mode
