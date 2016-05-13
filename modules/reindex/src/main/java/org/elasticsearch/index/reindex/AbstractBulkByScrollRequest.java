@@ -281,7 +281,7 @@ specifier|final
 name|int
 name|DEFAULT_SCROLL_SIZE
 init|=
-literal|100
+literal|1000
 decl_stmt|;
 comment|/**      * The search to be executed.      */
 DECL|field|searchRequest
