@@ -79,10 +79,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|MatrixStatsTestCase
+DECL|class|BaseMatrixStatsTestCase
 specifier|public
+specifier|abstract
 class|class
-name|MatrixStatsTestCase
+name|BaseMatrixStatsTestCase
 extends|extends
 name|ESTestCase
 block|{

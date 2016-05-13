@@ -74,7 +74,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|Streamable
+name|Writeable
 import|;
 end_import
 
@@ -127,18 +127,20 @@ DECL|class|MatrixStatsResults
 class|class
 name|MatrixStatsResults
 implements|implements
-name|Streamable
+name|Writeable
 block|{
 comment|/** object holding results - computes results in place */
 DECL|field|results
 specifier|final
+specifier|protected
 name|RunningStats
 name|results
 decl_stmt|;
 comment|/** pearson product correlation coefficients */
 DECL|field|correlation
+specifier|final
 specifier|protected
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -153,15 +155,14 @@ name|correlation
 decl_stmt|;
 comment|/** Base ctor */
 DECL|method|MatrixStatsResults
-specifier|private
+specifier|public
 name|MatrixStatsResults
 parameter_list|()
 block|{
 name|results
 operator|=
+operator|new
 name|RunningStats
-operator|.
-name|EMPTY
 argument_list|()
 expr_stmt|;
 name|this
@@ -183,8 +184,6 @@ name|RunningStats
 name|stats
 parameter_list|)
 block|{
-try|try
-block|{
 name|this
 operator|.
 name|results
@@ -203,23 +202,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|CloneNotSupportedException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchException
-argument_list|(
-literal|"Error trying to create multifield_stats results"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|compute
@@ -227,6 +209,11 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/** creates a results object from the given stream */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|MatrixStatsResults
 specifier|protected
 name|MatrixStatsResults
@@ -245,12 +232,25 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|readFrom
-argument_list|(
+name|correlation
+operator|=
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Double
+argument_list|>
+argument_list|>
+operator|)
 name|in
-argument_list|)
+operator|.
+name|readGenericValue
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -270,19 +270,36 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** create an empty results object **/
-DECL|method|EMPTY
-specifier|protected
-specifier|static
-name|MatrixStatsResults
-name|EMPTY
-parameter_list|()
+comment|/** Marshalls MatrixStatsResults */
+annotation|@
+name|Override
+DECL|method|writeTo
+specifier|public
+name|void
+name|writeTo
+parameter_list|(
+name|StreamOutput
+name|out
+parameter_list|)
+throws|throws
+name|IOException
 block|{
-return|return
-operator|new
-name|MatrixStatsResults
-argument_list|()
-return|;
+comment|// marshall results
+name|results
+operator|.
+name|writeTo
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
+comment|// marshall correlation
+name|out
+operator|.
+name|writeGenericValue
+argument_list|(
+name|correlation
+argument_list|)
+expr_stmt|;
 block|}
 comment|/** return document count */
 DECL|method|getDocCount
@@ -298,9 +315,9 @@ operator|.
 name|docCount
 return|;
 block|}
-comment|/** return the field counts */
+comment|/** return the field counts - not public, used for getProperty() */
 DECL|method|getFieldCounts
-specifier|public
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -360,9 +377,9 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/** return the means */
+comment|/** return the means - not public, used for getProperty() */
 DECL|method|getMeans
-specifier|public
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -386,13 +403,22 @@ block|}
 comment|/** return the mean for the requested field */
 DECL|method|getMean
 specifier|public
-name|Double
+name|double
 name|getMean
 parameter_list|(
 name|String
 name|field
 parameter_list|)
 block|{
+name|checkField
+argument_list|(
+name|field
+argument_list|,
+name|results
+operator|.
+name|means
+argument_list|)
+expr_stmt|;
 return|return
 name|results
 operator|.
@@ -404,9 +430,9 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/** return the variances */
+comment|/** return the variances - not public, used for getProperty() */
 DECL|method|getVariances
-specifier|public
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -430,13 +456,22 @@ block|}
 comment|/** return the variance for the requested field */
 DECL|method|getVariance
 specifier|public
-name|Double
+name|double
 name|getVariance
 parameter_list|(
 name|String
 name|field
 parameter_list|)
 block|{
+name|checkField
+argument_list|(
+name|field
+argument_list|,
+name|results
+operator|.
+name|variances
+argument_list|)
+expr_stmt|;
 return|return
 name|results
 operator|.
@@ -448,9 +483,9 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/** return the skewness */
+comment|/** return the skewness - not public, used for getProperty() */
 DECL|method|getSkewness
-specifier|public
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -474,13 +509,22 @@ block|}
 comment|/** return the skewness for the requested field */
 DECL|method|getSkewness
 specifier|public
-name|Double
+name|double
 name|getSkewness
 parameter_list|(
 name|String
 name|field
 parameter_list|)
 block|{
+name|checkField
+argument_list|(
+name|field
+argument_list|,
+name|results
+operator|.
+name|skewness
+argument_list|)
+expr_stmt|;
 return|return
 name|results
 operator|.
@@ -494,7 +538,7 @@ return|;
 block|}
 comment|/** return the kurtosis */
 DECL|method|getKurtosis
-specifier|public
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -518,13 +562,22 @@ block|}
 comment|/** return the kurtosis for the requested field */
 DECL|method|getKurtosis
 specifier|public
-name|Double
+name|double
 name|getKurtosis
 parameter_list|(
 name|String
 name|field
 parameter_list|)
 block|{
+name|checkField
+argument_list|(
+name|field
+argument_list|,
+name|results
+operator|.
+name|kurtosis
+argument_list|)
+expr_stmt|;
 return|return
 name|results
 operator|.
@@ -536,9 +589,9 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/** return the covariances */
+comment|/** return the covariances as a map - not public, used for getProperty() */
 DECL|method|getCovariances
-specifier|public
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -567,7 +620,7 @@ block|}
 comment|/** return the covariance between two fields */
 DECL|method|getCovariance
 specifier|public
-name|Double
+name|double
 name|getCovariance
 parameter_list|(
 name|String
@@ -587,6 +640,15 @@ name|fieldY
 argument_list|)
 condition|)
 block|{
+name|checkField
+argument_list|(
+name|fieldX
+argument_list|,
+name|results
+operator|.
+name|variances
+argument_list|)
+expr_stmt|;
 return|return
 name|results
 operator|.
@@ -611,8 +673,9 @@ name|fieldY
 argument_list|)
 return|;
 block|}
+comment|/** return the correlations as a map - not public, used for getProperty() */
 DECL|method|getCorrelations
-specifier|public
+specifier|protected
 name|Map
 argument_list|<
 name|String
@@ -677,10 +740,10 @@ block|}
 comment|/** return the value for two fields in an upper triangular matrix, regardless of row col location. */
 DECL|method|getValFromUpperTriangularMatrix
 specifier|private
-name|Double
+name|double
 name|getValFromUpperTriangularMatrix
 parameter_list|(
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -722,9 +785,21 @@ operator|==
 literal|false
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"neither field "
+operator|+
+name|fieldX
+operator|+
+literal|" nor "
+operator|+
+name|fieldY
+operator|+
+literal|" exist"
+argument_list|)
+throw|;
 block|}
 elseif|else
 if|if
@@ -825,6 +900,63 @@ operator|+
 name|fieldY
 argument_list|)
 throw|;
+block|}
+DECL|method|checkField
+specifier|private
+name|void
+name|checkField
+parameter_list|(
+name|String
+name|field
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
+name|map
+parameter_list|)
+block|{
+if|if
+condition|(
+name|field
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"field name cannot be null"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|map
+operator|.
+name|containsKey
+argument_list|(
+name|field
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"field "
+operator|+
+name|field
+operator|+
+literal|" does not exist"
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/** Computes final covariance, variance, and correlation */
 DECL|method|compute
@@ -1179,120 +1311,6 @@ argument_list|(
 name|rowName
 argument_list|,
 name|corRow
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/** Unmarshalls MatrixStatsResults */
-annotation|@
-name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|readFrom
-specifier|public
-name|void
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|in
-operator|.
-name|readBoolean
-argument_list|()
-condition|)
-block|{
-name|correlation
-operator|=
-call|(
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Double
-argument_list|>
-argument_list|>
-call|)
-argument_list|(
-name|in
-operator|.
-name|readGenericValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|correlation
-operator|=
-literal|null
-expr_stmt|;
-block|}
-block|}
-comment|/** Marshalls MatrixStatsResults */
-annotation|@
-name|Override
-DECL|method|writeTo
-specifier|public
-name|void
-name|writeTo
-parameter_list|(
-name|StreamOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// marshall results
-name|results
-operator|.
-name|writeTo
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
-comment|// marshall correlation
-if|if
-condition|(
-name|correlation
-operator|!=
-literal|null
-condition|)
-block|{
-name|out
-operator|.
-name|writeBoolean
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeGenericValue
-argument_list|(
-name|correlation
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|out
-operator|.
-name|writeBoolean
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

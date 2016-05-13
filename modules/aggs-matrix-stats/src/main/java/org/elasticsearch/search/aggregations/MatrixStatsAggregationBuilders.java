@@ -48,7 +48,7 @@ name|matrix
 operator|.
 name|stats
 operator|.
-name|MatrixStatsAggregatorBuilder
+name|MatrixStatsAggregationBuilder
 import|;
 end_import
 
@@ -66,7 +66,7 @@ comment|/**      * Create a new {@link MatrixStats} aggregation with the given n
 DECL|method|matrixStats
 specifier|public
 specifier|static
-name|MatrixStatsAggregatorBuilder
+name|MatrixStatsAggregationBuilder
 name|matrixStats
 parameter_list|(
 name|String
@@ -75,7 +75,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MatrixStatsAggregatorBuilder
+name|MatrixStatsAggregationBuilder
 argument_list|(
 name|name
 argument_list|)

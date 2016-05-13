@@ -34,26 +34,6 @@ name|Aggregation
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_comment
 comment|/**  * Interface for MatrixStats Metric Aggregation  */
 end_comment
@@ -83,7 +63,7 @@ parameter_list|)
 function_decl|;
 comment|/** return the field mean */
 DECL|method|getMean
-name|Double
+name|double
 name|getMean
 parameter_list|(
 name|String
@@ -92,7 +72,7 @@ parameter_list|)
 function_decl|;
 comment|/** return the field variance */
 DECL|method|getVariance
-name|Double
+name|double
 name|getVariance
 parameter_list|(
 name|String
@@ -101,7 +81,7 @@ parameter_list|)
 function_decl|;
 comment|/** return the skewness of the distribution */
 DECL|method|getSkewness
-name|Double
+name|double
 name|getSkewness
 parameter_list|(
 name|String
@@ -110,32 +90,16 @@ parameter_list|)
 function_decl|;
 comment|/** return the kurtosis of the distribution */
 DECL|method|getKurtosis
-name|Double
+name|double
 name|getKurtosis
 parameter_list|(
 name|String
 name|field
 parameter_list|)
 function_decl|;
-comment|/** return the upper triangle of the covariance matrix */
-DECL|method|getCovariance
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Double
-argument_list|>
-argument_list|>
-name|getCovariance
-parameter_list|()
-function_decl|;
 comment|/** return the covariance between field x and field y */
 DECL|method|getCovariance
-name|Double
+name|double
 name|getCovariance
 parameter_list|(
 name|String
@@ -145,25 +109,9 @@ name|String
 name|fieldY
 parameter_list|)
 function_decl|;
-comment|/** return the upper triangle of the pearson product-moment correlation matrix */
-DECL|method|getCorrelation
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Double
-argument_list|>
-argument_list|>
-name|getCorrelation
-parameter_list|()
-function_decl|;
 comment|/** return the correlation coefficient of field x and field y */
 DECL|method|getCorrelation
-name|Double
+name|double
 name|getCorrelation
 parameter_list|(
 name|String

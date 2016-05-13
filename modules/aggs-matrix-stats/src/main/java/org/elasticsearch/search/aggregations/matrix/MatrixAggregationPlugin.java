@@ -74,7 +74,7 @@ name|matrix
 operator|.
 name|stats
 operator|.
-name|MatrixStatsAggregatorBuilder
+name|MatrixStatsAggregationBuilder
 import|;
 end_import
 
@@ -114,14 +114,6 @@ name|MatrixAggregationPlugin
 extends|extends
 name|Plugin
 block|{
-static|static
-block|{
-name|InternalMatrixStats
-operator|.
-name|registerStreams
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|MatrixAggregationPlugin
 specifier|public
 name|MatrixAggregationPlugin
@@ -162,11 +154,16 @@ name|SearchModule
 name|searchModule
 parameter_list|)
 block|{
+name|InternalMatrixStats
+operator|.
+name|registerStreams
+argument_list|()
+expr_stmt|;
 name|searchModule
 operator|.
 name|registerAggregation
 argument_list|(
-name|MatrixStatsAggregatorBuilder
+name|MatrixStatsAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -174,7 +171,7 @@ operator|new
 name|MatrixStatsParser
 argument_list|()
 argument_list|,
-name|MatrixStatsAggregatorBuilder
+name|MatrixStatsAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
