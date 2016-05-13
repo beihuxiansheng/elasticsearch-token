@@ -271,9 +271,7 @@ name|Type
 operator|.
 name|getMethodDescriptor
 argument_list|(
-name|definition
-operator|.
-name|defType
+name|after
 operator|.
 name|type
 argument_list|,

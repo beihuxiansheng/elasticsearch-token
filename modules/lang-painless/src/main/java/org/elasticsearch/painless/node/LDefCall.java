@@ -392,9 +392,7 @@ name|signature
 operator|.
 name|append
 argument_list|(
-name|definition
-operator|.
-name|defType
+name|after
 operator|.
 name|type
 operator|.
