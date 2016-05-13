@@ -1808,7 +1808,10 @@ name|Object
 name|compile
 parameter_list|(
 name|String
-name|script
+name|scriptName
+parameter_list|,
+name|String
+name|scriptSource
 parameter_list|,
 name|Map
 argument_list|<

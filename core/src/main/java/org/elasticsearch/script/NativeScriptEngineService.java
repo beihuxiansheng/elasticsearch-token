@@ -248,7 +248,10 @@ name|Object
 name|compile
 parameter_list|(
 name|String
-name|script
+name|scriptName
+parameter_list|,
+name|String
+name|scriptSource
 parameter_list|,
 name|Map
 argument_list|<
@@ -266,7 +269,7 @@ name|scripts
 operator|.
 name|get
 argument_list|(
-name|script
+name|scriptSource
 argument_list|)
 decl_stmt|;
 if|if
@@ -286,7 +289,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Native script ["
 operator|+
-name|script
+name|scriptSource
 operator|+
 literal|"] not found"
 argument_list|)

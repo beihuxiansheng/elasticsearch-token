@@ -4202,7 +4202,10 @@ name|Object
 name|compile
 parameter_list|(
 name|String
-name|script
+name|scriptName
+parameter_list|,
+name|String
+name|scriptText
 parameter_list|,
 name|Map
 argument_list|<
@@ -4216,7 +4219,7 @@ block|{
 return|return
 literal|"compiled_"
 operator|+
-name|script
+name|scriptText
 return|;
 block|}
 annotation|@
@@ -4366,7 +4369,10 @@ name|Object
 name|compile
 parameter_list|(
 name|String
-name|script
+name|scriptName
+parameter_list|,
+name|String
+name|scriptSource
 parameter_list|,
 name|Map
 argument_list|<
@@ -4380,7 +4386,7 @@ block|{
 return|return
 literal|"compiled_"
 operator|+
-name|script
+name|scriptSource
 return|;
 block|}
 annotation|@

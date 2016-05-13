@@ -172,6 +172,11 @@ name|GeneratorAdapter
 name|adapter
 parameter_list|)
 block|{
+name|writeDebugInfo
+argument_list|(
+name|adapter
+argument_list|)
+expr_stmt|;
 name|adapter
 operator|.
 name|goTo

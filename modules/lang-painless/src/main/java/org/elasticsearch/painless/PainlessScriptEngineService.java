@@ -393,7 +393,15 @@ return|return
 name|NAME
 return|;
 block|}
-comment|/**      * Compiles a Painless script with the specified parameters.      * @param script The code to be compiled.      * @param params The params used to modify the compiler settings on a per script basis.      * @return Compiled script object represented by an {@link Executable}.      */
+comment|/**      * When a script is anonymous (inline), we give it this name.      */
+DECL|field|INLINE_NAME
+specifier|static
+specifier|final
+name|String
+name|INLINE_NAME
+init|=
+literal|"<inline>"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|compile
@@ -401,9 +409,12 @@ specifier|public
 name|Object
 name|compile
 parameter_list|(
+name|String
+name|scriptName
+parameter_list|,
 specifier|final
 name|String
-name|script
+name|scriptSource
 parameter_list|,
 specifier|final
 name|Map
@@ -632,9 +643,15 @@ name|compile
 argument_list|(
 name|loader
 argument_list|,
-literal|"unknown"
+name|scriptName
+operator|==
+literal|null
+condition|?
+name|INLINE_NAME
+else|:
+name|scriptName
 argument_list|,
-name|script
+name|scriptSource
 argument_list|,
 name|compilerSettings
 argument_list|)

@@ -451,7 +451,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Compile a template string to (in this case) a Mustache object than can      * later be re-used for execution to fill in missing parameter values.      *      * @param template      *            a string representing the template to compile.      * @return a compiled template object for later execution.      * */
+comment|/**      * Compile a template string to (in this case) a Mustache object than can      * later be re-used for execution to fill in missing parameter values.      *      * @param templateSource      *            a string representing the template to compile.      * @return a compiled template object for later execution.      * */
 annotation|@
 name|Override
 DECL|method|compile
@@ -460,7 +460,10 @@ name|Object
 name|compile
 parameter_list|(
 name|String
-name|template
+name|templateName
+parameter_list|,
+name|String
+name|templateSource
 parameter_list|,
 name|Map
 argument_list|<
@@ -530,7 +533,7 @@ init|=
 operator|new
 name|FastStringReader
 argument_list|(
-name|template
+name|templateSource
 argument_list|)
 decl_stmt|;
 return|return

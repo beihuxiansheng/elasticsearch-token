@@ -633,7 +633,10 @@ name|Object
 name|compile
 parameter_list|(
 name|String
-name|script
+name|scriptName
+parameter_list|,
+name|String
+name|scriptSource
 parameter_list|,
 name|Map
 argument_list|<
@@ -694,7 +697,7 @@ name|interp
 operator|.
 name|compile
 argument_list|(
-name|script
+name|scriptSource
 argument_list|)
 return|;
 block|}

@@ -130,11 +130,9 @@ specifier|static
 name|String
 name|toString
 parameter_list|(
-specifier|final
 name|String
 name|source
 parameter_list|,
-specifier|final
 name|CompilerSettings
 name|settings
 parameter_list|)
@@ -148,6 +146,8 @@ name|Compiler
 operator|.
 name|compile
 argument_list|(
+literal|"<debugging>"
+argument_list|,
 name|source
 argument_list|,
 name|settings

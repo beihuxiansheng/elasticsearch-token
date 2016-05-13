@@ -554,6 +554,8 @@ name|scriptEngine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"return ctx.value;"
 argument_list|,
 name|Collections
@@ -678,6 +680,8 @@ name|scriptEngine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"return params['value'];"
 argument_list|,
 name|Collections

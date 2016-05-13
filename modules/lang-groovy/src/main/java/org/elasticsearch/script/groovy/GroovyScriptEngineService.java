@@ -1005,7 +1005,10 @@ name|Object
 name|compile
 parameter_list|(
 name|String
-name|script
+name|scriptName
+parameter_list|,
+name|String
+name|scriptSource
 parameter_list|,
 name|Map
 argument_list|<
@@ -1058,7 +1061,7 @@ argument_list|()
 operator|.
 name|digest
 argument_list|(
-name|script
+name|scriptSource
 operator|.
 name|getBytes
 argument_list|(
@@ -1098,7 +1101,7 @@ init|=
 operator|new
 name|GroovyCodeSource
 argument_list|(
-name|script
+name|scriptSource
 argument_list|,
 name|fake
 argument_list|,

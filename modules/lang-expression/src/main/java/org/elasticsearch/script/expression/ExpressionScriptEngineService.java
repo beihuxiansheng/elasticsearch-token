@@ -519,7 +519,10 @@ name|Object
 name|compile
 parameter_list|(
 name|String
-name|script
+name|scriptName
+parameter_list|,
+name|String
+name|scriptSource
 parameter_list|,
 name|Map
 argument_list|<
@@ -679,7 +682,7 @@ name|JavascriptCompiler
 operator|.
 name|compile
 argument_list|(
-name|script
+name|scriptSource
 argument_list|,
 name|JavascriptCompiler
 operator|.
@@ -701,7 +704,7 @@ name|ScriptException
 argument_list|(
 literal|"Failed to parse expression: "
 operator|+
-name|script
+name|scriptSource
 argument_list|,
 name|e
 argument_list|)

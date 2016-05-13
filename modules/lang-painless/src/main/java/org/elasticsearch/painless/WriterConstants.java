@@ -172,7 +172,7 @@ name|CLASS_NAME
 init|=
 name|BASE_CLASS_NAME
 operator|+
-literal|"$CompiledPainlessExecutable"
+literal|"$Script"
 decl_stmt|;
 DECL|field|BASE_CLASS_TYPE
 specifier|public

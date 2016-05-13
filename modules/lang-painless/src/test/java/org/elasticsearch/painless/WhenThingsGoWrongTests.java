@@ -78,6 +78,176 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testLineNumbers
+specifier|public
+name|void
+name|testLineNumbers
+parameter_list|()
+block|{
+comment|// trigger NPE at line 1 of the script
+name|NullPointerException
+name|exception
+init|=
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"String x = null; boolean y = x.isEmpty();\n"
+operator|+
+literal|"return y;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exception
+operator|.
+name|getStackTrace
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getLineNumber
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// trigger NPE at line 2 of the script
+name|exception
+operator|=
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"String x = null;\n"
+operator|+
+literal|"return x.isEmpty();"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exception
+operator|.
+name|getStackTrace
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getLineNumber
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// trigger NPE at line 3 of the script
+name|exception
+operator|=
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"String x = null;\n"
+operator|+
+literal|"String y = x;\n"
+operator|+
+literal|"return y.isEmpty();"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+name|exception
+operator|.
+name|getStackTrace
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getLineNumber
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// trigger NPE at line 4 in script (inside conditional)
+name|exception
+operator|=
+name|expectThrows
+argument_list|(
+name|NullPointerException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"String x = null;\n"
+operator|+
+literal|"boolean y = false;\n"
+operator|+
+literal|"if (!y) {\n"
+operator|+
+literal|"  y = x.isEmpty();\n"
+operator|+
+literal|"}\n"
+operator|+
+literal|"return y;"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|4
+argument_list|,
+name|exception
+operator|.
+name|getStackTrace
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getLineNumber
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testInvalidShift
 specifier|public
 name|void
