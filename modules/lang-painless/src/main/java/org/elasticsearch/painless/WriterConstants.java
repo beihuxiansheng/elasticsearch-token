@@ -424,7 +424,7 @@ name|Type
 operator|.
 name|getInternalName
 argument_list|(
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|class
 argument_list|)

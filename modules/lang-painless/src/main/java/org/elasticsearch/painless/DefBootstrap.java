@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Painless invokedynamic call site.  *<p>  * Has 5 flavors (passed as static bootstrap parameters): dynamic method call,  * dynamic field load (getter), and dynamic field store (setter), dynamic array load,  * and dynamic array store.  *<p>  * When a new type is encountered at the call site, we lookup from the appropriate  * whitelist, and cache with a guard. If we encounter too many types, we stop caching.  *<p>  * Based on the cascaded inlining cache from the JSR 292 cookbook  * (https://code.google.com/archive/p/jsr292-cookbook/, BSD license)  */
+comment|/**  * Painless invokedynamic bootstrap for the call site.  *<p>  * Has 5 flavors (passed as static bootstrap parameters): dynamic method call,  * dynamic field load (getter), and dynamic field store (setter), dynamic array load,  * and dynamic array store.  *<p>  * When a new type is encountered at the call site, we lookup from the appropriate  * whitelist, and cache with a guard. If we encounter too many types, we stop caching.  *<p>  * Based on the cascaded inlining cache from the JSR 292 cookbook  * (https://code.google.com/archive/p/jsr292-cookbook/, BSD license)  */
 end_comment
 
 begin_comment
@@ -101,15 +101,15 @@ comment|// and it needs to be accessible by that code.
 end_comment
 
 begin_class
-DECL|class|DynamicCallSite
+DECL|class|DefBootstrap
 specifier|public
 specifier|final
 class|class
-name|DynamicCallSite
+name|DefBootstrap
 block|{
-DECL|method|DynamicCallSite
+DECL|method|DefBootstrap
 specifier|private
-name|DynamicCallSite
+name|DefBootstrap
 parameter_list|()
 block|{}
 comment|// no instance!
@@ -164,11 +164,12 @@ name|ARRAY_STORE
 init|=
 literal|4
 decl_stmt|;
-DECL|class|InliningCacheCallSite
+comment|/**      * CallSite that implements the polymorphic inlining cache (PIC).      */
+DECL|class|PIC
 specifier|static
 specifier|final
 class|class
-name|InliningCacheCallSite
+name|PIC
 extends|extends
 name|MutableCallSite
 block|{
@@ -198,8 +199,8 @@ name|int
 name|depth
 decl_stmt|;
 comment|// pkg-protected for testing
-DECL|method|InliningCacheCallSite
-name|InliningCacheCallSite
+DECL|method|PIC
+name|PIC
 parameter_list|(
 name|String
 name|name
@@ -228,6 +229,7 @@ name|flavor
 operator|=
 name|flavor
 expr_stmt|;
+specifier|final
 name|MethodHandle
 name|fallback
 init|=
@@ -237,10 +239,6 @@ name|bindTo
 argument_list|(
 name|this
 argument_list|)
-decl_stmt|;
-name|fallback
-operator|=
-name|fallback
 operator|.
 name|asCollector
 argument_list|(
@@ -254,16 +252,12 @@ operator|.
 name|parameterCount
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|fallback
-operator|=
-name|fallback
 operator|.
 name|asType
 argument_list|(
 name|type
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|setTarget
 argument_list|(
 name|fallback
@@ -413,12 +407,14 @@ parameter_list|)
 throws|throws
 name|Throwable
 block|{
+specifier|final
 name|MethodType
 name|type
 init|=
 name|type
 argument_list|()
 decl_stmt|;
+specifier|final
 name|Object
 name|receiver
 init|=
@@ -427,6 +423,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+specifier|final
 name|Class
 argument_list|<
 name|?
@@ -438,6 +435,7 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
+specifier|final
 name|MethodHandle
 name|target
 init|=
@@ -449,16 +447,12 @@ name|receiverClass
 argument_list|,
 name|name
 argument_list|)
-decl_stmt|;
-name|target
-operator|=
-name|target
 operator|.
 name|asType
 argument_list|(
 name|type
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|depth
@@ -515,6 +509,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|final
 name|MethodHandle
 name|guard
 init|=
@@ -672,7 +667,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|InliningCacheCallSite
+name|PIC
 argument_list|(
 name|name
 argument_list|,

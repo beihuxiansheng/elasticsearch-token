@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|DynamicCallSite
+name|DefBootstrap
 import|;
 end_import
 
@@ -293,7 +293,7 @@ operator|new
 name|Object
 index|[]
 block|{
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|ARRAY_LOAD
 block|}
@@ -333,7 +333,7 @@ operator|new
 name|Object
 index|[]
 block|{
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|ARRAY_STORE
 block|}
