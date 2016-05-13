@@ -75,10 +75,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|DynamicCallSiteTests
+DECL|class|DefBootstrapTests
 specifier|public
 class|class
-name|DynamicCallSiteTests
+name|DefBootstrapTests
 extends|extends
 name|ESTestCase
 block|{
@@ -94,7 +94,7 @@ block|{
 name|CallSite
 name|site
 init|=
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
@@ -118,7 +118,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|METHOD_CALL
 argument_list|)
@@ -200,7 +200,7 @@ block|{
 name|CallSite
 name|site
 init|=
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
@@ -224,7 +224,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|METHOD_CALL
 argument_list|)
@@ -355,9 +355,9 @@ name|assertEquals
 argument_list|(
 literal|5
 argument_list|,
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
-name|InliningCacheCallSite
+name|PIC
 operator|.
 name|MAX_DEPTH
 argument_list|)
@@ -365,7 +365,7 @@ expr_stmt|;
 name|CallSite
 name|site
 init|=
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|bootstrap
 argument_list|(
@@ -389,7 +389,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|METHOD_CALL
 argument_list|)
@@ -565,15 +565,15 @@ name|int
 name|expected
 parameter_list|)
 block|{
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
-name|InliningCacheCallSite
+name|PIC
 name|dsite
 init|=
 operator|(
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
-name|InliningCacheCallSite
+name|PIC
 operator|)
 name|site
 decl_stmt|;
