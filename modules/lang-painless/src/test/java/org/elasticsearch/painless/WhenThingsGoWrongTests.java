@@ -845,10 +845,10 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDynamicWrongArgs
+DECL|method|testDynamicArrayWrongIndex
 specifier|public
 name|void
-name|testDynamicWrongArgs
+name|testDynamicArrayWrongIndex
 parameter_list|()
 block|{
 name|expectThrows
@@ -862,7 +862,31 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"def x = new ArrayList(); return x.get('bogus');"
+literal|"def x = new long[1]; x[0]=1; return x['bogus'];"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDynamicListWrongIndex
+specifier|public
+name|void
+name|testDynamicListWrongIndex
+parameter_list|()
+block|{
+name|expectThrows
+argument_list|(
+name|WrongMethodTypeException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+block|{
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add('foo'); return x['bogus'];"
 argument_list|)
 expr_stmt|;
 block|}
