@@ -1790,56 +1790,6 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|main
-specifier|public
-specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-index|[]
-name|args
-parameter_list|)
-block|{
-name|AggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
-name|aggregation
-init|=
-name|AggregationBuilders
-operator|.
-name|ipRange
-argument_list|(
-literal|"agg"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"ip"
-argument_list|)
-operator|.
-name|addUnboundedTo
-argument_list|(
-literal|"192.168.1.0"
-argument_list|)
-comment|// from -infinity to 192.168.1.0 (excluded)
-operator|.
-name|addRange
-argument_list|(
-literal|"192.168.1.0"
-argument_list|,
-literal|"192.168.2.0"
-argument_list|)
-comment|// from 192.168.1.0 to 192.168.2.0 (excluded)
-operator|.
-name|addUnboundedFrom
-argument_list|(
-literal|"192.168.2.0"
-argument_list|)
-decl_stmt|;
-comment|// from 192.168.2.0 to +infinity
-block|}
 block|}
 end_class
 
