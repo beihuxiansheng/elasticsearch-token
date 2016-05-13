@@ -93,7 +93,7 @@ comment|/**  * Painless invokedynamic call site.  *<p>  * Has 5 flavors (passed 
 end_comment
 
 begin_comment
-comment|// NOTE: this class must be public, because generated painless classes are in a different package,
+comment|// NOTE: this class must be public, because generated painless classes are in a different classloader,
 end_comment
 
 begin_comment
@@ -107,6 +107,12 @@ specifier|final
 class|class
 name|DynamicCallSite
 block|{
+DECL|method|DynamicCallSite
+specifier|private
+name|DynamicCallSite
+parameter_list|()
+block|{}
+comment|// no instance!
 comment|// NOTE: these must be primitive types, see https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.invokedynamic
 comment|/** static bootstrap parameter indicating a dynamic method call, e.g. foo.bar(...) */
 DECL|field|METHOD_CALL
@@ -160,6 +166,7 @@ literal|4
 decl_stmt|;
 DECL|class|InliningCacheCallSite
 specifier|static
+specifier|final
 class|class
 name|InliningCacheCallSite
 extends|extends
@@ -174,17 +181,14 @@ name|MAX_DEPTH
 init|=
 literal|5
 decl_stmt|;
-DECL|field|lookup
-specifier|final
-name|Lookup
-name|lookup
-decl_stmt|;
 DECL|field|name
+specifier|private
 specifier|final
 name|String
 name|name
 decl_stmt|;
 DECL|field|flavor
+specifier|private
 specifier|final
 name|int
 name|flavor
@@ -193,12 +197,10 @@ DECL|field|depth
 name|int
 name|depth
 decl_stmt|;
+comment|// pkg-protected for testing
 DECL|method|InliningCacheCallSite
 name|InliningCacheCallSite
 parameter_list|(
-name|Lookup
-name|lookup
-parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -216,12 +218,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|lookup
-operator|=
-name|lookup
-expr_stmt|;
-name|this
-operator|.
 name|name
 operator|=
 name|name
@@ -232,43 +228,6 @@ name|flavor
 operator|=
 name|flavor
 expr_stmt|;
-block|}
-block|}
-comment|/**      * invokeDynamic bootstrap method      *<p>      * In addition to ordinary parameters, we also take a static parameter {@code flavor} which      * tells us what type of dynamic call it is (and which part of whitelist to look at).      *<p>      * see https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.invokedynamic      */
-DECL|method|bootstrap
-specifier|public
-specifier|static
-name|CallSite
-name|bootstrap
-parameter_list|(
-name|Lookup
-name|lookup
-parameter_list|,
-name|String
-name|name
-parameter_list|,
-name|MethodType
-name|type
-parameter_list|,
-name|int
-name|flavor
-parameter_list|)
-block|{
-name|InliningCacheCallSite
-name|callSite
-init|=
-operator|new
-name|InliningCacheCallSite
-argument_list|(
-name|lookup
-argument_list|,
-name|name
-argument_list|,
-name|type
-argument_list|,
-name|flavor
-argument_list|)
-decl_stmt|;
 name|MethodHandle
 name|fallback
 init|=
@@ -276,7 +235,7 @@ name|FALLBACK
 operator|.
 name|bindTo
 argument_list|(
-name|callSite
+name|this
 argument_list|)
 decl_stmt|;
 name|fallback
@@ -305,18 +264,13 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
-name|callSite
-operator|.
 name|setTarget
 argument_list|(
 name|fallback
 argument_list|)
 expr_stmt|;
-return|return
-name|callSite
-return|;
 block|}
-comment|/**      * guard method for inline caching: checks the receiver's class is the same      * as the cached class      */
+comment|/**          * guard method for inline caching: checks the receiver's class is the same          * as the cached class          */
 DECL|method|checkClass
 specifier|static
 name|boolean
@@ -341,7 +295,7 @@ operator|==
 name|clazz
 return|;
 block|}
-comment|/**      * Does a slow lookup against the whitelist.      */
+comment|/**          * Does a slow lookup against the whitelist.          */
 DECL|method|lookup
 specifier|private
 specifier|static
@@ -447,15 +401,11 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/**      * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}      * types at this call site and given up on caching).      */
+comment|/**          * Called when a new type is encountered (or, when we have encountered more than {@code MAX_DEPTH}          * types at this call site and given up on caching).          */
 DECL|method|fallback
-specifier|static
 name|Object
 name|fallback
 parameter_list|(
-name|InliningCacheCallSite
-name|callSite
-parameter_list|,
 name|Object
 index|[]
 name|args
@@ -466,8 +416,6 @@ block|{
 name|MethodType
 name|type
 init|=
-name|callSite
-operator|.
 name|type
 argument_list|()
 decl_stmt|;
@@ -495,14 +443,10 @@ name|target
 init|=
 name|lookup
 argument_list|(
-name|callSite
-operator|.
 name|flavor
 argument_list|,
 name|receiverClass
 argument_list|,
-name|callSite
-operator|.
 name|name
 argument_list|)
 decl_stmt|;
@@ -517,18 +461,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|callSite
-operator|.
 name|depth
 operator|>=
-name|InliningCacheCallSite
-operator|.
 name|MAX_DEPTH
 condition|)
 block|{
 comment|// revert to a vtable call
-name|callSite
-operator|.
 name|setTarget
 argument_list|(
 name|target
@@ -588,19 +526,13 @@ name|test
 argument_list|,
 name|target
 argument_list|,
-name|callSite
-operator|.
 name|getTarget
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|callSite
-operator|.
 name|depth
 operator|++
 expr_stmt|;
-name|callSite
-operator|.
 name|setTarget
 argument_list|(
 name|guard
@@ -631,6 +563,7 @@ name|FALLBACK
 decl_stmt|;
 static|static
 block|{
+specifier|final
 name|Lookup
 name|lookup
 init|=
@@ -647,9 +580,10 @@ name|lookup
 operator|.
 name|findStatic
 argument_list|(
-name|DynamicCallSite
+name|lookup
 operator|.
-name|class
+name|lookupClass
+argument_list|()
 argument_list|,
 literal|"checkClass"
 argument_list|,
@@ -675,11 +609,12 @@ name|FALLBACK
 operator|=
 name|lookup
 operator|.
-name|findStatic
+name|findVirtual
 argument_list|(
-name|DynamicCallSite
+name|lookup
 operator|.
-name|class
+name|lookupClass
+argument_list|()
 argument_list|,
 literal|"fallback"
 argument_list|,
@@ -688,10 +623,6 @@ operator|.
 name|methodType
 argument_list|(
 name|Object
-operator|.
-name|class
-argument_list|,
-name|InliningCacheCallSite
 operator|.
 name|class
 argument_list|,
@@ -717,6 +648,39 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+block|}
+comment|/**      * invokeDynamic bootstrap method      *<p>      * In addition to ordinary parameters, we also take a static parameter {@code flavor} which      * tells us what type of dynamic call it is (and which part of whitelist to look at).      *<p>      * see https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.invokedynamic      */
+DECL|method|bootstrap
+specifier|public
+specifier|static
+name|CallSite
+name|bootstrap
+parameter_list|(
+name|Lookup
+name|lookup
+parameter_list|,
+name|String
+name|name
+parameter_list|,
+name|MethodType
+name|type
+parameter_list|,
+name|int
+name|flavor
+parameter_list|)
+block|{
+return|return
+operator|new
+name|InliningCacheCallSite
+argument_list|(
+name|name
+argument_list|,
+name|type
+argument_list|,
+name|flavor
+argument_list|)
+return|;
 block|}
 block|}
 end_class
