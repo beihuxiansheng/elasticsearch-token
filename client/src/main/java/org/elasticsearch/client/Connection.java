@@ -48,7 +48,6 @@ specifier|public
 class|class
 name|Connection
 block|{
-comment|//TODO make these values configurable through the connection pool?
 DECL|field|DEFAULT_CONNECTION_TIMEOUT_MILLIS
 specifier|private
 specifier|static
