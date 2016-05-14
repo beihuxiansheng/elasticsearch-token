@@ -241,6 +241,16 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+name|list
+operator|.
+name|add
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Iterable
 argument_list|<
 name|Integer
@@ -288,6 +298,23 @@ argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|list
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|add
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// changes to the outer list are not seen since flatten pre-caches outer list on init:
+name|count
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -307,6 +334,7 @@ argument_list|,
 name|count
 argument_list|)
 expr_stmt|;
+comment|// but changes to the original inner lists are seen:
 name|list
 operator|.
 name|get
