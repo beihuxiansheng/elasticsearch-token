@@ -293,8 +293,7 @@ name|variables
 argument_list|)
 return|;
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|Map
@@ -335,6 +334,7 @@ name|variables
 argument_list|)
 return|;
 block|}
+elseif|else
 if|if
 condition|(
 name|List
@@ -374,7 +374,6 @@ argument_list|,
 name|variables
 argument_list|)
 return|;
-block|}
 block|}
 throw|throw
 operator|new
