@@ -317,6 +317,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -660,6 +670,15 @@ name|Object
 name|payload
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|request
+argument_list|,
+literal|"'request' must not be null"
+argument_list|)
+expr_stmt|;
 name|requests
 operator|.
 name|add
@@ -755,6 +774,15 @@ name|Object
 name|payload
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|request
+argument_list|,
+literal|"'request' must not be null"
+argument_list|)
+expr_stmt|;
 name|requests
 operator|.
 name|add
