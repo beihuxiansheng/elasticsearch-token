@@ -447,6 +447,7 @@ decl_stmt|;
 DECL|field|BUILT_IN_INDEX_SETTINGS
 specifier|public
 specifier|static
+specifier|final
 name|Set
 argument_list|<
 name|Setting
@@ -670,6 +671,10 @@ name|MAX_RESULT_WINDOW_SETTING
 argument_list|,
 name|IndexSettings
 operator|.
+name|MAX_RESCORE_WINDOW_SETTING
+argument_list|,
+name|IndexSettings
+operator|.
 name|INDEX_TRANSLOG_SYNC_INTERVAL_SETTING
 argument_list|,
 name|IndexSettings
@@ -744,6 +749,14 @@ name|MapperService
 operator|.
 name|INDEX_MAPPING_NESTED_FIELDS_LIMIT_SETTING
 argument_list|,
+name|MapperService
+operator|.
+name|INDEX_MAPPING_TOTAL_FIELDS_LIMIT_SETTING
+argument_list|,
+name|MapperService
+operator|.
+name|INDEX_MAPPING_DEPTH_LIMIT_SETTING
+argument_list|,
 name|BitsetFilterCache
 operator|.
 name|INDEX_LOAD_RANDOM_ACCESS_FILTERS_EAGERLY_SETTING
@@ -754,7 +767,7 @@ name|INDEX_STORE_TYPE_SETTING
 argument_list|,
 name|IndexModule
 operator|.
-name|INDEX_QUERY_CACHE_TYPE_SETTING
+name|INDEX_QUERY_CACHE_ENABLED_SETTING
 argument_list|,
 name|IndexModule
 operator|.
@@ -870,8 +883,6 @@ name|Settings
 operator|.
 name|EMPTY
 argument_list|,
-name|IndexScopedSettings
-operator|.
 name|BUILT_IN_INDEX_SETTINGS
 argument_list|)
 decl_stmt|;

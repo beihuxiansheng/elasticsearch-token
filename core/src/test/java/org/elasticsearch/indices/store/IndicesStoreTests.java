@@ -338,6 +338,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -539,6 +563,12 @@ argument_list|(
 literal|"abc"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -570,6 +600,14 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 argument_list|,
 literal|null
@@ -1064,7 +1102,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1085,6 +1123,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"xyz"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -1356,7 +1400,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1608,7 +1652,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1629,6 +1673,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"xyz"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|nodeVersion
 argument_list|)
@@ -1866,7 +1916,7 @@ name|localNodeId
 argument_list|(
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -1888,6 +1938,12 @@ argument_list|(
 literal|"xyz"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -1906,6 +1962,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"def"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|nodeVersion
 argument_list|)

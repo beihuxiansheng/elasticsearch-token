@@ -1560,6 +1560,16 @@ name|restSpec
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getAdminExecutionContext
+specifier|protected
+name|RestTestExecutionContext
+name|getAdminExecutionContext
+parameter_list|()
+block|{
+return|return
+name|adminExecutionContext
+return|;
+block|}
 DECL|method|validateSpec
 specifier|private
 specifier|static

@@ -204,7 +204,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|TemplateQueryParser
+name|TemplateQueryBuilder
 import|;
 end_import
 
@@ -422,11 +422,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|term
-operator|.
-name|TermSuggestionBuilder
-operator|.
-name|SuggestMode
+name|Suggesters
 import|;
 end_import
 
@@ -440,7 +436,11 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|Suggesters
+name|term
+operator|.
+name|TermSuggestionBuilder
+operator|.
+name|SuggestMode
 import|;
 end_import
 
@@ -920,15 +920,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|QueryParseContext
-name|context
-init|=
-operator|new
-name|QueryParseContext
-argument_list|(
-name|indicesQueriesRegistry
-argument_list|)
-decl_stmt|;
 try|try
 init|(
 name|XContentParser
@@ -947,20 +938,19 @@ name|restContent
 argument_list|)
 init|)
 block|{
+name|QueryParseContext
 name|context
-operator|.
-name|reset
+init|=
+operator|new
+name|QueryParseContext
 argument_list|(
+name|indicesQueriesRegistry
+argument_list|,
 name|parser
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|parseFieldMatcher
-argument_list|(
+argument_list|,
 name|parseFieldMatcher
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|isTemplateRequest
@@ -969,7 +959,7 @@ block|{
 name|Template
 name|template
 init|=
-name|TemplateQueryParser
+name|TemplateQueryBuilder
 operator|.
 name|parse
 argument_list|(
@@ -977,7 +967,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 literal|"params"
@@ -1002,8 +992,6 @@ argument_list|()
 operator|.
 name|parseXContent
 argument_list|(
-name|parser
-argument_list|,
 name|context
 argument_list|,
 name|aggParsers
@@ -1219,9 +1207,6 @@ name|request
 parameter_list|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|RestActions

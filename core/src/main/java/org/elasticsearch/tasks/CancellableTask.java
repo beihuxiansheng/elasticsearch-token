@@ -81,35 +81,6 @@ name|action
 parameter_list|,
 name|String
 name|description
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|id
-argument_list|,
-name|type
-argument_list|,
-name|action
-argument_list|,
-name|description
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|CancellableTask
-specifier|public
-name|CancellableTask
-parameter_list|(
-name|long
-name|id
-parameter_list|,
-name|String
-name|type
-parameter_list|,
-name|String
-name|action
-parameter_list|,
-name|String
-name|description
 parameter_list|,
 name|TaskId
 name|parentTaskId
@@ -155,6 +126,9 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
+name|onCancelled
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Returns true if this task should be automatically cancelled if the coordinating node that      * requested this task left the cluster.      */
 DECL|method|cancelOnParentLeaving
@@ -198,6 +172,13 @@ name|get
 argument_list|()
 return|;
 block|}
+comment|/**      * Called after the task is cancelled so that it can take any actions that it has to take.      */
+DECL|method|onCancelled
+specifier|protected
+name|void
+name|onCancelled
+parameter_list|()
+block|{     }
 block|}
 end_class
 

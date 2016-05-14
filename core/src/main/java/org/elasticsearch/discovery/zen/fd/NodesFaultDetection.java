@@ -455,6 +455,10 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|PingRequestHandler
 argument_list|()
@@ -545,7 +549,7 @@ name|nodeExists
 argument_list|(
 name|monitoredNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1024,7 +1028,7 @@ name|PingRequest
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|clusterName
@@ -1315,7 +1319,7 @@ condition|(
 operator|!
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -1340,7 +1344,7 @@ literal|"], but I am node ["
 operator|+
 name|localNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|+
 literal|"]"
@@ -1559,9 +1563,8 @@ argument_list|)
 expr_stmt|;
 name|masterNode
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)

@@ -817,6 +817,8 @@ name|set
 argument_list|(
 literal|"a"
 argument_list|,
+literal|"a.keyword"
+argument_list|,
 literal|"b"
 argument_list|,
 literal|"b.c"
@@ -974,6 +976,8 @@ argument_list|(
 name|set
 argument_list|(
 literal|"field"
+argument_list|,
+literal|"field.keyword"
 argument_list|,
 literal|"_uid"
 argument_list|,

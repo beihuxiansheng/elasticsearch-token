@@ -382,9 +382,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|ShapeBuilder
-argument_list|>
 block|{
 DECL|field|LOGGER
 specifier|protected
@@ -886,10 +883,11 @@ name|y
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|readCoordinateFrom
+DECL|method|readFromStream
 specifier|protected
+specifier|static
 name|Coordinate
-name|readCoordinateFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in
@@ -2842,9 +2840,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"invalid number of points [{}] provided for "
-operator|+
-literal|"geo_shape [{}] when expecting an array of 2 coordinates"
+literal|"invalid number of points [{}] provided for geo_shape [{}] when expecting an array of 2 coordinates"
 argument_list|,
 name|coordinates
 operator|.
@@ -3293,6 +3289,12 @@ throw|;
 block|}
 name|int
 name|numValidPts
+init|=
+name|coerce
+condition|?
+literal|3
+else|:
+literal|4
 decl_stmt|;
 if|if
 condition|(
@@ -3303,28 +3305,14 @@ operator|.
 name|size
 argument_list|()
 operator|<
-operator|(
 name|numValidPts
-operator|=
-operator|(
-name|coerce
-operator|)
-condition|?
-literal|3
-else|:
-literal|4
-operator|)
 condition|)
 block|{
 throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"invalid number of points in LinearRing (found [{}] - must be>= "
-operator|+
-name|numValidPts
-operator|+
-literal|")("
+literal|"invalid number of points in LinearRing (found [{}] - must be>= [{}])"
 argument_list|,
 name|coordinates
 operator|.
@@ -3332,6 +3320,8 @@ name|children
 operator|.
 name|size
 argument_list|()
+argument_list|,
+name|numValidPts
 argument_list|)
 throw|;
 block|}

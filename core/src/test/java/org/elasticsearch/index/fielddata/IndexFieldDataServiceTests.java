@@ -320,7 +320,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|ByteFieldMapper
+name|LegacyByteFieldMapper
 import|;
 end_import
 
@@ -336,7 +336,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 import|;
 end_import
 
@@ -352,7 +352,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|FloatFieldMapper
+name|LegacyFloatFieldMapper
 import|;
 end_import
 
@@ -368,7 +368,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|IntegerFieldMapper
+name|LegacyIntegerFieldMapper
 import|;
 end_import
 
@@ -400,7 +400,7 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 import|;
 end_import
 
@@ -416,7 +416,23 @@ name|mapper
 operator|.
 name|core
 operator|.
-name|ShortFieldMapper
+name|LegacyShortFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|NumberFieldMapper
 import|;
 end_import
 
@@ -718,11 +734,17 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|ByteFieldMapper
+name|NumberFieldMapper
 operator|.
 name|Builder
 argument_list|(
 literal|"int"
+argument_list|,
+name|NumberFieldMapper
+operator|.
+name|NumberType
+operator|.
+name|BYTE
 argument_list|)
 operator|.
 name|build
@@ -734,11 +756,17 @@ name|fieldType
 argument_list|()
 argument_list|,
 operator|new
-name|ShortFieldMapper
+name|NumberFieldMapper
 operator|.
 name|Builder
 argument_list|(
 literal|"int"
+argument_list|,
+name|NumberFieldMapper
+operator|.
+name|NumberType
+operator|.
+name|SHORT
 argument_list|)
 operator|.
 name|build
@@ -750,11 +778,17 @@ name|fieldType
 argument_list|()
 argument_list|,
 operator|new
-name|IntegerFieldMapper
+name|NumberFieldMapper
 operator|.
 name|Builder
 argument_list|(
 literal|"int"
+argument_list|,
+name|NumberFieldMapper
+operator|.
+name|NumberType
+operator|.
+name|INTEGER
 argument_list|)
 operator|.
 name|build
@@ -766,11 +800,17 @@ name|fieldType
 argument_list|()
 argument_list|,
 operator|new
-name|LongFieldMapper
+name|NumberFieldMapper
 operator|.
 name|Builder
 argument_list|(
 literal|"long"
+argument_list|,
+name|NumberFieldMapper
+operator|.
+name|NumberType
+operator|.
+name|LONG
 argument_list|)
 operator|.
 name|build
@@ -810,11 +850,17 @@ name|MappedFieldType
 name|floatMapper
 init|=
 operator|new
-name|FloatFieldMapper
+name|NumberFieldMapper
 operator|.
 name|Builder
 argument_list|(
 literal|"float"
+argument_list|,
+name|NumberFieldMapper
+operator|.
+name|NumberType
+operator|.
+name|FLOAT
 argument_list|)
 operator|.
 name|build
@@ -851,11 +897,17 @@ name|MappedFieldType
 name|doubleMapper
 init|=
 operator|new
-name|DoubleFieldMapper
+name|NumberFieldMapper
 operator|.
 name|Builder
 argument_list|(
 literal|"double"
+argument_list|,
+name|NumberFieldMapper
+operator|.
+name|NumberType
+operator|.
+name|DOUBLE
 argument_list|)
 operator|.
 name|build
@@ -1508,7 +1560,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalStateException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -1545,7 +1597,7 @@ block|{
 name|doTestRequireDocValues
 argument_list|(
 operator|new
-name|LongFieldMapper
+name|LegacyLongFieldMapper
 operator|.
 name|LongFieldType
 argument_list|()
@@ -1561,7 +1613,7 @@ block|{
 name|doTestRequireDocValues
 argument_list|(
 operator|new
-name|DoubleFieldMapper
+name|LegacyDoubleFieldMapper
 operator|.
 name|DoubleFieldType
 argument_list|()

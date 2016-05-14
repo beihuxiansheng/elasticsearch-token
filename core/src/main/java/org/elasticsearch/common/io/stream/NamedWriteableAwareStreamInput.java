@@ -72,9 +72,12 @@ block|}
 annotation|@
 name|Override
 DECL|method|readNamedWriteable
-argument_list|<
+specifier|public
+parameter_list|<
 name|C
-argument_list|>
+extends|extends
+name|NamedWriteable
+parameter_list|>
 name|C
 name|readNamedWriteable
 parameter_list|(
@@ -141,6 +144,32 @@ literal|"] returned null which is not allowed and probably means it screwed up t
 argument_list|)
 throw|;
 block|}
+assert|assert
+name|name
+operator|.
+name|equals
+argument_list|(
+name|c
+operator|.
+name|getWriteableName
+argument_list|()
+argument_list|)
+operator|:
+name|c
+operator|+
+literal|" claims to have a different name ["
+operator|+
+name|c
+operator|.
+name|getWriteableName
+argument_list|()
+operator|+
+literal|"] than it was read from ["
+operator|+
+name|name
+operator|+
+literal|"]."
+assert|;
 return|return
 name|c
 return|;

@@ -110,6 +110,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -665,6 +681,18 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Verify that when explicitly changing the value of the index setting for the delayed      * allocation to a very small value, it kicks the allocation of the unassigned shard      * even though the node it was hosted on will not come back.      */
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/18293"
+argument_list|)
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG,cluster.routing:TRACE"
+argument_list|)
 DECL|method|testDelayedAllocationChangeWithSettingTo100ms
 specifier|public
 name|void

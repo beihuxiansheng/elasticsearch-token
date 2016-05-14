@@ -381,7 +381,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|==
 literal|null
@@ -407,7 +407,7 @@ name|sendRequest
 argument_list|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|ACTION_NAME

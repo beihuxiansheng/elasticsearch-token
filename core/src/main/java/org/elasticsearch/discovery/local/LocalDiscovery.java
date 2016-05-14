@@ -680,7 +680,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -793,7 +793,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -804,7 +804,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -985,7 +985,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -996,7 +996,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1171,7 +1171,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -1234,7 +1234,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1295,7 +1295,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1466,7 +1466,7 @@ operator|+
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 return|;
 block|}
@@ -1766,7 +1766,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 condition|)
@@ -1962,7 +1962,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|!=
 literal|null
@@ -1974,7 +1974,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -2073,7 +2073,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;

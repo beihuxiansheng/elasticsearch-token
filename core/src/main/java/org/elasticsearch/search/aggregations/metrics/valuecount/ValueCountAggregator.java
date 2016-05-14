@@ -212,24 +212,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|format
-operator|.
-name|ValueFormatter
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -277,11 +259,6 @@ specifier|final
 name|ValuesSource
 name|valuesSource
 decl_stmt|;
-DECL|field|formatter
-specifier|final
-name|ValueFormatter
-name|formatter
-decl_stmt|;
 comment|// a count per bucket
 DECL|field|counts
 name|LongArray
@@ -296,9 +273,6 @@ name|name
 parameter_list|,
 name|ValuesSource
 name|valuesSource
-parameter_list|,
-name|ValueFormatter
-name|formatter
 parameter_list|,
 name|AggregationContext
 name|aggregationContext
@@ -341,12 +315,6 @@ operator|.
 name|valuesSource
 operator|=
 name|valuesSource
-expr_stmt|;
-name|this
-operator|.
-name|formatter
-operator|=
-name|formatter
 expr_stmt|;
 if|if
 condition|(
@@ -550,8 +518,6 @@ argument_list|(
 name|bucket
 argument_list|)
 argument_list|,
-name|formatter
-argument_list|,
 name|pipelineAggregators
 argument_list|()
 argument_list|,
@@ -575,8 +541,6 @@ argument_list|(
 name|name
 argument_list|,
 literal|0L
-argument_list|,
-name|formatter
 argument_list|,
 name|pipelineAggregators
 argument_list|()

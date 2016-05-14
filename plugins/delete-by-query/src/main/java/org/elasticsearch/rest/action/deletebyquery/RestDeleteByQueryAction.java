@@ -450,9 +450,6 @@ block|}
 else|else
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 init|=
 name|RestActions

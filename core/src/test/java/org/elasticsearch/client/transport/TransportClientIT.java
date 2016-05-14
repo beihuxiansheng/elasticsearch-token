@@ -184,22 +184,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -327,7 +311,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 argument_list|,
 name|equalTo
@@ -483,6 +467,7 @@ argument_list|(
 name|transportAddress
 argument_list|)
 expr_stmt|;
+comment|// since we force transport clients there has to be one node started that we connect to.
 name|assertThat
 argument_list|(
 name|nodeService
@@ -499,7 +484,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// since we force transport clients there has to be one node started that we connect to.
+comment|// connected nodes have updated version
 for|for
 control|(
 name|DiscoveryNode
@@ -511,7 +496,6 @@ name|connectedNodes
 argument_list|()
 control|)
 block|{
-comment|// connected nodes have updated version
 name|assertThat
 argument_list|(
 name|discoveryNode
@@ -543,7 +527,7 @@ name|assertThat
 argument_list|(
 name|discoveryNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|startsWith
@@ -686,7 +670,9 @@ block|{
 name|Settings
 name|baseSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

@@ -503,7 +503,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FieldMapper for indexing {@link org.locationtech.spatial4j.shape.Shape}s.  *<p>  * Currently Shapes can only be indexed and can only be queried using  * {@link org.elasticsearch.index.query.GeoShapeQueryParser}, consequently  * a lot of behavior in this Mapper is disabled.  *<p>  * Format supported:  *<p>  * "field" : {  * "type" : "polygon",  * "coordinates" : [  * [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]  * ]  * }  */
+comment|/**  * FieldMapper for indexing {@link org.locationtech.spatial4j.shape.Shape}s.  *<p>  * Currently Shapes can only be indexed and can only be queried using  * {@link org.elasticsearch.index.query.GeoShapeQueryBuilder}, consequently  * a lot of behavior in this Mapper is disabled.  *<p>  * Format supported:  *<p>  * "field" : {  * "type" : "polygon",  * "coordinates" : [  * [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]  * ]  * }  */
 end_comment
 
 begin_class
@@ -1110,15 +1110,10 @@ decl_stmt|;
 name|String
 name|fieldName
 init|=
-name|Strings
-operator|.
-name|toUnderscoreCase
-argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Object
 name|fieldNode
@@ -2600,25 +2595,6 @@ operator|+
 name|strategyName
 operator|+
 literal|"]"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
-DECL|method|value
-specifier|public
-name|String
-name|value
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"GeoShape fields cannot be converted to String values"
 argument_list|)
 throw|;
 block|}

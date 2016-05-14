@@ -91,9 +91,6 @@ enum|enum
 name|QueryRescoreMode
 implements|implements
 name|Writeable
-argument_list|<
-name|QueryRescoreMode
-argument_list|>
 block|{
 DECL|enum constant|Avg
 name|Avg

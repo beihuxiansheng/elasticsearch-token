@@ -513,6 +513,10 @@ name|Names
 operator|.
 name|SAME
 argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|MasterPingRequestHandler
 argument_list|()
@@ -1182,12 +1186,12 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|masterToPing
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|clusterName
@@ -1684,7 +1688,7 @@ name|equals
 argument_list|(
 name|nodes
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -1758,7 +1762,7 @@ condition|(
 operator|!
 name|nodes
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|||
 operator|!

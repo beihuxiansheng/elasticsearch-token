@@ -46,20 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ingest
-operator|.
-name|core
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -226,7 +212,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -235,7 +221,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -291,7 +277,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getMatchField
+name|getField
 argument_list|()
 argument_list|,
 name|equalTo
@@ -319,7 +305,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getMatchFormats
+name|getFormats
 argument_list|()
 argument_list|,
 name|equalTo
@@ -419,7 +405,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -459,7 +445,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[match_field] required property is missing"
+literal|"[field] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -521,7 +507,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -565,7 +551,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[match_formats] required property is missing"
+literal|"[formats] required property is missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -617,7 +603,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -626,7 +612,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -733,7 +719,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -742,7 +728,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -843,7 +829,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -852,7 +838,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Collections
 operator|.
@@ -950,7 +936,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -1103,7 +1089,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -1112,7 +1098,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Arrays
 operator|.
@@ -1138,7 +1124,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getMatchFormats
+name|getFormats
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1201,7 +1187,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -1210,7 +1196,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 literal|"dd/MM/yyyy"
 argument_list|)
@@ -1245,7 +1231,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[match_formats] property isn't a list, but of type [java.lang.String]"
+literal|"[formats] property isn't a list, but of type [java.lang.String]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1307,7 +1293,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_field"
+literal|"field"
 argument_list|,
 name|sourceField
 argument_list|)
@@ -1325,7 +1311,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"match_formats"
+literal|"formats"
 argument_list|,
 name|Arrays
 operator|.

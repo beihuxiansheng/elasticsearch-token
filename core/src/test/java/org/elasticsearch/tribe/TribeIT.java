@@ -198,7 +198,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -665,11 +665,11 @@ literal|2
 argument_list|,
 literal|2
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 argument_list|,
@@ -696,7 +696,7 @@ name|cluster2
 operator|.
 name|beforeTest
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|0.1
@@ -3336,7 +3336,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -3378,7 +3378,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|dataNodes
+name|getDataNodes
 argument_list|()
 operator|.
 name|size
@@ -3421,7 +3421,7 @@ condition|(
 operator|!
 name|node
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|()
 condition|)
 block|{

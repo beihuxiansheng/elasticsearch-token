@@ -105,9 +105,6 @@ enum|enum
 name|SortBy
 implements|implements
 name|Writeable
-argument_list|<
-name|SortBy
-argument_list|>
 block|{
 comment|/** Sort should first be based on score, then document frequency and then the term itself. */
 DECL|enum constant|SCORE
@@ -117,14 +114,6 @@ comment|/** Sort should first be based on document frequency, then score and the
 DECL|enum constant|FREQUENCY
 name|FREQUENCY
 block|;
-DECL|field|PROTOTYPE
-specifier|public
-specifier|static
-name|SortBy
-name|PROTOTYPE
-init|=
-name|SCORE
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -148,12 +137,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|SortBy
-name|readFrom
+name|readFromStream
 parameter_list|(
 specifier|final
 name|StreamInput

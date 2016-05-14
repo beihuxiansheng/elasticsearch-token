@@ -66,6 +66,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|aggregations
 operator|.
 name|AggregationExecutionException
@@ -547,6 +559,11 @@ name|name
 argument_list|,
 name|order
 argument_list|,
+name|config
+operator|.
+name|format
+argument_list|()
+argument_list|,
 name|bucketCountThresholds
 operator|.
 name|getRequiredSize
@@ -981,6 +998,11 @@ name|valuesSource
 argument_list|,
 name|order
 argument_list|,
+name|config
+operator|.
+name|format
+argument_list|()
+argument_list|,
 name|bucketCountThresholds
 argument_list|,
 name|includeExclude
@@ -1223,6 +1245,9 @@ operator|.
 name|Order
 name|order
 parameter_list|,
+name|DocValueFormat
+name|format
+parameter_list|,
 name|TermsAggregator
 operator|.
 name|BucketCountThresholds
@@ -1289,6 +1314,8 @@ name|valuesSource
 argument_list|,
 name|order
 argument_list|,
+name|format
+argument_list|,
 name|bucketCountThresholds
 argument_list|,
 name|filter
@@ -1348,6 +1375,9 @@ name|Terms
 operator|.
 name|Order
 name|order
+parameter_list|,
+name|DocValueFormat
+name|format
 parameter_list|,
 name|TermsAggregator
 operator|.
@@ -1422,6 +1452,8 @@ name|valuesSource
 argument_list|,
 name|order
 argument_list|,
+name|format
+argument_list|,
 name|bucketCountThresholds
 argument_list|,
 name|filter
@@ -1481,6 +1513,9 @@ name|Terms
 operator|.
 name|Order
 name|order
+parameter_list|,
+name|DocValueFormat
+name|format
 parameter_list|,
 name|TermsAggregator
 operator|.
@@ -1557,6 +1592,8 @@ name|valuesSource
 argument_list|,
 name|order
 argument_list|,
+name|format
+argument_list|,
 name|bucketCountThresholds
 argument_list|,
 name|filter
@@ -1616,6 +1653,9 @@ name|Terms
 operator|.
 name|Order
 name|order
+parameter_list|,
+name|DocValueFormat
+name|format
 parameter_list|,
 name|TermsAggregator
 operator|.
@@ -1696,6 +1736,8 @@ name|valuesSource
 argument_list|,
 name|order
 argument_list|,
+name|format
+argument_list|,
 name|bucketCountThresholds
 argument_list|,
 name|includeExclude
@@ -1734,6 +1776,8 @@ operator|)
 name|valuesSource
 argument_list|,
 name|order
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
@@ -1857,6 +1901,9 @@ name|Terms
 operator|.
 name|Order
 name|order
+parameter_list|,
+name|DocValueFormat
+name|format
 parameter_list|,
 name|TermsAggregator
 operator|.

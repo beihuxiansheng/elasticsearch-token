@@ -32,26 +32,8 @@ name|Explanation
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|gauss
-operator|.
-name|GaussDecayFunctionParser
-import|;
-end_import
-
 begin_comment
-comment|/**  * Implement this interface to provide a decay function that is executed on a  * distance. For example, this could be an exponential drop of, a triangle  * function or something of the kind. This is used, for example, by  * {@link GaussDecayFunctionParser}.  *   * */
+comment|/**  * Implement this interface to provide a decay function that is executed on a  * distance. For example, this could be an exponential drop of, a triangle  * function or something of the kind. This is used, for example, by  * {@link GaussDecayFunctionBuilder}.  *   */
 end_comment
 
 begin_interface

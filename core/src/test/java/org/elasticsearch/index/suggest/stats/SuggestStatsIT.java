@@ -736,7 +736,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|prepareSearch
@@ -777,7 +777,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|prepareSearch
@@ -820,7 +820,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|clientNodeClient
+name|coordOnlyNodeClient
 argument_list|()
 operator|.
 name|prepareSearch
@@ -1083,15 +1083,6 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|NodeStats
-index|[]
-name|nodes
-init|=
-name|nodeStats
-operator|.
-name|getNodes
-argument_list|()
-decl_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -1115,7 +1106,10 @@ control|(
 name|NodeStats
 name|stat
 range|:
-name|nodes
+name|nodeStats
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 name|SearchStats

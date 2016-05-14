@@ -473,15 +473,20 @@ parameter_list|(
 name|String
 name|aggregationName
 parameter_list|,
-name|XContentParser
-name|parser
-parameter_list|,
 name|QueryParseContext
 name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|XContentParser
+name|parser
+init|=
+name|context
+operator|.
+name|parser
+argument_list|()
+decl_stmt|;
 name|String
 name|field
 init|=
@@ -603,7 +608,7 @@ name|timezoneAware
 operator|&&
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -800,10 +805,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-name|type
-argument_list|()
-operator|+
-literal|" aggregation ["
+literal|"Aggregation ["
 operator|+
 name|aggregationName
 operator|+
@@ -811,12 +813,7 @@ literal|"] was configured with an incompatible value type ["
 operator|+
 name|valueType
 operator|+
-literal|"]. ["
-operator|+
-name|type
-argument_list|()
-operator|+
-literal|"] aggregation can only work on value of type ["
+literal|"]. It can only work on value of type ["
 operator|+
 name|targetValueType
 operator|+
@@ -841,7 +838,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|otherOptions
@@ -890,7 +887,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|otherOptions
@@ -941,7 +938,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -964,7 +961,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -985,7 +982,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|otherOptions
@@ -1034,7 +1031,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|otherOptions

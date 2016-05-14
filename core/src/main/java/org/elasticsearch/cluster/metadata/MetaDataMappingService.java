@@ -1908,16 +1908,6 @@ argument_list|(
 name|mappingType
 argument_list|)
 operator|&&
-operator|!
-name|PercolatorFieldMapper
-operator|.
-name|TYPE_NAME
-operator|.
-name|equals
-argument_list|(
-name|mappingType
-argument_list|)
-operator|&&
 name|mappingType
 operator|.
 name|charAt

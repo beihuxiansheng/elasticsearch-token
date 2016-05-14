@@ -220,6 +220,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -314,13 +328,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 operator|.
 name|GeoHashUtils
 operator|.
@@ -332,13 +344,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 operator|.
 name|GeoHashUtils
 operator|.
@@ -1390,16 +1400,24 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|prototype
+DECL|method|fromXContent
 specifier|protected
 name|GeoQueryContext
-name|prototype
-parameter_list|()
+name|fromXContent
+parameter_list|(
+name|QueryParseContext
+name|context
+parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|GeoQueryContext
 operator|.
-name|PROTOTYPE
+name|fromXContent
+argument_list|(
+name|context
+argument_list|)
 return|;
 block|}
 comment|/**      * Parse a list of {@link GeoQueryContext}      * using<code>parser</code>. A QueryContexts accepts one of the following forms:      *      *<ul>      *<li>Object: GeoQueryContext</li>      *<li>String: GeoQueryContext value with boost=1  precision=PRECISION neighbours=[PRECISION]</li>      *<li>Array:<pre>[GeoQueryContext, ..]</pre></li>      *</ul>      *      *  A GeoQueryContext has one of the following forms:      *<ul>      *<li>Object:      *<ul>      *<li><pre>GEO POINT</pre></li>      *<li><pre>{&quot;lat&quot;:<i>&lt;double&gt;</i>,&quot;lon&quot;:<i>&lt;double&gt;</i>,&quot;precision&quot;:<i>&lt;int&gt;</i>,&quot;neighbours&quot;:<i>&lt;[int, ..]&gt;</i>}</pre></li>      *<li><pre>{&quot;context&quot;:<i>&lt;string&gt;</i>,&quot;boost&quot;:<i>&lt;int&gt;</i>,&quot;precision&quot;:<i>&lt;int&gt;</i>,&quot;neighbours&quot;:<i>&lt;[int, ..]&gt;</i>}</pre></li>      *<li><pre>{&quot;context&quot;:<i>&lt;GEO POINT&gt;</i>,&quot;boost&quot;:<i>&lt;int&gt;</i>,&quot;precision&quot;:<i>&lt;int&gt;</i>,&quot;neighbours&quot;:<i>&lt;[int, ..]&gt;</i>}</pre></li>      *</ul>      *<li>String:<pre>GEO POINT</pre></li>      *</ul>      * see {@link GeoUtils#parseGeoPoint(String, GeoPoint)} for GEO POINT      */

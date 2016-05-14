@@ -319,13 +319,11 @@ name|String
 index|[]
 name|privateIpConfig
 init|=
-name|Strings
-operator|.
-name|splitStringToArray
-argument_list|(
 name|value
-argument_list|,
-literal|':'
+operator|.
+name|split
+argument_list|(
+literal|":"
 argument_list|)
 decl_stmt|;
 if|if

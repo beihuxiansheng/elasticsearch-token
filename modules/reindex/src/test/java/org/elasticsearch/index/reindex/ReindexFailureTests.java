@@ -258,7 +258,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|response
 init|=
 name|copy
@@ -270,7 +270,7 @@ name|assertThat
 argument_list|(
 name|response
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|batches
@@ -395,7 +395,7 @@ argument_list|(
 name|CREATE
 argument_list|)
 expr_stmt|;
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|response
 init|=
 name|copy
@@ -407,7 +407,7 @@ name|assertThat
 argument_list|(
 name|response
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|batches
@@ -512,7 +512,7 @@ argument_list|)
 expr_stmt|;
 name|Future
 argument_list|<
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|>
 name|response
 init|=

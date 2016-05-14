@@ -295,11 +295,6 @@ name|name
 argument_list|,
 literal|null
 argument_list|,
-name|config
-operator|.
-name|formatter
-argument_list|()
-argument_list|,
 name|context
 argument_list|,
 name|parent
@@ -350,11 +345,6 @@ argument_list|(
 name|name
 argument_list|,
 name|valuesSource
-argument_list|,
-name|config
-operator|.
-name|formatter
-argument_list|()
 argument_list|,
 name|context
 argument_list|,

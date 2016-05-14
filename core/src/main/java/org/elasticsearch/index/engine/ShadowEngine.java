@@ -1148,6 +1148,24 @@ literal|"ShadowEngine doesn't track sequence numbers"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|recoverFromTranslog
+specifier|public
+name|Engine
+name|recoverFromTranslog
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"can't recover on a shadow engine"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 

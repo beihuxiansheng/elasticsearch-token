@@ -24,13 +24,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 operator|.
 name|GeoHashUtils
 import|;

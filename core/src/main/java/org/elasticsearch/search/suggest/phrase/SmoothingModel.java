@@ -150,9 +150,6 @@ class|class
 name|SmoothingModel
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|SmoothingModel
-argument_list|>
 implements|,
 name|ToXContent
 block|{
@@ -300,7 +297,7 @@ name|parseFieldMatcher
 init|=
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 decl_stmt|;
 name|XContentParser
@@ -385,8 +382,6 @@ name|model
 operator|=
 name|LinearInterpolation
 operator|.
-name|PROTOTYPE
-operator|.
 name|innerFromXContent
 argument_list|(
 name|parseContext
@@ -412,8 +407,6 @@ name|model
 operator|=
 name|Laplace
 operator|.
-name|PROTOTYPE
-operator|.
 name|innerFromXContent
 argument_list|(
 name|parseContext
@@ -438,8 +431,6 @@ block|{
 name|model
 operator|=
 name|StupidBackoff
-operator|.
-name|PROTOTYPE
 operator|.
 name|innerFromXContent
 argument_list|(
@@ -490,18 +481,6 @@ return|return
 name|model
 return|;
 block|}
-DECL|method|innerFromXContent
-specifier|public
-specifier|abstract
-name|SmoothingModel
-name|innerFromXContent
-parameter_list|(
-name|QueryParseContext
-name|parseContext
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 DECL|method|buildWordScorerFactory
 specifier|public
 specifier|abstract

@@ -410,7 +410,7 @@ argument_list|()
 operator|+
 literal|"] was created before v2.0.0.beta1 and wasn't upgraded."
 operator|+
-literal|" This index should be open using a version before "
+literal|" This index should be opened using a version before "
 operator|+
 name|Version
 operator|.
@@ -547,8 +547,6 @@ name|indexSettings
 argument_list|)
 init|)
 block|{
-try|try
-init|(
 name|MapperService
 name|mapperService
 init|=
@@ -567,8 +565,7 @@ parameter_list|()
 lambda|->
 literal|null
 argument_list|)
-init|)
-block|{
+decl_stmt|;
 for|for
 control|(
 name|ObjectCursor
@@ -619,7 +616,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -645,13 +641,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-end_class
-
-begin_comment
 comment|/**      * Marks index as upgraded so we don't have to test it again      */
-end_comment
-
-begin_function
 DECL|method|markAsUpgraded
 specifier|private
 name|IndexMetaData
@@ -708,13 +698,7 @@ name|build
 argument_list|()
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * A fake analysis server that returns the same keyword analyzer for all requests      */
-end_comment
-
-begin_class
 DECL|class|FakeAnalysisService
 specifier|private
 specifier|static
@@ -827,9 +811,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_class
-
-begin_function
 DECL|method|archiveBrokenIndexSettings
 name|IndexMetaData
 name|archiveBrokenIndexSettings
@@ -889,8 +870,8 @@ name|indexMetaData
 return|;
 block|}
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 

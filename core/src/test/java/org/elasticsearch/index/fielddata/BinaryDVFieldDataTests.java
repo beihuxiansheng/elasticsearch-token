@@ -852,7 +852,7 @@ index|[
 name|size
 index|]
 decl_stmt|;
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextBytes

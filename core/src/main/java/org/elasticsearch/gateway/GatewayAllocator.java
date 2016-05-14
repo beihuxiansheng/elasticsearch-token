@@ -487,7 +487,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 decl_stmt|;
 if|if
@@ -501,7 +501,7 @@ if|if
 condition|(
 name|localNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 operator|==
 literal|true
@@ -840,7 +840,7 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,
-name|List
+name|Lister
 argument_list|<
 name|?
 extends|extends
@@ -1033,11 +1033,6 @@ argument_list|()
 argument_list|,
 name|allocation
 operator|.
-name|metaData
-argument_list|()
-argument_list|,
-name|allocation
-operator|.
 name|getIgnoreNodes
 argument_list|(
 name|shard
@@ -1199,11 +1194,6 @@ argument_list|(
 name|allocation
 operator|.
 name|nodes
-argument_list|()
-argument_list|,
-name|allocation
-operator|.
-name|metaData
 argument_list|()
 argument_list|,
 name|allocation

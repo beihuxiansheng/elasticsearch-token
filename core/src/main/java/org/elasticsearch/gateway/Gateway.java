@@ -449,7 +449,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|keys
@@ -512,12 +512,8 @@ if|if
 condition|(
 name|nodesState
 operator|.
-name|failures
+name|hasFailures
 argument_list|()
-operator|.
-name|length
-operator|>
-literal|0
 condition|)
 block|{
 for|for
@@ -571,6 +567,9 @@ name|NodeGatewayMetaState
 name|nodeState
 range|:
 name|nodesState
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 if|if
@@ -778,6 +777,9 @@ name|NodeGatewayMetaState
 name|nodeState
 range|:
 name|nodesState
+operator|.
+name|getNodes
+argument_list|()
 control|)
 block|{
 if|if

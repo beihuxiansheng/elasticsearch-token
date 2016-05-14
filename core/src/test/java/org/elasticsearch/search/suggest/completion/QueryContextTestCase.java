@@ -26,9 +26,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|bytes
-operator|.
-name|BytesReference
+name|ParseFieldMatcher
 import|;
 end_import
 
@@ -40,11 +38,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|bytes
 operator|.
-name|stream
-operator|.
-name|StreamInput
+name|BytesReference
 import|;
 end_import
 
@@ -110,15 +106,25 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|suggest
+name|query
 operator|.
-name|completion
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|context
+name|elasticsearch
 operator|.
-name|QueryContext
+name|indices
+operator|.
+name|query
+operator|.
+name|IndicesQueriesRegistry
 import|;
 end_import
 
@@ -144,18 +150,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
-import|;
-end_import
-
 begin_class
 DECL|class|QueryContextTestCase
 specifier|public
@@ -165,7 +159,7 @@ name|QueryContextTestCase
 parameter_list|<
 name|QC
 extends|extends
-name|QueryContext
+name|ToXContent
 parameter_list|>
 extends|extends
 name|ESTestCase
@@ -187,13 +181,18 @@ name|QC
 name|createTestModel
 parameter_list|()
 function_decl|;
-comment|/**      * query context prototype to read serialized format      */
-DECL|method|prototype
+comment|/**      * read the context      */
+DECL|method|fromXContent
 specifier|protected
 specifier|abstract
 name|QC
-name|prototype
-parameter_list|()
+name|fromXContent
+parameter_list|(
+name|QueryParseContext
+name|context
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|testToXContext
 specifier|public
@@ -218,7 +217,7 @@ name|i
 operator|++
 control|)
 block|{
-name|QueryContext
+name|QC
 name|toXContent
 init|=
 name|createTestModel
@@ -271,15 +270,24 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
-name|QueryContext
+name|QC
 name|fromXContext
 init|=
-name|prototype
-argument_list|()
-operator|.
-name|fromXContext
+name|fromXContent
 argument_list|(
+operator|new
+name|QueryParseContext
+argument_list|(
+operator|new
+name|IndicesQueriesRegistry
+argument_list|()
+argument_list|,
 name|parser
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals

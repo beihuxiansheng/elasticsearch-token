@@ -206,7 +206,7 @@ name|builder
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -388,7 +388,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

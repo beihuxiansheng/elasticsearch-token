@@ -151,6 +151,13 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
+literal|"fielddata"
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|field
+argument_list|(
 literal|"eager_global_ordinals"
 argument_list|,
 literal|true

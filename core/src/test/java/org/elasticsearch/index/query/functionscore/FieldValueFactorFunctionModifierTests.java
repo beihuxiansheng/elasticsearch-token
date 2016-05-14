@@ -853,7 +853,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -909,7 +909,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -965,7 +965,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -1021,7 +1021,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -1077,7 +1077,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -1133,7 +1133,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -1189,7 +1189,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -1245,7 +1245,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -1301,7 +1301,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -1357,7 +1357,7 @@ name|FieldValueFactorFunction
 operator|.
 name|Modifier
 operator|.
-name|readModifierFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

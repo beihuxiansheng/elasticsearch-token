@@ -2242,7 +2242,7 @@ name|settings
 argument_list|)
 return|;
 block|}
-comment|/**      * Updates a target settings builder with new, updated or deleted settings from a given settings builder.      *<p>      * Note: This method will only allow updates to dynamic settings. if a non-dynamic setting is updated an {@link IllegalArgumentException} is thrown instead.      *</p>      * @param toApply the new settings to apply      * @param target the target settings builder that the updates are applied to. All keys that have explicit null value in toApply will be removed from this builder      * @param updates a settings builder that holds all updates applied to target      * @param type a free text string to allow better exceptions messages      * @return<code>true</code> if the target has changed otherwise<code>false</code>      */
+comment|/**      * Updates a target settings builder with new, updated or deleted settings from a given settings builder.      *<p>      * Note: This method will only allow updates to dynamic settings. if a non-dynamic setting is updated an      * {@link IllegalArgumentException} is thrown instead.      *</p>      *      * @param toApply the new settings to apply      * @param target the target settings builder that the updates are applied to. All keys that have explicit null value in toApply will be      *        removed from this builder      * @param updates a settings builder that holds all updates applied to target      * @param type a free text string to allow better exceptions messages      * @return<code>true</code> if the target has changed otherwise<code>false</code>      */
 DECL|method|updateDynamicSettings
 specifier|public
 name|boolean
@@ -2280,7 +2280,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Updates a target settings builder with new, updated or deleted settings from a given settings builder.      * @param toApply the new settings to apply      * @param target the target settings builder that the updates are applied to. All keys that have explicit null value in toApply will be removed from this builder      * @param updates a settings builder that holds all updates applied to target      * @param type a free text string to allow better exceptions messages      * @return<code>true</code> if the target has changed otherwise<code>false</code>      */
+comment|/**      * Updates a target settings builder with new, updated or deleted settings from a given settings builder.      *      * @param toApply the new settings to apply      * @param target the target settings builder that the updates are applied to. All keys that have explicit null value in toApply will be      *        removed from this builder      * @param updates a settings builder that holds all updates applied to target      * @param type a free text string to allow better exceptions messages      * @return<code>true</code> if the target has changed otherwise<code>false</code>      */
 DECL|method|updateSettings
 specifier|public
 name|boolean
@@ -2318,7 +2318,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Updates a target settings builder with new, updated or deleted settings from a given settings builder.      * @param toApply the new settings to apply      * @param target the target settings builder that the updates are applied to. All keys that have explicit null value in toApply will be removed from this builder      * @param updates a settings builder that holds all updates applied to target      * @param type a free text string to allow better exceptions messages      * @param onlyDynamic  if<code>false</code> all settings are updated otherwise only dynamic settings are updated. if set to<code>true</code> and a non-dynamic setting is updated an exception is thrown.      * @return<code>true</code> if the target has changed otherwise<code>false</code>      */
+comment|/**      * Updates a target settings builder with new, updated or deleted settings from a given settings builder.      *      * @param toApply the new settings to apply      * @param target the target settings builder that the updates are applied to. All keys that have explicit null value in toApply will be      *        removed from this builder      * @param updates a settings builder that holds all updates applied to target      * @param type a free text string to allow better exceptions messages      * @param onlyDynamic if<code>false</code> all settings are updated otherwise only dynamic settings are updated. if set to      *<code>true</code> and a non-dynamic setting is updated an exception is thrown.      * @return<code>true</code> if the target has changed otherwise<code>false</code>      */
 DECL|method|updateSettings
 specifier|private
 name|boolean
@@ -2368,7 +2368,7 @@ name|settingsBuilder
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -2892,8 +2892,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we put them back in here such that tools can check from the outside if there are any indices with broken settings. The setting can remain there
-comment|// but we want users to be aware that some of their setting are broken and they can research why and what they need to do to replace them.
+comment|/*                          * We put them back in here such that tools can check from the outside if there are any indices with broken                          * settings. The setting can remain there but we want users to be aware that some of their setting are broken and                          * they can research why and what they need to do to replace them.                          */
 name|builder
 operator|.
 name|put
@@ -2943,8 +2942,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we put them back in here such that tools can check from the outside if there are any indices with broken settings. The setting can remain there
-comment|// but we want users to be aware that some of their setting sare broken and they can research why and what they need to do to replace them.
+comment|/*                  * We put them back in here such that tools can check from the outside if there are any indices with broken settings. The                  * setting can remain there but we want users to be aware that some of their setting are broken and they can research why                  * and what they need to do to replace them.                  */
 name|builder
 operator|.
 name|put

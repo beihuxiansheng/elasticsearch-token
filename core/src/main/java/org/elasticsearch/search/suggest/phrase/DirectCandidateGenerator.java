@@ -276,13 +276,44 @@ name|Set
 import|;
 end_import
 
-begin_comment
-comment|//TODO public for tests
-end_comment
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|log10
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|max
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|Math
+operator|.
+name|round
+import|;
+end_import
 
 begin_class
 DECL|class|DirectCandidateGenerator
-specifier|public
 specifier|final
 class|class
 name|DirectCandidateGenerator
@@ -720,7 +751,6 @@ return|return
 name|field
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.elasticsearch.search.suggest.phrase.CandidateGenerator#drawCandidates(org.elasticsearch.search.suggest.phrase.DirectCandidateGenerator.CandidateSet, int)      */
 annotation|@
 name|Override
 DECL|method|drawCandidates
@@ -1258,21 +1288,15 @@ literal|0
 condition|)
 block|{
 return|return
-name|Math
-operator|.
 name|max
 argument_list|(
 literal|0
 argument_list|,
-name|Math
-operator|.
 name|round
 argument_list|(
 name|termFrequency
 operator|*
 operator|(
-name|Math
-operator|.
 name|log10
 argument_list|(
 name|termFrequency
@@ -1283,8 +1307,6 @@ operator|*
 operator|(
 literal|1.0
 operator|/
-name|Math
-operator|.
 name|log10
 argument_list|(
 name|logBase
@@ -1761,7 +1783,8 @@ return|return
 literal|false
 return|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 operator|!
@@ -1777,6 +1800,7 @@ condition|)
 return|return
 literal|false
 return|;
+block|}
 return|return
 literal|true
 return|;

@@ -34,6 +34,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -156,6 +168,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|hamcrest
@@ -187,8 +223,8 @@ parameter_list|,
 name|Version
 name|version
 parameter_list|,
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
+name|ClusterName
+name|clusterName
 parameter_list|)
 block|{
 name|settings
@@ -230,6 +266,8 @@ argument_list|,
 name|version
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterName
 argument_list|)
 decl_stmt|;
 name|transportService
@@ -273,6 +311,12 @@ argument_list|,
 literal|9876
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -313,7 +357,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[localhost/127.0.0.1:9876]"
+literal|"[127.0.0.1:9876]"
 argument_list|)
 argument_list|)
 expr_stmt|;

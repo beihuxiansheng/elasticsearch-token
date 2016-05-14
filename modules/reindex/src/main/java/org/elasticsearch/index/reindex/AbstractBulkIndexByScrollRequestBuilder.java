@@ -36,18 +36,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|search
 operator|.
 name|SearchRequestBuilder
@@ -94,7 +82,7 @@ parameter_list|>
 parameter_list|,
 name|Response
 extends|extends
-name|ActionResponse
+name|BulkIndexByScrollResponse
 parameter_list|,
 name|Self
 extends|extends

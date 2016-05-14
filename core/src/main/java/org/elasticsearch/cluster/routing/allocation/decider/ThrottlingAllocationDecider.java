@@ -267,16 +267,9 @@ argument_list|<>
 argument_list|(
 literal|"cluster.routing.allocation.node_concurrent_incoming_recoveries"
 argument_list|,
-parameter_list|(
-name|s
-parameter_list|)
-lambda|->
 name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES_SETTING
-operator|.
+operator|::
 name|getRaw
-argument_list|(
-name|s
-argument_list|)
 argument_list|,
 parameter_list|(
 name|s
@@ -318,16 +311,9 @@ argument_list|<>
 argument_list|(
 literal|"cluster.routing.allocation.node_concurrent_outgoing_recoveries"
 argument_list|,
-parameter_list|(
-name|s
-parameter_list|)
-lambda|->
 name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES_SETTING
-operator|.
+operator|::
 name|getRaw
-argument_list|(
-name|s
-argument_list|)
 argument_list|,
 parameter_list|(
 name|s
@@ -455,7 +441,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using node_concurrent_outgoing_recoveries [{}], node_concurrent_incoming_recoveries [{}], node_initial_primaries_recoveries [{}]"
+literal|"using node_concurrent_outgoing_recoveries [{}], node_concurrent_incoming_recoveries [{}], "
+operator|+
+literal|"node_initial_primaries_recoveries [{}]"
 argument_list|,
 name|concurrentOutgoingRecoveries
 argument_list|,
@@ -617,7 +605,7 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many primaries currently recovering [%d], limit: [%d]"
+literal|"too many primaries are currently recovering [%d], limit: [%d]"
 argument_list|,
 name|primariesInRecovery
 argument_list|,
@@ -722,7 +710,7 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many outgoing shards currently recovering [%d], limit: [%d]"
+literal|"too many outgoing shards are currently recovering [%d], limit: [%d]"
 argument_list|,
 name|currentOutRecoveries
 argument_list|,
@@ -749,7 +737,7 @@ name|THROTTLE
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many incoming shards currently recovering [%d], limit: [%d]"
+literal|"too many incoming shards are currently recovering [%d], limit: [%d]"
 argument_list|,
 name|currentInRecoveries
 argument_list|,
@@ -770,9 +758,13 @@ name|YES
 argument_list|,
 name|NAME
 argument_list|,
-literal|"below shard recovery limit of outgoing: [%d] incoming: [%d]"
+literal|"below shard recovery limit of outgoing: [%d< %d] incoming: [%d< %d]"
+argument_list|,
+name|currentOutRecoveries
 argument_list|,
 name|concurrentOutgoingRecoveries
+argument_list|,
+name|currentInRecoveries
 argument_list|,
 name|concurrentIncomingRecoveries
 argument_list|)

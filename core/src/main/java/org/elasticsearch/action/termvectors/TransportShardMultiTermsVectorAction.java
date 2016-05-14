@@ -522,16 +522,6 @@ argument_list|,
 name|termVectorsRequest
 argument_list|)
 decl_stmt|;
-name|termVectorsResponse
-operator|.
-name|updateTookInMillis
-argument_list|(
-name|termVectorsRequest
-operator|.
-name|startTime
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|response
 operator|.
 name|add

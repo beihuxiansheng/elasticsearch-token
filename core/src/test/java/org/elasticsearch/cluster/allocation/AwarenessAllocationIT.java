@@ -254,22 +254,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -361,7 +345,7 @@ name|commonSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -390,7 +374,7 @@ literal|2
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -400,7 +384,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.rack_id"
+literal|"node.attr.rack_id"
 argument_list|,
 literal|"rack_1"
 argument_list|)
@@ -472,7 +456,7 @@ name|startNode
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -482,7 +466,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.rack_id"
+literal|"node.attr.rack_id"
 argument_list|,
 literal|"rack_2"
 argument_list|)
@@ -643,7 +627,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -691,7 +675,7 @@ name|commonSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -767,7 +751,7 @@ name|startNodesAsync
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -777,7 +761,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"a"
 argument_list|)
@@ -787,7 +771,7 @@ argument_list|()
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -797,7 +781,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"b"
 argument_list|)
@@ -807,7 +791,7 @@ argument_list|()
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -817,7 +801,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"b"
 argument_list|)
@@ -827,7 +811,7 @@ argument_list|()
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -837,7 +821,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"a"
 argument_list|)
@@ -951,7 +935,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1109,7 +1095,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -1224,7 +1210,7 @@ name|commonSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1264,7 +1250,7 @@ name|startNodesAsync
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1274,7 +1260,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"a"
 argument_list|)
@@ -1284,7 +1270,7 @@ argument_list|()
 argument_list|,
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1294,7 +1280,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"b"
 argument_list|)
@@ -1342,7 +1328,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1499,7 +1487,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -1555,7 +1543,7 @@ name|startNode
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1565,7 +1553,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.zone"
+literal|"node.attr.zone"
 argument_list|,
 literal|"b"
 argument_list|)
@@ -1769,7 +1757,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -2027,7 +2015,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1
@@ -2112,7 +2100,7 @@ name|setTransientSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2261,7 +2249,7 @@ name|currentNodeId
 argument_list|()
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 literal|1

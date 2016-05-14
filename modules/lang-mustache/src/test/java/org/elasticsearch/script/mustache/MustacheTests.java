@@ -395,6 +395,8 @@ name|engine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|template
 argument_list|,
 name|Collections
@@ -490,6 +492,8 @@ name|engine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|template
 argument_list|,
 name|Collections
@@ -735,6 +739,8 @@ name|engine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|template
 argument_list|,
 name|Collections
@@ -903,6 +909,8 @@ name|engine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|template
 argument_list|,
 name|Collections
@@ -1187,6 +1195,8 @@ name|engine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"{ \"field1\": \"{{value}}\"}"
 argument_list|,
 name|Collections
@@ -1272,6 +1282,8 @@ name|engine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"{ \"field1\": \"{{value}}\"}"
 argument_list|,
 name|Collections
@@ -1414,6 +1426,8 @@ name|engine
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|template
 argument_list|,
 name|Collections

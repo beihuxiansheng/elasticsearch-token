@@ -184,12 +184,6 @@ specifier|final
 name|BigArrays
 name|bigArrays
 decl_stmt|;
-DECL|field|translogGeneration
-specifier|private
-specifier|volatile
-name|TranslogGeneration
-name|translogGeneration
-decl_stmt|;
 DECL|field|indexSettings
 specifier|private
 specifier|final
@@ -339,34 +333,6 @@ block|{
 return|return
 name|translogPath
 return|;
-block|}
-comment|/**      * Returns the translog generation to open. If this is<code>null</code> a new translog is created. If non-null      * the translog tries to open the given translog generation. The generation is treated as the last generation referenced      * form already committed data. This means all operations that have not yet been committed should be in the translog      * file referenced by this generation. The translog creation will fail if this generation can't be opened.      */
-DECL|method|getTranslogGeneration
-specifier|public
-name|TranslogGeneration
-name|getTranslogGeneration
-parameter_list|()
-block|{
-return|return
-name|translogGeneration
-return|;
-block|}
-comment|/**      * Set the generation to be opened. Use<code>null</code> to start with a fresh translog.      * @see #getTranslogGeneration()      */
-DECL|method|setTranslogGeneration
-specifier|public
-name|void
-name|setTranslogGeneration
-parameter_list|(
-name|TranslogGeneration
-name|translogGeneration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|translogGeneration
-operator|=
-name|translogGeneration
-expr_stmt|;
 block|}
 comment|/**      * The translog buffer size. Default is<tt>8kb</tt>      */
 DECL|method|getBufferSize

@@ -530,7 +530,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 decl_stmt|;
 if|if
@@ -1364,9 +1364,8 @@ argument_list|)
 expr_stmt|;
 name|fromNode
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)

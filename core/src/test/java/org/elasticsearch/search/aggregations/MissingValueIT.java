@@ -444,6 +444,10 @@ argument_list|,
 literal|"location"
 argument_list|,
 literal|"type=geo_point"
+argument_list|,
+literal|"str"
+argument_list|,
+literal|"type=keyword"
 argument_list|)
 operator|.
 name|get

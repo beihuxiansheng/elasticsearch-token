@@ -327,7 +327,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 name|String
@@ -351,7 +351,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 name|logger
@@ -393,7 +393,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|is
 argument_list|(
@@ -460,7 +461,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|is
 argument_list|(
@@ -529,7 +531,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|is
 argument_list|(
@@ -582,7 +585,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|is
 argument_list|(
@@ -635,7 +639,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|is
 argument_list|(
@@ -688,7 +693,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|is
 argument_list|(
@@ -857,7 +863,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 name|String
@@ -881,7 +887,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 decl_stmt|;
 name|logger
@@ -923,7 +929,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|is
 argument_list|(

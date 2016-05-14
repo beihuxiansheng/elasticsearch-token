@@ -136,19 +136,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|Collections
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|java
 operator|.
 name|util
 operator|.
-name|Collections
-operator|.
-name|singletonMap
+name|Map
 import|;
 end_import
 
@@ -166,27 +164,6 @@ name|AbstractComponent
 implements|implements
 name|SearchPhase
 block|{
-DECL|field|PARSE_ELEMENTS
-specifier|private
-specifier|static
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|SearchParseElement
-argument_list|>
-name|PARSE_ELEMENTS
-init|=
-name|singletonMap
-argument_list|(
-literal|"rescore"
-argument_list|,
-operator|new
-name|RescoreParseElement
-argument_list|()
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|RescorePhase
@@ -203,6 +180,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * rescorers do not have a parse element, they use      * {@link RescoreBuilder#parseFromXContent(org.elasticsearch.index.query.QueryParseContext)} for parsing instead.      */
 annotation|@
 name|Override
 DECL|method|parseElements
@@ -219,7 +197,10 @@ name|parseElements
 parameter_list|()
 block|{
 return|return
-name|PARSE_ELEMENTS
+name|Collections
+operator|.
+name|emptyMap
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -293,6 +274,14 @@ operator|.
 name|topDocs
 argument_list|(
 name|topDocs
+argument_list|,
+name|context
+operator|.
+name|queryResult
+argument_list|()
+operator|.
+name|sortValueFormats
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

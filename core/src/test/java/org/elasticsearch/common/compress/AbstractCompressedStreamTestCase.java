@@ -229,7 +229,7 @@ block|{
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 for|for
@@ -292,7 +292,7 @@ specifier|final
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|int
@@ -490,7 +490,7 @@ block|{
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|LineFileDocs
@@ -608,7 +608,7 @@ specifier|final
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|int
@@ -861,7 +861,7 @@ block|{
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 for|for
@@ -1074,7 +1074,7 @@ specifier|final
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|int
@@ -1422,7 +1422,7 @@ block|{
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 for|for
@@ -1579,7 +1579,7 @@ specifier|final
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|int
@@ -1871,7 +1871,7 @@ block|{
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 for|for
@@ -2009,7 +2009,7 @@ block|{
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|LineFileDocs
@@ -2491,7 +2491,7 @@ specifier|final
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|int
@@ -2819,7 +2819,7 @@ decl_stmt|;
 name|Random
 name|r
 init|=
-name|getRandom
+name|random
 argument_list|()
 decl_stmt|;
 name|int
@@ -2836,7 +2836,7 @@ name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|1
@@ -2985,7 +2985,7 @@ name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|1

@@ -18,22 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|locationtech
-operator|.
-name|spatial4j
-operator|.
-name|shape
-operator|.
-name|jts
-operator|.
-name|JtsGeometry
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|vividsolutions
@@ -43,6 +27,20 @@ operator|.
 name|geom
 operator|.
 name|Coordinate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -220,6 +218,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|locationtech
+operator|.
+name|spatial4j
+operator|.
+name|shape
+operator|.
+name|jts
+operator|.
+name|JtsGeometry
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -268,6 +282,42 @@ name|org
 operator|.
 name|hamcrest
 operator|.
+name|CoreMatchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
 name|Matchers
 operator|.
 name|closeTo
@@ -283,18 +333,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
 import|;
 end_import
 
@@ -373,6 +411,21 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|ignoreUnmapped
+argument_list|(
+name|randomBoolean
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -902,7 +955,7 @@ name|RandomShapeGenerator
 operator|.
 name|createShapeWithin
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 literal|null
@@ -1389,7 +1442,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Deprecated field [normalize] used, expected [coerce] instead"
+literal|"Deprecated field [normalize] used, replaced by [use validation_method instead]"
 argument_list|,
 name|ex
 operator|.
@@ -2148,9 +2201,9 @@ literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ],
 operator|+
 literal|"    },\n"
 operator|+
-literal|"    \"coerce\" : false,\n"
+literal|"    \"validation_method\" : \"STRICT\",\n"
 operator|+
-literal|"    \"ignore_malformed\" : false,\n"
+literal|"    \"ignore_unmapped\" : false,\n"
 operator|+
 literal|"    \"boost\" : 1.0\n"
 operator|+
@@ -2192,6 +2245,128 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJsonIgnoreMalformedDeprecated
+specifier|public
+name|void
+name|testFromJsonIgnoreMalformedDeprecated
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_polygon\" : {\n"
+operator|+
+literal|"    \"person.location\" : {\n"
+operator|+
+literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ], [ -70.0, 40.0 ] ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"ignore_malformed\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJsonCoerceDeprecated
+specifier|public
+name|void
+name|testFromJsonCoerceDeprecated
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_polygon\" : {\n"
+operator|+
+literal|"    \"person.location\" : {\n"
+operator|+
+literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ], [ -70.0, 40.0 ] ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"coerce\" : false,\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|testMustRewrite
@@ -2218,6 +2393,133 @@ name|super
 operator|.
 name|testMustRewrite
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testIgnoreUnmapped
+specifier|public
+name|void
+name|testIgnoreUnmapped
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|List
+argument_list|<
+name|GeoPoint
+argument_list|>
+name|polygon
+init|=
+name|randomPolygon
+argument_list|(
+name|randomIntBetween
+argument_list|(
+literal|4
+argument_list|,
+literal|50
+argument_list|)
+argument_list|)
+decl_stmt|;
+specifier|final
+name|GeoPolygonQueryBuilder
+name|queryBuilder
+init|=
+operator|new
+name|GeoPolygonQueryBuilder
+argument_list|(
+literal|"unmapped"
+argument_list|,
+name|polygon
+argument_list|)
+decl_stmt|;
+name|queryBuilder
+operator|.
+name|ignoreUnmapped
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|Query
+name|query
+init|=
+name|queryBuilder
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|query
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|query
+argument_list|,
+name|instanceOf
+argument_list|(
+name|MatchNoDocsQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+specifier|final
+name|GeoPolygonQueryBuilder
+name|failingQueryBuilder
+init|=
+operator|new
+name|GeoPolygonQueryBuilder
+argument_list|(
+literal|"unmapped"
+argument_list|,
+name|polygon
+argument_list|)
+decl_stmt|;
+name|failingQueryBuilder
+operator|.
+name|ignoreUnmapped
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|QueryShardException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|QueryShardException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|failingQueryBuilder
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"failed to find geo_point field [unmapped]"
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -239,8 +239,11 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
+comment|// null == OK, because ingest templates are only inline templates.
 return|return
 operator|new
 name|Template

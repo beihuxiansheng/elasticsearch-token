@@ -121,7 +121,7 @@ name|transientUpdates
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 DECL|field|persistentUpdates
@@ -133,7 +133,7 @@ name|persistentUpdates
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 DECL|field|clusterSettings
@@ -210,7 +210,7 @@ name|transientSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 name|transientSettings
@@ -248,7 +248,7 @@ name|persistentSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 name|persistentSettings

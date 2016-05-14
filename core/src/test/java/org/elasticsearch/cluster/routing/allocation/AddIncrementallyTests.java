@@ -310,22 +310,6 @@ name|STARTED
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_class
 DECL|class|AddIncrementallyTests
 specifier|public
@@ -360,7 +344,9 @@ operator|.
 name|Builder
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|settings
@@ -937,7 +923,9 @@ operator|.
 name|Builder
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|settings
@@ -1333,6 +1321,16 @@ name|prev
 init|=
 name|routingTable
 decl_stmt|;
+name|logger
+operator|.
+name|error
+argument_list|(
+name|clusterState
+operator|.
+name|prettyPrint
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|routingTable
 operator|=
 name|service
@@ -1965,7 +1963,9 @@ operator|.
 name|Builder
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 decl_stmt|;
 name|settings
@@ -4320,7 +4320,7 @@ name|remove
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

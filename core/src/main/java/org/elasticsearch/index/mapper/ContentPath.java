@@ -97,16 +97,6 @@ name|offset
 operator|=
 name|offset
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|reset
-specifier|public
-name|void
-name|reset
-parameter_list|()
-block|{
 name|this
 operator|.
 name|index

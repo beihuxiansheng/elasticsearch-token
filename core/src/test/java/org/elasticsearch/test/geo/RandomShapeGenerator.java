@@ -1905,6 +1905,7 @@ literal|10e3
 argument_list|)
 return|;
 block|}
+comment|/** creates a small random rectangle by default to keep shape test performance at bay */
 DECL|method|xRandomRectangle
 specifier|public
 specifier|static
@@ -1930,7 +1931,7 @@ operator|.
 name|getWorldBounds
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 return|;
 block|}

@@ -436,22 +436,6 @@ name|AtomicLong
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
 begin_class
 DECL|class|MockRepository
 specifier|public
@@ -993,7 +977,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

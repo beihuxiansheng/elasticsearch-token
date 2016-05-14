@@ -320,9 +320,6 @@ expr_stmt|;
 name|Iterator
 argument_list|<
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|spanQueryBuilderIterator
 init|=
@@ -403,9 +400,13 @@ init|=
 operator|new
 name|SpanNearQueryBuilder
 argument_list|(
+operator|new
 name|SpanTermQueryBuilder
-operator|.
-name|PROTOTYPE
+argument_list|(
+literal|"field"
+argument_list|,
+literal|"value"
+argument_list|)
 argument_list|,
 literal|1
 argument_list|)

@@ -326,16 +326,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|atomic
@@ -484,7 +474,7 @@ name|clientSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -649,7 +639,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 index|]
 expr_stmt|;
 name|this
@@ -688,7 +679,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -701,9 +693,11 @@ name|nodeInfos
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 decl_stmt|;
 name|httpAddresses
 index|[
@@ -733,7 +727,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|dataNode
+name|isDataNode
 argument_list|(
 name|nodeInfo
 operator|.
@@ -754,7 +748,7 @@ if|if
 condition|(
 name|DiscoveryNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|(
 name|nodeInfo
 operator|.

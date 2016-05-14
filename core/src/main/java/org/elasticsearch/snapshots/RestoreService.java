@@ -452,7 +452,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -1431,7 +1431,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 init|=
 name|repository
@@ -1929,7 +1929,7 @@ name|settings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1946,7 +1946,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_INDEX_UUID
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -2214,7 +2214,7 @@ name|settings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2338,7 +2338,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2371,7 +2371,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|RestoreInProgress
@@ -2928,7 +2928,7 @@ name|normalizedChangeSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3561,7 +3561,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|RestoreInProgress
@@ -3584,7 +3584,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|UPDATE_RESTORE_ACTION_NAME
@@ -4969,7 +4969,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|)
 block|{
@@ -5299,7 +5299,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|,
 name|RestoreInProgress
@@ -5322,7 +5322,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|UPDATE_RESTORE_ACTION_NAME
@@ -5340,7 +5340,7 @@ specifier|private
 name|boolean
 name|failed
 parameter_list|(
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|,
 name|String

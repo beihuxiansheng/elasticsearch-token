@@ -75,19 +75,8 @@ DECL|interface|QueryBuilder
 specifier|public
 interface|interface
 name|QueryBuilder
-parameter_list|<
-name|QB
-extends|extends
-name|QueryBuilder
-parameter_list|<
-name|QB
-parameter_list|>
-parameter_list|>
 extends|extends
 name|NamedWriteable
-argument_list|<
-name|QB
-argument_list|>
 extends|,
 name|ToXContent
 block|{
@@ -113,9 +102,9 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Sets the arbitrary name to be assigned to the query (see named queries).      */
+comment|/**      * Sets the arbitrary name to be assigned to the query (see named queries).      * Implementers should return the concrete type of the      * {@link QueryBuilder} so that calls can be chained. This is done      * automatically when extending {@link AbstractQueryBuilder}.      */
 DECL|method|queryName
-name|QB
+name|QueryBuilder
 name|queryName
 parameter_list|(
 name|String
@@ -134,9 +123,9 @@ name|float
 name|boost
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      * Implementers should return the concrete type of the      * {@link QueryBuilder} so that calls can be chained. This is done      * automatically when extending {@link AbstractQueryBuilder}.      */
 DECL|method|boost
-name|QB
+name|QueryBuilder
 name|boost
 parameter_list|(
 name|float
@@ -153,9 +142,6 @@ comment|/**      * Rewrites this query builder into its primitive form. By defau
 DECL|method|rewrite
 specifier|default
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -172,15 +158,9 @@ comment|/**      * Rewrites the given query into its primitive form. Queries tha
 DECL|method|rewriteQuery
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewriteQuery
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|original
 parameter_list|,
 name|QueryRewriteContext

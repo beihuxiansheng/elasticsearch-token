@@ -365,11 +365,6 @@ specifier|final
 name|int
 name|docsEnumFlag
 decl_stmt|;
-DECL|field|numDocs
-specifier|protected
-name|int
-name|numDocs
-decl_stmt|;
 DECL|method|FilterableTermsEnum
 specifier|public
 name|FilterableTermsEnum
@@ -426,23 +421,6 @@ name|docsEnumFlag
 operator|=
 name|docsEnumFlag
 expr_stmt|;
-if|if
-condition|(
-name|filter
-operator|==
-literal|null
-condition|)
-block|{
-comment|// Important - need to use the doc count that includes deleted docs
-comment|// or we have this issue: https://github.com/elastic/elasticsearch/issues/7951
-name|numDocs
-operator|=
-name|reader
-operator|.
-name|maxDoc
-argument_list|()
-expr_stmt|;
-block|}
 name|List
 argument_list|<
 name|LeafReaderContext
@@ -671,15 +649,6 @@ name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Count how many docs are in our filtered set
-comment|// TODO make this lazy-loaded only for those that need it?
-name|numDocs
-operator|+=
-name|bits
-operator|.
-name|cardinality
-argument_list|()
-expr_stmt|;
 block|}
 name|enums
 operator|.
@@ -713,16 +682,6 @@ argument_list|()
 index|]
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getNumDocs
-specifier|public
-name|int
-name|getNumDocs
-parameter_list|()
-block|{
-return|return
-name|numDocs
-return|;
 block|}
 annotation|@
 name|Override

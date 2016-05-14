@@ -246,22 +246,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|CoreMatchers
@@ -378,7 +362,9 @@ operator|.
 name|Builder
 name|builder
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -455,7 +441,7 @@ decl_stmt|;
 try|try
 init|(
 name|TransportClient
-name|transportClient
+name|client
 init|=
 name|TransportClient
 operator|.
@@ -474,7 +460,7 @@ name|build
 argument_list|()
 init|)
 block|{
-name|transportClient
+name|client
 operator|.
 name|addTransportAddresses
 argument_list|(
@@ -483,7 +469,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|transportClient
+name|client
 operator|.
 name|connectedNodes
 argument_list|()
@@ -561,7 +547,7 @@ condition|)
 block|{
 name|clusterState
 operator|=
-name|transportClient
+name|client
 operator|.
 name|admin
 argument_list|()
@@ -593,13 +579,13 @@ operator|new
 name|PlainListenableActionFuture
 argument_list|<>
 argument_list|(
-name|transportClient
+name|client
 operator|.
 name|threadPool
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|transportClient
+name|client
 operator|.
 name|admin
 argument_list|()
@@ -632,7 +618,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|size
+name|getSize
 argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
@@ -645,7 +631,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|transportClient
+name|client
 operator|.
 name|connectedNodes
 argument_list|()

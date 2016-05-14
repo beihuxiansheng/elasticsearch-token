@@ -206,7 +206,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -1467,7 +1467,7 @@ comment|// 3. now send the sync request to all the shards
 name|String
 name|syncId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|base64UUID
 argument_list|()
@@ -2574,7 +2574,7 @@ name|putIfAbsent
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|,
 name|response

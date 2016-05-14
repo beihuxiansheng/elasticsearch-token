@@ -88,9 +88,6 @@ class|class
 name|SignificanceHeuristic
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|SignificanceHeuristic
-argument_list|>
 implements|,
 name|ToXContent
 block|{

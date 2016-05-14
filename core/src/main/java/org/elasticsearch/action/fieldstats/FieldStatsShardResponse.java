@@ -127,6 +127,9 @@ argument_list|<
 name|String
 argument_list|,
 name|FieldStats
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|fieldStats
 decl_stmt|;
@@ -147,6 +150,9 @@ argument_list|<
 name|String
 argument_list|,
 name|FieldStats
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|fieldStats
 parameter_list|)
@@ -170,6 +176,9 @@ argument_list|<
 name|String
 argument_list|,
 name|FieldStats
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|getFieldStats
 parameter_list|()
@@ -244,7 +253,7 @@ name|value
 init|=
 name|FieldStats
 operator|.
-name|read
+name|readFrom
 argument_list|(
 name|in
 argument_list|)
@@ -299,6 +308,9 @@ argument_list|<
 name|String
 argument_list|,
 name|FieldStats
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|entry
 range|:

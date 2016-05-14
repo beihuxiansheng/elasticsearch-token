@@ -447,6 +447,8 @@ specifier|public
 name|void
 name|testApplyRelevantHeaders
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|ThreadContext

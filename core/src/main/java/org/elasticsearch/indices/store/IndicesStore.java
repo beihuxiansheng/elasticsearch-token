@@ -1085,10 +1085,10 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 if|if
@@ -2507,9 +2507,8 @@ argument_list|()
 expr_stmt|;
 name|node
 operator|=
+operator|new
 name|DiscoveryNode
-operator|.
-name|readNode
 argument_list|(
 name|in
 argument_list|)

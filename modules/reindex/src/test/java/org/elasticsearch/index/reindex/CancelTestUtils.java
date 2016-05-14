@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ListenableActionFuture
 import|;
 end_import
@@ -383,7 +371,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utilities for testing reindex and update-by-query cancelation. This whole class isn't thread safe. Luckily we run out tests in separate  * jvms.  */
+comment|/**  * Utilities for testing reindex and update-by-query cancellation. This whole class isn't thread safe. Luckily we run our tests in separate  * jvms.  */
 end_comment
 
 begin_class
@@ -447,7 +435,7 @@ argument_list|>
 parameter_list|,
 name|Response
 extends|extends
-name|ActionResponse
+name|BulkIndexByScrollResponse
 parameter_list|,
 name|Builder
 extends|extends

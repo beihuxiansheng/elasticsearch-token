@@ -84,6 +84,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|aggregations
 operator|.
 name|Aggregator
@@ -344,6 +356,9 @@ parameter_list|,
 name|ValuesSource
 name|valuesSource
 parameter_list|,
+name|DocValueFormat
+name|format
+parameter_list|,
 name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
@@ -390,6 +405,8 @@ argument_list|,
 name|valuesSource
 argument_list|,
 literal|null
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
@@ -532,10 +549,8 @@ name|supersetSize
 init|=
 name|termsAggFactory
 operator|.
-name|prepareBackground
-argument_list|(
-name|context
-argument_list|)
+name|getSupersetNumDocs
+argument_list|()
 decl_stmt|;
 name|long
 name|subsetSize
@@ -624,6 +639,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|null
+argument_list|,
+name|format
 argument_list|)
 expr_stmt|;
 block|}
@@ -798,6 +815,8 @@ name|supersetSize
 argument_list|,
 name|name
 argument_list|,
+name|format
+argument_list|,
 name|bucketCountThresholds
 operator|.
 name|getRequiredSize
@@ -870,6 +889,8 @@ argument_list|,
 name|supersetSize
 argument_list|,
 name|name
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 operator|.

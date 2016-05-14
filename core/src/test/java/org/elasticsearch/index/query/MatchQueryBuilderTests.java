@@ -124,6 +124,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|PointRangeQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -139,6 +153,34 @@ operator|.
 name|search
 operator|.
 name|TermQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -213,6 +255,22 @@ operator|.
 name|search
 operator|.
 name|MatchQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|search
+operator|.
+name|MatchQuery
+operator|.
+name|Type
 import|;
 end_import
 
@@ -491,21 +549,6 @@ argument_list|)
 decl_stmt|;
 name|matchQuery
 operator|.
-name|type
-argument_list|(
-name|randomFrom
-argument_list|(
-name|MatchQuery
-operator|.
-name|Type
-operator|.
-name|values
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|matchQuery
-operator|.
 name|operator
 argument_list|(
 name|randomFrom
@@ -540,25 +583,15 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|matchQuery
+name|fieldName
 operator|.
-name|slop
+name|equals
 argument_list|(
-name|randomIntBetween
-argument_list|(
-literal|0
-argument_list|,
-literal|10
+name|BOOLEAN_FIELD_NAME
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
+operator|==
+literal|false
+operator|&&
 name|randomBoolean
 argument_list|()
 condition|)
@@ -589,6 +622,25 @@ argument_list|(
 literal|0
 argument_list|,
 literal|10
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|matchQuery
+operator|.
+name|maxExpansions
+argument_list|(
+name|randomIntBetween
+argument_list|(
+literal|0
+argument_list|,
+literal|1000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -813,7 +865,27 @@ name|or
 argument_list|(
 name|instanceOf
 argument_list|(
+name|MatchNoDocsQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+operator|.
+name|or
+argument_list|(
+name|instanceOf
+argument_list|(
 name|LegacyNumericRangeQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+operator|.
+name|or
+argument_list|(
+name|instanceOf
+argument_list|(
+name|PointRangeQuery
 operator|.
 name|class
 argument_list|)
@@ -877,6 +949,16 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+operator|.
+name|or
+argument_list|(
+name|instanceOf
+argument_list|(
+name|PointRangeQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -932,6 +1014,16 @@ argument_list|(
 name|instanceOf
 argument_list|(
 name|LegacyNumericRangeQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+operator|.
+name|or
+argument_list|(
+name|instanceOf
+argument_list|(
+name|PointRangeQuery
 operator|.
 name|class
 argument_list|)
@@ -1562,6 +1654,15 @@ literal|.1
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|query
+operator|instanceof
+name|PointRangeQuery
+condition|)
+block|{
+comment|// TODO
+block|}
 block|}
 DECL|method|testIllegalValues
 specifier|public
@@ -1809,187 +1910,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testPhrasePrefixMatchQuery
-specifier|public
-name|void
-name|testPhrasePrefixMatchQuery
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|String
-name|json1
-init|=
-literal|"{\n"
-operator|+
-literal|"    \"match_phrase_prefix\" : {\n"
-operator|+
-literal|"        \"message\" : \"this is a test\"\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"}"
-decl_stmt|;
-name|String
-name|expected
-init|=
-literal|"{\n"
-operator|+
-literal|"  \"match\" : {\n"
-operator|+
-literal|"    \"message\" : {\n"
-operator|+
-literal|"      \"query\" : \"this is a test\",\n"
-operator|+
-literal|"      \"type\" : \"phrase_prefix\",\n"
-operator|+
-literal|"      \"operator\" : \"OR\",\n"
-operator|+
-literal|"      \"slop\" : 0,\n"
-operator|+
-literal|"      \"prefix_length\" : 0,\n"
-operator|+
-literal|"      \"max_expansions\" : 50,\n"
-operator|+
-literal|"      \"fuzzy_transpositions\" : true,\n"
-operator|+
-literal|"      \"lenient\" : false,\n"
-operator|+
-literal|"      \"zero_terms_query\" : \"NONE\",\n"
-operator|+
-literal|"      \"boost\" : 1.0\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"  }\n"
-operator|+
-literal|"}"
-decl_stmt|;
-name|MatchQueryBuilder
-name|qb
-init|=
-operator|(
-name|MatchQueryBuilder
-operator|)
-name|parseQuery
-argument_list|(
-name|json1
-argument_list|)
-decl_stmt|;
-name|checkGeneratedJson
-argument_list|(
-name|expected
-argument_list|,
-name|qb
-argument_list|)
-expr_stmt|;
-name|String
-name|json2
-init|=
-literal|"{\n"
-operator|+
-literal|"    \"match\" : {\n"
-operator|+
-literal|"        \"message\" : {\n"
-operator|+
-literal|"            \"query\" : \"this is a test\",\n"
-operator|+
-literal|"            \"type\" : \"phrase_prefix\"\n"
-operator|+
-literal|"        }\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"}"
-decl_stmt|;
-name|qb
-operator|=
-operator|(
-name|MatchQueryBuilder
-operator|)
-name|parseQuery
-argument_list|(
-name|json2
-argument_list|)
-expr_stmt|;
-name|checkGeneratedJson
-argument_list|(
-name|expected
-argument_list|,
-name|qb
-argument_list|)
-expr_stmt|;
-name|String
-name|json3
-init|=
-literal|"{\n"
-operator|+
-literal|"    \"match_phrase_prefix\" : {\n"
-operator|+
-literal|"        \"message\" : {\n"
-operator|+
-literal|"            \"query\" : \"this is a test\",\n"
-operator|+
-literal|"            \"max_expansions\" : 10\n"
-operator|+
-literal|"        }\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"}"
-decl_stmt|;
-name|expected
-operator|=
-literal|"{\n"
-operator|+
-literal|"  \"match\" : {\n"
-operator|+
-literal|"    \"message\" : {\n"
-operator|+
-literal|"      \"query\" : \"this is a test\",\n"
-operator|+
-literal|"      \"type\" : \"phrase_prefix\",\n"
-operator|+
-literal|"      \"operator\" : \"OR\",\n"
-operator|+
-literal|"      \"slop\" : 0,\n"
-operator|+
-literal|"      \"prefix_length\" : 0,\n"
-operator|+
-literal|"      \"max_expansions\" : 10,\n"
-operator|+
-literal|"      \"fuzzy_transpositions\" : true,\n"
-operator|+
-literal|"      \"lenient\" : false,\n"
-operator|+
-literal|"      \"zero_terms_query\" : \"NONE\",\n"
-operator|+
-literal|"      \"boost\" : 1.0\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"  }\n"
-operator|+
-literal|"}"
-expr_stmt|;
-name|qb
-operator|=
-operator|(
-name|MatchQueryBuilder
-operator|)
-name|parseQuery
-argument_list|(
-name|json3
-argument_list|)
-expr_stmt|;
-name|checkGeneratedJson
-argument_list|(
-name|expected
-argument_list|,
-name|qb
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testSimpleMatchQuery
 specifier|public
 name|void
@@ -2009,11 +1929,7 @@ literal|"    \"message\" : {\n"
 operator|+
 literal|"      \"query\" : \"to be or not to be\",\n"
 operator|+
-literal|"      \"type\" : \"boolean\",\n"
-operator|+
 literal|"      \"operator\" : \"AND\",\n"
-operator|+
-literal|"      \"slop\" : 0,\n"
 operator|+
 literal|"      \"prefix_length\" : 0,\n"
 operator|+
@@ -2077,6 +1993,437 @@ name|operator
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testLegacyMatchPhrasePrefixQuery
+specifier|public
+name|void
+name|testLegacyMatchPhrasePrefixQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|MatchQueryBuilder
+name|expectedQB
+init|=
+operator|new
+name|MatchQueryBuilder
+argument_list|(
+literal|"message"
+argument_list|,
+literal|"to be or not to be"
+argument_list|)
+decl_stmt|;
+name|expectedQB
+operator|.
+name|type
+argument_list|(
+name|Type
+operator|.
+name|PHRASE_PREFIX
+argument_list|)
+expr_stmt|;
+name|expectedQB
+operator|.
+name|slop
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+name|expectedQB
+operator|.
+name|maxExpansions
+argument_list|(
+literal|30
+argument_list|)
+expr_stmt|;
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"to be or not to be\",\n"
+operator|+
+literal|"      \"type\" : \"phrase_prefix\",\n"
+operator|+
+literal|"      \"operator\" : \"OR\",\n"
+operator|+
+literal|"      \"slop\" : 2,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 30,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MatchQueryBuilder
+name|qb
+init|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+name|expectedQB
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|assertSerialization
+argument_list|(
+name|qb
+argument_list|)
+expr_stmt|;
+comment|// Now check with strict parsing an exception is thrown
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected query to fail with strict parsing"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testLegacyMatchPhraseQuery
+specifier|public
+name|void
+name|testLegacyMatchPhraseQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|MatchQueryBuilder
+name|expectedQB
+init|=
+operator|new
+name|MatchQueryBuilder
+argument_list|(
+literal|"message"
+argument_list|,
+literal|"to be or not to be"
+argument_list|)
+decl_stmt|;
+name|expectedQB
+operator|.
+name|type
+argument_list|(
+name|Type
+operator|.
+name|PHRASE
+argument_list|)
+expr_stmt|;
+name|expectedQB
+operator|.
+name|slop
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"match\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"to be or not to be\",\n"
+operator|+
+literal|"      \"type\" : \"phrase\",\n"
+operator|+
+literal|"      \"operator\" : \"OR\",\n"
+operator|+
+literal|"      \"slop\" : 2,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 50,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MatchQueryBuilder
+name|qb
+init|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
+name|checkGeneratedJson
+argument_list|(
+name|json
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|json
+argument_list|,
+name|expectedQB
+argument_list|,
+name|qb
+argument_list|)
+expr_stmt|;
+name|assertSerialization
+argument_list|(
+name|qb
+argument_list|)
+expr_stmt|;
+comment|// Now check with strict parsing an exception is thrown
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected query to fail with strict parsing"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Deprecated field [type] used, replaced by [match_phrase and match_phrase_prefix query]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testLegacyFuzzyMatchQuery
+specifier|public
+name|void
+name|testLegacyFuzzyMatchQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|MatchQueryBuilder
+name|expectedQB
+init|=
+operator|new
+name|MatchQueryBuilder
+argument_list|(
+literal|"message"
+argument_list|,
+literal|"to be or not to be"
+argument_list|)
+decl_stmt|;
+name|String
+name|type
+init|=
+name|randomFrom
+argument_list|(
+literal|"fuzzy_match"
+argument_list|,
+literal|"match_fuzzy"
+argument_list|)
+decl_stmt|;
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \""
+operator|+
+name|type
+operator|+
+literal|"\" : {\n"
+operator|+
+literal|"    \"message\" : {\n"
+operator|+
+literal|"      \"query\" : \"to be or not to be\",\n"
+operator|+
+literal|"      \"operator\" : \"OR\",\n"
+operator|+
+literal|"      \"slop\" : 0,\n"
+operator|+
+literal|"      \"prefix_length\" : 0,\n"
+operator|+
+literal|"      \"max_expansions\" : 50,\n"
+operator|+
+literal|"      \"fuzzy_transpositions\" : true,\n"
+operator|+
+literal|"      \"lenient\" : false,\n"
+operator|+
+literal|"      \"zero_terms_query\" : \"NONE\",\n"
+operator|+
+literal|"      \"boost\" : 1.0\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|MatchQueryBuilder
+name|qb
+init|=
+operator|(
+name|MatchQueryBuilder
+operator|)
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|qb
+argument_list|,
+name|equalTo
+argument_list|(
+name|expectedQB
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Now check with strict parsing an exception is thrown
+try|try
+block|{
+name|parseQuery
+argument_list|(
+name|json
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Expected query to fail with strict parsing"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"Deprecated field ["
+operator|+
+name|type
+operator|+
+literal|"] used, expected [match] instead"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

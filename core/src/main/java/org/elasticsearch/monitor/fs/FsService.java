@@ -243,9 +243,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using probe [{}] with refresh_interval [{}]"
-argument_list|,
-name|probe
+literal|"using refresh_interval [{}]"
 argument_list|,
 name|refreshInterval
 argument_list|)
@@ -326,7 +324,11 @@ expr_stmt|;
 return|return
 operator|new
 name|FsInfo
-argument_list|()
+argument_list|(
+literal|0
+argument_list|,
+literal|null
+argument_list|)
 return|;
 block|}
 block|}

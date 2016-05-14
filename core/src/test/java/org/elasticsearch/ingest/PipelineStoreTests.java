@@ -310,13 +310,25 @@ end_import
 
 begin_import
 import|import static
-name|org
+name|java
 operator|.
-name|hamcrest
+name|util
 operator|.
-name|Matchers
+name|Collections
 operator|.
-name|equalTo
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
 import|;
 end_import
 
@@ -328,7 +340,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|instanceOf
+name|equalTo
 import|;
 end_import
 
@@ -1734,6 +1746,12 @@ argument_list|(
 literal|"_id"
 argument_list|)
 argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
@@ -1752,6 +1770,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"_id"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -1972,6 +1996,12 @@ name|LocalTransportAddress
 argument_list|(
 literal|"_id"
 argument_list|)
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.

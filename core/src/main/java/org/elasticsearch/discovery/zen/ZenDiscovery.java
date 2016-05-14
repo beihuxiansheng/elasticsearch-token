@@ -1463,7 +1463,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|size
@@ -1567,7 +1567,9 @@ name|settings
 argument_list|,
 name|transportService
 argument_list|,
-name|this
+name|clusterService
+operator|::
+name|state
 argument_list|,
 operator|new
 name|NewPendingClusterStateListener
@@ -1834,7 +1836,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|==
 literal|null
@@ -1848,7 +1850,7 @@ condition|(
 operator|!
 name|nodes
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -1860,12 +1862,12 @@ name|sendLeaveRequestBlocking
 argument_list|(
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|TimeValue
@@ -1893,7 +1895,7 @@ name|e
 argument_list|,
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1912,7 +1914,7 @@ name|nextPossibleMasters
 argument_list|(
 name|nodes
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|values
@@ -1933,7 +1935,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 operator|.
 name|equals
@@ -1952,7 +1954,7 @@ name|sendLeaveRequest
 argument_list|(
 name|nodes
 operator|.
-name|localNode
+name|getLocalNode
 argument_list|()
 argument_list|,
 name|possibleMaster
@@ -1975,7 +1977,7 @@ name|e
 argument_list|,
 name|nodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|possibleMaster
@@ -2056,7 +2058,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 return|;
 block|}
@@ -2122,7 +2124,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -2625,7 +2627,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|==
 literal|null
@@ -2659,7 +2661,7 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
 name|equals
@@ -3044,7 +3046,7 @@ name|remove
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3187,7 +3189,7 @@ argument_list|(
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)
@@ -3282,7 +3284,7 @@ name|get
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|==
@@ -3321,7 +3323,7 @@ name|remove
 argument_list|(
 name|node
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3745,7 +3747,7 @@ condition|(
 operator|!
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 operator|.
 name|equals
@@ -3755,7 +3757,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -3783,7 +3785,7 @@ name|remove
 argument_list|(
 name|masterNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 operator|.
@@ -3963,7 +3965,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|!=
 literal|null
@@ -3994,7 +3996,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 condition|)
 block|{
@@ -4008,7 +4010,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|newClusterState
@@ -4059,7 +4061,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 condition|)
@@ -4073,7 +4075,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 literal|"new cluster state received and we are monitoring the wrong master ["
@@ -4115,7 +4117,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4453,6 +4455,7 @@ expr_stmt|;
 block|}
 comment|/**      * In the case we follow an elected master the new cluster state needs to have the same elected master and      * the new cluster state version needs to be equal or higher than our cluster state version.      * If the first condition fails we reject the cluster state and throw an error.      * If the second condition fails we ignore the cluster state.      */
 DECL|method|shouldIgnoreOrRejectNewClusterState
+specifier|public
 specifier|static
 name|boolean
 name|shouldIgnoreOrRejectNewClusterState
@@ -4479,6 +4482,7 @@ argument_list|,
 name|newClusterState
 argument_list|)
 expr_stmt|;
+comment|// reject cluster states that are not new from the same master
 if|if
 condition|(
 name|currentState
@@ -4487,9 +4491,85 @@ name|supersedes
 argument_list|(
 name|newClusterState
 argument_list|)
+operator|||
+operator|(
+name|newClusterState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|getMasterNodeId
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|currentState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|getMasterNodeId
+argument_list|()
+argument_list|)
+operator|&&
+name|currentState
+operator|.
+name|version
+argument_list|()
+operator|==
+name|newClusterState
+operator|.
+name|version
+argument_list|()
+operator|)
 condition|)
 block|{
 comment|// if the new state has a smaller version, and it has the same master node, then no need to process it
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"received a cluster state that is not newer than the current one, ignoring (received {}, current {})"
+argument_list|,
+name|newClusterState
+operator|.
+name|version
+argument_list|()
+argument_list|,
+name|currentState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+comment|// reject older cluster states if we are following a master
+if|if
+condition|(
+name|currentState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|getMasterNodeId
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|newClusterState
+operator|.
+name|version
+argument_list|()
+operator|<
+name|currentState
+operator|.
+name|version
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
@@ -4511,12 +4591,9 @@ return|return
 literal|true
 return|;
 block|}
-else|else
-block|{
 return|return
 literal|false
 return|;
-block|}
 block|}
 comment|/**      * In the case we follow an elected master the new cluster state needs to have the same elected master      * This method checks for this and throws an exception if needed      */
 DECL|method|validateStateIsFromCurrentMaster
@@ -4539,7 +4616,7 @@ if|if
 condition|(
 name|currentNodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|==
 literal|null
@@ -4552,7 +4629,7 @@ condition|(
 operator|!
 name|currentNodes
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 operator|.
 name|equals
@@ -4562,7 +4639,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodeId
+name|getMasterNodeId
 argument_list|()
 argument_list|)
 condition|)
@@ -4578,12 +4655,12 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|,
 name|currentNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4598,14 +4675,14 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|", current "
 operator|+
 name|currentNodes
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|+
 literal|")"
@@ -4641,7 +4718,7 @@ name|addressSupported
 argument_list|(
 name|node
 operator|.
-name|address
+name|getAddress
 argument_list|()
 operator|.
 name|getClass
@@ -4767,6 +4844,8 @@ operator|.
 name|warn
 argument_list|(
 literal|"failed to validate incoming join request from node [{}]"
+argument_list|,
+name|e
 argument_list|,
 name|node
 argument_list|)
@@ -4918,9 +4997,7 @@ operator|.
 name|PingResponse
 argument_list|>
 name|pingResponses
-decl_stmt|;
-name|pingResponses
-operator|=
+init|=
 name|filterPingResponses
 argument_list|(
 name|fullPingResponses
@@ -4929,7 +5006,7 @@ name|masterElectionIgnoreNonMasters
 argument_list|,
 name|logger
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 specifier|final
 name|DiscoveryNode
 name|localNode
@@ -5027,7 +5104,7 @@ if|if
 condition|(
 name|localNode
 operator|.
-name|masterNode
+name|isMasterNode
 argument_list|()
 condition|)
 block|{
@@ -5499,7 +5576,7 @@ return|return
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 return|;
 block|}
@@ -5528,7 +5605,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeMaster
+name|isLocalNodeElectedMaster
 argument_list|()
 operator|:
 literal|"handleAnotherMaster called but current node is not a master"
@@ -5621,7 +5698,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|localNodeId
+name|getLocalNodeId
 argument_list|()
 argument_list|)
 argument_list|,

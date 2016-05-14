@@ -358,8 +358,6 @@ name|AbstractBaseReindexRestHandler
 argument_list|<
 name|UpdateByQueryRequest
 argument_list|,
-name|BulkIndexByScrollResponse
-argument_list|,
 name|TransportUpdateByQueryAction
 argument_list|>
 block|{
@@ -816,6 +814,12 @@ argument_list|,
 name|internalRequest
 argument_list|,
 name|channel
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

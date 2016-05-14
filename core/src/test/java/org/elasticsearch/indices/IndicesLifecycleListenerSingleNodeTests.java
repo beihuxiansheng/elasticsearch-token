@@ -252,6 +252,30 @@ end_import
 
 begin_import
 import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -631,11 +655,7 @@ expr_stmt|;
 name|ShardRouting
 name|newRouting
 init|=
-operator|new
-name|ShardRouting
-argument_list|(
 name|shardRouting
-argument_list|)
 decl_stmt|;
 name|String
 name|nodeId
@@ -645,6 +665,8 @@ operator|.
 name|currentNodeId
 argument_list|()
 decl_stmt|;
+name|newRouting
+operator|=
 name|ShardRoutingHelper
 operator|.
 name|moveToUnassigned
@@ -664,6 +686,8 @@ literal|"boom"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|newRouting
+operator|=
 name|ShardRoutingHelper
 operator|.
 name|initialize
@@ -704,6 +728,12 @@ argument_list|,
 name|DummyTransportAddress
 operator|.
 name|INSTANCE
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|Version
 operator|.
@@ -753,12 +783,6 @@ argument_list|)
 expr_stmt|;
 name|newRouting
 operator|=
-operator|new
-name|ShardRouting
-argument_list|(
-name|newRouting
-argument_list|)
-expr_stmt|;
 name|ShardRoutingHelper
 operator|.
 name|moveToStarted

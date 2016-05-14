@@ -285,6 +285,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"1 + 2"
 argument_list|,
 name|Collections
@@ -457,6 +459,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"obj1"
 argument_list|,
 name|Collections
@@ -570,6 +574,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"obj1.l[0]"
 argument_list|,
 name|Collections
@@ -653,6 +659,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"var obj1 = {}; obj1.prop1 = 'value1'; obj1.obj2 = {}; obj1.obj2.prop2 = 'value2'; obj1"
 argument_list|,
 name|Collections
@@ -851,6 +859,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"ctx.obj2 = {}; ctx.obj2.prop2 = 'value2'; ctx.obj1.prop1 = 'uvalue1'"
 argument_list|,
 name|Collections
@@ -1048,6 +1058,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"ctx.doc.field1 = ['value1', 'value2']"
 argument_list|,
 name|Collections
@@ -1294,6 +1306,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"l.length"
 argument_list|,
 name|Collections
@@ -1350,6 +1364,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"l[0]"
 argument_list|,
 name|Collections
@@ -1403,6 +1419,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"l[3]"
 argument_list|,
 name|Collections
@@ -1504,6 +1522,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"l[3].prop1"
 argument_list|,
 name|Collections
@@ -1591,6 +1611,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"ctx.value"
 argument_list|,
 name|Collections
@@ -1725,6 +1747,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"value"
 argument_list|,
 name|Collections

@@ -849,9 +849,6 @@ parameter_list|(
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queryBuilders
 parameter_list|,
@@ -880,9 +877,6 @@ decl_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 range|:
 name|queryBuilders
@@ -984,9 +978,6 @@ literal|0
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|must
 init|=
 name|tempQueryBuilder
@@ -1001,7 +992,7 @@ argument_list|)
 decl_stmt|;
 name|contentString
 operator|+=
-literal|"must: "
+literal|"\"must\": "
 operator|+
 name|must
 operator|.
@@ -1032,9 +1023,6 @@ literal|0
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|mustNot
 init|=
 name|tempQueryBuilder
@@ -1053,9 +1041,9 @@ operator|(
 name|randomBoolean
 argument_list|()
 condition|?
-literal|"must_not: "
+literal|"\"must_not\": "
 else|:
-literal|"mustNot: "
+literal|"\"mustNot\": "
 operator|)
 operator|+
 name|mustNot
@@ -1087,9 +1075,6 @@ literal|0
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|should
 init|=
 name|tempQueryBuilder
@@ -1104,7 +1089,7 @@ argument_list|)
 decl_stmt|;
 name|contentString
 operator|+=
-literal|"should: "
+literal|"\"should\": "
 operator|+
 name|should
 operator|.
@@ -1135,9 +1120,6 @@ literal|0
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filter
 init|=
 name|tempQueryBuilder
@@ -1152,7 +1134,7 @@ argument_list|)
 decl_stmt|;
 name|contentString
 operator|+=
-literal|"filter: "
+literal|"\"filter\": "
 operator|+
 name|filter
 operator|.
@@ -2614,16 +2596,13 @@ argument_list|)
 expr_stmt|;
 block|}
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|boolQueryBuilder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2904,16 +2883,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|boolQueryBuilder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2963,16 +2939,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrittenAgain
 init|=
 name|rewritten
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2991,7 +2964,7 @@ name|rewriteQuery
 argument_list|(
 name|boolQueryBuilder
 argument_list|,
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|,

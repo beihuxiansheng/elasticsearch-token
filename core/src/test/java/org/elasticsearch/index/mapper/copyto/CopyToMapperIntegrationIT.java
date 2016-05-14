@@ -768,6 +768,13 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
+literal|"fielddata"
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|field
+argument_list|(
 literal|"copy_to"
 argument_list|,
 literal|"{name}_raw"

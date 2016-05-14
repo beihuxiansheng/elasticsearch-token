@@ -306,9 +306,6 @@ decl_stmt|;
 DECL|field|queryBuilder
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 decl_stmt|;
 DECL|field|size
@@ -386,9 +383,6 @@ name|PercolateSourceBuilder
 name|setQueryBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{

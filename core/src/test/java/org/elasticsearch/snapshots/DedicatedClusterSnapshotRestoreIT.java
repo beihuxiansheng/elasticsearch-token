@@ -482,7 +482,7 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
-name|RestChannel
+name|AbstractRestChannel
 import|;
 end_import
 
@@ -752,22 +752,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|hamcrest
@@ -997,7 +981,9 @@ expr_stmt|;
 name|Settings
 name|nodeSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1123,7 +1109,7 @@ name|setPersistentSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1322,7 +1308,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1488,7 +1474,7 @@ name|setPersistentSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1995,7 +1981,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -2374,7 +2360,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3014,7 +3000,9 @@ literal|"test-idx"
 argument_list|,
 literal|2
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3150,7 +3138,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3397,7 +3385,9 @@ literal|"test-idx"
 argument_list|,
 literal|2
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3532,7 +3522,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -3874,7 +3864,9 @@ literal|"test-idx-some"
 argument_list|,
 literal|2
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4046,7 +4038,9 @@ literal|"test-idx-all"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4085,7 +4079,9 @@ literal|"test-idx-closed"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4242,7 +4238,9 @@ literal|"test-idx-none"
 argument_list|,
 literal|1
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -4308,7 +4306,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5558,7 +5556,9 @@ expr_stmt|;
 name|Settings
 name|nodeSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5637,7 +5637,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -5688,7 +5688,9 @@ literal|"test-idx"
 argument_list|,
 literal|2
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6151,7 +6153,9 @@ argument_list|()
 operator|.
 name|startNode
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6208,7 +6212,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6259,7 +6263,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6286,7 +6290,9 @@ block|{
 name|Settings
 name|nodeSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6339,7 +6345,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6443,7 +6449,7 @@ argument_list|(
 name|getRepoRequest
 argument_list|,
 operator|new
-name|RestChannel
+name|AbstractRestChannel
 argument_list|(
 name|getRepoRequest
 argument_list|,
@@ -6601,7 +6607,7 @@ argument_list|(
 name|clusterStateRequest
 argument_list|,
 operator|new
-name|RestChannel
+name|AbstractRestChannel
 argument_list|(
 name|clusterStateRequest
 argument_list|,
@@ -6741,7 +6747,9 @@ decl_stmt|;
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -6829,7 +6837,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7449,7 +7457,9 @@ block|{
 name|Settings
 name|masterSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7470,7 +7480,9 @@ decl_stmt|;
 name|Settings
 name|dataSettings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7565,7 +7577,7 @@ name|setSettings
 argument_list|(
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -7610,7 +7622,9 @@ literal|"test-idx"
 argument_list|,
 literal|0
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -8139,7 +8153,9 @@ name|name
 argument_list|,
 literal|0
 argument_list|,
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

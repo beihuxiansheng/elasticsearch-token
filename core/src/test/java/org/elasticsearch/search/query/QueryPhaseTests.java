@@ -589,7 +589,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|getRandom
+name|random
 argument_list|()
 argument_list|,
 name|dir

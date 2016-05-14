@@ -320,16 +320,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -361,6 +351,42 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|disjoint
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptyMap
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
 import|;
 end_import
 
@@ -826,8 +852,6 @@ block|{
 comment|// We check if we can find at least one group name or one group id in groups.
 if|if
 condition|(
-name|Collections
-operator|.
 name|disjoint
 argument_list|(
 name|securityGroupNames
@@ -835,8 +859,6 @@ argument_list|,
 name|groups
 argument_list|)
 operator|&&
-name|Collections
-operator|.
 name|disjoint
 argument_list|(
 name|securityGroupIds
@@ -1045,6 +1067,12 @@ name|addresses
 index|[
 name|i
 index|]
+argument_list|,
+name|emptyMap
+argument_list|()
+argument_list|,
+name|emptySet
+argument_list|()
 argument_list|,
 name|version
 operator|.

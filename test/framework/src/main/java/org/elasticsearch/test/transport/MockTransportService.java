@@ -34,6 +34,30 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -271,6 +295,20 @@ operator|.
 name|concurrent
 operator|.
 name|ConcurrentCollections
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|breaker
+operator|.
+name|NoneCircuitBreakerService
 import|;
 end_import
 
@@ -658,6 +696,9 @@ name|version
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|ClusterName
+name|clusterName
 parameter_list|)
 block|{
 name|NamedWriteableRegistry
@@ -680,6 +721,10 @@ argument_list|,
 name|version
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+operator|new
+name|NoneCircuitBreakerService
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -691,6 +736,8 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterName
 argument_list|)
 return|;
 block|}
@@ -708,6 +755,9 @@ name|version
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|ClusterName
+name|clusterName
 parameter_list|)
 block|{
 name|NamedWriteableRegistry
@@ -740,6 +790,10 @@ argument_list|,
 name|version
 argument_list|,
 name|namedWriteableRegistry
+argument_list|,
+operator|new
+name|NoneCircuitBreakerService
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -753,6 +807,8 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterName
 argument_list|)
 return|;
 block|}
@@ -776,6 +832,9 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|ClusterName
+name|clusterName
 parameter_list|)
 block|{
 name|super
@@ -789,6 +848,8 @@ name|transport
 argument_list|)
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterName
 argument_list|)
 expr_stmt|;
 name|this
@@ -2021,7 +2082,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a new delegate transport that is used for communication with the given transport service.      *      * @return<tt>true</tt> iff no other delegate was registered for any of the addresses bound by transport service, otherwise<tt>false</tt>      */
+comment|/**      * Adds a new delegate transport that is used for communication with the given transport service.      *      * @return<tt>true</tt> iff no other delegate was registered for any of the addresses bound by transport service.      */
 DECL|method|addDelegate
 specifier|public
 name|boolean
@@ -2064,7 +2125,7 @@ return|return
 name|noRegistered
 return|;
 block|}
-comment|/**      * Adds a new delegate transport that is used for communication with the given transport address.      *      * @return<tt>true</tt> iff no other delegate was registered for this address before, otherwise<tt>false</tt>      */
+comment|/**      * Adds a new delegate transport that is used for communication with the given transport address.      *      * @return<tt>true</tt> iff no other delegate was registered for this address before.      */
 DECL|method|addDelegate
 specifier|public
 name|boolean

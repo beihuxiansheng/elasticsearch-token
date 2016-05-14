@@ -34,13 +34,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 operator|.
 name|GeoHashUtils
 operator|.
@@ -52,13 +50,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|spatial
-operator|.
-name|util
+name|geo
 operator|.
 name|GeoHashUtils
 operator|.
@@ -128,7 +124,7 @@ specifier|public
 name|GeoPoint
 parameter_list|()
 block|{     }
-comment|/**      * Create a new Geopointform a string. This String must either be a geohash      * or a lat-lon tuple.      *      * @param value String to create the point from      */
+comment|/**      * Create a new Geopoint from a string. This String must either be a geohash      * or a lat-lon tuple.      *      * @param value String to create the point from      */
 DECL|method|GeoPoint
 specifier|public
 name|GeoPoint

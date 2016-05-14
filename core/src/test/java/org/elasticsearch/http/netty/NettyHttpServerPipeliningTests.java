@@ -486,22 +486,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|http
 operator|.
 name|netty
@@ -748,7 +732,9 @@ block|{
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -837,7 +823,7 @@ name|responses
 init|=
 name|nettyHttpClient
 operator|.
-name|sendRequests
+name|get
 argument_list|(
 name|transportAddress
 operator|.
@@ -897,7 +883,9 @@ block|{
 name|Settings
 name|settings
 init|=
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -986,7 +974,7 @@ name|responses
 init|=
 name|nettyHttpClient
 operator|.
-name|sendRequests
+name|get
 argument_list|(
 name|transportAddress
 operator|.

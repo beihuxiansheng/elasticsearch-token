@@ -303,9 +303,6 @@ enum|enum
 name|MultiValueMode
 implements|implements
 name|Writeable
-argument_list|<
-name|MultiValueMode
-argument_list|>
 block|{
 comment|/**      * Pick the sum of all the values.      */
 DECL|enum constant|SUM
@@ -4928,30 +4925,6 @@ specifier|public
 specifier|static
 name|MultiValueMode
 name|readMultiValueModeFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|MultiValueMode
-operator|.
-name|AVG
-operator|.
-name|readFrom
-argument_list|(
-name|in
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|readFrom
-specifier|public
-name|MultiValueMode
-name|readFrom
 parameter_list|(
 name|StreamInput
 name|in

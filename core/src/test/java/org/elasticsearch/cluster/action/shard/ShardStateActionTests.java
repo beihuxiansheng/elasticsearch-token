@@ -759,6 +759,14 @@ argument_list|(
 name|transport
 argument_list|,
 name|THREAD_POOL
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|getClusterName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|transportService
@@ -1070,7 +1078,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNode
+name|getMasterNode
 argument_list|()
 operator|.
 name|getId
@@ -2113,7 +2121,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|getNodes
 argument_list|()
 operator|.
 name|keys
@@ -2156,12 +2164,7 @@ name|newShardRouting
 argument_list|(
 name|failedShard
 operator|.
-name|index
-argument_list|()
-argument_list|,
-name|failedShard
-operator|.
-name|id
+name|shardId
 argument_list|()
 argument_list|,
 name|nodeId
@@ -2445,7 +2448,7 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|masterNodes
+name|getMasterNodes
 argument_list|()
 operator|.
 name|iterator
@@ -2456,7 +2459,7 @@ argument_list|()
 operator|.
 name|value
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -762,7 +762,7 @@ argument_list|(
 name|nodeId
 argument_list|)
 operator|.
-name|name
+name|getName
 argument_list|()
 return|;
 block|}

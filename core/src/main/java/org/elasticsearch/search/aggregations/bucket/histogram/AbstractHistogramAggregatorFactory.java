@@ -495,7 +495,7 @@ literal|null
 argument_list|,
 name|config
 operator|.
-name|formatter
+name|format
 argument_list|()
 argument_list|,
 name|histogramFactory
@@ -665,7 +665,7 @@ argument_list|()
 argument_list|,
 name|config
 operator|.
-name|parser
+name|format
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -701,7 +701,7 @@ name|valuesSource
 argument_list|,
 name|config
 operator|.
-name|formatter
+name|format
 argument_list|()
 argument_list|,
 name|histogramFactory

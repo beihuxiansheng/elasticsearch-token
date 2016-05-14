@@ -90,6 +90,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -187,14 +201,14 @@ operator|.
 name|newUnassigned
 argument_list|(
 operator|new
-name|Index
+name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
 literal|"_na_"
-argument_list|)
 argument_list|,
 literal|0
+argument_list|)
 argument_list|,
 literal|null
 argument_list|,
@@ -231,6 +245,8 @@ argument_list|(
 literal|"-- initialize the shard"
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|initialize
@@ -288,6 +304,8 @@ argument_list|(
 literal|"-- start the shard"
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|moveToStarted
@@ -363,14 +381,14 @@ operator|.
 name|newUnassigned
 argument_list|(
 operator|new
-name|Index
+name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
 literal|"_na_"
-argument_list|)
 argument_list|,
 literal|0
+argument_list|)
 argument_list|,
 literal|null
 argument_list|,
@@ -390,6 +408,8 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|shard
+operator|=
+name|shard
 operator|.
 name|initialize
 argument_list|(
@@ -401,6 +421,8 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|moveToStarted
@@ -421,6 +443,8 @@ argument_list|(
 literal|"-- relocate the shard"
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|relocate
@@ -540,6 +564,8 @@ literal|"-- finalize the relocation"
 argument_list|)
 expr_stmt|;
 name|target
+operator|=
+name|target
 operator|.
 name|moveToStarted
 argument_list|()
@@ -602,14 +628,14 @@ operator|.
 name|newUnassigned
 argument_list|(
 operator|new
-name|Index
+name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
 literal|"_na_"
-argument_list|)
 argument_list|,
 literal|0
+argument_list|)
 argument_list|,
 literal|null
 argument_list|,
@@ -629,6 +655,8 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|shard
+operator|=
+name|shard
 operator|.
 name|initialize
 argument_list|(
@@ -640,6 +668,8 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|moveToStarted
@@ -660,6 +690,8 @@ argument_list|(
 literal|"-- relocate the shard"
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|relocate
@@ -734,6 +766,8 @@ literal|"-- cancel relocation"
 argument_list|)
 expr_stmt|;
 name|shard
+operator|=
+name|shard
 operator|.
 name|cancelRelocation
 argument_list|()
@@ -793,14 +827,14 @@ operator|.
 name|newUnassigned
 argument_list|(
 operator|new
-name|Index
+name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
 literal|"_na_"
-argument_list|)
 argument_list|,
 literal|0
+argument_list|)
 argument_list|,
 literal|null
 argument_list|,
@@ -820,6 +854,8 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|shard
+operator|=
+name|shard
 operator|.
 name|initialize
 argument_list|(
@@ -832,6 +868,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|shard
+operator|=
+name|shard
 operator|.
 name|moveToStarted
 argument_list|()
@@ -843,6 +881,8 @@ argument_list|(
 literal|"-- move to unassigned"
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|moveToUnassigned
@@ -893,14 +933,14 @@ operator|.
 name|newUnassigned
 argument_list|(
 operator|new
-name|Index
+name|ShardId
 argument_list|(
 literal|"test"
 argument_list|,
 literal|"_na_"
-argument_list|)
 argument_list|,
 literal|0
+argument_list|)
 argument_list|,
 literal|null
 argument_list|,
@@ -920,6 +960,8 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|shard
+operator|=
+name|shard
 operator|.
 name|initialize
 argument_list|(
@@ -931,6 +973,8 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|moveToStarted
@@ -951,6 +995,8 @@ argument_list|(
 literal|"-- reinitializing shard"
 argument_list|)
 expr_stmt|;
+name|shard
+operator|=
 name|shard
 operator|.
 name|reinitializeShard

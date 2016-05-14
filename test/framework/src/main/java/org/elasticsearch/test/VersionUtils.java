@@ -622,15 +622,6 @@ name|equals
 argument_list|(
 name|version
 argument_list|)
-operator|||
-name|Version
-operator|.
-name|V_2_3_0
-operator|.
-name|equals
-argument_list|(
-name|version
-argument_list|)
 condition|)
 block|{
 return|return

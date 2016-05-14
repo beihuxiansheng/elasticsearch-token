@@ -281,7 +281,7 @@ specifier|public
 name|MultiGetRequestBuilder
 name|setRealtime
 parameter_list|(
-name|Boolean
+name|boolean
 name|realtime
 parameter_list|)
 block|{

@@ -118,7 +118,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -627,7 +627,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Translog is a per index shard component that records all non-committed index operations in a durable manner.  * In Elasticsearch there is one Translog instance per {@link org.elasticsearch.index.engine.InternalEngine}. The engine  * records the current translog generation {@link Translog#getGeneration()} in it's commit metadata using {@link #TRANSLOG_GENERATION_KEY}  * to reference the generation that contains all operations that have not yet successfully been committed to the engines lucene index.  * Additionally, since Elasticsearch 2.0 the engine also records a {@link #TRANSLOG_UUID_KEY} with each commit to ensure a strong association  * between the lucene index an the transaction log file. This UUID is used to prevent accidential recovery from a transaction log that belongs to a  * different engine.  *<p>  * Each Translog has only one translog file open at any time referenced by a translog generation ID. This ID is written to a<tt>translog.ckp</tt> file that is designed  * to fit in a single disk block such that a write of the file is atomic. The checkpoint file is written on each fsync operation of the translog and records the number of operations  * written, the current tranlogs file generation and it's fsynced offset in bytes.  *</p>  *<p>  * When a translog is opened the checkpoint is use to retrieve the latest translog file generation and subsequently to open the last written file to recovery operations.  * The {@link org.elasticsearch.index.translog.Translog.TranslogGeneration} on {@link TranslogConfig#getTranslogGeneration()} given when the translog is opened is compared against  * the latest generation and all consecutive translog files singe the given generation and the last generation in the checkpoint will be recovered and preserved until the next  * generation is committed using {@link Translog#commit()}. In the common case the translog file generation in the checkpoint and the generation passed to the translog on creation are  * the same. The only situation when they can be different is when an actual translog commit fails in between {@link Translog#prepareCommit()} and {@link Translog#commit()}. In such a case  * the currently being committed translog file will not be deleted since it's commit was not successful. Yet, a new/current translog file is already opened at that point such that there is more than  * one translog file present. Such an uncommitted translog file always has a<tt>translog-${gen}.ckp</tt> associated with it which is an fsynced copy of the it's last<tt>translog.ckp</tt> such that in  * disaster recovery last fsynced offsets, number of operation etc. are still preserved.  *</p>  */
+comment|/**  * A Translog is a per index shard component that records all non-committed index operations in a durable manner.  * In Elasticsearch there is one Translog instance per {@link org.elasticsearch.index.engine.InternalEngine}. The engine  * records the current translog generation {@link Translog#getGeneration()} in it's commit metadata using {@link #TRANSLOG_GENERATION_KEY}  * to reference the generation that contains all operations that have not yet successfully been committed to the engines lucene index.  * Additionally, since Elasticsearch 2.0 the engine also records a {@link #TRANSLOG_UUID_KEY} with each commit to ensure a strong association  * between the lucene index an the transaction log file. This UUID is used to prevent accidential recovery from a transaction log that belongs to a  * different engine.  *<p>  * Each Translog has only one translog file open at any time referenced by a translog generation ID. This ID is written to a<tt>translog.ckp</tt> file that is designed  * to fit in a single disk block such that a write of the file is atomic. The checkpoint file is written on each fsync operation of the translog and records the number of operations  * written, the current tranlogs file generation and it's fsynced offset in bytes.  *</p>  *<p>  * When a translog is opened the checkpoint is use to retrieve the latest translog file generation and subsequently to open the last written file to recovery operations.  * The {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}, given when the translog is opened / constructed is compared against  * the latest generation and all consecutive translog files singe the given generation and the last generation in the checkpoint will be recovered and preserved until the next  * generation is committed using {@link Translog#commit()}. In the common case the translog file generation in the checkpoint and the generation passed to the translog on creation are  * the same. The only situation when they can be different is when an actual translog commit fails in between {@link Translog#prepareCommit()} and {@link Translog#commit()}. In such a case  * the currently being committed translog file will not be deleted since it's commit was not successful. Yet, a new/current translog file is already opened at that point such that there is more than  * one translog file present. Such an uncommitted translog file always has a<tt>translog-${gen}.ckp</tt> associated with it which is an fsynced copy of the it's last<tt>translog.ckp</tt> such that in  * disaster recovery last fsynced offsets, number of operation etc. are still preserved.  *</p>  */
 end_comment
 
 begin_class
@@ -835,13 +835,16 @@ specifier|final
 name|String
 name|translogUUID
 decl_stmt|;
-comment|/**      * Creates a new Translog instance. This method will create a new transaction log unless the given {@link TranslogConfig} has      * a non-null {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}. If the generation is null this method      * us destructive and will delete all files in the translog path given.      *      * @see TranslogConfig#getTranslogPath()      */
+comment|/**      * Creates a new Translog instance. This method will create a new transaction log unless the given {@link TranslogConfig} has      * a non-null {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}. If the generation is null this method      * us destructive and will delete all files in the translog path given.      *      * @param config the configuration of this translog      * @param translogGeneration the translog generation to open. If this is<code>null</code> a new translog is created. If non-null      * the translog tries to open the given translog generation. The generation is treated as the last generation referenced      * form already committed data. This means all operations that have not yet been committed should be in the translog      * file referenced by this generation. The translog creation will fail if this generation can't be opened.      *      * @see TranslogConfig#getTranslogPath()      *      */
 DECL|method|Translog
 specifier|public
 name|Translog
 parameter_list|(
 name|TranslogConfig
 name|config
+parameter_list|,
+name|TranslogGeneration
+name|translogGeneration
 parameter_list|)
 throws|throws
 name|IOException
@@ -865,14 +868,6 @@ name|config
 operator|=
 name|config
 expr_stmt|;
-name|TranslogGeneration
-name|translogGeneration
-init|=
-name|config
-operator|.
-name|getTranslogGeneration
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|translogGeneration
@@ -889,7 +884,7 @@ block|{
 comment|// legacy case
 name|translogUUID
 operator|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -6895,6 +6890,17 @@ argument_list|(
 name|CHECKPOINT_FILE_NAME
 argument_list|)
 argument_list|)
+return|;
+block|}
+comment|/**      * Returns the translog uuid used to associate a lucene index with a translog.      */
+DECL|method|getTranslogUUID
+specifier|public
+name|String
+name|getTranslogUUID
+parameter_list|()
+block|{
+return|return
+name|translogUUID
 return|;
 block|}
 block|}

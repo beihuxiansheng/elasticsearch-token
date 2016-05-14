@@ -680,22 +680,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|hamcrest
@@ -758,7 +742,7 @@ comment|// simplify this and only use a single data path
 return|return
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|put
@@ -1349,7 +1333,7 @@ name|BlockClusterStateProcessing
 argument_list|(
 name|node_3
 argument_list|,
-name|getRandom
+name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3653,7 +3637,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3671,7 +3655,7 @@ operator|.
 name|localNode
 argument_list|()
 operator|.
-name|id
+name|getId
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3857,7 +3841,9 @@ argument_list|()
 operator|.
 name|setTransientSettings
 argument_list|(
-name|settingsBuilder
+name|Settings
+operator|.
+name|builder
 argument_list|()
 operator|.
 name|put

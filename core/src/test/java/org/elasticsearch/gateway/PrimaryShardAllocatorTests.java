@@ -244,7 +244,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -1074,7 +1074,7 @@ name|equalTo
 argument_list|(
 name|node1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1438,7 +1438,7 @@ name|equalTo
 argument_list|(
 name|node1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1492,7 +1492,7 @@ block|{
 name|String
 name|primaryAllocId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1500,7 +1500,7 @@ decl_stmt|;
 name|String
 name|replicaAllocId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1676,7 +1676,7 @@ name|equalTo
 argument_list|(
 name|allocatedNode
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2019,7 +2019,7 @@ name|equalTo
 argument_list|(
 name|node1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2164,7 +2164,7 @@ name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2327,7 +2327,7 @@ name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -4273,7 +4273,7 @@ name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|,
@@ -4281,7 +4281,7 @@ name|equalTo
 argument_list|(
 name|node1
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)
@@ -4832,7 +4832,7 @@ name|equalTo
 argument_list|(
 name|node2
 operator|.
-name|id
+name|getId
 argument_list|()
 argument_list|)
 argument_list|)

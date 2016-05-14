@@ -447,7 +447,7 @@ name|updateSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 decl_stmt|;
 name|String
@@ -476,7 +476,7 @@ name|buildSettings
 init|=
 name|Settings
 operator|.
-name|settingsBuilder
+name|builder
 argument_list|()
 operator|.
 name|loadFromSource

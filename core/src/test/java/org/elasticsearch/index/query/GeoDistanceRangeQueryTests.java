@@ -26,6 +26,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -44,7 +58,7 @@ name|geopoint
 operator|.
 name|search
 operator|.
-name|GeoPointDistanceRangeQuery
+name|XGeoPointDistanceRangeQuery
 import|;
 end_import
 
@@ -218,6 +232,42 @@ name|org
 operator|.
 name|hamcrest
 operator|.
+name|CoreMatchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
 name|Matchers
 operator|.
 name|closeTo
@@ -233,18 +283,6 @@ operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
 import|;
 end_import
 
@@ -282,7 +320,7 @@ block|{
 name|Version
 name|version
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 operator|.
 name|indexVersionCreated
@@ -391,12 +429,12 @@ name|maxRadialDistanceMeters
 argument_list|(
 name|point
 operator|.
-name|lon
+name|lat
 argument_list|()
 argument_list|,
 name|point
 operator|.
-name|lat
+name|lon
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -722,6 +760,21 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|ignoreUnmapped
+argument_list|(
+name|randomBoolean
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1248,17 +1301,17 @@ name|query
 argument_list|,
 name|instanceOf
 argument_list|(
-name|GeoPointDistanceRangeQuery
+name|XGeoPointDistanceRangeQuery
 operator|.
 name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|GeoPointDistanceRangeQuery
+name|XGeoPointDistanceRangeQuery
 name|geoQuery
 init|=
 operator|(
-name|GeoPointDistanceRangeQuery
+name|XGeoPointDistanceRangeQuery
 operator|)
 name|query
 decl_stmt|;
@@ -2028,7 +2081,7 @@ comment|// create a nested geo_point type with a subfield named "geohash" (expli
 name|MapperService
 name|mapperService
 init|=
-name|queryShardContext
+name|createShardContext
 argument_list|()
 operator|.
 name|getMapperService
@@ -2154,6 +2207,8 @@ literal|"    \"optimize_bbox\" : \"memory\",\n"
 operator|+
 literal|"    \"validation_method\" : \"STRICT\",\n"
 operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
 literal|"    \"boost\" : 1.0\n"
 operator|+
 literal|"  }\n"
@@ -2197,6 +2252,150 @@ literal|0.0001
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testFromJsonCoerceFails
+specifier|public
+name|void
+name|testFromJsonCoerceFails
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_distance_range\" : {\n"
+operator|+
+literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
+operator|+
+literal|"    \"from\" : \"200km\",\n"
+operator|+
+literal|"    \"to\" : \"400km\",\n"
+operator|+
+literal|"    \"include_lower\" : true,\n"
+operator|+
+literal|"    \"include_upper\" : true,\n"
+operator|+
+literal|"    \"unit\" : \"m\",\n"
+operator|+
+literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+operator|+
+literal|"    \"optimize_bbox\" : \"memory\",\n"
+operator|+
+literal|"    \"coerce\" : true,\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJsonIgnoreMalformedFails
+specifier|public
+name|void
+name|testFromJsonIgnoreMalformedFails
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_distance_range\" : {\n"
+operator|+
+literal|"    \"pin.location\" : [ -70.0, 40.0 ],\n"
+operator|+
+literal|"    \"from\" : \"200km\",\n"
+operator|+
+literal|"    \"to\" : \"400km\",\n"
+operator|+
+literal|"    \"include_lower\" : true,\n"
+operator|+
+literal|"    \"include_upper\" : true,\n"
+operator|+
+literal|"    \"unit\" : \"m\",\n"
+operator|+
+literal|"    \"distance_type\" : \"sloppy_arc\",\n"
+operator|+
+literal|"    \"optimize_bbox\" : \"memory\",\n"
+operator|+
+literal|"    \"ignore_malformed\" : true,\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|testMustRewrite
@@ -2223,6 +2422,139 @@ name|super
 operator|.
 name|testMustRewrite
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|testIgnoreUnmapped
+specifier|public
+name|void
+name|testIgnoreUnmapped
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+specifier|final
+name|GeoDistanceRangeQueryBuilder
+name|queryBuilder
+init|=
+operator|new
+name|GeoDistanceRangeQueryBuilder
+argument_list|(
+literal|"unmapped"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|0.0
+argument_list|,
+literal|0.0
+argument_list|)
+argument_list|)
+operator|.
+name|from
+argument_list|(
+literal|"20m"
+argument_list|)
+decl_stmt|;
+name|queryBuilder
+operator|.
+name|ignoreUnmapped
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|Query
+name|query
+init|=
+name|queryBuilder
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|query
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|query
+argument_list|,
+name|instanceOf
+argument_list|(
+name|MatchNoDocsQuery
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+specifier|final
+name|GeoDistanceRangeQueryBuilder
+name|failingQueryBuilder
+init|=
+operator|new
+name|GeoDistanceRangeQueryBuilder
+argument_list|(
+literal|"unmapped"
+argument_list|,
+operator|new
+name|GeoPoint
+argument_list|(
+literal|0.0
+argument_list|,
+literal|0.0
+argument_list|)
+argument_list|)
+operator|.
+name|from
+argument_list|(
+literal|"20m"
+argument_list|)
+decl_stmt|;
+name|failingQueryBuilder
+operator|.
+name|ignoreUnmapped
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|QueryShardException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|QueryShardException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|failingQueryBuilder
+operator|.
+name|toQuery
+argument_list|(
+name|createShardContext
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"failed to find geo_point field [unmapped]"
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 block|}

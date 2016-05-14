@@ -145,7 +145,7 @@ name|map
 init|=
 name|ConcurrentCollections
 operator|.
-name|newConcurrentMap
+name|newConcurrentMapWithAggressiveConcurrency
 argument_list|()
 decl_stmt|;
 DECL|method|acquire

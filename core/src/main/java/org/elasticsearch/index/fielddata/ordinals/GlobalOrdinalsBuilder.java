@@ -248,6 +248,18 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
 begin_comment
 comment|/**  * Utility class to build global ordinals.  */
 end_comment
@@ -444,7 +456,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Global-ordinals[{}][{}] took {} ms"
+literal|"global-ordinals [{}][{}] took [{}]"
 argument_list|,
 name|indexFieldData
 operator|.
@@ -456,9 +468,8 @@ operator|.
 name|getValueCount
 argument_list|()
 argument_list|,
+operator|new
 name|TimeValue
-operator|.
-name|nsecToMSec
 argument_list|(
 name|System
 operator|.
@@ -466,6 +477,10 @@ name|nanoTime
 argument_list|()
 operator|-
 name|startTimeNS
+argument_list|,
+name|TimeUnit
+operator|.
+name|NANOSECONDS
 argument_list|)
 argument_list|)
 expr_stmt|;

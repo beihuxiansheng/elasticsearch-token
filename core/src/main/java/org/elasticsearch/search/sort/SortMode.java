@@ -105,9 +105,6 @@ enum|enum
 name|SortMode
 implements|implements
 name|Writeable
-argument_list|<
-name|SortMode
-argument_list|>
 block|{
 comment|/** pick the lowest value **/
 DECL|enum constant|MIN
@@ -129,13 +126,6 @@ comment|/** Use the median of all values as sort value. Only applicable for numb
 DECL|enum constant|MEDIAN
 name|MEDIAN
 block|;
-DECL|field|PROTOTYPE
-specifier|static
-name|SortMode
-name|PROTOTYPE
-init|=
-name|MIN
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -159,14 +149,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|SortMode
-name|readFrom
+name|readFromStream
 parameter_list|(
-specifier|final
 name|StreamInput
 name|in
 parameter_list|)

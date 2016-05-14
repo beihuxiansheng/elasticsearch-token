@@ -86,7 +86,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 name|response
 init|=
 name|CancelTestUtils
@@ -114,7 +114,7 @@ name|assertThat
 argument_list|(
 name|response
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|created

@@ -156,6 +156,28 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|tasks
+operator|.
+name|list
+operator|.
+name|TaskInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|nodes
@@ -798,6 +820,9 @@ name|type
 parameter_list|,
 name|String
 name|action
+parameter_list|,
+name|TaskId
+name|parentTaskId
 parameter_list|)
 block|{
 return|return
@@ -812,6 +837,8 @@ name|action
 argument_list|,
 name|getDescription
 argument_list|()
+argument_list|,
+name|parentTaskId
 argument_list|)
 return|;
 block|}
@@ -1234,7 +1261,7 @@ name|EMPTY
 argument_list|,
 literal|"testAction"
 argument_list|,
-name|clusterName
+name|CLUSTER_NAME
 argument_list|,
 name|threadPool
 argument_list|,
@@ -1569,7 +1596,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1617,7 +1645,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// and we should have at least as many failures as the number of blocked operations
@@ -1673,6 +1702,27 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Verify that all cancelled tasks reported that they support cancellation
+for|for
+control|(
+name|TaskInfo
+name|taskInfo
+range|:
+name|response
+operator|.
+name|getTasks
+argument_list|()
+control|)
+block|{
+name|assertTrue
+argument_list|(
+name|taskInfo
+operator|.
+name|isCancellable
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Make sure that tasks are no longer running
 name|ListTasksResponse

@@ -376,6 +376,8 @@ name|ClusterHealthAction
 operator|.
 name|NAME
 argument_list|,
+literal|false
+argument_list|,
 name|transportService
 argument_list|,
 name|clusterService
@@ -883,10 +885,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|waitFor
-operator|==
-literal|0
-operator|||
 name|request
 operator|.
 name|timeout

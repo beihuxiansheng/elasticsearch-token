@@ -575,6 +575,11 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+name|reduceContext
+operator|.
+name|clusterState
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|List
@@ -829,9 +834,8 @@ name|IOException
 block|{
 name|script
 operator|=
+operator|new
 name|Script
-operator|.
-name|readScript
 argument_list|(
 name|in
 argument_list|)

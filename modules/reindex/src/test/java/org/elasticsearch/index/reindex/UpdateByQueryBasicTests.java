@@ -68,7 +68,7 @@ specifier|public
 class|class
 name|UpdateByQueryBasicTests
 extends|extends
-name|UpdateByQueryTestCase
+name|ReindexTestCase
 block|{
 DECL|method|testBasics
 specifier|public
@@ -234,7 +234,7 @@ expr_stmt|;
 comment|// Reindex all the docs
 name|assertThat
 argument_list|(
-name|request
+name|updateByQuery
 argument_list|()
 operator|.
 name|source
@@ -250,7 +250,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -308,7 +308,7 @@ expr_stmt|;
 comment|// Now none of them
 name|assertThat
 argument_list|(
-name|request
+name|updateByQuery
 argument_list|()
 operator|.
 name|source
@@ -334,7 +334,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -392,7 +392,7 @@ expr_stmt|;
 comment|// Now half of them
 name|assertThat
 argument_list|(
-name|request
+name|updateByQuery
 argument_list|()
 operator|.
 name|source
@@ -418,7 +418,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated
@@ -523,7 +523,7 @@ comment|// Limit with size
 name|UpdateByQueryRequestBuilder
 name|request
 init|=
-name|request
+name|updateByQuery
 argument_list|()
 operator|.
 name|source
@@ -548,7 +548,7 @@ argument_list|()
 operator|.
 name|addSort
 argument_list|(
-literal|"foo"
+literal|"foo.keyword"
 argument_list|,
 name|SortOrder
 operator|.
@@ -562,7 +562,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated

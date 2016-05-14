@@ -428,6 +428,13 @@ operator|.
 name|Token
 operator|.
 name|START_OBJECT
+operator|:
+literal|"expected token to be START_OBJECT but was "
+operator|+
+name|parser
+operator|.
+name|currentToken
+argument_list|()
 assert|;
 name|RestTestSuite
 name|restTestSuite
