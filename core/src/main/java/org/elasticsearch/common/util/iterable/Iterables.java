@@ -253,6 +253,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/** Flattens the two level {@code Iterable} into a single {@code Iterable}.  Note that this uses the original input iterable so if it      *  later changes, the flattened result here will reflect the change. */
 DECL|method|flatten
 specifier|public
 specifier|static
