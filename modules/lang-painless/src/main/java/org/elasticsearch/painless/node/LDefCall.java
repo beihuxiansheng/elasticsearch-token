@@ -413,14 +413,9 @@ argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|DefBootstrap
 operator|.
 name|METHOD_CALL
-block|}
 argument_list|)
 expr_stmt|;
 block|}
