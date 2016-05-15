@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The superclass for all LDef* (link) nodes that store or return a DEF. (Internal only.)  */
+comment|/**  * The superclass for all LDef* (link) nodes that store or return a DEF. (Internal only.)  * For this node it is allowed to change {@link ALink#after} from outside, by default  * {@code after} is {@code DEF}.  */
 end_comment
 
 begin_class

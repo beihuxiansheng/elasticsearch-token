@@ -142,7 +142,7 @@ name|line
 argument_list|,
 name|location
 argument_list|,
-literal|0
+literal|2
 argument_list|)
 expr_stmt|;
 name|this
