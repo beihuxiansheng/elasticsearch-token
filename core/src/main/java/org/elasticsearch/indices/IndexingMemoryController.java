@@ -1404,6 +1404,11 @@ argument_list|(
 name|bytes
 argument_list|)
 decl_stmt|;
+assert|assert
+name|totalBytes
+operator|>=
+literal|0
+assert|;
 while|while
 condition|(
 name|totalBytes
@@ -1426,6 +1431,26 @@ condition|)
 block|{
 try|try
 block|{
+comment|// Must pull this again because it may have changed since we first checked:
+name|totalBytes
+operator|=
+name|bytesWrittenSinceCheck
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|totalBytes
+operator|>
+name|indexingBuffer
+operator|.
+name|bytes
+argument_list|()
+operator|/
+literal|30
+condition|)
+block|{
 name|bytesWrittenSinceCheck
 operator|.
 name|addAndGet
@@ -1442,6 +1467,7 @@ name|runUnlocked
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 finally|finally
 block|{
 name|runLock
@@ -1450,19 +1476,18 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Could be while we were checking, more bytes arrived:
+comment|// Must get it again since other threads could have increased it while we were in runUnlocked
 name|totalBytes
 operator|=
 name|bytesWrittenSinceCheck
 operator|.
-name|addAndGet
-argument_list|(
-name|bytes
-argument_list|)
+name|get
+argument_list|()
 expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Another thread beat us to it: let them do all the work, yay!
 break|break;
 block|}
 block|}
