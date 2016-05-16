@@ -342,28 +342,6 @@ name|doubleValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Run the script.      * @return The script result as a float.      */
-annotation|@
-name|Override
-DECL|method|runAsFloat
-specifier|public
-name|float
-name|runAsFloat
-parameter_list|()
-block|{
-return|return
-operator|(
-operator|(
-name|Number
-operator|)
-name|run
-argument_list|()
-operator|)
-operator|.
-name|floatValue
-argument_list|()
-return|;
-block|}
 comment|/**      * Run the script.      * @return The script result as a long.      */
 annotation|@
 name|Override

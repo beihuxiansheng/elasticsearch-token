@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory to create instances of either {@link ExecutableScript} or {@link SearchScript}. Note,  * if this factory creates {@link SearchScript}, it must extend {@link AbstractSearchScript}.  *  * @see AbstractExecutableScript  * @see AbstractSearchScript  * @see AbstractFloatSearchScript  * @see AbstractLongSearchScript  * @see AbstractDoubleSearchScript  */
+comment|/**  * A factory to create instances of either {@link ExecutableScript} or {@link SearchScript}. Note,  * if this factory creates {@link SearchScript}, it must extend {@link AbstractSearchScript}.  *  * @see AbstractExecutableScript  * @see AbstractSearchScript  * @see AbstractLongSearchScript  * @see AbstractDoubleSearchScript  */
 end_comment
 
 begin_interface
