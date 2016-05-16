@@ -1586,6 +1586,7 @@ argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
+comment|// TODO: does it make more sense to just re-use last.after instead of using storeValueType?
 name|lastDef
 operator|.
 name|storeValueType
@@ -2164,6 +2165,41 @@ operator|.
 name|load
 condition|)
 block|{
+comment|// storeValueType may be different from after, so use storeValueType if last is an ADefLink
+if|if
+condition|(
+name|last
+operator|instanceof
+name|ADefLink
+condition|)
+block|{
+name|WriterUtility
+operator|.
+name|writeDup
+argument_list|(
+name|adapter
+argument_list|,
+operator|(
+operator|(
+name|ADefLink
+operator|)
+name|last
+operator|)
+operator|.
+name|storeValueType
+operator|.
+name|sort
+operator|.
+name|size
+argument_list|,
+name|link
+operator|.
+name|size
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|WriterUtility
 operator|.
 name|writeDup
@@ -2183,6 +2219,7 @@ operator|.
 name|size
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|link
 operator|.
