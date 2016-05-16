@@ -15,10 +15,10 @@ package|;
 end_package
 
 begin_class
-DECL|class|DefTests
+DECL|class|DefOperationTests
 specifier|public
 class|class
-name|DefTests
+name|DefOperationTests
 extends|extends
 name|ScriptTestCase
 block|{

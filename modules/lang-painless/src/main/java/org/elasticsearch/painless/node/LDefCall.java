@@ -112,7 +112,9 @@ specifier|final
 class|class
 name|LDefCall
 extends|extends
-name|ADefLink
+name|ALink
+implements|implements
+name|IDefLink
 block|{
 DECL|field|name
 specifier|final

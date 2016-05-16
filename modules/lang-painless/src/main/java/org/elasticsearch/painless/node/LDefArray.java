@@ -114,7 +114,9 @@ specifier|final
 class|class
 name|LDefArray
 extends|extends
-name|ADefLink
+name|ALink
+implements|implements
+name|IDefLink
 block|{
 DECL|field|index
 name|AExpression
@@ -323,24 +325,6 @@ name|GeneratorAdapter
 name|adapter
 parameter_list|)
 block|{
-if|if
-condition|(
-name|storeValueType
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-name|error
-argument_list|(
-literal|"Illegal tree structure."
-argument_list|)
-argument_list|)
-throw|;
-block|}
 specifier|final
 name|String
 name|desc
@@ -367,7 +351,7 @@ name|actual
 operator|.
 name|type
 argument_list|,
-name|storeValueType
+name|after
 operator|.
 name|type
 argument_list|)
