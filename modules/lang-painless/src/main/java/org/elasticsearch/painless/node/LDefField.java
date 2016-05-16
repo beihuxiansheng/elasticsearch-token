@@ -114,7 +114,9 @@ specifier|final
 class|class
 name|LDefField
 extends|extends
-name|ADefLink
+name|ALink
+implements|implements
+name|IDefLink
 block|{
 DECL|field|value
 specifier|final
@@ -276,24 +278,6 @@ name|GeneratorAdapter
 name|adapter
 parameter_list|)
 block|{
-if|if
-condition|(
-name|storeValueType
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-name|error
-argument_list|(
-literal|"Illegal tree structure."
-argument_list|)
-argument_list|)
-throw|;
-block|}
 specifier|final
 name|String
 name|desc
@@ -314,7 +298,7 @@ name|defType
 operator|.
 name|type
 argument_list|,
-name|storeValueType
+name|after
 operator|.
 name|type
 argument_list|)

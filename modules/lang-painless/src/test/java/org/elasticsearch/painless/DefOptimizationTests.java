@@ -34,25 +34,11 @@ name|script
 init|=
 literal|"int x = 0; def y = new int[1]; y[0] = 5; x = y[0]; return x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayLoad(Ljava/lang/Object;I)I"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -78,25 +64,11 @@ name|script
 init|=
 literal|"int x = 1; def y = new int[1]; y[0] = x; return y[0];"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayStore(Ljava/lang/Object;II)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -122,25 +94,11 @@ name|script
 init|=
 literal|"int x = 0; def y = new ArrayList(); y.add(5); x = y[0]; return x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayLoad(Ljava/lang/Object;I)I"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -166,25 +124,11 @@ name|script
 init|=
 literal|"int x = 1; def y = new ArrayList(); y.add(0); y[0] = x; return y[0];"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayStore(Ljava/lang/Object;II)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -210,25 +154,11 @@ name|script
 init|=
 literal|"int x = 0; def y = new HashMap(); y.put(0, 5); x = y[0];"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayLoad(Ljava/lang/Object;I)I"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -254,25 +184,11 @@ name|script
 init|=
 literal|"int x = 1; def y = new HashMap(); y.put(0, 1); y[0] = x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayStore(Ljava/lang/Object;II)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -298,25 +214,11 @@ name|script
 init|=
 literal|"int x = 0; def y = new ArrayList(); y.add(5); x = y.0;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC 0(Ljava/lang/Object;)I"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -342,25 +244,11 @@ name|script
 init|=
 literal|"int x = 1; def y = new ArrayList(); y.add(0); y.0 = x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC 0(Ljava/lang/Object;I)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -386,25 +274,11 @@ name|script
 init|=
 literal|"int x = 0; def y = new HashMap(); y.put('0', 5); x = y.0; return x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC 0(Ljava/lang/Object;)I"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -430,25 +304,11 @@ name|script
 init|=
 literal|"int x = 1; def y = new HashMap(); y.put('0', 1); y.0 = x; return y.0;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC 0(Ljava/lang/Object;I)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -474,25 +334,11 @@ name|script
 init|=
 literal|"int x; def y = new HashMap(); y['int'] = 1; x = y.get('int'); return x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC get(Ljava/lang/Object;Ljava/lang/String;)I"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -518,25 +364,11 @@ name|script
 init|=
 literal|"int x; def y = new HashMap(); y['int'] = 1; x = y.get('int');"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC get(Ljava/lang/Object;Ljava/lang/String;)I"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -562,25 +394,11 @@ name|script
 init|=
 literal|"double x = 0; def y = new double[1]; y[0] = 5.0; x = y[0]; return x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayLoad(Ljava/lang/Object;I)D"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -606,25 +424,11 @@ name|script
 init|=
 literal|"double x = 1; def y = new double[1]; y[0] = x; return y[0];"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayStore(Ljava/lang/Object;ID)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -650,25 +454,11 @@ name|script
 init|=
 literal|"double x = 0.0; def y = new ArrayList(); y.add(5.0); x = y[0]; return x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayLoad(Ljava/lang/Object;I)D"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -694,25 +484,11 @@ name|script
 init|=
 literal|"double x = 1.0; def y = new ArrayList(); y.add(0.0); y[0] = x; return y[0];"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayStore(Ljava/lang/Object;ID)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -738,25 +514,11 @@ name|script
 init|=
 literal|"double x = 0.0; def y = new HashMap(); y.put(0, 5.0); x = y[0];"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayLoad(Ljava/lang/Object;I)D"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -782,25 +544,11 @@ name|script
 init|=
 literal|"double x = 1.0; def y = new HashMap(); y.put(0, 2.0); y[0] = x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC arrayStore(Ljava/lang/Object;ID)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -826,25 +574,11 @@ name|script
 init|=
 literal|"double x = 0; def y = new ArrayList(); y.add(5.0); x = y.0;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC 0(Ljava/lang/Object;)D"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -870,25 +604,11 @@ name|script
 init|=
 literal|"double x = 1.0; def y = new ArrayList(); y.add(0); y.0 = x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC 0(Ljava/lang/Object;D)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -914,25 +634,11 @@ name|script
 init|=
 literal|"double x = 0; def y = new HashMap(); y.put('0', 5.0); x = y.0; return x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC 0(Ljava/lang/Object;)D"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -958,25 +664,11 @@ name|script
 init|=
 literal|"double x = 1.0; def y = new HashMap(); y.put('0', 1.0); y.0 = x; return y.0;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC 0(Ljava/lang/Object;D)"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1002,25 +694,11 @@ name|script
 init|=
 literal|"double x; def y = new HashMap(); y['double'] = 1.0; x = y.get('double'); return x;"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC get(Ljava/lang/Object;Ljava/lang/String;)D"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1046,25 +724,11 @@ name|script
 init|=
 literal|"double x; def y = new HashMap(); y['double'] = 1.0; x = y.get('double');"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC get(Ljava/lang/Object;Ljava/lang/String;)D"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1090,25 +754,11 @@ name|script
 init|=
 literal|"int x;\ndef y = new HashMap();\ny['double'] = 1.0;\nx = y.get('double');\n"
 decl_stmt|;
-specifier|final
-name|String
-name|asm
-init|=
-name|Debugger
-operator|.
-name|toString
+name|assertBytecodeExists
 argument_list|(
 name|script
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|asm
-operator|.
-name|contains
-argument_list|(
+argument_list|,
 literal|"INVOKEDYNAMIC get(Ljava/lang/Object;Ljava/lang/String;)I"
-argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final
