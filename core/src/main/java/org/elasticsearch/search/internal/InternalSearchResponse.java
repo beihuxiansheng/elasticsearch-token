@@ -152,7 +152,7 @@ name|search
 operator|.
 name|profile
 operator|.
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 import|;
 end_import
 
@@ -299,7 +299,7 @@ name|suggest
 decl_stmt|;
 DECL|field|profileResults
 specifier|private
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 name|profileResults
 decl_stmt|;
 DECL|field|timedOut
@@ -332,7 +332,7 @@ parameter_list|,
 name|Suggest
 name|suggest
 parameter_list|,
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 name|profileResults
 parameter_list|,
 name|boolean
@@ -672,7 +672,7 @@ block|{
 name|profileResults
 operator|=
 operator|new
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 argument_list|(
 name|in
 argument_list|)
