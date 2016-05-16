@@ -1502,10 +1502,14 @@ operator|.
 name|after
 expr_stmt|;
 block|}
+name|this
+operator|.
 name|statement
 operator|=
 literal|true
 expr_stmt|;
+name|this
+operator|.
 name|actual
 operator|=
 name|read
@@ -1594,6 +1598,8 @@ name|expression
 operator|.
 name|actual
 expr_stmt|;
+name|this
+operator|.
 name|actual
 operator|=
 name|read
@@ -1629,6 +1635,8 @@ argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|actual
 operator|=
 name|read
@@ -1655,6 +1663,8 @@ argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|statement
 operator|=
 literal|true
