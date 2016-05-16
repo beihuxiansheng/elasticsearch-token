@@ -112,7 +112,7 @@ specifier|final
 class|class
 name|LDefCall
 extends|extends
-name|ALink
+name|ADefLink
 block|{
 DECL|field|name
 specifier|final
@@ -402,7 +402,7 @@ argument_list|)
 expr_stmt|;
 name|adapter
 operator|.
-name|visitInvokeDynamicInsn
+name|invokeDynamic
 argument_list|(
 name|name
 argument_list|,

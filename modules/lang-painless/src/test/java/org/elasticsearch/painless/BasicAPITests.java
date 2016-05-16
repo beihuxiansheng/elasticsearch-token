@@ -332,6 +332,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testDefAssignments
+specifier|public
+name|void
+name|testDefAssignments
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x; def y = 2.0; x = (int)y;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
