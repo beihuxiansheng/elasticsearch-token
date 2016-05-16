@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Wrapper around several {@link Profiler}s that makes management easier. */
+comment|/** Wrapper around several {@link QueryProfiler}s that makes management easier. */
 end_comment
 
 begin_class
@@ -82,11 +82,11 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Profiler
+name|QueryProfiler
 argument_list|>
 name|profilers
 decl_stmt|;
-comment|/** Sole constructor. This {@link Profilers} instance will initially wrap one {@link Profiler}. */
+comment|/** Sole constructor. This {@link Profilers} instance will initially wrap one {@link QueryProfiler}. */
 DECL|method|Profilers
 specifier|public
 name|Profilers
@@ -117,15 +117,15 @@ block|}
 comment|/** Switch to a new profile. */
 DECL|method|addProfiler
 specifier|public
-name|Profiler
+name|QueryProfiler
 name|addProfiler
 parameter_list|()
 block|{
-name|Profiler
+name|QueryProfiler
 name|profiler
 init|=
 operator|new
-name|Profiler
+name|QueryProfiler
 argument_list|()
 decl_stmt|;
 name|searcher
@@ -149,7 +149,7 @@ block|}
 comment|/** Get the current profiler. */
 DECL|method|getCurrent
 specifier|public
-name|Profiler
+name|QueryProfiler
 name|getCurrent
 parameter_list|()
 block|{
@@ -167,12 +167,12 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/** Return the list of all created {@link Profiler}s so far. */
+comment|/** Return the list of all created {@link QueryProfiler}s so far. */
 DECL|method|getProfilers
 specifier|public
 name|List
 argument_list|<
-name|Profiler
+name|QueryProfiler
 argument_list|>
 name|getProfilers
 parameter_list|()

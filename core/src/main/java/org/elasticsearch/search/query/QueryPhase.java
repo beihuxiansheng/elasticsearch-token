@@ -526,7 +526,7 @@ name|search
 operator|.
 name|profile
 operator|.
-name|Profiler
+name|SearchProfileShardResults
 import|;
 end_import
 
@@ -843,7 +843,7 @@ name|ProfileShardResult
 argument_list|>
 name|shardResults
 init|=
-name|Profiler
+name|SearchProfileShardResults
 operator|.
 name|buildShardResults
 argument_list|(
@@ -2427,7 +2427,7 @@ name|ProfileShardResult
 argument_list|>
 name|shardResults
 init|=
-name|Profiler
+name|SearchProfileShardResults
 operator|.
 name|buildShardResults
 argument_list|(

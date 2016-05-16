@@ -118,7 +118,7 @@ decl_stmt|;
 DECL|field|profile
 specifier|private
 specifier|final
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 name|profile
 decl_stmt|;
 DECL|method|ProfileScorer
@@ -130,7 +130,7 @@ parameter_list|,
 name|Scorer
 name|scorer
 parameter_list|,
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 name|profile
 parameter_list|)
 throws|throws
@@ -189,9 +189,7 @@ name|profile
 operator|.
 name|startTime
 argument_list|(
-name|ProfileBreakdown
-operator|.
-name|TimingType
+name|QueryTimingType
 operator|.
 name|SCORE
 argument_list|)
@@ -299,9 +297,7 @@ name|profile
 operator|.
 name|startTime
 argument_list|(
-name|ProfileBreakdown
-operator|.
-name|TimingType
+name|QueryTimingType
 operator|.
 name|ADVANCE
 argument_list|)
@@ -339,9 +335,7 @@ name|profile
 operator|.
 name|startTime
 argument_list|(
-name|ProfileBreakdown
-operator|.
-name|TimingType
+name|QueryTimingType
 operator|.
 name|NEXT_DOC
 argument_list|)
@@ -456,9 +450,7 @@ name|profile
 operator|.
 name|startTime
 argument_list|(
-name|ProfileBreakdown
-operator|.
-name|TimingType
+name|QueryTimingType
 operator|.
 name|ADVANCE
 argument_list|)
@@ -496,9 +488,7 @@ name|profile
 operator|.
 name|startTime
 argument_list|(
-name|ProfileBreakdown
-operator|.
-name|TimingType
+name|QueryTimingType
 operator|.
 name|NEXT_DOC
 argument_list|)
@@ -571,9 +561,7 @@ name|profile
 operator|.
 name|startTime
 argument_list|(
-name|ProfileBreakdown
-operator|.
-name|TimingType
+name|QueryTimingType
 operator|.
 name|MATCH
 argument_list|)

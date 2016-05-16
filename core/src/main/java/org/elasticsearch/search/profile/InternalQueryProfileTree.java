@@ -93,20 +93,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class tracks the dependency tree for queries (scoring and rewriting) and  * generates {@link ProfileBreakdown} for each node in the tree.  It also finalizes the tree  * and returns a list of {@link ProfileResult} that can be serialized back to the client  */
+comment|/**  * This class tracks the dependency tree for queries (scoring and rewriting) and  * generates {@link QueryProfileBreakdown} for each node in the tree.  It also finalizes the tree  * and returns a list of {@link ProfileResult} that can be serialized back to the client  */
 end_comment
 
 begin_class
-DECL|class|InternalProfileTree
+DECL|class|InternalQueryProfileTree
 specifier|final
 class|class
-name|InternalProfileTree
+name|InternalQueryProfileTree
 block|{
 DECL|field|timings
 specifier|private
 name|ArrayList
 argument_list|<
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 argument_list|>
 name|timings
 decl_stmt|;
@@ -167,9 +167,9 @@ name|currentToken
 init|=
 literal|0
 decl_stmt|;
-DECL|method|InternalProfileTree
+DECL|method|InternalQueryProfileTree
 specifier|public
-name|InternalProfileTree
+name|InternalQueryProfileTree
 parameter_list|()
 block|{
 name|timings
@@ -218,10 +218,10 @@ literal|10
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns a {@link ProfileBreakdown} for a scoring query.  Scoring queries (e.g. those      * that are past the rewrite phase and are now being wrapped by createWeight() ) follow      * a recursive progression.  We can track the dependency tree by a simple stack      *      * The only hiccup is that the first scoring query will be identical to the last rewritten      * query, so we need to take special care to fix that      *      * @param query The scoring query we wish to profile      * @return      A ProfileBreakdown for this query      */
+comment|/**      * Returns a {@link QueryProfileBreakdown} for a scoring query.  Scoring queries (e.g. those      * that are past the rewrite phase and are now being wrapped by createWeight() ) follow      * a recursive progression.  We can track the dependency tree by a simple stack      *      * The only hiccup is that the first scoring query will be identical to the last rewritten      * query, so we need to take special care to fix that      *      * @param query The scoring query we wish to profile      * @return      A ProfileBreakdown for this query      */
 DECL|method|getQueryBreakdown
 specifier|public
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 name|getQueryBreakdown
 parameter_list|(
 name|Query
@@ -361,10 +361,10 @@ return|return
 name|time
 return|;
 block|}
-comment|/**      * Helper method to add a new node to the dependency tree.      *      * Initializes a new list in the dependency tree, saves the query and      * generates a new {@link ProfileBreakdown} to track the timings      * of this query      *      * @param query             The query to profile      * @param token             The assigned token for this query      * @return                  A ProfileBreakdown to profile this query      */
+comment|/**      * Helper method to add a new node to the dependency tree.      *      * Initializes a new list in the dependency tree, saves the query and      * generates a new {@link QueryProfileBreakdown} to track the timings      * of this query      *      * @param query             The query to profile      * @param token             The assigned token for this query      * @return                  A ProfileBreakdown to profile this query      */
 DECL|method|addDependencyNode
 specifier|private
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 name|addDependencyNode
 parameter_list|(
 name|Query
@@ -395,11 +395,11 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 name|queryTimings
 init|=
 operator|new
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 argument_list|()
 decl_stmt|;
 name|timings
@@ -494,7 +494,7 @@ argument_list|(
 name|token
 argument_list|)
 decl_stmt|;
-name|ProfileBreakdown
+name|QueryProfileBreakdown
 name|breakdown
 init|=
 name|timings

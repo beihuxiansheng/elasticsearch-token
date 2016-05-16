@@ -42,16 +42,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -61,57 +51,20 @@ comment|/**  * A record of timings for the various operations that may happen du
 end_comment
 
 begin_class
-DECL|class|ProfileBreakdown
+DECL|class|AbstractProfileBreakdown
 specifier|public
-specifier|final
+specifier|abstract
 class|class
-name|ProfileBreakdown
+name|AbstractProfileBreakdown
+parameter_list|<
+name|T
+extends|extends
+name|Enum
+parameter_list|<
+name|T
+parameter_list|>
+parameter_list|>
 block|{
-comment|/** Enumeration of all supported timing types. */
-DECL|enum|TimingType
-specifier|public
-enum|enum
-name|TimingType
-block|{
-DECL|enum constant|CREATE_WEIGHT
-name|CREATE_WEIGHT
-block|,
-DECL|enum constant|BUILD_SCORER
-name|BUILD_SCORER
-block|,
-DECL|enum constant|NEXT_DOC
-name|NEXT_DOC
-block|,
-DECL|enum constant|ADVANCE
-name|ADVANCE
-block|,
-DECL|enum constant|MATCH
-name|MATCH
-block|,
-DECL|enum constant|SCORE
-name|SCORE
-block|;
-annotation|@
-name|Override
-DECL|method|toString
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|name
-argument_list|()
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ROOT
-argument_list|)
-return|;
-block|}
-block|}
 comment|/**      * The accumulated timings for this query node      */
 DECL|field|timings
 specifier|private
@@ -123,7 +76,7 @@ decl_stmt|;
 comment|/** Scratch to store the current timing type. */
 DECL|field|currentTimingType
 specifier|private
-name|TimingType
+name|T
 name|currentTimingType
 decl_stmt|;
 comment|/**      * The temporary scratch space for holding start-times      */
@@ -132,21 +85,34 @@ specifier|private
 name|long
 name|scratch
 decl_stmt|;
+DECL|field|timingTypes
+specifier|private
+name|T
+index|[]
+name|timingTypes
+decl_stmt|;
 comment|/** Sole constructor. */
-DECL|method|ProfileBreakdown
+DECL|method|AbstractProfileBreakdown
 specifier|public
-name|ProfileBreakdown
-parameter_list|()
+name|AbstractProfileBreakdown
+parameter_list|(
+name|T
+index|[]
+name|timingTypes
+parameter_list|)
 block|{
+name|this
+operator|.
+name|timingTypes
+operator|=
+name|timingTypes
+expr_stmt|;
 name|timings
 operator|=
 operator|new
 name|long
 index|[
-name|TimingType
-operator|.
-name|values
-argument_list|()
+name|timingTypes
 operator|.
 name|length
 index|]
@@ -158,7 +124,7 @@ specifier|public
 name|void
 name|startTime
 parameter_list|(
-name|TimingType
+name|T
 name|timing
 parameter_list|)
 block|{
@@ -230,7 +196,7 @@ return|return
 name|time
 return|;
 block|}
-comment|/** Convert this record to a map from {@link TimingType} to times. */
+comment|/** Convert this record to a map from timingType to times. */
 DECL|method|toTimingMap
 specifier|public
 name|Map
@@ -257,13 +223,10 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|TimingType
+name|T
 name|timingType
 range|:
-name|TimingType
-operator|.
-name|values
-argument_list|()
+name|timingTypes
 control|)
 block|{
 name|map
@@ -300,7 +263,10 @@ specifier|public
 name|void
 name|merge
 parameter_list|(
-name|ProfileBreakdown
+name|AbstractProfileBreakdown
+argument_list|<
+name|T
+argument_list|>
 name|other
 parameter_list|)
 block|{
