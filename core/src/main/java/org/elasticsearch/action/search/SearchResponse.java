@@ -238,16 +238,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -597,10 +587,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|List
-argument_list|<
 name|ProfileShardResult
-argument_list|>
 argument_list|>
 name|getProfileResults
 parameter_list|()

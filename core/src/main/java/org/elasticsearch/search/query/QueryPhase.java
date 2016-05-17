@@ -841,10 +841,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|List
-argument_list|<
 name|ProfileShardResult
-argument_list|>
 name|shardResults
 init|=
 name|SearchProfileShardResults
@@ -854,9 +851,6 @@ argument_list|(
 name|searchContext
 operator|.
 name|getProfilers
-argument_list|()
-operator|.
-name|getQueryProfilers
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2425,10 +2419,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|List
-argument_list|<
 name|ProfileShardResult
-argument_list|>
 name|shardResults
 init|=
 name|SearchProfileShardResults
@@ -2438,9 +2429,6 @@ argument_list|(
 name|searchContext
 operator|.
 name|getProfilers
-argument_list|()
-operator|.
-name|getQueryProfilers
 argument_list|()
 argument_list|)
 decl_stmt|;
