@@ -206,6 +206,8 @@ name|search
 operator|.
 name|profile
 operator|.
+name|query
+operator|.
 name|CollectorResult
 import|;
 end_import
@@ -219,6 +221,8 @@ operator|.
 name|search
 operator|.
 name|profile
+operator|.
+name|query
 operator|.
 name|InternalProfileCollector
 import|;
@@ -764,7 +768,7 @@ operator|.
 name|getProfilers
 argument_list|()
 operator|.
-name|addProfiler
+name|addQueryProfiler
 argument_list|()
 operator|.
 name|setCollector

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.profile
+DECL|package|org.elasticsearch.search.profile.query
 package|package
 name|org
 operator|.
@@ -13,8 +13,24 @@ operator|.
 name|search
 operator|.
 name|profile
+operator|.
+name|query
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|profile
+operator|.
+name|AbstractProfileBreakdown
+import|;
+end_import
 
 begin_comment
 comment|/**  * A record of timings for the various operations that may happen during query execution.  * A node's time may be composed of several internal attributes (rewriting, weighting,  * scoring, etc).  */
