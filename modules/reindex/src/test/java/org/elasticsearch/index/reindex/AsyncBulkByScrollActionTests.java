@@ -1523,6 +1523,10 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
 name|assertNotNull
 argument_list|(
 literal|"There should be a search attempt pending that we didn't reject"
@@ -1533,6 +1537,7 @@ name|lastSearch
 operator|.
 name|get
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1779,6 +1784,10 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+name|assertBusy
+argument_list|(
+parameter_list|()
+lambda|->
 name|assertNotNull
 argument_list|(
 literal|"There should be a scroll attempt pending that we didn't reject"
@@ -1789,6 +1798,7 @@ name|lastScroll
 operator|.
 name|get
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
