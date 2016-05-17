@@ -730,7 +730,7 @@ name|assertFailure
 argument_list|(
 name|listener
 argument_list|,
-literal|"Failed to decode scrollId"
+literal|"Cannot parse scroll id"
 argument_list|)
 expr_stmt|;
 name|assertSearchContextsClosed
