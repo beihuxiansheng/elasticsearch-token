@@ -20,11 +20,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|objectweb
+name|elasticsearch
 operator|.
-name|asm
+name|painless
 operator|.
-name|Label
+name|MethodWriter
 import|;
 end_import
 
@@ -36,9 +36,7 @@ name|objectweb
 operator|.
 name|asm
 operator|.
-name|commons
-operator|.
-name|GeneratorAdapter
+name|Label
 import|;
 end_import
 
@@ -115,7 +113,7 @@ DECL|method|writeDebugInfo
 name|void
 name|writeDebugInfo
 parameter_list|(
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
