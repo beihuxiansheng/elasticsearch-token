@@ -796,6 +796,17 @@ operator|.
 name|NODE_CACHE_TIME_SETTING
 argument_list|)
 expr_stmt|;
+name|settingsModule
+operator|.
+name|registerSetting
+argument_list|(
+name|AwsEc2Service
+operator|.
+name|DISCOVERY_EC2
+operator|.
+name|TAG_SETTING
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * We manage potential duplicates between s3 and ec2 plugins (cloud.aws.xxx)      */
 DECL|method|registerSettingIfMissing

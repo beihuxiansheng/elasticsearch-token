@@ -789,13 +789,14 @@ argument_list|()
 expr_stmt|;
 name|builder
 operator|.
-name|utf8Field
+name|field
 argument_list|(
 name|CommonFields
 operator|.
 name|KEY
 argument_list|,
-name|termBytes
+name|getKeyAsString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder

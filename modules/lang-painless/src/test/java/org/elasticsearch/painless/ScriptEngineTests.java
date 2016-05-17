@@ -237,7 +237,7 @@ name|value
 init|=
 name|exec
 argument_list|(
-literal|"return input.get(\"obj1\");"
+literal|"return params['obj1'];"
 argument_list|,
 name|vars
 argument_list|)
@@ -297,7 +297,7 @@ name|value
 operator|=
 name|exec
 argument_list|(
-literal|"return ((List)((Map<String, Object>)input.get(\"obj1\")).get(\"l\")).get(0);"
+literal|"return params.obj1.l.0;"
 argument_list|,
 name|vars
 argument_list|)
@@ -414,7 +414,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"return ((List)input.get(\"l\")).size();"
+literal|"return params.l.size();"
 argument_list|,
 name|vars
 argument_list|)
@@ -426,7 +426,7 @@ literal|"1"
 argument_list|,
 name|exec
 argument_list|(
-literal|"return ((List)input.get(\"l\")).get(0);"
+literal|"return params.l.0;"
 argument_list|,
 name|vars
 argument_list|)
@@ -437,7 +437,7 @@ name|value
 init|=
 name|exec
 argument_list|(
-literal|"return ((List)input.get(\"l\")).get(3);"
+literal|"return params.l.3;"
 argument_list|,
 name|vars
 argument_list|)
@@ -499,7 +499,7 @@ literal|"value1"
 argument_list|,
 name|exec
 argument_list|(
-literal|"return ((Map<String, Object>)((List)input.get(\"l\")).get(3)).get(\"prop1\");"
+literal|"return params.l.3.prop1;"
 argument_list|,
 name|vars
 argument_list|)
@@ -554,7 +554,9 @@ name|scriptEngine
 operator|.
 name|compile
 argument_list|(
-literal|"return ((Map<String, Object>)input.get(\"ctx\")).get(\"value\");"
+literal|null
+argument_list|,
+literal|"return ctx.value;"
 argument_list|,
 name|Collections
 operator|.
@@ -678,7 +680,9 @@ name|scriptEngine
 operator|.
 name|compile
 argument_list|(
-literal|"return input.get(\"value\");"
+literal|null
+argument_list|,
+literal|"return params['value'];"
 argument_list|,
 name|Collections
 operator|.

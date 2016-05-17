@@ -90,6 +90,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptMode
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -182,7 +194,11 @@ name|class
 argument_list|,
 name|NativeScriptEngineService
 operator|.
-name|TYPES
+name|NAME
+argument_list|,
+name|ScriptMode
+operator|.
+name|ON
 argument_list|)
 argument_list|)
 expr_stmt|;

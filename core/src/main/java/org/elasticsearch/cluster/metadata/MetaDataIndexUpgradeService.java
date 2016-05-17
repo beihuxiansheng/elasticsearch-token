@@ -410,7 +410,7 @@ argument_list|()
 operator|+
 literal|"] was created before v2.0.0.beta1 and wasn't upgraded."
 operator|+
-literal|" This index should be open using a version before "
+literal|" This index should be opened using a version before "
 operator|+
 name|Version
 operator|.

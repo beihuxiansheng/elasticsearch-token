@@ -3193,6 +3193,8 @@ argument_list|,
 name|executor
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|registerRequestHandler
@@ -3201,7 +3203,7 @@ name|reg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Registers a new request handler      *      * @param action         The action the request handler is associated with      * @param request        The request class that will be used to constrcut new instances for streaming      * @param executor       The executor the request handling will be executed on      * @param forceExecution Force execution on the executor queue and never reject it      * @param handler        The handler itself that implements the request handling      */
+comment|/**      * Registers a new request handler      *      * @param action                The action the request handler is associated with      * @param request               The request class that will be used to constrcut new instances for streaming      * @param executor              The executor the request handling will be executed on      * @param forceExecution        Force execution on the executor queue and never reject it      * @param canTripCircuitBreaker Check the request size and raise an exception in case the limit is breached.      * @param handler               The handler itself that implements the request handling      */
 DECL|method|registerRequestHandler
 specifier|public
 parameter_list|<
@@ -3226,6 +3228,9 @@ name|executor
 parameter_list|,
 name|boolean
 name|forceExecution
+parameter_list|,
+name|boolean
+name|canTripCircuitBreaker
 parameter_list|,
 name|TransportRequestHandler
 argument_list|<
@@ -3255,6 +3260,8 @@ argument_list|,
 name|executor
 argument_list|,
 name|forceExecution
+argument_list|,
+name|canTripCircuitBreaker
 argument_list|)
 decl_stmt|;
 name|registerRequestHandler

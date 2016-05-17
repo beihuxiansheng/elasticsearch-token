@@ -212,6 +212,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"x + y"
 argument_list|,
 name|Collections
@@ -556,6 +558,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"x + y"
 argument_list|,
 name|Collections
@@ -900,6 +904,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"x + y"
 argument_list|,
 name|Collections

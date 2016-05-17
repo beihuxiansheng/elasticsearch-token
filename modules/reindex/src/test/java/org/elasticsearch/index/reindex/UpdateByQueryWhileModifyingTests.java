@@ -287,7 +287,7 @@ name|assertThat
 argument_list|(
 name|response
 argument_list|,
-name|updateByQueryResponseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated

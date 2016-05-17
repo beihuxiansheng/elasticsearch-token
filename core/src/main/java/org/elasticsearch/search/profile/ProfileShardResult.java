@@ -147,14 +147,14 @@ name|Writeable
 implements|,
 name|ToXContent
 block|{
-DECL|field|profileResults
+DECL|field|queryProfileResults
 specifier|private
 specifier|final
 name|List
 argument_list|<
 name|ProfileResult
 argument_list|>
-name|profileResults
+name|queryProfileResults
 decl_stmt|;
 DECL|field|profileCollector
 specifier|private
@@ -176,7 +176,7 @@ name|List
 argument_list|<
 name|ProfileResult
 argument_list|>
-name|profileResults
+name|queryProfileResults
 parameter_list|,
 name|long
 name|rewriteTime
@@ -194,9 +194,9 @@ operator|)
 assert|;
 name|this
 operator|.
-name|profileResults
+name|queryProfileResults
 operator|=
-name|profileResults
+name|queryProfileResults
 expr_stmt|;
 name|this
 operator|.
@@ -230,7 +230,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|profileResults
+name|queryProfileResults
 operator|=
 operator|new
 name|ArrayList
@@ -254,7 +254,7 @@ name|j
 operator|++
 control|)
 block|{
-name|profileResults
+name|queryProfileResults
 operator|.
 name|add
 argument_list|(
@@ -299,7 +299,7 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|profileResults
+name|queryProfileResults
 operator|.
 name|size
 argument_list|()
@@ -310,7 +310,7 @@ control|(
 name|ProfileResult
 name|p
 range|:
-name|profileResults
+name|queryProfileResults
 control|)
 block|{
 name|p
@@ -350,7 +350,7 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
-name|profileResults
+name|queryProfileResults
 argument_list|)
 return|;
 block|}
@@ -402,7 +402,7 @@ control|(
 name|ProfileResult
 name|p
 range|:
-name|profileResults
+name|queryProfileResults
 control|)
 block|{
 name|p

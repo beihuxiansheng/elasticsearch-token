@@ -2689,9 +2689,8 @@ name|shards
 operator|.
 name|add
 argument_list|(
+operator|new
 name|ShardRouting
-operator|.
-name|readShardRoutingEntry
 argument_list|(
 name|in
 argument_list|)

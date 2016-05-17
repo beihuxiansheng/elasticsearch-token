@@ -20,6 +20,7 @@ end_comment
 
 begin_class
 DECL|class|CompilerSettings
+specifier|public
 specifier|final
 class|class
 name|CompilerSettings
@@ -63,6 +64,7 @@ decl_stmt|;
 comment|/**      * Returns {@code true} if numeric operations should overflow, {@code false}      * if they should signal an exception.      *<p>      * If this value is {@code true} (default), then things behave like java:      * overflow for integer types can result in unexpected values / unexpected      * signs, and overflow for floating point types can result in infinite or      * {@code NaN} values.      */
 DECL|method|getNumericOverflow
 specifier|public
+specifier|final
 name|boolean
 name|getNumericOverflow
 parameter_list|()
@@ -74,6 +76,7 @@ block|}
 comment|/**      * Set {@code true} for numerics to overflow, false to deliver exceptions.      * @see #getNumericOverflow      */
 DECL|method|setNumericOverflow
 specifier|public
+specifier|final
 name|void
 name|setNumericOverflow
 parameter_list|(
@@ -88,9 +91,10 @@ operator|=
 name|allow
 expr_stmt|;
 block|}
-comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.      */
+comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.  Note if      * the counter is set to 0, no loop counter will be written.      */
 DECL|method|getMaxLoopCounter
 specifier|public
+specifier|final
 name|int
 name|getMaxLoopCounter
 parameter_list|()
@@ -102,6 +106,7 @@ block|}
 comment|/**      * Set the cumulative total number of statements that can be made in all loops.      * @see #getMaxLoopCounter      */
 DECL|method|setMaxLoopCounter
 specifier|public
+specifier|final
 name|void
 name|setMaxLoopCounter
 parameter_list|(

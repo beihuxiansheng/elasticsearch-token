@@ -14,6 +14,10 @@ name|painless
 package|;
 end_package
 
+begin_comment
+comment|/**  * A set of methods for non-native boxing and non-native  * exact math operations used at both compile-time and runtime.  */
+end_comment
+
 begin_class
 DECL|class|Utility
 specifier|public
@@ -3585,10 +3589,6 @@ condition|(
 name|left
 operator|!=
 literal|null
-operator|&&
-name|right
-operator|!=
-literal|null
 condition|)
 block|{
 return|return
@@ -3601,13 +3601,16 @@ argument_list|)
 return|;
 block|}
 return|return
-name|left
-operator|==
-literal|null
-operator|&&
 name|right
 operator|==
 literal|null
+operator|||
+name|right
+operator|.
+name|equals
+argument_list|(
+literal|null
+argument_list|)
 return|;
 block|}
 DECL|method|Utility

@@ -46,9 +46,25 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|ScriptMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptModule
 import|;
 end_import
+
+begin_comment
+comment|/**  * Registers Painless as a plugin.  */
+end_comment
 
 begin_class
 DECL|class|PainlessPlugin
@@ -108,7 +124,11 @@ name|class
 argument_list|,
 name|PainlessScriptEngineService
 operator|.
-name|TYPES
+name|NAME
+argument_list|,
+name|ScriptMode
+operator|.
+name|ON
 argument_list|)
 argument_list|)
 expr_stmt|;

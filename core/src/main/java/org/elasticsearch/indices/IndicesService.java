@@ -1789,12 +1789,18 @@ name|settings
 argument_list|,
 name|threadPool
 argument_list|,
+comment|// ensure we pull an iter with new shards - flatten makes a copy
+parameter_list|()
+lambda|->
 name|Iterables
 operator|.
 name|flatten
 argument_list|(
 name|this
 argument_list|)
+operator|.
+name|iterator
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -3811,7 +3817,9 @@ literal|"Can't delete unassigned index store for ["
 operator|+
 name|indexName
 operator|+
-literal|"] - it's still part of the cluster state ["
+literal|"] - it's still part of "
+operator|+
+literal|"the cluster state ["
 operator|+
 name|index
 operator|.

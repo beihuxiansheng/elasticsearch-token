@@ -219,34 +219,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Test loads and stores with a list */
-DECL|method|testArrayLoadStore
-specifier|public
-name|void
-name|testArrayLoadStore
-parameter_list|()
-block|{
-name|assertEquals
-argument_list|(
-literal|5
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = new int[5]; return x.length"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|5
-argument_list|,
-name|exec
-argument_list|(
-literal|"def x = new int[4]; x[0] = 5; return x[0];"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|/** Test shortcut for getters with isXXXX */
 DECL|method|testListEmpty
 specifier|public
@@ -299,6 +271,80 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"def x = new ArrayList(); x.add(5); def index = 0; return x.get(index);"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testListAsArray
+specifier|public
+name|void
+name|testListAsArray
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add(5); return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|exec
+argument_list|(
+literal|"def x = new ArrayList(); x.add(5); return x[0]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"List x = new ArrayList(); x.add('Hallo'); return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"List<String> x = new ArrayList<String>(); x.add('Hallo'); return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|exec
+argument_list|(
+literal|"List<Object> x = new ArrayList<Object>(); x.add('Hallo'); return x.length"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testDefAssignments
+specifier|public
+name|void
+name|testDefAssignments
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|exec
+argument_list|(
+literal|"int x; def y = 2.0; x = (int)y;"
 argument_list|)
 argument_list|)
 expr_stmt|;

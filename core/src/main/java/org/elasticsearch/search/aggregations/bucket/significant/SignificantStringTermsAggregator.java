@@ -549,10 +549,8 @@ name|supersetSize
 init|=
 name|termsAggFactory
 operator|.
-name|prepareBackground
-argument_list|(
-name|context
-argument_list|)
+name|getSupersetNumDocs
+argument_list|()
 decl_stmt|;
 name|long
 name|subsetSize
@@ -641,6 +639,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|null
+argument_list|,
+name|format
 argument_list|)
 expr_stmt|;
 block|}
@@ -815,6 +815,8 @@ name|supersetSize
 argument_list|,
 name|name
 argument_list|,
+name|format
+argument_list|,
 name|bucketCountThresholds
 operator|.
 name|getRequiredSize
@@ -887,6 +889,8 @@ argument_list|,
 name|supersetSize
 argument_list|,
 name|name
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 operator|.

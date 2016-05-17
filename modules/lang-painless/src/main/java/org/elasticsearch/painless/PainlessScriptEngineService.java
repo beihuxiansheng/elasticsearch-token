@@ -86,6 +86,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|painless
+operator|.
+name|Compiler
+operator|.
+name|Loader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|CompiledScript
@@ -261,6 +275,7 @@ end_comment
 begin_class
 DECL|class|PainlessScriptEngineService
 specifier|public
+specifier|final
 class|class
 name|PainlessScriptEngineService
 extends|extends
@@ -277,52 +292,6 @@ name|String
 name|NAME
 init|=
 literal|"painless"
-decl_stmt|;
-comment|/**      * Standard list of names for the Painless language.  (There is only one.)      */
-DECL|field|TYPES
-specifier|public
-specifier|static
-specifier|final
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|TYPES
-init|=
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|NAME
-argument_list|)
-decl_stmt|;
-comment|/**      * Standard extension of the Painless language.      */
-DECL|field|EXTENSION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|EXTENSION
-init|=
-literal|"pain"
-decl_stmt|;
-comment|/**      * Standard list of extensions for the Painless language.  (There is only one.)      */
-DECL|field|EXTENSIONS
-specifier|public
-specifier|static
-specifier|final
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|EXTENSIONS
-init|=
-name|Collections
-operator|.
-name|singletonList
-argument_list|(
-name|EXTENSION
-argument_list|)
 decl_stmt|;
 comment|/**      * Default compiler settings to be used.      */
 DECL|field|DEFAULT_COMPILER_SETTINGS
@@ -401,49 +370,38 @@ block|}
 comment|/**      * Get the type name(s) for the language.      * @return Always contains only the single name of the language.      */
 annotation|@
 name|Override
-DECL|method|getTypes
+DECL|method|getType
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
-name|getTypes
+name|getType
 parameter_list|()
 block|{
 return|return
-name|TYPES
+name|NAME
 return|;
 block|}
 comment|/**      * Get the extension(s) for the language.      * @return Always contains only the single extension of the language.      */
 annotation|@
 name|Override
-DECL|method|getExtensions
+DECL|method|getExtension
 specifier|public
-name|List
-argument_list|<
 name|String
-argument_list|>
-name|getExtensions
+name|getExtension
 parameter_list|()
 block|{
 return|return
-name|EXTENSIONS
+name|NAME
 return|;
 block|}
-comment|/**      * Whether or not the engine is secure.      * @return Always true as the engine should be secure at runtime.      */
-annotation|@
-name|Override
-DECL|method|isSandboxed
-specifier|public
-name|boolean
-name|isSandboxed
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-comment|/**      * Compiles a Painless script with the specified parameters.      * @param script The code to be compiled.      * @param params The params used to modify the compiler settings on a per script basis.      * @return Compiled script object represented by an {@link Executable}.      */
+comment|/**      * When a script is anonymous (inline), we give it this name.      */
+DECL|field|INLINE_NAME
+specifier|static
+specifier|final
+name|String
+name|INLINE_NAME
+init|=
+literal|"<inline>"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|compile
@@ -451,9 +409,12 @@ specifier|public
 name|Object
 name|compile
 parameter_list|(
+name|String
+name|scriptName
+parameter_list|,
 specifier|final
 name|String
-name|script
+name|scriptSource
 parameter_list|,
 specifier|final
 name|Map
@@ -619,8 +580,6 @@ expr_stmt|;
 block|}
 comment|// Create our loader (which loads compiled code with no permissions).
 specifier|final
-name|Compiler
-operator|.
 name|Loader
 name|loader
 init|=
@@ -631,8 +590,6 @@ argument_list|(
 operator|new
 name|PrivilegedAction
 argument_list|<
-name|Compiler
-operator|.
 name|Loader
 argument_list|>
 argument_list|()
@@ -640,16 +597,12 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|Compiler
-operator|.
 name|Loader
 name|run
 parameter_list|()
 block|{
 return|return
 operator|new
-name|Compiler
-operator|.
 name|Loader
 argument_list|(
 name|getClass
@@ -690,9 +643,15 @@ name|compile
 argument_list|(
 name|loader
 argument_list|,
-literal|"unknown"
+name|scriptName
+operator|==
+literal|null
+condition|?
+name|INLINE_NAME
+else|:
+name|scriptName
 argument_list|,
-name|script
+name|scriptSource
 argument_list|,
 name|compilerSettings
 argument_list|)
@@ -812,7 +771,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**              * Whether or not the score is needed.              * @return Always true as it's assumed score is needed.              */
+comment|/**              * Whether or not the score is needed.              */
 annotation|@
 name|Override
 specifier|public
@@ -821,7 +780,12 @@ name|needsScores
 parameter_list|()
 block|{
 return|return
-literal|true
+name|compiledScript
+operator|.
+name|compiled
+argument_list|()
+operator|instanceof
+name|NeedsScore
 return|;
 block|}
 block|}

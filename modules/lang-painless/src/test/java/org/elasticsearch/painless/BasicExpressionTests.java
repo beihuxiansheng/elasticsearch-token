@@ -512,7 +512,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"return input.get(\"x\");"
+literal|"return params.get(\"x\");"
 argument_list|,
 name|Collections
 operator|.
@@ -532,7 +532,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"int y = (Integer)input.get(\"x\"); return y;"
+literal|"int y = (Integer)params.get(\"x\"); return y;"
 argument_list|,
 name|Collections
 operator|.
@@ -552,7 +552,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"return 5> (Integer)input.get(\"x\");"
+literal|"return 5> (Integer)params.get(\"x\");"
 argument_list|,
 name|Collections
 operator|.
