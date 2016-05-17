@@ -510,6 +510,8 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
 name|paths
 argument_list|)
 decl_stmt|;
