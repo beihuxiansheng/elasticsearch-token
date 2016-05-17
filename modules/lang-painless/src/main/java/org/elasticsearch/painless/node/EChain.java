@@ -1782,8 +1782,6 @@ argument_list|(
 name|link
 operator|.
 name|after
-operator|.
-name|sort
 argument_list|)
 expr_stmt|;
 name|expression
@@ -1837,8 +1835,6 @@ argument_list|(
 name|expression
 operator|.
 name|actual
-operator|.
-name|sort
 argument_list|)
 expr_stmt|;
 block|}

@@ -4034,8 +4034,6 @@ argument_list|(
 name|left
 operator|.
 name|actual
-operator|.
-name|sort
 argument_list|)
 expr_stmt|;
 block|}
@@ -4090,8 +4088,6 @@ argument_list|(
 name|right
 operator|.
 name|actual
-operator|.
-name|sort
 argument_list|)
 expr_stmt|;
 block|}
