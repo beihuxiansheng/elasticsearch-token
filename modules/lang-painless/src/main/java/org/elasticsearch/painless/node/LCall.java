@@ -268,6 +268,24 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
+name|Definition
+operator|.
+name|MethodKey
+name|methodKey
+init|=
+operator|new
+name|Definition
+operator|.
+name|MethodKey
+argument_list|(
+name|name
+argument_list|,
+name|arguments
+operator|.
+name|size
+argument_list|()
+argument_list|)
+decl_stmt|;
 specifier|final
 name|Struct
 name|struct
@@ -282,11 +300,11 @@ name|statik
 condition|?
 name|struct
 operator|.
-name|functions
+name|staticMethods
 operator|.
 name|get
 argument_list|(
-name|name
+name|methodKey
 argument_list|)
 else|:
 name|struct
@@ -295,7 +313,7 @@ name|methods
 operator|.
 name|get
 argument_list|(
-name|name
+name|methodKey
 argument_list|)
 expr_stmt|;
 if|if
@@ -305,60 +323,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|method
-operator|.
-name|arguments
-operator|.
-name|size
-argument_list|()
-operator|!=
-name|arguments
-operator|.
-name|size
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|error
-argument_list|(
-literal|"When calling ["
-operator|+
-name|name
-operator|+
-literal|"] on type ["
-operator|+
-name|struct
-operator|.
-name|name
-operator|+
-literal|"]"
-operator|+
-literal|" expected ["
-operator|+
-name|method
-operator|.
-name|arguments
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|"] arguments, but found ["
-operator|+
-name|arguments
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|"]."
-argument_list|)
-argument_list|)
-throw|;
-block|}
 for|for
 control|(
 name|int
@@ -505,7 +469,14 @@ literal|"Unknown call ["
 operator|+
 name|name
 operator|+
-literal|"] on type ["
+literal|"] with ["
+operator|+
+name|arguments
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|"] arguments on type ["
 operator|+
 name|struct
 operator|.

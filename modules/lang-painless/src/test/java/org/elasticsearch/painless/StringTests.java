@@ -1076,7 +1076,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = \"c\" (char)s"
+literal|"String s = \"c\"; (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1086,7 +1086,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = 'c' (char)s"
+literal|"String s = 'c'; (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1172,7 +1172,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = \"cc\" (char)s"
+literal|"String s = \"cc\"; (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1209,7 +1209,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = 'cc' (char)s"
+literal|"String s = 'cc'; (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1284,7 +1284,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = \"c\" (Character)s"
+literal|"String s = \"c\"; (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1294,7 +1294,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = 'c' (Character)s"
+literal|"String s = 'c'; (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1380,7 +1380,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = \"cc\" (Character)s"
+literal|"String s = \"cc\"; (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1417,7 +1417,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = 'cc' (Character)s"
+literal|"String s = 'cc'; (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
