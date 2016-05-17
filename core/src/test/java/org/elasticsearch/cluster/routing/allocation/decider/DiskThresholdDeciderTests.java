@@ -7578,7 +7578,7 @@ argument_list|(
 name|clusterState
 argument_list|)
 argument_list|,
-name|discoveryNodes
+name|clusterState
 argument_list|,
 name|clusterInfo
 argument_list|,
@@ -7777,7 +7777,7 @@ argument_list|(
 name|clusterState
 argument_list|)
 argument_list|,
-name|discoveryNodes
+name|clusterState
 argument_list|,
 name|clusterInfo
 argument_list|,
@@ -8743,7 +8743,7 @@ argument_list|(
 name|clusterState
 argument_list|)
 argument_list|,
-name|discoveryNodes
+name|clusterState
 argument_list|,
 name|clusterInfo
 argument_list|,
@@ -9342,7 +9342,7 @@ argument_list|(
 name|clusterState
 argument_list|)
 argument_list|,
-name|discoveryNodes
+name|clusterState
 argument_list|,
 name|clusterInfo
 argument_list|,

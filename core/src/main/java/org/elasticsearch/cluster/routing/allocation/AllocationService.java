@@ -613,9 +613,6 @@ argument_list|,
 name|routingNodes
 argument_list|,
 name|clusterState
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|startedShards
 argument_list|,
@@ -1352,9 +1349,6 @@ argument_list|,
 name|routingNodes
 argument_list|,
 name|clusterState
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|failedShards
 argument_list|,
@@ -1689,9 +1683,6 @@ argument_list|,
 name|routingNodes
 argument_list|,
 name|clusterState
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|clusterInfoService
 operator|.
@@ -1868,9 +1859,6 @@ argument_list|,
 name|routingNodes
 argument_list|,
 name|clusterState
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|clusterInfoService
 operator|.

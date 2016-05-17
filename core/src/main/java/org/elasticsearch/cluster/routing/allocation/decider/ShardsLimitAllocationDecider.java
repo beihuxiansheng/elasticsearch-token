@@ -334,9 +334,6 @@ name|indexMd
 init|=
 name|allocation
 operator|.
-name|routingNodes
-argument_list|()
-operator|.
 name|metaData
 argument_list|()
 operator|.
@@ -562,9 +559,6 @@ name|IndexMetaData
 name|indexMd
 init|=
 name|allocation
-operator|.
-name|routingNodes
-argument_list|()
 operator|.
 name|metaData
 argument_list|()
