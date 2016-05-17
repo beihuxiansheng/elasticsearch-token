@@ -202,6 +202,11 @@ name|methods
 operator|.
 name|get
 argument_list|(
+operator|new
+name|Definition
+operator|.
+name|MethodKey
+argument_list|(
 literal|"get"
 operator|+
 name|Character
@@ -222,6 +227,9 @@ name|substring
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setter
@@ -231,6 +239,11 @@ operator|.
 name|methods
 operator|.
 name|get
+argument_list|(
+operator|new
+name|Definition
+operator|.
+name|MethodKey
 argument_list|(
 literal|"set"
 operator|+
@@ -250,6 +263,9 @@ name|value
 operator|.
 name|substring
 argument_list|(
+literal|1
+argument_list|)
+argument_list|,
 literal|1
 argument_list|)
 argument_list|)

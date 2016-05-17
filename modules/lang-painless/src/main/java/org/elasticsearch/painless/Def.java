@@ -755,7 +755,7 @@ name|arrayType
 argument_list|)
 return|;
 block|}
-comment|/**      * Looks up handle for a dynamic method call.      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param definition Whitelist to check.      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
+comment|/**      * Looks up handle for a dynamic method call.      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param type Callsite signature. Need not match exactly, except the number of parameters.      * @param definition Whitelist to check.      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
 DECL|method|lookupMethod
 specifier|static
 name|MethodHandle
@@ -770,10 +770,43 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
+name|MethodType
+name|type
+parameter_list|,
 name|Definition
 name|definition
 parameter_list|)
 block|{
+comment|// we don't consider receiver an argument/counting towards arity
+name|type
+operator|=
+name|type
+operator|.
+name|dropParameterTypes
+argument_list|(
+literal|0
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|Definition
+operator|.
+name|MethodKey
+name|key
+init|=
+operator|new
+name|Definition
+operator|.
+name|MethodKey
+argument_list|(
+name|name
+argument_list|,
+name|type
+operator|.
+name|parameterCount
+argument_list|()
+argument_list|)
+decl_stmt|;
 comment|// check whitelist for matching method
 for|for
 control|(
@@ -825,7 +858,7 @@ name|methods
 operator|.
 name|get
 argument_list|(
-name|name
+name|key
 argument_list|)
 decl_stmt|;
 if|if
@@ -884,7 +917,7 @@ name|methods
 operator|.
 name|get
 argument_list|(
-name|name
+name|key
 argument_list|)
 decl_stmt|;
 if|if
@@ -911,6 +944,10 @@ argument_list|(
 literal|"Unable to find dynamic method ["
 operator|+
 name|name
+operator|+
+literal|"] with signature ["
+operator|+
+name|type
 operator|+
 literal|"] "
 operator|+

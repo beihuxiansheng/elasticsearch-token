@@ -32,6 +32,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|profile
+operator|.
+name|query
+operator|.
+name|QueryProfiler
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -77,14 +93,14 @@ specifier|final
 name|ContextIndexSearcher
 name|searcher
 decl_stmt|;
-DECL|field|profilers
+DECL|field|queryProfilers
 specifier|private
 specifier|final
 name|List
 argument_list|<
 name|QueryProfiler
 argument_list|>
-name|profilers
+name|queryProfilers
 decl_stmt|;
 comment|/** Sole constructor. This {@link Profilers} instance will initially wrap one {@link QueryProfiler}. */
 DECL|method|Profilers
@@ -103,22 +119,22 @@ name|searcher
 expr_stmt|;
 name|this
 operator|.
-name|profilers
+name|queryProfilers
 operator|=
 operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
 expr_stmt|;
-name|addProfiler
+name|addQueryProfiler
 argument_list|()
 expr_stmt|;
 block|}
 comment|/** Switch to a new profile. */
-DECL|method|addProfiler
+DECL|method|addQueryProfiler
 specifier|public
 name|QueryProfiler
-name|addProfiler
+name|addQueryProfiler
 parameter_list|()
 block|{
 name|QueryProfiler
@@ -135,7 +151,7 @@ argument_list|(
 name|profiler
 argument_list|)
 expr_stmt|;
-name|profilers
+name|queryProfilers
 operator|.
 name|add
 argument_list|(
@@ -147,18 +163,18 @@ name|profiler
 return|;
 block|}
 comment|/** Get the current profiler. */
-DECL|method|getCurrent
+DECL|method|getCurrentQueryProfiler
 specifier|public
 name|QueryProfiler
-name|getCurrent
+name|getCurrentQueryProfiler
 parameter_list|()
 block|{
 return|return
-name|profilers
+name|queryProfilers
 operator|.
 name|get
 argument_list|(
-name|profilers
+name|queryProfilers
 operator|.
 name|size
 argument_list|()
@@ -168,13 +184,13 @@ argument_list|)
 return|;
 block|}
 comment|/** Return the list of all created {@link QueryProfiler}s so far. */
-DECL|method|getProfilers
+DECL|method|getQueryProfilers
 specifier|public
 name|List
 argument_list|<
 name|QueryProfiler
 argument_list|>
-name|getProfilers
+name|getQueryProfilers
 parameter_list|()
 block|{
 return|return
@@ -182,7 +198,7 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
-name|profilers
+name|queryProfilers
 argument_list|)
 return|;
 block|}

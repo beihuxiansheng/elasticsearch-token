@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.profile
+DECL|package|org.elasticsearch.search.profile.query
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|search
 operator|.
 name|profile
+operator|.
+name|query
 package|;
 end_package
 

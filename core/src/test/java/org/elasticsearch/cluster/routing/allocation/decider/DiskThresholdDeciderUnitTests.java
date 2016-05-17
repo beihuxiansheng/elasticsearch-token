@@ -1294,9 +1294,6 @@ name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|clusterState
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|clusterInfo
 argument_list|,
@@ -2116,9 +2113,6 @@ name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|clusterState
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|clusterInfo
 argument_list|,

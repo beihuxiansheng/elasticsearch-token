@@ -1717,9 +1717,6 @@ argument_list|,
 name|routingNodes
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|clusterInfoService
 operator|.

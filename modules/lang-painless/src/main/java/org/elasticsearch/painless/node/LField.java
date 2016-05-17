@@ -308,7 +308,7 @@ name|statik
 condition|?
 name|struct
 operator|.
-name|statics
+name|staticMembers
 operator|.
 name|get
 argument_list|(
@@ -387,6 +387,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// TODO: improve this: the isXXX case seems missing???
 specifier|final
 name|boolean
 name|shortcut
@@ -396,6 +397,11 @@ operator|.
 name|methods
 operator|.
 name|containsKey
+argument_list|(
+operator|new
+name|Definition
+operator|.
+name|MethodKey
 argument_list|(
 literal|"get"
 operator|+
@@ -417,6 +423,9 @@ name|substring
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+literal|0
+argument_list|)
 argument_list|)
 operator|||
 name|struct
@@ -424,6 +433,11 @@ operator|.
 name|methods
 operator|.
 name|containsKey
+argument_list|(
+operator|new
+name|Definition
+operator|.
+name|MethodKey
 argument_list|(
 literal|"set"
 operator|+
@@ -443,6 +457,9 @@ name|value
 operator|.
 name|substring
 argument_list|(
+literal|1
+argument_list|)
+argument_list|,
 literal|1
 argument_list|)
 argument_list|)

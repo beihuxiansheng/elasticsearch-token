@@ -14,6 +14,16 @@ name|painless
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_class
 DECL|class|StringTests
 specifier|public
@@ -301,6 +311,130 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"String s = 'cat'; return s + s;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAppendMultiple
+specifier|public
+name|void
+name|testAppendMultiple
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|"cat"
+operator|+
+literal|true
+operator|+
+literal|"abc"
+operator|+
+literal|null
+argument_list|,
+name|exec
+argument_list|(
+literal|"String s = \"cat\"; return s + true + 'abc' + null;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testAppendMany
+specifier|public
+name|void
+name|testAppendMany
+parameter_list|()
+block|{
+name|StringBuilder
+name|script
+init|=
+operator|new
+name|StringBuilder
+argument_list|(
+literal|"String s = \"cat\"; return s"
+argument_list|)
+decl_stmt|;
+name|StringBuilder
+name|result
+init|=
+operator|new
+name|StringBuilder
+argument_list|(
+literal|"cat"
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|200
+comment|/* indy limit */
+operator|+
+literal|10
+condition|;
+name|i
+operator|++
+control|)
+block|{
+specifier|final
+name|String
+name|s
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"%03d"
+argument_list|,
+name|i
+argument_list|)
+decl_stmt|;
+name|script
+operator|.
+name|append
+argument_list|(
+literal|" + '"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|s
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"'.toString()"
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|append
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+block|}
+name|assertEquals
+argument_list|(
+name|result
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|exec
+argument_list|(
+name|script
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -940,7 +1074,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = \"c\" (char)s"
+literal|"String s = \"c\"; (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -950,7 +1084,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = 'c' (char)s"
+literal|"String s = 'c'; (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1036,7 +1170,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = \"cc\" (char)s"
+literal|"String s = \"cc\"; (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1073,7 +1207,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = 'cc' (char)s"
+literal|"String s = 'cc'; (char)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1148,7 +1282,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = \"c\" (Character)s"
+literal|"String s = \"c\"; (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1158,7 +1292,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = 'c' (Character)s"
+literal|"String s = 'c'; (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1244,7 +1378,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = \"cc\" (Character)s"
+literal|"String s = \"cc\"; (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1281,7 +1415,7 @@ literal|'c'
 argument_list|,
 name|exec
 argument_list|(
-literal|"String s = 'cc' (Character)s"
+literal|"String s = 'cc'; (Character)s"
 argument_list|)
 argument_list|)
 expr_stmt|;

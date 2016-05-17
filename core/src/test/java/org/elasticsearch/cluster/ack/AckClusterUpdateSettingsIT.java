@@ -626,9 +626,6 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|getRoutingNodes
-argument_list|()
-operator|.
 name|metaData
 argument_list|()
 operator|.
