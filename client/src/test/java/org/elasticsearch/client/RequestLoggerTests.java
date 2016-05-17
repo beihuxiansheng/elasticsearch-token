@@ -34,20 +34,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|codec
-operator|.
-name|Charsets
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|http
 operator|.
 name|HttpEntityEnclosingRequest
@@ -225,6 +211,18 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
 import|;
 end_import
 
@@ -431,7 +429,7 @@ name|StringEntity
 argument_list|(
 name|requestBody
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -619,7 +617,7 @@ name|StringEntity
 argument_list|(
 name|responseBody
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
