@@ -290,7 +290,7 @@ decl_stmt|;
 DECL|field|adapter
 specifier|private
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 decl_stmt|;
 DECL|method|Writer
@@ -380,15 +380,13 @@ expr_stmt|;
 name|adapter
 operator|=
 operator|new
-name|GeneratorAdapter
+name|MethodWriter
 argument_list|(
 name|Opcodes
 operator|.
 name|ACC_PUBLIC
 argument_list|,
 name|EXECUTE
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

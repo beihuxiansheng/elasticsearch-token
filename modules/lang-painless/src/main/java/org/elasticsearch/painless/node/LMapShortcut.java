@@ -88,21 +88,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|WriterUtility
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|commons
-operator|.
-name|GeneratorAdapter
+name|MethodWriter
 import|;
 end_import
 
@@ -483,7 +469,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -514,7 +500,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -626,7 +612,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -687,12 +673,10 @@ name|method
 argument_list|)
 expr_stmt|;
 block|}
-name|WriterUtility
+name|adapter
 operator|.
 name|writePop
 argument_list|(
-name|adapter
-argument_list|,
 name|setter
 operator|.
 name|rtn

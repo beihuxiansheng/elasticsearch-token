@@ -108,18 +108,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|WriterUtility
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|objectweb
 operator|.
 name|asm
@@ -132,13 +120,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|objectweb
+name|elasticsearch
 operator|.
-name|asm
+name|painless
 operator|.
-name|commons
-operator|.
-name|GeneratorAdapter
+name|MethodWriter
 import|;
 end_import
 
@@ -1091,7 +1077,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -1334,7 +1320,7 @@ name|adapter
 operator|.
 name|math
 argument_list|(
-name|GeneratorAdapter
+name|MethodWriter
 operator|.
 name|XOR
 argument_list|,
@@ -1390,7 +1376,7 @@ name|adapter
 operator|.
 name|math
 argument_list|(
-name|GeneratorAdapter
+name|MethodWriter
 operator|.
 name|NEG
 argument_list|,
@@ -1484,12 +1470,10 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-name|WriterUtility
+name|adapter
 operator|.
 name|writeBranch
 argument_list|(
-name|adapter
-argument_list|,
 name|tru
 argument_list|,
 name|fals
