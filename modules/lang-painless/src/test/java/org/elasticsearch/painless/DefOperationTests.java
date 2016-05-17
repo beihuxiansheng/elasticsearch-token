@@ -35,7 +35,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 return ~x"
+literal|"def x = (byte)1; return ~x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -46,7 +46,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 return ~x"
+literal|"def x = (short)1; return ~x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -57,7 +57,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 return ~x"
+literal|"def x = (char)1; return ~x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -68,7 +68,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = 1 return ~x"
+literal|"def x = 1; return ~x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -79,7 +79,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = 1L return ~x"
+literal|"def x = 1L; return ~x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -97,7 +97,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 return -x"
+literal|"def x = (byte)1; return -x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -108,7 +108,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 return -x"
+literal|"def x = (short)1; return -x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -119,7 +119,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 return -x"
+literal|"def x = (char)1; return -x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -130,7 +130,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = 1 return -x"
+literal|"def x = 1; return -x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -141,7 +141,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = 1L return -x"
+literal|"def x = 1L; return -x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -152,7 +152,7 @@ literal|1.0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = 1F return -x"
+literal|"def x = 1F; return -x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -163,7 +163,7 @@ literal|1.0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = 1.0 return -x"
+literal|"def x = 1.0; return -x"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -180,7 +180,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (byte)2 return x * y"
+literal|"def x = (byte)2; def y = (byte)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -190,7 +190,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (byte)2 return x * y"
+literal|"def x = (short)2; def y = (byte)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -200,7 +200,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (byte)2 return x * y"
+literal|"def x = (char)2; def y = (byte)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -210,7 +210,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (byte)2 return x * y"
+literal|"def x = (int)2; def y = (byte)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -220,7 +220,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (byte)2 return x * y"
+literal|"def x = (long)2; def y = (byte)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -230,7 +230,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (byte)2 return x * y"
+literal|"def x = (float)2; def y = (byte)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -240,7 +240,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (byte)2 return x * y"
+literal|"def x = (double)2; def y = (byte)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -250,7 +250,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (short)2 return x * y"
+literal|"def x = (byte)2; def y = (short)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -260,7 +260,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (short)2 return x * y"
+literal|"def x = (short)2; def y = (short)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -270,7 +270,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (short)2 return x * y"
+literal|"def x = (char)2; def y = (short)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -280,7 +280,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (short)2 return x * y"
+literal|"def x = (int)2; def y = (short)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -290,7 +290,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (short)2 return x * y"
+literal|"def x = (long)2; def y = (short)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -300,7 +300,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (short)2 return x * y"
+literal|"def x = (float)2; def y = (short)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -310,7 +310,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (short)2 return x * y"
+literal|"def x = (double)2; def y = (short)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -320,7 +320,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (char)2 return x * y"
+literal|"def x = (byte)2; def y = (char)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -330,7 +330,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (char)2 return x * y"
+literal|"def x = (short)2; def y = (char)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -340,7 +340,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (char)2 return x * y"
+literal|"def x = (char)2; def y = (char)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -350,7 +350,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (char)2 return x * y"
+literal|"def x = (int)2; def y = (char)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -360,7 +360,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (char)2 return x * y"
+literal|"def x = (long)2; def y = (char)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -370,7 +370,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (char)2 return x * y"
+literal|"def x = (float)2; def y = (char)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -380,7 +380,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (char)2 return x * y"
+literal|"def x = (double)2; def y = (char)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -390,7 +390,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (int)2 return x * y"
+literal|"def x = (byte)2; def y = (int)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -400,7 +400,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (int)2 return x * y"
+literal|"def x = (short)2; def y = (int)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -410,7 +410,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (int)2 return x * y"
+literal|"def x = (char)2; def y = (int)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -420,7 +420,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (int)2 return x * y"
+literal|"def x = (int)2; def y = (int)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -430,7 +430,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (int)2 return x * y"
+literal|"def x = (long)2; def y = (int)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -440,7 +440,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (int)2 return x * y"
+literal|"def x = (float)2; def y = (int)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -450,7 +450,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (int)2 return x * y"
+literal|"def x = (double)2; def y = (int)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -460,7 +460,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (long)2 return x * y"
+literal|"def x = (byte)2; def y = (long)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -470,7 +470,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (long)2 return x * y"
+literal|"def x = (short)2; def y = (long)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -480,7 +480,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (long)2 return x * y"
+literal|"def x = (char)2; def y = (long)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -490,7 +490,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (long)2 return x * y"
+literal|"def x = (int)2; def y = (long)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -500,7 +500,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (long)2 return x * y"
+literal|"def x = (long)2; def y = (long)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -510,7 +510,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (long)2 return x * y"
+literal|"def x = (float)2; def y = (long)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -520,7 +520,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (long)2 return x * y"
+literal|"def x = (double)2; def y = (long)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -530,7 +530,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (float)2 return x * y"
+literal|"def x = (byte)2; def y = (float)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -540,7 +540,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (float)2 return x * y"
+literal|"def x = (short)2; def y = (float)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -550,7 +550,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (float)2 return x * y"
+literal|"def x = (char)2; def y = (float)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -560,7 +560,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (float)2 return x * y"
+literal|"def x = (int)2; def y = (float)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -570,7 +570,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (float)2 return x * y"
+literal|"def x = (long)2; def y = (float)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -580,7 +580,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (float)2 return x * y"
+literal|"def x = (float)2; def y = (float)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -590,7 +590,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (float)2 return x * y"
+literal|"def x = (double)2; def y = (float)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -600,7 +600,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (double)2 return x * y"
+literal|"def x = (byte)2; def y = (double)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -610,7 +610,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (double)2 return x * y"
+literal|"def x = (short)2; def y = (double)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -620,7 +620,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (double)2 return x * y"
+literal|"def x = (char)2; def y = (double)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -630,7 +630,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (double)2 return x * y"
+literal|"def x = (int)2; def y = (double)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -640,7 +640,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (double)2 return x * y"
+literal|"def x = (long)2; def y = (double)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -650,7 +650,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (double)2 return x * y"
+literal|"def x = (float)2; def y = (double)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -660,7 +660,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (double)2 return x * y"
+literal|"def x = (double)2; def y = (double)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -670,7 +670,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)2 def y = (byte)2 return x * y"
+literal|"def x = (Byte)2; def y = (byte)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -680,7 +680,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)2 def y = (short)2 return x * y"
+literal|"def x = (Short)2; def y = (short)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -690,7 +690,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)2 def y = (char)2 return x * y"
+literal|"def x = (Character)2; def y = (char)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -700,7 +700,7 @@ literal|4
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)2 def y = (int)2 return x * y"
+literal|"def x = (Integer)2; def y = (int)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -710,7 +710,7 @@ literal|4L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)2 def y = (long)2 return x * y"
+literal|"def x = (Long)2; def y = (long)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -720,7 +720,7 @@ literal|4F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)2 def y = (float)2 return x * y"
+literal|"def x = (Float)2; def y = (float)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -730,7 +730,7 @@ literal|4D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)2 def y = (double)2 return x * y"
+literal|"def x = (Double)2; def y = (double)2; return x * y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -747,7 +747,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (byte)2 return x / y"
+literal|"def x = (byte)2; def y = (byte)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -757,7 +757,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (byte)2 return x / y"
+literal|"def x = (short)2; def y = (byte)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -767,7 +767,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (byte)2 return x / y"
+literal|"def x = (char)2; def y = (byte)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -777,7 +777,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (byte)2 return x / y"
+literal|"def x = (int)2; def y = (byte)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -787,7 +787,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (byte)2 return x / y"
+literal|"def x = (long)2; def y = (byte)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -797,7 +797,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (byte)2 return x / y"
+literal|"def x = (float)2; def y = (byte)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -807,7 +807,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (byte)2 return x / y"
+literal|"def x = (double)2; def y = (byte)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -817,7 +817,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (short)2 return x / y"
+literal|"def x = (byte)2; def y = (short)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -827,7 +827,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (short)2 return x / y"
+literal|"def x = (short)2; def y = (short)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -837,7 +837,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (short)2 return x / y"
+literal|"def x = (char)2; def y = (short)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -847,7 +847,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (short)2 return x / y"
+literal|"def x = (int)2; def y = (short)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -857,7 +857,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (short)2 return x / y"
+literal|"def x = (long)2; def y = (short)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -867,7 +867,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (short)2 return x / y"
+literal|"def x = (float)2; def y = (short)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -877,7 +877,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (short)2 return x / y"
+literal|"def x = (double)2; def y = (short)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -887,7 +887,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (char)2 return x / y"
+literal|"def x = (byte)2; def y = (char)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -897,7 +897,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (char)2 return x / y"
+literal|"def x = (short)2; def y = (char)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -907,7 +907,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (char)2 return x / y"
+literal|"def x = (char)2; def y = (char)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -917,7 +917,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (char)2 return x / y"
+literal|"def x = (int)2; def y = (char)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -927,7 +927,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (char)2 return x / y"
+literal|"def x = (long)2; def y = (char)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -937,7 +937,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (char)2 return x / y"
+literal|"def x = (float)2; def y = (char)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -947,7 +947,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (char)2 return x / y"
+literal|"def x = (double)2; def y = (char)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -957,7 +957,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (int)2 return x / y"
+literal|"def x = (byte)2; def y = (int)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -967,7 +967,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (int)2 return x / y"
+literal|"def x = (short)2; def y = (int)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -977,7 +977,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (int)2 return x / y"
+literal|"def x = (char)2; def y = (int)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -987,7 +987,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (int)2 return x / y"
+literal|"def x = (int)2; def y = (int)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -997,7 +997,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (int)2 return x / y"
+literal|"def x = (long)2; def y = (int)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1007,7 +1007,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (int)2 return x / y"
+literal|"def x = (float)2; def y = (int)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1017,7 +1017,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (int)2 return x / y"
+literal|"def x = (double)2; def y = (int)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1027,7 +1027,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (long)2 return x / y"
+literal|"def x = (byte)2; def y = (long)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1037,7 +1037,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (long)2 return x / y"
+literal|"def x = (short)2; def y = (long)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1047,7 +1047,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (long)2 return x / y"
+literal|"def x = (char)2; def y = (long)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1057,7 +1057,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (long)2 return x / y"
+literal|"def x = (int)2; def y = (long)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1067,7 +1067,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (long)2 return x / y"
+literal|"def x = (long)2; def y = (long)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1077,7 +1077,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (long)2 return x / y"
+literal|"def x = (float)2; def y = (long)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1087,7 +1087,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (long)2 return x / y"
+literal|"def x = (double)2; def y = (long)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1097,7 +1097,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (float)2 return x / y"
+literal|"def x = (byte)2; def y = (float)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1107,7 +1107,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (float)2 return x / y"
+literal|"def x = (short)2; def y = (float)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1117,7 +1117,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (float)2 return x / y"
+literal|"def x = (char)2; def y = (float)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1127,7 +1127,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (float)2 return x / y"
+literal|"def x = (int)2; def y = (float)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1137,7 +1137,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (float)2 return x / y"
+literal|"def x = (long)2; def y = (float)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1147,7 +1147,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (float)2 return x / y"
+literal|"def x = (float)2; def y = (float)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1157,7 +1157,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (float)2 return x / y"
+literal|"def x = (double)2; def y = (float)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1167,7 +1167,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (double)2 return x / y"
+literal|"def x = (byte)2; def y = (double)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1177,7 +1177,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (double)2 return x / y"
+literal|"def x = (short)2; def y = (double)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1187,7 +1187,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (double)2 return x / y"
+literal|"def x = (char)2; def y = (double)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1197,7 +1197,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (double)2 return x / y"
+literal|"def x = (int)2; def y = (double)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1207,7 +1207,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (double)2 return x / y"
+literal|"def x = (long)2; def y = (double)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1217,7 +1217,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (double)2 return x / y"
+literal|"def x = (float)2; def y = (double)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1227,7 +1227,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (double)2 return x / y"
+literal|"def x = (double)2; def y = (double)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1237,7 +1237,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)2 def y = (byte)2 return x / y"
+literal|"def x = (Byte)2; def y = (byte)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1247,7 +1247,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)2 def y = (short)2 return x / y"
+literal|"def x = (Short)2; def y = (short)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1257,7 +1257,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)2 def y = (char)2 return x / y"
+literal|"def x = (Character)2; def y = (char)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1267,7 +1267,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)2 def y = (int)2 return x / y"
+literal|"def x = (Integer)2; def y = (int)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1277,7 +1277,7 @@ literal|1L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)2 def y = (long)2 return x / y"
+literal|"def x = (Long)2; def y = (long)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1287,7 +1287,7 @@ literal|1F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)2 def y = (float)2 return x / y"
+literal|"def x = (Float)2; def y = (float)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1297,7 +1297,7 @@ literal|1D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)2 def y = (double)2 return x / y"
+literal|"def x = (Double)2; def y = (double)2; return x / y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1314,7 +1314,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (byte)2 return x % y"
+literal|"def x = (byte)2; def y = (byte)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1324,7 +1324,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (byte)2 return x % y"
+literal|"def x = (short)2; def y = (byte)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1334,7 +1334,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (byte)2 return x % y"
+literal|"def x = (char)2; def y = (byte)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1344,7 +1344,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (byte)2 return x % y"
+literal|"def x = (int)2; def y = (byte)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1354,7 +1354,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (byte)2 return x % y"
+literal|"def x = (long)2; def y = (byte)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1364,7 +1364,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (byte)2 return x % y"
+literal|"def x = (float)2; def y = (byte)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1374,7 +1374,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (byte)2 return x % y"
+literal|"def x = (double)2; def y = (byte)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1384,7 +1384,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (short)2 return x % y"
+literal|"def x = (byte)2; def y = (short)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1394,7 +1394,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (short)2 return x % y"
+literal|"def x = (short)2; def y = (short)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1404,7 +1404,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (short)2 return x % y"
+literal|"def x = (char)2; def y = (short)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1414,7 +1414,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (short)2 return x % y"
+literal|"def x = (int)2; def y = (short)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1424,7 +1424,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (short)2 return x % y"
+literal|"def x = (long)2; def y = (short)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1434,7 +1434,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (short)2 return x % y"
+literal|"def x = (float)2; def y = (short)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1444,7 +1444,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (short)2 return x % y"
+literal|"def x = (double)2; def y = (short)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1454,7 +1454,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (char)2 return x % y"
+literal|"def x = (byte)2; def y = (char)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1464,7 +1464,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (char)2 return x % y"
+literal|"def x = (short)2; def y = (char)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1474,7 +1474,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (char)2 return x % y"
+literal|"def x = (char)2; def y = (char)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1484,7 +1484,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (char)2 return x % y"
+literal|"def x = (int)2; def y = (char)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1494,7 +1494,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (char)2 return x % y"
+literal|"def x = (long)2; def y = (char)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1504,7 +1504,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (char)2 return x % y"
+literal|"def x = (float)2; def y = (char)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1514,7 +1514,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (char)2 return x % y"
+literal|"def x = (double)2; def y = (char)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1524,7 +1524,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (int)2 return x % y"
+literal|"def x = (byte)2; def y = (int)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1534,7 +1534,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (int)2 return x % y"
+literal|"def x = (short)2; def y = (int)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1544,7 +1544,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (int)2 return x % y"
+literal|"def x = (char)2; def y = (int)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1554,7 +1554,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (int)2 return x % y"
+literal|"def x = (int)2; def y = (int)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1564,7 +1564,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (int)2 return x % y"
+literal|"def x = (long)2; def y = (int)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1574,7 +1574,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (int)2 return x % y"
+literal|"def x = (float)2; def y = (int)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1584,7 +1584,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (int)2 return x % y"
+literal|"def x = (double)2; def y = (int)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1594,7 +1594,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (long)2 return x % y"
+literal|"def x = (byte)2; def y = (long)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1604,7 +1604,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (long)2 return x % y"
+literal|"def x = (short)2; def y = (long)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1614,7 +1614,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (long)2 return x % y"
+literal|"def x = (char)2; def y = (long)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1624,7 +1624,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (long)2 return x % y"
+literal|"def x = (int)2; def y = (long)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1634,7 +1634,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (long)2 return x % y"
+literal|"def x = (long)2; def y = (long)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1644,7 +1644,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (long)2 return x % y"
+literal|"def x = (float)2; def y = (long)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1654,7 +1654,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (long)2 return x % y"
+literal|"def x = (double)2; def y = (long)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1664,7 +1664,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (float)2 return x % y"
+literal|"def x = (byte)2; def y = (float)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1674,7 +1674,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (float)2 return x % y"
+literal|"def x = (short)2; def y = (float)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1684,7 +1684,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (float)2 return x % y"
+literal|"def x = (char)2; def y = (float)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1694,7 +1694,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (float)2 return x % y"
+literal|"def x = (int)2; def y = (float)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1704,7 +1704,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (float)2 return x % y"
+literal|"def x = (long)2; def y = (float)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1714,7 +1714,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (float)2 return x % y"
+literal|"def x = (float)2; def y = (float)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1724,7 +1724,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (float)2 return x % y"
+literal|"def x = (double)2; def y = (float)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1734,7 +1734,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)2 def y = (double)2 return x % y"
+literal|"def x = (byte)2; def y = (double)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1744,7 +1744,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (double)2 return x % y"
+literal|"def x = (short)2; def y = (double)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1754,7 +1754,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)2 def y = (double)2 return x % y"
+literal|"def x = (char)2; def y = (double)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1764,7 +1764,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)2 def y = (double)2 return x % y"
+literal|"def x = (int)2; def y = (double)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1774,7 +1774,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)2 def y = (double)2 return x % y"
+literal|"def x = (long)2; def y = (double)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1784,7 +1784,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)2 def y = (double)2 return x % y"
+literal|"def x = (float)2; def y = (double)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1794,7 +1794,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)2 def y = (double)2 return x % y"
+literal|"def x = (double)2; def y = (double)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1804,7 +1804,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)2 def y = (byte)2 return x % y"
+literal|"def x = (Byte)2; def y = (byte)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1814,7 +1814,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)2 def y = (short)2 return x % y"
+literal|"def x = (Short)2; def y = (short)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1824,7 +1824,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)2 def y = (char)2 return x % y"
+literal|"def x = (Character)2; def y = (char)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1834,7 +1834,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)2 def y = (int)2 return x % y"
+literal|"def x = (Integer)2; def y = (int)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1844,7 +1844,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)2 def y = (long)2 return x % y"
+literal|"def x = (Long)2; def y = (long)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1854,7 +1854,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)2 def y = (float)2 return x % y"
+literal|"def x = (Float)2; def y = (float)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1864,7 +1864,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)2 def y = (double)2 return x % y"
+literal|"def x = (Double)2; def y = (double)2; return x % y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1881,7 +1881,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (byte)1 return x + y"
+literal|"def x = (byte)1; def y = (byte)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1891,7 +1891,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (byte)1 return x + y"
+literal|"def x = (short)1; def y = (byte)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1901,7 +1901,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (byte)1 return x + y"
+literal|"def x = (char)1; def y = (byte)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1911,7 +1911,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (byte)1 return x + y"
+literal|"def x = (int)1; def y = (byte)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1921,7 +1921,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (byte)1 return x + y"
+literal|"def x = (long)1; def y = (byte)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1931,7 +1931,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (byte)1 return x + y"
+literal|"def x = (float)1; def y = (byte)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1941,7 +1941,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (byte)1 return x + y"
+literal|"def x = (double)1; def y = (byte)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1951,7 +1951,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (short)1 return x + y"
+literal|"def x = (byte)1; def y = (short)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1961,7 +1961,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (short)1 return x + y"
+literal|"def x = (short)1; def y = (short)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1971,7 +1971,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (short)1 return x + y"
+literal|"def x = (char)1; def y = (short)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1981,7 +1981,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (short)1 return x + y"
+literal|"def x = (int)1; def y = (short)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1991,7 +1991,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (short)1 return x + y"
+literal|"def x = (long)1; def y = (short)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2001,7 +2001,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (short)1 return x + y"
+literal|"def x = (float)1; def y = (short)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2011,7 +2011,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (short)1 return x + y"
+literal|"def x = (double)1; def y = (short)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2021,7 +2021,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (char)1 return x + y"
+literal|"def x = (byte)1; def y = (char)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2031,7 +2031,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (char)1 return x + y"
+literal|"def x = (short)1; def y = (char)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2041,7 +2041,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (char)1 return x + y"
+literal|"def x = (char)1; def y = (char)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2051,7 +2051,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (char)1 return x + y"
+literal|"def x = (int)1; def y = (char)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2061,7 +2061,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (char)1 return x + y"
+literal|"def x = (long)1; def y = (char)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2071,7 +2071,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (char)1 return x + y"
+literal|"def x = (float)1; def y = (char)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2081,7 +2081,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (char)1 return x + y"
+literal|"def x = (double)1; def y = (char)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2091,7 +2091,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (int)1 return x + y"
+literal|"def x = (byte)1; def y = (int)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2101,7 +2101,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (int)1 return x + y"
+literal|"def x = (short)1; def y = (int)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2111,7 +2111,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (int)1 return x + y"
+literal|"def x = (char)1; def y = (int)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2121,7 +2121,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (int)1 return x + y"
+literal|"def x = (int)1; def y = (int)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2131,7 +2131,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (int)1 return x + y"
+literal|"def x = (long)1; def y = (int)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2141,7 +2141,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (int)1 return x + y"
+literal|"def x = (float)1; def y = (int)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2151,7 +2151,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (int)1 return x + y"
+literal|"def x = (double)1; def y = (int)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2161,7 +2161,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (long)1 return x + y"
+literal|"def x = (byte)1; def y = (long)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2171,7 +2171,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (long)1 return x + y"
+literal|"def x = (short)1; def y = (long)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2181,7 +2181,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (long)1 return x + y"
+literal|"def x = (char)1; def y = (long)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2191,7 +2191,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (long)1 return x + y"
+literal|"def x = (int)1; def y = (long)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2201,7 +2201,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (long)1 return x + y"
+literal|"def x = (long)1; def y = (long)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2211,7 +2211,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (long)1 return x + y"
+literal|"def x = (float)1; def y = (long)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2221,7 +2221,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (long)1 return x + y"
+literal|"def x = (double)1; def y = (long)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2231,7 +2231,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (float)1 return x + y"
+literal|"def x = (byte)1; def y = (float)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2241,7 +2241,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (float)1 return x + y"
+literal|"def x = (short)1; def y = (float)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2251,7 +2251,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (float)1 return x + y"
+literal|"def x = (char)1; def y = (float)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2261,7 +2261,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (float)1 return x + y"
+literal|"def x = (int)1; def y = (float)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2271,7 +2271,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (float)1 return x + y"
+literal|"def x = (long)1; def y = (float)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2281,7 +2281,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (float)1 return x + y"
+literal|"def x = (float)1; def y = (float)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2291,7 +2291,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (float)1 return x + y"
+literal|"def x = (double)1; def y = (float)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2301,7 +2301,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (double)1 return x + y"
+literal|"def x = (byte)1; def y = (double)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2311,7 +2311,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (double)1 return x + y"
+literal|"def x = (short)1; def y = (double)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2321,7 +2321,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (double)1 return x + y"
+literal|"def x = (char)1; def y = (double)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2331,7 +2331,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (double)1 return x + y"
+literal|"def x = (int)1; def y = (double)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2341,7 +2341,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (double)1 return x + y"
+literal|"def x = (long)1; def y = (double)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2351,7 +2351,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (double)1 return x + y"
+literal|"def x = (float)1; def y = (double)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2361,7 +2361,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (double)1 return x + y"
+literal|"def x = (double)1; def y = (double)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2371,7 +2371,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)1 def y = (byte)1 return x + y"
+literal|"def x = (Byte)1; def y = (byte)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2381,7 +2381,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)1 def y = (short)1 return x + y"
+literal|"def x = (Short)1; def y = (short)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2391,7 +2391,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)1 def y = (char)1 return x + y"
+literal|"def x = (Character)1; def y = (char)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2401,7 +2401,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)1 def y = (int)1 return x + y"
+literal|"def x = (Integer)1; def y = (int)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2411,7 +2411,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)1 def y = (long)1 return x + y"
+literal|"def x = (Long)1; def y = (long)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2421,7 +2421,7 @@ literal|2F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)1 def y = (float)1 return x + y"
+literal|"def x = (Float)1; def y = (float)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2431,7 +2431,7 @@ literal|2D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)1 def y = (double)1 return x + y"
+literal|"def x = (Double)1; def y = (double)1; return x + y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2448,7 +2448,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (byte)1 return x - y"
+literal|"def x = (byte)1; def y = (byte)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2458,7 +2458,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (byte)1 return x - y"
+literal|"def x = (short)1; def y = (byte)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2468,7 +2468,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (byte)1 return x - y"
+literal|"def x = (char)1; def y = (byte)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2478,7 +2478,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (byte)1 return x - y"
+literal|"def x = (int)1; def y = (byte)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2488,7 +2488,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (byte)1 return x - y"
+literal|"def x = (long)1; def y = (byte)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2498,7 +2498,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (byte)1 return x - y"
+literal|"def x = (float)1; def y = (byte)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2508,7 +2508,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (byte)1 return x - y"
+literal|"def x = (double)1; def y = (byte)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2518,7 +2518,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (short)1 return x - y"
+literal|"def x = (byte)1; def y = (short)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2528,7 +2528,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (short)1 return x - y"
+literal|"def x = (short)1; def y = (short)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2538,7 +2538,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (short)1 return x - y"
+literal|"def x = (char)1; def y = (short)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2548,7 +2548,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (short)1 return x - y"
+literal|"def x = (int)1; def y = (short)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2558,7 +2558,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (short)1 return x - y"
+literal|"def x = (long)1; def y = (short)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2568,7 +2568,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (short)1 return x - y"
+literal|"def x = (float)1; def y = (short)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2578,7 +2578,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (short)1 return x - y"
+literal|"def x = (double)1; def y = (short)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2588,7 +2588,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (char)1 return x - y"
+literal|"def x = (byte)1; def y = (char)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2598,7 +2598,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (char)1 return x - y"
+literal|"def x = (short)1; def y = (char)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2608,7 +2608,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (char)1 return x - y"
+literal|"def x = (char)1; def y = (char)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2618,7 +2618,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (char)1 return x - y"
+literal|"def x = (int)1; def y = (char)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2628,7 +2628,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (char)1 return x - y"
+literal|"def x = (long)1; def y = (char)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2638,7 +2638,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (char)1 return x - y"
+literal|"def x = (float)1; def y = (char)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2648,7 +2648,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (char)1 return x - y"
+literal|"def x = (double)1; def y = (char)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2658,7 +2658,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (int)1 return x - y"
+literal|"def x = (byte)1; def y = (int)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2668,7 +2668,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (int)1 return x - y"
+literal|"def x = (short)1; def y = (int)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2678,7 +2678,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (int)1 return x - y"
+literal|"def x = (char)1; def y = (int)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2688,7 +2688,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (int)1 return x - y"
+literal|"def x = (int)1; def y = (int)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2698,7 +2698,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (int)1 return x - y"
+literal|"def x = (long)1; def y = (int)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2708,7 +2708,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (int)1 return x - y"
+literal|"def x = (float)1; def y = (int)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2718,7 +2718,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (int)1 return x - y"
+literal|"def x = (double)1; def y = (int)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2728,7 +2728,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (long)1 return x - y"
+literal|"def x = (byte)1; def y = (long)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2738,7 +2738,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (long)1 return x - y"
+literal|"def x = (short)1; def y = (long)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2748,7 +2748,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (long)1 return x - y"
+literal|"def x = (char)1; def y = (long)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2758,7 +2758,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (long)1 return x - y"
+literal|"def x = (int)1; def y = (long)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2768,7 +2768,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (long)1 return x - y"
+literal|"def x = (long)1; def y = (long)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2778,7 +2778,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (long)1 return x - y"
+literal|"def x = (float)1; def y = (long)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2788,7 +2788,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (long)1 return x - y"
+literal|"def x = (double)1; def y = (long)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2798,7 +2798,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (float)1 return x - y"
+literal|"def x = (byte)1; def y = (float)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2808,7 +2808,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (float)1 return x - y"
+literal|"def x = (short)1; def y = (float)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2818,7 +2818,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (float)1 return x - y"
+literal|"def x = (char)1; def y = (float)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2828,7 +2828,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (float)1 return x - y"
+literal|"def x = (int)1; def y = (float)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2838,7 +2838,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (float)1 return x - y"
+literal|"def x = (long)1; def y = (float)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2848,7 +2848,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (float)1 return x - y"
+literal|"def x = (float)1; def y = (float)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2858,7 +2858,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (float)1 return x - y"
+literal|"def x = (double)1; def y = (float)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2868,7 +2868,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (double)1 return x - y"
+literal|"def x = (byte)1; def y = (double)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2878,7 +2878,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (double)1 return x - y"
+literal|"def x = (short)1; def y = (double)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2888,7 +2888,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (double)1 return x - y"
+literal|"def x = (char)1; def y = (double)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2898,7 +2898,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (double)1 return x - y"
+literal|"def x = (int)1; def y = (double)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2908,7 +2908,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (double)1 return x - y"
+literal|"def x = (long)1; def y = (double)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2918,7 +2918,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (double)1 return x - y"
+literal|"def x = (float)1; def y = (double)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2928,7 +2928,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (double)1 return x - y"
+literal|"def x = (double)1; def y = (double)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2938,7 +2938,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)1 def y = (byte)1 return x - y"
+literal|"def x = (Byte)1; def y = (byte)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2948,7 +2948,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)1 def y = (short)1 return x - y"
+literal|"def x = (Short)1; def y = (short)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2958,7 +2958,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)1 def y = (char)1 return x - y"
+literal|"def x = (Character)1; def y = (char)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2968,7 +2968,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)1 def y = (int)1 return x - y"
+literal|"def x = (Integer)1; def y = (int)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2978,7 +2978,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)1 def y = (long)1 return x - y"
+literal|"def x = (Long)1; def y = (long)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2988,7 +2988,7 @@ literal|0F
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)1 def y = (float)1 return x - y"
+literal|"def x = (Float)1; def y = (float)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2998,7 +2998,7 @@ literal|0D
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)1 def y = (double)1 return x - y"
+literal|"def x = (Double)1; def y = (double)1; return x - y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3015,7 +3015,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (byte)1 return x<< y"
+literal|"def x = (byte)1; def y = (byte)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3025,7 +3025,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (byte)1 return x<< y"
+literal|"def x = (short)1; def y = (byte)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3035,7 +3035,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (byte)1 return x<< y"
+literal|"def x = (char)1; def y = (byte)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3045,7 +3045,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (byte)1 return x<< y"
+literal|"def x = (int)1; def y = (byte)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3055,7 +3055,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (byte)1 return x<< y"
+literal|"def x = (long)1; def y = (byte)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3065,7 +3065,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (byte)1 return x<< y"
+literal|"def x = (float)1; def y = (byte)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3075,7 +3075,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (byte)1 return x<< y"
+literal|"def x = (double)1; def y = (byte)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3085,7 +3085,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (short)1 return x<< y"
+literal|"def x = (byte)1; def y = (short)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3095,7 +3095,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (short)1 return x<< y"
+literal|"def x = (short)1; def y = (short)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3105,7 +3105,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (short)1 return x<< y"
+literal|"def x = (char)1; def y = (short)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3115,7 +3115,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (short)1 return x<< y"
+literal|"def x = (int)1; def y = (short)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3125,7 +3125,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (short)1 return x<< y"
+literal|"def x = (long)1; def y = (short)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3135,7 +3135,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (short)1 return x<< y"
+literal|"def x = (float)1; def y = (short)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3145,7 +3145,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (short)1 return x<< y"
+literal|"def x = (double)1; def y = (short)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3155,7 +3155,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (char)1 return x<< y"
+literal|"def x = (byte)1; def y = (char)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3165,7 +3165,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (char)1 return x<< y"
+literal|"def x = (short)1; def y = (char)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3175,7 +3175,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (char)1 return x<< y"
+literal|"def x = (char)1; def y = (char)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3185,7 +3185,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (char)1 return x<< y"
+literal|"def x = (int)1; def y = (char)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3195,7 +3195,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (char)1 return x<< y"
+literal|"def x = (long)1; def y = (char)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3205,7 +3205,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (char)1 return x<< y"
+literal|"def x = (float)1; def y = (char)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3215,7 +3215,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (char)1 return x<< y"
+literal|"def x = (double)1; def y = (char)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3225,7 +3225,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (int)1 return x<< y"
+literal|"def x = (byte)1; def y = (int)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3235,7 +3235,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (int)1 return x<< y"
+literal|"def x = (short)1; def y = (int)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3245,7 +3245,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (int)1 return x<< y"
+literal|"def x = (char)1; def y = (int)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3255,7 +3255,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (int)1 return x<< y"
+literal|"def x = (int)1; def y = (int)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3265,7 +3265,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (int)1 return x<< y"
+literal|"def x = (long)1; def y = (int)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3275,7 +3275,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (int)1 return x<< y"
+literal|"def x = (float)1; def y = (int)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3285,7 +3285,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (int)1 return x<< y"
+literal|"def x = (double)1; def y = (int)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3295,7 +3295,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (long)1 return x<< y"
+literal|"def x = (byte)1; def y = (long)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3305,7 +3305,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (long)1 return x<< y"
+literal|"def x = (short)1; def y = (long)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3315,7 +3315,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (long)1 return x<< y"
+literal|"def x = (char)1; def y = (long)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3325,7 +3325,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (long)1 return x<< y"
+literal|"def x = (int)1; def y = (long)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3335,7 +3335,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (long)1 return x<< y"
+literal|"def x = (long)1; def y = (long)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3345,7 +3345,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (long)1 return x<< y"
+literal|"def x = (float)1; def y = (long)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3355,7 +3355,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (long)1 return x<< y"
+literal|"def x = (double)1; def y = (long)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3365,7 +3365,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (float)1 return x<< y"
+literal|"def x = (byte)1; def y = (float)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3375,7 +3375,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (float)1 return x<< y"
+literal|"def x = (short)1; def y = (float)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3385,7 +3385,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (float)1 return x<< y"
+literal|"def x = (char)1; def y = (float)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3395,7 +3395,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (float)1 return x<< y"
+literal|"def x = (int)1; def y = (float)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3405,7 +3405,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (float)1 return x<< y"
+literal|"def x = (long)1; def y = (float)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3415,7 +3415,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (float)1 return x<< y"
+literal|"def x = (float)1; def y = (float)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3425,7 +3425,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (float)1 return x<< y"
+literal|"def x = (double)1; def y = (float)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3435,7 +3435,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (double)1 return x<< y"
+literal|"def x = (byte)1; def y = (double)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3445,7 +3445,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)1 def y = (double)1 return x<< y"
+literal|"def x = (short)1; def y = (double)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3455,7 +3455,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)1 def y = (double)1 return x<< y"
+literal|"def x = (char)1; def y = (double)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3465,7 +3465,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)1 def y = (double)1 return x<< y"
+literal|"def x = (int)1; def y = (double)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3475,7 +3475,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)1 def y = (double)1 return x<< y"
+literal|"def x = (long)1; def y = (double)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3485,7 +3485,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)1 def y = (double)1 return x<< y"
+literal|"def x = (float)1; def y = (double)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3495,7 +3495,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)1 def y = (double)1 return x<< y"
+literal|"def x = (double)1; def y = (double)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3505,7 +3505,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)1 def y = (byte)1 return x<< y"
+literal|"def x = (Byte)1; def y = (byte)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3515,7 +3515,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)1 def y = (short)1 return x<< y"
+literal|"def x = (Short)1; def y = (short)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3525,7 +3525,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)1 def y = (char)1 return x<< y"
+literal|"def x = (Character)1; def y = (char)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3535,7 +3535,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)1 def y = (int)1 return x<< y"
+literal|"def x = (Integer)1; def y = (int)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3545,7 +3545,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)1 def y = (long)1 return x<< y"
+literal|"def x = (Long)1; def y = (long)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3555,7 +3555,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)1 def y = (float)1 return x<< y"
+literal|"def x = (Float)1; def y = (float)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3565,7 +3565,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)1 def y = (double)1 return x<< y"
+literal|"def x = (Double)1; def y = (double)1; return x<< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3582,7 +3582,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (byte)1 return x>> y"
+literal|"def x = (byte)4; def y = (byte)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3592,7 +3592,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (byte)1 return x>> y"
+literal|"def x = (short)4; def y = (byte)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3602,7 +3602,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (byte)1 return x>> y"
+literal|"def x = (char)4; def y = (byte)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3612,7 +3612,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (byte)1 return x>> y"
+literal|"def x = (int)4; def y = (byte)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3622,7 +3622,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (byte)1 return x>> y"
+literal|"def x = (long)4; def y = (byte)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3632,7 +3632,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (byte)1 return x>> y"
+literal|"def x = (float)4; def y = (byte)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3642,7 +3642,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (byte)1 return x>> y"
+literal|"def x = (double)4; def y = (byte)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3652,7 +3652,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (short)1 return x>> y"
+literal|"def x = (byte)4; def y = (short)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3662,7 +3662,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (short)1 return x>> y"
+literal|"def x = (short)4; def y = (short)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3672,7 +3672,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (short)1 return x>> y"
+literal|"def x = (char)4; def y = (short)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3682,7 +3682,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (short)1 return x>> y"
+literal|"def x = (int)4; def y = (short)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3692,7 +3692,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (short)1 return x>> y"
+literal|"def x = (long)4; def y = (short)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3702,7 +3702,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (short)1 return x>> y"
+literal|"def x = (float)4; def y = (short)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3712,7 +3712,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (short)1 return x>> y"
+literal|"def x = (double)4; def y = (short)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3722,7 +3722,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (char)1 return x>> y"
+literal|"def x = (byte)4; def y = (char)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3732,7 +3732,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (char)1 return x>> y"
+literal|"def x = (short)4; def y = (char)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3742,7 +3742,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (char)1 return x>> y"
+literal|"def x = (char)4; def y = (char)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3752,7 +3752,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (char)1 return x>> y"
+literal|"def x = (int)4; def y = (char)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3762,7 +3762,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (char)1 return x>> y"
+literal|"def x = (long)4; def y = (char)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3772,7 +3772,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (char)1 return x>> y"
+literal|"def x = (float)4; def y = (char)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3782,7 +3782,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (char)1 return x>> y"
+literal|"def x = (double)4; def y = (char)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3792,7 +3792,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (int)1 return x>> y"
+literal|"def x = (byte)4; def y = (int)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3802,7 +3802,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (int)1 return x>> y"
+literal|"def x = (short)4; def y = (int)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3812,7 +3812,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (int)1 return x>> y"
+literal|"def x = (char)4; def y = (int)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3822,7 +3822,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)1 return x>> y"
+literal|"def x = (int)4; def y = (int)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3832,7 +3832,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (int)1 return x>> y"
+literal|"def x = (long)4; def y = (int)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3842,7 +3842,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (int)1 return x>> y"
+literal|"def x = (float)4; def y = (int)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3852,7 +3852,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (int)1 return x>> y"
+literal|"def x = (double)4; def y = (int)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3862,7 +3862,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (long)1 return x>> y"
+literal|"def x = (byte)4; def y = (long)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3872,7 +3872,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (long)1 return x>> y"
+literal|"def x = (short)4; def y = (long)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3882,7 +3882,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (long)1 return x>> y"
+literal|"def x = (char)4; def y = (long)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3892,7 +3892,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (long)1 return x>> y"
+literal|"def x = (int)4; def y = (long)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3902,7 +3902,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (long)1 return x>> y"
+literal|"def x = (long)4; def y = (long)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3912,7 +3912,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (long)1 return x>> y"
+literal|"def x = (float)4; def y = (long)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3922,7 +3922,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (long)1 return x>> y"
+literal|"def x = (double)4; def y = (long)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3932,7 +3932,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (float)1 return x>> y"
+literal|"def x = (byte)4; def y = (float)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3942,7 +3942,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (float)1 return x>> y"
+literal|"def x = (short)4; def y = (float)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3952,7 +3952,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (float)1 return x>> y"
+literal|"def x = (char)4; def y = (float)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3962,7 +3962,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (float)1 return x>> y"
+literal|"def x = (int)4; def y = (float)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3972,7 +3972,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (float)1 return x>> y"
+literal|"def x = (long)4; def y = (float)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3982,7 +3982,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (float)1 return x>> y"
+literal|"def x = (float)4; def y = (float)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3992,7 +3992,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (float)1 return x>> y"
+literal|"def x = (double)4; def y = (float)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4002,7 +4002,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (double)1 return x>> y"
+literal|"def x = (byte)4; def y = (double)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4012,7 +4012,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (double)1 return x>> y"
+literal|"def x = (short)4; def y = (double)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4022,7 +4022,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (double)1 return x>> y"
+literal|"def x = (char)4; def y = (double)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4032,7 +4032,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)1 return x>> y"
+literal|"def x = (int)4; def y = (double)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4042,7 +4042,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (double)1 return x>> y"
+literal|"def x = (long)4; def y = (double)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4052,7 +4052,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (double)1 return x>> y"
+literal|"def x = (float)4; def y = (double)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4062,7 +4062,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (double)1 return x>> y"
+literal|"def x = (double)4; def y = (double)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4072,7 +4072,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)4 def y = (byte)1 return x>> y"
+literal|"def x = (Byte)4; def y = (byte)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4082,7 +4082,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)4 def y = (short)1 return x>> y"
+literal|"def x = (Short)4; def y = (short)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4092,7 +4092,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)4 def y = (char)1 return x>> y"
+literal|"def x = (Character)4; def y = (char)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4102,7 +4102,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)4 def y = (int)1 return x>> y"
+literal|"def x = (Integer)4; def y = (int)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4112,7 +4112,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)4 def y = (long)1 return x>> y"
+literal|"def x = (Long)4; def y = (long)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4122,7 +4122,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)4 def y = (float)1 return x>> y"
+literal|"def x = (Float)4; def y = (float)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4132,7 +4132,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)4 def y = (double)1 return x>> y"
+literal|"def x = (Double)4; def y = (double)1; return x>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4149,7 +4149,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (byte)1 return x>>> y"
+literal|"def x = (byte)4; def y = (byte)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4159,7 +4159,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (byte)1 return x>>> y"
+literal|"def x = (short)4; def y = (byte)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4169,7 +4169,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (byte)1 return x>>> y"
+literal|"def x = (char)4; def y = (byte)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4179,7 +4179,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (byte)1 return x>>> y"
+literal|"def x = (int)4; def y = (byte)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4189,7 +4189,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (byte)1 return x>>> y"
+literal|"def x = (long)4; def y = (byte)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4199,7 +4199,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (byte)1 return x>>> y"
+literal|"def x = (float)4; def y = (byte)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4209,7 +4209,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (byte)1 return x>>> y"
+literal|"def x = (double)4; def y = (byte)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4219,7 +4219,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (short)1 return x>>> y"
+literal|"def x = (byte)4; def y = (short)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4229,7 +4229,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (short)1 return x>>> y"
+literal|"def x = (short)4; def y = (short)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4239,7 +4239,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (short)1 return x>>> y"
+literal|"def x = (char)4; def y = (short)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4249,7 +4249,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (short)1 return x>>> y"
+literal|"def x = (int)4; def y = (short)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4259,7 +4259,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (short)1 return x>>> y"
+literal|"def x = (long)4; def y = (short)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4269,7 +4269,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (short)1 return x>>> y"
+literal|"def x = (float)4; def y = (short)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4279,7 +4279,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (short)1 return x>>> y"
+literal|"def x = (double)4; def y = (short)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4289,7 +4289,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (char)1 return x>>> y"
+literal|"def x = (byte)4; def y = (char)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4299,7 +4299,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (char)1 return x>>> y"
+literal|"def x = (short)4; def y = (char)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4309,7 +4309,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (char)1 return x>>> y"
+literal|"def x = (char)4; def y = (char)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4319,7 +4319,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (char)1 return x>>> y"
+literal|"def x = (int)4; def y = (char)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4329,7 +4329,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (char)1 return x>>> y"
+literal|"def x = (long)4; def y = (char)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4339,7 +4339,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (char)1 return x>>> y"
+literal|"def x = (float)4; def y = (char)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4349,7 +4349,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (char)1 return x>>> y"
+literal|"def x = (double)4; def y = (char)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4359,7 +4359,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (int)1 return x>>> y"
+literal|"def x = (byte)4; def y = (int)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4369,7 +4369,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (int)1 return x>>> y"
+literal|"def x = (short)4; def y = (int)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4379,7 +4379,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (int)1 return x>>> y"
+literal|"def x = (char)4; def y = (int)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4389,7 +4389,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)1 return x>>> y"
+literal|"def x = (int)4; def y = (int)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4399,7 +4399,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (int)1 return x>>> y"
+literal|"def x = (long)4; def y = (int)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4409,7 +4409,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (int)1 return x>>> y"
+literal|"def x = (float)4; def y = (int)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4419,7 +4419,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (int)1 return x>>> y"
+literal|"def x = (double)4; def y = (int)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4429,7 +4429,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (long)1 return x>>> y"
+literal|"def x = (byte)4; def y = (long)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4439,7 +4439,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (long)1 return x>>> y"
+literal|"def x = (short)4; def y = (long)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4449,7 +4449,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (long)1 return x>>> y"
+literal|"def x = (char)4; def y = (long)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4459,7 +4459,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (long)1 return x>>> y"
+literal|"def x = (int)4; def y = (long)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4469,7 +4469,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (long)1 return x>>> y"
+literal|"def x = (long)4; def y = (long)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4479,7 +4479,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (long)1 return x>>> y"
+literal|"def x = (float)4; def y = (long)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4489,7 +4489,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (long)1 return x>>> y"
+literal|"def x = (double)4; def y = (long)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4499,7 +4499,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (float)1 return x>>> y"
+literal|"def x = (byte)4; def y = (float)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4509,7 +4509,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (float)1 return x>>> y"
+literal|"def x = (short)4; def y = (float)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4519,7 +4519,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (float)1 return x>>> y"
+literal|"def x = (char)4; def y = (float)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4529,7 +4529,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (float)1 return x>>> y"
+literal|"def x = (int)4; def y = (float)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4539,7 +4539,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (float)1 return x>>> y"
+literal|"def x = (long)4; def y = (float)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4549,7 +4549,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (float)1 return x>>> y"
+literal|"def x = (float)4; def y = (float)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4559,7 +4559,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (float)1 return x>>> y"
+literal|"def x = (double)4; def y = (float)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4569,7 +4569,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (double)1 return x>>> y"
+literal|"def x = (byte)4; def y = (double)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4579,7 +4579,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (double)1 return x>>> y"
+literal|"def x = (short)4; def y = (double)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4589,7 +4589,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (double)1 return x>>> y"
+literal|"def x = (char)4; def y = (double)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4599,7 +4599,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)1 return x>>> y"
+literal|"def x = (int)4; def y = (double)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4609,7 +4609,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (double)1 return x>>> y"
+literal|"def x = (long)4; def y = (double)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4619,7 +4619,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (double)1 return x>>> y"
+literal|"def x = (float)4; def y = (double)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4629,7 +4629,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (double)1 return x>>> y"
+literal|"def x = (double)4; def y = (double)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4639,7 +4639,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)4 def y = (byte)1 return x>>> y"
+literal|"def x = (Byte)4; def y = (byte)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4649,7 +4649,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)4 def y = (short)1 return x>>> y"
+literal|"def x = (Short)4; def y = (short)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4659,7 +4659,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)4 def y = (char)1 return x>>> y"
+literal|"def x = (Character)4; def y = (char)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4669,7 +4669,7 @@ literal|2
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)4 def y = (int)1 return x>>> y"
+literal|"def x = (Integer)4; def y = (int)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4679,7 +4679,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)4 def y = (long)1 return x>>> y"
+literal|"def x = (Long)4; def y = (long)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4689,7 +4689,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)4 def y = (float)1 return x>>> y"
+literal|"def x = (Float)4; def y = (float)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4699,7 +4699,7 @@ literal|2L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)4 def y = (double)1 return x>>> y"
+literal|"def x = (Double)4; def y = (double)1; return x>>> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4716,7 +4716,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (byte)1 return x& y"
+literal|"def x = (byte)4; def y = (byte)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4726,7 +4726,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (byte)1 return x& y"
+literal|"def x = (short)4; def y = (byte)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4736,7 +4736,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (byte)1 return x& y"
+literal|"def x = (char)4; def y = (byte)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4746,7 +4746,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (byte)1 return x& y"
+literal|"def x = (int)4; def y = (byte)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4756,7 +4756,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (byte)1 return x& y"
+literal|"def x = (long)4; def y = (byte)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4766,7 +4766,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (byte)1 return x& y"
+literal|"def x = (float)4; def y = (byte)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4776,7 +4776,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (byte)1 return x& y"
+literal|"def x = (double)4; def y = (byte)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4786,7 +4786,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (short)1 return x& y"
+literal|"def x = (byte)4; def y = (short)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4796,7 +4796,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (short)1 return x& y"
+literal|"def x = (short)4; def y = (short)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4806,7 +4806,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (short)1 return x& y"
+literal|"def x = (char)4; def y = (short)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4816,7 +4816,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (short)1 return x& y"
+literal|"def x = (int)4; def y = (short)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4826,7 +4826,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (short)1 return x& y"
+literal|"def x = (long)4; def y = (short)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4836,7 +4836,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (short)1 return x& y"
+literal|"def x = (float)4; def y = (short)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4846,7 +4846,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (short)1 return x& y"
+literal|"def x = (double)4; def y = (short)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4856,7 +4856,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (char)1 return x& y"
+literal|"def x = (byte)4; def y = (char)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4866,7 +4866,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (char)1 return x& y"
+literal|"def x = (short)4; def y = (char)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4876,7 +4876,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (char)1 return x& y"
+literal|"def x = (char)4; def y = (char)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4886,7 +4886,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (char)1 return x& y"
+literal|"def x = (int)4; def y = (char)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4896,7 +4896,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (char)1 return x& y"
+literal|"def x = (long)4; def y = (char)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4906,7 +4906,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (char)1 return x& y"
+literal|"def x = (float)4; def y = (char)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4916,7 +4916,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (char)1 return x& y"
+literal|"def x = (double)4; def y = (char)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4926,7 +4926,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (int)1 return x& y"
+literal|"def x = (byte)4; def y = (int)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4936,7 +4936,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (int)1 return x& y"
+literal|"def x = (short)4; def y = (int)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4946,7 +4946,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (int)1 return x& y"
+literal|"def x = (char)4; def y = (int)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4956,7 +4956,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)1 return x& y"
+literal|"def x = (int)4; def y = (int)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4966,7 +4966,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (int)1 return x& y"
+literal|"def x = (long)4; def y = (int)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4976,7 +4976,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (int)1 return x& y"
+literal|"def x = (float)4; def y = (int)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4986,7 +4986,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (int)1 return x& y"
+literal|"def x = (double)4; def y = (int)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4996,7 +4996,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (long)1 return x& y"
+literal|"def x = (byte)4; def y = (long)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5006,7 +5006,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (long)1 return x& y"
+literal|"def x = (short)4; def y = (long)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5016,7 +5016,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (long)1 return x& y"
+literal|"def x = (char)4; def y = (long)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5026,7 +5026,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (long)1 return x& y"
+literal|"def x = (int)4; def y = (long)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5036,7 +5036,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (long)1 return x& y"
+literal|"def x = (long)4; def y = (long)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5046,7 +5046,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (long)1 return x& y"
+literal|"def x = (float)4; def y = (long)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5056,7 +5056,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (long)1 return x& y"
+literal|"def x = (double)4; def y = (long)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5066,7 +5066,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (float)1 return x& y"
+literal|"def x = (byte)4; def y = (float)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5076,7 +5076,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (float)1 return x& y"
+literal|"def x = (short)4; def y = (float)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5086,7 +5086,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (float)1 return x& y"
+literal|"def x = (char)4; def y = (float)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5096,7 +5096,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (float)1 return x& y"
+literal|"def x = (int)4; def y = (float)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5106,7 +5106,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (float)1 return x& y"
+literal|"def x = (long)4; def y = (float)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5116,7 +5116,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (float)1 return x& y"
+literal|"def x = (float)4; def y = (float)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5126,7 +5126,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (float)1 return x& y"
+literal|"def x = (double)4; def y = (float)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5136,7 +5136,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (double)1 return x& y"
+literal|"def x = (byte)4; def y = (double)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5146,7 +5146,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (double)1 return x& y"
+literal|"def x = (short)4; def y = (double)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5156,7 +5156,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (double)1 return x& y"
+literal|"def x = (char)4; def y = (double)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5166,7 +5166,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)1 return x& y"
+literal|"def x = (int)4; def y = (double)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5176,7 +5176,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (double)1 return x& y"
+literal|"def x = (long)4; def y = (double)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5186,7 +5186,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (double)1 return x& y"
+literal|"def x = (float)4; def y = (double)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5196,7 +5196,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (double)1 return x& y"
+literal|"def x = (double)4; def y = (double)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5206,7 +5206,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)4 def y = (byte)1 return x& y"
+literal|"def x = (Byte)4; def y = (byte)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5216,7 +5216,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)4 def y = (short)1 return x& y"
+literal|"def x = (Short)4; def y = (short)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5226,7 +5226,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)4 def y = (char)1 return x& y"
+literal|"def x = (Character)4; def y = (char)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5236,7 +5236,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)4 def y = (int)1 return x& y"
+literal|"def x = (Integer)4; def y = (int)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5246,7 +5246,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)4 def y = (long)1 return x& y"
+literal|"def x = (Long)4; def y = (long)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5256,7 +5256,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)4 def y = (float)1 return x& y"
+literal|"def x = (Float)4; def y = (float)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5266,7 +5266,7 @@ literal|0L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)4 def y = (double)1 return x& y"
+literal|"def x = (Double)4; def y = (double)1; return x& y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5283,7 +5283,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (byte)1 return x ^ y"
+literal|"def x = (byte)4; def y = (byte)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5293,7 +5293,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (byte)1 return x ^ y"
+literal|"def x = (short)4; def y = (byte)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5303,7 +5303,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (byte)1 return x ^ y"
+literal|"def x = (char)4; def y = (byte)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5313,7 +5313,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (byte)1 return x ^ y"
+literal|"def x = (int)4; def y = (byte)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5323,7 +5323,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (byte)1 return x ^ y"
+literal|"def x = (long)4; def y = (byte)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5333,7 +5333,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (byte)1 return x ^ y"
+literal|"def x = (float)4; def y = (byte)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5343,7 +5343,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (byte)1 return x ^ y"
+literal|"def x = (double)4; def y = (byte)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5353,7 +5353,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (short)1 return x ^ y"
+literal|"def x = (byte)4; def y = (short)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5363,7 +5363,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (short)1 return x ^ y"
+literal|"def x = (short)4; def y = (short)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5373,7 +5373,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (short)1 return x ^ y"
+literal|"def x = (char)4; def y = (short)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5383,7 +5383,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (short)1 return x ^ y"
+literal|"def x = (int)4; def y = (short)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5393,7 +5393,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (short)1 return x ^ y"
+literal|"def x = (long)4; def y = (short)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5403,7 +5403,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (short)1 return x ^ y"
+literal|"def x = (float)4; def y = (short)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5413,7 +5413,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (short)1 return x ^ y"
+literal|"def x = (double)4; def y = (short)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5423,7 +5423,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (char)1 return x ^ y"
+literal|"def x = (byte)4; def y = (char)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5433,7 +5433,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (char)1 return x ^ y"
+literal|"def x = (short)4; def y = (char)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5443,7 +5443,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (char)1 return x ^ y"
+literal|"def x = (char)4; def y = (char)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5453,7 +5453,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (char)1 return x ^ y"
+literal|"def x = (int)4; def y = (char)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5463,7 +5463,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (char)1 return x ^ y"
+literal|"def x = (long)4; def y = (char)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5473,7 +5473,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (char)1 return x ^ y"
+literal|"def x = (float)4; def y = (char)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5483,7 +5483,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (char)1 return x ^ y"
+literal|"def x = (double)4; def y = (char)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5493,7 +5493,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (int)1 return x ^ y"
+literal|"def x = (byte)4; def y = (int)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5503,7 +5503,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (int)1 return x ^ y"
+literal|"def x = (short)4; def y = (int)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5513,7 +5513,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (int)1 return x ^ y"
+literal|"def x = (char)4; def y = (int)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5523,7 +5523,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)1 return x ^ y"
+literal|"def x = (int)4; def y = (int)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5533,7 +5533,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (int)1 return x ^ y"
+literal|"def x = (long)4; def y = (int)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5543,7 +5543,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (int)1 return x ^ y"
+literal|"def x = (float)4; def y = (int)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5553,7 +5553,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (int)1 return x ^ y"
+literal|"def x = (double)4; def y = (int)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5563,7 +5563,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (long)1 return x ^ y"
+literal|"def x = (byte)4; def y = (long)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5573,7 +5573,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (long)1 return x ^ y"
+literal|"def x = (short)4; def y = (long)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5583,7 +5583,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (long)1 return x ^ y"
+literal|"def x = (char)4; def y = (long)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5593,7 +5593,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (long)1 return x ^ y"
+literal|"def x = (int)4; def y = (long)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5603,7 +5603,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (long)1 return x ^ y"
+literal|"def x = (long)4; def y = (long)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5613,7 +5613,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (long)1 return x ^ y"
+literal|"def x = (float)4; def y = (long)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5623,7 +5623,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (long)1 return x ^ y"
+literal|"def x = (double)4; def y = (long)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5633,7 +5633,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (float)1 return x ^ y"
+literal|"def x = (byte)4; def y = (float)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5643,7 +5643,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (float)1 return x ^ y"
+literal|"def x = (short)4; def y = (float)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5653,7 +5653,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (float)1 return x ^ y"
+literal|"def x = (char)4; def y = (float)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5663,7 +5663,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (float)1 return x ^ y"
+literal|"def x = (int)4; def y = (float)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5673,7 +5673,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (float)1 return x ^ y"
+literal|"def x = (long)4; def y = (float)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5683,7 +5683,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (float)1 return x ^ y"
+literal|"def x = (float)4; def y = (float)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5693,7 +5693,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (float)1 return x ^ y"
+literal|"def x = (double)4; def y = (float)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5703,7 +5703,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (double)1 return x ^ y"
+literal|"def x = (byte)4; def y = (double)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5713,7 +5713,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (double)1 return x ^ y"
+literal|"def x = (short)4; def y = (double)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5723,7 +5723,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (double)1 return x ^ y"
+literal|"def x = (char)4; def y = (double)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5733,7 +5733,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)1 return x ^ y"
+literal|"def x = (int)4; def y = (double)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5743,7 +5743,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (double)1 return x ^ y"
+literal|"def x = (long)4; def y = (double)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5753,7 +5753,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (double)1 return x ^ y"
+literal|"def x = (float)4; def y = (double)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5763,7 +5763,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (double)1 return x ^ y"
+literal|"def x = (double)4; def y = (double)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5773,7 +5773,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)4 def y = (byte)1 return x ^ y"
+literal|"def x = (Byte)4; def y = (byte)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5783,7 +5783,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)4 def y = (short)1 return x ^ y"
+literal|"def x = (Short)4; def y = (short)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5793,7 +5793,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)4 def y = (char)1 return x ^ y"
+literal|"def x = (Character)4; def y = (char)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5803,7 +5803,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)4 def y = (int)1 return x ^ y"
+literal|"def x = (Integer)4; def y = (int)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5813,7 +5813,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)4 def y = (long)1 return x ^ y"
+literal|"def x = (Long)4; def y = (long)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5823,7 +5823,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)4 def y = (float)1 return x ^ y"
+literal|"def x = (Float)4; def y = (float)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5833,7 +5833,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)4 def y = (double)1 return x ^ y"
+literal|"def x = (Double)4; def y = (double)1; return x ^ y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5850,7 +5850,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (byte)1 return x | y"
+literal|"def x = (byte)4; def y = (byte)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5860,7 +5860,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (byte)1 return x | y"
+literal|"def x = (short)4; def y = (byte)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5870,7 +5870,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (byte)1 return x | y"
+literal|"def x = (char)4; def y = (byte)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5880,7 +5880,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (byte)1 return x | y"
+literal|"def x = (int)4; def y = (byte)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5890,7 +5890,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (byte)1 return x | y"
+literal|"def x = (long)4; def y = (byte)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5900,7 +5900,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (byte)1 return x | y"
+literal|"def x = (float)4; def y = (byte)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5910,7 +5910,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (byte)1 return x | y"
+literal|"def x = (double)4; def y = (byte)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5920,7 +5920,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (short)1 return x | y"
+literal|"def x = (byte)4; def y = (short)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5930,7 +5930,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (short)1 return x | y"
+literal|"def x = (short)4; def y = (short)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5940,7 +5940,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (short)1 return x | y"
+literal|"def x = (char)4; def y = (short)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5950,7 +5950,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (short)1 return x | y"
+literal|"def x = (int)4; def y = (short)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5960,7 +5960,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (short)1 return x | y"
+literal|"def x = (long)4; def y = (short)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5970,7 +5970,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (short)1 return x | y"
+literal|"def x = (float)4; def y = (short)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5980,7 +5980,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (short)1 return x | y"
+literal|"def x = (double)4; def y = (short)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5990,7 +5990,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (char)1 return x | y"
+literal|"def x = (byte)4; def y = (char)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6000,7 +6000,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (char)1 return x | y"
+literal|"def x = (short)4; def y = (char)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6010,7 +6010,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (char)1 return x | y"
+literal|"def x = (char)4; def y = (char)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6020,7 +6020,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (char)1 return x | y"
+literal|"def x = (int)4; def y = (char)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6030,7 +6030,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (char)1 return x | y"
+literal|"def x = (long)4; def y = (char)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6040,7 +6040,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (char)1 return x | y"
+literal|"def x = (float)4; def y = (char)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6050,7 +6050,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (char)1 return x | y"
+literal|"def x = (double)4; def y = (char)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6060,7 +6060,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (int)1 return x | y"
+literal|"def x = (byte)4; def y = (int)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6070,7 +6070,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (int)1 return x | y"
+literal|"def x = (short)4; def y = (int)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6080,7 +6080,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (int)1 return x | y"
+literal|"def x = (char)4; def y = (int)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6090,7 +6090,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)1 return x | y"
+literal|"def x = (int)4; def y = (int)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6100,7 +6100,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (int)1 return x | y"
+literal|"def x = (long)4; def y = (int)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6110,7 +6110,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (int)1 return x | y"
+literal|"def x = (float)4; def y = (int)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6120,7 +6120,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (int)1 return x | y"
+literal|"def x = (double)4; def y = (int)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6130,7 +6130,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (long)1 return x | y"
+literal|"def x = (byte)4; def y = (long)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6140,7 +6140,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (long)1 return x | y"
+literal|"def x = (short)4; def y = (long)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6150,7 +6150,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (long)1 return x | y"
+literal|"def x = (char)4; def y = (long)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6160,7 +6160,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (long)1 return x | y"
+literal|"def x = (int)4; def y = (long)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6170,7 +6170,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (long)1 return x | y"
+literal|"def x = (long)4; def y = (long)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6180,7 +6180,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (long)1 return x | y"
+literal|"def x = (float)4; def y = (long)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6190,7 +6190,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (long)1 return x | y"
+literal|"def x = (double)4; def y = (long)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6200,7 +6200,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (float)1 return x | y"
+literal|"def x = (byte)4; def y = (float)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6210,7 +6210,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (float)1 return x | y"
+literal|"def x = (short)4; def y = (float)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6220,7 +6220,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (float)1 return x | y"
+literal|"def x = (char)4; def y = (float)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6230,7 +6230,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (float)1 return x | y"
+literal|"def x = (int)4; def y = (float)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6240,7 +6240,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (float)1 return x | y"
+literal|"def x = (long)4; def y = (float)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6250,7 +6250,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (float)1 return x | y"
+literal|"def x = (float)4; def y = (float)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6260,7 +6260,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (float)1 return x | y"
+literal|"def x = (double)4; def y = (float)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6270,7 +6270,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)4 def y = (double)1 return x | y"
+literal|"def x = (byte)4; def y = (double)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6280,7 +6280,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)4 def y = (double)1 return x | y"
+literal|"def x = (short)4; def y = (double)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6290,7 +6290,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)4 def y = (double)1 return x | y"
+literal|"def x = (char)4; def y = (double)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6300,7 +6300,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)1 return x | y"
+literal|"def x = (int)4; def y = (double)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6310,7 +6310,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)4 def y = (double)1 return x | y"
+literal|"def x = (long)4; def y = (double)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6320,7 +6320,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)4 def y = (double)1 return x | y"
+literal|"def x = (float)4; def y = (double)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6330,7 +6330,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)4 def y = (double)1 return x | y"
+literal|"def x = (double)4; def y = (double)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6340,7 +6340,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Byte)4 def y = (byte)1 return x | y"
+literal|"def x = (Byte)4; def y = (byte)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6350,7 +6350,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Short)4 def y = (short)1 return x | y"
+literal|"def x = (Short)4; def y = (short)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6360,7 +6360,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Character)4 def y = (char)1 return x | y"
+literal|"def x = (Character)4; def y = (char)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6370,7 +6370,7 @@ literal|5
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Integer)4 def y = (int)1 return x | y"
+literal|"def x = (Integer)4; def y = (int)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6380,7 +6380,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Long)4 def y = (long)1 return x | y"
+literal|"def x = (Long)4; def y = (long)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6390,7 +6390,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Float)4 def y = (float)1 return x | y"
+literal|"def x = (Float)4; def y = (float)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6400,7 +6400,7 @@ literal|5L
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (Double)4 def y = (double)1 return x | y"
+literal|"def x = (Double)4; def y = (double)1; return x | y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6417,7 +6417,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)7 def y = (int)7 return x == y"
+literal|"def x = (byte)7; def y = (int)7; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6427,7 +6427,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)6 def y = (int)6 return x == y"
+literal|"def x = (short)6; def y = (int)6; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6437,7 +6437,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)5 def y = (int)5 return x == y"
+literal|"def x = (char)5; def y = (int)5; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6447,7 +6447,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)4 return x == y"
+literal|"def x = (int)4; def y = (int)4; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6457,7 +6457,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (int)3 return x == y"
+literal|"def x = (long)5; def y = (int)3; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6467,7 +6467,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (int)2 return x == y"
+literal|"def x = (float)6; def y = (int)2; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6477,7 +6477,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (int)1 return x == y"
+literal|"def x = (double)7; def y = (int)1; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6487,7 +6487,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)7 def y = (double)7 return x == y"
+literal|"def x = (byte)7; def y = (double)7; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6497,7 +6497,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)6 def y = (double)6 return x == y"
+literal|"def x = (short)6; def y = (double)6; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6507,7 +6507,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)5 def y = (double)5 return x == y"
+literal|"def x = (char)5; def y = (double)5; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6517,7 +6517,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)4 return x == y"
+literal|"def x = (int)4; def y = (double)4; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6527,7 +6527,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (double)3 return x == y"
+literal|"def x = (long)5; def y = (double)3; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6537,7 +6537,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (double)2 return x == y"
+literal|"def x = (float)6; def y = (double)2; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6547,7 +6547,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (double)1 return x == y"
+literal|"def x = (double)7; def y = (double)1; return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6557,7 +6557,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() def y = new HashMap() return x == y"
+literal|"def x = new HashMap(); def y = new HashMap(); return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6567,7 +6567,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() x.put(3, 3) def y = new HashMap() return x == y"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6577,7 +6577,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() x.put(3, 3) def y = new HashMap() y.put(3, 3) return x == y"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6587,7 +6587,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() def y = x x.put(3, 3) y.put(3, 3) return x == y"
+literal|"def x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x == y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6604,7 +6604,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)7 def y = (int)7 return x === y"
+literal|"def x = (byte)7; def y = (int)7; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6614,7 +6614,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)6 def y = (int)6 return x === y"
+literal|"def x = (short)6; def y = (int)6; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6624,7 +6624,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)5 def y = (int)5 return x === y"
+literal|"def x = (char)5; def y = (int)5; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6634,7 +6634,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)4 return x === y"
+literal|"def x = (int)4; def y = (int)4; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6644,7 +6644,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (int)3 return x === y"
+literal|"def x = (long)5; def y = (int)3; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6654,7 +6654,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (int)2 return x === y"
+literal|"def x = (float)6; def y = (int)2; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6664,7 +6664,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (int)1 return x === y"
+literal|"def x = (double)7; def y = (int)1; return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6674,7 +6674,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() def y = new HashMap() return x === y"
+literal|"def x = new HashMap(); def y = new HashMap(); return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6684,7 +6684,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() x.put(3, 3) def y = new HashMap() return x === y"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6694,7 +6694,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() x.put(3, 3) def y = new HashMap() y.put(3, 3) return x === y"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6704,7 +6704,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() def y = x x.put(3, 3) y.put(3, 3) return x === y"
+literal|"def x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x === y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6721,7 +6721,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)7 def y = (int)7 return x != y"
+literal|"def x = (byte)7; def y = (int)7; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6731,7 +6731,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)6 def y = (int)6 return x != y"
+literal|"def x = (short)6; def y = (int)6; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6741,7 +6741,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)5 def y = (int)5 return x != y"
+literal|"def x = (char)5; def y = (int)5; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6751,7 +6751,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)4 return x != y"
+literal|"def x = (int)4; def y = (int)4; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6761,7 +6761,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (int)3 return x != y"
+literal|"def x = (long)5; def y = (int)3; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6771,7 +6771,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (int)2 return x != y"
+literal|"def x = (float)6; def y = (int)2; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6781,7 +6781,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (int)1 return x != y"
+literal|"def x = (double)7; def y = (int)1; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6791,7 +6791,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)7 def y = (double)7 return x != y"
+literal|"def x = (byte)7; def y = (double)7; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6801,7 +6801,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)6 def y = (double)6 return x != y"
+literal|"def x = (short)6; def y = (double)6; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6811,7 +6811,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)5 def y = (double)5 return x != y"
+literal|"def x = (char)5; def y = (double)5; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6821,7 +6821,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)4 return x != y"
+literal|"def x = (int)4; def y = (double)4; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6831,7 +6831,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (double)3 return x != y"
+literal|"def x = (long)5; def y = (double)3; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6841,7 +6841,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (double)2 return x != y"
+literal|"def x = (float)6; def y = (double)2; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6851,7 +6851,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (double)1 return x != y"
+literal|"def x = (double)7; def y = (double)1; return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6861,7 +6861,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() def y = new HashMap() return x != y"
+literal|"def x = new HashMap(); def y = new HashMap(); return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6871,7 +6871,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() x.put(3, 3) def y = new HashMap() return x != y"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6881,7 +6881,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() x.put(3, 3) def y = new HashMap() y.put(3, 3) return x != y"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6891,7 +6891,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() def y = x x.put(3, 3) y.put(3, 3) return x != y"
+literal|"def x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x != y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6908,7 +6908,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)7 def y = (int)7 return x !== y"
+literal|"def x = (byte)7; def y = (int)7; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6918,7 +6918,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)6 def y = (int)6 return x !== y"
+literal|"def x = (short)6; def y = (int)6; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6928,7 +6928,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)5 def y = (int)5 return x !== y"
+literal|"def x = (char)5; def y = (int)5; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6938,7 +6938,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)4 return x !== y"
+literal|"def x = (int)4; def y = (int)4; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6948,7 +6948,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (int)3 return x !== y"
+literal|"def x = (long)5; def y = (int)3; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6958,7 +6958,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (int)2 return x !== y"
+literal|"def x = (float)6; def y = (int)2; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6968,7 +6968,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (int)1 return x !== y"
+literal|"def x = (double)7; def y = (int)1; return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6978,7 +6978,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() def y = new HashMap() return x !== y"
+literal|"def x = new HashMap(); def y = new HashMap(); return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6988,7 +6988,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() x.put(3, 3) def y = new HashMap() return x !== y"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6998,7 +6998,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() x.put(3, 3) def y = new HashMap() y.put(3, 3) return x !== y"
+literal|"def x = new HashMap(); x.put(3, 3); def y = new HashMap(); y.put(3, 3); return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7008,7 +7008,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = new HashMap() def y = x x.put(3, 3) y.put(3, 3) return x !== y"
+literal|"def x = new HashMap(); def y = x; x.put(3, 3); y.put(3, 3); return x !== y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7025,7 +7025,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (int)7 return x< y"
+literal|"def x = (byte)1; def y = (int)7; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7035,7 +7035,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (int)6 return x< y"
+literal|"def x = (short)2; def y = (int)6; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7045,7 +7045,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)3 def y = (int)5 return x< y"
+literal|"def x = (char)3; def y = (int)5; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7055,7 +7055,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)4 return x< y"
+literal|"def x = (int)4; def y = (int)4; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7065,7 +7065,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (int)3 return x< y"
+literal|"def x = (long)5; def y = (int)3; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7075,7 +7075,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (int)2 return x< y"
+literal|"def x = (float)6; def y = (int)2; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7085,7 +7085,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (int)1 return x< y"
+literal|"def x = (double)7; def y = (int)1; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7095,7 +7095,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (double)7 return x< y"
+literal|"def x = (byte)1; def y = (double)7; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7105,7 +7105,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (double)6 return x< y"
+literal|"def x = (short)2; def y = (double)6; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7115,7 +7115,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)3 def y = (double)5 return x< y"
+literal|"def x = (char)3; def y = (double)5; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7125,7 +7125,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)4 return x< y"
+literal|"def x = (int)4; def y = (double)4; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7135,7 +7135,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (double)3 return x< y"
+literal|"def x = (long)5; def y = (double)3; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7145,7 +7145,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (double)2 return x< y"
+literal|"def x = (float)6; def y = (double)2; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7155,7 +7155,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (double)1 return x< y"
+literal|"def x = (double)7; def y = (double)1; return x< y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7172,7 +7172,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (int)7 return x<= y"
+literal|"def x = (byte)1; def y = (int)7; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7182,7 +7182,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (int)6 return x<= y"
+literal|"def x = (short)2; def y = (int)6; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7192,7 +7192,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)3 def y = (int)5 return x<= y"
+literal|"def x = (char)3; def y = (int)5; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7202,7 +7202,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)4 return x<= y"
+literal|"def x = (int)4; def y = (int)4; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7212,7 +7212,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (int)3 return x<= y"
+literal|"def x = (long)5; def y = (int)3; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7222,7 +7222,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (int)2 return x<= y"
+literal|"def x = (float)6; def y = (int)2; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7232,7 +7232,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (int)1 return x<= y"
+literal|"def x = (double)7; def y = (int)1; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7242,7 +7242,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (double)7 return x<= y"
+literal|"def x = (byte)1; def y = (double)7; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7252,7 +7252,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (double)6 return x<= y"
+literal|"def x = (short)2; def y = (double)6; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7262,7 +7262,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)3 def y = (double)5 return x<= y"
+literal|"def x = (char)3; def y = (double)5; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7272,7 +7272,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)4 return x<= y"
+literal|"def x = (int)4; def y = (double)4; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7282,7 +7282,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (double)3 return x<= y"
+literal|"def x = (long)5; def y = (double)3; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7292,7 +7292,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (double)2 return x<= y"
+literal|"def x = (float)6; def y = (double)2; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7302,7 +7302,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (double)1 return x<= y"
+literal|"def x = (double)7; def y = (double)1; return x<= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7319,7 +7319,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (int)7 return x> y"
+literal|"def x = (byte)1; def y = (int)7; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7329,7 +7329,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (int)6 return x> y"
+literal|"def x = (short)2; def y = (int)6; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7339,7 +7339,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)3 def y = (int)5 return x> y"
+literal|"def x = (char)3; def y = (int)5; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7349,7 +7349,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)4 return x> y"
+literal|"def x = (int)4; def y = (int)4; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7359,7 +7359,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (int)3 return x> y"
+literal|"def x = (long)5; def y = (int)3; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7369,7 +7369,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (int)2 return x> y"
+literal|"def x = (float)6; def y = (int)2; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7379,7 +7379,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (int)1 return x> y"
+literal|"def x = (double)7; def y = (int)1; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7389,7 +7389,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (double)7 return x> y"
+literal|"def x = (byte)1; def y = (double)7; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7399,7 +7399,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (double)6 return x> y"
+literal|"def x = (short)2; def y = (double)6; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7409,7 +7409,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)3 def y = (double)5 return x> y"
+literal|"def x = (char)3; def y = (double)5; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7419,7 +7419,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)4 return x> y"
+literal|"def x = (int)4; def y = (double)4; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7429,7 +7429,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (double)3 return x> y"
+literal|"def x = (long)5; def y = (double)3; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7439,7 +7439,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (double)2 return x> y"
+literal|"def x = (float)6; def y = (double)2; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7449,7 +7449,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (double)1 return x> y"
+literal|"def x = (double)7; def y = (double)1; return x> y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7466,7 +7466,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (int)7 return x>= y"
+literal|"def x = (byte)1; def y = (int)7; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7476,7 +7476,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (int)6 return x>= y"
+literal|"def x = (short)2; def y = (int)6; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7486,7 +7486,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)3 def y = (int)5 return x>= y"
+literal|"def x = (char)3; def y = (int)5; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7496,7 +7496,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (int)4 return x>= y"
+literal|"def x = (int)4; def y = (int)4; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7506,7 +7506,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (int)3 return x>= y"
+literal|"def x = (long)5; def y = (int)3; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7516,7 +7516,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (int)2 return x>= y"
+literal|"def x = (float)6; def y = (int)2; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7526,7 +7526,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (int)1 return x>= y"
+literal|"def x = (double)7; def y = (int)1; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7536,7 +7536,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (byte)1 def y = (double)7 return x>= y"
+literal|"def x = (byte)1; def y = (double)7; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7546,7 +7546,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (short)2 def y = (double)6 return x>= y"
+literal|"def x = (short)2; def y = (double)6; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7556,7 +7556,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (char)3 def y = (double)5 return x>= y"
+literal|"def x = (char)3; def y = (double)5; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7566,7 +7566,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (int)4 def y = (double)4 return x>= y"
+literal|"def x = (int)4; def y = (double)4; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7576,7 +7576,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (long)5 def y = (double)3 return x>= y"
+literal|"def x = (long)5; def y = (double)3; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7586,7 +7586,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (float)6 def y = (double)2 return x>= y"
+literal|"def x = (float)6; def y = (double)2; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7596,7 +7596,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"def x = (double)7 def y = (double)1 return x>= y"
+literal|"def x = (double)7; def y = (double)1; return x>= y"
 argument_list|)
 argument_list|)
 expr_stmt|;

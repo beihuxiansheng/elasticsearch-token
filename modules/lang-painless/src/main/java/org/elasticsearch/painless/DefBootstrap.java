@@ -307,6 +307,9 @@ name|clazz
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|MethodType
+name|type
 parameter_list|)
 block|{
 switch|switch
@@ -325,6 +328,8 @@ argument_list|(
 name|clazz
 argument_list|,
 name|name
+argument_list|,
+name|type
 argument_list|,
 name|Definition
 operator|.
@@ -446,6 +451,8 @@ argument_list|,
 name|receiverClass
 argument_list|,
 name|name
+argument_list|,
+name|type
 argument_list|)
 operator|.
 name|asType

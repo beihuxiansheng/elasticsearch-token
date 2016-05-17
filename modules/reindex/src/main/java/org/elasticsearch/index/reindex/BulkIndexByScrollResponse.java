@@ -444,6 +444,34 @@ name|getReasonCancelled
 argument_list|()
 return|;
 block|}
+comment|/**      * The number of times that the request had retry bulk actions.      */
+DECL|method|getBulkRetries
+specifier|public
+name|long
+name|getBulkRetries
+parameter_list|()
+block|{
+return|return
+name|status
+operator|.
+name|getBulkRetries
+argument_list|()
+return|;
+block|}
+comment|/**      * The number of times that the request had retry search actions.      */
+DECL|method|getSearchRetries
+specifier|public
+name|long
+name|getSearchRetries
+parameter_list|()
+block|{
+return|return
+name|status
+operator|.
+name|getSearchRetries
+argument_list|()
+return|;
+block|}
 comment|/**      * All of the indexing failures. Version conflicts are only included if the request sets abortOnVersionConflict to true (the      * default).      */
 DECL|method|getIndexingFailures
 specifier|public

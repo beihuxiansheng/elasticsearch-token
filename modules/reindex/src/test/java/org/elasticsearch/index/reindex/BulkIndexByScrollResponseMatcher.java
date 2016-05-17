@@ -512,7 +512,7 @@ name|description
 operator|.
 name|appendText
 argument_list|(
-literal|"indexed matches "
+literal|"updated matches "
 argument_list|)
 operator|.
 name|appendDescriptionOf

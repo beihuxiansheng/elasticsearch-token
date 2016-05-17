@@ -38,9 +38,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
-operator|.
-name|DiscoveryNodes
+name|ClusterState
 import|;
 end_import
 
@@ -133,8 +131,8 @@ parameter_list|,
 name|RoutingNodes
 name|routingNodes
 parameter_list|,
-name|DiscoveryNodes
-name|nodes
+name|ClusterState
+name|clusterState
 parameter_list|,
 name|List
 argument_list|<
@@ -154,7 +152,7 @@ name|deciders
 argument_list|,
 name|routingNodes
 argument_list|,
-name|nodes
+name|clusterState
 argument_list|,
 name|clusterInfo
 argument_list|,

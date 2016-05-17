@@ -78,8 +78,6 @@ name|AbstractBulkIndexByScrollRequestBuilder
 argument_list|<
 name|UpdateByQueryRequest
 argument_list|,
-name|BulkIndexByScrollResponse
-argument_list|,
 name|UpdateByQueryRequestBuilder
 argument_list|>
 block|{
