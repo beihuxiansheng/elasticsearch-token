@@ -160,6 +160,18 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
+name|ElasticsearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
 name|ElasticsearchResponseException
 import|;
 end_import
@@ -676,6 +688,14 @@ name|ElasticsearchResponseException
 name|e
 parameter_list|)
 block|{
+name|ElasticsearchResponse
+name|response
+init|=
+name|e
+operator|.
+name|getElasticsearchResponse
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|sniffResponse
@@ -727,7 +747,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|e
+name|response
 operator|.
 name|getHost
 argument_list|()
@@ -740,7 +760,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|e
+name|response
 operator|.
 name|getStatusLine
 argument_list|()
@@ -758,7 +778,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|e
+name|response
 operator|.
 name|getRequestLine
 argument_list|()
@@ -783,7 +803,7 @@ name|fail
 argument_list|(
 literal|"sniffNodes should have succeeded: "
 operator|+
-name|e
+name|response
 operator|.
 name|getStatusLine
 argument_list|()
