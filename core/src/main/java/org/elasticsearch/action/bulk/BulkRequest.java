@@ -906,6 +906,15 @@ name|Object
 name|payload
 parameter_list|)
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|request
+argument_list|,
+literal|"'request' must not be null"
+argument_list|)
+expr_stmt|;
 name|requests
 operator|.
 name|add
