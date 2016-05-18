@@ -299,6 +299,8 @@ name|qe
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|template
 argument_list|,
 name|compileParams
@@ -407,6 +409,8 @@ name|qe
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|template
 argument_list|,
 name|compileParams

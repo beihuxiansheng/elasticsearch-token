@@ -51,6 +51,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -66,7 +82,20 @@ begin_comment
 comment|/**  * Tests that you can set requests_per_second over the Java API and that you can rethrottle running requests. There are REST tests for this  * too but this is the only place that tests running against multiple nodes so it is the only integration tests that checks for  * serialization.  */
 end_comment
 
+begin_comment
+comment|// Extra logging in case of failure. We couldn't explain the last failure:
+end_comment
+
+begin_comment
+comment|// https://elasticsearch-ci.elastic.co/job/elastic+elasticsearch+master+g1gc/359/consoleFull
+end_comment
+
 begin_class
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG"
+argument_list|)
 DECL|class|RethrottleTests
 specifier|public
 class|class
@@ -135,10 +164,6 @@ parameter_list|(
 name|AbstractBulkIndexByScrollRequestBuilder
 argument_list|<
 name|?
-argument_list|,
-name|?
-extends|extends
-name|BulkIndexByScrollResponse
 argument_list|,
 name|?
 argument_list|>
@@ -303,6 +328,45 @@ name|hasSize
 argument_list|(
 literal|1
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|BulkByScrollTask
+operator|.
+name|Status
+name|status
+init|=
+operator|(
+name|BulkByScrollTask
+operator|.
+name|Status
+operator|)
+name|rethrottleResponse
+operator|.
+name|getTasks
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getStatus
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|Float
+operator|.
+name|POSITIVE_INFINITY
+argument_list|,
+name|status
+operator|.
+name|getRequestsPerSecond
+argument_list|()
+argument_list|,
+name|Float
+operator|.
+name|MIN_NORMAL
 argument_list|)
 expr_stmt|;
 comment|// Now the response should come back quickly because we've rethrottled the request

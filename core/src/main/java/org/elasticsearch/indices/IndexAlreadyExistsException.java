@@ -98,7 +98,14 @@ name|this
 argument_list|(
 name|index
 argument_list|,
-literal|"already exists"
+literal|"index "
+operator|+
+name|index
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|" already exists"
 argument_list|)
 expr_stmt|;
 block|}

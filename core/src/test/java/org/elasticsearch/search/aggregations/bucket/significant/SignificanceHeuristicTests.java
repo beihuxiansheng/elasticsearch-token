@@ -1181,6 +1181,10 @@ argument_list|,
 name|InternalAggregations
 operator|.
 name|EMPTY
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1197,6 +1201,10 @@ argument_list|,
 literal|20
 argument_list|,
 literal|"some_name"
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
 argument_list|,
 literal|1
 argument_list|,
@@ -1787,6 +1795,10 @@ name|supersetSize
 argument_list|,
 literal|"sig_terms"
 argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
+argument_list|,
 literal|2
 argument_list|,
 operator|-
@@ -1929,6 +1941,10 @@ argument_list|,
 name|InternalAggregations
 operator|.
 name|EMPTY
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
 argument_list|)
 return|;
 block|}

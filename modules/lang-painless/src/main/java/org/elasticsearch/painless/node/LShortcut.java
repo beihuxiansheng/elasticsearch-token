@@ -102,21 +102,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|WriterUtility
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|commons
-operator|.
-name|GeneratorAdapter
+name|MethodWriter
 import|;
 end_import
 
@@ -153,6 +139,10 @@ DECL|method|LShortcut
 name|LShortcut
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|,
@@ -163,6 +153,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 literal|1
@@ -210,6 +202,11 @@ name|methods
 operator|.
 name|get
 argument_list|(
+operator|new
+name|Definition
+operator|.
+name|MethodKey
+argument_list|(
 literal|"get"
 operator|+
 name|Character
@@ -230,6 +227,9 @@ name|substring
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setter
@@ -239,6 +239,11 @@ operator|.
 name|methods
 operator|.
 name|get
+argument_list|(
+operator|new
+name|Definition
+operator|.
+name|MethodKey
 argument_list|(
 literal|"set"
 operator|+
@@ -258,6 +263,9 @@ name|value
 operator|.
 name|substring
 argument_list|(
+literal|1
+argument_list|)
+argument_list|,
 literal|1
 argument_list|)
 argument_list|)
@@ -487,7 +495,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -508,7 +516,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -620,7 +628,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -681,12 +689,10 @@ name|method
 argument_list|)
 expr_stmt|;
 block|}
-name|WriterUtility
+name|adapter
 operator|.
 name|writePop
 argument_list|(
-name|adapter
-argument_list|,
 name|setter
 operator|.
 name|rtn

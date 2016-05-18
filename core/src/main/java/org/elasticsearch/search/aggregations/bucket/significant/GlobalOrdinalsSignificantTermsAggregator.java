@@ -755,6 +755,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|null
+argument_list|,
+name|format
 argument_list|)
 expr_stmt|;
 block|}
@@ -932,6 +934,8 @@ name|supersetSize
 argument_list|,
 name|name
 argument_list|,
+name|format
+argument_list|,
 name|bucketCountThresholds
 operator|.
 name|getRequiredSize
@@ -1004,6 +1008,8 @@ argument_list|,
 name|supersetSize
 argument_list|,
 name|name
+argument_list|,
+name|format
 argument_list|,
 name|bucketCountThresholds
 operator|.

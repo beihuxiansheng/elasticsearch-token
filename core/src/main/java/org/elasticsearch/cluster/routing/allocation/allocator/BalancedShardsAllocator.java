@@ -1190,9 +1190,11 @@ operator|.
 name|routingNodes
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
 name|metaData
 operator|=
-name|routingNodes
+name|allocation
 operator|.
 name|metaData
 argument_list|()

@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -187,6 +167,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -281,7 +281,7 @@ specifier|final
 name|int
 name|DEFAULT_SCROLL_SIZE
 init|=
-literal|100
+literal|1000
 decl_stmt|;
 comment|/**      * The search to be executed.      */
 DECL|field|searchRequest

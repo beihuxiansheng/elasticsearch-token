@@ -74,21 +74,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|WriterUtility
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|commons
-operator|.
-name|GeneratorAdapter
+name|MethodWriter
 import|;
 end_import
 
@@ -108,6 +94,10 @@ DECL|method|EConstant
 name|EConstant
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|,
@@ -118,6 +108,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -310,7 +302,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -529,12 +521,10 @@ operator|.
 name|BOOL
 condition|)
 block|{
-name|WriterUtility
+name|adapter
 operator|.
 name|writeBranch
 argument_list|(
-name|adapter
-argument_list|,
 name|tru
 argument_list|,
 name|fals

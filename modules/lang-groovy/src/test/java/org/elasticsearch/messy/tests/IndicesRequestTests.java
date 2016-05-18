@@ -5606,6 +5606,9 @@ parameter_list|,
 name|boolean
 name|forceExecution
 parameter_list|,
+name|boolean
+name|canTripCircuitBreaker
+parameter_list|,
 name|TransportRequestHandler
 argument_list|<
 name|Request
@@ -5624,6 +5627,8 @@ argument_list|,
 name|executor
 argument_list|,
 name|forceExecution
+argument_list|,
+name|canTripCircuitBreaker
 argument_list|,
 operator|new
 name|InterceptingRequestHandler

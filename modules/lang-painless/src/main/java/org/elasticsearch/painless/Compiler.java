@@ -303,6 +303,8 @@ name|bytes
 init|=
 name|compile
 argument_list|(
+name|name
+argument_list|,
 name|source
 argument_list|,
 name|settings
@@ -328,11 +330,12 @@ name|byte
 index|[]
 name|compile
 parameter_list|(
-specifier|final
+name|String
+name|name
+parameter_list|,
 name|String
 name|source
 parameter_list|,
-specifier|final
 name|CompilerSettings
 name|settings
 parameter_list|)
@@ -418,6 +421,8 @@ argument_list|,
 name|Definition
 operator|.
 name|INSTANCE
+argument_list|,
+name|name
 argument_list|,
 name|source
 argument_list|,

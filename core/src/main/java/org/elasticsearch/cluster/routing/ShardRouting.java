@@ -858,6 +858,32 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * returns true for initializing shards that recover their data from another shard copy      */
+DECL|method|isPeerRecovery
+specifier|public
+name|boolean
+name|isPeerRecovery
+parameter_list|()
+block|{
+return|return
+name|state
+operator|==
+name|ShardRoutingState
+operator|.
+name|INITIALIZING
+operator|&&
+operator|(
+name|primary
+argument_list|()
+operator|==
+literal|false
+operator|||
+name|relocatingNodeId
+operator|!=
+literal|null
+operator|)
+return|;
+block|}
 comment|/**      * A shard iterator with just this shard in it.      */
 DECL|method|shardsIt
 specifier|public

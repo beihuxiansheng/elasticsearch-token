@@ -868,7 +868,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"js"
+literal|"javascript"
 argument_list|)
 argument_list|)
 expr_stmt|;

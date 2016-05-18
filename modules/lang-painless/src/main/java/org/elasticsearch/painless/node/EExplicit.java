@@ -48,9 +48,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Definition
-operator|.
-name|Cast
+name|Variables
 import|;
 end_import
 
@@ -62,21 +60,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Variables
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|commons
-operator|.
-name|GeneratorAdapter
+name|MethodWriter
 import|;
 end_import
 
@@ -102,16 +86,14 @@ DECL|field|child
 name|AExpression
 name|child
 decl_stmt|;
-DECL|field|cast
-name|Cast
-name|cast
-init|=
-literal|null
-decl_stmt|;
 DECL|method|EExplicit
 specifier|public
 name|EExplicit
 parameter_list|(
+specifier|final
+name|int
+name|line
+parameter_list|,
 specifier|final
 name|String
 name|location
@@ -127,6 +109,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -252,7 +236,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{

@@ -108,13 +108,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|objectweb
+name|elasticsearch
 operator|.
-name|asm
+name|painless
 operator|.
-name|commons
-operator|.
-name|GeneratorAdapter
+name|MethodWriter
 import|;
 end_import
 
@@ -208,12 +206,18 @@ specifier|public
 name|AExpression
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -252,7 +256,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 function_decl|;
@@ -324,6 +328,8 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -385,6 +391,8 @@ init|=
 operator|new
 name|ECast
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|this
@@ -445,6 +453,8 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -504,6 +514,8 @@ init|=
 operator|new
 name|ECast
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|this
@@ -530,6 +542,8 @@ init|=
 operator|new
 name|EConstant
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -577,6 +591,8 @@ init|=
 operator|new
 name|ECast
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 name|econstant

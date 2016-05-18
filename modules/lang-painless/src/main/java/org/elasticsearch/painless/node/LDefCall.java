@@ -48,7 +48,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|DynamicCallSite
+name|DefBootstrap
 import|;
 end_import
 
@@ -68,13 +68,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|objectweb
+name|elasticsearch
 operator|.
-name|asm
+name|painless
 operator|.
-name|commons
-operator|.
-name|GeneratorAdapter
+name|MethodWriter
 import|;
 end_import
 
@@ -113,6 +111,8 @@ class|class
 name|LDefCall
 extends|extends
 name|ALink
+implements|implements
+name|IDefLink
 block|{
 DECL|field|name
 specifier|final
@@ -131,6 +131,10 @@ DECL|method|LDefCall
 name|LDefCall
 parameter_list|(
 specifier|final
+name|int
+name|line
+parameter_list|,
+specifier|final
 name|String
 name|location
 parameter_list|,
@@ -148,6 +152,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|line
+argument_list|,
 name|location
 argument_list|,
 operator|-
@@ -282,7 +288,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -303,7 +309,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{
@@ -386,9 +392,7 @@ name|signature
 operator|.
 name|append
 argument_list|(
-name|definition
-operator|.
-name|defType
+name|after
 operator|.
 name|type
 operator|.
@@ -398,7 +402,7 @@ argument_list|)
 expr_stmt|;
 name|adapter
 operator|.
-name|visitInvokeDynamicInsn
+name|invokeDynamic
 argument_list|(
 name|name
 argument_list|,
@@ -409,14 +413,9 @@ argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|DynamicCallSite
+name|DefBootstrap
 operator|.
 name|METHOD_CALL
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -435,7 +434,7 @@ name|Definition
 name|definition
 parameter_list|,
 specifier|final
-name|GeneratorAdapter
+name|MethodWriter
 name|adapter
 parameter_list|)
 block|{

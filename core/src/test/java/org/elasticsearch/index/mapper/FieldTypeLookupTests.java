@@ -1351,7 +1351,7 @@ specifier|static
 class|class
 name|OtherFakeFieldType
 extends|extends
-name|MappedFieldType
+name|TermBasedFieldType
 block|{
 DECL|method|OtherFakeFieldType
 specifier|public

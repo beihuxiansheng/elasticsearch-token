@@ -311,6 +311,8 @@ name|ClusterStateAction
 operator|.
 name|NAME
 argument_list|,
+literal|false
+argument_list|,
 name|transportService
 argument_list|,
 name|clusterService

@@ -1609,6 +1609,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that a breaker correctly redistributes to a different breaker, in      * this case, the fielddata breaker borrows space from the request breaker      */
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/18325"
+argument_list|)
 DECL|method|testParentChecking
 specifier|public
 name|void

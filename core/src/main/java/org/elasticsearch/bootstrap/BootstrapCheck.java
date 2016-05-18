@@ -1284,7 +1284,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|"] to a majority of the number of master eligible nodes in your cluster."
+literal|"] to a majority of the number of master eligible nodes in your cluster"
 return|;
 block|}
 annotation|@

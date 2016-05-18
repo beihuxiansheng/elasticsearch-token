@@ -510,9 +510,9 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|ipv4
+name|ip
 operator|.
-name|IPv4RangeAggregatorBuilder
+name|IpRangeAggregatorBuilder
 import|;
 end_import
 
@@ -1659,11 +1659,11 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link IPv4RangeAggregatorBuilder} aggregation with the      * given name.      */
+comment|/**      * Create a new {@link IpRangeAggregatorBuilder} aggregation with the      * given name.      */
 DECL|method|ipRange
 specifier|public
 specifier|static
-name|IPv4RangeAggregatorBuilder
+name|IpRangeAggregatorBuilder
 name|ipRange
 parameter_list|(
 name|String
@@ -1672,7 +1672,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|IPv4RangeAggregatorBuilder
+name|IpRangeAggregatorBuilder
 argument_list|(
 name|name
 argument_list|)
