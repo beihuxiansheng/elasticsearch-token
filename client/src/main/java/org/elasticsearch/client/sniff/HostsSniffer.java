@@ -243,7 +243,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|sniffRequestParams
 decl_stmt|;
@@ -288,7 +288,7 @@ operator|.
 expr|<
 name|String
 operator|,
-name|Object
+name|String
 operator|>
 name|singletonMap
 argument_list|(

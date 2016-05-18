@@ -607,7 +607,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|params
 parameter_list|,
@@ -1601,7 +1601,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|params
 parameter_list|)
@@ -1625,7 +1625,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|String
 argument_list|>
 name|param
 range|:
@@ -1647,9 +1647,6 @@ argument_list|,
 name|param
 operator|.
 name|getValue
-argument_list|()
-operator|.
-name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
