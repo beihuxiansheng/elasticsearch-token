@@ -366,7 +366,7 @@ name|CURRENT
 argument_list|)
 return|;
 block|}
-comment|/**      * Elasticsearch 3.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be upgraded using upgrade API before they can      * be open by this version of elasticsearch.      */
+comment|/**      * Elasticsearch 5.0 no longer supports indices with pre Lucene v5.0 (Elasticsearch v2.0.0.beta1) segments. All indices      * that were created before Elasticsearch v2.0.0.beta1 should be reindexed in Elasticsearch 2.x      * before they can be opened by this version of elasticsearch.     */
 DECL|method|checkSupportedVersion
 specifier|private
 name|void
@@ -408,18 +408,15 @@ operator|.
 name|getIndex
 argument_list|()
 operator|+
-literal|"] was created before v2.0.0.beta1 and wasn't upgraded."
+literal|"] was created before v2.0.0.beta1."
 operator|+
-literal|" This index should be opened using a version before "
+literal|" It should be reindexed in Elasticsearch 2.x before upgrading to "
 operator|+
 name|Version
 operator|.
 name|CURRENT
-operator|.
-name|minimumCompatibilityVersion
-argument_list|()
 operator|+
-literal|" and upgraded using the upgrade API."
+literal|"."
 argument_list|)
 throw|;
 block|}
