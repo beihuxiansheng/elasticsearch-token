@@ -2318,7 +2318,7 @@ operator|=
 operator|new
 name|ShadowIndexShard
 argument_list|(
-name|shardId
+name|routing
 argument_list|,
 name|this
 operator|.
@@ -2360,7 +2360,7 @@ operator|=
 operator|new
 name|IndexShard
 argument_list|(
-name|shardId
+name|routing
 argument_list|,
 name|this
 operator|.
@@ -2417,15 +2417,6 @@ operator|.
 name|afterIndexShardCreated
 argument_list|(
 name|indexShard
-argument_list|)
-expr_stmt|;
-name|indexShard
-operator|.
-name|updateRoutingEntry
-argument_list|(
-name|routing
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|shards

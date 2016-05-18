@@ -884,7 +884,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * cancel all ongoing recoveries for the given shard, if their status match a predicate      *      * @param reason       reason for cancellation      * @param shardId      shardId for which to cancel recoveries      * @param shouldCancel a predicate to check if a recovery should be cancelled or not. Null means cancel without an extra check.      *                     note that the recovery state can change after this check, but before it is being cancelled via other      *                     already issued outstanding references.      * @return true if a recovery was cancelled      */
+comment|/**      * cancel all ongoing recoveries for the given shard, if their status match a predicate      *      * @param reason       reason for cancellation      * @param shardId      shardId for which to cancel recoveries      * @return true if a recovery was cancelled      */
 DECL|method|cancelRecoveriesForShard
 specifier|public
 name|boolean
@@ -895,14 +895,6 @@ name|shardId
 parameter_list|,
 name|String
 name|reason
-parameter_list|,
-annotation|@
-name|Nullable
-name|Predicate
-argument_list|<
-name|RecoveryTarget
-argument_list|>
-name|shouldCancel
 parameter_list|)
 block|{
 return|return
@@ -913,8 +905,6 @@ argument_list|(
 name|shardId
 argument_list|,
 name|reason
-argument_list|,
-name|shouldCancel
 argument_list|)
 return|;
 block|}
