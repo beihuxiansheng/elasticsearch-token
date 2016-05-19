@@ -2471,10 +2471,6 @@ name|Client
 operator|.
 name|CLIENT_TYPE_SETTING_S
 argument_list|,
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
-argument_list|,
 name|ClusterModule
 operator|.
 name|SHARDS_ALLOCATOR_TYPE_SETTING
