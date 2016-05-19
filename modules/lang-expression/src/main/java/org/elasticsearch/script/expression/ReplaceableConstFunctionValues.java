@@ -38,7 +38,7 @@ end_comment
 
 begin_class
 DECL|class|ReplaceableConstFunctionValues
-specifier|public
+specifier|final
 class|class
 name|ReplaceableConstFunctionValues
 extends|extends
@@ -52,7 +52,6 @@ init|=
 literal|0
 decl_stmt|;
 DECL|method|setValue
-specifier|public
 name|void
 name|setValue
 parameter_list|(

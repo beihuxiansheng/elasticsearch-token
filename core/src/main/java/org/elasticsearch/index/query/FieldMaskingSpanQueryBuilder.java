@@ -204,9 +204,6 @@ name|FieldMaskingSpanQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|FieldMaskingSpanQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -260,9 +257,6 @@ DECL|field|queryBuilder
 specifier|private
 specifier|final
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 decl_stmt|;
 DECL|field|fieldName
@@ -277,9 +271,6 @@ specifier|public
 name|FieldMaskingSpanQueryBuilder
 parameter_list|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|,
 name|String
@@ -352,14 +343,15 @@ name|queryBuilder
 operator|=
 operator|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|fieldName
 operator|=
@@ -384,7 +376,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|queryBuilder
 argument_list|)
@@ -593,7 +585,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -669,7 +661,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -695,7 +687,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -719,7 +711,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

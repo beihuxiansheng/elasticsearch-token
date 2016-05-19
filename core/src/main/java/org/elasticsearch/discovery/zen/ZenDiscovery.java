@@ -4845,6 +4845,8 @@ name|warn
 argument_list|(
 literal|"failed to validate incoming join request from node [{}]"
 argument_list|,
+name|e
+argument_list|,
 name|node
 argument_list|)
 expr_stmt|;

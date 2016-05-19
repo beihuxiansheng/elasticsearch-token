@@ -236,6 +236,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Objects
 import|;
 end_import
@@ -262,9 +272,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|QueryBuilder
-argument_list|<
-name|QB
-argument_list|>
 block|{
 comment|/** Default for boost to apply to resulting Lucene query. Defaults to 1.0*/
 DECL|field|DEFAULT_BOOST
@@ -613,14 +620,16 @@ init|=
 name|context
 operator|.
 name|isFilter
+argument_list|()
 decl_stmt|;
 try|try
 block|{
 name|context
 operator|.
-name|isFilter
-operator|=
+name|setIsFilter
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 name|result
 operator|=
@@ -634,9 +643,10 @@ finally|finally
 block|{
 name|context
 operator|.
-name|isFilter
-operator|=
+name|setIsFilter
+argument_list|(
 name|originalIsFilter
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -980,9 +990,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queryBuilders
 parameter_list|,
@@ -1013,9 +1020,6 @@ decl_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 range|:
 name|queryBuilders
@@ -1068,6 +1072,7 @@ block|}
 DECL|method|writeQueries
 specifier|protected
 specifier|final
+specifier|static
 name|void
 name|writeQueries
 parameter_list|(
@@ -1079,9 +1084,6 @@ argument_list|<
 name|?
 extends|extends
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queries
 parameter_list|)
@@ -1101,9 +1103,6 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 range|:
 name|queries
@@ -1111,7 +1110,7 @@ control|)
 block|{
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|query
 argument_list|)
@@ -1121,12 +1120,10 @@ block|}
 DECL|method|readQueries
 specifier|protected
 specifier|final
+specifier|static
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|readQueries
 parameter_list|(
@@ -1139,9 +1136,6 @@ block|{
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queries
 init|=
@@ -1179,8 +1173,12 @@ name|add
 argument_list|(
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1194,9 +1192,6 @@ DECL|method|rewrite
 specifier|public
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -1206,9 +1201,6 @@ throws|throws
 name|IOException
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|rewritten
 init|=
 name|doRewrite
@@ -1283,9 +1275,6 @@ block|}
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext
@@ -1298,6 +1287,21 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * For internal usage only!      *      * Extracts the inner hits from the query tree.      * While it extracts inner hits, child inner hits are inlined into the inner hit builder they belong to.      */
+DECL|method|extractInnerHitBuilders
+specifier|protected
+name|void
+name|extractInnerHitBuilders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|InnerHitBuilder
+argument_list|>
+name|innerHits
+parameter_list|)
+block|{     }
 comment|// Like Objects.requireNotNull(...) but instead throws a IllegalArgumentException
 DECL|method|requireValue
 specifier|protected

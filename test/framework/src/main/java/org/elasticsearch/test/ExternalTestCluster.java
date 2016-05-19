@@ -639,7 +639,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 index|]
 expr_stmt|;
 name|this
@@ -678,7 +679,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -691,9 +693,11 @@ name|nodeInfos
 operator|.
 name|getNodes
 argument_list|()
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 decl_stmt|;
 name|httpAddresses
 index|[

@@ -182,9 +182,6 @@ decl_stmt|;
 DECL|field|query
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 decl_stmt|;
 DECL|field|fields
@@ -389,9 +386,6 @@ block|}
 DECL|method|query
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|()
 block|{
@@ -405,9 +399,6 @@ name|ExplainRequest
 name|query
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|)
 block|{
@@ -650,8 +641,12 @@ name|query
 operator|=
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|filteringAlias
 operator|=
@@ -736,7 +731,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|query
 argument_list|)

@@ -106,8 +106,6 @@ name|AbstractBulkIndexByScrollRequestBuilder
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|ReindexResponse
-argument_list|,
 name|ReindexRequestBuilder
 argument_list|>
 block|{
@@ -128,7 +126,7 @@ name|Action
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|,
 name|ReindexRequestBuilder
 argument_list|>
@@ -174,7 +172,7 @@ name|Action
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|ReindexResponse
+name|BulkIndexByScrollResponse
 argument_list|,
 name|ReindexRequestBuilder
 argument_list|>

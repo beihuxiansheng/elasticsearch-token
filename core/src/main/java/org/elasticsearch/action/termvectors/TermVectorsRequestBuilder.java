@@ -437,7 +437,7 @@ specifier|public
 name|TermVectorsRequestBuilder
 name|setRealtime
 parameter_list|(
-name|Boolean
+name|boolean
 name|realtime
 parameter_list|)
 block|{

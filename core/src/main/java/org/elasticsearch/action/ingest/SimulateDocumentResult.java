@@ -51,16 +51,8 @@ DECL|interface|SimulateDocumentResult
 specifier|public
 interface|interface
 name|SimulateDocumentResult
-parameter_list|<
-name|T
-extends|extends
-name|SimulateDocumentResult
-parameter_list|>
 extends|extends
 name|Writeable
-argument_list|<
-name|T
-argument_list|>
 extends|,
 name|ToXContent
 block|{  }

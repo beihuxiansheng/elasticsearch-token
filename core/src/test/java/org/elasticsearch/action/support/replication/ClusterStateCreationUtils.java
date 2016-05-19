@@ -585,6 +585,8 @@ specifier|final
 name|int
 name|primaryTerm
 init|=
+literal|1
+operator|+
 name|randomInt
 argument_list|(
 literal|200
@@ -762,6 +764,13 @@ operator|=
 name|selectAndRemove
 argument_list|(
 name|unassignedNodesExecludingPrimary
+argument_list|)
+expr_stmt|;
+name|unassignedNodes
+operator|.
+name|remove
+argument_list|(
+name|primaryNode
 argument_list|)
 expr_stmt|;
 block|}

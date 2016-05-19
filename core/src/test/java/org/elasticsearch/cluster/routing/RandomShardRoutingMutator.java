@@ -77,7 +77,7 @@ block|{      }
 DECL|method|randomChange
 specifier|public
 specifier|static
-name|void
+name|ShardRouting
 name|randomChange
 parameter_list|(
 name|ShardRouting
@@ -110,6 +110,8 @@ literal|false
 condition|)
 block|{
 name|shardRouting
+operator|=
+name|shardRouting
 operator|.
 name|moveToUnassigned
 argument_list|(
@@ -138,6 +140,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|shardRouting
+operator|=
 name|shardRouting
 operator|.
 name|updateUnassignedInfo
@@ -169,6 +173,8 @@ argument_list|()
 condition|)
 block|{
 name|shardRouting
+operator|=
+name|shardRouting
 operator|.
 name|initialize
 argument_list|(
@@ -197,6 +203,8 @@ argument_list|()
 condition|)
 block|{
 name|shardRouting
+operator|=
+name|shardRouting
 operator|.
 name|moveToStarted
 argument_list|()
@@ -204,6 +212,9 @@ expr_stmt|;
 block|}
 break|break;
 block|}
+return|return
+name|shardRouting
+return|;
 block|}
 DECL|method|randomReason
 specifier|public

@@ -89,9 +89,6 @@ enum|enum
 name|PercentilesMethod
 implements|implements
 name|Writeable
-argument_list|<
-name|PercentilesMethod
-argument_list|>
 block|{
 comment|/**      * The TDigest method for calculating percentiles      */
 DECL|enum constant|TDIGEST
@@ -138,12 +135,11 @@ return|return
 name|name
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|PercentilesMethod
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

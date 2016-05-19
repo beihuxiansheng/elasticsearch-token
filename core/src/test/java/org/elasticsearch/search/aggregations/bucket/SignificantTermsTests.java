@@ -102,7 +102,7 @@ name|bucket
 operator|.
 name|significant
 operator|.
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 import|;
 end_import
 
@@ -314,7 +314,7 @@ name|SignificantTermsTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 argument_list|>
 block|{
 DECL|field|executionHints
@@ -382,7 +382,7 @@ annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -396,11 +396,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 name|factory
 init|=
 operator|new
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 argument_list|(
 name|name
 argument_list|,
@@ -1140,9 +1140,9 @@ literal|0
 case|:
 name|significanceHeuristic
 operator|=
+operator|new
 name|PercentageScore
-operator|.
-name|PROTOTYPE
+argument_list|()
 expr_stmt|;
 break|break;
 case|case
@@ -1211,9 +1211,9 @@ literal|5
 case|:
 name|significanceHeuristic
 operator|=
+operator|new
 name|JLHScore
-operator|.
-name|PROTOTYPE
+argument_list|()
 expr_stmt|;
 break|break;
 default|default:

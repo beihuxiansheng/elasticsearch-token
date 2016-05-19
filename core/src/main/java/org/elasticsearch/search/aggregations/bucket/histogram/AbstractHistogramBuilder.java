@@ -108,7 +108,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -163,7 +163,7 @@ name|AB
 parameter_list|>
 parameter_list|>
 extends|extends
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|ValuesSource
 operator|.
@@ -349,9 +349,8 @@ condition|)
 block|{
 name|extendedBounds
 operator|=
+operator|new
 name|ExtendedBounds
-operator|.
-name|readFrom
 argument_list|(
 name|in
 argument_list|)
@@ -457,18 +456,6 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|usesNewStyleSerialization
-specifier|protected
-name|boolean
-name|usesNewStyleSerialization
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 DECL|method|interval
 specifier|public

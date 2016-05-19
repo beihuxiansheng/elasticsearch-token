@@ -58,9 +58,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
+name|search
 operator|.
-name|ScoreAccessor
+name|lookup
+operator|.
+name|LeafDocLookup
 import|;
 end_import
 
@@ -138,6 +140,25 @@ specifier|final
 name|LeafSearchLookup
 name|lookup
 decl_stmt|;
+comment|/**      * the 'doc' object accessed by the script, if available.      */
+DECL|field|doc
+specifier|private
+specifier|final
+name|LeafDocLookup
+name|doc
+decl_stmt|;
+comment|/**      * Current scorer being used      * @see #setScorer(Scorer)      */
+DECL|field|scorer
+specifier|private
+name|Scorer
+name|scorer
+decl_stmt|;
+comment|/**      * Current _value for aggregation      * @see #setNextAggregationValue(Object)      */
+DECL|field|aggregationValue
+specifier|private
+name|Object
+name|aggregationValue
+decl_stmt|;
 comment|/**      * Creates a ScriptImpl for the a previously compiled Painless script.      * @param executable The previously compiled Painless script.      * @param vars The initial variables to run the script with.      * @param lookup The lookup to allow search fields to be available if this is run as a search script.      */
 DECL|method|ScriptImpl
 name|ScriptImpl
@@ -213,6 +234,20 @@ name|asMap
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|doc
+operator|=
+name|lookup
+operator|.
+name|doc
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|doc
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Set a variable for the script to be run against.      * @param name The variable name.      * @param value The variable value.      */
@@ -242,6 +277,25 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the next aggregation value.      * @param value Per-document value, typically a String, Long, or Double.      */
+annotation|@
+name|Override
+DECL|method|setNextAggregationValue
+specifier|public
+name|void
+name|setNextAggregationValue
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|aggregationValue
+operator|=
+name|value
+expr_stmt|;
+block|}
 comment|/**      * Run the script.      * @return The script result.      */
 annotation|@
 name|Override
@@ -257,6 +311,12 @@ operator|.
 name|execute
 argument_list|(
 name|variables
+argument_list|,
+name|scorer
+argument_list|,
+name|doc
+argument_list|,
+name|aggregationValue
 argument_list|)
 return|;
 block|}
@@ -279,28 +339,6 @@ argument_list|()
 operator|)
 operator|.
 name|doubleValue
-argument_list|()
-return|;
-block|}
-comment|/**      * Run the script.      * @return The script result as a float.      */
-annotation|@
-name|Override
-DECL|method|runAsFloat
-specifier|public
-name|float
-name|runAsFloat
-parameter_list|()
-block|{
-return|return
-operator|(
-operator|(
-name|Number
-operator|)
-name|run
-argument_list|()
-operator|)
-operator|.
-name|floatValue
 argument_list|()
 return|;
 block|}
@@ -339,18 +377,11 @@ name|Scorer
 name|scorer
 parameter_list|)
 block|{
-name|variables
+name|this
 operator|.
-name|put
-argument_list|(
-literal|"#score"
-argument_list|,
-operator|new
-name|ScoreAccessor
-argument_list|(
 name|scorer
-argument_list|)
-argument_list|)
+operator|=
+name|scorer
 expr_stmt|;
 block|}
 comment|/**      * Sets the current document.      * @param doc The current document.      */

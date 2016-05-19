@@ -48,7 +48,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|repositories
 operator|.
 name|ESBlobStoreRepositoryIntegTestCase
 import|;

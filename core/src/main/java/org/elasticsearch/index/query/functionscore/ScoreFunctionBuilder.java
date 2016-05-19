@@ -182,9 +182,6 @@ implements|implements
 name|ToXContent
 implements|,
 name|NamedWriteable
-argument_list|<
-name|FB
-argument_list|>
 block|{
 DECL|field|weight
 specifier|private

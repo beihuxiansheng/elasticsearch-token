@@ -704,18 +704,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|arrayWithSize
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|equalTo
 import|;
 end_import
@@ -741,6 +729,18 @@ operator|.
 name|Matchers
 operator|.
 name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasSize
 import|;
 end_import
 
@@ -2665,7 +2665,7 @@ operator|.
 name|getNodes
 argument_list|()
 argument_list|,
-name|arrayWithSize
+name|hasSize
 argument_list|(
 literal|2
 argument_list|)
@@ -2909,7 +2909,7 @@ operator|.
 name|getNodes
 argument_list|()
 argument_list|,
-name|arrayWithSize
+name|hasSize
 argument_list|(
 literal|2
 argument_list|)
@@ -3120,7 +3120,7 @@ operator|.
 name|getNodes
 argument_list|()
 argument_list|,
-name|arrayWithSize
+name|hasSize
 argument_list|(
 literal|2
 argument_list|)

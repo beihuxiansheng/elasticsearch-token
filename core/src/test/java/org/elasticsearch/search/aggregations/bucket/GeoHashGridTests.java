@@ -46,7 +46,7 @@ name|bucket
 operator|.
 name|geogrid
 operator|.
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 import|;
 end_import
 
@@ -58,14 +58,14 @@ name|GeoHashGridTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -79,11 +79,11 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 name|factory
 init|=
 operator|new
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 argument_list|(
 name|name
 argument_list|)

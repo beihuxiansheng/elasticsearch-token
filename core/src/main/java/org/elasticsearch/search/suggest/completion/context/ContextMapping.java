@@ -136,6 +136,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -389,8 +403,8 @@ specifier|abstract
 name|T
 name|fromXContent
 parameter_list|(
-name|XContentParser
-name|parser
+name|QueryParseContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -405,8 +419,8 @@ name|InternalQueryContext
 argument_list|>
 name|parseQueryContext
 parameter_list|(
-name|XContentParser
-name|parser
+name|QueryParseContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -422,6 +436,14 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
+argument_list|()
+decl_stmt|;
+name|XContentParser
+name|parser
+init|=
+name|context
+operator|.
+name|parser
 argument_list|()
 decl_stmt|;
 name|Token
@@ -453,7 +475,7 @@ name|add
 argument_list|(
 name|fromXContent
 argument_list|(
-name|parser
+name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -486,7 +508,7 @@ name|add
 argument_list|(
 name|fromXContent
 argument_list|(
-name|parser
+name|context
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -272,6 +272,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|UUIDs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractLifecycleComponent
@@ -908,7 +920,7 @@ literal|"cluster.name"
 argument_list|,
 literal|"tribe_"
 operator|+
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

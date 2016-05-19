@@ -93,7 +93,12 @@ argument_list|()
 operator|.
 name|copyMetadata
 argument_list|(
+name|AbstractAsyncBulkIndexByScrollAction
+operator|.
+name|wrap
+argument_list|(
 name|index
+argument_list|)
 argument_list|,
 name|doc
 argument_list|(
@@ -138,8 +143,6 @@ name|logger
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|threadPool
 argument_list|,
 name|request
@@ -147,6 +150,10 @@ argument_list|()
 argument_list|,
 name|listener
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}

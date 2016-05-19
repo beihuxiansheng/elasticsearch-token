@@ -383,9 +383,6 @@ enum|enum
 name|Type
 implements|implements
 name|Writeable
-argument_list|<
-name|Type
-argument_list|>
 block|{
 comment|/**          * The text is analyzed and terms are added to a boolean query.          */
 DECL|enum constant|BOOLEAN
@@ -517,9 +514,6 @@ enum|enum
 name|ZeroTermsQuery
 implements|implements
 name|Writeable
-argument_list|<
-name|ZeroTermsQuery
-argument_list|>
 block|{
 DECL|enum constant|NONE
 name|NONE
@@ -1148,11 +1142,20 @@ name|noForcedAnalyzer
 condition|)
 block|{
 return|return
-name|termQuery
+name|blendTermQuery
 argument_list|(
-name|fieldType
+operator|new
+name|Term
+argument_list|(
+name|fieldName
 argument_list|,
 name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+argument_list|,
+name|fieldType
 argument_list|)
 return|;
 block|}
@@ -1326,30 +1329,6 @@ name|query
 return|;
 block|}
 block|}
-comment|/**      * Creates a TermQuery-like-query for MappedFieldTypes that don't support      * QueryBuilder which is very string-ish. Just delegates to the      * MappedFieldType for MatchQuery but gets more complex for blended queries.      */
-DECL|method|termQuery
-specifier|protected
-name|Query
-name|termQuery
-parameter_list|(
-name|MappedFieldType
-name|fieldType
-parameter_list|,
-name|Object
-name|value
-parameter_list|)
-block|{
-return|return
-name|termQuery
-argument_list|(
-name|fieldType
-argument_list|,
-name|value
-argument_list|,
-name|lenient
-argument_list|)
-return|;
-block|}
 DECL|method|termQuery
 specifier|protected
 specifier|final
@@ -1405,16 +1384,23 @@ name|Query
 name|zeroTermsQuery
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
 name|zeroTermsQuery
 operator|==
 name|DEFAULT_ZERO_TERMS_QUERY
-condition|?
+condition|)
+block|{
+return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
-argument_list|()
-else|:
+argument_list|(
+literal|"Matching no documents because no terms present."
+argument_list|)
+return|;
+block|}
+return|return
 name|Queries
 operator|.
 name|newMatchAllQuery
@@ -1935,6 +1921,11 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|lenient
+condition|)
+block|{
 return|return
 operator|new
 name|TermQuery
@@ -1942,7 +1933,13 @@ argument_list|(
 name|term
 argument_list|)
 return|;
-comment|// See long comment below about why we're lenient here.
+block|}
+else|else
+block|{
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 block|}
 name|int
@@ -1995,7 +1992,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|/*              * Its a bit weird to default to lenient here but its the backwards              * compatible. It makes some sense when you think about what we are              * doing here: at this point the user has forced an analyzer and              * passed some string to the match query. We cut it up using the              * analyzer and then tried to cram whatever we get into the field.              * lenient=true here means that we try the terms in the query and on              * the off chance that they are actually valid terms then we              * actually try them. lenient=false would mean that we blow up the              * query if they aren't valid terms. "valid" in this context means              * "parses properly to something of the type being queried." So "1"              * is a valid number, etc.              *              * We use the text form here because we we've received the term from              * an analyzer that cut some string into text.              */
 name|Query
 name|query
 init|=
@@ -2008,7 +2004,7 @@ operator|.
 name|bytes
 argument_list|()
 argument_list|,
-literal|true
+name|lenient
 argument_list|)
 decl_stmt|;
 if|if

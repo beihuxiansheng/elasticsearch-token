@@ -37,11 +37,7 @@ DECL|interface|Writeable
 specifier|public
 interface|interface
 name|Writeable
-parameter_list|<
-name|T
-parameter_list|>
 block|{
-comment|// TODO remove<T>
 comment|/**      * Write this into the {@linkplain StreamOutput}.      */
 DECL|method|writeTo
 name|void
@@ -53,27 +49,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Read this object from a stream. Use a {@link Writeable.Reader} instead. This lives on for backwards compatibility but should be      * removed before 5.0.0GA. It is not deprecated because Diffable extends this interface and it shouldn't be deprecated there.      */
-DECL|method|readFrom
-specifier|default
-name|T
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// NORELEASE remove before 5.0.0GA
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Prefer calling a constructor or static method that takes a StreamInput to calling readFrom."
-argument_list|)
-throw|;
-block|}
 comment|/**      * Reference to a method that can read some object from a stream. By convention this is a constructor that takes      * {@linkplain StreamInput} as an argument for most classes and a static method for things like enums. Returning null from one of these      * is always wrong - for that we use methods like {@link StreamInput#readOptionalWriteable(Reader)}.      */
 annotation|@
 name|FunctionalInterface

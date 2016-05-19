@@ -294,9 +294,6 @@ extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|field|field
 specifier|protected
@@ -1156,7 +1153,7 @@ name|parsefieldMatcher
 init|=
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 decl_stmt|;
 name|XContentParser

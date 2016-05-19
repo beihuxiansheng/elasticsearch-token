@@ -1426,12 +1426,6 @@ name|aliasMetaData
 operator|.
 name|alias
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -1490,6 +1484,8 @@ operator|.
 name|uncompressed
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -1504,7 +1500,8 @@ name|createParser
 argument_list|(
 name|data
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|Map
 argument_list|<
 name|String
@@ -1518,11 +1515,6 @@ operator|.
 name|mapOrdered
 argument_list|()
 decl_stmt|;
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|builder
 operator|.
 name|field
@@ -1532,6 +1524,7 @@ argument_list|,
 name|filter
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if

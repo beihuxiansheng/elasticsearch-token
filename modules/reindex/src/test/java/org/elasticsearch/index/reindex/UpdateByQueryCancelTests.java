@@ -92,7 +92,7 @@ specifier|public
 class|class
 name|UpdateByQueryCancelTests
 extends|extends
-name|UpdateByQueryTestCase
+name|ReindexTestCase
 block|{
 DECL|method|testCancel
 specifier|public
@@ -111,7 +111,7 @@ name|testCancel
 argument_list|(
 name|this
 argument_list|,
-name|request
+name|updateByQuery
 argument_list|()
 argument_list|,
 name|UpdateByQueryAction
@@ -123,7 +123,7 @@ name|assertThat
 argument_list|(
 name|response
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated

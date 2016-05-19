@@ -84,7 +84,7 @@ name|bucket
 operator|.
 name|histogram
 operator|.
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 import|;
 end_import
 
@@ -96,22 +96,22 @@ name|HistogramTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 name|factory
 init|=
 operator|new
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

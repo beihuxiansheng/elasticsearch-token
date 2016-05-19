@@ -167,7 +167,9 @@ name|PipelineAggregator
 implements|implements
 name|Streamable
 block|{
-comment|/**      * Parses the pipeline aggregation request and creates the appropriate      * pipeline aggregator factory for it.      *      * @see PipelineAggregatorBuilder      */
+comment|/**      * Parse the {@link PipelineAggregatorBuilder} from a {@link QueryParseContext}.      */
+annotation|@
+name|FunctionalInterface
 DECL|interface|Parser
 specifier|public
 specifier|static
@@ -213,12 +215,6 @@ argument_list|(
 literal|"gap_policy"
 argument_list|)
 decl_stmt|;
-comment|/**          * @return The aggregation type this parser is associated with.          */
-DECL|method|type
-name|String
-name|type
-parameter_list|()
-function_decl|;
 comment|/**          * Returns the pipeline aggregator factory with which this parser is          * associated.          *          * @param pipelineAggregatorName          *            The name of the pipeline aggregation          * @param context          *            The search context          * @return The resolved pipeline aggregator factory          * @throws java.io.IOException          *             When parsing fails          */
 DECL|method|parse
 name|PipelineAggregatorBuilder
@@ -235,15 +231,6 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-comment|/**          * @return an empty {@link PipelineAggregatorBuilder} instance for this          *         parser that can be used for deserialization          */
-DECL|method|getFactoryPrototype
-name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
-name|getFactoryPrototype
-parameter_list|()
 function_decl|;
 block|}
 DECL|field|name

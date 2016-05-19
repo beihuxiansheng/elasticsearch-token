@@ -297,9 +297,7 @@ name|assertThat
 argument_list|(
 name|PercentilesMethod
 operator|.
-name|TDIGEST
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -351,9 +349,7 @@ name|assertThat
 argument_list|(
 name|PercentilesMethod
 operator|.
-name|TDIGEST
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
@@ -419,9 +415,7 @@ init|)
 block|{
 name|PercentilesMethod
 operator|.
-name|TDIGEST
-operator|.
-name|readFrom
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)

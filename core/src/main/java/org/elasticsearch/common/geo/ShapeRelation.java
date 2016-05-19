@@ -95,9 +95,6 @@ enum|enum
 name|ShapeRelation
 implements|implements
 name|Writeable
-argument_list|<
-name|ShapeRelation
-argument_list|>
 block|{
 DECL|enum constant|INTERSECTS
 name|INTERSECTS
@@ -143,12 +140,11 @@ operator|=
 name|relationName
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|readFrom
+DECL|method|readFromStream
 specifier|public
+specifier|static
 name|ShapeRelation
-name|readFrom
+name|readFromStream
 parameter_list|(
 name|StreamInput
 name|in

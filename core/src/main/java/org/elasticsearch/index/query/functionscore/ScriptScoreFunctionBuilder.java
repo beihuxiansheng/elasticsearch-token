@@ -397,9 +397,8 @@ argument_list|)
 expr_stmt|;
 name|script
 operator|=
+operator|new
 name|Script
-operator|.
-name|readScript
 argument_list|(
 name|in
 argument_list|)
@@ -579,6 +578,11 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+name|context
+operator|.
+name|getClusterState
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -717,7 +721,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -740,7 +744,7 @@ name|parser
 argument_list|,
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -811,7 +815,7 @@ name|parser
 argument_list|,
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 condition|)

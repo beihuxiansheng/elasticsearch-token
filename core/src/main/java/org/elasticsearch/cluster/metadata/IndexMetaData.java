@@ -2310,7 +2310,7 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * The term of the current selected primary. This is a non-negative number incremented when      * a primary shard is assigned after a full cluster restart or a replica shard is promoted to a primary      * See {@link AllocationService#updateMetaDataWithRoutingTable(MetaData, RoutingTable, RoutingTable)}.      **/
+comment|/**      * The term of the current selected primary. This is a non-negative number incremented when      * a primary shard is assigned after a full cluster restart or a replica shard is promoted to a primary.      *      * Note: since we increment the term every time a shard is assigned, the term for any operational shard (i.e., a shard      * that can be indexed into) is larger than 0.      * See {@link AllocationService#updateMetaDataWithRoutingTable(MetaData, RoutingTable, RoutingTable)}.      **/
 DECL|method|primaryTerm
 specifier|public
 name|long
@@ -5785,12 +5785,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|builder
@@ -5951,6 +5945,8 @@ operator|.
 name|uncompressed
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -5965,7 +5961,8 @@ name|createParser
 argument_list|(
 name|data
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|Map
 argument_list|<
 name|String
@@ -5979,11 +5976,6 @@ operator|.
 name|mapOrdered
 argument_list|()
 decl_stmt|;
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|builder
 operator|.
 name|map
@@ -5991,6 +5983,7 @@ argument_list|(
 name|mapping
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|builder
@@ -6021,12 +6014,6 @@ argument_list|(
 name|cursor
 operator|.
 name|key
-argument_list|,
-name|XContentBuilder
-operator|.
-name|FieldCaseConversion
-operator|.
-name|NONE
 argument_list|)
 expr_stmt|;
 name|cursor

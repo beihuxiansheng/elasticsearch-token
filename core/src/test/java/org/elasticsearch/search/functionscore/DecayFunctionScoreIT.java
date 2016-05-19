@@ -756,9 +756,6 @@ DECL|field|baseQuery
 specifier|private
 specifier|final
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|baseQuery
 init|=
 name|constantScoreQuery

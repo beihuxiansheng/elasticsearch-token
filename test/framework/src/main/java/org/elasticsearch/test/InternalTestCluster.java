@@ -2602,9 +2602,15 @@ name|executor
 operator|=
 name|EsExecutors
 operator|.
-name|newCached
+name|newScaling
 argument_list|(
 literal|"test runner"
+argument_list|,
+literal|0
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|,
 literal|0
 argument_list|,
@@ -5747,6 +5753,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|startNewNode
+argument_list|(
+name|newSettings
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|startNewNode
+specifier|private
+name|void
+name|startNewNode
+parameter_list|(
+specifier|final
+name|Settings
+name|newSettings
+parameter_list|)
+block|{
 specifier|final
 name|long
 name|newIdSeed
@@ -8093,7 +8115,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Stops the any of the current nodes but not the master node.      */
+comment|/**      * Stops any of the current nodes but not the master node.      */
 DECL|method|stopRandomNonMasterNode
 specifier|public
 name|void

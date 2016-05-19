@@ -2402,11 +2402,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|indexedscripts
+name|admin
 operator|.
-name|delete
+name|cluster
 operator|.
-name|DeleteIndexedScriptAction
+name|storedscripts
+operator|.
+name|DeleteStoredScriptAction
 import|;
 end_import
 
@@ -2418,11 +2420,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|indexedscripts
+name|admin
 operator|.
-name|delete
+name|cluster
 operator|.
-name|TransportDeleteIndexedScriptAction
+name|storedscripts
+operator|.
+name|TransportDeleteStoredScriptAction
 import|;
 end_import
 
@@ -2434,11 +2438,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|indexedscripts
+name|admin
 operator|.
-name|get
+name|cluster
 operator|.
-name|GetIndexedScriptAction
+name|storedscripts
+operator|.
+name|GetStoredScriptAction
 import|;
 end_import
 
@@ -2450,11 +2456,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|indexedscripts
+name|admin
 operator|.
-name|get
+name|cluster
 operator|.
-name|TransportGetIndexedScriptAction
+name|storedscripts
+operator|.
+name|TransportGetStoredScriptAction
 import|;
 end_import
 
@@ -2466,11 +2474,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|indexedscripts
+name|admin
 operator|.
-name|put
+name|cluster
 operator|.
-name|PutIndexedScriptAction
+name|storedscripts
+operator|.
+name|PutStoredScriptAction
 import|;
 end_import
 
@@ -2482,11 +2492,13 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|indexedscripts
+name|admin
 operator|.
-name|put
+name|cluster
 operator|.
-name|TransportPutIndexedScriptAction
+name|storedscripts
+operator|.
+name|TransportPutStoredScriptAction
 import|;
 end_import
 
@@ -4265,33 +4277,33 @@ expr_stmt|;
 comment|//Indexed scripts
 name|registerAction
 argument_list|(
-name|PutIndexedScriptAction
+name|PutStoredScriptAction
 operator|.
 name|INSTANCE
 argument_list|,
-name|TransportPutIndexedScriptAction
+name|TransportPutStoredScriptAction
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
 name|registerAction
 argument_list|(
-name|GetIndexedScriptAction
+name|GetStoredScriptAction
 operator|.
 name|INSTANCE
 argument_list|,
-name|TransportGetIndexedScriptAction
+name|TransportGetStoredScriptAction
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
 name|registerAction
 argument_list|(
-name|DeleteIndexedScriptAction
+name|DeleteStoredScriptAction
 operator|.
 name|INSTANCE
 argument_list|,
-name|TransportDeleteIndexedScriptAction
+name|TransportDeleteStoredScriptAction
 operator|.
 name|class
 argument_list|)

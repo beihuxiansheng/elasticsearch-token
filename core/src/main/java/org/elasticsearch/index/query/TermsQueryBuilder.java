@@ -1492,7 +1492,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -1518,7 +1518,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -1781,7 +1781,14 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
+argument_list|(
+literal|"No terms supplied for \""
+operator|+
+name|getName
 argument_list|()
+operator|+
+literal|"\" query."
+argument_list|)
 return|;
 block|}
 return|return
@@ -2222,9 +2229,6 @@ name|Override
 DECL|method|doRewrite
 specifier|protected
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|doRewrite
 parameter_list|(
 name|QueryRewriteContext

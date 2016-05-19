@@ -462,7 +462,7 @@ name|Override
 DECL|method|parse
 specifier|public
 specifier|final
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|VS
 argument_list|,
@@ -608,7 +608,7 @@ name|timezoneAware
 operator|&&
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -805,10 +805,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-name|type
-argument_list|()
-operator|+
-literal|" aggregation ["
+literal|"Aggregation ["
 operator|+
 name|aggregationName
 operator|+
@@ -816,12 +813,7 @@ literal|"] was configured with an incompatible value type ["
 operator|+
 name|valueType
 operator|+
-literal|"]. ["
-operator|+
-name|type
-argument_list|()
-operator|+
-literal|"] aggregation can only work on value of type ["
+literal|"]. It can only work on value of type ["
 operator|+
 name|targetValueType
 operator|+
@@ -846,7 +838,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|otherOptions
@@ -895,7 +887,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|otherOptions
@@ -946,7 +938,7 @@ if|if
 condition|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -969,7 +961,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -990,7 +982,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|otherOptions
@@ -1039,7 +1031,7 @@ name|parser
 argument_list|,
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|otherOptions
@@ -1072,7 +1064,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|VS
 argument_list|,
@@ -1189,11 +1181,11 @@ return|return
 name|factory
 return|;
 block|}
-comment|/**      * Creates a {@link ValuesSourceAggregatorBuilder} from the information      * gathered by the subclass. Options parsed in      * {@link AbstractValuesSourceParser} itself will be added to the factory      * after it has been returned by this method.      *      * @param aggregationName      *            the name of the aggregation      * @param valuesSourceType      *            the type of the {@link ValuesSource}      * @param targetValueType      *            the target type of the final value output by the aggregation      * @param otherOptions      *            a {@link Map} containing the extra options parsed by the      *            {@link #token(String, String, org.elasticsearch.common.xcontent.XContentParser.Token,      *             XContentParser, ParseFieldMatcher, Map)}      *            method      * @return the created factory      */
+comment|/**      * Creates a {@link ValuesSourceAggregationBuilder} from the information      * gathered by the subclass. Options parsed in      * {@link AbstractValuesSourceParser} itself will be added to the factory      * after it has been returned by this method.      *      * @param aggregationName      *            the name of the aggregation      * @param valuesSourceType      *            the type of the {@link ValuesSource}      * @param targetValueType      *            the target type of the final value output by the aggregation      * @param otherOptions      *            a {@link Map} containing the extra options parsed by the      *            {@link #token(String, String, org.elasticsearch.common.xcontent.XContentParser.Token,      *             XContentParser, ParseFieldMatcher, Map)}      *            method      * @return the created factory      */
 DECL|method|createFactory
 specifier|protected
 specifier|abstract
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|VS
 argument_list|,

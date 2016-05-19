@@ -343,6 +343,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.secret_key: AWS Secret key specific for all S3 Repositories API calls. Defaults to cloud.aws.s3.secret_key.          * @see CLOUD_S3#SECRET_SETTING          */
@@ -371,6 +375,10 @@ argument_list|,
 name|Property
 operator|.
 name|NodeScope
+argument_list|,
+name|Property
+operator|.
+name|Filtered
 argument_list|)
 decl_stmt|;
 comment|/**          * repositories.s3.region: Region specific for all S3 Repositories API calls. Defaults to cloud.aws.s3.region.          * @see CLOUD_S3#REGION_SETTING          */
@@ -1627,13 +1635,11 @@ control|(
 name|String
 name|elem
 range|:
-name|Strings
-operator|.
-name|splitStringToArray
-argument_list|(
 name|basePath
-argument_list|,
-literal|'/'
+operator|.
+name|split
+argument_list|(
+literal|"/"
 argument_list|)
 control|)
 block|{

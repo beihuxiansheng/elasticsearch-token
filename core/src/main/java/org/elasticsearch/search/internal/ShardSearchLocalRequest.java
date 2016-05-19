@@ -763,7 +763,7 @@ name|template
 operator|=
 name|in
 operator|.
-name|readOptionalStreamable
+name|readOptionalWriteable
 argument_list|(
 name|Template
 operator|::
@@ -917,7 +917,7 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeOptionalStreamable
+name|writeOptionalWriteable
 argument_list|(
 name|template
 argument_list|)

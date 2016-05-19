@@ -320,9 +320,6 @@ expr_stmt|;
 name|Iterator
 argument_list|<
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|spanQueryBuilderIterator
 init|=

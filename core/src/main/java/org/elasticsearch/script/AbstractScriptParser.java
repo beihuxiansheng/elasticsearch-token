@@ -484,7 +484,7 @@ name|currentFieldName
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 operator|.
 name|getParseField
 argument_list|()
@@ -506,7 +506,7 @@ name|type
 operator|=
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 expr_stmt|;
 if|if
 condition|(
@@ -733,7 +733,7 @@ argument_list|()
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 operator|.
 name|getParseField
 argument_list|()
@@ -1182,7 +1182,7 @@ name|parameterName
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 operator|.
 name|getParseField
 argument_list|()
@@ -1222,7 +1222,7 @@ name|type
 operator|=
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 expr_stmt|;
 if|if
 condition|(
@@ -1287,7 +1287,7 @@ argument_list|()
 argument_list|,
 name|ScriptType
 operator|.
-name|INDEXED
+name|STORED
 operator|.
 name|getParseField
 argument_list|()

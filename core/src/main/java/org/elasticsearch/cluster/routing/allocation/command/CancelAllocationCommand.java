@@ -762,6 +762,8 @@ literal|", shard is primary and initializing its state"
 argument_list|)
 throw|;
 block|}
+name|shardRouting
+operator|=
 name|it
 operator|.
 name|moveToUnassigned

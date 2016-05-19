@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ListenableActionFuture
 import|;
 end_import
@@ -383,7 +371,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utilities for testing reindex and update-by-query cancellation. This whole class isn't thread safe. Luckily we run out tests in separate  * jvms.  */
+comment|/**  * Utilities for testing reindex and update-by-query cancellation. This whole class isn't thread safe. Luckily we run our tests in separate  * jvms.  */
 end_comment
 
 begin_class
@@ -445,23 +433,17 @@ argument_list|<
 name|Request
 argument_list|>
 parameter_list|,
-name|Response
-extends|extends
-name|ActionResponse
-parameter_list|,
 name|Builder
 extends|extends
 name|AbstractBulkIndexByScrollRequestBuilder
 argument_list|<
 name|Request
 argument_list|,
-name|Response
-argument_list|,
 name|Builder
 argument_list|>
 parameter_list|>
 DECL|method|testCancel
-name|Response
+name|BulkIndexByScrollResponse
 name|testCancel
 parameter_list|(
 name|ESIntegTestCase
@@ -558,7 +540,7 @@ argument_list|)
 expr_stmt|;
 name|ListenableActionFuture
 argument_list|<
-name|Response
+name|BulkIndexByScrollResponse
 argument_list|>
 name|response
 init|=

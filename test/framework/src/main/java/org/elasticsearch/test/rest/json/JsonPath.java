@@ -202,6 +202,8 @@ parameter_list|(
 name|String
 name|path
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|evaluate
@@ -226,6 +228,8 @@ parameter_list|,
 name|Stash
 name|stash
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|String
 index|[]
@@ -295,6 +299,8 @@ parameter_list|,
 name|Stash
 name|stash
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(

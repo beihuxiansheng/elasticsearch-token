@@ -204,7 +204,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|lucene
+operator|.
+name|BytesRefs
 import|;
 end_import
 
@@ -899,15 +901,10 @@ decl_stmt|;
 name|String
 name|fieldName
 init|=
-name|Strings
-operator|.
-name|toUnderscoreCase
-argument_list|(
 name|entry
 operator|.
 name|getKey
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|Object
 name|fieldNode
@@ -1368,7 +1365,9 @@ index|[
 name|i
 index|]
 operator|=
-name|indexedValueForSearch
+name|BytesRefs
+operator|.
+name|toBytesRef
 argument_list|(
 name|values
 operator|.
@@ -1604,6 +1603,9 @@ name|isParent
 argument_list|(
 name|context
 operator|.
+name|sourceToParse
+argument_list|()
+operator|.
 name|type
 argument_list|()
 argument_list|)
@@ -1632,6 +1634,9 @@ operator|new
 name|BytesRef
 argument_list|(
 name|context
+operator|.
+name|sourceToParse
+argument_list|()
 operator|.
 name|id
 argument_list|()
@@ -1822,11 +1827,6 @@ name|Uid
 operator|.
 name|createUid
 argument_list|(
-name|context
-operator|.
-name|stringBuilder
-argument_list|()
-argument_list|,
 name|parentType
 argument_list|,
 name|parentId

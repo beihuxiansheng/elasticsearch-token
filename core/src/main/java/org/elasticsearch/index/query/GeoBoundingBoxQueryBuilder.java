@@ -398,19 +398,6 @@ name|DEFAULT_IGNORE_UNMAPPED
 init|=
 literal|false
 decl_stmt|;
-DECL|field|IGNORE_MALFORMED_FIELD
-specifier|private
-specifier|static
-specifier|final
-name|ParseField
-name|IGNORE_MALFORMED_FIELD
-init|=
-operator|new
-name|ParseField
-argument_list|(
-literal|"ignore_malformed"
-argument_list|)
-decl_stmt|;
 DECL|field|TYPE_FIELD
 specifier|private
 specifier|static
@@ -450,6 +437,29 @@ argument_list|(
 literal|"coerce"
 argument_list|,
 literal|"normalize"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use field validation_method instead"
+argument_list|)
+decl_stmt|;
+DECL|field|IGNORE_MALFORMED_FIELD
+specifier|private
+specifier|static
+specifier|final
+name|ParseField
+name|IGNORE_MALFORMED_FIELD
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"ignore_malformed"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use field validation_method instead"
 argument_list|)
 decl_stmt|;
 DECL|field|FIELD_FIELD
@@ -2185,7 +2195,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2209,7 +2219,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2233,7 +2243,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2257,7 +2267,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2281,7 +2291,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2306,7 +2316,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2346,7 +2356,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2386,7 +2396,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2426,7 +2436,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2512,7 +2522,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2538,7 +2548,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2564,7 +2574,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2598,7 +2608,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2627,7 +2637,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2651,7 +2661,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2675,7 +2685,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

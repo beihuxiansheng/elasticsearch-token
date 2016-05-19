@@ -257,9 +257,6 @@ specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queries
 init|=
@@ -349,9 +346,6 @@ name|DisMaxQueryBuilder
 name|add
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -387,9 +381,6 @@ specifier|public
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|innerQueries
 parameter_list|()
@@ -481,9 +472,6 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 range|:
 name|queries
@@ -553,9 +541,6 @@ specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|queries
 init|=
@@ -637,7 +622,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -653,9 +638,6 @@ operator|=
 literal|true
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 name|parseContext
@@ -707,7 +689,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -734,9 +716,6 @@ name|END_ARRAY
 condition|)
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 name|parseContext
@@ -786,7 +765,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -812,7 +791,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -836,7 +815,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -928,9 +907,6 @@ expr_stmt|;
 for|for
 control|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 range|:
 name|queries

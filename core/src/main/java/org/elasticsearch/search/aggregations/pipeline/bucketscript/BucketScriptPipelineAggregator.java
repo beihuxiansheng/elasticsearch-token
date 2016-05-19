@@ -653,6 +653,11 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+name|reduceContext
+operator|.
+name|clusterState
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|List
@@ -1016,7 +1021,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeValueFormat
+name|writeNamedWriteable
 argument_list|(
 name|formatter
 argument_list|)
@@ -1056,9 +1061,8 @@ name|IOException
 block|{
 name|script
 operator|=
+operator|new
 name|Script
-operator|.
-name|readScript
 argument_list|(
 name|in
 argument_list|)
@@ -1067,8 +1071,12 @@ name|formatter
 operator|=
 name|in
 operator|.
-name|readValueFormat
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|DocValueFormat
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|gapPolicy
 operator|=

@@ -25,19 +25,8 @@ DECL|interface|SpanQueryBuilder
 specifier|public
 interface|interface
 name|SpanQueryBuilder
-parameter_list|<
-name|QB
-extends|extends
-name|SpanQueryBuilder
-parameter_list|<
-name|QB
-parameter_list|>
-parameter_list|>
 extends|extends
 name|QueryBuilder
-argument_list|<
-name|QB
-argument_list|>
 block|{  }
 end_interface
 

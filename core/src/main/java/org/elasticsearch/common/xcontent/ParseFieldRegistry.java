@@ -263,7 +263,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Lookup a value from the registry by name while checking that the name matches the ParseField.      *      * @param name The name of the thing to look up.      * @param parser The parser from which the name was looked up. This is used to resolve the {@link ParseFieldMatcher} and to build nice      *        error messages.      * @return The value being looked up. Never null.      * @throws ParsingException if the named thing isn't in the registry or the name was deprecated and deprecated names aren't supported.      */
+comment|/**      * Lookup a value from the registry by name while checking that the name matches the ParseField.      *      * @param name The name of the thing to look up.      * @param parseFieldMatcher to build nice error messages.      * @return The value being looked up. Never null.      * @throws ParsingException if the named thing isn't in the registry or the name was deprecated and deprecated names aren't supported.      */
 DECL|method|lookup
 specifier|public
 name|T
@@ -272,8 +272,11 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|XContentParser
-name|parser
+name|ParseFieldMatcher
+name|parseFieldMatcher
+parameter_list|,
+name|XContentLocation
+name|xContentLocation
 parameter_list|)
 block|{
 name|T
@@ -283,7 +286,7 @@ name|lookupReturningNullIfNotFound
 argument_list|(
 name|name
 argument_list|,
-name|parser
+name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 if|if
@@ -297,10 +300,7 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
+name|xContentLocation
 argument_list|,
 literal|"no ["
 operator|+
@@ -318,7 +318,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Lookup a value from the registry by name while checking that the name matches the ParseField.      *      * @param name The name of the thing to look up.      * @param parser The parser from which the name was looked up. This is used to resolve the {@link ParseFieldMatcher} and to build nice      *        error messages.      * @return The value being looked up or null if it wasn't found.      * @throws ParsingException if the named thing isn't in the registry or the name was deprecated and deprecated names aren't supported.      */
+comment|/**      * Lookup a value from the registry by name while checking that the name matches the ParseField.      *      * @param name The name of the thing to look up.      * @param parseFieldMatcher The parseFieldMatcher. This is used to resolve the {@link ParseFieldMatcher} and to build nice      *        error messages.      * @return The value being looked up or null if it wasn't found.      * @throws ParsingException if the named thing isn't in the registry or the name was deprecated and deprecated names aren't supported.      */
 DECL|method|lookupReturningNullIfNotFound
 specifier|public
 name|T
@@ -327,8 +327,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|XContentParser
-name|parser
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 block|{
 name|Tuple
@@ -376,10 +376,7 @@ decl_stmt|;
 name|boolean
 name|match
 init|=
-name|parser
-operator|.
-name|getParseFieldMatcher
-argument_list|()
+name|parseFieldMatcher
 operator|.
 name|match
 argument_list|(

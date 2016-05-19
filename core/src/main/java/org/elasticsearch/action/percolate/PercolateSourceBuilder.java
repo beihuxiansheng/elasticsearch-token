@@ -160,7 +160,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorBuilder
+name|AggregationBuilder
 import|;
 end_import
 
@@ -306,9 +306,6 @@ decl_stmt|;
 DECL|field|queryBuilder
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 decl_stmt|;
 DECL|field|size
@@ -341,7 +338,7 @@ DECL|field|aggregationBuilders
 specifier|private
 name|List
 argument_list|<
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -386,9 +383,6 @@ name|PercolateSourceBuilder
 name|setQueryBuilder
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|queryBuilder
 parameter_list|)
 block|{
@@ -543,7 +537,7 @@ specifier|public
 name|PercolateSourceBuilder
 name|addAggregation
 parameter_list|(
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -806,7 +800,7 @@ condition|)
 block|{
 for|for
 control|(
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>

@@ -601,8 +601,12 @@ name|format
 operator|=
 name|in
 operator|.
-name|readValueFormat
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|DocValueFormat
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|percentiles
 operator|=
@@ -634,7 +638,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeValueFormat
+name|writeNamedWriteable
 argument_list|(
 name|format
 argument_list|)

@@ -484,6 +484,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|DocValueFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|MultiValueMode
 import|;
 end_import
@@ -670,9 +682,6 @@ decl_stmt|;
 DECL|field|nestedFilter
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 decl_stmt|;
 DECL|field|nestedPath
@@ -792,9 +801,8 @@ name|IOException
 block|{
 name|script
 operator|=
+operator|new
 name|Script
-operator|.
-name|readScript
 argument_list|(
 name|in
 argument_list|)
@@ -839,8 +847,12 @@ name|nestedFilter
 operator|=
 name|in
 operator|.
-name|readOptionalQuery
-argument_list|()
+name|readOptionalNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -893,7 +905,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalQuery
+name|writeOptionalNamedWriteable
 argument_list|(
 name|nestedFilter
 argument_list|)
@@ -1018,9 +1030,6 @@ name|ScriptSortBuilder
 name|setNestedFilter
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 parameter_list|)
 block|{
@@ -1038,9 +1047,6 @@ comment|/**      * Gets the nested filter.      */
 DECL|method|getNestedFilter
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|getNestedFilter
 parameter_list|()
 block|{
@@ -1259,7 +1265,7 @@ name|parseField
 init|=
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 decl_stmt|;
 name|Script
@@ -1283,9 +1289,6 @@ init|=
 literal|null
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|nestedFilter
 init|=
 literal|null
@@ -1778,7 +1781,7 @@ annotation|@
 name|Override
 DECL|method|build
 specifier|public
-name|SortField
+name|SortFieldAndFormat
 name|build
 parameter_list|(
 name|QueryShardContext
@@ -1814,6 +1817,11 @@ argument_list|,
 name|Collections
 operator|.
 name|emptyMap
+argument_list|()
+argument_list|,
+name|context
+operator|.
+name|getClusterState
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2151,6 +2159,9 @@ throw|;
 block|}
 return|return
 operator|new
+name|SortFieldAndFormat
+argument_list|(
+operator|new
 name|SortField
 argument_list|(
 literal|"_script"
@@ -2158,6 +2169,11 @@ argument_list|,
 name|fieldComparatorSource
 argument_list|,
 name|reverse
+argument_list|)
+argument_list|,
+name|DocValueFormat
+operator|.
+name|RAW
 argument_list|)
 return|;
 block|}
@@ -2323,9 +2339,6 @@ enum|enum
 name|ScriptSortType
 implements|implements
 name|Writeable
-argument_list|<
-name|ScriptSortType
-argument_list|>
 block|{
 comment|/** script sort for a string value **/
 DECL|enum constant|STRING

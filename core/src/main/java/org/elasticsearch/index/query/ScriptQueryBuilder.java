@@ -106,6 +106,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|ClusterState
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|ParseField
@@ -448,9 +460,8 @@ argument_list|)
 expr_stmt|;
 name|script
 operator|=
+operator|new
 name|Script
-operator|.
-name|readScript
 argument_list|(
 name|in
 argument_list|)
@@ -680,7 +691,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -703,7 +714,7 @@ name|parser
 argument_list|,
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -713,7 +724,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -766,7 +777,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -792,7 +803,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -829,7 +840,7 @@ name|parser
 argument_list|,
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 condition|)
@@ -1003,6 +1014,11 @@ name|context
 operator|.
 name|lookup
 argument_list|()
+argument_list|,
+name|context
+operator|.
+name|getClusterState
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1037,6 +1053,9 @@ name|scriptService
 parameter_list|,
 name|SearchLookup
 name|searchLookup
+parameter_list|,
+name|ClusterState
+name|state
 parameter_list|)
 block|{
 name|this
@@ -1067,6 +1086,8 @@ name|Collections
 operator|.
 name|emptyMap
 argument_list|()
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}

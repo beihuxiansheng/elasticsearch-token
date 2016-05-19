@@ -21,19 +21,8 @@ DECL|interface|MultiTermQueryBuilder
 specifier|public
 interface|interface
 name|MultiTermQueryBuilder
-parameter_list|<
-name|QB
-extends|extends
-name|MultiTermQueryBuilder
-parameter_list|<
-name|QB
-parameter_list|>
-parameter_list|>
 extends|extends
 name|QueryBuilder
-argument_list|<
-name|QB
-argument_list|>
 block|{  }
 end_interface
 

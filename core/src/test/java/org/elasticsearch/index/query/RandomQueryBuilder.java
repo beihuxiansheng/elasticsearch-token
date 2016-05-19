@@ -69,9 +69,6 @@ DECL|method|createQuery
 specifier|public
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|createQuery
 parameter_list|(
 name|Random
@@ -164,9 +161,6 @@ block|{
 comment|// for now, only use String Rangequeries for MultiTerm test, numeric and date makes little sense
 comment|// see issue #12123 for discussion
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|multiTermQueryBuilder
 decl_stmt|;
 switch|switch

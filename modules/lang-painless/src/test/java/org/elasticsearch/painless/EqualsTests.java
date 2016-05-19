@@ -1016,7 +1016,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Character b = 'b'; if (a == b) return 1; else return 0;"
+literal|"Character a = (char)'a'; Character b = (char)'b'; if (a == b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1026,7 +1026,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Character b = 'a'; if (a == b) return 1; else return 0;"
+literal|"Character a = (char)'a'; Character b = (char)'a'; if (a == b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1046,7 +1046,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Character b = new Character('a'); if (a === b) return 1; else return 0;"
+literal|"Character a = (char)'a'; Character b = new Character((char)'a'); if (a === b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1056,7 +1056,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Object b = a; if (a === b) return 1; else return 0;"
+literal|"Character a = (char)'a'; Object b = a; if (a === b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1076,7 +1076,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Integer a = 1; Character b = 'a'; if (a === (Object)b) return 1; else return 0;"
+literal|"Integer a = 1; Character b = (char)'a'; if (a === (Object)b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1093,7 +1093,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Character b = 'b'; if (a != b) return 1; else return 0;"
+literal|"Character a = (char)'a'; Character b = (char)'b'; if (a != b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1103,7 +1103,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Character b = 'a'; if (a != b) return 1; else return 0;"
+literal|"Character a = (char)'a'; Character b = (char)'a'; if (a != b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1123,7 +1123,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Character b = new Character('a'); if (a !== b) return 1; else return 0;"
+literal|"Character a = (char)'a'; Character b = new Character((char)'a'); if (a !== b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1133,7 +1133,7 @@ literal|0
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Object b = a; if (a !== b) return 1; else return 0;"
+literal|"Character a = (char)'a'; Object b = a; if (a !== b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1153,7 +1153,7 @@ literal|1
 argument_list|,
 name|exec
 argument_list|(
-literal|"Integer a = 1; Character b = 'a'; if (a !== (Object)b) return 1; else return 0;"
+literal|"Integer a = 1; Character b = (char)'a'; if (a !== (Object)b) return 1; else return 0;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1170,7 +1170,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; return a == null;"
+literal|"Character a = (char)'a'; return a == null;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1180,7 +1180,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; return a === null;"
+literal|"Character a = (char)'a'; return a === null;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1190,7 +1190,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; return a != null;"
+literal|"Character a = (char)'a'; return a != null;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1200,7 +1200,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; return a !== null;"
+literal|"Character a = (char)'a'; return a !== null;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1230,7 +1230,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Character b = null; return a == b;"
+literal|"Character a = (char)'a'; Character b = null; return a == b;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1250,7 +1250,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; Character b = null; return a != b;"
+literal|"Character a = (char)'a'; Character b = null; return a != b;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1297,7 +1297,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; return null == a;"
+literal|"Character a = (char)'a'; return null == a;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1307,7 +1307,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; return null === a;"
+literal|"Character a = (char)'a'; return null === a;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1317,7 +1317,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; return null != a;"
+literal|"Character a = (char)'a'; return null != a;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1327,7 +1327,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = 'a'; return null !== a;"
+literal|"Character a = (char)'a'; return null !== a;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1357,7 +1357,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = null; Character b = 'a'; return a == b;"
+literal|"Character a = null; Character b = (char)'a'; return a == b;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1387,7 +1387,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Character a = null; Character b = 'a'; return a != b;"
+literal|"Character a = null; Character b = (char)'a'; return a != b;"
 argument_list|)
 argument_list|)
 expr_stmt|;

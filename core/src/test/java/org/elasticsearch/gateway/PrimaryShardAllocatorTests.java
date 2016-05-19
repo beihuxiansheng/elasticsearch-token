@@ -244,7 +244,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -1492,7 +1492,7 @@ block|{
 name|String
 name|primaryAllocId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1500,7 +1500,7 @@ decl_stmt|;
 name|String
 name|replicaAllocId
 init|=
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -3037,9 +3037,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -3714,9 +3711,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -3874,9 +3868,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -4010,9 +4001,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -4145,9 +4133,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -4435,9 +4420,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -4571,9 +4553,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -4706,9 +4685,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,
@@ -5032,9 +5008,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 literal|null
 argument_list|,

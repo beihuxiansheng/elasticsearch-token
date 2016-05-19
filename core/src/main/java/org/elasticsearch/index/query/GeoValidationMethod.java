@@ -99,9 +99,6 @@ enum|enum
 name|GeoValidationMethod
 implements|implements
 name|Writeable
-argument_list|<
-name|GeoValidationMethod
-argument_list|>
 block|{
 DECL|enum constant|COERCE
 DECL|enum constant|IGNORE_MALFORMED

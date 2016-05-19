@@ -32,9 +32,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|node
-operator|.
-name|DiscoveryNode
+name|ClusterName
 import|;
 end_import
 
@@ -44,13 +42,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cluster
 operator|.
-name|io
+name|node
 operator|.
-name|stream
-operator|.
-name|NamedWriteableRegistry
+name|DiscoveryNode
 import|;
 end_import
 
@@ -458,8 +454,8 @@ parameter_list|,
 name|Version
 name|version
 parameter_list|,
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
+name|ClusterName
+name|clusterName
 parameter_list|)
 function_decl|;
 annotation|@
@@ -536,9 +532,9 @@ argument_list|()
 argument_list|,
 name|version0
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|ClusterName
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|serviceA
@@ -615,9 +611,9 @@ argument_list|()
 argument_list|,
 name|version1
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|ClusterName
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|serviceB
@@ -6650,9 +6646,11 @@ try|try
 block|{
 name|serviceB
 operator|.
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 name|nodeA
+argument_list|,
+literal|100
 argument_list|)
 expr_stmt|;
 name|fail
@@ -6920,9 +6918,11 @@ try|try
 block|{
 name|serviceB
 operator|.
-name|connectToNodeLight
+name|connectToNodeLightAndHandshake
 argument_list|(
 name|nodeA
+argument_list|,
+literal|100
 argument_list|)
 expr_stmt|;
 name|fail
@@ -7255,9 +7255,9 @@ argument_list|()
 argument_list|,
 name|version0
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|ClusterName
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|AtomicBoolean

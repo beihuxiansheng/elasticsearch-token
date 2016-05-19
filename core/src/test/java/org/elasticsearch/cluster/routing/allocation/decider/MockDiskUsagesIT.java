@@ -385,7 +385,8 @@ operator|.
 name|getNodes
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(

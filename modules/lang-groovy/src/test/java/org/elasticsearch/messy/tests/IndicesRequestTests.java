@@ -1002,6 +1002,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexNameExpressionResolver
@@ -5495,6 +5507,9 @@ name|transport
 parameter_list|,
 name|ThreadPool
 name|threadPool
+parameter_list|,
+name|ClusterName
+name|clusterName
 parameter_list|)
 block|{
 name|super
@@ -5504,6 +5519,8 @@ argument_list|,
 name|transport
 argument_list|,
 name|threadPool
+argument_list|,
+name|clusterName
 argument_list|)
 expr_stmt|;
 block|}
@@ -5589,6 +5606,9 @@ parameter_list|,
 name|boolean
 name|forceExecution
 parameter_list|,
+name|boolean
+name|canTripCircuitBreaker
+parameter_list|,
 name|TransportRequestHandler
 argument_list|<
 name|Request
@@ -5607,6 +5627,8 @@ argument_list|,
 name|executor
 argument_list|,
 name|forceExecution
+argument_list|,
+name|canTripCircuitBreaker
 argument_list|,
 operator|new
 name|InterceptingRequestHandler

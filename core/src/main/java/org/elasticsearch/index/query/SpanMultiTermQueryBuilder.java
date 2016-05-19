@@ -226,9 +226,6 @@ name|SpanMultiTermQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|SpanMultiTermQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -269,9 +266,6 @@ DECL|field|multiTermQueryBuilder
 specifier|private
 specifier|final
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|multiTermQueryBuilder
 decl_stmt|;
 DECL|method|SpanMultiTermQueryBuilder
@@ -279,9 +273,6 @@ specifier|public
 name|SpanMultiTermQueryBuilder
 parameter_list|(
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|multiTermQueryBuilder
 parameter_list|)
 block|{
@@ -327,14 +318,15 @@ name|multiTermQueryBuilder
 operator|=
 operator|(
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -352,7 +344,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|multiTermQueryBuilder
 argument_list|)
@@ -361,9 +353,6 @@ block|}
 DECL|method|innerQuery
 specifier|public
 name|MultiTermQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 parameter_list|()
 block|{
@@ -526,7 +515,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -615,7 +604,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -641,7 +630,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

@@ -754,9 +754,6 @@ enum|enum
 name|Type
 implements|implements
 name|Writeable
-argument_list|<
-name|Type
-argument_list|>
 block|{
 comment|/**          * Uses the best matching boolean field as main score and uses          * a tie-breaker to adjust the score based on remaining field matches          */
 DECL|enum constant|BEST_FIELDS
@@ -2813,7 +2810,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2916,7 +2913,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2940,7 +2937,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2966,7 +2963,7 @@ argument_list|()
 argument_list|,
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2976,7 +2973,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3000,7 +2997,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3026,7 +3023,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3050,7 +3047,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3078,7 +3075,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3102,7 +3099,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3126,7 +3123,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3155,7 +3152,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3179,7 +3176,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3203,7 +3200,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3227,7 +3224,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3251,7 +3248,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3275,7 +3272,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3299,7 +3296,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3382,7 +3379,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -3493,6 +3490,55 @@ name|getTokenLocation
 argument_list|()
 argument_list|,
 literal|"No fields specified for multi_match query"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|fuzziness
+operator|!=
+literal|null
+operator|&&
+operator|(
+name|type
+operator|==
+name|Type
+operator|.
+name|CROSS_FIELDS
+operator|||
+name|type
+operator|==
+name|Type
+operator|.
+name|PHRASE
+operator|||
+name|type
+operator|==
+name|Type
+operator|.
+name|PHRASE_PREFIX
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ParsingException
+argument_list|(
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|,
+literal|"Fuziness not allowed for type ["
+operator|+
+name|type
+operator|.
+name|parseField
+operator|.
+name|getPreferredName
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -3895,7 +3941,7 @@ name|parseRewriteMethod
 argument_list|(
 name|context
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 argument_list|,
 name|fuzzyRewrite

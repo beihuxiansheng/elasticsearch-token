@@ -364,7 +364,7 @@ condition|)
 block|{
 name|textMappings
 operator|=
-literal|"type=keyword"
+literal|"type=long"
 expr_stmt|;
 block|}
 else|else

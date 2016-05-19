@@ -120,16 +120,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -151,16 +141,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -408,11 +388,6 @@ init|=
 name|shuffleXContent
 argument_list|(
 name|builder
-argument_list|,
-name|Collections
-operator|.
-name|emptySet
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|XContentParser

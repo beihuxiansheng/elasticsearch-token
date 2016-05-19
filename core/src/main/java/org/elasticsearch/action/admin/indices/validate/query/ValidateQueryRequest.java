@@ -186,9 +186,6 @@ block|{
 DECL|field|query
 specifier|private
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 init|=
 operator|new
@@ -307,9 +304,6 @@ comment|/**      * The query to validate.      */
 DECL|method|query
 specifier|public
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|()
 block|{
@@ -323,9 +317,6 @@ name|ValidateQueryRequest
 name|query
 parameter_list|(
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|query
 parameter_list|)
 block|{
@@ -454,8 +445,12 @@ name|query
 operator|=
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|int
 name|typesSize
@@ -544,7 +539,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|query
 argument_list|)

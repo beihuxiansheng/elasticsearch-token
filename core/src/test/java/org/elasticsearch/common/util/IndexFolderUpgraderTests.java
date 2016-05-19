@@ -116,7 +116,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -550,7 +550,7 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -814,7 +814,7 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1126,7 +1126,7 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -1388,7 +1388,7 @@ argument_list|(
 literal|10
 argument_list|)
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -2123,7 +2123,7 @@ name|Index
 argument_list|(
 literal|"foo"
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()

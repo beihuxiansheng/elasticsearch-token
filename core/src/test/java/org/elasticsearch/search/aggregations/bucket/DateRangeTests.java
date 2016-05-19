@@ -68,7 +68,7 @@ name|range
 operator|.
 name|date
 operator|.
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 import|;
 end_import
 
@@ -92,7 +92,7 @@ name|DateRangeTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 argument_list|>
 block|{
 DECL|field|timeZoneIds
@@ -127,7 +127,7 @@ annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -141,11 +141,11 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 name|factory
 init|=
 operator|new
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

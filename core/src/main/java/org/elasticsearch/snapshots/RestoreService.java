@@ -452,7 +452,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|UUIDs
 import|;
 end_import
 
@@ -1431,7 +1431,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 init|=
 name|repository
@@ -1946,7 +1946,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_INDEX_UUID
 argument_list|,
-name|Strings
+name|UUIDs
 operator|.
 name|randomBase64UUID
 argument_list|()
@@ -4969,7 +4969,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|)
 block|{
@@ -5340,7 +5340,7 @@ specifier|private
 name|boolean
 name|failed
 parameter_list|(
-name|Snapshot
+name|SnapshotInfo
 name|snapshot
 parameter_list|,
 name|String

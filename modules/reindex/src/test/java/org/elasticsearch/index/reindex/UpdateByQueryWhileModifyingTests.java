@@ -148,7 +148,7 @@ specifier|public
 class|class
 name|UpdateByQueryWhileModifyingTests
 extends|extends
-name|UpdateByQueryTestCase
+name|ReindexTestCase
 block|{
 DECL|field|MAX_MUTATIONS
 specifier|private
@@ -259,9 +259,10 @@ condition|)
 block|{
 try|try
 block|{
-name|assertThat
-argument_list|(
-name|request
+name|BulkIndexByScrollResponse
+name|response
+init|=
+name|updateByQuery
 argument_list|()
 operator|.
 name|source
@@ -281,8 +282,12 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|response
 argument_list|,
-name|responseMatcher
+name|matcher
 argument_list|()
 operator|.
 name|updated

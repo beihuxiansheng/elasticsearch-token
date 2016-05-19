@@ -98,20 +98,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentType
 import|;
 end_import
@@ -222,9 +208,6 @@ DECL|field|templateBase
 specifier|private
 specifier|static
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|templateBase
 decl_stmt|;
 annotation|@
@@ -584,9 +567,6 @@ literal|"all"
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedBuilder
 init|=
 operator|new
@@ -658,9 +638,6 @@ literal|"all"
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|expectedBuilder
 init|=
 operator|new
@@ -709,9 +686,6 @@ init|=
 literal|"{ \"match_all\" : {}}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -745,7 +719,7 @@ name|builder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -780,7 +754,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -801,9 +775,6 @@ init|=
 literal|"{ \"match_all\" : {\"_name\" : \"foobar\"}}"
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -846,7 +817,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -910,7 +881,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -942,9 +913,6 @@ literal|2
 argument_list|)
 decl_stmt|;
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|builder
 init|=
 operator|new
@@ -983,7 +951,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1043,7 +1011,7 @@ name|builder
 operator|.
 name|rewrite
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)

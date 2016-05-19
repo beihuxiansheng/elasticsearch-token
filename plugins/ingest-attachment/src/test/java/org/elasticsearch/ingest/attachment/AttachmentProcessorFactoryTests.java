@@ -228,7 +228,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"source_field"
+literal|"field"
 argument_list|,
 literal|"_field"
 argument_list|)
@@ -279,7 +279,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getSourceField
+name|getField
 argument_list|()
 argument_list|,
 name|equalTo
@@ -305,7 +305,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getFields
+name|getProperties
 argument_list|()
 argument_list|,
 name|sameInstance
@@ -314,7 +314,7 @@ name|AttachmentProcessor
 operator|.
 name|Factory
 operator|.
-name|DEFAULT_FIELDS
+name|DEFAULT_PROPERTIES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -354,7 +354,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"source_field"
+literal|"field"
 argument_list|,
 literal|"_field"
 argument_list|)
@@ -449,7 +449,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"source_field"
+literal|"field"
 argument_list|,
 literal|"_field"
 argument_list|)
@@ -477,7 +477,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getSourceField
+name|getField
 argument_list|()
 argument_list|,
 name|equalTo
@@ -512,9 +512,9 @@ name|Set
 argument_list|<
 name|AttachmentProcessor
 operator|.
-name|Field
+name|Property
 argument_list|>
-name|fields
+name|properties
 init|=
 name|EnumSet
 operator|.
@@ -522,7 +522,7 @@ name|noneOf
 argument_list|(
 name|AttachmentProcessor
 operator|.
-name|Field
+name|Property
 operator|.
 name|class
 argument_list|)
@@ -547,7 +547,7 @@ literal|1
 argument_list|,
 name|AttachmentProcessor
 operator|.
-name|Field
+name|Property
 operator|.
 name|values
 argument_list|()
@@ -572,12 +572,12 @@ control|)
 block|{
 name|AttachmentProcessor
 operator|.
-name|Field
-name|field
+name|Property
+name|property
 init|=
 name|AttachmentProcessor
 operator|.
-name|Field
+name|Property
 operator|.
 name|values
 argument_list|()
@@ -585,18 +585,18 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|fields
+name|properties
 operator|.
 name|add
 argument_list|(
-name|field
+name|property
 argument_list|)
 expr_stmt|;
 name|fieldNames
 operator|.
 name|add
 argument_list|(
-name|field
+name|property
 operator|.
 name|name
 argument_list|()
@@ -627,7 +627,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"source_field"
+literal|"field"
 argument_list|,
 literal|"_field"
 argument_list|)
@@ -636,7 +636,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"fields"
+literal|"properties"
 argument_list|,
 name|fieldNames
 argument_list|)
@@ -655,7 +655,7 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getSourceField
+name|getField
 argument_list|()
 argument_list|,
 name|equalTo
@@ -668,12 +668,12 @@ name|assertThat
 argument_list|(
 name|processor
 operator|.
-name|getFields
+name|getProperties
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|fields
+name|properties
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -703,7 +703,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"source_field"
+literal|"field"
 argument_list|,
 literal|"_field"
 argument_list|)
@@ -712,7 +712,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"fields"
+literal|"properties"
 argument_list|,
 name|Collections
 operator|.
@@ -752,7 +752,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[fields] illegal field option [invalid]"
+literal|"[properties] illegal field option [invalid]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -761,12 +761,12 @@ for|for
 control|(
 name|AttachmentProcessor
 operator|.
-name|Field
-name|field
+name|Property
+name|property
 range|:
 name|AttachmentProcessor
 operator|.
-name|Field
+name|Property
 operator|.
 name|values
 argument_list|()
@@ -781,7 +781,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-name|field
+name|property
 operator|.
 name|name
 argument_list|()
@@ -801,7 +801,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"source_field"
+literal|"field"
 argument_list|,
 literal|"_field"
 argument_list|)
@@ -810,7 +810,7 @@ name|config
 operator|.
 name|put
 argument_list|(
-literal|"fields"
+literal|"properties"
 argument_list|,
 literal|"invalid"
 argument_list|)
@@ -845,7 +845,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[fields] property isn't a list, but of type [java.lang.String]"
+literal|"[properties] property isn't a list, but of type [java.lang.String]"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -809,9 +809,6 @@ throws|throws
 name|Exception
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|emptyFilter
 init|=
 operator|new
@@ -897,9 +894,6 @@ throws|throws
 name|Exception
 block|{
 name|QueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|emptyFilter
 init|=
 operator|new

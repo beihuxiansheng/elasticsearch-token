@@ -361,13 +361,15 @@ name|boolSetting
 argument_list|(
 literal|"http.compression"
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|Property
 operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
+comment|// we intentionally use a different compression level as Netty here as our benchmarks have shown that a compression level of 3 is the
+comment|// best compromise between reduction in network traffic and added latency. For more details please check #7309.
 DECL|field|SETTING_HTTP_COMPRESSION_LEVEL
 specifier|public
 specifier|static
@@ -384,7 +386,7 @@ name|intSetting
 argument_list|(
 literal|"http.compression_level"
 argument_list|,
-literal|6
+literal|3
 argument_list|,
 name|Property
 operator|.

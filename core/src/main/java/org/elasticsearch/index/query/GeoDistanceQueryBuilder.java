@@ -491,6 +491,11 @@ name|ParseField
 argument_list|(
 literal|"ignore_malformed"
 argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use validation_method instead"
+argument_list|)
 decl_stmt|;
 DECL|field|COERCE_FIELD
 specifier|private
@@ -505,6 +510,11 @@ argument_list|(
 literal|"coerce"
 argument_list|,
 literal|"normalize"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"use validation_method instead"
 argument_list|)
 decl_stmt|;
 DECL|field|OPTIMIZE_BBOX_FIELD
@@ -2070,7 +2080,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2118,7 +2128,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2147,7 +2157,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2274,7 +2284,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2300,7 +2310,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2326,7 +2336,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2350,7 +2360,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2386,7 +2396,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2410,7 +2420,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -2434,7 +2444,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

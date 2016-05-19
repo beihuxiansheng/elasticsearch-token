@@ -92,20 +92,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilderString
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -372,14 +358,10 @@ block|{
 DECL|field|THREAD_POOL
 specifier|static
 specifier|final
-name|XContentBuilderString
+name|String
 name|THREAD_POOL
 init|=
-operator|new
-name|XContentBuilderString
-argument_list|(
 literal|"thread_pool"
-argument_list|)
 decl_stmt|;
 block|}
 annotation|@

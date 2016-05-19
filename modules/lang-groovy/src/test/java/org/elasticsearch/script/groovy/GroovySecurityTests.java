@@ -658,6 +658,8 @@ name|se
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 name|script
 argument_list|,
 name|Collections

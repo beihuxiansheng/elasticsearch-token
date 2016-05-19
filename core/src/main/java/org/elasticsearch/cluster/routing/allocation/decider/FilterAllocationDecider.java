@@ -520,9 +520,6 @@ name|shouldIndexFilter
 argument_list|(
 name|allocation
 operator|.
-name|routingNodes
-argument_list|()
-operator|.
 name|metaData
 argument_list|()
 operator|.

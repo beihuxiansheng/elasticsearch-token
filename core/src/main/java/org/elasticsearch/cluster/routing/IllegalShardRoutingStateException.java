@@ -149,9 +149,8 @@ argument_list|)
 expr_stmt|;
 name|shard
 operator|=
+operator|new
 name|ShardRouting
-operator|.
-name|readShardRoutingEntry
 argument_list|(
 name|in
 argument_list|)

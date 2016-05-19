@@ -185,6 +185,8 @@ name|service
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"1.2"
 argument_list|,
 name|Collections
@@ -241,6 +243,8 @@ name|service
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"doc['d'].value"
 argument_list|,
 name|Collections
@@ -296,6 +300,8 @@ name|service
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"1/_score"
 argument_list|,
 name|Collections
@@ -351,6 +357,8 @@ name|service
 operator|.
 name|compile
 argument_list|(
+literal|null
+argument_list|,
 literal|"doc['d'].value * _score"
 argument_list|,
 name|Collections

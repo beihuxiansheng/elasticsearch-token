@@ -112,20 +112,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Sort
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|FieldDoc
 import|;
 end_import
@@ -762,6 +748,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|sort
+operator|.
+name|SortAndFormats
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|suggest
 operator|.
 name|SuggestionSearchContext
@@ -1014,7 +1014,7 @@ literal|1
 decl_stmt|;
 DECL|field|sort
 specifier|private
-name|Sort
+name|SortAndFormats
 name|sort
 decl_stmt|;
 DECL|field|minimumScore
@@ -1483,8 +1483,6 @@ name|from
 operator|+
 name|size
 decl_stmt|;
-comment|// We need settingsService's view of the settings because its dynamic.
-comment|// indexService's isn't.
 name|int
 name|maxResultWindow
 init|=
@@ -1528,9 +1526,81 @@ operator|.
 name|getKey
 argument_list|()
 operator|+
-literal|"] index level parameter."
+literal|"] index level setting."
 argument_list|)
 throw|;
+block|}
+block|}
+if|if
+condition|(
+name|rescore
+operator|!=
+literal|null
+condition|)
+block|{
+name|int
+name|maxWindow
+init|=
+name|indexService
+operator|.
+name|getIndexSettings
+argument_list|()
+operator|.
+name|getMaxRescoreWindow
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|RescoreSearchContext
+name|rescoreContext
+range|:
+name|rescore
+control|)
+block|{
+if|if
+condition|(
+name|rescoreContext
+operator|.
+name|window
+argument_list|()
+operator|>
+name|maxWindow
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryPhaseExecutionException
+argument_list|(
+name|this
+argument_list|,
+literal|"Rescore window ["
+operator|+
+name|rescoreContext
+operator|.
+name|window
+argument_list|()
+operator|+
+literal|"] is too large. It must "
+operator|+
+literal|"be less than ["
+operator|+
+name|maxWindow
+operator|+
+literal|"]. This prevents allocating massive heaps for storing the results to be "
+operator|+
+literal|"rescored. This limit can be set by chaning the ["
+operator|+
+name|IndexSettings
+operator|.
+name|MAX_RESCORE_WINDOW_SETTING
+operator|.
+name|getKey
+argument_list|()
+operator|+
+literal|"] index level setting."
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 comment|// initialize the filtering alias based on the provided filters
@@ -2006,27 +2076,6 @@ return|return
 name|this
 operator|.
 name|searchType
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|searchType
-specifier|public
-name|SearchContext
-name|searchType
-parameter_list|(
-name|SearchType
-name|searchType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|searchType
-operator|=
-name|searchType
-expr_stmt|;
-return|return
-name|this
 return|;
 block|}
 annotation|@
@@ -2754,7 +2803,7 @@ specifier|public
 name|SearchContext
 name|sort
 parameter_list|(
-name|Sort
+name|SortAndFormats
 name|sort
 parameter_list|)
 block|{
@@ -2772,7 +2821,7 @@ annotation|@
 name|Override
 DECL|method|sort
 specifier|public
-name|Sort
+name|SortAndFormats
 name|sort
 parameter_list|()
 block|{

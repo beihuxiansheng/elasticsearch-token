@@ -530,7 +530,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -554,7 +554,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -580,7 +580,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -780,7 +780,13 @@ return|return
 name|Queries
 operator|.
 name|newMatchNoDocsQuery
-argument_list|()
+argument_list|(
+literal|"Missing types in \""
+operator|+
+name|NAME
+operator|+
+literal|"\" query."
+argument_list|)
 return|;
 block|}
 specifier|final

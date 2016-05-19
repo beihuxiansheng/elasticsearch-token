@@ -173,26 +173,6 @@ specifier|final
 name|String
 name|contentType
 decl_stmt|;
-DECL|method|BytesRestResponse
-specifier|public
-name|BytesRestResponse
-parameter_list|(
-name|RestStatus
-name|status
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|status
-argument_list|,
-name|TEXT_CONTENT_TYPE
-argument_list|,
-name|BytesArray
-operator|.
-name|EMPTY
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Creates a new response based on {@link XContentBuilder}.      */
 DECL|method|BytesRestResponse
 specifier|public

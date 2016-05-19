@@ -178,9 +178,6 @@ name|SpanFirstQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
-argument_list|<
-name|SpanFirstQueryBuilder
-argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -234,9 +231,6 @@ DECL|field|matchBuilder
 specifier|private
 specifier|final
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|matchBuilder
 decl_stmt|;
 DECL|field|end
@@ -251,9 +245,6 @@ specifier|public
 name|SpanFirstQueryBuilder
 parameter_list|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|matchBuilder
 parameter_list|,
 name|int
@@ -323,14 +314,15 @@ name|matchBuilder
 operator|=
 operator|(
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|in
 operator|.
-name|readQuery
-argument_list|()
+name|readNamedWriteable
+argument_list|(
+name|QueryBuilder
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 name|end
 operator|=
@@ -355,7 +347,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeQuery
+name|writeNamedWriteable
 argument_list|(
 name|matchBuilder
 argument_list|)
@@ -372,9 +364,6 @@ comment|/**      * @return the inner {@link SpanQueryBuilder} defined in this qu
 DECL|method|innerQuery
 specifier|public
 name|SpanQueryBuilder
-argument_list|<
-name|?
-argument_list|>
 name|innerQuery
 parameter_list|()
 block|{
@@ -567,7 +556,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -643,7 +632,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -669,7 +658,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match
@@ -693,7 +682,7 @@ if|if
 condition|(
 name|parseContext
 operator|.
-name|parseFieldMatcher
+name|getParseFieldMatcher
 argument_list|()
 operator|.
 name|match

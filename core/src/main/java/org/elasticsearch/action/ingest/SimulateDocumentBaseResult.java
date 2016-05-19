@@ -108,9 +108,6 @@ class|class
 name|SimulateDocumentBaseResult
 implements|implements
 name|SimulateDocumentResult
-argument_list|<
-name|SimulateDocumentBaseResult
-argument_list|>
 block|{
 DECL|field|ingestDocument
 specifier|private

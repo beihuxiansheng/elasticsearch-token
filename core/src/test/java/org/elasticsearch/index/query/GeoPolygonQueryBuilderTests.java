@@ -18,22 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|locationtech
-operator|.
-name|spatial4j
-operator|.
-name|shape
-operator|.
-name|jts
-operator|.
-name|JtsGeometry
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|vividsolutions
@@ -229,6 +213,22 @@ operator|.
 name|RandomShapeGenerator
 operator|.
 name|ShapeType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|locationtech
+operator|.
+name|spatial4j
+operator|.
+name|shape
+operator|.
+name|jts
+operator|.
+name|JtsGeometry
 import|;
 end_import
 
@@ -1442,7 +1442,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Deprecated field [normalize] used, expected [coerce] instead"
+literal|"Deprecated field [normalize] used, replaced by [use validation_method instead]"
 argument_list|,
 name|ex
 operator|.
@@ -2201,9 +2201,7 @@ literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ],
 operator|+
 literal|"    },\n"
 operator|+
-literal|"    \"coerce\" : false,\n"
-operator|+
-literal|"    \"ignore_malformed\" : false,\n"
+literal|"    \"validation_method\" : \"STRICT\",\n"
 operator|+
 literal|"    \"ignore_unmapped\" : false,\n"
 operator|+
@@ -2244,6 +2242,128 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJsonIgnoreMalformedDeprecated
+specifier|public
+name|void
+name|testFromJsonIgnoreMalformedDeprecated
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_polygon\" : {\n"
+operator|+
+literal|"    \"person.location\" : {\n"
+operator|+
+literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ], [ -70.0, 40.0 ] ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"ignore_malformed\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFromJsonCoerceDeprecated
+specifier|public
+name|void
+name|testFromJsonCoerceDeprecated
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|json
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"geo_polygon\" : {\n"
+operator|+
+literal|"    \"person.location\" : {\n"
+operator|+
+literal|"      \"points\" : [ [ -70.0, 40.0 ], [ -80.0, 30.0 ], [ -90.0, 20.0 ], [ -70.0, 40.0 ] ]\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"coerce\" : false,\n"
+operator|+
+literal|"    \"ignore_unmapped\" : false,\n"
+operator|+
+literal|"    \"boost\" : 1.0\n"
+operator|+
+literal|"  }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|IllegalArgumentException
+name|e
+init|=
+name|expectThrows
+argument_list|(
+name|IllegalArgumentException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
+name|parseQuery
+argument_list|(
+name|json
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Deprecated field "
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2325,7 +2445,7 @@ name|queryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2383,7 +2503,7 @@ name|failingQueryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|queryShardContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
