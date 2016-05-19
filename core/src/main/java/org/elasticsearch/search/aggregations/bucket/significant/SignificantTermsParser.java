@@ -372,7 +372,7 @@ annotation|@
 name|Override
 DECL|method|doCreateFactory
 specifier|protected
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 name|doCreateFactory
 parameter_list|(
 name|String
@@ -405,11 +405,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 name|factory
 init|=
 operator|new
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -471,7 +471,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|BACKGROUND_FILTER
 argument_list|)
@@ -501,7 +501,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|HEURISTIC
 argument_list|)
@@ -604,7 +604,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|HEURISTIC
 argument_list|,
@@ -624,7 +624,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|BACKGROUND_FILTER
 argument_list|)
@@ -655,7 +655,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|BACKGROUND_FILTER
 argument_list|,
@@ -685,7 +685,7 @@ name|TermsAggregator
 operator|.
 name|BucketCountThresholds
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|DEFAULT_BUCKET_COUNT_THRESHOLDS
 argument_list|)

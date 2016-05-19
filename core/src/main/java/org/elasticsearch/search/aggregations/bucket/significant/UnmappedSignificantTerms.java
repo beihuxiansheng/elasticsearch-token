@@ -360,7 +360,7 @@ name|requiredSize
 argument_list|,
 name|minDocCount
 argument_list|,
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|DEFAULT_SIGNIFICANCE_HEURISTIC
 argument_list|,

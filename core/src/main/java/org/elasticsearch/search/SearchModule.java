@@ -1162,7 +1162,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorBuilder
+name|AggregationBuilder
 import|;
 end_import
 
@@ -1194,7 +1194,7 @@ name|bucket
 operator|.
 name|children
 operator|.
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 import|;
 end_import
 
@@ -1230,7 +1230,7 @@ name|bucket
 operator|.
 name|filter
 operator|.
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 import|;
 end_import
 
@@ -1266,7 +1266,7 @@ name|bucket
 operator|.
 name|filters
 operator|.
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 import|;
 end_import
 
@@ -1302,7 +1302,7 @@ name|bucket
 operator|.
 name|geogrid
 operator|.
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 import|;
 end_import
 
@@ -1356,7 +1356,7 @@ name|bucket
 operator|.
 name|global
 operator|.
-name|GlobalAggregatorBuilder
+name|GlobalAggregationBuilder
 import|;
 end_import
 
@@ -1392,7 +1392,7 @@ name|bucket
 operator|.
 name|histogram
 operator|.
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 import|;
 end_import
 
@@ -1428,7 +1428,7 @@ name|bucket
 operator|.
 name|histogram
 operator|.
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 import|;
 end_import
 
@@ -1500,7 +1500,7 @@ name|bucket
 operator|.
 name|missing
 operator|.
-name|MissingAggregatorBuilder
+name|MissingAggregationBuilder
 import|;
 end_import
 
@@ -1572,7 +1572,7 @@ name|bucket
 operator|.
 name|nested
 operator|.
-name|NestedAggregatorBuilder
+name|NestedAggregationBuilder
 import|;
 end_import
 
@@ -1590,7 +1590,7 @@ name|bucket
 operator|.
 name|nested
 operator|.
-name|ReverseNestedAggregatorBuilder
+name|ReverseNestedAggregationBuilder
 import|;
 end_import
 
@@ -1626,7 +1626,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 import|;
 end_import
 
@@ -1664,7 +1664,7 @@ name|range
 operator|.
 name|date
 operator|.
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 import|;
 end_import
 
@@ -1724,7 +1724,7 @@ name|range
 operator|.
 name|geodistance
 operator|.
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 import|;
 end_import
 
@@ -1784,7 +1784,7 @@ name|range
 operator|.
 name|ip
 operator|.
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 import|;
 end_import
 
@@ -1840,7 +1840,7 @@ name|bucket
 operator|.
 name|sampler
 operator|.
-name|DiversifiedAggregatorBuilder
+name|DiversifiedAggregationBuilder
 import|;
 end_import
 
@@ -1894,7 +1894,7 @@ name|bucket
 operator|.
 name|sampler
 operator|.
-name|SamplerAggregatorBuilder
+name|SamplerAggregationBuilder
 import|;
 end_import
 
@@ -1966,7 +1966,7 @@ name|bucket
 operator|.
 name|significant
 operator|.
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 import|;
 end_import
 
@@ -2234,7 +2234,7 @@ name|bucket
 operator|.
 name|terms
 operator|.
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 import|;
 end_import
 
@@ -2288,7 +2288,7 @@ name|metrics
 operator|.
 name|avg
 operator|.
-name|AvgAggregatorBuilder
+name|AvgAggregationBuilder
 import|;
 end_import
 
@@ -2342,7 +2342,7 @@ name|metrics
 operator|.
 name|cardinality
 operator|.
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 import|;
 end_import
 
@@ -2396,7 +2396,7 @@ name|metrics
 operator|.
 name|geobounds
 operator|.
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 import|;
 end_import
 
@@ -2450,7 +2450,7 @@ name|metrics
 operator|.
 name|geocentroid
 operator|.
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 import|;
 end_import
 
@@ -2522,7 +2522,7 @@ name|metrics
 operator|.
 name|max
 operator|.
-name|MaxAggregatorBuilder
+name|MaxAggregationBuilder
 import|;
 end_import
 
@@ -2576,7 +2576,7 @@ name|metrics
 operator|.
 name|min
 operator|.
-name|MinAggregatorBuilder
+name|MinAggregationBuilder
 import|;
 end_import
 
@@ -2612,7 +2612,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|PercentileRanksAggregatorBuilder
+name|PercentileRanksAggregationBuilder
 import|;
 end_import
 
@@ -2648,7 +2648,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|PercentilesAggregatorBuilder
+name|PercentilesAggregationBuilder
 import|;
 end_import
 
@@ -2782,7 +2782,7 @@ name|metrics
 operator|.
 name|scripted
 operator|.
-name|ScriptedMetricAggregatorBuilder
+name|ScriptedMetricAggregationBuilder
 import|;
 end_import
 
@@ -2818,7 +2818,7 @@ name|metrics
 operator|.
 name|stats
 operator|.
-name|StatsAggregatorBuilder
+name|StatsAggregationBuilder
 import|;
 end_import
 
@@ -2856,7 +2856,7 @@ name|stats
 operator|.
 name|extended
 operator|.
-name|ExtendedStatsAggregatorBuilder
+name|ExtendedStatsAggregationBuilder
 import|;
 end_import
 
@@ -2932,7 +2932,7 @@ name|metrics
 operator|.
 name|sum
 operator|.
-name|SumAggregatorBuilder
+name|SumAggregationBuilder
 import|;
 end_import
 
@@ -2986,7 +2986,7 @@ name|metrics
 operator|.
 name|tophits
 operator|.
-name|TopHitsAggregatorBuilder
+name|TopHitsAggregationBuilder
 import|;
 end_import
 
@@ -3022,7 +3022,7 @@ name|metrics
 operator|.
 name|valuecount
 operator|.
-name|ValueCountAggregatorBuilder
+name|ValueCountAggregationBuilder
 import|;
 end_import
 
@@ -4808,7 +4808,7 @@ specifier|public
 parameter_list|<
 name|AB
 extends|extends
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|AB
 argument_list|>
@@ -4846,7 +4846,7 @@ name|namedWriteableRegistry
 operator|.
 name|register
 argument_list|(
-name|AggregatorBuilder
+name|AggregationBuilder
 operator|.
 name|class
 argument_list|,
@@ -5164,7 +5164,7 @@ parameter_list|()
 block|{
 name|registerAggregation
 argument_list|(
-name|AvgAggregatorBuilder
+name|AvgAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5172,14 +5172,14 @@ operator|new
 name|AvgParser
 argument_list|()
 argument_list|,
-name|AvgAggregatorBuilder
+name|AvgAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|SumAggregatorBuilder
+name|SumAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5187,14 +5187,14 @@ operator|new
 name|SumParser
 argument_list|()
 argument_list|,
-name|SumAggregatorBuilder
+name|SumAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|MinAggregatorBuilder
+name|MinAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5202,14 +5202,14 @@ operator|new
 name|MinParser
 argument_list|()
 argument_list|,
-name|MinAggregatorBuilder
+name|MinAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|MaxAggregatorBuilder
+name|MaxAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5217,14 +5217,14 @@ operator|new
 name|MaxParser
 argument_list|()
 argument_list|,
-name|MaxAggregatorBuilder
+name|MaxAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|StatsAggregatorBuilder
+name|StatsAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5232,14 +5232,14 @@ operator|new
 name|StatsParser
 argument_list|()
 argument_list|,
-name|StatsAggregatorBuilder
+name|StatsAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|ExtendedStatsAggregatorBuilder
+name|ExtendedStatsAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5247,14 +5247,14 @@ operator|new
 name|ExtendedStatsParser
 argument_list|()
 argument_list|,
-name|ExtendedStatsAggregatorBuilder
+name|ExtendedStatsAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|ValueCountAggregatorBuilder
+name|ValueCountAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5262,14 +5262,14 @@ operator|new
 name|ValueCountParser
 argument_list|()
 argument_list|,
-name|ValueCountAggregatorBuilder
+name|ValueCountAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|PercentilesAggregatorBuilder
+name|PercentilesAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5277,14 +5277,14 @@ operator|new
 name|PercentilesParser
 argument_list|()
 argument_list|,
-name|PercentilesAggregatorBuilder
+name|PercentilesAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|PercentileRanksAggregatorBuilder
+name|PercentileRanksAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5292,14 +5292,14 @@ operator|new
 name|PercentileRanksParser
 argument_list|()
 argument_list|,
-name|PercentileRanksAggregatorBuilder
+name|PercentileRanksAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5307,29 +5307,29 @@ operator|new
 name|CardinalityParser
 argument_list|()
 argument_list|,
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|GlobalAggregatorBuilder
+name|GlobalAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|GlobalAggregatorBuilder
+name|GlobalAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|GlobalAggregatorBuilder
+name|GlobalAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|MissingAggregatorBuilder
+name|MissingAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5337,59 +5337,59 @@ operator|new
 name|MissingParser
 argument_list|()
 argument_list|,
-name|MissingAggregatorBuilder
+name|MissingAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|FilterAggregatorBuilder
+name|FilterAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|FiltersAggregatorBuilder
+name|FiltersAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|SamplerAggregatorBuilder
+name|SamplerAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|SamplerAggregatorBuilder
+name|SamplerAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|SamplerAggregatorBuilder
+name|SamplerAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|DiversifiedAggregatorBuilder
+name|DiversifiedAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5397,14 +5397,14 @@ operator|new
 name|DiversifiedSamplerParser
 argument_list|()
 argument_list|,
-name|DiversifiedAggregatorBuilder
+name|DiversifiedAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5412,14 +5412,14 @@ operator|new
 name|TermsParser
 argument_list|()
 argument_list|,
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5431,14 +5431,14 @@ argument_list|,
 name|queryParserRegistry
 argument_list|)
 argument_list|,
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5446,14 +5446,14 @@ operator|new
 name|RangeParser
 argument_list|()
 argument_list|,
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5461,14 +5461,14 @@ operator|new
 name|DateRangeParser
 argument_list|()
 argument_list|,
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5476,14 +5476,14 @@ operator|new
 name|IpRangeParser
 argument_list|()
 argument_list|,
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5491,14 +5491,14 @@ operator|new
 name|HistogramParser
 argument_list|()
 argument_list|,
-name|HistogramAggregatorBuilder
+name|HistogramAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5506,14 +5506,14 @@ operator|new
 name|DateHistogramParser
 argument_list|()
 argument_list|,
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5521,14 +5521,14 @@ operator|new
 name|GeoDistanceParser
 argument_list|()
 argument_list|,
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5536,59 +5536,59 @@ operator|new
 name|GeoHashGridParser
 argument_list|()
 argument_list|,
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|NestedAggregatorBuilder
+name|NestedAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|NestedAggregatorBuilder
+name|NestedAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|NestedAggregatorBuilder
+name|NestedAggregationBuilder
 operator|.
 name|AGGREGATION_FIELD_NAME
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|ReverseNestedAggregatorBuilder
+name|ReverseNestedAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|ReverseNestedAggregatorBuilder
+name|ReverseNestedAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|ReverseNestedAggregatorBuilder
+name|ReverseNestedAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|TopHitsAggregatorBuilder
+name|TopHitsAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|TopHitsAggregatorBuilder
+name|TopHitsAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|TopHitsAggregatorBuilder
+name|TopHitsAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5596,14 +5596,14 @@ operator|new
 name|GeoBoundsParser
 argument_list|()
 argument_list|,
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIED
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 operator|::
 operator|new
 argument_list|,
@@ -5611,37 +5611,37 @@ operator|new
 name|GeoCentroidParser
 argument_list|()
 argument_list|,
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|ScriptedMetricAggregatorBuilder
+name|ScriptedMetricAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|ScriptedMetricAggregatorBuilder
+name|ScriptedMetricAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|ScriptedMetricAggregatorBuilder
+name|ScriptedMetricAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)
 expr_stmt|;
 name|registerAggregation
 argument_list|(
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 operator|::
 operator|new
 argument_list|,
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 operator|::
 name|parse
 argument_list|,
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 operator|.
 name|AGGREGATION_NAME_FIELD
 argument_list|)

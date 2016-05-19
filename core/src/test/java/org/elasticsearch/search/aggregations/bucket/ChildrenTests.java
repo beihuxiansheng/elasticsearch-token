@@ -46,7 +46,7 @@ name|bucket
 operator|.
 name|children
 operator|.
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 import|;
 end_import
 
@@ -58,14 +58,14 @@ name|ChildrenTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -89,11 +89,11 @@ argument_list|,
 literal|40
 argument_list|)
 decl_stmt|;
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 name|factory
 init|=
 operator|new
-name|ChildrenAggregatorBuilder
+name|ChildrenAggregationBuilder
 argument_list|(
 name|name
 argument_list|,

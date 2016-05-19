@@ -174,7 +174,7 @@ name|range
 operator|.
 name|date
 operator|.
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 import|;
 end_import
 
@@ -939,7 +939,7 @@ argument_list|,
 literal|"date"
 argument_list|)
 expr_stmt|;
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 name|rangeBuilder
 init|=
 name|dateRange

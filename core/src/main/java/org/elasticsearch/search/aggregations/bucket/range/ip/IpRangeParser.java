@@ -180,7 +180,7 @@ name|range
 operator|.
 name|ip
 operator|.
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 operator|.
 name|Range
 import|;
@@ -230,7 +230,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -292,7 +292,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|ValuesSource
 operator|.
@@ -320,11 +320,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 name|range
 init|=
 operator|new
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
