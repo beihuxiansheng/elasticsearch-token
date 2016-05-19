@@ -930,7 +930,6 @@ operator|.
 name|getStatusCode
 argument_list|()
 decl_stmt|;
-comment|//TODO make ignore status code configurable. rest-spec and tests support that parameter (ignore_missing)
 if|if
 condition|(
 name|statusCode
