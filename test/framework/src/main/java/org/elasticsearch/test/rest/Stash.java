@@ -317,6 +317,12 @@ condition|(
 name|key
 operator|==
 literal|null
+operator|||
+literal|false
+operator|==
+name|key
+operator|instanceof
+name|CharSequence
 condition|)
 block|{
 return|return
