@@ -170,7 +170,7 @@ class|class
 name|Def
 block|{
 comment|// TODO: Once Java has a factory for those in java.lang.invoke.MethodHandles, use it:
-comment|/** Helper class for isolating MethodHandles and methods to get the length of arrays      * (to emulate a "arraystore" byteoode using MethodHandles).      * This should really be a method in {@link MethodHandles} class!      */
+comment|/** Helper class for isolating MethodHandles and methods to get the length of arrays      * (to emulate a "arraystore" bytecode using MethodHandles).      * This should really be a method in {@link MethodHandles} class!      */
 DECL|class|ArrayLengthHelper
 specifier|private
 specifier|static
