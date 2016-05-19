@@ -728,6 +728,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|tasks
+operator|.
+name|TaskResultsService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -1432,6 +1444,16 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|MappingUpdatedAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|TaskResultsService
 operator|.
 name|class
 argument_list|)
