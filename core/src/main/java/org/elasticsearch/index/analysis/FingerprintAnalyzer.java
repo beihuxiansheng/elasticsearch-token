@@ -179,12 +179,6 @@ specifier|final
 name|int
 name|maxOutputSize
 decl_stmt|;
-DECL|field|preserveOriginal
-specifier|private
-specifier|final
-name|boolean
-name|preserveOriginal
-decl_stmt|;
 DECL|field|stopWords
 specifier|private
 specifier|final
@@ -203,9 +197,6 @@ name|separator
 parameter_list|,
 name|int
 name|maxOutputSize
-parameter_list|,
-name|boolean
-name|preserveOriginal
 parameter_list|)
 block|{
 name|this
@@ -219,12 +210,6 @@ operator|.
 name|maxOutputSize
 operator|=
 name|maxOutputSize
-expr_stmt|;
-name|this
-operator|.
-name|preserveOriginal
-operator|=
-name|preserveOriginal
 expr_stmt|;
 name|this
 operator|.
@@ -272,7 +257,7 @@ name|ASCIIFoldingFilter
 argument_list|(
 name|stream
 argument_list|,
-name|preserveOriginal
+literal|false
 argument_list|)
 expr_stmt|;
 name|stream
