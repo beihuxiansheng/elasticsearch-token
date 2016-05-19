@@ -137,7 +137,10 @@ name|expected
 operator|=
 name|definition
 operator|.
-name|exceptionType
+name|getType
+argument_list|(
+literal|"Exception"
+argument_list|)
 expr_stmt|;
 name|expression
 operator|.

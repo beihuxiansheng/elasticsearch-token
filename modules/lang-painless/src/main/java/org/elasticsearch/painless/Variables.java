@@ -473,11 +473,7 @@ name|THIS
 operator|+
 literal|"]"
 argument_list|,
-name|definition
-operator|.
-name|execType
-operator|.
-name|name
+literal|"Executable"
 argument_list|,
 name|Reserved
 operator|.
@@ -499,11 +495,7 @@ name|PARAMS
 operator|+
 literal|"]"
 argument_list|,
-name|definition
-operator|.
-name|smapType
-operator|.
-name|name
+literal|"Map"
 argument_list|,
 name|Reserved
 operator|.
@@ -525,11 +517,7 @@ name|SCORER
 operator|+
 literal|"]"
 argument_list|,
-name|definition
-operator|.
-name|defType
-operator|.
-name|name
+literal|"def"
 argument_list|,
 name|Reserved
 operator|.
@@ -540,7 +528,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// Doc parameter passed to the script. TODO: Currently working as a Map<String,Def>, we can do better?
+comment|// Doc parameter passed to the script. TODO: Currently working as a Map, we can do better?
 name|addVariable
 argument_list|(
 literal|"["
@@ -551,11 +539,7 @@ name|DOC
 operator|+
 literal|"]"
 argument_list|,
-name|definition
-operator|.
-name|smapType
-operator|.
-name|name
+literal|"Map"
 argument_list|,
 name|Reserved
 operator|.
@@ -577,11 +561,7 @@ name|VALUE
 operator|+
 literal|"]"
 argument_list|,
-name|definition
-operator|.
-name|defType
-operator|.
-name|name
+literal|"def"
 argument_list|,
 name|Reserved
 operator|.
@@ -611,11 +591,7 @@ name|SCORE
 operator|+
 literal|"]"
 argument_list|,
-name|definition
-operator|.
-name|doubleType
-operator|.
-name|name
+literal|"double"
 argument_list|,
 name|Reserved
 operator|.
@@ -645,11 +621,7 @@ name|CTX
 operator|+
 literal|"]"
 argument_list|,
-name|definition
-operator|.
-name|smapType
-operator|.
-name|name
+literal|"Map"
 argument_list|,
 name|Reserved
 operator|.
@@ -686,11 +658,7 @@ name|LOOP
 operator|+
 literal|"]"
 argument_list|,
-name|definition
-operator|.
-name|intType
-operator|.
-name|name
+literal|"int"
 argument_list|,
 name|Reserved
 operator|.

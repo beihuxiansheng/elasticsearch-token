@@ -190,7 +190,10 @@ name|expected
 operator|=
 name|definition
 operator|.
-name|booleanType
+name|getType
+argument_list|(
+literal|"boolean"
+argument_list|)
 expr_stmt|;
 name|left
 operator|.
@@ -222,7 +225,10 @@ name|expected
 operator|=
 name|definition
 operator|.
-name|booleanType
+name|getType
+argument_list|(
+literal|"boolean"
+argument_list|)
 expr_stmt|;
 name|right
 operator|.
@@ -334,7 +340,10 @@ name|actual
 operator|=
 name|definition
 operator|.
-name|booleanType
+name|getType
+argument_list|(
+literal|"boolean"
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

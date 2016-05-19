@@ -208,7 +208,10 @@ name|rtn
 condition|?
 name|definition
 operator|.
-name|objectType
+name|getType
+argument_list|(
+literal|"Object"
+argument_list|)
 else|:
 name|expression
 operator|.

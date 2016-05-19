@@ -176,7 +176,10 @@ name|actual
 operator|=
 name|definition
 operator|.
-name|floatType
+name|getType
+argument_list|(
+literal|"float"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -219,7 +222,10 @@ name|actual
 operator|=
 name|definition
 operator|.
-name|doubleType
+name|getType
+argument_list|(
+literal|"double"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

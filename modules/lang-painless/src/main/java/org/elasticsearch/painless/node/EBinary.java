@@ -2615,7 +2615,10 @@ name|expected
 operator|=
 name|definition
 operator|.
-name|intType
+name|getType
+argument_list|(
+literal|"int"
+argument_list|)
 expr_stmt|;
 name|right
 operator|.
@@ -2851,7 +2854,10 @@ name|expected
 operator|=
 name|definition
 operator|.
-name|intType
+name|getType
+argument_list|(
+literal|"int"
+argument_list|)
 expr_stmt|;
 name|right
 operator|.
@@ -3087,7 +3093,10 @@ name|expected
 operator|=
 name|definition
 operator|.
-name|intType
+name|getType
+argument_list|(
+literal|"int"
+argument_list|)
 expr_stmt|;
 name|right
 operator|.

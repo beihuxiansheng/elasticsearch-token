@@ -177,7 +177,10 @@ name|actual
 operator|=
 name|definition
 operator|.
-name|objectType
+name|getType
+argument_list|(
+literal|"Object"
+argument_list|)
 expr_stmt|;
 block|}
 block|}

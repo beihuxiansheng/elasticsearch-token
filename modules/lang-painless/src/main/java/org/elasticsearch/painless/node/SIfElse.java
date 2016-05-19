@@ -179,7 +179,10 @@ name|expected
 operator|=
 name|definition
 operator|.
-name|booleanType
+name|getType
+argument_list|(
+literal|"boolean"
+argument_list|)
 expr_stmt|;
 name|condition
 operator|.

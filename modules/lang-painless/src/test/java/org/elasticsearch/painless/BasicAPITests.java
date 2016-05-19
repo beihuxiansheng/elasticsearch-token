@@ -42,25 +42,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
-argument_list|,
-name|exec
-argument_list|(
-literal|"List<Object> x = new ArrayList(); x.add(2); x.add(3); x.add(-2); Iterator<Object> y = x.iterator(); "
-operator|+
-literal|"int total = 0; while (y.hasNext()) total += (int)y.next(); return total;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 literal|"abc"
 argument_list|,
 name|exec
 argument_list|(
-literal|"List<String> x = new ArrayList(); x.add(\"a\"); x.add(\"b\"); x.add(\"c\"); "
+literal|"List x = new ArrayList(); x.add(\"a\"); x.add(\"b\"); x.add(\"c\"); "
 operator|+
-literal|"Iterator<String> y = x.iterator(); String total = \"\"; while (y.hasNext()) total += y.next(); return total;"
+literal|"Iterator y = x.iterator(); String total = \"\"; while (y.hasNext()) total += y.next(); return total;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -97,25 +85,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
-argument_list|,
-name|exec
-argument_list|(
-literal|"Set<Object> x = new HashSet(); x.add(2); x.add(3); x.add(-2); Iterator<Object> y = x.iterator(); "
-operator|+
-literal|"int total = 0; while (y.hasNext()) total += (int)y.next(); return total;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 literal|"abc"
 argument_list|,
 name|exec
 argument_list|(
-literal|"Set<String> x = new HashSet(); x.add(\"a\"); x.add(\"b\"); x.add(\"c\"); "
+literal|"Set x = new HashSet(); x.add(\"a\"); x.add(\"b\"); x.add(\"c\"); "
 operator|+
-literal|"Iterator<String> y = x.iterator(); String total = \"\"; while (y.hasNext()) total += y.next(); return total;"
+literal|"Iterator y = x.iterator(); String total = \"\"; while (y.hasNext()) total += y.next(); return total;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -308,26 +284,6 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"List x = new ArrayList(); x.add('Hallo'); return x.length"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exec
-argument_list|(
-literal|"List<String> x = new ArrayList<String>(); x.add('Hallo'); return x.length"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exec
-argument_list|(
-literal|"List<Object> x = new ArrayList<Object>(); x.add('Hallo'); return x.length"
 argument_list|)
 argument_list|)
 expr_stmt|;

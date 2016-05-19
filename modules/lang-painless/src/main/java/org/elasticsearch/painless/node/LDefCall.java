@@ -267,7 +267,10 @@ name|after
 operator|=
 name|definition
 operator|.
-name|defType
+name|getType
+argument_list|(
+literal|"def"
+argument_list|)
 expr_stmt|;
 return|return
 name|this
@@ -335,7 +338,10 @@ name|append
 argument_list|(
 name|definition
 operator|.
-name|defType
+name|getType
+argument_list|(
+literal|"def"
+argument_list|)
 operator|.
 name|type
 operator|.

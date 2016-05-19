@@ -1353,7 +1353,10 @@ name|expected
 operator|=
 name|definition
 operator|.
-name|intType
+name|getType
+argument_list|(
+literal|"int"
+argument_list|)
 expr_stmt|;
 name|expression
 operator|.
@@ -1480,7 +1483,10 @@ name|after
 else|:
 name|definition
 operator|.
-name|voidType
+name|getType
+argument_list|(
+literal|"void"
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|analyzeWrite
@@ -1604,7 +1610,10 @@ name|after
 else|:
 name|definition
 operator|.
-name|voidType
+name|getType
+argument_list|(
+literal|"void"
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|analyzeRead

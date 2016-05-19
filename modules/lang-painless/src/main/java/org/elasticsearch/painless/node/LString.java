@@ -192,7 +192,10 @@ name|after
 operator|=
 name|definition
 operator|.
-name|stringType
+name|getType
+argument_list|(
+literal|"String"
+argument_list|)
 expr_stmt|;
 return|return
 name|this
