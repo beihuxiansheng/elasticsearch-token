@@ -171,6 +171,12 @@ name|Def
 block|{
 comment|// TODO: Once Java has a factory for those in java.lang.invoke.MethodHandles, use it:
 comment|/** Helper class for isolating MethodHandles and methods to get the length of arrays      * (to emulate a "arraystore" bytecode using MethodHandles).      * This should really be a method in {@link MethodHandles} class!      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+comment|// getArrayLength() methods are are actually used, javac just does not know :)
 DECL|class|ArrayLengthHelper
 specifier|private
 specifier|static
@@ -336,12 +342,6 @@ operator|.
 expr|class
 argument_list|)
 decl_stmt|;
-comment|// NOTE: the following are actually used, javac just does not know :)
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
@@ -359,11 +359,6 @@ operator|.
 name|length
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
@@ -381,11 +376,6 @@ operator|.
 name|length
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
@@ -403,11 +393,6 @@ operator|.
 name|length
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
@@ -425,11 +410,6 @@ operator|.
 name|length
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
@@ -447,11 +427,6 @@ operator|.
 name|length
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
@@ -469,11 +444,6 @@ operator|.
 name|length
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
@@ -491,11 +461,6 @@ operator|.
 name|length
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
@@ -513,11 +478,6 @@ operator|.
 name|length
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getArrayLength
 specifier|static
 name|int
