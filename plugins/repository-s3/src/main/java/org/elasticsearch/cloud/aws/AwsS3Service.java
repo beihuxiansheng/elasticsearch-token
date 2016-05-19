@@ -663,27 +663,6 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**          * cloud.aws.s3.throttle_retries: Set to `true` if you want to throttle retries. Defaults to `true`.          */
-DECL|field|THROTTLE_RETRIES_SETTING
-name|Setting
-argument_list|<
-name|Boolean
-argument_list|>
-name|THROTTLE_RETRIES_SETTING
-init|=
-name|Setting
-operator|.
-name|boolSetting
-argument_list|(
-literal|"cloud.aws.s3.throttle_retries"
-argument_list|,
-literal|true
-argument_list|,
-name|Property
-operator|.
-name|NodeScope
-argument_list|)
-decl_stmt|;
 block|}
 DECL|method|client
 name|AmazonS3
@@ -706,6 +685,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|boolean
+name|throttleRetries
 parameter_list|)
 function_decl|;
 block|}

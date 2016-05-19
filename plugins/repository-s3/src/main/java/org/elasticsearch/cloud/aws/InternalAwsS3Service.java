@@ -337,6 +337,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|boolean
+name|throttleRetries
 parameter_list|)
 block|{
 if|if
@@ -398,6 +401,8 @@ argument_list|,
 name|key
 argument_list|,
 name|maxRetries
+argument_list|,
+name|throttleRetries
 argument_list|)
 return|;
 block|}
@@ -421,6 +426,9 @@ name|key
 parameter_list|,
 name|Integer
 name|maxRetries
+parameter_list|,
+name|boolean
+name|throttleRetries
 parameter_list|)
 block|{
 name|Tuple
@@ -580,23 +588,14 @@ argument_list|(
 name|maxRetries
 argument_list|)
 expr_stmt|;
+block|}
 name|clientConfiguration
 operator|.
 name|setUseThrottleRetries
 argument_list|(
-name|AwsS3Service
-operator|.
-name|CLOUD_S3
-operator|.
-name|THROTTLE_RETRIES_SETTING
-operator|.
-name|get
-argument_list|(
-name|settings
-argument_list|)
+name|throttleRetries
 argument_list|)
 expr_stmt|;
-block|}
 comment|// #155: we might have 3rd party users using older S3 API version
 name|String
 name|awsSigner

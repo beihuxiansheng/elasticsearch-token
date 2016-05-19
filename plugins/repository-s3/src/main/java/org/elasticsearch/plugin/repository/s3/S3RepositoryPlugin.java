@@ -637,17 +637,6 @@ operator|.
 name|ENDPOINT_SETTING
 argument_list|)
 expr_stmt|;
-name|settingsModule
-operator|.
-name|registerSetting
-argument_list|(
-name|AwsS3Service
-operator|.
-name|CLOUD_S3
-operator|.
-name|THROTTLE_RETRIES_SETTING
-argument_list|)
-expr_stmt|;
 comment|// Register S3 repositories settings: repositories.s3
 name|settingsModule
 operator|.
@@ -803,6 +792,17 @@ operator|.
 name|BASE_PATH_SETTING
 argument_list|)
 expr_stmt|;
+name|settingsModule
+operator|.
+name|registerSetting
+argument_list|(
+name|S3Repository
+operator|.
+name|Repositories
+operator|.
+name|THROTTLE_RETRIES_SETTING
+argument_list|)
+expr_stmt|;
 comment|// Register S3 single repository settings
 name|settingsModule
 operator|.
@@ -956,6 +956,17 @@ operator|.
 name|Repository
 operator|.
 name|BASE_PATH_SETTING
+argument_list|)
+expr_stmt|;
+name|settingsModule
+operator|.
+name|registerSetting
+argument_list|(
+name|S3Repository
+operator|.
+name|Repository
+operator|.
+name|THROTTLE_RETRIES_SETTING
 argument_list|)
 expr_stmt|;
 block|}
