@@ -669,6 +669,37 @@ argument_list|(
 literal|"--> resetting breaker settings"
 argument_list|)
 expr_stmt|;
+comment|// clear all caches, we could be very close (or even above) the limit and then we will not be able to reset the breaker settings
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareClearCache
+argument_list|()
+operator|.
+name|setFieldDataCache
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setQueryCache
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|setRequestCache
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
 name|Settings
 name|resetSettings
 init|=
@@ -1609,13 +1640,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Test that a breaker correctly redistributes to a different breaker, in      * this case, the fielddata breaker borrows space from the request breaker      */
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/18325"
-argument_list|)
 DECL|method|testParentChecking
 specifier|public
 name|void
@@ -2096,13 +2120,6 @@ argument_list|(
 name|errMsg
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// reset before teardown as it requires properly set up breakers
-name|reset
-argument_list|()
 expr_stmt|;
 block|}
 block|}
