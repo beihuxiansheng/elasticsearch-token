@@ -1240,12 +1240,6 @@ specifier|final
 name|Struct
 name|owner
 decl_stmt|;
-DECL|field|generic
-specifier|public
-specifier|final
-name|Type
-name|generic
-decl_stmt|;
 DECL|field|type
 specifier|public
 specifier|final
@@ -1290,10 +1284,6 @@ name|owner
 parameter_list|,
 specifier|final
 name|Type
-name|generic
-parameter_list|,
-specifier|final
-name|Type
 name|type
 parameter_list|,
 specifier|final
@@ -1326,12 +1316,6 @@ operator|.
 name|owner
 operator|=
 name|owner
-expr_stmt|;
-name|this
-operator|.
-name|generic
-operator|=
-name|generic
 expr_stmt|;
 name|this
 operator|.
@@ -8614,8 +8598,6 @@ name|owner
 argument_list|,
 name|type
 argument_list|,
-name|type
-argument_list|,
 name|reflect
 argument_list|,
 name|getter
@@ -9328,10 +9310,6 @@ argument_list|,
 name|field
 operator|.
 name|type
-argument_list|,
-name|field
-operator|.
-name|generic
 argument_list|,
 name|reflect
 argument_list|,
