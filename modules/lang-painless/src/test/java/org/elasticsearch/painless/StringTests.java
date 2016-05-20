@@ -1219,7 +1219,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Cannot cast from [String] to [char]."
+literal|"Cannot cast [String] with length greater than one to [char]."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1256,7 +1256,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Cannot cast from [String] to [char]."
+literal|"Cannot cast [String] with length greater than one to [char]."
 argument_list|)
 argument_list|)
 expr_stmt|;
