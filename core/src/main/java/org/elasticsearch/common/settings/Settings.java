@@ -3344,8 +3344,8 @@ name|LinkedHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// visible for testing
 DECL|method|Builder
-specifier|private
 name|Builder
 parameter_list|()
 block|{          }
@@ -4842,8 +4842,6 @@ specifier|final
 name|String
 name|value
 init|=
-name|System
-operator|.
 name|getenv
 argument_list|(
 name|placeholderName
@@ -5011,6 +5009,24 @@ block|}
 block|}
 return|return
 name|this
+return|;
+block|}
+comment|// visible for testing
+DECL|method|getenv
+name|String
+name|getenv
+parameter_list|(
+name|String
+name|placeholderName
+parameter_list|)
+block|{
+return|return
+name|System
+operator|.
+name|getenv
+argument_list|(
+name|placeholderName
+argument_list|)
 return|;
 block|}
 comment|/**          * Checks that all settings in the builder start with the specified prefix.          *          * If a setting doesn't start with the prefix, the builder appends the prefix to such setting.          */
