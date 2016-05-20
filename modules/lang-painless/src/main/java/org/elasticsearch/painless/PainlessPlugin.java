@@ -75,34 +75,16 @@ name|PainlessPlugin
 extends|extends
 name|Plugin
 block|{
-comment|// parse our definition at startup (not on the user's first script)
-comment|// compilation process is sandboxed and has no file access.
+comment|// force to pare our definition at startup (not on the user's first script)
 static|static
 block|{
-try|try
-block|{
-name|Class
+name|Definition
 operator|.
-name|forName
-argument_list|(
-literal|"org.elasticsearch.painless.Definition"
-argument_list|)
+name|voidType
+operator|.
+name|hashCode
+argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ClassNotFoundException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 annotation|@
 name|Override
