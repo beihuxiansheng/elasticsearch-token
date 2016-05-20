@@ -20,6 +20,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -243,6 +259,13 @@ comment|/**  * Integration test for retry behavior. Useful because retrying reli
 end_comment
 
 begin_class
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/pull/18456"
+argument_list|)
 DECL|class|RetryTests
 specifier|public
 class|class

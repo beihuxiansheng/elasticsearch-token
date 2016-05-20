@@ -58,7 +58,7 @@ name|metrics
 operator|.
 name|geocentroid
 operator|.
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 import|;
 end_import
 
@@ -70,22 +70,22 @@ name|GeoCentroidTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 name|factory
 init|=
 operator|new
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

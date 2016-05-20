@@ -260,7 +260,7 @@ annotation|@
 name|Override
 DECL|method|doCreateFactory
 specifier|protected
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 name|doCreateFactory
 parameter_list|(
 name|String
@@ -293,11 +293,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 name|factory
 init|=
 operator|new
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -325,7 +325,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|)
@@ -460,7 +460,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|SHOW_TERM_DOC_COUNT_ERROR
 argument_list|)
@@ -536,7 +536,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|)
@@ -546,7 +546,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|,
@@ -588,7 +588,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|)
@@ -680,7 +680,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|ORDER_FIELD
 argument_list|,
@@ -712,7 +712,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|SHOW_TERM_DOC_COUNT_ERROR
 argument_list|)
@@ -722,7 +722,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|SHOW_TERM_DOC_COUNT_ERROR
 argument_list|,
@@ -1030,7 +1030,7 @@ name|TermsAggregator
 operator|.
 name|BucketCountThresholds
 argument_list|(
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|DEFAULT_BUCKET_COUNT_THRESHOLDS
 argument_list|)

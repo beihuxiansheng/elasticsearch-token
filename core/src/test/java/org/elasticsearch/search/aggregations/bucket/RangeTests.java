@@ -66,7 +66,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 import|;
 end_import
 
@@ -78,14 +78,14 @@ name|RangeTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -99,11 +99,11 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 name|factory
 init|=
 operator|new
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

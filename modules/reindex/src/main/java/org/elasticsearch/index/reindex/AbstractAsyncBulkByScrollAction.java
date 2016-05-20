@@ -683,8 +683,6 @@ name|AbstractBulkByScrollRequest
 parameter_list|<
 name|Request
 parameter_list|>
-parameter_list|,
-name|Response
 parameter_list|>
 block|{
 comment|/**      * The request for this action. Named mainRequest because we create lots of<code>request</code> variables all representing child      * requests of this mainRequest.      */
@@ -788,7 +786,7 @@ specifier|private
 specifier|final
 name|ActionListener
 argument_list|<
-name|Response
+name|BulkIndexByScrollResponse
 argument_list|>
 name|listener
 decl_stmt|;
@@ -828,7 +826,7 @@ name|firstSearchRequest
 parameter_list|,
 name|ActionListener
 argument_list|<
-name|Response
+name|BulkIndexByScrollResponse
 argument_list|>
 name|listener
 parameter_list|)
@@ -913,10 +911,10 @@ argument_list|>
 name|docs
 parameter_list|)
 function_decl|;
+comment|/**      * Build the response for reindex actions.      */
 DECL|method|buildResponse
 specifier|protected
-specifier|abstract
-name|Response
+name|BulkIndexByScrollResponse
 name|buildResponse
 parameter_list|(
 name|TimeValue
@@ -924,6 +922,8 @@ name|took
 parameter_list|,
 name|List
 argument_list|<
+name|BulkItemResponse
+operator|.
 name|Failure
 argument_list|>
 name|indexingFailures
@@ -937,7 +937,26 @@ parameter_list|,
 name|boolean
 name|timedOut
 parameter_list|)
-function_decl|;
+block|{
+return|return
+operator|new
+name|BulkIndexByScrollResponse
+argument_list|(
+name|took
+argument_list|,
+name|task
+operator|.
+name|getStatus
+argument_list|()
+argument_list|,
+name|indexingFailures
+argument_list|,
+name|searchFailures
+argument_list|,
+name|timedOut
+argument_list|)
+return|;
+block|}
 comment|/**      * Start the action by firing the initial search request.      */
 DECL|method|start
 specifier|public

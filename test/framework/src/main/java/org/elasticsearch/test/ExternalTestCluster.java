@@ -500,19 +500,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-comment|// prevents any settings to be replaced by system properties.
-operator|.
-name|put
-argument_list|(
 literal|"client.transport.ignore_cluster_name"
 argument_list|,
 literal|true

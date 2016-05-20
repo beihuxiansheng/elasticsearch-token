@@ -157,7 +157,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|DiversifiedAggregatorBuilder
+name|DiversifiedAggregationBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -178,11 +178,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|DiversifiedAggregatorBuilder
+name|DiversifiedAggregationBuilder
 name|factory
 init|=
 operator|new
-name|DiversifiedAggregatorBuilder
+name|DiversifiedAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
