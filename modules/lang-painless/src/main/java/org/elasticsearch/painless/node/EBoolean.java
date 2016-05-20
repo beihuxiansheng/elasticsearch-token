@@ -127,7 +127,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 annotation|@

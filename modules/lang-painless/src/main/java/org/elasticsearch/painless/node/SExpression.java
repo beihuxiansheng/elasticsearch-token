@@ -202,7 +202,7 @@ name|rtn
 condition|?
 name|Definition
 operator|.
-name|objectType
+name|OBJECT_TYPE
 else|:
 name|expression
 operator|.

@@ -337,7 +337,7 @@ name|expected
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 name|child
 operator|.
@@ -383,7 +383,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeBWNot
@@ -1131,7 +1131,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1229,7 +1229,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,

@@ -188,7 +188,7 @@ name|after
 operator|=
 name|Definition
 operator|.
-name|stringType
+name|STRING_TYPE
 expr_stmt|;
 return|return
 name|this

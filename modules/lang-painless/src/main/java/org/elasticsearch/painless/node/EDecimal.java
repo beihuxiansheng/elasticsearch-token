@@ -172,7 +172,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|floatType
+name|FLOAT_TYPE
 expr_stmt|;
 block|}
 catch|catch
@@ -215,7 +215,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|doubleType
+name|DOUBLE_TYPE
 expr_stmt|;
 block|}
 catch|catch

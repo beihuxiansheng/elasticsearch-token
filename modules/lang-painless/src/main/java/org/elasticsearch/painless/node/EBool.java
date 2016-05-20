@@ -186,7 +186,7 @@ name|expected
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 name|left
 operator|.
@@ -214,7 +214,7 @@ name|expected
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 name|right
 operator|.
@@ -322,7 +322,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 annotation|@

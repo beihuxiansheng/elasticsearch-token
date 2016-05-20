@@ -833,7 +833,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeEqR
@@ -1164,7 +1164,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeNE
@@ -1541,7 +1541,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeNER
@@ -1872,7 +1872,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeGTE
@@ -2146,7 +2146,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeGT
@@ -2420,7 +2420,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeLTE
@@ -2694,7 +2694,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeLT
@@ -2968,7 +2968,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|booleanType
+name|BOOLEAN_TYPE
 expr_stmt|;
 block|}
 annotation|@
@@ -3548,7 +3548,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -3615,7 +3615,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -3663,7 +3663,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -3683,7 +3683,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -3703,7 +3703,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -3723,7 +3723,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -3816,7 +3816,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|utilityType
+name|UTILITY_TYPE
 operator|.
 name|type
 argument_list|,
@@ -3899,7 +3899,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|utilityType
+name|UTILITY_TYPE
 operator|.
 name|type
 argument_list|,

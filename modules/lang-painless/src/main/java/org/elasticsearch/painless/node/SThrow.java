@@ -133,7 +133,7 @@ name|expected
 operator|=
 name|Definition
 operator|.
-name|exceptionType
+name|EXCEPTION_TYPE
 expr_stmt|;
 name|expression
 operator|.

@@ -1526,7 +1526,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1541,7 +1541,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1556,7 +1556,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1571,7 +1571,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1586,7 +1586,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1601,7 +1601,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1616,7 +1616,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1631,7 +1631,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1646,7 +1646,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1661,7 +1661,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,
@@ -1676,7 +1676,7 @@ name|invokeStatic
 argument_list|(
 name|Definition
 operator|.
-name|defobjType
+name|DEF_UTIL_TYPE
 operator|.
 name|type
 argument_list|,

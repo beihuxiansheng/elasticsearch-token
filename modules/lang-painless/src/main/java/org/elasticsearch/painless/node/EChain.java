@@ -1303,7 +1303,7 @@ name|expected
 operator|=
 name|Definition
 operator|.
-name|intType
+name|INT_TYPE
 expr_stmt|;
 name|expression
 operator|.
@@ -1384,7 +1384,7 @@ name|after
 else|:
 name|Definition
 operator|.
-name|voidType
+name|VOID_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeWrite
@@ -1498,7 +1498,7 @@ name|after
 else|:
 name|Definition
 operator|.
-name|voidType
+name|VOID_TYPE
 expr_stmt|;
 block|}
 DECL|method|analyzeRead

@@ -218,7 +218,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|doubleType
+name|DOUBLE_TYPE
 expr_stmt|;
 block|}
 catch|catch
@@ -307,7 +307,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|floatType
+name|FLOAT_TYPE
 expr_stmt|;
 block|}
 catch|catch
@@ -380,7 +380,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|longType
+name|LONG_TYPE
 expr_stmt|;
 block|}
 catch|catch
@@ -471,7 +471,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|byteType
+name|BYTE_TYPE
 expr_stmt|;
 block|}
 elseif|else
@@ -507,7 +507,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|charType
+name|CHAR_TYPE
 expr_stmt|;
 block|}
 elseif|else
@@ -543,7 +543,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|shortType
+name|SHORT_TYPE
 expr_stmt|;
 block|}
 else|else
@@ -556,7 +556,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|intType
+name|INT_TYPE
 expr_stmt|;
 block|}
 block|}

@@ -172,7 +172,7 @@ name|after
 operator|=
 name|Definition
 operator|.
-name|defType
+name|DEF_TYPE
 expr_stmt|;
 return|return
 name|this
@@ -224,7 +224,7 @@ name|type
 argument_list|,
 name|Definition
 operator|.
-name|defType
+name|DEF_TYPE
 operator|.
 name|type
 argument_list|)
@@ -270,13 +270,13 @@ name|getMethodDescriptor
 argument_list|(
 name|Definition
 operator|.
-name|voidType
+name|VOID_TYPE
 operator|.
 name|type
 argument_list|,
 name|Definition
 operator|.
-name|defType
+name|DEF_TYPE
 operator|.
 name|type
 argument_list|,

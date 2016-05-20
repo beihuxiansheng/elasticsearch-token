@@ -204,7 +204,7 @@ name|expected
 operator|=
 name|Definition
 operator|.
-name|intType
+name|INT_TYPE
 expr_stmt|;
 name|index
 operator|.

@@ -80,7 +80,7 @@ static|static
 block|{
 name|Definition
 operator|.
-name|voidType
+name|VOID_TYPE
 operator|.
 name|hashCode
 argument_list|()

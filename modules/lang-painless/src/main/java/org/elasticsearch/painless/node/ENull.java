@@ -173,7 +173,7 @@ name|actual
 operator|=
 name|Definition
 operator|.
-name|objectType
+name|OBJECT_TYPE
 expr_stmt|;
 block|}
 block|}
