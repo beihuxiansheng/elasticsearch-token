@@ -1384,6 +1384,8 @@ argument_list|,
 name|promote
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|back
@@ -1403,6 +1405,8 @@ operator|.
 name|after
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|this
@@ -1915,8 +1919,6 @@ name|adapter
 operator|.
 name|writeBinaryInstruction
 argument_list|(
-name|definition
-argument_list|,
 name|location
 argument_list|,
 name|promote

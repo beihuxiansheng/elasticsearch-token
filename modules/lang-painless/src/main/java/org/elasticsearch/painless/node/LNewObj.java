@@ -441,6 +441,12 @@ index|]
 expr_stmt|;
 name|expression
 operator|.
+name|internal
+operator|=
+literal|true
+expr_stmt|;
+name|expression
+operator|.
 name|analyze
 argument_list|(
 name|settings

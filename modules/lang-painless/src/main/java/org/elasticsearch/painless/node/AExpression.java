@@ -169,6 +169,14 @@ name|explicit
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Set to true if a cast is allowed to boxed/unboxed.  This is used      * for method arguments because casting may be required.      */
+DECL|field|internal
+specifier|protected
+name|boolean
+name|internal
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Set to the value of the constant this expression node represents if      * and only if the node represents a constant.  If this is not null      * this node will be replaced by an {@link EConstant} during casting      * if it's not already one.      */
 DECL|field|constant
 specifier|protected
@@ -295,6 +303,8 @@ argument_list|,
 name|expected
 argument_list|,
 name|explicit
+argument_list|,
+name|internal
 argument_list|)
 decl_stmt|;
 if|if

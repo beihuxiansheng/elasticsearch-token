@@ -3628,8 +3628,6 @@ name|adapter
 operator|.
 name|writeBinaryInstruction
 argument_list|(
-name|definition
-argument_list|,
 name|location
 argument_list|,
 name|actual
