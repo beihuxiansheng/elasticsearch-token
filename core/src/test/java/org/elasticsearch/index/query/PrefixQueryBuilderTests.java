@@ -74,11 +74,13 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|test
+operator|.
+name|AbstractQueryTestCase
 import|;
 end_import
 
@@ -86,9 +88,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|Arrays
+name|IOException
 import|;
 end_import
 
@@ -105,22 +107,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|prefixQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|queryStringQuery
 import|;
 end_import
 

@@ -426,9 +426,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
+name|test
 operator|.
 name|AbstractQueryTestCase
 import|;
@@ -1020,9 +1018,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -1036,9 +1032,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.

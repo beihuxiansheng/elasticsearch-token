@@ -1070,7 +1070,9 @@ return|return
 name|isFilter
 return|;
 block|}
+comment|/**      * Public for testing only!      *      * Sets whether we are currently parsing a filter or a query      */
 DECL|method|setIsFilter
+specifier|public
 name|void
 name|setIsFilter
 parameter_list|(

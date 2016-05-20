@@ -250,6 +250,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|AbstractQueryTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -315,22 +327,6 @@ operator|.
 name|stream
 operator|.
 name|Collectors
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|prefixQuery
 import|;
 end_import
 
