@@ -206,12 +206,9 @@ name|index
 operator|.
 name|expected
 operator|=
-name|definition
+name|Definition
 operator|.
-name|getType
-argument_list|(
-literal|"int"
-argument_list|)
+name|intType
 expr_stmt|;
 name|index
 operator|.

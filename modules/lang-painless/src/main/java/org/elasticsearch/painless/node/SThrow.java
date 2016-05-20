@@ -135,12 +135,9 @@ name|expression
 operator|.
 name|expected
 operator|=
-name|definition
+name|Definition
 operator|.
-name|getType
-argument_list|(
-literal|"Exception"
-argument_list|)
+name|exceptionType
 expr_stmt|;
 name|expression
 operator|.

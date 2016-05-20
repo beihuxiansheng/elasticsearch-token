@@ -206,12 +206,9 @@ name|expected
 operator|=
 name|rtn
 condition|?
-name|definition
+name|Definition
 operator|.
-name|getType
-argument_list|(
-literal|"Object"
-argument_list|)
+name|objectType
 else|:
 name|expression
 operator|.

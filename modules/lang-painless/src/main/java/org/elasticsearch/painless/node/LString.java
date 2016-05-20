@@ -190,12 +190,9 @@ throw|;
 block|}
 name|after
 operator|=
-name|definition
+name|Definition
 operator|.
-name|getType
-argument_list|(
-literal|"String"
-argument_list|)
+name|stringType
 expr_stmt|;
 return|return
 name|this

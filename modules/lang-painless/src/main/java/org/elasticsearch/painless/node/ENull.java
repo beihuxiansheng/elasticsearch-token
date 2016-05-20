@@ -175,12 +175,9 @@ else|else
 block|{
 name|actual
 operator|=
-name|definition
+name|Definition
 operator|.
-name|getType
-argument_list|(
-literal|"Object"
-argument_list|)
+name|objectType
 expr_stmt|;
 block|}
 block|}

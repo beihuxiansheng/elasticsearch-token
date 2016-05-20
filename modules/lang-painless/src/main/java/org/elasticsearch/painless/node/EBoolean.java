@@ -129,12 +129,9 @@ parameter_list|)
 block|{
 name|actual
 operator|=
-name|definition
+name|Definition
 operator|.
-name|getType
-argument_list|(
-literal|"boolean"
-argument_list|)
+name|booleanType
 expr_stmt|;
 block|}
 annotation|@

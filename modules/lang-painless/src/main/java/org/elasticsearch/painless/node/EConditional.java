@@ -201,12 +201,9 @@ name|condition
 operator|.
 name|expected
 operator|=
-name|definition
+name|Definition
 operator|.
-name|getType
-argument_list|(
-literal|"boolean"
-argument_list|)
+name|booleanType
 expr_stmt|;
 name|condition
 operator|.
