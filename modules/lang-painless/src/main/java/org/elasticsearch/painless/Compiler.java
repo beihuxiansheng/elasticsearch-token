@@ -390,6 +390,8 @@ argument_list|(
 name|source
 argument_list|,
 name|reserved
+argument_list|,
+name|settings
 argument_list|)
 decl_stmt|;
 specifier|final

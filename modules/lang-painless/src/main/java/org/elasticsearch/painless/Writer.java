@@ -982,8 +982,6 @@ name|root
 operator|.
 name|write
 argument_list|(
-name|settings
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;

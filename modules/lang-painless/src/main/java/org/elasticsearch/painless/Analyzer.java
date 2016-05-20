@@ -86,8 +86,6 @@ name|root
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;

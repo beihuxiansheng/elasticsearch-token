@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|CompilerSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
 name|Definition
 import|;
 end_import
@@ -242,23 +230,18 @@ DECL|method|EComp
 specifier|public
 name|EComp
 parameter_list|(
-specifier|final
 name|int
 name|line
 parameter_list|,
-specifier|final
 name|String
 name|location
 parameter_list|,
-specifier|final
 name|Operation
 name|operation
 parameter_list|,
-specifier|final
 name|AExpression
 name|left
 parameter_list|,
-specifier|final
 name|AExpression
 name|right
 parameter_list|)
@@ -295,11 +278,6 @@ DECL|method|analyze
 name|void
 name|analyze
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -315,8 +293,6 @@ condition|)
 block|{
 name|analyzeEq
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -333,8 +309,6 @@ condition|)
 block|{
 name|analyzeEqR
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -351,8 +325,6 @@ condition|)
 block|{
 name|analyzeNE
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -369,8 +341,6 @@ condition|)
 block|{
 name|analyzeNER
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -387,8 +357,6 @@ condition|)
 block|{
 name|analyzeGTE
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -405,8 +373,6 @@ condition|)
 block|{
 name|analyzeGT
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -423,8 +389,6 @@ condition|)
 block|{
 name|analyzeLTE
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -441,8 +405,6 @@ condition|)
 block|{
 name|analyzeLT
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -466,11 +428,6 @@ specifier|private
 name|void
 name|analyzeEq
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -479,8 +436,6 @@ name|left
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -488,8 +443,6 @@ name|right
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -564,8 +517,6 @@ name|left
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -575,8 +526,6 @@ name|right
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -841,11 +790,6 @@ specifier|private
 name|void
 name|analyzeEqR
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -854,8 +798,6 @@ name|left
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -863,8 +805,6 @@ name|right
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -939,8 +879,6 @@ name|left
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -950,8 +888,6 @@ name|right
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1172,11 +1108,6 @@ specifier|private
 name|void
 name|analyzeNE
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -1185,8 +1116,6 @@ name|left
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1194,8 +1123,6 @@ name|right
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1270,8 +1197,6 @@ name|left
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1281,8 +1206,6 @@ name|right
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1549,11 +1472,6 @@ specifier|private
 name|void
 name|analyzeNER
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -1562,8 +1480,6 @@ name|left
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1571,8 +1487,6 @@ name|right
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1647,8 +1561,6 @@ name|left
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1658,8 +1570,6 @@ name|right
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1880,11 +1790,6 @@ specifier|private
 name|void
 name|analyzeGTE
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -1893,8 +1798,6 @@ name|left
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1902,8 +1805,6 @@ name|right
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1982,8 +1883,6 @@ name|left
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1993,8 +1892,6 @@ name|right
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2154,11 +2051,6 @@ specifier|private
 name|void
 name|analyzeGT
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -2167,8 +2059,6 @@ name|left
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2176,8 +2066,6 @@ name|right
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2256,8 +2144,6 @@ name|left
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2267,8 +2153,6 @@ name|right
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2428,11 +2312,6 @@ specifier|private
 name|void
 name|analyzeLTE
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -2441,8 +2320,6 @@ name|left
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2450,8 +2327,6 @@ name|right
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2530,8 +2405,6 @@ name|left
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2541,8 +2414,6 @@ name|right
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2702,11 +2573,6 @@ specifier|private
 name|void
 name|analyzeLT
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -2715,8 +2581,6 @@ name|left
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2724,8 +2588,6 @@ name|right
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2804,8 +2666,6 @@ name|left
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2815,8 +2675,6 @@ name|right
 operator|.
 name|cast
 argument_list|(
-name|settings
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -2977,11 +2835,6 @@ DECL|method|write
 name|void
 name|write
 parameter_list|(
-specifier|final
-name|CompilerSettings
-name|settings
-parameter_list|,
-specifier|final
 name|MethodWriter
 name|adapter
 parameter_list|)
@@ -3028,8 +2881,6 @@ name|left
 operator|.
 name|write
 argument_list|(
-name|settings
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;
@@ -3045,8 +2896,6 @@ name|right
 operator|.
 name|write
 argument_list|(
-name|settings
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;
