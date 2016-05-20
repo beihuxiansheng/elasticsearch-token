@@ -227,6 +227,12 @@ name|explicit
 operator|=
 name|explicit
 expr_stmt|;
+name|left
+operator|.
+name|internal
+operator|=
+name|internal
+expr_stmt|;
 name|right
 operator|.
 name|expected
@@ -238,6 +244,12 @@ operator|.
 name|explicit
 operator|=
 name|explicit
+expr_stmt|;
+name|right
+operator|.
+name|internal
+operator|=
+name|internal
 expr_stmt|;
 name|actual
 operator|=

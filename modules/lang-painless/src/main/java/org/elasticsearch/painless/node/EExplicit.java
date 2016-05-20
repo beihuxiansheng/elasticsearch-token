@@ -229,6 +229,12 @@ name|explicit
 operator|=
 name|explicit
 expr_stmt|;
+name|child
+operator|.
+name|internal
+operator|=
+name|internal
+expr_stmt|;
 return|return
 name|child
 operator|.

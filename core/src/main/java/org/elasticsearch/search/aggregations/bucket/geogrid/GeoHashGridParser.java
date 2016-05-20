@@ -205,7 +205,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -226,11 +226,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 name|factory
 init|=
 operator|new
-name|GeoGridAggregatorBuilder
+name|GeoGridAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)

@@ -144,6 +144,20 @@ name|DEF_NOT_CALL
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|WriterConstants
+operator|.
+name|DEF_UTIL_TYPE
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a unary math expression.  */
 end_comment
@@ -376,8 +390,6 @@ operator|.
 name|actual
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -524,8 +536,6 @@ argument_list|(
 name|child
 operator|.
 name|actual
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -716,8 +726,6 @@ argument_list|(
 name|child
 operator|.
 name|actual
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -1053,11 +1061,7 @@ name|adapter
 operator|.
 name|invokeStatic
 argument_list|(
-name|Definition
-operator|.
 name|DEF_UTIL_TYPE
-operator|.
-name|type
 argument_list|,
 name|DEF_NOT_CALL
 argument_list|)
@@ -1151,11 +1155,7 @@ name|adapter
 operator|.
 name|invokeStatic
 argument_list|(
-name|Definition
-operator|.
 name|DEF_UTIL_TYPE
-operator|.
-name|type
 argument_list|,
 name|DEF_NEG_CALL
 argument_list|)

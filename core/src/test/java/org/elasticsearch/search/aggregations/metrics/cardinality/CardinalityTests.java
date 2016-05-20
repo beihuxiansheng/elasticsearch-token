@@ -54,7 +54,7 @@ name|CardinalityTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 argument_list|>
 block|{
 annotation|@
@@ -62,15 +62,15 @@ name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
 specifier|final
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 name|factory
 init|=
 operator|new
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|,

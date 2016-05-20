@@ -187,6 +187,12 @@ operator|.
 name|actual
 expr_stmt|;
 name|expression
+operator|.
+name|internal
+operator|=
+name|rtn
+expr_stmt|;
+name|expression
 operator|=
 name|expression
 operator|.

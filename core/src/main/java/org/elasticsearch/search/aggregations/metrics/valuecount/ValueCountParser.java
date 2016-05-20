@@ -120,7 +120,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -228,11 +228,11 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|ValuesSource
 argument_list|,
-name|ValueCountAggregatorBuilder
+name|ValueCountAggregationBuilder
 argument_list|>
 name|createFactory
 parameter_list|(
@@ -256,7 +256,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ValueCountAggregatorBuilder
+name|ValueCountAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|,

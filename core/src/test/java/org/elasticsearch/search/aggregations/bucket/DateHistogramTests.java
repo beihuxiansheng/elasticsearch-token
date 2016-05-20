@@ -46,7 +46,7 @@ name|bucket
 operator|.
 name|histogram
 operator|.
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 import|;
 end_import
 
@@ -114,22 +114,22 @@ name|DateHistogramTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 name|factory
 init|=
 operator|new
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

@@ -283,7 +283,12 @@ argument_list|()
 operator|.
 name|copyMetadata
 argument_list|(
+name|AbstractAsyncBulkIndexByScrollAction
+operator|.
+name|wrap
+argument_list|(
 name|index
+argument_list|)
 argument_list|,
 name|doc
 argument_list|(
@@ -326,7 +331,12 @@ argument_list|()
 operator|.
 name|copyMetadata
 argument_list|(
+name|AbstractAsyncBulkIndexByScrollAction
+operator|.
+name|wrap
+argument_list|(
 name|index
+argument_list|)
 argument_list|,
 name|doc
 argument_list|(
@@ -352,6 +362,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|action
+specifier|protected
+specifier|abstract
+name|AbstractAsyncBulkIndexByScrollAction
+argument_list|<
+name|Request
+argument_list|>
+name|action
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

@@ -771,7 +771,7 @@ name|BaseAggregationTestCase
 parameter_list|<
 name|AB
 extends|extends
-name|AggregatorBuilder
+name|AggregationBuilder
 parameter_list|<
 name|AB
 parameter_list|>
@@ -1895,7 +1895,7 @@ name|nextToken
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -2061,7 +2061,7 @@ name|namedWriteableRegistry
 argument_list|)
 init|)
 block|{
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -2071,7 +2071,7 @@ name|in
 operator|.
 name|readNamedWriteable
 argument_list|(
-name|AggregatorBuilder
+name|AggregationBuilder
 operator|.
 name|class
 argument_list|)
@@ -2408,7 +2408,7 @@ name|namedWriteableRegistry
 operator|.
 name|getReader
 argument_list|(
-name|AggregatorBuilder
+name|AggregationBuilder
 operator|.
 name|class
 argument_list|,

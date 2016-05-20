@@ -4193,7 +4193,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to parse value [11] for setting [foo.bar] must be =< 10"
+literal|"Failed to parse value [11] for setting [foo.bar] must be<= 10"
 argument_list|,
 name|ex
 operator|.

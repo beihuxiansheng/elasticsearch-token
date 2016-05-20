@@ -187,7 +187,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -208,11 +208,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 name|factory
 init|=
 operator|new
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|,
@@ -229,7 +229,7 @@ name|otherOptions
 operator|.
 name|get
 argument_list|(
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 operator|.
 name|PRECISION_THRESHOLD_FIELD
 argument_list|)
@@ -302,7 +302,7 @@ name|match
 argument_list|(
 name|currentFieldName
 argument_list|,
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 operator|.
 name|PRECISION_THRESHOLD_FIELD
 argument_list|)
@@ -312,7 +312,7 @@ name|otherOptions
 operator|.
 name|put
 argument_list|(
-name|CardinalityAggregatorBuilder
+name|CardinalityAggregationBuilder
 operator|.
 name|PRECISION_THRESHOLD_FIELD
 argument_list|,

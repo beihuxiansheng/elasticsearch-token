@@ -32,7 +32,7 @@ name|metrics
 operator|.
 name|avg
 operator|.
-name|AvgAggregatorBuilder
+name|AvgAggregationBuilder
 import|;
 end_import
 
@@ -44,20 +44,20 @@ name|AvgTests
 extends|extends
 name|AbstractNumericMetricTestCase
 argument_list|<
-name|AvgAggregatorBuilder
+name|AvgAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|AvgAggregatorBuilder
+name|AvgAggregationBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|()
 block|{
 return|return
 operator|new
-name|AvgAggregatorBuilder
+name|AvgAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

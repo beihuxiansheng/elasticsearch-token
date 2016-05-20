@@ -198,6 +198,12 @@ argument_list|)
 decl_stmt|;
 name|expression
 operator|.
+name|internal
+operator|=
+literal|true
+expr_stmt|;
+name|expression
+operator|.
 name|analyze
 argument_list|(
 name|variables

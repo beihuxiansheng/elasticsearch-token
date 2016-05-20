@@ -421,8 +421,6 @@ operator|.
 name|actual
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -680,8 +678,6 @@ operator|.
 name|actual
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -937,8 +933,6 @@ argument_list|,
 name|right
 operator|.
 name|actual
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -1589,8 +1583,6 @@ operator|.
 name|actual
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -1844,8 +1836,6 @@ operator|.
 name|actual
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -2053,8 +2043,6 @@ operator|.
 name|actual
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -2262,8 +2250,6 @@ operator|.
 name|actual
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -2475,8 +2461,6 @@ operator|.
 name|actual
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -2908,8 +2892,6 @@ operator|.
 name|actual
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if

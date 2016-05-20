@@ -2949,7 +2949,7 @@ literal|" ["
 operator|+
 name|name
 operator|+
-literal|"] must have a type associated with it"
+literal|"] must specify either an analyzer type, or a tokenizer"
 argument_list|)
 throw|;
 block|}
@@ -3070,7 +3070,7 @@ literal|" ["
 operator|+
 name|name
 operator|+
-literal|"] must have a type associated with it"
+literal|"] must specify either an analyzer type, or a tokenizer"
 argument_list|)
 throw|;
 block|}

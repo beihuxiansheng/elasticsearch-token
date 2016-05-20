@@ -1152,11 +1152,11 @@ operator|.
 name|builder
 argument_list|()
 decl_stmt|;
-name|NestedAggregatorBuilder
+name|NestedAggregationBuilder
 name|factory
 init|=
 operator|new
-name|NestedAggregatorBuilder
+name|NestedAggregationBuilder
 argument_list|(
 literal|"test"
 argument_list|,
