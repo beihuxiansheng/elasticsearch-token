@@ -159,10 +159,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -242,8 +238,6 @@ name|AnalyzerCaster
 operator|.
 name|getLegalCast
 argument_list|(
-name|definition
-argument_list|,
 name|location
 argument_list|,
 name|before
@@ -274,10 +268,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|MethodWriter
 name|adapter
 parameter_list|)
@@ -301,10 +291,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|MethodWriter
 name|adapter
 parameter_list|)
@@ -320,10 +306,6 @@ parameter_list|(
 specifier|final
 name|CompilerSettings
 name|settings
-parameter_list|,
-specifier|final
-name|Definition
-name|definition
 parameter_list|,
 specifier|final
 name|MethodWriter

@@ -138,10 +138,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -202,8 +198,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -214,8 +208,6 @@ operator|.
 name|cast
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -230,10 +222,6 @@ parameter_list|(
 specifier|final
 name|CompilerSettings
 name|settings
-parameter_list|,
-specifier|final
-name|Definition
-name|definition
 parameter_list|,
 specifier|final
 name|MethodWriter
@@ -260,10 +248,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -286,8 +270,6 @@ operator|.
 name|cast
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)

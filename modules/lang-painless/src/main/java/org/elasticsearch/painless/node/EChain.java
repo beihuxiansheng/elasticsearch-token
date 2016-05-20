@@ -288,10 +288,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -299,8 +295,6 @@ block|{
 name|analyzeLinks
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -319,8 +313,6 @@ name|analyzeCompound
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -336,8 +328,6 @@ block|{
 name|analyzeWrite
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -358,10 +348,6 @@ parameter_list|(
 specifier|final
 name|CompilerSettings
 name|settings
-parameter_list|,
-specifier|final
-name|Definition
-name|definition
 parameter_list|,
 specifier|final
 name|Variables
@@ -471,8 +457,6 @@ operator|.
 name|analyze
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -841,10 +825,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -871,8 +851,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -891,8 +869,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -923,8 +899,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -955,8 +929,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -987,8 +959,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteAdd
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -1015,8 +985,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -1047,8 +1015,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -1075,8 +1041,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -1103,8 +1067,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -1131,8 +1093,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteXor
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -1159,8 +1119,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteXor
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -1187,8 +1145,6 @@ name|AnalyzerCaster
 operator|.
 name|promoteXor
 argument_list|(
-name|definition
-argument_list|,
 name|last
 operator|.
 name|after
@@ -1373,8 +1329,6 @@ name|cast
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1384,8 +1338,6 @@ name|AnalyzerCaster
 operator|.
 name|getLegalCast
 argument_list|(
-name|definition
-argument_list|,
 name|location
 argument_list|,
 name|last
@@ -1403,8 +1355,6 @@ name|AnalyzerCaster
 operator|.
 name|getLegalCast
 argument_list|(
-name|definition
-argument_list|,
 name|location
 argument_list|,
 name|promote
@@ -1447,10 +1397,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -1486,8 +1432,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1521,8 +1465,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -1534,8 +1476,6 @@ operator|.
 name|cast
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -1636,10 +1576,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|MethodWriter
 name|adapter
 parameter_list|)
@@ -1686,8 +1622,6 @@ name|write
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;
@@ -1724,8 +1658,6 @@ name|load
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;
@@ -1743,8 +1675,6 @@ operator|.
 name|write
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|adapter
 argument_list|)
@@ -1835,8 +1765,6 @@ name|store
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;
@@ -1865,8 +1793,6 @@ operator|.
 name|load
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|adapter
 argument_list|)
@@ -1911,8 +1837,6 @@ name|write
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;
@@ -1920,8 +1844,6 @@ name|adapter
 operator|.
 name|writeBinaryInstruction
 argument_list|(
-name|definition
-argument_list|,
 name|location
 argument_list|,
 name|promote
@@ -1970,8 +1892,6 @@ name|store
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;
@@ -1983,8 +1903,6 @@ operator|.
 name|write
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|adapter
 argument_list|)
@@ -2020,8 +1938,6 @@ name|store
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|adapter
 argument_list|)
 expr_stmt|;
@@ -2034,8 +1950,6 @@ operator|.
 name|load
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|adapter
 argument_list|)

@@ -190,9 +190,6 @@ parameter_list|(
 name|CompilerSettings
 name|settings
 parameter_list|,
-name|Definition
-name|definition
-parameter_list|,
 name|Variables
 name|variables
 parameter_list|)
@@ -252,8 +249,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 return|;
@@ -287,8 +282,6 @@ operator|.
 name|analyze
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -489,8 +482,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 return|;
@@ -516,8 +507,6 @@ operator|.
 name|analyze
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -555,8 +544,6 @@ operator|.
 name|analyze
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -596,8 +583,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 return|;
@@ -636,10 +621,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|MethodWriter
 name|adapter
 parameter_list|)
@@ -655,10 +636,6 @@ parameter_list|(
 specifier|final
 name|CompilerSettings
 name|settings
-parameter_list|,
-specifier|final
-name|Definition
-name|definition
 parameter_list|,
 specifier|final
 name|MethodWriter
@@ -748,10 +725,6 @@ parameter_list|(
 specifier|final
 name|CompilerSettings
 name|settings
-parameter_list|,
-specifier|final
-name|Definition
-name|definition
 parameter_list|,
 specifier|final
 name|MethodWriter

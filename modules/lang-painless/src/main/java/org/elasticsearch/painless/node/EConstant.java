@@ -131,10 +131,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -296,10 +292,6 @@ parameter_list|(
 specifier|final
 name|CompilerSettings
 name|settings
-parameter_list|,
-specifier|final
-name|Definition
-name|definition
 parameter_list|,
 specifier|final
 name|MethodWriter

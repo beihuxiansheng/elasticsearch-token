@@ -1418,10 +1418,6 @@ name|void
 name|writeBinaryInstruction
 parameter_list|(
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|String
 name|location
 parameter_list|,

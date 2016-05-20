@@ -114,10 +114,6 @@ name|Cast
 name|getLegalCast
 parameter_list|(
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|String
 name|location
 parameter_list|,
@@ -695,10 +691,6 @@ name|Type
 name|promoteNumeric
 parameter_list|(
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Type
 name|from
 parameter_list|,
@@ -900,10 +892,6 @@ specifier|static
 name|Type
 name|promoteNumeric
 parameter_list|(
-specifier|final
-name|Definition
-name|definition
-parameter_list|,
 specifier|final
 name|Type
 name|from0
@@ -1205,10 +1193,6 @@ name|Type
 name|promoteAdd
 parameter_list|(
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Type
 name|from0
 parameter_list|,
@@ -1257,8 +1241,6 @@ block|}
 return|return
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|from0
 argument_list|,
 name|from1
@@ -1275,10 +1257,6 @@ specifier|static
 name|Type
 name|promoteXor
 parameter_list|(
-specifier|final
-name|Definition
-name|definition
-parameter_list|,
 specifier|final
 name|Type
 name|from0
@@ -1324,8 +1302,6 @@ block|}
 return|return
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|from0
 argument_list|,
 name|from1
@@ -1342,10 +1318,6 @@ specifier|static
 name|Type
 name|promoteEquality
 parameter_list|(
-specifier|final
-name|Definition
-name|definition
-parameter_list|,
 specifier|final
 name|Type
 name|from0
@@ -1441,8 +1413,6 @@ block|{
 return|return
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|from0
 argument_list|,
 name|from1
@@ -1465,10 +1435,6 @@ specifier|static
 name|Type
 name|promoteReference
 parameter_list|(
-specifier|final
-name|Definition
-name|definition
-parameter_list|,
 specifier|final
 name|Type
 name|from0
@@ -1557,8 +1523,6 @@ block|{
 return|return
 name|promoteNumeric
 argument_list|(
-name|definition
-argument_list|,
 name|from0
 argument_list|,
 name|from1
@@ -1582,10 +1546,6 @@ specifier|static
 name|Type
 name|promoteConditional
 parameter_list|(
-specifier|final
-name|Definition
-name|definition
-parameter_list|,
 specifier|final
 name|Type
 name|from0

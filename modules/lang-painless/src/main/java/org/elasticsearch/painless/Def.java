@@ -761,7 +761,7 @@ name|arrayType
 argument_list|)
 return|;
 block|}
-comment|/**      * Looks up handle for a dynamic method call.      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param type Callsite signature. Need not match exactly, except the number of parameters.      * @param definition Whitelist to check.      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
+comment|/**      * Looks up handle for a dynamic method call.      *<p>      * A dynamic method call for variable {@code x} of type {@code def} looks like:      * {@code x.method(args...)}      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted method. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching method.      *<p>      * @param receiverClass Class of the object to invoke the method on.      * @param name Name of the method.      * @param type Callsite signature. Need not match exactly, except the number of parameters.      * @return pointer to matching method to invoke. never returns null.      * @throws IllegalArgumentException if no matching whitelisted method was found.      */
 DECL|method|lookupMethod
 specifier|static
 name|MethodHandle
@@ -778,9 +778,6 @@ name|name
 parameter_list|,
 name|MethodType
 name|type
-parameter_list|,
-name|Definition
-name|definition
 parameter_list|)
 block|{
 comment|// we don't consider receiver an argument/counting towards arity
@@ -964,7 +961,7 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Looks up handle for a dynamic field getter (field load)      *<p>      * A dynamic field load for variable {@code x} of type {@code def} looks like:      * {@code y = x.field}      *<p>      * The following field loads are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code getField()} from receiver's class/superclasses/interfaces.      *<li>Whitelisted method named {@code isField()} from receiver's class/superclasses/interfaces.      *<li>The {@code length} field of an array.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted getter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching getter.      *<p>      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @param definition Whitelist to check.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
+comment|/**      * Looks up handle for a dynamic field getter (field load)      *<p>      * A dynamic field load for variable {@code x} of type {@code def} looks like:      * {@code y = x.field}      *<p>      * The following field loads are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code getField()} from receiver's class/superclasses/interfaces.      *<li>Whitelisted method named {@code isField()} from receiver's class/superclasses/interfaces.      *<li>The {@code length} field of an array.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted getter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching getter.      *<p>      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
 DECL|method|lookupGetter
 specifier|static
 name|MethodHandle
@@ -978,9 +975,6 @@ name|receiverClass
 parameter_list|,
 name|String
 name|name
-parameter_list|,
-name|Definition
-name|definition
 parameter_list|)
 block|{
 comment|// first try whitelist
@@ -1237,7 +1231,7 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-comment|/**      * Looks up handle for a dynamic field setter (field store)      *<p>      * A dynamic field store for variable {@code x} of type {@code def} looks like:      * {@code x.field = y}      *<p>      * The following field stores are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code setField()} from receiver's class/superclasses/interfaces.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted setter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching setter.      *<p>      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @param definition Whitelist to check.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
+comment|/**      * Looks up handle for a dynamic field setter (field store)      *<p>      * A dynamic field store for variable {@code x} of type {@code def} looks like:      * {@code x.field = y}      *<p>      * The following field stores are allowed:      *<ul>      *<li>Whitelisted {@code field} from receiver's class or any superclasses.      *<li>Whitelisted method named {@code setField()} from receiver's class/superclasses/interfaces.      *<li>The value corresponding to a map key named {@code field} when the receiver is a Map.      *<li>The value in a list at element {@code field} (integer) when the receiver is a List.      *</ul>      *<p>      * This method traverses {@code recieverClass}'s class hierarchy (including interfaces)      * until it finds a matching whitelisted setter. If one is not found, it throws an exception.      * Otherwise it returns a handle to the matching setter.      *<p>      * @param receiverClass Class of the object to retrieve the field from.      * @param name Name of the field.      * @return pointer to matching field. never returns null.      * @throws IllegalArgumentException if no matching whitelisted field was found.      */
 DECL|method|lookupSetter
 specifier|static
 name|MethodHandle
@@ -1251,9 +1245,6 @@ name|receiverClass
 parameter_list|,
 name|String
 name|name
-parameter_list|,
-name|Definition
-name|definition
 parameter_list|)
 block|{
 comment|// first try whitelist

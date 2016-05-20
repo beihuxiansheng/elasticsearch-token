@@ -37,18 +37,6 @@ operator|.
 name|painless
 operator|.
 name|Definition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|Definition
 operator|.
 name|Cast
 import|;
@@ -233,10 +221,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -250,10 +234,6 @@ parameter_list|(
 specifier|final
 name|CompilerSettings
 name|settings
-parameter_list|,
-specifier|final
-name|Definition
-name|definition
 parameter_list|,
 specifier|final
 name|MethodWriter
@@ -270,10 +250,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Variables
 name|variables
 parameter_list|)
@@ -286,8 +262,6 @@ name|AnalyzerCaster
 operator|.
 name|getLegalCast
 argument_list|(
-name|definition
-argument_list|,
 name|location
 argument_list|,
 name|actual
@@ -340,8 +314,6 @@ operator|.
 name|analyze
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)
@@ -466,8 +438,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;
@@ -554,8 +524,6 @@ operator|.
 name|analyze
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|variables
 argument_list|)

@@ -198,10 +198,6 @@ specifier|final
 name|CompilerSettings
 name|settings
 parameter_list|,
-specifier|final
-name|Definition
-name|definition
-parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -227,8 +223,6 @@ name|Writer
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|name
 argument_list|,
 name|source
@@ -250,12 +244,6 @@ specifier|private
 specifier|final
 name|CompilerSettings
 name|settings
-decl_stmt|;
-DECL|field|definition
-specifier|private
-specifier|final
-name|Definition
-name|definition
 decl_stmt|;
 DECL|field|scriptName
 specifier|private
@@ -301,10 +289,6 @@ specifier|final
 name|CompilerSettings
 name|settings
 parameter_list|,
-specifier|final
-name|Definition
-name|definition
-parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -326,12 +310,6 @@ operator|.
 name|settings
 operator|=
 name|settings
-expr_stmt|;
-name|this
-operator|.
-name|definition
-operator|=
-name|definition
 expr_stmt|;
 name|this
 operator|.
@@ -1005,8 +983,6 @@ operator|.
 name|write
 argument_list|(
 name|settings
-argument_list|,
-name|definition
 argument_list|,
 name|adapter
 argument_list|)

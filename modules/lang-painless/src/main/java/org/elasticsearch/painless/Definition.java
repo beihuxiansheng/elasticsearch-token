@@ -160,9 +160,9 @@ name|DEFINITION_FILE
 init|=
 literal|"definition.txt"
 decl_stmt|;
-comment|/**      * The default language API to be used with Painless.  The second construction is used      * to finalize all the variables, so there is no mistake of modification afterwards.      */
+comment|// The second construction is used to finalize all the variables, so there is no mistake of modification afterwards.
 DECL|field|INSTANCE
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|Definition
