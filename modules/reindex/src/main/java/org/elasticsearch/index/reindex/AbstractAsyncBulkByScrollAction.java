@@ -2984,23 +2984,30 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+name|TimeValue
+name|delay
+init|=
+name|retries
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"retrying rejected search"
+literal|"retrying rejected search after [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|delay
 argument_list|)
 expr_stmt|;
 name|threadPool
 operator|.
 name|schedule
 argument_list|(
-name|retries
-operator|.
-name|next
-argument_list|()
+name|delay
 argument_list|,
 name|ThreadPool
 operator|.
