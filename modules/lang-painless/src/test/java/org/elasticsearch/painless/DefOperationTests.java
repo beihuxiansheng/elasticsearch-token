@@ -51,10 +51,15 @@ name|exception
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|exception
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"java.lang.Double cannot be cast to java.lang.Integer"
+literal|"cannot be cast to java.lang.Integer"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -80,10 +85,15 @@ name|exception
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|exception
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"java.lang.Short cannot be cast to java.lang.Byte"
+literal|"cannot be cast to java.lang.Byte"
 argument_list|)
 argument_list|)
 expr_stmt|;

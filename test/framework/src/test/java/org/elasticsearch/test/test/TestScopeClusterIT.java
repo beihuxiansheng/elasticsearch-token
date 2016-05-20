@@ -173,8 +173,9 @@ name|assertEquals
 argument_list|(
 name|CLUSTER_SEED
 argument_list|,
-operator|new
 name|Long
+operator|.
+name|valueOf
 argument_list|(
 name|cluster
 argument_list|()
