@@ -231,13 +231,13 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractAzureRepositoryServiceTestCase
+DECL|class|AbstractAzureRepositoryServiceIntegTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractAzureRepositoryServiceTestCase
+name|AbstractAzureRepositoryServiceIntegTestCase
 extends|extends
-name|AbstractAzureTestCase
+name|AbstractAzureIntegTestCase
 block|{
 DECL|class|TestPlugin
 specifier|public
@@ -295,9 +295,9 @@ specifier|protected
 name|String
 name|basePath
 decl_stmt|;
-DECL|method|AbstractAzureRepositoryServiceTestCase
+DECL|method|AbstractAzureRepositoryServiceIntegTestCase
 specifier|public
-name|AbstractAzureRepositoryServiceTestCase
+name|AbstractAzureRepositoryServiceIntegTestCase
 parameter_list|(
 name|String
 name|basePath
@@ -366,10 +366,7 @@ argument_list|(
 name|repository
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 block|}

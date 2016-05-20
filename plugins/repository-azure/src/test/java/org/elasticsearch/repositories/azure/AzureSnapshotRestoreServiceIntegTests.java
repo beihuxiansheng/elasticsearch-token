@@ -98,7 +98,7 @@ name|cloud
 operator|.
 name|azure
 operator|.
-name|AbstractAzureRepositoryServiceTestCase
+name|AbstractAzureRepositoryServiceIntegTestCase
 import|;
 end_import
 
@@ -216,16 +216,16 @@ name|transportClientRatio
 operator|=
 literal|0.0
 argument_list|)
-DECL|class|AzureSnapshotRestoreServiceTests
+DECL|class|AzureSnapshotRestoreServiceIntegTests
 specifier|public
 class|class
-name|AzureSnapshotRestoreServiceTests
+name|AzureSnapshotRestoreServiceIntegTests
 extends|extends
-name|AbstractAzureRepositoryServiceTestCase
+name|AbstractAzureRepositoryServiceIntegTestCase
 block|{
-DECL|method|AzureSnapshotRestoreServiceTests
+DECL|method|AzureSnapshotRestoreServiceIntegTests
 specifier|public
-name|AzureSnapshotRestoreServiceTests
+name|AzureSnapshotRestoreServiceIntegTests
 parameter_list|()
 block|{
 name|super
@@ -889,10 +889,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1055,10 +1052,7 @@ argument_list|,
 literal|"-test-idx-2"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|assertThat

@@ -1069,6 +1069,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
+comment|// We list the blobs using a flat blob listing mode
 for|for
 control|(
 name|ListBlobItem
@@ -1089,8 +1090,6 @@ name|blobName
 init|=
 name|blobNameFromUri
 argument_list|(
-name|container
-argument_list|,
 name|blobItem
 operator|.
 name|getUri
@@ -1125,15 +1124,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Extract the blob name from a URI like https://myservice.azure.net/container/path/to/myfile      * It should remove the container part (first part of the path) and gives path/to/myfile      * @param uri URI to parse      * @return The blob name relative to the container      */
 DECL|method|blobNameFromUri
 specifier|public
 specifier|static
 name|String
 name|blobNameFromUri
 parameter_list|(
-name|String
-name|container
-parameter_list|,
 name|URI
 name|uri
 parameter_list|)
@@ -1147,19 +1144,28 @@ name|getPath
 argument_list|()
 decl_stmt|;
 comment|// We remove the container name from the path
-return|return
+comment|// The 3 magic number cames from the fact we have // in the first part of the URI (protocol)
+comment|// Then a / after the server address
+comment|// And we finally split after the container/
+name|String
+index|[]
+name|splits
+init|=
 name|path
 operator|.
-name|replaceFirst
+name|split
 argument_list|(
 literal|"/"
-operator|+
-name|container
-operator|+
-literal|"/"
 argument_list|,
-literal|""
+literal|3
 argument_list|)
+decl_stmt|;
+comment|// We return the remaining end of the string
+return|return
+name|splits
+index|[
+literal|2
+index|]
 return|;
 block|}
 annotation|@

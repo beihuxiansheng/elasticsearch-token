@@ -348,7 +348,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"blobExists({})"
 argument_list|,
@@ -421,7 +421,7 @@ name|IOException
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"readBlob({})"
 argument_list|,
@@ -520,7 +520,7 @@ name|IOException
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"writeBlob({}, stream, {})"
 argument_list|,
@@ -569,7 +569,7 @@ name|IOException
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"writeBlob({}, bytes)"
 argument_list|,
@@ -716,7 +716,7 @@ name|IOException
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"deleteBlob({})"
 argument_list|,
@@ -799,7 +799,7 @@ name|IOException
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"listBlobsByPrefix({})"
 argument_list|,
@@ -878,7 +878,7 @@ name|IOException
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"move({}, {})"
 argument_list|,
@@ -937,40 +937,7 @@ block|}
 catch|catch
 parameter_list|(
 name|URISyntaxException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"can not move blob [{}] to [{}] in container {{}}: {}"
-argument_list|,
-name|sourceBlobName
-argument_list|,
-name|targetBlobName
-argument_list|,
-name|blobStore
-operator|.
-name|container
-argument_list|()
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
+decl||
 name|StorageException
 name|e
 parameter_list|)
@@ -1022,7 +989,7 @@ name|IOException
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"listBlobs()"
 argument_list|)

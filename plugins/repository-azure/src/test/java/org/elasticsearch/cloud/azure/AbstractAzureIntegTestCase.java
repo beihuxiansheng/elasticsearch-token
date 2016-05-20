@@ -71,11 +71,11 @@ comment|/**  * Base class for Azure tests.  */
 end_comment
 
 begin_class
-DECL|class|AbstractAzureTestCase
+DECL|class|AbstractAzureIntegTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractAzureTestCase
+name|AbstractAzureIntegTestCase
 extends|extends
 name|ESIntegTestCase
 block|{
