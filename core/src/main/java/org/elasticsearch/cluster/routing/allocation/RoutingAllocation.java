@@ -469,6 +469,12 @@ name|ignoreDisable
 init|=
 literal|false
 decl_stmt|;
+DECL|field|retryFailed
+specifier|private
+specifier|final
+name|boolean
+name|retryFailed
+decl_stmt|;
 DECL|field|debugDecision
 specifier|private
 name|boolean
@@ -508,6 +514,9 @@ name|clusterInfo
 parameter_list|,
 name|long
 name|currentNanoTime
+parameter_list|,
+name|boolean
+name|retryFailed
 parameter_list|)
 block|{
 name|this
@@ -560,6 +569,12 @@ operator|.
 name|currentNanoTime
 operator|=
 name|currentNanoTime
+expr_stmt|;
+name|this
+operator|.
+name|retryFailed
+operator|=
+name|retryFailed
 expr_stmt|;
 block|}
 comment|/** returns the nano time captured at the beginning of the allocation. used to make sure all time based decisions are aligned */
@@ -995,6 +1010,16 @@ name|hasPendingAsyncFetch
 operator|=
 literal|true
 expr_stmt|;
+block|}
+DECL|method|isRetryFailed
+specifier|public
+name|boolean
+name|isRetryFailed
+parameter_list|()
+block|{
+return|return
+name|retryFailed
+return|;
 block|}
 block|}
 end_class
