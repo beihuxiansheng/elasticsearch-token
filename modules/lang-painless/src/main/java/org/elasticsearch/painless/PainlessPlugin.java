@@ -75,6 +75,17 @@ name|PainlessPlugin
 extends|extends
 name|Plugin
 block|{
+comment|// force to pare our definition at startup (not on the user's first script)
+static|static
+block|{
+name|Definition
+operator|.
+name|VOID_TYPE
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|name

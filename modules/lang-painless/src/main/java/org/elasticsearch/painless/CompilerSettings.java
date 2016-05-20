@@ -25,16 +25,6 @@ specifier|final
 class|class
 name|CompilerSettings
 block|{
-comment|/**      * Constant to be used when specifying numeric overflow when compiling a script.      */
-DECL|field|NUMERIC_OVERFLOW
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NUMERIC_OVERFLOW
-init|=
-literal|"numeric_overflow"
-decl_stmt|;
 comment|/**      * Constant to be used when specifying the maximum loop counter when compiling a script.      */
 DECL|field|MAX_LOOP_COUNTER
 specifier|public
@@ -45,14 +35,6 @@ name|MAX_LOOP_COUNTER
 init|=
 literal|"max_loop_counter"
 decl_stmt|;
-comment|/**      * Whether or not to allow numeric values to overflow without exception.      */
-DECL|field|numericOverflow
-specifier|private
-name|boolean
-name|numericOverflow
-init|=
-literal|true
-decl_stmt|;
 comment|/**      * The maximum number of statements allowed to be run in a loop.      */
 DECL|field|maxLoopCounter
 specifier|private
@@ -61,36 +43,6 @@ name|maxLoopCounter
 init|=
 literal|10000
 decl_stmt|;
-comment|/**      * Returns {@code true} if numeric operations should overflow, {@code false}      * if they should signal an exception.      *<p>      * If this value is {@code true} (default), then things behave like java:      * overflow for integer types can result in unexpected values / unexpected      * signs, and overflow for floating point types can result in infinite or      * {@code NaN} values.      */
-DECL|method|getNumericOverflow
-specifier|public
-specifier|final
-name|boolean
-name|getNumericOverflow
-parameter_list|()
-block|{
-return|return
-name|numericOverflow
-return|;
-block|}
-comment|/**      * Set {@code true} for numerics to overflow, false to deliver exceptions.      * @see #getNumericOverflow      */
-DECL|method|setNumericOverflow
-specifier|public
-specifier|final
-name|void
-name|setNumericOverflow
-parameter_list|(
-name|boolean
-name|allow
-parameter_list|)
-block|{
-name|this
-operator|.
-name|numericOverflow
-operator|=
-name|allow
-expr_stmt|;
-block|}
 comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.  Note if      * the counter is set to 0, no loop counter will be written.      */
 DECL|method|getMaxLoopCounter
 specifier|public

@@ -330,10 +330,6 @@ argument_list|,
 name|name
 argument_list|,
 name|type
-argument_list|,
-name|Definition
-operator|.
-name|INSTANCE
 argument_list|)
 return|;
 case|case
@@ -347,10 +343,6 @@ argument_list|(
 name|clazz
 argument_list|,
 name|name
-argument_list|,
-name|Definition
-operator|.
-name|INSTANCE
 argument_list|)
 return|;
 case|case
@@ -364,10 +356,6 @@ argument_list|(
 name|clazz
 argument_list|,
 name|name
-argument_list|,
-name|Definition
-operator|.
-name|INSTANCE
 argument_list|)
 return|;
 case|case
