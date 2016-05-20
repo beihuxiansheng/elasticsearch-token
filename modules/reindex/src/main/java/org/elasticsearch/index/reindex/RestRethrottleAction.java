@@ -211,6 +211,17 @@ name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
+literal|"/_delete_by_query/{taskId}/_rethrottle"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|controller
+operator|.
+name|registerHandler
+argument_list|(
+name|POST
+argument_list|,
 literal|"/_reindex/{taskId}/_rethrottle"
 argument_list|,
 name|this

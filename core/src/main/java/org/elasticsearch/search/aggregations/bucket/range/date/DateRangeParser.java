@@ -173,7 +173,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -194,11 +194,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 name|factory
 init|=
 operator|new
-name|DateRangeAggregatorBuilder
+name|DateRangeAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)

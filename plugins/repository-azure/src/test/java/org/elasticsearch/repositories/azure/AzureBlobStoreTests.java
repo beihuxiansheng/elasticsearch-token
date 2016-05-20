@@ -114,6 +114,18 @@ name|elasticsearch
 operator|.
 name|repositories
 operator|.
+name|ESBlobStoreTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
 name|RepositoryName
 import|;
 end_import
@@ -127,18 +139,6 @@ operator|.
 name|repositories
 operator|.
 name|RepositorySettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ESBlobStoreTestCase
 import|;
 end_import
 

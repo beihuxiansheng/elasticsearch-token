@@ -4904,8 +4904,6 @@ extends|extends
 name|AbstractAsyncBulkByScrollAction
 argument_list|<
 name|DummyAbstractBulkByScrollRequest
-argument_list|,
-name|BulkIndexByScrollResponse
 argument_list|>
 block|{
 DECL|method|DummyAbstractAsyncBulkByScrollAction

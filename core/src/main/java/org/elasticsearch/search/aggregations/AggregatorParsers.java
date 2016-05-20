@@ -498,7 +498,7 @@ literal|"]."
 argument_list|)
 throw|;
 block|}
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>

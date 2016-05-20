@@ -282,7 +282,7 @@ name|bucket
 operator|.
 name|range
 operator|.
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 import|;
 end_import
 
@@ -1072,7 +1072,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 name|query
 init|=
 name|range

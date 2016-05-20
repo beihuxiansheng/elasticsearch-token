@@ -82,7 +82,7 @@ name|range
 operator|.
 name|ip
 operator|.
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|IpRangeTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 argument_list|>
 block|{
 DECL|method|randomIp
@@ -198,7 +198,7 @@ annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
@@ -212,11 +212,11 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 name|factory
 init|=
 operator|new
-name|IpRangeAggregatorBuilder
+name|IpRangeAggregationBuilder
 argument_list|(
 literal|"foo"
 argument_list|)

@@ -562,7 +562,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -596,11 +596,11 @@ argument_list|(
 name|ORIGIN_FIELD
 argument_list|)
 decl_stmt|;
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 name|factory
 init|=
 operator|new
-name|GeoDistanceAggregatorBuilder
+name|GeoDistanceAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|,

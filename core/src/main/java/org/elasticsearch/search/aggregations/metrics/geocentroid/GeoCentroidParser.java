@@ -210,7 +210,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -233,7 +233,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|GeoCentroidAggregatorBuilder
+name|GeoCentroidAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
