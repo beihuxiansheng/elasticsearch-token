@@ -919,7 +919,7 @@ name|promote
 init|=
 name|AnalyzerCaster
 operator|.
-name|promoteReference
+name|promoteEquality
 argument_list|(
 name|definition
 argument_list|,
@@ -1661,7 +1661,7 @@ name|promote
 init|=
 name|AnalyzerCaster
 operator|.
-name|promoteReference
+name|promoteEquality
 argument_list|(
 name|definition
 argument_list|,
@@ -2022,8 +2022,6 @@ operator|.
 name|actual
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -2311,8 +2309,6 @@ argument_list|,
 name|right
 operator|.
 name|actual
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -2604,8 +2600,6 @@ operator|.
 name|actual
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -2893,8 +2887,6 @@ argument_list|,
 name|right
 operator|.
 name|actual
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)

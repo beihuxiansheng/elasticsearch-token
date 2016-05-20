@@ -902,8 +902,6 @@ operator|.
 name|actual
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -934,8 +932,6 @@ operator|.
 name|actual
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -964,8 +960,6 @@ argument_list|,
 name|expression
 operator|.
 name|actual
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -1026,8 +1020,6 @@ operator|.
 name|actual
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1054,8 +1046,6 @@ operator|.
 name|after
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1082,8 +1072,6 @@ operator|.
 name|after
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1110,8 +1098,6 @@ operator|.
 name|after
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

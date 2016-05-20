@@ -455,8 +455,6 @@ operator|.
 name|actual
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -622,8 +620,6 @@ argument_list|,
 name|child
 operator|.
 name|actual
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -833,8 +829,6 @@ argument_list|,
 name|child
 operator|.
 name|actual
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
