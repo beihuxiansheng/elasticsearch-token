@@ -1889,6 +1889,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * ASM does boxing in an evil way to be compatible with Java prior to verison 5.      * Supporting versions prior to 5 is not a requirement of this project, so the modern      * boxing methods are used instead.      */
 annotation|@
 name|Override
 DECL|method|box
@@ -1915,6 +1916,25 @@ name|getSort
 argument_list|()
 condition|)
 block|{
+case|case
+name|org
+operator|.
+name|objectweb
+operator|.
+name|asm
+operator|.
+name|Type
+operator|.
+name|VOID
+case|:
+name|visitInsn
+argument_list|(
+name|Opcodes
+operator|.
+name|ACONST_NULL
+argument_list|)
+expr_stmt|;
+break|break;
 case|case
 name|org
 operator|.
@@ -2067,14 +2087,6 @@ name|DOUBLE_VALUE_OF
 argument_list|)
 expr_stmt|;
 break|break;
-default|default:
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Illegal tree structure."
-argument_list|)
-throw|;
 block|}
 block|}
 DECL|method|writeBranch
