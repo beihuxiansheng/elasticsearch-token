@@ -927,7 +927,7 @@ try|try
 block|{
 name|type
 operator|=
-name|definition
+name|Definition
 operator|.
 name|getType
 argument_list|(
@@ -971,7 +971,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|definition
+name|Definition
 operator|.
 name|getType
 argument_list|(

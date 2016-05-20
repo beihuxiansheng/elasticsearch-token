@@ -205,7 +205,7 @@ try|try
 block|{
 name|type
 operator|=
-name|definition
+name|Definition
 operator|.
 name|getType
 argument_list|(

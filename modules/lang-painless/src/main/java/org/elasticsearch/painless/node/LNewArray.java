@@ -241,7 +241,7 @@ try|try
 block|{
 name|type
 operator|=
-name|definition
+name|Definition
 operator|.
 name|getType
 argument_list|(
@@ -344,7 +344,7 @@ expr_stmt|;
 block|}
 name|after
 operator|=
-name|definition
+name|Definition
 operator|.
 name|getType
 argument_list|(
@@ -459,7 +459,7 @@ name|adapter
 operator|.
 name|newArray
 argument_list|(
-name|definition
+name|Definition
 operator|.
 name|getType
 argument_list|(

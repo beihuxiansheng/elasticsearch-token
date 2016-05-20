@@ -165,11 +165,9 @@ block|}
 name|Cast
 name|transform
 init|=
-name|definition
+name|Definition
 operator|.
-name|transformsMap
-operator|.
-name|get
+name|getTransform
 argument_list|(
 name|cast
 argument_list|)
@@ -185,11 +183,9 @@ condition|)
 block|{
 name|transform
 operator|=
-name|definition
+name|Definition
 operator|.
-name|transformsMap
-operator|.
-name|get
+name|getTransform
 argument_list|(
 operator|new
 name|Cast

@@ -236,7 +236,7 @@ argument_list|)
 expr_stmt|;
 name|after
 operator|=
-name|definition
+name|Definition
 operator|.
 name|getType
 argument_list|(

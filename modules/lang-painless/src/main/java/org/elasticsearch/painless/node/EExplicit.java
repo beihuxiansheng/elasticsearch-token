@@ -150,7 +150,7 @@ try|try
 block|{
 name|actual
 operator|=
-name|definition
+name|Definition
 operator|.
 name|getType
 argument_list|(
