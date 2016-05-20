@@ -6696,7 +6696,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|false
+literal|true
 argument_list|,
 name|exec
 argument_list|(
@@ -7000,7 +7000,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|true
+literal|false
 argument_list|,
 name|exec
 argument_list|(

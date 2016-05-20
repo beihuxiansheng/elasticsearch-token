@@ -305,6 +305,69 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testInternalBoxing
+specifier|public
+name|void
+name|testInternalBoxing
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = true"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = (byte)1"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Byte.valueOf (B)Ljava/lang/Byte;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = (short)1"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Short.valueOf (S)Ljava/lang/Short;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = (char)1"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1L"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Long.valueOf (J)Ljava/lang/Long;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1F"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Float.valueOf (F)Ljava/lang/Float;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1D"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
