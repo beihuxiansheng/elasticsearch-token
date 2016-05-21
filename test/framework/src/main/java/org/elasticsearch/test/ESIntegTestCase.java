@@ -11616,6 +11616,9 @@ name|ESIntegTestCase
 operator|)
 name|targetClass
 operator|.
+name|getConstructor
+argument_list|()
+operator|.
 name|newInstance
 argument_list|()
 expr_stmt|;

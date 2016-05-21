@@ -1324,8 +1324,9 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|assertThat
-argument_list|(
+name|int
+name|threads
+init|=
 name|stats
 argument_list|(
 name|threadPool
@@ -1335,11 +1336,12 @@ argument_list|)
 operator|.
 name|getThreads
 argument_list|()
-argument_list|,
-name|equalTo
+decl_stmt|;
+name|assertEquals
 argument_list|(
 literal|128
-argument_list|)
+argument_list|,
+name|threads
 argument_list|)
 expr_stmt|;
 name|latch
