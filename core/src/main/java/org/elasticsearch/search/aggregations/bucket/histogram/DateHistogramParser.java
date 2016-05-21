@@ -156,7 +156,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -177,11 +177,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 name|factory
 init|=
 operator|new
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)
@@ -514,7 +514,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|DateHistogramAggregatorBuilder
+name|DateHistogramAggregationBuilder
 operator|.
 name|parseStringOffset
 argument_list|(

@@ -760,7 +760,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -1010,7 +1010,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -1131,7 +1131,7 @@ argument_list|,
 literal|1
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|QueryBuilders
 operator|.

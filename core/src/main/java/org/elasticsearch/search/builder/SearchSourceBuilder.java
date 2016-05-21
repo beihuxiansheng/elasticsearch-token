@@ -314,7 +314,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorBuilder
+name|AggregationBuilder
 import|;
 end_import
 
@@ -2937,7 +2937,7 @@ specifier|public
 name|SearchSourceBuilder
 name|aggregation
 parameter_list|(
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>

@@ -4063,6 +4063,8 @@ name|AllocationCommands
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// the two indices must stay as is, the replicas cannot move to oldNode2 because versions don't match
@@ -4438,6 +4440,8 @@ name|AllocationCommands
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// Make sure that primary shards are only allocated on the new node

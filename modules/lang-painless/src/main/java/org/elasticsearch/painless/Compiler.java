@@ -390,6 +390,8 @@ argument_list|(
 name|source
 argument_list|,
 name|reserved
+argument_list|,
+name|settings
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -402,10 +404,6 @@ name|analyze
 argument_list|(
 name|settings
 argument_list|,
-name|Definition
-operator|.
-name|INSTANCE
-argument_list|,
 name|reserved
 argument_list|,
 name|root
@@ -417,10 +415,6 @@ operator|.
 name|write
 argument_list|(
 name|settings
-argument_list|,
-name|Definition
-operator|.
-name|INSTANCE
 argument_list|,
 name|name
 argument_list|,

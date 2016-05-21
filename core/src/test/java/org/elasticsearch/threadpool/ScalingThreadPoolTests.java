@@ -335,7 +335,14 @@ name|expectedSize
 operator|=
 name|randomIntBetween
 argument_list|(
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|1
+argument_list|,
 name|min
+argument_list|)
 argument_list|,
 literal|16
 argument_list|)

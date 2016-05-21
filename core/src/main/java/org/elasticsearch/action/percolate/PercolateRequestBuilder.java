@@ -146,7 +146,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregatorBuilder
+name|AggregationBuilder
 import|;
 end_import
 
@@ -583,13 +583,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Delegates to      * {@link PercolateSourceBuilder#addAggregation(AggregatorBuilder)}      */
+comment|/**      * Delegates to      * {@link PercolateSourceBuilder#addAggregation(AggregationBuilder)}      */
 DECL|method|addAggregation
 specifier|public
 name|PercolateRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>

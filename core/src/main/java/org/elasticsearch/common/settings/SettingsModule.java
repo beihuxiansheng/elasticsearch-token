@@ -444,12 +444,26 @@ parameter_list|(
 name|s
 parameter_list|)
 lambda|->
+operator|(
 name|s
 operator|.
 name|startsWith
 argument_list|(
 literal|"index."
 argument_list|)
+operator|&&
+comment|// special case - we want to get Did you mean indices.query.bool.max_clause_count
+comment|// which means we need to by-pass this check for this setting
+comment|// TODO remove in 6.0!!
+literal|"index.query.bool.max_clause_count"
+operator|.
+name|equals
+argument_list|(
+name|s
+argument_list|)
+operator|==
+literal|false
+operator|)
 operator|&&
 name|clusterSettings
 operator|.

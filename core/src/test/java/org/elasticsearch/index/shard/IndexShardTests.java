@@ -6162,14 +6162,6 @@ operator|.
 name|getIndicesQueryCache
 argument_list|()
 argument_list|,
-name|test
-operator|.
-name|cache
-argument_list|()
-operator|.
-name|getPercolatorQueryCache
-argument_list|()
-argument_list|,
 name|shard
 argument_list|,
 operator|new

@@ -224,6 +224,7 @@ name|ClusterRerouteRequest
 argument_list|>
 block|{
 DECL|field|commands
+specifier|private
 name|AllocationCommands
 name|commands
 init|=
@@ -232,12 +233,19 @@ name|AllocationCommands
 argument_list|()
 decl_stmt|;
 DECL|field|dryRun
+specifier|private
 name|boolean
 name|dryRun
 decl_stmt|;
 DECL|field|explain
+specifier|private
 name|boolean
 name|explain
+decl_stmt|;
+DECL|field|retryFailed
+specifier|private
+name|boolean
+name|retryFailed
 decl_stmt|;
 DECL|method|ClusterRerouteRequest
 specifier|public
@@ -321,6 +329,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the retry failed flag (defaults to<tt>false</tt>). If true, the      * request will retry allocating shards that can't currently be allocated due to too many allocation failures.      */
+DECL|method|setRetryFailed
+specifier|public
+name|ClusterRerouteRequest
+name|setRetryFailed
+parameter_list|(
+name|boolean
+name|retryFailed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retryFailed
+operator|=
+name|retryFailed
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Returns the current explain flag      */
 DECL|method|explain
 specifier|public
@@ -332,6 +360,19 @@ return|return
 name|this
 operator|.
 name|explain
+return|;
+block|}
+comment|/**      * Returns the current retry failed flag      */
+DECL|method|isRetryFailed
+specifier|public
+name|boolean
+name|isRetryFailed
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|retryFailed
 return|;
 block|}
 comment|/**      * Set the allocation commands to execute.      */
@@ -357,6 +398,17 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Returns the allocation commands to execute      */
+DECL|method|getCommands
+specifier|public
+name|AllocationCommands
+name|getCommands
+parameter_list|()
+block|{
+return|return
+name|commands
 return|;
 block|}
 comment|/**      * Sets the source for the request.      */
@@ -596,6 +648,13 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
+name|retryFailed
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 name|readTimeout
 argument_list|(
 name|in
@@ -643,6 +702,13 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|explain
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|retryFailed
 argument_list|)
 expr_stmt|;
 name|writeTimeout

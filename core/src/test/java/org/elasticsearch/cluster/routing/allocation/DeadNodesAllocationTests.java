@@ -1538,6 +1538,10 @@ argument_list|,
 literal|"node3"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2445,6 +2449,10 @@ argument_list|,
 literal|"node3"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat

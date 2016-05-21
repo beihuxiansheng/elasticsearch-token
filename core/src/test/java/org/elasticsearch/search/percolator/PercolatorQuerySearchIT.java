@@ -1594,7 +1594,7 @@ argument_list|,
 literal|0
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1604,7 +1604,7 @@ literal|"brown"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1680,7 +1680,7 @@ argument_list|,
 literal|0
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1690,7 +1690,7 @@ literal|"brown"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1717,7 +1717,7 @@ argument_list|,
 literal|0
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1727,7 +1727,7 @@ literal|"lazy"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1795,7 +1795,7 @@ argument_list|,
 literal|0
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1805,7 +1805,7 @@ literal|"brown"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1832,7 +1832,7 @@ argument_list|,
 literal|0
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -1842,7 +1842,7 @@ literal|"lazy"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(

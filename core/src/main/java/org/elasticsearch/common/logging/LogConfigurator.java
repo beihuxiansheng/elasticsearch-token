@@ -70,18 +70,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|bootstrap
-operator|.
-name|BootstrapInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -638,7 +626,7 @@ specifier|static
 name|boolean
 name|loaded
 decl_stmt|;
-comment|/**      * Consolidates settings and converts them into actual log4j settings, then initializes loggers and appenders.      *      * @param settings      custom settings that should be applied      * @param resolveConfig controls whether the logging conf file should be read too or not.      */
+comment|/**      * Consolidates settings and converts them into actual log4j settings, then initializes loggers and appenders.      *  @param settings      custom settings that should be applied      * @param resolveConfig controls whether the logging conf file should be read too or not.      */
 DECL|method|configure
 specifier|public
 specifier|static
@@ -696,18 +684,6 @@ name|settingsBuilder
 argument_list|)
 expr_stmt|;
 block|}
-name|settingsBuilder
-operator|.
-name|putProperties
-argument_list|(
-literal|"es."
-argument_list|,
-name|BootstrapInfo
-operator|.
-name|getSystemProperties
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// add custom settings after config was added so that they are not overwritten by config
 name|settingsBuilder
 operator|.

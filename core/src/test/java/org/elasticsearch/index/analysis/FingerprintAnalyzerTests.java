@@ -87,8 +87,6 @@ argument_list|,
 literal|' '
 argument_list|,
 literal|255
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
@@ -127,8 +125,6 @@ argument_list|,
 literal|' '
 argument_list|,
 literal|255
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
@@ -181,8 +177,6 @@ argument_list|,
 literal|' '
 argument_list|,
 literal|255
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
@@ -214,46 +208,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testPreserveOriginal
-specifier|public
-name|void
-name|testPreserveOriginal
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Analyzer
-name|a
-init|=
-operator|new
-name|FingerprintAnalyzer
-argument_list|(
-name|CharArraySet
-operator|.
-name|EMPTY_SET
-argument_list|,
-literal|' '
-argument_list|,
-literal|255
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-name|assertAnalyzesTo
-argument_list|(
-name|a
-argument_list|,
-literal|"gÃ¶del escher bach"
-argument_list|,
-operator|new
-name|String
-index|[]
-block|{
-literal|"bach escher godel gÃ¶del"
-block|}
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testLimit
 specifier|public
 name|void
@@ -275,8 +229,6 @@ argument_list|,
 literal|' '
 argument_list|,
 literal|3
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
@@ -302,46 +254,6 @@ name|String
 index|[]
 block|{
 literal|"a b"
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|testSeparator
-specifier|public
-name|void
-name|testSeparator
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Analyzer
-name|a
-init|=
-operator|new
-name|FingerprintAnalyzer
-argument_list|(
-name|CharArraySet
-operator|.
-name|EMPTY_SET
-argument_list|,
-literal|'_'
-argument_list|,
-literal|255
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-name|assertAnalyzesTo
-argument_list|(
-name|a
-argument_list|,
-literal|"b c a"
-argument_list|,
-operator|new
-name|String
-index|[]
-block|{
-literal|"a_b_c"
 block|}
 argument_list|)
 expr_stmt|;

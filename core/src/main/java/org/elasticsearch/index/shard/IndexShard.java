@@ -3962,9 +3962,17 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
 name|logger
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
 argument_list|(
 literal|"refresh with source [{}] indexBufferRAMBytesUsed [{}]"
 argument_list|,
@@ -3977,6 +3985,7 @@ name|bytes
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|long
 name|time
 init|=
@@ -4008,9 +4017,17 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
 name|logger
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
 argument_list|(
 literal|"remove [{}] writing bytes for shard [{}]"
 argument_list|,
@@ -4024,6 +4041,7 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|writingBytes
 operator|.
 name|addAndGet
@@ -4036,15 +4054,24 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
 name|logger
 operator|.
-name|debug
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
 argument_list|(
 literal|"refresh with source [{}]"
 argument_list|,
 name|source
 argument_list|)
 expr_stmt|;
+block|}
 name|long
 name|time
 init|=

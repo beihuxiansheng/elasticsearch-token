@@ -1319,7 +1319,7 @@ operator|.
 name|getShardSize
 argument_list|()
 operator|==
-name|SignificantTermsAggregatorBuilder
+name|SignificantTermsAggregationBuilder
 operator|.
 name|DEFAULT_BUCKET_COUNT_THRESHOLDS
 operator|.

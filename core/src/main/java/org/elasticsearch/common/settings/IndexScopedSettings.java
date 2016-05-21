@@ -76,6 +76,24 @@ name|allocation
 operator|.
 name|decider
 operator|.
+name|MaxRetryAllocationDecider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|decider
+operator|.
 name|ShardsLimitAllocationDecider
 import|;
 end_import
@@ -262,7 +280,7 @@ name|index
 operator|.
 name|percolator
 operator|.
-name|PercolatorQueryCache
+name|PercolatorFieldMapper
 import|;
 end_import
 
@@ -319,18 +337,6 @@ operator|.
 name|store
 operator|.
 name|Store
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexWarmer
 import|;
 end_import
 
@@ -469,6 +475,10 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
+name|MaxRetryAllocationDecider
+operator|.
+name|SETTING_ALLOCATION_MAX_RETRY
+argument_list|,
 name|IndexSettings
 operator|.
 name|INDEX_TTL_DISABLE_PURGE_SETTING
@@ -737,7 +747,7 @@ name|Store
 operator|.
 name|INDEX_STORE_STATS_REFRESH_INTERVAL_SETTING
 argument_list|,
-name|PercolatorQueryCache
+name|PercolatorFieldMapper
 operator|.
 name|INDEX_MAP_UNMAPPED_FIELDS_AS_STRING_SETTING
 argument_list|,

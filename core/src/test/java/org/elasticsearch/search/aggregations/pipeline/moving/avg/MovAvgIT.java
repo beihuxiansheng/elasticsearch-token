@@ -384,7 +384,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -761,7 +761,7 @@ name|gapPolicy
 decl_stmt|;
 DECL|field|metric
 specifier|static
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|?
 extends|extends
@@ -769,7 +769,7 @@ name|ValuesSource
 argument_list|,
 name|?
 extends|extends
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|?
 argument_list|,
@@ -9124,7 +9124,7 @@ block|}
 block|}
 DECL|method|randomMetric
 specifier|private
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|?
 extends|extends
@@ -9132,7 +9132,7 @@ name|ValuesSource
 argument_list|,
 name|?
 extends|extends
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|?
 argument_list|,

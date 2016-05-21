@@ -712,7 +712,7 @@ operator|.
 name|getShardSize
 argument_list|()
 operator|==
-name|TermsAggregatorBuilder
+name|TermsAggregationBuilder
 operator|.
 name|DEFAULT_BUCKET_COUNT_THRESHOLDS
 operator|.

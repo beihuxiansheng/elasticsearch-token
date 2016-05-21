@@ -86,16 +86,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -2623,22 +2613,6 @@ name|void
 name|testSubHourNextRoundingEquallySpaced
 parameter_list|()
 block|{
-name|String
-name|timeZone
-init|=
-name|randomFrom
-argument_list|(
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(
-name|DateTimeZone
-operator|.
-name|getAvailableIDs
-argument_list|()
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|DateTimeUnit
 name|unit
 init|=
@@ -2663,14 +2637,10 @@ block|}
 argument_list|)
 decl_stmt|;
 name|DateTimeZone
-name|tz
+name|timezone
 init|=
-name|DateTimeZone
-operator|.
-name|forID
-argument_list|(
-name|timeZone
-argument_list|)
+name|randomDateTimeZone
+argument_list|()
 decl_stmt|;
 name|TimeZoneRounding
 name|rounding
@@ -2682,14 +2652,14 @@ name|TimeUnitRounding
 argument_list|(
 name|unit
 argument_list|,
-name|tz
+name|timezone
 argument_list|)
 decl_stmt|;
 comment|// move the random date to transition for timezones that have offset change due to dst transition
 name|long
 name|nextTransition
 init|=
-name|tz
+name|timezone
 operator|.
 name|nextTransition
 argument_list|(
@@ -2775,7 +2745,7 @@ argument_list|()
 operator|+
 literal|"], ["
 operator|+
-name|timeZone
+name|timezone
 operator|+
 literal|"] at "
 operator|+

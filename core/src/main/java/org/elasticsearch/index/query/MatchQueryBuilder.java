@@ -1236,7 +1236,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No negative prefix length allowed."
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] requires prefix length to be non-negative."
 argument_list|)
 throw|;
 block|}
@@ -1276,7 +1280,7 @@ block|{
 if|if
 condition|(
 name|maxExpansions
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
@@ -1284,7 +1288,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"No negative maxExpansions allowed."
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] requires maxExpansions to be positive."
 argument_list|)
 throw|;
 block|}
