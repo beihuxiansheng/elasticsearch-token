@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TODO: document this hack  */
+comment|/**  * Log4j 1.2 MDC breaks because it parses java.version incorrectly (does not handle new java9 versioning).  *  * This hack fixes up the pkg private members as if it had detected the java version correctly.  */
 end_comment
 
 begin_class
@@ -45,15 +45,6 @@ name|void
 name|fixLog4j
 parameter_list|()
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Fixing log4j"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|MDC
@@ -65,14 +56,13 @@ operator|==
 literal|null
 condition|)
 block|{
-name|System
+name|MDC
 operator|.
-name|out
+name|mdc
 operator|.
-name|println
-argument_list|(
-literal|"FOR REAL"
-argument_list|)
+name|java1
+operator|=
+literal|false
 expr_stmt|;
 name|MDC
 operator|.
