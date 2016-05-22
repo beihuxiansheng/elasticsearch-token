@@ -1376,6 +1376,20 @@ argument_list|,
 literal|"2014-12-10T21:47:58.000"
 argument_list|)
 expr_stmt|;
+name|assertDateMathEquals
+argument_list|(
+literal|"32484216259000"
+argument_list|,
+literal|"2999-05-20T17:24:19.000"
+argument_list|)
+expr_stmt|;
+name|assertDateMathEquals
+argument_list|(
+literal|"253382837059000"
+argument_list|,
+literal|"9999-05-20T17:24:19.000"
+argument_list|)
+expr_stmt|;
 comment|// datemath still works on timestamps
 name|assertDateMathEquals
 argument_list|(
