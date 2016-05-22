@@ -514,18 +514,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptModule
 import|;
 end_import
@@ -771,7 +759,7 @@ name|BaseAggregationTestCase
 parameter_list|<
 name|AB
 extends|extends
-name|AggregatorBuilder
+name|AggregationBuilder
 parameter_list|<
 name|AB
 parameter_list|>
@@ -1291,9 +1279,7 @@ name|MockScriptEngine
 operator|.
 name|NAME
 argument_list|,
-name|ScriptMode
-operator|.
-name|ON
+literal|true
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1895,7 +1881,7 @@ name|nextToken
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -2061,7 +2047,7 @@ name|namedWriteableRegistry
 argument_list|)
 init|)
 block|{
-name|AggregatorBuilder
+name|AggregationBuilder
 argument_list|<
 name|?
 argument_list|>
@@ -2071,7 +2057,7 @@ name|in
 operator|.
 name|readNamedWriteable
 argument_list|(
-name|AggregatorBuilder
+name|AggregationBuilder
 operator|.
 name|class
 argument_list|)
@@ -2408,7 +2394,7 @@ name|namedWriteableRegistry
 operator|.
 name|getReader
 argument_list|(
-name|AggregatorBuilder
+name|AggregationBuilder
 operator|.
 name|class
 argument_list|,

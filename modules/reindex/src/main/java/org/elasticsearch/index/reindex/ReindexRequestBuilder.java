@@ -106,8 +106,6 @@ name|AbstractBulkIndexByScrollRequestBuilder
 argument_list|<
 name|ReindexRequest
 argument_list|,
-name|BulkIndexByScrollResponse
-argument_list|,
 name|ReindexRequestBuilder
 argument_list|>
 block|{

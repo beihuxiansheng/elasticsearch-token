@@ -986,12 +986,6 @@ argument_list|(
 literal|"warmer"
 argument_list|)
 block|,
-DECL|enum constant|PercolatorCache
-name|PercolatorCache
-argument_list|(
-literal|"percolator_cache"
-argument_list|)
-block|,
 DECL|enum constant|Completion
 name|Completion
 argument_list|(

@@ -186,6 +186,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the retry failed flag (defaults to<tt>false</tt>). If true, the      * request will retry allocating shards that can't currently be allocated due to too many allocation failures.      */
+DECL|method|setRetryFailed
+specifier|public
+name|ClusterRerouteRequestBuilder
+name|setRetryFailed
+parameter_list|(
+name|boolean
+name|retryFailed
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setRetryFailed
+argument_list|(
+name|retryFailed
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the commands for the request to execute.      */
 DECL|method|setCommands
 specifier|public

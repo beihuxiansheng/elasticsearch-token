@@ -91,11 +91,6 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|runAsFloat
-name|float
-name|runAsFloat
-parameter_list|()
-function_decl|;
 DECL|method|runAsLong
 name|long
 name|runAsLong

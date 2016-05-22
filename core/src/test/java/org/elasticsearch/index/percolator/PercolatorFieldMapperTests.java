@@ -250,22 +250,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|percolator
-operator|.
-name|PercolatorQueryCache
-operator|.
-name|QUERY_BUILDER_CONTENT_TYPE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|query
 operator|.
 name|QueryBuilders
@@ -2271,6 +2255,8 @@ block|{
 name|XContentParser
 name|sourceParser
 init|=
+name|PercolatorFieldMapper
+operator|.
 name|QUERY_BUILDER_CONTENT_TYPE
 operator|.
 name|xContent

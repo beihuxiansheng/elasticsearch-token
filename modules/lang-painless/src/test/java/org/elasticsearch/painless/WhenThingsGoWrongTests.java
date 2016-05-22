@@ -392,7 +392,7 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"while (true) {int y = 5}"
+literal|"while (true) {int y = 5;}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -530,7 +530,7 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"for (;;) {int x = 5}"
+literal|"for (;;) {int x = 5;}"
 argument_list|)
 expr_stmt|;
 name|fail
@@ -605,7 +605,7 @@ lambda|->
 block|{
 name|exec
 argument_list|(
-literal|"try { int x } catch (PainlessError error) {}"
+literal|"try { int x; } catch (PainlessError error) {}"
 argument_list|)
 expr_stmt|;
 name|fail

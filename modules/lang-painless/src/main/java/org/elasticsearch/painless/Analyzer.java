@@ -62,10 +62,6 @@ name|CompilerSettings
 name|settings
 parameter_list|,
 specifier|final
-name|Definition
-name|definition
-parameter_list|,
-specifier|final
 name|Reserved
 name|shortcut
 parameter_list|,
@@ -83,8 +79,6 @@ name|Variables
 argument_list|(
 name|settings
 argument_list|,
-name|definition
-argument_list|,
 name|shortcut
 argument_list|)
 decl_stmt|;
@@ -92,10 +86,6 @@ name|root
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
-name|definition
-argument_list|,
 name|variables
 argument_list|)
 expr_stmt|;

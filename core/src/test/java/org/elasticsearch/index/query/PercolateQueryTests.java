@@ -740,12 +740,12 @@ name|Query
 argument_list|>
 name|queries
 decl_stmt|;
-DECL|field|queryRegistry
+DECL|field|queryStore
 specifier|private
 name|PercolateQuery
 operator|.
-name|QueryRegistry
-name|queryRegistry
+name|QueryStore
+name|queryStore
 decl_stmt|;
 DECL|field|directoryReader
 specifier|private
@@ -774,7 +774,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
-name|queryRegistry
+name|queryStore
 operator|=
 name|ctx
 lambda|->
@@ -1330,7 +1330,7 @@ name|Builder
 argument_list|(
 literal|"docType"
 argument_list|,
-name|queryRegistry
+name|queryStore
 argument_list|,
 operator|new
 name|BytesArray
@@ -2093,7 +2093,7 @@ name|Builder
 argument_list|(
 literal|"docType"
 argument_list|,
-name|queryRegistry
+name|queryStore
 argument_list|,
 operator|new
 name|BytesArray
@@ -3126,7 +3126,7 @@ name|Builder
 argument_list|(
 literal|"docType"
 argument_list|,
-name|queryRegistry
+name|queryStore
 argument_list|,
 operator|new
 name|BytesArray
@@ -3174,7 +3174,7 @@ name|Builder
 argument_list|(
 literal|"docType"
 argument_list|,
-name|queryRegistry
+name|queryStore
 argument_list|,
 operator|new
 name|BytesArray

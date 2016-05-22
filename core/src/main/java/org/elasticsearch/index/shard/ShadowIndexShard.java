@@ -281,8 +281,8 @@ DECL|method|ShadowIndexShard
 specifier|public
 name|ShadowIndexShard
 parameter_list|(
-name|ShardId
-name|shardId
+name|ShardRouting
+name|shardRouting
 parameter_list|,
 name|IndexSettings
 name|indexSettings
@@ -338,7 +338,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|shardId
+name|shardRouting
 argument_list|,
 name|indexSettings
 argument_list|,
@@ -510,16 +510,6 @@ name|shouldFlush
 parameter_list|()
 block|{
 comment|// we don't need to flush since we don't write - all dominated by the primary
-return|return
-literal|false
-return|;
-block|}
-DECL|method|allowsPrimaryPromotion
-specifier|public
-name|boolean
-name|allowsPrimaryPromotion
-parameter_list|()
-block|{
 return|return
 literal|false
 return|;

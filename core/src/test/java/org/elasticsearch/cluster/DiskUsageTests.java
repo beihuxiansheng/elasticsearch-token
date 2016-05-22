@@ -2212,6 +2212,8 @@ name|FsInfo
 argument_list|(
 literal|0
 argument_list|,
+literal|null
+argument_list|,
 name|node1FSInfo
 argument_list|)
 argument_list|,
@@ -2268,6 +2270,8 @@ name|FsInfo
 argument_list|(
 literal|0
 argument_list|,
+literal|null
+argument_list|,
 name|node2FSInfo
 argument_list|)
 argument_list|,
@@ -2323,6 +2327,8 @@ operator|new
 name|FsInfo
 argument_list|(
 literal|0
+argument_list|,
+literal|null
 argument_list|,
 name|node3FSInfo
 argument_list|)
@@ -2703,6 +2709,8 @@ name|FsInfo
 argument_list|(
 literal|0
 argument_list|,
+literal|null
+argument_list|,
 name|node1FSInfo
 argument_list|)
 argument_list|,
@@ -2759,6 +2767,8 @@ name|FsInfo
 argument_list|(
 literal|0
 argument_list|,
+literal|null
+argument_list|,
 name|node2FSInfo
 argument_list|)
 argument_list|,
@@ -2814,6 +2824,8 @@ operator|new
 name|FsInfo
 argument_list|(
 literal|0
+argument_list|,
+literal|null
 argument_list|,
 name|node3FSInfo
 argument_list|)

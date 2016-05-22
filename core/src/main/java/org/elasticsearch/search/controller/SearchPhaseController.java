@@ -474,7 +474,7 @@ name|search
 operator|.
 name|profile
 operator|.
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 import|;
 end_import
 
@@ -2959,7 +2959,7 @@ expr_stmt|;
 block|}
 block|}
 comment|//Collect profile results
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 name|shardResults
 init|=
 literal|null
@@ -3053,7 +3053,7 @@ block|}
 name|shardResults
 operator|=
 operator|new
-name|InternalProfileShardResults
+name|SearchProfileShardResults
 argument_list|(
 name|profileResults
 argument_list|)

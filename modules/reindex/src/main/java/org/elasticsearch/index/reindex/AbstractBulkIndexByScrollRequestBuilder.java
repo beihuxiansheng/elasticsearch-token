@@ -80,17 +80,11 @@ parameter_list|<
 name|Request
 parameter_list|>
 parameter_list|,
-name|Response
-extends|extends
-name|BulkIndexByScrollResponse
-parameter_list|,
 name|Self
 extends|extends
 name|AbstractBulkIndexByScrollRequestBuilder
 parameter_list|<
 name|Request
-parameter_list|,
-name|Response
 parameter_list|,
 name|Self
 parameter_list|>
@@ -100,7 +94,7 @@ name|AbstractBulkByScrollRequestBuilder
 argument_list|<
 name|Request
 argument_list|,
-name|Response
+name|BulkIndexByScrollResponse
 argument_list|,
 name|Self
 argument_list|>
@@ -116,7 +110,7 @@ name|Action
 argument_list|<
 name|Request
 argument_list|,
-name|Response
+name|BulkIndexByScrollResponse
 argument_list|,
 name|Self
 argument_list|>

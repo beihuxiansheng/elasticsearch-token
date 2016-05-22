@@ -62,7 +62,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 import|;
 end_import
 
@@ -118,7 +118,7 @@ annotation|@
 name|Override
 DECL|method|buildFactory
 specifier|protected
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|Numeric
 argument_list|,
@@ -146,11 +146,11 @@ name|Boolean
 name|keyed
 parameter_list|)
 block|{
-name|PercentileRanksAggregatorBuilder
+name|PercentileRanksAggregationBuilder
 name|factory
 init|=
 operator|new
-name|PercentileRanksAggregatorBuilder
+name|PercentileRanksAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)

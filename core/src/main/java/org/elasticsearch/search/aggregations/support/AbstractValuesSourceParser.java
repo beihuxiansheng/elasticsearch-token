@@ -462,7 +462,7 @@ name|Override
 DECL|method|parse
 specifier|public
 specifier|final
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|VS
 argument_list|,
@@ -1064,7 +1064,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|VS
 argument_list|,
@@ -1181,11 +1181,11 @@ return|return
 name|factory
 return|;
 block|}
-comment|/**      * Creates a {@link ValuesSourceAggregatorBuilder} from the information      * gathered by the subclass. Options parsed in      * {@link AbstractValuesSourceParser} itself will be added to the factory      * after it has been returned by this method.      *      * @param aggregationName      *            the name of the aggregation      * @param valuesSourceType      *            the type of the {@link ValuesSource}      * @param targetValueType      *            the target type of the final value output by the aggregation      * @param otherOptions      *            a {@link Map} containing the extra options parsed by the      *            {@link #token(String, String, org.elasticsearch.common.xcontent.XContentParser.Token,      *             XContentParser, ParseFieldMatcher, Map)}      *            method      * @return the created factory      */
+comment|/**      * Creates a {@link ValuesSourceAggregationBuilder} from the information      * gathered by the subclass. Options parsed in      * {@link AbstractValuesSourceParser} itself will be added to the factory      * after it has been returned by this method.      *      * @param aggregationName      *            the name of the aggregation      * @param valuesSourceType      *            the type of the {@link ValuesSource}      * @param targetValueType      *            the target type of the final value output by the aggregation      * @param otherOptions      *            a {@link Map} containing the extra options parsed by the      *            {@link #token(String, String, org.elasticsearch.common.xcontent.XContentParser.Token,      *             XContentParser, ParseFieldMatcher, Map)}      *            method      * @return the created factory      */
 DECL|method|createFactory
 specifier|protected
 specifier|abstract
-name|ValuesSourceAggregatorBuilder
+name|ValuesSourceAggregationBuilder
 argument_list|<
 name|VS
 argument_list|,

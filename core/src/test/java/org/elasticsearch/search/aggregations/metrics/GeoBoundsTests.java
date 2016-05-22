@@ -46,7 +46,7 @@ name|metrics
 operator|.
 name|geobounds
 operator|.
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 import|;
 end_import
 
@@ -58,22 +58,22 @@ name|GeoBoundsTests
 extends|extends
 name|BaseAggregationTestCase
 argument_list|<
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createTestAggregatorBuilder
 specifier|protected
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 name|createTestAggregatorBuilder
 parameter_list|()
 block|{
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 name|factory
 init|=
 operator|new
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

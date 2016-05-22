@@ -169,7 +169,7 @@ annotation|@
 name|Override
 DECL|method|createFactory
 specifier|protected
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 name|createFactory
 parameter_list|(
 name|String
@@ -190,11 +190,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 name|factory
 init|=
 operator|new
-name|GeoBoundsAggregatorBuilder
+name|GeoBoundsAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)

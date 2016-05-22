@@ -500,7 +500,10 @@ name|query
 operator|.
 name|timeZone
 argument_list|(
-name|randomTimeZone
+name|randomDateTimeZone
+argument_list|()
+operator|.
+name|getID
 argument_list|()
 argument_list|)
 expr_stmt|;

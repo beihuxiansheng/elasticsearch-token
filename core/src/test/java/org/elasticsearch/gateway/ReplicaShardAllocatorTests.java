@@ -2824,9 +2824,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|ClusterInfo
 operator|.
@@ -2836,6 +2833,8 @@ name|System
 operator|.
 name|nanoTime
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -3080,9 +3079,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|state
-operator|.
-name|nodes
-argument_list|()
 argument_list|,
 name|ClusterInfo
 operator|.
@@ -3092,6 +3088,8 @@ name|System
 operator|.
 name|nanoTime
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}

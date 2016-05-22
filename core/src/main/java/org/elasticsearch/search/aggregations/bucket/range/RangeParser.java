@@ -266,11 +266,11 @@ argument_list|>
 name|otherOptions
 parameter_list|)
 block|{
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 name|factory
 init|=
 operator|new
-name|RangeAggregatorBuilder
+name|RangeAggregationBuilder
 argument_list|(
 name|aggregationName
 argument_list|)

@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for any script type that is used during the search process (custom score, aggs, and so on).  *<p>  * If the script returns a specific numeric type, consider overriding the type specific base classes  * such as {@link AbstractDoubleSearchScript}, {@link AbstractFloatSearchScript} and {@link AbstractLongSearchScript}  * for better performance.  *<p>  * The use is required to implement the {@link #run()} method.  */
+comment|/**  * A base class for any script type that is used during the search process (custom score, aggs, and so on).  *<p>  * If the script returns a specific numeric type, consider overriding the type specific base classes  * such as {@link AbstractDoubleSearchScript} and {@link AbstractLongSearchScript}  * for better performance.  *<p>  * The use is required to implement the {@link #run()} method.  */
 end_comment
 
 begin_class
@@ -393,27 +393,6 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|runAsFloat
-specifier|public
-name|float
-name|runAsFloat
-parameter_list|()
-block|{
-return|return
-operator|(
-operator|(
-name|Number
-operator|)
-name|run
-argument_list|()
-operator|)
-operator|.
-name|floatValue
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Override

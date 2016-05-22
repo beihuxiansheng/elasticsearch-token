@@ -381,9 +381,6 @@ name|snapshotsInProgress
 init|=
 name|allocation
 operator|.
-name|routingNodes
-argument_list|()
-operator|.
 name|custom
 argument_list|(
 name|SnapshotsInProgress

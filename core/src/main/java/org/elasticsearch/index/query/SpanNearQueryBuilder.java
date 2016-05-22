@@ -172,6 +172,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -341,7 +351,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"query must include at least one clause"
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] must include at least one clause"
 argument_list|)
 throw|;
 block|}
@@ -464,10 +478,11 @@ operator|.
 name|slop
 return|;
 block|}
-DECL|method|clause
+comment|/**      * Add a span clause to the current list of clauses      */
+DECL|method|addClause
 specifier|public
 name|SpanNearQueryBuilder
-name|clause
+name|addClause
 parameter_list|(
 name|SpanQueryBuilder
 name|clause
@@ -484,7 +499,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"query clauses cannot be null"
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"]  clauses cannot be null"
 argument_list|)
 throw|;
 block|}
@@ -510,9 +529,14 @@ name|clauses
 parameter_list|()
 block|{
 return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
 name|this
 operator|.
 name|clauses
+argument_list|)
 return|;
 block|}
 comment|/**      * When<code>inOrder</code> is true, the spans from each clause      * must be in the same order as in<code>clauses</code> and must be non-overlapping.      * Defaults to<code>true</code>      */
@@ -1092,7 +1116,7 @@ control|)
 block|{
 name|queryBuilder
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|clauses
 operator|.

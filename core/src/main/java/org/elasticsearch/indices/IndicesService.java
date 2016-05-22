@@ -1789,12 +1789,18 @@ name|settings
 argument_list|,
 name|threadPool
 argument_list|,
+comment|// ensure we pull an iter with new shards - flatten makes a copy
+parameter_list|()
+lambda|->
 name|Iterables
 operator|.
 name|flatten
 argument_list|(
 name|this
 argument_list|)
+operator|.
+name|iterator
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -2379,14 +2385,6 @@ operator|new
 name|CommonStats
 argument_list|(
 name|indicesQueryCache
-argument_list|,
-name|indexService
-operator|.
-name|cache
-argument_list|()
-operator|.
-name|getPercolatorQueryCache
-argument_list|()
 argument_list|,
 name|indexShard
 argument_list|,
