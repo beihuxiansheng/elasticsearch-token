@@ -1818,8 +1818,9 @@ name|values
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
+name|String
+name|parentType
+init|=
 name|newMapper
 operator|.
 name|parentFieldMapper
@@ -1827,6 +1828,10 @@ argument_list|()
 operator|.
 name|type
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|parentType
 operator|.
 name|equals
 argument_list|(
@@ -1837,13 +1842,30 @@ operator|.
 name|type
 argument_list|()
 argument_list|)
+operator|&&
+name|indexService
+operator|.
+name|mapperService
+argument_list|()
+operator|.
+name|getParentTypes
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|parentType
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"can't add a _parent field that points to an already existing type"
+literal|"can't add a _parent field that points to an "
+operator|+
+literal|"already existing type, that isn't already a parent"
 argument_list|)
 throw|;
 block|}

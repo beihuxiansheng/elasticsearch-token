@@ -635,7 +635,7 @@ name|maxExpansions
 argument_list|(
 name|randomIntBetween
 argument_list|(
-literal|0
+literal|1
 argument_list|,
 literal|1000
 argument_list|)
