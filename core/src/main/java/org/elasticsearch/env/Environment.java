@@ -1218,7 +1218,9 @@ return|return
 name|sharedDataFile
 return|;
 block|}
-comment|/**      * The data location with the cluster name as a sub directory.      */
+comment|/**      * The data location with the cluster name as a sub directory.      *      * @deprecated Used to upgrade old data paths to new ones that do not include the cluster name, should not be used to write files to and      * will be removed in ES 6.0      */
+annotation|@
+name|Deprecated
 DECL|method|dataWithClusterFiles
 specifier|public
 name|Path
