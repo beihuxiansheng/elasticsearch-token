@@ -882,20 +882,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalSettingsPreparer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
 name|service
 operator|.
 name|NodeService
@@ -2356,7 +2342,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"tests.logger.level"
+literal|"tests.es.logger.level"
 argument_list|)
 argument_list|)
 condition|)
@@ -2371,7 +2357,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"tests.logger.level"
+literal|"tests.es.logger.level"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2648,7 +2634,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"node.mode"
+literal|"tests.es.node.mode"
 argument_list|)
 argument_list|)
 operator|&&
@@ -2660,7 +2646,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"node.local"
+literal|"tests.node.local"
 argument_list|)
 argument_list|)
 condition|)
@@ -2680,7 +2666,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"node.mode"
+literal|"tests.es.node.mode"
 argument_list|)
 argument_list|)
 condition|)
@@ -2700,7 +2686,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"node.mode"
+literal|"tests.es.node.mode"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2715,7 +2701,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"node.local"
+literal|"tests.es.node.local"
 argument_list|)
 argument_list|)
 condition|)
@@ -2735,7 +2721,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"node.local"
+literal|"tests.es.node.local"
 argument_list|)
 argument_list|)
 expr_stmt|;
