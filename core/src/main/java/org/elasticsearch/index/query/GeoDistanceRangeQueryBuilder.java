@@ -1886,11 +1886,7 @@ else|else
 block|{
 name|fromValue
 operator|=
-operator|new
-name|Double
-argument_list|(
-literal|0
-argument_list|)
+literal|0.0
 expr_stmt|;
 block|}
 if|if
