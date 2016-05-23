@@ -509,10 +509,7 @@ name|isStatic
 argument_list|(
 name|method
 operator|.
-name|reflect
-operator|.
-name|getModifiers
-argument_list|()
+name|modifiers
 argument_list|)
 condition|)
 block|{
