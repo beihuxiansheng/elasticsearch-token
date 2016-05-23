@@ -138,6 +138,8 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
+literal|"location"
+argument_list|,
 name|parser
 argument_list|)
 decl_stmt|;
@@ -426,6 +428,8 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
+literal|"location"
+argument_list|,
 name|parser
 argument_list|)
 decl_stmt|;
@@ -641,6 +645,8 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
+literal|"location"
+argument_list|,
 name|parser
 argument_list|)
 decl_stmt|;
