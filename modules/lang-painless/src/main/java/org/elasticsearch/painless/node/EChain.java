@@ -198,6 +198,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -223,6 +226,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -339,7 +344,6 @@ name|size
 argument_list|()
 condition|)
 block|{
-specifier|final
 name|ALink
 name|current
 init|=
@@ -413,7 +417,6 @@ operator|||
 name|post
 expr_stmt|;
 block|}
-specifier|final
 name|ALink
 name|analyzed
 init|=
@@ -494,7 +497,6 @@ name|void
 name|analyzeIncrDecr
 parameter_list|()
 block|{
-specifier|final
 name|ALink
 name|last
 init|=
@@ -554,7 +556,6 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -589,6 +590,8 @@ name|EConstant
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 literal|1D
@@ -611,6 +614,8 @@ operator|new
 name|EConstant
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -635,6 +640,8 @@ name|EConstant
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 literal|1L
@@ -649,6 +656,8 @@ operator|new
 name|EConstant
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -689,6 +698,8 @@ name|EConstant
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 literal|1D
@@ -711,6 +722,8 @@ operator|new
 name|EConstant
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -735,6 +748,8 @@ name|EConstant
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 literal|1L
@@ -749,6 +764,8 @@ operator|new
 name|EConstant
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -787,7 +804,6 @@ name|Variables
 name|variables
 parameter_list|)
 block|{
-specifier|final
 name|ALink
 name|last
 init|=
@@ -1340,7 +1356,6 @@ name|Variables
 name|variables
 parameter_list|)
 block|{
-specifier|final
 name|ALink
 name|last
 init|=
@@ -1356,7 +1371,7 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// If the store node is a DEF node, we remove the cast to DEF from the expression
+comment|// If the store node is a def node, we remove the cast to def from the expression
 comment|// and promote the real type to it:
 if|if
 condition|(
@@ -1440,7 +1455,6 @@ name|void
 name|analyzeRead
 parameter_list|()
 block|{
-specifier|final
 name|ALink
 name|last
 init|=
@@ -1456,7 +1470,7 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// If the load node is a DEF node, we adapt its after type to use _this_ expected output type:
+comment|// If the load node is a def node, we adapt its after type to use _this_ expected output type:
 if|if
 condition|(
 name|last
@@ -1505,7 +1519,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 if|if
@@ -1513,13 +1527,12 @@ condition|(
 name|cat
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeNewStrings
 argument_list|()
 expr_stmt|;
 block|}
-specifier|final
 name|ALink
 name|last
 init|=
@@ -1537,7 +1550,6 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-specifier|final
 name|ALink
 name|link
 range|:
@@ -1548,7 +1560,7 @@ name|link
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 if|if
@@ -1567,7 +1579,7 @@ condition|(
 name|cat
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeDup
 argument_list|(
@@ -1582,10 +1594,10 @@ name|link
 operator|.
 name|load
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|writeAppendStrings
 argument_list|(
@@ -1598,7 +1610,7 @@ name|expression
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 if|if
@@ -1634,7 +1646,7 @@ operator|.
 name|STRING
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeAppendStrings
 argument_list|(
@@ -1644,12 +1656,12 @@ name|actual
 argument_list|)
 expr_stmt|;
 block|}
-name|adapter
+name|writer
 operator|.
 name|writeToStrings
 argument_list|()
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|writeCast
 argument_list|(
@@ -1663,7 +1675,7 @@ operator|.
 name|load
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeDup
 argument_list|(
@@ -1685,7 +1697,7 @@ name|link
 operator|.
 name|store
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -1697,7 +1709,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeDup
 argument_list|(
@@ -1712,7 +1724,7 @@ name|link
 operator|.
 name|load
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 if|if
@@ -1724,7 +1736,7 @@ operator|&&
 name|post
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeDup
 argument_list|(
@@ -1742,7 +1754,7 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-name|adapter
+name|writer
 operator|.
 name|writeCast
 argument_list|(
@@ -1753,10 +1765,10 @@ name|expression
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|writeBinaryInstruction
 argument_list|(
@@ -1767,7 +1779,7 @@ argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|writeCast
 argument_list|(
@@ -1784,7 +1796,7 @@ operator|!
 name|post
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeDup
 argument_list|(
@@ -1806,7 +1818,7 @@ name|link
 operator|.
 name|store
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -1816,7 +1828,7 @@ name|expression
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 if|if
@@ -1826,7 +1838,7 @@ operator|.
 name|load
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeDup
 argument_list|(
@@ -1848,7 +1860,7 @@ name|link
 operator|.
 name|store
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -1859,12 +1871,12 @@ name|link
 operator|.
 name|load
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|adapter
+name|writer
 operator|.
 name|writeBranch
 argument_list|(

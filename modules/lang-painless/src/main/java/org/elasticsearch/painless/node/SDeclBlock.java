@@ -88,6 +88,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -101,6 +104,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -129,7 +134,6 @@ parameter_list|)
 block|{
 for|for
 control|(
-specifier|final
 name|SDeclaration
 name|declaration
 range|:
@@ -159,12 +163,11 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 for|for
 control|(
-specifier|final
 name|SDeclaration
 name|declaration
 range|:
@@ -175,7 +178,7 @@ name|declaration
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}

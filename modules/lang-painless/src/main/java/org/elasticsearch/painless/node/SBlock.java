@@ -88,6 +88,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -101,6 +104,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -127,6 +132,29 @@ name|Variables
 name|variables
 parameter_list|)
 block|{
+if|if
+condition|(
+name|statements
+operator|==
+literal|null
+operator|||
+name|statements
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|error
+argument_list|(
+literal|"A block must contain at least one statement."
+argument_list|)
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|AStatement
 name|last
@@ -249,7 +277,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 for|for
@@ -276,7 +304,7 @@ name|statement
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}

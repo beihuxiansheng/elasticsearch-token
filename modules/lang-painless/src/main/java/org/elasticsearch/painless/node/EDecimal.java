@@ -77,6 +77,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -87,6 +90,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -157,7 +162,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|NumberFormatException
 name|exception
 parameter_list|)
@@ -200,7 +204,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|NumberFormatException
 name|exception
 parameter_list|)
@@ -229,7 +232,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 throw|throw

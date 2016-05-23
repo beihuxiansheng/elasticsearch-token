@@ -114,6 +114,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -124,6 +127,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -188,14 +193,14 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 name|index
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -206,10 +211,9 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-specifier|final
 name|String
 name|desc
 init|=
@@ -234,7 +238,7 @@ operator|.
 name|type
 argument_list|)
 decl_stmt|;
-name|adapter
+name|writer
 operator|.
 name|invokeDynamic
 argument_list|(
@@ -244,6 +248,9 @@ name|desc
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|DefBootstrap
 operator|.
 name|ARRAY_LOAD
@@ -257,10 +264,9 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-specifier|final
 name|String
 name|desc
 init|=
@@ -291,7 +297,7 @@ operator|.
 name|type
 argument_list|)
 decl_stmt|;
-name|adapter
+name|writer
 operator|.
 name|invokeDynamic
 argument_list|(
@@ -301,6 +307,9 @@ name|desc
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|DefBootstrap
 operator|.
 name|ARRAY_STORE

@@ -191,7 +191,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|MalformedURLException
 name|impossible
 parameter_list|)
@@ -218,7 +217,6 @@ comment|/**          * @param parent The parent ClassLoader.          */
 DECL|method|Loader
 name|Loader
 parameter_list|(
-specifier|final
 name|ClassLoader
 name|parent
 parameter_list|)
@@ -239,11 +237,9 @@ name|Executable
 argument_list|>
 name|define
 parameter_list|(
-specifier|final
 name|String
 name|name
 parameter_list|,
-specifier|final
 name|byte
 index|[]
 name|bytes
@@ -280,19 +276,15 @@ specifier|static
 name|Executable
 name|compile
 parameter_list|(
-specifier|final
 name|Loader
 name|loader
 parameter_list|,
-specifier|final
 name|String
 name|name
 parameter_list|,
-specifier|final
 name|String
 name|source
 parameter_list|,
-specifier|final
 name|CompilerSettings
 name|settings
 parameter_list|)
@@ -371,7 +363,6 @@ literal|" plugin if a script longer than this length is a requirement."
 argument_list|)
 throw|;
 block|}
-specifier|final
 name|Reserved
 name|reserved
 init|=
@@ -379,7 +370,6 @@ operator|new
 name|Reserved
 argument_list|()
 decl_stmt|;
-specifier|final
 name|SSource
 name|root
 init|=
@@ -394,7 +384,6 @@ argument_list|,
 name|settings
 argument_list|)
 decl_stmt|;
-specifier|final
 name|Variables
 name|variables
 init|=
@@ -402,8 +391,6 @@ name|Analyzer
 operator|.
 name|analyze
 argument_list|(
-name|settings
-argument_list|,
 name|reserved
 argument_list|,
 name|root
@@ -433,19 +420,15 @@ specifier|static
 name|Executable
 name|createExecutable
 parameter_list|(
-specifier|final
 name|Loader
 name|loader
 parameter_list|,
-specifier|final
 name|String
 name|name
 parameter_list|,
-specifier|final
 name|String
 name|source
 parameter_list|,
-specifier|final
 name|byte
 index|[]
 name|bytes
@@ -453,7 +436,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-specifier|final
 name|Class
 argument_list|<
 name|?
@@ -471,7 +453,6 @@ argument_list|,
 name|bytes
 argument_list|)
 decl_stmt|;
-specifier|final
 name|java
 operator|.
 name|lang
@@ -512,7 +493,6 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|Exception
 name|exception
 parameter_list|)

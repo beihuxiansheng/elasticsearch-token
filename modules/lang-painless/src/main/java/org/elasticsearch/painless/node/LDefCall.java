@@ -121,6 +121,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -137,6 +140,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -185,7 +190,6 @@ operator|++
 name|argument
 control|)
 block|{
-specifier|final
 name|AExpression
 name|expression
 init|=
@@ -253,7 +257,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -265,10 +269,9 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-specifier|final
 name|StringBuilder
 name|signature
 init|=
@@ -298,11 +301,8 @@ name|getDescriptor
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: remove our explicit conversions and feed more type information for return value,
-comment|// it can avoid some unnecessary boxing etc.
 for|for
 control|(
-specifier|final
 name|AExpression
 name|argument
 range|:
@@ -327,7 +327,7 @@ name|argument
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -351,7 +351,7 @@ name|getDescriptor
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|invokeDynamic
 argument_list|(
@@ -364,6 +364,9 @@ argument_list|()
 argument_list|,
 name|DEF_BOOTSTRAP_HANDLE
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|DefBootstrap
 operator|.
 name|METHOD_CALL
@@ -377,7 +380,7 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 throw|throw
