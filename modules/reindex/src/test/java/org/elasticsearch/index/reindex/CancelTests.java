@@ -967,6 +967,8 @@ name|assertBusy
 argument_list|(
 parameter_list|()
 lambda|->
+name|assertTrue
+argument_list|(
 name|ALLOWED_OPERATIONS
 operator|.
 name|availablePermits
@@ -980,6 +982,7 @@ name|getQueueLength
 argument_list|()
 operator|==
 literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// And check the status of the response
