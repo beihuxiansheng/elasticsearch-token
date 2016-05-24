@@ -14231,6 +14231,11 @@ argument_list|,
 literal|"value"
 argument_list|)
 expr_stmt|;
+name|doc
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 name|PercolateResponse
 name|response
 init|=

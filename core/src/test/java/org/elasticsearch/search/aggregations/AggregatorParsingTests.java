@@ -1802,6 +1802,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;
@@ -2034,6 +2037,9 @@ literal|"gt"
 argument_list|,
 literal|0
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()
@@ -2367,6 +2373,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;
@@ -2499,6 +2508,9 @@ argument_list|,
 literal|"tag"
 argument_list|)
 comment|//.endObject()
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()

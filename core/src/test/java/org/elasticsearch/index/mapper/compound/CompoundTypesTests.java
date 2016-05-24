@@ -359,6 +359,9 @@ argument_list|,
 literal|"value2"
 argument_list|)
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|bytes
 argument_list|()
 argument_list|)
@@ -474,6 +477,9 @@ argument_list|,
 literal|"value2"
 argument_list|)
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|bytes
 argument_list|()
 argument_list|)
@@ -573,6 +579,9 @@ literal|"field2"
 argument_list|,
 literal|"value2"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|bytes
 argument_list|()

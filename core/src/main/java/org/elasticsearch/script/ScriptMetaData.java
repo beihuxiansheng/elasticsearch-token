@@ -575,6 +575,11 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 break|break;
 block|}
 return|return

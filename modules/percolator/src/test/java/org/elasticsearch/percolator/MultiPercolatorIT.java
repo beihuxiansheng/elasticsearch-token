@@ -2272,6 +2272,9 @@ literal|"field"
 argument_list|,
 literal|"a"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 argument_list|)
 operator|.
 name|execute

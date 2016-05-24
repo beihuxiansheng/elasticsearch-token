@@ -6683,6 +6683,9 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
 argument_list|)
 operator|.
 name|get

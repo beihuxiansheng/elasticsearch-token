@@ -3955,7 +3955,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"failed to close the XContentBuilder"
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|generator

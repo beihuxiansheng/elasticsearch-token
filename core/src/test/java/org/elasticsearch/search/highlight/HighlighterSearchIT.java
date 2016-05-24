@@ -1787,6 +1787,9 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
 argument_list|)
 operator|.
 name|setSettings
@@ -7270,6 +7273,12 @@ literal|"analyzer"
 argument_list|,
 literal|"standard"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()
