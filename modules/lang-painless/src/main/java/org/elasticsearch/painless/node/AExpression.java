@@ -189,11 +189,12 @@ DECL|method|AExpression
 specifier|public
 name|AExpression
 parameter_list|(
-specifier|final
 name|int
 name|line
 parameter_list|,
-specifier|final
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|)
@@ -201,6 +202,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -223,7 +226,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 function_decl|;
 comment|/**      * Inserts {@link ECast} nodes into the tree for implicit casts.  Also replaces      * nodes with the constant variable set to a non-null value with {@link EConstant}.      * @return The new child node for the parent node calling this method.      */
@@ -287,6 +290,8 @@ name|EConstant
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -345,6 +350,8 @@ operator|new
 name|ECast
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -408,6 +415,8 @@ name|EConstant
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 name|constant
@@ -465,6 +474,8 @@ name|ECast
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 name|this
@@ -492,6 +503,8 @@ operator|new
 name|EConstant
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -537,6 +550,8 @@ operator|new
 name|ECast
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,

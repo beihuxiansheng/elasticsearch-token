@@ -128,6 +128,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -138,6 +141,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -166,7 +171,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 function_decl|;
 comment|/**      * Write a load for the specific link type.      */
@@ -176,7 +181,7 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 function_decl|;
 comment|/**      * Write a store for the specific link type.      */
@@ -186,7 +191,7 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 function_decl|;
 comment|/**      * Used to copy link data from one to another during analysis in the case of replacement.      */

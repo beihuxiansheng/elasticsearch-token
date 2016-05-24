@@ -110,6 +110,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -120,6 +123,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -459,14 +464,14 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 name|index
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -477,7 +482,7 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 if|if
@@ -503,7 +508,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeInterface
 argument_list|(
@@ -521,7 +526,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeVirtual
 argument_list|(
@@ -560,7 +565,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|checkCast
 argument_list|(
@@ -580,7 +585,7 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 if|if
@@ -606,7 +611,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeInterface
 argument_list|(
@@ -624,7 +629,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeVirtual
 argument_list|(
@@ -640,7 +645,7 @@ name|method
 argument_list|)
 expr_stmt|;
 block|}
-name|adapter
+name|writer
 operator|.
 name|writePop
 argument_list|(

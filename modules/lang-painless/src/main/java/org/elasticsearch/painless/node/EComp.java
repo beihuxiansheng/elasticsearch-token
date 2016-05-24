@@ -261,6 +261,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -277,6 +280,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -474,7 +479,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -606,7 +610,6 @@ name|isNull
 operator|)
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -836,7 +839,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -968,7 +970,6 @@ name|isNull
 operator|)
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -1154,7 +1155,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -1286,7 +1286,6 @@ name|isNull
 operator|)
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -1518,7 +1517,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -1650,7 +1648,6 @@ name|isNull
 operator|)
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -1836,7 +1833,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -1936,7 +1932,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2095,7 +2090,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -2195,7 +2189,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2354,7 +2347,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -2454,7 +2446,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2613,7 +2604,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -2713,7 +2703,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2856,10 +2845,9 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-specifier|final
 name|boolean
 name|branch
 init|=
@@ -2871,7 +2859,6 @@ name|fals
 operator|!=
 literal|null
 decl_stmt|;
-specifier|final
 name|org
 operator|.
 name|objectweb
@@ -2887,7 +2874,6 @@ name|actual
 operator|.
 name|type
 decl_stmt|;
-specifier|final
 name|Sort
 name|rsort
 init|=
@@ -2901,7 +2887,7 @@ name|left
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 if|if
@@ -2916,11 +2902,10 @@ name|right
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
 name|Label
 name|jump
 init|=
@@ -2940,7 +2925,6 @@ operator|new
 name|Label
 argument_list|()
 decl_stmt|;
-specifier|final
 name|Label
 name|end
 init|=
@@ -2948,7 +2932,6 @@ operator|new
 name|Label
 argument_list|()
 decl_stmt|;
-specifier|final
 name|boolean
 name|eq
 init|=
@@ -2994,7 +2977,6 @@ name|fals
 operator|!=
 literal|null
 decl_stmt|;
-specifier|final
 name|boolean
 name|ne
 init|=
@@ -3040,7 +3022,6 @@ name|fals
 operator|!=
 literal|null
 decl_stmt|;
-specifier|final
 name|boolean
 name|lt
 init|=
@@ -3070,7 +3051,6 @@ name|fals
 operator|!=
 literal|null
 decl_stmt|;
-specifier|final
 name|boolean
 name|lte
 init|=
@@ -3100,7 +3080,6 @@ name|fals
 operator|!=
 literal|null
 decl_stmt|;
-specifier|final
 name|boolean
 name|gt
 init|=
@@ -3130,7 +3109,6 @@ name|fals
 operator|!=
 literal|null
 decl_stmt|;
-specifier|final
 name|boolean
 name|gte
 init|=
@@ -3199,7 +3177,7 @@ if|if
 condition|(
 name|eq
 condition|)
-name|adapter
+name|writer
 operator|.
 name|ifZCmp
 argument_list|(
@@ -3215,7 +3193,7 @@ if|if
 condition|(
 name|ne
 condition|)
-name|adapter
+name|writer
 operator|.
 name|ifZCmp
 argument_list|(
@@ -3256,7 +3234,7 @@ if|if
 condition|(
 name|eq
 condition|)
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3274,7 +3252,7 @@ if|if
 condition|(
 name|ne
 condition|)
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3292,7 +3270,7 @@ if|if
 condition|(
 name|lt
 condition|)
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3310,7 +3288,7 @@ if|if
 condition|(
 name|lte
 condition|)
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3328,7 +3306,7 @@ if|if
 condition|(
 name|gt
 condition|)
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3346,7 +3324,7 @@ if|if
 condition|(
 name|gte
 condition|)
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3388,7 +3366,7 @@ operator|.
 name|isNull
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifNull
 argument_list|(
@@ -3419,7 +3397,7 @@ name|NE
 operator|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -3435,7 +3413,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3463,7 +3441,7 @@ operator|.
 name|isNull
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifNonNull
 argument_list|(
@@ -3494,7 +3472,7 @@ name|NE
 operator|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -3503,7 +3481,7 @@ argument_list|,
 name|DEF_EQ_CALL
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|ifZCmp
 argument_list|(
@@ -3517,7 +3495,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3538,7 +3516,7 @@ condition|(
 name|lt
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -3558,7 +3536,7 @@ condition|(
 name|lte
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -3578,7 +3556,7 @@ condition|(
 name|gt
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -3598,7 +3576,7 @@ condition|(
 name|gte
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -3633,7 +3611,7 @@ operator|!
 name|writejump
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifZCmp
 argument_list|(
@@ -3659,7 +3637,7 @@ operator|.
 name|isNull
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifNull
 argument_list|(
@@ -3683,7 +3661,7 @@ operator|.
 name|NE
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -3697,7 +3675,7 @@ condition|(
 name|branch
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifZCmp
 argument_list|(
@@ -3716,7 +3694,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3744,7 +3722,7 @@ operator|.
 name|isNull
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifNonNull
 argument_list|(
@@ -3768,7 +3746,7 @@ operator|.
 name|NE
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|invokeStatic
 argument_list|(
@@ -3777,7 +3755,7 @@ argument_list|,
 name|CHECKEQUALS
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|ifZCmp
 argument_list|(
@@ -3791,7 +3769,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|ifCmp
 argument_list|(
@@ -3828,35 +3806,35 @@ operator|&&
 name|writejump
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|goTo
 argument_list|(
 name|end
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|mark
 argument_list|(
 name|jump
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|push
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|mark
 argument_list|(

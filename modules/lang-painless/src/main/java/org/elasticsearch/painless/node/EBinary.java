@@ -143,6 +143,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -159,6 +162,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -404,7 +409,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -504,7 +508,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -661,7 +664,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -761,7 +763,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -918,7 +919,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -1018,7 +1018,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -1175,7 +1174,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -1228,7 +1226,6 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -1566,7 +1563,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -1666,7 +1662,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -1823,7 +1818,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -1927,7 +1921,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2030,7 +2023,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -2134,7 +2126,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2237,7 +2228,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -2341,7 +2331,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2444,7 +2433,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -2544,7 +2532,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2647,7 +2634,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -2745,7 +2731,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -2875,7 +2860,6 @@ argument_list|(
 name|variables
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Type
 name|promote
 init|=
@@ -2975,7 +2959,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -3062,7 +3045,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 if|if
@@ -3088,7 +3071,7 @@ operator|!
 name|cat
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeNewStrings
 argument_list|()
@@ -3098,7 +3081,7 @@ name|left
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 if|if
@@ -3134,7 +3117,7 @@ operator|.
 name|STRING
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeAppendStrings
 argument_list|(
@@ -3148,7 +3131,7 @@ name|right
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 if|if
@@ -3184,7 +3167,7 @@ operator|.
 name|STRING
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeAppendStrings
 argument_list|(
@@ -3200,7 +3183,7 @@ operator|!
 name|cat
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|writeToStrings
 argument_list|()
@@ -3213,17 +3196,17 @@ name|left
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 name|right
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|writeBinaryInstruction
 argument_list|(
@@ -3235,7 +3218,7 @@ name|operation
 argument_list|)
 expr_stmt|;
 block|}
-name|adapter
+name|writer
 operator|.
 name|writeBranch
 argument_list|(

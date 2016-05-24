@@ -109,6 +109,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -125,6 +128,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -164,11 +169,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 name|error
 argument_list|(
-literal|"Illegal tree structure."
+literal|"Cannot create a new array with a target already defined."
 argument_list|)
 argument_list|)
 throw|;
@@ -203,7 +208,7 @@ name|IllegalArgumentException
 argument_list|(
 name|error
 argument_list|(
-literal|"A newly created array must be assigned."
+literal|"A newly created array must be read."
 argument_list|)
 argument_list|)
 throw|;
@@ -228,7 +233,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|IllegalArgumentException
 name|exception
 parameter_list|)
@@ -268,7 +272,6 @@ operator|++
 name|argument
 control|)
 block|{
-specifier|final
 name|AExpression
 name|expression
 init|=
@@ -336,7 +339,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -348,12 +351,11 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 for|for
 control|(
-specifier|final
 name|AExpression
 name|argument
 range|:
@@ -364,7 +366,7 @@ name|argument
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -378,7 +380,7 @@ operator|>
 literal|1
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|visitMultiANewArrayInsn
 argument_list|(
@@ -400,7 +402,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|newArray
 argument_list|(
@@ -427,7 +429,7 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 throw|throw

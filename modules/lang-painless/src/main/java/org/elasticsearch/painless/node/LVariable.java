@@ -24,21 +24,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Definition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|Definition
-operator|.
-name|Type
+name|MethodWriter
 import|;
 end_import
 
@@ -80,18 +66,6 @@ name|Opcodes
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|MethodWriter
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a variable load/store.  */
 end_comment
@@ -121,6 +95,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -131,6 +108,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -163,60 +142,19 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 name|error
 argument_list|(
-literal|"Illegal tree structure."
+literal|"Illegal variable ["
+operator|+
+name|name
+operator|+
+literal|"] access with target already defined."
 argument_list|)
 argument_list|)
 throw|;
 block|}
-name|Type
-name|type
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|type
-operator|=
-name|Definition
-operator|.
-name|getType
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-specifier|final
-name|IllegalArgumentException
-name|exception
-parameter_list|)
-block|{
-comment|// Do nothing.
-block|}
-if|if
-condition|(
-name|type
-operator|!=
-literal|null
-condition|)
-block|{
-name|statik
-operator|=
-literal|true
-expr_stmt|;
-name|after
-operator|=
-name|type
-expr_stmt|;
-block|}
-else|else
-block|{
-specifier|final
 name|Variable
 name|variable
 init|=
@@ -267,7 +205,6 @@ name|variable
 operator|.
 name|type
 expr_stmt|;
-block|}
 return|return
 name|this
 return|;
@@ -279,7 +216,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -291,10 +228,10 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|visitVarInsn
 argument_list|(
@@ -320,10 +257,10 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|visitVarInsn
 argument_list|(

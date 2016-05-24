@@ -110,6 +110,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -120,6 +123,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -152,11 +157,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 name|error
 argument_list|(
-literal|"Illegal tree structure."
+literal|"Illegal array access made without target."
 argument_list|)
 argument_list|)
 throw|;
@@ -239,6 +244,8 @@ name|LDefArray
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 name|index
@@ -276,6 +283,8 @@ name|LMapShortcut
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 name|index
@@ -312,6 +321,8 @@ operator|new
 name|LListShortcut
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -353,14 +364,14 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 name|index
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -371,10 +382,10 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|arrayLoad
 argument_list|(
@@ -391,10 +402,10 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|arrayStore
 argument_list|(

@@ -36,21 +36,7 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
-name|Definition
-operator|.
-name|Cast
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|AnalyzerCaster
+name|MethodWriter
 import|;
 end_import
 
@@ -66,28 +52,16 @@ name|Variables
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|painless
-operator|.
-name|MethodWriter
-import|;
-end_import
-
 begin_comment
-comment|/**  * Represents a cast made in a variable/method chain.  */
+comment|/**  * Represents a static type target.  */
 end_comment
 
 begin_class
-DECL|class|LCast
+DECL|class|LStatic
 specifier|public
 specifier|final
 class|class
-name|LCast
+name|LStatic
 extends|extends
 name|ALink
 block|{
@@ -96,15 +70,9 @@ specifier|final
 name|String
 name|type
 decl_stmt|;
-DECL|field|cast
-name|Cast
-name|cast
-init|=
-literal|null
-decl_stmt|;
-DECL|method|LCast
+DECL|method|LStatic
 specifier|public
-name|LCast
+name|LStatic
 parameter_list|(
 name|int
 name|line
@@ -127,8 +95,7 @@ name|offset
 argument_list|,
 name|location
 argument_list|,
-operator|-
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|this
@@ -151,25 +118,8 @@ block|{
 if|if
 condition|(
 name|before
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-name|error
-argument_list|(
-literal|"Illegal cast without a target."
-argument_list|)
-argument_list|)
-throw|;
-block|}
-elseif|else
-if|if
-condition|(
-name|store
 condition|)
 block|{
 throw|throw
@@ -178,7 +128,11 @@ name|IllegalArgumentException
 argument_list|(
 name|error
 argument_list|(
-literal|"Cannot assign a value to a cast."
+literal|"Illegal static type ["
+operator|+
+name|type
+operator|+
+literal|"] after target already defined."
 argument_list|)
 argument_list|)
 throw|;
@@ -193,6 +147,10 @@ name|getType
 argument_list|(
 name|type
 argument_list|)
+expr_stmt|;
+name|statik
+operator|=
+literal|true
 expr_stmt|;
 block|}
 catch|catch
@@ -216,31 +174,8 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-name|cast
-operator|=
-name|AnalyzerCaster
-operator|.
-name|getLegalCast
-argument_list|(
-name|location
-argument_list|,
-name|before
-argument_list|,
-name|after
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
 return|return
-name|cast
-operator|!=
-literal|null
-condition|?
 name|this
-else|:
-literal|null
 return|;
 block|}
 annotation|@
@@ -253,13 +188,16 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
-name|writer
-operator|.
-name|writeCast
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-name|cast
+name|error
+argument_list|(
+literal|"Illegal tree structure."
 argument_list|)
-expr_stmt|;
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -271,7 +209,16 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
-comment|// Do nothing.
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+name|error
+argument_list|(
+literal|"Illegal tree structure."
+argument_list|)
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override

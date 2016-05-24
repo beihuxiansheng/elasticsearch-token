@@ -143,6 +143,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -153,6 +156,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -185,16 +190,19 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 name|error
 argument_list|(
-literal|"Illegal tree structure."
+literal|"Illegal field ["
+operator|+
+name|value
+operator|+
+literal|"] access made without target."
 argument_list|)
 argument_list|)
 throw|;
 block|}
-specifier|final
 name|Sort
 name|sort
 init|=
@@ -216,6 +224,8 @@ operator|new
 name|LArrayLength
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -249,6 +259,8 @@ name|LDefField
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 name|value
@@ -265,7 +277,6 @@ name|variables
 argument_list|)
 return|;
 block|}
-specifier|final
 name|Struct
 name|struct
 init|=
@@ -355,8 +366,6 @@ return|;
 block|}
 else|else
 block|{
-comment|// TODO: improve this: the isXXX case seems missing???
-specifier|final
 name|boolean
 name|shortcut
 init|=
@@ -372,6 +381,42 @@ operator|.
 name|MethodKey
 argument_list|(
 literal|"get"
+operator|+
+name|Character
+operator|.
+name|toUpperCase
+argument_list|(
+name|value
+operator|.
+name|charAt
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+operator|+
+name|value
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
+operator|||
+name|struct
+operator|.
+name|methods
+operator|.
+name|containsKey
+argument_list|(
+operator|new
+name|Definition
+operator|.
+name|MethodKey
+argument_list|(
+literal|"is"
 operator|+
 name|Character
 operator|.
@@ -443,6 +488,8 @@ name|LShortcut
 argument_list|(
 name|line
 argument_list|,
+name|offset
+argument_list|,
 name|location
 argument_list|,
 name|value
@@ -461,7 +508,6 @@ return|;
 block|}
 else|else
 block|{
-specifier|final
 name|EConstant
 name|index
 init|=
@@ -469,6 +515,8 @@ operator|new
 name|EConstant
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -501,6 +549,8 @@ operator|new
 name|LMapShortcut
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -537,6 +587,8 @@ operator|new
 name|LListShortcut
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|,
@@ -584,7 +636,7 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 comment|// Do nothing.
@@ -596,7 +648,7 @@ name|void
 name|load
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 if|if
@@ -617,7 +669,7 @@ name|modifiers
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|getStatic
 argument_list|(
@@ -641,7 +693,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|getField
 argument_list|(
@@ -671,7 +723,7 @@ name|void
 name|store
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 if|if
@@ -692,7 +744,7 @@ name|modifiers
 argument_list|)
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|putStatic
 argument_list|(
@@ -716,7 +768,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|adapter
+name|writer
 operator|.
 name|putField
 argument_list|(

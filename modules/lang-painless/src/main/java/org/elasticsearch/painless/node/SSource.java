@@ -100,6 +100,9 @@ parameter_list|(
 name|int
 name|line
 parameter_list|,
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|,
@@ -113,6 +116,8 @@ block|{
 name|super
 argument_list|(
 name|line
+argument_list|,
+name|offset
 argument_list|,
 name|location
 argument_list|)
@@ -140,6 +145,29 @@ name|Variables
 name|variables
 parameter_list|)
 block|{
+if|if
+condition|(
+name|statements
+operator|==
+literal|null
+operator|||
+name|statements
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|error
+argument_list|(
+literal|"Cannot generate an empty script."
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|variables
 operator|.
 name|incrementScope
@@ -163,7 +191,6 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-specifier|final
 name|AStatement
 name|statement
 range|:
@@ -228,12 +255,11 @@ name|void
 name|write
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 for|for
 control|(
-specifier|final
 name|AStatement
 name|statement
 range|:
@@ -244,7 +270,7 @@ name|statement
 operator|.
 name|write
 argument_list|(
-name|adapter
+name|writer
 argument_list|)
 expr_stmt|;
 block|}
@@ -254,7 +280,7 @@ operator|!
 name|methodEscape
 condition|)
 block|{
-name|adapter
+name|writer
 operator|.
 name|visitInsn
 argument_list|(
@@ -263,7 +289,7 @@ operator|.
 name|ACONST_NULL
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|returnValue
 argument_list|()

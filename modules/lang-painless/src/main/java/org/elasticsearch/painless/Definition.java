@@ -2419,6 +2419,65 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** Returns whether or not a non-array type exists. */
+DECL|method|isSimpleType
+specifier|public
+specifier|static
+name|boolean
+name|isSimpleType
+parameter_list|(
+specifier|final
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|INSTANCE
+operator|.
+name|structsMap
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/** Returns whether or not a type exists without an exception. */
+DECL|method|isType
+specifier|public
+specifier|static
+name|boolean
+name|isType
+parameter_list|(
+specifier|final
+name|String
+name|name
+parameter_list|)
+block|{
+try|try
+block|{
+name|INSTANCE
+operator|.
+name|getTypeInternal
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|exception
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
 comment|/** Gets the type given by its name */
 DECL|method|getType
 specifier|public
@@ -5772,7 +5831,6 @@ specifier|private
 name|Type
 name|getTypeInternal
 parameter_list|(
-specifier|final
 name|String
 name|name
 parameter_list|)
@@ -5799,7 +5857,6 @@ return|return
 name|simple
 return|;
 block|}
-specifier|final
 name|int
 name|dimensions
 init|=
@@ -5808,7 +5865,6 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-specifier|final
 name|String
 name|structstr
 init|=
@@ -5832,7 +5888,6 @@ literal|'['
 argument_list|)
 argument_list|)
 decl_stmt|;
-specifier|final
 name|Struct
 name|struct
 init|=
@@ -5876,11 +5931,9 @@ specifier|private
 name|Type
 name|getTypeInternal
 parameter_list|(
-specifier|final
 name|Struct
 name|struct
 parameter_list|,
-specifier|final
 name|int
 name|dimensions
 parameter_list|)
@@ -5925,7 +5978,6 @@ operator|>
 literal|0
 condition|)
 block|{
-specifier|final
 name|StringBuilder
 name|builder
 init|=
@@ -5935,7 +5987,6 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
-specifier|final
 name|char
 index|[]
 name|brackets
@@ -5976,7 +6027,6 @@ operator|=
 literal|'['
 expr_stmt|;
 block|}
-specifier|final
 name|String
 name|descriptor
 init|=
@@ -6039,7 +6089,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-specifier|final
 name|ClassNotFoundException
 name|exception
 parameter_list|)
@@ -6102,7 +6151,6 @@ name|OBJECT
 expr_stmt|;
 for|for
 control|(
-specifier|final
 name|Sort
 name|value
 range|:
@@ -6168,7 +6216,6 @@ specifier|private
 name|int
 name|getDimensions
 parameter_list|(
-specifier|final
 name|String
 name|name
 parameter_list|)
@@ -6196,7 +6243,6 @@ operator|-
 literal|1
 condition|)
 block|{
-specifier|final
 name|int
 name|length
 init|=

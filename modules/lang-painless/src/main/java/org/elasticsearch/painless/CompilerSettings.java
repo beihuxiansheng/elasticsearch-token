@@ -35,6 +35,16 @@ name|MAX_LOOP_COUNTER
 init|=
 literal|"max_loop_counter"
 decl_stmt|;
+comment|/**      * Constant to be used for enabling additional internal compilation checks (slower).      */
+DECL|field|PICKY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PICKY
+init|=
+literal|"picky"
+decl_stmt|;
 comment|/**      * The maximum number of statements allowed to be run in a loop.      */
 DECL|field|maxLoopCounter
 specifier|private
@@ -42,6 +52,14 @@ name|int
 name|maxLoopCounter
 init|=
 literal|10000
+decl_stmt|;
+comment|/**      * Whether to throw exception on ambiguity or other internal parsing issues. This option      * makes things slower too, it is only for debugging.      */
+DECL|field|picky
+specifier|private
+name|boolean
+name|picky
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Returns the value for the cumulative total number of statements that can be made in all loops      * in a script before an exception is thrown.  This attempts to prevent infinite loops.  Note if      * the counter is set to 0, no loop counter will be written.      */
 DECL|method|getMaxLoopCounter
@@ -71,6 +89,34 @@ operator|.
 name|maxLoopCounter
 operator|=
 name|max
+expr_stmt|;
+block|}
+comment|/**      * Returns true if the compiler should be picky. This means it runs slower and enables additional      * runtime checks, throwing an exception if there are ambiguities in the grammar or other low level      * parsing problems.      */
+DECL|method|isPicky
+specifier|public
+name|boolean
+name|isPicky
+parameter_list|()
+block|{
+return|return
+name|picky
+return|;
+block|}
+comment|/**      * Set to true if compilation should be picky.      * @see #isPicky      */
+DECL|method|setPicky
+specifier|public
+name|void
+name|setPicky
+parameter_list|(
+name|boolean
+name|picky
+parameter_list|)
+block|{
+name|this
+operator|.
+name|picky
+operator|=
+name|picky
 expr_stmt|;
 block|}
 block|}
