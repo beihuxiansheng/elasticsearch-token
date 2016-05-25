@@ -639,6 +639,22 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|final
+name|IndicesOptions
+name|strictExpandIndicesOptions
+init|=
+name|IndicesOptions
+operator|.
+name|strictExpand
+argument_list|()
+decl_stmt|;
+name|clusterStateRequest
+operator|.
+name|indicesOptions
+argument_list|(
+name|strictExpandIndicesOptions
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|admin
@@ -671,6 +687,7 @@ name|ClusterStateResponse
 name|clusterStateResponse
 parameter_list|)
 block|{
+specifier|final
 name|ClusterState
 name|state
 init|=
@@ -678,23 +695,6 @@ name|clusterStateResponse
 operator|.
 name|getState
 argument_list|()
-decl_stmt|;
-specifier|final
-name|IndicesOptions
-name|concreteIndicesOptions
-init|=
-name|IndicesOptions
-operator|.
-name|fromOptions
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|)
 decl_stmt|;
 specifier|final
 name|String
@@ -707,30 +707,39 @@ name|concreteIndexNames
 argument_list|(
 name|state
 argument_list|,
-name|concreteIndicesOptions
+name|strictExpandIndicesOptions
 argument_list|,
 name|indices
 argument_list|)
 decl_stmt|;
-specifier|final
-name|String
-index|[]
-name|openIndices
-init|=
-name|indexNameExpressionResolver
+comment|// concreteIndices should contain exactly the indices in state.metaData() that were selected by clusterStateRequest using
+comment|// IndicesOptions.strictExpand(). We select the indices again here so that they can be displayed in the resulting table
+comment|// in the requesting order.
+assert|assert
+name|concreteIndices
 operator|.
-name|concreteIndexNames
-argument_list|(
+name|length
+operator|==
 name|state
-argument_list|,
-name|IndicesOptions
 operator|.
-name|lenientExpandOpen
+name|metaData
 argument_list|()
-argument_list|,
-name|indices
-argument_list|)
-decl_stmt|;
+operator|.
+name|getIndices
+argument_list|()
+operator|.
+name|size
+argument_list|()
+assert|;
+comment|// Indices that were successfully resolved during the cluster state request might be deleted when the subsequent cluster
+comment|// health and indices stats requests execute. We have to distinguish two cases:
+comment|// 1) the deleted index was explicitly passed as parameter to the /_cat/indices request. In this case we want the subsequent
+comment|//    requests to fail.
+comment|// 2) the deleted index was resolved as part of a wildcard or _all. In this case, we want the subsequent requests not to
+comment|//    fail on the deleted index (as we want to ignore wildcards that cannot be resolved).
+comment|// This behavior can be ensured by letting the cluster health and indices stats requests re-resolve the index names with the
+comment|// same indices options that we used for the initial cluster state request (strictExpand). Unfortunately cluster health
+comment|// requests hard-code their indices options and the best we can do is apply strictExpand to the indices stats request.
 name|ClusterHealthRequest
 name|clusterHealthRequest
 init|=
@@ -738,7 +747,7 @@ name|Requests
 operator|.
 name|clusterHealthRequest
 argument_list|(
-name|openIndices
+name|indices
 argument_list|)
 decl_stmt|;
 name|clusterHealthRequest
@@ -801,14 +810,14 @@ name|indicesStatsRequest
 operator|.
 name|indices
 argument_list|(
-name|concreteIndices
+name|indices
 argument_list|)
 expr_stmt|;
 name|indicesStatsRequest
 operator|.
 name|indicesOptions
 argument_list|(
-name|concreteIndicesOptions
+name|strictExpandIndicesOptions
 argument_list|)
 expr_stmt|;
 name|indicesStatsRequest
@@ -862,10 +871,7 @@ name|clusterHealthResponse
 argument_list|,
 name|indicesStatsResponse
 argument_list|,
-name|clusterStateResponse
-operator|.
-name|getState
-argument_list|()
+name|state
 operator|.
 name|metaData
 argument_list|()
