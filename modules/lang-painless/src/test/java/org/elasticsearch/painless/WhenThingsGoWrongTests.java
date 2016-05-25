@@ -321,6 +321,8 @@ literal|"bogusParameterKey"
 argument_list|,
 literal|"bogusParameterValue"
 argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
