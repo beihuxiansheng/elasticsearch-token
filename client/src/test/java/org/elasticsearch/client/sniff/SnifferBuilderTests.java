@@ -653,7 +653,7 @@ block|}
 try|try
 init|(
 name|Sniffer
-name|connectionPool
+name|sniffer
 init|=
 name|builder
 operator|.
@@ -663,7 +663,7 @@ init|)
 block|{
 name|assertNotNull
 argument_list|(
-name|connectionPool
+name|sniffer
 argument_list|)
 expr_stmt|;
 block|}
