@@ -2002,11 +2002,6 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|testManyToManyGeoPointsWithDifferentFormats
 specifier|public
 name|void

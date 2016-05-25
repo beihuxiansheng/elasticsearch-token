@@ -53,12 +53,6 @@ class|class
 name|PathUtilsForTesting
 block|{
 comment|/** Sets a new default filesystem for testing */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// https://github.com/elastic/elasticsearch/issues/15845
 DECL|method|setup
 specifier|public
 specifier|static

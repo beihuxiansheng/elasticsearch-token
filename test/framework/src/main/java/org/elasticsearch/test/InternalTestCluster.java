@@ -7249,12 +7249,6 @@ block|}
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// https://github.com/elastic/elasticsearch/issues/15844
 DECL|method|randomlyResetClients
 specifier|private
 name|void

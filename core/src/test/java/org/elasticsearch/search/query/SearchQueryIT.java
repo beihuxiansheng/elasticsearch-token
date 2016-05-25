@@ -14612,12 +14612,6 @@ literal|3L
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// fuzzy queries will be removed in 4.0
 DECL|method|testSpanMultiTermQuery
 specifier|public
 name|void
