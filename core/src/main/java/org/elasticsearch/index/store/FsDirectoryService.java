@@ -879,11 +879,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|method|isDefault
 specifier|private
 specifier|static
