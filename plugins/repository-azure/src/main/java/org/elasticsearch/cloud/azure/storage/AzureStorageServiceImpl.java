@@ -816,7 +816,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -826,7 +826,7 @@ name|container
 argument_list|)
 decl_stmt|;
 return|return
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
@@ -886,7 +886,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -896,7 +896,7 @@ name|container
 argument_list|)
 decl_stmt|;
 comment|// TODO Should we set some timeout and retry options?
-comment|/*         BlobRequestOptions options = new BlobRequestOptions();         options.setTimeoutIntervalInMs(1000);         options.setRetryPolicyFactory(new RetryNoRetry());         blob_container.deleteIfExists(options, null);         */
+comment|/*         BlobRequestOptions options = new BlobRequestOptions();         options.setTimeoutIntervalInMs(1000);         options.setRetryPolicyFactory(new RetryNoRetry());         blobContainer.deleteIfExists(options, null);         */
 name|logger
 operator|.
 name|trace
@@ -906,7 +906,7 @@ argument_list|,
 name|container
 argument_list|)
 expr_stmt|;
-name|blob_container
+name|blobContainer
 operator|.
 name|deleteIfExists
 argument_list|()
@@ -948,7 +948,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -966,7 +966,7 @@ argument_list|,
 name|container
 argument_list|)
 expr_stmt|;
-name|blob_container
+name|blobContainer
 operator|.
 name|createIfNotExists
 argument_list|()
@@ -1052,7 +1052,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -1063,7 +1063,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
@@ -1075,7 +1075,7 @@ control|(
 name|ListBlobItem
 name|blobItem
 range|:
-name|blob_container
+name|blobContainer
 operator|.
 name|listBlobs
 argument_list|(
@@ -1144,9 +1144,10 @@ name|getPath
 argument_list|()
 decl_stmt|;
 comment|// We remove the container name from the path
-comment|// The 3 magic number cames from the fact we have // in the first part of the URI (protocol)
-comment|// Then a / after the server address
-comment|// And we finally split after the container/
+comment|// The 3 magic number cames from the fact if path is /container/path/to/myfile
+comment|// First occurrence is empty "/"
+comment|// Second occurrence is "container
+comment|// Last part contains "path/to/myfile" which is what we want to get
 name|String
 index|[]
 name|splits
@@ -1206,7 +1207,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -1217,7 +1218,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
@@ -1226,7 +1227,7 @@ block|{
 name|CloudBlockBlob
 name|azureBlob
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
@@ -1293,7 +1294,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -1304,7 +1305,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
@@ -1324,7 +1325,7 @@ expr_stmt|;
 name|CloudBlockBlob
 name|azureBlob
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
@@ -1753,7 +1754,7 @@ name|mode
 argument_list|)
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -1765,7 +1766,7 @@ decl_stmt|;
 name|CloudBlockBlob
 name|blobSource
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
@@ -1783,7 +1784,7 @@ block|{
 name|CloudBlockBlob
 name|blobTarget
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
