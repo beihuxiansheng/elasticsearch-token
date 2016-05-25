@@ -4785,11 +4785,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|terminal
-operator|.
-name|getOutput
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|testOfficialPluginsIncludesXpack
 specifier|public
