@@ -868,6 +868,11 @@ if|if
 condition|(
 operator|!
 name|queriesFound
+operator|||
+name|queries
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -879,7 +884,7 @@ operator|.
 name|getTokenLocation
 argument_list|()
 argument_list|,
-literal|"[dis_max] requires 'queries' field"
+literal|"[dis_max] requires 'queries' field with at least one clause"
 argument_list|)
 throw|;
 block|}
@@ -963,18 +968,6 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|luceneQueries
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 return|return
 operator|new
 name|DisjunctionMaxQuery

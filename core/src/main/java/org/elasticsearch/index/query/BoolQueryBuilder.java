@@ -2173,13 +2173,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-if|if
-condition|(
-name|luceneQuery
-operator|!=
-literal|null
-condition|)
-block|{
 name|booleanQueryBuilder
 operator|.
 name|add
@@ -2193,7 +2186,6 @@ name|occurs
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@

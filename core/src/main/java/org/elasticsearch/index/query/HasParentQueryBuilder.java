@@ -809,17 +809,6 @@ name|previousTypes
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|innerQuery
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 name|DocumentMapper
 name|parentDocMapper
 init|=

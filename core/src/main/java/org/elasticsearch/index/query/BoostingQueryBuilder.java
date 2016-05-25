@@ -1038,23 +1038,6 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-comment|// make upstream queries ignore this query by returning `null`
-comment|// if either inner query builder returns null
-if|if
-condition|(
-name|positive
-operator|==
-literal|null
-operator|||
-name|negative
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 return|return
 operator|new
 name|BoostingQuery

@@ -763,18 +763,6 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|innerFilter
-operator|==
-literal|null
-condition|)
-block|{
-comment|// return null so that parent queries (e.g. bool) also ignore this
-return|return
-literal|null
-return|;
-block|}
 return|return
 operator|new
 name|ConstantScoreQuery

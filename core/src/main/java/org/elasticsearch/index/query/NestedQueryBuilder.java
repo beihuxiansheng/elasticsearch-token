@@ -1524,17 +1524,6 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|innerQuery
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 finally|finally
 block|{
