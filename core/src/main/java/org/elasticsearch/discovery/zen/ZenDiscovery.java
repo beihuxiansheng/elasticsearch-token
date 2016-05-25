@@ -1698,6 +1698,8 @@ name|clusterService
 argument_list|,
 name|routingService
 argument_list|,
+name|electMaster
+argument_list|,
 name|discoverySettings
 argument_list|,
 name|settings
@@ -3643,7 +3645,17 @@ parameter_list|,
 name|ClusterState
 name|newState
 parameter_list|)
-block|{             }
+block|{
+name|electMaster
+operator|.
+name|logMinimumMasterNodesWarningIfNecessary
+argument_list|(
+name|oldState
+argument_list|,
+name|newState
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
