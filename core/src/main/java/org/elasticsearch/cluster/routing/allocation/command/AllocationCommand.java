@@ -76,6 +76,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|network
+operator|.
+name|NetworkModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|ToXContent
@@ -107,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This interface defines the basic methods of commands for allocation  */
+comment|/**  * A command to move shards in some way.  *  * Commands are registered in {@link NetworkModule}.  */
 end_comment
 
 begin_interface

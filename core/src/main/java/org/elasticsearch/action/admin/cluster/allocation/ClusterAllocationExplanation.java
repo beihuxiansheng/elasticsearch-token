@@ -221,6 +221,12 @@ specifier|final
 name|boolean
 name|primary
 decl_stmt|;
+DECL|field|hasPendingAsyncFetch
+specifier|private
+specifier|final
+name|boolean
+name|hasPendingAsyncFetch
+decl_stmt|;
 DECL|field|assignedNodeId
 specifier|private
 specifier|final
@@ -273,6 +279,9 @@ name|Nullable
 name|UnassignedInfo
 name|unassignedInfo
 parameter_list|,
+name|boolean
+name|hasPendingAsyncFetch
+parameter_list|,
 name|Map
 argument_list|<
 name|DiscoveryNode
@@ -293,6 +302,12 @@ operator|.
 name|primary
 operator|=
 name|primary
+expr_stmt|;
+name|this
+operator|.
+name|hasPendingAsyncFetch
+operator|=
+name|hasPendingAsyncFetch
 expr_stmt|;
 name|this
 operator|.
@@ -343,6 +358,15 @@ expr_stmt|;
 name|this
 operator|.
 name|primary
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|hasPendingAsyncFetch
 operator|=
 name|in
 operator|.
@@ -482,6 +506,16 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
+name|writeBoolean
+argument_list|(
+name|this
+operator|.
+name|isStillFetchingShardData
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
 name|writeOptionalString
 argument_list|(
 name|this
@@ -565,6 +599,19 @@ return|return
 name|this
 operator|.
 name|primary
+return|;
+block|}
+comment|/** Return turn if shard data is still being fetched for the allocation */
+DECL|method|isStillFetchingShardData
+specifier|public
+name|boolean
+name|isStillFetchingShardData
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|hasPendingAsyncFetch
 return|;
 block|}
 comment|/** Return turn if the shard is assigned to a node */
@@ -759,6 +806,17 @@ name|assignedNodeId
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"shard_state_fetch_pending"
+argument_list|,
+name|this
+operator|.
+name|hasPendingAsyncFetch
+argument_list|)
+expr_stmt|;
 comment|// If we have unassigned info, show that
 if|if
 condition|(

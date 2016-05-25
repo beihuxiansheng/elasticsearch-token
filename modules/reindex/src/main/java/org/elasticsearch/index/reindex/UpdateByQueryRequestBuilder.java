@@ -191,6 +191,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|setPipeline
+specifier|public
+name|UpdateByQueryRequestBuilder
+name|setPipeline
+parameter_list|(
+name|String
+name|pipeline
+parameter_list|)
+block|{
+name|request
+operator|.
+name|setPipeline
+argument_list|(
+name|pipeline
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

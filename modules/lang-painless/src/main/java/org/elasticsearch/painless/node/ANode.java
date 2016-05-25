@@ -51,11 +51,17 @@ specifier|abstract
 class|class
 name|ANode
 block|{
-comment|/**      * The line number in the original source used for debug messages.      */
+comment|/**      * The line number in the original source used for debugging and errors.      */
 DECL|field|line
 specifier|final
 name|int
 name|line
+decl_stmt|;
+comment|/**      * The character offset in the original source used for debugging and errors.      */
+DECL|field|offset
+specifier|final
+name|int
+name|offset
 decl_stmt|;
 comment|/**      * The location in the original source to be printed in error messages.      */
 DECL|field|location
@@ -66,11 +72,12 @@ decl_stmt|;
 DECL|method|ANode
 name|ANode
 parameter_list|(
-specifier|final
 name|int
 name|line
 parameter_list|,
-specifier|final
+name|int
+name|offset
+parameter_list|,
 name|String
 name|location
 parameter_list|)
@@ -80,6 +87,12 @@ operator|.
 name|line
 operator|=
 name|line
+expr_stmt|;
+name|this
+operator|.
+name|offset
+operator|=
+name|offset
 expr_stmt|;
 name|this
 operator|.
@@ -108,13 +121,13 @@ operator|+
 name|message
 return|;
 block|}
-comment|/**       * Writes line number information      *<p>      * Currently we emit line number data for for leaf S-nodes      */
+comment|/**      * Writes line number information      *<p>      * Currently we emit line number data for for leaf S-nodes      */
 DECL|method|writeDebugInfo
 name|void
 name|writeDebugInfo
 parameter_list|(
 name|MethodWriter
-name|adapter
+name|writer
 parameter_list|)
 block|{
 name|Label
@@ -124,14 +137,14 @@ operator|new
 name|Label
 argument_list|()
 decl_stmt|;
-name|adapter
+name|writer
 operator|.
 name|visitLabel
 argument_list|(
 name|label
 argument_list|)
 expr_stmt|;
-name|adapter
+name|writer
 operator|.
 name|visitLineNumber
 argument_list|(

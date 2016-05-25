@@ -128,6 +128,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|snapshots
+operator|.
+name|SnapshotInfo
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -239,6 +251,20 @@ operator|.
 name|CONTEXT_MODE_PARAM
 argument_list|,
 name|MetaData
+operator|.
+name|CONTEXT_MODE_SNAPSHOT
+argument_list|)
+expr_stmt|;
+comment|// serialize SnapshotInfo using the SNAPSHOT mode
+name|snapshotOnlyParams
+operator|.
+name|put
+argument_list|(
+name|SnapshotInfo
+operator|.
+name|CONTEXT_MODE_PARAM
+argument_list|,
+name|SnapshotInfo
 operator|.
 name|CONTEXT_MODE_SNAPSHOT
 argument_list|)

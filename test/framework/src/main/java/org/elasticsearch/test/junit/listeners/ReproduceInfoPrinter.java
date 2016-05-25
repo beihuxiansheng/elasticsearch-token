@@ -679,7 +679,7 @@ parameter_list|()
 block|{
 name|appendProperties
 argument_list|(
-literal|"es.logger.level"
+literal|"tests.es.logger.level"
 argument_list|)
 expr_stmt|;
 if|if
@@ -691,9 +691,9 @@ block|{
 comment|// these properties only make sense for integration tests
 name|appendProperties
 argument_list|(
-literal|"es.node.mode"
+literal|"tests.es.node.mode"
 argument_list|,
-literal|"es.node.local"
+literal|"tests.es.node.local"
 argument_list|,
 name|TESTS_CLUSTER
 argument_list|,

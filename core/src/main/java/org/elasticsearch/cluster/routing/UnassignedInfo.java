@@ -359,6 +359,10 @@ block|,
 comment|/**          * A better replica location is identified and causes the existing replica allocation to be cancelled.          */
 DECL|enum constant|REALLOCATED_REPLICA
 name|REALLOCATED_REPLICA
+block|,
+comment|/**          * Unassigned as a result of a failed primary while the replica was initializing.          */
+DECL|enum constant|PRIMARY_FAILED
+name|PRIMARY_FAILED
 block|;     }
 DECL|field|reason
 specifier|private
@@ -399,6 +403,12 @@ specifier|final
 name|Throwable
 name|failure
 decl_stmt|;
+DECL|field|failedAllocations
+specifier|private
+specifier|final
+name|int
+name|failedAllocations
+decl_stmt|;
 comment|/**      * creates an UnassingedInfo object based **current** time      *      * @param reason  the cause for making this shard unassigned. See {@link Reason} for more information.      * @param message more information about cause.      **/
 DECL|method|UnassignedInfo
 specifier|public
@@ -418,6 +428,16 @@ argument_list|,
 name|message
 argument_list|,
 literal|null
+argument_list|,
+name|reason
+operator|==
+name|Reason
+operator|.
+name|ALLOCATION_FAILED
+condition|?
+literal|1
+else|:
+literal|0
 argument_list|,
 name|System
 operator|.
@@ -448,6 +468,9 @@ annotation|@
 name|Nullable
 name|Throwable
 name|failure
+parameter_list|,
+name|int
+name|failedAllocations
 parameter_list|,
 name|long
 name|unassignedTimeNanos
@@ -492,6 +515,35 @@ name|failure
 operator|=
 name|failure
 expr_stmt|;
+name|this
+operator|.
+name|failedAllocations
+operator|=
+name|failedAllocations
+expr_stmt|;
+assert|assert
+operator|(
+name|failedAllocations
+operator|>
+literal|0
+operator|)
+operator|==
+operator|(
+name|reason
+operator|==
+name|Reason
+operator|.
+name|ALLOCATION_FAILED
+operator|)
+operator|:
+literal|"failedAllocations: "
+operator|+
+name|failedAllocations
+operator|+
+literal|" for reason "
+operator|+
+name|reason
+assert|;
 assert|assert
 operator|!
 operator|(
@@ -564,6 +616,14 @@ name|unassignedInfo
 operator|.
 name|failure
 expr_stmt|;
+name|this
+operator|.
+name|failedAllocations
+operator|=
+name|unassignedInfo
+operator|.
+name|failedAllocations
+expr_stmt|;
 block|}
 DECL|method|UnassignedInfo
 specifier|public
@@ -603,7 +663,7 @@ name|readLong
 argument_list|()
 expr_stmt|;
 comment|// As System.nanoTime() cannot be compared across different JVMs, reset it to now.
-comment|// This means that in master failover situations, elapsed delay time is forgotten.
+comment|// This means that in master fail-over situations, elapsed delay time is forgotten.
 name|this
 operator|.
 name|unassignedTimeNanos
@@ -635,6 +695,15 @@ operator|=
 name|in
 operator|.
 name|readThrowable
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|failedAllocations
+operator|=
+name|in
+operator|.
+name|readVInt
 argument_list|()
 expr_stmt|;
 block|}
@@ -684,6 +753,13 @@ argument_list|(
 name|failure
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|writeVInt
+argument_list|(
+name|failedAllocations
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|readFrom
 specifier|public
@@ -702,6 +778,17 @@ name|UnassignedInfo
 argument_list|(
 name|in
 argument_list|)
+return|;
+block|}
+comment|/**      * Returns the number of previously failed allocations of this shard.      */
+DECL|method|getNumFailedAllocations
+specifier|public
+name|int
+name|getNumFailedAllocations
+parameter_list|()
+block|{
+return|return
+name|failedAllocations
 return|;
 block|}
 comment|/**      * The reason why the shard is unassigned.      */
@@ -1336,6 +1423,31 @@ argument_list|(
 literal|"]"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|failedAllocations
+operator|>
+literal|0
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", failed_attempts["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|failedAllocations
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|details
 init|=
@@ -1440,6 +1552,23 @@ name|unassignedTimeMillis
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|failedAllocations
+operator|>
+literal|0
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"failed_attempts"
+argument_list|,
+name|failedAllocations
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|details
 init|=

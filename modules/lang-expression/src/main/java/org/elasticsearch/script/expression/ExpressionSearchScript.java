@@ -404,8 +404,9 @@ name|run
 parameter_list|()
 block|{
 return|return
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|evaluate
 argument_list|()

@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holds the {@link org.elasticsearch.script.ScriptMode}s for each of the different scripting languages available,  * each script source and each scripted operation.  */
+comment|/**  * Holds the boolean indicating the enabled mode for each of the different scripting languages available, each script source and each  * scripted operation.  */
 end_comment
 
 begin_class
@@ -124,15 +124,15 @@ name|ENGINE_SETTINGS_PREFIX
 init|=
 literal|"script.engine"
 decl_stmt|;
-DECL|field|scriptModes
+DECL|field|scriptEnabled
 specifier|final
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ScriptMode
+name|Boolean
 argument_list|>
-name|scriptModes
+name|scriptEnabled
 decl_stmt|;
 DECL|method|ScriptModes
 name|ScriptModes
@@ -148,7 +148,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|ScriptMode
+name|Boolean
 argument_list|>
 name|scriptModes
 init|=
@@ -161,7 +161,7 @@ for|for
 control|(
 name|Setting
 argument_list|<
-name|ScriptMode
+name|Boolean
 argument_list|>
 name|scriptModeSetting
 range|:
@@ -191,7 +191,7 @@ expr_stmt|;
 block|}
 name|this
 operator|.
-name|scriptModes
+name|scriptEnabled
 operator|=
 name|Collections
 operator|.
@@ -201,11 +201,11 @@ name|scriptModes
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the script mode for a script of a certain written in a certain language,      * of a certain type and executing as part of a specific operation/api.      *      * @param lang the language that the script is written in      * @param scriptType the type of the script      * @param scriptContext the operation that requires the execution of the script      * @return whether scripts are on or off      */
-DECL|method|getScriptMode
+comment|/**      * Returns the script mode for a script of a certain written in a certain language,      * of a certain type and executing as part of a specific operation/api.      *      * @param lang the language that the script is written in      * @param scriptType the type of the script      * @param scriptContext the operation that requires the execution of the script      * @return whether scripts are enabled (true) or disabled (false)      */
+DECL|method|getScriptEnabled
 specifier|public
-name|ScriptMode
-name|getScriptMode
+name|boolean
+name|getScriptEnabled
 parameter_list|(
 name|String
 name|lang
@@ -217,7 +217,7 @@ name|ScriptContext
 name|scriptContext
 parameter_list|)
 block|{
-comment|//native scripts are always on as they are static by definition
+comment|//native scripts are always enabled as they are static by definition
 if|if
 condition|(
 name|NativeScriptEngineService
@@ -231,15 +231,13 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ScriptMode
-operator|.
-name|ON
+literal|true
 return|;
 block|}
-name|ScriptMode
+name|Boolean
 name|scriptMode
 init|=
-name|scriptModes
+name|scriptEnabled
 operator|.
 name|get
 argument_list|(
@@ -398,7 +396,7 @@ name|TreeMap
 argument_list|<
 name|String
 argument_list|,
-name|ScriptMode
+name|Boolean
 argument_list|>
 name|scriptModesTreeMap
 init|=
@@ -411,7 +409,7 @@ name|scriptModesTreeMap
 operator|.
 name|putAll
 argument_list|(
-name|scriptModes
+name|scriptEnabled
 argument_list|)
 expr_stmt|;
 name|StringBuilder
@@ -429,7 +427,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|ScriptMode
+name|Boolean
 argument_list|>
 name|stringScriptModeEntry
 range|:

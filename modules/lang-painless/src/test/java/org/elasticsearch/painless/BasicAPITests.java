@@ -14,6 +14,26 @@ name|painless
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_class
 DECL|class|BasicAPITests
 specifier|public
@@ -42,25 +62,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
-argument_list|,
-name|exec
-argument_list|(
-literal|"List<Object> x = new ArrayList(); x.add(2); x.add(3); x.add(-2); Iterator<Object> y = x.iterator(); "
-operator|+
-literal|"int total = 0; while (y.hasNext()) total += (int)y.next(); return total;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 literal|"abc"
 argument_list|,
 name|exec
 argument_list|(
-literal|"List<String> x = new ArrayList(); x.add(\"a\"); x.add(\"b\"); x.add(\"c\"); "
+literal|"List x = new ArrayList(); x.add(\"a\"); x.add(\"b\"); x.add(\"c\"); "
 operator|+
-literal|"Iterator<String> y = x.iterator(); String total = \"\"; while (y.hasNext()) total += y.next(); return total;"
+literal|"Iterator y = x.iterator(); String total = \"\"; while (y.hasNext()) total += y.next(); return total;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -97,25 +105,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
-argument_list|,
-name|exec
-argument_list|(
-literal|"Set<Object> x = new HashSet(); x.add(2); x.add(3); x.add(-2); Iterator<Object> y = x.iterator(); "
-operator|+
-literal|"int total = 0; while (y.hasNext()) total += (int)y.next(); return total;"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
 literal|"abc"
 argument_list|,
 name|exec
 argument_list|(
-literal|"Set<String> x = new HashSet(); x.add(\"a\"); x.add(\"b\"); x.add(\"c\"); "
+literal|"Set x = new HashSet(); x.add(\"a\"); x.add(\"b\"); x.add(\"c\"); "
 operator|+
-literal|"Iterator<String> y = x.iterator(); String total = \"\"; while (y.hasNext()) total += y.next(); return total;"
+literal|"Iterator y = x.iterator(); String total = \"\"; while (y.hasNext()) total += y.next(); return total;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -311,26 +307,6 @@ literal|"List x = new ArrayList(); x.add('Hallo'); return x.length"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exec
-argument_list|(
-literal|"List<String> x = new ArrayList<String>(); x.add('Hallo'); return x.length"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
-name|exec
-argument_list|(
-literal|"List<Object> x = new ArrayList<Object>(); x.add('Hallo'); return x.length"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testDefAssignments
 specifier|public
@@ -345,6 +321,105 @@ argument_list|,
 name|exec
 argument_list|(
 literal|"int x; def y = 2.0; x = (int)y;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testInternalBoxing
+specifier|public
+name|void
+name|testInternalBoxing
+parameter_list|()
+block|{
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = true"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = (byte)1"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Byte.valueOf (B)Ljava/lang/Byte;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = (short)1"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Short.valueOf (S)Ljava/lang/Short;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = (char)1"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1L"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Long.valueOf (J)Ljava/lang/Long;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1F"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Float.valueOf (F)Ljava/lang/Float;"
+argument_list|)
+expr_stmt|;
+name|assertBytecodeExists
+argument_list|(
+literal|"def x = 1D"
+argument_list|,
+literal|"INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testStream
+name|void
+name|testStream
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+literal|11
+argument_list|,
+name|exec
+argument_list|(
+literal|"params.list.stream().sum()"
+argument_list|,
+name|Collections
+operator|.
+name|singletonMap
+argument_list|(
+literal|"list"
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|1
+argument_list|,
+literal|2
+argument_list|,
+literal|3
+argument_list|,
+literal|5
+argument_list|)
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

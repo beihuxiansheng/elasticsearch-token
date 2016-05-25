@@ -1404,7 +1404,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = true; x&= true; return x;"
+literal|"def x = true; x&= true; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1414,7 +1414,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = true; x&= false; return x;"
+literal|"def x = true; x&= false; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1424,7 +1424,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = false; x&= true; return x;"
+literal|"def x = false; x&= true; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1434,7 +1434,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = false; x&= false; return x;"
+literal|"def x = false; x&= false; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1484,7 +1484,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = true; x[0]&= true; return x[0];"
+literal|"def[] x = new def[1]; x[0] = true; x[0]&= true; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1494,7 +1494,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = true; x[0]&= false; return x[0];"
+literal|"def[] x = new def[1]; x[0] = true; x[0]&= false; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1504,7 +1504,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = false; x[0]&= true; return x[0];"
+literal|"def[] x = new def[1]; x[0] = false; x[0]&= true; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1514,7 +1514,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = false; x[0]&= false; return x[0];"
+literal|"def[] x = new def[1]; x[0] = false; x[0]&= false; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1657,7 +1657,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = true; x |= true; return x;"
+literal|"def x = true; x |= true; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1667,7 +1667,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = true; x |= false; return x;"
+literal|"def x = true; x |= false; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1677,7 +1677,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = false; x |= true; return x;"
+literal|"def x = false; x |= true; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1687,7 +1687,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = false; x |= false; return x;"
+literal|"def x = false; x |= false; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1737,7 +1737,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = true; x[0] |= true; return x[0];"
+literal|"def[] x = new def[1]; x[0] = true; x[0] |= true; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1747,7 +1747,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = true; x[0] |= false; return x[0];"
+literal|"def[] x = new def[1]; x[0] = true; x[0] |= false; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1757,7 +1757,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = false; x[0] |= true; return x[0];"
+literal|"def[] x = new def[1]; x[0] = false; x[0] |= true; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1767,7 +1767,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = false; x[0] |= false; return x[0];"
+literal|"def[] x = new def[1]; x[0] = false; x[0] |= false; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1910,7 +1910,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = true; x ^= true; return x;"
+literal|"def x = true; x ^= true; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1920,7 +1920,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = true; x ^= false; return x;"
+literal|"def x = true; x ^= false; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1930,7 +1930,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = false; x ^= true; return x;"
+literal|"def x = false; x ^= true; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1940,7 +1940,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean x = false; x ^= false; return x;"
+literal|"def x = false; x ^= false; return x;"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1990,7 +1990,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = true; x[0] ^= true; return x[0];"
+literal|"def[] x = new def[1]; x[0] = true; x[0] ^= true; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2000,7 +2000,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = true; x[0] ^= false; return x[0];"
+literal|"def[] x = new def[1]; x[0] = true; x[0] ^= false; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2010,7 +2010,7 @@ literal|true
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = false; x[0] ^= true; return x[0];"
+literal|"def[] x = new def[1]; x[0] = false; x[0] ^= true; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2020,7 +2020,7 @@ literal|false
 argument_list|,
 name|exec
 argument_list|(
-literal|"Boolean[] x = new Boolean[1]; x[0] = false; x[0] ^= false; return x[0];"
+literal|"def[] x = new def[1]; x[0] = false; x[0] ^= false; return x[0];"
 argument_list|)
 argument_list|)
 expr_stmt|;

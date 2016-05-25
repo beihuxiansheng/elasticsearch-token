@@ -415,19 +415,6 @@ argument_list|,
 literal|"foobar"
 argument_list|)
 operator|.
-name|put
-argument_list|(
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-comment|// make sure we get what we set :)
-operator|.
 name|build
 argument_list|()
 argument_list|)

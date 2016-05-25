@@ -625,7 +625,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Not a type [PainlessError]."
+literal|"unexpected token ['PainlessError']"
 argument_list|)
 argument_list|)
 expr_stmt|;

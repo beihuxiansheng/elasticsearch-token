@@ -198,7 +198,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|matcher
-specifier|protected
+specifier|public
 specifier|static
 name|BulkIndexByScrollResponseMatcher
 name|matcher
