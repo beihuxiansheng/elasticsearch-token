@@ -258,6 +258,17 @@ name|DecltypeContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#funcref}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitFuncref
+name|T
+name|visitFuncref
+parameter_list|(
+name|PainlessParser
+operator|.
+name|FuncrefContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by {@link PainlessParser#declvar}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitDeclvar
 name|T
@@ -596,6 +607,17 @@ parameter_list|(
 name|PainlessParser
 operator|.
 name|ArgumentsContext
+name|ctx
+parameter_list|)
+function_decl|;
+comment|/**    * Visit a parse tree produced by {@link PainlessParser#argument}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitArgument
+name|T
+name|visitArgument
+parameter_list|(
+name|PainlessParser
+operator|.
+name|ArgumentContext
 name|ctx
 parameter_list|)
 function_decl|;
