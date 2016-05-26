@@ -340,7 +340,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptException
+name|GeneralScriptException
 import|;
 end_import
 
@@ -3499,7 +3499,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Failed to parse expression"
+literal|"compile error"
 argument_list|)
 argument_list|,
 name|equalTo
@@ -4907,7 +4907,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ScriptException
+name|GeneralScriptException
 name|se
 parameter_list|)
 block|{
@@ -4998,7 +4998,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ScriptException
+name|GeneralScriptException
 name|se
 parameter_list|)
 block|{
@@ -5088,7 +5088,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ScriptException
+name|GeneralScriptException
 name|se
 parameter_list|)
 block|{

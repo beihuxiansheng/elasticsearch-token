@@ -765,7 +765,7 @@ specifier|final
 name|Exception
 name|exception
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|ClassCastException
 operator|.

@@ -425,7 +425,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ScriptException
+name|IllegalStateException
 name|e
 parameter_list|)
 block|{
@@ -528,7 +528,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ScriptException
+name|IllegalStateException
 name|e
 parameter_list|)
 block|{

@@ -387,6 +387,13 @@ parameter_list|)
 block|{
 name|writer
 operator|.
+name|writeDebugInfo
+argument_list|(
+name|offset
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
 name|arrayLoad
 argument_list|(
 name|after
@@ -405,6 +412,13 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
+name|writer
+operator|.
+name|writeDebugInfo
+argument_list|(
+name|offset
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|arrayStore

@@ -563,6 +563,11 @@ name|withObjectIndenter
 argument_list|(
 name|INDENTER
 argument_list|)
+operator|.
+name|withArrayIndenter
+argument_list|(
+name|INDENTER
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|prettyPrint

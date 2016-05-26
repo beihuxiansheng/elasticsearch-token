@@ -60,7 +60,7 @@ name|void
 name|testNullPointer
 parameter_list|()
 block|{
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|NullPointerException
 operator|.
@@ -78,6 +78,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** test "line numbers" in the bytecode, which are really 1-based offsets */
 DECL|method|testLineNumbers
 specifier|public
 name|void
@@ -88,7 +89,7 @@ comment|// trigger NPE at line 1 of the script
 name|NullPointerException
 name|exception
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|NullPointerException
 operator|.
@@ -107,8 +108,11 @@ expr_stmt|;
 block|}
 argument_list|)
 decl_stmt|;
+comment|// null deref at x.isEmpty(), the '.' is offset 30 (+1)
 name|assertEquals
 argument_list|(
+literal|30
+operator|+
 literal|1
 argument_list|,
 name|exception
@@ -126,7 +130,7 @@ expr_stmt|;
 comment|// trigger NPE at line 2 of the script
 name|exception
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|NullPointerException
 operator|.
@@ -145,9 +149,12 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
+comment|// null deref at x.isEmpty(), the '.' is offset 25 (+1)
 name|assertEquals
 argument_list|(
-literal|2
+literal|25
+operator|+
+literal|1
 argument_list|,
 name|exception
 operator|.
@@ -164,7 +171,7 @@ expr_stmt|;
 comment|// trigger NPE at line 3 of the script
 name|exception
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|NullPointerException
 operator|.
@@ -185,9 +192,12 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
+comment|// null deref at y.isEmpty(), the '.' is offset 39 (+1)
 name|assertEquals
 argument_list|(
-literal|3
+literal|39
+operator|+
+literal|1
 argument_list|,
 name|exception
 operator|.
@@ -204,7 +214,7 @@ expr_stmt|;
 comment|// trigger NPE at line 4 in script (inside conditional)
 name|exception
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|NullPointerException
 operator|.
@@ -231,9 +241,12 @@ expr_stmt|;
 block|}
 argument_list|)
 expr_stmt|;
+comment|// null deref at x.isEmpty(), the '.' is offset 53 (+1)
 name|assertEquals
 argument_list|(
-literal|4
+literal|53
+operator|+
+literal|1
 argument_list|,
 name|exception
 operator|.
@@ -351,7 +364,7 @@ block|{
 name|PainlessError
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|PainlessError
 operator|.
@@ -383,7 +396,7 @@ argument_list|)
 expr_stmt|;
 name|expected
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|PainlessError
 operator|.
@@ -415,7 +428,7 @@ argument_list|)
 expr_stmt|;
 name|expected
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|PainlessError
 operator|.
@@ -447,7 +460,7 @@ argument_list|)
 expr_stmt|;
 name|expected
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|PainlessError
 operator|.
@@ -484,7 +497,7 @@ argument_list|)
 expr_stmt|;
 name|expected
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|PainlessError
 operator|.
@@ -521,7 +534,7 @@ argument_list|)
 expr_stmt|;
 name|expected
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|PainlessError
 operator|.
@@ -558,7 +571,7 @@ argument_list|)
 expr_stmt|;
 name|expected
 operator|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|PainlessError
 operator|.
@@ -647,7 +660,7 @@ expr_stmt|;
 name|PainlessError
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|PainlessError
 operator|.
@@ -792,7 +805,7 @@ block|{
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
@@ -829,7 +842,7 @@ name|void
 name|testDynamicNPE
 parameter_list|()
 block|{
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|NullPointerException
 operator|.
@@ -853,7 +866,7 @@ name|void
 name|testDynamicWrongArgs
 parameter_list|()
 block|{
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|WrongMethodTypeException
 operator|.
@@ -877,7 +890,7 @@ name|void
 name|testDynamicArrayWrongIndex
 parameter_list|()
 block|{
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|WrongMethodTypeException
 operator|.
@@ -901,7 +914,7 @@ name|void
 name|testDynamicListWrongIndex
 parameter_list|()
 block|{
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|WrongMethodTypeException
 operator|.
