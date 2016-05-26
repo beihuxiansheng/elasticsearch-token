@@ -46,7 +46,7 @@ block|{
 name|RuntimeException
 name|exception
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|RuntimeException
 operator|.
@@ -142,7 +142,7 @@ block|{
 name|RuntimeException
 name|exception
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|RuntimeException
 operator|.

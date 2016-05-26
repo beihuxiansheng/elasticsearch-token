@@ -272,6 +272,13 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
+name|writer
+operator|.
+name|writeDebugInfo
+argument_list|(
+name|offset
+argument_list|)
+expr_stmt|;
 name|StringBuilder
 name|signature
 init|=

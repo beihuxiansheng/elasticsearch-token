@@ -283,9 +283,11 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
-name|writeDebugInfo
-argument_list|(
 name|writer
+operator|.
+name|writeStatementOffset
+argument_list|(
+name|offset
 argument_list|)
 expr_stmt|;
 if|if

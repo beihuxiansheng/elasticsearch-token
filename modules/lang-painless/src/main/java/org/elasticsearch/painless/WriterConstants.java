@@ -134,6 +134,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|BitSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -231,6 +241,10 @@ operator|.
 name|class
 argument_list|,
 name|String
+operator|.
+name|class
+argument_list|,
+name|BitSet
 operator|.
 name|class
 argument_list|)

@@ -424,7 +424,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|ArrayList
 import|;
 end_import
 
@@ -699,11 +699,12 @@ name|e
 parameter_list|)
 block|{
 throw|throw
-operator|new
-name|ScriptException
+name|convertToScriptException
 argument_list|(
-literal|"Failed to parse expression: "
-operator|+
+literal|"compile error"
+argument_list|,
+name|scriptSource
+argument_list|,
 name|scriptSource
 argument_list|,
 name|e
@@ -738,8 +739,6 @@ name|Object
 argument_list|>
 name|vars
 parameter_list|)
-block|{
-try|try
 block|{
 name|Expression
 name|expr
@@ -786,6 +785,8 @@ name|expr
 operator|.
 name|variables
 control|)
+block|{
+try|try
 block|{
 if|if
 condition|(
@@ -906,13 +907,15 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|ParseException
 argument_list|(
 literal|"Parameter ["
 operator|+
 name|variable
 operator|+
 literal|"] must be a numeric type"
+argument_list|,
+literal|0
 argument_list|)
 throw|;
 block|}
@@ -965,7 +968,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|ParseException
 argument_list|(
 literal|"Unknown variable ["
 operator|+
@@ -976,7 +979,9 @@ index|]
 operator|.
 name|text
 operator|+
-literal|"] in expression"
+literal|"]"
+argument_list|,
+literal|0
 argument_list|)
 throw|;
 block|}
@@ -1004,9 +1009,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|ParseException
 argument_list|(
-literal|"Variable 'doc' in expression must be used with a specific field like: doc['myfield']"
+literal|"Variable 'doc' must be used with a specific field like: doc['myfield']"
+argument_list|,
+literal|3
 argument_list|)
 throw|;
 block|}
@@ -1088,7 +1095,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|IllegalArgumentException
 argument_list|(
 literal|"Only member variables or member methods may be accessed on a field when not accessing the field directly"
 argument_list|)
@@ -1106,7 +1113,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|IllegalArgumentException
 argument_list|(
 literal|"Variable ["
 operator|+
@@ -1135,13 +1142,15 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|ParseException
 argument_list|(
 literal|"Field ["
 operator|+
 name|fieldname
 operator|+
-literal|"] used in expression does not exist in mappings"
+literal|"] does not exist in mappings"
+argument_list|,
+literal|5
 argument_list|)
 throw|;
 block|}
@@ -1324,13 +1333,15 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|ParseException
 argument_list|(
 literal|"Field ["
 operator|+
 name|fieldname
 operator|+
-literal|"] used in expression must be numeric, date, or geopoint"
+literal|"] must be numeric, date, or geopoint"
+argument_list|,
+literal|5
 argument_list|)
 throw|;
 block|}
@@ -1343,6 +1354,29 @@ argument_list|,
 name|valueSource
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// we defer "binding" of variables until here: give context for that variable
+throw|throw
+name|convertToScriptException
+argument_list|(
+literal|"link error"
+argument_list|,
+name|expr
+operator|.
+name|sourceText
+argument_list|,
+name|variable
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 specifier|final
@@ -1375,24 +1409,126 @@ name|needsScores
 argument_list|)
 return|;
 block|}
-catch|catch
+comment|/**      * converts a ParseException at compile-time or link-time to a ScriptException      */
+DECL|method|convertToScriptException
+specifier|private
+name|ScriptException
+name|convertToScriptException
 parameter_list|(
-name|Exception
-name|exception
+name|String
+name|message
+parameter_list|,
+name|String
+name|source
+parameter_list|,
+name|String
+name|portion
+parameter_list|,
+name|Throwable
+name|cause
 parameter_list|)
 block|{
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|stack
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|stack
+operator|.
+name|add
+argument_list|(
+name|portion
+argument_list|)
+expr_stmt|;
+name|StringBuilder
+name|pointer
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|ParseException
+condition|)
+block|{
+name|int
+name|offset
+init|=
+operator|(
+operator|(
+name|ParseException
+operator|)
+name|cause
+operator|)
+operator|.
+name|getErrorOffset
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|offset
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|pointer
+operator|.
+name|append
+argument_list|(
+literal|' '
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|pointer
+operator|.
+name|append
+argument_list|(
+literal|"^---- HERE"
+argument_list|)
+expr_stmt|;
+name|stack
+operator|.
+name|add
+argument_list|(
+name|pointer
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ScriptException
 argument_list|(
-literal|"Error during search with "
-operator|+
-name|compiledScript
+name|message
 argument_list|,
-name|exception
+name|cause
+argument_list|,
+name|stack
+argument_list|,
+name|source
+argument_list|,
+name|NAME
 argument_list|)
 throw|;
-block|}
 block|}
 annotation|@
 name|Override

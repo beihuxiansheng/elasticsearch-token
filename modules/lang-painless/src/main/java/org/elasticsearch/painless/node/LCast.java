@@ -255,6 +255,13 @@ parameter_list|)
 block|{
 name|writer
 operator|.
+name|writeDebugInfo
+argument_list|(
+name|offset
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
 name|writeCast
 argument_list|(
 name|cast

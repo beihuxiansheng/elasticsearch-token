@@ -365,9 +365,11 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
-name|writeDebugInfo
-argument_list|(
 name|writer
+operator|.
+name|writeStatementOffset
+argument_list|(
+name|offset
 argument_list|)
 expr_stmt|;
 name|Label
@@ -427,6 +429,8 @@ name|block
 operator|.
 name|statementCount
 argument_list|)
+argument_list|,
+name|offset
 argument_list|)
 expr_stmt|;
 name|block
@@ -458,6 +462,8 @@ argument_list|(
 name|loopCounterSlot
 argument_list|,
 literal|1
+argument_list|,
+name|offset
 argument_list|)
 expr_stmt|;
 block|}

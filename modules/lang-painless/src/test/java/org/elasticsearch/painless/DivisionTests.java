@@ -959,48 +959,40 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|expectScriptThrows
+argument_list|(
+name|ArithmeticException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|exec
 argument_list|(
 literal|"int x = 1; int y = 0; return x / y;"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectScriptThrows
+argument_list|(
 name|ArithmeticException
-name|expected
-parameter_list|)
-block|{
-comment|// divide by zero
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|exec
 argument_list|(
 literal|"long x = 1L; long y = 0L; return x / y;"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ArithmeticException
-name|expected
-parameter_list|)
-block|{
-comment|// divide by zero
-block|}
 block|}
 DECL|method|testDivideByZeroConst
 specifier|public
@@ -1010,48 +1002,40 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-try|try
+name|expectThrows
+argument_list|(
+name|ArithmeticException
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|exec
 argument_list|(
 literal|"return 1/0;"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
+name|expectThrows
+argument_list|(
 name|ArithmeticException
-name|expected
-parameter_list|)
-block|{
-comment|// divide by zero
-block|}
-try|try
+operator|.
+name|class
+argument_list|,
+parameter_list|()
+lambda|->
 block|{
 name|exec
 argument_list|(
 literal|"return 1L/0L;"
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"should have hit exception"
+block|}
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ArithmeticException
-name|expected
-parameter_list|)
-block|{
-comment|// divide by zero
-block|}
 block|}
 block|}
 end_class

@@ -430,7 +430,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptException
+name|GeneralScriptException
 import|;
 end_import
 
@@ -1158,7 +1158,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"failed to compile groovy script"
 argument_list|,
@@ -1327,7 +1327,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"failed to build executable "
 operator|+
@@ -1457,7 +1457,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"failed to build search "
 operator|+
@@ -1812,7 +1812,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"failed to run "
 operator|+
