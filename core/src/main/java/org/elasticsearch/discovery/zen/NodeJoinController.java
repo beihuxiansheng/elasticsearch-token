@@ -521,8 +521,6 @@ argument_list|(
 name|callback
 argument_list|,
 name|requiredMasterJoins
-argument_list|,
-name|clusterService
 argument_list|)
 block|{
 annotation|@
@@ -1544,12 +1542,6 @@ specifier|final
 name|int
 name|requiredMasterJoins
 decl_stmt|;
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
 comment|/** set to true after enough joins have been seen and a cluster update task is submitted to become master */
 DECL|field|pendingSetAsMasterTask
 specifier|final
@@ -1577,9 +1569,6 @@ name|callback
 parameter_list|,
 name|int
 name|requiredMasterJoins
-parameter_list|,
-name|ClusterService
-name|clusterService
 parameter_list|)
 block|{
 name|this
@@ -1593,12 +1582,6 @@ operator|.
 name|requiredMasterJoins
 operator|=
 name|requiredMasterJoins
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 block|}
 DECL|method|onClose
@@ -1626,6 +1609,8 @@ argument_list|()
 operator|:
 literal|"onElectedAsMaster called but pendingSetAsMasterTask is not set"
 assert|;
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -1681,6 +1666,8 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|ClusterService
+operator|.
 name|assertClusterStateThread
 argument_list|()
 expr_stmt|;
@@ -1713,30 +1700,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-DECL|method|assertClusterStateThread
-specifier|private
-name|void
-name|assertClusterStateThread
-parameter_list|()
-block|{
-assert|assert
-name|clusterService
-operator|instanceof
-name|ClusterService
-operator|==
-literal|false
-operator|||
-operator|(
-operator|(
-name|ClusterService
-operator|)
-name|clusterService
-operator|)
-operator|.
-name|assertClusterStateThread
-argument_list|()
-assert|;
 block|}
 block|}
 comment|/**      * Processes any pending joins via a ClusterState update task.      * Note: this task automatically fails (and fails all pending joins) if the current node is not marked as master      */

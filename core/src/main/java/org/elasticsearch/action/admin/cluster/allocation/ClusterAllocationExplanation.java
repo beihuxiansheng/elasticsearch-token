@@ -239,6 +239,12 @@ specifier|final
 name|UnassignedInfo
 name|unassignedInfo
 decl_stmt|;
+DECL|field|allocationDelayMillis
+specifier|private
+specifier|final
+name|long
+name|allocationDelayMillis
+decl_stmt|;
 DECL|field|remainingDelayMillis
 specifier|private
 specifier|final
@@ -270,6 +276,9 @@ annotation|@
 name|Nullable
 name|String
 name|assignedNodeId
+parameter_list|,
+name|long
+name|allocationDelayMillis
 parameter_list|,
 name|long
 name|remainingDelayMillis
@@ -320,6 +329,12 @@ operator|.
 name|unassignedInfo
 operator|=
 name|unassignedInfo
+expr_stmt|;
+name|this
+operator|.
+name|allocationDelayMillis
+operator|=
+name|allocationDelayMillis
 expr_stmt|;
 name|this
 operator|.
@@ -394,6 +409,15 @@ name|UnassignedInfo
 operator|::
 operator|new
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|allocationDelayMillis
+operator|=
+name|in
+operator|.
+name|readVLong
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -538,6 +562,13 @@ name|out
 operator|.
 name|writeVLong
 argument_list|(
+name|allocationDelayMillis
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeVLong
+argument_list|(
 name|remainingDelayMillis
 argument_list|)
 expr_stmt|;
@@ -659,7 +690,20 @@ operator|.
 name|unassignedInfo
 return|;
 block|}
-comment|/** Return the remaining allocation delay for this shard in millisocends */
+comment|/** Return the configured delay before the shard can be allocated in milliseconds */
+DECL|method|getAllocationDelayMillis
+specifier|public
+name|long
+name|getAllocationDelayMillis
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|allocationDelayMillis
+return|;
+block|}
+comment|/** Return the remaining allocation delay for this shard in milliseconds */
 DECL|method|getRemainingDelayMillis
 specifier|public
 name|long
@@ -834,14 +878,6 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
-name|long
-name|delay
-init|=
-name|unassignedInfo
-operator|.
-name|getLastComputedLeftDelayNanos
-argument_list|()
-decl_stmt|;
 name|builder
 operator|.
 name|timeValueField
@@ -852,9 +888,9 @@ literal|"allocation_delay"
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueNanos
+name|timeValueMillis
 argument_list|(
-name|delay
+name|allocationDelayMillis
 argument_list|)
 argument_list|)
 expr_stmt|;

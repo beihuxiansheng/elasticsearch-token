@@ -711,6 +711,8 @@ name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1142,8 +1144,6 @@ literal|false
 condition|)
 block|{
 comment|// if we didn't manage to find *any* data (regardless of matching sizes), check if the allocation of the replica shard needs to be delayed
-name|changed
-operator||=
 name|ignoreUnassignedIfDelayed
 argument_list|(
 name|unassignedIterator
@@ -1157,10 +1157,10 @@ return|return
 name|changed
 return|;
 block|}
-comment|/**      * Check if the allocation of the replica is to be delayed. Compute the delay and if it is delayed, add it to the ignore unassigned list      * Note: we only care about replica in delayed allocation, since if we have an unassigned primary it      *       will anyhow wait to find an existing copy of the shard to be allocated      * Note: the other side of the equation is scheduling a reroute in a timely manner, which happens in the RoutingService      *      * PUBLIC FOR TESTS!      *      * @param unassignedIterator iterator over unassigned shards      * @param shard the shard which might be delayed      * @return true iff allocation is delayed for this shard      */
+comment|/**      * Check if the allocation of the replica is to be delayed. Compute the delay and if it is delayed, add it to the ignore unassigned list      * Note: we only care about replica in delayed allocation, since if we have an unassigned primary it      *       will anyhow wait to find an existing copy of the shard to be allocated      * Note: the other side of the equation is scheduling a reroute in a timely manner, which happens in the RoutingService      *      * PUBLIC FOR TESTS!      *      * @param unassignedIterator iterator over unassigned shards      * @param shard the shard which might be delayed      */
 DECL|method|ignoreUnassignedIfDelayed
 specifier|public
-name|boolean
+name|void
 name|ignoreUnassignedIfDelayed
 parameter_list|(
 name|RoutingNodes
@@ -1174,49 +1174,29 @@ name|ShardRouting
 name|shard
 parameter_list|)
 block|{
-comment|// calculate delay and store it in UnassignedInfo to be used by RoutingService
-name|long
-name|delay
-init|=
+if|if
+condition|(
 name|shard
 operator|.
 name|unassignedInfo
 argument_list|()
 operator|.
-name|getLastComputedLeftDelayNanos
+name|isDelayed
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|delay
-operator|>
-literal|0
 condition|)
 block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}]: delaying allocation of [{}] for [{}]"
+literal|"{}: allocation of [{}] is delayed"
 argument_list|,
 name|shard
 operator|.
-name|index
+name|shardId
 argument_list|()
 argument_list|,
 name|shard
-operator|.
-name|id
-argument_list|()
-argument_list|,
-name|shard
-argument_list|,
-name|TimeValue
-operator|.
-name|timeValueNanos
-argument_list|(
-name|delay
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|/**              * mark it as changed, since we want to kick a publishing to schedule future allocation,              * see {@link org.elasticsearch.cluster.routing.RoutingService#clusterChanged(ClusterChangedEvent)}).              */
@@ -1225,13 +1205,7 @@ operator|.
 name|removeAndIgnore
 argument_list|()
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
-return|return
-literal|false
-return|;
 block|}
 comment|/**      * Can the shard be allocated on at least one node based on the allocation deciders.      */
 DECL|method|canBeAllocatedToAtLeastOneNode

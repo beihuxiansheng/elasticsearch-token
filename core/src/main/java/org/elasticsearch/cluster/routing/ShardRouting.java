@@ -1187,6 +1187,25 @@ literal|null
 operator|:
 literal|"can only update unassign info if they are already set"
 assert|;
+assert|assert
+name|this
+operator|.
+name|unassignedInfo
+operator|.
+name|isDelayed
+argument_list|()
+operator|||
+operator|(
+name|unassignedInfo
+operator|.
+name|isDelayed
+argument_list|()
+operator|==
+literal|false
+operator|)
+operator|:
+literal|"cannot transition from non-delayed to delayed"
+assert|;
 return|return
 operator|new
 name|ShardRouting
