@@ -2012,23 +2012,22 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|ScriptException
+name|good
+parameter_list|)
+block|{
+comment|// TODO: remove this try-catch completely, when all script engines have good exceptions!
+throw|throw
+name|good
+throw|;
+comment|// its already good
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|exception
 parameter_list|)
 block|{
-comment|// TODO: remove this try-catch completely, when all script engines have good exceptions!
-if|if
-condition|(
-name|exception
-operator|instanceof
-name|ScriptException
-condition|)
-block|{
-throw|throw
-name|exception
-throw|;
-comment|// its already good!
-block|}
 throw|throw
 operator|new
 name|GeneralScriptException
@@ -2394,23 +2393,22 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|ScriptException
+name|good
+parameter_list|)
+block|{
+comment|// TODO: remove this when all script engines have good exceptions!
+throw|throw
+name|good
+throw|;
+comment|// its already good!
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO: remove this when all script engines have good exceptions!
-if|if
-condition|(
-name|e
-operator|instanceof
-name|ScriptException
-condition|)
-block|{
-throw|throw
-name|e
-throw|;
-comment|// its already good!
-block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
