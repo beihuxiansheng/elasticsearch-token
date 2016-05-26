@@ -2301,10 +2301,6 @@ name|PATH_LOGS_SETTING
 argument_list|,
 name|Environment
 operator|.
-name|PATH_PLUGINS_SETTING
-argument_list|,
-name|Environment
-operator|.
 name|PATH_REPO_SETTING
 argument_list|,
 name|Environment

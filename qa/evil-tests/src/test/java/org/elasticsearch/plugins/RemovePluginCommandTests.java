@@ -448,7 +448,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Plugin dne not found"
+literal|"plugin dne not found"
 argument_list|)
 argument_list|)
 expr_stmt|;

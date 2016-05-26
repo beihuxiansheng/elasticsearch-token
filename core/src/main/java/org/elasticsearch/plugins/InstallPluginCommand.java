@@ -1902,6 +1902,20 @@ throw|;
 block|}
 comment|// be on the safe side: do not rely on that directories are always extracted
 comment|// before their children (although this makes sense, but is it guaranteed?)
+if|if
+condition|(
+operator|!
+name|Files
+operator|.
+name|isSymbolicLink
+argument_list|(
+name|targetFile
+operator|.
+name|getParent
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|Files
 operator|.
 name|createDirectories
@@ -1912,6 +1926,7 @@ name|getParent
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|entry
