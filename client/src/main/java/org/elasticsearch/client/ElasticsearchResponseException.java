@@ -48,7 +48,6 @@ name|String
 name|responseBody
 decl_stmt|;
 DECL|method|ElasticsearchResponseException
-specifier|public
 name|ElasticsearchResponseException
 parameter_list|(
 name|ElasticsearchResponse

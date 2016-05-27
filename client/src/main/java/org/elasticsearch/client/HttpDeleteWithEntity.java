@@ -79,7 +79,6 @@ operator|.
 name|METHOD_NAME
 decl_stmt|;
 DECL|method|HttpDeleteWithEntity
-specifier|public
 name|HttpDeleteWithEntity
 parameter_list|(
 specifier|final

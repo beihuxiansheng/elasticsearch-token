@@ -79,7 +79,6 @@ operator|.
 name|METHOD_NAME
 decl_stmt|;
 DECL|method|HttpGetWithEntity
-specifier|public
 name|HttpGetWithEntity
 parameter_list|(
 specifier|final

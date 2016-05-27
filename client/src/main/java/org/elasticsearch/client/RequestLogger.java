@@ -220,7 +220,6 @@ end_comment
 
 begin_class
 DECL|class|RequestLogger
-specifier|public
 specifier|final
 class|class
 name|RequestLogger
@@ -246,7 +245,6 @@ parameter_list|()
 block|{     }
 comment|/**      * Logs a request that yielded a response      */
 DECL|method|log
-specifier|public
 specifier|static
 name|void
 name|log
@@ -393,7 +391,6 @@ block|}
 block|}
 comment|/**      * Logs a request that failed      */
 DECL|method|log
-specifier|public
 specifier|static
 name|void
 name|log
