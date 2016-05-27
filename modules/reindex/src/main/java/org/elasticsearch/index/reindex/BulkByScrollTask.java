@@ -759,16 +759,6 @@ name|INCLUDE_UPDATED
 init|=
 literal|"include_updated"
 decl_stmt|;
-comment|/**          * XContent param name to indicate if "deleted" count must be included          * in the response.          */
-DECL|field|INCLUDE_DELETED
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INCLUDE_DELETED
-init|=
-literal|"include_deleted"
-decl_stmt|;
 DECL|field|total
 specifier|private
 specifier|final
@@ -1330,18 +1320,6 @@ name|created
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|params
-operator|.
-name|paramAsBoolean
-argument_list|(
-name|INCLUDE_DELETED
-argument_list|,
-literal|true
-argument_list|)
-condition|)
-block|{
 name|builder
 operator|.
 name|field
@@ -1351,7 +1329,6 @@ argument_list|,
 name|deleted
 argument_list|)
 expr_stmt|;
-block|}
 name|builder
 operator|.
 name|field
