@@ -6128,14 +6128,9 @@ elseif|else
 if|if
 condition|(
 name|origin
-operator|==
-name|Engine
 operator|.
-name|Operation
-operator|.
-name|Origin
-operator|.
-name|RECOVERY
+name|isRecovery
+argument_list|()
 condition|)
 block|{
 if|if
