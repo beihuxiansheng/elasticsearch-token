@@ -1499,7 +1499,7 @@ name|debug
 argument_list|(
 literal|"using bucket [{}], region [{}], endpoint [{}], protocol [{}], chunk_size [{}], server_side_encryption [{}], "
 operator|+
-literal|"buffer_size [{}], max_retries [{}], throttle_retries [{}], cannedACL [{}], storageClass [{}]"
+literal|"buffer_size [{}], max_retries [{}], use_throttle_retries [{}], cannedACL [{}], storageClass [{}]"
 argument_list|,
 name|bucket
 argument_list|,
