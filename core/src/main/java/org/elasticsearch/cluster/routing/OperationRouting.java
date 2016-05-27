@@ -1254,7 +1254,7 @@ case|case
 name|ONLY_NODES
 case|:
 name|String
-name|nodeAttribute
+name|nodeAttributes
 init|=
 name|preference
 operator|.
@@ -1278,7 +1278,12 @@ name|indexShard
 operator|.
 name|onlyNodeSelectorActiveInitializingShardsIt
 argument_list|(
-name|nodeAttribute
+name|nodeAttributes
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
 argument_list|,
 name|nodes
 argument_list|)

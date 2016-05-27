@@ -272,9 +272,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 import|;
@@ -923,18 +921,6 @@ operator|.
 name|function
 operator|.
 name|Consumer
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-operator|.
-name|emptyMap
 import|;
 end_import
 

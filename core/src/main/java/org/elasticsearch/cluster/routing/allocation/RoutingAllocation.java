@@ -263,12 +263,9 @@ name|metaData
 decl_stmt|;
 DECL|field|explanations
 specifier|private
+specifier|final
 name|RoutingExplanations
 name|explanations
-init|=
-operator|new
-name|RoutingExplanations
-argument_list|()
 decl_stmt|;
 comment|/**          * Creates a new {@link RoutingAllocation.Result}          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          */
 DECL|method|Result
@@ -286,22 +283,17 @@ name|metaData
 parameter_list|)
 block|{
 name|this
-operator|.
+argument_list|(
 name|changed
-operator|=
-name|changed
-expr_stmt|;
-name|this
-operator|.
+argument_list|,
 name|routingTable
-operator|=
-name|routingTable
-expr_stmt|;
-name|this
-operator|.
+argument_list|,
 name|metaData
-operator|=
-name|metaData
+argument_list|,
+operator|new
+name|RoutingExplanations
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**          * Creates a new {@link RoutingAllocation.Result}          * @param changed a flag to determine whether the actual {@link RoutingTable} has been changed          * @param routingTable the {@link RoutingTable} this Result references          * @param metaData the {@link MetaData} this Result references          * @param explanations Explanation for the reroute actions          */
@@ -469,6 +461,12 @@ name|ignoreDisable
 init|=
 literal|false
 decl_stmt|;
+DECL|field|retryFailed
+specifier|private
+specifier|final
+name|boolean
+name|retryFailed
+decl_stmt|;
 DECL|field|debugDecision
 specifier|private
 name|boolean
@@ -508,6 +506,9 @@ name|clusterInfo
 parameter_list|,
 name|long
 name|currentNanoTime
+parameter_list|,
+name|boolean
+name|retryFailed
 parameter_list|)
 block|{
 name|this
@@ -560,6 +561,12 @@ operator|.
 name|currentNanoTime
 operator|=
 name|currentNanoTime
+expr_stmt|;
+name|this
+operator|.
+name|retryFailed
+operator|=
+name|retryFailed
 expr_stmt|;
 block|}
 comment|/** returns the nano time captured at the beginning of the allocation. used to make sure all time based decisions are aligned */
@@ -995,6 +1002,16 @@ name|hasPendingAsyncFetch
 operator|=
 literal|true
 expr_stmt|;
+block|}
+DECL|method|isRetryFailed
+specifier|public
+name|boolean
+name|isRetryFailed
+parameter_list|()
+block|{
+return|return
+name|retryFailed
+return|;
 block|}
 block|}
 end_class

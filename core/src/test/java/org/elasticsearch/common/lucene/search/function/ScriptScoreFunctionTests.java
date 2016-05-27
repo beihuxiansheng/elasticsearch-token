@@ -78,7 +78,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptException
+name|GeneralScriptException
 import|;
 end_import
 
@@ -219,12 +219,12 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|ScriptException
+name|GeneralScriptException
 name|expected
 init|=
 name|expectThrows
 argument_list|(
-name|ScriptException
+name|GeneralScriptException
 operator|.
 name|class
 argument_list|,

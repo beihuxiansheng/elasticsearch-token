@@ -615,7 +615,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"properties can not be null for setting ["
+literal|"properties cannot be null for setting ["
 operator|+
 name|key
 operator|+
@@ -659,7 +659,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a new Setting instance. When no scope is provided, we default to {@link Property#NodeScope}.      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
+comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param defaultValue a default value function that returns the default values string representation.      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
 DECL|method|Setting
 specifier|public
 name|Setting
@@ -785,7 +785,7 @@ name|properties
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Setting instance. When no scope is provided, we default to {@link Property#NodeScope}.      * @param key the settings key for this setting.      * @param fallbackSetting a setting who's value to fallback on if this setting is not defined      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
+comment|/**      * Creates a new Setting instance      * @param key the settings key for this setting.      * @param fallbackSetting a setting who's value to fallback on if this setting is not defined      * @param parser a parser that parses the string rep into a complex datatype.      * @param properties properties for this setting like scope, filtering...      */
 DECL|method|Setting
 specifier|public
 name|Setting
@@ -2869,6 +2869,51 @@ argument_list|(
 name|key
 argument_list|,
 name|fallbackSetting
+argument_list|,
+name|Booleans
+operator|::
+name|parseBooleanExact
+argument_list|,
+name|properties
+argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+DECL|method|boolSetting
+specifier|public
+specifier|static
+name|Setting
+argument_list|<
+name|Boolean
+argument_list|>
+name|boolSetting
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|Function
+argument_list|<
+name|Settings
+argument_list|,
+name|String
+argument_list|>
+name|defaultValueFn
+parameter_list|,
+name|Property
+modifier|...
+name|properties
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Setting
+argument_list|<>
+argument_list|(
+name|key
+argument_list|,
+name|defaultValueFn
 argument_list|,
 name|Booleans
 operator|::

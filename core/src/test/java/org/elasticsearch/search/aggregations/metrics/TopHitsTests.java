@@ -52,9 +52,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
+name|test
 operator|.
 name|AbstractQueryTestCase
 import|;

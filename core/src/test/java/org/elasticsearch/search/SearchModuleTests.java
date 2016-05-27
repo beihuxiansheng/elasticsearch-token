@@ -899,8 +899,6 @@ literal|"nested"
 block|,
 literal|"parent_id"
 block|,
-literal|"percolate"
-block|,
 literal|"prefix"
 block|,
 literal|"query_string"

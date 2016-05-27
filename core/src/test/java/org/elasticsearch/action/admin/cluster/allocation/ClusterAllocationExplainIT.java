@@ -832,6 +832,14 @@ name|isAssigned
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertFalse
+argument_list|(
+name|cae
+operator|.
+name|isStillFetchingShardData
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|UnassignedInfo

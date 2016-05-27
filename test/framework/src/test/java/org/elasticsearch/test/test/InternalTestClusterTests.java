@@ -270,6 +270,12 @@ init|=
 name|randomLong
 argument_list|()
 decl_stmt|;
+name|boolean
+name|masterNodes
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|int
 name|minNumDataNodes
 init|=
@@ -351,6 +357,8 @@ name|clusterSeed
 argument_list|,
 name|baseDir
 argument_list|,
+name|masterNodes
+argument_list|,
 name|minNumDataNodes
 argument_list|,
 name|maxNumDataNodes
@@ -387,6 +395,8 @@ argument_list|,
 name|clusterSeed
 argument_list|,
 name|baseDir
+argument_list|,
+name|masterNodes
 argument_list|,
 name|minNumDataNodes
 argument_list|,
@@ -687,6 +697,12 @@ init|=
 name|randomLong
 argument_list|()
 decl_stmt|;
+name|boolean
+name|masterNodes
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|int
 name|minNumDataNodes
 init|=
@@ -778,6 +794,8 @@ name|clusterSeed
 argument_list|,
 name|baseDir
 argument_list|,
+name|masterNodes
+argument_list|,
 name|minNumDataNodes
 argument_list|,
 name|maxNumDataNodes
@@ -814,6 +832,8 @@ argument_list|,
 name|clusterSeed
 argument_list|,
 name|baseDir
+argument_list|,
+name|masterNodes
 argument_list|,
 name|minNumDataNodes
 argument_list|,

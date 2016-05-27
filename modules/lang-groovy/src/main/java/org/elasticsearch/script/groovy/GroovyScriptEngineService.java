@@ -430,7 +430,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptException
+name|GeneralScriptException
 import|;
 end_import
 
@@ -1158,7 +1158,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"failed to compile groovy script"
 argument_list|,
@@ -1190,9 +1190,7 @@ argument_list|>
 name|vars
 parameter_list|)
 throws|throws
-name|InstantiationException
-throws|,
-name|IllegalAccessException
+name|ReflectiveOperationException
 block|{
 name|Class
 argument_list|<
@@ -1215,6 +1213,9 @@ operator|(
 name|Script
 operator|)
 name|scriptClass
+operator|.
+name|getConstructor
+argument_list|()
 operator|.
 name|newInstance
 argument_list|()
@@ -1320,13 +1321,13 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|ReflectiveOperationException
 name|e
 parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"failed to build executable "
 operator|+
@@ -1450,15 +1451,13 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|InstantiationException
-decl||
-name|IllegalAccessException
+name|ReflectiveOperationException
 name|e
 parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"failed to build search "
 operator|+
@@ -1813,7 +1812,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"failed to run "
 operator|+

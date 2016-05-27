@@ -254,20 +254,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|locks
-operator|.
-name|ReentrantLock
-import|;
-end_import
-
 begin_class
 DECL|class|TranslogWriter
 specifier|public
@@ -894,12 +880,26 @@ block|}
 comment|/**      * closes this writer and transfers it's underlying file channel to a new immutable reader      */
 DECL|method|closeIntoReader
 specifier|public
-specifier|synchronized
 name|TranslogReader
 name|closeIntoReader
 parameter_list|()
 throws|throws
 name|IOException
+block|{
+comment|// make sure to acquire the sync lock first, to prevent dead locks with threads calling
+comment|// syncUpTo() , where the sync lock is acquired first, following by the synchronize(this)
+comment|//
+comment|// Note: While this is not strictly needed as this method is called while blocking all ops on the translog,
+comment|//       we do this to for correctness and preventing future issues.
+synchronized|synchronized
+init|(
+name|syncLock
+init|)
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 try|try
 block|{
@@ -1013,16 +1013,29 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|newSnapshot
 specifier|public
-specifier|synchronized
 name|Translog
 operator|.
 name|Snapshot
 name|newSnapshot
 parameter_list|()
+block|{
+comment|// make sure to acquire the sync lock first, to prevent dead locks with threads calling
+comment|// syncUpTo() , where the sync lock is acquired first, following by the synchronize(this)
+synchronized|synchronized
+init|(
+name|syncLock
+init|)
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 name|ensureOpen
 argument_list|()
@@ -1057,6 +1070,8 @@ operator|.
 name|newSnapshot
 argument_list|()
 return|;
+block|}
+block|}
 block|}
 DECL|method|getWrittenOffset
 specifier|private

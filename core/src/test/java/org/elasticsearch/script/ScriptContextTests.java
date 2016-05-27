@@ -46,18 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|ScriptMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ESTestCase
@@ -253,9 +241,7 @@ name|MockScriptEngine
 operator|.
 name|NAME
 argument_list|,
-name|ScriptMode
-operator|.
-name|ON
+literal|true
 argument_list|)
 decl_stmt|;
 name|ScriptEngineRegistry
@@ -439,7 +425,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ScriptException
+name|IllegalStateException
 name|e
 parameter_list|)
 block|{
@@ -542,7 +528,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ScriptException
+name|IllegalStateException
 name|e
 parameter_list|)
 block|{

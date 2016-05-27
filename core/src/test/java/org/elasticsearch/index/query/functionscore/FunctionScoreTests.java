@@ -1293,11 +1293,7 @@ name|Modifier
 operator|.
 name|LN
 argument_list|,
-operator|new
-name|Double
-argument_list|(
-literal|1
-argument_list|)
+literal|1.0
 argument_list|,
 literal|null
 argument_list|)

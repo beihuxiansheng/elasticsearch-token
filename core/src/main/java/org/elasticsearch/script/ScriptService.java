@@ -200,18 +200,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|ParseField
 import|;
 end_import
@@ -1616,7 +1604,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|IllegalStateException
 argument_list|(
 literal|"scripts of type ["
 operator|+
@@ -1684,7 +1672,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|UnsupportedOperationException
 argument_list|(
 literal|"scripts of type ["
 operator|+
@@ -2024,13 +2012,25 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|ScriptException
+name|good
+parameter_list|)
+block|{
+comment|// TODO: remove this try-catch completely, when all script engines have good exceptions!
+throw|throw
+name|good
+throw|;
+comment|// its already good
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|exception
 parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"Failed to compile "
 operator|+
@@ -2390,6 +2390,18 @@ name|scriptLang
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|ScriptException
+name|good
+parameter_list|)
+block|{
+comment|// TODO: remove this when all script engines have good exceptions!
+throw|throw
+name|good
+throw|;
+comment|// its already good!
 block|}
 catch|catch
 parameter_list|(
@@ -3163,12 +3175,10 @@ literal|"] not supported"
 argument_list|)
 throw|;
 block|}
-name|ScriptMode
-name|mode
-init|=
+return|return
 name|scriptModes
 operator|.
-name|getScriptMode
+name|getScriptEnabled
 argument_list|(
 name|lang
 argument_list|,
@@ -3176,37 +3186,7 @@ name|scriptType
 argument_list|,
 name|scriptContext
 argument_list|)
-decl_stmt|;
-switch|switch
-condition|(
-name|mode
-condition|)
-block|{
-case|case
-name|ON
-case|:
-return|return
-literal|true
 return|;
-case|case
-name|OFF
-case|:
-return|return
-literal|false
-return|;
-default|default:
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"script mode ["
-operator|+
-name|mode
-operator|+
-literal|"] not supported"
-argument_list|)
-throw|;
-block|}
 block|}
 DECL|method|stats
 specifier|public
@@ -3888,9 +3868,7 @@ literal|"inline"
 argument_list|,
 literal|"inline"
 argument_list|,
-name|ScriptMode
-operator|.
-name|OFF
+literal|false
 argument_list|)
 block|,
 DECL|enum constant|STORED
@@ -3902,9 +3880,7 @@ literal|"id"
 argument_list|,
 literal|"stored"
 argument_list|,
-name|ScriptMode
-operator|.
-name|OFF
+literal|false
 argument_list|)
 block|,
 DECL|enum constant|FILE
@@ -3916,9 +3892,7 @@ literal|"file"
 argument_list|,
 literal|"file"
 argument_list|,
-name|ScriptMode
-operator|.
-name|ON
+literal|true
 argument_list|)
 block|;
 DECL|field|val
@@ -3939,11 +3913,11 @@ specifier|final
 name|String
 name|scriptType
 decl_stmt|;
-DECL|field|defaultScriptMode
+DECL|field|defaultScriptEnabled
 specifier|private
 specifier|final
-name|ScriptMode
-name|defaultScriptMode
+name|boolean
+name|defaultScriptEnabled
 decl_stmt|;
 DECL|method|readFrom
 specifier|public
@@ -4076,8 +4050,8 @@ parameter_list|,
 name|String
 name|scriptType
 parameter_list|,
-name|ScriptMode
-name|defaultScriptMode
+name|boolean
+name|defaultScriptEnabled
 parameter_list|)
 block|{
 name|this
@@ -4104,9 +4078,9 @@ name|scriptType
 expr_stmt|;
 name|this
 operator|.
-name|defaultScriptMode
+name|defaultScriptEnabled
 operator|=
-name|defaultScriptMode
+name|defaultScriptEnabled
 expr_stmt|;
 block|}
 DECL|method|getParseField
@@ -4119,14 +4093,14 @@ return|return
 name|parseField
 return|;
 block|}
-DECL|method|getDefaultScriptMode
+DECL|method|getDefaultScriptEnabled
 specifier|public
-name|ScriptMode
-name|getDefaultScriptMode
+name|boolean
+name|getDefaultScriptEnabled
 parameter_list|()
 block|{
 return|return
-name|defaultScriptMode
+name|defaultScriptEnabled
 return|;
 block|}
 DECL|method|getScriptType

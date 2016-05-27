@@ -534,7 +534,7 @@ range|:
 name|internalCluster
 argument_list|()
 operator|.
-name|getDataNodeInstances
+name|getDataOrMasterNodeInstances
 argument_list|(
 name|RepositoriesService
 operator|.

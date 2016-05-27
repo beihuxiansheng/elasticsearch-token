@@ -2485,6 +2485,7 @@ end_comment
 begin_function
 DECL|method|assertClusterStateThread
 specifier|public
+specifier|static
 name|boolean
 name|assertClusterStateThread
 parameter_list|()

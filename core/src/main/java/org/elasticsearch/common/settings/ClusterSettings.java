@@ -2301,10 +2301,6 @@ name|PATH_LOGS_SETTING
 argument_list|,
 name|Environment
 operator|.
-name|PATH_PLUGINS_SETTING
-argument_list|,
-name|Environment
-operator|.
 name|PATH_REPO_SETTING
 argument_list|,
 name|Environment
@@ -2470,10 +2466,6 @@ argument_list|,
 name|Client
 operator|.
 name|CLIENT_TYPE_SETTING_S
-argument_list|,
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
 argument_list|,
 name|ClusterModule
 operator|.

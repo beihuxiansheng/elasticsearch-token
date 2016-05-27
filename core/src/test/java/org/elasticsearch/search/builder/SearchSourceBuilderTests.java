@@ -426,9 +426,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
+name|test
 operator|.
 name|AbstractQueryTestCase
 import|;
@@ -599,18 +597,6 @@ operator|.
 name|script
 operator|.
 name|ScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptMode
 import|;
 end_import
 
@@ -1032,9 +1018,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -1048,9 +1032,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|service
+name|test
 operator|.
 name|ClusterServiceUtils
 operator|.
@@ -1487,9 +1469,7 @@ name|MockScriptEngine
 operator|.
 name|NAME
 argument_list|,
-name|ScriptMode
-operator|.
-name|ON
+literal|true
 argument_list|)
 argument_list|)
 argument_list|)

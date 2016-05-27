@@ -1063,15 +1063,6 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"percolate.queries"
-argument_list|,
-literal|"alias:pq,percolateQueries;default:false;text-align:right;desc:number of registered percolation queries"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"refresh.total"
 argument_list|,
 literal|"alias:rto,refreshTotal;default:false;text-align:right;desc:total refreshes"
@@ -2415,25 +2406,6 @@ name|getMerge
 argument_list|()
 operator|.
 name|getTotalTime
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|commonStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|commonStats
-operator|.
-name|getPercolatorCache
-argument_list|()
-operator|.
-name|getNumQueries
 argument_list|()
 argument_list|)
 expr_stmt|;

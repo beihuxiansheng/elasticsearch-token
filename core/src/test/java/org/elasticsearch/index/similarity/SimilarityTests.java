@@ -2211,6 +2211,9 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
+name|endObject
+argument_list|()
+operator|.
 name|string
 argument_list|()
 decl_stmt|;

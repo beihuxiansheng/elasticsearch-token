@@ -1206,12 +1206,6 @@ name|functions
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-comment|// fuzzy queries will be removed in 4.0
 DECL|method|testFuzzy
 specifier|public
 name|void
@@ -1984,7 +1978,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2062,7 +2056,7 @@ argument_list|,
 literal|12
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2072,7 +2066,7 @@ literal|"value2"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2128,7 +2122,7 @@ literal|"value1"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2138,7 +2132,7 @@ literal|"value2"
 argument_list|)
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -2183,7 +2177,7 @@ argument_list|,
 literal|5
 argument_list|)
 operator|.
-name|clause
+name|addClause
 argument_list|(
 name|spanTermQuery
 argument_list|(

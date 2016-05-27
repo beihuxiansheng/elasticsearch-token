@@ -4504,7 +4504,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"properties can not be null for setting"
+literal|"properties cannot be null for setting"
 argument_list|)
 argument_list|)
 expr_stmt|;

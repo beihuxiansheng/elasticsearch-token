@@ -115,7 +115,7 @@ expr_stmt|;
 name|IllegalArgumentException
 name|expected
 init|=
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.

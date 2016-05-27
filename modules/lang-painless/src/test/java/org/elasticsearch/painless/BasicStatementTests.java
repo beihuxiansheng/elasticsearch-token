@@ -554,7 +554,7 @@ name|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String,Object> a = new HashMap<String,Object>(); return a;"
+literal|"Map a = new HashMap(); return a;"
 argument_list|)
 operator|.
 name|getClass
@@ -714,7 +714,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String,Object>[] a = new Map<String,Object>[1]; return a;"
+literal|"Map[] a = new Map[1]; return a;"
 argument_list|)
 operator|.
 name|getClass
@@ -897,7 +897,7 @@ expr|class
 argument_list|,
 name|exec
 argument_list|(
-literal|"Map<String,Object>[][][] a = new Map<String,Object>[1][2][3]; return a;"
+literal|"Map[][][] a = new Map[1][2][3]; return a;"
 argument_list|)
 operator|.
 name|getClass
@@ -1009,7 +1009,7 @@ name|Map
 operator|)
 name|exec
 argument_list|(
-literal|"Map<String, Object> s = new HashMap< String , Object>(); s.put(\"x\", 10); return s;"
+literal|"Map s = new HashMap(); s.put(\"x\", 10); return s;"
 argument_list|)
 operator|)
 operator|.

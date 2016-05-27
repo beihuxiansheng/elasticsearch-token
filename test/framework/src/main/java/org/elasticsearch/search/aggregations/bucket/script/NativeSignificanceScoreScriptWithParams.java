@@ -66,6 +66,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_class
 DECL|class|NativeSignificanceScoreScriptWithParams
 specifier|public
@@ -175,6 +185,18 @@ name|Object
 name|run
 parameter_list|()
 block|{
+name|checkParams
+argument_list|()
+expr_stmt|;
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|factor
+argument_list|,
+literal|"factor"
+argument_list|)
+expr_stmt|;
 return|return
 name|factor
 operator|*

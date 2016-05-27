@@ -194,7 +194,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptException
+name|GeneralScriptException
 import|;
 end_import
 
@@ -385,7 +385,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"Error evaluating "
 operator|+
@@ -404,8 +404,9 @@ name|run
 parameter_list|()
 block|{
 return|return
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|evaluate
 argument_list|()
@@ -571,7 +572,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptException
+name|GeneralScriptException
 argument_list|(
 literal|"Cannot use expression with text variable using "
 operator|+

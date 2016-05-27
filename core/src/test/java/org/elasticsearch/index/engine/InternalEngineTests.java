@@ -484,18 +484,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Base64
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Nullable
 import|;
 end_import
@@ -1215,6 +1203,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Base64
 import|;
 end_import
 
@@ -8113,6 +8111,9 @@ index|[]
 name|wrongBytes
 init|=
 name|Base64
+operator|.
+name|getDecoder
+argument_list|()
 operator|.
 name|decode
 argument_list|(

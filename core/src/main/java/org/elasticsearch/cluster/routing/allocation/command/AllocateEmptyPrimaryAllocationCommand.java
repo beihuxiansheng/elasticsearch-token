@@ -741,6 +741,8 @@ operator|.
 name|getFailure
 argument_list|()
 argument_list|,
+literal|0
+argument_list|,
 name|System
 operator|.
 name|nanoTime
@@ -750,6 +752,8 @@ name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

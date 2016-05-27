@@ -362,18 +362,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|InternalSettingsPreparer
-operator|.
-name|IGNORE_SYSTEM_PROPERTIES_SETTING
-operator|.
-name|getKey
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|DiscoveryModule
 operator|.
 name|DISCOVERY_TYPE_SETTING
@@ -718,7 +706,7 @@ name|params
 operator|.
 name|add
 argument_list|(
-literal|"-Des.cluster.name="
+literal|"-Ecluster.name="
 operator|+
 name|clusterName
 argument_list|)
@@ -727,7 +715,7 @@ name|params
 operator|.
 name|add
 argument_list|(
-literal|"-Des.node.name="
+literal|"-Enode.name="
 operator|+
 name|nodeName
 argument_list|)
@@ -860,7 +848,7 @@ name|params
 operator|.
 name|add
 argument_list|(
-literal|"-Des."
+literal|"-E"
 operator|+
 name|entry
 operator|.
@@ -880,7 +868,7 @@ name|params
 operator|.
 name|add
 argument_list|(
-literal|"-Des.path.home="
+literal|"-Epath.home="
 operator|+
 name|PathUtils
 operator|.
@@ -897,7 +885,7 @@ name|params
 operator|.
 name|add
 argument_list|(
-literal|"-Des.path.conf="
+literal|"-Epath.conf="
 operator|+
 name|path
 operator|+

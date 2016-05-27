@@ -1711,6 +1711,9 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
 decl_stmt|;
 name|assertAcked
 argument_list|(
@@ -1845,6 +1848,9 @@ literal|"precision"
 argument_list|,
 name|precision
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()

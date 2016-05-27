@@ -1115,7 +1115,7 @@ name|policy
 argument_list|,
 name|Environment
 operator|.
-name|PATH_PLUGINS_SETTING
+name|PATH_HOME_SETTING
 operator|.
 name|getKey
 argument_list|()

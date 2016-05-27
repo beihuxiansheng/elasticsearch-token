@@ -46,18 +46,6 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptModule
 import|;
 end_import
@@ -75,6 +63,17 @@ name|PainlessPlugin
 extends|extends
 name|Plugin
 block|{
+comment|// force to pare our definition at startup (not on the user's first script)
+static|static
+block|{
+name|Definition
+operator|.
+name|VOID_TYPE
+operator|.
+name|hashCode
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|name
@@ -126,9 +125,7 @@ name|PainlessScriptEngineService
 operator|.
 name|NAME
 argument_list|,
-name|ScriptMode
-operator|.
-name|ON
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
