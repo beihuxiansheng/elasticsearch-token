@@ -2945,7 +2945,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|numDataAndMasterNodes
+name|size
 argument_list|()
 argument_list|,
 name|client
@@ -3121,7 +3121,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|numDataAndMasterNodes
+name|size
 argument_list|()
 argument_list|,
 name|client
@@ -3266,7 +3266,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|numDataAndMasterNodes
+name|size
 argument_list|()
 argument_list|,
 name|client
@@ -3446,7 +3446,7 @@ argument_list|(
 name|internalCluster
 argument_list|()
 operator|.
-name|numDataAndMasterNodes
+name|size
 argument_list|()
 argument_list|,
 name|client

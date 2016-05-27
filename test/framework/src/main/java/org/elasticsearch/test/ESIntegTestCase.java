@@ -1330,7 +1330,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndicesService
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -1342,7 +1342,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndicesRequestCache
+name|IndicesService
 import|;
 end_import
 
@@ -6619,6 +6619,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ensureClusterSizeConsistency
+specifier|protected
 name|void
 name|ensureClusterSizeConsistency
 parameter_list|()
@@ -9286,7 +9287,7 @@ default|default
 operator|-
 literal|1
 function_decl|;
-comment|/**          * Returns the minimum number of nodes in the cluster. Default is<tt>-1</tt>.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
+comment|/**          * Returns the minimum number of data nodes in the cluster. Default is<tt>-1</tt>.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
 name|int
 name|minNumDataNodes
 parameter_list|()
@@ -9294,13 +9295,21 @@ default|default
 operator|-
 literal|1
 function_decl|;
-comment|/**          * Returns the maximum number of nodes in the cluster.  Default is<tt>-1</tt>.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
+comment|/**          * Returns the maximum number of data nodes in the cluster.  Default is<tt>-1</tt>.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
 name|int
 name|maxNumDataNodes
 parameter_list|()
 default|default
 operator|-
 literal|1
+function_decl|;
+comment|/**          * Indicates whether the cluster can have dedicated master nodes. If<tt>false</tt> means data nodes will serve as master nodes          * and there will be no dedicated master (and data) nodes. Default is<tt>true</tt> which means          * dedicated master nodes will be randomly used.          */
+DECL|field|true
+name|boolean
+name|supportsDedicatedMasters
+parameter_list|()
+default|default
+literal|true
 function_decl|;
 comment|/**          * Returns the number of client nodes in the cluster. Default is {@link InternalTestCluster#DEFAULT_NUM_CLIENT_NODES}, a          * negative value means that the number of client nodes will be randomized.          */
 DECL|field|InternalTestCluster.DEFAULT_NUM_CLIENT_NODES
@@ -9708,6 +9717,40 @@ else|:
 name|annotation
 operator|.
 name|scope
+argument_list|()
+return|;
+block|}
+DECL|method|getSupportsDedicatedMasters
+specifier|private
+name|boolean
+name|getSupportsDedicatedMasters
+parameter_list|()
+block|{
+name|ClusterScope
+name|annotation
+init|=
+name|getAnnotation
+argument_list|(
+name|this
+operator|.
+name|getClass
+argument_list|()
+argument_list|,
+name|ClusterScope
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+return|return
+name|annotation
+operator|==
+literal|null
+condition|?
+literal|true
+else|:
+name|annotation
+operator|.
+name|supportsDedicatedMasters
 argument_list|()
 return|;
 block|}
@@ -10424,6 +10467,12 @@ return|;
 block|}
 block|}
 decl_stmt|;
+name|boolean
+name|supportsDedicatedMasters
+init|=
+name|getSupportsDedicatedMasters
+argument_list|()
+decl_stmt|;
 name|int
 name|numDataNodes
 init|=
@@ -10570,6 +10619,8 @@ name|seed
 argument_list|,
 name|createTempDir
 argument_list|()
+argument_list|,
+name|supportsDedicatedMasters
 argument_list|,
 name|minNumDataNodes
 argument_list|,

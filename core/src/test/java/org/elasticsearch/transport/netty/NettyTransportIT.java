@@ -408,6 +408,10 @@ name|Scope
 operator|.
 name|TEST
 argument_list|,
+name|supportsDedicatedMasters
+operator|=
+literal|false
+argument_list|,
 name|numDataNodes
 operator|=
 literal|1

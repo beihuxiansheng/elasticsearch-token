@@ -198,6 +198,10 @@ name|scope
 operator|=
 name|SUITE
 argument_list|,
+name|supportsDedicatedMasters
+operator|=
+literal|false
+argument_list|,
 name|numDataNodes
 operator|=
 literal|1
@@ -578,7 +582,7 @@ range|:
 name|internalCluster
 argument_list|()
 operator|.
-name|getInstances
+name|getDataNodeInstances
 argument_list|(
 name|SettingsTestingService
 operator|.
@@ -636,7 +640,7 @@ range|:
 name|internalCluster
 argument_list|()
 operator|.
-name|getInstances
+name|getDataNodeInstances
 argument_list|(
 name|SettingsTestingService
 operator|.
@@ -700,7 +704,7 @@ range|:
 name|internalCluster
 argument_list|()
 operator|.
-name|getInstances
+name|getDataNodeInstances
 argument_list|(
 name|SettingsTestingService
 operator|.
@@ -758,7 +762,7 @@ range|:
 name|internalCluster
 argument_list|()
 operator|.
-name|getInstances
+name|getDataNodeInstances
 argument_list|(
 name|SettingsTestingService
 operator|.

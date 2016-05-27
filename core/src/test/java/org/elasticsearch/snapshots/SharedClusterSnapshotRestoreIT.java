@@ -6071,6 +6071,15 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> caught a top level exception, asserting what's expected"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|getFailureCount

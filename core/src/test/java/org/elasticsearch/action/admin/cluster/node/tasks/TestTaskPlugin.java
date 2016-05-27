@@ -1590,10 +1590,7 @@ if|if
 condition|(
 name|nodes
 operator|.
-name|getDataNodes
-argument_list|()
-operator|.
-name|containsKey
+name|nodeExists
 argument_list|(
 name|node
 argument_list|)
