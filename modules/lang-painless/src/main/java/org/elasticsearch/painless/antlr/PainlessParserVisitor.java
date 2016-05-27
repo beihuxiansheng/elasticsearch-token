@@ -104,6 +104,17 @@ name|ForContext
 name|ctx
 parameter_list|)
 function_decl|;
+comment|/**    * Visit a parse tree produced by the {@code each}    * labeled alternative in {@link PainlessParser#statement}.    * @param ctx the parse tree    * @return the visitor result    */
+DECL|method|visitEach
+name|T
+name|visitEach
+parameter_list|(
+name|PainlessParser
+operator|.
+name|EachContext
+name|ctx
+parameter_list|)
+function_decl|;
 comment|/**    * Visit a parse tree produced by the {@code decl}    * labeled alternative in {@link PainlessParser#statement}.    * @param ctx the parse tree    * @return the visitor result    */
 DECL|method|visitDecl
 name|T
