@@ -2702,6 +2702,34 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// we do not replay in to the translog, so there is no
+comment|// translog location; that is okay because real-time
+comment|// gets are not possible during recovery and we will
+comment|// flush when the recovery is complete
+name|versionMap
+operator|.
+name|putUnderLock
+argument_list|(
+name|index
+operator|.
+name|uid
+argument_list|()
+operator|.
+name|bytes
+argument_list|()
+argument_list|,
+operator|new
+name|VersionValue
+argument_list|(
+name|updatedVersion
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|created
 return|;
@@ -3367,6 +3395,42 @@ name|delete
 operator|.
 name|getTranslogLocation
 argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we do not replay in to the translog, so there is no
+comment|// translog location; that is okay because real-time
+comment|// gets are not possible during recovery and we will
+comment|// flush when the recovery is complete
+name|versionMap
+operator|.
+name|putUnderLock
+argument_list|(
+name|delete
+operator|.
+name|uid
+argument_list|()
+operator|.
+name|bytes
+argument_list|()
+argument_list|,
+operator|new
+name|DeleteVersionValue
+argument_list|(
+name|updatedVersion
+argument_list|,
+name|engineConfig
+operator|.
+name|getThreadPool
+argument_list|()
+operator|.
+name|estimatedTimeInMillis
+argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
