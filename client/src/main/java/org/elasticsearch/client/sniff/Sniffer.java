@@ -197,11 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Calls nodes info api and returns a list of http hosts extracted from it.  */
-end_comment
-
-begin_comment
-comment|//TODO This could potentially be using _cat/nodes which wouldn't require jackson as a dependency, but we'd have bw comp problems with 2.x
+comment|/**  * Class responsible for sniffing nodes from an elasticsearch cluster and setting them to a provided instance of {@link RestClient}.  * Must be created via {@link Builder}, which allows to set all of the different options or rely on defaults.  * A background task fetches the nodes from elasticsearch and updates them periodically.  * Supports sniffing on failure, meaning that the client will notify the sniffer at each host failure, so that nodes can be updated  * straightaway.  */
 end_comment
 
 begin_class
@@ -246,7 +242,7 @@ name|Task
 name|task
 decl_stmt|;
 DECL|method|Sniffer
-specifier|public
+specifier|private
 name|Sniffer
 parameter_list|(
 name|RestClient

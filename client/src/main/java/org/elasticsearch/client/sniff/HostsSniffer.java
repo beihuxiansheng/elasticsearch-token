@@ -208,6 +208,10 @@ begin_comment
 comment|/**  * Class responsible for sniffing the http hosts from elasticsearch through the nodes info api and returning them back  */
 end_comment
 
+begin_comment
+comment|//TODO This could potentially be using _cat/nodes which wouldn't require jackson as a dependency, but we'd have bw comp problems with 2.x
+end_comment
+
 begin_class
 DECL|class|HostsSniffer
 specifier|public
