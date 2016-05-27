@@ -177,6 +177,16 @@ literal|"java.math.txt"
 argument_list|,
 literal|"java.text.txt"
 argument_list|,
+literal|"java.time.txt"
+argument_list|,
+literal|"java.time.chrono.txt"
+argument_list|,
+literal|"java.time.format.txt"
+argument_list|,
+literal|"java.time.temporal.txt"
+argument_list|,
+literal|"java.time.zone.txt"
+argument_list|,
 literal|"java.util.txt"
 argument_list|,
 literal|"java.util.function.txt"
