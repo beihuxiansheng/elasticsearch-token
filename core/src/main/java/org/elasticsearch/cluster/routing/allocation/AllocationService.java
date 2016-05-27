@@ -3479,9 +3479,12 @@ block|}
 block|}
 else|else
 block|{
-comment|// The fail shard is the main copy of the current shard routing. Any
-comment|// relocation will be cancelled (and the target shard removed as well)
-comment|// and the shard copy needs to be marked as unassigned
+comment|// The fail shard is the main copy of the current shard routing.
+name|boolean
+name|addAsUnassigned
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
 name|failedShard
@@ -3492,16 +3495,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// handle relocation source shards.  we need to find the target initializing shard that is recovering, and remove it...
-assert|assert
-name|failedShard
-operator|.
-name|initializing
-argument_list|()
-operator|==
-literal|false
-assert|;
-comment|// should have been dealt with and returned
+comment|// now, find the shard that is initializing on the target node
 assert|assert
 name|failedShard
 operator|.
@@ -3556,6 +3550,14 @@ name|failedShard
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|failedShard
+operator|.
+name|primary
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -3565,15 +3567,46 @@ argument_list|,
 name|shardRouting
 argument_list|)
 expr_stmt|;
+comment|// cancel and remove target shard
 name|initializingNode
 operator|.
 name|remove
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{}, relocation source failed, mark as initializing without relocation source"
+argument_list|,
+name|shardRouting
+argument_list|)
+expr_stmt|;
+comment|// promote to initializing shard without relocation source and ensure that removed relocation source
+comment|// is not added back as unassigned shard
+name|initializingNode
+operator|.
+name|removeRelocationSource
+argument_list|()
+expr_stmt|;
+name|addAsUnassigned
+operator|=
+literal|false
+expr_stmt|;
+block|}
+break|break;
 block|}
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|addAsUnassigned
+condition|)
+block|{
 name|matchedNode
 operator|.
 name|moveToUnassigned
@@ -3581,6 +3614,7 @@ argument_list|(
 name|unassignedInfo
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 assert|assert
 name|matchedNode
