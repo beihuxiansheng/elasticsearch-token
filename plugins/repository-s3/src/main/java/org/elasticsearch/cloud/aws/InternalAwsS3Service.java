@@ -339,7 +339,7 @@ name|Integer
 name|maxRetries
 parameter_list|,
 name|boolean
-name|throttleRetries
+name|useThrottleRetries
 parameter_list|)
 block|{
 if|if
@@ -402,7 +402,7 @@ name|key
 argument_list|,
 name|maxRetries
 argument_list|,
-name|throttleRetries
+name|useThrottleRetries
 argument_list|)
 return|;
 block|}
@@ -428,7 +428,7 @@ name|Integer
 name|maxRetries
 parameter_list|,
 name|boolean
-name|throttleRetries
+name|useThrottleRetries
 parameter_list|)
 block|{
 name|Tuple
@@ -593,7 +593,7 @@ name|clientConfiguration
 operator|.
 name|setUseThrottleRetries
 argument_list|(
-name|throttleRetries
+name|useThrottleRetries
 argument_list|)
 expr_stmt|;
 comment|// #155: we might have 3rd party users using older S3 API version

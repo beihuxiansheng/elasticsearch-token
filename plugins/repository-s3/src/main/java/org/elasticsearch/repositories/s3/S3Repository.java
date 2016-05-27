@@ -598,19 +598,19 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**          * repositories.s3.throttle_retries: Set to `true` if you want to throttle retries. Defaults to AWS SDK default value (`false`).          */
-DECL|field|THROTTLE_RETRIES_SETTING
+comment|/**          * repositories.s3.use_throttle_retries: Set to `true` if you want to throttle retries. Defaults to AWS SDK default value (`false`).          */
+DECL|field|USE_THROTTLE_RETRIES_SETTING
 name|Setting
 argument_list|<
 name|Boolean
 argument_list|>
-name|THROTTLE_RETRIES_SETTING
+name|USE_THROTTLE_RETRIES_SETTING
 init|=
 name|Setting
 operator|.
 name|boolSetting
 argument_list|(
-literal|"repositories.s3.throttle_retries"
+literal|"repositories.s3.use_throttle_retries"
 argument_list|,
 name|ClientConfiguration
 operator|.
@@ -999,19 +999,19 @@ operator|.
 name|NodeScope
 argument_list|)
 decl_stmt|;
-comment|/**          * throttle_retries          * @see  Repositories#THROTTLE_RETRIES_SETTING          */
-DECL|field|THROTTLE_RETRIES_SETTING
+comment|/**          * use_throttle_retries          * @see  Repositories#USE_THROTTLE_RETRIES_SETTING          */
+DECL|field|USE_THROTTLE_RETRIES_SETTING
 name|Setting
 argument_list|<
 name|Boolean
 argument_list|>
-name|THROTTLE_RETRIES_SETTING
+name|USE_THROTTLE_RETRIES_SETTING
 init|=
 name|Setting
 operator|.
 name|boolSetting
 argument_list|(
-literal|"throttle_retries"
+literal|"use_throttle_retries"
 argument_list|,
 name|ClientConfiguration
 operator|.
@@ -1356,7 +1356,7 @@ name|MAX_RETRIES_SETTING
 argument_list|)
 decl_stmt|;
 name|boolean
-name|throttleRetries
+name|useThrottleRetries
 init|=
 name|getValue
 argument_list|(
@@ -1364,11 +1364,11 @@ name|repositorySettings
 argument_list|,
 name|Repository
 operator|.
-name|THROTTLE_RETRIES_SETTING
+name|USE_THROTTLE_RETRIES_SETTING
 argument_list|,
 name|Repositories
 operator|.
-name|THROTTLE_RETRIES_SETTING
+name|USE_THROTTLE_RETRIES_SETTING
 argument_list|)
 decl_stmt|;
 name|this
@@ -1517,7 +1517,7 @@ name|bufferSize
 argument_list|,
 name|maxRetries
 argument_list|,
-name|throttleRetries
+name|useThrottleRetries
 argument_list|,
 name|cannedACL
 argument_list|,
@@ -1579,7 +1579,7 @@ name|secret
 argument_list|,
 name|maxRetries
 argument_list|,
-name|throttleRetries
+name|useThrottleRetries
 argument_list|)
 argument_list|,
 name|bucket

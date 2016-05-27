@@ -220,7 +220,7 @@ name|Integer
 name|maxRetries
 parameter_list|,
 name|boolean
-name|throttleRetries
+name|useThrottleRetries
 parameter_list|)
 block|{
 return|return
@@ -242,7 +242,7 @@ name|key
 argument_list|,
 name|maxRetries
 argument_list|,
-name|throttleRetries
+name|useThrottleRetries
 argument_list|)
 argument_list|)
 return|;

@@ -687,7 +687,7 @@ name|Integer
 name|maxRetries
 parameter_list|,
 name|boolean
-name|throttleRetries
+name|useThrottleRetries
 parameter_list|)
 function_decl|;
 block|}
