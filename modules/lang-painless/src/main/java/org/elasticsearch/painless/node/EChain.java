@@ -1512,6 +1512,7 @@ operator|.
 name|after
 expr_stmt|;
 block|}
+comment|/**      * Handles writing byte code for variable/method chains for all given possibilities      * including String concatenation, compound assignment, regular assignment, and simple      * reads.  Includes proper duplication for chained assignments and assignments that are      * also read from.      *      * Example given 'x[0] += 5;' where x is an array of shorts and x[0] is 1.      * Note this example has two links -- x (LVariable) and [0] (LBrace).      * The following steps occur:      * 1. call link{x}.write(...) -- no op [...]      * 2. call link{x}.load(...) -- loads the address of the x array onto the stack [..., address(x)]      * 3. call writer.dup(...) -- dup's the address of the x array onto the stack for later use with store [..., address(x), address(x)]      * 4. call link{[0]}.write(...) -- load the array index value of the constant int 0 onto the stack [..., address(x), address(x), int(0)]      * 5. call link{[0]}.load(...) -- load the short value from x[0] onto the stack [..., address(x), short(1)]      * 6. call writer.writeCast(there) -- casts the short on the stack to an int so it can be added with the rhs [..., address(x), int(1)]      * 7. call expression.write(...) -- puts the expression's value of the constant int 5 onto the stack [..., address(x), int(1), int(5)]      * 8. call writer.writeBinaryInstruction(operation) -- writes the int addition instruction [..., address(x), int(6)]      * 9. call writer.writeCast(back) -- convert the value on the stack back into a short [..., address(x), short(6)]      * 10. call link{[0]}.store(...) -- store the value on the stack into the 0th index of the array x [...]      */
 annotation|@
 name|Override
 DECL|method|write
@@ -1522,6 +1523,12 @@ name|MethodWriter
 name|writer
 parameter_list|)
 block|{
+comment|// For the case where the chain represents a String concatenation
+comment|// we must first write debug information, and then depending on the
+comment|// Java version write a StringBuilder or track types going onto the
+comment|// stack.  This must be done before the links in the chain are read
+comment|// because we need the StringBuilder to be placed on the stack
+comment|// ahead of any potential concatenation arguments.
 if|if
 condition|(
 name|cat
@@ -1534,12 +1541,6 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|cat
-condition|)
-block|{
 name|writer
 operator|.
 name|writeNewStrings
@@ -1561,6 +1562,10 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+comment|// Go through all the links in the chain first calling write
+comment|// and then load, except for the final link which may be a store.
+comment|// See individual links for more information on what each of the
+comment|// write, load, and store methods do.
 for|for
 control|(
 name|ALink
@@ -1576,6 +1581,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// call the write method on the link to prepare for a load/store operation
 if|if
 condition|(
 name|link
@@ -1592,6 +1598,8 @@ condition|(
 name|cat
 condition|)
 block|{
+comment|// Handle the case where we are doing a compound assignment
+comment|// representing a String concatenation.
 name|writer
 operator|.
 name|writeDup
@@ -1603,6 +1611,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// dup the StringBuilder
 name|link
 operator|.
 name|load
@@ -1610,6 +1619,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// read the current link's value
 name|writer
 operator|.
 name|writeAppendStrings
@@ -1619,6 +1629,7 @@ operator|.
 name|after
 argument_list|)
 expr_stmt|;
+comment|// append the link's value using the StringBuilder
 name|expression
 operator|.
 name|write
@@ -1626,6 +1637,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// write the bytecode for the rhs expression
 if|if
 condition|(
 operator|!
@@ -1668,12 +1680,14 @@ operator|.
 name|actual
 argument_list|)
 expr_stmt|;
+comment|// append the expression's value unless its also a concatenation
 block|}
 name|writer
 operator|.
 name|writeToStrings
 argument_list|()
 expr_stmt|;
+comment|// put the value of the StringBuilder on the stack
 name|writer
 operator|.
 name|writeCast
@@ -1681,6 +1695,7 @@ argument_list|(
 name|back
 argument_list|)
 expr_stmt|;
+comment|// if necessary, cast the String to the lhs actual type
 if|if
 condition|(
 name|link
@@ -1705,6 +1720,7 @@ operator|.
 name|size
 argument_list|)
 expr_stmt|;
+comment|// if this link is also read from dup the value onto the stack
 block|}
 name|link
 operator|.
@@ -1713,6 +1729,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// store the link's value from the stack in its respective variable/field/array
 block|}
 elseif|else
 if|if
@@ -1722,6 +1739,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// Handle the case where we are doing a compound assignment that
+comment|// does not represent a String concatenation.
 name|writer
 operator|.
 name|writeDup
@@ -1733,6 +1752,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// if necessary, dup the previous link's value to be both loaded from and stored to
 name|link
 operator|.
 name|load
@@ -1740,6 +1760,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// load the current link's value
 if|if
 condition|(
 name|link
@@ -1766,6 +1787,8 @@ operator|.
 name|size
 argument_list|)
 expr_stmt|;
+comment|// dup the value if the link is also
+comment|// read from and is a post increment
 block|}
 name|writer
 operator|.
@@ -1774,6 +1797,8 @@ argument_list|(
 name|there
 argument_list|)
 expr_stmt|;
+comment|// if necessary cast the current link's value
+comment|// to the promotion type between the lhs and rhs types
 name|expression
 operator|.
 name|write
@@ -1781,6 +1806,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// write the bytecode for the rhs expression
 name|writer
 operator|.
 name|writeBinaryInstruction
@@ -1792,6 +1818,7 @@ argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;
+comment|// write the operation instruction for compound assignment
 name|writer
 operator|.
 name|writeCast
@@ -1799,6 +1826,7 @@ argument_list|(
 name|back
 argument_list|)
 expr_stmt|;
+comment|// if necessary cast the promotion type value back to the link's type
 if|if
 condition|(
 name|link
@@ -1826,6 +1854,8 @@ operator|.
 name|size
 argument_list|)
 expr_stmt|;
+comment|// dup the value if the link is also
+comment|// read from and is not a post increment
 block|}
 name|link
 operator|.
@@ -1834,9 +1864,11 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// store the link's value from the stack in its respective variable/field/array
 block|}
 else|else
 block|{
+comment|// Handle the case for a simple write.
 name|expression
 operator|.
 name|write
@@ -1844,6 +1876,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// write the bytecode for the rhs expression
 if|if
 condition|(
 name|link
@@ -1868,6 +1901,7 @@ operator|.
 name|size
 argument_list|)
 expr_stmt|;
+comment|// dup the value if the link is also read from
 block|}
 name|link
 operator|.
@@ -1876,10 +1910,12 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// store the link's value from the stack in its respective variable/field/array
 block|}
 block|}
 else|else
 block|{
+comment|// Handle the case for a simple read.
 name|link
 operator|.
 name|load
@@ -1887,6 +1923,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
+comment|// read the link's value onto the stack
 block|}
 block|}
 name|writer
@@ -1898,6 +1935,7 @@ argument_list|,
 name|fals
 argument_list|)
 expr_stmt|;
+comment|// if this is a branch node, write the bytecode to make an appropiate jump
 block|}
 block|}
 end_class

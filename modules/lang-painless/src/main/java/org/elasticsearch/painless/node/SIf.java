@@ -82,8 +82,7 @@ name|AExpression
 name|condition
 decl_stmt|;
 DECL|field|ifblock
-specifier|final
-name|SBlock
+name|AStatement
 name|ifblock
 decl_stmt|;
 DECL|method|SIf
@@ -131,7 +130,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|analyze
-name|void
+name|AStatement
 name|analyze
 parameter_list|(
 name|Variables
@@ -224,6 +223,8 @@ name|incrementScope
 argument_list|()
 expr_stmt|;
 name|ifblock
+operator|=
+name|ifblock
 operator|.
 name|analyze
 argument_list|(
@@ -253,6 +254,9 @@ name|ifblock
 operator|.
 name|statementCount
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override

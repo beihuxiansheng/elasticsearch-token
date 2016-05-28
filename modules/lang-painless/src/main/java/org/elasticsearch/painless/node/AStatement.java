@@ -180,10 +180,10 @@ name|location
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Checks for errors and collects data for the writing phase.      */
+comment|/**      * Checks for errors and collects data for the writing phase.      * @return The new child node for the parent node calling this method.      * Possibly returns a different {@link AStatement} node if a type is      * def or if a different specialization is used. Otherwise, returns itself.      */
 DECL|method|analyze
 specifier|abstract
-name|void
+name|AStatement
 name|analyze
 parameter_list|(
 name|Variables

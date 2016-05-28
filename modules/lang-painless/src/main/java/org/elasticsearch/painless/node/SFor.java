@@ -95,8 +95,7 @@ name|AExpression
 name|afterthought
 decl_stmt|;
 DECL|field|block
-specifier|final
-name|SBlock
+name|AStatement
 name|block
 decl_stmt|;
 DECL|method|SFor
@@ -171,7 +170,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|analyze
-name|void
+name|AStatement
 name|analyze
 parameter_list|(
 name|Variables
@@ -199,12 +198,14 @@ if|if
 condition|(
 name|initializer
 operator|instanceof
-name|SDeclBlock
+name|AStatement
 condition|)
 block|{
+name|initializer
+operator|=
 operator|(
 operator|(
-name|SDeclBlock
+name|AStatement
 operator|)
 name|initializer
 operator|)
@@ -437,6 +438,8 @@ operator|=
 literal|true
 expr_stmt|;
 name|block
+operator|=
+name|block
 operator|.
 name|analyze
 argument_list|(
@@ -531,6 +534,9 @@ operator|.
 name|decrementScope
 argument_list|()
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override

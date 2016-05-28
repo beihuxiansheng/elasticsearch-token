@@ -105,7 +105,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|analyze
-name|void
+name|AStatement
 name|analyze
 parameter_list|(
 name|Variables
@@ -158,6 +158,9 @@ name|statementCount
 operator|=
 literal|1
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override
