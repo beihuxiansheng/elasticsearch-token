@@ -34,11 +34,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
-operator|.
-name|util
+name|common
 operator|.
 name|SuppressForbidden
 import|;

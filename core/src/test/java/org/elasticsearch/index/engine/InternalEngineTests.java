@@ -19732,11 +19732,12 @@ name|numDocs
 init|=
 name|randomIntBetween
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
+comment|// at least 2 documents otherwise we don't see any deletes below
 for|for
 control|(
 name|int
