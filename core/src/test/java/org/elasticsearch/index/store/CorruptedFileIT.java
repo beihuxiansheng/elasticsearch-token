@@ -2939,6 +2939,16 @@ name|Rebalance
 operator|.
 name|NONE
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"index.allocation.max_retries"
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
+comment|// keep on retrying
 argument_list|)
 argument_list|)
 expr_stmt|;
