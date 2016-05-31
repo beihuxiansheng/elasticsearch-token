@@ -129,8 +129,6 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
-comment|// its ok to check for active here, since in relocation, a shard is split into two in routing
-comment|// nodes, once relocating, and one initializing
 if|if
 condition|(
 operator|!
@@ -142,6 +140,14 @@ operator|.
 name|allReplicasActive
 argument_list|(
 name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|,
+name|allocation
+operator|.
+name|metaData
+argument_list|()
 argument_list|)
 condition|)
 block|{

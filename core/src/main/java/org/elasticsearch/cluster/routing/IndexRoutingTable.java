@@ -2380,9 +2380,6 @@ specifier|public
 name|Builder
 name|addShard
 parameter_list|(
-name|IndexShardRoutingTable
-name|refData
-parameter_list|,
 name|ShardRouting
 name|shard
 parameter_list|)
@@ -2414,7 +2411,7 @@ name|IndexShardRoutingTable
 operator|.
 name|Builder
 argument_list|(
-name|refData
+name|shard
 operator|.
 name|shardId
 argument_list|()

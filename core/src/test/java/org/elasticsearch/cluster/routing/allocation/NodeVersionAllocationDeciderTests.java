@@ -4865,6 +4865,9 @@ operator|.
 name|activePrimary
 argument_list|(
 name|r
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -4998,6 +5001,9 @@ operator|.
 name|activePrimary
 argument_list|(
 name|r
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat

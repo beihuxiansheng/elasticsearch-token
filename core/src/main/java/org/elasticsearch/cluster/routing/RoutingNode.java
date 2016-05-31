@@ -350,24 +350,6 @@ name|iterator
 argument_list|()
 return|;
 block|}
-DECL|method|mutableIterator
-name|Iterator
-argument_list|<
-name|ShardRouting
-argument_list|>
-name|mutableIterator
-parameter_list|()
-block|{
-return|return
-name|shards
-operator|.
-name|values
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-return|;
-block|}
 comment|/**      * Returns the nodes {@link DiscoveryNode}.      *      * @return discoveryNode of this node      */
 DECL|method|node
 specifier|public
@@ -538,6 +520,41 @@ operator|+
 literal|" but was "
 operator|+
 name|oldShard
+assert|;
+block|}
+DECL|method|remove
+name|void
+name|remove
+parameter_list|(
+name|ShardRouting
+name|shard
+parameter_list|)
+block|{
+name|ShardRouting
+name|previousValue
+init|=
+name|shards
+operator|.
+name|remove
+argument_list|(
+name|shard
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+decl_stmt|;
+assert|assert
+name|previousValue
+operator|==
+name|shard
+operator|:
+literal|"expected shard "
+operator|+
+name|previousValue
+operator|+
+literal|" but was "
+operator|+
+name|shard
 assert|;
 block|}
 comment|/**      * Determine the number of shards with a specific state      * @param states set of states which should be counted      * @return number of shards      */
