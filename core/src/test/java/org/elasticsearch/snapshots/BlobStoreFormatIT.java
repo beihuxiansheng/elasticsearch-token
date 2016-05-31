@@ -2309,6 +2309,14 @@ condition|)
 do|;
 name|blobContainer
 operator|.
+name|deleteBlob
+argument_list|(
+name|blobName
+argument_list|)
+expr_stmt|;
+comment|// delete original before writing new blob
+name|blobContainer
+operator|.
 name|writeBlob
 argument_list|(
 name|blobName
