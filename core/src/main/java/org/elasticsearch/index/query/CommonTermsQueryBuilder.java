@@ -2207,6 +2207,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|parseQueryString
+specifier|private
 specifier|static
 name|Query
 name|parseQueryString
@@ -2316,17 +2317,6 @@ name|count
 operator|++
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|count
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-literal|null
-return|;
 block|}
 name|query
 operator|.
