@@ -2836,13 +2836,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|stats
-operator|.
-name|addIndexWriterMaxMemoryInBytes
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 block|}
 comment|/** How much heap is used that would be freed by a refresh.  Note that this may throw {@link AlreadyClosedException}. */
 DECL|method|getIndexBufferRAMBytesUsed
