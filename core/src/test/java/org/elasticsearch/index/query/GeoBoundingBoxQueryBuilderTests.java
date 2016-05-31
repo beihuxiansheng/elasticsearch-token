@@ -2280,7 +2280,7 @@ argument_list|()
 argument_list|,
 name|qb
 operator|.
-name|topLeft
+name|bottomRight
 argument_list|()
 operator|.
 name|getLat
