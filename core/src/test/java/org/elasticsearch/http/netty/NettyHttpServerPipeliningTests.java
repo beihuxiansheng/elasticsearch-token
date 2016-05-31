@@ -667,8 +667,6 @@ argument_list|(
 name|Settings
 operator|.
 name|EMPTY
-argument_list|,
-name|threadPool
 argument_list|)
 expr_stmt|;
 name|bigArrays

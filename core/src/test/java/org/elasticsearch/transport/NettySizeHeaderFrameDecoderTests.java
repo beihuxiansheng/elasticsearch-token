@@ -427,8 +427,6 @@ operator|new
 name|MockPageCacheRecycler
 argument_list|(
 name|settings
-argument_list|,
-name|threadPool
 argument_list|)
 argument_list|,
 operator|new

@@ -1078,8 +1078,6 @@ operator|new
 name|PageCacheRecycler
 argument_list|(
 name|settings
-argument_list|,
-name|threadPool
 argument_list|)
 decl_stmt|;
 name|BigArrays
