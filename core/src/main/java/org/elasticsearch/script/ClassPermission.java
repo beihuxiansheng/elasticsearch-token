@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Checked by scripting engines to allow loading a java class.  *<p>  * Examples:  *<p>  * Allow permission to {@code java.util.List}  *<pre>permission org.elasticsearch.script.ClassPermission "java.util.List";</pre>  * Allow permission to classes underneath {@code java.util} (and its subpackages such as {@code java.util.zip})  *<pre>permission org.elasticsearch.script.ClassPermission "java.util.*";</pre>  * Allow permission to standard predefined list of basic classes (see list below)  *<pre>permission org.elasticsearch.script.ClassPermission "&lt;&lt;STANDARD&gt;&gt;";</pre>  * Allow permission to all classes  *<pre>permission org.elasticsearch.script.ClassPermission "*";</pre>  *<p>  * Set of classes (allowed by special value<code>&lt;&lt;STANDARD&gt;&gt;</code>):  *<ul>  *<li>{@link java.lang.Boolean}</li>  *<li>{@link java.lang.Byte}</li>  *<li>{@link java.lang.Character}</li>  *<li>{@link java.lang.Double}</li>  *<li>{@link java.lang.Integer}</li>  *<li>{@link java.lang.Long}</li>  *<li>{@link java.lang.Math}</li>  *<li>{@link java.lang.Object}</li>  *<li>{@link java.lang.Short}</li>  *<li>{@link java.lang.String}</li>  *<li>{@link java.math.BigDecimal}</li>  *<li>{@link java.util.ArrayList}</li>  *<li>{@link java.util.Arrays}</li>  *<li>{@link java.util.Date}</li>  *<li>{@link java.util.HashMap}</li>  *<li>{@link java.util.HashSet}</li>  *<li>{@link java.util.Iterator}</li>  *<li>{@link java.util.List}</li>  *<li>{@link java.util.Map}</li>  *<li>{@link java.util.Set}</li>  *<li>{@link java.util.UUID}</li>  *<li>{@link org.joda.time.DateTime}</li>  *<li>{@link org.joda.time.DateTimeUtils}</li>  *<li>{@link org.joda.time.DateTimeZone}</li>  *<li>{@link org.joda.time.Instant}</li>  *</ul>  */
+comment|/**  * Checked by scripting engines to allow loading a java class.  *<p>  * Examples:  *<p>  * Allow permission to {@code java.util.List}  *<pre>permission org.elasticsearch.script.ClassPermission "java.util.List";</pre>  * Allow permission to classes underneath {@code java.util} (and its subpackages such as {@code java.util.zip})  *<pre>permission org.elasticsearch.script.ClassPermission "java.util.*";</pre>  * Allow permission to standard predefined list of basic classes (see list below)  *<pre>permission org.elasticsearch.script.ClassPermission "&lt;&lt;STANDARD&gt;&gt;";</pre>  * Allow permission to all classes  *<pre>permission org.elasticsearch.script.ClassPermission "*";</pre>  *<p>  * Set of classes (allowed by special value<code>&lt;&lt;STANDARD&gt;&gt;</code>):  *<ul>  *<li>{@link java.lang.Boolean}</li>  *<li>{@link java.lang.Byte}</li>  *<li>{@link java.lang.Character}</li>  *<li>{@link java.lang.Double}</li>  *<li>{@link java.lang.Integer}</li>  *<li>{@link java.lang.Long}</li>  *<li>{@link java.lang.Math}</li>  *<li>{@link java.lang.Object}</li>  *<li>{@link java.lang.Short}</li>  *<li>{@link java.lang.String}</li>  *<li>{@link java.math.BigDecimal}</li>  *<li>{@link java.util.ArrayList}</li>  *<li>{@link java.util.Arrays}</li>  *<li>{@link java.util.Date}</li>  *<li>{@link java.util.HashMap}</li>  *<li>{@link java.util.HashSet}</li>  *<li>{@link java.util.Iterator}</li>  *<li>{@link java.util.List}</li>  *<li>{@link java.util.Map}</li>  *<li>{@link java.util.Set}</li>  *<li>{@link java.util.UUID}</li>  *<li>{@link org.joda.time.DateTime}</li>  *<li>{@link org.joda.time.DateTimeUtils}</li>  *<li>{@link org.joda.time.DateTimeZone}</li>  *<li>{@link org.joda.time.Instant}</li>  *<li>{@link org.joda.time.ReadableDateTime}</li>  *<li>{@link org.joda.time.ReadableInstant}</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -419,6 +419,32 @@ operator|.
 name|time
 operator|.
 name|Instant
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|ReadableDateTime
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|ReadableInstant
 operator|.
 name|class
 operator|.
