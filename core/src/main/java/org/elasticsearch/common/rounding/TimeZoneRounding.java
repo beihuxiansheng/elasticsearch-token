@@ -970,17 +970,13 @@ block|{
 name|long
 name|timeLocal
 init|=
-name|utcMillis
-decl_stmt|;
-name|timeLocal
-operator|=
 name|timeZone
 operator|.
 name|convertUTCToLocal
 argument_list|(
 name|utcMillis
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|long
 name|rounded
 init|=
@@ -1012,6 +1008,8 @@ argument_list|(
 name|rounded
 argument_list|,
 literal|false
+argument_list|,
+name|utcMillis
 argument_list|)
 return|;
 block|}
