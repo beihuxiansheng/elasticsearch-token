@@ -86,7 +86,7 @@ name|BlobPath
 name|path
 parameter_list|()
 function_decl|;
-comment|/**      * Tests whether a blob with the given blob name exists in the container.      *      * @param   blobName      *          The name of the blob whose existence is to be determined.      * @return  {@code true} if a blob exists in the {@link BlobContainer} with the given name, and {@code false} otherwise.      * @throws  IOException if any error occurred while attempting to ascertain if the blob exists      */
+comment|/**      * Tests whether a blob with the given blob name exists in the container.      *      * @param   blobName      *          The name of the blob whose existence is to be determined.      * @return  {@code true} if a blob exists in the {@link BlobContainer} with the given name, and {@code false} otherwise.      */
 DECL|method|blobExists
 name|boolean
 name|blobExists
