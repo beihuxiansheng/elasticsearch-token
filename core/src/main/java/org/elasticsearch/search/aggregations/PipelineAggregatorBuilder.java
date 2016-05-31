@@ -52,11 +52,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|search
 operator|.
-name|xcontent
+name|aggregations
 operator|.
-name|ToXContent
+name|AggregatorFactory
 import|;
 end_import
 
@@ -70,25 +70,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|InternalAggregation
+name|pipeline
 operator|.
-name|Type
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|AggregationContext
+name|PipelineAggregator
 import|;
 end_import
 
@@ -108,26 +92,34 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
 
 begin_comment
-comment|/**  * A factory that knows how to create an {@link Aggregator} of a specific type.  */
+comment|/**  * A factory that knows how to create an {@link PipelineAggregator} of a  * specific type.  */
 end_comment
 
 begin_class
-DECL|class|AggregationBuilder
+DECL|class|PipelineAggregatorBuilder
 specifier|public
 specifier|abstract
 class|class
-name|AggregationBuilder
+name|PipelineAggregatorBuilder
 extends|extends
 name|ToXContentToBytes
 implements|implements
 name|NamedWriteable
-implements|,
-name|ToXContent
 block|{
 DECL|field|name
 specifier|protected
@@ -135,34 +127,24 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
-DECL|field|type
+DECL|field|bucketsPaths
 specifier|protected
 specifier|final
-name|Type
-name|type
+name|String
+index|[]
+name|bucketsPaths
 decl_stmt|;
-DECL|field|factoriesBuilder
+comment|/**      * Constructs a new pipeline aggregator factory.      *      * @param name      *            The aggregation name      */
+DECL|method|PipelineAggregatorBuilder
 specifier|protected
-name|AggregatorFactories
-operator|.
-name|Builder
-name|factoriesBuilder
-init|=
-name|AggregatorFactories
-operator|.
-name|builder
-argument_list|()
-decl_stmt|;
-comment|/**      * Constructs a new aggregation builder.      *      * @param name  The aggregation name      * @param type  The aggregation type      */
-DECL|method|AggregationBuilder
-specifier|protected
-name|AggregationBuilder
+name|PipelineAggregatorBuilder
 parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Type
-name|type
+name|String
+index|[]
+name|bucketsPaths
 parameter_list|)
 block|{
 if|if
@@ -186,7 +168,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|type
+name|bucketsPaths
 operator|==
 literal|null
 condition|)
@@ -195,7 +177,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"[type] must not be null: ["
+literal|"[bucketsPaths] must not be null: ["
 operator|+
 name|name
 operator|+
@@ -211,9 +193,9 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|type
+name|bucketsPaths
 operator|=
-name|type
+name|bucketsPaths
 expr_stmt|;
 block|}
 comment|/** Return this aggregation's name. */
@@ -227,33 +209,61 @@ return|return
 name|name
 return|;
 block|}
-comment|/** Internal: build an {@link AggregatorFactory} based on the configuration of this builder. */
-DECL|method|build
+comment|/** Return the consumed buckets paths. */
+DECL|method|getBucketsPaths
+specifier|public
+specifier|final
+name|String
+index|[]
+name|getBucketsPaths
+parameter_list|()
+block|{
+return|return
+name|bucketsPaths
+return|;
+block|}
+comment|/**      * Internal: Validates the state of this factory (makes sure the factory is properly      * configured)      */
+DECL|method|validate
 specifier|protected
 specifier|abstract
-name|AggregatorFactory
-argument_list|<
-name|?
-argument_list|>
-name|build
+name|void
+name|validate
 parameter_list|(
-name|AggregationContext
-name|context
-parameter_list|,
 name|AggregatorFactory
 argument_list|<
 name|?
 argument_list|>
 name|parent
+parameter_list|,
+name|AggregatorFactory
+argument_list|<
+name|?
+argument_list|>
+index|[]
+name|factories
+parameter_list|,
+name|List
+argument_list|<
+name|PipelineAggregatorBuilder
+argument_list|>
+name|pipelineAggregatorFactories
 parameter_list|)
+function_decl|;
+comment|/**      * Creates the pipeline aggregator      *      * @return The created aggregator      */
+DECL|method|create
+specifier|protected
+specifier|abstract
+name|PipelineAggregator
+name|create
+parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Associate metadata with this {@link AggregationBuilder}. */
+comment|/** Associate metadata with this {@link PipelineAggregatorBuilder}. */
 DECL|method|setMetaData
 specifier|public
 specifier|abstract
-name|AggregationBuilder
+name|PipelineAggregatorBuilder
 name|setMetaData
 parameter_list|(
 name|Map
@@ -263,41 +273,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|metaData
-parameter_list|)
-function_decl|;
-comment|/** Add a sub aggregation to this builder. */
-DECL|method|subAggregation
-specifier|public
-specifier|abstract
-name|AggregationBuilder
-name|subAggregation
-parameter_list|(
-name|AggregationBuilder
-name|aggregation
-parameter_list|)
-function_decl|;
-comment|/** Add a sub aggregation to this builder. */
-DECL|method|subAggregation
-specifier|public
-specifier|abstract
-name|AggregationBuilder
-name|subAggregation
-parameter_list|(
-name|PipelineAggregatorBuilder
-name|aggregation
-parameter_list|)
-function_decl|;
-comment|/**      * Internal: Registers sub-factories with this factory. The sub-factory will be      * responsible for the creation of sub-aggregators under the aggregator      * created by this factory. This is only for use by {@link AggregatorParsers}.      *      * @param subFactories      *            The sub-factories      * @return this factory (fluent interface)      */
-DECL|method|subAggregations
-specifier|protected
-specifier|abstract
-name|AggregationBuilder
-name|subAggregations
-parameter_list|(
-name|AggregatorFactories
-operator|.
-name|Builder
-name|subFactories
 parameter_list|)
 function_decl|;
 block|}

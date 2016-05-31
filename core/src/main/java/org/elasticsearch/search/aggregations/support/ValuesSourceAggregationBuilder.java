@@ -204,7 +204,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 import|;
 end_import
 
@@ -349,7 +349,7 @@ name|AB
 parameter_list|>
 parameter_list|>
 extends|extends
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 argument_list|<
 name|AB
 argument_list|>

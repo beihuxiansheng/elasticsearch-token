@@ -156,7 +156,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 import|;
 end_import
 
@@ -230,7 +230,7 @@ specifier|public
 class|class
 name|FilterAggregationBuilder
 extends|extends
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 argument_list|<
 name|FilterAggregationBuilder
 argument_list|>

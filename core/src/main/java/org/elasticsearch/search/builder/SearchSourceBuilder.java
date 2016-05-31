@@ -356,8 +356,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|pipeline
-operator|.
 name|PipelineAggregatorBuilder
 import|;
 end_import
@@ -2938,9 +2936,6 @@ name|SearchSourceBuilder
 name|aggregation
 parameter_list|(
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|aggregation
 parameter_list|)
 block|{

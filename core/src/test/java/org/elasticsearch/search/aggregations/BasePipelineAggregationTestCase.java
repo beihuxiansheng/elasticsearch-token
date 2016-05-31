@@ -564,7 +564,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|PipelineAggregatorBuilder
+name|AbstractPipelineAggregatorBuilder
 import|;
 end_import
 
@@ -769,7 +769,10 @@ name|BasePipelineAggregationTestCase
 parameter_list|<
 name|AF
 extends|extends
-name|PipelineAggregatorBuilder
+name|AbstractPipelineAggregatorBuilder
+parameter_list|<
+name|AF
+parameter_list|>
 parameter_list|>
 extends|extends
 name|ESTestCase
@@ -1841,7 +1844,7 @@ name|assertEquals
 argument_list|(
 name|testAgg
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|parser
@@ -1906,9 +1909,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 name|newAgg
 init|=
 name|aggParsers
@@ -1929,7 +1929,7 @@ name|parse
 argument_list|(
 name|testAgg
 operator|.
-name|name
+name|getName
 argument_list|()
 argument_list|,
 name|parseContext
@@ -2073,9 +2073,6 @@ argument_list|)
 init|)
 block|{
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 name|deserializedQuery
 init|=
 name|in
