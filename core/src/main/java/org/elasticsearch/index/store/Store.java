@@ -3661,7 +3661,6 @@ argument_list|()
 return|;
 block|}
 DECL|class|StoreDirectory
-specifier|private
 specifier|static
 specifier|final
 class|class

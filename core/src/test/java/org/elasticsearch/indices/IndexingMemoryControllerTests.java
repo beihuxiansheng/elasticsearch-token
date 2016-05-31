@@ -2848,9 +2848,7 @@ argument_list|(
 name|newShard
 operator|.
 name|recoverFromStore
-argument_list|(
-name|localNode
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
