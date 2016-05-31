@@ -2596,9 +2596,6 @@ name|shardIterators
 init|=
 name|state
 operator|.
-name|getRoutingNodes
-argument_list|()
-operator|.
 name|getRoutingTable
 argument_list|()
 operator|.
@@ -4115,9 +4112,6 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|getRoutingNodes
-argument_list|()
-operator|.
 name|getRoutingTable
 argument_list|()
 operator|.
@@ -5186,9 +5180,6 @@ name|shardIterators
 init|=
 name|state
 operator|.
-name|getRoutingNodes
-argument_list|()
-operator|.
 name|getRoutingTable
 argument_list|()
 operator|.
@@ -5403,9 +5394,6 @@ name|GroupShardsIterator
 name|shardIterators
 init|=
 name|state
-operator|.
-name|getRoutingNodes
-argument_list|()
 operator|.
 name|getRoutingTable
 argument_list|()

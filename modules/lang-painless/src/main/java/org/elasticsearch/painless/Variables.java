@@ -449,7 +449,7 @@ name|Definition
 operator|.
 name|getType
 argument_list|(
-literal|"Executable"
+literal|"Object"
 argument_list|)
 argument_list|,
 name|Reserved

@@ -2365,10 +2365,6 @@ name|builder
 operator|.
 name|addShard
 argument_list|(
-name|indexShardRoutingTable
-operator|.
-name|value
-argument_list|,
 name|updatedShardRouting
 argument_list|)
 expr_stmt|;

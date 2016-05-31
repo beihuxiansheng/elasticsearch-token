@@ -192,6 +192,8 @@ argument_list|,
 literal|"java.util.function.txt"
 argument_list|,
 literal|"java.util.stream.txt"
+argument_list|,
+literal|"joda.time.txt"
 argument_list|)
 argument_list|)
 decl_stmt|;

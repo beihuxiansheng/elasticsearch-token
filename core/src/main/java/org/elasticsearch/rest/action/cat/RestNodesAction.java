@@ -1752,15 +1752,6 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"segments.index_writer_max_memory"
-argument_list|,
-literal|"alias:siwmx,segmentsIndexWriterMaxMemory;default:false;text-align:right;desc:maximum memory index writer may use before it must write buffered documents to a new segment"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"segments.version_map_memory"
 argument_list|,
 literal|"alias:svmm,segmentsVersionMapMemory;default:false;text-align:right;desc:memory used by version map"
@@ -3733,22 +3724,6 @@ else|:
 name|segmentsStats
 operator|.
 name|getIndexWriterMemory
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|segmentsStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|segmentsStats
-operator|.
-name|getIndexWriterMaxMemory
 argument_list|()
 argument_list|)
 expr_stmt|;

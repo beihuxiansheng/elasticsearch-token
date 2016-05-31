@@ -404,6 +404,12 @@ specifier|final
 name|MetaData
 name|metaData
 decl_stmt|;
+DECL|field|routingTable
+specifier|private
+specifier|final
+name|RoutingTable
+name|routingTable
+decl_stmt|;
 DECL|field|nodes
 specifier|private
 specifier|final
@@ -534,6 +540,15 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
+name|routingTable
+operator|=
+name|clusterState
+operator|.
+name|routingTable
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|nodes
 operator|=
 name|clusterState
@@ -601,10 +616,7 @@ name|routingTable
 parameter_list|()
 block|{
 return|return
-name|routingNodes
-operator|.
 name|routingTable
-argument_list|()
 return|;
 block|}
 comment|/**      * Get current routing nodes      * @return routing nodes      */
