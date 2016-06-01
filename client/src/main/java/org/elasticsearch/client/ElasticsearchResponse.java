@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holds an elasticsearch response. It wraps the {@link CloseableHttpResponse} response and associates it with  * its corresponding {@link RequestLine} and {@link HttpHost}  */
+comment|/**  * Holds an elasticsearch response. It wraps the {@link CloseableHttpResponse} response and associates it with  * its corresponding {@link RequestLine} and {@link HttpHost}.  * It must be closed to free any resource held by it, as well as the corresponding connection in the connection pool.  */
 end_comment
 
 begin_class
