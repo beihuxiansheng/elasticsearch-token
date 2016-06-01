@@ -464,6 +464,21 @@ name|QueryBuilder
 name|builder
 parameter_list|)
 block|{
+if|if
+condition|(
+name|builder
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"rescore_query cannot be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|queryBuilder

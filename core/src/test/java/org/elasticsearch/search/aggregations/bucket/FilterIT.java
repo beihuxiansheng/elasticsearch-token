@@ -1018,9 +1018,6 @@ name|EMPTY
 argument_list|)
 decl_stmt|;
 name|AggregationBuilder
-argument_list|<
-name|?
-argument_list|>
 name|filterAgg
 init|=
 name|FilterAggregationBuilder

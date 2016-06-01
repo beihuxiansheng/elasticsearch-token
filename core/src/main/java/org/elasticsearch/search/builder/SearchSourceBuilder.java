@@ -2972,9 +2972,6 @@ name|SearchSourceBuilder
 name|aggregation
 parameter_list|(
 name|PipelineAggregatorBuilder
-argument_list|<
-name|?
-argument_list|>
 name|aggregation
 parameter_list|)
 block|{

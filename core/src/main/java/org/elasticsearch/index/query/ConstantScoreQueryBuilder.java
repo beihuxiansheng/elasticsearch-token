@@ -401,10 +401,7 @@ name|QueryBuilder
 argument_list|>
 name|query
 init|=
-name|Optional
-operator|.
-name|empty
-argument_list|()
+literal|null
 decl_stmt|;
 name|boolean
 name|queryFound

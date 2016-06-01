@@ -106,7 +106,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParsingException
+name|lucene
+operator|.
+name|search
+operator|.
+name|MatchNoDocsQuery
 import|;
 end_import
 
@@ -179,18 +183,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|nullValue
 import|;
 end_import
 
@@ -358,25 +350,6 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|queries
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|assertThat
-argument_list|(
-name|query
-argument_list|,
-name|nullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertThat
 argument_list|(
 name|query
@@ -487,7 +460,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 annotation|@
 name|Override
 DECL|method|getAlternateVersions
@@ -573,7 +545,7 @@ return|return
 name|alternateVersions
 return|;
 block|}
-comment|/**      * Test with empty inner query body, this should be ignored upstream.      * To test this, we use inner {@link ConstantScoreQueryBuilder} with empty inner filter.      */
+comment|/**      * Test with empty inner query body, this should be converted to a {@link MatchNoDocsQuery}.      * To test this, we use inner {@link ConstantScoreQueryBuilder} with empty inner filter.      */
 DECL|method|testInnerQueryEmptyException
 specifier|public
 name|void
@@ -605,17 +577,9 @@ literal|"             }"
 operator|+
 literal|"           }"
 decl_stmt|;
-name|ParsingException
-name|ex
+name|QueryBuilder
+name|queryBuilder
 init|=
-name|expectThrows
-argument_list|(
-name|ParsingException
-operator|.
-name|class
-argument_list|,
-parameter_list|()
-lambda|->
 name|parseQuery
 argument_list|(
 name|queryString
@@ -624,16 +588,51 @@ name|ParseFieldMatcher
 operator|.
 name|EMPTY
 argument_list|)
+decl_stmt|;
+name|QueryShardContext
+name|context
+init|=
+name|createShardContext
+argument_list|()
+decl_stmt|;
+name|Query
+name|luceneQuery
+init|=
+name|queryBuilder
+operator|.
+name|toQuery
+argument_list|(
+name|context
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertThat
 argument_list|(
-literal|"[dis_max] requires 'queries' field with at least one clause"
+name|luceneQuery
 argument_list|,
-name|ex
+name|instanceOf
+argument_list|(
+name|MatchNoDocsQuery
 operator|.
-name|getMessage
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+operator|(
+operator|(
+name|MatchNoDocsQuery
+operator|)
+name|luceneQuery
+operator|)
+operator|.
+name|toString
 argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"MatchNoDocsQuery[\"no clauses for dismax query.\"]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
