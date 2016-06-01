@@ -4,31 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cache.recycler
+DECL|package|org.elasticsearch.common.util
 package|package
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cache
-operator|.
-name|recycler
-package|;
-end_package
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
+name|util
+package|;
+end_package
 
 begin_import
 import|import
@@ -335,10 +321,7 @@ specifier|final
 name|Random
 name|random
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|MockPageCacheRecycler
-specifier|public
 name|MockPageCacheRecycler
 parameter_list|(
 name|Settings
