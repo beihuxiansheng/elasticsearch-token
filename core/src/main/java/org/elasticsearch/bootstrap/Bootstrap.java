@@ -336,16 +336,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -763,7 +753,7 @@ argument_list|()
 argument_list|,
 name|BootstrapSettings
 operator|.
-name|MLOCKALL_SETTING
+name|MEMORY_LOCK_SETTING
 operator|.
 name|get
 argument_list|(
