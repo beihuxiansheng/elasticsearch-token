@@ -270,7 +270,7 @@ argument_list|(
 literal|.000001f
 argument_list|)
 expr_stmt|;
-comment|// Throttle forever
+comment|// Throttle "forever"
 name|request
 operator|.
 name|source
