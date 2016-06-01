@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Descriptive stats gathered per shard. Coordinating node computes final correlation and covariance stats  * based on these descriptive stats. This single pass, parallel approach is based on:  *  * http://prod.sandia.gov/techlib/access-control.cgi/2008/086212.pdf  *  * @internal  */
+comment|/**  * Descriptive stats gathered per shard. Coordinating node computes final correlation and covariance stats  * based on these descriptive stats. This single pass, parallel approach is based on:  *  * http://prod.sandia.gov/techlib/access-control.cgi/2008/086212.pdf  */
 end_comment
 
 begin_class

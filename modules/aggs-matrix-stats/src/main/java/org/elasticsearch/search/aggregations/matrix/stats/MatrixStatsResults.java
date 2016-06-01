@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Descriptive stats gathered per shard. Coordinating node computes final pearson product coefficient  * based on these descriptive stats  *  * @internal  */
+comment|/**  * Descriptive stats gathered per shard. Coordinating node computes final pearson product coefficient  * based on these descriptive stats  */
 end_comment
 
 begin_class
