@@ -5268,7 +5268,7 @@ name|IDX
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertPathHasBeenCleared
+name|assertBusyPathHasBeenCleared
 argument_list|(
 name|dataPath
 argument_list|)
@@ -5672,7 +5672,7 @@ name|IDX
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertPathHasBeenCleared
+name|assertBusyPathHasBeenCleared
 argument_list|(
 name|dataPath
 argument_list|)
@@ -7204,7 +7204,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|assertPathHasBeenCleared
+name|assertBusyPathHasBeenCleared
 argument_list|(
 name|dataPath
 argument_list|)
