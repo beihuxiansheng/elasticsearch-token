@@ -1751,7 +1751,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Lightly connect to the specified node, returning updated node      * information. The handshake will fail if the cluster name on the      * target node mismatches the local cluster name and      * {@code checkClusterName} is {@code true}.      *      * @param node             the node to connect to      * @param handshakeTimeout handshake timeout      * @param checkClusterName whether or not to ignore cluster name      *                         mismatches      * @return the connected node      * @throws ConnectTransportException if the connection or the      *                                   handshake failed      */
+comment|/**      * Lightly connect to the specified node, returning updated node      * information. The handshake will fail if the cluster name on the      * target node mismatches the local cluster name and      * {@code checkClusterName} is {@code true}.      *      * @param node             the node to connect to      * @param handshakeTimeout handshake timeout      * @param checkClusterName whether or not to ignore cluster name      *                         mismatches      * @return the connected node      * @throws ConnectTransportException if the connection failed      * @throws IllegalStateException if the handshake failed      */
 DECL|method|connectToNodeLightAndHandshake
 specifier|public
 name|DiscoveryNode
@@ -1807,6 +1807,8 @@ block|}
 catch|catch
 parameter_list|(
 name|ConnectTransportException
+decl||
+name|IllegalStateException
 name|e
 parameter_list|)
 block|{
@@ -1910,11 +1912,11 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ConnectTransportException
+name|IllegalStateException
 argument_list|(
+literal|"handshake failed with "
+operator|+
 name|node
-argument_list|,
-literal|"handshake failed"
 argument_list|,
 name|e
 argument_list|)
@@ -1939,17 +1941,17 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ConnectTransportException
+name|IllegalStateException
 argument_list|(
-name|node
-argument_list|,
 literal|"handshake failed, mismatched cluster name ["
 operator|+
 name|response
 operator|.
 name|clusterName
 operator|+
-literal|"]"
+literal|"] - "
+operator|+
+name|node
 argument_list|)
 throw|;
 block|}
@@ -1967,17 +1969,17 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ConnectTransportException
+name|IllegalStateException
 argument_list|(
-name|node
-argument_list|,
 literal|"handshake failed, incompatible version ["
 operator|+
 name|response
 operator|.
 name|version
 operator|+
-literal|"]"
+literal|"] - "
+operator|+
+name|node
 argument_list|)
 throw|;
 block|}
