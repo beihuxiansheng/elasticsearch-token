@@ -102,7 +102,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 import|;
 end_import
 
@@ -197,21 +197,21 @@ import|;
 end_import
 
 begin_class
-DECL|class|BucketMetricsPipelineAggregatorBuilder
+DECL|class|BucketMetricsPipelineAggregationBuilder
 specifier|public
 specifier|abstract
 class|class
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 parameter_list|<
 name|AF
 extends|extends
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 parameter_list|<
 name|AF
 parameter_list|>
 parameter_list|>
 extends|extends
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 argument_list|<
 name|AF
 argument_list|>
@@ -232,9 +232,9 @@ name|GapPolicy
 operator|.
 name|SKIP
 decl_stmt|;
-DECL|method|BucketMetricsPipelineAggregatorBuilder
+DECL|method|BucketMetricsPipelineAggregationBuilder
 specifier|protected
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 parameter_list|(
 name|String
 name|name
@@ -258,9 +258,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Read from a stream.      */
-DECL|method|BucketMetricsPipelineAggregatorBuilder
+DECL|method|BucketMetricsPipelineAggregationBuilder
 specifier|protected
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 parameter_list|(
 name|StreamInput
 name|in
@@ -492,7 +492,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -665,14 +665,14 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
 name|AF
 argument_list|>
 name|other
 init|=
 operator|(
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
 name|AF
 argument_list|>
@@ -714,7 +714,7 @@ specifier|abstract
 name|boolean
 name|innerEquals
 parameter_list|(
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
 name|AF
 argument_list|>

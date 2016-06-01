@@ -36,7 +36,7 @@ name|bucketmetrics
 operator|.
 name|avg
 operator|.
-name|AvgBucketPipelineAggregatorBuilder
+name|AvgBucketPipelineAggregationBuilder
 import|;
 end_import
 
@@ -48,14 +48,14 @@ name|AvgBucketTests
 extends|extends
 name|AbstractBucketMetricsTestCase
 argument_list|<
-name|AvgBucketPipelineAggregatorBuilder
+name|AvgBucketPipelineAggregationBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|doCreateTestAggregatorFactory
 specifier|protected
-name|AvgBucketPipelineAggregatorBuilder
+name|AvgBucketPipelineAggregationBuilder
 name|doCreateTestAggregatorFactory
 parameter_list|(
 name|String
@@ -67,7 +67,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|AvgBucketPipelineAggregatorBuilder
+name|AvgBucketPipelineAggregationBuilder
 argument_list|(
 name|name
 argument_list|,

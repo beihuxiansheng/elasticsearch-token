@@ -295,7 +295,7 @@ specifier|abstract
 name|AggregationBuilder
 name|subAggregation
 parameter_list|(
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|aggregation
 parameter_list|)
 function_decl|;

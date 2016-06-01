@@ -104,7 +104,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 import|;
 end_import
 
@@ -191,14 +191,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|MaxBucketPipelineAggregatorBuilder
+DECL|class|MaxBucketPipelineAggregationBuilder
 specifier|public
 class|class
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 extends|extends
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 argument_list|>
 block|{
 DECL|field|NAME
@@ -228,9 +228,9 @@ argument_list|(
 name|NAME
 argument_list|)
 decl_stmt|;
-DECL|method|MaxBucketPipelineAggregatorBuilder
+DECL|method|MaxBucketPipelineAggregationBuilder
 specifier|public
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 parameter_list|(
 name|String
 name|name
@@ -260,9 +260,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Read from a stream.      */
-DECL|method|MaxBucketPipelineAggregatorBuilder
+DECL|method|MaxBucketPipelineAggregationBuilder
 specifier|public
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 parameter_list|(
 name|StreamInput
 name|in
@@ -351,7 +351,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -423,7 +423,7 @@ block|{
 annotation|@
 name|Override
 specifier|protected
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 name|buildFactory
 parameter_list|(
 name|String
@@ -443,7 +443,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 argument_list|(
 name|pipelineAggregatorName
 argument_list|,
@@ -472,9 +472,9 @@ specifier|protected
 name|boolean
 name|innerEquals
 parameter_list|(
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
-name|MaxBucketPipelineAggregatorBuilder
+name|MaxBucketPipelineAggregationBuilder
 argument_list|>
 name|other
 parameter_list|)

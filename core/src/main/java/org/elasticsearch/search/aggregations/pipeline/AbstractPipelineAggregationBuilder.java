@@ -100,7 +100,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 import|;
 end_import
 
@@ -155,25 +155,25 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base implementation of a {@link PipelineAggregatorBuilder}.  */
+comment|/**  * Base implementation of a {@link PipelineAggregationBuilder}.  */
 end_comment
 
 begin_class
-DECL|class|AbstractPipelineAggregatorBuilder
+DECL|class|AbstractPipelineAggregationBuilder
 specifier|public
 specifier|abstract
 class|class
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 parameter_list|<
 name|PAB
 extends|extends
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 parameter_list|<
 name|PAB
 parameter_list|>
 parameter_list|>
 extends|extends
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 block|{
 comment|/**      * Field shared by many parsers.      */
 DECL|field|BUCKETS_PATH_FIELD
@@ -205,9 +205,9 @@ name|Object
 argument_list|>
 name|metaData
 decl_stmt|;
-DECL|method|AbstractPipelineAggregatorBuilder
+DECL|method|AbstractPipelineAggregationBuilder
 specifier|protected
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 parameter_list|(
 name|String
 name|name
@@ -254,9 +254,9 @@ name|type
 expr_stmt|;
 block|}
 comment|/**      * Read from a stream.      */
-DECL|method|AbstractPipelineAggregatorBuilder
+DECL|method|AbstractPipelineAggregationBuilder
 specifier|protected
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 parameter_list|(
 name|StreamInput
 name|in
@@ -376,7 +376,7 @@ name|factories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -454,7 +454,7 @@ name|factories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -612,7 +612,7 @@ name|endObject
 argument_list|()
 return|;
 block|}
-comment|/**      * @return<code>true</code> if the {@link AbstractPipelineAggregatorBuilder}      *         overrides the XContent rendering of the bucketPath option.      */
+comment|/**      * @return<code>true</code> if the {@link AbstractPipelineAggregationBuilder}      *         overrides the XContent rendering of the bucketPath option.      */
 DECL|method|overrideBucketsPath
 specifier|protected
 name|boolean
@@ -714,14 +714,14 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 argument_list|<
 name|PAB
 argument_list|>
 name|other
 init|=
 operator|(
-name|AbstractPipelineAggregatorBuilder
+name|AbstractPipelineAggregationBuilder
 argument_list|<
 name|PAB
 argument_list|>

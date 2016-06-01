@@ -111,11 +111,11 @@ comment|/**  * A factory that knows how to create an {@link PipelineAggregator} 
 end_comment
 
 begin_class
-DECL|class|PipelineAggregatorBuilder
+DECL|class|PipelineAggregationBuilder
 specifier|public
 specifier|abstract
 class|class
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 extends|extends
 name|ToXContentToBytes
 implements|implements
@@ -135,9 +135,9 @@ index|[]
 name|bucketsPaths
 decl_stmt|;
 comment|/**      * Constructs a new pipeline aggregator factory.      *      * @param name      *            The aggregation name      */
-DECL|method|PipelineAggregatorBuilder
+DECL|method|PipelineAggregationBuilder
 specifier|protected
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 parameter_list|(
 name|String
 name|name
@@ -244,7 +244,7 @@ name|factories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -259,11 +259,11 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Associate metadata with this {@link PipelineAggregatorBuilder}. */
+comment|/** Associate metadata with this {@link PipelineAggregationBuilder}. */
 DECL|method|setMetaData
 specifier|public
 specifier|abstract
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|setMetaData
 parameter_list|(
 name|Map

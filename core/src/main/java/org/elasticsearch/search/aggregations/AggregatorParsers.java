@@ -487,7 +487,7 @@ name|aggFactory
 init|=
 literal|null
 decl_stmt|;
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 name|pipelineAggregatorFactory
 init|=
 literal|null

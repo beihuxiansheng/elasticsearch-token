@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.pipeline.bucketmetrics.avg
+DECL|package|org.elasticsearch.search.aggregations.pipeline.bucketmetrics.min
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
-name|avg
+name|min
 package|;
 end_package
 
@@ -104,7 +104,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 import|;
 end_import
 
@@ -191,14 +191,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|AvgBucketPipelineAggregatorBuilder
+DECL|class|MinBucketPipelineAggregationBuilder
 specifier|public
 class|class
-name|AvgBucketPipelineAggregatorBuilder
+name|MinBucketPipelineAggregationBuilder
 extends|extends
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
-name|AvgBucketPipelineAggregatorBuilder
+name|MinBucketPipelineAggregationBuilder
 argument_list|>
 block|{
 DECL|field|NAME
@@ -208,19 +208,19 @@ specifier|final
 name|String
 name|NAME
 init|=
-name|AvgBucketPipelineAggregator
+name|MinBucketPipelineAggregator
 operator|.
 name|TYPE
 operator|.
 name|name
 argument_list|()
 decl_stmt|;
-DECL|field|AGGREGATION_NAME_FIELD
+DECL|field|AGGREGATION_FIELD_NAME
 specifier|public
 specifier|static
 specifier|final
 name|ParseField
-name|AGGREGATION_NAME_FIELD
+name|AGGREGATION_FIELD_NAME
 init|=
 operator|new
 name|ParseField
@@ -228,9 +228,9 @@ argument_list|(
 name|NAME
 argument_list|)
 decl_stmt|;
-DECL|method|AvgBucketPipelineAggregatorBuilder
+DECL|method|MinBucketPipelineAggregationBuilder
 specifier|public
-name|AvgBucketPipelineAggregatorBuilder
+name|MinBucketPipelineAggregationBuilder
 parameter_list|(
 name|String
 name|name
@@ -243,7 +243,7 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|AvgBucketPipelineAggregator
+name|MinBucketPipelineAggregator
 operator|.
 name|TYPE
 operator|.
@@ -260,9 +260,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Read from a stream.      */
-DECL|method|AvgBucketPipelineAggregatorBuilder
+DECL|method|MinBucketPipelineAggregationBuilder
 specifier|public
-name|AvgBucketPipelineAggregatorBuilder
+name|MinBucketPipelineAggregationBuilder
 parameter_list|(
 name|StreamInput
 name|in
@@ -313,7 +313,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|AvgBucketPipelineAggregator
+name|MinBucketPipelineAggregator
 argument_list|(
 name|name
 argument_list|,
@@ -351,7 +351,7 @@ name|aggFactories
 parameter_list|,
 name|List
 argument_list|<
-name|PipelineAggregatorBuilder
+name|PipelineAggregationBuilder
 argument_list|>
 name|pipelineAggregatorFactories
 parameter_list|)
@@ -423,7 +423,7 @@ block|{
 annotation|@
 name|Override
 specifier|protected
-name|AvgBucketPipelineAggregatorBuilder
+name|MinBucketPipelineAggregationBuilder
 name|buildFactory
 parameter_list|(
 name|String
@@ -443,7 +443,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|AvgBucketPipelineAggregatorBuilder
+name|MinBucketPipelineAggregationBuilder
 argument_list|(
 name|pipelineAggregatorName
 argument_list|,
@@ -472,9 +472,9 @@ specifier|protected
 name|boolean
 name|innerEquals
 parameter_list|(
-name|BucketMetricsPipelineAggregatorBuilder
+name|BucketMetricsPipelineAggregationBuilder
 argument_list|<
-name|AvgBucketPipelineAggregatorBuilder
+name|MinBucketPipelineAggregationBuilder
 argument_list|>
 name|other
 parameter_list|)
