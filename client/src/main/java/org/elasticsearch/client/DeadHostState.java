@@ -183,6 +183,28 @@ return|return
 name|deadUntil
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DeadHostState{"
+operator|+
+literal|"failedAttempts="
+operator|+
+name|failedAttempts
+operator|+
+literal|", deadUntil="
+operator|+
+name|deadUntil
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 
