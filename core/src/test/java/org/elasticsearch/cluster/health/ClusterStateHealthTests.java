@@ -1211,9 +1211,8 @@ argument_list|)
 decl_stmt|;
 name|clusterStateHealth
 operator|=
+operator|new
 name|ClusterStateHealth
-operator|.
-name|readClusterHealth
 argument_list|(
 name|in
 argument_list|)
