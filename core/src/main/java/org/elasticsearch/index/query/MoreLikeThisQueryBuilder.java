@@ -4547,7 +4547,10 @@ block|}
 DECL|method|fromXContent
 specifier|public
 specifier|static
+name|Optional
+argument_list|<
 name|MoreLikeThisQueryBuilder
+argument_list|>
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -5952,7 +5955,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|Optional
+operator|.
+name|of
+argument_list|(
 name|moreLikeThisQueryBuilder
+argument_list|)
 return|;
 block|}
 DECL|method|parseLikeField

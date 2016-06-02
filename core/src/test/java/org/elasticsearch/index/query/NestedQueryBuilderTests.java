@@ -550,21 +550,6 @@ operator|.
 name|query
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|innerQueryBuilder
-operator|instanceof
-name|EmptyQueryBuilder
-condition|)
-block|{
-name|assertNull
-argument_list|(
-name|query
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertThat
 argument_list|(
 name|query
@@ -585,8 +570,7 @@ name|ToParentBlockJoinQuery
 operator|)
 name|query
 decl_stmt|;
-comment|//TODO how to assert this?
-block|}
+comment|// TODO how to assert this?
 if|if
 condition|(
 name|queryBuilder
