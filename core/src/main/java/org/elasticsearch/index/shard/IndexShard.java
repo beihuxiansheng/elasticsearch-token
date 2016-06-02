@@ -312,18 +312,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|routing
@@ -8451,7 +8439,7 @@ name|indexShardRepository
 argument_list|(
 name|restoreSource
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 operator|.
 name|getRepository

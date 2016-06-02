@@ -22,9 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
+name|snapshots
 operator|.
 name|SnapshotId
 import|;
@@ -287,6 +285,18 @@ operator|.
 name|function
 operator|.
 name|Function
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
 import|;
 end_import
 

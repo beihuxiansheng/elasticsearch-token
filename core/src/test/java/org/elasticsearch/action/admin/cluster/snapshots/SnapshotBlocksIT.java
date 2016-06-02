@@ -1245,7 +1245,10 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|name
+name|snapshotId
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|,
 name|equalTo

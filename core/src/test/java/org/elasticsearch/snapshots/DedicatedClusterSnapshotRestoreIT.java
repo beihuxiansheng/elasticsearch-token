@@ -3189,6 +3189,8 @@ name|blockedNode
 init|=
 name|blockNodeWithIndex
 argument_list|(
+literal|"test-repo"
+argument_list|,
 literal|"test-idx"
 argument_list|)
 decl_stmt|;
@@ -3259,6 +3261,8 @@ argument_list|)
 expr_stmt|;
 name|unblockNode
 argument_list|(
+literal|"test-repo"
+argument_list|,
 name|blockedNode
 argument_list|)
 expr_stmt|;
@@ -3572,6 +3576,8 @@ name|blockedNode
 init|=
 name|blockNodeWithIndex
 argument_list|(
+literal|"test-repo"
+argument_list|,
 literal|"test-idx"
 argument_list|)
 decl_stmt|;
@@ -3701,6 +3707,8 @@ argument_list|)
 expr_stmt|;
 name|unblockNode
 argument_list|(
+literal|"test-repo"
+argument_list|,
 name|blockedNode
 argument_list|)
 expr_stmt|;

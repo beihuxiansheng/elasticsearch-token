@@ -4152,7 +4152,7 @@ operator|.
 name|getRestoreSource
 argument_list|()
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shardRouting
@@ -4311,7 +4311,7 @@ operator|.
 name|getRestoreSource
 argument_list|()
 operator|.
-name|snapshotId
+name|snapshot
 argument_list|()
 argument_list|,
 name|shardRouting

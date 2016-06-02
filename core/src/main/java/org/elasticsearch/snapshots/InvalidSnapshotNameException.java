@@ -20,20 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|SnapshotId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -82,8 +68,13 @@ DECL|method|InvalidSnapshotNameException
 specifier|public
 name|InvalidSnapshotNameException
 parameter_list|(
-name|SnapshotId
-name|snapshot
+specifier|final
+name|String
+name|repositoryName
+parameter_list|,
+specifier|final
+name|String
+name|snapshotName
 parameter_list|,
 name|String
 name|desc
@@ -91,14 +82,13 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|snapshot
+name|repositoryName
+argument_list|,
+name|snapshotName
 argument_list|,
 literal|"Invalid snapshot name ["
 operator|+
-name|snapshot
-operator|.
-name|getSnapshot
-argument_list|()
+name|snapshotName
 operator|+
 literal|"], "
 operator|+
