@@ -1680,7 +1680,7 @@ operator|.
 name|actual
 argument_list|)
 expr_stmt|;
-comment|// append the expression's value unless its also a concatenation
+comment|// append the expression's value unless it's also a concatenation
 block|}
 name|writer
 operator|.
