@@ -344,6 +344,8 @@ name|Walker
 operator|.
 name|buildPainlessTree
 argument_list|(
+name|name
+argument_list|,
 name|source
 argument_list|,
 name|reserved
@@ -543,6 +545,8 @@ name|Walker
 operator|.
 name|buildPainlessTree
 argument_list|(
+name|name
+argument_list|,
 name|source
 argument_list|,
 name|reserved

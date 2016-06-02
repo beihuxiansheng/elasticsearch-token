@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Definition
 operator|.
 name|Sort
@@ -107,13 +119,7 @@ DECL|method|LBrace
 specifier|public
 name|LBrace
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|AExpression
@@ -122,10 +128,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 literal|2
@@ -156,10 +158,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal array access made without target."
 argument_list|)
@@ -242,10 +244,6 @@ return|return
 operator|new
 name|LDefArray
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|index
@@ -281,10 +279,6 @@ return|return
 operator|new
 name|LMapShortcut
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|index
@@ -320,10 +314,6 @@ return|return
 operator|new
 name|LListShortcut
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|,
 name|index
@@ -341,10 +331,10 @@ argument_list|)
 return|;
 block|}
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal array access on type ["
 operator|+
@@ -389,7 +379,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|writer
@@ -416,7 +406,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|writer

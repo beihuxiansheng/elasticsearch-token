@@ -28,7 +28,7 @@ name|void
 name|testUnsupported
 parameter_list|()
 block|{
-name|expectThrows
+name|expectScriptThrows
 argument_list|(
 name|UnsupportedOperationException
 operator|.

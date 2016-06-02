@@ -1009,10 +1009,18 @@ specifier|public
 name|void
 name|writeStatementOffset
 parameter_list|(
-name|int
-name|offset
+name|Location
+name|location
 parameter_list|)
 block|{
+name|int
+name|offset
+init|=
+name|location
+operator|.
+name|getOffset
+argument_list|()
+decl_stmt|;
 comment|// ensure we don't have duplicate stuff going in here. can catch bugs
 comment|// (e.g. nodes get assigned wrong offsets by antlr walker)
 assert|assert
@@ -1039,8 +1047,8 @@ specifier|public
 name|void
 name|writeDebugInfo
 parameter_list|(
-name|int
-name|offset
+name|Location
+name|location
 parameter_list|)
 block|{
 comment|// TODO: maybe track these in bitsets too? this is trickier...
@@ -1058,7 +1066,10 @@ argument_list|)
 expr_stmt|;
 name|visitLineNumber
 argument_list|(
-name|offset
+name|location
+operator|.
+name|getOffset
+argument_list|()
 operator|+
 literal|1
 argument_list|,
@@ -1077,8 +1088,8 @@ parameter_list|,
 name|int
 name|count
 parameter_list|,
-name|int
-name|offset
+name|Location
+name|location
 parameter_list|)
 block|{
 if|if
@@ -1091,7 +1102,7 @@ condition|)
 block|{
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -2126,15 +2137,12 @@ specifier|public
 name|void
 name|writeBinaryInstruction
 parameter_list|(
-specifier|final
-name|String
+name|Location
 name|location
 parameter_list|,
-specifier|final
 name|Type
 name|type
 parameter_list|,
-specifier|final
 name|Operation
 name|operation
 parameter_list|)
@@ -2203,14 +2211,15 @@ operator|)
 condition|)
 block|{
 throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Error "
-operator|+
-name|location
-operator|+
-literal|": Illegal tree structure."
+literal|"Illegal tree structure."
+argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -2351,14 +2360,15 @@ expr_stmt|;
 break|break;
 default|default:
 throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Error "
-operator|+
-name|location
-operator|+
-literal|": Illegal tree structure."
+literal|"Illegal tree structure."
+argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -2537,14 +2547,15 @@ expr_stmt|;
 break|break;
 default|default:
 throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Error "
-operator|+
-name|location
-operator|+
-literal|": Illegal tree structure."
+literal|"Illegal tree structure."
+argument_list|)
 argument_list|)
 throw|;
 block|}

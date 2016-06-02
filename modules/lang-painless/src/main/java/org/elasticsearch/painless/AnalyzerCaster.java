@@ -56,6 +56,20 @@ name|Type
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
+name|node
+operator|.
+name|ANode
+import|;
+end_import
+
 begin_comment
 comment|/**  * Used during the analysis phase to collect legal type casts and promotions  * for type-checking and later to write necessary casts in the bytecode.  */
 end_comment
@@ -73,7 +87,7 @@ specifier|static
 name|Cast
 name|getLegalCast
 parameter_list|(
-name|String
+name|Location
 name|location
 parameter_list|,
 name|Type
@@ -3252,14 +3266,14 @@ block|}
 else|else
 block|{
 throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
 argument_list|(
-literal|"Error"
-operator|+
-name|location
-operator|+
-literal|": Cannot cast from ["
+literal|"Cannot cast from ["
 operator|+
 name|actual
 operator|.
@@ -3273,6 +3287,7 @@ name|name
 operator|+
 literal|"]."
 argument_list|)
+argument_list|)
 throw|;
 block|}
 block|}
@@ -3282,8 +3297,7 @@ specifier|static
 name|Object
 name|constCast
 parameter_list|(
-specifier|final
-name|String
+name|Location
 name|location
 parameter_list|,
 specifier|final
@@ -3501,14 +3515,14 @@ argument_list|()
 return|;
 default|default:
 throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Error"
-operator|+
-name|location
-operator|+
-literal|": Cannot cast from "
+literal|"Cannot cast from "
 operator|+
 literal|"["
 operator|+
@@ -3534,20 +3548,21 @@ argument_list|()
 operator|+
 literal|"]."
 argument_list|)
+argument_list|)
 throw|;
 block|}
 block|}
 else|else
 block|{
 throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Error"
-operator|+
-name|location
-operator|+
-literal|": Cannot cast from "
+literal|"Cannot cast from "
 operator|+
 literal|"["
 operator|+
@@ -3572,6 +3587,7 @@ name|getCanonicalName
 argument_list|()
 operator|+
 literal|"]."
+argument_list|)
 argument_list|)
 throw|;
 block|}

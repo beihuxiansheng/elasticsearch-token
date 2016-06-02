@@ -64,6 +64,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|AnalyzerCaster
 import|;
 end_import
@@ -258,13 +270,7 @@ DECL|method|EComp
 specifier|public
 name|EComp
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|Operation
@@ -279,10 +285,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -445,10 +447,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -503,10 +505,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply equals [==] to types "
 operator|+
@@ -573,10 +575,10 @@ name|isNull
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous comparison of null constants."
 argument_list|)
@@ -798,10 +800,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -863,10 +865,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply reference equals [===] to types "
 operator|+
@@ -933,10 +935,10 @@ name|isNull
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous comparison of null constants."
 argument_list|)
@@ -1179,10 +1181,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply not equals [!=] to types "
 operator|+
@@ -1249,10 +1251,10 @@ name|isNull
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous comparison of null constants."
 argument_list|)
@@ -1476,10 +1478,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -1541,10 +1543,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply reference not equals [!==] to types "
 operator|+
@@ -1611,10 +1613,10 @@ name|isNull
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous comparison of null constants."
 argument_list|)
@@ -1859,10 +1861,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply greater than or equals [>=] to types "
 operator|+
@@ -2049,10 +2051,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2116,10 +2118,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply greater than [>] to types "
 operator|+
@@ -2306,10 +2308,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2373,10 +2375,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply less than or equals [<=] to types "
 operator|+
@@ -2563,10 +2565,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2630,10 +2632,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply less than [>=] to types "
 operator|+
@@ -2820,10 +2822,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2852,7 +2854,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -3168,10 +3170,10 @@ case|case
 name|CHAR
 case|:
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -3214,10 +3216,10 @@ expr_stmt|;
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -3347,10 +3349,10 @@ expr_stmt|;
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -3600,10 +3602,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -3794,10 +3796,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)

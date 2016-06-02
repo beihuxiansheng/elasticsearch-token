@@ -297,7 +297,7 @@ block|{
 DECL|field|location
 specifier|public
 specifier|final
-name|String
+name|Location
 name|location
 decl_stmt|;
 DECL|field|name
@@ -335,7 +335,7 @@ DECL|method|Variable
 specifier|private
 name|Variable
 parameter_list|(
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -388,6 +388,7 @@ specifier|final
 name|Reserved
 name|reserved
 decl_stmt|;
+comment|// TODO: this datastructure runs in linear time for nearly all operations. use linkedhashset instead?
 DECL|field|scopes
 specifier|private
 specifier|final
@@ -437,13 +438,7 @@ comment|// Method variables.
 comment|// This reference.  Internal use only.
 name|addVariable
 argument_list|(
-literal|"["
-operator|+
-name|Reserved
-operator|.
-name|THIS
-operator|+
-literal|"]"
+literal|null
 argument_list|,
 name|Definition
 operator|.
@@ -464,13 +459,7 @@ expr_stmt|;
 comment|// Input map of variables passed to the script.
 name|addVariable
 argument_list|(
-literal|"["
-operator|+
-name|Reserved
-operator|.
-name|PARAMS
-operator|+
-literal|"]"
+literal|null
 argument_list|,
 name|Definition
 operator|.
@@ -491,13 +480,7 @@ expr_stmt|;
 comment|// Scorer parameter passed to the script.  Internal use only.
 name|addVariable
 argument_list|(
-literal|"["
-operator|+
-name|Reserved
-operator|.
-name|SCORER
-operator|+
-literal|"]"
+literal|null
 argument_list|,
 name|Definition
 operator|.
@@ -515,13 +498,7 @@ expr_stmt|;
 comment|// Doc parameter passed to the script. TODO: Currently working as a Map, we can do better?
 name|addVariable
 argument_list|(
-literal|"["
-operator|+
-name|Reserved
-operator|.
-name|DOC
-operator|+
-literal|"]"
+literal|null
 argument_list|,
 name|Definition
 operator|.
@@ -542,13 +519,7 @@ expr_stmt|;
 comment|// Aggregation _value parameter passed to the script.
 name|addVariable
 argument_list|(
-literal|"["
-operator|+
-name|Reserved
-operator|.
-name|VALUE
-operator|+
-literal|"]"
+literal|null
 argument_list|,
 name|Definition
 operator|.
@@ -574,13 +545,7 @@ condition|)
 block|{
 name|addVariable
 argument_list|(
-literal|"["
-operator|+
-name|Reserved
-operator|.
-name|SCORE
-operator|+
-literal|"]"
+literal|null
 argument_list|,
 name|Definition
 operator|.
@@ -606,13 +571,7 @@ condition|)
 block|{
 name|addVariable
 argument_list|(
-literal|"["
-operator|+
-name|Reserved
-operator|.
-name|CTX
-operator|+
-literal|"]"
+literal|null
 argument_list|,
 name|Definition
 operator|.
@@ -641,13 +600,7 @@ condition|)
 block|{
 name|addVariable
 argument_list|(
-literal|"["
-operator|+
-name|Reserved
-operator|.
-name|LOOP
-operator|+
-literal|"]"
+literal|null
 argument_list|,
 name|Definition
 operator|.
@@ -707,6 +660,7 @@ operator|.
 name|pop
 argument_list|()
 decl_stmt|;
+comment|// TODO: is this working? the code reads backwards...
 if|if
 condition|(
 name|variable
@@ -715,22 +669,23 @@ name|read
 condition|)
 block|{
 throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Error ["
-operator|+
 name|variable
 operator|.
 name|location
-operator|+
-literal|"]: Variable ["
+operator|.
+name|createError
+argument_list|(
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Variable ["
 operator|+
 name|variable
 operator|.
 name|name
 operator|+
 literal|"] never used."
+argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -744,7 +699,7 @@ specifier|public
 name|Variable
 name|getVariable
 parameter_list|(
-name|String
+name|Location
 name|location
 parameter_list|,
 name|String
@@ -795,31 +750,39 @@ name|variable
 return|;
 block|}
 block|}
-if|if
-condition|(
-name|location
-operator|!=
-literal|null
-condition|)
-block|{
 throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Error "
-operator|+
-name|location
-operator|+
-literal|": Variable ["
+literal|"Variable ["
 operator|+
 name|name
 operator|+
 literal|"] not defined."
 argument_list|)
+argument_list|)
 throw|;
 block|}
+DECL|method|variableExists
+specifier|private
+name|boolean
+name|variableExists
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
 return|return
-literal|null
+name|variables
+operator|.
+name|contains
+argument_list|(
+name|name
+argument_list|)
 return|;
 block|}
 DECL|method|addVariable
@@ -827,7 +790,7 @@ specifier|public
 name|Variable
 name|addVariable
 parameter_list|(
-name|String
+name|Location
 name|location
 parameter_list|,
 name|Type
@@ -859,42 +822,35 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+name|location
+operator|.
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Error "
-operator|+
-name|location
-operator|+
-literal|": Variable name ["
+literal|"Variable name ["
 operator|+
 name|name
 operator|+
 literal|"] is reserved."
 argument_list|)
+argument_list|)
 throw|;
 block|}
 if|if
 condition|(
-name|getVariable
+name|variableExists
 argument_list|(
-literal|null
-argument_list|,
 name|name
 argument_list|)
-operator|!=
-literal|null
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Error "
-operator|+
-name|location
-operator|+
-literal|": Variable name ["
+literal|"Variable name ["
 operator|+
 name|name
 operator|+

@@ -209,6 +209,8 @@ operator|new
 name|ErrorHandlingLexer
 argument_list|(
 name|stream
+argument_list|,
+literal|"testing"
 argument_list|)
 decl_stmt|;
 name|PainlessParser
@@ -229,7 +231,9 @@ name|strategy
 init|=
 operator|new
 name|ParserErrorStrategy
-argument_list|()
+argument_list|(
+literal|"testing"
+argument_list|)
 decl_stmt|;
 name|lexer
 operator|.

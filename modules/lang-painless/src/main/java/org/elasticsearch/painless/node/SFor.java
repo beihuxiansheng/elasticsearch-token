@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|Variables
 import|;
 end_import
@@ -103,13 +115,7 @@ DECL|method|SFor
 specifier|public
 name|SFor
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|int
@@ -130,10 +136,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -255,12 +257,10 @@ name|statement
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|initializer
-operator|.
-name|error
 argument_list|(
 literal|"Not a statement."
 argument_list|)
@@ -271,10 +271,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -338,10 +338,10 @@ name|continuous
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous for loop."
 argument_list|)
@@ -356,10 +356,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"For loop has no escape."
 argument_list|)
@@ -404,12 +404,10 @@ name|statement
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|afterthought
-operator|.
-name|error
 argument_list|(
 literal|"Not a statement."
 argument_list|)
@@ -456,10 +454,10 @@ name|anyContinue
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Extraneous for loop."
 argument_list|)
@@ -546,7 +544,7 @@ name|writer
 operator|.
 name|writeStatementOffset
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|Label
@@ -714,7 +712,7 @@ name|loopCounterSlot
 argument_list|,
 name|statementCount
 argument_list|,
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 name|block
@@ -735,7 +733,7 @@ name|loopCounterSlot
 argument_list|,
 literal|1
 argument_list|,
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 block|}

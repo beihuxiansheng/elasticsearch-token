@@ -76,6 +76,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|MethodWriter
 import|;
 end_import
@@ -140,13 +152,7 @@ DECL|method|EBinary
 specifier|public
 name|EBinary
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|Operation
@@ -161,10 +167,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -375,10 +377,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -435,10 +437,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply multiply [*] to types "
 operator|+
@@ -625,10 +627,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -690,10 +692,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply divide [/] to types "
 operator|+
@@ -770,6 +772,8 @@ name|promote
 operator|.
 name|sort
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|sort
@@ -880,13 +884,27 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-name|error
-argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
+argument_list|)
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|ArithmeticException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|createError
+argument_list|(
+name|e
 argument_list|)
 throw|;
 block|}
@@ -945,10 +963,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply remainder [%] to types "
 operator|+
@@ -1025,6 +1043,8 @@ name|promote
 operator|.
 name|sort
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|sort
@@ -1135,13 +1155,27 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
 argument_list|(
-name|error
-argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
+argument_list|)
+throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|ArithmeticException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|createError
+argument_list|(
+name|e
 argument_list|)
 throw|;
 block|}
@@ -1198,10 +1232,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply add [+] to types "
 operator|+
@@ -1524,10 +1558,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -1589,10 +1623,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply subtract [-] to types "
 operator|+
@@ -1779,10 +1813,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -1840,10 +1874,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply left shift [<<] to types "
 operator|+
@@ -1984,10 +2018,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2045,10 +2079,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply right shift [>>] to types "
 operator|+
@@ -2189,10 +2223,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2250,10 +2284,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply unsigned shift [>>>] to types "
 operator|+
@@ -2394,10 +2428,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2459,10 +2493,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply and [&] to types "
 operator|+
@@ -2595,10 +2629,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2658,10 +2692,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply xor [^] to types "
 operator|+
@@ -2821,10 +2855,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -2886,10 +2920,10 @@ literal|null
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|ClassCastException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot apply or [|] to types "
 operator|+
@@ -3022,10 +3056,10 @@ block|}
 else|else
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalStateException
-argument_list|(
-name|error
 argument_list|(
 literal|"Illegal tree structure."
 argument_list|)
@@ -3052,7 +3086,7 @@ name|writer
 operator|.
 name|writeDebugInfo
 argument_list|(
-name|offset
+name|location
 argument_list|)
 expr_stmt|;
 if|if

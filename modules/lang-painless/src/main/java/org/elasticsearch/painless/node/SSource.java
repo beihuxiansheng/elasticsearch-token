@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|painless
 operator|.
+name|Location
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|painless
+operator|.
 name|MethodWriter
 import|;
 end_import
@@ -97,13 +109,7 @@ DECL|method|SSource
 specifier|public
 name|SSource
 parameter_list|(
-name|int
-name|line
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|String
+name|Location
 name|location
 parameter_list|,
 name|List
@@ -115,10 +121,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|line
-argument_list|,
-name|offset
-argument_list|,
 name|location
 argument_list|)
 expr_stmt|;
@@ -158,10 +160,10 @@ argument_list|()
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Cannot generate an empty script."
 argument_list|)
@@ -197,16 +199,17 @@ range|:
 name|statements
 control|)
 block|{
+comment|// TODO: why are we checking only statements 0..n-1 (this effectively checks only the previous statement)
 if|if
 condition|(
 name|allEscape
 condition|)
 block|{
 throw|throw
+name|createError
+argument_list|(
 operator|new
 name|IllegalArgumentException
-argument_list|(
-name|error
 argument_list|(
 literal|"Unreachable statement."
 argument_list|)
