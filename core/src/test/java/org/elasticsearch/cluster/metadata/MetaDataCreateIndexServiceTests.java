@@ -1406,7 +1406,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"index.routing.allocation.include._id"
+literal|"index.routing.allocation.initial_recovery._id"
 argument_list|)
 argument_list|)
 expr_stmt|;

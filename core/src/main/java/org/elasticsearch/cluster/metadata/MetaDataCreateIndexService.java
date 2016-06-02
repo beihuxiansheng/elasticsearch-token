@@ -4102,7 +4102,7 @@ literal|"index.analysis."
 argument_list|)
 decl_stmt|;
 name|indexSettingsBuilder
-comment|// we can only shrink to 1 index so far!
+comment|// we can only shrink to 1 shard so far!
 operator|.
 name|put
 argument_list|(
@@ -4110,12 +4110,12 @@ literal|"index.number_of_shards"
 argument_list|,
 literal|1
 argument_list|)
-comment|// we use "i.r.a.include" rather than "i.r.a.require" since it's allows one of the nodes holding an
-comment|// instanceof all shards.
+comment|// we use "i.r.a.initial_recovery" rather than "i.r.a.require|include" since we want the replica to allocate right away
+comment|// once we are allocated.
 operator|.
 name|put
 argument_list|(
-literal|"index.routing.allocation.include._id"
+literal|"index.routing.allocation.initial_recovery._id"
 argument_list|,
 name|Strings
 operator|.

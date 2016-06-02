@@ -2390,7 +2390,7 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
-comment|// let it be allocated anywhere and bump replicas
+comment|// bump replicas
 name|client
 argument_list|()
 operator|.
@@ -2411,11 +2411,6 @@ name|Settings
 operator|.
 name|builder
 argument_list|()
-operator|.
-name|putNull
-argument_list|(
-literal|"index.routing.allocation.include._id"
-argument_list|)
 operator|.
 name|put
 argument_list|(
