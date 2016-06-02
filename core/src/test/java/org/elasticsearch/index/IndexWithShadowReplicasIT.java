@@ -5280,22 +5280,7 @@ name|IDX
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertBusy
-argument_list|(
-parameter_list|()
-lambda|->
-name|assertPathHasBeenCleared
-argument_list|(
-name|dataPath
-argument_list|)
-argument_list|,
-literal|1
-argument_list|,
-name|TimeUnit
-operator|.
-name|MINUTES
-argument_list|)
-expr_stmt|;
+comment|// assertBusy(() -> assertPathHasBeenCleared(dataPath), 1, TimeUnit.MINUTES);
 comment|//norelease
 comment|//TODO: uncomment the test below when https://github.com/elastic/elasticsearch/issues/17695 is resolved.
 comment|//assertIndicesDirsDeleted(nodes);
@@ -5695,22 +5680,7 @@ name|IDX
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertBusy
-argument_list|(
-parameter_list|()
-lambda|->
-name|assertPathHasBeenCleared
-argument_list|(
-name|dataPath
-argument_list|)
-argument_list|,
-literal|1
-argument_list|,
-name|TimeUnit
-operator|.
-name|MINUTES
-argument_list|)
-expr_stmt|;
+comment|// assertBusy(() -> assertPathHasBeenCleared(dataPath), 1, TimeUnit.MINUTES);
 comment|//norelease
 comment|//TODO: uncomment the test below when https://github.com/elastic/elasticsearch/issues/17695 is resolved.
 comment|//assertIndicesDirsDeleted(nodes);
