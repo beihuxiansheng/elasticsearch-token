@@ -107,6 +107,13 @@ name|unassigned
 argument_list|()
 operator|==
 literal|false
+operator|&&
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|shardRouting

@@ -391,13 +391,6 @@ extends|extends
 name|ESAllocationTestCase
 block|{
 comment|/* This test will make random allocation decision on a growing and shrinking      * cluster leading to a random distribution of the shards. After a certain      * amount of iterations the test allows allocation unless the same shard is      * already allocated on a node and balances the cluster to gain optimal      * balance.*/
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/pull/18701"
-argument_list|)
 DECL|method|testRandomDecisions
 specifier|public
 name|void
